@@ -20,11 +20,11 @@
 module Amazonka.GuardDuty.Types.InstanceDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.IamInstanceProfile
 import Amazonka.GuardDuty.Types.NetworkInterface
 import Amazonka.GuardDuty.Types.ProductCode
 import Amazonka.GuardDuty.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the details of an instance.

@@ -20,10 +20,10 @@
 module Amazonka.Kendra.Types.WebCrawlerConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.AuthenticationConfiguration
 import Amazonka.Kendra.Types.ProxyConfiguration
 import Amazonka.Kendra.Types.Urls
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information required for Amazon Kendra Web

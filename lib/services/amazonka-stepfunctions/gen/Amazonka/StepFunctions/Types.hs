@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -222,6 +223,7 @@ module Amazonka.StepFunctions.Types
     -- * LambdaFunctionScheduledEventDetails
     LambdaFunctionScheduledEventDetails (..),
     newLambdaFunctionScheduledEventDetails,
+    lambdaFunctionScheduledEventDetails_taskCredentials,
     lambdaFunctionScheduledEventDetails_inputDetails,
     lambdaFunctionScheduledEventDetails_timeoutInSeconds,
     lambdaFunctionScheduledEventDetails_input,
@@ -296,6 +298,11 @@ module Amazonka.StepFunctions.Types
     tag_key,
     tag_value,
 
+    -- * TaskCredentials
+    TaskCredentials (..),
+    newTaskCredentials,
+    taskCredentials_roleArn,
+
     -- * TaskFailedEventDetails
     TaskFailedEventDetails (..),
     newTaskFailedEventDetails,
@@ -307,6 +314,7 @@ module Amazonka.StepFunctions.Types
     -- * TaskScheduledEventDetails
     TaskScheduledEventDetails (..),
     newTaskScheduledEventDetails,
+    taskScheduledEventDetails_taskCredentials,
     taskScheduledEventDetails_timeoutInSeconds,
     taskScheduledEventDetails_heartbeatInSeconds,
     taskScheduledEventDetails_resourceType,
@@ -368,7 +376,7 @@ module Amazonka.StepFunctions.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 import Amazonka.StepFunctions.Types.ActivityFailedEventDetails
@@ -409,6 +417,7 @@ import Amazonka.StepFunctions.Types.StateMachineStatus
 import Amazonka.StepFunctions.Types.StateMachineType
 import Amazonka.StepFunctions.Types.SyncExecutionStatus
 import Amazonka.StepFunctions.Types.Tag
+import Amazonka.StepFunctions.Types.TaskCredentials
 import Amazonka.StepFunctions.Types.TaskFailedEventDetails
 import Amazonka.StepFunctions.Types.TaskScheduledEventDetails
 import Amazonka.StepFunctions.Types.TaskStartFailedEventDetails
@@ -423,28 +432,25 @@ import Amazonka.StepFunctions.Types.TracingConfiguration
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "StepFunctions",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "states",
-      Core._serviceSigningName = "states",
-      Core._serviceVersion = "2016-11-23",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "StepFunctions",
-      Core._serviceRetry = retry
+    { Core.abbrev = "StepFunctions",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "states",
+      Core.signingName = "states",
+      Core.version = "2016-11-23",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "StepFunctions",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =
@@ -664,7 +670,7 @@ _ExecutionAlreadyExists =
 
 -- | You\'ve exceeded the number of tags allowed for a resource. See the
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html Limits Topic>
--- in the AWS Step Functions Developer Guide.
+-- in the Step Functions Developer Guide.
 _TooManyTags :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyTags =
   Core._MatchServiceError

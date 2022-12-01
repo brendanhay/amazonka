@@ -20,20 +20,20 @@
 module Amazonka.OpenSearch.Types.ChangeProgressStage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A progress stage details of a specific domain configuration change.
+-- | Progress details for each stage of a domain update.
 --
 -- /See:/ 'newChangeProgressStage' smart constructor.
 data ChangeProgressStage = ChangeProgressStage'
-  { -- | The name of the specific progress stage.
+  { -- | The name of the stage.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The overall status of a specific progress stage.
+    -- | The status of the stage.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The description of the progress stage.
+    -- | The description of the stage.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The last updated timestamp of the progress stage.
+    -- | The most recent updated timestamp of the stage.
     lastUpdated :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,13 +46,13 @@ data ChangeProgressStage = ChangeProgressStage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'changeProgressStage_name' - The name of the specific progress stage.
+-- 'name', 'changeProgressStage_name' - The name of the stage.
 --
--- 'status', 'changeProgressStage_status' - The overall status of a specific progress stage.
+-- 'status', 'changeProgressStage_status' - The status of the stage.
 --
--- 'description', 'changeProgressStage_description' - The description of the progress stage.
+-- 'description', 'changeProgressStage_description' - The description of the stage.
 --
--- 'lastUpdated', 'changeProgressStage_lastUpdated' - The last updated timestamp of the progress stage.
+-- 'lastUpdated', 'changeProgressStage_lastUpdated' - The most recent updated timestamp of the stage.
 newChangeProgressStage ::
   ChangeProgressStage
 newChangeProgressStage =
@@ -63,19 +63,19 @@ newChangeProgressStage =
       lastUpdated = Prelude.Nothing
     }
 
--- | The name of the specific progress stage.
+-- | The name of the stage.
 changeProgressStage_name :: Lens.Lens' ChangeProgressStage (Prelude.Maybe Prelude.Text)
 changeProgressStage_name = Lens.lens (\ChangeProgressStage' {name} -> name) (\s@ChangeProgressStage' {} a -> s {name = a} :: ChangeProgressStage)
 
--- | The overall status of a specific progress stage.
+-- | The status of the stage.
 changeProgressStage_status :: Lens.Lens' ChangeProgressStage (Prelude.Maybe Prelude.Text)
 changeProgressStage_status = Lens.lens (\ChangeProgressStage' {status} -> status) (\s@ChangeProgressStage' {} a -> s {status = a} :: ChangeProgressStage)
 
--- | The description of the progress stage.
+-- | The description of the stage.
 changeProgressStage_description :: Lens.Lens' ChangeProgressStage (Prelude.Maybe Prelude.Text)
 changeProgressStage_description = Lens.lens (\ChangeProgressStage' {description} -> description) (\s@ChangeProgressStage' {} a -> s {description = a} :: ChangeProgressStage)
 
--- | The last updated timestamp of the progress stage.
+-- | The most recent updated timestamp of the stage.
 changeProgressStage_lastUpdated :: Lens.Lens' ChangeProgressStage (Prelude.Maybe Prelude.UTCTime)
 changeProgressStage_lastUpdated = Lens.lens (\ChangeProgressStage' {lastUpdated} -> lastUpdated) (\s@ChangeProgressStage' {} a -> s {lastUpdated = a} :: ChangeProgressStage) Prelude.. Lens.mapping Core._Time
 

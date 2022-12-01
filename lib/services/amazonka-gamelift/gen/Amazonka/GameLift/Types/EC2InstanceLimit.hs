@@ -20,8 +20,8 @@
 module Amazonka.GameLift.Types.EC2InstanceLimit where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.EC2InstanceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The GameLift service limits for an Amazon EC2 instance type and current

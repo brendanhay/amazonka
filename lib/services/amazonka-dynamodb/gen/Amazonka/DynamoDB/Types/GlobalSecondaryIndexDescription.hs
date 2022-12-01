@@ -20,13 +20,13 @@
 module Amazonka.DynamoDB.Types.GlobalSecondaryIndexDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.IndexStatus
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.Projection
 import Amazonka.DynamoDB.Types.ProvisionedThroughputDescription
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the properties of a global secondary index.

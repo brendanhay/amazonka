@@ -20,9 +20,9 @@
 module Amazonka.IoTAnalytics.Types.DatasetTrigger where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.Schedule
 import Amazonka.IoTAnalytics.Types.TriggeringDataset
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @DatasetTrigger@ that specifies when the dataset is automatically

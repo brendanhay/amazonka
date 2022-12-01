@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.Merge where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that merges a @DynamicFrame@ with a staging

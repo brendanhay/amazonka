@@ -46,6 +46,7 @@ module Amazonka.Rum.Lens
     createAppMonitor_tags,
     createAppMonitor_appMonitorConfiguration,
     createAppMonitor_cwLogEnabled,
+    createAppMonitor_customEvents,
     createAppMonitor_domain,
     createAppMonitor_name,
     createAppMonitorResponse_id,
@@ -126,6 +127,7 @@ module Amazonka.Rum.Lens
     updateAppMonitor_domain,
     updateAppMonitor_appMonitorConfiguration,
     updateAppMonitor_cwLogEnabled,
+    updateAppMonitor_customEvents,
     updateAppMonitor_name,
     updateAppMonitorResponse_httpStatus,
 
@@ -149,6 +151,7 @@ module Amazonka.Rum.Lens
     appMonitor_id,
     appMonitor_appMonitorConfiguration,
     appMonitor_lastModified,
+    appMonitor_customEvents,
 
     -- ** AppMonitorConfiguration
     appMonitorConfiguration_favoritePages,
@@ -182,6 +185,9 @@ module Amazonka.Rum.Lens
     batchDeleteRumMetricDefinitionsError_errorCode,
     batchDeleteRumMetricDefinitionsError_errorMessage,
     batchDeleteRumMetricDefinitionsError_metricDefinitionId,
+
+    -- ** CustomEvents
+    customEvents_status,
 
     -- ** CwLog
     cwLog_cwLogGroup,
@@ -251,6 +257,7 @@ import Amazonka.Rum.Types.AppMonitorDetails
 import Amazonka.Rum.Types.AppMonitorSummary
 import Amazonka.Rum.Types.BatchCreateRumMetricDefinitionsError
 import Amazonka.Rum.Types.BatchDeleteRumMetricDefinitionsError
+import Amazonka.Rum.Types.CustomEvents
 import Amazonka.Rum.Types.CwLog
 import Amazonka.Rum.Types.DataStorage
 import Amazonka.Rum.Types.MetricDefinition

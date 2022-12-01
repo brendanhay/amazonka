@@ -20,8 +20,8 @@
 module Amazonka.GameLift.Types.RuntimeConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.ServerProcess
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of server process configurations that describe the set of

@@ -46,7 +46,7 @@ module Amazonka.WellArchitected.ListWorkloadShares
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,8 +57,8 @@ import Amazonka.WellArchitected.Types
 -- /See:/ 'newListWorkloadShares' smart constructor.
 data ListWorkloadShares = ListWorkloadShares'
   { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID or IAM role with which the workload
-    -- is shared.
+    -- | The Amazon Web Services account ID, IAM role, organization ID, or
+    -- organizational unit (OU) ID with which the workload is shared.
     sharedWithPrefix :: Prelude.Maybe Prelude.Text,
     status :: Prelude.Maybe ShareStatus,
     -- | The maximum number of results to return for this request.
@@ -77,8 +77,8 @@ data ListWorkloadShares = ListWorkloadShares'
 --
 -- 'nextToken', 'listWorkloadShares_nextToken' - Undocumented member.
 --
--- 'sharedWithPrefix', 'listWorkloadShares_sharedWithPrefix' - The Amazon Web Services account ID or IAM role with which the workload
--- is shared.
+-- 'sharedWithPrefix', 'listWorkloadShares_sharedWithPrefix' - The Amazon Web Services account ID, IAM role, organization ID, or
+-- organizational unit (OU) ID with which the workload is shared.
 --
 -- 'status', 'listWorkloadShares_status' - Undocumented member.
 --
@@ -102,8 +102,8 @@ newListWorkloadShares pWorkloadId_ =
 listWorkloadShares_nextToken :: Lens.Lens' ListWorkloadShares (Prelude.Maybe Prelude.Text)
 listWorkloadShares_nextToken = Lens.lens (\ListWorkloadShares' {nextToken} -> nextToken) (\s@ListWorkloadShares' {} a -> s {nextToken = a} :: ListWorkloadShares)
 
--- | The Amazon Web Services account ID or IAM role with which the workload
--- is shared.
+-- | The Amazon Web Services account ID, IAM role, organization ID, or
+-- organizational unit (OU) ID with which the workload is shared.
 listWorkloadShares_sharedWithPrefix :: Lens.Lens' ListWorkloadShares (Prelude.Maybe Prelude.Text)
 listWorkloadShares_sharedWithPrefix = Lens.lens (\ListWorkloadShares' {sharedWithPrefix} -> sharedWithPrefix) (\s@ListWorkloadShares' {} a -> s {sharedWithPrefix = a} :: ListWorkloadShares)
 
@@ -123,8 +123,8 @@ instance Core.AWSRequest ListWorkloadShares where
   type
     AWSResponse ListWorkloadShares =
       ListWorkloadSharesResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

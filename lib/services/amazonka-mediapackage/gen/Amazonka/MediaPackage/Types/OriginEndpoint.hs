@@ -20,7 +20,7 @@
 module Amazonka.MediaPackage.Types.OriginEndpoint where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaPackage.Types.Authorization
 import Amazonka.MediaPackage.Types.CmafPackage
 import Amazonka.MediaPackage.Types.DashPackage

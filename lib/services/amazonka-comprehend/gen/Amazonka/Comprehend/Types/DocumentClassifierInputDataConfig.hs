@@ -22,7 +22,7 @@ module Amazonka.Comprehend.Types.DocumentClassifierInputDataConfig where
 import Amazonka.Comprehend.Types.AugmentedManifestsListItem
 import Amazonka.Comprehend.Types.DocumentClassifierDataFormat
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input properties for training a document classifier.

@@ -23,7 +23,7 @@ import Amazonka.AlexaBusiness.Types.CreateEndOfMeetingReminder
 import Amazonka.AlexaBusiness.Types.CreateInstantBooking
 import Amazonka.AlexaBusiness.Types.CreateRequireCheckIn
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Creates meeting room settings of a room profile.

@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.CrawlerHistory where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.CrawlerHistoryState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the information for a run of a crawler.

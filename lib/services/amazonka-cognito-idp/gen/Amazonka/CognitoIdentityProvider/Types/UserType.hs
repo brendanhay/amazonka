@@ -23,7 +23,7 @@ import Amazonka.CognitoIdentityProvider.Types.AttributeType
 import Amazonka.CognitoIdentityProvider.Types.MFAOptionType
 import Amazonka.CognitoIdentityProvider.Types.UserStatusType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A user profile in a Amazon Cognito user pool.

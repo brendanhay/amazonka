@@ -24,6 +24,9 @@
 -- events or filter the results using a filter pattern, a time range, and
 -- the name of the log stream.
 --
+-- You must have the @logs;FilterLogEvents@ permission to perform this
+-- operation.
+--
 -- By default, this operation returns as many log events as can fit in 1 MB
 -- (up to 10,000 log events) or all the events found within the time range
 -- that you specify. If the results include a token, then there are more
@@ -66,7 +69,7 @@ where
 
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -270,8 +273,8 @@ instance Core.AWSRequest FilterLogEvents where
   type
     AWSResponse FilterLogEvents =
       FilterLogEventsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

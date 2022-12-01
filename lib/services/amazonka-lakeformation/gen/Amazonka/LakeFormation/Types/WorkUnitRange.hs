@@ -20,7 +20,7 @@
 module Amazonka.LakeFormation.Types.WorkUnitRange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the valid range of work unit IDs for querying the execution

@@ -18,6 +18,16 @@ module Amazonka.CloudFront.Lens
     associateAlias_targetDistributionId,
     associateAlias_alias,
 
+    -- ** CopyDistribution
+    copyDistribution_staging,
+    copyDistribution_ifMatch,
+    copyDistribution_primaryDistributionId,
+    copyDistribution_callerReference,
+    copyDistributionResponse_location,
+    copyDistributionResponse_distribution,
+    copyDistributionResponse_eTag,
+    copyDistributionResponse_httpStatus,
+
     -- ** CreateCachePolicy
     createCachePolicy_cachePolicyConfig,
     createCachePolicyResponse_location,
@@ -31,6 +41,13 @@ module Amazonka.CloudFront.Lens
     createCloudFrontOriginAccessIdentityResponse_location,
     createCloudFrontOriginAccessIdentityResponse_eTag,
     createCloudFrontOriginAccessIdentityResponse_httpStatus,
+
+    -- ** CreateContinuousDeploymentPolicy
+    createContinuousDeploymentPolicy_continuousDeploymentPolicyConfig,
+    createContinuousDeploymentPolicyResponse_continuousDeploymentPolicy,
+    createContinuousDeploymentPolicyResponse_location,
+    createContinuousDeploymentPolicyResponse_eTag,
+    createContinuousDeploymentPolicyResponse_httpStatus,
 
     -- ** CreateDistribution
     createDistribution_distributionConfig,
@@ -147,6 +164,10 @@ module Amazonka.CloudFront.Lens
     deleteCloudFrontOriginAccessIdentity_ifMatch,
     deleteCloudFrontOriginAccessIdentity_id,
 
+    -- ** DeleteContinuousDeploymentPolicy
+    deleteContinuousDeploymentPolicy_ifMatch,
+    deleteContinuousDeploymentPolicy_id,
+
     -- ** DeleteDistribution
     deleteDistribution_ifMatch,
     deleteDistribution_id,
@@ -225,6 +246,18 @@ module Amazonka.CloudFront.Lens
     getCloudFrontOriginAccessIdentityConfigResponse_eTag,
     getCloudFrontOriginAccessIdentityConfigResponse_cloudFrontOriginAccessIdentityConfig,
     getCloudFrontOriginAccessIdentityConfigResponse_httpStatus,
+
+    -- ** GetContinuousDeploymentPolicy
+    getContinuousDeploymentPolicy_id,
+    getContinuousDeploymentPolicyResponse_continuousDeploymentPolicy,
+    getContinuousDeploymentPolicyResponse_eTag,
+    getContinuousDeploymentPolicyResponse_httpStatus,
+
+    -- ** GetContinuousDeploymentPolicyConfig
+    getContinuousDeploymentPolicyConfig_id,
+    getContinuousDeploymentPolicyConfigResponse_continuousDeploymentPolicyConfig,
+    getContinuousDeploymentPolicyConfigResponse_eTag,
+    getContinuousDeploymentPolicyConfigResponse_httpStatus,
 
     -- ** GetDistribution
     getDistribution_id,
@@ -379,6 +412,12 @@ module Amazonka.CloudFront.Lens
     listConflictingAliases_alias,
     listConflictingAliasesResponse_conflictingAliasesList,
     listConflictingAliasesResponse_httpStatus,
+
+    -- ** ListContinuousDeploymentPolicies
+    listContinuousDeploymentPolicies_marker,
+    listContinuousDeploymentPolicies_maxItems,
+    listContinuousDeploymentPoliciesResponse_continuousDeploymentPolicyList,
+    listContinuousDeploymentPoliciesResponse_httpStatus,
 
     -- ** ListDistributions
     listDistributions_marker,
@@ -541,6 +580,14 @@ module Amazonka.CloudFront.Lens
     updateCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity,
     updateCloudFrontOriginAccessIdentityResponse_eTag,
     updateCloudFrontOriginAccessIdentityResponse_httpStatus,
+
+    -- ** UpdateContinuousDeploymentPolicy
+    updateContinuousDeploymentPolicy_ifMatch,
+    updateContinuousDeploymentPolicy_continuousDeploymentPolicyConfig,
+    updateContinuousDeploymentPolicy_id,
+    updateContinuousDeploymentPolicyResponse_continuousDeploymentPolicy,
+    updateContinuousDeploymentPolicyResponse_eTag,
+    updateContinuousDeploymentPolicyResponse_httpStatus,
 
     -- ** UpdateDistribution
     updateDistribution_ifMatch,
@@ -766,6 +813,33 @@ module Amazonka.CloudFront.Lens
     -- ** ContentTypeProfiles
     contentTypeProfiles_items,
     contentTypeProfiles_quantity,
+
+    -- ** ContinuousDeploymentPolicy
+    continuousDeploymentPolicy_id,
+    continuousDeploymentPolicy_lastModifiedTime,
+    continuousDeploymentPolicy_continuousDeploymentPolicyConfig,
+
+    -- ** ContinuousDeploymentPolicyConfig
+    continuousDeploymentPolicyConfig_trafficConfig,
+    continuousDeploymentPolicyConfig_stagingDistributionDnsNames,
+    continuousDeploymentPolicyConfig_enabled,
+
+    -- ** ContinuousDeploymentPolicyList
+    continuousDeploymentPolicyList_items,
+    continuousDeploymentPolicyList_nextMarker,
+    continuousDeploymentPolicyList_maxItems,
+    continuousDeploymentPolicyList_quantity,
+
+    -- ** ContinuousDeploymentPolicySummary
+    continuousDeploymentPolicySummary_continuousDeploymentPolicy,
+
+    -- ** ContinuousDeploymentSingleHeaderConfig
+    continuousDeploymentSingleHeaderConfig_header,
+    continuousDeploymentSingleHeaderConfig_value,
+
+    -- ** ContinuousDeploymentSingleWeightConfig
+    continuousDeploymentSingleWeightConfig_sessionStickinessConfig,
+    continuousDeploymentSingleWeightConfig_weight,
 
     -- ** CookieNames
     cookieNames_items,
@@ -1089,8 +1163,8 @@ module Amazonka.CloudFront.Lens
     originAccessControl_id,
 
     -- ** OriginAccessControlConfig
-    originAccessControlConfig_name,
     originAccessControlConfig_description,
+    originAccessControlConfig_name,
     originAccessControlConfig_signingProtocol,
     originAccessControlConfig_signingBehavior,
     originAccessControlConfig_originAccessControlOriginType,
@@ -1358,9 +1432,17 @@ module Amazonka.CloudFront.Lens
     -- ** S3OriginConfig
     s3OriginConfig_originAccessIdentity,
 
+    -- ** SessionStickinessConfig
+    sessionStickinessConfig_idleTTL,
+    sessionStickinessConfig_maximumTTL,
+
     -- ** Signer
     signer_keyPairIds,
     signer_awsAccountNumber,
+
+    -- ** StagingDistributionDnsNames
+    stagingDistributionDnsNames_items,
+    stagingDistributionDnsNames_quantity,
 
     -- ** StatusCodes
     statusCodes_quantity,
@@ -1432,6 +1514,11 @@ module Amazonka.CloudFront.Lens
     testResult_functionErrorMessage,
     testResult_functionExecutionLogs,
 
+    -- ** TrafficConfig
+    trafficConfig_singleWeightConfig,
+    trafficConfig_singleHeaderConfig,
+    trafficConfig_type,
+
     -- ** TrustedKeyGroups
     trustedKeyGroups_items,
     trustedKeyGroups_enabled,
@@ -1454,8 +1541,10 @@ module Amazonka.CloudFront.Lens
 where
 
 import Amazonka.CloudFront.AssociateAlias
+import Amazonka.CloudFront.CopyDistribution
 import Amazonka.CloudFront.CreateCachePolicy
 import Amazonka.CloudFront.CreateCloudFrontOriginAccessIdentity
+import Amazonka.CloudFront.CreateContinuousDeploymentPolicy
 import Amazonka.CloudFront.CreateDistribution
 import Amazonka.CloudFront.CreateDistributionWithTags
 import Amazonka.CloudFront.CreateFieldLevelEncryptionConfig
@@ -1473,6 +1562,7 @@ import Amazonka.CloudFront.CreateStreamingDistribution
 import Amazonka.CloudFront.CreateStreamingDistributionWithTags
 import Amazonka.CloudFront.DeleteCachePolicy
 import Amazonka.CloudFront.DeleteCloudFrontOriginAccessIdentity
+import Amazonka.CloudFront.DeleteContinuousDeploymentPolicy
 import Amazonka.CloudFront.DeleteDistribution
 import Amazonka.CloudFront.DeleteFieldLevelEncryptionConfig
 import Amazonka.CloudFront.DeleteFieldLevelEncryptionProfile
@@ -1490,6 +1580,8 @@ import Amazonka.CloudFront.GetCachePolicy
 import Amazonka.CloudFront.GetCachePolicyConfig
 import Amazonka.CloudFront.GetCloudFrontOriginAccessIdentity
 import Amazonka.CloudFront.GetCloudFrontOriginAccessIdentityConfig
+import Amazonka.CloudFront.GetContinuousDeploymentPolicy
+import Amazonka.CloudFront.GetContinuousDeploymentPolicyConfig
 import Amazonka.CloudFront.GetDistribution
 import Amazonka.CloudFront.GetDistributionConfig
 import Amazonka.CloudFront.GetFieldLevelEncryption
@@ -1515,6 +1607,7 @@ import Amazonka.CloudFront.GetStreamingDistributionConfig
 import Amazonka.CloudFront.ListCachePolicies
 import Amazonka.CloudFront.ListCloudFrontOriginAccessIdentities
 import Amazonka.CloudFront.ListConflictingAliases
+import Amazonka.CloudFront.ListContinuousDeploymentPolicies
 import Amazonka.CloudFront.ListDistributions
 import Amazonka.CloudFront.ListDistributionsByCachePolicyId
 import Amazonka.CloudFront.ListDistributionsByKeyGroup
@@ -1561,6 +1654,12 @@ import Amazonka.CloudFront.Types.ConflictingAliasesList
 import Amazonka.CloudFront.Types.ContentTypeProfile
 import Amazonka.CloudFront.Types.ContentTypeProfileConfig
 import Amazonka.CloudFront.Types.ContentTypeProfiles
+import Amazonka.CloudFront.Types.ContinuousDeploymentPolicy
+import Amazonka.CloudFront.Types.ContinuousDeploymentPolicyConfig
+import Amazonka.CloudFront.Types.ContinuousDeploymentPolicyList
+import Amazonka.CloudFront.Types.ContinuousDeploymentPolicySummary
+import Amazonka.CloudFront.Types.ContinuousDeploymentSingleHeaderConfig
+import Amazonka.CloudFront.Types.ContinuousDeploymentSingleWeightConfig
 import Amazonka.CloudFront.Types.CookieNames
 import Amazonka.CloudFront.Types.CookiePreference
 import Amazonka.CloudFront.Types.CustomErrorResponse
@@ -1667,7 +1766,9 @@ import Amazonka.CloudFront.Types.ResponseHeadersPolicyXSSProtection
 import Amazonka.CloudFront.Types.Restrictions
 import Amazonka.CloudFront.Types.S3Origin
 import Amazonka.CloudFront.Types.S3OriginConfig
+import Amazonka.CloudFront.Types.SessionStickinessConfig
 import Amazonka.CloudFront.Types.Signer
+import Amazonka.CloudFront.Types.StagingDistributionDnsNames
 import Amazonka.CloudFront.Types.StatusCodes
 import Amazonka.CloudFront.Types.StreamingDistribution
 import Amazonka.CloudFront.Types.StreamingDistributionConfig
@@ -1679,12 +1780,14 @@ import Amazonka.CloudFront.Types.Tag
 import Amazonka.CloudFront.Types.TagKeys
 import Amazonka.CloudFront.Types.Tags
 import Amazonka.CloudFront.Types.TestResult
+import Amazonka.CloudFront.Types.TrafficConfig
 import Amazonka.CloudFront.Types.TrustedKeyGroups
 import Amazonka.CloudFront.Types.TrustedSigners
 import Amazonka.CloudFront.Types.ViewerCertificate
 import Amazonka.CloudFront.UntagResource
 import Amazonka.CloudFront.UpdateCachePolicy
 import Amazonka.CloudFront.UpdateCloudFrontOriginAccessIdentity
+import Amazonka.CloudFront.UpdateContinuousDeploymentPolicy
 import Amazonka.CloudFront.UpdateDistribution
 import Amazonka.CloudFront.UpdateFieldLevelEncryptionConfig
 import Amazonka.CloudFront.UpdateFieldLevelEncryptionProfile

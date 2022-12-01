@@ -20,7 +20,7 @@
 module Amazonka.LookoutVision.Types.ModelPackagingConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutVision.Types.GreengrassConfiguration
 import qualified Amazonka.Prelude as Prelude
 

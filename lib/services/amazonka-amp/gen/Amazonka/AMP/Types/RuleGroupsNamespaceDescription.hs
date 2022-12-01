@@ -21,7 +21,7 @@ module Amazonka.AMP.Types.RuleGroupsNamespaceDescription where
 
 import Amazonka.AMP.Types.RuleGroupsNamespaceStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a description of the rule groups namespace.

@@ -20,6 +20,7 @@
 module Amazonka.ECS.Types.ContainerService where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.CapacityProviderStrategyItem
 import Amazonka.ECS.Types.Deployment
 import Amazonka.ECS.Types.DeploymentConfiguration
@@ -35,7 +36,6 @@ import Amazonka.ECS.Types.ServiceEvent
 import Amazonka.ECS.Types.ServiceRegistry
 import Amazonka.ECS.Types.Tag
 import Amazonka.ECS.Types.TaskSet
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on a service within a cluster

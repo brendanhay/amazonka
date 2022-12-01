@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.CmafAdditionalManifest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the details for each pair of HLS and DASH additional manifests

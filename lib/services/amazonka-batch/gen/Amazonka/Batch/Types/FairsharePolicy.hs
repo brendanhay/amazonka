@@ -21,7 +21,7 @@ module Amazonka.Batch.Types.FairsharePolicy where
 
 import Amazonka.Batch.Types.ShareAttributes
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The fair share policy for a scheduling policy.

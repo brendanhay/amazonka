@@ -2019,9 +2019,11 @@ module Amazonka.SecurityHub.Lens
     awsLambdaFunctionDetails_kmsKeyArn,
     awsLambdaFunctionDetails_handler,
     awsLambdaFunctionDetails_layers,
+    awsLambdaFunctionDetails_packageType,
     awsLambdaFunctionDetails_revisionId,
     awsLambdaFunctionDetails_lastModified,
     awsLambdaFunctionDetails_role,
+    awsLambdaFunctionDetails_architectures,
     awsLambdaFunctionDetails_version,
     awsLambdaFunctionDetails_deadLetterConfig,
 
@@ -3559,11 +3561,13 @@ module Amazonka.SecurityHub.Lens
     -- ** SoftwarePackage
     softwarePackage_filePath,
     softwarePackage_name,
+    softwarePackage_sourceLayerArn,
     softwarePackage_fixedInVersion,
     softwarePackage_remediation,
     softwarePackage_epoch,
     softwarePackage_packageManager,
     softwarePackage_release,
+    softwarePackage_sourceLayerHash,
     softwarePackage_architecture,
     softwarePackage_version,
 

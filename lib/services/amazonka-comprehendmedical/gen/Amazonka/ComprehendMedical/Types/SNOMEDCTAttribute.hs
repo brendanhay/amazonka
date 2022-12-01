@@ -25,7 +25,7 @@ import Amazonka.ComprehendMedical.Types.SNOMEDCTEntityCategory
 import Amazonka.ComprehendMedical.Types.SNOMEDCTRelationshipType
 import Amazonka.ComprehendMedical.Types.SNOMEDCTTrait
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The extracted attributes that relate to an entity. An extracted segment

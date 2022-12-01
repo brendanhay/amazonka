@@ -20,9 +20,9 @@
 module Amazonka.IotTwinMaker.Types.PropertyDefinitionResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types.DataType
 import Amazonka.IotTwinMaker.Types.DataValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains response data from a property definition
@@ -36,27 +36,27 @@ data PropertyDefinitionResponse = PropertyDefinitionResponse'
     defaultValue :: Prelude.Maybe DataValue,
     -- | An object that contains information about the data type.
     dataType :: DataType,
+    -- | A Boolean value that specifies whether the property consists of time
+    -- series data.
+    isTimeSeries :: Prelude.Bool,
+    -- | A Boolean value that specifies whether the property is required in an
+    -- entity.
+    isRequiredInEntity :: Prelude.Bool,
     -- | A Boolean value that specifies whether the property ID comes from an
     -- external data store.
     isExternalId :: Prelude.Bool,
+    -- | A Boolean value that specifies whether the property is stored
+    -- externally.
+    isStoredExternally :: Prelude.Bool,
+    -- | A Boolean value that specifies whether the property definition is
+    -- imported from an external data store.
+    isImported :: Prelude.Bool,
     -- | A Boolean value that specifies whether the property definition can be
     -- updated.
     isFinal :: Prelude.Bool,
     -- | A Boolean value that specifies whether the property definition is
-    -- imported from an external data store.
-    isImported :: Prelude.Bool,
-    -- | A Boolean value that specifies whether the property definition is
     -- inherited from a parent entity.
-    isInherited :: Prelude.Bool,
-    -- | A Boolean value that specifies whether the property is required in an
-    -- entity.
-    isRequiredInEntity :: Prelude.Bool,
-    -- | A Boolean value that specifies whether the property is stored
-    -- externally.
-    isStoredExternally :: Prelude.Bool,
-    -- | A Boolean value that specifies whether the property consists of time
-    -- series data.
-    isTimeSeries :: Prelude.Bool
+    isInherited :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,65 +74,65 @@ data PropertyDefinitionResponse = PropertyDefinitionResponse'
 --
 -- 'dataType', 'propertyDefinitionResponse_dataType' - An object that contains information about the data type.
 --
--- 'isExternalId', 'propertyDefinitionResponse_isExternalId' - A Boolean value that specifies whether the property ID comes from an
--- external data store.
---
--- 'isFinal', 'propertyDefinitionResponse_isFinal' - A Boolean value that specifies whether the property definition can be
--- updated.
---
--- 'isImported', 'propertyDefinitionResponse_isImported' - A Boolean value that specifies whether the property definition is
--- imported from an external data store.
---
--- 'isInherited', 'propertyDefinitionResponse_isInherited' - A Boolean value that specifies whether the property definition is
--- inherited from a parent entity.
+-- 'isTimeSeries', 'propertyDefinitionResponse_isTimeSeries' - A Boolean value that specifies whether the property consists of time
+-- series data.
 --
 -- 'isRequiredInEntity', 'propertyDefinitionResponse_isRequiredInEntity' - A Boolean value that specifies whether the property is required in an
 -- entity.
 --
+-- 'isExternalId', 'propertyDefinitionResponse_isExternalId' - A Boolean value that specifies whether the property ID comes from an
+-- external data store.
+--
 -- 'isStoredExternally', 'propertyDefinitionResponse_isStoredExternally' - A Boolean value that specifies whether the property is stored
 -- externally.
 --
--- 'isTimeSeries', 'propertyDefinitionResponse_isTimeSeries' - A Boolean value that specifies whether the property consists of time
--- series data.
+-- 'isImported', 'propertyDefinitionResponse_isImported' - A Boolean value that specifies whether the property definition is
+-- imported from an external data store.
+--
+-- 'isFinal', 'propertyDefinitionResponse_isFinal' - A Boolean value that specifies whether the property definition can be
+-- updated.
+--
+-- 'isInherited', 'propertyDefinitionResponse_isInherited' - A Boolean value that specifies whether the property definition is
+-- inherited from a parent entity.
 newPropertyDefinitionResponse ::
   -- | 'dataType'
   DataType ->
-  -- | 'isExternalId'
-  Prelude.Bool ->
-  -- | 'isFinal'
-  Prelude.Bool ->
-  -- | 'isImported'
-  Prelude.Bool ->
-  -- | 'isInherited'
+  -- | 'isTimeSeries'
   Prelude.Bool ->
   -- | 'isRequiredInEntity'
   Prelude.Bool ->
+  -- | 'isExternalId'
+  Prelude.Bool ->
   -- | 'isStoredExternally'
   Prelude.Bool ->
-  -- | 'isTimeSeries'
+  -- | 'isImported'
+  Prelude.Bool ->
+  -- | 'isFinal'
+  Prelude.Bool ->
+  -- | 'isInherited'
   Prelude.Bool ->
   PropertyDefinitionResponse
 newPropertyDefinitionResponse
   pDataType_
-  pIsExternalId_
-  pIsFinal_
-  pIsImported_
-  pIsInherited_
+  pIsTimeSeries_
   pIsRequiredInEntity_
+  pIsExternalId_
   pIsStoredExternally_
-  pIsTimeSeries_ =
+  pIsImported_
+  pIsFinal_
+  pIsInherited_ =
     PropertyDefinitionResponse'
       { configuration =
           Prelude.Nothing,
         defaultValue = Prelude.Nothing,
         dataType = pDataType_,
-        isExternalId = pIsExternalId_,
-        isFinal = pIsFinal_,
-        isImported = pIsImported_,
-        isInherited = pIsInherited_,
+        isTimeSeries = pIsTimeSeries_,
         isRequiredInEntity = pIsRequiredInEntity_,
+        isExternalId = pIsExternalId_,
         isStoredExternally = pIsStoredExternally_,
-        isTimeSeries = pIsTimeSeries_
+        isImported = pIsImported_,
+        isFinal = pIsFinal_,
+        isInherited = pIsInherited_
       }
 
 -- | A mapping that specifies configuration information about the property.
@@ -147,10 +147,30 @@ propertyDefinitionResponse_defaultValue = Lens.lens (\PropertyDefinitionResponse
 propertyDefinitionResponse_dataType :: Lens.Lens' PropertyDefinitionResponse DataType
 propertyDefinitionResponse_dataType = Lens.lens (\PropertyDefinitionResponse' {dataType} -> dataType) (\s@PropertyDefinitionResponse' {} a -> s {dataType = a} :: PropertyDefinitionResponse)
 
+-- | A Boolean value that specifies whether the property consists of time
+-- series data.
+propertyDefinitionResponse_isTimeSeries :: Lens.Lens' PropertyDefinitionResponse Prelude.Bool
+propertyDefinitionResponse_isTimeSeries = Lens.lens (\PropertyDefinitionResponse' {isTimeSeries} -> isTimeSeries) (\s@PropertyDefinitionResponse' {} a -> s {isTimeSeries = a} :: PropertyDefinitionResponse)
+
+-- | A Boolean value that specifies whether the property is required in an
+-- entity.
+propertyDefinitionResponse_isRequiredInEntity :: Lens.Lens' PropertyDefinitionResponse Prelude.Bool
+propertyDefinitionResponse_isRequiredInEntity = Lens.lens (\PropertyDefinitionResponse' {isRequiredInEntity} -> isRequiredInEntity) (\s@PropertyDefinitionResponse' {} a -> s {isRequiredInEntity = a} :: PropertyDefinitionResponse)
+
 -- | A Boolean value that specifies whether the property ID comes from an
 -- external data store.
 propertyDefinitionResponse_isExternalId :: Lens.Lens' PropertyDefinitionResponse Prelude.Bool
 propertyDefinitionResponse_isExternalId = Lens.lens (\PropertyDefinitionResponse' {isExternalId} -> isExternalId) (\s@PropertyDefinitionResponse' {} a -> s {isExternalId = a} :: PropertyDefinitionResponse)
+
+-- | A Boolean value that specifies whether the property is stored
+-- externally.
+propertyDefinitionResponse_isStoredExternally :: Lens.Lens' PropertyDefinitionResponse Prelude.Bool
+propertyDefinitionResponse_isStoredExternally = Lens.lens (\PropertyDefinitionResponse' {isStoredExternally} -> isStoredExternally) (\s@PropertyDefinitionResponse' {} a -> s {isStoredExternally = a} :: PropertyDefinitionResponse)
+
+-- | A Boolean value that specifies whether the property definition is
+-- imported from an external data store.
+propertyDefinitionResponse_isImported :: Lens.Lens' PropertyDefinitionResponse Prelude.Bool
+propertyDefinitionResponse_isImported = Lens.lens (\PropertyDefinitionResponse' {isImported} -> isImported) (\s@PropertyDefinitionResponse' {} a -> s {isImported = a} :: PropertyDefinitionResponse)
 
 -- | A Boolean value that specifies whether the property definition can be
 -- updated.
@@ -158,29 +178,9 @@ propertyDefinitionResponse_isFinal :: Lens.Lens' PropertyDefinitionResponse Prel
 propertyDefinitionResponse_isFinal = Lens.lens (\PropertyDefinitionResponse' {isFinal} -> isFinal) (\s@PropertyDefinitionResponse' {} a -> s {isFinal = a} :: PropertyDefinitionResponse)
 
 -- | A Boolean value that specifies whether the property definition is
--- imported from an external data store.
-propertyDefinitionResponse_isImported :: Lens.Lens' PropertyDefinitionResponse Prelude.Bool
-propertyDefinitionResponse_isImported = Lens.lens (\PropertyDefinitionResponse' {isImported} -> isImported) (\s@PropertyDefinitionResponse' {} a -> s {isImported = a} :: PropertyDefinitionResponse)
-
--- | A Boolean value that specifies whether the property definition is
 -- inherited from a parent entity.
 propertyDefinitionResponse_isInherited :: Lens.Lens' PropertyDefinitionResponse Prelude.Bool
 propertyDefinitionResponse_isInherited = Lens.lens (\PropertyDefinitionResponse' {isInherited} -> isInherited) (\s@PropertyDefinitionResponse' {} a -> s {isInherited = a} :: PropertyDefinitionResponse)
-
--- | A Boolean value that specifies whether the property is required in an
--- entity.
-propertyDefinitionResponse_isRequiredInEntity :: Lens.Lens' PropertyDefinitionResponse Prelude.Bool
-propertyDefinitionResponse_isRequiredInEntity = Lens.lens (\PropertyDefinitionResponse' {isRequiredInEntity} -> isRequiredInEntity) (\s@PropertyDefinitionResponse' {} a -> s {isRequiredInEntity = a} :: PropertyDefinitionResponse)
-
--- | A Boolean value that specifies whether the property is stored
--- externally.
-propertyDefinitionResponse_isStoredExternally :: Lens.Lens' PropertyDefinitionResponse Prelude.Bool
-propertyDefinitionResponse_isStoredExternally = Lens.lens (\PropertyDefinitionResponse' {isStoredExternally} -> isStoredExternally) (\s@PropertyDefinitionResponse' {} a -> s {isStoredExternally = a} :: PropertyDefinitionResponse)
-
--- | A Boolean value that specifies whether the property consists of time
--- series data.
-propertyDefinitionResponse_isTimeSeries :: Lens.Lens' PropertyDefinitionResponse Prelude.Bool
-propertyDefinitionResponse_isTimeSeries = Lens.lens (\PropertyDefinitionResponse' {isTimeSeries} -> isTimeSeries) (\s@PropertyDefinitionResponse' {} a -> s {isTimeSeries = a} :: PropertyDefinitionResponse)
 
 instance Core.FromJSON PropertyDefinitionResponse where
   parseJSON =
@@ -191,13 +191,13 @@ instance Core.FromJSON PropertyDefinitionResponse where
             Prelude.<$> (x Core..:? "configuration" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "defaultValue")
             Prelude.<*> (x Core..: "dataType")
-            Prelude.<*> (x Core..: "isExternalId")
-            Prelude.<*> (x Core..: "isFinal")
-            Prelude.<*> (x Core..: "isImported")
-            Prelude.<*> (x Core..: "isInherited")
-            Prelude.<*> (x Core..: "isRequiredInEntity")
-            Prelude.<*> (x Core..: "isStoredExternally")
             Prelude.<*> (x Core..: "isTimeSeries")
+            Prelude.<*> (x Core..: "isRequiredInEntity")
+            Prelude.<*> (x Core..: "isExternalId")
+            Prelude.<*> (x Core..: "isStoredExternally")
+            Prelude.<*> (x Core..: "isImported")
+            Prelude.<*> (x Core..: "isFinal")
+            Prelude.<*> (x Core..: "isInherited")
       )
 
 instance Prelude.Hashable PropertyDefinitionResponse where
@@ -205,23 +205,23 @@ instance Prelude.Hashable PropertyDefinitionResponse where
     _salt `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` dataType
-      `Prelude.hashWithSalt` isExternalId
-      `Prelude.hashWithSalt` isFinal
-      `Prelude.hashWithSalt` isImported
-      `Prelude.hashWithSalt` isInherited
-      `Prelude.hashWithSalt` isRequiredInEntity
-      `Prelude.hashWithSalt` isStoredExternally
       `Prelude.hashWithSalt` isTimeSeries
+      `Prelude.hashWithSalt` isRequiredInEntity
+      `Prelude.hashWithSalt` isExternalId
+      `Prelude.hashWithSalt` isStoredExternally
+      `Prelude.hashWithSalt` isImported
+      `Prelude.hashWithSalt` isFinal
+      `Prelude.hashWithSalt` isInherited
 
 instance Prelude.NFData PropertyDefinitionResponse where
   rnf PropertyDefinitionResponse' {..} =
     Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf isExternalId
-      `Prelude.seq` Prelude.rnf isFinal
-      `Prelude.seq` Prelude.rnf isImported
-      `Prelude.seq` Prelude.rnf isInherited
-      `Prelude.seq` Prelude.rnf isRequiredInEntity
-      `Prelude.seq` Prelude.rnf isStoredExternally
       `Prelude.seq` Prelude.rnf isTimeSeries
+      `Prelude.seq` Prelude.rnf isRequiredInEntity
+      `Prelude.seq` Prelude.rnf isExternalId
+      `Prelude.seq` Prelude.rnf isStoredExternally
+      `Prelude.seq` Prelude.rnf isImported
+      `Prelude.seq` Prelude.rnf isFinal
+      `Prelude.seq` Prelude.rnf isInherited

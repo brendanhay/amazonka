@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.BucketCountBySharedAccessType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the number of S3 buckets that are or aren\'t

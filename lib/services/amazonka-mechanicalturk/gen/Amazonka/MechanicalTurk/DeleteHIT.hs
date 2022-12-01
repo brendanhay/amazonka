@@ -59,7 +59,7 @@ module Amazonka.MechanicalTurk.DeleteHIT
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,8 +93,8 @@ deleteHIT_hITId = Lens.lens (\DeleteHIT' {hITId} -> hITId) (\s@DeleteHIT' {} a -
 
 instance Core.AWSRequest DeleteHIT where
   type AWSResponse DeleteHIT = DeleteHITResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -20,12 +20,12 @@
 module Amazonka.DynamoDBStreams.Types.StreamDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.KeySchemaElement
 import Amazonka.DynamoDBStreams.Types.Shard
 import Amazonka.DynamoDBStreams.Types.StreamStatus
 import Amazonka.DynamoDBStreams.Types.StreamViewType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents all of the data describing a particular stream.

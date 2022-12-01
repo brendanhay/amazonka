@@ -20,8 +20,8 @@
 module Amazonka.ECR.Types.ScanningRepositoryFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECR.Types.ScanningRepositoryFilterType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a scanning repository filter. For more information on how

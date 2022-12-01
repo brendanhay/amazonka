@@ -27,7 +27,7 @@
 -- AMI is retained in the Recycle Bin for the specified retention period.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html Recycle Bin>
--- in the Amazon Elastic Compute Cloud User Guide.
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- When you deregister an AMI, it doesn\'t affect any instances that
 -- you\'ve already launched from the AMI. You\'ll continue to incur usage
@@ -54,8 +54,8 @@ module Amazonka.EC2.DeregisterImage
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,8 +113,8 @@ instance Core.AWSRequest DeregisterImage where
   type
     AWSResponse DeregisterImage =
       DeregisterImageResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeregisterImageResponse'
 

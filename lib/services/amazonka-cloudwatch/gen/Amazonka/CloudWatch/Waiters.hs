@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -19,17 +20,17 @@ import Amazonka.CloudWatch.DescribeAlarms
 import Amazonka.CloudWatch.Lens
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.CloudWatch.DescribeAlarms' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newCompositeAlarmExists :: Core.Wait DescribeAlarms
 newCompositeAlarmExists =
   Core.Wait
-    { Core._waitName = "CompositeAlarmExists",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "CompositeAlarmExists",
+      Core.attempts = 40,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchNonEmpty
             Prelude.True
             Core.AcceptSuccess
@@ -47,10 +48,10 @@ newCompositeAlarmExists =
 newAlarmExists :: Core.Wait DescribeAlarms
 newAlarmExists =
   Core.Wait
-    { Core._waitName = "AlarmExists",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "AlarmExists",
+      Core.attempts = 40,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchNonEmpty
             Prelude.True
             Core.AcceptSuccess

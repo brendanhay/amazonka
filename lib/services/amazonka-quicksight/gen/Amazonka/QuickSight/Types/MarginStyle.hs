@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.MarginStyle where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The display options for margins around the outside edge of sheets.

@@ -20,7 +20,7 @@
 module Amazonka.DataExchange.Types.S3SnapshotAsset where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The S3 object that is the asset.

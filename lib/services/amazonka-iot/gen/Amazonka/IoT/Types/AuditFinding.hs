@@ -20,10 +20,10 @@
 module Amazonka.IoT.Types.AuditFinding where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.AuditFindingSeverity
 import Amazonka.IoT.Types.NonCompliantResource
 import Amazonka.IoT.Types.RelatedResource
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The findings (results) of the audit.

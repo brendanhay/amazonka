@@ -20,7 +20,7 @@
 module Amazonka.GuardDuty.Types.HostPath where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a pre-existing file or directory on the host machine that the

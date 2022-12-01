@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.InsertableImage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | These settings apply to a specific graphic overlay. You can include

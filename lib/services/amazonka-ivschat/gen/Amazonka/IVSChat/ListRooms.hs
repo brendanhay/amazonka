@@ -31,6 +31,7 @@ module Amazonka.IVSChat.ListRooms
     -- * Request Lenses
     listRooms_name,
     listRooms_nextToken,
+    listRooms_loggingConfigurationIdentifier,
     listRooms_messageReviewHandlerUri,
     listRooms_maxResults,
 
@@ -46,8 +47,8 @@ module Amazonka.IVSChat.ListRooms
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVSChat.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,6 +60,8 @@ data ListRooms = ListRooms'
     -- | The first room to retrieve. This is used for pagination; see the
     -- @nextToken@ response field.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Logging-configuration identifier.
+    loggingConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Filters the list to match the specified message review handler URI.
     messageReviewHandlerUri :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of rooms to return. Default: 50.
@@ -79,6 +82,8 @@ data ListRooms = ListRooms'
 -- 'nextToken', 'listRooms_nextToken' - The first room to retrieve. This is used for pagination; see the
 -- @nextToken@ response field.
 --
+-- 'loggingConfigurationIdentifier', 'listRooms_loggingConfigurationIdentifier' - Logging-configuration identifier.
+--
 -- 'messageReviewHandlerUri', 'listRooms_messageReviewHandlerUri' - Filters the list to match the specified message review handler URI.
 --
 -- 'maxResults', 'listRooms_maxResults' - Maximum number of rooms to return. Default: 50.
@@ -88,6 +93,7 @@ newListRooms =
   ListRooms'
     { name = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      loggingConfigurationIdentifier = Prelude.Nothing,
       messageReviewHandlerUri = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
@@ -101,6 +107,10 @@ listRooms_name = Lens.lens (\ListRooms' {name} -> name) (\s@ListRooms' {} a -> s
 listRooms_nextToken :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Text)
 listRooms_nextToken = Lens.lens (\ListRooms' {nextToken} -> nextToken) (\s@ListRooms' {} a -> s {nextToken = a} :: ListRooms)
 
+-- | Logging-configuration identifier.
+listRooms_loggingConfigurationIdentifier :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Text)
+listRooms_loggingConfigurationIdentifier = Lens.lens (\ListRooms' {loggingConfigurationIdentifier} -> loggingConfigurationIdentifier) (\s@ListRooms' {} a -> s {loggingConfigurationIdentifier = a} :: ListRooms)
+
 -- | Filters the list to match the specified message review handler URI.
 listRooms_messageReviewHandlerUri :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Text)
 listRooms_messageReviewHandlerUri = Lens.lens (\ListRooms' {messageReviewHandlerUri} -> messageReviewHandlerUri) (\s@ListRooms' {} a -> s {messageReviewHandlerUri = a} :: ListRooms)
@@ -111,8 +121,8 @@ listRooms_maxResults = Lens.lens (\ListRooms' {maxResults} -> maxResults) (\s@Li
 
 instance Core.AWSRequest ListRooms where
   type AWSResponse ListRooms = ListRoomsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +136,7 @@ instance Prelude.Hashable ListRooms where
   hashWithSalt _salt ListRooms' {..} =
     _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` loggingConfigurationIdentifier
       `Prelude.hashWithSalt` messageReviewHandlerUri
       `Prelude.hashWithSalt` maxResults
 
@@ -133,6 +144,7 @@ instance Prelude.NFData ListRooms where
   rnf ListRooms' {..} =
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf loggingConfigurationIdentifier
       `Prelude.seq` Prelude.rnf messageReviewHandlerUri
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -153,6 +165,8 @@ instance Core.ToJSON ListRooms where
       ( Prelude.catMaybes
           [ ("name" Core..=) Prelude.<$> name,
             ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("loggingConfigurationIdentifier" Core..=)
+              Prelude.<$> loggingConfigurationIdentifier,
             ("messageReviewHandlerUri" Core..=)
               Prelude.<$> messageReviewHandlerUri,
             ("maxResults" Core..=) Prelude.<$> maxResults

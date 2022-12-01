@@ -21,7 +21,7 @@ module Amazonka.AppRunner.Types.TraceConfiguration where
 
 import Amazonka.AppRunner.Types.TracingVendor
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of the tracing feature within an App Runner

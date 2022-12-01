@@ -15,6 +15,7 @@ module Amazonka.SSMIncidents.Lens
   ( -- * Operations
 
     -- ** CreateReplicationSet
+    createReplicationSet_tags,
     createReplicationSet_clientToken,
     createReplicationSet_regions,
     createReplicationSetResponse_httpStatus,
@@ -23,6 +24,7 @@ module Amazonka.SSMIncidents.Lens
     -- ** CreateResponsePlan
     createResponsePlan_tags,
     createResponsePlan_clientToken,
+    createResponsePlan_integrations,
     createResponsePlan_chatChannel,
     createResponsePlan_displayName,
     createResponsePlan_engagements,
@@ -34,6 +36,7 @@ module Amazonka.SSMIncidents.Lens
 
     -- ** CreateTimelineEvent
     createTimelineEvent_clientToken,
+    createTimelineEvent_eventReferences,
     createTimelineEvent_eventData,
     createTimelineEvent_eventTime,
     createTimelineEvent_eventType,
@@ -84,6 +87,7 @@ module Amazonka.SSMIncidents.Lens
 
     -- ** GetResponsePlan
     getResponsePlan_arn,
+    getResponsePlanResponse_integrations,
     getResponsePlanResponse_chatChannel,
     getResponsePlanResponse_displayName,
     getResponsePlanResponse_engagements,
@@ -202,6 +206,7 @@ module Amazonka.SSMIncidents.Lens
 
     -- ** UpdateResponsePlan
     updateResponsePlan_clientToken,
+    updateResponsePlan_integrations,
     updateResponsePlan_incidentTemplateDedupeString,
     updateResponsePlan_incidentTemplateNotificationTargets,
     updateResponsePlan_incidentTemplateTags,
@@ -218,6 +223,7 @@ module Amazonka.SSMIncidents.Lens
     -- ** UpdateTimelineEvent
     updateTimelineEvent_eventType,
     updateTimelineEvent_clientToken,
+    updateTimelineEvent_eventReferences,
     updateTimelineEvent_eventTime,
     updateTimelineEvent_eventData,
     updateTimelineEvent_eventId,
@@ -257,7 +263,12 @@ module Amazonka.SSMIncidents.Lens
 
     -- ** EmptyChatChannel
 
+    -- ** EventReference
+    eventReference_relatedItemId,
+    eventReference_resource,
+
     -- ** EventSummary
+    eventSummary_eventReferences,
     eventSummary_eventId,
     eventSummary_eventTime,
     eventSummary_eventType,
@@ -307,6 +318,9 @@ module Amazonka.SSMIncidents.Lens
     incidentTemplate_impact,
     incidentTemplate_title,
 
+    -- ** Integration
+    integration_pagerDutyConfiguration,
+
     -- ** ItemIdentifier
     itemIdentifier_type,
     itemIdentifier_value,
@@ -315,9 +329,23 @@ module Amazonka.SSMIncidents.Lens
     itemValue_arn,
     itemValue_url,
     itemValue_metricDefinition,
+    itemValue_pagerDutyIncidentDetail,
 
     -- ** NotificationTargetItem
     notificationTargetItem_snsTopicArn,
+
+    -- ** PagerDutyConfiguration
+    pagerDutyConfiguration_name,
+    pagerDutyConfiguration_pagerDutyIncidentConfiguration,
+    pagerDutyConfiguration_secretId,
+
+    -- ** PagerDutyIncidentConfiguration
+    pagerDutyIncidentConfiguration_serviceId,
+
+    -- ** PagerDutyIncidentDetail
+    pagerDutyIncidentDetail_secretId,
+    pagerDutyIncidentDetail_autoResolve,
+    pagerDutyIncidentDetail_id,
 
     -- ** RegionInfo
     regionInfo_sseKmsKeyId,
@@ -329,6 +357,7 @@ module Amazonka.SSMIncidents.Lens
     regionMapInputValue_sseKmsKeyId,
 
     -- ** RelatedItem
+    relatedItem_generatedId,
     relatedItem_title,
     relatedItem_identifier,
 
@@ -365,6 +394,7 @@ module Amazonka.SSMIncidents.Lens
     ssmAutomation_roleArn,
 
     -- ** TimelineEvent
+    timelineEvent_eventReferences,
     timelineEvent_eventData,
     timelineEvent_eventId,
     timelineEvent_eventTime,
@@ -415,15 +445,20 @@ import Amazonka.SSMIncidents.Types.Condition
 import Amazonka.SSMIncidents.Types.DeleteRegionAction
 import Amazonka.SSMIncidents.Types.DynamicSsmParameterValue
 import Amazonka.SSMIncidents.Types.EmptyChatChannel
+import Amazonka.SSMIncidents.Types.EventReference
 import Amazonka.SSMIncidents.Types.EventSummary
 import Amazonka.SSMIncidents.Types.Filter
 import Amazonka.SSMIncidents.Types.IncidentRecord
 import Amazonka.SSMIncidents.Types.IncidentRecordSource
 import Amazonka.SSMIncidents.Types.IncidentRecordSummary
 import Amazonka.SSMIncidents.Types.IncidentTemplate
+import Amazonka.SSMIncidents.Types.Integration
 import Amazonka.SSMIncidents.Types.ItemIdentifier
 import Amazonka.SSMIncidents.Types.ItemValue
 import Amazonka.SSMIncidents.Types.NotificationTargetItem
+import Amazonka.SSMIncidents.Types.PagerDutyConfiguration
+import Amazonka.SSMIncidents.Types.PagerDutyIncidentConfiguration
+import Amazonka.SSMIncidents.Types.PagerDutyIncidentDetail
 import Amazonka.SSMIncidents.Types.RegionInfo
 import Amazonka.SSMIncidents.Types.RegionMapInputValue
 import Amazonka.SSMIncidents.Types.RelatedItem

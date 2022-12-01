@@ -21,7 +21,7 @@ module Amazonka.AccessAnalyzer.Types.AnalyzedResourceSummary where
 
 import Amazonka.AccessAnalyzer.Types.ResourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the ARN of the analyzed resource.

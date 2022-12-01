@@ -20,7 +20,7 @@
 module Amazonka.XRay.Types.RequestImpactStatistics where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Statistics that describe how the incident has impacted a service.

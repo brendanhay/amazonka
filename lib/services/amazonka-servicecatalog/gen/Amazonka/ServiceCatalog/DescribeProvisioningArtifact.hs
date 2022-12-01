@@ -48,7 +48,7 @@ module Amazonka.ServiceCatalog.DescribeProvisioningArtifact
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +149,8 @@ instance Core.AWSRequest DescribeProvisioningArtifact where
   type
     AWSResponse DescribeProvisioningArtifact =
       DescribeProvisioningArtifactResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -221,8 +221,8 @@ instance Core.ToQuery DescribeProvisioningArtifact where
 
 -- | /See:/ 'newDescribeProvisioningArtifactResponse' smart constructor.
 data DescribeProvisioningArtifactResponse = DescribeProvisioningArtifactResponse'
-  { -- | The URL of the CloudFormation template in Amazon S3, Amazon Web Services
-    -- CodeCommit, or GitHub in JSON format.
+  { -- | The URL of the CloudFormation template in Amazon S3 or GitHub in JSON
+    -- format.
     info :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The status of the current request.
     status :: Prelude.Maybe RequestStatus,
@@ -241,8 +241,8 @@ data DescribeProvisioningArtifactResponse = DescribeProvisioningArtifactResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'info', 'describeProvisioningArtifactResponse_info' - The URL of the CloudFormation template in Amazon S3, Amazon Web Services
--- CodeCommit, or GitHub in JSON format.
+-- 'info', 'describeProvisioningArtifactResponse_info' - The URL of the CloudFormation template in Amazon S3 or GitHub in JSON
+-- format.
 --
 -- 'status', 'describeProvisioningArtifactResponse_status' - The status of the current request.
 --
@@ -263,8 +263,8 @@ newDescribeProvisioningArtifactResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The URL of the CloudFormation template in Amazon S3, Amazon Web Services
--- CodeCommit, or GitHub in JSON format.
+-- | The URL of the CloudFormation template in Amazon S3 or GitHub in JSON
+-- format.
 describeProvisioningArtifactResponse_info :: Lens.Lens' DescribeProvisioningArtifactResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeProvisioningArtifactResponse_info = Lens.lens (\DescribeProvisioningArtifactResponse' {info} -> info) (\s@DescribeProvisioningArtifactResponse' {} a -> s {info = a} :: DescribeProvisioningArtifactResponse) Prelude.. Lens.mapping Lens.coerced
 

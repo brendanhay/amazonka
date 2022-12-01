@@ -20,7 +20,7 @@
 module Amazonka.CustomerProfiles.Types.S3ExportingLocation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The S3 location where Identity Resolution Jobs write result files.

@@ -49,7 +49,7 @@ module Amazonka.ResilienceHub.ListAppAssessments
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -173,8 +173,8 @@ instance Core.AWSRequest ListAppAssessments where
   type
     AWSResponse ListAppAssessments =
       ListAppAssessmentsResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

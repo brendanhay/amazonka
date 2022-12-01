@@ -56,6 +56,8 @@ haskell_library(
         "gen/Amazonka/EKS/Types/ConnectorConfigProvider.hs",
         "gen/Amazonka/EKS/Types/ConnectorConfigRequest.hs",
         "gen/Amazonka/EKS/Types/ConnectorConfigResponse.hs",
+        "gen/Amazonka/EKS/Types/ControlPlanePlacementRequest.hs",
+        "gen/Amazonka/EKS/Types/ControlPlanePlacementResponse.hs",
         "gen/Amazonka/EKS/Types/EKSErrorCode.hs",
         "gen/Amazonka/EKS/Types/EncryptionConfig.hs",
         "gen/Amazonka/EKS/Types/ErrorDetail.hs",

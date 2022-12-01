@@ -20,7 +20,7 @@
 module Amazonka.Kinesis.Types.HashKeyRange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The range of possible hash key values for the shard, which is a set of

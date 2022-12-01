@@ -20,7 +20,7 @@
 module Amazonka.FSx.Types.SelfManagedActiveDirectoryConfigurationUpdates where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that Amazon FSx uses to join the Windows File Server

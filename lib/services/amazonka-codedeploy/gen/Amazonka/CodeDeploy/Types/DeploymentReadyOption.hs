@@ -21,7 +21,7 @@ module Amazonka.CodeDeploy.Types.DeploymentReadyOption where
 
 import Amazonka.CodeDeploy.Types.DeploymentReadyAction
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about how traffic is rerouted to instances in a replacement

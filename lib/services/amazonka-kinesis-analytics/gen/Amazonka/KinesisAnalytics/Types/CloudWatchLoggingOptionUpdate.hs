@@ -20,7 +20,7 @@
 module Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes CloudWatch logging option updates.

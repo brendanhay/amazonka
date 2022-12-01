@@ -63,6 +63,9 @@ module Amazonka.SSM
     -- ** OpsMetadataInvalidArgumentException
     _OpsMetadataInvalidArgumentException,
 
+    -- ** ResourcePolicyConflictException
+    _ResourcePolicyConflictException,
+
     -- ** InvalidFilterKey
     _InvalidFilterKey,
 
@@ -95,6 +98,9 @@ module Amazonka.SSM
 
     -- ** InvalidResourceId
     _InvalidResourceId,
+
+    -- ** OpsItemAccessDeniedException
+    _OpsItemAccessDeniedException,
 
     -- ** ResourceDataSyncAlreadyExistsException
     _ResourceDataSyncAlreadyExistsException,
@@ -218,6 +224,9 @@ module Amazonka.SSM
 
     -- ** AlreadyExistsException
     _AlreadyExistsException,
+
+    -- ** ResourcePolicyLimitExceededException
+    _ResourcePolicyLimitExceededException,
 
     -- ** AssociationVersionLimitExceeded
     _AssociationVersionLimitExceeded,
@@ -423,6 +432,9 @@ module Amazonka.SSM
     -- ** InvalidTargetMaps
     _InvalidTargetMaps,
 
+    -- ** ResourcePolicyInvalidParameterException
+    _ResourcePolicyInvalidParameterException,
+
     -- * Waiters
     -- $waiters
 
@@ -569,6 +581,12 @@ module Amazonka.SSM
     newDeleteResourceDataSync,
     DeleteResourceDataSyncResponse (DeleteResourceDataSyncResponse'),
     newDeleteResourceDataSyncResponse,
+
+    -- ** DeleteResourcePolicy
+    DeleteResourcePolicy (DeleteResourcePolicy'),
+    newDeleteResourcePolicy,
+    DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
+    newDeleteResourcePolicyResponse,
 
     -- ** DeregisterManagedInstance
     DeregisterManagedInstance (DeregisterManagedInstance'),
@@ -930,6 +948,12 @@ module Amazonka.SSM
     GetPatchBaselineForPatchGroupResponse (GetPatchBaselineForPatchGroupResponse'),
     newGetPatchBaselineForPatchGroupResponse,
 
+    -- ** GetResourcePolicies (Paginated)
+    GetResourcePolicies (GetResourcePolicies'),
+    newGetResourcePolicies,
+    GetResourcePoliciesResponse (GetResourcePoliciesResponse'),
+    newGetResourcePoliciesResponse,
+
     -- ** GetServiceSetting
     GetServiceSetting (GetServiceSetting'),
     newGetServiceSetting,
@@ -1061,6 +1085,12 @@ module Amazonka.SSM
     newPutParameter,
     PutParameterResponse (PutParameterResponse'),
     newPutParameterResponse,
+
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
 
     -- ** RegisterDefaultPatchBaseline
     RegisterDefaultPatchBaseline (RegisterDefaultPatchBaseline'),
@@ -1699,6 +1729,10 @@ module Amazonka.SSM
     FailureDetails (FailureDetails'),
     newFailureDetails,
 
+    -- ** GetResourcePoliciesResponseEntry
+    GetResourcePoliciesResponseEntry (GetResourcePoliciesResponseEntry'),
+    newGetResourcePoliciesResponseEntry,
+
     -- ** InstanceAggregatedAssociationOverview
     InstanceAggregatedAssociationOverview (InstanceAggregatedAssociationOverview'),
     newInstanceAggregatedAssociationOverview,
@@ -2132,6 +2166,7 @@ import Amazonka.SSM.DeleteParameter
 import Amazonka.SSM.DeleteParameters
 import Amazonka.SSM.DeletePatchBaseline
 import Amazonka.SSM.DeleteResourceDataSync
+import Amazonka.SSM.DeleteResourcePolicy
 import Amazonka.SSM.DeregisterManagedInstance
 import Amazonka.SSM.DeregisterPatchBaselineForPatchGroup
 import Amazonka.SSM.DeregisterTargetFromMaintenanceWindow
@@ -2192,6 +2227,7 @@ import Amazonka.SSM.GetParameters
 import Amazonka.SSM.GetParametersByPath
 import Amazonka.SSM.GetPatchBaseline
 import Amazonka.SSM.GetPatchBaselineForPatchGroup
+import Amazonka.SSM.GetResourcePolicies
 import Amazonka.SSM.GetServiceSetting
 import Amazonka.SSM.LabelParameterVersion
 import Amazonka.SSM.Lens
@@ -2215,6 +2251,7 @@ import Amazonka.SSM.ModifyDocumentPermission
 import Amazonka.SSM.PutComplianceItems
 import Amazonka.SSM.PutInventory
 import Amazonka.SSM.PutParameter
+import Amazonka.SSM.PutResourcePolicy
 import Amazonka.SSM.RegisterDefaultPatchBaseline
 import Amazonka.SSM.RegisterPatchBaselineForPatchGroup
 import Amazonka.SSM.RegisterTargetWithMaintenanceWindow

@@ -20,10 +20,10 @@
 module Amazonka.Inspector2.Types.NetworkReachabilityDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.NetworkPath
 import Amazonka.Inspector2.Types.NetworkProtocol
 import Amazonka.Inspector2.Types.PortRange
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the details of a network reachability finding.

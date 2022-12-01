@@ -20,7 +20,7 @@
 module Amazonka.IoTWireless.Types.Accuracy where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The accuracy of the estimated position in meters. An empty value

@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsApiGatewayMethodSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines settings for a method for the stage.

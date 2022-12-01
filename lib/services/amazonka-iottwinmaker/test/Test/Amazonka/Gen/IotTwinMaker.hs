@@ -54,11 +54,17 @@ import Test.Tasty
 --         , requestDeleteWorkspace $
 --             newDeleteWorkspace
 --
+--         , requestExecuteQuery $
+--             newExecuteQuery
+--
 --         , requestGetComponentType $
 --             newGetComponentType
 --
 --         , requestGetEntity $
 --             newGetEntity
+--
+--         , requestGetPricingPlan $
+--             newGetPricingPlan
 --
 --         , requestGetPropertyValue $
 --             newGetPropertyValue
@@ -99,6 +105,9 @@ import Test.Tasty
 --         , requestUpdateEntity $
 --             newUpdateEntity
 --
+--         , requestUpdatePricingPlan $
+--             newUpdatePricingPlan
+--
 --         , requestUpdateScene $
 --             newUpdateScene
 --
@@ -135,11 +144,17 @@ import Test.Tasty
 --         , responseDeleteWorkspace $
 --             newDeleteWorkspaceResponse
 --
+--         , responseExecuteQuery $
+--             newExecuteQueryResponse
+--
 --         , responseGetComponentType $
 --             newGetComponentTypeResponse
 --
 --         , responseGetEntity $
 --             newGetEntityResponse
+--
+--         , responseGetPricingPlan $
+--             newGetPricingPlanResponse
 --
 --         , responseGetPropertyValue $
 --             newGetPropertyValueResponse
@@ -179,6 +194,9 @@ import Test.Tasty
 --
 --         , responseUpdateEntity $
 --             newUpdateEntityResponse
+--
+--         , responseUpdatePricingPlan $
+--             newUpdatePricingPlanResponse
 --
 --         , responseUpdateScene $
 --             newUpdateSceneResponse
@@ -245,6 +263,12 @@ requestDeleteWorkspace =
     "DeleteWorkspace"
     "fixture/DeleteWorkspace.yaml"
 
+requestExecuteQuery :: ExecuteQuery -> TestTree
+requestExecuteQuery =
+  req
+    "ExecuteQuery"
+    "fixture/ExecuteQuery.yaml"
+
 requestGetComponentType :: GetComponentType -> TestTree
 requestGetComponentType =
   req
@@ -256,6 +280,12 @@ requestGetEntity =
   req
     "GetEntity"
     "fixture/GetEntity.yaml"
+
+requestGetPricingPlan :: GetPricingPlan -> TestTree
+requestGetPricingPlan =
+  req
+    "GetPricingPlan"
+    "fixture/GetPricingPlan.yaml"
 
 requestGetPropertyValue :: GetPropertyValue -> TestTree
 requestGetPropertyValue =
@@ -334,6 +364,12 @@ requestUpdateEntity =
   req
     "UpdateEntity"
     "fixture/UpdateEntity.yaml"
+
+requestUpdatePricingPlan :: UpdatePricingPlan -> TestTree
+requestUpdatePricingPlan =
+  req
+    "UpdatePricingPlan"
+    "fixture/UpdatePricingPlan.yaml"
 
 requestUpdateScene :: UpdateScene -> TestTree
 requestUpdateScene =
@@ -421,6 +457,14 @@ responseDeleteWorkspace =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteWorkspace)
 
+responseExecuteQuery :: ExecuteQueryResponse -> TestTree
+responseExecuteQuery =
+  res
+    "ExecuteQueryResponse"
+    "fixture/ExecuteQueryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExecuteQuery)
+
 responseGetComponentType :: GetComponentTypeResponse -> TestTree
 responseGetComponentType =
   res
@@ -436,6 +480,14 @@ responseGetEntity =
     "fixture/GetEntityResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetEntity)
+
+responseGetPricingPlan :: GetPricingPlanResponse -> TestTree
+responseGetPricingPlan =
+  res
+    "GetPricingPlanResponse"
+    "fixture/GetPricingPlanResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPricingPlan)
 
 responseGetPropertyValue :: GetPropertyValueResponse -> TestTree
 responseGetPropertyValue =
@@ -540,6 +592,14 @@ responseUpdateEntity =
     "fixture/UpdateEntityResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateEntity)
+
+responseUpdatePricingPlan :: UpdatePricingPlanResponse -> TestTree
+responseUpdatePricingPlan =
+  res
+    "UpdatePricingPlanResponse"
+    "fixture/UpdatePricingPlanResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdatePricingPlan)
 
 responseUpdateScene :: UpdateSceneResponse -> TestTree
 responseUpdateScene =

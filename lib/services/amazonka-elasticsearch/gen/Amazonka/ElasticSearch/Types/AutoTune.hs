@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.AutoTune where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.AutoTuneDetails
 import Amazonka.ElasticSearch.Types.AutoTuneType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies Auto-Tune type and Auto-Tune action details.

@@ -22,7 +22,7 @@ module Amazonka.Athena.Types.WorkGroupConfigurationUpdates where
 import Amazonka.Athena.Types.EngineVersion
 import Amazonka.Athena.Types.ResultConfigurationUpdates
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration information that will be updated for this workgroup,

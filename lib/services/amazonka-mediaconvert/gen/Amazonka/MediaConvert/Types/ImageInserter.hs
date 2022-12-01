@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.ImageInserter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.InsertableImage
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +34,13 @@ import qualified Amazonka.Prelude as Prelude
 data ImageInserter = ImageInserter'
   { -- | Specify the images that you want to overlay on your video. The images
     -- must be PNG or TGA files.
-    insertableImages :: Prelude.Maybe [InsertableImage]
+    insertableImages :: Prelude.Maybe [InsertableImage],
+    -- | Specify the reference white level, in nits, for all of your image
+    -- inserter images. Use to correct brightness levels within HDR10 outputs.
+    -- For 1,000 nit peak brightness displays, we recommend that you set SDR
+    -- reference white level to 203 (according to ITU-R BT.2408). Leave blank
+    -- to use the default value of 100, or specify an integer from 100 to 1000.
+    sdrReferenceWhiteLevel :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,15 +54,32 @@ data ImageInserter = ImageInserter'
 --
 -- 'insertableImages', 'imageInserter_insertableImages' - Specify the images that you want to overlay on your video. The images
 -- must be PNG or TGA files.
+--
+-- 'sdrReferenceWhiteLevel', 'imageInserter_sdrReferenceWhiteLevel' - Specify the reference white level, in nits, for all of your image
+-- inserter images. Use to correct brightness levels within HDR10 outputs.
+-- For 1,000 nit peak brightness displays, we recommend that you set SDR
+-- reference white level to 203 (according to ITU-R BT.2408). Leave blank
+-- to use the default value of 100, or specify an integer from 100 to 1000.
 newImageInserter ::
   ImageInserter
 newImageInserter =
-  ImageInserter' {insertableImages = Prelude.Nothing}
+  ImageInserter'
+    { insertableImages = Prelude.Nothing,
+      sdrReferenceWhiteLevel = Prelude.Nothing
+    }
 
 -- | Specify the images that you want to overlay on your video. The images
 -- must be PNG or TGA files.
 imageInserter_insertableImages :: Lens.Lens' ImageInserter (Prelude.Maybe [InsertableImage])
 imageInserter_insertableImages = Lens.lens (\ImageInserter' {insertableImages} -> insertableImages) (\s@ImageInserter' {} a -> s {insertableImages = a} :: ImageInserter) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specify the reference white level, in nits, for all of your image
+-- inserter images. Use to correct brightness levels within HDR10 outputs.
+-- For 1,000 nit peak brightness displays, we recommend that you set SDR
+-- reference white level to 203 (according to ITU-R BT.2408). Leave blank
+-- to use the default value of 100, or specify an integer from 100 to 1000.
+imageInserter_sdrReferenceWhiteLevel :: Lens.Lens' ImageInserter (Prelude.Maybe Prelude.Natural)
+imageInserter_sdrReferenceWhiteLevel = Lens.lens (\ImageInserter' {sdrReferenceWhiteLevel} -> sdrReferenceWhiteLevel) (\s@ImageInserter' {} a -> s {sdrReferenceWhiteLevel = a} :: ImageInserter)
 
 instance Core.FromJSON ImageInserter where
   parseJSON =
@@ -67,20 +90,26 @@ instance Core.FromJSON ImageInserter where
             Prelude.<$> ( x Core..:? "insertableImages"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "sdrReferenceWhiteLevel")
       )
 
 instance Prelude.Hashable ImageInserter where
   hashWithSalt _salt ImageInserter' {..} =
     _salt `Prelude.hashWithSalt` insertableImages
+      `Prelude.hashWithSalt` sdrReferenceWhiteLevel
 
 instance Prelude.NFData ImageInserter where
-  rnf ImageInserter' {..} = Prelude.rnf insertableImages
+  rnf ImageInserter' {..} =
+    Prelude.rnf insertableImages
+      `Prelude.seq` Prelude.rnf sdrReferenceWhiteLevel
 
 instance Core.ToJSON ImageInserter where
   toJSON ImageInserter' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("insertableImages" Core..=)
-              Prelude.<$> insertableImages
+              Prelude.<$> insertableImages,
+            ("sdrReferenceWhiteLevel" Core..=)
+              Prelude.<$> sdrReferenceWhiteLevel
           ]
       )

@@ -20,11 +20,11 @@
 module Amazonka.KinesisAnalytics.Types.OutputDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalytics.Types.DestinationSchema
 import Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputDescription
 import Amazonka.KinesisAnalytics.Types.KinesisStreamsOutputDescription
 import Amazonka.KinesisAnalytics.Types.LambdaOutputDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the application output configuration, which includes the

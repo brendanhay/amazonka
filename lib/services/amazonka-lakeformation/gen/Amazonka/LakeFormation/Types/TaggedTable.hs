@@ -20,10 +20,10 @@
 module Amazonka.LakeFormation.Types.TaggedTable where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.ColumnLFTag
 import Amazonka.LakeFormation.Types.LFTagPair
 import Amazonka.LakeFormation.Types.TableResource
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure describing a table resource with LF-tags.

@@ -22,7 +22,7 @@ module Amazonka.APIGateway.Types.Method where
 import Amazonka.APIGateway.Types.Integration
 import Amazonka.APIGateway.Types.MethodResponse
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a client-facing interface by which the client calls the API

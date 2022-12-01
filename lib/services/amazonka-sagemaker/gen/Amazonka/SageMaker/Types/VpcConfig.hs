@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.VpcConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a VPC that your training jobs and hosted models have access

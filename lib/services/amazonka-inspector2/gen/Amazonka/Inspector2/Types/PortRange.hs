@@ -20,7 +20,7 @@
 module Amazonka.Inspector2.Types.PortRange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the port range associated with a finding.

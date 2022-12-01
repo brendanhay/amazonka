@@ -20,15 +20,19 @@
 module Amazonka.OpenSearch.Types.DomainInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.EngineType
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newDomainInfo' smart constructor.
+-- | Information about an OpenSearch Service domain.
+--
+-- /See:/ 'newDomainInfo' smart constructor.
 data DomainInfo = DomainInfo'
-  { -- | Specifies the @EngineType@ of the domain.
+  { -- | The type of search engine that the domain is running.@OpenSearch@ for an
+    -- OpenSearch engine, or @Elasticsearch@ for a legacy Elasticsearch OSS
+    -- engine.
     engineType :: Prelude.Maybe EngineType,
-    -- | The @DomainName@.
+    -- | Name of the domain.
     domainName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,9 +45,11 @@ data DomainInfo = DomainInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineType', 'domainInfo_engineType' - Specifies the @EngineType@ of the domain.
+-- 'engineType', 'domainInfo_engineType' - The type of search engine that the domain is running.@OpenSearch@ for an
+-- OpenSearch engine, or @Elasticsearch@ for a legacy Elasticsearch OSS
+-- engine.
 --
--- 'domainName', 'domainInfo_domainName' - The @DomainName@.
+-- 'domainName', 'domainInfo_domainName' - Name of the domain.
 newDomainInfo ::
   DomainInfo
 newDomainInfo =
@@ -52,11 +58,13 @@ newDomainInfo =
       domainName = Prelude.Nothing
     }
 
--- | Specifies the @EngineType@ of the domain.
+-- | The type of search engine that the domain is running.@OpenSearch@ for an
+-- OpenSearch engine, or @Elasticsearch@ for a legacy Elasticsearch OSS
+-- engine.
 domainInfo_engineType :: Lens.Lens' DomainInfo (Prelude.Maybe EngineType)
 domainInfo_engineType = Lens.lens (\DomainInfo' {engineType} -> engineType) (\s@DomainInfo' {} a -> s {engineType = a} :: DomainInfo)
 
--- | The @DomainName@.
+-- | Name of the domain.
 domainInfo_domainName :: Lens.Lens' DomainInfo (Prelude.Maybe Prelude.Text)
 domainInfo_domainName = Lens.lens (\DomainInfo' {domainName} -> domainName) (\s@DomainInfo' {} a -> s {domainName = a} :: DomainInfo)
 

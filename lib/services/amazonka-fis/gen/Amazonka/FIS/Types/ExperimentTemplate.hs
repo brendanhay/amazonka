@@ -20,11 +20,11 @@
 module Amazonka.FIS.Types.ExperimentTemplate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FIS.Types.ExperimentTemplateAction
 import Amazonka.FIS.Types.ExperimentTemplateLogConfiguration
 import Amazonka.FIS.Types.ExperimentTemplateStopCondition
 import Amazonka.FIS.Types.ExperimentTemplateTarget
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an experiment template.

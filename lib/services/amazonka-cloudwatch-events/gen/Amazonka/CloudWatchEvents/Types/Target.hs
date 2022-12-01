@@ -31,7 +31,7 @@ import Amazonka.CloudWatchEvents.Types.RunCommandParameters
 import Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters
 import Amazonka.CloudWatchEvents.Types.SqsParameters
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Targets are the resources to be invoked when a rule is triggered. For a

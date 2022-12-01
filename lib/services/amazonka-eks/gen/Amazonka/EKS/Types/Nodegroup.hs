@@ -20,6 +20,7 @@
 module Amazonka.EKS.Types.Nodegroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types.AMITypes
 import Amazonka.EKS.Types.CapacityTypes
 import Amazonka.EKS.Types.LaunchTemplateSpecification
@@ -30,7 +31,6 @@ import Amazonka.EKS.Types.NodegroupStatus
 import Amazonka.EKS.Types.NodegroupUpdateConfig
 import Amazonka.EKS.Types.RemoteAccessConfig
 import Amazonka.EKS.Types.Taint
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an Amazon EKS managed node group.

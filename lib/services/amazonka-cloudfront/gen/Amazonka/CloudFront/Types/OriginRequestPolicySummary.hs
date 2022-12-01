@@ -22,7 +22,7 @@ module Amazonka.CloudFront.Types.OriginRequestPolicySummary where
 import Amazonka.CloudFront.Types.OriginRequestPolicy
 import Amazonka.CloudFront.Types.OriginRequestPolicyType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an origin request policy.

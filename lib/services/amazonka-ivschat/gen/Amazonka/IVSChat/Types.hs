@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -29,8 +30,46 @@ module Amazonka.IVSChat.Types
     -- * ChatTokenCapability
     ChatTokenCapability (..),
 
+    -- * CreateLoggingConfigurationState
+    CreateLoggingConfigurationState (..),
+
     -- * FallbackResult
     FallbackResult (..),
+
+    -- * LoggingConfigurationState
+    LoggingConfigurationState (..),
+
+    -- * UpdateLoggingConfigurationState
+    UpdateLoggingConfigurationState (..),
+
+    -- * CloudWatchLogsDestinationConfiguration
+    CloudWatchLogsDestinationConfiguration (..),
+    newCloudWatchLogsDestinationConfiguration,
+    cloudWatchLogsDestinationConfiguration_logGroupName,
+
+    -- * DestinationConfiguration
+    DestinationConfiguration (..),
+    newDestinationConfiguration,
+    destinationConfiguration_cloudWatchLogs,
+    destinationConfiguration_firehose,
+    destinationConfiguration_s3,
+
+    -- * FirehoseDestinationConfiguration
+    FirehoseDestinationConfiguration (..),
+    newFirehoseDestinationConfiguration,
+    firehoseDestinationConfiguration_deliveryStreamName,
+
+    -- * LoggingConfigurationSummary
+    LoggingConfigurationSummary (..),
+    newLoggingConfigurationSummary,
+    loggingConfigurationSummary_tags,
+    loggingConfigurationSummary_name,
+    loggingConfigurationSummary_arn,
+    loggingConfigurationSummary_state,
+    loggingConfigurationSummary_id,
+    loggingConfigurationSummary_updateTime,
+    loggingConfigurationSummary_createTime,
+    loggingConfigurationSummary_destinationConfiguration,
 
     -- * MessageReviewHandler
     MessageReviewHandler (..),
@@ -42,21 +81,35 @@ module Amazonka.IVSChat.Types
     RoomSummary (..),
     newRoomSummary,
     roomSummary_tags,
+    roomSummary_loggingConfigurationIdentifiers,
     roomSummary_name,
     roomSummary_messageReviewHandler,
     roomSummary_arn,
     roomSummary_id,
     roomSummary_updateTime,
     roomSummary_createTime,
+
+    -- * S3DestinationConfiguration
+    S3DestinationConfiguration (..),
+    newS3DestinationConfiguration,
+    s3DestinationConfiguration_bucketName,
   )
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVSChat.Types.ChatTokenCapability
+import Amazonka.IVSChat.Types.CloudWatchLogsDestinationConfiguration
+import Amazonka.IVSChat.Types.CreateLoggingConfigurationState
+import Amazonka.IVSChat.Types.DestinationConfiguration
 import Amazonka.IVSChat.Types.FallbackResult
+import Amazonka.IVSChat.Types.FirehoseDestinationConfiguration
+import Amazonka.IVSChat.Types.LoggingConfigurationState
+import Amazonka.IVSChat.Types.LoggingConfigurationSummary
 import Amazonka.IVSChat.Types.MessageReviewHandler
 import Amazonka.IVSChat.Types.RoomSummary
-import qualified Amazonka.Lens as Lens
+import Amazonka.IVSChat.Types.S3DestinationConfiguration
+import Amazonka.IVSChat.Types.UpdateLoggingConfigurationState
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -64,27 +117,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "IVSChat",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "ivschat",
-      Core._serviceSigningName = "ivschat",
-      Core._serviceVersion = "2020-07-14",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "IVSChat",
-      Core._serviceRetry = retry
+    { Core.abbrev = "IVSChat",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "ivschat",
+      Core.signingName = "ivschat",
+      Core.version = "2020-07-14",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "IVSChat",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.UpsertRedshiftTargetOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The options to configure an upsert operation when writing to a Redshift

@@ -23,7 +23,7 @@ import Amazonka.AppMesh.Types.GrpcRoute
 import Amazonka.AppMesh.Types.HttpRoute
 import Amazonka.AppMesh.Types.TcpRoute
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a route specification. Specify one route type.

@@ -20,7 +20,7 @@
 module Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Route 53 resource that a DNS target resource record points to.

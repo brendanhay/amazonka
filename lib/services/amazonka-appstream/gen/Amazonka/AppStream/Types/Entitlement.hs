@@ -22,7 +22,7 @@ module Amazonka.AppStream.Types.Entitlement where
 import Amazonka.AppStream.Types.AppVisibility
 import Amazonka.AppStream.Types.EntitlementAttribute
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an entitlement. Entitlements control access to specific

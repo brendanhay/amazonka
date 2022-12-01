@@ -60,7 +60,7 @@ module Amazonka.PinpointSmsVoiceV2.DescribeOptedOutNumbers
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -167,8 +167,8 @@ instance Core.AWSRequest DescribeOptedOutNumbers where
   type
     AWSResponse DescribeOptedOutNumbers =
       DescribeOptedOutNumbersResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

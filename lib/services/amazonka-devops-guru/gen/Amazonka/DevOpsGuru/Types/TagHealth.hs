@@ -20,8 +20,8 @@
 module Amazonka.DevOpsGuru.Types.TagHealth where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.InsightHealth
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the health of Amazon Web Services resources in your

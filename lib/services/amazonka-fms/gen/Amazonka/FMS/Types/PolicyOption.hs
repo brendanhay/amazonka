@@ -20,9 +20,9 @@
 module Amazonka.FMS.Types.PolicyOption where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.NetworkFirewallPolicy
 import Amazonka.FMS.Types.ThirdPartyFirewallPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the Network Firewall firewall policy options to configure the

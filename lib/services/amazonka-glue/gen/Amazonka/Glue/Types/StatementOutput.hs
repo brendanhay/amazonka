@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.StatementOutput where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.StatementOutputData
 import Amazonka.Glue.Types.StatementState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The code execution output in JSON format.

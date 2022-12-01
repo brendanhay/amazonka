@@ -20,8 +20,9 @@
 module Amazonka.EMRServerless.Types.ApplicationSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRServerless.Types.ApplicationState
-import qualified Amazonka.Lens as Lens
+import Amazonka.EMRServerless.Types.Architecture
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of attributes associated with an application.
@@ -32,6 +33,8 @@ data ApplicationSummary = ApplicationSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The state details of the application.
     stateDetails :: Prelude.Maybe Prelude.Text,
+    -- | The CPU architecture of an application.
+    architecture :: Prelude.Maybe Architecture,
     -- | The ID of the application.
     id :: Prelude.Text,
     -- | The ARN of the application.
@@ -60,6 +63,8 @@ data ApplicationSummary = ApplicationSummary'
 -- 'name', 'applicationSummary_name' - The name of the application.
 --
 -- 'stateDetails', 'applicationSummary_stateDetails' - The state details of the application.
+--
+-- 'architecture', 'applicationSummary_architecture' - The CPU architecture of an application.
 --
 -- 'id', 'applicationSummary_id' - The ID of the application.
 --
@@ -101,6 +106,7 @@ newApplicationSummary
     ApplicationSummary'
       { name = Prelude.Nothing,
         stateDetails = Prelude.Nothing,
+        architecture = Prelude.Nothing,
         id = pId_,
         arn = pArn_,
         releaseLabel = pReleaseLabel_,
@@ -117,6 +123,10 @@ applicationSummary_name = Lens.lens (\ApplicationSummary' {name} -> name) (\s@Ap
 -- | The state details of the application.
 applicationSummary_stateDetails :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
 applicationSummary_stateDetails = Lens.lens (\ApplicationSummary' {stateDetails} -> stateDetails) (\s@ApplicationSummary' {} a -> s {stateDetails = a} :: ApplicationSummary)
+
+-- | The CPU architecture of an application.
+applicationSummary_architecture :: Lens.Lens' ApplicationSummary (Prelude.Maybe Architecture)
+applicationSummary_architecture = Lens.lens (\ApplicationSummary' {architecture} -> architecture) (\s@ApplicationSummary' {} a -> s {architecture = a} :: ApplicationSummary)
 
 -- | The ID of the application.
 applicationSummary_id :: Lens.Lens' ApplicationSummary Prelude.Text
@@ -154,6 +164,7 @@ instance Core.FromJSON ApplicationSummary where
           ApplicationSummary'
             Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "stateDetails")
+            Prelude.<*> (x Core..:? "architecture")
             Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "arn")
             Prelude.<*> (x Core..: "releaseLabel")
@@ -167,6 +178,7 @@ instance Prelude.Hashable ApplicationSummary where
   hashWithSalt _salt ApplicationSummary' {..} =
     _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` stateDetails
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` releaseLabel
@@ -179,6 +191,7 @@ instance Prelude.NFData ApplicationSummary where
   rnf ApplicationSummary' {..} =
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf stateDetails
+      `Prelude.seq` Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf releaseLabel

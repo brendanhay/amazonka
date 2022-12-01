@@ -20,11 +20,11 @@
 module Amazonka.DevOpsGuru.Types.ReactiveInsight where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.InsightSeverity
 import Amazonka.DevOpsGuru.Types.InsightStatus
 import Amazonka.DevOpsGuru.Types.InsightTimeRange
 import Amazonka.DevOpsGuru.Types.ResourceCollection
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a reactive insight. This object is returned by

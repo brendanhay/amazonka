@@ -20,11 +20,11 @@
 module Amazonka.GameLift.Types.GameSessionPlacement where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.GameProperty
 import Amazonka.GameLift.Types.GameSessionPlacementState
 import Amazonka.GameLift.Types.PlacedPlayerSession
 import Amazonka.GameLift.Types.PlayerLatency
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object that describes a StartGameSessionPlacement request. This object

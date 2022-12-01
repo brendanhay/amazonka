@@ -20,8 +20,8 @@
 module Amazonka.CostExplorer.Types.CostCategoryReference where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategoryProcessingStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A reference to a Cost Category containing only enough information to

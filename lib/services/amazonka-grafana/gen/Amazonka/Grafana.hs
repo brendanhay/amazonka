@@ -99,6 +99,12 @@ module Amazonka.Grafana
     DescribeWorkspaceAuthenticationResponse (DescribeWorkspaceAuthenticationResponse'),
     newDescribeWorkspaceAuthenticationResponse,
 
+    -- ** DescribeWorkspaceConfiguration
+    DescribeWorkspaceConfiguration (DescribeWorkspaceConfiguration'),
+    newDescribeWorkspaceConfiguration,
+    DescribeWorkspaceConfigurationResponse (DescribeWorkspaceConfigurationResponse'),
+    newDescribeWorkspaceConfigurationResponse,
+
     -- ** DisassociateLicense
     DisassociateLicense (DisassociateLicense'),
     newDisassociateLicense,
@@ -152,6 +158,12 @@ module Amazonka.Grafana
     newUpdateWorkspaceAuthentication,
     UpdateWorkspaceAuthenticationResponse (UpdateWorkspaceAuthenticationResponse'),
     newUpdateWorkspaceAuthenticationResponse,
+
+    -- ** UpdateWorkspaceConfiguration
+    UpdateWorkspaceConfiguration (UpdateWorkspaceConfiguration'),
+    newUpdateWorkspaceConfiguration,
+    UpdateWorkspaceConfigurationResponse (UpdateWorkspaceConfigurationResponse'),
+    newUpdateWorkspaceConfigurationResponse,
 
     -- * Types
 
@@ -236,6 +248,10 @@ module Amazonka.Grafana
     User (User'),
     newUser,
 
+    -- ** VpcConfiguration
+    VpcConfiguration (VpcConfiguration'),
+    newVpcConfiguration,
+
     -- ** WorkspaceDescription
     WorkspaceDescription (WorkspaceDescription'),
     newWorkspaceDescription,
@@ -253,6 +269,7 @@ import Amazonka.Grafana.DeleteWorkspace
 import Amazonka.Grafana.DeleteWorkspaceApiKey
 import Amazonka.Grafana.DescribeWorkspace
 import Amazonka.Grafana.DescribeWorkspaceAuthentication
+import Amazonka.Grafana.DescribeWorkspaceConfiguration
 import Amazonka.Grafana.DisassociateLicense
 import Amazonka.Grafana.Lens
 import Amazonka.Grafana.ListPermissions
@@ -264,6 +281,7 @@ import Amazonka.Grafana.UntagResource
 import Amazonka.Grafana.UpdatePermissions
 import Amazonka.Grafana.UpdateWorkspace
 import Amazonka.Grafana.UpdateWorkspaceAuthentication
+import Amazonka.Grafana.UpdateWorkspaceConfiguration
 import Amazonka.Grafana.Waiters
 
 -- $errors

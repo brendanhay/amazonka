@@ -23,7 +23,7 @@ import Amazonka.AlexaBusiness.Types.UpdateEndOfMeetingReminder
 import Amazonka.AlexaBusiness.Types.UpdateInstantBooking
 import Amazonka.AlexaBusiness.Types.UpdateRequireCheckIn
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates meeting room settings of a room profile.

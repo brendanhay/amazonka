@@ -20,7 +20,7 @@
 module Amazonka.BillingConductor.Types.AccountGrouping where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The set of accounts that will be under the billing group. The set of

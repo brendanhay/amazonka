@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.ContainerStateChange where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.NetworkBinding
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a change in state for a container.

@@ -602,6 +602,9 @@ module Amazonka.CloudFormation
     -- ** OnFailure
     OnFailure (..),
 
+    -- ** OperationResultFilterName
+    OperationResultFilterName (..),
+
     -- ** OperationStatus
     OperationStatus (..),
 
@@ -748,6 +751,10 @@ module Amazonka.CloudFormation
     ModuleInfo (ModuleInfo'),
     newModuleInfo,
 
+    -- ** OperationResultFilter
+    OperationResultFilter (OperationResultFilter'),
+    newOperationResultFilter,
+
     -- ** Output
     Output (Output'),
     newOutput,
@@ -879,6 +886,10 @@ module Amazonka.CloudFormation
     -- ** StackSetOperationResultSummary
     StackSetOperationResultSummary (StackSetOperationResultSummary'),
     newStackSetOperationResultSummary,
+
+    -- ** StackSetOperationStatusDetails
+    StackSetOperationStatusDetails (StackSetOperationStatusDetails'),
+    newStackSetOperationStatusDetails,
 
     -- ** StackSetOperationSummary
     StackSetOperationSummary (StackSetOperationSummary'),

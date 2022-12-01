@@ -20,12 +20,12 @@
 module Amazonka.FSx.Types.WindowsFileSystemConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.Alias
 import Amazonka.FSx.Types.FileSystemMaintenanceOperation
 import Amazonka.FSx.Types.SelfManagedActiveDirectoryAttributes
 import Amazonka.FSx.Types.WindowsAuditLogConfiguration
 import Amazonka.FSx.Types.WindowsDeploymentType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for this Microsoft Windows file system.

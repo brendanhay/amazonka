@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.KinesisStreamingSourceOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.StartingPosition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional options for the Amazon Kinesis streaming data source.

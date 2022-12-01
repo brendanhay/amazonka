@@ -30,7 +30,7 @@ import Amazonka.Batch.Types.Secret
 import Amazonka.Batch.Types.Ulimit
 import Amazonka.Batch.Types.Volume
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Container properties are used for Amazon ECS based job definitions.

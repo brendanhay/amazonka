@@ -20,8 +20,8 @@
 module Amazonka.GamesParks.Types.GeneratedCodeJobDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GamesParks.Types.GeneratedCodeJobState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a generated code job.

@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.Id3Insertion where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | To insert ID3 tags in your output, specify two values. Use ID3 tag (Id3)

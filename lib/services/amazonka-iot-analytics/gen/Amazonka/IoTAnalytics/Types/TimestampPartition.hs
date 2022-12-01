@@ -20,7 +20,7 @@
 module Amazonka.IoTAnalytics.Types.TimestampPartition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A partition dimension defined by a timestamp attribute.

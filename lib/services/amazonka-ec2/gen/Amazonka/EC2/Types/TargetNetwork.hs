@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.TargetNetwork where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AssociationStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a target network associated with a Client VPN endpoint.

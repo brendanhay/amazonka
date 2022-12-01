@@ -41,8 +41,8 @@ module Amazonka.GamesParks.GetExtension
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GamesParks.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,8 +89,8 @@ getExtension_namespace = Lens.lens (\GetExtension' {namespace} -> namespace) (\s
 
 instance Core.AWSRequest GetExtension where
   type AWSResponse GetExtension = GetExtensionResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

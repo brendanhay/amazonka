@@ -20,9 +20,9 @@
 module Amazonka.IoTEvents.Types.LoggingOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.DetectorDebugOption
 import Amazonka.IoTEvents.Types.LoggingLevel
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values of the AWS IoT Events logging options.

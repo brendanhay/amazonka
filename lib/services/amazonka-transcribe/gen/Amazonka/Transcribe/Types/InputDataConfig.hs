@@ -20,7 +20,7 @@
 module Amazonka.Transcribe.Types.InputDataConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the Amazon S3 location of the training data you want to use to

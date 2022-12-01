@@ -20,8 +20,8 @@
 module Amazonka.KinesisVideoMedia.Types.StartSelector where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisVideoMedia.Types.StartSelectorType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies the chunk on the Kinesis video stream where you want the

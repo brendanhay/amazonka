@@ -43,7 +43,7 @@ module Amazonka.MachineLearning.CreateRealtimeEndpoint
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -80,8 +80,8 @@ instance Core.AWSRequest CreateRealtimeEndpoint where
   type
     AWSResponse CreateRealtimeEndpoint =
       CreateRealtimeEndpointResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

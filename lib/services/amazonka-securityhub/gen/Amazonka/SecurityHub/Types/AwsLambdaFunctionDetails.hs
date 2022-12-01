@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsLambdaFunctionDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsLambdaFunctionCode
 import Amazonka.SecurityHub.Types.AwsLambdaFunctionDeadLetterConfig
@@ -29,7 +29,7 @@ import Amazonka.SecurityHub.Types.AwsLambdaFunctionLayer
 import Amazonka.SecurityHub.Types.AwsLambdaFunctionTracingConfig
 import Amazonka.SecurityHub.Types.AwsLambdaFunctionVpcConfig
 
--- | Details about a function\'s configuration.
+-- | Details about an Lambda function\'s configuration.
 --
 -- /See:/ 'newAwsLambdaFunctionDetails' smart constructor.
 data AwsLambdaFunctionDetails = AwsLambdaFunctionDetails'
@@ -62,6 +62,10 @@ data AwsLambdaFunctionDetails = AwsLambdaFunctionDetails'
     handler :: Prelude.Maybe Prelude.Text,
     -- | The function\'s layers.
     layers :: Prelude.Maybe [AwsLambdaFunctionLayer],
+    -- | The type of deployment package that\'s used to deploy the function code
+    -- to Lambda. Set to @Image@ for a container image and @Zip@ for a .zip
+    -- file archive.
+    packageType :: Prelude.Maybe Prelude.Text,
     -- | The latest updated revision of the function or alias.
     revisionId :: Prelude.Maybe Prelude.Text,
     -- | Indicates when the function was last updated.
@@ -73,6 +77,9 @@ data AwsLambdaFunctionDetails = AwsLambdaFunctionDetails'
     lastModified :: Prelude.Maybe Prelude.Text,
     -- | The function\'s execution role.
     role' :: Prelude.Maybe Prelude.Text,
+    -- | The instruction set architecture that the function uses. Valid values
+    -- are @x86_64@ or @arm64@.
+    architectures :: Prelude.Maybe [Prelude.Text],
     -- | The version of the Lambda function.
     version :: Prelude.Maybe Prelude.Text,
     -- | The function\'s dead letter queue.
@@ -117,6 +124,10 @@ data AwsLambdaFunctionDetails = AwsLambdaFunctionDetails'
 --
 -- 'layers', 'awsLambdaFunctionDetails_layers' - The function\'s layers.
 --
+-- 'packageType', 'awsLambdaFunctionDetails_packageType' - The type of deployment package that\'s used to deploy the function code
+-- to Lambda. Set to @Image@ for a container image and @Zip@ for a .zip
+-- file archive.
+--
 -- 'revisionId', 'awsLambdaFunctionDetails_revisionId' - The latest updated revision of the function or alias.
 --
 -- 'lastModified', 'awsLambdaFunctionDetails_lastModified' - Indicates when the function was last updated.
@@ -127,6 +138,9 @@ data AwsLambdaFunctionDetails = AwsLambdaFunctionDetails'
 -- @2020-03-22T13:22:13.933Z@.
 --
 -- 'role'', 'awsLambdaFunctionDetails_role' - The function\'s execution role.
+--
+-- 'architectures', 'awsLambdaFunctionDetails_architectures' - The instruction set architecture that the function uses. Valid values
+-- are @x86_64@ or @arm64@.
 --
 -- 'version', 'awsLambdaFunctionDetails_version' - The version of the Lambda function.
 --
@@ -149,9 +163,11 @@ newAwsLambdaFunctionDetails =
       kmsKeyArn = Prelude.Nothing,
       handler = Prelude.Nothing,
       layers = Prelude.Nothing,
+      packageType = Prelude.Nothing,
       revisionId = Prelude.Nothing,
       lastModified = Prelude.Nothing,
       role' = Prelude.Nothing,
+      architectures = Prelude.Nothing,
       version = Prelude.Nothing,
       deadLetterConfig = Prelude.Nothing
     }
@@ -211,6 +227,12 @@ awsLambdaFunctionDetails_handler = Lens.lens (\AwsLambdaFunctionDetails' {handle
 awsLambdaFunctionDetails_layers :: Lens.Lens' AwsLambdaFunctionDetails (Prelude.Maybe [AwsLambdaFunctionLayer])
 awsLambdaFunctionDetails_layers = Lens.lens (\AwsLambdaFunctionDetails' {layers} -> layers) (\s@AwsLambdaFunctionDetails' {} a -> s {layers = a} :: AwsLambdaFunctionDetails) Prelude.. Lens.mapping Lens.coerced
 
+-- | The type of deployment package that\'s used to deploy the function code
+-- to Lambda. Set to @Image@ for a container image and @Zip@ for a .zip
+-- file archive.
+awsLambdaFunctionDetails_packageType :: Lens.Lens' AwsLambdaFunctionDetails (Prelude.Maybe Prelude.Text)
+awsLambdaFunctionDetails_packageType = Lens.lens (\AwsLambdaFunctionDetails' {packageType} -> packageType) (\s@AwsLambdaFunctionDetails' {} a -> s {packageType = a} :: AwsLambdaFunctionDetails)
+
 -- | The latest updated revision of the function or alias.
 awsLambdaFunctionDetails_revisionId :: Lens.Lens' AwsLambdaFunctionDetails (Prelude.Maybe Prelude.Text)
 awsLambdaFunctionDetails_revisionId = Lens.lens (\AwsLambdaFunctionDetails' {revisionId} -> revisionId) (\s@AwsLambdaFunctionDetails' {} a -> s {revisionId = a} :: AwsLambdaFunctionDetails)
@@ -227,6 +249,11 @@ awsLambdaFunctionDetails_lastModified = Lens.lens (\AwsLambdaFunctionDetails' {l
 -- | The function\'s execution role.
 awsLambdaFunctionDetails_role :: Lens.Lens' AwsLambdaFunctionDetails (Prelude.Maybe Prelude.Text)
 awsLambdaFunctionDetails_role = Lens.lens (\AwsLambdaFunctionDetails' {role'} -> role') (\s@AwsLambdaFunctionDetails' {} a -> s {role' = a} :: AwsLambdaFunctionDetails)
+
+-- | The instruction set architecture that the function uses. Valid values
+-- are @x86_64@ or @arm64@.
+awsLambdaFunctionDetails_architectures :: Lens.Lens' AwsLambdaFunctionDetails (Prelude.Maybe [Prelude.Text])
+awsLambdaFunctionDetails_architectures = Lens.lens (\AwsLambdaFunctionDetails' {architectures} -> architectures) (\s@AwsLambdaFunctionDetails' {} a -> s {architectures = a} :: AwsLambdaFunctionDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version of the Lambda function.
 awsLambdaFunctionDetails_version :: Lens.Lens' AwsLambdaFunctionDetails (Prelude.Maybe Prelude.Text)
@@ -255,9 +282,11 @@ instance Core.FromJSON AwsLambdaFunctionDetails where
             Prelude.<*> (x Core..:? "KmsKeyArn")
             Prelude.<*> (x Core..:? "Handler")
             Prelude.<*> (x Core..:? "Layers" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "PackageType")
             Prelude.<*> (x Core..:? "RevisionId")
             Prelude.<*> (x Core..:? "LastModified")
             Prelude.<*> (x Core..:? "Role")
+            Prelude.<*> (x Core..:? "Architectures" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "DeadLetterConfig")
       )
@@ -277,9 +306,11 @@ instance Prelude.Hashable AwsLambdaFunctionDetails where
       `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` handler
       `Prelude.hashWithSalt` layers
+      `Prelude.hashWithSalt` packageType
       `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` deadLetterConfig
 
@@ -298,9 +329,11 @@ instance Prelude.NFData AwsLambdaFunctionDetails where
       `Prelude.seq` Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf handler
       `Prelude.seq` Prelude.rnf layers
+      `Prelude.seq` Prelude.rnf packageType
       `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf lastModified
       `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf architectures
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf deadLetterConfig
 
@@ -321,9 +354,11 @@ instance Core.ToJSON AwsLambdaFunctionDetails where
             ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
             ("Handler" Core..=) Prelude.<$> handler,
             ("Layers" Core..=) Prelude.<$> layers,
+            ("PackageType" Core..=) Prelude.<$> packageType,
             ("RevisionId" Core..=) Prelude.<$> revisionId,
             ("LastModified" Core..=) Prelude.<$> lastModified,
             ("Role" Core..=) Prelude.<$> role',
+            ("Architectures" Core..=) Prelude.<$> architectures,
             ("Version" Core..=) Prelude.<$> version,
             ("DeadLetterConfig" Core..=)
               Prelude.<$> deadLetterConfig

@@ -20,9 +20,9 @@
 module Amazonka.Forecast.Types.ExplainabilityConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.TimePointGranularity
 import Amazonka.Forecast.Types.TimeSeriesGranularity
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The ExplainabilityConfig data type defines the number of time series and

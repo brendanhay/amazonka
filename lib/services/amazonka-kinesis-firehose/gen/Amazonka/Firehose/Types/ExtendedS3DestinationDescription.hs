@@ -20,6 +20,7 @@
 module Amazonka.Firehose.Types.ExtendedS3DestinationDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.BufferingHints
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.CompressionFormat
@@ -29,7 +30,6 @@ import Amazonka.Firehose.Types.EncryptionConfiguration
 import Amazonka.Firehose.Types.ProcessingConfiguration
 import Amazonka.Firehose.Types.S3BackupMode
 import Amazonka.Firehose.Types.S3DestinationDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a destination in Amazon S3.

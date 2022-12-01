@@ -22,7 +22,7 @@ module Amazonka.AutoScaling.Types.DesiredConfiguration where
 import Amazonka.AutoScaling.Types.LaunchTemplateSpecification
 import Amazonka.AutoScaling.Types.MixedInstancesPolicy
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the desired configuration for an instance refresh.

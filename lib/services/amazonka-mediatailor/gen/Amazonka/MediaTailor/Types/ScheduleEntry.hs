@@ -20,7 +20,7 @@
 module Amazonka.MediaTailor.Types.ScheduleEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaTailor.Types.ScheduleAdBreak
 import Amazonka.MediaTailor.Types.ScheduleEntryType
 import qualified Amazonka.Prelude as Prelude

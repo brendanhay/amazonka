@@ -20,16 +20,16 @@
 module Amazonka.ELBV2.Types.HostHeaderConditionConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a host header condition.
 --
 -- /See:/ 'newHostHeaderConditionConfig' smart constructor.
 data HostHeaderConditionConfig = HostHeaderConditionConfig'
-  { -- | One or more host names. The maximum size of each name is 128 characters.
-    -- The comparison is case insensitive. The following wildcard characters
-    -- are supported: * (matches 0 or more characters) and ? (matches exactly 1
+  { -- | The host names. The maximum size of each name is 128 characters. The
+    -- comparison is case insensitive. The following wildcard characters are
+    -- supported: * (matches 0 or more characters) and ? (matches exactly 1
     -- character).
     --
     -- If you specify multiple strings, the condition is satisfied if one of
@@ -46,9 +46,9 @@ data HostHeaderConditionConfig = HostHeaderConditionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'hostHeaderConditionConfig_values' - One or more host names. The maximum size of each name is 128 characters.
--- The comparison is case insensitive. The following wildcard characters
--- are supported: * (matches 0 or more characters) and ? (matches exactly 1
+-- 'values', 'hostHeaderConditionConfig_values' - The host names. The maximum size of each name is 128 characters. The
+-- comparison is case insensitive. The following wildcard characters are
+-- supported: * (matches 0 or more characters) and ? (matches exactly 1
 -- character).
 --
 -- If you specify multiple strings, the condition is satisfied if one of
@@ -61,9 +61,9 @@ newHostHeaderConditionConfig =
         Prelude.Nothing
     }
 
--- | One or more host names. The maximum size of each name is 128 characters.
--- The comparison is case insensitive. The following wildcard characters
--- are supported: * (matches 0 or more characters) and ? (matches exactly 1
+-- | The host names. The maximum size of each name is 128 characters. The
+-- comparison is case insensitive. The following wildcard characters are
+-- supported: * (matches 0 or more characters) and ? (matches exactly 1
 -- character).
 --
 -- If you specify multiple strings, the condition is satisfied if one of

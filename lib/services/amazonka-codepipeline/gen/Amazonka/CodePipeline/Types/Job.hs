@@ -21,7 +21,7 @@ module Amazonka.CodePipeline.Types.Job where
 
 import Amazonka.CodePipeline.Types.JobData
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about a job.

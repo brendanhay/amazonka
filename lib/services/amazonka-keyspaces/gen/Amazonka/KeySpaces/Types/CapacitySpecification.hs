@@ -20,8 +20,8 @@
 module Amazonka.KeySpaces.Types.CapacitySpecification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KeySpaces.Types.ThroughputMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon Keyspaces has two read\/write capacity modes for processing reads

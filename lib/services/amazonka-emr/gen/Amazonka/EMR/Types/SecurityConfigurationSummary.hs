@@ -20,7 +20,7 @@
 module Amazonka.EMR.Types.SecurityConfigurationSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The creation date and time, and name, of a security configuration.

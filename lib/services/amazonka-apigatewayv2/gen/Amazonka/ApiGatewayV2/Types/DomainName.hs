@@ -22,7 +22,7 @@ module Amazonka.ApiGatewayV2.Types.DomainName where
 import Amazonka.ApiGatewayV2.Types.DomainNameConfiguration
 import Amazonka.ApiGatewayV2.Types.MutualTlsAuthentication
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a domain name.

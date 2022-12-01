@@ -24,7 +24,7 @@ import Amazonka.CodeBuild.Types.ArtifactPackaging
 import Amazonka.CodeBuild.Types.ArtifactsType
 import Amazonka.CodeBuild.Types.BucketOwnerAccess
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the build output artifacts for the build project.

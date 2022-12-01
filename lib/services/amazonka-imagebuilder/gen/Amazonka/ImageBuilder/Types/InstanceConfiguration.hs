@@ -20,8 +20,8 @@
 module Amazonka.ImageBuilder.Types.InstanceConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.InstanceBlockDeviceMapping
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a custom base AMI and block device mapping configurations of an

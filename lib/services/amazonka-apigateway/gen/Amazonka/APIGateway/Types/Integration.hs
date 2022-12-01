@@ -25,7 +25,7 @@ import Amazonka.APIGateway.Types.IntegrationResponse
 import Amazonka.APIGateway.Types.IntegrationType
 import Amazonka.APIGateway.Types.TlsConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.

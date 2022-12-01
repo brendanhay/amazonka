@@ -629,6 +629,9 @@ module Amazonka.Rekognition
     -- ** DatasetType
     DatasetType (..),
 
+    -- ** DetectLabelsFeatureName
+    DetectLabelsFeatureName (..),
+
     -- ** EmotionName
     EmotionName (..),
 
@@ -788,6 +791,30 @@ module Amazonka.Rekognition
     DatasetStats (DatasetStats'),
     newDatasetStats,
 
+    -- ** DetectLabelsImageBackground
+    DetectLabelsImageBackground (DetectLabelsImageBackground'),
+    newDetectLabelsImageBackground,
+
+    -- ** DetectLabelsImageForeground
+    DetectLabelsImageForeground (DetectLabelsImageForeground'),
+    newDetectLabelsImageForeground,
+
+    -- ** DetectLabelsImageProperties
+    DetectLabelsImageProperties (DetectLabelsImageProperties'),
+    newDetectLabelsImageProperties,
+
+    -- ** DetectLabelsImagePropertiesSettings
+    DetectLabelsImagePropertiesSettings (DetectLabelsImagePropertiesSettings'),
+    newDetectLabelsImagePropertiesSettings,
+
+    -- ** DetectLabelsImageQuality
+    DetectLabelsImageQuality (DetectLabelsImageQuality'),
+    newDetectLabelsImageQuality,
+
+    -- ** DetectLabelsSettings
+    DetectLabelsSettings (DetectLabelsSettings'),
+    newDetectLabelsSettings,
+
     -- ** DetectTextFilters
     DetectTextFilters (DetectTextFilters'),
     newDetectTextFilters,
@@ -799,6 +826,10 @@ module Amazonka.Rekognition
     -- ** DistributeDataset
     DistributeDataset (DistributeDataset'),
     newDistributeDataset,
+
+    -- ** DominantColor
+    DominantColor (DominantColor'),
+    newDominantColor,
 
     -- ** Emotion
     Emotion (Emotion'),
@@ -847,6 +878,10 @@ module Amazonka.Rekognition
     -- ** Gender
     Gender (Gender'),
     newGender,
+
+    -- ** GeneralLabelsSettings
+    GeneralLabelsSettings (GeneralLabelsSettings'),
+    newGeneralLabelsSettings,
 
     -- ** Geometry
     Geometry (Geometry'),
@@ -899,6 +934,14 @@ module Amazonka.Rekognition
     -- ** Label
     Label (Label'),
     newLabel,
+
+    -- ** LabelAlias
+    LabelAlias (LabelAlias'),
+    newLabelAlias,
+
+    -- ** LabelCategory
+    LabelCategory (LabelCategory'),
+    newLabelCategory,
 
     -- ** LabelDetection
     LabelDetection (LabelDetection'),

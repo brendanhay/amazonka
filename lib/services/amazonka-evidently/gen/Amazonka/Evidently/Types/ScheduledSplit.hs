@@ -20,8 +20,8 @@
 module Amazonka.Evidently.Types.ScheduledSplit where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Evidently.Types.SegmentOverride
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure defines the traffic allocation percentages among the

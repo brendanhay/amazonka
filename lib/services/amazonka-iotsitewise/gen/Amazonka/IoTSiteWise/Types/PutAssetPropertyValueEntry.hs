@@ -20,8 +20,8 @@
 module Amazonka.IoTSiteWise.Types.PutAssetPropertyValueEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.AssetPropertyValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a list of value updates for an asset property in the list of

@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.JourneyEmailMessage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the \"From\" address for an email message that\'s sent to

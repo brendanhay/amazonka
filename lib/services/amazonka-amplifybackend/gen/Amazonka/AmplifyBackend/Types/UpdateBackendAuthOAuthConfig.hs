@@ -23,7 +23,7 @@ import Amazonka.AmplifyBackend.Types.OAuthGrantType
 import Amazonka.AmplifyBackend.Types.OAuthScopesElement
 import Amazonka.AmplifyBackend.Types.SocialProviderSettings
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The OAuth configurations for authenticating users into your Amplify app.

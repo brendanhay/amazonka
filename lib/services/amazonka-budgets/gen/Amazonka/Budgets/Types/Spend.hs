@@ -20,7 +20,7 @@
 module Amazonka.Budgets.Types.Spend where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of cost or usage that\'s measured for a budget.

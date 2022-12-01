@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ArchitectureValues
   ( ArchitectureValues
       ( ..,
         ArchitectureValues_Arm64,
+        ArchitectureValues_Arm64_mac,
         ArchitectureValues_I386,
         ArchitectureValues_X86_64,
         ArchitectureValues_X86_64_mac
@@ -63,6 +64,9 @@ newtype ArchitectureValues = ArchitectureValues'
 pattern ArchitectureValues_Arm64 :: ArchitectureValues
 pattern ArchitectureValues_Arm64 = ArchitectureValues' "arm64"
 
+pattern ArchitectureValues_Arm64_mac :: ArchitectureValues
+pattern ArchitectureValues_Arm64_mac = ArchitectureValues' "arm64_mac"
+
 pattern ArchitectureValues_I386 :: ArchitectureValues
 pattern ArchitectureValues_I386 = ArchitectureValues' "i386"
 
@@ -74,6 +78,7 @@ pattern ArchitectureValues_X86_64_mac = ArchitectureValues' "x86_64_mac"
 
 {-# COMPLETE
   ArchitectureValues_Arm64,
+  ArchitectureValues_Arm64_mac,
   ArchitectureValues_I386,
   ArchitectureValues_X86_64,
   ArchitectureValues_X86_64_mac,

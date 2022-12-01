@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.UpdateFileSystemOntapConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.DiskIopsConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration updates for an Amazon FSx for NetApp ONTAP file

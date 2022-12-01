@@ -74,8 +74,8 @@ module Amazonka.IAM.TagUser
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,8 +138,8 @@ tagUser_tags = Lens.lens (\TagUser' {tags} -> tags) (\s@TagUser' {} a -> s {tags
 
 instance Core.AWSRequest TagUser where
   type AWSResponse TagUser = TagUserResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response = Response.receiveNull TagUserResponse'
 
 instance Prelude.Hashable TagUser where

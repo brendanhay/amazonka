@@ -21,7 +21,7 @@ module Amazonka.CertificateManagerPCA.Types.AccessMethod where
 
 import Amazonka.CertificateManagerPCA.Types.AccessMethodType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the type and format of extension access. Only one of

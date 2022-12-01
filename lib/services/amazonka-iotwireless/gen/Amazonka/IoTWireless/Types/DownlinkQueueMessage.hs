@@ -20,8 +20,8 @@
 module Amazonka.IoTWireless.Types.DownlinkQueueMessage where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.LoRaWANSendDataToDevice
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The message in the downlink queue.

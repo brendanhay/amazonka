@@ -22,7 +22,7 @@ module Amazonka.BillingConductor.Types.PricingRuleListElement where
 import Amazonka.BillingConductor.Types.PricingRuleScope
 import Amazonka.BillingConductor.Types.PricingRuleType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a pricing rule.
@@ -33,6 +33,10 @@ data PricingRuleListElement = PricingRuleListElement'
     modifierPercentage :: Prelude.Maybe Prelude.Double,
     -- | The name of a pricing rule.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The seller of services provided by Amazon Web Services, their
+    -- affiliates, or third-party providers selling services via Amazon Web
+    -- Services Marketplace.
+    billingEntity :: Prelude.Maybe Prelude.Text,
     -- | The type of pricing rule.
     type' :: Prelude.Maybe PricingRuleType,
     -- | The Amazon Resource Name (ARN) used to uniquely identify a pricing rule.
@@ -42,14 +46,14 @@ data PricingRuleListElement = PricingRuleListElement'
     -- | If the @Scope@ attribute is @SERVICE@, this attribute indicates which
     -- service the @PricingRule@ is applicable for.
     service :: Prelude.Maybe Prelude.Text,
-    -- | The most recent time the pricing rule was modified.
+    -- | The most recent time when the pricing rule was modified.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
     -- | The scope of pricing rule that indicates if it is globally applicable,
     -- or if it is service-specific.
     scope :: Prelude.Maybe PricingRuleScope,
     -- | The pricing plans count that this pricing rule is associated with.
     associatedPricingPlanCount :: Prelude.Maybe Prelude.Natural,
-    -- | The time the pricing rule was created.
+    -- | The time when the pricing rule was created.
     creationTime :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -66,6 +70,10 @@ data PricingRuleListElement = PricingRuleListElement'
 --
 -- 'name', 'pricingRuleListElement_name' - The name of a pricing rule.
 --
+-- 'billingEntity', 'pricingRuleListElement_billingEntity' - The seller of services provided by Amazon Web Services, their
+-- affiliates, or third-party providers selling services via Amazon Web
+-- Services Marketplace.
+--
 -- 'type'', 'pricingRuleListElement_type' - The type of pricing rule.
 --
 -- 'arn', 'pricingRuleListElement_arn' - The Amazon Resource Name (ARN) used to uniquely identify a pricing rule.
@@ -75,14 +83,14 @@ data PricingRuleListElement = PricingRuleListElement'
 -- 'service', 'pricingRuleListElement_service' - If the @Scope@ attribute is @SERVICE@, this attribute indicates which
 -- service the @PricingRule@ is applicable for.
 --
--- 'lastModifiedTime', 'pricingRuleListElement_lastModifiedTime' - The most recent time the pricing rule was modified.
+-- 'lastModifiedTime', 'pricingRuleListElement_lastModifiedTime' - The most recent time when the pricing rule was modified.
 --
 -- 'scope', 'pricingRuleListElement_scope' - The scope of pricing rule that indicates if it is globally applicable,
 -- or if it is service-specific.
 --
 -- 'associatedPricingPlanCount', 'pricingRuleListElement_associatedPricingPlanCount' - The pricing plans count that this pricing rule is associated with.
 --
--- 'creationTime', 'pricingRuleListElement_creationTime' - The time the pricing rule was created.
+-- 'creationTime', 'pricingRuleListElement_creationTime' - The time when the pricing rule was created.
 newPricingRuleListElement ::
   PricingRuleListElement
 newPricingRuleListElement =
@@ -90,6 +98,7 @@ newPricingRuleListElement =
     { modifierPercentage =
         Prelude.Nothing,
       name = Prelude.Nothing,
+      billingEntity = Prelude.Nothing,
       type' = Prelude.Nothing,
       arn = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -108,6 +117,12 @@ pricingRuleListElement_modifierPercentage = Lens.lens (\PricingRuleListElement' 
 pricingRuleListElement_name :: Lens.Lens' PricingRuleListElement (Prelude.Maybe Prelude.Text)
 pricingRuleListElement_name = Lens.lens (\PricingRuleListElement' {name} -> name) (\s@PricingRuleListElement' {} a -> s {name = a} :: PricingRuleListElement) Prelude.. Lens.mapping Core._Sensitive
 
+-- | The seller of services provided by Amazon Web Services, their
+-- affiliates, or third-party providers selling services via Amazon Web
+-- Services Marketplace.
+pricingRuleListElement_billingEntity :: Lens.Lens' PricingRuleListElement (Prelude.Maybe Prelude.Text)
+pricingRuleListElement_billingEntity = Lens.lens (\PricingRuleListElement' {billingEntity} -> billingEntity) (\s@PricingRuleListElement' {} a -> s {billingEntity = a} :: PricingRuleListElement)
+
 -- | The type of pricing rule.
 pricingRuleListElement_type :: Lens.Lens' PricingRuleListElement (Prelude.Maybe PricingRuleType)
 pricingRuleListElement_type = Lens.lens (\PricingRuleListElement' {type'} -> type') (\s@PricingRuleListElement' {} a -> s {type' = a} :: PricingRuleListElement)
@@ -125,7 +140,7 @@ pricingRuleListElement_description = Lens.lens (\PricingRuleListElement' {descri
 pricingRuleListElement_service :: Lens.Lens' PricingRuleListElement (Prelude.Maybe Prelude.Text)
 pricingRuleListElement_service = Lens.lens (\PricingRuleListElement' {service} -> service) (\s@PricingRuleListElement' {} a -> s {service = a} :: PricingRuleListElement)
 
--- | The most recent time the pricing rule was modified.
+-- | The most recent time when the pricing rule was modified.
 pricingRuleListElement_lastModifiedTime :: Lens.Lens' PricingRuleListElement (Prelude.Maybe Prelude.Integer)
 pricingRuleListElement_lastModifiedTime = Lens.lens (\PricingRuleListElement' {lastModifiedTime} -> lastModifiedTime) (\s@PricingRuleListElement' {} a -> s {lastModifiedTime = a} :: PricingRuleListElement)
 
@@ -138,7 +153,7 @@ pricingRuleListElement_scope = Lens.lens (\PricingRuleListElement' {scope} -> sc
 pricingRuleListElement_associatedPricingPlanCount :: Lens.Lens' PricingRuleListElement (Prelude.Maybe Prelude.Natural)
 pricingRuleListElement_associatedPricingPlanCount = Lens.lens (\PricingRuleListElement' {associatedPricingPlanCount} -> associatedPricingPlanCount) (\s@PricingRuleListElement' {} a -> s {associatedPricingPlanCount = a} :: PricingRuleListElement)
 
--- | The time the pricing rule was created.
+-- | The time when the pricing rule was created.
 pricingRuleListElement_creationTime :: Lens.Lens' PricingRuleListElement (Prelude.Maybe Prelude.Integer)
 pricingRuleListElement_creationTime = Lens.lens (\PricingRuleListElement' {creationTime} -> creationTime) (\s@PricingRuleListElement' {} a -> s {creationTime = a} :: PricingRuleListElement)
 
@@ -150,6 +165,7 @@ instance Core.FromJSON PricingRuleListElement where
           PricingRuleListElement'
             Prelude.<$> (x Core..:? "ModifierPercentage")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "BillingEntity")
             Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Description")
@@ -164,6 +180,7 @@ instance Prelude.Hashable PricingRuleListElement where
   hashWithSalt _salt PricingRuleListElement' {..} =
     _salt `Prelude.hashWithSalt` modifierPercentage
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` billingEntity
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
@@ -177,6 +194,7 @@ instance Prelude.NFData PricingRuleListElement where
   rnf PricingRuleListElement' {..} =
     Prelude.rnf modifierPercentage
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf billingEntity
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description

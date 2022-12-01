@@ -20,10 +20,10 @@
 module Amazonka.DynamoDB.Types.AttributeDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ScalarAttributeType
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an attribute for describing the key schema for the table and

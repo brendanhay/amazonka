@@ -46,7 +46,7 @@ module Amazonka.ServiceCatalogAppRegistry.ListAttributeGroupsForApplication
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,8 +138,8 @@ instance
   type
     AWSResponse ListAttributeGroupsForApplication =
       ListAttributeGroupsForApplicationResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -211,7 +211,7 @@ data ListAttributeGroupsForApplicationResponse = ListAttributeGroupsForApplicati
   { -- | The token to use to get the next page of results after a previous API
     -- call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The details related to a specific AttributeGroup.
+    -- | The details related to a specific attribute group.
     attributeGroupsDetails :: Prelude.Maybe [AttributeGroupDetails],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -229,7 +229,7 @@ data ListAttributeGroupsForApplicationResponse = ListAttributeGroupsForApplicati
 -- 'nextToken', 'listAttributeGroupsForApplicationResponse_nextToken' - The token to use to get the next page of results after a previous API
 -- call.
 --
--- 'attributeGroupsDetails', 'listAttributeGroupsForApplicationResponse_attributeGroupsDetails' - The details related to a specific AttributeGroup.
+-- 'attributeGroupsDetails', 'listAttributeGroupsForApplicationResponse_attributeGroupsDetails' - The details related to a specific attribute group.
 --
 -- 'httpStatus', 'listAttributeGroupsForApplicationResponse_httpStatus' - The response's http status code.
 newListAttributeGroupsForApplicationResponse ::
@@ -251,7 +251,7 @@ newListAttributeGroupsForApplicationResponse
 listAttributeGroupsForApplicationResponse_nextToken :: Lens.Lens' ListAttributeGroupsForApplicationResponse (Prelude.Maybe Prelude.Text)
 listAttributeGroupsForApplicationResponse_nextToken = Lens.lens (\ListAttributeGroupsForApplicationResponse' {nextToken} -> nextToken) (\s@ListAttributeGroupsForApplicationResponse' {} a -> s {nextToken = a} :: ListAttributeGroupsForApplicationResponse)
 
--- | The details related to a specific AttributeGroup.
+-- | The details related to a specific attribute group.
 listAttributeGroupsForApplicationResponse_attributeGroupsDetails :: Lens.Lens' ListAttributeGroupsForApplicationResponse (Prelude.Maybe [AttributeGroupDetails])
 listAttributeGroupsForApplicationResponse_attributeGroupsDetails = Lens.lens (\ListAttributeGroupsForApplicationResponse' {attributeGroupsDetails} -> attributeGroupsDetails) (\s@ListAttributeGroupsForApplicationResponse' {} a -> s {attributeGroupsDetails = a} :: ListAttributeGroupsForApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 

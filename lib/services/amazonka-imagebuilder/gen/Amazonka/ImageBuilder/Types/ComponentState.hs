@@ -20,8 +20,8 @@
 module Amazonka.ImageBuilder.Types.ComponentState where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.ComponentStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A group of fields that describe the current status of components that

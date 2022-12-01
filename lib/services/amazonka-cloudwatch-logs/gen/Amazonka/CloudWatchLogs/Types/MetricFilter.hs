@@ -21,7 +21,7 @@ module Amazonka.CloudWatchLogs.Types.MetricFilter where
 
 import Amazonka.CloudWatchLogs.Types.MetricTransformation
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metric filters express how CloudWatch Logs would extract metric

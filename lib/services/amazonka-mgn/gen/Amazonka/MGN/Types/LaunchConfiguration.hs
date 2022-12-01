@@ -20,7 +20,7 @@
 module Amazonka.MGN.Types.LaunchConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MGN.Types.BootMode
 import Amazonka.MGN.Types.LaunchDisposition
 import Amazonka.MGN.Types.Licensing

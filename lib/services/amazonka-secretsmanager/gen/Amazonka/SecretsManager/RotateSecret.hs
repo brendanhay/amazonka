@@ -57,6 +57,11 @@
 -- later invocation of @RotateSecret@ assumes that a previous rotation
 -- request is still in progress and returns an error.
 --
+-- When rotation is unsuccessful, the @AWSPENDING@ staging label might be
+-- attached to an empty secret version. For more information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html Troubleshoot rotation>
+-- in the /Secrets Manager User Guide/.
+--
 -- Secrets Manager generates a CloudTrail log entry when you call this
 -- action. Do not include sensitive information in request parameters
 -- because it might be logged. For more information, see
@@ -95,7 +100,7 @@ module Amazonka.SecretsManager.RotateSecret
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -264,8 +269,8 @@ rotateSecret_secretId = Lens.lens (\RotateSecret' {secretId} -> secretId) (\s@Ro
 
 instance Core.AWSRequest RotateSecret where
   type AWSResponse RotateSecret = RotateSecretResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

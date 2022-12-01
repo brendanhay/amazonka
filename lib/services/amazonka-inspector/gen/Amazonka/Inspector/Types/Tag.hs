@@ -20,7 +20,7 @@
 module Amazonka.Inspector.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A key and value pair. This data type is used as a request parameter in

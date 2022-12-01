@@ -20,8 +20,8 @@
 module Amazonka.GameLift.Types.IpPermission where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.IpProtocol
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A range of IP addresses and port settings that allow inbound traffic to

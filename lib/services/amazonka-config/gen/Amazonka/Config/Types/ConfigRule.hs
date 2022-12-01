@@ -24,7 +24,7 @@ import Amazonka.Config.Types.MaximumExecutionFrequency
 import Amazonka.Config.Types.Scope
 import Amazonka.Config.Types.Source
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Config rules evaluate the configuration settings of your Amazon Web

@@ -21,7 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.ComponentEvent where
 
 import Amazonka.AmplifyUiBuilder.Types.ActionParameters
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of an event. You can bind an event and a

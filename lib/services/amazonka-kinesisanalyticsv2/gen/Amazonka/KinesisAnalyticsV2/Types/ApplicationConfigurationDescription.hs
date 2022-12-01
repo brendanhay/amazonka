@@ -20,6 +20,7 @@
 module Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.EnvironmentPropertyDescriptions
@@ -28,7 +29,6 @@ import Amazonka.KinesisAnalyticsV2.Types.RunConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.VpcConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes details about the application code and starting parameters for

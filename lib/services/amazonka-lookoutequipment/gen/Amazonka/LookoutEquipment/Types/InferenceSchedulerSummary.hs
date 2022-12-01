@@ -20,7 +20,7 @@
 module Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutEquipment.Types.DataUploadFrequency
 import Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus
 import Amazonka.LookoutEquipment.Types.LatestInferenceResult

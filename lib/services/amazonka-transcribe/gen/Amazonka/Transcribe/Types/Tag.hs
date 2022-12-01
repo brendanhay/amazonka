@@ -20,7 +20,7 @@
 module Amazonka.Transcribe.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Adds metadata, in the form of a key:value pair, to the specified

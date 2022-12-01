@@ -20,7 +20,7 @@
 module Amazonka.Inspector.Types.RulesPackage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector rules package. This data

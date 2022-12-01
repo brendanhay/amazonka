@@ -20,9 +20,9 @@
 module Amazonka.CostExplorer.Types.SavingsPlansCoverage where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.DateInterval
 import Amazonka.CostExplorer.Types.SavingsPlansCoverageData
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of Savings Plans eligible usage that\'s covered by Savings

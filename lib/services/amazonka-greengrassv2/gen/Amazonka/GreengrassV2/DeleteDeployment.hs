@@ -43,8 +43,8 @@ module Amazonka.GreengrassV2.DeleteDeployment
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -80,8 +80,8 @@ instance Core.AWSRequest DeleteDeployment where
   type
     AWSResponse DeleteDeployment =
       DeleteDeploymentResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteDeploymentResponse'
 

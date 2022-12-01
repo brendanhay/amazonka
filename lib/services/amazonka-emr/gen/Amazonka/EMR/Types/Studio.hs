@@ -20,9 +20,9 @@
 module Amazonka.EMR.Types.Studio where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.AuthMode
 import Amazonka.EMR.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for an Amazon EMR Studio including ID, creation time, name, and

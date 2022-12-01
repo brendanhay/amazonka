@@ -33,7 +33,7 @@ import Amazonka.AppFlow.Types.SnowflakeDestinationProperties
 import Amazonka.AppFlow.Types.UpsolverDestinationProperties
 import Amazonka.AppFlow.Types.ZendeskDestinationProperties
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This stores the information that is required to query a particular

@@ -20,7 +20,7 @@
 module Amazonka.MGN.Types.Job where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MGN.Types.InitiatedBy
 import Amazonka.MGN.Types.JobStatus
 import Amazonka.MGN.Types.JobType

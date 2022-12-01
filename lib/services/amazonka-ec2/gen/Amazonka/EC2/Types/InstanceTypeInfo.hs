@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.InstanceTypeInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.BootModeType
 import Amazonka.EC2.Types.EbsInfo
@@ -37,7 +38,6 @@ import Amazonka.EC2.Types.RootDeviceType
 import Amazonka.EC2.Types.UsageClassType
 import Amazonka.EC2.Types.VCpuInfo
 import Amazonka.EC2.Types.VirtualizationType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the instance type.

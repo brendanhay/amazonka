@@ -20,9 +20,9 @@
 module Amazonka.FSx.Types.CreateFileSystemOntapConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.DiskIopsConfiguration
 import Amazonka.FSx.Types.OntapDeploymentType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The ONTAP configuration properties of the FSx for ONTAP file system that

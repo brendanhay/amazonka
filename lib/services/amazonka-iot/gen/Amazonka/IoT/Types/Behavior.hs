@@ -20,9 +20,9 @@
 module Amazonka.IoT.Types.Behavior where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.BehaviorCriteria
 import Amazonka.IoT.Types.MetricDimension
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A Device Defender security profile behavior.

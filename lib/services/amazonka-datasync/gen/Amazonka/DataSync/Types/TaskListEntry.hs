@@ -20,8 +20,8 @@
 module Amazonka.DataSync.Types.TaskListEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataSync.Types.TaskStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a single entry in a list of tasks. @TaskListEntry@ returns an

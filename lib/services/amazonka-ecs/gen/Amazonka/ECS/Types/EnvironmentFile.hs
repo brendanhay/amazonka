@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.EnvironmentFile where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.EnvironmentFileType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of files containing the environment variables to pass to a

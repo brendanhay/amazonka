@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -73,6 +74,9 @@ module Amazonka.AppRunner.Types
 
     -- * VpcConnectorStatus
     VpcConnectorStatus (..),
+
+    -- * VpcIngressConnectionStatus
+    VpcIngressConnectionStatus (..),
 
     -- * AuthenticationConfiguration
     AuthenticationConfiguration (..),
@@ -192,6 +196,17 @@ module Amazonka.AppRunner.Types
     imageRepository_imageIdentifier,
     imageRepository_imageRepositoryType,
 
+    -- * IngressConfiguration
+    IngressConfiguration (..),
+    newIngressConfiguration,
+    ingressConfiguration_isPubliclyAccessible,
+
+    -- * IngressVpcConfiguration
+    IngressVpcConfiguration (..),
+    newIngressVpcConfiguration,
+    ingressVpcConfiguration_vpcEndpointId,
+    ingressVpcConfiguration_vpcId,
+
     -- * InstanceConfiguration
     InstanceConfiguration (..),
     newInstanceConfiguration,
@@ -199,9 +214,16 @@ module Amazonka.AppRunner.Types
     instanceConfiguration_memory,
     instanceConfiguration_instanceRoleArn,
 
+    -- * ListVpcIngressConnectionsFilter
+    ListVpcIngressConnectionsFilter (..),
+    newListVpcIngressConnectionsFilter,
+    listVpcIngressConnectionsFilter_vpcEndpointId,
+    listVpcIngressConnectionsFilter_serviceArn,
+
     -- * NetworkConfiguration
     NetworkConfiguration (..),
     newNetworkConfiguration,
+    networkConfiguration_ingressConfiguration,
     networkConfiguration_egressConfiguration,
 
     -- * ObservabilityConfiguration
@@ -240,11 +262,11 @@ module Amazonka.AppRunner.Types
     service_observabilityConfiguration,
     service_deletedAt,
     service_encryptionConfiguration,
+    service_serviceUrl,
     service_healthCheckConfiguration,
     service_serviceName,
     service_serviceId,
     service_serviceArn,
-    service_serviceUrl,
     service_createdAt,
     service_updatedAt,
     service_status,
@@ -306,6 +328,32 @@ module Amazonka.AppRunner.Types
     vpcConnector_vpcConnectorArn,
     vpcConnector_securityGroups,
     vpcConnector_createdAt,
+
+    -- * VpcDNSTarget
+    VpcDNSTarget (..),
+    newVpcDNSTarget,
+    vpcDNSTarget_domainName,
+    vpcDNSTarget_vpcId,
+    vpcDNSTarget_vpcIngressConnectionArn,
+
+    -- * VpcIngressConnection
+    VpcIngressConnection (..),
+    newVpcIngressConnection,
+    vpcIngressConnection_domainName,
+    vpcIngressConnection_status,
+    vpcIngressConnection_deletedAt,
+    vpcIngressConnection_accountId,
+    vpcIngressConnection_ingressVpcConfiguration,
+    vpcIngressConnection_vpcIngressConnectionName,
+    vpcIngressConnection_vpcIngressConnectionArn,
+    vpcIngressConnection_createdAt,
+    vpcIngressConnection_serviceArn,
+
+    -- * VpcIngressConnectionSummary
+    VpcIngressConnectionSummary (..),
+    newVpcIngressConnectionSummary,
+    vpcIngressConnectionSummary_vpcIngressConnectionArn,
+    vpcIngressConnectionSummary_serviceArn,
   )
 where
 
@@ -332,7 +380,10 @@ import Amazonka.AppRunner.Types.HealthCheckProtocol
 import Amazonka.AppRunner.Types.ImageConfiguration
 import Amazonka.AppRunner.Types.ImageRepository
 import Amazonka.AppRunner.Types.ImageRepositoryType
+import Amazonka.AppRunner.Types.IngressConfiguration
+import Amazonka.AppRunner.Types.IngressVpcConfiguration
 import Amazonka.AppRunner.Types.InstanceConfiguration
+import Amazonka.AppRunner.Types.ListVpcIngressConnectionsFilter
 import Amazonka.AppRunner.Types.NetworkConfiguration
 import Amazonka.AppRunner.Types.ObservabilityConfiguration
 import Amazonka.AppRunner.Types.ObservabilityConfigurationStatus
@@ -354,8 +405,12 @@ import Amazonka.AppRunner.Types.TraceConfiguration
 import Amazonka.AppRunner.Types.TracingVendor
 import Amazonka.AppRunner.Types.VpcConnector
 import Amazonka.AppRunner.Types.VpcConnectorStatus
+import Amazonka.AppRunner.Types.VpcDNSTarget
+import Amazonka.AppRunner.Types.VpcIngressConnection
+import Amazonka.AppRunner.Types.VpcIngressConnectionStatus
+import Amazonka.AppRunner.Types.VpcIngressConnectionSummary
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -363,27 +418,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "AppRunner",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "apprunner",
-      Core._serviceSigningName = "apprunner",
-      Core._serviceVersion = "2020-05-15",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "AppRunner",
-      Core._serviceRetry = retry
+    { Core.abbrev = "AppRunner",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "apprunner",
+      Core.signingName = "apprunner",
+      Core.version = "2020-05-15",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "AppRunner",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

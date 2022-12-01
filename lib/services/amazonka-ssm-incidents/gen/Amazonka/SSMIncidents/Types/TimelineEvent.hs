@@ -20,14 +20,17 @@
 module Amazonka.SSMIncidents.Types.TimelineEvent where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSMIncidents.Types.EventReference
 
 -- | A significant event that happened during the incident.
 --
 -- /See:/ 'newTimelineEvent' smart constructor.
 data TimelineEvent = TimelineEvent'
-  { -- | A short description of the event.
+  { -- | A list of references in a @TimelineEvent@.
+    eventReferences :: Prelude.Maybe [EventReference],
+    -- | A short description of the event.
     eventData :: Prelude.Text,
     -- | The ID of the timeline event.
     eventId :: Prelude.Text,
@@ -51,6 +54,8 @@ data TimelineEvent = TimelineEvent'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'eventReferences', 'timelineEvent_eventReferences' - A list of references in a @TimelineEvent@.
 --
 -- 'eventData', 'timelineEvent_eventData' - A short description of the event.
 --
@@ -87,7 +92,8 @@ newTimelineEvent
   pEventUpdatedTime_
   pIncidentRecordArn_ =
     TimelineEvent'
-      { eventData = pEventData_,
+      { eventReferences = Prelude.Nothing,
+        eventData = pEventData_,
         eventId = pEventId_,
         eventTime = Core._Time Lens.# pEventTime_,
         eventType = pEventType_,
@@ -95,6 +101,10 @@ newTimelineEvent
           Core._Time Lens.# pEventUpdatedTime_,
         incidentRecordArn = pIncidentRecordArn_
       }
+
+-- | A list of references in a @TimelineEvent@.
+timelineEvent_eventReferences :: Lens.Lens' TimelineEvent (Prelude.Maybe [EventReference])
+timelineEvent_eventReferences = Lens.lens (\TimelineEvent' {eventReferences} -> eventReferences) (\s@TimelineEvent' {} a -> s {eventReferences = a} :: TimelineEvent) Prelude.. Lens.mapping Lens.coerced
 
 -- | A short description of the event.
 timelineEvent_eventData :: Lens.Lens' TimelineEvent Prelude.Text
@@ -128,7 +138,10 @@ instance Core.FromJSON TimelineEvent where
       "TimelineEvent"
       ( \x ->
           TimelineEvent'
-            Prelude.<$> (x Core..: "eventData")
+            Prelude.<$> ( x Core..:? "eventReferences"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..: "eventData")
             Prelude.<*> (x Core..: "eventId")
             Prelude.<*> (x Core..: "eventTime")
             Prelude.<*> (x Core..: "eventType")
@@ -138,7 +151,8 @@ instance Core.FromJSON TimelineEvent where
 
 instance Prelude.Hashable TimelineEvent where
   hashWithSalt _salt TimelineEvent' {..} =
-    _salt `Prelude.hashWithSalt` eventData
+    _salt `Prelude.hashWithSalt` eventReferences
+      `Prelude.hashWithSalt` eventData
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTime
       `Prelude.hashWithSalt` eventType
@@ -147,7 +161,8 @@ instance Prelude.Hashable TimelineEvent where
 
 instance Prelude.NFData TimelineEvent where
   rnf TimelineEvent' {..} =
-    Prelude.rnf eventData
+    Prelude.rnf eventReferences
+      `Prelude.seq` Prelude.rnf eventData
       `Prelude.seq` Prelude.rnf eventId
       `Prelude.seq` Prelude.rnf eventTime
       `Prelude.seq` Prelude.rnf eventType

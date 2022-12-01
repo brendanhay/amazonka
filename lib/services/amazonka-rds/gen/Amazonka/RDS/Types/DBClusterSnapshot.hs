@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.DBClusterSnapshot where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.Tag
 
@@ -87,6 +87,8 @@ data DBClusterSnapshot = DBClusterSnapshot'
     -- | Specifies the time when the DB cluster was created, in Universal
     -- Coordinated Time (UTC).
     clusterCreateTime :: Prelude.Maybe Core.ISO8601,
+    -- | Reserved for future use.
+    dbSystemId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the DB cluster snapshot.
     dbClusterSnapshotArn :: Prelude.Maybe Prelude.Text,
     -- | Provides the version of the database engine for this DB cluster
@@ -164,6 +166,8 @@ data DBClusterSnapshot = DBClusterSnapshot'
 -- 'clusterCreateTime', 'dbClusterSnapshot_clusterCreateTime' - Specifies the time when the DB cluster was created, in Universal
 -- Coordinated Time (UTC).
 --
+-- 'dbSystemId', 'dbClusterSnapshot_dbSystemId' - Reserved for future use.
+--
 -- 'dbClusterSnapshotArn', 'dbClusterSnapshot_dbClusterSnapshotArn' - The Amazon Resource Name (ARN) for the DB cluster snapshot.
 --
 -- 'engineVersion', 'dbClusterSnapshot_engineVersion' - Provides the version of the database engine for this DB cluster
@@ -194,6 +198,7 @@ newDBClusterSnapshot =
       iAMDatabaseAuthenticationEnabled = Prelude.Nothing,
       vpcId = Prelude.Nothing,
       clusterCreateTime = Prelude.Nothing,
+      dbSystemId = Prelude.Nothing,
       dbClusterSnapshotArn = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       licenseModel = Prelude.Nothing,
@@ -293,6 +298,10 @@ dbClusterSnapshot_vpcId = Lens.lens (\DBClusterSnapshot' {vpcId} -> vpcId) (\s@D
 dbClusterSnapshot_clusterCreateTime :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.UTCTime)
 dbClusterSnapshot_clusterCreateTime = Lens.lens (\DBClusterSnapshot' {clusterCreateTime} -> clusterCreateTime) (\s@DBClusterSnapshot' {} a -> s {clusterCreateTime = a} :: DBClusterSnapshot) Prelude.. Lens.mapping Core._Time
 
+-- | Reserved for future use.
+dbClusterSnapshot_dbSystemId :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Text)
+dbClusterSnapshot_dbSystemId = Lens.lens (\DBClusterSnapshot' {dbSystemId} -> dbSystemId) (\s@DBClusterSnapshot' {} a -> s {dbSystemId = a} :: DBClusterSnapshot)
+
 -- | The Amazon Resource Name (ARN) for the DB cluster snapshot.
 dbClusterSnapshot_dbClusterSnapshotArn :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Text)
 dbClusterSnapshot_dbClusterSnapshotArn = Lens.lens (\DBClusterSnapshot' {dbClusterSnapshotArn} -> dbClusterSnapshotArn) (\s@DBClusterSnapshot' {} a -> s {dbClusterSnapshotArn = a} :: DBClusterSnapshot)
@@ -336,6 +345,7 @@ instance Core.FromXML DBClusterSnapshot where
       Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
       Prelude.<*> (x Core..@? "VpcId")
       Prelude.<*> (x Core..@? "ClusterCreateTime")
+      Prelude.<*> (x Core..@? "DBSystemId")
       Prelude.<*> (x Core..@? "DBClusterSnapshotArn")
       Prelude.<*> (x Core..@? "EngineVersion")
       Prelude.<*> (x Core..@? "LicenseModel")
@@ -361,6 +371,7 @@ instance Prelude.Hashable DBClusterSnapshot where
       `Prelude.hashWithSalt` iAMDatabaseAuthenticationEnabled
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` clusterCreateTime
+      `Prelude.hashWithSalt` dbSystemId
       `Prelude.hashWithSalt` dbClusterSnapshotArn
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` licenseModel
@@ -387,7 +398,9 @@ instance Prelude.NFData DBClusterSnapshot where
         iAMDatabaseAuthenticationEnabled
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf clusterCreateTime
-      `Prelude.seq` Prelude.rnf dbClusterSnapshotArn
+      `Prelude.seq` Prelude.rnf dbSystemId
+      `Prelude.seq` Prelude.rnf
+        dbClusterSnapshotArn
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf licenseModel
       `Prelude.seq` Prelude.rnf snapshotType

@@ -24,7 +24,7 @@ import Amazonka.CloudFront.Types.PriceClass
 import Amazonka.CloudFront.Types.S3Origin
 import Amazonka.CloudFront.Types.TrustedSigners
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the information for a CloudFront streaming distribution.

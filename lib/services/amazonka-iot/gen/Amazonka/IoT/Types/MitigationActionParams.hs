@@ -20,13 +20,13 @@
 module Amazonka.IoT.Types.MitigationActionParams where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.AddThingsToThingGroupParams
 import Amazonka.IoT.Types.EnableIoTLoggingParams
 import Amazonka.IoT.Types.PublishFindingToSnsParams
 import Amazonka.IoT.Types.ReplaceDefaultPolicyVersionParams
 import Amazonka.IoT.Types.UpdateCACertificateParams
 import Amazonka.IoT.Types.UpdateDeviceCertificateParams
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The set of parameters for this mitigation action. You can specify only

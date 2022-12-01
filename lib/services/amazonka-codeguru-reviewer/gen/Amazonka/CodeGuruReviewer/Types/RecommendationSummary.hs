@@ -23,7 +23,7 @@ import Amazonka.CodeGuruReviewer.Types.RecommendationCategory
 import Amazonka.CodeGuruReviewer.Types.RuleMetadata
 import Amazonka.CodeGuruReviewer.Types.Severity
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about recommendations.

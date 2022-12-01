@@ -20,7 +20,7 @@
 module Amazonka.BillingConductor.Types.CustomLineItemBillingPeriodRange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The billing period range in which the custom line item request will be
@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomLineItemBillingPeriodRange' smart constructor.
 data CustomLineItemBillingPeriodRange = CustomLineItemBillingPeriodRange'
-  { -- | The inclusive start billing period that defines a billing period range
+  { -- | The inclusive end billing period that defines a billing period range
     -- where a custom line is applied.
-    inclusiveStartBillingPeriod :: Prelude.Text,
-    -- | The inclusive end billing period that defines a billing period range
+    exclusiveEndBillingPeriod :: Prelude.Maybe Prelude.Text,
+    -- | The inclusive start billing period that defines a billing period range
     -- where a custom line is applied.
-    exclusiveEndBillingPeriod :: Prelude.Text
+    inclusiveStartBillingPeriod :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,36 +45,33 @@ data CustomLineItemBillingPeriodRange = CustomLineItemBillingPeriodRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inclusiveStartBillingPeriod', 'customLineItemBillingPeriodRange_inclusiveStartBillingPeriod' - The inclusive start billing period that defines a billing period range
+-- 'exclusiveEndBillingPeriod', 'customLineItemBillingPeriodRange_exclusiveEndBillingPeriod' - The inclusive end billing period that defines a billing period range
 -- where a custom line is applied.
 --
--- 'exclusiveEndBillingPeriod', 'customLineItemBillingPeriodRange_exclusiveEndBillingPeriod' - The inclusive end billing period that defines a billing period range
+-- 'inclusiveStartBillingPeriod', 'customLineItemBillingPeriodRange_inclusiveStartBillingPeriod' - The inclusive start billing period that defines a billing period range
 -- where a custom line is applied.
 newCustomLineItemBillingPeriodRange ::
   -- | 'inclusiveStartBillingPeriod'
   Prelude.Text ->
-  -- | 'exclusiveEndBillingPeriod'
-  Prelude.Text ->
   CustomLineItemBillingPeriodRange
 newCustomLineItemBillingPeriodRange
-  pInclusiveStartBillingPeriod_
-  pExclusiveEndBillingPeriod_ =
+  pInclusiveStartBillingPeriod_ =
     CustomLineItemBillingPeriodRange'
-      { inclusiveStartBillingPeriod =
-          pInclusiveStartBillingPeriod_,
-        exclusiveEndBillingPeriod =
-          pExclusiveEndBillingPeriod_
+      { exclusiveEndBillingPeriod =
+          Prelude.Nothing,
+        inclusiveStartBillingPeriod =
+          pInclusiveStartBillingPeriod_
       }
+
+-- | The inclusive end billing period that defines a billing period range
+-- where a custom line is applied.
+customLineItemBillingPeriodRange_exclusiveEndBillingPeriod :: Lens.Lens' CustomLineItemBillingPeriodRange (Prelude.Maybe Prelude.Text)
+customLineItemBillingPeriodRange_exclusiveEndBillingPeriod = Lens.lens (\CustomLineItemBillingPeriodRange' {exclusiveEndBillingPeriod} -> exclusiveEndBillingPeriod) (\s@CustomLineItemBillingPeriodRange' {} a -> s {exclusiveEndBillingPeriod = a} :: CustomLineItemBillingPeriodRange)
 
 -- | The inclusive start billing period that defines a billing period range
 -- where a custom line is applied.
 customLineItemBillingPeriodRange_inclusiveStartBillingPeriod :: Lens.Lens' CustomLineItemBillingPeriodRange Prelude.Text
 customLineItemBillingPeriodRange_inclusiveStartBillingPeriod = Lens.lens (\CustomLineItemBillingPeriodRange' {inclusiveStartBillingPeriod} -> inclusiveStartBillingPeriod) (\s@CustomLineItemBillingPeriodRange' {} a -> s {inclusiveStartBillingPeriod = a} :: CustomLineItemBillingPeriodRange)
-
--- | The inclusive end billing period that defines a billing period range
--- where a custom line is applied.
-customLineItemBillingPeriodRange_exclusiveEndBillingPeriod :: Lens.Lens' CustomLineItemBillingPeriodRange Prelude.Text
-customLineItemBillingPeriodRange_exclusiveEndBillingPeriod = Lens.lens (\CustomLineItemBillingPeriodRange' {exclusiveEndBillingPeriod} -> exclusiveEndBillingPeriod) (\s@CustomLineItemBillingPeriodRange' {} a -> s {exclusiveEndBillingPeriod = a} :: CustomLineItemBillingPeriodRange)
 
 instance
   Prelude.Hashable
@@ -84,28 +81,26 @@ instance
     _salt
     CustomLineItemBillingPeriodRange' {..} =
       _salt
-        `Prelude.hashWithSalt` inclusiveStartBillingPeriod
         `Prelude.hashWithSalt` exclusiveEndBillingPeriod
+        `Prelude.hashWithSalt` inclusiveStartBillingPeriod
 
 instance
   Prelude.NFData
     CustomLineItemBillingPeriodRange
   where
   rnf CustomLineItemBillingPeriodRange' {..} =
-    Prelude.rnf inclusiveStartBillingPeriod
-      `Prelude.seq` Prelude.rnf exclusiveEndBillingPeriod
+    Prelude.rnf exclusiveEndBillingPeriod
+      `Prelude.seq` Prelude.rnf inclusiveStartBillingPeriod
 
 instance Core.ToJSON CustomLineItemBillingPeriodRange where
   toJSON CustomLineItemBillingPeriodRange' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("ExclusiveEndBillingPeriod" Core..=)
+              Prelude.<$> exclusiveEndBillingPeriod,
+            Prelude.Just
               ( "InclusiveStartBillingPeriod"
                   Core..= inclusiveStartBillingPeriod
-              ),
-            Prelude.Just
-              ( "ExclusiveEndBillingPeriod"
-                  Core..= exclusiveEndBillingPeriod
               )
           ]
       )

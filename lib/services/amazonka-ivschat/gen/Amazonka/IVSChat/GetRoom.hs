@@ -35,6 +35,7 @@ module Amazonka.IVSChat.GetRoom
 
     -- * Response Lenses
     getRoomResponse_tags,
+    getRoomResponse_loggingConfigurationIdentifiers,
     getRoomResponse_name,
     getRoomResponse_messageReviewHandler,
     getRoomResponse_arn,
@@ -48,8 +49,8 @@ module Amazonka.IVSChat.GetRoom
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVSChat.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,13 +87,16 @@ getRoom_identifier = Lens.lens (\GetRoom' {identifier} -> identifier) (\s@GetRoo
 
 instance Core.AWSRequest GetRoom where
   type AWSResponse GetRoom = GetRoomResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRoomResponse'
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "loggingConfigurationIdentifiers"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "messageReviewHandler")
             Prelude.<*> (x Core..?> "arn")
@@ -140,6 +144,8 @@ data GetRoomResponse = GetRoomResponse'
   { -- | Tags attached to the resource. Array of maps, each of the form
     -- @string:string (key:value)@.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Array of logging configurations attached to the room.
+    loggingConfigurationIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | Room name. The value does not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
     -- | Configuration information for optional review of messages.
@@ -178,6 +184,8 @@ data GetRoomResponse = GetRoomResponse'
 -- 'tags', 'getRoomResponse_tags' - Tags attached to the resource. Array of maps, each of the form
 -- @string:string (key:value)@.
 --
+-- 'loggingConfigurationIdentifiers', 'getRoomResponse_loggingConfigurationIdentifiers' - Array of logging configurations attached to the room.
+--
 -- 'name', 'getRoomResponse_name' - Room name. The value does not need to be unique.
 --
 -- 'messageReviewHandler', 'getRoomResponse_messageReviewHandler' - Configuration information for optional review of messages.
@@ -208,6 +216,7 @@ newGetRoomResponse ::
 newGetRoomResponse pHttpStatus_ =
   GetRoomResponse'
     { tags = Prelude.Nothing,
+      loggingConfigurationIdentifiers = Prelude.Nothing,
       name = Prelude.Nothing,
       messageReviewHandler = Prelude.Nothing,
       arn = Prelude.Nothing,
@@ -223,6 +232,10 @@ newGetRoomResponse pHttpStatus_ =
 -- @string:string (key:value)@.
 getRoomResponse_tags :: Lens.Lens' GetRoomResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getRoomResponse_tags = Lens.lens (\GetRoomResponse' {tags} -> tags) (\s@GetRoomResponse' {} a -> s {tags = a} :: GetRoomResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Array of logging configurations attached to the room.
+getRoomResponse_loggingConfigurationIdentifiers :: Lens.Lens' GetRoomResponse (Prelude.Maybe [Prelude.Text])
+getRoomResponse_loggingConfigurationIdentifiers = Lens.lens (\GetRoomResponse' {loggingConfigurationIdentifiers} -> loggingConfigurationIdentifiers) (\s@GetRoomResponse' {} a -> s {loggingConfigurationIdentifiers = a} :: GetRoomResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Room name. The value does not need to be unique.
 getRoomResponse_name :: Lens.Lens' GetRoomResponse (Prelude.Maybe Prelude.Text)
@@ -269,6 +282,7 @@ getRoomResponse_httpStatus = Lens.lens (\GetRoomResponse' {httpStatus} -> httpSt
 instance Prelude.NFData GetRoomResponse where
   rnf GetRoomResponse' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf loggingConfigurationIdentifiers
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf messageReviewHandler
       `Prelude.seq` Prelude.rnf arn

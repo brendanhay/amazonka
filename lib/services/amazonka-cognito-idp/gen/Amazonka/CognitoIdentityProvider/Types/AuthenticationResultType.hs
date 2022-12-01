@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.AuthenticationResultType where
 
 import Amazonka.CognitoIdentityProvider.Types.NewDeviceMetadataType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The authentication result.

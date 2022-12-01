@@ -22,7 +22,7 @@ module Amazonka.AppStream.Types.Application where
 import Amazonka.AppStream.Types.PlatformType
 import Amazonka.AppStream.Types.S3Location
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an application in the application catalog.

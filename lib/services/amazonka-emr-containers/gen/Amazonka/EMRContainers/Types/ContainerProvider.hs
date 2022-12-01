@@ -20,9 +20,9 @@
 module Amazonka.EMRContainers.Types.ContainerProvider where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRContainers.Types.ContainerInfo
 import Amazonka.EMRContainers.Types.ContainerProviderType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information about the container provider.

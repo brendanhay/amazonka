@@ -20,7 +20,7 @@
 module Amazonka.Batch.Types.EksContainerSecurityContext where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The security context for a job. For more information, see

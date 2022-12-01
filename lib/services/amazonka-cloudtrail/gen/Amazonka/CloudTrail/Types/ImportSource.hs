@@ -21,7 +21,7 @@ module Amazonka.CloudTrail.Types.ImportSource where
 
 import Amazonka.CloudTrail.Types.S3ImportSource
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The import source.

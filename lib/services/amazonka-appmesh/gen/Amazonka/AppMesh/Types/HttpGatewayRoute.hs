@@ -22,7 +22,7 @@ module Amazonka.AppMesh.Types.HttpGatewayRoute where
 import Amazonka.AppMesh.Types.HttpGatewayRouteAction
 import Amazonka.AppMesh.Types.HttpGatewayRouteMatch
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents an HTTP gateway route.

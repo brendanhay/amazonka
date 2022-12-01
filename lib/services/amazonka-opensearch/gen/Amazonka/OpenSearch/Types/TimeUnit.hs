@@ -28,9 +28,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The unit of a maintenance schedule duration. Valid value is HOUR. See
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
--- for more information.
+-- | The unit of a maintenance schedule duration. Valid value is @HOUR@.
 newtype TimeUnit = TimeUnit'
   { fromTimeUnit ::
       Core.Text

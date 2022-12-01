@@ -44,8 +44,8 @@ module Amazonka.GroundStation.ReserveContact
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +56,7 @@ import qualified Amazonka.Response as Response
 data ReserveContact = ReserveContact'
   { -- | Tags assigned to a contact.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | End time of a contact.
+    -- | End time of a contact in UTC.
     endTime :: Core.POSIX,
     -- | Name of a ground station.
     groundStation :: Prelude.Text,
@@ -64,7 +64,7 @@ data ReserveContact = ReserveContact'
     missionProfileArn :: Prelude.Text,
     -- | ARN of a satellite
     satelliteArn :: Prelude.Text,
-    -- | Start time of a contact.
+    -- | Start time of a contact in UTC.
     startTime :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,7 +79,7 @@ data ReserveContact = ReserveContact'
 --
 -- 'tags', 'reserveContact_tags' - Tags assigned to a contact.
 --
--- 'endTime', 'reserveContact_endTime' - End time of a contact.
+-- 'endTime', 'reserveContact_endTime' - End time of a contact in UTC.
 --
 -- 'groundStation', 'reserveContact_groundStation' - Name of a ground station.
 --
@@ -87,7 +87,7 @@ data ReserveContact = ReserveContact'
 --
 -- 'satelliteArn', 'reserveContact_satelliteArn' - ARN of a satellite
 --
--- 'startTime', 'reserveContact_startTime' - Start time of a contact.
+-- 'startTime', 'reserveContact_startTime' - Start time of a contact in UTC.
 newReserveContact ::
   -- | 'endTime'
   Prelude.UTCTime ->
@@ -119,7 +119,7 @@ newReserveContact
 reserveContact_tags :: Lens.Lens' ReserveContact (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 reserveContact_tags = Lens.lens (\ReserveContact' {tags} -> tags) (\s@ReserveContact' {} a -> s {tags = a} :: ReserveContact) Prelude.. Lens.mapping Lens.coerced
 
--- | End time of a contact.
+-- | End time of a contact in UTC.
 reserveContact_endTime :: Lens.Lens' ReserveContact Prelude.UTCTime
 reserveContact_endTime = Lens.lens (\ReserveContact' {endTime} -> endTime) (\s@ReserveContact' {} a -> s {endTime = a} :: ReserveContact) Prelude.. Core._Time
 
@@ -135,14 +135,14 @@ reserveContact_missionProfileArn = Lens.lens (\ReserveContact' {missionProfileAr
 reserveContact_satelliteArn :: Lens.Lens' ReserveContact Prelude.Text
 reserveContact_satelliteArn = Lens.lens (\ReserveContact' {satelliteArn} -> satelliteArn) (\s@ReserveContact' {} a -> s {satelliteArn = a} :: ReserveContact)
 
--- | Start time of a contact.
+-- | Start time of a contact in UTC.
 reserveContact_startTime :: Lens.Lens' ReserveContact Prelude.UTCTime
 reserveContact_startTime = Lens.lens (\ReserveContact' {startTime} -> startTime) (\s@ReserveContact' {} a -> s {startTime = a} :: ReserveContact) Prelude.. Core._Time
 
 instance Core.AWSRequest ReserveContact where
   type AWSResponse ReserveContact = ContactIdResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

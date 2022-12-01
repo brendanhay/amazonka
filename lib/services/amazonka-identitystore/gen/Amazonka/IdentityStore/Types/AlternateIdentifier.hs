@@ -20,9 +20,9 @@
 module Amazonka.IdentityStore.Types.AlternateIdentifier where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IdentityStore.Types.ExternalId
 import Amazonka.IdentityStore.Types.UniqueAttribute
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A unique identifier for a user or group that is not the primary

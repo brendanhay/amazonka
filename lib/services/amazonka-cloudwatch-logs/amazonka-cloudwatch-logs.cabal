@@ -73,7 +73,7 @@ library
     Amazonka.CloudWatchLogs.GetLogRecord
     Amazonka.CloudWatchLogs.GetQueryResults
     Amazonka.CloudWatchLogs.Lens
-    Amazonka.CloudWatchLogs.ListTagsLogGroup
+    Amazonka.CloudWatchLogs.ListTagsForResource
     Amazonka.CloudWatchLogs.PutDestination
     Amazonka.CloudWatchLogs.PutDestinationPolicy
     Amazonka.CloudWatchLogs.PutLogEvents
@@ -84,7 +84,7 @@ library
     Amazonka.CloudWatchLogs.PutSubscriptionFilter
     Amazonka.CloudWatchLogs.StartQuery
     Amazonka.CloudWatchLogs.StopQuery
-    Amazonka.CloudWatchLogs.TagLogGroup
+    Amazonka.CloudWatchLogs.TagResource
     Amazonka.CloudWatchLogs.TestMetricFilter
     Amazonka.CloudWatchLogs.Types
     Amazonka.CloudWatchLogs.Types.Destination
@@ -113,7 +113,7 @@ library
     Amazonka.CloudWatchLogs.Types.SearchedLogStream
     Amazonka.CloudWatchLogs.Types.StandardUnit
     Amazonka.CloudWatchLogs.Types.SubscriptionFilter
-    Amazonka.CloudWatchLogs.UntagLogGroup
+    Amazonka.CloudWatchLogs.UntagResource
     Amazonka.CloudWatchLogs.Waiters
 
   build-depends:

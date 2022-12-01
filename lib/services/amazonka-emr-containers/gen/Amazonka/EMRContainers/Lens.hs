@@ -21,6 +21,18 @@ module Amazonka.EMRContainers.Lens
     cancelJobRunResponse_virtualClusterId,
     cancelJobRunResponse_httpStatus,
 
+    -- ** CreateJobTemplate
+    createJobTemplate_tags,
+    createJobTemplate_kmsKeyArn,
+    createJobTemplate_name,
+    createJobTemplate_clientToken,
+    createJobTemplate_jobTemplateData,
+    createJobTemplateResponse_name,
+    createJobTemplateResponse_arn,
+    createJobTemplateResponse_id,
+    createJobTemplateResponse_createdAt,
+    createJobTemplateResponse_httpStatus,
+
     -- ** CreateManagedEndpoint
     createManagedEndpoint_tags,
     createManagedEndpoint_certificateArn,
@@ -47,6 +59,11 @@ module Amazonka.EMRContainers.Lens
     createVirtualClusterResponse_id,
     createVirtualClusterResponse_httpStatus,
 
+    -- ** DeleteJobTemplate
+    deleteJobTemplate_id,
+    deleteJobTemplateResponse_id,
+    deleteJobTemplateResponse_httpStatus,
+
     -- ** DeleteManagedEndpoint
     deleteManagedEndpoint_id,
     deleteManagedEndpoint_virtualClusterId,
@@ -64,6 +81,11 @@ module Amazonka.EMRContainers.Lens
     describeJobRun_virtualClusterId,
     describeJobRunResponse_jobRun,
     describeJobRunResponse_httpStatus,
+
+    -- ** DescribeJobTemplate
+    describeJobTemplate_id,
+    describeJobTemplateResponse_jobTemplate,
+    describeJobTemplateResponse_httpStatus,
 
     -- ** DescribeManagedEndpoint
     describeManagedEndpoint_id,
@@ -87,6 +109,15 @@ module Amazonka.EMRContainers.Lens
     listJobRunsResponse_nextToken,
     listJobRunsResponse_jobRuns,
     listJobRunsResponse_httpStatus,
+
+    -- ** ListJobTemplates
+    listJobTemplates_nextToken,
+    listJobTemplates_createdBefore,
+    listJobTemplates_maxResults,
+    listJobTemplates_createdAfter,
+    listJobTemplatesResponse_nextToken,
+    listJobTemplatesResponse_templates,
+    listJobTemplatesResponse_httpStatus,
 
     -- ** ListManagedEndpoints
     listManagedEndpoints_nextToken,
@@ -120,12 +151,14 @@ module Amazonka.EMRContainers.Lens
     -- ** StartJobRun
     startJobRun_tags,
     startJobRun_name,
+    startJobRun_jobDriver,
+    startJobRun_releaseLabel,
+    startJobRun_jobTemplateId,
+    startJobRun_jobTemplateParameters,
     startJobRun_configurationOverrides,
+    startJobRun_executionRoleArn,
     startJobRun_virtualClusterId,
     startJobRun_clientToken,
-    startJobRun_executionRoleArn,
-    startJobRun_releaseLabel,
-    startJobRun_jobDriver,
     startJobRunResponse_name,
     startJobRunResponse_arn,
     startJobRunResponse_id,
@@ -214,10 +247,45 @@ module Amazonka.EMRContainers.Lens
     jobRun_createdAt,
     jobRun_failureReason,
 
+    -- ** JobTemplate
+    jobTemplate_tags,
+    jobTemplate_name,
+    jobTemplate_arn,
+    jobTemplate_id,
+    jobTemplate_kmsKeyArn,
+    jobTemplate_createdBy,
+    jobTemplate_createdAt,
+    jobTemplate_decryptionError,
+    jobTemplate_jobTemplateData,
+
+    -- ** JobTemplateData
+    jobTemplateData_jobTags,
+    jobTemplateData_configurationOverrides,
+    jobTemplateData_parameterConfiguration,
+    jobTemplateData_executionRoleArn,
+    jobTemplateData_releaseLabel,
+    jobTemplateData_jobDriver,
+
     -- ** MonitoringConfiguration
     monitoringConfiguration_persistentAppUI,
     monitoringConfiguration_s3MonitoringConfiguration,
     monitoringConfiguration_cloudWatchMonitoringConfiguration,
+
+    -- ** ParametricCloudWatchMonitoringConfiguration
+    parametricCloudWatchMonitoringConfiguration_logStreamNamePrefix,
+    parametricCloudWatchMonitoringConfiguration_logGroupName,
+
+    -- ** ParametricConfigurationOverrides
+    parametricConfigurationOverrides_applicationConfiguration,
+    parametricConfigurationOverrides_monitoringConfiguration,
+
+    -- ** ParametricMonitoringConfiguration
+    parametricMonitoringConfiguration_persistentAppUI,
+    parametricMonitoringConfiguration_s3MonitoringConfiguration,
+    parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration,
+
+    -- ** ParametricS3MonitoringConfiguration
+    parametricS3MonitoringConfiguration_logUri,
 
     -- ** S3MonitoringConfiguration
     s3MonitoringConfiguration_logUri,
@@ -231,6 +299,10 @@ module Amazonka.EMRContainers.Lens
     sparkSubmitJobDriver_sparkSubmitParameters,
     sparkSubmitJobDriver_entryPoint,
 
+    -- ** TemplateParameterConfiguration
+    templateParameterConfiguration_type,
+    templateParameterConfiguration_defaultValue,
+
     -- ** VirtualCluster
     virtualCluster_tags,
     virtualCluster_name,
@@ -243,14 +315,18 @@ module Amazonka.EMRContainers.Lens
 where
 
 import Amazonka.EMRContainers.CancelJobRun
+import Amazonka.EMRContainers.CreateJobTemplate
 import Amazonka.EMRContainers.CreateManagedEndpoint
 import Amazonka.EMRContainers.CreateVirtualCluster
+import Amazonka.EMRContainers.DeleteJobTemplate
 import Amazonka.EMRContainers.DeleteManagedEndpoint
 import Amazonka.EMRContainers.DeleteVirtualCluster
 import Amazonka.EMRContainers.DescribeJobRun
+import Amazonka.EMRContainers.DescribeJobTemplate
 import Amazonka.EMRContainers.DescribeManagedEndpoint
 import Amazonka.EMRContainers.DescribeVirtualCluster
 import Amazonka.EMRContainers.ListJobRuns
+import Amazonka.EMRContainers.ListJobTemplates
 import Amazonka.EMRContainers.ListManagedEndpoints
 import Amazonka.EMRContainers.ListTagsForResource
 import Amazonka.EMRContainers.ListVirtualClusters
@@ -266,9 +342,16 @@ import Amazonka.EMRContainers.Types.EksInfo
 import Amazonka.EMRContainers.Types.Endpoint
 import Amazonka.EMRContainers.Types.JobDriver
 import Amazonka.EMRContainers.Types.JobRun
+import Amazonka.EMRContainers.Types.JobTemplate
+import Amazonka.EMRContainers.Types.JobTemplateData
 import Amazonka.EMRContainers.Types.MonitoringConfiguration
+import Amazonka.EMRContainers.Types.ParametricCloudWatchMonitoringConfiguration
+import Amazonka.EMRContainers.Types.ParametricConfigurationOverrides
+import Amazonka.EMRContainers.Types.ParametricMonitoringConfiguration
+import Amazonka.EMRContainers.Types.ParametricS3MonitoringConfiguration
 import Amazonka.EMRContainers.Types.S3MonitoringConfiguration
 import Amazonka.EMRContainers.Types.SparkSqlJobDriver
 import Amazonka.EMRContainers.Types.SparkSubmitJobDriver
+import Amazonka.EMRContainers.Types.TemplateParameterConfiguration
 import Amazonka.EMRContainers.Types.VirtualCluster
 import Amazonka.EMRContainers.UntagResource

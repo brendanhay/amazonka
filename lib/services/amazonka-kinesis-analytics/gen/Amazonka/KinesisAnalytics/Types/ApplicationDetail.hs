@@ -20,12 +20,12 @@
 module Amazonka.KinesisAnalytics.Types.ApplicationDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalytics.Types.ApplicationStatus
 import Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionDescription
 import Amazonka.KinesisAnalytics.Types.InputDescription
 import Amazonka.KinesisAnalytics.Types.OutputDescription
 import Amazonka.KinesisAnalytics.Types.ReferenceDataSourceDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This documentation is for version 1 of the Amazon Kinesis Data Analytics

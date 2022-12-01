@@ -20,10 +20,10 @@
 module Amazonka.FinSpaceData.Types.ChangesetSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FinSpaceData.Types.ChangeType
 import Amazonka.FinSpaceData.Types.ChangesetErrorInfo
 import Amazonka.FinSpaceData.Types.IngestionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A Changeset is unit of data in a Dataset.

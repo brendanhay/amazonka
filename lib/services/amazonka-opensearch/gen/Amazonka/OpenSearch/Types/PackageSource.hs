@@ -20,11 +20,10 @@
 module Amazonka.OpenSearch.Types.PackageSource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The Amazon S3 location for importing the package specified as
--- @S3BucketName@ and @S3Key@
+-- | The Amazon S3 location to import the package from.
 --
 -- /See:/ 'newPackageSource' smart constructor.
 data PackageSource = PackageSource'

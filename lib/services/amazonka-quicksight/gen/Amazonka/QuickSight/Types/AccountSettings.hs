@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.AccountSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.Edition
 
@@ -42,6 +42,12 @@ data AccountSettings = AccountSettings'
     -- | The default Amazon QuickSight namespace for your Amazon Web Services
     -- account.
     defaultNamespace :: Prelude.Maybe Prelude.Text,
+    -- | A boolean value that determines whether or not an Amazon QuickSight
+    -- account can be deleted. A @True@ value doesn\'t allow the account to be
+    -- deleted and results in an error message if a user tries to make a
+    -- @DeleteAccountSubsctiption@ request. A @False@ value will allow the
+    -- ccount to be deleted.
+    terminationProtectionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A Boolean value that indicates whether public sharing is turned on for
     -- an Amazon QuickSight account. For more information about turning on
     -- public sharing, see
@@ -71,6 +77,12 @@ data AccountSettings = AccountSettings'
 -- 'defaultNamespace', 'accountSettings_defaultNamespace' - The default Amazon QuickSight namespace for your Amazon Web Services
 -- account.
 --
+-- 'terminationProtectionEnabled', 'accountSettings_terminationProtectionEnabled' - A boolean value that determines whether or not an Amazon QuickSight
+-- account can be deleted. A @True@ value doesn\'t allow the account to be
+-- deleted and results in an error message if a user tries to make a
+-- @DeleteAccountSubsctiption@ request. A @False@ value will allow the
+-- ccount to be deleted.
+--
 -- 'publicSharingEnabled', 'accountSettings_publicSharingEnabled' - A Boolean value that indicates whether public sharing is turned on for
 -- an Amazon QuickSight account. For more information about turning on
 -- public sharing, see
@@ -84,6 +96,7 @@ newAccountSettings =
       edition = Prelude.Nothing,
       accountName = Prelude.Nothing,
       defaultNamespace = Prelude.Nothing,
+      terminationProtectionEnabled = Prelude.Nothing,
       publicSharingEnabled = Prelude.Nothing
     }
 
@@ -108,6 +121,14 @@ accountSettings_accountName = Lens.lens (\AccountSettings' {accountName} -> acco
 accountSettings_defaultNamespace :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Text)
 accountSettings_defaultNamespace = Lens.lens (\AccountSettings' {defaultNamespace} -> defaultNamespace) (\s@AccountSettings' {} a -> s {defaultNamespace = a} :: AccountSettings)
 
+-- | A boolean value that determines whether or not an Amazon QuickSight
+-- account can be deleted. A @True@ value doesn\'t allow the account to be
+-- deleted and results in an error message if a user tries to make a
+-- @DeleteAccountSubsctiption@ request. A @False@ value will allow the
+-- ccount to be deleted.
+accountSettings_terminationProtectionEnabled :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Bool)
+accountSettings_terminationProtectionEnabled = Lens.lens (\AccountSettings' {terminationProtectionEnabled} -> terminationProtectionEnabled) (\s@AccountSettings' {} a -> s {terminationProtectionEnabled = a} :: AccountSettings)
+
 -- | A Boolean value that indicates whether public sharing is turned on for
 -- an Amazon QuickSight account. For more information about turning on
 -- public sharing, see
@@ -125,6 +146,7 @@ instance Core.FromJSON AccountSettings where
             Prelude.<*> (x Core..:? "Edition")
             Prelude.<*> (x Core..:? "AccountName")
             Prelude.<*> (x Core..:? "DefaultNamespace")
+            Prelude.<*> (x Core..:? "TerminationProtectionEnabled")
             Prelude.<*> (x Core..:? "PublicSharingEnabled")
       )
 
@@ -134,6 +156,7 @@ instance Prelude.Hashable AccountSettings where
       `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` accountName
       `Prelude.hashWithSalt` defaultNamespace
+      `Prelude.hashWithSalt` terminationProtectionEnabled
       `Prelude.hashWithSalt` publicSharingEnabled
 
 instance Prelude.NFData AccountSettings where
@@ -142,4 +165,5 @@ instance Prelude.NFData AccountSettings where
       `Prelude.seq` Prelude.rnf edition
       `Prelude.seq` Prelude.rnf accountName
       `Prelude.seq` Prelude.rnf defaultNamespace
+      `Prelude.seq` Prelude.rnf terminationProtectionEnabled
       `Prelude.seq` Prelude.rnf publicSharingEnabled

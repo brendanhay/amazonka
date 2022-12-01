@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a package with an Amazon OpenSearch Service domain.
+-- Associates a package with an Amazon OpenSearch Service domain. For more
+-- information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html Custom packages for Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.AssociatePackage
   ( -- * Creating a Request
     AssociatePackage (..),
@@ -41,13 +43,13 @@ module Amazonka.OpenSearch.AssociatePackage
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the request parameters to the @ AssociatePackage @
+-- | Container for the request parameters to the @AssociatePackage@
 -- operation.
 --
 -- /See:/ 'newAssociatePackage' smart constructor.
@@ -55,7 +57,7 @@ data AssociatePackage = AssociatePackage'
   { -- | Internal ID of the package to associate with a domain. Use
     -- @DescribePackages@ to find this value.
     packageID :: Prelude.Text,
-    -- | The name of the domain to associate the package with.
+    -- | Name of the domain to associate the package with.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,7 +73,7 @@ data AssociatePackage = AssociatePackage'
 -- 'packageID', 'associatePackage_packageID' - Internal ID of the package to associate with a domain. Use
 -- @DescribePackages@ to find this value.
 --
--- 'domainName', 'associatePackage_domainName' - The name of the domain to associate the package with.
+-- 'domainName', 'associatePackage_domainName' - Name of the domain to associate the package with.
 newAssociatePackage ::
   -- | 'packageID'
   Prelude.Text ->
@@ -89,7 +91,7 @@ newAssociatePackage pPackageID_ pDomainName_ =
 associatePackage_packageID :: Lens.Lens' AssociatePackage Prelude.Text
 associatePackage_packageID = Lens.lens (\AssociatePackage' {packageID} -> packageID) (\s@AssociatePackage' {} a -> s {packageID = a} :: AssociatePackage)
 
--- | The name of the domain to associate the package with.
+-- | Name of the domain to associate the package with.
 associatePackage_domainName :: Lens.Lens' AssociatePackage Prelude.Text
 associatePackage_domainName = Lens.lens (\AssociatePackage' {domainName} -> domainName) (\s@AssociatePackage' {} a -> s {domainName = a} :: AssociatePackage)
 
@@ -97,8 +99,8 @@ instance Core.AWSRequest AssociatePackage where
   type
     AWSResponse AssociatePackage =
       AssociatePackageResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,11 +137,11 @@ instance Core.ToPath AssociatePackage where
 instance Core.ToQuery AssociatePackage where
   toQuery = Prelude.const Prelude.mempty
 
--- | Container for the response returned by @ AssociatePackage @ operation.
+-- | Container for the response returned by the @AssociatePackage@ operation.
 --
 -- /See:/ 'newAssociatePackageResponse' smart constructor.
 data AssociatePackageResponse = AssociatePackageResponse'
-  { -- | @DomainPackageDetails@
+  { -- | Information about a package that is associated with a domain.
     domainPackageDetails :: Prelude.Maybe DomainPackageDetails,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -154,7 +156,7 @@ data AssociatePackageResponse = AssociatePackageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainPackageDetails', 'associatePackageResponse_domainPackageDetails' - @DomainPackageDetails@
+-- 'domainPackageDetails', 'associatePackageResponse_domainPackageDetails' - Information about a package that is associated with a domain.
 --
 -- 'httpStatus', 'associatePackageResponse_httpStatus' - The response's http status code.
 newAssociatePackageResponse ::
@@ -168,7 +170,7 @@ newAssociatePackageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | @DomainPackageDetails@
+-- | Information about a package that is associated with a domain.
 associatePackageResponse_domainPackageDetails :: Lens.Lens' AssociatePackageResponse (Prelude.Maybe DomainPackageDetails)
 associatePackageResponse_domainPackageDetails = Lens.lens (\AssociatePackageResponse' {domainPackageDetails} -> domainPackageDetails) (\s@AssociatePackageResponse' {} a -> s {domainPackageDetails = a} :: AssociatePackageResponse)
 

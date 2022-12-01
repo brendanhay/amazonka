@@ -21,7 +21,7 @@ module Amazonka.Backup.Types.RecoveryPointByResource where
 
 import Amazonka.Backup.Types.RecoveryPointStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about a saved recovery point.

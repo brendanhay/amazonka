@@ -23,7 +23,7 @@ import Amazonka.Batch.Types.EksEmptyDir
 import Amazonka.Batch.Types.EksHostPath
 import Amazonka.Batch.Types.EksSecret
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Amazon EKS volume for a job definition.

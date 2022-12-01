@@ -85,7 +85,7 @@ module Amazonka.RDS.ModifyDBCluster
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -458,8 +458,8 @@ data ModifyDBCluster = ModifyDBCluster'
     -- | The amount of Provisioned IOPS (input\/output operations per second) to
     -- be initially allocated for each DB instance in the Multi-AZ DB cluster.
     --
-    -- For information about valid Iops values, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
+    -- For information about valid IOPS values, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
     -- in the /Amazon RDS User Guide/.
     --
     -- Constraints: Must be a multiple between .5 and 50 of the storage amount
@@ -899,8 +899,8 @@ data ModifyDBCluster = ModifyDBCluster'
 -- 'iops', 'modifyDBCluster_iops' - The amount of Provisioned IOPS (input\/output operations per second) to
 -- be initially allocated for each DB instance in the Multi-AZ DB cluster.
 --
--- For information about valid Iops values, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
+-- For information about valid IOPS values, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
 -- in the /Amazon RDS User Guide/.
 --
 -- Constraints: Must be a multiple between .5 and 50 of the storage amount
@@ -1437,8 +1437,8 @@ modifyDBCluster_dbClusterParameterGroupName = Lens.lens (\ModifyDBCluster' {dbCl
 -- | The amount of Provisioned IOPS (input\/output operations per second) to
 -- be initially allocated for each DB instance in the Multi-AZ DB cluster.
 --
--- For information about valid Iops values, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
+-- For information about valid IOPS values, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
 -- in the /Amazon RDS User Guide/.
 --
 -- Constraints: Must be a multiple between .5 and 50 of the storage amount
@@ -1515,8 +1515,8 @@ instance Core.AWSRequest ModifyDBCluster where
   type
     AWSResponse ModifyDBCluster =
       ModifyDBClusterResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "ModifyDBClusterResult"

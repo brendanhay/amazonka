@@ -20,7 +20,7 @@
 module Amazonka.Kendra.Types.DocumentsMetadataConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Document metadata files that contain information such as the document

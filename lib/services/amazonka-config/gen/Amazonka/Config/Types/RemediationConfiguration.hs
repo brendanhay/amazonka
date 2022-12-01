@@ -23,7 +23,7 @@ import Amazonka.Config.Types.ExecutionControls
 import Amazonka.Config.Types.RemediationParameterValue
 import Amazonka.Config.Types.RemediationTargetType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the details about the remediation

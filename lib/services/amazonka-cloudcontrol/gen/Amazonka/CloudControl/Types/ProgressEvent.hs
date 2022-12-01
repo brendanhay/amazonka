@@ -23,7 +23,7 @@ import Amazonka.CloudControl.Types.HandlerErrorCode
 import Amazonka.CloudControl.Types.Operation
 import Amazonka.CloudControl.Types.OperationStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the current status of a resource operation request. For more

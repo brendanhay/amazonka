@@ -24,7 +24,7 @@ import Amazonka.ComputeOptimizer.Types.RecommendationSourceType
 import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.Summary
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of a recommendation.

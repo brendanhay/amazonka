@@ -26,7 +26,7 @@ import Amazonka.CodePipeline.Types.Artifact
 import Amazonka.CodePipeline.Types.EncryptionKey
 import Amazonka.CodePipeline.Types.PipelineContext
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents other information about a job required for a job worker to

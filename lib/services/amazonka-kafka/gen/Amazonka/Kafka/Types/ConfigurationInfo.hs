@@ -20,7 +20,7 @@
 module Amazonka.Kafka.Types.ConfigurationInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration to use for the brokers.

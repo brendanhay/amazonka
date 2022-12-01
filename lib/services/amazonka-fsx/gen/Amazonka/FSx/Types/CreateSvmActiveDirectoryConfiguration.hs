@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.CreateSvmActiveDirectoryConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.SelfManagedActiveDirectoryConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that Amazon FSx uses to join the ONTAP storage virtual

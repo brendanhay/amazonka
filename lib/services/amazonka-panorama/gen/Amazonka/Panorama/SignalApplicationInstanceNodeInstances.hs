@@ -41,7 +41,7 @@ module Amazonka.Panorama.SignalApplicationInstanceNodeInstances
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,8 +99,8 @@ instance
     AWSResponse
       SignalApplicationInstanceNodeInstances =
       SignalApplicationInstanceNodeInstancesResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,8 +20,8 @@
 module Amazonka.IoTAnalytics.Types.S3DestinationConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.GlueConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for delivery of dataset contents to Amazon

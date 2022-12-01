@@ -29,8 +29,10 @@
 -- For more details on this distinction, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html Naming Rules and Data Types>.
 --
--- @BatchWriteItem@ cannot update items. To update items, use the
--- @UpdateItem@ action.
+-- @BatchWriteItem@ cannot update items. If you perform a @BatchWriteItem@
+-- operation on an existing item, that item\'s values will be overwritten
+-- by the operation and it will appear like it was updated. To update
+-- items, we recommend you use the @UpdateItem@ action.
 --
 -- The individual @PutItem@ and @DeleteItem@ operations specified in
 -- @BatchWriteItem@ are atomic; however @BatchWriteItem@ as a whole is not.
@@ -125,8 +127,8 @@ module Amazonka.DynamoDB.BatchWriteItem
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -272,8 +274,8 @@ instance Core.AWSRequest BatchWriteItem where
   type
     AWSResponse BatchWriteItem =
       BatchWriteItemResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -372,7 +374,7 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
     -- | A map of tables and requests against those tables that were not
     -- processed. The @UnprocessedItems@ value is in the same form as
     -- @RequestItems@, so you can provide this value directly to a subsequent
-    -- @BatchGetItem@ operation. For more information, see @RequestItems@ in
+    -- @BatchWriteItem@ operation. For more information, see @RequestItems@ in
     -- the Request Parameters section.
     --
     -- Each @UnprocessedItems@ entry consists of a table name and, for that
@@ -447,7 +449,7 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
 -- 'unprocessedItems', 'batchWriteItemResponse_unprocessedItems' - A map of tables and requests against those tables that were not
 -- processed. The @UnprocessedItems@ value is in the same form as
 -- @RequestItems@, so you can provide this value directly to a subsequent
--- @BatchGetItem@ operation. For more information, see @RequestItems@ in
+-- @BatchWriteItem@ operation. For more information, see @RequestItems@ in
 -- the Request Parameters section.
 --
 -- Each @UnprocessedItems@ entry consists of a table name and, for that
@@ -529,7 +531,7 @@ batchWriteItemResponse_httpStatus = Lens.lens (\BatchWriteItemResponse' {httpSta
 -- | A map of tables and requests against those tables that were not
 -- processed. The @UnprocessedItems@ value is in the same form as
 -- @RequestItems@, so you can provide this value directly to a subsequent
--- @BatchGetItem@ operation. For more information, see @RequestItems@ in
+-- @BatchWriteItem@ operation. For more information, see @RequestItems@ in
 -- the Request Parameters section.
 --
 -- Each @UnprocessedItems@ entry consists of a table name and, for that

@@ -20,7 +20,7 @@
 module Amazonka.StorageGateway.Types.FileSystemAssociationSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gets the summary returned by @ListFileSystemAssociation@, which is a

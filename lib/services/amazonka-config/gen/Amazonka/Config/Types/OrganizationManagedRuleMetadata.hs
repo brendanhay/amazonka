@@ -21,7 +21,7 @@ module Amazonka.Config.Types.OrganizationManagedRuleMetadata where
 
 import Amazonka.Config.Types.MaximumExecutionFrequency
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that specifies organization managed rule metadata such as

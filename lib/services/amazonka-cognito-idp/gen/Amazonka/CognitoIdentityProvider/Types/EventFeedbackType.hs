@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.EventFeedbackType where
 
 import Amazonka.CognitoIdentityProvider.Types.FeedbackValueType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the event feedback type.

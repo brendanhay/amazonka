@@ -20,7 +20,7 @@
 module Amazonka.CloudSearchDomains.Types.SuggestionMatch where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An autocomplete suggestion that matches the query string specified in a

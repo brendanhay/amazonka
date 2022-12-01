@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.EcrConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.EcrRescanDuration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the ECR automated re-scan duration setting for your

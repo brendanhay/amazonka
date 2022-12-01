@@ -23,7 +23,7 @@ import Amazonka.APIGateway.Types.ApiStage
 import Amazonka.APIGateway.Types.QuotaSettings
 import Amazonka.APIGateway.Types.ThrottleSettings
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a usage plan used to specify who can assess associated API

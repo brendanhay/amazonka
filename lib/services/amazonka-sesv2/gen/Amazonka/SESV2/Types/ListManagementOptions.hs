@@ -20,7 +20,7 @@
 module Amazonka.SESV2.Types.ListManagementOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object used to specify a list or topic to which an email belongs,

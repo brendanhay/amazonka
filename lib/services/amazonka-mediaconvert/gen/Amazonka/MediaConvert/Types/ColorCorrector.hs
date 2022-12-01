@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.ColorCorrector where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.ColorSpaceConversion
 import Amazonka.MediaConvert.Types.Hdr10Metadata
 import Amazonka.MediaConvert.Types.SampleRangeConversion
@@ -36,10 +36,22 @@ data ColorCorrector = ColorCorrector'
     -- range. The converted video has an HDR format, but visually appears the
     -- same as an unconverted output. HDR to SDR conversion uses Elemental tone
     -- mapping technology to approximate the outcome of manually regrading from
-    -- HDR to SDR.
+    -- HDR to SDR. Select Force P3D65 (SDR) to set the output color space
+    -- metadata to the following: * Color primaries: Display P3 * Transfer
+    -- characteristics: SMPTE 428M * Matrix coefficients: BT.709
     colorSpaceConversion :: Prelude.Maybe ColorSpaceConversion,
     -- | Saturation level.
     saturation :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the reference white level, in nits, for all of your SDR inputs.
+    -- Use to correct brightness levels within HDR10 outputs. The following
+    -- color metadata must be present in your SDR input: color primaries,
+    -- transfer characteristics, and matrix coefficients. If your SDR input has
+    -- missing color metadata, or if you want to correct input color metadata,
+    -- manually specify a color space in the input video selector. For 1,000
+    -- nit peak brightness displays, we recommend that you set SDR reference
+    -- white level to 203 (according to ITU-R BT.2408). Leave blank to use the
+    -- default value of 100, or specify an integer from 100 to 1000.
+    sdrReferenceWhiteLevel :: Prelude.Maybe Prelude.Natural,
     -- | Brightness level.
     brightness :: Prelude.Maybe Prelude.Natural,
     -- | Hue in degrees.
@@ -89,9 +101,21 @@ data ColorCorrector = ColorCorrector'
 -- range. The converted video has an HDR format, but visually appears the
 -- same as an unconverted output. HDR to SDR conversion uses Elemental tone
 -- mapping technology to approximate the outcome of manually regrading from
--- HDR to SDR.
+-- HDR to SDR. Select Force P3D65 (SDR) to set the output color space
+-- metadata to the following: * Color primaries: Display P3 * Transfer
+-- characteristics: SMPTE 428M * Matrix coefficients: BT.709
 --
 -- 'saturation', 'colorCorrector_saturation' - Saturation level.
+--
+-- 'sdrReferenceWhiteLevel', 'colorCorrector_sdrReferenceWhiteLevel' - Specify the reference white level, in nits, for all of your SDR inputs.
+-- Use to correct brightness levels within HDR10 outputs. The following
+-- color metadata must be present in your SDR input: color primaries,
+-- transfer characteristics, and matrix coefficients. If your SDR input has
+-- missing color metadata, or if you want to correct input color metadata,
+-- manually specify a color space in the input video selector. For 1,000
+-- nit peak brightness displays, we recommend that you set SDR reference
+-- white level to 203 (according to ITU-R BT.2408). Leave blank to use the
+-- default value of 100, or specify an integer from 100 to 1000.
 --
 -- 'brightness', 'colorCorrector_brightness' - Brightness level.
 --
@@ -131,6 +155,7 @@ newColorCorrector =
     { colorSpaceConversion =
         Prelude.Nothing,
       saturation = Prelude.Nothing,
+      sdrReferenceWhiteLevel = Prelude.Nothing,
       brightness = Prelude.Nothing,
       hue = Prelude.Nothing,
       hdr10Metadata = Prelude.Nothing,
@@ -144,13 +169,27 @@ newColorCorrector =
 -- range. The converted video has an HDR format, but visually appears the
 -- same as an unconverted output. HDR to SDR conversion uses Elemental tone
 -- mapping technology to approximate the outcome of manually regrading from
--- HDR to SDR.
+-- HDR to SDR. Select Force P3D65 (SDR) to set the output color space
+-- metadata to the following: * Color primaries: Display P3 * Transfer
+-- characteristics: SMPTE 428M * Matrix coefficients: BT.709
 colorCorrector_colorSpaceConversion :: Lens.Lens' ColorCorrector (Prelude.Maybe ColorSpaceConversion)
 colorCorrector_colorSpaceConversion = Lens.lens (\ColorCorrector' {colorSpaceConversion} -> colorSpaceConversion) (\s@ColorCorrector' {} a -> s {colorSpaceConversion = a} :: ColorCorrector)
 
 -- | Saturation level.
 colorCorrector_saturation :: Lens.Lens' ColorCorrector (Prelude.Maybe Prelude.Natural)
 colorCorrector_saturation = Lens.lens (\ColorCorrector' {saturation} -> saturation) (\s@ColorCorrector' {} a -> s {saturation = a} :: ColorCorrector)
+
+-- | Specify the reference white level, in nits, for all of your SDR inputs.
+-- Use to correct brightness levels within HDR10 outputs. The following
+-- color metadata must be present in your SDR input: color primaries,
+-- transfer characteristics, and matrix coefficients. If your SDR input has
+-- missing color metadata, or if you want to correct input color metadata,
+-- manually specify a color space in the input video selector. For 1,000
+-- nit peak brightness displays, we recommend that you set SDR reference
+-- white level to 203 (according to ITU-R BT.2408). Leave blank to use the
+-- default value of 100, or specify an integer from 100 to 1000.
+colorCorrector_sdrReferenceWhiteLevel :: Lens.Lens' ColorCorrector (Prelude.Maybe Prelude.Natural)
+colorCorrector_sdrReferenceWhiteLevel = Lens.lens (\ColorCorrector' {sdrReferenceWhiteLevel} -> sdrReferenceWhiteLevel) (\s@ColorCorrector' {} a -> s {sdrReferenceWhiteLevel = a} :: ColorCorrector)
 
 -- | Brightness level.
 colorCorrector_brightness :: Lens.Lens' ColorCorrector (Prelude.Maybe Prelude.Natural)
@@ -202,6 +241,7 @@ instance Core.FromJSON ColorCorrector where
           ColorCorrector'
             Prelude.<$> (x Core..:? "colorSpaceConversion")
             Prelude.<*> (x Core..:? "saturation")
+            Prelude.<*> (x Core..:? "sdrReferenceWhiteLevel")
             Prelude.<*> (x Core..:? "brightness")
             Prelude.<*> (x Core..:? "hue")
             Prelude.<*> (x Core..:? "hdr10Metadata")
@@ -213,6 +253,7 @@ instance Prelude.Hashable ColorCorrector where
   hashWithSalt _salt ColorCorrector' {..} =
     _salt `Prelude.hashWithSalt` colorSpaceConversion
       `Prelude.hashWithSalt` saturation
+      `Prelude.hashWithSalt` sdrReferenceWhiteLevel
       `Prelude.hashWithSalt` brightness
       `Prelude.hashWithSalt` hue
       `Prelude.hashWithSalt` hdr10Metadata
@@ -223,6 +264,7 @@ instance Prelude.NFData ColorCorrector where
   rnf ColorCorrector' {..} =
     Prelude.rnf colorSpaceConversion
       `Prelude.seq` Prelude.rnf saturation
+      `Prelude.seq` Prelude.rnf sdrReferenceWhiteLevel
       `Prelude.seq` Prelude.rnf brightness
       `Prelude.seq` Prelude.rnf hue
       `Prelude.seq` Prelude.rnf hdr10Metadata
@@ -236,6 +278,8 @@ instance Core.ToJSON ColorCorrector where
           [ ("colorSpaceConversion" Core..=)
               Prelude.<$> colorSpaceConversion,
             ("saturation" Core..=) Prelude.<$> saturation,
+            ("sdrReferenceWhiteLevel" Core..=)
+              Prelude.<$> sdrReferenceWhiteLevel,
             ("brightness" Core..=) Prelude.<$> brightness,
             ("hue" Core..=) Prelude.<$> hue,
             ("hdr10Metadata" Core..=) Prelude.<$> hdr10Metadata,

@@ -20,6 +20,7 @@
 module Amazonka.ElasticBeanstalk.Types.EnvironmentResourceDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticBeanstalk.Types.AutoScalingGroup
 import Amazonka.ElasticBeanstalk.Types.Instance
 import Amazonka.ElasticBeanstalk.Types.LaunchConfiguration
@@ -27,7 +28,6 @@ import Amazonka.ElasticBeanstalk.Types.LaunchTemplate
 import Amazonka.ElasticBeanstalk.Types.LoadBalancer
 import Amazonka.ElasticBeanstalk.Types.Queue
 import Amazonka.ElasticBeanstalk.Types.Trigger
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the AWS resources in use by this environment. This data is

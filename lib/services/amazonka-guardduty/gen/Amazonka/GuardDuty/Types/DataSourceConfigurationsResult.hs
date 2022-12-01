@@ -20,13 +20,13 @@
 module Amazonka.GuardDuty.Types.DataSourceConfigurationsResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.CloudTrailConfigurationResult
 import Amazonka.GuardDuty.Types.DNSLogsConfigurationResult
 import Amazonka.GuardDuty.Types.FlowLogsConfigurationResult
 import Amazonka.GuardDuty.Types.KubernetesConfigurationResult
 import Amazonka.GuardDuty.Types.MalwareProtectionConfigurationResult
 import Amazonka.GuardDuty.Types.S3LogsConfigurationResult
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on the status of data sources for the detector.

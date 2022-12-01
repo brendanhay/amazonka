@@ -20,8 +20,8 @@
 module Amazonka.FinSpaceData.Types.DataViewErrorInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FinSpaceData.Types.ErrorCategory
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure with error messages.

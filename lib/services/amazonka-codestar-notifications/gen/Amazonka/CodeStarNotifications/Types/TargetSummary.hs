@@ -21,7 +21,7 @@ module Amazonka.CodeStarNotifications.Types.TargetSummary where
 
 import Amazonka.CodeStarNotifications.Types.TargetStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the targets specified for a notification rule.

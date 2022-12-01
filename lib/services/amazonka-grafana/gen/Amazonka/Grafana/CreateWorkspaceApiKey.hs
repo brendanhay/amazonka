@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an API key for the workspace. This key can be used to
+-- Creates a Grafana API key for the workspace. This key can be used to
 -- authenticate requests sent to the workspace\'s HTTP API. See
--- <%20https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html https:\/\/docs.aws.amazon.com\/grafana\/latest\/userguide\/Using-Grafana-APIs.html>
+-- <https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html>
 -- for available APIs and example requests.
 module Amazonka.Grafana.CreateWorkspaceApiKey
   ( -- * Creating a Request
@@ -48,25 +48,24 @@ module Amazonka.Grafana.CreateWorkspaceApiKey
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWorkspaceApiKey' smart constructor.
 data CreateWorkspaceApiKey = CreateWorkspaceApiKey'
-  { -- | Specifies the name of the key to create. Key names must be unique to the
-    -- workspace.
+  { -- | Specifies the name of the key. Keynames must be unique to the workspace.
     keyName :: Prelude.Text,
     -- | Specifies the permission level of the key.
     --
-    -- Valid Values: @VIEWER@ | @EDITOR@ | @ADMIN@
+    -- Valid values: @VIEWER@|@EDITOR@|@ADMIN@
     keyRole :: Prelude.Text,
     -- | Specifies the time in seconds until the key expires. Keys can be valid
     -- for up to 30 days.
     secondsToLive :: Prelude.Natural,
-    -- | The ID of the workspace in which to create an API key.
+    -- | The ID of the workspace to create an API key.
     workspaceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,17 +78,16 @@ data CreateWorkspaceApiKey = CreateWorkspaceApiKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyName', 'createWorkspaceApiKey_keyName' - Specifies the name of the key to create. Key names must be unique to the
--- workspace.
+-- 'keyName', 'createWorkspaceApiKey_keyName' - Specifies the name of the key. Keynames must be unique to the workspace.
 --
 -- 'keyRole', 'createWorkspaceApiKey_keyRole' - Specifies the permission level of the key.
 --
--- Valid Values: @VIEWER@ | @EDITOR@ | @ADMIN@
+-- Valid values: @VIEWER@|@EDITOR@|@ADMIN@
 --
 -- 'secondsToLive', 'createWorkspaceApiKey_secondsToLive' - Specifies the time in seconds until the key expires. Keys can be valid
 -- for up to 30 days.
 --
--- 'workspaceId', 'createWorkspaceApiKey_workspaceId' - The ID of the workspace in which to create an API key.
+-- 'workspaceId', 'createWorkspaceApiKey_workspaceId' - The ID of the workspace to create an API key.
 newCreateWorkspaceApiKey ::
   -- | 'keyName'
   Prelude.Text ->
@@ -112,14 +110,13 @@ newCreateWorkspaceApiKey
         workspaceId = pWorkspaceId_
       }
 
--- | Specifies the name of the key to create. Key names must be unique to the
--- workspace.
+-- | Specifies the name of the key. Keynames must be unique to the workspace.
 createWorkspaceApiKey_keyName :: Lens.Lens' CreateWorkspaceApiKey Prelude.Text
 createWorkspaceApiKey_keyName = Lens.lens (\CreateWorkspaceApiKey' {keyName} -> keyName) (\s@CreateWorkspaceApiKey' {} a -> s {keyName = a} :: CreateWorkspaceApiKey)
 
 -- | Specifies the permission level of the key.
 --
--- Valid Values: @VIEWER@ | @EDITOR@ | @ADMIN@
+-- Valid values: @VIEWER@|@EDITOR@|@ADMIN@
 createWorkspaceApiKey_keyRole :: Lens.Lens' CreateWorkspaceApiKey Prelude.Text
 createWorkspaceApiKey_keyRole = Lens.lens (\CreateWorkspaceApiKey' {keyRole} -> keyRole) (\s@CreateWorkspaceApiKey' {} a -> s {keyRole = a} :: CreateWorkspaceApiKey)
 
@@ -128,7 +125,7 @@ createWorkspaceApiKey_keyRole = Lens.lens (\CreateWorkspaceApiKey' {keyRole} -> 
 createWorkspaceApiKey_secondsToLive :: Lens.Lens' CreateWorkspaceApiKey Prelude.Natural
 createWorkspaceApiKey_secondsToLive = Lens.lens (\CreateWorkspaceApiKey' {secondsToLive} -> secondsToLive) (\s@CreateWorkspaceApiKey' {} a -> s {secondsToLive = a} :: CreateWorkspaceApiKey)
 
--- | The ID of the workspace in which to create an API key.
+-- | The ID of the workspace to create an API key.
 createWorkspaceApiKey_workspaceId :: Lens.Lens' CreateWorkspaceApiKey Prelude.Text
 createWorkspaceApiKey_workspaceId = Lens.lens (\CreateWorkspaceApiKey' {workspaceId} -> workspaceId) (\s@CreateWorkspaceApiKey' {} a -> s {workspaceId = a} :: CreateWorkspaceApiKey)
 
@@ -136,8 +133,8 @@ instance Core.AWSRequest CreateWorkspaceApiKey where
   type
     AWSResponse CreateWorkspaceApiKey =
       CreateWorkspaceApiKeyResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -196,8 +193,8 @@ instance Core.ToQuery CreateWorkspaceApiKey where
 data CreateWorkspaceApiKeyResponse = CreateWorkspaceApiKeyResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The key token that was created. Use this value as a bearer token to
-    -- authenticate HTTP requests to the workspace.
+    -- | The key token. Use this value as a bearer token to authenticate HTTP
+    -- requests to the workspace.
     key :: Core.Sensitive Prelude.Text,
     -- | The name of the key that was created.
     keyName :: Prelude.Text,
@@ -216,8 +213,8 @@ data CreateWorkspaceApiKeyResponse = CreateWorkspaceApiKeyResponse'
 --
 -- 'httpStatus', 'createWorkspaceApiKeyResponse_httpStatus' - The response's http status code.
 --
--- 'key', 'createWorkspaceApiKeyResponse_key' - The key token that was created. Use this value as a bearer token to
--- authenticate HTTP requests to the workspace.
+-- 'key', 'createWorkspaceApiKeyResponse_key' - The key token. Use this value as a bearer token to authenticate HTTP
+-- requests to the workspace.
 --
 -- 'keyName', 'createWorkspaceApiKeyResponse_keyName' - The name of the key that was created.
 --
@@ -249,8 +246,8 @@ newCreateWorkspaceApiKeyResponse
 createWorkspaceApiKeyResponse_httpStatus :: Lens.Lens' CreateWorkspaceApiKeyResponse Prelude.Int
 createWorkspaceApiKeyResponse_httpStatus = Lens.lens (\CreateWorkspaceApiKeyResponse' {httpStatus} -> httpStatus) (\s@CreateWorkspaceApiKeyResponse' {} a -> s {httpStatus = a} :: CreateWorkspaceApiKeyResponse)
 
--- | The key token that was created. Use this value as a bearer token to
--- authenticate HTTP requests to the workspace.
+-- | The key token. Use this value as a bearer token to authenticate HTTP
+-- requests to the workspace.
 createWorkspaceApiKeyResponse_key :: Lens.Lens' CreateWorkspaceApiKeyResponse Prelude.Text
 createWorkspaceApiKeyResponse_key = Lens.lens (\CreateWorkspaceApiKeyResponse' {key} -> key) (\s@CreateWorkspaceApiKeyResponse' {} a -> s {key = a} :: CreateWorkspaceApiKeyResponse) Prelude.. Core._Sensitive
 

@@ -31,6 +31,14 @@
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html Launch configurations>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
+--
+-- Amazon EC2 Auto Scaling configures instances launched as part of an Auto
+-- Scaling group using either a launch template or a launch configuration.
+-- We strongly recommend that you do not use launch configurations. They do
+-- not provide full functionality for Amazon EC2 Auto Scaling or Amazon
+-- EC2. For information about using launch templates, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html Launch templates>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 module Amazonka.AutoScaling.CreateLaunchConfiguration
   ( -- * Creating a Request
     CreateLaunchConfiguration (..),
@@ -65,7 +73,7 @@ where
 
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,13 +98,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html IAM role for applications that run on Amazon EC2 instances>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     iamInstanceProfile :: Prelude.Maybe Prelude.Text,
-    -- | /EC2-Classic retires on August 15, 2022. This property is not supported
-    -- after that date./
-    --
-    -- The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
-    -- to. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
-    -- in the /Amazon EC2 User Guide for Linux Instances/.
+    -- | Available for backward compatibility.
     classicLinkVPCId :: Prelude.Maybe Prelude.Text,
     -- | The user data to make available to the launched EC2 instances. For more
     -- information, see
@@ -209,14 +211,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- maximum price for those running instances is higher than the current
     -- Spot price.
     spotPrice :: Prelude.Maybe Prelude.Text,
-    -- | /EC2-Classic retires on August 15, 2022. This property is not supported
-    -- after that date./
-    --
-    -- The IDs of one or more security groups for the specified
-    -- ClassicLink-enabled VPC.
-    --
-    -- If you specify the @ClassicLinkVPCId@ property, you must specify
-    -- @ClassicLinkVPCSecurityGroups@.
+    -- | Available for backward compatibility.
     classicLinkVPCSecurityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the Amazon Machine Image (AMI) that was assigned during
     -- registration. For more information, see
@@ -261,13 +256,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html IAM role for applications that run on Amazon EC2 instances>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- 'classicLinkVPCId', 'createLaunchConfiguration_classicLinkVPCId' - /EC2-Classic retires on August 15, 2022. This property is not supported
--- after that date./
---
--- The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
--- to. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
--- in the /Amazon EC2 User Guide for Linux Instances/.
+-- 'classicLinkVPCId', 'createLaunchConfiguration_classicLinkVPCId' - Available for backward compatibility.
 --
 -- 'userData', 'createLaunchConfiguration_userData' - The user data to make available to the launched EC2 instances. For more
 -- information, see
@@ -380,14 +369,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
 -- maximum price for those running instances is higher than the current
 -- Spot price.
 --
--- 'classicLinkVPCSecurityGroups', 'createLaunchConfiguration_classicLinkVPCSecurityGroups' - /EC2-Classic retires on August 15, 2022. This property is not supported
--- after that date./
---
--- The IDs of one or more security groups for the specified
--- ClassicLink-enabled VPC.
---
--- If you specify the @ClassicLinkVPCId@ property, you must specify
--- @ClassicLinkVPCSecurityGroups@.
+-- 'classicLinkVPCSecurityGroups', 'createLaunchConfiguration_classicLinkVPCSecurityGroups' - Available for backward compatibility.
 --
 -- 'imageId', 'createLaunchConfiguration_imageId' - The ID of the Amazon Machine Image (AMI) that was assigned during
 -- registration. For more information, see
@@ -454,13 +436,7 @@ createLaunchConfiguration_ebsOptimized = Lens.lens (\CreateLaunchConfiguration' 
 createLaunchConfiguration_iamInstanceProfile :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_iamInstanceProfile = Lens.lens (\CreateLaunchConfiguration' {iamInstanceProfile} -> iamInstanceProfile) (\s@CreateLaunchConfiguration' {} a -> s {iamInstanceProfile = a} :: CreateLaunchConfiguration)
 
--- | /EC2-Classic retires on August 15, 2022. This property is not supported
--- after that date./
---
--- The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
--- to. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
--- in the /Amazon EC2 User Guide for Linux Instances/.
+-- | Available for backward compatibility.
 createLaunchConfiguration_classicLinkVPCId :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_classicLinkVPCId = Lens.lens (\CreateLaunchConfiguration' {classicLinkVPCId} -> classicLinkVPCId) (\s@CreateLaunchConfiguration' {} a -> s {classicLinkVPCId = a} :: CreateLaunchConfiguration)
 
@@ -599,14 +575,7 @@ createLaunchConfiguration_kernelId = Lens.lens (\CreateLaunchConfiguration' {ker
 createLaunchConfiguration_spotPrice :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_spotPrice = Lens.lens (\CreateLaunchConfiguration' {spotPrice} -> spotPrice) (\s@CreateLaunchConfiguration' {} a -> s {spotPrice = a} :: CreateLaunchConfiguration)
 
--- | /EC2-Classic retires on August 15, 2022. This property is not supported
--- after that date./
---
--- The IDs of one or more security groups for the specified
--- ClassicLink-enabled VPC.
---
--- If you specify the @ClassicLinkVPCId@ property, you must specify
--- @ClassicLinkVPCSecurityGroups@.
+-- | Available for backward compatibility.
 createLaunchConfiguration_classicLinkVPCSecurityGroups :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe [Prelude.Text])
 createLaunchConfiguration_classicLinkVPCSecurityGroups = Lens.lens (\CreateLaunchConfiguration' {classicLinkVPCSecurityGroups} -> classicLinkVPCSecurityGroups) (\s@CreateLaunchConfiguration' {} a -> s {classicLinkVPCSecurityGroups = a} :: CreateLaunchConfiguration) Prelude.. Lens.mapping Lens.coerced
 
@@ -634,8 +603,8 @@ instance Core.AWSRequest CreateLaunchConfiguration where
   type
     AWSResponse CreateLaunchConfiguration =
       CreateLaunchConfigurationResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull
       CreateLaunchConfigurationResponse'

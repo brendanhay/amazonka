@@ -20,10 +20,10 @@
 module Amazonka.DynamoDB.Types.ConsumedCapacity where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.Capacity
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The capacity units consumed by an operation. The data returned includes

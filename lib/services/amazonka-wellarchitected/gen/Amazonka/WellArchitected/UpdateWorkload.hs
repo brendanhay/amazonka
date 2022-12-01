@@ -27,10 +27,12 @@ module Amazonka.WellArchitected.UpdateWorkload
     newUpdateWorkload,
 
     -- * Request Lenses
+    updateWorkload_discoveryConfig,
     updateWorkload_accountIds,
     updateWorkload_environment,
     updateWorkload_isReviewOwnerUpdateAcknowledged,
     updateWorkload_industry,
+    updateWorkload_applications,
     updateWorkload_awsRegions,
     updateWorkload_workloadName,
     updateWorkload_reviewOwner,
@@ -54,7 +56,7 @@ module Amazonka.WellArchitected.UpdateWorkload
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -64,7 +66,10 @@ import Amazonka.WellArchitected.Types
 --
 -- /See:/ 'newUpdateWorkload' smart constructor.
 data UpdateWorkload = UpdateWorkload'
-  { accountIds :: Prelude.Maybe [Prelude.Text],
+  { -- | Well-Architected discovery configuration settings to associate to the
+    -- workload.
+    discoveryConfig :: Prelude.Maybe WorkloadDiscoveryConfig,
+    accountIds :: Prelude.Maybe [Prelude.Text],
     environment :: Prelude.Maybe WorkloadEnvironment,
     -- | Flag indicating whether the workload owner has acknowledged that the
     -- /Review owner/ field is required.
@@ -74,6 +79,8 @@ data UpdateWorkload = UpdateWorkload'
     -- added.
     isReviewOwnerUpdateAcknowledged :: Prelude.Maybe Prelude.Bool,
     industry :: Prelude.Maybe Prelude.Text,
+    -- | List of AppRegistry application ARNs to associate to the workload.
+    applications :: Prelude.Maybe [Prelude.Text],
     awsRegions :: Prelude.Maybe [Prelude.Text],
     workloadName :: Prelude.Maybe Prelude.Text,
     reviewOwner :: Prelude.Maybe Prelude.Text,
@@ -96,6 +103,9 @@ data UpdateWorkload = UpdateWorkload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'discoveryConfig', 'updateWorkload_discoveryConfig' - Well-Architected discovery configuration settings to associate to the
+-- workload.
+--
 -- 'accountIds', 'updateWorkload_accountIds' - Undocumented member.
 --
 -- 'environment', 'updateWorkload_environment' - Undocumented member.
@@ -108,6 +118,8 @@ data UpdateWorkload = UpdateWorkload'
 -- added.
 --
 -- 'industry', 'updateWorkload_industry' - Undocumented member.
+--
+-- 'applications', 'updateWorkload_applications' - List of AppRegistry application ARNs to associate to the workload.
 --
 -- 'awsRegions', 'updateWorkload_awsRegions' - Undocumented member.
 --
@@ -136,10 +148,12 @@ newUpdateWorkload ::
   UpdateWorkload
 newUpdateWorkload pWorkloadId_ =
   UpdateWorkload'
-    { accountIds = Prelude.Nothing,
+    { discoveryConfig = Prelude.Nothing,
+      accountIds = Prelude.Nothing,
       environment = Prelude.Nothing,
       isReviewOwnerUpdateAcknowledged = Prelude.Nothing,
       industry = Prelude.Nothing,
+      applications = Prelude.Nothing,
       awsRegions = Prelude.Nothing,
       workloadName = Prelude.Nothing,
       reviewOwner = Prelude.Nothing,
@@ -152,6 +166,11 @@ newUpdateWorkload pWorkloadId_ =
       improvementStatus = Prelude.Nothing,
       workloadId = pWorkloadId_
     }
+
+-- | Well-Architected discovery configuration settings to associate to the
+-- workload.
+updateWorkload_discoveryConfig :: Lens.Lens' UpdateWorkload (Prelude.Maybe WorkloadDiscoveryConfig)
+updateWorkload_discoveryConfig = Lens.lens (\UpdateWorkload' {discoveryConfig} -> discoveryConfig) (\s@UpdateWorkload' {} a -> s {discoveryConfig = a} :: UpdateWorkload)
 
 -- | Undocumented member.
 updateWorkload_accountIds :: Lens.Lens' UpdateWorkload (Prelude.Maybe [Prelude.Text])
@@ -173,6 +192,10 @@ updateWorkload_isReviewOwnerUpdateAcknowledged = Lens.lens (\UpdateWorkload' {is
 -- | Undocumented member.
 updateWorkload_industry :: Lens.Lens' UpdateWorkload (Prelude.Maybe Prelude.Text)
 updateWorkload_industry = Lens.lens (\UpdateWorkload' {industry} -> industry) (\s@UpdateWorkload' {} a -> s {industry = a} :: UpdateWorkload)
+
+-- | List of AppRegistry application ARNs to associate to the workload.
+updateWorkload_applications :: Lens.Lens' UpdateWorkload (Prelude.Maybe [Prelude.Text])
+updateWorkload_applications = Lens.lens (\UpdateWorkload' {applications} -> applications) (\s@UpdateWorkload' {} a -> s {applications = a} :: UpdateWorkload) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 updateWorkload_awsRegions :: Lens.Lens' UpdateWorkload (Prelude.Maybe [Prelude.Text])
@@ -222,8 +245,8 @@ instance Core.AWSRequest UpdateWorkload where
   type
     AWSResponse UpdateWorkload =
       UpdateWorkloadResponse
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -234,10 +257,12 @@ instance Core.AWSRequest UpdateWorkload where
 
 instance Prelude.Hashable UpdateWorkload where
   hashWithSalt _salt UpdateWorkload' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt `Prelude.hashWithSalt` discoveryConfig
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` isReviewOwnerUpdateAcknowledged
       `Prelude.hashWithSalt` industry
+      `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` awsRegions
       `Prelude.hashWithSalt` workloadName
       `Prelude.hashWithSalt` reviewOwner
@@ -252,10 +277,12 @@ instance Prelude.Hashable UpdateWorkload where
 
 instance Prelude.NFData UpdateWorkload where
   rnf UpdateWorkload' {..} =
-    Prelude.rnf accountIds
+    Prelude.rnf discoveryConfig
+      `Prelude.seq` Prelude.rnf accountIds
       `Prelude.seq` Prelude.rnf environment
       `Prelude.seq` Prelude.rnf isReviewOwnerUpdateAcknowledged
       `Prelude.seq` Prelude.rnf industry
+      `Prelude.seq` Prelude.rnf applications
       `Prelude.seq` Prelude.rnf awsRegions
       `Prelude.seq` Prelude.rnf workloadName
       `Prelude.seq` Prelude.rnf reviewOwner
@@ -283,11 +310,14 @@ instance Core.ToJSON UpdateWorkload where
   toJSON UpdateWorkload' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AccountIds" Core..=) Prelude.<$> accountIds,
+          [ ("DiscoveryConfig" Core..=)
+              Prelude.<$> discoveryConfig,
+            ("AccountIds" Core..=) Prelude.<$> accountIds,
             ("Environment" Core..=) Prelude.<$> environment,
             ("IsReviewOwnerUpdateAcknowledged" Core..=)
               Prelude.<$> isReviewOwnerUpdateAcknowledged,
             ("Industry" Core..=) Prelude.<$> industry,
+            ("Applications" Core..=) Prelude.<$> applications,
             ("AwsRegions" Core..=) Prelude.<$> awsRegions,
             ("WorkloadName" Core..=) Prelude.<$> workloadName,
             ("ReviewOwner" Core..=) Prelude.<$> reviewOwner,

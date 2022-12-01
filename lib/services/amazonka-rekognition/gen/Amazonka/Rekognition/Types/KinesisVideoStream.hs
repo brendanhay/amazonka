@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.KinesisVideoStream where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Kinesis video stream stream that provides the source streaming video for

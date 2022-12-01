@@ -20,8 +20,8 @@
 module Amazonka.IoTAnalytics.Types.LateDataRuleConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.DeltaTimeSessionWindowConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information needed to configure a delta time session window.

@@ -20,11 +20,11 @@
 module Amazonka.FSx.Types.FileCache where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.FileCacheFailureDetails
 import Amazonka.FSx.Types.FileCacheLifecycle
 import Amazonka.FSx.Types.FileCacheLustreConfiguration
 import Amazonka.FSx.Types.FileCacheType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of a specific Amazon File Cache resource, which is a

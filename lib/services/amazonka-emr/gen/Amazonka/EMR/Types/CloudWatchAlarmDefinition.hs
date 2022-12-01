@@ -20,11 +20,11 @@
 module Amazonka.EMR.Types.CloudWatchAlarmDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.ComparisonOperator
 import Amazonka.EMR.Types.MetricDimension
 import Amazonka.EMR.Types.Statistic
 import Amazonka.EMR.Types.Unit
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The definition of a CloudWatch metric alarm, which determines when an

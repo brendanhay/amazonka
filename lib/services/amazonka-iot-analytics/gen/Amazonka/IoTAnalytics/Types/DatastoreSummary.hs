@@ -20,11 +20,11 @@
 module Amazonka.IoTAnalytics.Types.DatastoreSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.DatastorePartitions
 import Amazonka.IoTAnalytics.Types.DatastoreStatus
 import Amazonka.IoTAnalytics.Types.DatastoreStorageSummary
 import Amazonka.IoTAnalytics.Types.FileFormatType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of information about a data store.

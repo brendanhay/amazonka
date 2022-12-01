@@ -80,8 +80,8 @@ module Amazonka.Kinesis.CreateStream
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kinesis.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,8 +164,8 @@ createStream_streamName = Lens.lens (\CreateStream' {streamName} -> streamName) 
 
 instance Core.AWSRequest CreateStream where
   type AWSResponse CreateStream = CreateStreamResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull CreateStreamResponse'
 
 instance Prelude.Hashable CreateStream where

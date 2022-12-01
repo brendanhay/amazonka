@@ -20,11 +20,11 @@
 module Amazonka.LakeFormation.Types.PrincipalResourcePermissions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.DataLakePrincipal
 import Amazonka.LakeFormation.Types.DetailsMap
 import Amazonka.LakeFormation.Types.Permission
 import Amazonka.LakeFormation.Types.Resource
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The permissions granted or revoked on a resource.

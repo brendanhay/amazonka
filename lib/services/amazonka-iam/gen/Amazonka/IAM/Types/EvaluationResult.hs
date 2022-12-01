@@ -20,12 +20,12 @@
 module Amazonka.IAM.Types.EvaluationResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.OrganizationsDecisionDetail
 import Amazonka.IAM.Types.PermissionsBoundaryDecisionDetail
 import Amazonka.IAM.Types.PolicyEvaluationDecisionType
 import Amazonka.IAM.Types.ResourceSpecificResult
 import Amazonka.IAM.Types.Statement
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the results of a simulation.

@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainVpcOptionsDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information that OpenSearch Service derives based on the

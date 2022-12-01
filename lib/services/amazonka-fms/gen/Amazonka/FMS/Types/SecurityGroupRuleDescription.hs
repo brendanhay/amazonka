@@ -20,7 +20,7 @@
 module Amazonka.FMS.Types.SecurityGroupRuleDescription where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a set of permissions for a security group rule.

@@ -20,10 +20,10 @@
 module Amazonka.Glue.Types.Condition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.CrawlState
 import Amazonka.Glue.Types.JobRunState
 import Amazonka.Glue.Types.LogicalOperator
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a condition under which a trigger fires.

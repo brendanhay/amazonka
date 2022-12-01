@@ -21,7 +21,7 @@ module Amazonka.AuditManager.Types.CreateDelegationRequest where
 
 import Amazonka.AuditManager.Types.RoleType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of attributes that\'s used to create a delegation for an

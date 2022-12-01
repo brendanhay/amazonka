@@ -20,10 +20,10 @@
 module Amazonka.Glue.Types.S3JsonSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.CompressionType
 import Amazonka.Glue.Types.GlueSchema
 import Amazonka.Glue.Types.S3DirectSourceAdditionalOptions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a JSON data store stored in Amazon S3.

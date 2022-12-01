@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.DelegatedAdmin where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.RelationshipStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the Amazon Inspector delegated administrator for your

@@ -20,10 +20,10 @@
 module Amazonka.FinSpaceData.Types.User where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FinSpaceData.Types.ApiAccess
 import Amazonka.FinSpaceData.Types.UserStatus
 import Amazonka.FinSpaceData.Types.UserType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the user account.

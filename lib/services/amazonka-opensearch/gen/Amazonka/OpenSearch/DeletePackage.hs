@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the package.
+-- Deletes an Amazon OpenSearch Service package. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html Custom packages for Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.DeletePackage
   ( -- * Creating a Request
     DeletePackage (..),
@@ -40,13 +41,14 @@ module Amazonka.OpenSearch.DeletePackage
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the request parameters to the @ DeletePackage @ operation.
+-- | Deletes a package from OpenSearch Service. The package can\'t be
+-- associated with any OpenSearch Service domain.
 --
 -- /See:/ 'newDeletePackage' smart constructor.
 data DeletePackage = DeletePackage'
@@ -82,8 +84,8 @@ instance Core.AWSRequest DeletePackage where
   type
     AWSResponse DeletePackage =
       DeletePackageResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,12 +112,11 @@ instance Core.ToPath DeletePackage where
 instance Core.ToQuery DeletePackage where
   toQuery = Prelude.const Prelude.mempty
 
--- | Container for the response parameters to the @ DeletePackage @
--- operation.
+-- | Container for the response parameters to the @DeletePackage@ operation.
 --
 -- /See:/ 'newDeletePackageResponse' smart constructor.
 data DeletePackageResponse = DeletePackageResponse'
-  { -- | @PackageDetails@
+  { -- | Information about the deleted package.
     packageDetails :: Prelude.Maybe PackageDetails,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -130,7 +131,7 @@ data DeletePackageResponse = DeletePackageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packageDetails', 'deletePackageResponse_packageDetails' - @PackageDetails@
+-- 'packageDetails', 'deletePackageResponse_packageDetails' - Information about the deleted package.
 --
 -- 'httpStatus', 'deletePackageResponse_httpStatus' - The response's http status code.
 newDeletePackageResponse ::
@@ -144,7 +145,7 @@ newDeletePackageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | @PackageDetails@
+-- | Information about the deleted package.
 deletePackageResponse_packageDetails :: Lens.Lens' DeletePackageResponse (Prelude.Maybe PackageDetails)
 deletePackageResponse_packageDetails = Lens.lens (\DeletePackageResponse' {packageDetails} -> packageDetails) (\s@DeletePackageResponse' {} a -> s {packageDetails = a} :: DeletePackageResponse)
 

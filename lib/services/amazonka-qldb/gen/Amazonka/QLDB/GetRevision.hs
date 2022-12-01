@@ -46,7 +46,7 @@ module Amazonka.QLDB.GetRevision
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -141,8 +141,8 @@ getRevision_documentId = Lens.lens (\GetRevision' {documentId} -> documentId) (\
 
 instance Core.AWSRequest GetRevision where
   type AWSResponse GetRevision = GetRevisionResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

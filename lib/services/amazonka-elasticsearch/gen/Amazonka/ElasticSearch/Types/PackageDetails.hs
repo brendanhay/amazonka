@@ -20,10 +20,10 @@
 module Amazonka.ElasticSearch.Types.PackageDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.ErrorDetails
 import Amazonka.ElasticSearch.Types.PackageStatus
 import Amazonka.ElasticSearch.Types.PackageType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Basic information about a package.

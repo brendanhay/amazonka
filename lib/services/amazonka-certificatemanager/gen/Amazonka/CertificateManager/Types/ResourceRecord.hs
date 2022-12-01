@@ -21,7 +21,7 @@ module Amazonka.CertificateManager.Types.ResourceRecord where
 
 import Amazonka.CertificateManager.Types.RecordType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a DNS record value that you can use to validate ownership or

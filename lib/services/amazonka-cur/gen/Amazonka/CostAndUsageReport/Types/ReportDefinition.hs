@@ -20,6 +20,7 @@
 module Amazonka.CostAndUsageReport.Types.ReportDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostAndUsageReport.Types.AWSRegion
 import Amazonka.CostAndUsageReport.Types.AdditionalArtifact
 import Amazonka.CostAndUsageReport.Types.CompressionFormat
@@ -27,7 +28,6 @@ import Amazonka.CostAndUsageReport.Types.ReportFormat
 import Amazonka.CostAndUsageReport.Types.ReportVersioning
 import Amazonka.CostAndUsageReport.Types.SchemaElement
 import Amazonka.CostAndUsageReport.Types.TimeUnit
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The definition of AWS Cost and Usage Report. You can specify the report

@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.RecencyDimension where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Pinpoint.Types.Duration
 import Amazonka.Pinpoint.Types.RecencyType
 import qualified Amazonka.Prelude as Prelude

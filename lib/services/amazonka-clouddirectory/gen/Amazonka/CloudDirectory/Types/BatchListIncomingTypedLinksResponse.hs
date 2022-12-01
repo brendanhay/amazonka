@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchListIncomingTypedLinksResponse where
 
 import Amazonka.CloudDirectory.Types.TypedLinkSpecifier
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a ListIncomingTypedLinks response operation.

@@ -22,7 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchUpdateObjectAttributes where
 import Amazonka.CloudDirectory.Types.ObjectAttributeUpdate
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @BatchUpdate@ operation.

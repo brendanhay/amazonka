@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,24 +17,23 @@
 module Amazonka.DMS.Waiters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.DescribeConnections
 import Amazonka.DMS.DescribeEndpoints
 import Amazonka.DMS.DescribeReplicationInstances
 import Amazonka.DMS.DescribeReplicationTasks
 import Amazonka.DMS.Lens
 import Amazonka.DMS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newReplicationTaskStopped :: Core.Wait DescribeReplicationTasks
 newReplicationTaskStopped =
   Core.Wait
-    { Core._waitName =
-        "ReplicationTaskStopped",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "ReplicationTaskStopped",
+      Core.attempts = 60,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "stopped"
             Core.AcceptSuccess
@@ -145,11 +145,11 @@ newReplicationTaskStopped =
 newReplicationInstanceAvailable :: Core.Wait DescribeReplicationInstances
 newReplicationInstanceAvailable =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "ReplicationInstanceAvailable",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
+      Core.attempts = 60,
+      Core.delay = 60,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -222,10 +222,10 @@ newReplicationInstanceAvailable =
 newEndpointDeleted :: Core.Wait DescribeEndpoints
 newEndpointDeleted =
   Core.Wait
-    { Core._waitName = "EndpointDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "EndpointDeleted",
+      Core.attempts = 60,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchError
             "ResourceNotFoundFault"
             Core.AcceptSuccess,
@@ -262,11 +262,10 @@ newEndpointDeleted =
 newReplicationTaskDeleted :: Core.Wait DescribeReplicationTasks
 newReplicationTaskDeleted =
   Core.Wait
-    { Core._waitName =
-        "ReplicationTaskDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "ReplicationTaskDeleted",
+      Core.attempts = 60,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAny
             "ready"
             Core.AcceptFailure
@@ -342,11 +341,10 @@ newReplicationTaskDeleted =
 newReplicationTaskRunning :: Core.Wait DescribeReplicationTasks
 newReplicationTaskRunning =
   Core.Wait
-    { Core._waitName =
-        "ReplicationTaskRunning",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "ReplicationTaskRunning",
+      Core.attempts = 60,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "running"
             Core.AcceptSuccess
@@ -471,11 +469,10 @@ newReplicationTaskRunning =
 newReplicationInstanceDeleted :: Core.Wait DescribeReplicationInstances
 newReplicationInstanceDeleted =
   Core.Wait
-    { Core._waitName =
-        "ReplicationInstanceDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "ReplicationInstanceDeleted",
+      Core.attempts = 60,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAny
             "available"
             Core.AcceptFailure
@@ -499,10 +496,10 @@ newReplicationInstanceDeleted =
 newReplicationTaskReady :: Core.Wait DescribeReplicationTasks
 newReplicationTaskReady =
   Core.Wait
-    { Core._waitName = "ReplicationTaskReady",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "ReplicationTaskReady",
+      Core.attempts = 60,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "ready"
             Core.AcceptSuccess
@@ -627,11 +624,10 @@ newReplicationTaskReady =
 newTestConnectionSucceeds :: Core.Wait DescribeConnections
 newTestConnectionSucceeds =
   Core.Wait
-    { Core._waitName =
-        "TestConnectionSucceeds",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "TestConnectionSucceeds",
+      Core.attempts = 60,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "successful"
             Core.AcceptSuccess

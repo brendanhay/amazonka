@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.ElasticsearchClusterConfigStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig
 import Amazonka.ElasticSearch.Types.OptionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration status for the specified Elasticsearch

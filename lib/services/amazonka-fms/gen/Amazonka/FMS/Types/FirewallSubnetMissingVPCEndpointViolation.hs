@@ -20,7 +20,7 @@
 module Amazonka.FMS.Types.FirewallSubnetMissingVPCEndpointViolation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The violation details for a firewall subnet\'s VPC endpoint that\'s

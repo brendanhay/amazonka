@@ -20,7 +20,7 @@
 module Amazonka.DataBrew.Types.JsonOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the JSON-specific options that define how input is to be

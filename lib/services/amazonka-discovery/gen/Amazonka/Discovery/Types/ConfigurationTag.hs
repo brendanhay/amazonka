@@ -20,8 +20,8 @@
 module Amazonka.Discovery.Types.ConfigurationTag where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Discovery.Types.ConfigurationItemType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Tags for a configuration item. Tags are metadata that help you

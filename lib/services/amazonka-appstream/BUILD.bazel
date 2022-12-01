@@ -76,6 +76,8 @@ haskell_library(
         "gen/Amazonka/AppStream/Types/ApplicationSettings.hs",
         "gen/Amazonka/AppStream/Types/ApplicationSettingsResponse.hs",
         "gen/Amazonka/AppStream/Types/AuthenticationType.hs",
+        "gen/Amazonka/AppStream/Types/CertificateBasedAuthProperties.hs",
+        "gen/Amazonka/AppStream/Types/CertificateBasedAuthStatus.hs",
         "gen/Amazonka/AppStream/Types/ComputeCapacity.hs",
         "gen/Amazonka/AppStream/Types/ComputeCapacityStatus.hs",
         "gen/Amazonka/AppStream/Types/DirectoryConfig.hs",

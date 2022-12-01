@@ -60,6 +60,13 @@ module Amazonka.WorkSpaces.Lens
     createIpGroupResponse_groupId,
     createIpGroupResponse_httpStatus,
 
+    -- ** CreateStandbyWorkspaces
+    createStandbyWorkspaces_primaryRegion,
+    createStandbyWorkspaces_standbyWorkspaces,
+    createStandbyWorkspacesResponse_failedStandbyRequests,
+    createStandbyWorkspacesResponse_pendingStandbyRequests,
+    createStandbyWorkspacesResponse_httpStatus,
+
     -- ** CreateTags
     createTags_resourceId,
     createTags_tags,
@@ -318,6 +325,12 @@ module Amazonka.WorkSpaces.Lens
     modifyAccount_dedicatedTenancySupport,
     modifyAccountResponse_httpStatus,
 
+    -- ** ModifyCertificateBasedAuthProperties
+    modifyCertificateBasedAuthProperties_certificateBasedAuthProperties,
+    modifyCertificateBasedAuthProperties_propertiesToDelete,
+    modifyCertificateBasedAuthProperties_resourceId,
+    modifyCertificateBasedAuthPropertiesResponse_httpStatus,
+
     -- ** ModifyClientProperties
     modifyClientProperties_resourceId,
     modifyClientProperties_clientProperties,
@@ -435,6 +448,10 @@ module Amazonka.WorkSpaces.Lens
     accountModification_errorCode,
     accountModification_startTime,
 
+    -- ** CertificateBasedAuthProperties
+    certificateBasedAuthProperties_certificateAuthorityArn,
+    certificateBasedAuthProperties_status,
+
     -- ** ClientProperties
     clientProperties_reconnectEnabled,
     clientProperties_logUploadEnabled,
@@ -491,6 +508,11 @@ module Amazonka.WorkSpaces.Lens
     defaultWorkspaceCreationProperties_enableMaintenanceMode,
     defaultWorkspaceCreationProperties_customSecurityGroupId,
 
+    -- ** FailedCreateStandbyWorkspacesRequest
+    failedCreateStandbyWorkspacesRequest_errorMessage,
+    failedCreateStandbyWorkspacesRequest_standbyWorkspaceRequest,
+    failedCreateStandbyWorkspacesRequest_errorCode,
+
     -- ** FailedCreateWorkspaceRequest
     failedCreateWorkspaceRequest_errorMessage,
     failedCreateWorkspaceRequest_workspaceRequest,
@@ -533,11 +555,23 @@ module Amazonka.WorkSpaces.Lens
     -- ** OperatingSystem
     operatingSystem_type,
 
+    -- ** PendingCreateStandbyWorkspacesRequest
+    pendingCreateStandbyWorkspacesRequest_directoryId,
+    pendingCreateStandbyWorkspacesRequest_userName,
+    pendingCreateStandbyWorkspacesRequest_state,
+    pendingCreateStandbyWorkspacesRequest_workspaceId,
+
     -- ** RebootRequest
     rebootRequest_workspaceId,
 
     -- ** RebuildRequest
     rebuildRequest_workspaceId,
+
+    -- ** RelatedWorkspaceProperties
+    relatedWorkspaceProperties_type,
+    relatedWorkspaceProperties_state,
+    relatedWorkspaceProperties_workspaceId,
+    relatedWorkspaceProperties_region,
 
     -- ** RootStorage
     rootStorage_capacity,
@@ -556,6 +590,12 @@ module Amazonka.WorkSpaces.Lens
 
     -- ** Snapshot
     snapshot_snapshotTime,
+
+    -- ** StandbyWorkspace
+    standbyWorkspace_tags,
+    standbyWorkspace_volumeEncryptionKey,
+    standbyWorkspace_primaryWorkspaceId,
+    standbyWorkspace_directoryId,
 
     -- ** StartRequest
     startRequest_workspaceId,
@@ -580,6 +620,7 @@ module Amazonka.WorkSpaces.Lens
     -- ** Workspace
     workspace_workspaceProperties,
     workspace_directoryId,
+    workspace_relatedWorkspaces,
     workspace_volumeEncryptionKey,
     workspace_errorMessage,
     workspace_userName,
@@ -605,8 +646,10 @@ module Amazonka.WorkSpaces.Lens
     workspaceAccessProperties_deviceTypeZeroClient,
 
     -- ** WorkspaceBundle
+    workspaceBundle_bundleType,
     workspaceBundle_name,
     workspaceBundle_rootStorage,
+    workspaceBundle_state,
     workspaceBundle_owner,
     workspaceBundle_lastUpdatedTime,
     workspaceBundle_description,
@@ -637,6 +680,7 @@ module Amazonka.WorkSpaces.Lens
     workspaceDirectory_workspaceSecurityGroupId,
     workspaceDirectory_ipGroupIds,
     workspaceDirectory_directoryType,
+    workspaceDirectory_certificateBasedAuthProperties,
     workspaceDirectory_state,
     workspaceDirectory_customerUserName,
     workspaceDirectory_samlProperties,
@@ -665,6 +709,7 @@ module Amazonka.WorkSpaces.Lens
     -- ** WorkspaceProperties
     workspaceProperties_userVolumeSizeGib,
     workspaceProperties_runningMode,
+    workspaceProperties_protocols,
     workspaceProperties_computeTypeName,
     workspaceProperties_rootVolumeSizeGib,
     workspaceProperties_runningModeAutoStopTimeoutInMinutes,
@@ -694,6 +739,7 @@ import Amazonka.WorkSpaces.CopyWorkspaceImage
 import Amazonka.WorkSpaces.CreateConnectClientAddIn
 import Amazonka.WorkSpaces.CreateConnectionAlias
 import Amazonka.WorkSpaces.CreateIpGroup
+import Amazonka.WorkSpaces.CreateStandbyWorkspaces
 import Amazonka.WorkSpaces.CreateTags
 import Amazonka.WorkSpaces.CreateUpdatedWorkspaceImage
 import Amazonka.WorkSpaces.CreateWorkspaceBundle
@@ -730,6 +776,7 @@ import Amazonka.WorkSpaces.ImportWorkspaceImage
 import Amazonka.WorkSpaces.ListAvailableManagementCidrRanges
 import Amazonka.WorkSpaces.MigrateWorkspace
 import Amazonka.WorkSpaces.ModifyAccount
+import Amazonka.WorkSpaces.ModifyCertificateBasedAuthProperties
 import Amazonka.WorkSpaces.ModifyClientProperties
 import Amazonka.WorkSpaces.ModifySamlProperties
 import Amazonka.WorkSpaces.ModifySelfservicePermissions
@@ -746,6 +793,7 @@ import Amazonka.WorkSpaces.StartWorkspaces
 import Amazonka.WorkSpaces.StopWorkspaces
 import Amazonka.WorkSpaces.TerminateWorkspaces
 import Amazonka.WorkSpaces.Types.AccountModification
+import Amazonka.WorkSpaces.Types.CertificateBasedAuthProperties
 import Amazonka.WorkSpaces.Types.ClientProperties
 import Amazonka.WorkSpaces.Types.ClientPropertiesResult
 import Amazonka.WorkSpaces.Types.ComputeType
@@ -756,6 +804,7 @@ import Amazonka.WorkSpaces.Types.ConnectionAliasPermission
 import Amazonka.WorkSpaces.Types.DefaultClientBrandingAttributes
 import Amazonka.WorkSpaces.Types.DefaultImportClientBrandingAttributes
 import Amazonka.WorkSpaces.Types.DefaultWorkspaceCreationProperties
+import Amazonka.WorkSpaces.Types.FailedCreateStandbyWorkspacesRequest
 import Amazonka.WorkSpaces.Types.FailedCreateWorkspaceRequest
 import Amazonka.WorkSpaces.Types.FailedWorkspaceChangeRequest
 import Amazonka.WorkSpaces.Types.ImagePermission
@@ -764,12 +813,15 @@ import Amazonka.WorkSpaces.Types.IosImportClientBrandingAttributes
 import Amazonka.WorkSpaces.Types.IpRuleItem
 import Amazonka.WorkSpaces.Types.ModificationState
 import Amazonka.WorkSpaces.Types.OperatingSystem
+import Amazonka.WorkSpaces.Types.PendingCreateStandbyWorkspacesRequest
 import Amazonka.WorkSpaces.Types.RebootRequest
 import Amazonka.WorkSpaces.Types.RebuildRequest
+import Amazonka.WorkSpaces.Types.RelatedWorkspaceProperties
 import Amazonka.WorkSpaces.Types.RootStorage
 import Amazonka.WorkSpaces.Types.SamlProperties
 import Amazonka.WorkSpaces.Types.SelfservicePermissions
 import Amazonka.WorkSpaces.Types.Snapshot
+import Amazonka.WorkSpaces.Types.StandbyWorkspace
 import Amazonka.WorkSpaces.Types.StartRequest
 import Amazonka.WorkSpaces.Types.StopRequest
 import Amazonka.WorkSpaces.Types.Tag

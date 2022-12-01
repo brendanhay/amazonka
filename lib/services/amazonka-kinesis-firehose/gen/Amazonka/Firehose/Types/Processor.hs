@@ -20,9 +20,9 @@
 module Amazonka.Firehose.Types.Processor where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.ProcessorParameter
 import Amazonka.Firehose.Types.ProcessorType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a data processor.

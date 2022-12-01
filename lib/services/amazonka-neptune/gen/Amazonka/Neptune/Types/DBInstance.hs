@@ -20,7 +20,7 @@
 module Amazonka.Neptune.Types.DBInstance where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Neptune.Types.DBInstanceStatusInfo
 import Amazonka.Neptune.Types.DBParameterGroupStatus
 import Amazonka.Neptune.Types.DBSecurityGroupMembership

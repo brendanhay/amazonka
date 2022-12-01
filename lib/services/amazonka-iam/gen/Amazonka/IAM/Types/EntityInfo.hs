@@ -20,8 +20,8 @@
 module Amazonka.IAM.Types.EntityInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.PolicyOwnerEntityType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the specified entity (user or role).

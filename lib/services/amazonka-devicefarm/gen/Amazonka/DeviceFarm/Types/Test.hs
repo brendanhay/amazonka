@@ -20,12 +20,12 @@
 module Amazonka.DeviceFarm.Types.Test where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.Counters
 import Amazonka.DeviceFarm.Types.DeviceMinutes
 import Amazonka.DeviceFarm.Types.ExecutionResult
 import Amazonka.DeviceFarm.Types.ExecutionStatus
 import Amazonka.DeviceFarm.Types.TestType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a condition that is evaluated.

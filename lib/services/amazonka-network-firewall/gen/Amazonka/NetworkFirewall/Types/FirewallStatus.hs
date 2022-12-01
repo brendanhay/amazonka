@@ -20,7 +20,7 @@
 module Amazonka.NetworkFirewall.Types.FirewallStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkFirewall.Types.CapacityUsageSummary
 import Amazonka.NetworkFirewall.Types.ConfigurationSyncState
 import Amazonka.NetworkFirewall.Types.FirewallStatusValue

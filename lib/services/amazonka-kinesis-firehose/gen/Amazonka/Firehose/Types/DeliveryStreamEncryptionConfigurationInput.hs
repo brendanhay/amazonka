@@ -20,8 +20,8 @@
 module Amazonka.Firehose.Types.DeliveryStreamEncryptionConfigurationInput where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.KeyType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the type and Amazon Resource Name (ARN) of the CMK to use for

@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.Operation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.OperationStatus
 import Amazonka.Lightsail.Types.OperationType
 import Amazonka.Lightsail.Types.ResourceLocation

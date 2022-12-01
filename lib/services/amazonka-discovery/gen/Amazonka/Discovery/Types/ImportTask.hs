@@ -20,8 +20,8 @@
 module Amazonka.Discovery.Types.ImportTask where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Discovery.Types.ImportStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An array of information related to the import task request that includes

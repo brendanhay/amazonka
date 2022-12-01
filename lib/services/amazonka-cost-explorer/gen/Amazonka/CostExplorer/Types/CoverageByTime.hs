@@ -20,10 +20,10 @@
 module Amazonka.CostExplorer.Types.CoverageByTime where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.Coverage
 import Amazonka.CostExplorer.Types.DateInterval
 import Amazonka.CostExplorer.Types.ReservationCoverageGroup
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reservation coverage for a specified period, in hours.

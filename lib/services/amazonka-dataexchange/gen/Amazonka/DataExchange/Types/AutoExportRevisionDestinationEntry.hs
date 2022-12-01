@@ -20,7 +20,7 @@
 module Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A revision destination is the Amazon S3 bucket folder destination to

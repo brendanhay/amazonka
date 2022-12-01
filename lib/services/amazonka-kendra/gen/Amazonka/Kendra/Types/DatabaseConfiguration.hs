@@ -20,13 +20,13 @@
 module Amazonka.Kendra.Types.DatabaseConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.AclConfiguration
 import Amazonka.Kendra.Types.ColumnConfiguration
 import Amazonka.Kendra.Types.ConnectionConfiguration
 import Amazonka.Kendra.Types.DataSourceVpcConfiguration
 import Amazonka.Kendra.Types.DatabaseEngineType
 import Amazonka.Kendra.Types.SqlConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information to connect to a index.

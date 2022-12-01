@@ -23,7 +23,7 @@ import Amazonka.CodePipeline.Types.ActionState
 import Amazonka.CodePipeline.Types.StageExecution
 import Amazonka.CodePipeline.Types.TransitionState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the state of the stage.

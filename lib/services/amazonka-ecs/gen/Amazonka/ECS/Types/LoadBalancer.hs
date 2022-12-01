@@ -20,7 +20,7 @@
 module Amazonka.ECS.Types.LoadBalancer where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The load balancer configuration to use with a service or task set.

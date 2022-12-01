@@ -43,7 +43,7 @@ where
 
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,8 +105,8 @@ updateMesh_meshName = Lens.lens (\UpdateMesh' {meshName} -> meshName) (\s@Update
 
 instance Core.AWSRequest UpdateMesh where
   type AWSResponse UpdateMesh = UpdateMeshResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

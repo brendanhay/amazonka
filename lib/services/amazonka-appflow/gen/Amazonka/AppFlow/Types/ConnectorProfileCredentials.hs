@@ -38,7 +38,7 @@ import Amazonka.AppFlow.Types.TrendmicroConnectorProfileCredentials
 import Amazonka.AppFlow.Types.VeevaConnectorProfileCredentials
 import Amazonka.AppFlow.Types.ZendeskConnectorProfileCredentials
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific credentials required by a connector.

@@ -20,46 +20,46 @@
 module Amazonka.OpenSearch.Types.ReservedInstance where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.OpenSearchPartitionInstanceType
 import Amazonka.OpenSearch.Types.RecurringCharge
 import Amazonka.OpenSearch.Types.ReservedInstancePaymentOption
 import qualified Amazonka.Prelude as Prelude
 
--- | Details of a reserved OpenSearch instance.
+-- | Details of an OpenSearch Reserved Instance.
 --
 -- /See:/ 'newReservedInstance' smart constructor.
 data ReservedInstance = ReservedInstance'
-  { billingSubscriptionId :: Prelude.Maybe Prelude.Integer,
+  { -- | The unique identifier of the billing subscription.
+    billingSubscriptionId :: Prelude.Maybe Prelude.Integer,
     -- | The unique identifier for the reservation.
     reservedInstanceId :: Prelude.Maybe Prelude.Text,
-    -- | The charge to your account regardless of whether you are creating any
-    -- domains using the instance offering.
+    -- | The recurring charge to your account, regardless of whether you create
+    -- any domains using the Reserved Instance offering.
     recurringCharges :: Prelude.Maybe [RecurringCharge],
-    -- | The state of the reserved OpenSearch instance.
+    -- | The state of the Reserved Instance.
     state :: Prelude.Maybe Prelude.Text,
     -- | The customer-specified identifier to track this reservation.
     reservationName :: Prelude.Maybe Prelude.Text,
-    -- | The OpenSearch instance type offered by the reserved instance offering.
+    -- | The OpenSearch instance type offered by theReserved Instance offering.
     instanceType :: Prelude.Maybe OpenSearchPartitionInstanceType,
     -- | The duration, in seconds, for which the OpenSearch instance is reserved.
     duration :: Prelude.Maybe Prelude.Int,
-    -- | The currency code for the reserved OpenSearch instance offering.
+    -- | The currency code for the offering.
     currencyCode :: Prelude.Maybe Prelude.Text,
     -- | The number of OpenSearch instances that have been reserved.
     instanceCount :: Prelude.Maybe Prelude.Int,
-    -- | The upfront fixed charge you will paid to purchase the specific reserved
-    -- OpenSearch instance offering.
+    -- | The upfront fixed charge you will paid to purchase the specific Reserved
+    -- Instance offering.
     fixedPrice :: Prelude.Maybe Prelude.Double,
-    -- | The offering identifier.
+    -- | The unique identifier of the Reserved Instance offering.
     reservedInstanceOfferingId :: Prelude.Maybe Prelude.Text,
-    -- | The time the reservation started.
+    -- | The date and time when the reservation was purchased.
     startTime :: Prelude.Maybe Core.POSIX,
-    -- | The payment option as defined in the reserved OpenSearch instance
-    -- offering.
+    -- | The payment option as defined in the Reserved Instance offering.
     paymentOption :: Prelude.Maybe ReservedInstancePaymentOption,
-    -- | The rate you are charged for each hour for the domain that is using this
-    -- reserved instance.
+    -- | The hourly rate at which you\'re charged for the domain using this
+    -- Reserved Instance.
     usagePrice :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,37 +72,36 @@ data ReservedInstance = ReservedInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'billingSubscriptionId', 'reservedInstance_billingSubscriptionId' - Undocumented member.
+-- 'billingSubscriptionId', 'reservedInstance_billingSubscriptionId' - The unique identifier of the billing subscription.
 --
 -- 'reservedInstanceId', 'reservedInstance_reservedInstanceId' - The unique identifier for the reservation.
 --
--- 'recurringCharges', 'reservedInstance_recurringCharges' - The charge to your account regardless of whether you are creating any
--- domains using the instance offering.
+-- 'recurringCharges', 'reservedInstance_recurringCharges' - The recurring charge to your account, regardless of whether you create
+-- any domains using the Reserved Instance offering.
 --
--- 'state', 'reservedInstance_state' - The state of the reserved OpenSearch instance.
+-- 'state', 'reservedInstance_state' - The state of the Reserved Instance.
 --
 -- 'reservationName', 'reservedInstance_reservationName' - The customer-specified identifier to track this reservation.
 --
--- 'instanceType', 'reservedInstance_instanceType' - The OpenSearch instance type offered by the reserved instance offering.
+-- 'instanceType', 'reservedInstance_instanceType' - The OpenSearch instance type offered by theReserved Instance offering.
 --
 -- 'duration', 'reservedInstance_duration' - The duration, in seconds, for which the OpenSearch instance is reserved.
 --
--- 'currencyCode', 'reservedInstance_currencyCode' - The currency code for the reserved OpenSearch instance offering.
+-- 'currencyCode', 'reservedInstance_currencyCode' - The currency code for the offering.
 --
 -- 'instanceCount', 'reservedInstance_instanceCount' - The number of OpenSearch instances that have been reserved.
 --
--- 'fixedPrice', 'reservedInstance_fixedPrice' - The upfront fixed charge you will paid to purchase the specific reserved
--- OpenSearch instance offering.
+-- 'fixedPrice', 'reservedInstance_fixedPrice' - The upfront fixed charge you will paid to purchase the specific Reserved
+-- Instance offering.
 --
--- 'reservedInstanceOfferingId', 'reservedInstance_reservedInstanceOfferingId' - The offering identifier.
+-- 'reservedInstanceOfferingId', 'reservedInstance_reservedInstanceOfferingId' - The unique identifier of the Reserved Instance offering.
 --
--- 'startTime', 'reservedInstance_startTime' - The time the reservation started.
+-- 'startTime', 'reservedInstance_startTime' - The date and time when the reservation was purchased.
 --
--- 'paymentOption', 'reservedInstance_paymentOption' - The payment option as defined in the reserved OpenSearch instance
--- offering.
+-- 'paymentOption', 'reservedInstance_paymentOption' - The payment option as defined in the Reserved Instance offering.
 --
--- 'usagePrice', 'reservedInstance_usagePrice' - The rate you are charged for each hour for the domain that is using this
--- reserved instance.
+-- 'usagePrice', 'reservedInstance_usagePrice' - The hourly rate at which you\'re charged for the domain using this
+-- Reserved Instance.
 newReservedInstance ::
   ReservedInstance
 newReservedInstance =
@@ -124,7 +123,7 @@ newReservedInstance =
       usagePrice = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The unique identifier of the billing subscription.
 reservedInstance_billingSubscriptionId :: Lens.Lens' ReservedInstance (Prelude.Maybe Prelude.Integer)
 reservedInstance_billingSubscriptionId = Lens.lens (\ReservedInstance' {billingSubscriptionId} -> billingSubscriptionId) (\s@ReservedInstance' {} a -> s {billingSubscriptionId = a} :: ReservedInstance)
 
@@ -132,12 +131,12 @@ reservedInstance_billingSubscriptionId = Lens.lens (\ReservedInstance' {billingS
 reservedInstance_reservedInstanceId :: Lens.Lens' ReservedInstance (Prelude.Maybe Prelude.Text)
 reservedInstance_reservedInstanceId = Lens.lens (\ReservedInstance' {reservedInstanceId} -> reservedInstanceId) (\s@ReservedInstance' {} a -> s {reservedInstanceId = a} :: ReservedInstance)
 
--- | The charge to your account regardless of whether you are creating any
--- domains using the instance offering.
+-- | The recurring charge to your account, regardless of whether you create
+-- any domains using the Reserved Instance offering.
 reservedInstance_recurringCharges :: Lens.Lens' ReservedInstance (Prelude.Maybe [RecurringCharge])
 reservedInstance_recurringCharges = Lens.lens (\ReservedInstance' {recurringCharges} -> recurringCharges) (\s@ReservedInstance' {} a -> s {recurringCharges = a} :: ReservedInstance) Prelude.. Lens.mapping Lens.coerced
 
--- | The state of the reserved OpenSearch instance.
+-- | The state of the Reserved Instance.
 reservedInstance_state :: Lens.Lens' ReservedInstance (Prelude.Maybe Prelude.Text)
 reservedInstance_state = Lens.lens (\ReservedInstance' {state} -> state) (\s@ReservedInstance' {} a -> s {state = a} :: ReservedInstance)
 
@@ -145,7 +144,7 @@ reservedInstance_state = Lens.lens (\ReservedInstance' {state} -> state) (\s@Res
 reservedInstance_reservationName :: Lens.Lens' ReservedInstance (Prelude.Maybe Prelude.Text)
 reservedInstance_reservationName = Lens.lens (\ReservedInstance' {reservationName} -> reservationName) (\s@ReservedInstance' {} a -> s {reservationName = a} :: ReservedInstance)
 
--- | The OpenSearch instance type offered by the reserved instance offering.
+-- | The OpenSearch instance type offered by theReserved Instance offering.
 reservedInstance_instanceType :: Lens.Lens' ReservedInstance (Prelude.Maybe OpenSearchPartitionInstanceType)
 reservedInstance_instanceType = Lens.lens (\ReservedInstance' {instanceType} -> instanceType) (\s@ReservedInstance' {} a -> s {instanceType = a} :: ReservedInstance)
 
@@ -153,7 +152,7 @@ reservedInstance_instanceType = Lens.lens (\ReservedInstance' {instanceType} -> 
 reservedInstance_duration :: Lens.Lens' ReservedInstance (Prelude.Maybe Prelude.Int)
 reservedInstance_duration = Lens.lens (\ReservedInstance' {duration} -> duration) (\s@ReservedInstance' {} a -> s {duration = a} :: ReservedInstance)
 
--- | The currency code for the reserved OpenSearch instance offering.
+-- | The currency code for the offering.
 reservedInstance_currencyCode :: Lens.Lens' ReservedInstance (Prelude.Maybe Prelude.Text)
 reservedInstance_currencyCode = Lens.lens (\ReservedInstance' {currencyCode} -> currencyCode) (\s@ReservedInstance' {} a -> s {currencyCode = a} :: ReservedInstance)
 
@@ -161,26 +160,25 @@ reservedInstance_currencyCode = Lens.lens (\ReservedInstance' {currencyCode} -> 
 reservedInstance_instanceCount :: Lens.Lens' ReservedInstance (Prelude.Maybe Prelude.Int)
 reservedInstance_instanceCount = Lens.lens (\ReservedInstance' {instanceCount} -> instanceCount) (\s@ReservedInstance' {} a -> s {instanceCount = a} :: ReservedInstance)
 
--- | The upfront fixed charge you will paid to purchase the specific reserved
--- OpenSearch instance offering.
+-- | The upfront fixed charge you will paid to purchase the specific Reserved
+-- Instance offering.
 reservedInstance_fixedPrice :: Lens.Lens' ReservedInstance (Prelude.Maybe Prelude.Double)
 reservedInstance_fixedPrice = Lens.lens (\ReservedInstance' {fixedPrice} -> fixedPrice) (\s@ReservedInstance' {} a -> s {fixedPrice = a} :: ReservedInstance)
 
--- | The offering identifier.
+-- | The unique identifier of the Reserved Instance offering.
 reservedInstance_reservedInstanceOfferingId :: Lens.Lens' ReservedInstance (Prelude.Maybe Prelude.Text)
 reservedInstance_reservedInstanceOfferingId = Lens.lens (\ReservedInstance' {reservedInstanceOfferingId} -> reservedInstanceOfferingId) (\s@ReservedInstance' {} a -> s {reservedInstanceOfferingId = a} :: ReservedInstance)
 
--- | The time the reservation started.
+-- | The date and time when the reservation was purchased.
 reservedInstance_startTime :: Lens.Lens' ReservedInstance (Prelude.Maybe Prelude.UTCTime)
 reservedInstance_startTime = Lens.lens (\ReservedInstance' {startTime} -> startTime) (\s@ReservedInstance' {} a -> s {startTime = a} :: ReservedInstance) Prelude.. Lens.mapping Core._Time
 
--- | The payment option as defined in the reserved OpenSearch instance
--- offering.
+-- | The payment option as defined in the Reserved Instance offering.
 reservedInstance_paymentOption :: Lens.Lens' ReservedInstance (Prelude.Maybe ReservedInstancePaymentOption)
 reservedInstance_paymentOption = Lens.lens (\ReservedInstance' {paymentOption} -> paymentOption) (\s@ReservedInstance' {} a -> s {paymentOption = a} :: ReservedInstance)
 
--- | The rate you are charged for each hour for the domain that is using this
--- reserved instance.
+-- | The hourly rate at which you\'re charged for the domain using this
+-- Reserved Instance.
 reservedInstance_usagePrice :: Lens.Lens' ReservedInstance (Prelude.Maybe Prelude.Double)
 reservedInstance_usagePrice = Lens.lens (\ReservedInstance' {usagePrice} -> usagePrice) (\s@ReservedInstance' {} a -> s {usagePrice = a} :: ReservedInstance)
 

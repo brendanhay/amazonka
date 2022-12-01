@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.AggregateOperation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.AggFunction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the set of parameters needed to perform aggregation in the

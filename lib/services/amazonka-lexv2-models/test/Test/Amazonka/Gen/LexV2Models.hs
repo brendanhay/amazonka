@@ -27,7 +27,16 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestBuildBotLocale $
+--         [ requestBatchCreateCustomVocabularyItem $
+--             newBatchCreateCustomVocabularyItem
+--
+--         , requestBatchDeleteCustomVocabularyItem $
+--             newBatchDeleteCustomVocabularyItem
+--
+--         , requestBatchUpdateCustomVocabularyItem $
+--             newBatchUpdateCustomVocabularyItem
+--
+--         , requestBuildBotLocale $
 --             newBuildBotLocale
 --
 --         , requestCreateBot $
@@ -162,6 +171,9 @@ import Test.Tasty
 --         , requestListBuiltInSlotTypes $
 --             newListBuiltInSlotTypes
 --
+--         , requestListCustomVocabularyItems $
+--             newListCustomVocabularyItems
+--
 --         , requestListExports $
 --             newListExports
 --
@@ -231,7 +243,16 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseBuildBotLocale $
+--         [ responseBatchCreateCustomVocabularyItem $
+--             newBatchCreateCustomVocabularyItemResponse
+--
+--         , responseBatchDeleteCustomVocabularyItem $
+--             newBatchDeleteCustomVocabularyItemResponse
+--
+--         , responseBatchUpdateCustomVocabularyItem $
+--             newBatchUpdateCustomVocabularyItemResponse
+--
+--         , responseBuildBotLocale $
 --             newBuildBotLocaleResponse
 --
 --         , responseCreateBot $
@@ -366,6 +387,9 @@ import Test.Tasty
 --         , responseListBuiltInSlotTypes $
 --             newListBuiltInSlotTypesResponse
 --
+--         , responseListCustomVocabularyItems $
+--             newListCustomVocabularyItemsResponse
+--
 --         , responseListExports $
 --             newListExportsResponse
 --
@@ -436,6 +460,24 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestBatchCreateCustomVocabularyItem :: BatchCreateCustomVocabularyItem -> TestTree
+requestBatchCreateCustomVocabularyItem =
+  req
+    "BatchCreateCustomVocabularyItem"
+    "fixture/BatchCreateCustomVocabularyItem.yaml"
+
+requestBatchDeleteCustomVocabularyItem :: BatchDeleteCustomVocabularyItem -> TestTree
+requestBatchDeleteCustomVocabularyItem =
+  req
+    "BatchDeleteCustomVocabularyItem"
+    "fixture/BatchDeleteCustomVocabularyItem.yaml"
+
+requestBatchUpdateCustomVocabularyItem :: BatchUpdateCustomVocabularyItem -> TestTree
+requestBatchUpdateCustomVocabularyItem =
+  req
+    "BatchUpdateCustomVocabularyItem"
+    "fixture/BatchUpdateCustomVocabularyItem.yaml"
 
 requestBuildBotLocale :: BuildBotLocale -> TestTree
 requestBuildBotLocale =
@@ -707,6 +749,12 @@ requestListBuiltInSlotTypes =
     "ListBuiltInSlotTypes"
     "fixture/ListBuiltInSlotTypes.yaml"
 
+requestListCustomVocabularyItems :: ListCustomVocabularyItems -> TestTree
+requestListCustomVocabularyItems =
+  req
+    "ListCustomVocabularyItems"
+    "fixture/ListCustomVocabularyItems.yaml"
+
 requestListExports :: ListExports -> TestTree
 requestListExports =
   req
@@ -840,6 +888,30 @@ requestUpdateSlotType =
     "fixture/UpdateSlotType.yaml"
 
 -- Responses
+
+responseBatchCreateCustomVocabularyItem :: BatchCreateCustomVocabularyItemResponse -> TestTree
+responseBatchCreateCustomVocabularyItem =
+  res
+    "BatchCreateCustomVocabularyItemResponse"
+    "fixture/BatchCreateCustomVocabularyItemResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateCustomVocabularyItem)
+
+responseBatchDeleteCustomVocabularyItem :: BatchDeleteCustomVocabularyItemResponse -> TestTree
+responseBatchDeleteCustomVocabularyItem =
+  res
+    "BatchDeleteCustomVocabularyItemResponse"
+    "fixture/BatchDeleteCustomVocabularyItemResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteCustomVocabularyItem)
+
+responseBatchUpdateCustomVocabularyItem :: BatchUpdateCustomVocabularyItemResponse -> TestTree
+responseBatchUpdateCustomVocabularyItem =
+  res
+    "BatchUpdateCustomVocabularyItemResponse"
+    "fixture/BatchUpdateCustomVocabularyItemResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdateCustomVocabularyItem)
 
 responseBuildBotLocale :: BuildBotLocaleResponse -> TestTree
 responseBuildBotLocale =
@@ -1200,6 +1272,14 @@ responseListBuiltInSlotTypes =
     "fixture/ListBuiltInSlotTypesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListBuiltInSlotTypes)
+
+responseListCustomVocabularyItems :: ListCustomVocabularyItemsResponse -> TestTree
+responseListCustomVocabularyItems =
+  res
+    "ListCustomVocabularyItemsResponse"
+    "fixture/ListCustomVocabularyItemsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCustomVocabularyItems)
 
 responseListExports :: ListExportsResponse -> TestTree
 responseListExports =

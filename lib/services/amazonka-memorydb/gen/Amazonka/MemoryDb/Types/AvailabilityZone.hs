@@ -20,7 +20,7 @@
 module Amazonka.MemoryDb.Types.AvailabilityZone where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates if the cluster has a Multi-AZ configuration (multiaz) or not

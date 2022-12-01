@@ -20,7 +20,7 @@
 module Amazonka.CloudDirectory.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The tag structure that contains a tag key and value.

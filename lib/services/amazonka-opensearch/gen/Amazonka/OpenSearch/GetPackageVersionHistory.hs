@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of package versions, along with their creation time and
--- commit message.
+-- Returns a list of Amazon OpenSearch Service package versions, along with
+-- their creation time and commit message. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html Custom packages for Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.GetPackageVersionHistory
   ( -- * Creating a Request
     GetPackageVersionHistory (..),
@@ -45,24 +46,26 @@ module Amazonka.OpenSearch.GetPackageVersionHistory
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the request parameters to the @ GetPackageVersionHistory @
+-- | Container for the request parameters to the @GetPackageVersionHistory@
 -- operation.
 --
 -- /See:/ 'newGetPackageVersionHistory' smart constructor.
 data GetPackageVersionHistory = GetPackageVersionHistory'
-  { -- | Used for pagination. Only necessary if a previous API call includes a
-    -- non-null NextToken value. If provided, returns results for the next
+  { -- | If your initial @GetPackageVersionHistory@ operation returns a
+    -- @nextToken@, you can include the returned @nextToken@ in subsequent
+    -- @GetPackageVersionHistory@ operations, which returns results in the next
     -- page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Limits results to a maximum number of package versions.
+    -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Returns an audit history of package versions.
+    -- | The unique identifier of the package.
     packageID :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,13 +78,15 @@ data GetPackageVersionHistory = GetPackageVersionHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getPackageVersionHistory_nextToken' - Used for pagination. Only necessary if a previous API call includes a
--- non-null NextToken value. If provided, returns results for the next
+-- 'nextToken', 'getPackageVersionHistory_nextToken' - If your initial @GetPackageVersionHistory@ operation returns a
+-- @nextToken@, you can include the returned @nextToken@ in subsequent
+-- @GetPackageVersionHistory@ operations, which returns results in the next
 -- page.
 --
--- 'maxResults', 'getPackageVersionHistory_maxResults' - Limits results to a maximum number of package versions.
+-- 'maxResults', 'getPackageVersionHistory_maxResults' - An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 --
--- 'packageID', 'getPackageVersionHistory_packageID' - Returns an audit history of package versions.
+-- 'packageID', 'getPackageVersionHistory_packageID' - The unique identifier of the package.
 newGetPackageVersionHistory ::
   -- | 'packageID'
   Prelude.Text ->
@@ -94,17 +99,19 @@ newGetPackageVersionHistory pPackageID_ =
       packageID = pPackageID_
     }
 
--- | Used for pagination. Only necessary if a previous API call includes a
--- non-null NextToken value. If provided, returns results for the next
+-- | If your initial @GetPackageVersionHistory@ operation returns a
+-- @nextToken@, you can include the returned @nextToken@ in subsequent
+-- @GetPackageVersionHistory@ operations, which returns results in the next
 -- page.
 getPackageVersionHistory_nextToken :: Lens.Lens' GetPackageVersionHistory (Prelude.Maybe Prelude.Text)
 getPackageVersionHistory_nextToken = Lens.lens (\GetPackageVersionHistory' {nextToken} -> nextToken) (\s@GetPackageVersionHistory' {} a -> s {nextToken = a} :: GetPackageVersionHistory)
 
--- | Limits results to a maximum number of package versions.
+-- | An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 getPackageVersionHistory_maxResults :: Lens.Lens' GetPackageVersionHistory (Prelude.Maybe Prelude.Int)
 getPackageVersionHistory_maxResults = Lens.lens (\GetPackageVersionHistory' {maxResults} -> maxResults) (\s@GetPackageVersionHistory' {} a -> s {maxResults = a} :: GetPackageVersionHistory)
 
--- | Returns an audit history of package versions.
+-- | The unique identifier of the package.
 getPackageVersionHistory_packageID :: Lens.Lens' GetPackageVersionHistory Prelude.Text
 getPackageVersionHistory_packageID = Lens.lens (\GetPackageVersionHistory' {packageID} -> packageID) (\s@GetPackageVersionHistory' {} a -> s {packageID = a} :: GetPackageVersionHistory)
 
@@ -112,8 +119,8 @@ instance Core.AWSRequest GetPackageVersionHistory where
   type
     AWSResponse GetPackageVersionHistory =
       GetPackageVersionHistoryResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,14 +163,18 @@ instance Core.ToQuery GetPackageVersionHistory where
         "maxResults" Core.=: maxResults
       ]
 
--- | Container for response returned by @ GetPackageVersionHistory @
--- operation.
+-- | Container for response returned by @GetPackageVersionHistory@ operation.
 --
 -- /See:/ 'newGetPackageVersionHistoryResponse' smart constructor.
 data GetPackageVersionHistoryResponse = GetPackageVersionHistoryResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | When @nextToken@ is returned, there are more results available. The
+    -- value of @nextToken@ is a unique pagination token for each page. Make
+    -- the call again using the returned token to retrieve the next page.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the package.
     packageID :: Prelude.Maybe Prelude.Text,
-    -- | List of @PackageVersionHistory@ objects.
+    -- | A list of package versions, along with their creation time and commit
+    -- message.
     packageVersionHistoryList :: Prelude.Maybe [PackageVersionHistory],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -178,11 +189,14 @@ data GetPackageVersionHistoryResponse = GetPackageVersionHistoryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getPackageVersionHistoryResponse_nextToken' - Undocumented member.
+-- 'nextToken', 'getPackageVersionHistoryResponse_nextToken' - When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 --
--- 'packageID', 'getPackageVersionHistoryResponse_packageID' - Undocumented member.
+-- 'packageID', 'getPackageVersionHistoryResponse_packageID' - The unique identifier of the package.
 --
--- 'packageVersionHistoryList', 'getPackageVersionHistoryResponse_packageVersionHistoryList' - List of @PackageVersionHistory@ objects.
+-- 'packageVersionHistoryList', 'getPackageVersionHistoryResponse_packageVersionHistoryList' - A list of package versions, along with their creation time and commit
+-- message.
 --
 -- 'httpStatus', 'getPackageVersionHistoryResponse_httpStatus' - The response's http status code.
 newGetPackageVersionHistoryResponse ::
@@ -199,15 +213,18 @@ newGetPackageVersionHistoryResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 getPackageVersionHistoryResponse_nextToken :: Lens.Lens' GetPackageVersionHistoryResponse (Prelude.Maybe Prelude.Text)
 getPackageVersionHistoryResponse_nextToken = Lens.lens (\GetPackageVersionHistoryResponse' {nextToken} -> nextToken) (\s@GetPackageVersionHistoryResponse' {} a -> s {nextToken = a} :: GetPackageVersionHistoryResponse)
 
--- | Undocumented member.
+-- | The unique identifier of the package.
 getPackageVersionHistoryResponse_packageID :: Lens.Lens' GetPackageVersionHistoryResponse (Prelude.Maybe Prelude.Text)
 getPackageVersionHistoryResponse_packageID = Lens.lens (\GetPackageVersionHistoryResponse' {packageID} -> packageID) (\s@GetPackageVersionHistoryResponse' {} a -> s {packageID = a} :: GetPackageVersionHistoryResponse)
 
--- | List of @PackageVersionHistory@ objects.
+-- | A list of package versions, along with their creation time and commit
+-- message.
 getPackageVersionHistoryResponse_packageVersionHistoryList :: Lens.Lens' GetPackageVersionHistoryResponse (Prelude.Maybe [PackageVersionHistory])
 getPackageVersionHistoryResponse_packageVersionHistoryList = Lens.lens (\GetPackageVersionHistoryResponse' {packageVersionHistoryList} -> packageVersionHistoryList) (\s@GetPackageVersionHistoryResponse' {} a -> s {packageVersionHistoryList = a} :: GetPackageVersionHistoryResponse) Prelude.. Lens.mapping Lens.coerced
 

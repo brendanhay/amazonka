@@ -64,8 +64,8 @@ module Amazonka.DataSync.CreateAgent
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataSync.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -250,8 +250,8 @@ createAgent_activationKey = Lens.lens (\CreateAgent' {activationKey} -> activati
 
 instance Core.AWSRequest CreateAgent where
   type AWSResponse CreateAgent = CreateAgentResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

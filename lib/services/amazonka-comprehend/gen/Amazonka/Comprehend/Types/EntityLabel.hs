@@ -21,7 +21,7 @@ module Amazonka.Comprehend.Types.EntityLabel where
 
 import Amazonka.Comprehend.Types.PiiEntityType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies one of the label or labels that categorize the personally

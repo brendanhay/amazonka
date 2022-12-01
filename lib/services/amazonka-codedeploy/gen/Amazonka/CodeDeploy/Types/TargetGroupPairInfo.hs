@@ -22,7 +22,7 @@ module Amazonka.CodeDeploy.Types.TargetGroupPairInfo where
 import Amazonka.CodeDeploy.Types.TargetGroupInfo
 import Amazonka.CodeDeploy.Types.TrafficRoute
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about two target groups and how traffic is routed during an

@@ -22,7 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.ComponentChild where
 import Amazonka.AmplifyUiBuilder.Types.ComponentEvent
 import Amazonka.AmplifyUiBuilder.Types.ComponentProperty
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A nested UI configuration within a parent @Component@.

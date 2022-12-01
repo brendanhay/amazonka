@@ -20,8 +20,8 @@
 module Amazonka.DataExchange.Types.Action where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | What occurs after a certain event.

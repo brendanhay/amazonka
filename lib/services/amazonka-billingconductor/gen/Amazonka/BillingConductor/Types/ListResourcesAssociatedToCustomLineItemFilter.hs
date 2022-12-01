@@ -21,7 +21,7 @@ module Amazonka.BillingConductor.Types.ListResourcesAssociatedToCustomLineItemFi
 
 import Amazonka.BillingConductor.Types.CustomLineItemRelationship
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter that specifies the type of resource associations that should be

@@ -21,7 +21,7 @@ module Amazonka.Cloud9.Types.EnvironmentMember where
 
 import Amazonka.Cloud9.Types.Permissions
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an environment member for an Cloud9 development

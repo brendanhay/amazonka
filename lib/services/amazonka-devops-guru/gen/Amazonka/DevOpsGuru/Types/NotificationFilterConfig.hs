@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.NotificationFilterConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.InsightSeverity
 import Amazonka.DevOpsGuru.Types.NotificationMessageType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter configurations for the Amazon SNS notification topic you use

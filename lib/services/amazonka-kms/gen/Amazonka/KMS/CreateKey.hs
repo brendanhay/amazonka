@@ -201,8 +201,8 @@ module Amazonka.KMS.CreateKey
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KMS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -1031,8 +1031,8 @@ createKey_origin = Lens.lens (\CreateKey' {origin} -> origin) (\s@CreateKey' {} 
 
 instance Core.AWSRequest CreateKey where
   type AWSResponse CreateKey = CreateKeyResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

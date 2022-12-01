@@ -20,7 +20,7 @@
 module Amazonka.LexModels.Types.FollowUpPrompt where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexModels.Types.Prompt
 import Amazonka.LexModels.Types.Statement
 import qualified Amazonka.Prelude as Prelude

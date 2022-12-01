@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.TableDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.ArchivalSummary
 import Amazonka.DynamoDB.Types.AttributeDefinition
 import Amazonka.DynamoDB.Types.AttributeValue
@@ -35,7 +36,6 @@ import Amazonka.DynamoDB.Types.StreamSpecification
 import Amazonka.DynamoDB.Types.TableClassSummary
 import Amazonka.DynamoDB.Types.TableStatus
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the properties of a table.
@@ -63,7 +63,8 @@ data TableDescription = TableDescription'
     --
     -- -   @CREATING@ - The table is being created.
     --
-    -- -   @UPDATING@ - The table is being updated.
+    -- -   @UPDATING@ - The table\/index configuration is being updated. The
+    --     table\/index remains available for data operations when @UPDATING@.
     --
     -- -   @DELETING@ - The table is being deleted.
     --
@@ -306,7 +307,8 @@ data TableDescription = TableDescription'
 --
 -- -   @CREATING@ - The table is being created.
 --
--- -   @UPDATING@ - The table is being updated.
+-- -   @UPDATING@ - The table\/index configuration is being updated. The
+--     table\/index remains available for data operations when @UPDATING@.
 --
 -- -   @DELETING@ - The table is being deleted.
 --
@@ -571,7 +573,8 @@ tableDescription_billingModeSummary = Lens.lens (\TableDescription' {billingMode
 --
 -- -   @CREATING@ - The table is being created.
 --
--- -   @UPDATING@ - The table is being updated.
+-- -   @UPDATING@ - The table\/index configuration is being updated. The
+--     table\/index remains available for data operations when @UPDATING@.
 --
 -- -   @DELETING@ - The table is being deleted.
 --

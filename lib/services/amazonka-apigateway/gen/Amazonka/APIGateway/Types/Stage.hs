@@ -25,7 +25,7 @@ import Amazonka.APIGateway.Types.CacheClusterStatus
 import Amazonka.APIGateway.Types.CanarySettings
 import Amazonka.APIGateway.Types.MethodSetting
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a unique identifier for a version of a deployed RestApi that

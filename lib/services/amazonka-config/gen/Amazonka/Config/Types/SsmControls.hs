@@ -20,7 +20,7 @@
 module Amazonka.Config.Types.SsmControls where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon Web Services Systems Manager (SSM) specific remediation controls.

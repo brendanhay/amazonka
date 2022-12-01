@@ -27,7 +27,7 @@ import Amazonka.Batch.Types.OrchestrationType
 import Amazonka.Batch.Types.PlatformCapability
 import Amazonka.Batch.Types.RetryStrategy
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents an Batch job definition.

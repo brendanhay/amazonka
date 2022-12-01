@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.S3BucketOwner where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the Amazon Web Services account that owns an

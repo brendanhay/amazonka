@@ -63,7 +63,7 @@ module Amazonka.WellArchitected.ImportLens
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,8 +127,8 @@ importLens_clientRequestToken = Lens.lens (\ImportLens' {clientRequestToken} -> 
 
 instance Core.AWSRequest ImportLens where
   type AWSResponse ImportLens = ImportLensResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

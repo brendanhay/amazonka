@@ -44,7 +44,7 @@ module Amazonka.ManagedBlockChain.DeleteNode
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -62,6 +62,8 @@ data DeleteNode = DeleteNode'
     -- Ethereum public networks have the following @NetworkId@s:
     --
     -- -   @n-ethereum-mainnet@
+    --
+    -- -   @n-ethereum-goerli@
     --
     -- -   @n-ethereum-rinkeby@
     --
@@ -90,6 +92,8 @@ data DeleteNode = DeleteNode'
 -- Ethereum public networks have the following @NetworkId@s:
 --
 -- -   @n-ethereum-mainnet@
+--
+-- -   @n-ethereum-goerli@
 --
 -- -   @n-ethereum-rinkeby@
 --
@@ -122,6 +126,8 @@ deleteNode_memberId = Lens.lens (\DeleteNode' {memberId} -> memberId) (\s@Delete
 --
 -- -   @n-ethereum-mainnet@
 --
+-- -   @n-ethereum-goerli@
+--
 -- -   @n-ethereum-rinkeby@
 --
 -- -   @n-ethereum-ropsten@
@@ -134,8 +140,8 @@ deleteNode_nodeId = Lens.lens (\DeleteNode' {nodeId} -> nodeId) (\s@DeleteNode' 
 
 instance Core.AWSRequest DeleteNode where
   type AWSResponse DeleteNode = DeleteNodeResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -39,10 +39,17 @@
 --     document are returned (including text that doesn\'t have a
 --     relationship with the value of @FeatureTypes@).
 --
--- -   Queries.A QUERIES_RESULT Block object contains the answer to the
---     query, the alias associated and an ID that connect it to the query
---     asked. This Block also contains a location and attached confidence
---     score.
+-- -   Signatures. A SIGNATURE @Block@ object contains the location
+--     information of a signature in a document. If used in conjunction
+--     with forms or tables, a signature can be given a Key-Value pairing
+--     or be detected in the cell of a table.
+--
+-- -   Query. A QUERY Block object contains the query text, alias and link
+--     to the associated Query results block object.
+--
+-- -   Query Result. A QUERY_RESULT Block object contains the answer to the
+--     query and an ID that connects it to the query asked. This Block also
+--     contains a confidence score.
 --
 -- Selection elements such as check boxes and option buttons (radio
 -- buttons) can be detected in form data and in tables. A SELECTION_ELEMENT
@@ -84,7 +91,7 @@ module Amazonka.Textract.AnalyzeDocument
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,10 +115,13 @@ data AnalyzeDocument = AnalyzeDocument'
     document :: Document,
     -- | A list of the types of analysis to perform. Add TABLES to the list to
     -- return information about the tables that are detected in the input
-    -- document. Add FORMS to return detected form data. To perform both types
-    -- of analysis, add TABLES and FORMS to @FeatureTypes@. All lines and words
-    -- detected in the document are included in the response (including text
-    -- that isn\'t related to the value of @FeatureTypes@).
+    -- document. Add FORMS to return detected form data. Add SIGNATURES to
+    -- return the locations of detected signatures. To perform both forms and
+    -- table analysis, add TABLES and FORMS to @FeatureTypes@. To detect
+    -- signatures within form data and table data, add SIGNATURES to either
+    -- TABLES or FORMS. All lines and words detected in the document are
+    -- included in the response (including text that isn\'t related to the
+    -- value of @FeatureTypes@).
     featureTypes :: [FeatureType]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -140,10 +150,13 @@ data AnalyzeDocument = AnalyzeDocument'
 --
 -- 'featureTypes', 'analyzeDocument_featureTypes' - A list of the types of analysis to perform. Add TABLES to the list to
 -- return information about the tables that are detected in the input
--- document. Add FORMS to return detected form data. To perform both types
--- of analysis, add TABLES and FORMS to @FeatureTypes@. All lines and words
--- detected in the document are included in the response (including text
--- that isn\'t related to the value of @FeatureTypes@).
+-- document. Add FORMS to return detected form data. Add SIGNATURES to
+-- return the locations of detected signatures. To perform both forms and
+-- table analysis, add TABLES and FORMS to @FeatureTypes@. To detect
+-- signatures within form data and table data, add SIGNATURES to either
+-- TABLES or FORMS. All lines and words detected in the document are
+-- included in the response (including text that isn\'t related to the
+-- value of @FeatureTypes@).
 newAnalyzeDocument ::
   -- | 'document'
   Document ->
@@ -178,10 +191,13 @@ analyzeDocument_document = Lens.lens (\AnalyzeDocument' {document} -> document) 
 
 -- | A list of the types of analysis to perform. Add TABLES to the list to
 -- return information about the tables that are detected in the input
--- document. Add FORMS to return detected form data. To perform both types
--- of analysis, add TABLES and FORMS to @FeatureTypes@. All lines and words
--- detected in the document are included in the response (including text
--- that isn\'t related to the value of @FeatureTypes@).
+-- document. Add FORMS to return detected form data. Add SIGNATURES to
+-- return the locations of detected signatures. To perform both forms and
+-- table analysis, add TABLES and FORMS to @FeatureTypes@. To detect
+-- signatures within form data and table data, add SIGNATURES to either
+-- TABLES or FORMS. All lines and words detected in the document are
+-- included in the response (including text that isn\'t related to the
+-- value of @FeatureTypes@).
 analyzeDocument_featureTypes :: Lens.Lens' AnalyzeDocument [FeatureType]
 analyzeDocument_featureTypes = Lens.lens (\AnalyzeDocument' {featureTypes} -> featureTypes) (\s@AnalyzeDocument' {} a -> s {featureTypes = a} :: AnalyzeDocument) Prelude.. Lens.coerced
 
@@ -189,8 +205,8 @@ instance Core.AWSRequest AnalyzeDocument where
   type
     AWSResponse AnalyzeDocument =
       AnalyzeDocumentResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,7 @@
 module Amazonka.SNS.Types.Subscription where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A wrapper type for the attributes of an Amazon SNS subscription.

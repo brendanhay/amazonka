@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.SchemaListItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.SchemaStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains minimal details for a schema.

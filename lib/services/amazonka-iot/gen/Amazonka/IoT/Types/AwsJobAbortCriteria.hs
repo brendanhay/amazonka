@@ -20,9 +20,9 @@
 module Amazonka.IoT.Types.AwsJobAbortCriteria where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.AwsJobAbortCriteriaAbortAction
 import Amazonka.IoT.Types.AwsJobAbortCriteriaFailureType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The criteria that determine when and how a job abort takes place.

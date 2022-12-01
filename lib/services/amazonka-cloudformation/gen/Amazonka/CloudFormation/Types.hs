@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -105,6 +106,9 @@ module Amazonka.CloudFormation.Types
 
     -- * OnFailure
     OnFailure (..),
+
+    -- * OperationResultFilterName
+    OperationResultFilterName (..),
 
     -- * OperationStatus
     OperationStatus (..),
@@ -299,6 +303,12 @@ module Amazonka.CloudFormation.Types
     moduleInfo_typeHierarchy,
     moduleInfo_logicalIdHierarchy,
 
+    -- * OperationResultFilter
+    OperationResultFilter (..),
+    newOperationResultFilter,
+    operationResultFilter_name,
+    operationResultFilter_values,
+
     -- * Output
     Output (..),
     newOutput,
@@ -475,6 +485,7 @@ module Amazonka.CloudFormation.Types
     stackInstance_account,
     stackInstance_statusReason,
     stackInstance_status,
+    stackInstance_lastOperationId,
     stackInstance_region,
     stackInstance_organizationalUnitId,
     stackInstance_lastDriftCheckTimestamp,
@@ -500,6 +511,7 @@ module Amazonka.CloudFormation.Types
     stackInstanceSummary_account,
     stackInstanceSummary_statusReason,
     stackInstanceSummary_status,
+    stackInstanceSummary_lastOperationId,
     stackInstanceSummary_region,
     stackInstanceSummary_organizationalUnitId,
     stackInstanceSummary_lastDriftCheckTimestamp,
@@ -611,6 +623,7 @@ module Amazonka.CloudFormation.Types
     newStackSetOperation,
     stackSetOperation_endTimestamp,
     stackSetOperation_operationPreferences,
+    stackSetOperation_statusDetails,
     stackSetOperation_stackSetId,
     stackSetOperation_statusReason,
     stackSetOperation_operationId,
@@ -643,10 +656,17 @@ module Amazonka.CloudFormation.Types
     stackSetOperationResultSummary_organizationalUnitId,
     stackSetOperationResultSummary_accountGateResult,
 
+    -- * StackSetOperationStatusDetails
+    StackSetOperationStatusDetails (..),
+    newStackSetOperationStatusDetails,
+    stackSetOperationStatusDetails_failedStackInstancesCount,
+
     -- * StackSetOperationSummary
     StackSetOperationSummary (..),
     newStackSetOperationSummary,
     stackSetOperationSummary_endTimestamp,
+    stackSetOperationSummary_operationPreferences,
+    stackSetOperationSummary_statusDetails,
     stackSetOperationSummary_statusReason,
     stackSetOperationSummary_operationId,
     stackSetOperationSummary_status,
@@ -789,6 +809,8 @@ import Amazonka.CloudFormation.Types.LoggingConfig
 import Amazonka.CloudFormation.Types.ManagedExecution
 import Amazonka.CloudFormation.Types.ModuleInfo
 import Amazonka.CloudFormation.Types.OnFailure
+import Amazonka.CloudFormation.Types.OperationResultFilter
+import Amazonka.CloudFormation.Types.OperationResultFilterName
 import Amazonka.CloudFormation.Types.OperationStatus
 import Amazonka.CloudFormation.Types.Output
 import Amazonka.CloudFormation.Types.Parameter
@@ -845,6 +867,7 @@ import Amazonka.CloudFormation.Types.StackSetOperationPreferences
 import Amazonka.CloudFormation.Types.StackSetOperationResultStatus
 import Amazonka.CloudFormation.Types.StackSetOperationResultSummary
 import Amazonka.CloudFormation.Types.StackSetOperationStatus
+import Amazonka.CloudFormation.Types.StackSetOperationStatusDetails
 import Amazonka.CloudFormation.Types.StackSetOperationSummary
 import Amazonka.CloudFormation.Types.StackSetStatus
 import Amazonka.CloudFormation.Types.StackSetSummary
@@ -863,7 +886,7 @@ import Amazonka.CloudFormation.Types.TypeVersionSummary
 import Amazonka.CloudFormation.Types.VersionBump
 import Amazonka.CloudFormation.Types.Visibility
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -871,29 +894,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "CloudFormation",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "cloudformation",
-      Core._serviceSigningName = "cloudformation",
-      Core._serviceVersion = "2010-05-15",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseXMLError "CloudFormation",
-      Core._serviceRetry = retry
+    { Core.abbrev = "CloudFormation",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "cloudformation",
+      Core.signingName = "cloudformation",
+      Core.version = "2010-05-15",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseXMLError "CloudFormation",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

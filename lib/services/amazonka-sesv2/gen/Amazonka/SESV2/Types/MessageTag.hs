@@ -20,7 +20,7 @@
 module Amazonka.SESV2.Types.MessageTag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the name and value of a tag that you apply to an email. You can

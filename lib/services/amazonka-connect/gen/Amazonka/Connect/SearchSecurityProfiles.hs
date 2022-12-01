@@ -53,7 +53,7 @@ where
 
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -65,6 +65,10 @@ data SearchSecurityProfiles = SearchSecurityProfiles'
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The search criteria to be used to return security profiles.
+    --
+    -- The @name@ field support \"contains\" queries with a minimum of 2
+    -- characters and maximum of 25 characters. Any queries with character
+    -- lengths outside of this range will throw invalid results.
     --
     -- The currently supported value for @FieldName@: @name@
     searchCriteria :: Prelude.Maybe SecurityProfileSearchCriteria,
@@ -91,6 +95,10 @@ data SearchSecurityProfiles = SearchSecurityProfiles'
 -- results.
 --
 -- 'searchCriteria', 'searchSecurityProfiles_searchCriteria' - The search criteria to be used to return security profiles.
+--
+-- The @name@ field support \"contains\" queries with a minimum of 2
+-- characters and maximum of 25 characters. Any queries with character
+-- lengths outside of this range will throw invalid results.
 --
 -- The currently supported value for @FieldName@: @name@
 --
@@ -121,6 +129,10 @@ searchSecurityProfiles_nextToken :: Lens.Lens' SearchSecurityProfiles (Prelude.M
 searchSecurityProfiles_nextToken = Lens.lens (\SearchSecurityProfiles' {nextToken} -> nextToken) (\s@SearchSecurityProfiles' {} a -> s {nextToken = a} :: SearchSecurityProfiles)
 
 -- | The search criteria to be used to return security profiles.
+--
+-- The @name@ field support \"contains\" queries with a minimum of 2
+-- characters and maximum of 25 characters. Any queries with character
+-- lengths outside of this range will throw invalid results.
 --
 -- The currently supported value for @FieldName@: @name@
 searchSecurityProfiles_searchCriteria :: Lens.Lens' SearchSecurityProfiles (Prelude.Maybe SecurityProfileSearchCriteria)
@@ -165,8 +177,8 @@ instance Core.AWSRequest SearchSecurityProfiles where
   type
     AWSResponse SearchSecurityProfiles =
       SearchSecurityProfilesResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

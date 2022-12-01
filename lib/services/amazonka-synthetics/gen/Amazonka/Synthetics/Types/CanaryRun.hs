@@ -20,7 +20,7 @@
 module Amazonka.Synthetics.Types.CanaryRun where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Synthetics.Types.CanaryRunStatus
 import Amazonka.Synthetics.Types.CanaryRunTimeline

@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.ChangeProgressStatusDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.ChangeProgressStage
 import Amazonka.ElasticSearch.Types.OverallChangeStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The progress details of a specific domain configuration change.

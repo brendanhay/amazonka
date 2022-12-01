@@ -20,10 +20,10 @@
 module Amazonka.GuardDuty.Types.UsageStatistics where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.UsageAccountResult
 import Amazonka.GuardDuty.Types.UsageDataSourceResult
 import Amazonka.GuardDuty.Types.UsageResourceResult
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the result of GuardDuty usage. If a UsageStatisticType is

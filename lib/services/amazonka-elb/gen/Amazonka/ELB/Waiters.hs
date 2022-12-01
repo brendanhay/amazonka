@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,20 +17,20 @@
 module Amazonka.ELB.Waiters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELB.DescribeInstanceHealth
 import Amazonka.ELB.Lens
 import Amazonka.ELB.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceDeregistered :: Core.Wait DescribeInstanceHealth
 newInstanceDeregistered =
   Core.Wait
-    { Core._waitName = "InstanceDeregistered",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "InstanceDeregistered",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "OutOfService"
             Core.AcceptSuccess
@@ -53,10 +54,10 @@ newInstanceDeregistered =
 newAnyInstanceInService :: Core.Wait DescribeInstanceHealth
 newAnyInstanceInService =
   Core.Wait
-    { Core._waitName = "AnyInstanceInService",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "AnyInstanceInService",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAny
             "InService"
             Core.AcceptSuccess
@@ -77,10 +78,10 @@ newAnyInstanceInService =
 newInstanceInService :: Core.Wait DescribeInstanceHealth
 newInstanceInService =
   Core.Wait
-    { Core._waitName = "InstanceInService",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "InstanceInService",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "InService"
             Core.AcceptSuccess

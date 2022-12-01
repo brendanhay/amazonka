@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.TieringPolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.TieringPolicyName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the data tiering policy for an ONTAP volume. When enabled,

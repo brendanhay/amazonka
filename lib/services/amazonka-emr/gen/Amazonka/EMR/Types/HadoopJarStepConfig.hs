@@ -20,8 +20,8 @@
 module Amazonka.EMR.Types.HadoopJarStepConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.KeyValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A job flow step consisting of a JAR file whose main function will be

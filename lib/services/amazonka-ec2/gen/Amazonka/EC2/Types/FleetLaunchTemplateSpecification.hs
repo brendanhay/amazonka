@@ -20,8 +20,8 @@
 module Amazonka.EC2.Types.FleetLaunchTemplateSpecification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon EC2 launch template that can be used by a Spot Fleet to
@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- For information about launch templates, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html Launch an instance from a launch template>
--- in the /Amazon EC2 User Guide for Linux Instances/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- /See:/ 'newFleetLaunchTemplateSpecification' smart constructor.
 data FleetLaunchTemplateSpecification = FleetLaunchTemplateSpecification'

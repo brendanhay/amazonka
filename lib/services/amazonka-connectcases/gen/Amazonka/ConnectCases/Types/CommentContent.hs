@@ -21,7 +21,7 @@ module Amazonka.ConnectCases.Types.CommentContent where
 
 import Amazonka.ConnectCases.Types.CommentBodyTextType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the content of a @Comment@ to be returned to agents.

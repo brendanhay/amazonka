@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.AccountSharingInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information includes the Amazon Web Services account ID where the

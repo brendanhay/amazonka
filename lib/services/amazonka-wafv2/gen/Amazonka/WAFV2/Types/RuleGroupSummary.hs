@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.RuleGroupSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | High-level information about a RuleGroup, returned by operations like

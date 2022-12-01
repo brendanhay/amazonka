@@ -20,8 +20,8 @@
 module Amazonka.IotTwinMaker.Types.InterpolationParameters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types.InterpolationType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that specifies how to interpolate data in a list.

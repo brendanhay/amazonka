@@ -37,6 +37,7 @@ module Amazonka.Proton.CreateEnvironmentAccountConnection
     -- * Request Lenses
     createEnvironmentAccountConnection_tags,
     createEnvironmentAccountConnection_clientToken,
+    createEnvironmentAccountConnection_codebuildRoleArn,
     createEnvironmentAccountConnection_componentRoleArn,
     createEnvironmentAccountConnection_environmentName,
     createEnvironmentAccountConnection_managementAccountId,
@@ -53,7 +54,7 @@ module Amazonka.Proton.CreateEnvironmentAccountConnection
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -72,6 +73,11 @@ data CreateEnvironmentAccountConnection = CreateEnvironmentAccountConnection'
     -- token, Proton returns the environment account connection that the first
     -- request created.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of an IAM service role in the environment
+    -- account. Proton uses this role to provision infrastructure resources
+    -- using CodeBuild-based provisioning in the associated environment
+    -- account.
+    codebuildRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM service role that Proton uses
     -- when provisioning directly defined components in the associated
     -- environment account. It determines the scope of infrastructure that a
@@ -120,6 +126,11 @@ data CreateEnvironmentAccountConnection = CreateEnvironmentAccountConnection'
 -- token, Proton returns the environment account connection that the first
 -- request created.
 --
+-- 'codebuildRoleArn', 'createEnvironmentAccountConnection_codebuildRoleArn' - The Amazon Resource Name (ARN) of an IAM service role in the environment
+-- account. Proton uses this role to provision infrastructure resources
+-- using CodeBuild-based provisioning in the associated environment
+-- account.
+--
 -- 'componentRoleArn', 'createEnvironmentAccountConnection_componentRoleArn' - The Amazon Resource Name (ARN) of the IAM service role that Proton uses
 -- when provisioning directly defined components in the associated
 -- environment account. It determines the scope of infrastructure that a
@@ -161,6 +172,7 @@ newCreateEnvironmentAccountConnection
       { tags =
           Prelude.Nothing,
         clientToken = Prelude.Nothing,
+        codebuildRoleArn = Prelude.Nothing,
         componentRoleArn = Prelude.Nothing,
         environmentName = pEnvironmentName_,
         managementAccountId =
@@ -182,6 +194,13 @@ createEnvironmentAccountConnection_tags = Lens.lens (\CreateEnvironmentAccountCo
 -- request created.
 createEnvironmentAccountConnection_clientToken :: Lens.Lens' CreateEnvironmentAccountConnection (Prelude.Maybe Prelude.Text)
 createEnvironmentAccountConnection_clientToken = Lens.lens (\CreateEnvironmentAccountConnection' {clientToken} -> clientToken) (\s@CreateEnvironmentAccountConnection' {} a -> s {clientToken = a} :: CreateEnvironmentAccountConnection)
+
+-- | The Amazon Resource Name (ARN) of an IAM service role in the environment
+-- account. Proton uses this role to provision infrastructure resources
+-- using CodeBuild-based provisioning in the associated environment
+-- account.
+createEnvironmentAccountConnection_codebuildRoleArn :: Lens.Lens' CreateEnvironmentAccountConnection (Prelude.Maybe Prelude.Text)
+createEnvironmentAccountConnection_codebuildRoleArn = Lens.lens (\CreateEnvironmentAccountConnection' {codebuildRoleArn} -> codebuildRoleArn) (\s@CreateEnvironmentAccountConnection' {} a -> s {codebuildRoleArn = a} :: CreateEnvironmentAccountConnection)
 
 -- | The Amazon Resource Name (ARN) of the IAM service role that Proton uses
 -- when provisioning directly defined components in the associated
@@ -224,8 +243,8 @@ instance
   type
     AWSResponse CreateEnvironmentAccountConnection =
       CreateEnvironmentAccountConnectionResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -243,6 +262,7 @@ instance
     CreateEnvironmentAccountConnection' {..} =
       _salt `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` clientToken
+        `Prelude.hashWithSalt` codebuildRoleArn
         `Prelude.hashWithSalt` componentRoleArn
         `Prelude.hashWithSalt` environmentName
         `Prelude.hashWithSalt` managementAccountId
@@ -255,6 +275,7 @@ instance
   rnf CreateEnvironmentAccountConnection' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf codebuildRoleArn
       `Prelude.seq` Prelude.rnf componentRoleArn
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf managementAccountId
@@ -287,6 +308,8 @@ instance
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
             ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("codebuildRoleArn" Core..=)
+              Prelude.<$> codebuildRoleArn,
             ("componentRoleArn" Core..=)
               Prelude.<$> componentRoleArn,
             Prelude.Just

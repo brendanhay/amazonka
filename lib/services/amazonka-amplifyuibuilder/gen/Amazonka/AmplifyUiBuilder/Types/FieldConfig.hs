@@ -23,7 +23,7 @@ import Amazonka.AmplifyUiBuilder.Types.FieldInputConfig
 import Amazonka.AmplifyUiBuilder.Types.FieldPosition
 import Amazonka.AmplifyUiBuilder.Types.FieldValidationConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration information for a field in a table.

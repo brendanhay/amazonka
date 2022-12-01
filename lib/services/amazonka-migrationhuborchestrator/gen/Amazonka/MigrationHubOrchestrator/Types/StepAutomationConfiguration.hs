@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubOrchestrator.Types.StepAutomationConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubOrchestrator.Types.PlatformCommand
 import Amazonka.MigrationHubOrchestrator.Types.PlatformScriptKey
 import Amazonka.MigrationHubOrchestrator.Types.RunEnvironment

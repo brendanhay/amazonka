@@ -20,7 +20,7 @@
 module Amazonka.IoTSiteWise.Types.PortalResource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies an IoT SiteWise Monitor portal.

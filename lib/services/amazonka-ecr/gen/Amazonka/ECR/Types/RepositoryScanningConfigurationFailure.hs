@@ -20,8 +20,8 @@
 module Amazonka.ECR.Types.RepositoryScanningConfigurationFailure where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECR.Types.ScanningConfigurationFailureCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details about any failures associated with the scanning

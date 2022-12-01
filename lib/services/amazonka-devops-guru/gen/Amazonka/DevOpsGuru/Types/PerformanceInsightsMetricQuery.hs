@@ -20,8 +20,8 @@
 module Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricQuery where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricDimensionGroup
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single query to be processed. Use these parameters to query the

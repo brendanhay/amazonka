@@ -22,7 +22,7 @@ module Amazonka.AutoScaling.Types.CustomizedMetricSpecification where
 import Amazonka.AutoScaling.Types.MetricDimension
 import Amazonka.AutoScaling.Types.MetricStatistic
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a CloudWatch metric of your choosing for a target tracking

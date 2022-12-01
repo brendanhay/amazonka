@@ -52,7 +52,7 @@ module Amazonka.OpsWorks.UpdateApp
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -227,8 +227,8 @@ updateApp_appId = Lens.lens (\UpdateApp' {appId} -> appId) (\s@UpdateApp' {} a -
 
 instance Core.AWSRequest UpdateApp where
   type AWSResponse UpdateApp = UpdateAppResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull UpdateAppResponse'
 
 instance Prelude.Hashable UpdateApp where

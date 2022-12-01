@@ -534,9 +534,13 @@ module Amazonka.EC2.Types.InstanceType
         InstanceType_T4g_nano,
         InstanceType_T4g_small,
         InstanceType_T4g_xlarge,
+        InstanceType_Trn1_2xlarge,
+        InstanceType_Trn1_32xlarge,
         InstanceType_U_12tb1_112xlarge,
         InstanceType_U_12tb1_metal,
+        InstanceType_U_18tb1_112xlarge,
         InstanceType_U_18tb1_metal,
+        InstanceType_U_24tb1_112xlarge,
         InstanceType_U_24tb1_metal,
         InstanceType_U_3tb1_56xlarge,
         InstanceType_U_6tb1_112xlarge,
@@ -2167,14 +2171,26 @@ pattern InstanceType_T4g_small = InstanceType' "t4g.small"
 pattern InstanceType_T4g_xlarge :: InstanceType
 pattern InstanceType_T4g_xlarge = InstanceType' "t4g.xlarge"
 
+pattern InstanceType_Trn1_2xlarge :: InstanceType
+pattern InstanceType_Trn1_2xlarge = InstanceType' "trn1.2xlarge"
+
+pattern InstanceType_Trn1_32xlarge :: InstanceType
+pattern InstanceType_Trn1_32xlarge = InstanceType' "trn1.32xlarge"
+
 pattern InstanceType_U_12tb1_112xlarge :: InstanceType
 pattern InstanceType_U_12tb1_112xlarge = InstanceType' "u-12tb1.112xlarge"
 
 pattern InstanceType_U_12tb1_metal :: InstanceType
 pattern InstanceType_U_12tb1_metal = InstanceType' "u-12tb1.metal"
 
+pattern InstanceType_U_18tb1_112xlarge :: InstanceType
+pattern InstanceType_U_18tb1_112xlarge = InstanceType' "u-18tb1.112xlarge"
+
 pattern InstanceType_U_18tb1_metal :: InstanceType
 pattern InstanceType_U_18tb1_metal = InstanceType' "u-18tb1.metal"
+
+pattern InstanceType_U_24tb1_112xlarge :: InstanceType
+pattern InstanceType_U_24tb1_112xlarge = InstanceType' "u-24tb1.112xlarge"
 
 pattern InstanceType_U_24tb1_metal :: InstanceType
 pattern InstanceType_U_24tb1_metal = InstanceType' "u-24tb1.metal"
@@ -2847,9 +2863,13 @@ pattern InstanceType_Z1d_xlarge = InstanceType' "z1d.xlarge"
   InstanceType_T4g_nano,
   InstanceType_T4g_small,
   InstanceType_T4g_xlarge,
+  InstanceType_Trn1_2xlarge,
+  InstanceType_Trn1_32xlarge,
   InstanceType_U_12tb1_112xlarge,
   InstanceType_U_12tb1_metal,
+  InstanceType_U_18tb1_112xlarge,
   InstanceType_U_18tb1_metal,
+  InstanceType_U_24tb1_112xlarge,
   InstanceType_U_24tb1_metal,
   InstanceType_U_3tb1_56xlarge,
   InstanceType_U_6tb1_112xlarge,

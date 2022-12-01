@@ -106,6 +106,9 @@ library
     Amazonka.Athena.Types.QueryStagePlanNode
     Amazonka.Athena.Types.ResultConfiguration
     Amazonka.Athena.Types.ResultConfigurationUpdates
+    Amazonka.Athena.Types.ResultReuseByAgeConfiguration
+    Amazonka.Athena.Types.ResultReuseConfiguration
+    Amazonka.Athena.Types.ResultReuseInformation
     Amazonka.Athena.Types.ResultSet
     Amazonka.Athena.Types.ResultSetMetadata
     Amazonka.Athena.Types.Row

@@ -22,7 +22,7 @@ module Amazonka.AppSync.Types.AuthorizationConfig where
 import Amazonka.AppSync.Types.AuthorizationType
 import Amazonka.AppSync.Types.AwsIamConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The authorization configuration in case the HTTP endpoint requires

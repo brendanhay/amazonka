@@ -22,7 +22,7 @@ module Amazonka.APIGateway.Types.RestApi where
 import Amazonka.APIGateway.Types.ApiKeySourceType
 import Amazonka.APIGateway.Types.EndpointConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a REST API.

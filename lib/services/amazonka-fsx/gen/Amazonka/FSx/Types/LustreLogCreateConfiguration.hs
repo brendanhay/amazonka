@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.LustreLogCreateConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.LustreAccessAuditLogLevel
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Lustre logging configuration used when creating or updating an

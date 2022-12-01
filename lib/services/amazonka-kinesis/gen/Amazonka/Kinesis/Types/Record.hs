@@ -20,8 +20,8 @@
 module Amazonka.Kinesis.Types.Record where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kinesis.Types.EncryptionType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The unit of data of the Kinesis data stream, which is composed of a

@@ -20,6 +20,7 @@
 module Amazonka.GroundStation.Types.ConfigTypeData where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types.AntennaDownlinkConfig
 import Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
 import Amazonka.GroundStation.Types.AntennaUplinkConfig
@@ -27,7 +28,6 @@ import Amazonka.GroundStation.Types.DataflowEndpointConfig
 import Amazonka.GroundStation.Types.S3RecordingConfig
 import Amazonka.GroundStation.Types.TrackingConfig
 import Amazonka.GroundStation.Types.UplinkEchoConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object containing the parameters of a @Config@.

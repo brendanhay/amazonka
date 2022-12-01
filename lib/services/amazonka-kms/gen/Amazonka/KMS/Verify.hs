@@ -94,8 +94,8 @@ module Amazonka.KMS.Verify
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KMS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -333,8 +333,8 @@ verify_signingAlgorithm = Lens.lens (\Verify' {signingAlgorithm} -> signingAlgor
 
 instance Core.AWSRequest Verify where
   type AWSResponse Verify = VerifyResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

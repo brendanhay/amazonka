@@ -20,6 +20,7 @@
 module Amazonka.FSx.Types.FileSystem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import {-# SOURCE #-} Amazonka.FSx.Types.AdministrativeAction
 import Amazonka.FSx.Types.FileSystemFailureDetails
 import Amazonka.FSx.Types.FileSystemLifecycle
@@ -30,7 +31,6 @@ import Amazonka.FSx.Types.OpenZFSFileSystemConfiguration
 import Amazonka.FSx.Types.StorageType
 import Amazonka.FSx.Types.Tag
 import Amazonka.FSx.Types.WindowsFileSystemConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of a specific Amazon FSx file system.

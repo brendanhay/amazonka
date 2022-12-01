@@ -21,7 +21,7 @@ module Amazonka.Config.Types.QueryInfo where
 
 import Amazonka.Config.Types.FieldInfo
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the query.

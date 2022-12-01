@@ -21,7 +21,7 @@ module Amazonka.CognitoSync.Types.CognitoStreams where
 
 import Amazonka.CognitoSync.Types.StreamingStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration options for configure Cognito streams.

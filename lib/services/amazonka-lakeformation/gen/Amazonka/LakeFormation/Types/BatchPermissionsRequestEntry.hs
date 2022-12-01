@@ -20,10 +20,10 @@
 module Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.DataLakePrincipal
 import Amazonka.LakeFormation.Types.Permission
 import Amazonka.LakeFormation.Types.Resource
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A permission to a resource granted by batch operation to the principal.

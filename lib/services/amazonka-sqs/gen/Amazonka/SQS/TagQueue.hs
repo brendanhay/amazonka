@@ -61,7 +61,7 @@ module Amazonka.SQS.TagQueue
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,8 +107,8 @@ tagQueue_tags = Lens.lens (\TagQueue' {tags} -> tags) (\s@TagQueue' {} a -> s {t
 
 instance Core.AWSRequest TagQueue where
   type AWSResponse TagQueue = TagQueueResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response = Response.receiveNull TagQueueResponse'
 
 instance Prelude.Hashable TagQueue where

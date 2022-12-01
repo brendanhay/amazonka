@@ -20,8 +20,8 @@
 module Amazonka.IoTWireless.Types.MulticastWirelessMetadata where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.LoRaWANMulticastMetadata
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Wireless metadata that is to be sent to multicast group.

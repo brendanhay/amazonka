@@ -20,7 +20,7 @@
 module Amazonka.MemoryDb.Types.Shard where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MemoryDb.Types.Node
 import qualified Amazonka.Prelude as Prelude
 

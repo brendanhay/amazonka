@@ -25,7 +25,7 @@ import Amazonka.CodeDeploy.Types.ECSTarget
 import Amazonka.CodeDeploy.Types.InstanceTarget
 import Amazonka.CodeDeploy.Types.LambdaTarget
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the deployment target.

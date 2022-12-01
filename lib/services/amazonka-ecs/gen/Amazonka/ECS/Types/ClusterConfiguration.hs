@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.ClusterConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.ExecuteCommandConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The execute command configuration for the cluster.

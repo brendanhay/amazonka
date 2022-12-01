@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.DolbyVision where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.DolbyVisionLevel6Metadata
 import Amazonka.MediaConvert.Types.DolbyVisionLevel6Mode
 import Amazonka.MediaConvert.Types.DolbyVisionMapping

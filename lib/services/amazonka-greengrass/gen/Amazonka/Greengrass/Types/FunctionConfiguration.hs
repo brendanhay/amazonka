@@ -20,9 +20,9 @@
 module Amazonka.Greengrass.Types.FunctionConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Greengrass.Types.EncodingType
 import Amazonka.Greengrass.Types.FunctionConfigurationEnvironment
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of the Lambda function.

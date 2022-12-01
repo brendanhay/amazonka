@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.Parameter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Assigns a value to a named Pipeline parameter.

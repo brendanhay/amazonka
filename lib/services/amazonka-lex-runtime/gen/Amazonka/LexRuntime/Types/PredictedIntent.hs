@@ -20,7 +20,7 @@
 module Amazonka.LexRuntime.Types.PredictedIntent where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexRuntime.Types.IntentConfidence
 import qualified Amazonka.Prelude as Prelude
 

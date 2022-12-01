@@ -22,7 +22,7 @@ module Amazonka.CloudTrail.Types.EventSelector where
 import Amazonka.CloudTrail.Types.DataResource
 import Amazonka.CloudTrail.Types.ReadWriteType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use event selectors to further specify the management and data event

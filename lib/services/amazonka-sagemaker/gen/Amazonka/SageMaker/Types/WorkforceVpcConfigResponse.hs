@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.WorkforceVpcConfigResponse where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A VpcConfig object that specifies the VPC that you want your workforce

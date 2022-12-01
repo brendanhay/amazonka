@@ -20,10 +20,10 @@
 module Amazonka.GameLift.Types.Instance where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.EC2InstanceType
 import Amazonka.GameLift.Types.InstanceStatus
 import Amazonka.GameLift.Types.OperatingSystem
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an EC2 instance of virtual computing resources that hosts one

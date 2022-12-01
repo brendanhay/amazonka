@@ -105,6 +105,7 @@ library
     Amazonka.StepFunctions.Types.StateMachineType
     Amazonka.StepFunctions.Types.SyncExecutionStatus
     Amazonka.StepFunctions.Types.Tag
+    Amazonka.StepFunctions.Types.TaskCredentials
     Amazonka.StepFunctions.Types.TaskFailedEventDetails
     Amazonka.StepFunctions.Types.TaskScheduledEventDetails
     Amazonka.StepFunctions.Types.TaskStartedEventDetails

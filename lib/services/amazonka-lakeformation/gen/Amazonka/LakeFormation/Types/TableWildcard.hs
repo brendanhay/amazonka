@@ -20,7 +20,7 @@
 module Amazonka.LakeFormation.Types.TableWildcard where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A wildcard object representing every table under a database.

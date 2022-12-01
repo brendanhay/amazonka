@@ -49,7 +49,7 @@ module Amazonka.Transfer.UpdateAccess
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -354,8 +354,8 @@ updateAccess_externalId = Lens.lens (\UpdateAccess' {externalId} -> externalId) 
 
 instance Core.AWSRequest UpdateAccess where
   type AWSResponse UpdateAccess = UpdateAccessResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,7 @@
 module Amazonka.CognitoIdentityProvider.Types.DeviceConfigurationType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The device-remembering configuration for a user pool. A

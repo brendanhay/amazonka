@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.BurnInDestinationSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.BurnInAlignment
 import Amazonka.MediaLive.Types.BurnInBackgroundColor
 import Amazonka.MediaLive.Types.BurnInFontColor

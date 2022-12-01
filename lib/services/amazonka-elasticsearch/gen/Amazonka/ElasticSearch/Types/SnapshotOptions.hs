@@ -20,7 +20,7 @@
 module Amazonka.ElasticSearch.Types.SnapshotOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the time, in UTC format, when the service takes a daily

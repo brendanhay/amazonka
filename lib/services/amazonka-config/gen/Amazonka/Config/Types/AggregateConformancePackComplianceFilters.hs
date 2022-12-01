@@ -21,7 +21,7 @@ module Amazonka.Config.Types.AggregateConformancePackComplianceFilters where
 
 import Amazonka.Config.Types.ConformancePackComplianceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters the conformance packs based on an account ID, region, compliance

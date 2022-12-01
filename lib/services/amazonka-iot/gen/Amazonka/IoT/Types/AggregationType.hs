@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.AggregationType where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.AggregationTypeName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type of aggregation queries.

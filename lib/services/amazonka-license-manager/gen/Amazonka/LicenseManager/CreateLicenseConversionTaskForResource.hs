@@ -42,7 +42,7 @@ module Amazonka.LicenseManager.CreateLicenseConversionTaskForResource
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -55,12 +55,12 @@ data CreateLicenseConversionTaskForResource = CreateLicenseConversionTaskForReso
     resourceArn :: Prelude.Text,
     -- | Information that identifies the license type you are converting from.
     -- For the structure of the source license, see
-    -- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the AWS CLI>
+    -- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the Amazon Web Services CLI>
     -- in the /License Manager User Guide/.
     sourceLicenseContext :: LicenseConversionContext,
     -- | Information that identifies the license type you are converting to. For
     -- the structure of the destination license, see
-    -- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the AWS CLI>
+    -- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the Amazon Web Services CLI>
     -- in the /License Manager User Guide/.
     destinationLicenseContext :: LicenseConversionContext
   }
@@ -79,12 +79,12 @@ data CreateLicenseConversionTaskForResource = CreateLicenseConversionTaskForReso
 --
 -- 'sourceLicenseContext', 'createLicenseConversionTaskForResource_sourceLicenseContext' - Information that identifies the license type you are converting from.
 -- For the structure of the source license, see
--- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the AWS CLI>
+-- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the Amazon Web Services CLI>
 -- in the /License Manager User Guide/.
 --
 -- 'destinationLicenseContext', 'createLicenseConversionTaskForResource_destinationLicenseContext' - Information that identifies the license type you are converting to. For
 -- the structure of the destination license, see
--- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the AWS CLI>
+-- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the Amazon Web Services CLI>
 -- in the /License Manager User Guide/.
 newCreateLicenseConversionTaskForResource ::
   -- | 'resourceArn'
@@ -114,14 +114,14 @@ createLicenseConversionTaskForResource_resourceArn = Lens.lens (\CreateLicenseCo
 
 -- | Information that identifies the license type you are converting from.
 -- For the structure of the source license, see
--- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the AWS CLI>
+-- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the Amazon Web Services CLI>
 -- in the /License Manager User Guide/.
 createLicenseConversionTaskForResource_sourceLicenseContext :: Lens.Lens' CreateLicenseConversionTaskForResource LicenseConversionContext
 createLicenseConversionTaskForResource_sourceLicenseContext = Lens.lens (\CreateLicenseConversionTaskForResource' {sourceLicenseContext} -> sourceLicenseContext) (\s@CreateLicenseConversionTaskForResource' {} a -> s {sourceLicenseContext = a} :: CreateLicenseConversionTaskForResource)
 
 -- | Information that identifies the license type you are converting to. For
 -- the structure of the destination license, see
--- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the AWS CLI>
+-- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the Amazon Web Services CLI>
 -- in the /License Manager User Guide/.
 createLicenseConversionTaskForResource_destinationLicenseContext :: Lens.Lens' CreateLicenseConversionTaskForResource LicenseConversionContext
 createLicenseConversionTaskForResource_destinationLicenseContext = Lens.lens (\CreateLicenseConversionTaskForResource' {destinationLicenseContext} -> destinationLicenseContext) (\s@CreateLicenseConversionTaskForResource' {} a -> s {destinationLicenseContext = a} :: CreateLicenseConversionTaskForResource)
@@ -134,8 +134,8 @@ instance
     AWSResponse
       CreateLicenseConversionTaskForResource =
       CreateLicenseConversionTaskForResourceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

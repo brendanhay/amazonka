@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.MultiplexProgramServiceDescriptor where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Transport stream service descriptor configuration for the Multiplex

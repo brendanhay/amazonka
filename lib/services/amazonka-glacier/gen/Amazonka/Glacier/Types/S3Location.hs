@@ -20,11 +20,11 @@
 module Amazonka.Glacier.Types.S3Location where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glacier.Types.CannedACL
 import Amazonka.Glacier.Types.Encryption
 import Amazonka.Glacier.Types.Grant
 import Amazonka.Glacier.Types.StorageClass
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the location in Amazon S3 where the select

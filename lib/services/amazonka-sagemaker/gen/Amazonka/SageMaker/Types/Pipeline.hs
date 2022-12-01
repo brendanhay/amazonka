@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.Pipeline where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ParallelismConfiguration
 import Amazonka.SageMaker.Types.PipelineStatus

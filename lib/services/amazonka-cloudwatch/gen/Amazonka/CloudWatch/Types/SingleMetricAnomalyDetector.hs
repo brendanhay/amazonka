@@ -21,7 +21,7 @@ module Amazonka.CloudWatch.Types.SingleMetricAnomalyDetector where
 
 import Amazonka.CloudWatch.Types.Dimension
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Designates the CloudWatch metric and statistic that provides the time

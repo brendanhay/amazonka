@@ -22,7 +22,7 @@ module Amazonka.CloudFront.Types.CookiePreference where
 import Amazonka.CloudFront.Types.CookieNames
 import Amazonka.CloudFront.Types.ItemSelection
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This field is deprecated. We recommend that you use a cache policy or an

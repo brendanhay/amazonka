@@ -20,7 +20,7 @@
 module Amazonka.RAM.Types.TagFilter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A tag key and optional list of possible values that you can use to

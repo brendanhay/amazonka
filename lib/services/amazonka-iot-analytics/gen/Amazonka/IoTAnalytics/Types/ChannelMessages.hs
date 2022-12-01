@@ -20,7 +20,7 @@
 module Amazonka.IoTAnalytics.Types.ChannelMessages where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies one or more sets of channel messages.

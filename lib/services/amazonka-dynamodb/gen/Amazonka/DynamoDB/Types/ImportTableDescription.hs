@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.ImportTableDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ImportStatus
 import Amazonka.DynamoDB.Types.InputCompressionType
@@ -28,7 +29,6 @@ import Amazonka.DynamoDB.Types.InputFormatOptions
 import Amazonka.DynamoDB.Types.S3BucketSource
 import Amazonka.DynamoDB.Types.TableCreationParameters
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the properties of the table being imported into.

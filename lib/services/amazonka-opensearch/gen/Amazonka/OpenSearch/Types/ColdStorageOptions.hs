@@ -20,14 +20,16 @@
 module Amazonka.OpenSearch.Types.ColdStorageOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies the configuration for cold storage options such as enabled
+-- | Container for the parameters required to enable cold storage for an
+-- OpenSearch Service domain. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html Cold storage for Amazon OpenSearch Service>.
 --
 -- /See:/ 'newColdStorageOptions' smart constructor.
 data ColdStorageOptions = ColdStorageOptions'
-  { -- | Enable cold storage option. Accepted values true or false
+  { -- | Whether to enable or disable cold storage on the domain.
     enabled :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,7 +42,7 @@ data ColdStorageOptions = ColdStorageOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'coldStorageOptions_enabled' - Enable cold storage option. Accepted values true or false
+-- 'enabled', 'coldStorageOptions_enabled' - Whether to enable or disable cold storage on the domain.
 newColdStorageOptions ::
   -- | 'enabled'
   Prelude.Bool ->
@@ -48,7 +50,7 @@ newColdStorageOptions ::
 newColdStorageOptions pEnabled_ =
   ColdStorageOptions' {enabled = pEnabled_}
 
--- | Enable cold storage option. Accepted values true or false
+-- | Whether to enable or disable cold storage on the domain.
 coldStorageOptions_enabled :: Lens.Lens' ColdStorageOptions Prelude.Bool
 coldStorageOptions_enabled = Lens.lens (\ColdStorageOptions' {enabled} -> enabled) (\s@ColdStorageOptions' {} a -> s {enabled = a} :: ColdStorageOptions)
 

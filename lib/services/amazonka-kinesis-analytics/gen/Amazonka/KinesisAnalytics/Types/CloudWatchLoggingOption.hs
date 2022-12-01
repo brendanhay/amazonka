@@ -20,7 +20,7 @@
 module Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOption where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a description of CloudWatch logging options, including the log

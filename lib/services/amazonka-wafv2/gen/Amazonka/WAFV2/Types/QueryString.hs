@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.QueryString where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Inspect the query string of the web request. This is the part of a URL

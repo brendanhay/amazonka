@@ -20,8 +20,8 @@
 module Amazonka.DLM.Types.Action where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.CrossRegionCopyAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Event-based policies only]__ Specifies an action for an event-based

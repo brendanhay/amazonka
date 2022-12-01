@@ -21,7 +21,7 @@ module Amazonka.Backup.Types.Conditions where
 
 import Amazonka.Backup.Types.ConditionParameter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about which resources to include or exclude from a

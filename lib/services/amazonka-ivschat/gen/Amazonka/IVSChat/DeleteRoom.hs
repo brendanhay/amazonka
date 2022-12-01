@@ -36,8 +36,8 @@ module Amazonka.IVSChat.DeleteRoom
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVSChat.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -71,8 +71,8 @@ deleteRoom_identifier = Lens.lens (\DeleteRoom' {identifier} -> identifier) (\s@
 
 instance Core.AWSRequest DeleteRoom where
   type AWSResponse DeleteRoom = DeleteRoomResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteRoomResponse'
 
 instance Prelude.Hashable DeleteRoom where

@@ -23,7 +23,7 @@ import Amazonka.AppSync.Types.ConflictDetectionType
 import Amazonka.AppSync.Types.ConflictHandlerType
 import Amazonka.AppSync.Types.LambdaConflictHandlerConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Sync configuration for a resolver.

@@ -20,9 +20,9 @@
 module Amazonka.ElastiCache.Types.PendingModifiedValues where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.AuthTokenUpdateStatus
 import Amazonka.ElastiCache.Types.PendingLogDeliveryConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A group of settings that are applied to the cluster in the future, or

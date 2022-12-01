@@ -20,7 +20,7 @@
 module Amazonka.ElasticSearch.Types.CognitoOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options to specify the Cognito user and identity pools for Kibana

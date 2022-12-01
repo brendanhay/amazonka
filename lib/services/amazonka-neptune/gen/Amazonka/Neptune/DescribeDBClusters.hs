@@ -50,7 +50,7 @@ module Amazonka.Neptune.DescribeDBClusters
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -220,8 +220,8 @@ instance Core.AWSRequest DescribeDBClusters where
   type
     AWSResponse DescribeDBClusters =
       DescribeDBClustersResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "DescribeDBClustersResult"

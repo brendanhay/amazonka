@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsEc2VpcEndpointServiceServiceTypeDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The service type information for a VPC endpoint service.

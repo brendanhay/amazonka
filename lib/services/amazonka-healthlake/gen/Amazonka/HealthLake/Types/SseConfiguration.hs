@@ -20,8 +20,8 @@
 module Amazonka.HealthLake.Types.SseConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HealthLake.Types.KmsEncryptionConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The server-side encryption key configuration for a customer provided

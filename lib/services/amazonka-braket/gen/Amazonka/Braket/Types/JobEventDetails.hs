@@ -21,7 +21,7 @@ module Amazonka.Braket.Types.JobEventDetails where
 
 import Amazonka.Braket.Types.JobEventType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the type and time events occurred related to the Amazon

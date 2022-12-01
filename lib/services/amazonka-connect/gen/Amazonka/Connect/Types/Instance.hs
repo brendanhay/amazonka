@@ -23,7 +23,7 @@ import Amazonka.Connect.Types.DirectoryType
 import Amazonka.Connect.Types.InstanceStatus
 import Amazonka.Connect.Types.InstanceStatusReason
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Connect instance.

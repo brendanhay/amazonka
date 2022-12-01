@@ -20,8 +20,8 @@
 module Amazonka.GamesParks.Types.StageDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GamesParks.Types.StageState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Properties that provide details of a stage.

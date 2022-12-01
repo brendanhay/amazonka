@@ -21,7 +21,7 @@ module Amazonka.CertificateManagerPCA.Types.PolicyInformation where
 
 import Amazonka.CertificateManagerPCA.Types.PolicyQualifierInfo
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the X.509 @CertificatePolicies@ extension.

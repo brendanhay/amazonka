@@ -21,7 +21,7 @@ module Amazonka.CodeCommit.Types.MergeHunk where
 
 import Amazonka.CodeCommit.Types.MergeHunkDetail
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about merge hunks in a merge or pull request operation.

@@ -182,6 +182,10 @@ module Amazonka.Textract
     DocumentMetadata (DocumentMetadata'),
     newDocumentMetadata,
 
+    -- ** ExpenseCurrency
+    ExpenseCurrency (ExpenseCurrency'),
+    newExpenseCurrency,
+
     -- ** ExpenseDetection
     ExpenseDetection (ExpenseDetection'),
     newExpenseDetection,
@@ -193,6 +197,10 @@ module Amazonka.Textract
     -- ** ExpenseField
     ExpenseField (ExpenseField'),
     newExpenseField,
+
+    -- ** ExpenseGroupProperty
+    ExpenseGroupProperty (ExpenseGroupProperty'),
+    newExpenseGroupProperty,
 
     -- ** ExpenseType
     ExpenseType (ExpenseType'),

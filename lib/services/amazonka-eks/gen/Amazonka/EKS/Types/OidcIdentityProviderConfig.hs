@@ -20,8 +20,8 @@
 module Amazonka.EKS.Types.OidcIdentityProviderConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types.ConfigStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the configuration for an OpenID Connect (OIDC)

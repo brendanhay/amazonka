@@ -20,10 +20,10 @@
 module Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains details about a lambda function timeout that occurred during an
+-- | Contains details about a Lambda function timeout that occurred during an
 -- execution.
 --
 -- /See:/ 'newLambdaFunctionTimedOutEventDetails' smart constructor.

@@ -20,9 +20,9 @@
 module Amazonka.Kafka.Types.ServerlessRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.ServerlessClientAuthentication
 import Amazonka.Kafka.Types.VpcConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Serverless cluster request.

@@ -20,9 +20,9 @@
 module Amazonka.ElasticBeanstalk.Types.ApplicationMetrics where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticBeanstalk.Types.Latency
 import Amazonka.ElasticBeanstalk.Types.StatusCodes
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Application request metrics for an AWS Elastic Beanstalk environment.

@@ -20,7 +20,7 @@
 module Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes whether snapshots are enabled for a Flink-based Kinesis Data

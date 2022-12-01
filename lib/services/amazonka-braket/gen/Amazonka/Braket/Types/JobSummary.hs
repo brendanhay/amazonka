@@ -21,7 +21,7 @@ module Amazonka.Braket.Types.JobSummary where
 
 import Amazonka.Braket.Types.JobPrimaryStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information about an Amazon Braket job.

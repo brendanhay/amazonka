@@ -48,8 +48,8 @@ module Amazonka.CustomerProfiles.GetWorkflow
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,8 +96,8 @@ getWorkflow_workflowId = Lens.lens (\GetWorkflow' {workflowId} -> workflowId) (\
 
 instance Core.AWSRequest GetWorkflow where
   type AWSResponse GetWorkflow = GetWorkflowResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

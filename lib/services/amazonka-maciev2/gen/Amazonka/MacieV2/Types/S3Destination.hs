@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.S3Destination where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an S3 bucket to store data classification results in, and the

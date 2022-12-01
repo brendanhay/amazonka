@@ -20,8 +20,8 @@
 module Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyErrorEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyError
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains error information for asset property value entries that are

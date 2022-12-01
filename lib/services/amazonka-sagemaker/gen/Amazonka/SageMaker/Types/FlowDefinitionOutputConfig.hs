@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.FlowDefinitionOutputConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about where human output will be stored.

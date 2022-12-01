@@ -20,7 +20,7 @@
 module Amazonka.NetworkManager.Types.RouteAnalysis where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkManager.Types.RouteAnalysisEndpointOptions
 import Amazonka.NetworkManager.Types.RouteAnalysisPath
 import Amazonka.NetworkManager.Types.RouteAnalysisStatus

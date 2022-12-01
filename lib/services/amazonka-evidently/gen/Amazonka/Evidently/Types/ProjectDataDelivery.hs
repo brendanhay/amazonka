@@ -20,9 +20,9 @@
 module Amazonka.Evidently.Types.ProjectDataDelivery where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Evidently.Types.CloudWatchLogsDestination
 import Amazonka.Evidently.Types.S3Destination
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains information about where Evidently is to store

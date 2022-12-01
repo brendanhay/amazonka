@@ -20,7 +20,7 @@
 module Amazonka.ManagedBlockChain.Types.AccessorSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ManagedBlockChain.Types.AccessorStatus
 import Amazonka.ManagedBlockChain.Types.AccessorType
 import qualified Amazonka.Prelude as Prelude

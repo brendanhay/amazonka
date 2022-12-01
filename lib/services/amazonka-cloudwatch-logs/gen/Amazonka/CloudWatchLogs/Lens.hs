@@ -199,12 +199,13 @@ module Amazonka.CloudWatchLogs.Lens
     getQueryResultsResponse_results,
     getQueryResultsResponse_httpStatus,
 
-    -- ** ListTagsLogGroup
-    listTagsLogGroup_logGroupName,
-    listTagsLogGroupResponse_tags,
-    listTagsLogGroupResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** PutDestination
+    putDestination_tags,
     putDestination_destinationName,
     putDestination_targetArn,
     putDestination_roleArn,
@@ -272,9 +273,9 @@ module Amazonka.CloudWatchLogs.Lens
     stopQueryResponse_success,
     stopQueryResponse_httpStatus,
 
-    -- ** TagLogGroup
-    tagLogGroup_logGroupName,
-    tagLogGroup_tags,
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
 
     -- ** TestMetricFilter
     testMetricFilter_filterPattern,
@@ -282,9 +283,9 @@ module Amazonka.CloudWatchLogs.Lens
     testMetricFilterResponse_matches,
     testMetricFilterResponse_httpStatus,
 
-    -- ** UntagLogGroup
-    untagLogGroup_logGroupName,
-    untagLogGroup_tags,
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
 
     -- * Types
 
@@ -450,7 +451,7 @@ import Amazonka.CloudWatchLogs.GetLogEvents
 import Amazonka.CloudWatchLogs.GetLogGroupFields
 import Amazonka.CloudWatchLogs.GetLogRecord
 import Amazonka.CloudWatchLogs.GetQueryResults
-import Amazonka.CloudWatchLogs.ListTagsLogGroup
+import Amazonka.CloudWatchLogs.ListTagsForResource
 import Amazonka.CloudWatchLogs.PutDestination
 import Amazonka.CloudWatchLogs.PutDestinationPolicy
 import Amazonka.CloudWatchLogs.PutLogEvents
@@ -461,7 +462,7 @@ import Amazonka.CloudWatchLogs.PutRetentionPolicy
 import Amazonka.CloudWatchLogs.PutSubscriptionFilter
 import Amazonka.CloudWatchLogs.StartQuery
 import Amazonka.CloudWatchLogs.StopQuery
-import Amazonka.CloudWatchLogs.TagLogGroup
+import Amazonka.CloudWatchLogs.TagResource
 import Amazonka.CloudWatchLogs.TestMetricFilter
 import Amazonka.CloudWatchLogs.Types.Destination
 import Amazonka.CloudWatchLogs.Types.ExportTask
@@ -484,4 +485,4 @@ import Amazonka.CloudWatchLogs.Types.ResourcePolicy
 import Amazonka.CloudWatchLogs.Types.ResultField
 import Amazonka.CloudWatchLogs.Types.SearchedLogStream
 import Amazonka.CloudWatchLogs.Types.SubscriptionFilter
-import Amazonka.CloudWatchLogs.UntagLogGroup
+import Amazonka.CloudWatchLogs.UntagResource

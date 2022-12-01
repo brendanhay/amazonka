@@ -47,8 +47,8 @@ module Amazonka.GroundStation.UpdateConfig
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,8 +123,8 @@ updateConfig_name = Lens.lens (\UpdateConfig' {name} -> name) (\s@UpdateConfig' 
 
 instance Core.AWSRequest UpdateConfig where
   type AWSResponse UpdateConfig = ConfigIdResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

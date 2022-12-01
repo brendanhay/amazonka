@@ -26,7 +26,7 @@ import Amazonka.AppMesh.Types.OutlierDetection
 import Amazonka.AppMesh.Types.PortMapping
 import Amazonka.AppMesh.Types.VirtualNodeConnectionPool
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a listener for a virtual node.

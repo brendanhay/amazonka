@@ -20,9 +20,9 @@
 module Amazonka.CostExplorer.Types.DimensionValues where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.Dimension
 import Amazonka.CostExplorer.Types.MatchOption
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata that you can use to filter and group your results. You can

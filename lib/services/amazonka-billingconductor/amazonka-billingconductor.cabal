@@ -63,6 +63,7 @@ library
     Amazonka.BillingConductor.ListBillingGroupCostReports
     Amazonka.BillingConductor.ListBillingGroups
     Amazonka.BillingConductor.ListCustomLineItems
+    Amazonka.BillingConductor.ListCustomLineItemVersions
     Amazonka.BillingConductor.ListPricingPlans
     Amazonka.BillingConductor.ListPricingPlansAssociatedWithPricingRule
     Amazonka.BillingConductor.ListPricingRules
@@ -88,6 +89,7 @@ library
     Amazonka.BillingConductor.Types.CustomLineItemPercentageChargeDetails
     Amazonka.BillingConductor.Types.CustomLineItemRelationship
     Amazonka.BillingConductor.Types.CustomLineItemType
+    Amazonka.BillingConductor.Types.CustomLineItemVersionListElement
     Amazonka.BillingConductor.Types.DisassociateResourceResponseElement
     Amazonka.BillingConductor.Types.ListAccountAssociationsFilter
     Amazonka.BillingConductor.Types.ListBillingGroupCostReportsFilter
@@ -96,6 +98,8 @@ library
     Amazonka.BillingConductor.Types.ListCustomLineItemFlatChargeDetails
     Amazonka.BillingConductor.Types.ListCustomLineItemPercentageChargeDetails
     Amazonka.BillingConductor.Types.ListCustomLineItemsFilter
+    Amazonka.BillingConductor.Types.ListCustomLineItemVersionsBillingPeriodRangeFilter
+    Amazonka.BillingConductor.Types.ListCustomLineItemVersionsFilter
     Amazonka.BillingConductor.Types.ListPricingPlansFilter
     Amazonka.BillingConductor.Types.ListPricingRulesFilter
     Amazonka.BillingConductor.Types.ListResourcesAssociatedToCustomLineItemFilter

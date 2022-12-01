@@ -22,7 +22,7 @@ module Amazonka.AppMesh.Types.ClientTlsCertificate where
 import Amazonka.AppMesh.Types.ListenerTlsFileCertificate
 import Amazonka.AppMesh.Types.ListenerTlsSdsCertificate
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the client\'s certificate.

@@ -65,9 +65,11 @@ library
     Amazonka.Textract.Types.DocumentLocation
     Amazonka.Textract.Types.DocumentMetadata
     Amazonka.Textract.Types.EntityType
+    Amazonka.Textract.Types.ExpenseCurrency
     Amazonka.Textract.Types.ExpenseDetection
     Amazonka.Textract.Types.ExpenseDocument
     Amazonka.Textract.Types.ExpenseField
+    Amazonka.Textract.Types.ExpenseGroupProperty
     Amazonka.Textract.Types.ExpenseType
     Amazonka.Textract.Types.FeatureType
     Amazonka.Textract.Types.Geometry

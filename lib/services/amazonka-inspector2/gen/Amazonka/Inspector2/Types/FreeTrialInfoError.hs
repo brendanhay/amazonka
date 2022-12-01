@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.FreeTrialInfoError where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.FreeTrialInfoErrorCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an error received while accessing free trail data for

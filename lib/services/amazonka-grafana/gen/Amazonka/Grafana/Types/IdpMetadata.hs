@@ -20,20 +20,20 @@
 module Amazonka.Grafana.Types.IdpMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing the identity provider (IdP) metadata used to
 -- integrate the identity provider with this workspace. You can specify the
 -- metadata either by providing a URL to its location in the @url@
 -- parameter, or by specifying the full metadata in XML format in the @xml@
--- parameter.
+-- parameter. Specifying both will cause an error.
 --
 -- /See:/ 'newIdpMetadata' smart constructor.
 data IdpMetadata = IdpMetadata'
-  { -- | The URL of the location containing the metadata.
+  { -- | The URL of the location containing the IdP metadata.
     url :: Prelude.Maybe Prelude.Text,
-    -- | The actual full metadata file, in XML format.
+    -- | The full IdP metadata, in XML format.
     xml :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,9 +46,9 @@ data IdpMetadata = IdpMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'idpMetadata_url' - The URL of the location containing the metadata.
+-- 'url', 'idpMetadata_url' - The URL of the location containing the IdP metadata.
 --
--- 'xml', 'idpMetadata_xml' - The actual full metadata file, in XML format.
+-- 'xml', 'idpMetadata_xml' - The full IdP metadata, in XML format.
 newIdpMetadata ::
   IdpMetadata
 newIdpMetadata =
@@ -57,11 +57,11 @@ newIdpMetadata =
       xml = Prelude.Nothing
     }
 
--- | The URL of the location containing the metadata.
+-- | The URL of the location containing the IdP metadata.
 idpMetadata_url :: Lens.Lens' IdpMetadata (Prelude.Maybe Prelude.Text)
 idpMetadata_url = Lens.lens (\IdpMetadata' {url} -> url) (\s@IdpMetadata' {} a -> s {url = a} :: IdpMetadata)
 
--- | The actual full metadata file, in XML format.
+-- | The full IdP metadata, in XML format.
 idpMetadata_xml :: Lens.Lens' IdpMetadata (Prelude.Maybe Prelude.Text)
 idpMetadata_xml = Lens.lens (\IdpMetadata' {xml} -> xml) (\s@IdpMetadata' {} a -> s {xml = a} :: IdpMetadata)
 

@@ -20,7 +20,7 @@
 module Amazonka.MediaPackageVOD.Types.EgressEndpoint where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The endpoint URL used to access an Asset using one

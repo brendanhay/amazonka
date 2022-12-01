@@ -20,7 +20,7 @@
 module Amazonka.TimeStreamQuery.Types.TimestreamConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.DimensionMapping
 import Amazonka.TimeStreamQuery.Types.MixedMeasureMapping

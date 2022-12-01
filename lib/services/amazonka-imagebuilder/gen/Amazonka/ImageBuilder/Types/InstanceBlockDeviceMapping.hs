@@ -20,8 +20,8 @@
 module Amazonka.ImageBuilder.Types.InstanceBlockDeviceMapping where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines block device mappings for the instance used to configure your

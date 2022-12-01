@@ -20,9 +20,9 @@
 module Amazonka.IoTWireless.Types.TraceContent where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.LogLevel
 import Amazonka.IoTWireless.Types.WirelessDeviceFrameInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Trace content for your wireless gateway and wireless device resources.

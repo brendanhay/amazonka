@@ -20,7 +20,7 @@
 module Amazonka.ServiceCatalog.Types.RecordError where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The error code and description resulting from an operation.

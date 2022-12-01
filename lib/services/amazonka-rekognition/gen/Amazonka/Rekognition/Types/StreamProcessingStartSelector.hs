@@ -20,16 +20,18 @@
 module Amazonka.Rekognition.Types.StreamProcessingStartSelector where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.KinesisVideoStreamStartSelector
 
--- |
+-- | This is a required parameter for label detection stream processors and
+-- should not be used to start a face search stream processor.
 --
 -- /See:/ 'newStreamProcessingStartSelector' smart constructor.
 data StreamProcessingStartSelector = StreamProcessingStartSelector'
   { -- | Specifies the starting point in the stream to start processing. This can
-    -- be done with a timestamp or a fragment number in a Kinesis stream.
+    -- be done with a producer timestamp or a fragment number in a Kinesis
+    -- stream.
     kVSStreamStartSelector :: Prelude.Maybe KinesisVideoStreamStartSelector
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,7 +45,8 @@ data StreamProcessingStartSelector = StreamProcessingStartSelector'
 -- for backwards compatibility:
 --
 -- 'kVSStreamStartSelector', 'streamProcessingStartSelector_kVSStreamStartSelector' - Specifies the starting point in the stream to start processing. This can
--- be done with a timestamp or a fragment number in a Kinesis stream.
+-- be done with a producer timestamp or a fragment number in a Kinesis
+-- stream.
 newStreamProcessingStartSelector ::
   StreamProcessingStartSelector
 newStreamProcessingStartSelector =
@@ -53,7 +56,8 @@ newStreamProcessingStartSelector =
     }
 
 -- | Specifies the starting point in the stream to start processing. This can
--- be done with a timestamp or a fragment number in a Kinesis stream.
+-- be done with a producer timestamp or a fragment number in a Kinesis
+-- stream.
 streamProcessingStartSelector_kVSStreamStartSelector :: Lens.Lens' StreamProcessingStartSelector (Prelude.Maybe KinesisVideoStreamStartSelector)
 streamProcessingStartSelector_kVSStreamStartSelector = Lens.lens (\StreamProcessingStartSelector' {kVSStreamStartSelector} -> kVSStreamStartSelector) (\s@StreamProcessingStartSelector' {} a -> s {kVSStreamStartSelector = a} :: StreamProcessingStartSelector)
 

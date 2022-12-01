@@ -20,8 +20,8 @@
 module Amazonka.DocumentDB.Types.DBClusterSnapshotAttributesResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DocumentDB.Types.DBClusterSnapshotAttribute
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about the attributes that are associated with a

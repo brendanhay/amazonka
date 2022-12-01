@@ -20,7 +20,7 @@
 module Amazonka.ImageBuilder.Types.InfrastructureConfigurationSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The infrastructure used when building Amazon EC2 AMIs.

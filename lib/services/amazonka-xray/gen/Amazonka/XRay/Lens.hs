@@ -41,6 +41,11 @@ module Amazonka.XRay.Lens
     deleteGroup_groupARN,
     deleteGroupResponse_httpStatus,
 
+    -- ** DeleteResourcePolicy
+    deleteResourcePolicy_policyRevisionId,
+    deleteResourcePolicy_policyName,
+    deleteResourcePolicyResponse_httpStatus,
+
     -- ** DeleteSamplingRule
     deleteSamplingRule_ruleARN,
     deleteSamplingRule_ruleName,
@@ -169,6 +174,12 @@ module Amazonka.XRay.Lens
     getTraceSummariesResponse_approximateTime,
     getTraceSummariesResponse_httpStatus,
 
+    -- ** ListResourcePolicies
+    listResourcePolicies_nextToken,
+    listResourcePoliciesResponse_nextToken,
+    listResourcePoliciesResponse_resourcePolicies,
+    listResourcePoliciesResponse_httpStatus,
+
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
     listTagsForResource_resourceARN,
@@ -181,6 +192,14 @@ module Amazonka.XRay.Lens
     putEncryptionConfig_type,
     putEncryptionConfigResponse_encryptionConfig,
     putEncryptionConfigResponse_httpStatus,
+
+    -- ** PutResourcePolicy
+    putResourcePolicy_policyRevisionId,
+    putResourcePolicy_bypassPolicyLockoutCheck,
+    putResourcePolicy_policyName,
+    putResourcePolicy_policyDocument,
+    putResourcePolicyResponse_resourcePolicy,
+    putResourcePolicyResponse_httpStatus,
 
     -- ** PutTelemetryRecords
     putTelemetryRecords_eC2InstanceId,
@@ -248,8 +267,10 @@ module Amazonka.XRay.Lens
     edge_summaryStatistics,
     edge_endTime,
     edge_responseTimeHistogram,
+    edge_edgeType,
     edge_referenceId,
     edge_startTime,
+    edge_receivedEventAgeHistogram,
 
     -- ** EdgeStatistics
     edgeStatistics_faultStatistics,
@@ -394,6 +415,12 @@ module Amazonka.XRay.Lens
 
     -- ** ResourceARNDetail
     resourceARNDetail_arn,
+
+    -- ** ResourcePolicy
+    resourcePolicy_policyName,
+    resourcePolicy_lastUpdatedTime,
+    resourcePolicy_policyRevisionId,
+    resourcePolicy_policyDocument,
 
     -- ** ResponseTimeRootCause
     responseTimeRootCause_services,
@@ -579,6 +606,7 @@ import Amazonka.XRay.BatchGetTraces
 import Amazonka.XRay.CreateGroup
 import Amazonka.XRay.CreateSamplingRule
 import Amazonka.XRay.DeleteGroup
+import Amazonka.XRay.DeleteResourcePolicy
 import Amazonka.XRay.DeleteSamplingRule
 import Amazonka.XRay.GetEncryptionConfig
 import Amazonka.XRay.GetGroup
@@ -594,8 +622,10 @@ import Amazonka.XRay.GetServiceGraph
 import Amazonka.XRay.GetTimeSeriesServiceStatistics
 import Amazonka.XRay.GetTraceGraph
 import Amazonka.XRay.GetTraceSummaries
+import Amazonka.XRay.ListResourcePolicies
 import Amazonka.XRay.ListTagsForResource
 import Amazonka.XRay.PutEncryptionConfig
+import Amazonka.XRay.PutResourcePolicy
 import Amazonka.XRay.PutTelemetryRecords
 import Amazonka.XRay.PutTraceSegments
 import Amazonka.XRay.TagResource
@@ -629,6 +659,7 @@ import Amazonka.XRay.Types.InsightsConfiguration
 import Amazonka.XRay.Types.InstanceIdDetail
 import Amazonka.XRay.Types.RequestImpactStatistics
 import Amazonka.XRay.Types.ResourceARNDetail
+import Amazonka.XRay.Types.ResourcePolicy
 import Amazonka.XRay.Types.ResponseTimeRootCause
 import Amazonka.XRay.Types.ResponseTimeRootCauseEntity
 import Amazonka.XRay.Types.ResponseTimeRootCauseService

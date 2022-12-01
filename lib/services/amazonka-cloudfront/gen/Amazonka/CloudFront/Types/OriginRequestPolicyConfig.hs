@@ -23,7 +23,7 @@ import Amazonka.CloudFront.Types.OriginRequestPolicyCookiesConfig
 import Amazonka.CloudFront.Types.OriginRequestPolicyHeadersConfig
 import Amazonka.CloudFront.Types.OriginRequestPolicyQueryStringsConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An origin request policy configuration.

@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.SecurityHubConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies configuration settings that determine which findings are

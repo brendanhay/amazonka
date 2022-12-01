@@ -78,6 +78,9 @@ import Test.Tasty
 --         , requestListBillingGroups $
 --             newListBillingGroups
 --
+--         , requestListCustomLineItemVersions $
+--             newListCustomLineItemVersions
+--
 --         , requestListCustomLineItems $
 --             newListCustomLineItems
 --
@@ -170,6 +173,9 @@ import Test.Tasty
 --
 --         , responseListBillingGroups $
 --             newListBillingGroupsResponse
+--
+--         , responseListCustomLineItemVersions $
+--             newListCustomLineItemVersionsResponse
 --
 --         , responseListCustomLineItems $
 --             newListCustomLineItemsResponse
@@ -316,6 +322,12 @@ requestListBillingGroups =
   req
     "ListBillingGroups"
     "fixture/ListBillingGroups.yaml"
+
+requestListCustomLineItemVersions :: ListCustomLineItemVersions -> TestTree
+requestListCustomLineItemVersions =
+  req
+    "ListCustomLineItemVersions"
+    "fixture/ListCustomLineItemVersions.yaml"
 
 requestListCustomLineItems :: ListCustomLineItems -> TestTree
 requestListCustomLineItems =
@@ -532,6 +544,14 @@ responseListBillingGroups =
     "fixture/ListBillingGroupsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListBillingGroups)
+
+responseListCustomLineItemVersions :: ListCustomLineItemVersionsResponse -> TestTree
+responseListCustomLineItemVersions =
+  res
+    "ListCustomLineItemVersionsResponse"
+    "fixture/ListCustomLineItemVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCustomLineItemVersions)
 
 responseListCustomLineItems :: ListCustomLineItemsResponse -> TestTree
 responseListCustomLineItems =

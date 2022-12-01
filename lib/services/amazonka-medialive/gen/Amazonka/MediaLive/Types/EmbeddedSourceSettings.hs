@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.EmbeddedSourceSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.EmbeddedConvert608To708
 import Amazonka.MediaLive.Types.EmbeddedScte20Detection
 import qualified Amazonka.Prelude as Prelude

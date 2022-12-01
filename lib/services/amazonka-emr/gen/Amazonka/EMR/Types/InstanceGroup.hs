@@ -20,6 +20,7 @@
 module Amazonka.EMR.Types.InstanceGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.AutoScalingPolicyDescription
 import Amazonka.EMR.Types.Configuration
 import Amazonka.EMR.Types.EbsBlockDevice
@@ -27,7 +28,6 @@ import Amazonka.EMR.Types.InstanceGroupStatus
 import Amazonka.EMR.Types.InstanceGroupType
 import Amazonka.EMR.Types.MarketType
 import Amazonka.EMR.Types.ShrinkPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This entity represents an instance group, which is a group of instances

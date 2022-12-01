@@ -21,7 +21,7 @@ module Amazonka.CloudWatchEvents.Types.PartnerEventSourceAccount where
 
 import Amazonka.CloudWatchEvents.Types.EventSourceState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Web Services account that a partner event source has been

@@ -30,8 +30,8 @@ module Amazonka.IotTwinMaker.UpdateScene
     updateScene_contentLocation,
     updateScene_description,
     updateScene_capabilities,
-    updateScene_sceneId,
     updateScene_workspaceId,
+    updateScene_sceneId,
 
     -- * Destructuring the Response
     UpdateSceneResponse (..),
@@ -44,8 +44,8 @@ module Amazonka.IotTwinMaker.UpdateScene
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,10 +59,10 @@ data UpdateScene = UpdateScene'
     description :: Prelude.Maybe Prelude.Text,
     -- | A list of capabilities that the scene uses to render.
     capabilities :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the scene.
-    sceneId :: Prelude.Text,
     -- | The ID of the workspace that contains the scene.
-    workspaceId :: Prelude.Text
+    workspaceId :: Prelude.Text,
+    -- | The ID of the scene.
+    sceneId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,22 +81,22 @@ data UpdateScene = UpdateScene'
 --
 -- 'capabilities', 'updateScene_capabilities' - A list of capabilities that the scene uses to render.
 --
--- 'sceneId', 'updateScene_sceneId' - The ID of the scene.
---
 -- 'workspaceId', 'updateScene_workspaceId' - The ID of the workspace that contains the scene.
+--
+-- 'sceneId', 'updateScene_sceneId' - The ID of the scene.
 newUpdateScene ::
-  -- | 'sceneId'
-  Prelude.Text ->
   -- | 'workspaceId'
   Prelude.Text ->
+  -- | 'sceneId'
+  Prelude.Text ->
   UpdateScene
-newUpdateScene pSceneId_ pWorkspaceId_ =
+newUpdateScene pWorkspaceId_ pSceneId_ =
   UpdateScene'
     { contentLocation = Prelude.Nothing,
       description = Prelude.Nothing,
       capabilities = Prelude.Nothing,
-      sceneId = pSceneId_,
-      workspaceId = pWorkspaceId_
+      workspaceId = pWorkspaceId_,
+      sceneId = pSceneId_
     }
 
 -- | The relative path that specifies the location of the content definition
@@ -112,18 +112,18 @@ updateScene_description = Lens.lens (\UpdateScene' {description} -> description)
 updateScene_capabilities :: Lens.Lens' UpdateScene (Prelude.Maybe [Prelude.Text])
 updateScene_capabilities = Lens.lens (\UpdateScene' {capabilities} -> capabilities) (\s@UpdateScene' {} a -> s {capabilities = a} :: UpdateScene) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the scene.
-updateScene_sceneId :: Lens.Lens' UpdateScene Prelude.Text
-updateScene_sceneId = Lens.lens (\UpdateScene' {sceneId} -> sceneId) (\s@UpdateScene' {} a -> s {sceneId = a} :: UpdateScene)
-
 -- | The ID of the workspace that contains the scene.
 updateScene_workspaceId :: Lens.Lens' UpdateScene Prelude.Text
 updateScene_workspaceId = Lens.lens (\UpdateScene' {workspaceId} -> workspaceId) (\s@UpdateScene' {} a -> s {workspaceId = a} :: UpdateScene)
 
+-- | The ID of the scene.
+updateScene_sceneId :: Lens.Lens' UpdateScene Prelude.Text
+updateScene_sceneId = Lens.lens (\UpdateScene' {sceneId} -> sceneId) (\s@UpdateScene' {} a -> s {sceneId = a} :: UpdateScene)
+
 instance Core.AWSRequest UpdateScene where
   type AWSResponse UpdateScene = UpdateSceneResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,16 +137,16 @@ instance Prelude.Hashable UpdateScene where
     _salt `Prelude.hashWithSalt` contentLocation
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` capabilities
-      `Prelude.hashWithSalt` sceneId
       `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` sceneId
 
 instance Prelude.NFData UpdateScene where
   rnf UpdateScene' {..} =
     Prelude.rnf contentLocation
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf sceneId
       `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf sceneId
 
 instance Core.ToHeaders UpdateScene where
   toHeaders =

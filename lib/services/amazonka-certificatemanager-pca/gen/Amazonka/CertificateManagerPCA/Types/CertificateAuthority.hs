@@ -27,7 +27,7 @@ import Amazonka.CertificateManagerPCA.Types.FailureReason
 import Amazonka.CertificateManagerPCA.Types.KeyStorageSecurityStandard
 import Amazonka.CertificateManagerPCA.Types.RevocationConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about your private certificate authority (CA). Your

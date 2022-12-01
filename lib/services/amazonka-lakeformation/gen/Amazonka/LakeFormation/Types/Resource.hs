@@ -20,6 +20,7 @@
 module Amazonka.LakeFormation.Types.Resource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.CatalogResource
 import Amazonka.LakeFormation.Types.DataCellsFilterResource
 import Amazonka.LakeFormation.Types.DataLocationResource
@@ -28,7 +29,6 @@ import Amazonka.LakeFormation.Types.LFTagKeyResource
 import Amazonka.LakeFormation.Types.LFTagPolicyResource
 import Amazonka.LakeFormation.Types.TableResource
 import Amazonka.LakeFormation.Types.TableWithColumnsResource
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure for the resource.

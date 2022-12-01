@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.ProjectOperation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A transform operation that projects columns. Operations that come after

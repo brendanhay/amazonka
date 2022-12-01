@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.AdditionalResultAttributeValue where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.TextWithHighlights
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attribute returned with a document from a search.

@@ -35,9 +35,12 @@ module Amazonka.RBin.GetRule
 
     -- * Response Lenses
     getRuleResponse_resourceType,
+    getRuleResponse_lockState,
+    getRuleResponse_lockConfiguration,
     getRuleResponse_status,
     getRuleResponse_resourceTags,
     getRuleResponse_description,
+    getRuleResponse_lockEndTime,
     getRuleResponse_retentionPeriod,
     getRuleResponse_identifier,
     getRuleResponse_httpStatus,
@@ -45,7 +48,7 @@ module Amazonka.RBin.GetRule
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RBin.Types
 import qualified Amazonka.Request as Request
@@ -80,16 +83,19 @@ getRule_identifier = Lens.lens (\GetRule' {identifier} -> identifier) (\s@GetRul
 
 instance Core.AWSRequest GetRule where
   type AWSResponse GetRule = GetRuleResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRuleResponse'
             Prelude.<$> (x Core..?> "ResourceType")
+            Prelude.<*> (x Core..?> "LockState")
+            Prelude.<*> (x Core..?> "LockConfiguration")
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "ResourceTags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "LockEndTime")
             Prelude.<*> (x Core..?> "RetentionPeriod")
             Prelude.<*> (x Core..?> "Identifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -124,6 +130,24 @@ instance Core.ToQuery GetRule where
 data GetRuleResponse = GetRuleResponse'
   { -- | The resource type retained by the retention rule.
     resourceType :: Prelude.Maybe ResourceType,
+    -- | The lock state for the retention rule.
+    --
+    -- -   @locked@ - The retention rule is locked and can\'t be modified or
+    --     deleted.
+    --
+    -- -   @pending_unlock@ - The retention rule has been unlocked but it is
+    --     still within the unlock delay period. The retention rule can be
+    --     modified or deleted only after the unlock delay period has expired.
+    --
+    -- -   @unlocked@ - The retention rule is unlocked and it can be modified
+    --     or deleted by any user with the required permissions.
+    --
+    -- -   @null@ - The retention rule has never been locked. Once a retention
+    --     rule has been locked, it can transition between the @locked@ and
+    --     @unlocked@ states only; it can never transition back to @null@.
+    lockState :: Prelude.Maybe LockState,
+    -- | Information about the retention rule lock configuration.
+    lockConfiguration :: Prelude.Maybe LockConfiguration,
     -- | The state of the retention rule. Only retention rules that are in the
     -- @available@ state retain resources.
     status :: Prelude.Maybe RuleStatus,
@@ -132,6 +156,10 @@ data GetRuleResponse = GetRuleResponse'
     resourceTags :: Prelude.Maybe [ResourceTag],
     -- | The retention rule description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The date and time at which the unlock delay is set to expire. Only
+    -- returned for retention rules that have been unlocked and that are still
+    -- within the unlock delay period.
+    lockEndTime :: Prelude.Maybe Core.POSIX,
     -- | Information about the retention period for which the retention rule is
     -- to retain resources.
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
@@ -152,6 +180,24 @@ data GetRuleResponse = GetRuleResponse'
 --
 -- 'resourceType', 'getRuleResponse_resourceType' - The resource type retained by the retention rule.
 --
+-- 'lockState', 'getRuleResponse_lockState' - The lock state for the retention rule.
+--
+-- -   @locked@ - The retention rule is locked and can\'t be modified or
+--     deleted.
+--
+-- -   @pending_unlock@ - The retention rule has been unlocked but it is
+--     still within the unlock delay period. The retention rule can be
+--     modified or deleted only after the unlock delay period has expired.
+--
+-- -   @unlocked@ - The retention rule is unlocked and it can be modified
+--     or deleted by any user with the required permissions.
+--
+-- -   @null@ - The retention rule has never been locked. Once a retention
+--     rule has been locked, it can transition between the @locked@ and
+--     @unlocked@ states only; it can never transition back to @null@.
+--
+-- 'lockConfiguration', 'getRuleResponse_lockConfiguration' - Information about the retention rule lock configuration.
+--
 -- 'status', 'getRuleResponse_status' - The state of the retention rule. Only retention rules that are in the
 -- @available@ state retain resources.
 --
@@ -159,6 +205,10 @@ data GetRuleResponse = GetRuleResponse'
 -- retained by the retention rule.
 --
 -- 'description', 'getRuleResponse_description' - The retention rule description.
+--
+-- 'lockEndTime', 'getRuleResponse_lockEndTime' - The date and time at which the unlock delay is set to expire. Only
+-- returned for retention rules that have been unlocked and that are still
+-- within the unlock delay period.
 --
 -- 'retentionPeriod', 'getRuleResponse_retentionPeriod' - Information about the retention period for which the retention rule is
 -- to retain resources.
@@ -173,9 +223,12 @@ newGetRuleResponse ::
 newGetRuleResponse pHttpStatus_ =
   GetRuleResponse'
     { resourceType = Prelude.Nothing,
+      lockState = Prelude.Nothing,
+      lockConfiguration = Prelude.Nothing,
       status = Prelude.Nothing,
       resourceTags = Prelude.Nothing,
       description = Prelude.Nothing,
+      lockEndTime = Prelude.Nothing,
       retentionPeriod = Prelude.Nothing,
       identifier = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -184,6 +237,28 @@ newGetRuleResponse pHttpStatus_ =
 -- | The resource type retained by the retention rule.
 getRuleResponse_resourceType :: Lens.Lens' GetRuleResponse (Prelude.Maybe ResourceType)
 getRuleResponse_resourceType = Lens.lens (\GetRuleResponse' {resourceType} -> resourceType) (\s@GetRuleResponse' {} a -> s {resourceType = a} :: GetRuleResponse)
+
+-- | The lock state for the retention rule.
+--
+-- -   @locked@ - The retention rule is locked and can\'t be modified or
+--     deleted.
+--
+-- -   @pending_unlock@ - The retention rule has been unlocked but it is
+--     still within the unlock delay period. The retention rule can be
+--     modified or deleted only after the unlock delay period has expired.
+--
+-- -   @unlocked@ - The retention rule is unlocked and it can be modified
+--     or deleted by any user with the required permissions.
+--
+-- -   @null@ - The retention rule has never been locked. Once a retention
+--     rule has been locked, it can transition between the @locked@ and
+--     @unlocked@ states only; it can never transition back to @null@.
+getRuleResponse_lockState :: Lens.Lens' GetRuleResponse (Prelude.Maybe LockState)
+getRuleResponse_lockState = Lens.lens (\GetRuleResponse' {lockState} -> lockState) (\s@GetRuleResponse' {} a -> s {lockState = a} :: GetRuleResponse)
+
+-- | Information about the retention rule lock configuration.
+getRuleResponse_lockConfiguration :: Lens.Lens' GetRuleResponse (Prelude.Maybe LockConfiguration)
+getRuleResponse_lockConfiguration = Lens.lens (\GetRuleResponse' {lockConfiguration} -> lockConfiguration) (\s@GetRuleResponse' {} a -> s {lockConfiguration = a} :: GetRuleResponse)
 
 -- | The state of the retention rule. Only retention rules that are in the
 -- @available@ state retain resources.
@@ -198,6 +273,12 @@ getRuleResponse_resourceTags = Lens.lens (\GetRuleResponse' {resourceTags} -> re
 -- | The retention rule description.
 getRuleResponse_description :: Lens.Lens' GetRuleResponse (Prelude.Maybe Prelude.Text)
 getRuleResponse_description = Lens.lens (\GetRuleResponse' {description} -> description) (\s@GetRuleResponse' {} a -> s {description = a} :: GetRuleResponse)
+
+-- | The date and time at which the unlock delay is set to expire. Only
+-- returned for retention rules that have been unlocked and that are still
+-- within the unlock delay period.
+getRuleResponse_lockEndTime :: Lens.Lens' GetRuleResponse (Prelude.Maybe Prelude.UTCTime)
+getRuleResponse_lockEndTime = Lens.lens (\GetRuleResponse' {lockEndTime} -> lockEndTime) (\s@GetRuleResponse' {} a -> s {lockEndTime = a} :: GetRuleResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Information about the retention period for which the retention rule is
 -- to retain resources.
@@ -215,9 +296,12 @@ getRuleResponse_httpStatus = Lens.lens (\GetRuleResponse' {httpStatus} -> httpSt
 instance Prelude.NFData GetRuleResponse where
   rnf GetRuleResponse' {..} =
     Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf lockState
+      `Prelude.seq` Prelude.rnf lockConfiguration
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf resourceTags
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lockEndTime
       `Prelude.seq` Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf identifier
       `Prelude.seq` Prelude.rnf httpStatus

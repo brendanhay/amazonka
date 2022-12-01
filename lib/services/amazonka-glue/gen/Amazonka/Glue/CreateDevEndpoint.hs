@@ -72,8 +72,8 @@ module Amazonka.Glue.CreateDevEndpoint
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -420,8 +420,8 @@ instance Core.AWSRequest CreateDevEndpoint where
   type
     AWSResponse CreateDevEndpoint =
       CreateDevEndpointResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -567,7 +567,8 @@ data CreateDevEndpointResponse = CreateDevEndpointResponse'
     workerType :: Prelude.Maybe WorkerType,
     -- | The current status of the new @DevEndpoint@.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Availability Zone where this @DevEndpoint@ is located.
+    -- | The Amazon Web Services Availability Zone where this @DevEndpoint@ is
+    -- located.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | Path to one or more Java @.jar@ files in an S3 bucket that will be
     -- loaded in your @DevEndpoint@.
@@ -641,7 +642,8 @@ data CreateDevEndpointResponse = CreateDevEndpointResponse'
 --
 -- 'status', 'createDevEndpointResponse_status' - The current status of the new @DevEndpoint@.
 --
--- 'availabilityZone', 'createDevEndpointResponse_availabilityZone' - The AWS Availability Zone where this @DevEndpoint@ is located.
+-- 'availabilityZone', 'createDevEndpointResponse_availabilityZone' - The Amazon Web Services Availability Zone where this @DevEndpoint@ is
+-- located.
 --
 -- 'extraJarsS3Path', 'createDevEndpointResponse_extraJarsS3Path' - Path to one or more Java @.jar@ files in an S3 bucket that will be
 -- loaded in your @DevEndpoint@.
@@ -755,7 +757,8 @@ createDevEndpointResponse_workerType = Lens.lens (\CreateDevEndpointResponse' {w
 createDevEndpointResponse_status :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
 createDevEndpointResponse_status = Lens.lens (\CreateDevEndpointResponse' {status} -> status) (\s@CreateDevEndpointResponse' {} a -> s {status = a} :: CreateDevEndpointResponse)
 
--- | The AWS Availability Zone where this @DevEndpoint@ is located.
+-- | The Amazon Web Services Availability Zone where this @DevEndpoint@ is
+-- located.
 createDevEndpointResponse_availabilityZone :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
 createDevEndpointResponse_availabilityZone = Lens.lens (\CreateDevEndpointResponse' {availabilityZone} -> availabilityZone) (\s@CreateDevEndpointResponse' {} a -> s {availabilityZone = a} :: CreateDevEndpointResponse)
 

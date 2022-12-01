@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.AccountFreeTrialInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.DataSourcesFreeTrial
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details of the GuardDuty member account that uses a free trial

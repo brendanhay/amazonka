@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.LoadBalancerTlsCertificate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationRecord
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateFailureReason
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateRenewalSummary
@@ -86,7 +86,8 @@ data LoadBalancerTlsCertificate = LoadBalancerTlsCertificate'
     -- | The validation status of the SSL\/TLS certificate. Valid values are
     -- below.
     status :: Prelude.Maybe LoadBalancerTlsCertificateStatus,
-    -- | The AWS Region and Availability Zone where you created your certificate.
+    -- | The Amazon Web Services Region and Availability Zone where you created
+    -- your certificate.
     location :: Prelude.Maybe ResourceLocation,
     -- | The timestamp when the SSL\/TLS certificate is first valid.
     notBefore :: Prelude.Maybe Core.POSIX,
@@ -235,7 +236,8 @@ data LoadBalancerTlsCertificate = LoadBalancerTlsCertificate'
 -- 'status', 'loadBalancerTlsCertificate_status' - The validation status of the SSL\/TLS certificate. Valid values are
 -- below.
 --
--- 'location', 'loadBalancerTlsCertificate_location' - The AWS Region and Availability Zone where you created your certificate.
+-- 'location', 'loadBalancerTlsCertificate_location' - The Amazon Web Services Region and Availability Zone where you created
+-- your certificate.
 --
 -- 'notBefore', 'loadBalancerTlsCertificate_notBefore' - The timestamp when the SSL\/TLS certificate is first valid.
 --
@@ -425,7 +427,8 @@ loadBalancerTlsCertificate_keyAlgorithm = Lens.lens (\LoadBalancerTlsCertificate
 loadBalancerTlsCertificate_status :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe LoadBalancerTlsCertificateStatus)
 loadBalancerTlsCertificate_status = Lens.lens (\LoadBalancerTlsCertificate' {status} -> status) (\s@LoadBalancerTlsCertificate' {} a -> s {status = a} :: LoadBalancerTlsCertificate)
 
--- | The AWS Region and Availability Zone where you created your certificate.
+-- | The Amazon Web Services Region and Availability Zone where you created
+-- your certificate.
 loadBalancerTlsCertificate_location :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe ResourceLocation)
 loadBalancerTlsCertificate_location = Lens.lens (\LoadBalancerTlsCertificate' {location} -> location) (\s@LoadBalancerTlsCertificate' {} a -> s {location = a} :: LoadBalancerTlsCertificate)
 

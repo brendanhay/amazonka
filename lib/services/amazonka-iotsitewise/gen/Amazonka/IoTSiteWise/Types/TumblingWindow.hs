@@ -20,7 +20,7 @@
 module Amazonka.IoTSiteWise.Types.TumblingWindow where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a tumbling window, which is a repeating fixed-sized,

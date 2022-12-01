@@ -20,8 +20,8 @@
 module Amazonka.FinSpaceData.Types.ColumnDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FinSpaceData.Types.ColumnDataType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The definition of a column in a tabular Dataset.

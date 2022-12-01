@@ -22,7 +22,7 @@ module Amazonka.AmplifyBackend.Types.BackendStoragePermissions where
 import Amazonka.AmplifyBackend.Types.AuthenticatedElement
 import Amazonka.AmplifyBackend.Types.UnAuthenticatedElement
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the read, write, and delete permissions users have against

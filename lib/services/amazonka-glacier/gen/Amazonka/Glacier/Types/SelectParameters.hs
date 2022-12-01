@@ -20,10 +20,10 @@
 module Amazonka.Glacier.Types.SelectParameters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glacier.Types.ExpressionType
 import Amazonka.Glacier.Types.InputSerialization
 import Amazonka.Glacier.Types.OutputSerialization
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the parameters used for a select.

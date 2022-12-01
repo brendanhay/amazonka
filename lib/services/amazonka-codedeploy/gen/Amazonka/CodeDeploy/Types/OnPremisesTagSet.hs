@@ -21,7 +21,7 @@ module Amazonka.CodeDeploy.Types.OnPremisesTagSet where
 
 import Amazonka.CodeDeploy.Types.TagFilter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about groups of on-premises instance tags.

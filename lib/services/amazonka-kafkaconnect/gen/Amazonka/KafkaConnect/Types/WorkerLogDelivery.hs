@@ -20,10 +20,10 @@
 module Amazonka.KafkaConnect.Types.WorkerLogDelivery where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery
 import Amazonka.KafkaConnect.Types.FirehoseLogDelivery
 import Amazonka.KafkaConnect.Types.S3LogDelivery
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Workers can send worker logs to different destination types. This

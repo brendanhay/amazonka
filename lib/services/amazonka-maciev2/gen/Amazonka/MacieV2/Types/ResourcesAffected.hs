@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.ResourcesAffected where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.S3Bucket
 import Amazonka.MacieV2.Types.S3Object
 import qualified Amazonka.Prelude as Prelude

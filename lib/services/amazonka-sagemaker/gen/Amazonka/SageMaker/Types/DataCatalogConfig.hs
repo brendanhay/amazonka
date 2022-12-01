@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.DataCatalogConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The meta data of the Glue table which serves as data catalog for the

@@ -20,8 +20,9 @@
 module Amazonka.Textract.Types.IdentityDocument where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.Textract.Types.Block
 import Amazonka.Textract.Types.IdentityDocumentField
 
 -- | The structure that lists each document processed in an AnalyzeID
@@ -35,7 +36,9 @@ data IdentityDocument = IdentityDocument'
     -- | The structure used to record information extracted from identity
     -- documents. Contains both normalized field and value of the extracted
     -- text.
-    identityDocumentFields :: Prelude.Maybe [IdentityDocumentField]
+    identityDocumentFields :: Prelude.Maybe [IdentityDocumentField],
+    -- | Individual word recognition, as returned by document detection.
+    blocks :: Prelude.Maybe [Block]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,12 +56,15 @@ data IdentityDocument = IdentityDocument'
 -- 'identityDocumentFields', 'identityDocument_identityDocumentFields' - The structure used to record information extracted from identity
 -- documents. Contains both normalized field and value of the extracted
 -- text.
+--
+-- 'blocks', 'identityDocument_blocks' - Individual word recognition, as returned by document detection.
 newIdentityDocument ::
   IdentityDocument
 newIdentityDocument =
   IdentityDocument'
     { documentIndex = Prelude.Nothing,
-      identityDocumentFields = Prelude.Nothing
+      identityDocumentFields = Prelude.Nothing,
+      blocks = Prelude.Nothing
     }
 
 -- | Denotes the placement of a document in the IdentityDocument list. The
@@ -72,6 +78,10 @@ identityDocument_documentIndex = Lens.lens (\IdentityDocument' {documentIndex} -
 identityDocument_identityDocumentFields :: Lens.Lens' IdentityDocument (Prelude.Maybe [IdentityDocumentField])
 identityDocument_identityDocumentFields = Lens.lens (\IdentityDocument' {identityDocumentFields} -> identityDocumentFields) (\s@IdentityDocument' {} a -> s {identityDocumentFields = a} :: IdentityDocument) Prelude.. Lens.mapping Lens.coerced
 
+-- | Individual word recognition, as returned by document detection.
+identityDocument_blocks :: Lens.Lens' IdentityDocument (Prelude.Maybe [Block])
+identityDocument_blocks = Lens.lens (\IdentityDocument' {blocks} -> blocks) (\s@IdentityDocument' {} a -> s {blocks = a} :: IdentityDocument) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON IdentityDocument where
   parseJSON =
     Core.withObject
@@ -82,14 +92,17 @@ instance Core.FromJSON IdentityDocument where
             Prelude.<*> ( x Core..:? "IdentityDocumentFields"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "Blocks" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable IdentityDocument where
   hashWithSalt _salt IdentityDocument' {..} =
     _salt `Prelude.hashWithSalt` documentIndex
       `Prelude.hashWithSalt` identityDocumentFields
+      `Prelude.hashWithSalt` blocks
 
 instance Prelude.NFData IdentityDocument where
   rnf IdentityDocument' {..} =
     Prelude.rnf documentIndex
       `Prelude.seq` Prelude.rnf identityDocumentFields
+      `Prelude.seq` Prelude.rnf blocks

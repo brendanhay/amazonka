@@ -36,7 +36,7 @@ import Amazonka.AppFlow.Types.TrendmicroSourceProperties
 import Amazonka.AppFlow.Types.VeevaSourceProperties
 import Amazonka.AppFlow.Types.ZendeskSourceProperties
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the information that is required to query a particular

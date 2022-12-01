@@ -21,7 +21,7 @@ module Amazonka.ConnectCases.Types.Section where
 
 import Amazonka.ConnectCases.Types.FieldGroup
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This represents a sections within a panel or tab of the page layout.

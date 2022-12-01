@@ -20,6 +20,7 @@
 module Amazonka.BillingConductor.Types.PricingRuleScope
   ( PricingRuleScope
       ( ..,
+        PricingRuleScope_BILLING_ENTITY,
         PricingRuleScope_GLOBAL,
         PricingRuleScope_SERVICE
       ),
@@ -57,6 +58,9 @@ newtype PricingRuleScope = PricingRuleScope'
       Core.ToXML
     )
 
+pattern PricingRuleScope_BILLING_ENTITY :: PricingRuleScope
+pattern PricingRuleScope_BILLING_ENTITY = PricingRuleScope' "BILLING_ENTITY"
+
 pattern PricingRuleScope_GLOBAL :: PricingRuleScope
 pattern PricingRuleScope_GLOBAL = PricingRuleScope' "GLOBAL"
 
@@ -64,6 +68,7 @@ pattern PricingRuleScope_SERVICE :: PricingRuleScope
 pattern PricingRuleScope_SERVICE = PricingRuleScope' "SERVICE"
 
 {-# COMPLETE
+  PricingRuleScope_BILLING_ENTITY,
   PricingRuleScope_GLOBAL,
   PricingRuleScope_SERVICE,
   PricingRuleScope'

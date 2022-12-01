@@ -20,7 +20,7 @@
 module Amazonka.Personalize.Types.SolutionSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the properties of a solution. For a complete
@@ -44,6 +44,8 @@ data SolutionSummary = SolutionSummary'
     --
     -- -   DELETE PENDING > DELETE IN_PROGRESS
     status :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the recipe used by the solution.
+    recipeArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the solution was last updated.
     lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
   }
@@ -71,6 +73,8 @@ data SolutionSummary = SolutionSummary'
 --
 -- -   DELETE PENDING > DELETE IN_PROGRESS
 --
+-- 'recipeArn', 'solutionSummary_recipeArn' - The Amazon Resource Name (ARN) of the recipe used by the solution.
+--
 -- 'lastUpdatedDateTime', 'solutionSummary_lastUpdatedDateTime' - The date and time (in Unix time) that the solution was last updated.
 newSolutionSummary ::
   SolutionSummary
@@ -80,6 +84,7 @@ newSolutionSummary =
       name = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
       status = Prelude.Nothing,
+      recipeArn = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing
     }
 
@@ -105,6 +110,10 @@ solutionSummary_creationDateTime = Lens.lens (\SolutionSummary' {creationDateTim
 solutionSummary_status :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.Text)
 solutionSummary_status = Lens.lens (\SolutionSummary' {status} -> status) (\s@SolutionSummary' {} a -> s {status = a} :: SolutionSummary)
 
+-- | The Amazon Resource Name (ARN) of the recipe used by the solution.
+solutionSummary_recipeArn :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.Text)
+solutionSummary_recipeArn = Lens.lens (\SolutionSummary' {recipeArn} -> recipeArn) (\s@SolutionSummary' {} a -> s {recipeArn = a} :: SolutionSummary)
+
 -- | The date and time (in Unix time) that the solution was last updated.
 solutionSummary_lastUpdatedDateTime :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.UTCTime)
 solutionSummary_lastUpdatedDateTime = Lens.lens (\SolutionSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SolutionSummary' {} a -> s {lastUpdatedDateTime = a} :: SolutionSummary) Prelude.. Lens.mapping Core._Time
@@ -119,6 +128,7 @@ instance Core.FromJSON SolutionSummary where
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "creationDateTime")
             Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "recipeArn")
             Prelude.<*> (x Core..:? "lastUpdatedDateTime")
       )
 
@@ -128,6 +138,7 @@ instance Prelude.Hashable SolutionSummary where
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` recipeArn
       `Prelude.hashWithSalt` lastUpdatedDateTime
 
 instance Prelude.NFData SolutionSummary where
@@ -136,4 +147,5 @@ instance Prelude.NFData SolutionSummary where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf recipeArn
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime

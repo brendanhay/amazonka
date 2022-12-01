@@ -52,7 +52,7 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,8 +128,8 @@ instance Core.AWSRequest UpdateCustomLineItem where
   type
     AWSResponse UpdateCustomLineItem =
       UpdateCustomLineItemResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -205,7 +205,7 @@ data UpdateCustomLineItemResponse = UpdateCustomLineItemResponse'
     associationSize :: Prelude.Maybe Prelude.Natural,
     -- | The description of the successfully updated custom line item.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The most recent time the custom line item was modified.
+    -- | The most recent time when the custom line item was modified.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -233,7 +233,7 @@ data UpdateCustomLineItemResponse = UpdateCustomLineItemResponse'
 --
 -- 'description', 'updateCustomLineItemResponse_description' - The description of the successfully updated custom line item.
 --
--- 'lastModifiedTime', 'updateCustomLineItemResponse_lastModifiedTime' - The most recent time the custom line item was modified.
+-- 'lastModifiedTime', 'updateCustomLineItemResponse_lastModifiedTime' - The most recent time when the custom line item was modified.
 --
 -- 'httpStatus', 'updateCustomLineItemResponse_httpStatus' - The response's http status code.
 newUpdateCustomLineItemResponse ::
@@ -278,7 +278,7 @@ updateCustomLineItemResponse_associationSize = Lens.lens (\UpdateCustomLineItemR
 updateCustomLineItemResponse_description :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe Prelude.Text)
 updateCustomLineItemResponse_description = Lens.lens (\UpdateCustomLineItemResponse' {description} -> description) (\s@UpdateCustomLineItemResponse' {} a -> s {description = a} :: UpdateCustomLineItemResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The most recent time the custom line item was modified.
+-- | The most recent time when the custom line item was modified.
 updateCustomLineItemResponse_lastModifiedTime :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe Prelude.Integer)
 updateCustomLineItemResponse_lastModifiedTime = Lens.lens (\UpdateCustomLineItemResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateCustomLineItemResponse' {} a -> s {lastModifiedTime = a} :: UpdateCustomLineItemResponse)
 

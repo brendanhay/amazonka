@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.LabelSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of labels used by one or more of the rules of a RuleGroup. This

@@ -20,8 +20,8 @@
 module Amazonka.Inspector.Types.FailedItemDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.FailedItemErrorCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Includes details about the failed items.

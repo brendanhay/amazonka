@@ -20,12 +20,12 @@
 module Amazonka.IoT.Types.DetectMitigationActionsTaskSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.DetectMitigationActionsTaskStatistics
 import Amazonka.IoT.Types.DetectMitigationActionsTaskStatus
 import Amazonka.IoT.Types.DetectMitigationActionsTaskTarget
 import Amazonka.IoT.Types.MitigationAction
 import Amazonka.IoT.Types.ViolationEventOccurrenceRange
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of the mitigation action tasks.

@@ -20,9 +20,10 @@
 module Amazonka.WAFV2.Types.SampledHTTPRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CaptchaResponse
+import Amazonka.WAFV2.Types.ChallengeResponse
 import Amazonka.WAFV2.Types.HTTPHeader
 import Amazonka.WAFV2.Types.HTTPRequest
 import Amazonka.WAFV2.Types.Label
@@ -34,7 +35,14 @@ import Amazonka.WAFV2.Types.Label
 --
 -- /See:/ 'newSampledHTTPRequest' smart constructor.
 data SampledHTTPRequest = SampledHTTPRequest'
-  { -- | The time at which WAF received the request from your Amazon Web Services
+  { -- | The @Challenge@ response for the request.
+    challengeResponse :: Prelude.Maybe ChallengeResponse,
+    -- | Used only for rule group rules that have a rule action override in place
+    -- in the web ACL. This is the action that the rule group rule is
+    -- configured for, and not the action that was applied to the request. The
+    -- action that WAF applied is the @Action@ value.
+    overriddenAction :: Prelude.Maybe Prelude.Text,
+    -- | The time at which WAF received the request from your Amazon Web Services
     -- resource, in Unix time format (in seconds).
     timestamp :: Prelude.Maybe Core.POSIX,
     -- | The @CAPTCHA@ response for the request.
@@ -55,8 +63,7 @@ data SampledHTTPRequest = SampledHTTPRequest'
     -- @awswaf:111122223333:myRuleGroup:testRules:testNS1:testNS2:labelNameA@
     -- or @awswaf:managed:aws:managed-rule-set:header:encoding:utf8@.
     labels :: Prelude.Maybe [Label],
-    -- | The action for the @Rule@ that the request matched: @Allow@, @Block@, or
-    -- @Count@.
+    -- | The action that WAF applied to the request.
     action :: Prelude.Maybe Prelude.Text,
     -- | Custom request headers inserted by WAF into the request, according to
     -- the custom request configuration for the matching rule action.
@@ -81,6 +88,13 @@ data SampledHTTPRequest = SampledHTTPRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'challengeResponse', 'sampledHTTPRequest_challengeResponse' - The @Challenge@ response for the request.
+--
+-- 'overriddenAction', 'sampledHTTPRequest_overriddenAction' - Used only for rule group rules that have a rule action override in place
+-- in the web ACL. This is the action that the rule group rule is
+-- configured for, and not the action that was applied to the request. The
+-- action that WAF applied is the @Action@ value.
+--
 -- 'timestamp', 'sampledHTTPRequest_timestamp' - The time at which WAF received the request from your Amazon Web Services
 -- resource, in Unix time format (in seconds).
 --
@@ -102,8 +116,7 @@ data SampledHTTPRequest = SampledHTTPRequest'
 -- @awswaf:111122223333:myRuleGroup:testRules:testNS1:testNS2:labelNameA@
 -- or @awswaf:managed:aws:managed-rule-set:header:encoding:utf8@.
 --
--- 'action', 'sampledHTTPRequest_action' - The action for the @Rule@ that the request matched: @Allow@, @Block@, or
--- @Count@.
+-- 'action', 'sampledHTTPRequest_action' - The action that WAF applied to the request.
 --
 -- 'requestHeadersInserted', 'sampledHTTPRequest_requestHeadersInserted' - Custom request headers inserted by WAF into the request, according to
 -- the custom request configuration for the matching rule action.
@@ -124,7 +137,10 @@ newSampledHTTPRequest ::
   SampledHTTPRequest
 newSampledHTTPRequest pRequest_ pWeight_ =
   SampledHTTPRequest'
-    { timestamp = Prelude.Nothing,
+    { challengeResponse =
+        Prelude.Nothing,
+      overriddenAction = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
       captchaResponse = Prelude.Nothing,
       ruleNameWithinRuleGroup = Prelude.Nothing,
       labels = Prelude.Nothing,
@@ -134,6 +150,17 @@ newSampledHTTPRequest pRequest_ pWeight_ =
       request = pRequest_,
       weight = pWeight_
     }
+
+-- | The @Challenge@ response for the request.
+sampledHTTPRequest_challengeResponse :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe ChallengeResponse)
+sampledHTTPRequest_challengeResponse = Lens.lens (\SampledHTTPRequest' {challengeResponse} -> challengeResponse) (\s@SampledHTTPRequest' {} a -> s {challengeResponse = a} :: SampledHTTPRequest)
+
+-- | Used only for rule group rules that have a rule action override in place
+-- in the web ACL. This is the action that the rule group rule is
+-- configured for, and not the action that was applied to the request. The
+-- action that WAF applied is the @Action@ value.
+sampledHTTPRequest_overriddenAction :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe Prelude.Text)
+sampledHTTPRequest_overriddenAction = Lens.lens (\SampledHTTPRequest' {overriddenAction} -> overriddenAction) (\s@SampledHTTPRequest' {} a -> s {overriddenAction = a} :: SampledHTTPRequest)
 
 -- | The time at which WAF received the request from your Amazon Web Services
 -- resource, in Unix time format (in seconds).
@@ -164,8 +191,7 @@ sampledHTTPRequest_ruleNameWithinRuleGroup = Lens.lens (\SampledHTTPRequest' {ru
 sampledHTTPRequest_labels :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe [Label])
 sampledHTTPRequest_labels = Lens.lens (\SampledHTTPRequest' {labels} -> labels) (\s@SampledHTTPRequest' {} a -> s {labels = a} :: SampledHTTPRequest) Prelude.. Lens.mapping Lens.coerced
 
--- | The action for the @Rule@ that the request matched: @Allow@, @Block@, or
--- @Count@.
+-- | The action that WAF applied to the request.
 sampledHTTPRequest_action :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe Prelude.Text)
 sampledHTTPRequest_action = Lens.lens (\SampledHTTPRequest' {action} -> action) (\s@SampledHTTPRequest' {} a -> s {action = a} :: SampledHTTPRequest)
 
@@ -195,7 +221,9 @@ instance Core.FromJSON SampledHTTPRequest where
       "SampledHTTPRequest"
       ( \x ->
           SampledHTTPRequest'
-            Prelude.<$> (x Core..:? "Timestamp")
+            Prelude.<$> (x Core..:? "ChallengeResponse")
+            Prelude.<*> (x Core..:? "OverriddenAction")
+            Prelude.<*> (x Core..:? "Timestamp")
             Prelude.<*> (x Core..:? "CaptchaResponse")
             Prelude.<*> (x Core..:? "RuleNameWithinRuleGroup")
             Prelude.<*> (x Core..:? "Labels" Core..!= Prelude.mempty)
@@ -210,7 +238,9 @@ instance Core.FromJSON SampledHTTPRequest where
 
 instance Prelude.Hashable SampledHTTPRequest where
   hashWithSalt _salt SampledHTTPRequest' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
+    _salt `Prelude.hashWithSalt` challengeResponse
+      `Prelude.hashWithSalt` overriddenAction
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` captchaResponse
       `Prelude.hashWithSalt` ruleNameWithinRuleGroup
       `Prelude.hashWithSalt` labels
@@ -222,7 +252,9 @@ instance Prelude.Hashable SampledHTTPRequest where
 
 instance Prelude.NFData SampledHTTPRequest where
   rnf SampledHTTPRequest' {..} =
-    Prelude.rnf timestamp
+    Prelude.rnf challengeResponse
+      `Prelude.seq` Prelude.rnf overriddenAction
+      `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf captchaResponse
       `Prelude.seq` Prelude.rnf ruleNameWithinRuleGroup
       `Prelude.seq` Prelude.rnf labels

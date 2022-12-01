@@ -20,13 +20,13 @@
 module Amazonka.KinesisAnalyticsV2.Types.ApplicationDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationMaintenanceConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationMode
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationStatus
 import Amazonka.KinesisAnalyticsV2.Types.CloudWatchLoggingOptionDescription
 import Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the application, including the application Amazon Resource
@@ -68,8 +68,7 @@ data ApplicationDetail = ApplicationDetail'
     applicationARN :: Prelude.Text,
     -- | The name of the application.
     applicationName :: Prelude.Text,
-    -- | The runtime environment for the application (@SQL-1_0@, @FLINK-1_6@,
-    -- @FLINK-1_8@, or @FLINK-1_11@).
+    -- | The runtime environment for the application.
     runtimeEnvironment :: RuntimeEnvironment,
     -- | The status of the application.
     applicationStatus :: ApplicationStatus,
@@ -121,8 +120,7 @@ data ApplicationDetail = ApplicationDetail'
 --
 -- 'applicationName', 'applicationDetail_applicationName' - The name of the application.
 --
--- 'runtimeEnvironment', 'applicationDetail_runtimeEnvironment' - The runtime environment for the application (@SQL-1_0@, @FLINK-1_6@,
--- @FLINK-1_8@, or @FLINK-1_11@).
+-- 'runtimeEnvironment', 'applicationDetail_runtimeEnvironment' - The runtime environment for the application.
 --
 -- 'applicationStatus', 'applicationDetail_applicationStatus' - The status of the application.
 --
@@ -232,8 +230,7 @@ applicationDetail_applicationARN = Lens.lens (\ApplicationDetail' {applicationAR
 applicationDetail_applicationName :: Lens.Lens' ApplicationDetail Prelude.Text
 applicationDetail_applicationName = Lens.lens (\ApplicationDetail' {applicationName} -> applicationName) (\s@ApplicationDetail' {} a -> s {applicationName = a} :: ApplicationDetail)
 
--- | The runtime environment for the application (@SQL-1_0@, @FLINK-1_6@,
--- @FLINK-1_8@, or @FLINK-1_11@).
+-- | The runtime environment for the application.
 applicationDetail_runtimeEnvironment :: Lens.Lens' ApplicationDetail RuntimeEnvironment
 applicationDetail_runtimeEnvironment = Lens.lens (\ApplicationDetail' {runtimeEnvironment} -> runtimeEnvironment) (\s@ApplicationDetail' {} a -> s {runtimeEnvironment = a} :: ApplicationDetail)
 

@@ -68,7 +68,7 @@ where
 
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -303,8 +303,8 @@ createApi_name = Lens.lens (\CreateApi' {name} -> name) (\s@CreateApi' {} a -> s
 
 instance Core.AWSRequest CreateApi where
   type AWSResponse CreateApi = CreateApiResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

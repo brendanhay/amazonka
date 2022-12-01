@@ -21,7 +21,7 @@ module Amazonka.CodeStar.Types.ToolchainSource where
 
 import Amazonka.CodeStar.Types.S3Location
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon S3 location where the toolchain template file provided with

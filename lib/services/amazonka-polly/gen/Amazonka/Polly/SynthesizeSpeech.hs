@@ -55,7 +55,7 @@ module Amazonka.Polly.SynthesizeSpeech
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Polly.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -329,8 +329,8 @@ instance Core.AWSRequest SynthesizeSpeech where
   type
     AWSResponse SynthesizeSpeech =
       SynthesizeSpeechResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveBody
       ( \s h x ->

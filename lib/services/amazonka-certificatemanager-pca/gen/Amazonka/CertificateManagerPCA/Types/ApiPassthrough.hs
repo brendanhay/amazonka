@@ -22,7 +22,7 @@ module Amazonka.CertificateManagerPCA.Types.ApiPassthrough where
 import Amazonka.CertificateManagerPCA.Types.ASN1Subject
 import Amazonka.CertificateManagerPCA.Types.Extensions
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains X.509 certificate information to be placed in an issued

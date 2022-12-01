@@ -36,7 +36,7 @@ module Amazonka.Personalize.DeleteFilter
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -71,8 +71,8 @@ deleteFilter_filterArn = Lens.lens (\DeleteFilter' {filterArn} -> filterArn) (\s
 
 instance Core.AWSRequest DeleteFilter where
   type AWSResponse DeleteFilter = DeleteFilterResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteFilterResponse'
 
 instance Prelude.Hashable DeleteFilter where

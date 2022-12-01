@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.PlainTextMessage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines an ASCII text message to send to the user.

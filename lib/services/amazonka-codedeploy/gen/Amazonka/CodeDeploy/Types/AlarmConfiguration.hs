@@ -21,7 +21,7 @@ module Amazonka.CodeDeploy.Types.AlarmConfiguration where
 
 import Amazonka.CodeDeploy.Types.Alarm
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about alarms associated with a deployment or deployment

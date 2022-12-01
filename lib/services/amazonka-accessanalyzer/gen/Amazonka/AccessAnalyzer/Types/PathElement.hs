@@ -21,7 +21,7 @@ module Amazonka.AccessAnalyzer.Types.PathElement where
 
 import Amazonka.AccessAnalyzer.Types.Substring
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single element in a path through the JSON representation of a policy.

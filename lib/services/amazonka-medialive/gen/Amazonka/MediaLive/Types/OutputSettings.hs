@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.OutputSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.ArchiveOutputSettings
 import Amazonka.MediaLive.Types.FrameCaptureOutputSettings
 import Amazonka.MediaLive.Types.HlsOutputSettings

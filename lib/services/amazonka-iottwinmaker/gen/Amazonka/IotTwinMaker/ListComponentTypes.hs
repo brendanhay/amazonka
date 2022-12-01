@@ -40,14 +40,14 @@ module Amazonka.IotTwinMaker.ListComponentTypes
     listComponentTypesResponse_nextToken,
     listComponentTypesResponse_maxResults,
     listComponentTypesResponse_httpStatus,
-    listComponentTypesResponse_componentTypeSummaries,
     listComponentTypesResponse_workspaceId,
+    listComponentTypesResponse_componentTypeSummaries,
   )
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,7 +58,9 @@ data ListComponentTypes = ListComponentTypes'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of objects that filter the request.
     filters :: Prelude.Maybe [ListComponentTypesFilter],
-    -- | The maximum number of results to display.
+    -- | The maximum number of results to return at one time. The default is 25.
+    --
+    -- Valid Range: Minimum value of 1. Maximum value of 250.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the workspace.
     workspaceId :: Prelude.Text
@@ -77,7 +79,9 @@ data ListComponentTypes = ListComponentTypes'
 --
 -- 'filters', 'listComponentTypes_filters' - A list of objects that filter the request.
 --
--- 'maxResults', 'listComponentTypes_maxResults' - The maximum number of results to display.
+-- 'maxResults', 'listComponentTypes_maxResults' - The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
 --
 -- 'workspaceId', 'listComponentTypes_workspaceId' - The ID of the workspace.
 newListComponentTypes ::
@@ -100,7 +104,9 @@ listComponentTypes_nextToken = Lens.lens (\ListComponentTypes' {nextToken} -> ne
 listComponentTypes_filters :: Lens.Lens' ListComponentTypes (Prelude.Maybe [ListComponentTypesFilter])
 listComponentTypes_filters = Lens.lens (\ListComponentTypes' {filters} -> filters) (\s@ListComponentTypes' {} a -> s {filters = a} :: ListComponentTypes) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to display.
+-- | The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
 listComponentTypes_maxResults :: Lens.Lens' ListComponentTypes (Prelude.Maybe Prelude.Natural)
 listComponentTypes_maxResults = Lens.lens (\ListComponentTypes' {maxResults} -> maxResults) (\s@ListComponentTypes' {} a -> s {maxResults = a} :: ListComponentTypes)
 
@@ -112,8 +118,8 @@ instance Core.AWSRequest ListComponentTypes where
   type
     AWSResponse ListComponentTypes =
       ListComponentTypesResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,10 +127,10 @@ instance Core.AWSRequest ListComponentTypes where
             Prelude.<$> (x Core..?> "nextToken")
             Prelude.<*> (x Core..?> "maxResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "workspaceId")
             Prelude.<*> ( x Core..?> "componentTypeSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..:> "workspaceId")
       )
 
 instance Prelude.Hashable ListComponentTypes where
@@ -181,10 +187,10 @@ data ListComponentTypesResponse = ListComponentTypesResponse'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A list of objects that contain information about the component types.
-    componentTypeSummaries :: [ComponentTypeSummary],
     -- | The ID of the workspace.
-    workspaceId :: Prelude.Text
+    workspaceId :: Prelude.Text,
+    -- | A list of objects that contain information about the component types.
+    componentTypeSummaries :: [ComponentTypeSummary]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -202,9 +208,9 @@ data ListComponentTypesResponse = ListComponentTypesResponse'
 --
 -- 'httpStatus', 'listComponentTypesResponse_httpStatus' - The response's http status code.
 --
--- 'componentTypeSummaries', 'listComponentTypesResponse_componentTypeSummaries' - A list of objects that contain information about the component types.
---
 -- 'workspaceId', 'listComponentTypesResponse_workspaceId' - The ID of the workspace.
+--
+-- 'componentTypeSummaries', 'listComponentTypesResponse_componentTypeSummaries' - A list of objects that contain information about the component types.
 newListComponentTypesResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -219,8 +225,8 @@ newListComponentTypesResponse
           Prelude.Nothing,
         maxResults = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        componentTypeSummaries = Prelude.mempty,
-        workspaceId = pWorkspaceId_
+        workspaceId = pWorkspaceId_,
+        componentTypeSummaries = Prelude.mempty
       }
 
 -- | The string that specifies the next page of results.
@@ -235,18 +241,18 @@ listComponentTypesResponse_maxResults = Lens.lens (\ListComponentTypesResponse' 
 listComponentTypesResponse_httpStatus :: Lens.Lens' ListComponentTypesResponse Prelude.Int
 listComponentTypesResponse_httpStatus = Lens.lens (\ListComponentTypesResponse' {httpStatus} -> httpStatus) (\s@ListComponentTypesResponse' {} a -> s {httpStatus = a} :: ListComponentTypesResponse)
 
--- | A list of objects that contain information about the component types.
-listComponentTypesResponse_componentTypeSummaries :: Lens.Lens' ListComponentTypesResponse [ComponentTypeSummary]
-listComponentTypesResponse_componentTypeSummaries = Lens.lens (\ListComponentTypesResponse' {componentTypeSummaries} -> componentTypeSummaries) (\s@ListComponentTypesResponse' {} a -> s {componentTypeSummaries = a} :: ListComponentTypesResponse) Prelude.. Lens.coerced
-
 -- | The ID of the workspace.
 listComponentTypesResponse_workspaceId :: Lens.Lens' ListComponentTypesResponse Prelude.Text
 listComponentTypesResponse_workspaceId = Lens.lens (\ListComponentTypesResponse' {workspaceId} -> workspaceId) (\s@ListComponentTypesResponse' {} a -> s {workspaceId = a} :: ListComponentTypesResponse)
+
+-- | A list of objects that contain information about the component types.
+listComponentTypesResponse_componentTypeSummaries :: Lens.Lens' ListComponentTypesResponse [ComponentTypeSummary]
+listComponentTypesResponse_componentTypeSummaries = Lens.lens (\ListComponentTypesResponse' {componentTypeSummaries} -> componentTypeSummaries) (\s@ListComponentTypesResponse' {} a -> s {componentTypeSummaries = a} :: ListComponentTypesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListComponentTypesResponse where
   rnf ListComponentTypesResponse' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf componentTypeSummaries
       `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf componentTypeSummaries

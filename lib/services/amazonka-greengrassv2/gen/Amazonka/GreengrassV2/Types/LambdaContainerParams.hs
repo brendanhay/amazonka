@@ -20,9 +20,9 @@
 module Amazonka.GreengrassV2.Types.LambdaContainerParams where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types.LambdaDeviceMount
 import Amazonka.GreengrassV2.Types.LambdaVolumeMount
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a container in which Lambda functions run on

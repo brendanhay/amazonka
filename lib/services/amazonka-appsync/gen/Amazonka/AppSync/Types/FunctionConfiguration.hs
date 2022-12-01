@@ -19,9 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.AppSync.Types.FunctionConfiguration where
 
+import Amazonka.AppSync.Types.AppSyncRuntime
 import Amazonka.AppSync.Types.SyncConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A function is a reusable entity. You can use multiple functions to
@@ -33,11 +34,16 @@ data FunctionConfiguration = FunctionConfiguration'
     functionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the @Function@ object.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The @function@ code that contains the request and response functions.
+    -- When code is used, the @runtime@ is required. The @runtime@ value must
+    -- be @APPSYNC_JS@.
+    code :: Prelude.Maybe Prelude.Text,
     -- | The maximum batching size for a resolver.
     maxBatchSize :: Prelude.Maybe Prelude.Natural,
     -- | The version of the request mapping template. Currently, only the
     -- 2018-05-29 version of the template is supported.
     functionVersion :: Prelude.Maybe Prelude.Text,
+    runtime :: Prelude.Maybe AppSyncRuntime,
     -- | The @Function@ description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the @DataSource@.
@@ -65,10 +71,16 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- 'name', 'functionConfiguration_name' - The name of the @Function@ object.
 --
+-- 'code', 'functionConfiguration_code' - The @function@ code that contains the request and response functions.
+-- When code is used, the @runtime@ is required. The @runtime@ value must
+-- be @APPSYNC_JS@.
+--
 -- 'maxBatchSize', 'functionConfiguration_maxBatchSize' - The maximum batching size for a resolver.
 --
 -- 'functionVersion', 'functionConfiguration_functionVersion' - The version of the request mapping template. Currently, only the
 -- 2018-05-29 version of the template is supported.
+--
+-- 'runtime', 'functionConfiguration_runtime' - Undocumented member.
 --
 -- 'description', 'functionConfiguration_description' - The @Function@ description.
 --
@@ -89,8 +101,10 @@ newFunctionConfiguration =
     { functionArn =
         Prelude.Nothing,
       name = Prelude.Nothing,
+      code = Prelude.Nothing,
       maxBatchSize = Prelude.Nothing,
       functionVersion = Prelude.Nothing,
+      runtime = Prelude.Nothing,
       description = Prelude.Nothing,
       dataSourceName = Prelude.Nothing,
       responseMappingTemplate = Prelude.Nothing,
@@ -107,6 +121,12 @@ functionConfiguration_functionArn = Lens.lens (\FunctionConfiguration' {function
 functionConfiguration_name :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_name = Lens.lens (\FunctionConfiguration' {name} -> name) (\s@FunctionConfiguration' {} a -> s {name = a} :: FunctionConfiguration)
 
+-- | The @function@ code that contains the request and response functions.
+-- When code is used, the @runtime@ is required. The @runtime@ value must
+-- be @APPSYNC_JS@.
+functionConfiguration_code :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
+functionConfiguration_code = Lens.lens (\FunctionConfiguration' {code} -> code) (\s@FunctionConfiguration' {} a -> s {code = a} :: FunctionConfiguration)
+
 -- | The maximum batching size for a resolver.
 functionConfiguration_maxBatchSize :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Natural)
 functionConfiguration_maxBatchSize = Lens.lens (\FunctionConfiguration' {maxBatchSize} -> maxBatchSize) (\s@FunctionConfiguration' {} a -> s {maxBatchSize = a} :: FunctionConfiguration)
@@ -115,6 +135,10 @@ functionConfiguration_maxBatchSize = Lens.lens (\FunctionConfiguration' {maxBatc
 -- 2018-05-29 version of the template is supported.
 functionConfiguration_functionVersion :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_functionVersion = Lens.lens (\FunctionConfiguration' {functionVersion} -> functionVersion) (\s@FunctionConfiguration' {} a -> s {functionVersion = a} :: FunctionConfiguration)
+
+-- | Undocumented member.
+functionConfiguration_runtime :: Lens.Lens' FunctionConfiguration (Prelude.Maybe AppSyncRuntime)
+functionConfiguration_runtime = Lens.lens (\FunctionConfiguration' {runtime} -> runtime) (\s@FunctionConfiguration' {} a -> s {runtime = a} :: FunctionConfiguration)
 
 -- | The @Function@ description.
 functionConfiguration_description :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
@@ -149,8 +173,10 @@ instance Core.FromJSON FunctionConfiguration where
           FunctionConfiguration'
             Prelude.<$> (x Core..:? "functionArn")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "code")
             Prelude.<*> (x Core..:? "maxBatchSize")
             Prelude.<*> (x Core..:? "functionVersion")
+            Prelude.<*> (x Core..:? "runtime")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "dataSourceName")
             Prelude.<*> (x Core..:? "responseMappingTemplate")
@@ -163,8 +189,10 @@ instance Prelude.Hashable FunctionConfiguration where
   hashWithSalt _salt FunctionConfiguration' {..} =
     _salt `Prelude.hashWithSalt` functionArn
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` maxBatchSize
       `Prelude.hashWithSalt` functionVersion
+      `Prelude.hashWithSalt` runtime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dataSourceName
       `Prelude.hashWithSalt` responseMappingTemplate
@@ -176,8 +204,10 @@ instance Prelude.NFData FunctionConfiguration where
   rnf FunctionConfiguration' {..} =
     Prelude.rnf functionArn
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf code
       `Prelude.seq` Prelude.rnf maxBatchSize
       `Prelude.seq` Prelude.rnf functionVersion
+      `Prelude.seq` Prelude.rnf runtime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dataSourceName
       `Prelude.seq` Prelude.rnf responseMappingTemplate

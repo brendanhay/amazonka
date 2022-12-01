@@ -24,7 +24,7 @@ import Amazonka.CloudDirectory.Types.RequiredAttributeBehavior
 import Amazonka.CloudDirectory.Types.Rule
 import Amazonka.CloudDirectory.Types.TypedAttributeValue
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A typed link attribute definition.

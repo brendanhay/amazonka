@@ -20,7 +20,7 @@
 module Amazonka.ImageBuilder.Types.S3Logs where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon S3 logging configuration.

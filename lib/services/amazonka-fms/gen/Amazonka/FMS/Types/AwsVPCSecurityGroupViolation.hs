@@ -20,9 +20,9 @@
 module Amazonka.FMS.Types.AwsVPCSecurityGroupViolation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.PartialMatch
 import Amazonka.FMS.Types.SecurityGroupRemediationAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail for the rule violation in a security group when

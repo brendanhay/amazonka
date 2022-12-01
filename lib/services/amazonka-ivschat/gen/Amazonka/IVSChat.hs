@@ -35,7 +35,11 @@
 --
 -- __Resources__
 --
--- The following resource is part of Amazon IVS Chat:
+-- The following resources are part of Amazon IVS Chat:
+--
+-- -   __LoggingConfiguration__ — A configuration that allows customers to
+--     store and record sent messages in a chat room. See the Logging
+--     Configuration endpoints for more information.
 --
 -- -   __Room__ — The central Amazon IVS Chat resource through which
 --     clients connect to and exchange chat messages. See the Room
@@ -130,10 +134,12 @@
 --
 -- __Chat Token Endpoint__
 --
--- -   CreateChatToken — Creates an encrypted token that is used to
---     establish an individual WebSocket connection to a room. The token is
---     valid for one minute, and a connection (session) established with
---     the token is valid for the specified duration.
+-- -   CreateChatToken — Creates an encrypted token that is used by a chat
+--     participant to establish an individual WebSocket chat connection to
+--     a room. When the token is used to connect to chat, the connection is
+--     valid for the session duration specified in the request. The token
+--     becomes invalid at the token-expiration timestamp included in the
+--     response.
 --
 -- __Room Endpoints__
 --
@@ -148,6 +154,23 @@
 --     region where the API request is processed.
 --
 -- -   UpdateRoom — Updates a room’s configuration.
+--
+-- __Logging Configuration Endpoints__
+--
+-- -   CreateLoggingConfiguration — Creates a logging configuration that
+--     allows clients to store and record sent messages.
+--
+-- -   DeleteLoggingConfiguration — Deletes the specified logging
+--     configuration.
+--
+-- -   GetLoggingConfiguration — Gets the specified logging configuration.
+--
+-- -   ListLoggingConfigurations — Gets summary information about all your
+--     logging configurations in the AWS region where the API request is
+--     processed.
+--
+-- -   UpdateLoggingConfiguration — Updates a specified logging
+--     configuration.
 --
 -- __Tags Endpoints__
 --
@@ -206,11 +229,23 @@ module Amazonka.IVSChat
     CreateChatTokenResponse (CreateChatTokenResponse'),
     newCreateChatTokenResponse,
 
+    -- ** CreateLoggingConfiguration
+    CreateLoggingConfiguration (CreateLoggingConfiguration'),
+    newCreateLoggingConfiguration,
+    CreateLoggingConfigurationResponse (CreateLoggingConfigurationResponse'),
+    newCreateLoggingConfigurationResponse,
+
     -- ** CreateRoom
     CreateRoom (CreateRoom'),
     newCreateRoom,
     CreateRoomResponse (CreateRoomResponse'),
     newCreateRoomResponse,
+
+    -- ** DeleteLoggingConfiguration
+    DeleteLoggingConfiguration (DeleteLoggingConfiguration'),
+    newDeleteLoggingConfiguration,
+    DeleteLoggingConfigurationResponse (DeleteLoggingConfigurationResponse'),
+    newDeleteLoggingConfigurationResponse,
 
     -- ** DeleteMessage
     DeleteMessage (DeleteMessage'),
@@ -230,11 +265,23 @@ module Amazonka.IVSChat
     DisconnectUserResponse (DisconnectUserResponse'),
     newDisconnectUserResponse,
 
+    -- ** GetLoggingConfiguration
+    GetLoggingConfiguration (GetLoggingConfiguration'),
+    newGetLoggingConfiguration,
+    GetLoggingConfigurationResponse (GetLoggingConfigurationResponse'),
+    newGetLoggingConfigurationResponse,
+
     -- ** GetRoom
     GetRoom (GetRoom'),
     newGetRoom,
     GetRoomResponse (GetRoomResponse'),
     newGetRoomResponse,
+
+    -- ** ListLoggingConfigurations
+    ListLoggingConfigurations (ListLoggingConfigurations'),
+    newListLoggingConfigurations,
+    ListLoggingConfigurationsResponse (ListLoggingConfigurationsResponse'),
+    newListLoggingConfigurationsResponse,
 
     -- ** ListRooms
     ListRooms (ListRooms'),
@@ -266,6 +313,12 @@ module Amazonka.IVSChat
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateLoggingConfiguration
+    UpdateLoggingConfiguration (UpdateLoggingConfiguration'),
+    newUpdateLoggingConfiguration,
+    UpdateLoggingConfigurationResponse (UpdateLoggingConfigurationResponse'),
+    newUpdateLoggingConfigurationResponse,
+
     -- ** UpdateRoom
     UpdateRoom (UpdateRoom'),
     newUpdateRoom,
@@ -277,8 +330,33 @@ module Amazonka.IVSChat
     -- ** ChatTokenCapability
     ChatTokenCapability (..),
 
+    -- ** CreateLoggingConfigurationState
+    CreateLoggingConfigurationState (..),
+
     -- ** FallbackResult
     FallbackResult (..),
+
+    -- ** LoggingConfigurationState
+    LoggingConfigurationState (..),
+
+    -- ** UpdateLoggingConfigurationState
+    UpdateLoggingConfigurationState (..),
+
+    -- ** CloudWatchLogsDestinationConfiguration
+    CloudWatchLogsDestinationConfiguration (CloudWatchLogsDestinationConfiguration'),
+    newCloudWatchLogsDestinationConfiguration,
+
+    -- ** DestinationConfiguration
+    DestinationConfiguration (DestinationConfiguration'),
+    newDestinationConfiguration,
+
+    -- ** FirehoseDestinationConfiguration
+    FirehoseDestinationConfiguration (FirehoseDestinationConfiguration'),
+    newFirehoseDestinationConfiguration,
+
+    -- ** LoggingConfigurationSummary
+    LoggingConfigurationSummary (LoggingConfigurationSummary'),
+    newLoggingConfigurationSummary,
 
     -- ** MessageReviewHandler
     MessageReviewHandler (MessageReviewHandler'),
@@ -287,22 +365,31 @@ module Amazonka.IVSChat
     -- ** RoomSummary
     RoomSummary (RoomSummary'),
     newRoomSummary,
+
+    -- ** S3DestinationConfiguration
+    S3DestinationConfiguration (S3DestinationConfiguration'),
+    newS3DestinationConfiguration,
   )
 where
 
 import Amazonka.IVSChat.CreateChatToken
+import Amazonka.IVSChat.CreateLoggingConfiguration
 import Amazonka.IVSChat.CreateRoom
+import Amazonka.IVSChat.DeleteLoggingConfiguration
 import Amazonka.IVSChat.DeleteMessage
 import Amazonka.IVSChat.DeleteRoom
 import Amazonka.IVSChat.DisconnectUser
+import Amazonka.IVSChat.GetLoggingConfiguration
 import Amazonka.IVSChat.GetRoom
 import Amazonka.IVSChat.Lens
+import Amazonka.IVSChat.ListLoggingConfigurations
 import Amazonka.IVSChat.ListRooms
 import Amazonka.IVSChat.ListTagsForResource
 import Amazonka.IVSChat.SendEvent
 import Amazonka.IVSChat.TagResource
 import Amazonka.IVSChat.Types
 import Amazonka.IVSChat.UntagResource
+import Amazonka.IVSChat.UpdateLoggingConfiguration
 import Amazonka.IVSChat.UpdateRoom
 import Amazonka.IVSChat.Waiters
 

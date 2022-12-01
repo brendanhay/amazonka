@@ -20,8 +20,8 @@
 module Amazonka.Greengrass.Types.ResourceDownloadOwnerSetting where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Greengrass.Types.Permission
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The owner setting for downloaded machine learning resources.

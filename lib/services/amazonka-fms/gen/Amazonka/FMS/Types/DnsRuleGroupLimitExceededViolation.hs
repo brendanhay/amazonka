@@ -20,7 +20,7 @@
 module Amazonka.FMS.Types.DnsRuleGroupLimitExceededViolation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VPC that Firewall Manager was applying a DNS Fireall policy to

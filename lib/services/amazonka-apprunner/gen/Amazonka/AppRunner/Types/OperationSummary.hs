@@ -22,7 +22,7 @@ module Amazonka.AppRunner.Types.OperationSummary where
 import Amazonka.AppRunner.Types.OperationStatus
 import Amazonka.AppRunner.Types.OperationType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information for an operation that occurred on an App

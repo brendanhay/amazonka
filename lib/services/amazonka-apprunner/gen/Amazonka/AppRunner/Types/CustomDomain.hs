@@ -22,7 +22,7 @@ module Amazonka.AppRunner.Types.CustomDomain where
 import Amazonka.AppRunner.Types.CertificateValidationRecord
 import Amazonka.AppRunner.Types.CustomDomainAssociationStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a custom domain that\'s associated with an App Runner service.

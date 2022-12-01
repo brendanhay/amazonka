@@ -21,7 +21,7 @@ module Amazonka.CodePipeline.Types.BlockerDeclaration where
 
 import Amazonka.CodePipeline.Types.BlockerType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reserved for future use.

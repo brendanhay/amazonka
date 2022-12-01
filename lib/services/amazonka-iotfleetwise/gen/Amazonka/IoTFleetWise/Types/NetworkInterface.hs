@@ -20,10 +20,10 @@
 module Amazonka.IoTFleetWise.Types.NetworkInterface where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTFleetWise.Types.CanInterface
 import Amazonka.IoTFleetWise.Types.NetworkInterfaceType
 import Amazonka.IoTFleetWise.Types.ObdInterface
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a node and its specifications in an in-vehicle communication

@@ -20,10 +20,10 @@
 module Amazonka.IoTWireless.Types.WirelessDeviceLogOption where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.LogLevel
 import Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption
 import Amazonka.IoTWireless.Types.WirelessDeviceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The log options for wireless devices and can be used to set log levels

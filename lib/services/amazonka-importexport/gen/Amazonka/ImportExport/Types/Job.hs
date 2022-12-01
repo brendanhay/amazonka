@@ -20,8 +20,8 @@
 module Amazonka.ImportExport.Types.Job where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImportExport.Types.JobType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Representation of a job returned by the ListJobs operation.

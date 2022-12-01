@@ -20,8 +20,8 @@
 module Amazonka.DevOpsGuru.Types.AccountHealth where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.AccountInsightHealth
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the number of open reactive insights, the number of open

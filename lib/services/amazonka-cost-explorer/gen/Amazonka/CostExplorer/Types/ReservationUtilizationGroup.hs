@@ -20,8 +20,8 @@
 module Amazonka.CostExplorer.Types.ReservationUtilizationGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.ReservationAggregates
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A group of reservations that share a set of attributes.

@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.AdminAccount where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.AdminStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The account within the organization specified as the GuardDuty delegated

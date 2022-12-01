@@ -20,9 +20,9 @@
 module Amazonka.IoTAnalytics.Types.ChannelStorage where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.CustomerManagedChannelS3Storage
 import Amazonka.IoTAnalytics.Types.ServiceManagedChannelS3Storage
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Where channel data is stored. You may choose one of @serviceManagedS3@,

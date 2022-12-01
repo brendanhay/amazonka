@@ -45,7 +45,7 @@ module Amazonka.QuickSight.DeleteFolderMembership
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -125,8 +125,8 @@ instance Core.AWSRequest DeleteFolderMembership where
   type
     AWSResponse DeleteFolderMembership =
       DeleteFolderMembershipResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

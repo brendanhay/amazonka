@@ -20,7 +20,7 @@
 module Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes of an Ethereum node.
@@ -34,8 +34,8 @@ data NodeEthereumAttributes = NodeEthereumAttributes'
     -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
     httpEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC
-    -- methods over WebSockets connections from a client. Use this endpoint in
-    -- client code for smart contracts when using a WebSockets connection.
+    -- methods over WebSocket connections from a client. Use this endpoint in
+    -- client code for smart contracts when using a WebSocket connection.
     -- Connections to this endpoint are authenticated using
     -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
     webSocketEndpoint :: Prelude.Maybe Prelude.Text
@@ -57,8 +57,8 @@ data NodeEthereumAttributes = NodeEthereumAttributes'
 -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 --
 -- 'webSocketEndpoint', 'nodeEthereumAttributes_webSocketEndpoint' - The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC
--- methods over WebSockets connections from a client. Use this endpoint in
--- client code for smart contracts when using a WebSockets connection.
+-- methods over WebSocket connections from a client. Use this endpoint in
+-- client code for smart contracts when using a WebSocket connection.
 -- Connections to this endpoint are authenticated using
 -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 newNodeEthereumAttributes ::
@@ -79,8 +79,8 @@ nodeEthereumAttributes_httpEndpoint :: Lens.Lens' NodeEthereumAttributes (Prelud
 nodeEthereumAttributes_httpEndpoint = Lens.lens (\NodeEthereumAttributes' {httpEndpoint} -> httpEndpoint) (\s@NodeEthereumAttributes' {} a -> s {httpEndpoint = a} :: NodeEthereumAttributes)
 
 -- | The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC
--- methods over WebSockets connections from a client. Use this endpoint in
--- client code for smart contracts when using a WebSockets connection.
+-- methods over WebSocket connections from a client. Use this endpoint in
+-- client code for smart contracts when using a WebSocket connection.
 -- Connections to this endpoint are authenticated using
 -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 nodeEthereumAttributes_webSocketEndpoint :: Lens.Lens' NodeEthereumAttributes (Prelude.Maybe Prelude.Text)

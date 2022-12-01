@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.InAppMessageButton where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Pinpoint.Types.DefaultButtonConfiguration
 import Amazonka.Pinpoint.Types.OverrideButtonConfiguration
 import qualified Amazonka.Prelude as Prelude

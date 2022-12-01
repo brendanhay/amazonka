@@ -51,7 +51,7 @@ module Amazonka.SSO.Logout
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,8 +98,8 @@ logout_accessToken = Lens.lens (\Logout' {accessToken} -> accessToken) (\s@Logou
 
 instance Core.AWSRequest Logout where
   type AWSResponse Logout = LogoutResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull LogoutResponse'
 
 instance Prelude.Hashable Logout where

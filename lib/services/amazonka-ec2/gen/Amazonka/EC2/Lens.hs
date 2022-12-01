@@ -14,6 +14,13 @@
 module Amazonka.EC2.Lens
   ( -- * Operations
 
+    -- ** AcceptAddressTransfer
+    acceptAddressTransfer_dryRun,
+    acceptAddressTransfer_tagSpecifications,
+    acceptAddressTransfer_address,
+    acceptAddressTransferResponse_addressTransfer,
+    acceptAddressTransferResponse_httpStatus,
+
     -- ** AcceptReservedInstancesExchangeQuote
     acceptReservedInstancesExchangeQuote_dryRun,
     acceptReservedInstancesExchangeQuote_targetConfigurations,
@@ -364,6 +371,12 @@ module Amazonka.EC2.Lens
     -- ** CancelExportTask
     cancelExportTask_exportTaskId,
 
+    -- ** CancelImageLaunchPermission
+    cancelImageLaunchPermission_dryRun,
+    cancelImageLaunchPermission_imageId,
+    cancelImageLaunchPermissionResponse_return,
+    cancelImageLaunchPermissionResponse_httpStatus,
+
     -- ** CancelImportTask
     cancelImportTask_cancelReason,
     cancelImportTask_importTaskId,
@@ -417,6 +430,7 @@ module Amazonka.EC2.Lens
     copyImage_dryRun,
     copyImage_encrypted,
     copyImage_kmsKeyId,
+    copyImage_copyImageTags,
     copyImage_name,
     copyImage_sourceImageId,
     copyImage_sourceRegion,
@@ -785,6 +799,7 @@ module Amazonka.EC2.Lens
     createNatGateway_clientToken,
     createNatGateway_allocationId,
     createNatGateway_dryRun,
+    createNatGateway_privateIpAddress,
     createNatGateway_connectivityType,
     createNatGateway_tagSpecifications,
     createNatGateway_subnetId,
@@ -884,7 +899,9 @@ module Amazonka.EC2.Lens
     createReplaceRootVolumeTask_clientToken,
     createReplaceRootVolumeTask_snapshotId,
     createReplaceRootVolumeTask_dryRun,
+    createReplaceRootVolumeTask_deleteReplacedRootVolume,
     createReplaceRootVolumeTask_tagSpecifications,
+    createReplaceRootVolumeTask_imageId,
     createReplaceRootVolumeTask_instanceId,
     createReplaceRootVolumeTaskResponse_replaceRootVolumeTask,
     createReplaceRootVolumeTaskResponse_httpStatus,
@@ -1735,6 +1752,15 @@ module Amazonka.EC2.Lens
     describeAccountAttributes_dryRun,
     describeAccountAttributesResponse_accountAttributes,
     describeAccountAttributesResponse_httpStatus,
+
+    -- ** DescribeAddressTransfers
+    describeAddressTransfers_allocationIds,
+    describeAddressTransfers_nextToken,
+    describeAddressTransfers_dryRun,
+    describeAddressTransfers_maxResults,
+    describeAddressTransfersResponse_nextToken,
+    describeAddressTransfersResponse_addressTransfers,
+    describeAddressTransfersResponse_httpStatus,
 
     -- ** DescribeAddresses
     describeAddresses_allocationIds,
@@ -3096,6 +3122,12 @@ module Amazonka.EC2.Lens
     detachVpnGateway_vpcId,
     detachVpnGateway_vpnGatewayId,
 
+    -- ** DisableAddressTransfer
+    disableAddressTransfer_dryRun,
+    disableAddressTransfer_allocationId,
+    disableAddressTransferResponse_addressTransfer,
+    disableAddressTransferResponse_httpStatus,
+
     -- ** DisableEbsEncryptionByDefault
     disableEbsEncryptionByDefault_dryRun,
     disableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault,
@@ -3243,6 +3275,13 @@ module Amazonka.EC2.Lens
     disassociateVpcCidrBlockResponse_ipv6CidrBlockAssociation,
     disassociateVpcCidrBlockResponse_vpcId,
     disassociateVpcCidrBlockResponse_httpStatus,
+
+    -- ** EnableAddressTransfer
+    enableAddressTransfer_dryRun,
+    enableAddressTransfer_allocationId,
+    enableAddressTransfer_transferAccountId,
+    enableAddressTransferResponse_addressTransfer,
+    enableAddressTransferResponse_httpStatus,
 
     -- ** EnableEbsEncryptionByDefault
     enableEbsEncryptionByDefault_dryRun,
@@ -4014,6 +4053,7 @@ module Amazonka.EC2.Lens
     modifyInstancePlacement_groupName,
     modifyInstancePlacement_affinity,
     modifyInstancePlacement_tenancy,
+    modifyInstancePlacement_groupId,
     modifyInstancePlacement_instanceId,
     modifyInstancePlacementResponse_return,
     modifyInstancePlacementResponse_httpStatus,
@@ -5020,6 +5060,14 @@ module Amazonka.EC2.Lens
     addressAttribute_allocationId,
     addressAttribute_publicIp,
     addressAttribute_ptrRecordUpdate,
+
+    -- ** AddressTransfer
+    addressTransfer_allocationId,
+    addressTransfer_transferOfferExpirationTimestamp,
+    addressTransfer_transferOfferAcceptedTimestamp,
+    addressTransfer_transferAccountId,
+    addressTransfer_publicIp,
+    addressTransfer_addressTransferStatus,
 
     -- ** AllowedPrincipal
     allowedPrincipal_tags,
@@ -6569,7 +6617,9 @@ module Amazonka.EC2.Lens
     instanceRequirements_totalLocalStorageGB,
     instanceRequirements_localStorageTypes,
     instanceRequirements_onDemandMaxPricePercentageOverLowestPrice,
+    instanceRequirements_allowedInstanceTypes,
     instanceRequirements_acceleratorNames,
+    instanceRequirements_networkBandwidthGbps,
     instanceRequirements_acceleratorManufacturers,
     instanceRequirements_excludedInstanceTypes,
     instanceRequirements_networkInterfaceCount,
@@ -6592,7 +6642,9 @@ module Amazonka.EC2.Lens
     instanceRequirementsRequest_totalLocalStorageGB,
     instanceRequirementsRequest_localStorageTypes,
     instanceRequirementsRequest_onDemandMaxPricePercentageOverLowestPrice,
+    instanceRequirementsRequest_allowedInstanceTypes,
     instanceRequirementsRequest_acceleratorNames,
+    instanceRequirementsRequest_networkBandwidthGbps,
     instanceRequirementsRequest_acceleratorManufacturers,
     instanceRequirementsRequest_excludedInstanceTypes,
     instanceRequirementsRequest_networkInterfaceCount,
@@ -7097,6 +7149,7 @@ module Amazonka.EC2.Lens
     launchTemplatePlacement_groupName,
     launchTemplatePlacement_affinity,
     launchTemplatePlacement_tenancy,
+    launchTemplatePlacement_groupId,
 
     -- ** LaunchTemplatePlacementRequest
     launchTemplatePlacementRequest_spreadDomain,
@@ -7107,6 +7160,7 @@ module Amazonka.EC2.Lens
     launchTemplatePlacementRequest_groupName,
     launchTemplatePlacementRequest_affinity,
     launchTemplatePlacementRequest_tenancy,
+    launchTemplatePlacementRequest_groupId,
 
     -- ** LaunchTemplatePrivateDnsNameOptions
     launchTemplatePrivateDnsNameOptions_enableResourceNameDnsARecord,
@@ -7370,6 +7424,14 @@ module Amazonka.EC2.Lens
     networkAclEntry_ruleAction,
     networkAclEntry_protocol,
     networkAclEntry_ipv6CidrBlock,
+
+    -- ** NetworkBandwidthGbps
+    networkBandwidthGbps_max,
+    networkBandwidthGbps_min,
+
+    -- ** NetworkBandwidthGbpsRequest
+    networkBandwidthGbpsRequest_max,
+    networkBandwidthGbpsRequest_min,
 
     -- ** NetworkCardInfo
     networkCardInfo_networkCardIndex,
@@ -7659,6 +7721,7 @@ module Amazonka.EC2.Lens
     placement_groupName,
     placement_affinity,
     placement_tenancy,
+    placement_groupId,
 
     -- ** PlacementGroup
     placementGroup_tags,
@@ -7828,10 +7891,13 @@ module Amazonka.EC2.Lens
     -- ** ReplaceRootVolumeTask
     replaceRootVolumeTask_tags,
     replaceRootVolumeTask_taskState,
+    replaceRootVolumeTask_snapshotId,
     replaceRootVolumeTask_replaceRootVolumeTaskId,
     replaceRootVolumeTask_completeTime,
     replaceRootVolumeTask_instanceId,
+    replaceRootVolumeTask_deleteReplacedRootVolume,
     replaceRootVolumeTask_startTime,
+    replaceRootVolumeTask_imageId,
 
     -- ** RequestIpamResourceTag
     requestIpamResourceTag_key,
@@ -9405,6 +9471,7 @@ module Amazonka.EC2.Lens
   )
 where
 
+import Amazonka.EC2.AcceptAddressTransfer
 import Amazonka.EC2.AcceptReservedInstancesExchangeQuote
 import Amazonka.EC2.AcceptTransitGatewayMulticastDomainAssociations
 import Amazonka.EC2.AcceptTransitGatewayPeeringAttachment
@@ -9445,6 +9512,7 @@ import Amazonka.EC2.CancelCapacityReservation
 import Amazonka.EC2.CancelCapacityReservationFleets
 import Amazonka.EC2.CancelConversionTask
 import Amazonka.EC2.CancelExportTask
+import Amazonka.EC2.CancelImageLaunchPermission
 import Amazonka.EC2.CancelImportTask
 import Amazonka.EC2.CancelReservedInstancesListing
 import Amazonka.EC2.CancelSpotFleetRequests
@@ -9605,6 +9673,7 @@ import Amazonka.EC2.DeregisterInstanceEventNotificationAttributes
 import Amazonka.EC2.DeregisterTransitGatewayMulticastGroupMembers
 import Amazonka.EC2.DeregisterTransitGatewayMulticastGroupSources
 import Amazonka.EC2.DescribeAccountAttributes
+import Amazonka.EC2.DescribeAddressTransfers
 import Amazonka.EC2.DescribeAddresses
 import Amazonka.EC2.DescribeAddressesAttribute
 import Amazonka.EC2.DescribeAggregateIdFormat
@@ -9744,6 +9813,7 @@ import Amazonka.EC2.DetachInternetGateway
 import Amazonka.EC2.DetachNetworkInterface
 import Amazonka.EC2.DetachVolume
 import Amazonka.EC2.DetachVpnGateway
+import Amazonka.EC2.DisableAddressTransfer
 import Amazonka.EC2.DisableEbsEncryptionByDefault
 import Amazonka.EC2.DisableFastLaunch
 import Amazonka.EC2.DisableFastSnapshotRestores
@@ -9766,6 +9836,7 @@ import Amazonka.EC2.DisassociateTransitGatewayPolicyTable
 import Amazonka.EC2.DisassociateTransitGatewayRouteTable
 import Amazonka.EC2.DisassociateTrunkInterface
 import Amazonka.EC2.DisassociateVpcCidrBlock
+import Amazonka.EC2.EnableAddressTransfer
 import Amazonka.EC2.EnableEbsEncryptionByDefault
 import Amazonka.EC2.EnableFastLaunch
 import Amazonka.EC2.EnableFastSnapshotRestores
@@ -9957,6 +10028,7 @@ import Amazonka.EC2.Types.AddedPrincipal
 import Amazonka.EC2.Types.AdditionalDetail
 import Amazonka.EC2.Types.Address
 import Amazonka.EC2.Types.AddressAttribute
+import Amazonka.EC2.Types.AddressTransfer
 import Amazonka.EC2.Types.AllowedPrincipal
 import Amazonka.EC2.Types.AlternatePathHint
 import Amazonka.EC2.Types.AnalysisAclRule
@@ -10315,6 +10387,8 @@ import Amazonka.EC2.Types.NatGatewayAddress
 import Amazonka.EC2.Types.NetworkAcl
 import Amazonka.EC2.Types.NetworkAclAssociation
 import Amazonka.EC2.Types.NetworkAclEntry
+import Amazonka.EC2.Types.NetworkBandwidthGbps
+import Amazonka.EC2.Types.NetworkBandwidthGbpsRequest
 import Amazonka.EC2.Types.NetworkCardInfo
 import Amazonka.EC2.Types.NetworkInfo
 import Amazonka.EC2.Types.NetworkInsightsAccessScope

@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.TagValuePair where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a tag key or tag key and value pair to use in a tag-based

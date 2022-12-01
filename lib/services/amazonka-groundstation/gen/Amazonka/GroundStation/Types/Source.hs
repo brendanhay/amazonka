@@ -20,9 +20,9 @@
 module Amazonka.GroundStation.Types.Source where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types.ConfigCapabilityType
 import Amazonka.GroundStation.Types.ConfigDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Dataflow details for the source side.
@@ -33,8 +33,8 @@ data Source = Source'
     dataflowSourceRegion :: Prelude.Maybe Prelude.Text,
     -- | UUID of a @Config@.
     configId :: Prelude.Maybe Prelude.Text,
-    -- | Additional details for a @Config@, if type is dataflow endpoint or
-    -- antenna demod decode.
+    -- | Additional details for a @Config@, if type is @dataflow-endpoint@ or
+    -- @antenna-downlink-demod-decode@
     configDetails :: Prelude.Maybe ConfigDetails,
     -- | Type of a @Config@.
     configType :: Prelude.Maybe ConfigCapabilityType
@@ -53,8 +53,8 @@ data Source = Source'
 --
 -- 'configId', 'source_configId' - UUID of a @Config@.
 --
--- 'configDetails', 'source_configDetails' - Additional details for a @Config@, if type is dataflow endpoint or
--- antenna demod decode.
+-- 'configDetails', 'source_configDetails' - Additional details for a @Config@, if type is @dataflow-endpoint@ or
+-- @antenna-downlink-demod-decode@
 --
 -- 'configType', 'source_configType' - Type of a @Config@.
 newSource ::
@@ -75,8 +75,8 @@ source_dataflowSourceRegion = Lens.lens (\Source' {dataflowSourceRegion} -> data
 source_configId :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
 source_configId = Lens.lens (\Source' {configId} -> configId) (\s@Source' {} a -> s {configId = a} :: Source)
 
--- | Additional details for a @Config@, if type is dataflow endpoint or
--- antenna demod decode.
+-- | Additional details for a @Config@, if type is @dataflow-endpoint@ or
+-- @antenna-downlink-demod-decode@
 source_configDetails :: Lens.Lens' Source (Prelude.Maybe ConfigDetails)
 source_configDetails = Lens.lens (\Source' {configDetails} -> configDetails) (\s@Source' {} a -> s {configDetails = a} :: Source)
 

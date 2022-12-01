@@ -20,8 +20,8 @@
 module Amazonka.IoTWireless.Types.AbpV1_1 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.SessionKeysAbpV1_1
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | ABP device object for LoRaWAN specification v1.1

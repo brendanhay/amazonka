@@ -41,7 +41,7 @@ module Amazonka.LexV2Models.DeleteIntent
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,8 +124,8 @@ deleteIntent_localeId = Lens.lens (\DeleteIntent' {localeId} -> localeId) (\s@De
 
 instance Core.AWSRequest DeleteIntent where
   type AWSResponse DeleteIntent = DeleteIntentResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteIntentResponse'
 
 instance Prelude.Hashable DeleteIntent where

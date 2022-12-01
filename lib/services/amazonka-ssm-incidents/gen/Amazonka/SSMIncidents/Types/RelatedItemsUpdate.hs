@@ -20,7 +20,7 @@
 module Amazonka.SSMIncidents.Types.RelatedItemsUpdate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.ItemIdentifier
 import Amazonka.SSMIncidents.Types.RelatedItem

@@ -20,8 +20,8 @@
 module Amazonka.Forecast.Types.Baseline where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.PredictorBaseline
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metrics you can use as a baseline for comparison purposes. Use these

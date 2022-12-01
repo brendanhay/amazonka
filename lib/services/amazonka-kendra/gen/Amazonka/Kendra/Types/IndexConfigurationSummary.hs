@@ -20,9 +20,9 @@
 module Amazonka.Kendra.Types.IndexConfigurationSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.IndexEdition
 import Amazonka.Kendra.Types.IndexStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information on the configuration of an index.

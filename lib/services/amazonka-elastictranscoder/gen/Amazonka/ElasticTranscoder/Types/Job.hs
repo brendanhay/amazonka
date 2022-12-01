@@ -20,11 +20,11 @@
 module Amazonka.ElasticTranscoder.Types.Job where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types.JobInput
 import Amazonka.ElasticTranscoder.Types.JobOutput
 import Amazonka.ElasticTranscoder.Types.Playlist
 import Amazonka.ElasticTranscoder.Types.Timing
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A section of the response body that provides information about the job

@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.ServiceConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PayerResponsibility
 import Amazonka.EC2.Types.PrivateDnsNameConfiguration
@@ -27,7 +28,6 @@ import Amazonka.EC2.Types.ServiceConnectivityType
 import Amazonka.EC2.Types.ServiceState
 import Amazonka.EC2.Types.ServiceTypeDetail
 import Amazonka.EC2.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a service configuration for a VPC endpoint service.

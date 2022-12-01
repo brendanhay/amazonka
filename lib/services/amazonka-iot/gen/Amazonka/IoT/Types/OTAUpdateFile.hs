@@ -20,9 +20,9 @@
 module Amazonka.IoT.Types.OTAUpdateFile where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.CodeSigning
 import Amazonka.IoT.Types.FileLocation
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a file to be associated with an OTA update.

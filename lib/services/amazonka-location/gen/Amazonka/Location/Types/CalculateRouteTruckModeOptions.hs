@@ -20,7 +20,7 @@
 module Amazonka.Location.Types.CalculateRouteTruckModeOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Location.Types.TruckDimensions
 import Amazonka.Location.Types.TruckWeight
 import qualified Amazonka.Prelude as Prelude

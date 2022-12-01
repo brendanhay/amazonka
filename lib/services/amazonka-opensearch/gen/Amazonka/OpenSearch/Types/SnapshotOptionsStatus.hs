@@ -20,12 +20,13 @@
 module Amazonka.OpenSearch.Types.SnapshotOptionsStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.OptionStatus
 import Amazonka.OpenSearch.Types.SnapshotOptions
 import qualified Amazonka.Prelude as Prelude
 
--- | Status of a daily automated snapshot.
+-- | Container for information about a daily automated snapshot for an
+-- OpenSearch Service domain.
 --
 -- /See:/ 'newSnapshotOptionsStatus' smart constructor.
 data SnapshotOptionsStatus = SnapshotOptionsStatus'

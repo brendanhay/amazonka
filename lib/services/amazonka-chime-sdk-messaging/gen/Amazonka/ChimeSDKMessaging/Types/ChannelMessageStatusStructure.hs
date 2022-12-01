@@ -21,7 +21,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelMessageStatusStructure where
 
 import Amazonka.ChimeSDKMessaging.Types.ChannelMessageStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stores information about a message status.

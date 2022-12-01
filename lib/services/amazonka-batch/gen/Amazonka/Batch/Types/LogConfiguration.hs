@@ -22,7 +22,7 @@ module Amazonka.Batch.Types.LogConfiguration where
 import Amazonka.Batch.Types.LogDriver
 import Amazonka.Batch.Types.Secret
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Log configuration options to send to a custom log driver for the

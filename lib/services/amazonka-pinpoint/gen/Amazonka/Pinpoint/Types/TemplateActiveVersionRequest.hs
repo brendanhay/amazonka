@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.TemplateActiveVersionRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies which version of a message template to use as the active

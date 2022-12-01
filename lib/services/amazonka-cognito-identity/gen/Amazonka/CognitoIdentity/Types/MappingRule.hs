@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentity.Types.MappingRule where
 
 import Amazonka.CognitoIdentity.Types.MappingRuleMatchType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A rule that maps a claim name, a claim value, and a match type to a role

@@ -20,12 +20,12 @@
 module Amazonka.Inspector.Types.AssessmentRun where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.AssessmentRunNotification
 import Amazonka.Inspector.Types.AssessmentRunState
 import Amazonka.Inspector.Types.AssessmentRunStateChange
 import Amazonka.Inspector.Types.Attribute
 import Amazonka.Inspector.Types.Severity
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A snapshot of an Amazon Inspector assessment run that contains the

@@ -22,7 +22,7 @@ module Amazonka.CloudFormation.Types.ChangeSetHookTargetDetails where
 import Amazonka.CloudFormation.Types.ChangeSetHookResourceTargetDetails
 import Amazonka.CloudFormation.Types.HookTargetType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies target details for an activated hook.

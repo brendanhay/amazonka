@@ -20,9 +20,9 @@
 module Amazonka.DirectConnect.Types.DirectConnectGatewayAttachment where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectConnect.Types.DirectConnectGatewayAttachmentState
 import Amazonka.DirectConnect.Types.DirectConnectGatewayAttachmentType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an attachment between a Direct Connect gateway and a

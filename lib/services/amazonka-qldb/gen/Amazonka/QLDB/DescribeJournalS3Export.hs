@@ -54,7 +54,7 @@ module Amazonka.QLDB.DescribeJournalS3Export
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -107,8 +107,8 @@ instance Core.AWSRequest DescribeJournalS3Export where
   type
     AWSResponse DescribeJournalS3Export =
       DescribeJournalS3ExportResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

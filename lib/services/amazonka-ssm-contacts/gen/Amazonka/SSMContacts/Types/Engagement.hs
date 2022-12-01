@@ -20,7 +20,7 @@
 module Amazonka.SSMContacts.Types.Engagement where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Incident Manager reaching out to a contact or escalation plan to engage

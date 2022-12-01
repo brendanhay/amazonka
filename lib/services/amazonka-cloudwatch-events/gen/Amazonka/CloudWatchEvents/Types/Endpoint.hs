@@ -24,7 +24,7 @@ import Amazonka.CloudWatchEvents.Types.EndpointState
 import Amazonka.CloudWatchEvents.Types.ReplicationConfig
 import Amazonka.CloudWatchEvents.Types.RoutingConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An global endpoint used to improve your application\'s availability by

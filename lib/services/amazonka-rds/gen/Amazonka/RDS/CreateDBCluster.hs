@@ -80,6 +80,7 @@ module Amazonka.RDS.CreateDBCluster
     createDBCluster_preferredMaintenanceWindow,
     createDBCluster_destinationRegion,
     createDBCluster_dbClusterParameterGroupName,
+    createDBCluster_dbSystemId,
     createDBCluster_iops,
     createDBCluster_preSignedUrl,
     createDBCluster_engineVersion,
@@ -98,7 +99,7 @@ module Amazonka.RDS.CreateDBCluster
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -593,11 +594,13 @@ data CreateDBCluster = CreateDBCluster'
     --
     -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Reserved for future use.
+    dbSystemId :: Prelude.Maybe Prelude.Text,
     -- | The amount of Provisioned IOPS (input\/output operations per second) to
     -- be initially allocated for each DB instance in the Multi-AZ DB cluster.
     --
-    -- For information about valid @Iops@ values, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage to improve performance>
+    -- For information about valid IOPS values, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
     -- in the /Amazon RDS User Guide/.
     --
     -- This setting is required to create a Multi-AZ DB cluster.
@@ -1251,11 +1254,13 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
+-- 'dbSystemId', 'createDBCluster_dbSystemId' - Reserved for future use.
+--
 -- 'iops', 'createDBCluster_iops' - The amount of Provisioned IOPS (input\/output operations per second) to
 -- be initially allocated for each DB instance in the Multi-AZ DB cluster.
 --
--- For information about valid @Iops@ values, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage to improve performance>
+-- For information about valid IOPS values, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
 -- in the /Amazon RDS User Guide/.
 --
 -- This setting is required to create a Multi-AZ DB cluster.
@@ -1460,6 +1465,7 @@ newCreateDBCluster pDBClusterIdentifier_ pEngine_ =
       preferredMaintenanceWindow = Prelude.Nothing,
       destinationRegion = Prelude.Nothing,
       dbClusterParameterGroupName = Prelude.Nothing,
+      dbSystemId = Prelude.Nothing,
       iops = Prelude.Nothing,
       preSignedUrl = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
@@ -2036,11 +2042,15 @@ createDBCluster_destinationRegion = Lens.lens (\CreateDBCluster' {destinationReg
 createDBCluster_dbClusterParameterGroupName :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_dbClusterParameterGroupName = Lens.lens (\CreateDBCluster' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@CreateDBCluster' {} a -> s {dbClusterParameterGroupName = a} :: CreateDBCluster)
 
+-- | Reserved for future use.
+createDBCluster_dbSystemId :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_dbSystemId = Lens.lens (\CreateDBCluster' {dbSystemId} -> dbSystemId) (\s@CreateDBCluster' {} a -> s {dbSystemId = a} :: CreateDBCluster)
+
 -- | The amount of Provisioned IOPS (input\/output operations per second) to
 -- be initially allocated for each DB instance in the Multi-AZ DB cluster.
 --
--- For information about valid @Iops@ values, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage to improve performance>
+-- For information about valid IOPS values, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
 -- in the /Amazon RDS User Guide/.
 --
 -- This setting is required to create a Multi-AZ DB cluster.
@@ -2213,8 +2223,8 @@ instance Core.AWSRequest CreateDBCluster where
   type
     AWSResponse CreateDBCluster =
       CreateDBClusterResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "CreateDBClusterResult"
@@ -2267,6 +2277,7 @@ instance Prelude.Hashable CreateDBCluster where
       `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` destinationRegion
       `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` dbSystemId
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` preSignedUrl
       `Prelude.hashWithSalt` engineVersion
@@ -2339,6 +2350,8 @@ instance Prelude.NFData CreateDBCluster where
         destinationRegion
       `Prelude.seq` Prelude.rnf
         dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf
+        dbSystemId
       `Prelude.seq` Prelude.rnf
         iops
       `Prelude.seq` Prelude.rnf
@@ -2434,6 +2447,7 @@ instance Core.ToQuery CreateDBCluster where
         "DestinationRegion" Core.=: destinationRegion,
         "DBClusterParameterGroupName"
           Core.=: dbClusterParameterGroupName,
+        "DBSystemId" Core.=: dbSystemId,
         "Iops" Core.=: iops,
         "PreSignedUrl" Core.=: preSignedUrl,
         "EngineVersion" Core.=: engineVersion,

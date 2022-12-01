@@ -72,8 +72,8 @@ module Amazonka.EC2.CreateFlowLogs
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +87,8 @@ data CreateFlowLogs = CreateFlowLogs'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The type of traffic to monitor (accepted traffic, rejected traffic, or
-    -- all traffic).
+    -- all traffic). This parameter is not supported for transit gateway
+    -- resource types. It is required for the other resource types.
     trafficType :: Prelude.Maybe TrafficType,
     -- | The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a
     -- CloudWatch Logs log group in your account.
@@ -96,12 +97,14 @@ data CreateFlowLogs = CreateFlowLogs'
     -- and unsupported otherwise.
     deliverLogsPermissionArn :: Prelude.Maybe Prelude.Text,
     -- | The fields to include in the flow log record. List the fields in the
-    -- order in which they should appear. For more information about the
+    -- order in which they should appear. If you omit this parameter, the flow
+    -- log is created using the default format. If you specify this parameter,
+    -- you must include at least one field. For more information about the
     -- available fields, see
-    -- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>.
-    -- If you omit this parameter, the flow log is created using the default
-    -- format. If you specify this parameter, you must include at least one
-    -- field.
+    -- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>
+    -- in the /Amazon VPC User Guide/ or
+    -- <https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records Transit Gateway Flow Log records>
+    -- in the /Amazon Web Services Transit Gateway Guide/.
     --
     -- Specify the fields using the @${field-id}@ format, separated by spaces.
     -- For the CLI, surround this parameter value with single quotes on Linux
@@ -145,8 +148,9 @@ data CreateFlowLogs = CreateFlowLogs'
     -- | The tags to apply to the flow logs.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The maximum interval of time during which a flow of packets is captured
-    -- and aggregated into a flow log record. You can specify 60 seconds (1
-    -- minute) or 600 seconds (10 minutes).
+    -- and aggregated into a flow log record. The possible values are 60
+    -- seconds (1 minute) or 600 seconds (10 minutes). This parameter must be
+    -- 60 seconds for transit gateway resource types.
     --
     -- When a network interface is attached to a
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instance>,
@@ -164,7 +168,8 @@ data CreateFlowLogs = CreateFlowLogs'
     -- | The IDs of the resources to monitor. For example, if the resource type
     -- is @VPC@, specify the IDs of the VPCs.
     --
-    -- Constraints: Maximum of 1000 resources
+    -- Constraints: Maximum of 25 for transit gateway resource types. Maximum
+    -- of 1000 for the other resource types.
     resourceIds :: [Prelude.Text],
     -- | The type of resource to monitor.
     resourceType :: FlowLogsResourceType
@@ -186,7 +191,8 @@ data CreateFlowLogs = CreateFlowLogs'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
 -- 'trafficType', 'createFlowLogs_trafficType' - The type of traffic to monitor (accepted traffic, rejected traffic, or
--- all traffic).
+-- all traffic). This parameter is not supported for transit gateway
+-- resource types. It is required for the other resource types.
 --
 -- 'deliverLogsPermissionArn', 'createFlowLogs_deliverLogsPermissionArn' - The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a
 -- CloudWatch Logs log group in your account.
@@ -195,12 +201,14 @@ data CreateFlowLogs = CreateFlowLogs'
 -- and unsupported otherwise.
 --
 -- 'logFormat', 'createFlowLogs_logFormat' - The fields to include in the flow log record. List the fields in the
--- order in which they should appear. For more information about the
+-- order in which they should appear. If you omit this parameter, the flow
+-- log is created using the default format. If you specify this parameter,
+-- you must include at least one field. For more information about the
 -- available fields, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>.
--- If you omit this parameter, the flow log is created using the default
--- format. If you specify this parameter, you must include at least one
--- field.
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>
+-- in the /Amazon VPC User Guide/ or
+-- <https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records Transit Gateway Flow Log records>
+-- in the /Amazon Web Services Transit Gateway Guide/.
 --
 -- Specify the fields using the @${field-id}@ format, separated by spaces.
 -- For the CLI, surround this parameter value with single quotes on Linux
@@ -244,8 +252,9 @@ data CreateFlowLogs = CreateFlowLogs'
 -- 'tagSpecifications', 'createFlowLogs_tagSpecifications' - The tags to apply to the flow logs.
 --
 -- 'maxAggregationInterval', 'createFlowLogs_maxAggregationInterval' - The maximum interval of time during which a flow of packets is captured
--- and aggregated into a flow log record. You can specify 60 seconds (1
--- minute) or 600 seconds (10 minutes).
+-- and aggregated into a flow log record. The possible values are 60
+-- seconds (1 minute) or 600 seconds (10 minutes). This parameter must be
+-- 60 seconds for transit gateway resource types.
 --
 -- When a network interface is attached to a
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instance>,
@@ -263,7 +272,8 @@ data CreateFlowLogs = CreateFlowLogs'
 -- 'resourceIds', 'createFlowLogs_resourceIds' - The IDs of the resources to monitor. For example, if the resource type
 -- is @VPC@, specify the IDs of the VPCs.
 --
--- Constraints: Maximum of 1000 resources
+-- Constraints: Maximum of 25 for transit gateway resource types. Maximum
+-- of 1000 for the other resource types.
 --
 -- 'resourceType', 'createFlowLogs_resourceType' - The type of resource to monitor.
 newCreateFlowLogs ::
@@ -300,7 +310,8 @@ createFlowLogs_clientToken :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.T
 createFlowLogs_clientToken = Lens.lens (\CreateFlowLogs' {clientToken} -> clientToken) (\s@CreateFlowLogs' {} a -> s {clientToken = a} :: CreateFlowLogs)
 
 -- | The type of traffic to monitor (accepted traffic, rejected traffic, or
--- all traffic).
+-- all traffic). This parameter is not supported for transit gateway
+-- resource types. It is required for the other resource types.
 createFlowLogs_trafficType :: Lens.Lens' CreateFlowLogs (Prelude.Maybe TrafficType)
 createFlowLogs_trafficType = Lens.lens (\CreateFlowLogs' {trafficType} -> trafficType) (\s@CreateFlowLogs' {} a -> s {trafficType = a} :: CreateFlowLogs)
 
@@ -313,12 +324,14 @@ createFlowLogs_deliverLogsPermissionArn :: Lens.Lens' CreateFlowLogs (Prelude.Ma
 createFlowLogs_deliverLogsPermissionArn = Lens.lens (\CreateFlowLogs' {deliverLogsPermissionArn} -> deliverLogsPermissionArn) (\s@CreateFlowLogs' {} a -> s {deliverLogsPermissionArn = a} :: CreateFlowLogs)
 
 -- | The fields to include in the flow log record. List the fields in the
--- order in which they should appear. For more information about the
+-- order in which they should appear. If you omit this parameter, the flow
+-- log is created using the default format. If you specify this parameter,
+-- you must include at least one field. For more information about the
 -- available fields, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>.
--- If you omit this parameter, the flow log is created using the default
--- format. If you specify this parameter, you must include at least one
--- field.
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>
+-- in the /Amazon VPC User Guide/ or
+-- <https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records Transit Gateway Flow Log records>
+-- in the /Amazon Web Services Transit Gateway Guide/.
 --
 -- Specify the fields using the @${field-id}@ format, separated by spaces.
 -- For the CLI, surround this parameter value with single quotes on Linux
@@ -374,8 +387,9 @@ createFlowLogs_tagSpecifications :: Lens.Lens' CreateFlowLogs (Prelude.Maybe [Ta
 createFlowLogs_tagSpecifications = Lens.lens (\CreateFlowLogs' {tagSpecifications} -> tagSpecifications) (\s@CreateFlowLogs' {} a -> s {tagSpecifications = a} :: CreateFlowLogs) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum interval of time during which a flow of packets is captured
--- and aggregated into a flow log record. You can specify 60 seconds (1
--- minute) or 600 seconds (10 minutes).
+-- and aggregated into a flow log record. The possible values are 60
+-- seconds (1 minute) or 600 seconds (10 minutes). This parameter must be
+-- 60 seconds for transit gateway resource types.
 --
 -- When a network interface is attached to a
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instance>,
@@ -397,7 +411,8 @@ createFlowLogs_logGroupName = Lens.lens (\CreateFlowLogs' {logGroupName} -> logG
 -- | The IDs of the resources to monitor. For example, if the resource type
 -- is @VPC@, specify the IDs of the VPCs.
 --
--- Constraints: Maximum of 1000 resources
+-- Constraints: Maximum of 25 for transit gateway resource types. Maximum
+-- of 1000 for the other resource types.
 createFlowLogs_resourceIds :: Lens.Lens' CreateFlowLogs [Prelude.Text]
 createFlowLogs_resourceIds = Lens.lens (\CreateFlowLogs' {resourceIds} -> resourceIds) (\s@CreateFlowLogs' {} a -> s {resourceIds = a} :: CreateFlowLogs) Prelude.. Lens.coerced
 
@@ -409,8 +424,8 @@ instance Core.AWSRequest CreateFlowLogs where
   type
     AWSResponse CreateFlowLogs =
       CreateFlowLogsResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

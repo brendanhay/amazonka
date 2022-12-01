@@ -20,7 +20,7 @@
 module Amazonka.DataBrew.Types.S3Location where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an Amazon S3 location (bucket name, bucket owner, and object

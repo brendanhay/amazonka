@@ -21,7 +21,7 @@ module Amazonka.CloudTrail.Types.Query where
 
 import Amazonka.CloudTrail.Types.QueryStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A SQL string of criteria about events that you want to collect in an

@@ -20,12 +20,12 @@
 module Amazonka.SecurityHub.Types.AwsBackupBackupPlanRuleCopyActionsDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsBackupBackupPlanLifecycleDetails
 
--- | An array of @CopyAction@ objects, which contains the details of the copy
--- operation.
+-- | An array of @CopyAction@ objects, each of which contains details of the
+-- copy operation.
 --
 -- /See:/ 'newAwsBackupBackupPlanRuleCopyActionsDetails' smart constructor.
 data AwsBackupBackupPlanRuleCopyActionsDetails = AwsBackupBackupPlanRuleCopyActionsDetails'

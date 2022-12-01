@@ -48,7 +48,7 @@ module Amazonka.SQS.PurgeQueue
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,8 +94,8 @@ purgeQueue_queueUrl = Lens.lens (\PurgeQueue' {queueUrl} -> queueUrl) (\s@PurgeQ
 
 instance Core.AWSRequest PurgeQueue where
   type AWSResponse PurgeQueue = PurgeQueueResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response = Response.receiveNull PurgeQueueResponse'
 
 instance Prelude.Hashable PurgeQueue where

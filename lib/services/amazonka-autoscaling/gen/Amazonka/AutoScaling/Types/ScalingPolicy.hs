@@ -24,7 +24,7 @@ import Amazonka.AutoScaling.Types.PredictiveScalingConfiguration
 import Amazonka.AutoScaling.Types.StepAdjustment
 import Amazonka.AutoScaling.Types.TargetTrackingConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a scaling policy.

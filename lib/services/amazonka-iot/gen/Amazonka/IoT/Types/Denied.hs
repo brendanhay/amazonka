@@ -20,9 +20,9 @@
 module Amazonka.IoT.Types.Denied where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.ExplicitDeny
 import Amazonka.IoT.Types.ImplicitDeny
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information that denied the authorization.

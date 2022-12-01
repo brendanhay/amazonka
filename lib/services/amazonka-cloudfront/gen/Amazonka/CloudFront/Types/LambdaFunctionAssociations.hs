@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.LambdaFunctionAssociations where
 
 import Amazonka.CloudFront.Types.LambdaFunctionAssociation
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that specifies a list of Lambda\@Edge functions

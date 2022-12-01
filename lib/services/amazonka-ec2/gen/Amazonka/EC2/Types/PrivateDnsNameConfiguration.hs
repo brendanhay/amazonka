@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.PrivateDnsNameConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DnsNameState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the private DNS name for the service endpoint.

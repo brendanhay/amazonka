@@ -20,8 +20,8 @@
 module Amazonka.KeySpaces.Types.TimeToLive where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KeySpaces.Types.TimeToLiveStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Enable custom Time to Live (TTL) settings for rows and columns without

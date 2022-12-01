@@ -20,7 +20,7 @@
 module Amazonka.Athena.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A label that you assign to a resource. In Athena, a resource can be a

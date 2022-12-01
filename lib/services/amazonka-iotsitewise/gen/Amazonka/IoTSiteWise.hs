@@ -351,11 +351,23 @@ module Amazonka.IoTSiteWise
     ListAccessPoliciesResponse (ListAccessPoliciesResponse'),
     newListAccessPoliciesResponse,
 
+    -- ** ListAssetModelProperties (Paginated)
+    ListAssetModelProperties (ListAssetModelProperties'),
+    newListAssetModelProperties,
+    ListAssetModelPropertiesResponse (ListAssetModelPropertiesResponse'),
+    newListAssetModelPropertiesResponse,
+
     -- ** ListAssetModels (Paginated)
     ListAssetModels (ListAssetModels'),
     newListAssetModels,
     ListAssetModelsResponse (ListAssetModelsResponse'),
     newListAssetModelsResponse,
+
+    -- ** ListAssetProperties (Paginated)
+    ListAssetProperties (ListAssetProperties'),
+    newListAssetProperties,
+    ListAssetPropertiesResponse (ListAssetPropertiesResponse'),
+    newListAssetPropertiesResponse,
 
     -- ** ListAssetRelationships (Paginated)
     ListAssetRelationships (ListAssetRelationships'),
@@ -578,6 +590,12 @@ module Amazonka.IoTSiteWise
     -- ** JobStatus
     JobStatus (..),
 
+    -- ** ListAssetModelPropertiesFilter
+    ListAssetModelPropertiesFilter (..),
+
+    -- ** ListAssetPropertiesFilter
+    ListAssetPropertiesFilter (..),
+
     -- ** ListAssetsFilter
     ListAssetsFilter (..),
 
@@ -679,6 +697,10 @@ module Amazonka.IoTSiteWise
     AssetModelPropertyDefinition (AssetModelPropertyDefinition'),
     newAssetModelPropertyDefinition,
 
+    -- ** AssetModelPropertySummary
+    AssetModelPropertySummary (AssetModelPropertySummary'),
+    newAssetModelPropertySummary,
+
     -- ** AssetModelStatus
     AssetModelStatus (AssetModelStatus'),
     newAssetModelStatus,
@@ -690,6 +712,10 @@ module Amazonka.IoTSiteWise
     -- ** AssetProperty
     AssetProperty (AssetProperty'),
     newAssetProperty,
+
+    -- ** AssetPropertySummary
+    AssetPropertySummary (AssetPropertySummary'),
+    newAssetPropertySummary,
 
     -- ** AssetPropertyValue
     AssetPropertyValue (AssetPropertyValue'),
@@ -1051,7 +1077,9 @@ import Amazonka.IoTSiteWise.GetAssetPropertyValueHistory
 import Amazonka.IoTSiteWise.GetInterpolatedAssetPropertyValues
 import Amazonka.IoTSiteWise.Lens
 import Amazonka.IoTSiteWise.ListAccessPolicies
+import Amazonka.IoTSiteWise.ListAssetModelProperties
 import Amazonka.IoTSiteWise.ListAssetModels
+import Amazonka.IoTSiteWise.ListAssetProperties
 import Amazonka.IoTSiteWise.ListAssetRelationships
 import Amazonka.IoTSiteWise.ListAssets
 import Amazonka.IoTSiteWise.ListAssociatedAssets

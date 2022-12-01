@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,20 +17,20 @@
 module Amazonka.ElasticTranscoder.Waiters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Lens
 import Amazonka.ElasticTranscoder.ReadJob
 import Amazonka.ElasticTranscoder.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.ElasticTranscoder.ReadJob' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newJobComplete :: Core.Wait ReadJob
 newJobComplete =
   Core.Wait
-    { Core._waitName = "JobComplete",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "JobComplete",
+      Core.attempts = 120,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "Complete"
             Core.AcceptSuccess

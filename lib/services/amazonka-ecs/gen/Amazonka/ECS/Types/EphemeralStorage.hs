@@ -20,7 +20,7 @@
 module Amazonka.ECS.Types.EphemeralStorage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of ephemeral storage to allocate for the task. This parameter

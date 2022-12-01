@@ -112,6 +112,7 @@ library
     Amazonka.ElastiCache.TestFailover
     Amazonka.ElastiCache.Types
     Amazonka.ElastiCache.Types.Authentication
+    Amazonka.ElastiCache.Types.AuthenticationMode
     Amazonka.ElastiCache.Types.AuthenticationType
     Amazonka.ElastiCache.Types.AuthTokenUpdateStatus
     Amazonka.ElastiCache.Types.AuthTokenUpdateStrategyType
@@ -146,6 +147,8 @@ library
     Amazonka.ElastiCache.Types.GlobalReplicationGroup
     Amazonka.ElastiCache.Types.GlobalReplicationGroupInfo
     Amazonka.ElastiCache.Types.GlobalReplicationGroupMember
+    Amazonka.ElastiCache.Types.InputAuthenticationType
+    Amazonka.ElastiCache.Types.IpDiscovery
     Amazonka.ElastiCache.Types.KinesisFirehoseDestinationDetails
     Amazonka.ElastiCache.Types.LogDeliveryConfiguration
     Amazonka.ElastiCache.Types.LogDeliveryConfigurationRequest
@@ -153,6 +156,7 @@ library
     Amazonka.ElastiCache.Types.LogFormat
     Amazonka.ElastiCache.Types.LogType
     Amazonka.ElastiCache.Types.MultiAZStatus
+    Amazonka.ElastiCache.Types.NetworkType
     Amazonka.ElastiCache.Types.NodeGroup
     Amazonka.ElastiCache.Types.NodeGroupConfiguration
     Amazonka.ElastiCache.Types.NodeGroupMember

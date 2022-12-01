@@ -20,9 +20,9 @@
 module Amazonka.IoTFleetWise.Types.CreateVehicleRequestItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTFleetWise.Types.Tag
 import Amazonka.IoTFleetWise.Types.VehicleAssociationBehavior
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the vehicle to create.

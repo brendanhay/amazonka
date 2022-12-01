@@ -20,7 +20,7 @@
 module Amazonka.DataPipeline.Types.InstanceIdentity where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identity information for the EC2 instance that is hosting the task

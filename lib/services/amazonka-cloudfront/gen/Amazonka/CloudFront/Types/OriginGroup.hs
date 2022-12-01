@@ -22,7 +22,7 @@ module Amazonka.CloudFront.Types.OriginGroup where
 import Amazonka.CloudFront.Types.OriginGroupFailoverCriteria
 import Amazonka.CloudFront.Types.OriginGroupMembers
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An origin group includes two origins (a primary origin and a second

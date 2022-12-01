@@ -43,8 +43,8 @@ module Amazonka.GamesParks.UpdateStage
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GamesParks.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,8 +112,8 @@ updateStage_stageName = Lens.lens (\UpdateStage' {stageName} -> stageName) (\s@U
 
 instance Core.AWSRequest UpdateStage where
   type AWSResponse UpdateStage = UpdateStageResponse
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,7 @@
 module Amazonka.MediaConnect.Types.Interface where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VPC interface that is used for the media stream associated with the

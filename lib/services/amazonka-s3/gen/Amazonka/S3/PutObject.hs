@@ -192,7 +192,7 @@ module Amazonka.S3.PutObject
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -961,11 +961,10 @@ putObject_body = Lens.lens (\PutObject' {body} -> body) (\s@PutObject' {} a -> s
 
 instance Core.AWSRequest PutObject where
   type AWSResponse PutObject = PutObjectResponse
-  service _ = defaultService
-  request srv =
+  request overrides =
     Request.expectHeader
       Prelude.. Request.s3vhost
-      Prelude.. Request.putBody srv
+      Prelude.. Request.putBody (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

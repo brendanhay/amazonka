@@ -36,6 +36,7 @@ module Amazonka.PersonalizeEvents.Lens
     event_eventValue,
     event_eventId,
     event_impression,
+    event_metricAttribution,
     event_itemId,
     event_eventType,
     event_sentAt,
@@ -43,6 +44,9 @@ module Amazonka.PersonalizeEvents.Lens
     -- ** Item
     item_properties,
     item_itemId,
+
+    -- ** MetricAttribution
+    metricAttribution_eventAttributionSource,
 
     -- ** User
     user_properties,
@@ -55,4 +59,5 @@ import Amazonka.PersonalizeEvents.PutItems
 import Amazonka.PersonalizeEvents.PutUsers
 import Amazonka.PersonalizeEvents.Types.Event
 import Amazonka.PersonalizeEvents.Types.Item
+import Amazonka.PersonalizeEvents.Types.MetricAttribution
 import Amazonka.PersonalizeEvents.Types.User

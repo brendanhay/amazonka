@@ -20,7 +20,7 @@
 module Amazonka.Forecast.Types.Statistics where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides statistics for each data field imported into to an Amazon

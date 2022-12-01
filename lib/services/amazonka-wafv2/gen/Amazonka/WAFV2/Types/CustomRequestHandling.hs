@@ -20,13 +20,14 @@
 module Amazonka.WAFV2.Types.CustomRequestHandling where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CustomHTTPHeader
 
 -- | Custom request handling behavior that inserts custom headers into a web
--- request. You can add custom request handling for the rule actions allow
--- and count.
+-- request. You can add custom request handling for WAF to use when the
+-- rule action doesn\'t block the request. For example, @CaptchaAction@ for
+-- requests with valid t okens, and @AllowAction@.
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>

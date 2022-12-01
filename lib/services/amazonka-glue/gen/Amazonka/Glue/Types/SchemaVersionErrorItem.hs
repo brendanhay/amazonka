@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.SchemaVersionErrorItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.ErrorDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the error details for an operation on a schema

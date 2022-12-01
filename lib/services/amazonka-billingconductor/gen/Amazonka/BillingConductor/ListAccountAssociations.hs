@@ -20,16 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- /__Amazon Web Services Billing Conductor is in beta release and is
--- subject to change. Your use of Amazon Web Services Billing Conductor is
--- subject to the Beta Service Participation terms of the
--- <https://aws.amazon.com/service-terms/ Amazon Web Services Service Terms>
--- (Section 1.10).__/
---
 -- This is a paginated call to list linked accounts that are linked to the
 -- payer account for the specified time period. If no information is
 -- provided, the current billing period is used. The response will
--- optionally include the billing group associated with the linked account.
+-- optionally include the billing group that\'s associated with the linked
+-- account.
 --
 -- This operation returns paginated results.
 module Amazonka.BillingConductor.ListAccountAssociations
@@ -55,14 +50,15 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAccountAssociations' smart constructor.
 data ListAccountAssociations = ListAccountAssociations'
-  { -- | The pagination token used on subsequent calls to retrieve accounts.
+  { -- | The pagination token that\'s used on subsequent calls to retrieve
+    -- accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The preferred billing period to get account associations.
     billingPeriod :: Prelude.Maybe Prelude.Text,
@@ -71,7 +67,7 @@ data ListAccountAssociations = ListAccountAssociations'
     --
     -- @MONITORED@: linked accounts that are associated to billing groups.
     --
-    -- @UNMONITORED@: linked accounts that are not associated to billing
+    -- @UNMONITORED@: linked accounts that aren\'t associated to billing
     -- groups.
     --
     -- @Billing Group Arn@: linked accounts that are associated to the provided
@@ -88,7 +84,8 @@ data ListAccountAssociations = ListAccountAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAccountAssociations_nextToken' - The pagination token used on subsequent calls to retrieve accounts.
+-- 'nextToken', 'listAccountAssociations_nextToken' - The pagination token that\'s used on subsequent calls to retrieve
+-- accounts.
 --
 -- 'billingPeriod', 'listAccountAssociations_billingPeriod' - The preferred billing period to get account associations.
 --
@@ -97,7 +94,7 @@ data ListAccountAssociations = ListAccountAssociations'
 --
 -- @MONITORED@: linked accounts that are associated to billing groups.
 --
--- @UNMONITORED@: linked accounts that are not associated to billing
+-- @UNMONITORED@: linked accounts that aren\'t associated to billing
 -- groups.
 --
 -- @Billing Group Arn@: linked accounts that are associated to the provided
@@ -112,7 +109,8 @@ newListAccountAssociations =
       filters = Prelude.Nothing
     }
 
--- | The pagination token used on subsequent calls to retrieve accounts.
+-- | The pagination token that\'s used on subsequent calls to retrieve
+-- accounts.
 listAccountAssociations_nextToken :: Lens.Lens' ListAccountAssociations (Prelude.Maybe Prelude.Text)
 listAccountAssociations_nextToken = Lens.lens (\ListAccountAssociations' {nextToken} -> nextToken) (\s@ListAccountAssociations' {} a -> s {nextToken = a} :: ListAccountAssociations)
 
@@ -125,7 +123,7 @@ listAccountAssociations_billingPeriod = Lens.lens (\ListAccountAssociations' {bi
 --
 -- @MONITORED@: linked accounts that are associated to billing groups.
 --
--- @UNMONITORED@: linked accounts that are not associated to billing
+-- @UNMONITORED@: linked accounts that aren\'t associated to billing
 -- groups.
 --
 -- @Billing Group Arn@: linked accounts that are associated to the provided
@@ -159,8 +157,8 @@ instance Core.AWSRequest ListAccountAssociations where
   type
     AWSResponse ListAccountAssociations =
       ListAccountAssociationsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -211,7 +209,7 @@ instance Core.ToQuery ListAccountAssociations where
 
 -- | /See:/ 'newListAccountAssociationsResponse' smart constructor.
 data ListAccountAssociationsResponse = ListAccountAssociationsResponse'
-  { -- | The pagination token used on subsequent calls to get accounts.
+  { -- | The pagination token that\'s used on subsequent calls to get accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of linked accounts in the payer account.
     linkedAccounts :: Prelude.Maybe [AccountAssociationsListElement],
@@ -228,7 +226,7 @@ data ListAccountAssociationsResponse = ListAccountAssociationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAccountAssociationsResponse_nextToken' - The pagination token used on subsequent calls to get accounts.
+-- 'nextToken', 'listAccountAssociationsResponse_nextToken' - The pagination token that\'s used on subsequent calls to get accounts.
 --
 -- 'linkedAccounts', 'listAccountAssociationsResponse_linkedAccounts' - The list of linked accounts in the payer account.
 --
@@ -245,7 +243,7 @@ newListAccountAssociationsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The pagination token used on subsequent calls to get accounts.
+-- | The pagination token that\'s used on subsequent calls to get accounts.
 listAccountAssociationsResponse_nextToken :: Lens.Lens' ListAccountAssociationsResponse (Prelude.Maybe Prelude.Text)
 listAccountAssociationsResponse_nextToken = Lens.lens (\ListAccountAssociationsResponse' {nextToken} -> nextToken) (\s@ListAccountAssociationsResponse' {} a -> s {nextToken = a} :: ListAccountAssociationsResponse)
 

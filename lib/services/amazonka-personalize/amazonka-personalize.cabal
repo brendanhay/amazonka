@@ -53,6 +53,7 @@ library
     Amazonka.Personalize.CreateDatasetImportJob
     Amazonka.Personalize.CreateEventTracker
     Amazonka.Personalize.CreateFilter
+    Amazonka.Personalize.CreateMetricAttribution
     Amazonka.Personalize.CreateRecommender
     Amazonka.Personalize.CreateSchema
     Amazonka.Personalize.CreateSolution
@@ -62,6 +63,7 @@ library
     Amazonka.Personalize.DeleteDatasetGroup
     Amazonka.Personalize.DeleteEventTracker
     Amazonka.Personalize.DeleteFilter
+    Amazonka.Personalize.DeleteMetricAttribution
     Amazonka.Personalize.DeleteRecommender
     Amazonka.Personalize.DeleteSchema
     Amazonka.Personalize.DeleteSolution
@@ -76,6 +78,7 @@ library
     Amazonka.Personalize.DescribeEventTracker
     Amazonka.Personalize.DescribeFeatureTransformation
     Amazonka.Personalize.DescribeFilter
+    Amazonka.Personalize.DescribeMetricAttribution
     Amazonka.Personalize.DescribeRecipe
     Amazonka.Personalize.DescribeRecommender
     Amazonka.Personalize.DescribeSchema
@@ -92,6 +95,8 @@ library
     Amazonka.Personalize.ListDatasets
     Amazonka.Personalize.ListEventTrackers
     Amazonka.Personalize.ListFilters
+    Amazonka.Personalize.ListMetricAttributionMetrics
+    Amazonka.Personalize.ListMetricAttributions
     Amazonka.Personalize.ListRecipes
     Amazonka.Personalize.ListRecommenders
     Amazonka.Personalize.ListSchemas
@@ -151,6 +156,10 @@ library
     Amazonka.Personalize.Types.ImportMode
     Amazonka.Personalize.Types.IngestionMode
     Amazonka.Personalize.Types.IntegerHyperParameterRange
+    Amazonka.Personalize.Types.MetricAttribute
+    Amazonka.Personalize.Types.MetricAttribution
+    Amazonka.Personalize.Types.MetricAttributionOutput
+    Amazonka.Personalize.Types.MetricAttributionSummary
     Amazonka.Personalize.Types.ObjectiveSensitivity
     Amazonka.Personalize.Types.OptimizationObjective
     Amazonka.Personalize.Types.Recipe
@@ -171,6 +180,7 @@ library
     Amazonka.Personalize.Types.TunedHPOParams
     Amazonka.Personalize.UntagResource
     Amazonka.Personalize.UpdateCampaign
+    Amazonka.Personalize.UpdateMetricAttribution
     Amazonka.Personalize.UpdateRecommender
     Amazonka.Personalize.Waiters
 

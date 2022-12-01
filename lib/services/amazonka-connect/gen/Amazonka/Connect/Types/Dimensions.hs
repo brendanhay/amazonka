@@ -22,7 +22,7 @@ module Amazonka.Connect.Types.Dimensions where
 import Amazonka.Connect.Types.Channel
 import Amazonka.Connect.Types.QueueReference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the dimensions for a set of metrics.

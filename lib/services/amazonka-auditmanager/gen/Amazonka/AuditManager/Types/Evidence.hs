@@ -21,7 +21,7 @@ module Amazonka.AuditManager.Types.Evidence where
 
 import Amazonka.AuditManager.Types.Resource
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A record that contains the information needed to demonstrate compliance
@@ -48,10 +48,23 @@ data Evidence = Evidence'
     id :: Prelude.Maybe Prelude.Text,
     -- | The type of automated evidence.
     evidenceByType :: Prelude.Maybe Prelude.Text,
-    -- | The evaluation status for evidence that falls under the compliance check
-    -- category. For evidence collected from Security Hub, a /Pass/ or /Fail/
-    -- result is shown. For evidence collected from Config, a /Compliant/ or
-    -- /Noncompliant/ result is shown.
+    -- | The evaluation status for automated evidence that falls under the
+    -- compliance check category.
+    --
+    -- -   Audit Manager classes evidence as non-compliant if Security Hub
+    --     reports a /Fail/ result, or if Config reports a /Non-compliant/
+    --     result.
+    --
+    -- -   Audit Manager classes evidence as compliant if Security Hub reports
+    --     a /Pass/ result, or if Config reports a /Compliant/ result.
+    --
+    -- -   If a compliance check isn\'t available or applicable, then no
+    --     compliance evaluation can be made for that evidence. This is the
+    --     case if the evidence uses Config or Security Hub as the underlying
+    --     data source type, but those services aren\'t enabled. This is also
+    --     the case if the evidence uses an underlying data source type that
+    --     doesn\'t support compliance checks (such as manual evidence, Amazon
+    --     Web Services API calls, or CloudTrail).
     complianceCheck :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the IAM user or role that\'s associated with
     -- the evidence.
@@ -96,10 +109,23 @@ data Evidence = Evidence'
 --
 -- 'evidenceByType', 'evidence_evidenceByType' - The type of automated evidence.
 --
--- 'complianceCheck', 'evidence_complianceCheck' - The evaluation status for evidence that falls under the compliance check
--- category. For evidence collected from Security Hub, a /Pass/ or /Fail/
--- result is shown. For evidence collected from Config, a /Compliant/ or
--- /Noncompliant/ result is shown.
+-- 'complianceCheck', 'evidence_complianceCheck' - The evaluation status for automated evidence that falls under the
+-- compliance check category.
+--
+-- -   Audit Manager classes evidence as non-compliant if Security Hub
+--     reports a /Fail/ result, or if Config reports a /Non-compliant/
+--     result.
+--
+-- -   Audit Manager classes evidence as compliant if Security Hub reports
+--     a /Pass/ result, or if Config reports a /Compliant/ result.
+--
+-- -   If a compliance check isn\'t available or applicable, then no
+--     compliance evaluation can be made for that evidence. This is the
+--     case if the evidence uses Config or Security Hub as the underlying
+--     data source type, but those services aren\'t enabled. This is also
+--     the case if the evidence uses an underlying data source type that
+--     doesn\'t support compliance checks (such as manual evidence, Amazon
+--     Web Services API calls, or CloudTrail).
 --
 -- 'iamId', 'evidence_iamId' - The unique identifier for the IAM user or role that\'s associated with
 -- the evidence.
@@ -169,10 +195,23 @@ evidence_id = Lens.lens (\Evidence' {id} -> id) (\s@Evidence' {} a -> s {id = a}
 evidence_evidenceByType :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_evidenceByType = Lens.lens (\Evidence' {evidenceByType} -> evidenceByType) (\s@Evidence' {} a -> s {evidenceByType = a} :: Evidence)
 
--- | The evaluation status for evidence that falls under the compliance check
--- category. For evidence collected from Security Hub, a /Pass/ or /Fail/
--- result is shown. For evidence collected from Config, a /Compliant/ or
--- /Noncompliant/ result is shown.
+-- | The evaluation status for automated evidence that falls under the
+-- compliance check category.
+--
+-- -   Audit Manager classes evidence as non-compliant if Security Hub
+--     reports a /Fail/ result, or if Config reports a /Non-compliant/
+--     result.
+--
+-- -   Audit Manager classes evidence as compliant if Security Hub reports
+--     a /Pass/ result, or if Config reports a /Compliant/ result.
+--
+-- -   If a compliance check isn\'t available or applicable, then no
+--     compliance evaluation can be made for that evidence. This is the
+--     case if the evidence uses Config or Security Hub as the underlying
+--     data source type, but those services aren\'t enabled. This is also
+--     the case if the evidence uses an underlying data source type that
+--     doesn\'t support compliance checks (such as manual evidence, Amazon
+--     Web Services API calls, or CloudTrail).
 evidence_complianceCheck :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_complianceCheck = Lens.lens (\Evidence' {complianceCheck} -> complianceCheck) (\s@Evidence' {} a -> s {complianceCheck = a} :: Evidence)
 

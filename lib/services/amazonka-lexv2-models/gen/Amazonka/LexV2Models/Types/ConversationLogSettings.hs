@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.ConversationLogSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types.AudioLogSetting
 import Amazonka.LexV2Models.Types.TextLogSetting
 import qualified Amazonka.Prelude as Prelude

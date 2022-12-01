@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.ConnectedHomeSettingsForUpdate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The label detection settings you want to use in your stream processor.

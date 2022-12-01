@@ -45,7 +45,7 @@ where
 
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,8 +89,8 @@ getToken_appId = Lens.lens (\GetToken' {appId} -> appId) (\s@GetToken' {} a -> s
 
 instance Core.AWSRequest GetToken where
   type AWSResponse GetToken = GetTokenResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.MxfSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.MxfAfdSignaling
 import Amazonka.MediaConvert.Types.MxfProfile
 import Amazonka.MediaConvert.Types.MxfXavcProfileSettings

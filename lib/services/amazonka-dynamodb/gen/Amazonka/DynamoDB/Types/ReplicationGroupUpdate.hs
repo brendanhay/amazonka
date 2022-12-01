@@ -20,12 +20,12 @@
 module Amazonka.DynamoDB.Types.ReplicationGroupUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.CreateReplicationGroupMemberAction
 import Amazonka.DynamoDB.Types.DeleteReplicationGroupMemberAction
 import Amazonka.DynamoDB.Types.UpdateReplicationGroupMemberAction
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents one of the following:

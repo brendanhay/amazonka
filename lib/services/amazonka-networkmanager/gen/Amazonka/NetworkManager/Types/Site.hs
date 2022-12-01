@@ -20,7 +20,7 @@
 module Amazonka.NetworkManager.Types.Site where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkManager.Types.Location
 import Amazonka.NetworkManager.Types.SiteState
 import Amazonka.NetworkManager.Types.Tag

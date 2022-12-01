@@ -20,7 +20,7 @@
 module Amazonka.OpsWorks.Types.CloudWatchLogsLogStream where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpsWorks.Types.CloudWatchLogsEncoding
 import Amazonka.OpsWorks.Types.CloudWatchLogsInitialPosition
 import Amazonka.OpsWorks.Types.CloudWatchLogsTimeZone

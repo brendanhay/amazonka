@@ -110,6 +110,12 @@ module Amazonka.ServiceCatalogAppRegistry
     GetAttributeGroupResponse (GetAttributeGroupResponse'),
     newGetAttributeGroupResponse,
 
+    -- ** GetConfiguration
+    GetConfiguration (GetConfiguration'),
+    newGetConfiguration,
+    GetConfigurationResponse (GetConfigurationResponse'),
+    newGetConfigurationResponse,
+
     -- ** ListApplications (Paginated)
     ListApplications (ListApplications'),
     newListApplications,
@@ -145,6 +151,12 @@ module Amazonka.ServiceCatalogAppRegistry
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** PutConfiguration
+    PutConfiguration (PutConfiguration'),
+    newPutConfiguration,
+    PutConfigurationResponse (PutConfigurationResponse'),
+    newPutConfigurationResponse,
 
     -- ** SyncResource
     SyncResource (SyncResource'),
@@ -187,6 +199,10 @@ module Amazonka.ServiceCatalogAppRegistry
     -- ** SyncAction
     SyncAction (..),
 
+    -- ** AppRegistryConfiguration
+    AppRegistryConfiguration (AppRegistryConfiguration'),
+    newAppRegistryConfiguration,
+
     -- ** Application
     Application (Application'),
     newApplication,
@@ -215,6 +231,10 @@ module Amazonka.ServiceCatalogAppRegistry
     Resource (Resource'),
     newResource,
 
+    -- ** ResourceDetails
+    ResourceDetails (ResourceDetails'),
+    newResourceDetails,
+
     -- ** ResourceGroup
     ResourceGroup (ResourceGroup'),
     newResourceGroup,
@@ -226,6 +246,10 @@ module Amazonka.ServiceCatalogAppRegistry
     -- ** ResourceIntegrations
     ResourceIntegrations (ResourceIntegrations'),
     newResourceIntegrations,
+
+    -- ** TagQueryConfiguration
+    TagQueryConfiguration (TagQueryConfiguration'),
+    newTagQueryConfiguration,
   )
 where
 
@@ -240,6 +264,7 @@ import Amazonka.ServiceCatalogAppRegistry.DisassociateResource
 import Amazonka.ServiceCatalogAppRegistry.GetApplication
 import Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource
 import Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.GetConfiguration
 import Amazonka.ServiceCatalogAppRegistry.Lens
 import Amazonka.ServiceCatalogAppRegistry.ListApplications
 import Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
@@ -247,6 +272,7 @@ import Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources
 import Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups
 import Amazonka.ServiceCatalogAppRegistry.ListAttributeGroupsForApplication
 import Amazonka.ServiceCatalogAppRegistry.ListTagsForResource
+import Amazonka.ServiceCatalogAppRegistry.PutConfiguration
 import Amazonka.ServiceCatalogAppRegistry.SyncResource
 import Amazonka.ServiceCatalogAppRegistry.TagResource
 import Amazonka.ServiceCatalogAppRegistry.Types

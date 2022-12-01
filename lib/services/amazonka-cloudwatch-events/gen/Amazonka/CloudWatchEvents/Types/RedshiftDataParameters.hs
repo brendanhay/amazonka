@@ -20,7 +20,7 @@
 module Amazonka.CloudWatchEvents.Types.RedshiftDataParameters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | These are custom parameters to be used when the target is a Amazon

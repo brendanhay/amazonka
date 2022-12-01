@@ -20,7 +20,7 @@
 module Amazonka.Signer.Types.S3Destination where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name and prefix of the S3 bucket where code signing saves your

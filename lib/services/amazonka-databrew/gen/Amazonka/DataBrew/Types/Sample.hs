@@ -20,8 +20,8 @@
 module Amazonka.DataBrew.Types.Sample where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.SampleType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the sample size and sampling type for DataBrew to use for

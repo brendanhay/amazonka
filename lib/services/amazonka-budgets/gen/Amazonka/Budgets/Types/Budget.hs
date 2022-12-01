@@ -27,7 +27,7 @@ import Amazonka.Budgets.Types.Spend
 import Amazonka.Budgets.Types.TimePeriod
 import Amazonka.Budgets.Types.TimeUnit
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of the @CreateBudget@ operation. The content

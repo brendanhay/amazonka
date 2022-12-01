@@ -21,7 +21,7 @@ module Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails where
 
 import Amazonka.CodeGuruReviewer.Types.CodeArtifacts
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the name of an S3 bucket and a @CodeArtifacts@ object that

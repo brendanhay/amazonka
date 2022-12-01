@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsElbv2LoadBalancerDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AvailabilityZone
 import Amazonka.SecurityHub.Types.AwsElbv2LoadBalancerAttribute

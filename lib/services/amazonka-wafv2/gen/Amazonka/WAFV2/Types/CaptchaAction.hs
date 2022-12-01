@@ -20,18 +20,19 @@
 module Amazonka.WAFV2.Types.CaptchaAction where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CustomRequestHandling
 
 -- | Specifies that WAF should run a @CAPTCHA@ check against the request:
 --
 -- -   If the request includes a valid, unexpired @CAPTCHA@ token, WAF
---     allows the web request inspection to proceed to the next rule,
---     similar to a @CountAction@.
+--     applies any custom request handling and labels that you\'ve
+--     configured and then allows the web request inspection to proceed to
+--     the next rule, similar to a @CountAction@.
 --
--- -   If the request doesn\'t include a valid, unexpired @CAPTCHA@ token,
---     WAF discontinues the web ACL evaluation of the request and blocks it
+-- -   If the request doesn\'t include a valid, unexpired token, WAF
+--     discontinues the web ACL evaluation of the request and blocks it
 --     from going to its intended destination.
 --
 --     WAF generates a response that it sends back to the client, which
@@ -42,7 +43,8 @@ import Amazonka.WAFV2.Types.CustomRequestHandling
 --     -   The HTTP status code @405 Method Not Allowed@.
 --
 --     -   If the request contains an @Accept@ header with a value of
---         @text\/html@, the response includes a @CAPTCHA@ challenge.
+--         @text\/html@, the response includes a @CAPTCHA@ JavaScript page
+--         interstitial.
 --
 -- You can configure the expiration time in the @CaptchaConfig@
 -- @ImmunityTimeProperty@ setting at the rule and web ACL level. The rule
@@ -53,7 +55,8 @@ import Amazonka.WAFV2.Types.CustomRequestHandling
 --
 -- /See:/ 'newCaptchaAction' smart constructor.
 data CaptchaAction = CaptchaAction'
-  { -- | Defines custom handling for the web request.
+  { -- | Defines custom handling for the web request, used when the @CAPTCHA@
+    -- inspection determines that the request\'s token is valid and unexpired.
     --
     -- For information about customizing web requests and responses, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
@@ -71,7 +74,8 @@ data CaptchaAction = CaptchaAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customRequestHandling', 'captchaAction_customRequestHandling' - Defines custom handling for the web request.
+-- 'customRequestHandling', 'captchaAction_customRequestHandling' - Defines custom handling for the web request, used when the @CAPTCHA@
+-- inspection determines that the request\'s token is valid and unexpired.
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
@@ -85,7 +89,8 @@ newCaptchaAction =
         Prelude.Nothing
     }
 
--- | Defines custom handling for the web request.
+-- | Defines custom handling for the web request, used when the @CAPTCHA@
+-- inspection determines that the request\'s token is valid and unexpired.
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>

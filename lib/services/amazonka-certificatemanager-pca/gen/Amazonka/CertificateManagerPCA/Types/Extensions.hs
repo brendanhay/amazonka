@@ -25,7 +25,7 @@ import Amazonka.CertificateManagerPCA.Types.GeneralName
 import Amazonka.CertificateManagerPCA.Types.KeyUsage
 import Amazonka.CertificateManagerPCA.Types.PolicyInformation
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains X.509 extension information for a certificate.

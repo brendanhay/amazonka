@@ -20,7 +20,7 @@
 module Amazonka.IotTwinMaker.Types.WorkspaceSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about a workspace.
@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 data WorkspaceSummary = WorkspaceSummary'
   { -- | The description of the workspace.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the workspace.
+    workspaceId :: Prelude.Text,
     -- | The ARN of the workspace.
     arn :: Prelude.Text,
     -- | The date and time when the workspace was created.
     creationDateTime :: Core.POSIX,
     -- | The date and time when the workspace was last updated.
-    updateDateTime :: Core.POSIX,
-    -- | The ID of the workspace.
-    workspaceId :: Prelude.Text
+    updateDateTime :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,40 +50,44 @@ data WorkspaceSummary = WorkspaceSummary'
 --
 -- 'description', 'workspaceSummary_description' - The description of the workspace.
 --
+-- 'workspaceId', 'workspaceSummary_workspaceId' - The ID of the workspace.
+--
 -- 'arn', 'workspaceSummary_arn' - The ARN of the workspace.
 --
 -- 'creationDateTime', 'workspaceSummary_creationDateTime' - The date and time when the workspace was created.
 --
 -- 'updateDateTime', 'workspaceSummary_updateDateTime' - The date and time when the workspace was last updated.
---
--- 'workspaceId', 'workspaceSummary_workspaceId' - The ID of the workspace.
 newWorkspaceSummary ::
+  -- | 'workspaceId'
+  Prelude.Text ->
   -- | 'arn'
   Prelude.Text ->
   -- | 'creationDateTime'
   Prelude.UTCTime ->
   -- | 'updateDateTime'
   Prelude.UTCTime ->
-  -- | 'workspaceId'
-  Prelude.Text ->
   WorkspaceSummary
 newWorkspaceSummary
+  pWorkspaceId_
   pArn_
   pCreationDateTime_
-  pUpdateDateTime_
-  pWorkspaceId_ =
+  pUpdateDateTime_ =
     WorkspaceSummary'
       { description = Prelude.Nothing,
+        workspaceId = pWorkspaceId_,
         arn = pArn_,
         creationDateTime =
           Core._Time Lens.# pCreationDateTime_,
-        updateDateTime = Core._Time Lens.# pUpdateDateTime_,
-        workspaceId = pWorkspaceId_
+        updateDateTime = Core._Time Lens.# pUpdateDateTime_
       }
 
 -- | The description of the workspace.
 workspaceSummary_description :: Lens.Lens' WorkspaceSummary (Prelude.Maybe Prelude.Text)
 workspaceSummary_description = Lens.lens (\WorkspaceSummary' {description} -> description) (\s@WorkspaceSummary' {} a -> s {description = a} :: WorkspaceSummary)
+
+-- | The ID of the workspace.
+workspaceSummary_workspaceId :: Lens.Lens' WorkspaceSummary Prelude.Text
+workspaceSummary_workspaceId = Lens.lens (\WorkspaceSummary' {workspaceId} -> workspaceId) (\s@WorkspaceSummary' {} a -> s {workspaceId = a} :: WorkspaceSummary)
 
 -- | The ARN of the workspace.
 workspaceSummary_arn :: Lens.Lens' WorkspaceSummary Prelude.Text
@@ -97,10 +101,6 @@ workspaceSummary_creationDateTime = Lens.lens (\WorkspaceSummary' {creationDateT
 workspaceSummary_updateDateTime :: Lens.Lens' WorkspaceSummary Prelude.UTCTime
 workspaceSummary_updateDateTime = Lens.lens (\WorkspaceSummary' {updateDateTime} -> updateDateTime) (\s@WorkspaceSummary' {} a -> s {updateDateTime = a} :: WorkspaceSummary) Prelude.. Core._Time
 
--- | The ID of the workspace.
-workspaceSummary_workspaceId :: Lens.Lens' WorkspaceSummary Prelude.Text
-workspaceSummary_workspaceId = Lens.lens (\WorkspaceSummary' {workspaceId} -> workspaceId) (\s@WorkspaceSummary' {} a -> s {workspaceId = a} :: WorkspaceSummary)
-
 instance Core.FromJSON WorkspaceSummary where
   parseJSON =
     Core.withObject
@@ -108,24 +108,24 @@ instance Core.FromJSON WorkspaceSummary where
       ( \x ->
           WorkspaceSummary'
             Prelude.<$> (x Core..:? "description")
+            Prelude.<*> (x Core..: "workspaceId")
             Prelude.<*> (x Core..: "arn")
             Prelude.<*> (x Core..: "creationDateTime")
             Prelude.<*> (x Core..: "updateDateTime")
-            Prelude.<*> (x Core..: "workspaceId")
       )
 
 instance Prelude.Hashable WorkspaceSummary where
   hashWithSalt _salt WorkspaceSummary' {..} =
     _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` updateDateTime
-      `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData WorkspaceSummary where
   rnf WorkspaceSummary' {..} =
     Prelude.rnf description
+      `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf updateDateTime
-      `Prelude.seq` Prelude.rnf workspaceId

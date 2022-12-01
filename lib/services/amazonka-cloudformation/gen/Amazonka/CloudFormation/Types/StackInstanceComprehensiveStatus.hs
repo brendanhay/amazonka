@@ -21,7 +21,7 @@ module Amazonka.CloudFormation.Types.StackInstanceComprehensiveStatus where
 
 import Amazonka.CloudFormation.Types.StackInstanceDetailedStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detailed status of the stack instance.

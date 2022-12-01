@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.MetricDimension where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.DimensionValueOperator
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The dimension of a metric.

@@ -21,7 +21,7 @@ module Amazonka.Braket.Types.ScriptModeConfig where
 
 import Amazonka.Braket.Types.CompressionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the Python scripts used for entry and by an

@@ -22,7 +22,7 @@ module Amazonka.Backup.Types.BackupRuleInput where
 import Amazonka.Backup.Types.CopyAction
 import Amazonka.Backup.Types.Lifecycle
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a scheduled task used to back up a selection of resources.

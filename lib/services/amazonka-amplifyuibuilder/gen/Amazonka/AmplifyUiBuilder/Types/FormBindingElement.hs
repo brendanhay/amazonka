@@ -20,7 +20,7 @@
 module Amazonka.AmplifyUiBuilder.Types.FormBindingElement where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes how to bind a component property to form data.

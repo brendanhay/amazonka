@@ -21,7 +21,7 @@ module Amazonka.AuditManager.Types.ControlDomainInsights where
 
 import Amazonka.AuditManager.Types.EvidenceInsights
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the latest analytics data for a specific control domain.

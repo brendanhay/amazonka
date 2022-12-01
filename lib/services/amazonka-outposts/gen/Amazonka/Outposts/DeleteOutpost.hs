@@ -39,7 +39,7 @@ module Amazonka.Outposts.DeleteOutpost
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -76,8 +76,8 @@ instance Core.AWSRequest DeleteOutpost where
   type
     AWSResponse DeleteOutpost =
       DeleteOutpostResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

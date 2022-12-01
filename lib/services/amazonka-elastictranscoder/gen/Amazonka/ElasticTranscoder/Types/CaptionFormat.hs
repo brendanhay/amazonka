@@ -20,8 +20,8 @@
 module Amazonka.ElasticTranscoder.Types.CaptionFormat where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types.Encryption
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The file format of the output captions. If you leave this value blank,

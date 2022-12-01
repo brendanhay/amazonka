@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubStrategy.Types.SourceCodeRepository where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object containing source code information that is linked to an

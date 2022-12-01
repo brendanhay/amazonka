@@ -22,7 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelSummary where
 import Amazonka.ChimeSDKMessaging.Types.ChannelMode
 import Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the details of a @Channel@.

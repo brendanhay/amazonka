@@ -22,7 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelMessageCallback where
 import Amazonka.ChimeSDKMessaging.Types.MessageAttributeValue
 import Amazonka.ChimeSDKMessaging.Types.PushNotificationConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stores information about a callback.

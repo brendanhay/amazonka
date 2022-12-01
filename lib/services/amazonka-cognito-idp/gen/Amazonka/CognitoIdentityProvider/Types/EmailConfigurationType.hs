@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.EmailConfigurationType where
 
 import Amazonka.CognitoIdentityProvider.Types.EmailSendingAccountType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The email configuration of your user pool. The email configuration type

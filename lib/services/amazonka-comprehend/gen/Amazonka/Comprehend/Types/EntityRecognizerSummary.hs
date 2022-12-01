@@ -21,7 +21,7 @@ module Amazonka.Comprehend.Types.EntityRecognizerSummary where
 
 import Amazonka.Comprehend.Types.ModelStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the information about an entity recognizer and its versions.

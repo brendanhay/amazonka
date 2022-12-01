@@ -20,7 +20,7 @@
 module Amazonka.DevOpsGuru.Types.EventTimeRange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The time range during which an Amazon Web Services event occurred.

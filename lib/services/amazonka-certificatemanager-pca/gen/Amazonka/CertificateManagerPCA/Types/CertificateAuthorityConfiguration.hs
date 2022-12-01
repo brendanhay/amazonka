@@ -24,7 +24,7 @@ import Amazonka.CertificateManagerPCA.Types.CsrExtensions
 import Amazonka.CertificateManagerPCA.Types.KeyAlgorithm
 import Amazonka.CertificateManagerPCA.Types.SigningAlgorithm
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information for your private certificate

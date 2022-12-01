@@ -20,6 +20,7 @@
 module Amazonka.Kafka.Types.ClusterInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.BrokerNodeGroupInfo
 import Amazonka.Kafka.Types.BrokerSoftwareInfo
 import Amazonka.Kafka.Types.ClientAuthentication
@@ -30,7 +31,6 @@ import Amazonka.Kafka.Types.LoggingInfo
 import Amazonka.Kafka.Types.OpenMonitoring
 import Amazonka.Kafka.Types.StateInfo
 import Amazonka.Kafka.Types.StorageMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a cluster.

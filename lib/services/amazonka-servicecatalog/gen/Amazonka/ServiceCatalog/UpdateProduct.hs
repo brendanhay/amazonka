@@ -36,6 +36,7 @@ module Amazonka.ServiceCatalog.UpdateProduct
     updateProduct_owner,
     updateProduct_description,
     updateProduct_distributor,
+    updateProduct_sourceConnection,
     updateProduct_acceptLanguage,
     updateProduct_id,
 
@@ -51,7 +52,7 @@ module Amazonka.ServiceCatalog.UpdateProduct
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -77,6 +78,15 @@ data UpdateProduct = UpdateProduct'
     description :: Prelude.Maybe Prelude.Text,
     -- | The updated distributor of the product.
     distributor :: Prelude.Maybe Prelude.Text,
+    -- | Specifies connection details for the updated product and syncs the
+    -- product to the connection source artifact. This automatically manages
+    -- the product\'s artifacts based on changes to the source. The
+    -- @SourceConnection@ parameter consists of the following sub-fields.
+    --
+    -- -   @Type@
+    --
+    -- -   @ConnectionParamters@
+    sourceConnection :: Prelude.Maybe SourceConnection,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -116,6 +126,15 @@ data UpdateProduct = UpdateProduct'
 --
 -- 'distributor', 'updateProduct_distributor' - The updated distributor of the product.
 --
+-- 'sourceConnection', 'updateProduct_sourceConnection' - Specifies connection details for the updated product and syncs the
+-- product to the connection source artifact. This automatically manages
+-- the product\'s artifacts based on changes to the source. The
+-- @SourceConnection@ parameter consists of the following sub-fields.
+--
+-- -   @Type@
+--
+-- -   @ConnectionParamters@
+--
 -- 'acceptLanguage', 'updateProduct_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -140,6 +159,7 @@ newUpdateProduct pId_ =
       owner = Prelude.Nothing,
       description = Prelude.Nothing,
       distributor = Prelude.Nothing,
+      sourceConnection = Prelude.Nothing,
       acceptLanguage = Prelude.Nothing,
       id = pId_
     }
@@ -180,6 +200,17 @@ updateProduct_description = Lens.lens (\UpdateProduct' {description} -> descript
 updateProduct_distributor :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
 updateProduct_distributor = Lens.lens (\UpdateProduct' {distributor} -> distributor) (\s@UpdateProduct' {} a -> s {distributor = a} :: UpdateProduct)
 
+-- | Specifies connection details for the updated product and syncs the
+-- product to the connection source artifact. This automatically manages
+-- the product\'s artifacts based on changes to the source. The
+-- @SourceConnection@ parameter consists of the following sub-fields.
+--
+-- -   @Type@
+--
+-- -   @ConnectionParamters@
+updateProduct_sourceConnection :: Lens.Lens' UpdateProduct (Prelude.Maybe SourceConnection)
+updateProduct_sourceConnection = Lens.lens (\UpdateProduct' {sourceConnection} -> sourceConnection) (\s@UpdateProduct' {} a -> s {sourceConnection = a} :: UpdateProduct)
+
 -- | The language code.
 --
 -- -   @en@ - English (default)
@@ -198,8 +229,8 @@ instance Core.AWSRequest UpdateProduct where
   type
     AWSResponse UpdateProduct =
       UpdateProductResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -220,6 +251,7 @@ instance Prelude.Hashable UpdateProduct where
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` distributor
+      `Prelude.hashWithSalt` sourceConnection
       `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
@@ -234,6 +266,7 @@ instance Prelude.NFData UpdateProduct where
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf distributor
+      `Prelude.seq` Prelude.rnf sourceConnection
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf id
 
@@ -266,6 +299,8 @@ instance Core.ToJSON UpdateProduct where
             ("Owner" Core..=) Prelude.<$> owner,
             ("Description" Core..=) Prelude.<$> description,
             ("Distributor" Core..=) Prelude.<$> distributor,
+            ("SourceConnection" Core..=)
+              Prelude.<$> sourceConnection,
             ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
             Prelude.Just ("Id" Core..= id)

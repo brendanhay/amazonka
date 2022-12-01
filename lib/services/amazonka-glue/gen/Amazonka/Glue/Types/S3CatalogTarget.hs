@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.S3CatalogTarget where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.CatalogSchemaChangePolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a data target that writes to Amazon S3 using the Glue Data

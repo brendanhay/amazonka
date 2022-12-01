@@ -20,8 +20,8 @@
 module Amazonka.IAM.Types.ManagedPolicyDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.PolicyVersion
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a managed policy, including the policy\'s

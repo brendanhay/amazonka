@@ -21,7 +21,7 @@ module Amazonka.Config.Types.ConfigRuleComplianceFilters where
 
 import Amazonka.Config.Types.ComplianceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters the compliance results based on account ID, region, compliance

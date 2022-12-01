@@ -22,7 +22,7 @@ module Amazonka.ConnectCases.Types.RelatedItemInputContent where
 import Amazonka.ConnectCases.Types.CommentContent
 import Amazonka.ConnectCases.Types.Contact
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the content of a related item to be created.

@@ -50,7 +50,7 @@ module Amazonka.SecurityHub.UpdateFindingAggregator
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,11 +59,11 @@ import Amazonka.SecurityHub.Types
 -- | /See:/ 'newUpdateFindingAggregator' smart constructor.
 data UpdateFindingAggregator = UpdateFindingAggregator'
   { -- | If @RegionLinkingMode@ is @ALL_REGIONS_EXCEPT_SPECIFIED@, then this is a
-    -- comma-separated list of Regions that do not aggregate findings to the
+    -- space-separated list of Regions that do not aggregate findings to the
     -- aggregation Region.
     --
     -- If @RegionLinkingMode@ is @SPECIFIED_REGIONS@, then this is a
-    -- comma-separated list of Regions that do aggregate findings to the
+    -- space-separated list of Regions that do aggregate findings to the
     -- aggregation Region.
     regions :: Prelude.Maybe [Prelude.Text],
     -- | The ARN of the finding aggregator. To obtain the ARN, use
@@ -106,11 +106,11 @@ data UpdateFindingAggregator = UpdateFindingAggregator'
 -- for backwards compatibility:
 --
 -- 'regions', 'updateFindingAggregator_regions' - If @RegionLinkingMode@ is @ALL_REGIONS_EXCEPT_SPECIFIED@, then this is a
--- comma-separated list of Regions that do not aggregate findings to the
+-- space-separated list of Regions that do not aggregate findings to the
 -- aggregation Region.
 --
 -- If @RegionLinkingMode@ is @SPECIFIED_REGIONS@, then this is a
--- comma-separated list of Regions that do aggregate findings to the
+-- space-separated list of Regions that do aggregate findings to the
 -- aggregation Region.
 --
 -- 'findingAggregatorArn', 'updateFindingAggregator_findingAggregatorArn' - The ARN of the finding aggregator. To obtain the ARN, use
@@ -156,11 +156,11 @@ newUpdateFindingAggregator
       }
 
 -- | If @RegionLinkingMode@ is @ALL_REGIONS_EXCEPT_SPECIFIED@, then this is a
--- comma-separated list of Regions that do not aggregate findings to the
+-- space-separated list of Regions that do not aggregate findings to the
 -- aggregation Region.
 --
 -- If @RegionLinkingMode@ is @SPECIFIED_REGIONS@, then this is a
--- comma-separated list of Regions that do aggregate findings to the
+-- space-separated list of Regions that do aggregate findings to the
 -- aggregation Region.
 updateFindingAggregator_regions :: Lens.Lens' UpdateFindingAggregator (Prelude.Maybe [Prelude.Text])
 updateFindingAggregator_regions = Lens.lens (\UpdateFindingAggregator' {regions} -> regions) (\s@UpdateFindingAggregator' {} a -> s {regions = a} :: UpdateFindingAggregator) Prelude.. Lens.mapping Lens.coerced
@@ -201,8 +201,8 @@ instance Core.AWSRequest UpdateFindingAggregator where
   type
     AWSResponse UpdateFindingAggregator =
       UpdateFindingAggregatorResponse
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

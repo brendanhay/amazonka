@@ -41,7 +41,7 @@ where
 
 import Amazonka.CodeStar.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,8 +83,8 @@ untagProject_tags = Lens.lens (\UntagProject' {tags} -> tags) (\s@UntagProject' 
 
 instance Core.AWSRequest UntagProject where
   type AWSResponse UntagProject = UntagProjectResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

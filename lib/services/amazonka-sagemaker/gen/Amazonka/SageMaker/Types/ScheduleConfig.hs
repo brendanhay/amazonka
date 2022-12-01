@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.ScheduleConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration details about the monitoring schedule.

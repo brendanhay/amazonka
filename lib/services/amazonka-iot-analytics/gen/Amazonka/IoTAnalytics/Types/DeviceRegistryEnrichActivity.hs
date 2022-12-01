@@ -20,7 +20,7 @@
 module Amazonka.IoTAnalytics.Types.DeviceRegistryEnrichActivity where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An activity that adds data from the IoT device registry to your message.

@@ -20,11 +20,11 @@
 module Amazonka.BillingConductor.Types.ListCustomLineItemPercentageChargeDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A representation of the charge details associated with a percentage
--- custom line item.
+-- | A representation of the charge details that are associated with a
+-- percentage custom line item.
 --
 -- /See:/ 'newListCustomLineItemPercentageChargeDetails' smart constructor.
 data ListCustomLineItemPercentageChargeDetails = ListCustomLineItemPercentageChargeDetails'

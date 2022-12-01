@@ -20,7 +20,7 @@
 module Amazonka.DeviceFarm.Types.DeviceMinutes where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the total (metered or unmetered) minutes used by the resource

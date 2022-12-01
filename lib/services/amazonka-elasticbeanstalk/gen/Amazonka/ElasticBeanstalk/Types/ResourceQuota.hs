@@ -20,7 +20,7 @@
 module Amazonka.ElasticBeanstalk.Types.ResourceQuota where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The AWS Elastic Beanstalk quota information for a single resource type

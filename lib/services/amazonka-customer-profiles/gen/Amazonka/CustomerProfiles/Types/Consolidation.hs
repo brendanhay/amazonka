@@ -20,7 +20,7 @@
 module Amazonka.CustomerProfiles.Types.Consolidation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The matching criteria to be used during the auto-merging process.

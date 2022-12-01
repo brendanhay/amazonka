@@ -20,7 +20,7 @@
 module Amazonka.QLDBSession.Types.EndSessionRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a request to end the session.

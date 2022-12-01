@@ -108,6 +108,12 @@ module Amazonka.WorkDocs.Lens
     deleteDocument_authenticationToken,
     deleteDocument_documentId,
 
+    -- ** DeleteDocumentVersion
+    deleteDocumentVersion_authenticationToken,
+    deleteDocumentVersion_documentId,
+    deleteDocumentVersion_versionId,
+    deleteDocumentVersion_deletePriorVersions,
+
     -- ** DeleteFolder
     deleteFolder_authenticationToken,
     deleteFolder_folderId,
@@ -295,13 +301,13 @@ module Amazonka.WorkDocs.Lens
 
     -- ** InitiateDocumentVersionUpload
     initiateDocumentVersionUpload_name,
+    initiateDocumentVersionUpload_parentFolderId,
     initiateDocumentVersionUpload_documentSizeInBytes,
     initiateDocumentVersionUpload_authenticationToken,
     initiateDocumentVersionUpload_contentCreatedTimestamp,
     initiateDocumentVersionUpload_id,
     initiateDocumentVersionUpload_contentModifiedTimestamp,
     initiateDocumentVersionUpload_contentType,
-    initiateDocumentVersionUpload_parentFolderId,
     initiateDocumentVersionUploadResponse_metadata,
     initiateDocumentVersionUploadResponse_uploadMetadata,
     initiateDocumentVersionUploadResponse_httpStatus,
@@ -315,6 +321,10 @@ module Amazonka.WorkDocs.Lens
     removeResourcePermission_principalType,
     removeResourcePermission_resourceId,
     removeResourcePermission_principalId,
+
+    -- ** RestoreDocumentVersions
+    restoreDocumentVersions_authenticationToken,
+    restoreDocumentVersions_documentId,
 
     -- ** UpdateDocument
     updateDocument_name,
@@ -524,6 +534,7 @@ import Amazonka.WorkDocs.DeactivateUser
 import Amazonka.WorkDocs.DeleteComment
 import Amazonka.WorkDocs.DeleteCustomMetadata
 import Amazonka.WorkDocs.DeleteDocument
+import Amazonka.WorkDocs.DeleteDocumentVersion
 import Amazonka.WorkDocs.DeleteFolder
 import Amazonka.WorkDocs.DeleteFolderContents
 import Amazonka.WorkDocs.DeleteLabels
@@ -548,6 +559,7 @@ import Amazonka.WorkDocs.GetResources
 import Amazonka.WorkDocs.InitiateDocumentVersionUpload
 import Amazonka.WorkDocs.RemoveAllResourcePermissions
 import Amazonka.WorkDocs.RemoveResourcePermission
+import Amazonka.WorkDocs.RestoreDocumentVersions
 import Amazonka.WorkDocs.Types.Activity
 import Amazonka.WorkDocs.Types.Comment
 import Amazonka.WorkDocs.Types.CommentMetadata

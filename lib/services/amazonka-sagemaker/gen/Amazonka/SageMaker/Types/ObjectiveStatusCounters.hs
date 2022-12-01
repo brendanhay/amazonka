@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.ObjectiveStatusCounters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the number of training jobs that this hyperparameter tuning

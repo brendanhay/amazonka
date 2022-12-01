@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.HlsSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.HlsAudioOnlyContainer
 import Amazonka.MediaConvert.Types.HlsAudioTrackType
 import Amazonka.MediaConvert.Types.HlsDescriptiveVideoServiceFlag

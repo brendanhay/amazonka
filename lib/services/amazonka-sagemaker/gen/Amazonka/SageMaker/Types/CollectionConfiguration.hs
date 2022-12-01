@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.CollectionConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for the Debugger output tensor collections.

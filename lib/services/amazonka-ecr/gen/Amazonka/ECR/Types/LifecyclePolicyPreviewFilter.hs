@@ -20,8 +20,8 @@
 module Amazonka.ECR.Types.LifecyclePolicyPreviewFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECR.Types.TagStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter for the lifecycle policy preview.

@@ -21,7 +21,7 @@ module Amazonka.Config.Types.RemediationExecutionStep where
 
 import Amazonka.Config.Types.RemediationExecutionStepState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Name of the step from the SSM document.

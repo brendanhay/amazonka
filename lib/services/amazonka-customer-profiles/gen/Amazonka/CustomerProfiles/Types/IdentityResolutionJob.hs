@@ -20,10 +20,10 @@
 module Amazonka.CustomerProfiles.Types.IdentityResolutionJob where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.ExportingLocation
 import Amazonka.CustomerProfiles.Types.IdentityResolutionJobStatus
 import Amazonka.CustomerProfiles.Types.JobStats
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the Identity Resolution Job.

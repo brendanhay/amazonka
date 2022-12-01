@@ -20,7 +20,7 @@
 module Amazonka.IAM.Types.OpenIDConnectProviderListEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect

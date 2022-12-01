@@ -20,13 +20,13 @@
 module Amazonka.ELBV2.Types.Action where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types.ActionTypeEnum
 import Amazonka.ELBV2.Types.AuthenticateCognitoActionConfig
 import Amazonka.ELBV2.Types.AuthenticateOidcActionConfig
 import Amazonka.ELBV2.Types.FixedResponseActionConfig
 import Amazonka.ELBV2.Types.ForwardActionConfig
 import Amazonka.ELBV2.Types.RedirectActionConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an action.

@@ -31,6 +31,7 @@ module Amazonka.ElastiCache.CreateUser
     -- * Request Lenses
     createUser_tags,
     createUser_passwords,
+    createUser_authenticationMode,
     createUser_noPasswordRequired,
     createUser_userId,
     createUser_userName,
@@ -55,8 +56,8 @@ module Amazonka.ElastiCache.CreateUser
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,6 +70,8 @@ data CreateUser = CreateUser'
     -- | Passwords used for this user. You can create up to two passwords for
     -- each user.
     passwords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Specifies how to authenticate the user.
+    authenticationMode :: Prelude.Maybe AuthenticationMode,
     -- | Indicates a password is not required for this user.
     noPasswordRequired :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the user.
@@ -95,6 +98,8 @@ data CreateUser = CreateUser'
 --
 -- 'passwords', 'createUser_passwords' - Passwords used for this user. You can create up to two passwords for
 -- each user.
+--
+-- 'authenticationMode', 'createUser_authenticationMode' - Specifies how to authenticate the user.
 --
 -- 'noPasswordRequired', 'createUser_noPasswordRequired' - Indicates a password is not required for this user.
 --
@@ -123,6 +128,7 @@ newCreateUser
     CreateUser'
       { tags = Prelude.Nothing,
         passwords = Prelude.Nothing,
+        authenticationMode = Prelude.Nothing,
         noPasswordRequired = Prelude.Nothing,
         userId = pUserId_,
         userName = pUserName_,
@@ -139,6 +145,10 @@ createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -
 -- each user.
 createUser_passwords :: Lens.Lens' CreateUser (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createUser_passwords = Lens.lens (\CreateUser' {passwords} -> passwords) (\s@CreateUser' {} a -> s {passwords = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies how to authenticate the user.
+createUser_authenticationMode :: Lens.Lens' CreateUser (Prelude.Maybe AuthenticationMode)
+createUser_authenticationMode = Lens.lens (\CreateUser' {authenticationMode} -> authenticationMode) (\s@CreateUser' {} a -> s {authenticationMode = a} :: CreateUser)
 
 -- | Indicates a password is not required for this user.
 createUser_noPasswordRequired :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Bool)
@@ -162,8 +172,8 @@ createUser_accessString = Lens.lens (\CreateUser' {accessString} -> accessString
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = User
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "CreateUserResult"
@@ -173,6 +183,7 @@ instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` passwords
+      `Prelude.hashWithSalt` authenticationMode
       `Prelude.hashWithSalt` noPasswordRequired
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` userName
@@ -183,6 +194,7 @@ instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf passwords
+      `Prelude.seq` Prelude.rnf authenticationMode
       `Prelude.seq` Prelude.rnf noPasswordRequired
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf userName
@@ -208,6 +220,7 @@ instance Core.ToQuery CreateUser where
         "Passwords"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> passwords),
+        "AuthenticationMode" Core.=: authenticationMode,
         "NoPasswordRequired" Core.=: noPasswordRequired,
         "UserId" Core.=: userId,
         "UserName" Core.=: userName,

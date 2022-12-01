@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyFrameOptions where
 
 import Amazonka.CloudFront.Types.FrameOptionsList
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Determines whether CloudFront includes the @X-Frame-Options@ HTTP

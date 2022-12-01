@@ -20,8 +20,9 @@
 module Amazonka.SSM.Types.StepExecution where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.AlarmStateInformation
 import Amazonka.SSM.Types.AutomationExecutionStatus
 import Amazonka.SSM.Types.FailureDetails
 import Amazonka.SSM.Types.Target
@@ -79,6 +80,8 @@ data StepExecution = StepExecution'
     -- | The flag which can be used to help decide whether the failure of current
     -- step leads to the Automation failure.
     isCritical :: Prelude.Maybe Prelude.Bool,
+    -- | The CloudWatch alarms that were invoked by the automation.
+    triggeredAlarms :: Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation),
     -- | The execution status for this step.
     stepStatus :: Prelude.Maybe AutomationExecutionStatus,
     -- | The response code returned by the execution of the step.
@@ -145,6 +148,8 @@ data StepExecution = StepExecution'
 -- 'isCritical', 'stepExecution_isCritical' - The flag which can be used to help decide whether the failure of current
 -- step leads to the Automation failure.
 --
+-- 'triggeredAlarms', 'stepExecution_triggeredAlarms' - The CloudWatch alarms that were invoked by the automation.
+--
 -- 'stepStatus', 'stepExecution_stepStatus' - The execution status for this step.
 --
 -- 'responseCode', 'stepExecution_responseCode' - The response code returned by the execution of the step.
@@ -174,6 +179,7 @@ newStepExecution =
       maxAttempts = Prelude.Nothing,
       inputs = Prelude.Nothing,
       isCritical = Prelude.Nothing,
+      triggeredAlarms = Prelude.Nothing,
       stepStatus = Prelude.Nothing,
       responseCode = Prelude.Nothing,
       executionEndTime = Prelude.Nothing
@@ -265,6 +271,10 @@ stepExecution_inputs = Lens.lens (\StepExecution' {inputs} -> inputs) (\s@StepEx
 stepExecution_isCritical :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Bool)
 stepExecution_isCritical = Lens.lens (\StepExecution' {isCritical} -> isCritical) (\s@StepExecution' {} a -> s {isCritical = a} :: StepExecution)
 
+-- | The CloudWatch alarms that were invoked by the automation.
+stepExecution_triggeredAlarms :: Lens.Lens' StepExecution (Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation))
+stepExecution_triggeredAlarms = Lens.lens (\StepExecution' {triggeredAlarms} -> triggeredAlarms) (\s@StepExecution' {} a -> s {triggeredAlarms = a} :: StepExecution) Prelude.. Lens.mapping Lens.coerced
+
 -- | The execution status for this step.
 stepExecution_stepStatus :: Lens.Lens' StepExecution (Prelude.Maybe AutomationExecutionStatus)
 stepExecution_stepStatus = Lens.lens (\StepExecution' {stepStatus} -> stepStatus) (\s@StepExecution' {} a -> s {stepStatus = a} :: StepExecution)
@@ -305,6 +315,7 @@ instance Core.FromJSON StepExecution where
             Prelude.<*> (x Core..:? "MaxAttempts")
             Prelude.<*> (x Core..:? "Inputs" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "IsCritical")
+            Prelude.<*> (x Core..:? "TriggeredAlarms")
             Prelude.<*> (x Core..:? "StepStatus")
             Prelude.<*> (x Core..:? "ResponseCode")
             Prelude.<*> (x Core..:? "ExecutionEndTime")
@@ -331,6 +342,7 @@ instance Prelude.Hashable StepExecution where
       `Prelude.hashWithSalt` maxAttempts
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` isCritical
+      `Prelude.hashWithSalt` triggeredAlarms
       `Prelude.hashWithSalt` stepStatus
       `Prelude.hashWithSalt` responseCode
       `Prelude.hashWithSalt` executionEndTime
@@ -356,6 +368,7 @@ instance Prelude.NFData StepExecution where
       `Prelude.seq` Prelude.rnf maxAttempts
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf isCritical
+      `Prelude.seq` Prelude.rnf triggeredAlarms
       `Prelude.seq` Prelude.rnf stepStatus
       `Prelude.seq` Prelude.rnf responseCode
       `Prelude.seq` Prelude.rnf

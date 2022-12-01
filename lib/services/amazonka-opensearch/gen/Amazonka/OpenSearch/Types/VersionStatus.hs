@@ -20,19 +20,18 @@
 module Amazonka.OpenSearch.Types.VersionStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | The status of the OpenSearch version options for the specified
--- OpenSearch domain.
+-- | The status of the the OpenSearch or Elasticsearch version options for
+-- the specified Amazon OpenSearch Service domain.
 --
 -- /See:/ 'newVersionStatus' smart constructor.
 data VersionStatus = VersionStatus'
-  { -- | The OpenSearch version for the specified OpenSearch domain.
+  { -- | The OpenSearch or Elasticsearch version for the specified domain.
     options :: Prelude.Text,
-    -- | The status of the OpenSearch version options for the specified
-    -- OpenSearch domain.
+    -- | The status of the version options for the specified domain.
     status :: OptionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,10 +44,9 @@ data VersionStatus = VersionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'options', 'versionStatus_options' - The OpenSearch version for the specified OpenSearch domain.
+-- 'options', 'versionStatus_options' - The OpenSearch or Elasticsearch version for the specified domain.
 --
--- 'status', 'versionStatus_status' - The status of the OpenSearch version options for the specified
--- OpenSearch domain.
+-- 'status', 'versionStatus_status' - The status of the version options for the specified domain.
 newVersionStatus ::
   -- | 'options'
   Prelude.Text ->
@@ -61,12 +59,11 @@ newVersionStatus pOptions_ pStatus_ =
       status = pStatus_
     }
 
--- | The OpenSearch version for the specified OpenSearch domain.
+-- | The OpenSearch or Elasticsearch version for the specified domain.
 versionStatus_options :: Lens.Lens' VersionStatus Prelude.Text
 versionStatus_options = Lens.lens (\VersionStatus' {options} -> options) (\s@VersionStatus' {} a -> s {options = a} :: VersionStatus)
 
--- | The status of the OpenSearch version options for the specified
--- OpenSearch domain.
+-- | The status of the version options for the specified domain.
 versionStatus_status :: Lens.Lens' VersionStatus OptionStatus
 versionStatus_status = Lens.lens (\VersionStatus' {status} -> status) (\s@VersionStatus' {} a -> s {status = a} :: VersionStatus)
 

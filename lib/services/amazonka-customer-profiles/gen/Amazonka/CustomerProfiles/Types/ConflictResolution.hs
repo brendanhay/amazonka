@@ -20,8 +20,8 @@
 module Amazonka.CustomerProfiles.Types.ConflictResolution where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.ConflictResolvingModel
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | How the auto-merging process should resolve conflicts between different

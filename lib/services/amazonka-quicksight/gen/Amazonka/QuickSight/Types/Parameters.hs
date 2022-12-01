@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.Parameters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DateTimeParameter
 import Amazonka.QuickSight.Types.DecimalParameter

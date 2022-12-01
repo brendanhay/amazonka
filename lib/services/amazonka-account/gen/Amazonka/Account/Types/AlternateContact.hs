@@ -21,7 +21,7 @@ module Amazonka.Account.Types.AlternateContact where
 
 import Amazonka.Account.Types.AlternateContactType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the details of an alternate contact associated

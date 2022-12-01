@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.H265ColorSpaceSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.ColorSpacePassthroughSettings
 import Amazonka.MediaLive.Types.DolbyVision81Settings
 import Amazonka.MediaLive.Types.Hdr10Settings

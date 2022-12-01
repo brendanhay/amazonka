@@ -20,7 +20,7 @@
 module Amazonka.Forecast.Types.BaselineMetric where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An individual metric that you can use for comparison as you evaluate

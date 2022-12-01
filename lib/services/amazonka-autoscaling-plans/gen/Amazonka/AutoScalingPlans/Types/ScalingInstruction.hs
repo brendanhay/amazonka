@@ -28,7 +28,7 @@ import Amazonka.AutoScalingPlans.Types.ScalingPolicyUpdateBehavior
 import Amazonka.AutoScalingPlans.Types.ServiceNamespace
 import Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a scaling instruction for a scalable resource in a scaling

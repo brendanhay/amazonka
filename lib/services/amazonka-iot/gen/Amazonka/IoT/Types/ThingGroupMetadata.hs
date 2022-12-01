@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.ThingGroupMetadata where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.GroupNameAndArn
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Thing group metadata.

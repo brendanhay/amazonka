@@ -22,7 +22,7 @@ module Amazonka.ChimeSdkMeetings.Types.Meeting where
 import Amazonka.ChimeSdkMeetings.Types.MediaPlacement
 import Amazonka.ChimeSdkMeetings.Types.MeetingFeaturesConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A meeting created using the Amazon Chime SDK.

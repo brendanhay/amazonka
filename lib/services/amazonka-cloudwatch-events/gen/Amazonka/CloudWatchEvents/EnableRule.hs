@@ -43,7 +43,7 @@ where
 
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,8 +91,8 @@ enableRule_name = Lens.lens (\EnableRule' {name} -> name) (\s@EnableRule' {} a -
 
 instance Core.AWSRequest EnableRule where
   type AWSResponse EnableRule = EnableRuleResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull EnableRuleResponse'
 
 instance Prelude.Hashable EnableRule where

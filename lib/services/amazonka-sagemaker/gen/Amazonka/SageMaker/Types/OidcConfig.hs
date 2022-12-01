@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.OidcConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this parameter to configure your OIDC Identity Provider (IdP).

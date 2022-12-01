@@ -20,7 +20,7 @@
 module Amazonka.ECRPublic.Types.RepositoryCatalogData where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The catalog data for a repository. This data is publicly visible in the

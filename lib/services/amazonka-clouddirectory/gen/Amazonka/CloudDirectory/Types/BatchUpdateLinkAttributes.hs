@@ -22,7 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchUpdateLinkAttributes where
 import Amazonka.CloudDirectory.Types.LinkAttributeUpdate
 import Amazonka.CloudDirectory.Types.TypedLinkSpecifier
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates a given typed link’s attributes inside a BatchRead operation.

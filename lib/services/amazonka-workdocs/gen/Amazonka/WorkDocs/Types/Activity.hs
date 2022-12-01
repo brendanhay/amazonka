@@ -20,7 +20,7 @@
 module Amazonka.WorkDocs.Types.Activity where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.ActivityType
 import Amazonka.WorkDocs.Types.CommentMetadata
@@ -60,7 +60,7 @@ data Activity = Activity'
     -- FOLDER_UNSHARED.
     participants :: Prelude.Maybe Participants
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Activity' with all optional fields omitted.

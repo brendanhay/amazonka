@@ -20,8 +20,8 @@
 module Amazonka.ElastiCache.Types.CacheSecurityGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.EC2SecurityGroup
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of one of the following operations:

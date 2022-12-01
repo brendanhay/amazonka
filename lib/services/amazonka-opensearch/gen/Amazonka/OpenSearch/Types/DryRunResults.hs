@@ -20,19 +20,27 @@
 module Amazonka.OpenSearch.Types.DryRunResults where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newDryRunResults' smart constructor.
+-- | Results of a dry run performed in an update domain request.
+--
+-- /See:/ 'newDryRunResults' smart constructor.
 data DryRunResults = DryRunResults'
-  { -- | Contains an optional message associated with the DryRunResults.
+  { -- | A message corresponding to the deployment type.
     message :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the way in which Amazon OpenSearch Service applies the update.
-    -- Possible responses are @Blue\/Green@ (the update requires a blue\/green
-    -- deployment), @DynamicUpdate@ (no blue\/green required), @Undetermined@
-    -- (the domain is undergoing an update and can\'t predict the deployment
-    -- type; try again after the update is complete), and @None@ (the request
-    -- doesn\'t include any configuration changes).
+    -- | Specifies the way in which OpenSearch Service will apply an update.
+    -- Possible values are:
+    --
+    -- -   __Blue\/Green__ - The update requires a blue\/green deployment.
+    --
+    -- -   __DynamicUpdate__ - No blue\/green deployment required
+    --
+    -- -   __Undetermined__ - The domain is in the middle of an update and
+    --     can\'t predict the deployment type. Try again after the update is
+    --     complete.
+    --
+    -- -   __None__ - The request doesn\'t include any configuration changes.
     deploymentType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,14 +53,20 @@ data DryRunResults = DryRunResults'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'dryRunResults_message' - Contains an optional message associated with the DryRunResults.
+-- 'message', 'dryRunResults_message' - A message corresponding to the deployment type.
 --
--- 'deploymentType', 'dryRunResults_deploymentType' - Specifies the way in which Amazon OpenSearch Service applies the update.
--- Possible responses are @Blue\/Green@ (the update requires a blue\/green
--- deployment), @DynamicUpdate@ (no blue\/green required), @Undetermined@
--- (the domain is undergoing an update and can\'t predict the deployment
--- type; try again after the update is complete), and @None@ (the request
--- doesn\'t include any configuration changes).
+-- 'deploymentType', 'dryRunResults_deploymentType' - Specifies the way in which OpenSearch Service will apply an update.
+-- Possible values are:
+--
+-- -   __Blue\/Green__ - The update requires a blue\/green deployment.
+--
+-- -   __DynamicUpdate__ - No blue\/green deployment required
+--
+-- -   __Undetermined__ - The domain is in the middle of an update and
+--     can\'t predict the deployment type. Try again after the update is
+--     complete.
+--
+-- -   __None__ - The request doesn\'t include any configuration changes.
 newDryRunResults ::
   DryRunResults
 newDryRunResults =
@@ -61,16 +75,22 @@ newDryRunResults =
       deploymentType = Prelude.Nothing
     }
 
--- | Contains an optional message associated with the DryRunResults.
+-- | A message corresponding to the deployment type.
 dryRunResults_message :: Lens.Lens' DryRunResults (Prelude.Maybe Prelude.Text)
 dryRunResults_message = Lens.lens (\DryRunResults' {message} -> message) (\s@DryRunResults' {} a -> s {message = a} :: DryRunResults)
 
--- | Specifies the way in which Amazon OpenSearch Service applies the update.
--- Possible responses are @Blue\/Green@ (the update requires a blue\/green
--- deployment), @DynamicUpdate@ (no blue\/green required), @Undetermined@
--- (the domain is undergoing an update and can\'t predict the deployment
--- type; try again after the update is complete), and @None@ (the request
--- doesn\'t include any configuration changes).
+-- | Specifies the way in which OpenSearch Service will apply an update.
+-- Possible values are:
+--
+-- -   __Blue\/Green__ - The update requires a blue\/green deployment.
+--
+-- -   __DynamicUpdate__ - No blue\/green deployment required
+--
+-- -   __Undetermined__ - The domain is in the middle of an update and
+--     can\'t predict the deployment type. Try again after the update is
+--     complete.
+--
+-- -   __None__ - The request doesn\'t include any configuration changes.
 dryRunResults_deploymentType :: Lens.Lens' DryRunResults (Prelude.Maybe Prelude.Text)
 dryRunResults_deploymentType = Lens.lens (\DryRunResults' {deploymentType} -> deploymentType) (\s@DryRunResults' {} a -> s {deploymentType = a} :: DryRunResults)
 

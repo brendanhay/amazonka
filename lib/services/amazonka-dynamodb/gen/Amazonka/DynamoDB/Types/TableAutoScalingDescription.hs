@@ -20,11 +20,11 @@
 module Amazonka.DynamoDB.Types.TableAutoScalingDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ReplicaAutoScalingDescription
 import Amazonka.DynamoDB.Types.TableStatus
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the auto scaling configuration for a global table.

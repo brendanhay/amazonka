@@ -21,7 +21,7 @@ module Amazonka.CodeBuild.Types.ResolvedArtifact where
 
 import Amazonka.CodeBuild.Types.ArtifactsType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a resolved build artifact. A resolved artifact is an artifact

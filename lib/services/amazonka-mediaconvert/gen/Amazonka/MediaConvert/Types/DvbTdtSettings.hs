@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.DvbTdtSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use these settings to insert a DVB Time and Date Table (TDT) in the

@@ -20,9 +20,9 @@
 module Amazonka.FMS.Types.PolicyComplianceStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.DependentServiceName
 import Amazonka.FMS.Types.EvaluationResult
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether the account is compliant with the specified policy. An

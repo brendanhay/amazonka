@@ -21,7 +21,7 @@ module Amazonka.AppRunner.Types.ServiceSummary where
 
 import Amazonka.AppRunner.Types.ServiceStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information for an App Runner service.

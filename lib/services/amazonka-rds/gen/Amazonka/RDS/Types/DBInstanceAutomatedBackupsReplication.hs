@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.DBInstanceAutomatedBackupsReplication where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Automated backups of a DB instance replicated to another Amazon Web

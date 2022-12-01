@@ -21,7 +21,7 @@ module Amazonka.CodeDeploy.Types.EC2TagSet where
 
 import Amazonka.CodeDeploy.Types.EC2TagFilter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about groups of Amazon EC2 instance tags.

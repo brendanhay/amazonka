@@ -23,7 +23,7 @@ import Amazonka.AppMesh.Types.VirtualGatewayBackendDefaults
 import Amazonka.AppMesh.Types.VirtualGatewayListener
 import Amazonka.AppMesh.Types.VirtualGatewayLogging
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the specification of a service mesh resource.

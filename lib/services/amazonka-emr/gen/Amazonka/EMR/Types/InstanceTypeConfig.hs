@@ -20,9 +20,9 @@
 module Amazonka.EMR.Types.InstanceTypeConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.Configuration
 import Amazonka.EMR.Types.EbsConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An instance type configuration for each instance type in an instance

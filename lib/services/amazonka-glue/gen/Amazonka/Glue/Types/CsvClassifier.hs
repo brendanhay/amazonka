@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.CsvClassifier where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.CsvHeaderOption
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A classifier for custom @CSV@ content.
@@ -44,8 +44,14 @@ data CsvClassifier = CsvClassifier'
     lastUpdated :: Prelude.Maybe Core.POSIX,
     -- | A custom symbol to denote what separates each column entry in the row.
     delimiter :: Prelude.Maybe Prelude.Text,
+    -- | Enables the custom datatype to be configured.
+    customDatatypeConfigured :: Prelude.Maybe Prelude.Bool,
     -- | The time that this classifier was registered.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | A list of custom datatypes including \"BINARY\", \"BOOLEAN\", \"DATE\",
+    -- \"DECIMAL\", \"DOUBLE\", \"FLOAT\", \"INT\", \"LONG\", \"SHORT\",
+    -- \"STRING\", \"TIMESTAMP\".
+    customDatatypes :: Prelude.Maybe [Prelude.Text],
     -- | The version of this classifier.
     version :: Prelude.Maybe Prelude.Integer,
     -- | The name of the classifier.
@@ -77,7 +83,13 @@ data CsvClassifier = CsvClassifier'
 --
 -- 'delimiter', 'csvClassifier_delimiter' - A custom symbol to denote what separates each column entry in the row.
 --
+-- 'customDatatypeConfigured', 'csvClassifier_customDatatypeConfigured' - Enables the custom datatype to be configured.
+--
 -- 'creationTime', 'csvClassifier_creationTime' - The time that this classifier was registered.
+--
+-- 'customDatatypes', 'csvClassifier_customDatatypes' - A list of custom datatypes including \"BINARY\", \"BOOLEAN\", \"DATE\",
+-- \"DECIMAL\", \"DOUBLE\", \"FLOAT\", \"INT\", \"LONG\", \"SHORT\",
+-- \"STRING\", \"TIMESTAMP\".
 --
 -- 'version', 'csvClassifier_version' - The version of this classifier.
 --
@@ -95,7 +107,9 @@ newCsvClassifier pName_ =
       allowSingleColumn = Prelude.Nothing,
       lastUpdated = Prelude.Nothing,
       delimiter = Prelude.Nothing,
+      customDatatypeConfigured = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      customDatatypes = Prelude.Nothing,
       version = Prelude.Nothing,
       name = pName_
     }
@@ -130,9 +144,19 @@ csvClassifier_lastUpdated = Lens.lens (\CsvClassifier' {lastUpdated} -> lastUpda
 csvClassifier_delimiter :: Lens.Lens' CsvClassifier (Prelude.Maybe Prelude.Text)
 csvClassifier_delimiter = Lens.lens (\CsvClassifier' {delimiter} -> delimiter) (\s@CsvClassifier' {} a -> s {delimiter = a} :: CsvClassifier)
 
+-- | Enables the custom datatype to be configured.
+csvClassifier_customDatatypeConfigured :: Lens.Lens' CsvClassifier (Prelude.Maybe Prelude.Bool)
+csvClassifier_customDatatypeConfigured = Lens.lens (\CsvClassifier' {customDatatypeConfigured} -> customDatatypeConfigured) (\s@CsvClassifier' {} a -> s {customDatatypeConfigured = a} :: CsvClassifier)
+
 -- | The time that this classifier was registered.
 csvClassifier_creationTime :: Lens.Lens' CsvClassifier (Prelude.Maybe Prelude.UTCTime)
 csvClassifier_creationTime = Lens.lens (\CsvClassifier' {creationTime} -> creationTime) (\s@CsvClassifier' {} a -> s {creationTime = a} :: CsvClassifier) Prelude.. Lens.mapping Core._Time
+
+-- | A list of custom datatypes including \"BINARY\", \"BOOLEAN\", \"DATE\",
+-- \"DECIMAL\", \"DOUBLE\", \"FLOAT\", \"INT\", \"LONG\", \"SHORT\",
+-- \"STRING\", \"TIMESTAMP\".
+csvClassifier_customDatatypes :: Lens.Lens' CsvClassifier (Prelude.Maybe [Prelude.Text])
+csvClassifier_customDatatypes = Lens.lens (\CsvClassifier' {customDatatypes} -> customDatatypes) (\s@CsvClassifier' {} a -> s {customDatatypes = a} :: CsvClassifier) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version of this classifier.
 csvClassifier_version :: Lens.Lens' CsvClassifier (Prelude.Maybe Prelude.Integer)
@@ -155,7 +179,11 @@ instance Core.FromJSON CsvClassifier where
             Prelude.<*> (x Core..:? "AllowSingleColumn")
             Prelude.<*> (x Core..:? "LastUpdated")
             Prelude.<*> (x Core..:? "Delimiter")
+            Prelude.<*> (x Core..:? "CustomDatatypeConfigured")
             Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> ( x Core..:? "CustomDatatypes"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..: "Name")
       )
@@ -169,7 +197,9 @@ instance Prelude.Hashable CsvClassifier where
       `Prelude.hashWithSalt` allowSingleColumn
       `Prelude.hashWithSalt` lastUpdated
       `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` customDatatypeConfigured
       `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` customDatatypes
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name
 
@@ -182,6 +212,8 @@ instance Prelude.NFData CsvClassifier where
       `Prelude.seq` Prelude.rnf allowSingleColumn
       `Prelude.seq` Prelude.rnf lastUpdated
       `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf customDatatypeConfigured
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf customDatatypes
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf name

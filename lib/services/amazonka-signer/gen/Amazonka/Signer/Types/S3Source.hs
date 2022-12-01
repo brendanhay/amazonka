@@ -20,7 +20,7 @@
 module Amazonka.Signer.Types.S3Source where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the S3 bucket where you saved your unsigned code.

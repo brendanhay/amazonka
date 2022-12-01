@@ -20,7 +20,7 @@
 module Amazonka.Personalize.Types.DatasetImportJob where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Personalize.Types.DataSource
 import Amazonka.Personalize.Types.ImportMode
 import qualified Amazonka.Prelude as Prelude
@@ -48,6 +48,8 @@ data DatasetImportJob = DatasetImportJob'
     --
     -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
     status :: Prelude.Maybe Prelude.Text,
+    -- | Whether the job publishes metrics to Amazon S3 for a metric attribution.
+    publishAttributionMetricsToS3 :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the dataset that receives the imported
     -- data.
     datasetArn :: Prelude.Maybe Prelude.Text,
@@ -85,6 +87,8 @@ data DatasetImportJob = DatasetImportJob'
 --
 -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 --
+-- 'publishAttributionMetricsToS3', 'datasetImportJob_publishAttributionMetricsToS3' - Whether the job publishes metrics to Amazon S3 for a metric attribution.
+--
 -- 'datasetArn', 'datasetImportJob_datasetArn' - The Amazon Resource Name (ARN) of the dataset that receives the imported
 -- data.
 --
@@ -105,6 +109,7 @@ newDatasetImportJob =
       creationDateTime = Prelude.Nothing,
       jobName = Prelude.Nothing,
       status = Prelude.Nothing,
+      publishAttributionMetricsToS3 = Prelude.Nothing,
       datasetArn = Prelude.Nothing,
       datasetImportJobArn = Prelude.Nothing,
       dataSource = Prelude.Nothing,
@@ -133,6 +138,10 @@ datasetImportJob_jobName = Lens.lens (\DatasetImportJob' {jobName} -> jobName) (
 -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 datasetImportJob_status :: Lens.Lens' DatasetImportJob (Prelude.Maybe Prelude.Text)
 datasetImportJob_status = Lens.lens (\DatasetImportJob' {status} -> status) (\s@DatasetImportJob' {} a -> s {status = a} :: DatasetImportJob)
+
+-- | Whether the job publishes metrics to Amazon S3 for a metric attribution.
+datasetImportJob_publishAttributionMetricsToS3 :: Lens.Lens' DatasetImportJob (Prelude.Maybe Prelude.Bool)
+datasetImportJob_publishAttributionMetricsToS3 = Lens.lens (\DatasetImportJob' {publishAttributionMetricsToS3} -> publishAttributionMetricsToS3) (\s@DatasetImportJob' {} a -> s {publishAttributionMetricsToS3 = a} :: DatasetImportJob)
 
 -- | The Amazon Resource Name (ARN) of the dataset that receives the imported
 -- data.
@@ -169,6 +178,7 @@ instance Core.FromJSON DatasetImportJob where
             Prelude.<*> (x Core..:? "creationDateTime")
             Prelude.<*> (x Core..:? "jobName")
             Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "publishAttributionMetricsToS3")
             Prelude.<*> (x Core..:? "datasetArn")
             Prelude.<*> (x Core..:? "datasetImportJobArn")
             Prelude.<*> (x Core..:? "dataSource")
@@ -183,6 +193,7 @@ instance Prelude.Hashable DatasetImportJob where
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` publishAttributionMetricsToS3
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` datasetImportJobArn
       `Prelude.hashWithSalt` dataSource
@@ -196,6 +207,7 @@ instance Prelude.NFData DatasetImportJob where
       `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf publishAttributionMetricsToS3
       `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf datasetImportJobArn
       `Prelude.seq` Prelude.rnf dataSource

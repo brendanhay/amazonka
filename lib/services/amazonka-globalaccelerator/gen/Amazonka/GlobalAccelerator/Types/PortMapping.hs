@@ -20,10 +20,10 @@
 module Amazonka.GlobalAccelerator.Types.PortMapping where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState
 import Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol
 import Amazonka.GlobalAccelerator.Types.SocketAddress
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the ports and associated IP addresses and ports of Amazon EC2

@@ -20,9 +20,9 @@
 module Amazonka.IoTAnalytics.Types.Variable where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.DatasetContentVersionValue
 import Amazonka.IoTAnalytics.Types.OutputFileUriValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An instance of a variable to be passed to the @containerAction@

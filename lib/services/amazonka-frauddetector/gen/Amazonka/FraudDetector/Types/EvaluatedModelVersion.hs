@@ -20,8 +20,8 @@
 module Amazonka.FraudDetector.Types.EvaluatedModelVersion where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FraudDetector.Types.ModelVersionEvaluation
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The model version evaluated for generating prediction.

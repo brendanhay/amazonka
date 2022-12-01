@@ -20,7 +20,7 @@
 module Amazonka.Lambda.Types.SelfManagedKafkaEventSourceConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specific configuration settings for a self-managed Apache Kafka event
@@ -32,7 +32,7 @@ data SelfManagedKafkaEventSourceConfig = SelfManagedKafkaEventSourceConfig'
     -- ID must be unique among all your Kafka event sources. After creating a
     -- Kafka event source mapping with the consumer group ID specified, you
     -- cannot update this value. For more information, see
-    -- services-msk-consumer-group-id.
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id Customizable consumer group ID>.
     consumerGroupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,7 +49,7 @@ data SelfManagedKafkaEventSourceConfig = SelfManagedKafkaEventSourceConfig'
 -- ID must be unique among all your Kafka event sources. After creating a
 -- Kafka event source mapping with the consumer group ID specified, you
 -- cannot update this value. For more information, see
--- services-msk-consumer-group-id.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id Customizable consumer group ID>.
 newSelfManagedKafkaEventSourceConfig ::
   SelfManagedKafkaEventSourceConfig
 newSelfManagedKafkaEventSourceConfig =
@@ -62,7 +62,7 @@ newSelfManagedKafkaEventSourceConfig =
 -- ID must be unique among all your Kafka event sources. After creating a
 -- Kafka event source mapping with the consumer group ID specified, you
 -- cannot update this value. For more information, see
--- services-msk-consumer-group-id.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id Customizable consumer group ID>.
 selfManagedKafkaEventSourceConfig_consumerGroupId :: Lens.Lens' SelfManagedKafkaEventSourceConfig (Prelude.Maybe Prelude.Text)
 selfManagedKafkaEventSourceConfig_consumerGroupId = Lens.lens (\SelfManagedKafkaEventSourceConfig' {consumerGroupId} -> consumerGroupId) (\s@SelfManagedKafkaEventSourceConfig' {} a -> s {consumerGroupId = a} :: SelfManagedKafkaEventSourceConfig)
 

@@ -45,6 +45,7 @@ module Amazonka.Proton.CreateEnvironment
 
     -- * Request Lenses
     createEnvironment_tags,
+    createEnvironment_codebuildRoleArn,
     createEnvironment_provisioningRepository,
     createEnvironment_description,
     createEnvironment_templateMinorVersion,
@@ -67,7 +68,7 @@ module Amazonka.Proton.CreateEnvironment
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -82,6 +83,14 @@ data CreateEnvironment = CreateEnvironment'
     -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
     -- in the /Proton User Guide/.
     tags :: Prelude.Maybe [Tag],
+    -- | The Amazon Resource Name (ARN) of the IAM service role that allows
+    -- Proton to provision infrastructure using CodeBuild-based provisioning on
+    -- your behalf.
+    --
+    -- To use CodeBuild-based provisioning for the environment or for any
+    -- service instance running in the environment, specify either the
+    -- @environmentAccountConnectionId@ or @codebuildRoleArn@ parameter.
+    codebuildRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The linked repository that you use to host your rendered infrastructure
     -- templates for self-managed provisioning. A linked repository is a
     -- repository that has been registered with Proton. For more information,
@@ -156,6 +165,14 @@ data CreateEnvironment = CreateEnvironment'
 -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
 -- in the /Proton User Guide/.
 --
+-- 'codebuildRoleArn', 'createEnvironment_codebuildRoleArn' - The Amazon Resource Name (ARN) of the IAM service role that allows
+-- Proton to provision infrastructure using CodeBuild-based provisioning on
+-- your behalf.
+--
+-- To use CodeBuild-based provisioning for the environment or for any
+-- service instance running in the environment, specify either the
+-- @environmentAccountConnectionId@ or @codebuildRoleArn@ parameter.
+--
 -- 'provisioningRepository', 'createEnvironment_provisioningRepository' - The linked repository that you use to host your rendered infrastructure
 -- templates for self-managed provisioning. A linked repository is a
 -- repository that has been registered with Proton. For more information,
@@ -228,6 +245,7 @@ newCreateEnvironment
   pTemplateName_ =
     CreateEnvironment'
       { tags = Prelude.Nothing,
+        codebuildRoleArn = Prelude.Nothing,
         provisioningRepository = Prelude.Nothing,
         description = Prelude.Nothing,
         templateMinorVersion = Prelude.Nothing,
@@ -248,6 +266,16 @@ newCreateEnvironment
 -- in the /Proton User Guide/.
 createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe [Tag])
 createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the IAM service role that allows
+-- Proton to provision infrastructure using CodeBuild-based provisioning on
+-- your behalf.
+--
+-- To use CodeBuild-based provisioning for the environment or for any
+-- service instance running in the environment, specify either the
+-- @environmentAccountConnectionId@ or @codebuildRoleArn@ parameter.
+createEnvironment_codebuildRoleArn :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
+createEnvironment_codebuildRoleArn = Lens.lens (\CreateEnvironment' {codebuildRoleArn} -> codebuildRoleArn) (\s@CreateEnvironment' {} a -> s {codebuildRoleArn = a} :: CreateEnvironment)
 
 -- | The linked repository that you use to host your rendered infrastructure
 -- templates for self-managed provisioning. A linked repository is a
@@ -329,8 +357,8 @@ instance Core.AWSRequest CreateEnvironment where
   type
     AWSResponse CreateEnvironment =
       CreateEnvironmentResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -342,6 +370,7 @@ instance Core.AWSRequest CreateEnvironment where
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` codebuildRoleArn
       `Prelude.hashWithSalt` provisioningRepository
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` templateMinorVersion
@@ -356,6 +385,7 @@ instance Prelude.Hashable CreateEnvironment where
 instance Prelude.NFData CreateEnvironment where
   rnf CreateEnvironment' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf codebuildRoleArn
       `Prelude.seq` Prelude.rnf provisioningRepository
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf templateMinorVersion
@@ -387,6 +417,8 @@ instance Core.ToJSON CreateEnvironment where
     Core.object
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
+            ("codebuildRoleArn" Core..=)
+              Prelude.<$> codebuildRoleArn,
             ("provisioningRepository" Core..=)
               Prelude.<$> provisioningRepository,
             ("description" Core..=) Prelude.<$> description,

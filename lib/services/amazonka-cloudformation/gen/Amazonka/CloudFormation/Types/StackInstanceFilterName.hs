@@ -20,7 +20,8 @@
 module Amazonka.CloudFormation.Types.StackInstanceFilterName
   ( StackInstanceFilterName
       ( ..,
-        StackInstanceFilterName_DETAILED_STATUS
+        StackInstanceFilterName_DETAILED_STATUS,
+        StackInstanceFilterName_LAST_OPERATION_ID
       ),
   )
 where
@@ -59,7 +60,11 @@ newtype StackInstanceFilterName = StackInstanceFilterName'
 pattern StackInstanceFilterName_DETAILED_STATUS :: StackInstanceFilterName
 pattern StackInstanceFilterName_DETAILED_STATUS = StackInstanceFilterName' "DETAILED_STATUS"
 
+pattern StackInstanceFilterName_LAST_OPERATION_ID :: StackInstanceFilterName
+pattern StackInstanceFilterName_LAST_OPERATION_ID = StackInstanceFilterName' "LAST_OPERATION_ID"
+
 {-# COMPLETE
   StackInstanceFilterName_DETAILED_STATUS,
+  StackInstanceFilterName_LAST_OPERATION_ID,
   StackInstanceFilterName'
   #-}

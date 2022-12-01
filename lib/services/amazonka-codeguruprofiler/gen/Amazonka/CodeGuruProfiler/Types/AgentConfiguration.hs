@@ -21,7 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.AgentConfiguration where
 
 import Amazonka.CodeGuruProfiler.Types.AgentParameterField
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The response of

@@ -22,7 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfigur
 import Amazonka.CognitoIdentityProvider.Types.CompromisedCredentialsActionsType
 import Amazonka.CognitoIdentityProvider.Types.EventFilterType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The compromised credentials risk configuration type.

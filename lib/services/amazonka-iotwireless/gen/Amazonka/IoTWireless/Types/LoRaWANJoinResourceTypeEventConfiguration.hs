@@ -20,8 +20,8 @@
 module Amazonka.IoTWireless.Types.LoRaWANJoinResourceTypeEventConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.EventNotificationTopicStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for LoRaWAN join resource type event configuration.

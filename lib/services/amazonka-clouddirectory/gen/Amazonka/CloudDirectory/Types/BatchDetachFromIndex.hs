@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchDetachFromIndex where
 
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detaches the specified object from the specified index inside a

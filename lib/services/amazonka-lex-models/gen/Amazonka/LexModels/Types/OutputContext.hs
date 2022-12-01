@@ -20,7 +20,7 @@
 module Amazonka.LexModels.Types.OutputContext where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The specification of an output context that is set when an intent is

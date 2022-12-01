@@ -20,7 +20,7 @@
 module Amazonka.RolesAnywhere.Types.CrlDetail where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The state of the certificate revocation list (CRL) after a read or write

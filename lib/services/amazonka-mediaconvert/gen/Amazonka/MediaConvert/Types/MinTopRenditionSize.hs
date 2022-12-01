@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.MinTopRenditionSize where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use Min top rendition size to specify a minimum size for the highest

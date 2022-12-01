@@ -49,15 +49,15 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCustomLineItems' smart constructor.
 data ListCustomLineItems = ListCustomLineItems'
-  { -- | The pagination token used on subsequent calls to get custom line items
-    -- (FFLIs).
+  { -- | The pagination token that\'s used on subsequent calls to get custom line
+    -- items (FFLIs).
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The preferred billing period to get custom line items (FFLIs).
     billingPeriod :: Prelude.Maybe Prelude.Text,
@@ -78,8 +78,8 @@ data ListCustomLineItems = ListCustomLineItems'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCustomLineItems_nextToken' - The pagination token used on subsequent calls to get custom line items
--- (FFLIs).
+-- 'nextToken', 'listCustomLineItems_nextToken' - The pagination token that\'s used on subsequent calls to get custom line
+-- items (FFLIs).
 --
 -- 'billingPeriod', 'listCustomLineItems_billingPeriod' - The preferred billing period to get custom line items (FFLIs).
 --
@@ -98,8 +98,8 @@ newListCustomLineItems =
       maxResults = Prelude.Nothing
     }
 
--- | The pagination token used on subsequent calls to get custom line items
--- (FFLIs).
+-- | The pagination token that\'s used on subsequent calls to get custom line
+-- items (FFLIs).
 listCustomLineItems_nextToken :: Lens.Lens' ListCustomLineItems (Prelude.Maybe Prelude.Text)
 listCustomLineItems_nextToken = Lens.lens (\ListCustomLineItems' {nextToken} -> nextToken) (\s@ListCustomLineItems' {} a -> s {nextToken = a} :: ListCustomLineItems)
 
@@ -143,8 +143,8 @@ instance Core.AWSRequest ListCustomLineItems where
   type
     AWSResponse ListCustomLineItems =
       ListCustomLineItemsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -200,8 +200,8 @@ instance Core.ToQuery ListCustomLineItems where
 
 -- | /See:/ 'newListCustomLineItemsResponse' smart constructor.
 data ListCustomLineItemsResponse = ListCustomLineItemsResponse'
-  { -- | The pagination token used on subsequent calls to get custom line items
-    -- (FFLIs).
+  { -- | The pagination token that\'s used on subsequent calls to get custom line
+    -- items (FFLIs).
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @FreeFormLineItemListElements@ received.
     customLineItems :: Prelude.Maybe [CustomLineItemListElement],
@@ -218,8 +218,8 @@ data ListCustomLineItemsResponse = ListCustomLineItemsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCustomLineItemsResponse_nextToken' - The pagination token used on subsequent calls to get custom line items
--- (FFLIs).
+-- 'nextToken', 'listCustomLineItemsResponse_nextToken' - The pagination token that\'s used on subsequent calls to get custom line
+-- items (FFLIs).
 --
 -- 'customLineItems', 'listCustomLineItemsResponse_customLineItems' - A list of @FreeFormLineItemListElements@ received.
 --
@@ -236,8 +236,8 @@ newListCustomLineItemsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The pagination token used on subsequent calls to get custom line items
--- (FFLIs).
+-- | The pagination token that\'s used on subsequent calls to get custom line
+-- items (FFLIs).
 listCustomLineItemsResponse_nextToken :: Lens.Lens' ListCustomLineItemsResponse (Prelude.Maybe Prelude.Text)
 listCustomLineItemsResponse_nextToken = Lens.lens (\ListCustomLineItemsResponse' {nextToken} -> nextToken) (\s@ListCustomLineItemsResponse' {} a -> s {nextToken = a} :: ListCustomLineItemsResponse)
 

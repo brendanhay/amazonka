@@ -20,8 +20,8 @@
 module Amazonka.ELBV2.Types.AuthenticateOidcActionConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types.AuthenticateOidcActionConditionalBehaviorEnum
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Request parameters when using an identity provider (IdP) that is

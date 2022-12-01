@@ -23,7 +23,7 @@ import Amazonka.AuditManager.Types.ControlComment
 import Amazonka.AuditManager.Types.ControlResponse
 import Amazonka.AuditManager.Types.ControlStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The control entity that represents a standard control or a custom

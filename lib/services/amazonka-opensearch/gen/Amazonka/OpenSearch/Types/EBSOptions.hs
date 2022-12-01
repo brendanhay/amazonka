@@ -20,24 +20,28 @@
 module Amazonka.OpenSearch.Types.EBSOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.VolumeType
 import qualified Amazonka.Prelude as Prelude
 
--- | Options to enable, disable, and specify the properties of EBS storage
--- volumes.
+-- | Container for the parameters required to enable EBS-based storage for an
+-- OpenSearch Service domain.
 --
 -- /See:/ 'newEBSOptions' smart constructor.
 data EBSOptions = EBSOptions'
-  { -- | The volume type for EBS-based storage.
+  { -- | Specifies the type of EBS volumes attached to data nodes.
     volumeType :: Prelude.Maybe VolumeType,
-    -- | Integer to specify the size of an EBS volume.
+    -- | Specifies the size (in GiB) of EBS volumes attached to data nodes.
     volumeSize :: Prelude.Maybe Prelude.Int,
-    -- | The Throughput for GP3 EBS volume (SSD).
+    -- | Specifies the throughput (in MiB\/s) of the EBS volumes attached to data
+    -- nodes. Applicable only for the @gp3@ volume type.
     throughput :: Prelude.Maybe Prelude.Int,
-    -- | Whether EBS-based storage is enabled.
+    -- | Indicates whether EBS volumes are attached to data nodes in an
+    -- OpenSearch Service domain.
     eBSEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The IOPS for Provisioned IOPS And GP3 EBS volume (SSD).
+    -- | Specifies the baseline input\/output (I\/O) performance of EBS volumes
+    -- attached to data nodes. Applicable only for the @gp3@ and provisioned
+    -- IOPS EBS volume types.
     iops :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,15 +54,19 @@ data EBSOptions = EBSOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volumeType', 'eBSOptions_volumeType' - The volume type for EBS-based storage.
+-- 'volumeType', 'eBSOptions_volumeType' - Specifies the type of EBS volumes attached to data nodes.
 --
--- 'volumeSize', 'eBSOptions_volumeSize' - Integer to specify the size of an EBS volume.
+-- 'volumeSize', 'eBSOptions_volumeSize' - Specifies the size (in GiB) of EBS volumes attached to data nodes.
 --
--- 'throughput', 'eBSOptions_throughput' - The Throughput for GP3 EBS volume (SSD).
+-- 'throughput', 'eBSOptions_throughput' - Specifies the throughput (in MiB\/s) of the EBS volumes attached to data
+-- nodes. Applicable only for the @gp3@ volume type.
 --
--- 'eBSEnabled', 'eBSOptions_eBSEnabled' - Whether EBS-based storage is enabled.
+-- 'eBSEnabled', 'eBSOptions_eBSEnabled' - Indicates whether EBS volumes are attached to data nodes in an
+-- OpenSearch Service domain.
 --
--- 'iops', 'eBSOptions_iops' - The IOPS for Provisioned IOPS And GP3 EBS volume (SSD).
+-- 'iops', 'eBSOptions_iops' - Specifies the baseline input\/output (I\/O) performance of EBS volumes
+-- attached to data nodes. Applicable only for the @gp3@ and provisioned
+-- IOPS EBS volume types.
 newEBSOptions ::
   EBSOptions
 newEBSOptions =
@@ -70,23 +78,27 @@ newEBSOptions =
       iops = Prelude.Nothing
     }
 
--- | The volume type for EBS-based storage.
+-- | Specifies the type of EBS volumes attached to data nodes.
 eBSOptions_volumeType :: Lens.Lens' EBSOptions (Prelude.Maybe VolumeType)
 eBSOptions_volumeType = Lens.lens (\EBSOptions' {volumeType} -> volumeType) (\s@EBSOptions' {} a -> s {volumeType = a} :: EBSOptions)
 
--- | Integer to specify the size of an EBS volume.
+-- | Specifies the size (in GiB) of EBS volumes attached to data nodes.
 eBSOptions_volumeSize :: Lens.Lens' EBSOptions (Prelude.Maybe Prelude.Int)
 eBSOptions_volumeSize = Lens.lens (\EBSOptions' {volumeSize} -> volumeSize) (\s@EBSOptions' {} a -> s {volumeSize = a} :: EBSOptions)
 
--- | The Throughput for GP3 EBS volume (SSD).
+-- | Specifies the throughput (in MiB\/s) of the EBS volumes attached to data
+-- nodes. Applicable only for the @gp3@ volume type.
 eBSOptions_throughput :: Lens.Lens' EBSOptions (Prelude.Maybe Prelude.Int)
 eBSOptions_throughput = Lens.lens (\EBSOptions' {throughput} -> throughput) (\s@EBSOptions' {} a -> s {throughput = a} :: EBSOptions)
 
--- | Whether EBS-based storage is enabled.
+-- | Indicates whether EBS volumes are attached to data nodes in an
+-- OpenSearch Service domain.
 eBSOptions_eBSEnabled :: Lens.Lens' EBSOptions (Prelude.Maybe Prelude.Bool)
 eBSOptions_eBSEnabled = Lens.lens (\EBSOptions' {eBSEnabled} -> eBSEnabled) (\s@EBSOptions' {} a -> s {eBSEnabled = a} :: EBSOptions)
 
--- | The IOPS for Provisioned IOPS And GP3 EBS volume (SSD).
+-- | Specifies the baseline input\/output (I\/O) performance of EBS volumes
+-- attached to data nodes. Applicable only for the @gp3@ and provisioned
+-- IOPS EBS volume types.
 eBSOptions_iops :: Lens.Lens' EBSOptions (Prelude.Maybe Prelude.Int)
 eBSOptions_iops = Lens.lens (\EBSOptions' {iops} -> iops) (\s@EBSOptions' {} a -> s {iops = a} :: EBSOptions)
 

@@ -20,10 +20,10 @@
 module Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.CheckpointConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.MonitoringConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.ParallelismConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes configuration parameters for a Flink-based Kinesis Data

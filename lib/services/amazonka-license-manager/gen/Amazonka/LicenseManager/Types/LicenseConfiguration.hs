@@ -20,7 +20,7 @@
 module Amazonka.LicenseManager.Types.LicenseConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LicenseManager.Types.AutomatedDiscoveryInformation
 import Amazonka.LicenseManager.Types.ConsumedLicenseSummary
 import Amazonka.LicenseManager.Types.LicenseCountingType

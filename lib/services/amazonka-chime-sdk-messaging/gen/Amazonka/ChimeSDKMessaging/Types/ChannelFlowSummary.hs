@@ -21,7 +21,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelFlowSummary where
 
 import Amazonka.ChimeSDKMessaging.Types.Processor
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of details of a channel flow.

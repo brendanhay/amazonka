@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.PlacementStrategy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.PlacementStrategyType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The task placement strategy for a task or service. For more information,

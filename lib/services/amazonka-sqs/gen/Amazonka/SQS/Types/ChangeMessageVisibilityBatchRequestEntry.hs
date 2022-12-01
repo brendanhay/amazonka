@@ -20,7 +20,7 @@
 module Amazonka.SQS.Types.ChangeMessageVisibilityBatchRequestEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encloses a receipt handle and an entry id for each message in

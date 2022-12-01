@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.OptionSetting where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Option settings are the actual settings being applied or configured for

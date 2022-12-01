@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.TitleAggregationResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.SeverityCounts
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A response that contains details on the results of a finding aggregation

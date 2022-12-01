@@ -20,10 +20,11 @@
 module Amazonka.CustomerProfiles.Types.Profile where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.Address
+import Amazonka.CustomerProfiles.Types.FoundByKeyValue
 import Amazonka.CustomerProfiles.Types.Gender
 import Amazonka.CustomerProfiles.Types.PartyType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The standard profile of a customer.
@@ -61,6 +62,31 @@ data Profile = Profile'
     partyType :: Prelude.Maybe PartyType,
     -- | The gender with which the customer identifies.
     gender :: Prelude.Maybe Gender,
+    -- | A list of items used to find a profile returned in a
+    -- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html SearchProfiles>
+    -- response. An item is a key-value(s) pair that matches an attribute in
+    -- the profile.
+    --
+    -- If the optional @AdditionalSearchKeys@ parameter was included in the
+    -- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html SearchProfiles>
+    -- request, the @FoundByItems@ list should be interpreted based on the
+    -- @LogicalOperator@ used in the request:
+    --
+    -- -   @AND@ - The profile included in the response matched all of the
+    --     search keys specified in the request. The @FoundByItems@ will
+    --     include all of the key-value(s) pairs that were specified in the
+    --     request (as this is a requirement of @AND@ search logic).
+    --
+    -- -   @OR@ - The profile included in the response matched at least one of
+    --     the search keys specified in the request. The @FoundByItems@ will
+    --     include each of the key-value(s) pairs that the profile was found
+    --     by.
+    --
+    -- The @OR@ relationship is the default behavior if the @LogicalOperator@
+    -- parameter is not included in the
+    -- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html SearchProfiles>
+    -- request.
+    foundByItems :: Prelude.Maybe (Prelude.NonEmpty FoundByKeyValue),
     -- | The customer’s mobile phone number.
     mobilePhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The customer’s middle name.
@@ -119,6 +145,31 @@ data Profile = Profile'
 --
 -- 'gender', 'profile_gender' - The gender with which the customer identifies.
 --
+-- 'foundByItems', 'profile_foundByItems' - A list of items used to find a profile returned in a
+-- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html SearchProfiles>
+-- response. An item is a key-value(s) pair that matches an attribute in
+-- the profile.
+--
+-- If the optional @AdditionalSearchKeys@ parameter was included in the
+-- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html SearchProfiles>
+-- request, the @FoundByItems@ list should be interpreted based on the
+-- @LogicalOperator@ used in the request:
+--
+-- -   @AND@ - The profile included in the response matched all of the
+--     search keys specified in the request. The @FoundByItems@ will
+--     include all of the key-value(s) pairs that were specified in the
+--     request (as this is a requirement of @AND@ search logic).
+--
+-- -   @OR@ - The profile included in the response matched at least one of
+--     the search keys specified in the request. The @FoundByItems@ will
+--     include each of the key-value(s) pairs that the profile was found
+--     by.
+--
+-- The @OR@ relationship is the default behavior if the @LogicalOperator@
+-- parameter is not included in the
+-- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html SearchProfiles>
+-- request.
+--
 -- 'mobilePhoneNumber', 'profile_mobilePhoneNumber' - The customer’s mobile phone number.
 --
 -- 'middleName', 'profile_middleName' - The customer’s middle name.
@@ -153,6 +204,7 @@ newProfile =
       address = Prelude.Nothing,
       partyType = Prelude.Nothing,
       gender = Prelude.Nothing,
+      foundByItems = Prelude.Nothing,
       mobilePhoneNumber = Prelude.Nothing,
       middleName = Prelude.Nothing,
       attributes = Prelude.Nothing,
@@ -223,6 +275,33 @@ profile_partyType = Lens.lens (\Profile' {partyType} -> partyType) (\s@Profile' 
 profile_gender :: Lens.Lens' Profile (Prelude.Maybe Gender)
 profile_gender = Lens.lens (\Profile' {gender} -> gender) (\s@Profile' {} a -> s {gender = a} :: Profile)
 
+-- | A list of items used to find a profile returned in a
+-- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html SearchProfiles>
+-- response. An item is a key-value(s) pair that matches an attribute in
+-- the profile.
+--
+-- If the optional @AdditionalSearchKeys@ parameter was included in the
+-- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html SearchProfiles>
+-- request, the @FoundByItems@ list should be interpreted based on the
+-- @LogicalOperator@ used in the request:
+--
+-- -   @AND@ - The profile included in the response matched all of the
+--     search keys specified in the request. The @FoundByItems@ will
+--     include all of the key-value(s) pairs that were specified in the
+--     request (as this is a requirement of @AND@ search logic).
+--
+-- -   @OR@ - The profile included in the response matched at least one of
+--     the search keys specified in the request. The @FoundByItems@ will
+--     include each of the key-value(s) pairs that the profile was found
+--     by.
+--
+-- The @OR@ relationship is the default behavior if the @LogicalOperator@
+-- parameter is not included in the
+-- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html SearchProfiles>
+-- request.
+profile_foundByItems :: Lens.Lens' Profile (Prelude.Maybe (Prelude.NonEmpty FoundByKeyValue))
+profile_foundByItems = Lens.lens (\Profile' {foundByItems} -> foundByItems) (\s@Profile' {} a -> s {foundByItems = a} :: Profile) Prelude.. Lens.mapping Lens.coerced
+
 -- | The customer’s mobile phone number.
 profile_mobilePhoneNumber :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_mobilePhoneNumber = Lens.lens (\Profile' {mobilePhoneNumber} -> mobilePhoneNumber) (\s@Profile' {} a -> s {mobilePhoneNumber = a} :: Profile)
@@ -274,6 +353,7 @@ instance Core.FromJSON Profile where
             Prelude.<*> (x Core..:? "Address")
             Prelude.<*> (x Core..:? "PartyType")
             Prelude.<*> (x Core..:? "Gender")
+            Prelude.<*> (x Core..:? "FoundByItems")
             Prelude.<*> (x Core..:? "MobilePhoneNumber")
             Prelude.<*> (x Core..:? "MiddleName")
             Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
@@ -300,6 +380,7 @@ instance Prelude.Hashable Profile where
       `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` partyType
       `Prelude.hashWithSalt` gender
+      `Prelude.hashWithSalt` foundByItems
       `Prelude.hashWithSalt` mobilePhoneNumber
       `Prelude.hashWithSalt` middleName
       `Prelude.hashWithSalt` attributes
@@ -325,6 +406,7 @@ instance Prelude.NFData Profile where
       `Prelude.seq` Prelude.rnf address
       `Prelude.seq` Prelude.rnf partyType
       `Prelude.seq` Prelude.rnf gender
+      `Prelude.seq` Prelude.rnf foundByItems
       `Prelude.seq` Prelude.rnf mobilePhoneNumber
       `Prelude.seq` Prelude.rnf middleName
       `Prelude.seq` Prelude.rnf attributes
@@ -332,4 +414,5 @@ instance Prelude.NFData Profile where
       `Prelude.seq` Prelude.rnf
         additionalInformation
       `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf accountNumber
+      `Prelude.seq` Prelude.rnf
+        accountNumber

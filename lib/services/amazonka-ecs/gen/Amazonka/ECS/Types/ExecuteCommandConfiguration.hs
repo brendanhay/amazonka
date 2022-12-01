@@ -20,9 +20,9 @@
 module Amazonka.ECS.Types.ExecuteCommandConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.ExecuteCommandLogConfiguration
 import Amazonka.ECS.Types.ExecuteCommandLogging
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the execute command configuration.

@@ -22,7 +22,7 @@ module Amazonka.CloudFormation.Types.TypeSummary where
 import Amazonka.CloudFormation.Types.IdentityProvider
 import Amazonka.CloudFormation.Types.RegistryType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about the specified CloudFormation

@@ -20,20 +20,26 @@
 module Amazonka.WorkSpaces.Types.WorkspaceBundle where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.WorkSpaces.Types.BundleType
 import Amazonka.WorkSpaces.Types.ComputeType
 import Amazonka.WorkSpaces.Types.RootStorage
 import Amazonka.WorkSpaces.Types.UserStorage
+import Amazonka.WorkSpaces.Types.WorkspaceBundleState
 
 -- | Describes a WorkSpace bundle.
 --
 -- /See:/ 'newWorkspaceBundle' smart constructor.
 data WorkspaceBundle = WorkspaceBundle'
-  { -- | The name of the bundle.
+  { -- | The type of WorkSpace bundle.
+    bundleType :: Prelude.Maybe BundleType,
+    -- | The name of the bundle.
     name :: Prelude.Maybe Prelude.Text,
     -- | The size of the root volume.
     rootStorage :: Prelude.Maybe RootStorage,
+    -- | The state of the WorkSpace bundle.
+    state :: Prelude.Maybe WorkspaceBundleState,
     -- | The owner of the bundle. This is the account identifier of the owner, or
     -- @AMAZON@ if the bundle is provided by Amazon Web Services.
     owner :: Prelude.Maybe Prelude.Text,
@@ -63,9 +69,13 @@ data WorkspaceBundle = WorkspaceBundle'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bundleType', 'workspaceBundle_bundleType' - The type of WorkSpace bundle.
+--
 -- 'name', 'workspaceBundle_name' - The name of the bundle.
 --
 -- 'rootStorage', 'workspaceBundle_rootStorage' - The size of the root volume.
+--
+-- 'state', 'workspaceBundle_state' - The state of the WorkSpace bundle.
 --
 -- 'owner', 'workspaceBundle_owner' - The owner of the bundle. This is the account identifier of the owner, or
 -- @AMAZON@ if the bundle is provided by Amazon Web Services.
@@ -88,8 +98,10 @@ newWorkspaceBundle ::
   WorkspaceBundle
 newWorkspaceBundle =
   WorkspaceBundle'
-    { name = Prelude.Nothing,
+    { bundleType = Prelude.Nothing,
+      name = Prelude.Nothing,
       rootStorage = Prelude.Nothing,
+      state = Prelude.Nothing,
       owner = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -100,6 +112,10 @@ newWorkspaceBundle =
       imageId = Prelude.Nothing
     }
 
+-- | The type of WorkSpace bundle.
+workspaceBundle_bundleType :: Lens.Lens' WorkspaceBundle (Prelude.Maybe BundleType)
+workspaceBundle_bundleType = Lens.lens (\WorkspaceBundle' {bundleType} -> bundleType) (\s@WorkspaceBundle' {} a -> s {bundleType = a} :: WorkspaceBundle)
+
 -- | The name of the bundle.
 workspaceBundle_name :: Lens.Lens' WorkspaceBundle (Prelude.Maybe Prelude.Text)
 workspaceBundle_name = Lens.lens (\WorkspaceBundle' {name} -> name) (\s@WorkspaceBundle' {} a -> s {name = a} :: WorkspaceBundle)
@@ -107,6 +123,10 @@ workspaceBundle_name = Lens.lens (\WorkspaceBundle' {name} -> name) (\s@Workspac
 -- | The size of the root volume.
 workspaceBundle_rootStorage :: Lens.Lens' WorkspaceBundle (Prelude.Maybe RootStorage)
 workspaceBundle_rootStorage = Lens.lens (\WorkspaceBundle' {rootStorage} -> rootStorage) (\s@WorkspaceBundle' {} a -> s {rootStorage = a} :: WorkspaceBundle)
+
+-- | The state of the WorkSpace bundle.
+workspaceBundle_state :: Lens.Lens' WorkspaceBundle (Prelude.Maybe WorkspaceBundleState)
+workspaceBundle_state = Lens.lens (\WorkspaceBundle' {state} -> state) (\s@WorkspaceBundle' {} a -> s {state = a} :: WorkspaceBundle)
 
 -- | The owner of the bundle. This is the account identifier of the owner, or
 -- @AMAZON@ if the bundle is provided by Amazon Web Services.
@@ -148,8 +168,10 @@ instance Core.FromJSON WorkspaceBundle where
       "WorkspaceBundle"
       ( \x ->
           WorkspaceBundle'
-            Prelude.<$> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "BundleType")
+            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "RootStorage")
+            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "Owner")
             Prelude.<*> (x Core..:? "LastUpdatedTime")
             Prelude.<*> (x Core..:? "Description")
@@ -162,8 +184,10 @@ instance Core.FromJSON WorkspaceBundle where
 
 instance Prelude.Hashable WorkspaceBundle where
   hashWithSalt _salt WorkspaceBundle' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` bundleType
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` rootStorage
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` description
@@ -175,8 +199,10 @@ instance Prelude.Hashable WorkspaceBundle where
 
 instance Prelude.NFData WorkspaceBundle where
   rnf WorkspaceBundle' {..} =
-    Prelude.rnf name
+    Prelude.rnf bundleType
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf rootStorage
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf description

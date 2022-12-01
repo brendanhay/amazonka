@@ -20,7 +20,7 @@
 module Amazonka.CodeStarNotifications.Types.EventTypeSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about an event that has triggered a notification

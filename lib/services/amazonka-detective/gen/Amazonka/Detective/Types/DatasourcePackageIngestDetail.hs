@@ -20,9 +20,9 @@
 module Amazonka.Detective.Types.DatasourcePackageIngestDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Detective.Types.DatasourcePackageIngestState
 import Amazonka.Detective.Types.TimestampForCollection
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the data source packages ingested by your behavior graph.

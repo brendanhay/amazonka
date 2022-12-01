@@ -22,7 +22,7 @@ module Amazonka.AuditManager.Types.Control where
 import Amazonka.AuditManager.Types.ControlMappingSource
 import Amazonka.AuditManager.Types.ControlType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A control in Audit Manager.
@@ -55,8 +55,8 @@ data Control = Control'
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The IAM user or role that most recently updated the control.
     lastUpdatedBy :: Prelude.Maybe Prelude.Text,
-    -- | The data source that determines where Audit Manager collects evidence
-    -- from for the control.
+    -- | The data source types that determine where Audit Manager collects
+    -- evidence from for the control.
     controlSources :: Prelude.Maybe Prelude.Text,
     -- | The steps that you should follow to determine if the control has been
     -- satisfied.
@@ -98,8 +98,8 @@ data Control = Control'
 --
 -- 'lastUpdatedBy', 'control_lastUpdatedBy' - The IAM user or role that most recently updated the control.
 --
--- 'controlSources', 'control_controlSources' - The data source that determines where Audit Manager collects evidence
--- from for the control.
+-- 'controlSources', 'control_controlSources' - The data source types that determine where Audit Manager collects
+-- evidence from for the control.
 --
 -- 'testingInformation', 'control_testingInformation' - The steps that you should follow to determine if the control has been
 -- satisfied.
@@ -176,8 +176,8 @@ control_createdAt = Lens.lens (\Control' {createdAt} -> createdAt) (\s@Control' 
 control_lastUpdatedBy :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_lastUpdatedBy = Lens.lens (\Control' {lastUpdatedBy} -> lastUpdatedBy) (\s@Control' {} a -> s {lastUpdatedBy = a} :: Control)
 
--- | The data source that determines where Audit Manager collects evidence
--- from for the control.
+-- | The data source types that determine where Audit Manager collects
+-- evidence from for the control.
 control_controlSources :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_controlSources = Lens.lens (\Control' {controlSources} -> controlSources) (\s@Control' {} a -> s {controlSources = a} :: Control)
 

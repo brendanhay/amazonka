@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.WafExcludedRule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a rule to exclude from a rule group.

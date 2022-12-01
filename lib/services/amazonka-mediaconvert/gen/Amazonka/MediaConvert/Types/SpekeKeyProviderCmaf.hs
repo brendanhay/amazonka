@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.SpekeKeyProviderCmaf where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | If your output group type is CMAF, use these settings when doing DRM

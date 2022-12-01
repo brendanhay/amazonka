@@ -20,6 +20,7 @@
 module Amazonka.Lambda.Types.EventSourceMappingConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types.AmazonManagedKafkaEventSourceConfig
 import Amazonka.Lambda.Types.DestinationConfig
 import Amazonka.Lambda.Types.EventSourcePosition
@@ -28,7 +29,6 @@ import Amazonka.Lambda.Types.FunctionResponseType
 import Amazonka.Lambda.Types.SelfManagedEventSource
 import Amazonka.Lambda.Types.SelfManagedKafkaEventSourceConfig
 import Amazonka.Lambda.Types.SourceAccessConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A mapping between an Amazon Web Services resource and a Lambda function.
@@ -63,14 +63,22 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     state :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the event source mapping.
     uuid :: Prelude.Maybe Prelude.Text,
-    -- | (Streams and Amazon SQS standard queues) The maximum amount of time, in
-    -- seconds, that Lambda spends gathering records before invoking the
-    -- function.
+    -- | The maximum amount of time, in seconds, that Lambda spends gathering
+    -- records before invoking the function. You can configure
+    -- @MaximumBatchingWindowInSeconds@ to any value from 0 seconds to 300
+    -- seconds in increments of seconds.
     --
-    -- Default: 0
+    -- For streams and Amazon SQS event sources, the default batching window is
+    -- 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ
+    -- event sources, the default batching window is 500 ms. Note that because
+    -- you can only change @MaximumBatchingWindowInSeconds@ in increments of
+    -- seconds, you cannot revert back to the 500 ms default batching window
+    -- after you have changed it. To restore the default batching window, you
+    -- must create a new event source mapping.
     --
-    -- Related setting: When you set @BatchSize@ to a value greater than 10,
-    -- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
+    -- Related setting: For streams and Amazon SQS event sources, when you set
+    -- @BatchSize@ to a value greater than 10, you must set
+    -- @MaximumBatchingWindowInSeconds@ to at least 1.
     maximumBatchingWindowInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Indicates whether a user or Lambda made the last change to the event
     -- source mapping.
@@ -164,14 +172,22 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
 --
 -- 'uuid', 'eventSourceMappingConfiguration_uuid' - The identifier of the event source mapping.
 --
--- 'maximumBatchingWindowInSeconds', 'eventSourceMappingConfiguration_maximumBatchingWindowInSeconds' - (Streams and Amazon SQS standard queues) The maximum amount of time, in
--- seconds, that Lambda spends gathering records before invoking the
--- function.
+-- 'maximumBatchingWindowInSeconds', 'eventSourceMappingConfiguration_maximumBatchingWindowInSeconds' - The maximum amount of time, in seconds, that Lambda spends gathering
+-- records before invoking the function. You can configure
+-- @MaximumBatchingWindowInSeconds@ to any value from 0 seconds to 300
+-- seconds in increments of seconds.
 --
--- Default: 0
+-- For streams and Amazon SQS event sources, the default batching window is
+-- 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ
+-- event sources, the default batching window is 500 ms. Note that because
+-- you can only change @MaximumBatchingWindowInSeconds@ in increments of
+-- seconds, you cannot revert back to the 500 ms default batching window
+-- after you have changed it. To restore the default batching window, you
+-- must create a new event source mapping.
 --
--- Related setting: When you set @BatchSize@ to a value greater than 10,
--- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
+-- Related setting: For streams and Amazon SQS event sources, when you set
+-- @BatchSize@ to a value greater than 10, you must set
+-- @MaximumBatchingWindowInSeconds@ to at least 1.
 --
 -- 'stateTransitionReason', 'eventSourceMappingConfiguration_stateTransitionReason' - Indicates whether a user or Lambda made the last change to the event
 -- source mapping.
@@ -309,14 +325,22 @@ eventSourceMappingConfiguration_state = Lens.lens (\EventSourceMappingConfigurat
 eventSourceMappingConfiguration_uuid :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.Text)
 eventSourceMappingConfiguration_uuid = Lens.lens (\EventSourceMappingConfiguration' {uuid} -> uuid) (\s@EventSourceMappingConfiguration' {} a -> s {uuid = a} :: EventSourceMappingConfiguration)
 
--- | (Streams and Amazon SQS standard queues) The maximum amount of time, in
--- seconds, that Lambda spends gathering records before invoking the
--- function.
+-- | The maximum amount of time, in seconds, that Lambda spends gathering
+-- records before invoking the function. You can configure
+-- @MaximumBatchingWindowInSeconds@ to any value from 0 seconds to 300
+-- seconds in increments of seconds.
 --
--- Default: 0
+-- For streams and Amazon SQS event sources, the default batching window is
+-- 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ
+-- event sources, the default batching window is 500 ms. Note that because
+-- you can only change @MaximumBatchingWindowInSeconds@ in increments of
+-- seconds, you cannot revert back to the 500 ms default batching window
+-- after you have changed it. To restore the default batching window, you
+-- must create a new event source mapping.
 --
--- Related setting: When you set @BatchSize@ to a value greater than 10,
--- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
+-- Related setting: For streams and Amazon SQS event sources, when you set
+-- @BatchSize@ to a value greater than 10, you must set
+-- @MaximumBatchingWindowInSeconds@ to at least 1.
 eventSourceMappingConfiguration_maximumBatchingWindowInSeconds :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.Natural)
 eventSourceMappingConfiguration_maximumBatchingWindowInSeconds = Lens.lens (\EventSourceMappingConfiguration' {maximumBatchingWindowInSeconds} -> maximumBatchingWindowInSeconds) (\s@EventSourceMappingConfiguration' {} a -> s {maximumBatchingWindowInSeconds = a} :: EventSourceMappingConfiguration)
 

@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.SendUsersMessageRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Pinpoint.Types.DirectMessageConfiguration
 import Amazonka.Pinpoint.Types.EndpointSendConfiguration
 import Amazonka.Pinpoint.Types.TemplateConfiguration

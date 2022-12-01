@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.FileCacheNFSConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.NfsVersion
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for an NFS data repository association (DRA) created

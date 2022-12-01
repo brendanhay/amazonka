@@ -53,8 +53,8 @@ module Amazonka.ELBV2.CreateRule
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,8 +131,8 @@ createRule_actions = Lens.lens (\CreateRule' {actions} -> actions) (\s@CreateRul
 
 instance Core.AWSRequest CreateRule where
   type AWSResponse CreateRule = CreateRuleResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "CreateRuleResult"

@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows you to either upgrade your domain or perform an upgrade
--- eligibility check to a compatible version of OpenSearch or
--- Elasticsearch.
+-- Allows you to either upgrade your Amazon OpenSearch Service domain or
+-- perform an upgrade eligibility check to a compatible version of
+-- OpenSearch or Elasticsearch.
 module Amazonka.OpenSearch.UpgradeDomain
   ( -- * Creating a Request
     UpgradeDomain (..),
@@ -50,22 +50,29 @@ module Amazonka.OpenSearch.UpgradeDomain
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the request parameters to @ UpgradeDomain @ operation.
+-- | Container for the request parameters to the @UpgradeDomain@ operation.
 --
 -- /See:/ 'newUpgradeDomain' smart constructor.
 data UpgradeDomain = UpgradeDomain'
-  { advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | Only supports the @override_main_response_version@ parameter and not
+    -- other advanced options. You can only include this option when upgrading
+    -- to an OpenSearch version. Specifies whether the domain reports its
+    -- version as 7.10 so that it continues to work with Elasticsearch OSS
+    -- clients and plugins.
+    advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | When true, indicates that an upgrade eligibility check needs to be
     -- performed. Does not actually perform the upgrade.
     performCheckOnly :: Prelude.Maybe Prelude.Bool,
+    -- | Name of the OpenSearch Service domain that you want to upgrade.
     domainName :: Prelude.Text,
-    -- | The version of OpenSearch you intend to upgrade the domain to.
+    -- | OpenSearch or Elasticsearch version to which you want to upgrade, in the
+    -- format Opensearch_X.Y or Elasticsearch_X.Y.
     targetVersion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,14 +85,19 @@ data UpgradeDomain = UpgradeDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'advancedOptions', 'upgradeDomain_advancedOptions' - Undocumented member.
+-- 'advancedOptions', 'upgradeDomain_advancedOptions' - Only supports the @override_main_response_version@ parameter and not
+-- other advanced options. You can only include this option when upgrading
+-- to an OpenSearch version. Specifies whether the domain reports its
+-- version as 7.10 so that it continues to work with Elasticsearch OSS
+-- clients and plugins.
 --
 -- 'performCheckOnly', 'upgradeDomain_performCheckOnly' - When true, indicates that an upgrade eligibility check needs to be
 -- performed. Does not actually perform the upgrade.
 --
--- 'domainName', 'upgradeDomain_domainName' - Undocumented member.
+-- 'domainName', 'upgradeDomain_domainName' - Name of the OpenSearch Service domain that you want to upgrade.
 --
--- 'targetVersion', 'upgradeDomain_targetVersion' - The version of OpenSearch you intend to upgrade the domain to.
+-- 'targetVersion', 'upgradeDomain_targetVersion' - OpenSearch or Elasticsearch version to which you want to upgrade, in the
+-- format Opensearch_X.Y or Elasticsearch_X.Y.
 newUpgradeDomain ::
   -- | 'domainName'
   Prelude.Text ->
@@ -100,7 +112,11 @@ newUpgradeDomain pDomainName_ pTargetVersion_ =
       targetVersion = pTargetVersion_
     }
 
--- | Undocumented member.
+-- | Only supports the @override_main_response_version@ parameter and not
+-- other advanced options. You can only include this option when upgrading
+-- to an OpenSearch version. Specifies whether the domain reports its
+-- version as 7.10 so that it continues to work with Elasticsearch OSS
+-- clients and plugins.
 upgradeDomain_advancedOptions :: Lens.Lens' UpgradeDomain (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 upgradeDomain_advancedOptions = Lens.lens (\UpgradeDomain' {advancedOptions} -> advancedOptions) (\s@UpgradeDomain' {} a -> s {advancedOptions = a} :: UpgradeDomain) Prelude.. Lens.mapping Lens.coerced
 
@@ -109,11 +125,12 @@ upgradeDomain_advancedOptions = Lens.lens (\UpgradeDomain' {advancedOptions} -> 
 upgradeDomain_performCheckOnly :: Lens.Lens' UpgradeDomain (Prelude.Maybe Prelude.Bool)
 upgradeDomain_performCheckOnly = Lens.lens (\UpgradeDomain' {performCheckOnly} -> performCheckOnly) (\s@UpgradeDomain' {} a -> s {performCheckOnly = a} :: UpgradeDomain)
 
--- | Undocumented member.
+-- | Name of the OpenSearch Service domain that you want to upgrade.
 upgradeDomain_domainName :: Lens.Lens' UpgradeDomain Prelude.Text
 upgradeDomain_domainName = Lens.lens (\UpgradeDomain' {domainName} -> domainName) (\s@UpgradeDomain' {} a -> s {domainName = a} :: UpgradeDomain)
 
--- | The version of OpenSearch you intend to upgrade the domain to.
+-- | OpenSearch or Elasticsearch version to which you want to upgrade, in the
+-- format Opensearch_X.Y or Elasticsearch_X.Y.
 upgradeDomain_targetVersion :: Lens.Lens' UpgradeDomain Prelude.Text
 upgradeDomain_targetVersion = Lens.lens (\UpgradeDomain' {targetVersion} -> targetVersion) (\s@UpgradeDomain' {} a -> s {targetVersion = a} :: UpgradeDomain)
 
@@ -121,8 +138,8 @@ instance Core.AWSRequest UpgradeDomain where
   type
     AWSResponse UpgradeDomain =
       UpgradeDomainResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,18 +194,22 @@ instance Core.ToPath UpgradeDomain where
 instance Core.ToQuery UpgradeDomain where
   toQuery = Prelude.const Prelude.mempty
 
--- | Container for response returned by @ UpgradeDomain @ operation.
+-- | Container for the response returned by @UpgradeDomain@ operation.
 --
 -- /See:/ 'newUpgradeDomainResponse' smart constructor.
 data UpgradeDomainResponse = UpgradeDomainResponse'
-  { advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The advanced options configuration for the domain.
+    advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Container for information about a configuration change happening on a
+    -- domain.
     changeProgressDetails :: Prelude.Maybe ChangeProgressDetails,
+    -- | The name of the domain that was upgraded.
     domainName :: Prelude.Maybe Prelude.Text,
-    -- | The version of OpenSearch that you intend to upgrade the domain to.
+    -- | OpenSearch or Elasticsearch version that the domain was upgraded to.
     targetVersion :: Prelude.Maybe Prelude.Text,
-    -- | When true, indicates that an upgrade eligibility check needs to be
-    -- performed. Does not actually perform the upgrade.
+    -- | When true, indicates that an upgrade eligibility check was performed.
     performCheckOnly :: Prelude.Maybe Prelude.Bool,
+    -- | The unique identifier of the domain upgrade.
     upgradeId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -203,18 +224,18 @@ data UpgradeDomainResponse = UpgradeDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'advancedOptions', 'upgradeDomainResponse_advancedOptions' - Undocumented member.
+-- 'advancedOptions', 'upgradeDomainResponse_advancedOptions' - The advanced options configuration for the domain.
 --
--- 'changeProgressDetails', 'upgradeDomainResponse_changeProgressDetails' - Undocumented member.
+-- 'changeProgressDetails', 'upgradeDomainResponse_changeProgressDetails' - Container for information about a configuration change happening on a
+-- domain.
 --
--- 'domainName', 'upgradeDomainResponse_domainName' - Undocumented member.
+-- 'domainName', 'upgradeDomainResponse_domainName' - The name of the domain that was upgraded.
 --
--- 'targetVersion', 'upgradeDomainResponse_targetVersion' - The version of OpenSearch that you intend to upgrade the domain to.
+-- 'targetVersion', 'upgradeDomainResponse_targetVersion' - OpenSearch or Elasticsearch version that the domain was upgraded to.
 --
--- 'performCheckOnly', 'upgradeDomainResponse_performCheckOnly' - When true, indicates that an upgrade eligibility check needs to be
--- performed. Does not actually perform the upgrade.
+-- 'performCheckOnly', 'upgradeDomainResponse_performCheckOnly' - When true, indicates that an upgrade eligibility check was performed.
 --
--- 'upgradeId', 'upgradeDomainResponse_upgradeId' - Undocumented member.
+-- 'upgradeId', 'upgradeDomainResponse_upgradeId' - The unique identifier of the domain upgrade.
 --
 -- 'httpStatus', 'upgradeDomainResponse_httpStatus' - The response's http status code.
 newUpgradeDomainResponse ::
@@ -233,28 +254,28 @@ newUpgradeDomainResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The advanced options configuration for the domain.
 upgradeDomainResponse_advancedOptions :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 upgradeDomainResponse_advancedOptions = Lens.lens (\UpgradeDomainResponse' {advancedOptions} -> advancedOptions) (\s@UpgradeDomainResponse' {} a -> s {advancedOptions = a} :: UpgradeDomainResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | Container for information about a configuration change happening on a
+-- domain.
 upgradeDomainResponse_changeProgressDetails :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe ChangeProgressDetails)
 upgradeDomainResponse_changeProgressDetails = Lens.lens (\UpgradeDomainResponse' {changeProgressDetails} -> changeProgressDetails) (\s@UpgradeDomainResponse' {} a -> s {changeProgressDetails = a} :: UpgradeDomainResponse)
 
--- | Undocumented member.
+-- | The name of the domain that was upgraded.
 upgradeDomainResponse_domainName :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Text)
 upgradeDomainResponse_domainName = Lens.lens (\UpgradeDomainResponse' {domainName} -> domainName) (\s@UpgradeDomainResponse' {} a -> s {domainName = a} :: UpgradeDomainResponse)
 
--- | The version of OpenSearch that you intend to upgrade the domain to.
+-- | OpenSearch or Elasticsearch version that the domain was upgraded to.
 upgradeDomainResponse_targetVersion :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Text)
 upgradeDomainResponse_targetVersion = Lens.lens (\UpgradeDomainResponse' {targetVersion} -> targetVersion) (\s@UpgradeDomainResponse' {} a -> s {targetVersion = a} :: UpgradeDomainResponse)
 
--- | When true, indicates that an upgrade eligibility check needs to be
--- performed. Does not actually perform the upgrade.
+-- | When true, indicates that an upgrade eligibility check was performed.
 upgradeDomainResponse_performCheckOnly :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Bool)
 upgradeDomainResponse_performCheckOnly = Lens.lens (\UpgradeDomainResponse' {performCheckOnly} -> performCheckOnly) (\s@UpgradeDomainResponse' {} a -> s {performCheckOnly = a} :: UpgradeDomainResponse)
 
--- | Undocumented member.
+-- | The unique identifier of the domain upgrade.
 upgradeDomainResponse_upgradeId :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Text)
 upgradeDomainResponse_upgradeId = Lens.lens (\UpgradeDomainResponse' {upgradeId} -> upgradeId) (\s@UpgradeDomainResponse' {} a -> s {upgradeId = a} :: UpgradeDomainResponse)
 

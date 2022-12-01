@@ -20,9 +20,9 @@
 module Amazonka.IoTAnalytics.Types.ContainerDatasetAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.ResourceConfiguration
 import Amazonka.IoTAnalytics.Types.Variable
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information required to run the @containerAction@ to produce dataset

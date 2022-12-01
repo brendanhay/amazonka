@@ -20,7 +20,7 @@
 module Amazonka.IoT.Types.SecurityProfileTarget where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A target to which an alert is sent when a security profile behavior is

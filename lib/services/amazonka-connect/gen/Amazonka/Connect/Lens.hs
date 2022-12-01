@@ -179,8 +179,10 @@ module Amazonka.Connect.Lens
 
     -- ** CreateSecurityProfile
     createSecurityProfile_tags,
+    createSecurityProfile_allowedAccessControlTags,
     createSecurityProfile_permissions,
     createSecurityProfile_description,
+    createSecurityProfile_tagRestrictedResources,
     createSecurityProfile_securityProfileName,
     createSecurityProfile_instanceId,
     createSecurityProfileResponse_securityProfileId,
@@ -460,6 +462,12 @@ module Amazonka.Connect.Lens
     disassociateSecurityKey_instanceId,
     disassociateSecurityKey_associationId,
 
+    -- ** DismissUserContact
+    dismissUserContact_userId,
+    dismissUserContact_instanceId,
+    dismissUserContact_contactId,
+    dismissUserContactResponse_httpStatus,
+
     -- ** GetContactAttributes
     getContactAttributes_instanceId,
     getContactAttributes_initialContactId,
@@ -489,7 +497,10 @@ module Amazonka.Connect.Lens
 
     -- ** GetFederationToken
     getFederationToken_instanceId,
+    getFederationTokenResponse_signInUrl,
+    getFederationTokenResponse_userArn,
     getFederationTokenResponse_credentials,
+    getFederationTokenResponse_userId,
     getFederationTokenResponse_httpStatus,
 
     -- ** GetMetricData
@@ -795,6 +806,16 @@ module Amazonka.Connect.Lens
     listUsersResponse_nextToken,
     listUsersResponse_userSummaryList,
     listUsersResponse_httpStatus,
+
+    -- ** MonitorContact
+    monitorContact_clientToken,
+    monitorContact_allowedMonitorCapabilities,
+    monitorContact_instanceId,
+    monitorContact_contactId,
+    monitorContact_userId,
+    monitorContactResponse_contactId,
+    monitorContactResponse_contactArn,
+    monitorContactResponse_httpStatus,
 
     -- ** PutUserStatus
     putUserStatus_userId,
@@ -1134,8 +1155,10 @@ module Amazonka.Connect.Lens
     updateRoutingProfileQueues_queueConfigs,
 
     -- ** UpdateSecurityProfile
+    updateSecurityProfile_allowedAccessControlTags,
     updateSecurityProfile_permissions,
     updateSecurityProfile_description,
+    updateSecurityProfile_tagRestrictedResources,
     updateSecurityProfile_securityProfileId,
     updateSecurityProfile_instanceId,
 
@@ -1718,11 +1741,13 @@ module Amazonka.Connect.Lens
 
     -- ** SecurityProfile
     securityProfile_tags,
+    securityProfile_allowedAccessControlTags,
     securityProfile_arn,
     securityProfile_id,
     securityProfile_description,
     securityProfile_securityProfileName,
     securityProfile_organizationResourceId,
+    securityProfile_tagRestrictedResources,
 
     -- ** SecurityProfileSearchCriteria
     securityProfileSearchCriteria_stringCondition,
@@ -1989,6 +2014,7 @@ import Amazonka.Connect.DisassociatePhoneNumberContactFlow
 import Amazonka.Connect.DisassociateQueueQuickConnects
 import Amazonka.Connect.DisassociateRoutingProfileQueues
 import Amazonka.Connect.DisassociateSecurityKey
+import Amazonka.Connect.DismissUserContact
 import Amazonka.Connect.GetContactAttributes
 import Amazonka.Connect.GetCurrentMetricData
 import Amazonka.Connect.GetCurrentUserData
@@ -2027,6 +2053,7 @@ import Amazonka.Connect.ListTrafficDistributionGroups
 import Amazonka.Connect.ListUseCases
 import Amazonka.Connect.ListUserHierarchyGroups
 import Amazonka.Connect.ListUsers
+import Amazonka.Connect.MonitorContact
 import Amazonka.Connect.PutUserStatus
 import Amazonka.Connect.ReleasePhoneNumber
 import Amazonka.Connect.ReplicateInstance

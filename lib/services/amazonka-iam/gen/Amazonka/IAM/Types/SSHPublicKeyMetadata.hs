@@ -20,8 +20,8 @@
 module Amazonka.IAM.Types.SSHPublicKeyMetadata where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.StatusType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an SSH public key, without the key\'s body or

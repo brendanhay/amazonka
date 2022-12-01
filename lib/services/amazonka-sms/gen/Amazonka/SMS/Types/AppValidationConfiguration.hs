@@ -20,7 +20,7 @@
 module Amazonka.SMS.Types.AppValidationConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.AppValidationStrategy
 import Amazonka.SMS.Types.SSMValidationParameters

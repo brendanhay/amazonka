@@ -20,10 +20,10 @@
 module Amazonka.ElastiCache.Types.ServiceUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.ServiceUpdateSeverity
 import Amazonka.ElastiCache.Types.ServiceUpdateStatus
 import Amazonka.ElastiCache.Types.ServiceUpdateType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An update that you can apply to your Redis clusters.

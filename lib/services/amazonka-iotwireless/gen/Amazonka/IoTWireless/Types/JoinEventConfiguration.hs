@@ -20,9 +20,9 @@
 module Amazonka.IoTWireless.Types.JoinEventConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.EventNotificationTopicStatus
 import Amazonka.IoTWireless.Types.LoRaWANJoinEventNotificationConfigurations
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Join event configuration object for enabling or disabling topic.

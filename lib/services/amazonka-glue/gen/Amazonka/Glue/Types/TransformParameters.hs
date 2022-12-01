@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.TransformParameters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.FindMatchesParameters
 import Amazonka.Glue.Types.TransformType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The algorithm-specific parameters that are associated with the machine

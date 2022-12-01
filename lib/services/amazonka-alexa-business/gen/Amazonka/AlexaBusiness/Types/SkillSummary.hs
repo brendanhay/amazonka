@@ -22,7 +22,7 @@ module Amazonka.AlexaBusiness.Types.SkillSummary where
 import Amazonka.AlexaBusiness.Types.EnablementType
 import Amazonka.AlexaBusiness.Types.SkillType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of skills.

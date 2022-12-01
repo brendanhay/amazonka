@@ -20,9 +20,9 @@
 module Amazonka.Kafka.Types.EncryptionInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.EncryptionAtRest
 import Amazonka.Kafka.Types.EncryptionInTransit
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Includes encryption-related information, such as the AWS KMS key used

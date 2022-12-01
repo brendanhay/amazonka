@@ -42,7 +42,7 @@ module Amazonka.MemoryDb.DeleteACL
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -77,8 +77,8 @@ deleteACL_aCLName = Lens.lens (\DeleteACL' {aCLName} -> aCLName) (\s@DeleteACL' 
 
 instance Core.AWSRequest DeleteACL where
   type AWSResponse DeleteACL = DeleteACLResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

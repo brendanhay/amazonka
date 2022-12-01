@@ -55,6 +55,7 @@ library
     Amazonka.ServiceCatalogAppRegistry.GetApplication
     Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource
     Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup
+    Amazonka.ServiceCatalogAppRegistry.GetConfiguration
     Amazonka.ServiceCatalogAppRegistry.Lens
     Amazonka.ServiceCatalogAppRegistry.ListApplications
     Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
@@ -62,22 +63,26 @@ library
     Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups
     Amazonka.ServiceCatalogAppRegistry.ListAttributeGroupsForApplication
     Amazonka.ServiceCatalogAppRegistry.ListTagsForResource
+    Amazonka.ServiceCatalogAppRegistry.PutConfiguration
     Amazonka.ServiceCatalogAppRegistry.SyncResource
     Amazonka.ServiceCatalogAppRegistry.TagResource
     Amazonka.ServiceCatalogAppRegistry.Types
     Amazonka.ServiceCatalogAppRegistry.Types.Application
     Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary
+    Amazonka.ServiceCatalogAppRegistry.Types.AppRegistryConfiguration
     Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup
     Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupDetails
     Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary
     Amazonka.ServiceCatalogAppRegistry.Types.Integrations
     Amazonka.ServiceCatalogAppRegistry.Types.Resource
+    Amazonka.ServiceCatalogAppRegistry.Types.ResourceDetails
     Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup
     Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState
     Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo
     Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations
     Amazonka.ServiceCatalogAppRegistry.Types.ResourceType
     Amazonka.ServiceCatalogAppRegistry.Types.SyncAction
+    Amazonka.ServiceCatalogAppRegistry.Types.TagQueryConfiguration
     Amazonka.ServiceCatalogAppRegistry.UntagResource
     Amazonka.ServiceCatalogAppRegistry.UpdateApplication
     Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup

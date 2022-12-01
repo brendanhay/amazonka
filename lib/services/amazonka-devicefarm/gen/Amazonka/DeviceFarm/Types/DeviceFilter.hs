@@ -20,9 +20,9 @@
 module Amazonka.DeviceFarm.Types.DeviceFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.DeviceFilterAttribute
 import Amazonka.DeviceFarm.Types.RuleOperator
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a device filter used to select a set of devices to be

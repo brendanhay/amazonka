@@ -23,7 +23,7 @@ import Amazonka.Connect.Types.InvisibleFieldInfo
 import Amazonka.Connect.Types.ReadOnlyFieldInfo
 import Amazonka.Connect.Types.RequiredFieldInfo
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes constraints that apply to the template fields.

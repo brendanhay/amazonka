@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsEc2TransitGatewayDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon Web Services Amazon EC2 Transit Gateway that

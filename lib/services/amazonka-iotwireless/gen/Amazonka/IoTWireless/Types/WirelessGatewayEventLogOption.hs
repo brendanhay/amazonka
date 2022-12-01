@@ -20,9 +20,9 @@
 module Amazonka.IoTWireless.Types.WirelessGatewayEventLogOption where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.LogLevel
 import Amazonka.IoTWireless.Types.WirelessGatewayEvent
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The log options for a wireless gateway event and can be used to set log

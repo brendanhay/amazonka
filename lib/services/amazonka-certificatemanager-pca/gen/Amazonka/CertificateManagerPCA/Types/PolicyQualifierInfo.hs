@@ -22,7 +22,7 @@ module Amazonka.CertificateManagerPCA.Types.PolicyQualifierInfo where
 import Amazonka.CertificateManagerPCA.Types.PolicyQualifierId
 import Amazonka.CertificateManagerPCA.Types.Qualifier
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Modifies the @CertPolicyId@ of a @PolicyInformation@ object with a

@@ -20,10 +20,10 @@
 module Amazonka.DeviceFarm.Types.Problem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.Device
 import Amazonka.DeviceFarm.Types.ExecutionResult
 import Amazonka.DeviceFarm.Types.ProblemDetail
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a specific warning or failure.

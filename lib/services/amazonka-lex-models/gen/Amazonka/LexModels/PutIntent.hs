@@ -120,7 +120,7 @@ module Amazonka.LexModels.PutIntent
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -574,8 +574,8 @@ putIntent_name = Lens.lens (\PutIntent' {name} -> name) (\s@PutIntent' {} a -> s
 
 instance Core.AWSRequest PutIntent where
   type AWSResponse PutIntent = PutIntentResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

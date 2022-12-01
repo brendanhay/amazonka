@@ -20,8 +20,8 @@
 module Amazonka.EMR.Types.CancelStepsInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.CancelStepsRequestStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specification of the status of a CancelSteps request. Available only in

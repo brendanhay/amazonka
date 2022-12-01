@@ -20,7 +20,7 @@
 module Amazonka.ConnectCampaigns.Types.SuccessfulRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A successful request identified by the unique client token.

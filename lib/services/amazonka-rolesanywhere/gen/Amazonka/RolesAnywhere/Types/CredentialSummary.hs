@@ -20,7 +20,7 @@
 module Amazonka.RolesAnywhere.Types.CredentialSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A record of a presented X509 credential to

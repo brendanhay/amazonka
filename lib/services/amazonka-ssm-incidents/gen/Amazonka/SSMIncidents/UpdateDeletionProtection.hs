@@ -42,7 +42,7 @@ module Amazonka.SSMIncidents.UpdateDeletionProtection
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -50,12 +50,12 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newUpdateDeletionProtection' smart constructor.
 data UpdateDeletionProtection = UpdateDeletionProtection'
-  { -- | A token ensuring that the operation is called only once with the
+  { -- | A token that ensures that the operation is called only once with the
     -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the replication set you\'re updating.
+    -- | The Amazon Resource Name (ARN) of the replication set to update.
     arn :: Prelude.Text,
-    -- | Details if deletion protection is enabled or disabled in your account.
+    -- | Specifies if deletion protection is turned on or off in your account.
     deletionProtected :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,12 +68,12 @@ data UpdateDeletionProtection = UpdateDeletionProtection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'updateDeletionProtection_clientToken' - A token ensuring that the operation is called only once with the
+-- 'clientToken', 'updateDeletionProtection_clientToken' - A token that ensures that the operation is called only once with the
 -- specified details.
 --
--- 'arn', 'updateDeletionProtection_arn' - The Amazon Resource Name (ARN) of the replication set you\'re updating.
+-- 'arn', 'updateDeletionProtection_arn' - The Amazon Resource Name (ARN) of the replication set to update.
 --
--- 'deletionProtected', 'updateDeletionProtection_deletionProtected' - Details if deletion protection is enabled or disabled in your account.
+-- 'deletionProtected', 'updateDeletionProtection_deletionProtected' - Specifies if deletion protection is turned on or off in your account.
 newUpdateDeletionProtection ::
   -- | 'arn'
   Prelude.Text ->
@@ -88,16 +88,16 @@ newUpdateDeletionProtection pArn_ pDeletionProtected_ =
       deletionProtected = pDeletionProtected_
     }
 
--- | A token ensuring that the operation is called only once with the
+-- | A token that ensures that the operation is called only once with the
 -- specified details.
 updateDeletionProtection_clientToken :: Lens.Lens' UpdateDeletionProtection (Prelude.Maybe Prelude.Text)
 updateDeletionProtection_clientToken = Lens.lens (\UpdateDeletionProtection' {clientToken} -> clientToken) (\s@UpdateDeletionProtection' {} a -> s {clientToken = a} :: UpdateDeletionProtection)
 
--- | The Amazon Resource Name (ARN) of the replication set you\'re updating.
+-- | The Amazon Resource Name (ARN) of the replication set to update.
 updateDeletionProtection_arn :: Lens.Lens' UpdateDeletionProtection Prelude.Text
 updateDeletionProtection_arn = Lens.lens (\UpdateDeletionProtection' {arn} -> arn) (\s@UpdateDeletionProtection' {} a -> s {arn = a} :: UpdateDeletionProtection)
 
--- | Details if deletion protection is enabled or disabled in your account.
+-- | Specifies if deletion protection is turned on or off in your account.
 updateDeletionProtection_deletionProtected :: Lens.Lens' UpdateDeletionProtection Prelude.Bool
 updateDeletionProtection_deletionProtected = Lens.lens (\UpdateDeletionProtection' {deletionProtected} -> deletionProtected) (\s@UpdateDeletionProtection' {} a -> s {deletionProtected = a} :: UpdateDeletionProtection)
 
@@ -105,8 +105,8 @@ instance Core.AWSRequest UpdateDeletionProtection where
   type
     AWSResponse UpdateDeletionProtection =
       UpdateDeletionProtectionResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

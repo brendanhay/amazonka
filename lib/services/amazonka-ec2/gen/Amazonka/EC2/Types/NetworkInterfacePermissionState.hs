@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.NetworkInterfacePermissionState where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.NetworkInterfacePermissionStateCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the state of a network interface permission.

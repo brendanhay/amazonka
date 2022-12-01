@@ -20,6 +20,7 @@
 module Amazonka.IoTEvents.Types.Action where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.ClearTimerAction
 import Amazonka.IoTEvents.Types.DynamoDBAction
 import Amazonka.IoTEvents.Types.DynamoDBv2Action
@@ -33,7 +34,6 @@ import Amazonka.IoTEvents.Types.SNSTopicPublishAction
 import Amazonka.IoTEvents.Types.SetTimerAction
 import Amazonka.IoTEvents.Types.SetVariableAction
 import Amazonka.IoTEvents.Types.SqsAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An action to be performed when the @condition@ is TRUE.

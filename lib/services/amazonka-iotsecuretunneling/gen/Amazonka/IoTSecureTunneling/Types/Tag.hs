@@ -20,7 +20,7 @@
 module Amazonka.IoTSecureTunneling.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An arbitary key\/value pair used to add searchable metadata to secure

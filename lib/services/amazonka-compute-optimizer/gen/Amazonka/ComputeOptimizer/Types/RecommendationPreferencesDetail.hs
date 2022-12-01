@@ -24,7 +24,7 @@ import Amazonka.ComputeOptimizer.Types.InferredWorkloadTypesPreference
 import Amazonka.ComputeOptimizer.Types.ResourceType
 import Amazonka.ComputeOptimizer.Types.Scope
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a recommendation preference.

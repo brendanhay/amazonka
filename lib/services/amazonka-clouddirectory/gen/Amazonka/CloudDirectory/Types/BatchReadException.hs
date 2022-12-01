@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchReadException where
 
 import Amazonka.CloudDirectory.Types.BatchReadExceptionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The batch read exception structure, which contains the exception type

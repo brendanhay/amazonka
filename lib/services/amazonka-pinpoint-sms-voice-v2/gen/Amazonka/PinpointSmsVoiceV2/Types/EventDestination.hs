@@ -20,7 +20,7 @@
 module Amazonka.PinpointSmsVoiceV2.Types.EventDestination where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.PinpointSmsVoiceV2.Types.CloudWatchLogsDestination
 import Amazonka.PinpointSmsVoiceV2.Types.EventType
 import Amazonka.PinpointSmsVoiceV2.Types.KinesisFirehoseDestination

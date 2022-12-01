@@ -20,10 +20,10 @@
 module Amazonka.IotTwinMaker.Types.DataType where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types.DataValue
 import Amazonka.IotTwinMaker.Types.Relationship
 import Amazonka.IotTwinMaker.Types.Type
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that specifies the data type of a property.

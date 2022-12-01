@@ -48,7 +48,7 @@ module Amazonka.MigrationHubStrategy.ListServers
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,8 +174,8 @@ instance Core.AWSPager ListServers where
 
 instance Core.AWSRequest ListServers where
   type AWSResponse ListServers = ListServersResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

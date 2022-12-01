@@ -20,7 +20,7 @@
 module Amazonka.Forecast.Types.ErrorMetric where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides detailed error metrics to evaluate the performance of a

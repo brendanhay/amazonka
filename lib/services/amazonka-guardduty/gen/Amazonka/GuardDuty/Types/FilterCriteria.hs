@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.FilterCriteria where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.FilterCriterion
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the criteria to be used in the filter for describing scan

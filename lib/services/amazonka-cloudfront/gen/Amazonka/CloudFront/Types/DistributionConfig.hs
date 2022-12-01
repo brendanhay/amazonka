@@ -31,7 +31,7 @@ import Amazonka.CloudFront.Types.PriceClass
 import Amazonka.CloudFront.Types.Restrictions
 import Amazonka.CloudFront.Types.ViewerCertificate
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A distribution configuration.
@@ -110,8 +110,8 @@ data DistributionConfig = DistributionConfig'
     restrictions :: Prelude.Maybe Restrictions,
     -- | The object that you want CloudFront to request from your origin (for
     -- example, @index.html@) when a viewer requests the root URL for your
-    -- distribution (@http:\/\/www.example.com@) instead of an object in your
-    -- distribution (@http:\/\/www.example.com\/product-description.html@).
+    -- distribution (@https:\/\/www.example.com@) instead of an object in your
+    -- distribution (@https:\/\/www.example.com\/product-description.html@).
     -- Specifying a default root object avoids exposing the contents of your
     -- distribution.
     --
@@ -288,8 +288,8 @@ data DistributionConfig = DistributionConfig'
 --
 -- 'defaultRootObject', 'distributionConfig_defaultRootObject' - The object that you want CloudFront to request from your origin (for
 -- example, @index.html@) when a viewer requests the root URL for your
--- distribution (@http:\/\/www.example.com@) instead of an object in your
--- distribution (@http:\/\/www.example.com\/product-description.html@).
+-- distribution (@https:\/\/www.example.com@) instead of an object in your
+-- distribution (@https:\/\/www.example.com\/product-description.html@).
 -- Specifying a default root object avoids exposing the contents of your
 -- distribution.
 --
@@ -503,8 +503,8 @@ distributionConfig_restrictions = Lens.lens (\DistributionConfig' {restrictions}
 
 -- | The object that you want CloudFront to request from your origin (for
 -- example, @index.html@) when a viewer requests the root URL for your
--- distribution (@http:\/\/www.example.com@) instead of an object in your
--- distribution (@http:\/\/www.example.com\/product-description.html@).
+-- distribution (@https:\/\/www.example.com@) instead of an object in your
+-- distribution (@https:\/\/www.example.com\/product-description.html@).
 -- Specifying a default root object avoids exposing the contents of your
 -- distribution.
 --

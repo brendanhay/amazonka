@@ -20,8 +20,8 @@
 module Amazonka.FinSpaceData.Types.SchemaUnion where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FinSpaceData.Types.SchemaDefinition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A union of schema types.

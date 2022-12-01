@@ -24,7 +24,7 @@ import Amazonka.Budgets.Types.BudgetedAndActualAmounts
 import Amazonka.Budgets.Types.CostTypes
 import Amazonka.Budgets.Types.TimeUnit
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A history of the state of a budget at the end of the budget\'s specified

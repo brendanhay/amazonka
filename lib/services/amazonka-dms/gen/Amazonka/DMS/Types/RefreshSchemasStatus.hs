@@ -20,8 +20,8 @@
 module Amazonka.DMS.Types.RefreshSchemasStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.RefreshSchemasStatusTypeValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that describes status of a schema at an endpoint

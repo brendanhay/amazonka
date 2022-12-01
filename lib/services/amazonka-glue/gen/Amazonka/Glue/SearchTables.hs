@@ -57,8 +57,8 @@ module Amazonka.Glue.SearchTables
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -212,8 +212,8 @@ searchTables_catalogId = Lens.lens (\SearchTables' {catalogId} -> catalogId) (\s
 
 instance Core.AWSRequest SearchTables where
   type AWSResponse SearchTables = SearchTablesResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

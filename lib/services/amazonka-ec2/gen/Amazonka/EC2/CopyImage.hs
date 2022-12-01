@@ -45,7 +45,7 @@
 --
 -- For more information about the prerequisites and limits when copying an
 -- AMI, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copying an AMI>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copy an AMI>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.CopyImage
   ( -- * Creating a Request
@@ -59,6 +59,7 @@ module Amazonka.EC2.CopyImage
     copyImage_dryRun,
     copyImage_encrypted,
     copyImage_kmsKeyId,
+    copyImage_copyImageTags,
     copyImage_name,
     copyImage_sourceImageId,
     copyImage_sourceRegion,
@@ -74,8 +75,8 @@ module Amazonka.EC2.CopyImage
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,7 +97,7 @@ data CopyImage = CopyImage'
     -- from one Outpost to another, or within the same Outpost.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an Amazon Web Services Region to an Outpost>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copy AMIs from an Amazon Web Services Region to an Outpost>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     destinationOutpostArn :: Prelude.Maybe Prelude.Text,
     -- | A description for the new AMI in the destination Region.
@@ -112,7 +113,7 @@ data CopyImage = CopyImage'
     -- KMS key for Amazon EBS is used unless you specify a non-default Key
     -- Management Service (KMS) KMS key using @KmsKeyId@. For more information,
     -- see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the symmetric Key Management Service (KMS) KMS key to
@@ -140,6 +141,18 @@ data CopyImage = CopyImage'
     --
     -- Amazon EBS does not support asymmetric KMS keys.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether to include your user-defined AMI tags when copying the
+    -- AMI.
+    --
+    -- The following tags will not be copied:
+    --
+    -- -   System tags (prefixed with @aws:@)
+    --
+    -- -   For public and shared AMIs, user-defined tags that are attached by
+    --     other Amazon Web Services accounts
+    --
+    -- Default: Your user-defined AMI tags are not copied.
+    copyImageTags :: Prelude.Maybe Prelude.Bool,
     -- | The name of the new AMI in the destination Region.
     name :: Prelude.Text,
     -- | The ID of the AMI to copy.
@@ -169,7 +182,7 @@ data CopyImage = CopyImage'
 -- from one Outpost to another, or within the same Outpost.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an Amazon Web Services Region to an Outpost>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copy AMIs from an Amazon Web Services Region to an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'description', 'copyImage_description' - A description for the new AMI in the destination Region.
@@ -185,7 +198,7 @@ data CopyImage = CopyImage'
 -- KMS key for Amazon EBS is used unless you specify a non-default Key
 -- Management Service (KMS) KMS key using @KmsKeyId@. For more information,
 -- see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'kmsKeyId', 'copyImage_kmsKeyId' - The identifier of the symmetric Key Management Service (KMS) KMS key to
@@ -213,6 +226,18 @@ data CopyImage = CopyImage'
 --
 -- Amazon EBS does not support asymmetric KMS keys.
 --
+-- 'copyImageTags', 'copyImage_copyImageTags' - Indicates whether to include your user-defined AMI tags when copying the
+-- AMI.
+--
+-- The following tags will not be copied:
+--
+-- -   System tags (prefixed with @aws:@)
+--
+-- -   For public and shared AMIs, user-defined tags that are attached by
+--     other Amazon Web Services accounts
+--
+-- Default: Your user-defined AMI tags are not copied.
+--
 -- 'name', 'copyImage_name' - The name of the new AMI in the destination Region.
 --
 -- 'sourceImageId', 'copyImage_sourceImageId' - The ID of the AMI to copy.
@@ -234,6 +259,7 @@ newCopyImage pName_ pSourceImageId_ pSourceRegion_ =
       dryRun = Prelude.Nothing,
       encrypted = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      copyImageTags = Prelude.Nothing,
       name = pName_,
       sourceImageId = pSourceImageId_,
       sourceRegion = pSourceRegion_
@@ -253,7 +279,7 @@ copyImage_clientToken = Lens.lens (\CopyImage' {clientToken} -> clientToken) (\s
 -- from one Outpost to another, or within the same Outpost.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an Amazon Web Services Region to an Outpost>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copy AMIs from an Amazon Web Services Region to an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 copyImage_destinationOutpostArn :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_destinationOutpostArn = Lens.lens (\CopyImage' {destinationOutpostArn} -> destinationOutpostArn) (\s@CopyImage' {} a -> s {destinationOutpostArn = a} :: CopyImage)
@@ -275,7 +301,7 @@ copyImage_dryRun = Lens.lens (\CopyImage' {dryRun} -> dryRun) (\s@CopyImage' {} 
 -- KMS key for Amazon EBS is used unless you specify a non-default Key
 -- Management Service (KMS) KMS key using @KmsKeyId@. For more information,
 -- see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 copyImage_encrypted :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Bool)
 copyImage_encrypted = Lens.lens (\CopyImage' {encrypted} -> encrypted) (\s@CopyImage' {} a -> s {encrypted = a} :: CopyImage)
@@ -307,6 +333,20 @@ copyImage_encrypted = Lens.lens (\CopyImage' {encrypted} -> encrypted) (\s@CopyI
 copyImage_kmsKeyId :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_kmsKeyId = Lens.lens (\CopyImage' {kmsKeyId} -> kmsKeyId) (\s@CopyImage' {} a -> s {kmsKeyId = a} :: CopyImage)
 
+-- | Indicates whether to include your user-defined AMI tags when copying the
+-- AMI.
+--
+-- The following tags will not be copied:
+--
+-- -   System tags (prefixed with @aws:@)
+--
+-- -   For public and shared AMIs, user-defined tags that are attached by
+--     other Amazon Web Services accounts
+--
+-- Default: Your user-defined AMI tags are not copied.
+copyImage_copyImageTags :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Bool)
+copyImage_copyImageTags = Lens.lens (\CopyImage' {copyImageTags} -> copyImageTags) (\s@CopyImage' {} a -> s {copyImageTags = a} :: CopyImage)
+
 -- | The name of the new AMI in the destination Region.
 copyImage_name :: Lens.Lens' CopyImage Prelude.Text
 copyImage_name = Lens.lens (\CopyImage' {name} -> name) (\s@CopyImage' {} a -> s {name = a} :: CopyImage)
@@ -321,8 +361,8 @@ copyImage_sourceRegion = Lens.lens (\CopyImage' {sourceRegion} -> sourceRegion) 
 
 instance Core.AWSRequest CopyImage where
   type AWSResponse CopyImage = CopyImageResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->
@@ -339,6 +379,7 @@ instance Prelude.Hashable CopyImage where
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` copyImageTags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceImageId
       `Prelude.hashWithSalt` sourceRegion
@@ -351,6 +392,7 @@ instance Prelude.NFData CopyImage where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf encrypted
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf copyImageTags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceImageId
       `Prelude.seq` Prelude.rnf sourceRegion
@@ -375,6 +417,7 @@ instance Core.ToQuery CopyImage where
         "DryRun" Core.=: dryRun,
         "Encrypted" Core.=: encrypted,
         "KmsKeyId" Core.=: kmsKeyId,
+        "CopyImageTags" Core.=: copyImageTags,
         "Name" Core.=: name,
         "SourceImageId" Core.=: sourceImageId,
         "SourceRegion" Core.=: sourceRegion

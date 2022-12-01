@@ -24,7 +24,7 @@ import Amazonka.CodeBuild.Types.ReportGroupStatusType
 import Amazonka.CodeBuild.Types.ReportType
 import Amazonka.CodeBuild.Types.Tag
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A series of reports. Each report contains information about the results

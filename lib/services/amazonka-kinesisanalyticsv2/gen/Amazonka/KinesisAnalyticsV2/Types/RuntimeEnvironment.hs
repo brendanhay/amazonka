@@ -22,6 +22,7 @@ module Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment
       ( ..,
         RuntimeEnvironment_FLINK_1_11,
         RuntimeEnvironment_FLINK_1_13,
+        RuntimeEnvironment_FLINK_1_15,
         RuntimeEnvironment_FLINK_1_6,
         RuntimeEnvironment_FLINK_1_8,
         RuntimeEnvironment_SQL_1_0,
@@ -68,6 +69,9 @@ pattern RuntimeEnvironment_FLINK_1_11 = RuntimeEnvironment' "FLINK-1_11"
 pattern RuntimeEnvironment_FLINK_1_13 :: RuntimeEnvironment
 pattern RuntimeEnvironment_FLINK_1_13 = RuntimeEnvironment' "FLINK-1_13"
 
+pattern RuntimeEnvironment_FLINK_1_15 :: RuntimeEnvironment
+pattern RuntimeEnvironment_FLINK_1_15 = RuntimeEnvironment' "FLINK-1_15"
+
 pattern RuntimeEnvironment_FLINK_1_6 :: RuntimeEnvironment
 pattern RuntimeEnvironment_FLINK_1_6 = RuntimeEnvironment' "FLINK-1_6"
 
@@ -86,6 +90,7 @@ pattern RuntimeEnvironment_ZEPPELIN_FLINK_2_0 = RuntimeEnvironment' "ZEPPELIN-FL
 {-# COMPLETE
   RuntimeEnvironment_FLINK_1_11,
   RuntimeEnvironment_FLINK_1_13,
+  RuntimeEnvironment_FLINK_1_15,
   RuntimeEnvironment_FLINK_1_6,
   RuntimeEnvironment_FLINK_1_8,
   RuntimeEnvironment_SQL_1_0,

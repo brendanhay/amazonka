@@ -23,7 +23,7 @@ import Amazonka.AutoScaling.Types.InstanceReusePolicy
 import Amazonka.AutoScaling.Types.WarmPoolState
 import Amazonka.AutoScaling.Types.WarmPoolStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a warm pool configuration.

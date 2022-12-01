@@ -41,7 +41,7 @@ module Amazonka.MacieV2.GetFindings
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,8 +91,8 @@ getFindings_findingIds = Lens.lens (\GetFindings' {findingIds} -> findingIds) (\
 
 instance Core.AWSRequest GetFindings where
   type AWSResponse GetFindings = GetFindingsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -20,7 +21,11 @@ module Amazonka.RBin.Types
     _InternalServerException,
     _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
     _ValidationException,
+
+    -- * LockState
+    LockState (..),
 
     -- * ResourceType
     ResourceType (..),
@@ -30,6 +35,14 @@ module Amazonka.RBin.Types
 
     -- * RuleStatus
     RuleStatus (..),
+
+    -- * UnlockDelayUnit
+    UnlockDelayUnit (..),
+
+    -- * LockConfiguration
+    LockConfiguration (..),
+    newLockConfiguration,
+    lockConfiguration_unlockDelay,
 
     -- * ResourceTag
     ResourceTag (..),
@@ -46,6 +59,7 @@ module Amazonka.RBin.Types
     -- * RuleSummary
     RuleSummary (..),
     newRuleSummary,
+    ruleSummary_lockState,
     ruleSummary_description,
     ruleSummary_retentionPeriod,
     ruleSummary_identifier,
@@ -55,12 +69,20 @@ module Amazonka.RBin.Types
     newTag,
     tag_key,
     tag_value,
+
+    -- * UnlockDelay
+    UnlockDelay (..),
+    newUnlockDelay,
+    unlockDelay_unlockDelayValue,
+    unlockDelay_unlockDelayUnit,
   )
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.RBin.Types.LockConfiguration
+import Amazonka.RBin.Types.LockState
 import Amazonka.RBin.Types.ResourceTag
 import Amazonka.RBin.Types.ResourceType
 import Amazonka.RBin.Types.RetentionPeriod
@@ -68,33 +90,33 @@ import Amazonka.RBin.Types.RetentionPeriodUnit
 import Amazonka.RBin.Types.RuleStatus
 import Amazonka.RBin.Types.RuleSummary
 import Amazonka.RBin.Types.Tag
+import Amazonka.RBin.Types.UnlockDelay
+import Amazonka.RBin.Types.UnlockDelayUnit
 import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2021-06-15@ of the Amazon Recycle Bin SDK configuration.
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "RBin",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "rbin",
-      Core._serviceSigningName = "rbin",
-      Core._serviceVersion = "2021-06-15",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "RBin",
-      Core._serviceRetry = retry
+    { Core.abbrev = "RBin",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "rbin",
+      Core.signingName = "rbin",
+      Core.version = "2021-06-15",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "RBin",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =
@@ -166,6 +188,14 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The specified retention rule lock request can\'t be completed.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | One or more of the parameters in the request is not valid.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -20,7 +20,7 @@
 module Amazonka.FSx.Types.SvmEndpoint where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon FSx for NetApp ONTAP storage virtual machine (SVM) has four

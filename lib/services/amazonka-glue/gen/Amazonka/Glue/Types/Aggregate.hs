@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.Aggregate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.AggregateOperation
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that groups rows by chosen fields and computes the

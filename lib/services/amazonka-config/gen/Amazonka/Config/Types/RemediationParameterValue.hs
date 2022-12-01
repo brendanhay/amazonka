@@ -22,7 +22,7 @@ module Amazonka.Config.Types.RemediationParameterValue where
 import Amazonka.Config.Types.ResourceValue
 import Amazonka.Config.Types.StaticValue
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value is either a dynamic (resource) value or a static value. You

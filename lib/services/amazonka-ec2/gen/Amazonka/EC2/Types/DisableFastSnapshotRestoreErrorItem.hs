@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.DisableFastSnapshotRestoreErrorItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DisableFastSnapshotRestoreStateErrorItem
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the errors that occurred when disabling fast

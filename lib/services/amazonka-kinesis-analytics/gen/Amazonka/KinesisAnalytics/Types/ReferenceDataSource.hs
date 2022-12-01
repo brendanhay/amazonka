@@ -20,9 +20,9 @@
 module Amazonka.KinesisAnalytics.Types.ReferenceDataSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalytics.Types.S3ReferenceDataSource
 import Amazonka.KinesisAnalytics.Types.SourceSchema
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the reference data source by providing the source information

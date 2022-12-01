@@ -21,7 +21,7 @@ module Amazonka.CertificateManagerPCA.Types.Permission where
 
 import Amazonka.CertificateManagerPCA.Types.ActionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Permissions designate which private CA actions can be performed by an

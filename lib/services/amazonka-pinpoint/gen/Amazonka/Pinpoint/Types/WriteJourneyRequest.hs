@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.WriteJourneyRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Pinpoint.Types.Activity
 import Amazonka.Pinpoint.Types.ClosedDays
 import Amazonka.Pinpoint.Types.JourneyChannelSettings

@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.PhoneNumberStatus where
 
 import Amazonka.Connect.Types.PhoneNumberWorkflowStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of the phone number.

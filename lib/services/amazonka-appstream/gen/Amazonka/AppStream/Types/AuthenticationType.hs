@@ -21,6 +21,7 @@ module Amazonka.AppStream.Types.AuthenticationType
   ( AuthenticationType
       ( ..,
         AuthenticationType_API,
+        AuthenticationType_AWS_AD,
         AuthenticationType_SAML,
         AuthenticationType_USERPOOL
       ),
@@ -61,6 +62,9 @@ newtype AuthenticationType = AuthenticationType'
 pattern AuthenticationType_API :: AuthenticationType
 pattern AuthenticationType_API = AuthenticationType' "API"
 
+pattern AuthenticationType_AWS_AD :: AuthenticationType
+pattern AuthenticationType_AWS_AD = AuthenticationType' "AWS_AD"
+
 pattern AuthenticationType_SAML :: AuthenticationType
 pattern AuthenticationType_SAML = AuthenticationType' "SAML"
 
@@ -69,6 +73,7 @@ pattern AuthenticationType_USERPOOL = AuthenticationType' "USERPOOL"
 
 {-# COMPLETE
   AuthenticationType_API,
+  AuthenticationType_AWS_AD,
   AuthenticationType_SAML,
   AuthenticationType_USERPOOL,
   AuthenticationType'

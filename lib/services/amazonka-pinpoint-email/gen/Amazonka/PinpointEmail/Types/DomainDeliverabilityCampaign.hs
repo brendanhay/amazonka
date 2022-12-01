@@ -20,7 +20,7 @@
 module Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the deliverability data for a specific campaign.

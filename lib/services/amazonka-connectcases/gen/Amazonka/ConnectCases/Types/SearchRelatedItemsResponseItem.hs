@@ -22,7 +22,7 @@ module Amazonka.ConnectCases.Types.SearchRelatedItemsResponseItem where
 import Amazonka.ConnectCases.Types.RelatedItemContent
 import Amazonka.ConnectCases.Types.RelatedItemType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of items that represent RelatedItems.

@@ -20,10 +20,10 @@
 module Amazonka.Grafana.Types.WorkspaceSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types.AuthenticationSummary
 import Amazonka.Grafana.Types.NotificationDestinationType
 import Amazonka.Grafana.Types.WorkspaceStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains some information about one workspace in the

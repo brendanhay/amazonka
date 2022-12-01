@@ -20,7 +20,7 @@
 module Amazonka.DAX.Types.Subnet where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the subnet associated with a DAX cluster. This parameter

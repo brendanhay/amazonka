@@ -20,8 +20,8 @@
 module Amazonka.CostExplorer.Types.Group where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.MetricValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | One level of grouped data in the results.

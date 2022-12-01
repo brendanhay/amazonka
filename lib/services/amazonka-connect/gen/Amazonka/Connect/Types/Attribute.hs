@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.Attribute where
 
 import Amazonka.Connect.Types.InstanceAttributeType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A toggle for an individual feature at the instance level.

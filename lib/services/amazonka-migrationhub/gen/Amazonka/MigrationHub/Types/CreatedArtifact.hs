@@ -20,7 +20,7 @@
 module Amazonka.MigrationHub.Types.CreatedArtifact where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An ARN of the AWS cloud resource target receiving the migration (e.g.,

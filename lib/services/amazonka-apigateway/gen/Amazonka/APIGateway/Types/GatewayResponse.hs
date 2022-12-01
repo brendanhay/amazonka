@@ -21,7 +21,7 @@ module Amazonka.APIGateway.Types.GatewayResponse where
 
 import Amazonka.APIGateway.Types.GatewayResponseType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A gateway response of a given response type and status code, with

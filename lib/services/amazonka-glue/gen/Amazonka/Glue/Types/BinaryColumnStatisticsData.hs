@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.BinaryColumnStatisticsData where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines column statistics supported for bit sequence data values.

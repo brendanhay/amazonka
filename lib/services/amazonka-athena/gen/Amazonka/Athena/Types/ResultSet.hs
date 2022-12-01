@@ -22,7 +22,7 @@ module Amazonka.Athena.Types.ResultSet where
 import Amazonka.Athena.Types.ResultSetMetadata
 import Amazonka.Athena.Types.Row
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata and rows that make up a query result set. The metadata

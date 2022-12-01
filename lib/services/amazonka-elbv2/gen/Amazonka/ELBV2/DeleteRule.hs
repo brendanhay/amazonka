@@ -41,8 +41,8 @@ module Amazonka.ELBV2.DeleteRule
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -76,8 +76,8 @@ deleteRule_ruleArn = Lens.lens (\DeleteRule' {ruleArn} -> ruleArn) (\s@DeleteRul
 
 instance Core.AWSRequest DeleteRule where
   type AWSResponse DeleteRule = DeleteRuleResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "DeleteRuleResult"

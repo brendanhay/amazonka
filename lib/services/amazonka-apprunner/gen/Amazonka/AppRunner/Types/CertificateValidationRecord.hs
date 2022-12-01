@@ -21,7 +21,7 @@ module Amazonka.AppRunner.Types.CertificateValidationRecord where
 
 import Amazonka.AppRunner.Types.CertificateValidationRecordStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a certificate CNAME record to add to your DNS. For more

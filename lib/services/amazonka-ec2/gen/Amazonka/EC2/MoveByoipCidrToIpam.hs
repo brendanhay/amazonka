@@ -49,8 +49,8 @@ module Amazonka.EC2.MoveByoipCidrToIpam
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,8 +131,8 @@ instance Core.AWSRequest MoveByoipCidrToIpam where
   type
     AWSResponse MoveByoipCidrToIpam =
       MoveByoipCidrToIpamResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->
@@ -176,7 +176,8 @@ instance Core.ToQuery MoveByoipCidrToIpam where
 
 -- | /See:/ 'newMoveByoipCidrToIpamResponse' smart constructor.
 data MoveByoipCidrToIpamResponse = MoveByoipCidrToIpamResponse'
-  { byoipCidr :: Prelude.Maybe ByoipCidr,
+  { -- | The BYOIP CIDR.
+    byoipCidr :: Prelude.Maybe ByoipCidr,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,7 +191,7 @@ data MoveByoipCidrToIpamResponse = MoveByoipCidrToIpamResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'byoipCidr', 'moveByoipCidrToIpamResponse_byoipCidr' - Undocumented member.
+-- 'byoipCidr', 'moveByoipCidrToIpamResponse_byoipCidr' - The BYOIP CIDR.
 --
 -- 'httpStatus', 'moveByoipCidrToIpamResponse_httpStatus' - The response's http status code.
 newMoveByoipCidrToIpamResponse ::
@@ -204,7 +205,7 @@ newMoveByoipCidrToIpamResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The BYOIP CIDR.
 moveByoipCidrToIpamResponse_byoipCidr :: Lens.Lens' MoveByoipCidrToIpamResponse (Prelude.Maybe ByoipCidr)
 moveByoipCidrToIpamResponse_byoipCidr = Lens.lens (\MoveByoipCidrToIpamResponse' {byoipCidr} -> byoipCidr) (\s@MoveByoipCidrToIpamResponse' {} a -> s {byoipCidr = a} :: MoveByoipCidrToIpamResponse)
 

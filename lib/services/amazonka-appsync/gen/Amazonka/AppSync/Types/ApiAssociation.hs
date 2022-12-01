@@ -21,7 +21,7 @@ module Amazonka.AppSync.Types.ApiAssociation where
 
 import Amazonka.AppSync.Types.AssociationStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an @ApiAssociation@ object.

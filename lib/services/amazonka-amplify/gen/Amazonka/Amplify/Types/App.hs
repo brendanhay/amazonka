@@ -25,7 +25,7 @@ import Amazonka.Amplify.Types.Platform
 import Amazonka.Amplify.Types.ProductionBranch
 import Amazonka.Amplify.Types.RepositoryCloneMethod
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the different branches of a repository for building,
@@ -80,7 +80,10 @@ data App = App'
     description :: Prelude.Text,
     -- | The Git repository for the Amplify app.
     repository :: Prelude.Text,
-    -- | The platform for the Amplify app.
+    -- | The platform for the Amplify app. For a static app, set the platform
+    -- type to @WEB@. For a dynamic server-side rendered (SSR) app, set the
+    -- platform type to @WEB_COMPUTE@. For an app requiring Amplify Hosting\'s
+    -- original SSR support only, set the platform type to @WEB_DYNAMIC@.
     platform :: Platform,
     -- | Creates a date and time for the Amplify app.
     createTime :: Core.POSIX,
@@ -152,7 +155,10 @@ data App = App'
 --
 -- 'repository', 'app_repository' - The Git repository for the Amplify app.
 --
--- 'platform', 'app_platform' - The platform for the Amplify app.
+-- 'platform', 'app_platform' - The platform for the Amplify app. For a static app, set the platform
+-- type to @WEB@. For a dynamic server-side rendered (SSR) app, set the
+-- platform type to @WEB_COMPUTE@. For an app requiring Amplify Hosting\'s
+-- original SSR support only, set the platform type to @WEB_DYNAMIC@.
 --
 -- 'createTime', 'app_createTime' - Creates a date and time for the Amplify app.
 --
@@ -309,7 +315,10 @@ app_description = Lens.lens (\App' {description} -> description) (\s@App' {} a -
 app_repository :: Lens.Lens' App Prelude.Text
 app_repository = Lens.lens (\App' {repository} -> repository) (\s@App' {} a -> s {repository = a} :: App)
 
--- | The platform for the Amplify app.
+-- | The platform for the Amplify app. For a static app, set the platform
+-- type to @WEB@. For a dynamic server-side rendered (SSR) app, set the
+-- platform type to @WEB_COMPUTE@. For an app requiring Amplify Hosting\'s
+-- original SSR support only, set the platform type to @WEB_DYNAMIC@.
 app_platform :: Lens.Lens' App Platform
 app_platform = Lens.lens (\App' {platform} -> platform) (\s@App' {} a -> s {platform = a} :: App)
 

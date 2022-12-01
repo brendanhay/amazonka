@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.MacieV2.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.GetSensitiveDataOccurrences
 import Amazonka.MacieV2.Lens
 import Amazonka.MacieV2.Types
@@ -26,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 newFindingRevealed :: Core.Wait GetSensitiveDataOccurrences
 newFindingRevealed =
   Core.Wait
-    { Core._waitName = "FindingRevealed",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 2,
-      Core._waitAcceptors =
+    { Core.name = "FindingRevealed",
+      Core.attempts = 60,
+      Core.delay = 2,
+      Core.acceptors =
         [ Core.matchAll
             "SUCCESS"
             Core.AcceptSuccess

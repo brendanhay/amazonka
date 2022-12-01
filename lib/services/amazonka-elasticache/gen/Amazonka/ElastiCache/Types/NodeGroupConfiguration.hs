@@ -20,7 +20,7 @@
 module Amazonka.ElastiCache.Types.NodeGroupConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Node group (shard) configuration options. Each node group (shard)

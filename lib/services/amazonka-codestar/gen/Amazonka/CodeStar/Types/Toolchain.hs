@@ -21,7 +21,7 @@ module Amazonka.CodeStar.Types.Toolchain where
 
 import Amazonka.CodeStar.Types.ToolchainSource
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The toolchain template file provided with the project request. AWS

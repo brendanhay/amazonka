@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.ProcessingStoppingCondition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures conditions under which the processing job should be stopped,

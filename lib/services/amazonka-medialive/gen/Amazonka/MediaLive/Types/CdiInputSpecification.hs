@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.CdiInputSpecification where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.CdiInputResolution
 import qualified Amazonka.Prelude as Prelude
 

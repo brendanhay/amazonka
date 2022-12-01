@@ -20,7 +20,7 @@
 module Amazonka.IoT.Types.KafkaAction where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon

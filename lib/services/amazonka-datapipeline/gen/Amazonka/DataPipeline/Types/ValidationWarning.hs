@@ -20,7 +20,7 @@
 module Amazonka.DataPipeline.Types.ValidationWarning where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a validation warning. Validation warnings do not prevent

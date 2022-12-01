@@ -37,7 +37,7 @@ module Amazonka.MediaLive.DeleteTags
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,8 +84,8 @@ deleteTags_resourceArn = Lens.lens (\DeleteTags' {resourceArn} -> resourceArn) (
 
 instance Core.AWSRequest DeleteTags where
   type AWSResponse DeleteTags = DeleteTagsResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteTagsResponse'
 
 instance Prelude.Hashable DeleteTags where

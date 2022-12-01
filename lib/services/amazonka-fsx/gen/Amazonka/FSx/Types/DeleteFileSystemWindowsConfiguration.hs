@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.DeleteFileSystemWindowsConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration object for the Microsoft Windows file system used in

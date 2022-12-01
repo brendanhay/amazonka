@@ -20,8 +20,8 @@
 module Amazonka.DirectoryService.Types.OSUpdateSettings where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.OSVersion
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | OS version that the directory needs to be updated to.

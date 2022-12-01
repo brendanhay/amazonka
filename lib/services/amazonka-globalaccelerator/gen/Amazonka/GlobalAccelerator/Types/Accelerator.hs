@@ -20,11 +20,11 @@
 module Amazonka.GlobalAccelerator.Types.Accelerator where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GlobalAccelerator.Types.AcceleratorEvent
 import Amazonka.GlobalAccelerator.Types.AcceleratorStatus
 import Amazonka.GlobalAccelerator.Types.IpAddressType
 import Amazonka.GlobalAccelerator.Types.IpSet
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An accelerator is a complex type that includes one or more listeners

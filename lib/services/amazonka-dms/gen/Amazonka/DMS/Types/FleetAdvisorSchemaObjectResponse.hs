@@ -20,7 +20,7 @@
 module Amazonka.DMS.Types.FleetAdvisorSchemaObjectResponse where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a schema object in a Fleet Advisor collector inventory.

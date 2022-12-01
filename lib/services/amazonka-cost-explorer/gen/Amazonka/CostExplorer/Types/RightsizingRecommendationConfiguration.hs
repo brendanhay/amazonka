@@ -20,8 +20,8 @@
 module Amazonka.CostExplorer.Types.RightsizingRecommendationConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.RecommendationTarget
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | You can use @RightsizingRecommendationConfiguration@ to customize

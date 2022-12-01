@@ -20,9 +20,9 @@
 module Amazonka.FMS.Types.PolicyComplianceDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.ComplianceViolator
 import Amazonka.FMS.Types.DependentServiceName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the noncompliant resources in a member account for a specific

@@ -49,7 +49,7 @@ module Amazonka.SQS.GetQueueUrl
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,8 +113,8 @@ getQueueUrl_queueName = Lens.lens (\GetQueueUrl' {queueName} -> queueName) (\s@G
 
 instance Core.AWSRequest GetQueueUrl where
   type AWSResponse GetQueueUrl = GetQueueUrlResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "GetQueueUrlResult"

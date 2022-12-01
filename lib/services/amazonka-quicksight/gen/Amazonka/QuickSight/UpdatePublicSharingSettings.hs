@@ -52,7 +52,7 @@ module Amazonka.QuickSight.UpdatePublicSharingSettings
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -107,8 +107,8 @@ instance Core.AWSRequest UpdatePublicSharingSettings where
   type
     AWSResponse UpdatePublicSharingSettings =
       UpdatePublicSharingSettingsResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

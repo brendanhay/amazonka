@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.FirelensConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.FirelensConfigurationType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The FireLens configuration for the container. This is used to specify

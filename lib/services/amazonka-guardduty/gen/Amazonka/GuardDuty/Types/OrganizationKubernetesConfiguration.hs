@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.OrganizationKubernetesConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.OrganizationKubernetesAuditLogsConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Organization-wide Kubernetes data sources configurations.

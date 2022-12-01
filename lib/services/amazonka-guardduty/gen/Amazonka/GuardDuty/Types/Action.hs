@@ -20,12 +20,12 @@
 module Amazonka.GuardDuty.Types.Action where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.AwsApiCallAction
 import Amazonka.GuardDuty.Types.DnsRequestAction
 import Amazonka.GuardDuty.Types.KubernetesApiCallAction
 import Amazonka.GuardDuty.Types.NetworkConnectionAction
 import Amazonka.GuardDuty.Types.PortProbeAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about actions.

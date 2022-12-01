@@ -20,9 +20,9 @@
 module Amazonka.ImageBuilder.Types.InfrastructureConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.InstanceMetadataOptions
 import Amazonka.ImageBuilder.Types.Logging
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the infrastructure configuration.

@@ -21,7 +21,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.AudioConcatenationConfiguration whe
 
 import Amazonka.ChimeSdkMediaPipelines.Types.AudioArtifactsConcatenationState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The audio artifact concatenation configuration object.

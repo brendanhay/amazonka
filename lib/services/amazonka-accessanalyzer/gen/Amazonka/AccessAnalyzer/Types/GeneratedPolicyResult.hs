@@ -22,7 +22,7 @@ module Amazonka.AccessAnalyzer.Types.GeneratedPolicyResult where
 import Amazonka.AccessAnalyzer.Types.GeneratedPolicy
 import Amazonka.AccessAnalyzer.Types.GeneratedPolicyProperties
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the text for the generated policy and its details.

@@ -20,9 +20,9 @@
 module Amazonka.Forecast.Types.DataConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.AdditionalDataset
 import Amazonka.Forecast.Types.AttributeConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data configuration for your dataset group and any additional

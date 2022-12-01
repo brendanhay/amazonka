@@ -20,7 +20,7 @@
 module Amazonka.KinesisAnalyticsV2.Types.S3ContentLocation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a Kinesis Data Analytics application provides a description of an

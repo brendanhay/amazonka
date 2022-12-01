@@ -49,14 +49,15 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPricingPlans' smart constructor.
 data ListPricingPlans = ListPricingPlans'
-  { -- | The pagination token used on subsequent call to get pricing plans.
+  { -- | The pagination token that\'s used on subsequent call to get pricing
+    -- plans.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The preferred billing period to get pricing plan.
     billingPeriod :: Prelude.Maybe Prelude.Text,
@@ -76,7 +77,8 @@ data ListPricingPlans = ListPricingPlans'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPricingPlans_nextToken' - The pagination token used on subsequent call to get pricing plans.
+-- 'nextToken', 'listPricingPlans_nextToken' - The pagination token that\'s used on subsequent call to get pricing
+-- plans.
 --
 -- 'billingPeriod', 'listPricingPlans_billingPeriod' - The preferred billing period to get pricing plan.
 --
@@ -94,7 +96,8 @@ newListPricingPlans =
       maxResults = Prelude.Nothing
     }
 
--- | The pagination token used on subsequent call to get pricing plans.
+-- | The pagination token that\'s used on subsequent call to get pricing
+-- plans.
 listPricingPlans_nextToken :: Lens.Lens' ListPricingPlans (Prelude.Maybe Prelude.Text)
 listPricingPlans_nextToken = Lens.lens (\ListPricingPlans' {nextToken} -> nextToken) (\s@ListPricingPlans' {} a -> s {nextToken = a} :: ListPricingPlans)
 
@@ -137,8 +140,8 @@ instance Core.AWSRequest ListPricingPlans where
   type
     AWSResponse ListPricingPlans =
       ListPricingPlansResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -193,7 +196,8 @@ instance Core.ToQuery ListPricingPlans where
 
 -- | /See:/ 'newListPricingPlansResponse' smart constructor.
 data ListPricingPlansResponse = ListPricingPlansResponse'
-  { -- | The pagination token used on subsequent calls to get pricing plans.
+  { -- | The pagination token that\'s used on subsequent calls to get pricing
+    -- plans.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The billing period for which the described pricing plans are applicable.
     billingPeriod :: Prelude.Maybe Prelude.Text,
@@ -212,7 +216,8 @@ data ListPricingPlansResponse = ListPricingPlansResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPricingPlansResponse_nextToken' - The pagination token used on subsequent calls to get pricing plans.
+-- 'nextToken', 'listPricingPlansResponse_nextToken' - The pagination token that\'s used on subsequent calls to get pricing
+-- plans.
 --
 -- 'billingPeriod', 'listPricingPlansResponse_billingPeriod' - The billing period for which the described pricing plans are applicable.
 --
@@ -232,7 +237,8 @@ newListPricingPlansResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The pagination token used on subsequent calls to get pricing plans.
+-- | The pagination token that\'s used on subsequent calls to get pricing
+-- plans.
 listPricingPlansResponse_nextToken :: Lens.Lens' ListPricingPlansResponse (Prelude.Maybe Prelude.Text)
 listPricingPlansResponse_nextToken = Lens.lens (\ListPricingPlansResponse' {nextToken} -> nextToken) (\s@ListPricingPlansResponse' {} a -> s {nextToken = a} :: ListPricingPlansResponse)
 

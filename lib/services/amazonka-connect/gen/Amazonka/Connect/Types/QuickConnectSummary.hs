@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.QuickConnectSummary where
 
 import Amazonka.Connect.Types.QuickConnectType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a quick connect.

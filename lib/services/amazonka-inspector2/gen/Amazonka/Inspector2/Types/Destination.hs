@@ -20,7 +20,7 @@
 module Amazonka.Inspector2.Types.Destination where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details of the Amazon S3 bucket and KMS key used to export

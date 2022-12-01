@@ -20,7 +20,7 @@
 module Amazonka.CostExplorer.Types.SavingsPlansCoverageData where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specific coverage percentage, On-Demand costs, and spend covered by

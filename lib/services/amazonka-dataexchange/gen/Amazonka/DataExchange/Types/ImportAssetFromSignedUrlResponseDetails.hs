@@ -20,7 +20,7 @@
 module Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details in the response for an import request, including the signed

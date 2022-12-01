@@ -20,9 +20,9 @@
 module Amazonka.KafkaConnect.Types.AutoScalingDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KafkaConnect.Types.ScaleInPolicyDescription
 import Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the auto scaling parameters for the connector.

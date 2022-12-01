@@ -20,9 +20,9 @@
 module Amazonka.FSx.Types.NFSDataRepositoryConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.AutoExportPolicy
 import Amazonka.FSx.Types.NfsVersion
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for a data repository association that links an Amazon

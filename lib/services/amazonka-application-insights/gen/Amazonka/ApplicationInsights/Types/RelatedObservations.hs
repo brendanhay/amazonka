@@ -21,7 +21,7 @@ module Amazonka.ApplicationInsights.Types.RelatedObservations where
 
 import Amazonka.ApplicationInsights.Types.Observation
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes observations related to the problem.

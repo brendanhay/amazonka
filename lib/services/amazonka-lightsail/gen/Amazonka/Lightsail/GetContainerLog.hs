@@ -30,7 +30,7 @@
 -- Container logs are retained for a certain amount of time. For more
 -- information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/lightsail.html Amazon Lightsail endpoints and quotas>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 module Amazonka.Lightsail.GetContainerLog
   ( -- * Creating a Request
     GetContainerLog (..),
@@ -56,7 +56,7 @@ module Amazonka.Lightsail.GetContainerLog
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -280,8 +280,8 @@ instance Core.AWSRequest GetContainerLog where
   type
     AWSResponse GetContainerLog =
       GetContainerLogResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

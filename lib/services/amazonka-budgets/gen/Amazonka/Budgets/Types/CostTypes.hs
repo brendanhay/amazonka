@@ -20,7 +20,7 @@
 module Amazonka.Budgets.Types.CostTypes where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The types of cost that are included in a @COST@ budget, such as tax and

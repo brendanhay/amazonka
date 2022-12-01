@@ -20,11 +20,11 @@
 module Amazonka.Inspector2.Types.FindingTypeAggregation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.AggregationFindingType
 import Amazonka.Inspector2.Types.AggregationResourceType
 import Amazonka.Inspector2.Types.FindingTypeSortBy
 import Amazonka.Inspector2.Types.SortOrder
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details that define an aggregation based on finding type.

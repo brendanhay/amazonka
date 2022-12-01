@@ -22,7 +22,8 @@ module Amazonka.Transfer.Types.EncryptionAlg
       ( ..,
         EncryptionAlg_AES128_CBC,
         EncryptionAlg_AES192_CBC,
-        EncryptionAlg_AES256_CBC
+        EncryptionAlg_AES256_CBC,
+        EncryptionAlg_NONE
       ),
   )
 where
@@ -67,9 +68,13 @@ pattern EncryptionAlg_AES192_CBC = EncryptionAlg' "AES192_CBC"
 pattern EncryptionAlg_AES256_CBC :: EncryptionAlg
 pattern EncryptionAlg_AES256_CBC = EncryptionAlg' "AES256_CBC"
 
+pattern EncryptionAlg_NONE :: EncryptionAlg
+pattern EncryptionAlg_NONE = EncryptionAlg' "NONE"
+
 {-# COMPLETE
   EncryptionAlg_AES128_CBC,
   EncryptionAlg_AES192_CBC,
   EncryptionAlg_AES256_CBC,
+  EncryptionAlg_NONE,
   EncryptionAlg'
   #-}

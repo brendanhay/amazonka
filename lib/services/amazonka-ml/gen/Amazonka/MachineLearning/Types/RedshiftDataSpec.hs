@@ -20,7 +20,7 @@
 module Amazonka.MachineLearning.Types.RedshiftDataSpec where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MachineLearning.Types.RedshiftDatabase
 import Amazonka.MachineLearning.Types.RedshiftDatabaseCredentials
 import qualified Amazonka.Prelude as Prelude

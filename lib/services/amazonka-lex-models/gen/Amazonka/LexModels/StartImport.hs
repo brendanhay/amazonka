@@ -49,7 +49,7 @@ module Amazonka.LexModels.StartImport
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -182,8 +182,8 @@ startImport_mergeStrategy = Lens.lens (\StartImport' {mergeStrategy} -> mergeStr
 
 instance Core.AWSRequest StartImport where
   type AWSResponse StartImport = StartImportResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

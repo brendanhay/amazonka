@@ -47,8 +47,8 @@ module Amazonka.Lambda.GetFunction
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,8 +138,8 @@ getFunction_functionName = Lens.lens (\GetFunction' {functionName} -> functionNa
 
 instance Core.AWSRequest GetFunction where
   type AWSResponse GetFunction = GetFunctionResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

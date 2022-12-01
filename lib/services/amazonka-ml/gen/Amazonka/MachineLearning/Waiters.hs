@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.MachineLearning.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MachineLearning.DescribeBatchPredictions
 import Amazonka.MachineLearning.DescribeDataSources
 import Amazonka.MachineLearning.DescribeEvaluations
@@ -29,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 newEvaluationAvailable :: Core.Wait DescribeEvaluations
 newEvaluationAvailable =
   Core.Wait
-    { Core._waitName = "EvaluationAvailable",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "EvaluationAvailable",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "COMPLETED"
             Core.AcceptSuccess
@@ -66,10 +67,10 @@ newEvaluationAvailable =
 newMLModelAvailable :: Core.Wait DescribeMLModels
 newMLModelAvailable =
   Core.Wait
-    { Core._waitName = "MLModelAvailable",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "MLModelAvailable",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "COMPLETED"
             Core.AcceptSuccess
@@ -103,10 +104,10 @@ newMLModelAvailable =
 newDataSourceAvailable :: Core.Wait DescribeDataSources
 newDataSourceAvailable =
   Core.Wait
-    { Core._waitName = "DataSourceAvailable",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "DataSourceAvailable",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "COMPLETED"
             Core.AcceptSuccess
@@ -140,11 +141,10 @@ newDataSourceAvailable =
 newBatchPredictionAvailable :: Core.Wait DescribeBatchPredictions
 newBatchPredictionAvailable =
   Core.Wait
-    { Core._waitName =
-        "BatchPredictionAvailable",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "BatchPredictionAvailable",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "COMPLETED"
             Core.AcceptSuccess

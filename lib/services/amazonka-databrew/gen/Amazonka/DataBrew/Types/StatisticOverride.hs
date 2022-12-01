@@ -20,7 +20,7 @@
 module Amazonka.DataBrew.Types.StatisticOverride where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Override of a particular evaluation for a profile job.

@@ -20,8 +20,8 @@
 module Amazonka.GroundStation.Types.TrackingConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types.Criticality
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object that determines whether tracking should be used during a contact

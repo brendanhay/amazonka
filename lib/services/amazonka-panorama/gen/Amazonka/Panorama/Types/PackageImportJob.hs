@@ -20,7 +20,7 @@
 module Amazonka.Panorama.Types.PackageImportJob where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Panorama.Types.PackageImportJobStatus
 import Amazonka.Panorama.Types.PackageImportJobType
 import qualified Amazonka.Prelude as Prelude

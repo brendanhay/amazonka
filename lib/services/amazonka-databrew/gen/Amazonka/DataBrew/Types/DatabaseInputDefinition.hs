@@ -20,8 +20,8 @@
 module Amazonka.DataBrew.Types.DatabaseInputDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.S3Location
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Connection information for dataset input files stored in a database.

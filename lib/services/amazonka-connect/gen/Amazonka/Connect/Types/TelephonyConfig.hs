@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.TelephonyConfig where
 
 import Amazonka.Connect.Types.Distribution
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The distribution of traffic between the instance and its replicas.

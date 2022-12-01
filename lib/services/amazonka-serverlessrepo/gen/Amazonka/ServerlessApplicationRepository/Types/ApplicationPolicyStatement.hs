@@ -20,7 +20,7 @@
 module Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Policy statement applied to the application.

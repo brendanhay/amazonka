@@ -20,11 +20,11 @@
 module Amazonka.ElasticBeanstalk.Types.PlatformDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticBeanstalk.Types.CustomAmi
 import Amazonka.ElasticBeanstalk.Types.PlatformFramework
 import Amazonka.ElasticBeanstalk.Types.PlatformProgrammingLanguage
 import Amazonka.ElasticBeanstalk.Types.PlatformStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about a platform version.

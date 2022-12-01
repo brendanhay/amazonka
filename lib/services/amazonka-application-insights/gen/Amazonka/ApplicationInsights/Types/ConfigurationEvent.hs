@@ -22,7 +22,7 @@ module Amazonka.ApplicationInsights.Types.ConfigurationEvent where
 import Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType
 import Amazonka.ApplicationInsights.Types.ConfigurationEventStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The event information.

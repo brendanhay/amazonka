@@ -20,7 +20,7 @@
 module Amazonka.Route53RecoveryReadiness.Types.Message where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information relating to readiness check status.

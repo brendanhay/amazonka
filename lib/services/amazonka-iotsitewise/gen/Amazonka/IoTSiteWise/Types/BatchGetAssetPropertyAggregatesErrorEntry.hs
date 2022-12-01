@@ -20,8 +20,8 @@
 module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesErrorEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesErrorCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains error information for an asset property aggregate entry that is

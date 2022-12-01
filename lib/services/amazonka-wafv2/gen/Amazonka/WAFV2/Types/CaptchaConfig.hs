@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.CaptchaConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ImmunityTimeProperty
 
@@ -29,8 +29,8 @@ import Amazonka.WAFV2.Types.ImmunityTimeProperty
 --
 -- /See:/ 'newCaptchaConfig' smart constructor.
 data CaptchaConfig = CaptchaConfig'
-  { -- | Determines how long a @CAPTCHA@ token remains valid after the client
-    -- successfully solves a @CAPTCHA@ puzzle.
+  { -- | Determines how long a @CAPTCHA@ timestamp in the token remains valid
+    -- after the client successfully solves a @CAPTCHA@ puzzle.
     immunityTimeProperty :: Prelude.Maybe ImmunityTimeProperty
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,8 +43,8 @@ data CaptchaConfig = CaptchaConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'immunityTimeProperty', 'captchaConfig_immunityTimeProperty' - Determines how long a @CAPTCHA@ token remains valid after the client
--- successfully solves a @CAPTCHA@ puzzle.
+-- 'immunityTimeProperty', 'captchaConfig_immunityTimeProperty' - Determines how long a @CAPTCHA@ timestamp in the token remains valid
+-- after the client successfully solves a @CAPTCHA@ puzzle.
 newCaptchaConfig ::
   CaptchaConfig
 newCaptchaConfig =
@@ -53,8 +53,8 @@ newCaptchaConfig =
         Prelude.Nothing
     }
 
--- | Determines how long a @CAPTCHA@ token remains valid after the client
--- successfully solves a @CAPTCHA@ puzzle.
+-- | Determines how long a @CAPTCHA@ timestamp in the token remains valid
+-- after the client successfully solves a @CAPTCHA@ puzzle.
 captchaConfig_immunityTimeProperty :: Lens.Lens' CaptchaConfig (Prelude.Maybe ImmunityTimeProperty)
 captchaConfig_immunityTimeProperty = Lens.lens (\CaptchaConfig' {immunityTimeProperty} -> immunityTimeProperty) (\s@CaptchaConfig' {} a -> s {immunityTimeProperty = a} :: CaptchaConfig)
 

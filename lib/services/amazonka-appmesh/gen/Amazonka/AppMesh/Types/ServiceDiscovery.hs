@@ -22,7 +22,7 @@ module Amazonka.AppMesh.Types.ServiceDiscovery where
 import Amazonka.AppMesh.Types.AwsCloudMapServiceDiscovery
 import Amazonka.AppMesh.Types.DnsServiceDiscovery
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the service discovery information for a

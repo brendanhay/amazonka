@@ -20,7 +20,7 @@
 module Amazonka.Route53RecoveryReadiness.Types.Recommendation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Recommendations that are provided to make an application more recovery

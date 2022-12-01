@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.KubernetesDataSourceFreeTrial where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.DataSourceFreeTrial
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details about the Kubernetes resources when it is enabled as a

@@ -53,8 +53,8 @@ module Amazonka.Grafana.ListPermissions
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -64,9 +64,9 @@ data ListPermissions = ListPermissions'
   { -- | The token to use when requesting the next set of results. You received
     -- this token from a previous @ListPermissions@ operation.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) If you specify @SSO_USER@, then only the permissions of
-    -- Amazon Web Services SSO users are returned. If you specify @SSO_GROUP@,
-    -- only the permissions of Amazon Web Services SSO groups are returned.
+    -- | (Optional) If you specify @SSO_USER@, then only the permissions of IAM
+    -- Identity Center users are returned. If you specify @SSO_GROUP@, only the
+    -- permissions of IAM Identity Center groups are returned.
     userType :: Prelude.Maybe UserType,
     -- | The maximum number of results to include in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -91,9 +91,9 @@ data ListPermissions = ListPermissions'
 -- 'nextToken', 'listPermissions_nextToken' - The token to use when requesting the next set of results. You received
 -- this token from a previous @ListPermissions@ operation.
 --
--- 'userType', 'listPermissions_userType' - (Optional) If you specify @SSO_USER@, then only the permissions of
--- Amazon Web Services SSO users are returned. If you specify @SSO_GROUP@,
--- only the permissions of Amazon Web Services SSO groups are returned.
+-- 'userType', 'listPermissions_userType' - (Optional) If you specify @SSO_USER@, then only the permissions of IAM
+-- Identity Center users are returned. If you specify @SSO_GROUP@, only the
+-- permissions of IAM Identity Center groups are returned.
 --
 -- 'maxResults', 'listPermissions_maxResults' - The maximum number of results to include in the response.
 --
@@ -122,9 +122,9 @@ newListPermissions pWorkspaceId_ =
 listPermissions_nextToken :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Text)
 listPermissions_nextToken = Lens.lens (\ListPermissions' {nextToken} -> nextToken) (\s@ListPermissions' {} a -> s {nextToken = a} :: ListPermissions)
 
--- | (Optional) If you specify @SSO_USER@, then only the permissions of
--- Amazon Web Services SSO users are returned. If you specify @SSO_GROUP@,
--- only the permissions of Amazon Web Services SSO groups are returned.
+-- | (Optional) If you specify @SSO_USER@, then only the permissions of IAM
+-- Identity Center users are returned. If you specify @SSO_GROUP@, only the
+-- permissions of IAM Identity Center groups are returned.
 listPermissions_userType :: Lens.Lens' ListPermissions (Prelude.Maybe UserType)
 listPermissions_userType = Lens.lens (\ListPermissions' {userType} -> userType) (\s@ListPermissions' {} a -> s {userType = a} :: ListPermissions)
 
@@ -168,8 +168,8 @@ instance Core.AWSRequest ListPermissions where
   type
     AWSResponse ListPermissions =
       ListPermissionsResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,8 +20,9 @@
 module Amazonka.ElastiCache.Types.CacheSubnetGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.ElastiCache.Types.NetworkType
 import Amazonka.ElastiCache.Types.Subnet
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of one of the following operations:
@@ -42,7 +43,12 @@ data CacheSubnetGroup = CacheSubnetGroup'
     cacheSubnetGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
     -- group.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | Either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for workloads
+    -- using Redis engine version 6.2 onward or Memcached engine version 1.6.6
+    -- on all instances built on the
+    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    supportedNetworkTypes :: Prelude.Maybe [NetworkType]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,6 +70,11 @@ data CacheSubnetGroup = CacheSubnetGroup'
 --
 -- 'vpcId', 'cacheSubnetGroup_vpcId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group.
+--
+-- 'supportedNetworkTypes', 'cacheSubnetGroup_supportedNetworkTypes' - Either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for workloads
+-- using Redis engine version 6.2 onward or Memcached engine version 1.6.6
+-- on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
 newCacheSubnetGroup ::
   CacheSubnetGroup
 newCacheSubnetGroup =
@@ -73,7 +84,8 @@ newCacheSubnetGroup =
       subnets = Prelude.Nothing,
       arn = Prelude.Nothing,
       cacheSubnetGroupDescription = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+      vpcId = Prelude.Nothing,
+      supportedNetworkTypes = Prelude.Nothing
     }
 
 -- | The name of the cache subnet group.
@@ -97,6 +109,13 @@ cacheSubnetGroup_cacheSubnetGroupDescription = Lens.lens (\CacheSubnetGroup' {ca
 cacheSubnetGroup_vpcId :: Lens.Lens' CacheSubnetGroup (Prelude.Maybe Prelude.Text)
 cacheSubnetGroup_vpcId = Lens.lens (\CacheSubnetGroup' {vpcId} -> vpcId) (\s@CacheSubnetGroup' {} a -> s {vpcId = a} :: CacheSubnetGroup)
 
+-- | Either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for workloads
+-- using Redis engine version 6.2 onward or Memcached engine version 1.6.6
+-- on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+cacheSubnetGroup_supportedNetworkTypes :: Lens.Lens' CacheSubnetGroup (Prelude.Maybe [NetworkType])
+cacheSubnetGroup_supportedNetworkTypes = Lens.lens (\CacheSubnetGroup' {supportedNetworkTypes} -> supportedNetworkTypes) (\s@CacheSubnetGroup' {} a -> s {supportedNetworkTypes = a} :: CacheSubnetGroup) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML CacheSubnetGroup where
   parseXML x =
     CacheSubnetGroup'
@@ -107,6 +126,10 @@ instance Core.FromXML CacheSubnetGroup where
       Prelude.<*> (x Core..@? "ARN")
       Prelude.<*> (x Core..@? "CacheSubnetGroupDescription")
       Prelude.<*> (x Core..@? "VpcId")
+      Prelude.<*> ( x Core..@? "SupportedNetworkTypes"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
 instance Prelude.Hashable CacheSubnetGroup where
   hashWithSalt _salt CacheSubnetGroup' {..} =
@@ -115,6 +138,7 @@ instance Prelude.Hashable CacheSubnetGroup where
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` cacheSubnetGroupDescription
       `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` supportedNetworkTypes
 
 instance Prelude.NFData CacheSubnetGroup where
   rnf CacheSubnetGroup' {..} =
@@ -123,3 +147,4 @@ instance Prelude.NFData CacheSubnetGroup where
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf cacheSubnetGroupDescription
       `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf supportedNetworkTypes

@@ -21,7 +21,7 @@ module Amazonka.Comprehend.Types.Entity where
 
 import Amazonka.Comprehend.Types.EntityType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an entity.

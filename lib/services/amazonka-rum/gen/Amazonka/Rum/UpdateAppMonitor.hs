@@ -45,6 +45,7 @@ module Amazonka.Rum.UpdateAppMonitor
     updateAppMonitor_domain,
     updateAppMonitor_appMonitorConfiguration,
     updateAppMonitor_cwLogEnabled,
+    updateAppMonitor_customEvents,
     updateAppMonitor_name,
 
     -- * Destructuring the Response
@@ -57,7 +58,7 @@ module Amazonka.Rum.UpdateAppMonitor
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,6 +83,12 @@ data UpdateAppMonitor = UpdateAppMonitor'
     -- telemetry data for more than 30 days, but it does incur Amazon
     -- CloudWatch Logs charges.
     cwLogEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether this app monitor allows the web client to define and
+    -- send custom events. The default is for custom events to be @DISABLED@.
+    --
+    -- For more information about custom events, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+    customEvents :: Prelude.Maybe CustomEvents,
     -- | The name of the app monitor to update.
     name :: Prelude.Text
   }
@@ -112,6 +119,12 @@ data UpdateAppMonitor = UpdateAppMonitor'
 -- telemetry data for more than 30 days, but it does incur Amazon
 -- CloudWatch Logs charges.
 --
+-- 'customEvents', 'updateAppMonitor_customEvents' - Specifies whether this app monitor allows the web client to define and
+-- send custom events. The default is for custom events to be @DISABLED@.
+--
+-- For more information about custom events, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+--
 -- 'name', 'updateAppMonitor_name' - The name of the app monitor to update.
 newUpdateAppMonitor ::
   -- | 'name'
@@ -122,6 +135,7 @@ newUpdateAppMonitor pName_ =
     { domain = Prelude.Nothing,
       appMonitorConfiguration = Prelude.Nothing,
       cwLogEnabled = Prelude.Nothing,
+      customEvents = Prelude.Nothing,
       name = pName_
     }
 
@@ -148,6 +162,14 @@ updateAppMonitor_appMonitorConfiguration = Lens.lens (\UpdateAppMonitor' {appMon
 updateAppMonitor_cwLogEnabled :: Lens.Lens' UpdateAppMonitor (Prelude.Maybe Prelude.Bool)
 updateAppMonitor_cwLogEnabled = Lens.lens (\UpdateAppMonitor' {cwLogEnabled} -> cwLogEnabled) (\s@UpdateAppMonitor' {} a -> s {cwLogEnabled = a} :: UpdateAppMonitor)
 
+-- | Specifies whether this app monitor allows the web client to define and
+-- send custom events. The default is for custom events to be @DISABLED@.
+--
+-- For more information about custom events, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+updateAppMonitor_customEvents :: Lens.Lens' UpdateAppMonitor (Prelude.Maybe CustomEvents)
+updateAppMonitor_customEvents = Lens.lens (\UpdateAppMonitor' {customEvents} -> customEvents) (\s@UpdateAppMonitor' {} a -> s {customEvents = a} :: UpdateAppMonitor)
+
 -- | The name of the app monitor to update.
 updateAppMonitor_name :: Lens.Lens' UpdateAppMonitor Prelude.Text
 updateAppMonitor_name = Lens.lens (\UpdateAppMonitor' {name} -> name) (\s@UpdateAppMonitor' {} a -> s {name = a} :: UpdateAppMonitor)
@@ -156,8 +178,8 @@ instance Core.AWSRequest UpdateAppMonitor where
   type
     AWSResponse UpdateAppMonitor =
       UpdateAppMonitorResponse
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -170,6 +192,7 @@ instance Prelude.Hashable UpdateAppMonitor where
     _salt `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` appMonitorConfiguration
       `Prelude.hashWithSalt` cwLogEnabled
+      `Prelude.hashWithSalt` customEvents
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateAppMonitor where
@@ -177,6 +200,7 @@ instance Prelude.NFData UpdateAppMonitor where
     Prelude.rnf domain
       `Prelude.seq` Prelude.rnf appMonitorConfiguration
       `Prelude.seq` Prelude.rnf cwLogEnabled
+      `Prelude.seq` Prelude.rnf customEvents
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateAppMonitor where
@@ -197,7 +221,8 @@ instance Core.ToJSON UpdateAppMonitor where
           [ ("Domain" Core..=) Prelude.<$> domain,
             ("AppMonitorConfiguration" Core..=)
               Prelude.<$> appMonitorConfiguration,
-            ("CwLogEnabled" Core..=) Prelude.<$> cwLogEnabled
+            ("CwLogEnabled" Core..=) Prelude.<$> cwLogEnabled,
+            ("CustomEvents" Core..=) Prelude.<$> customEvents
           ]
       )
 

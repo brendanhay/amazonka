@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.Proton.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.GetComponent
 import Amazonka.Proton.GetEnvironment
@@ -31,11 +32,11 @@ import Amazonka.Proton.Types
 newServiceTemplateVersionRegistered :: Core.Wait GetServiceTemplateVersion
 newServiceTemplateVersionRegistered =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "ServiceTemplateVersionRegistered",
-      Core._waitAttempts = 150,
-      Core._waitDelay = 2,
-      Core._waitAcceptors =
+      Core.attempts = 150,
+      Core.delay = 2,
+      Core.acceptors =
         [ Core.matchAll
             "DRAFT"
             Core.AcceptSuccess
@@ -64,10 +65,10 @@ newServiceTemplateVersionRegistered =
 newEnvironmentDeployed :: Core.Wait GetEnvironment
 newEnvironmentDeployed =
   Core.Wait
-    { Core._waitName = "EnvironmentDeployed",
-      Core._waitAttempts = 999,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "EnvironmentDeployed",
+      Core.attempts = 999,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "SUCCEEDED"
             Core.AcceptSuccess
@@ -89,11 +90,11 @@ newEnvironmentDeployed =
 newEnvironmentTemplateVersionRegistered :: Core.Wait GetEnvironmentTemplateVersion
 newEnvironmentTemplateVersionRegistered =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "EnvironmentTemplateVersionRegistered",
-      Core._waitAttempts = 150,
-      Core._waitDelay = 2,
-      Core._waitAcceptors =
+      Core.attempts = 150,
+      Core.delay = 2,
+      Core.acceptors =
         [ Core.matchAll
             "DRAFT"
             Core.AcceptSuccess
@@ -122,10 +123,10 @@ newEnvironmentTemplateVersionRegistered =
 newServiceCreated :: Core.Wait GetService
 newServiceCreated =
   Core.Wait
-    { Core._waitName = "ServiceCreated",
-      Core._waitAttempts = 999,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ServiceCreated",
+      Core.attempts = 999,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess
@@ -161,10 +162,10 @@ newServiceCreated =
 newServiceDeleted :: Core.Wait GetService
 newServiceDeleted =
   Core.Wait
-    { Core._waitName = "ServiceDeleted",
-      Core._waitAttempts = 999,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ServiceDeleted",
+      Core.attempts = 999,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchError
             "ResourceNotFoundException"
             Core.AcceptSuccess,
@@ -182,10 +183,10 @@ newServiceDeleted =
 newServiceUpdated :: Core.Wait GetService
 newServiceUpdated =
   Core.Wait
-    { Core._waitName = "ServiceUpdated",
-      Core._waitAttempts = 999,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ServiceUpdated",
+      Core.attempts = 999,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess
@@ -228,11 +229,10 @@ newServiceUpdated =
 newServiceInstanceDeployed :: Core.Wait GetServiceInstance
 newServiceInstanceDeployed =
   Core.Wait
-    { Core._waitName =
-        "ServiceInstanceDeployed",
-      Core._waitAttempts = 999,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ServiceInstanceDeployed",
+      Core.attempts = 999,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "SUCCEEDED"
             Core.AcceptSuccess
@@ -254,10 +254,10 @@ newServiceInstanceDeployed =
 newComponentDeployed :: Core.Wait GetComponent
 newComponentDeployed =
   Core.Wait
-    { Core._waitName = "ComponentDeployed",
-      Core._waitAttempts = 999,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ComponentDeployed",
+      Core.attempts = 999,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "SUCCEEDED"
             Core.AcceptSuccess
@@ -279,11 +279,10 @@ newComponentDeployed =
 newServicePipelineDeployed :: Core.Wait GetService
 newServicePipelineDeployed =
   Core.Wait
-    { Core._waitName =
-        "ServicePipelineDeployed",
-      Core._waitAttempts = 360,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "ServicePipelineDeployed",
+      Core.attempts = 360,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "SUCCEEDED"
             Core.AcceptSuccess
@@ -309,10 +308,10 @@ newServicePipelineDeployed =
 newComponentDeleted :: Core.Wait GetComponent
 newComponentDeleted =
   Core.Wait
-    { Core._waitName = "ComponentDeleted",
-      Core._waitAttempts = 999,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ComponentDeleted",
+      Core.attempts = 999,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchError
             "ResourceNotFoundException"
             Core.AcceptSuccess,

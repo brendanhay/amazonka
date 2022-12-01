@@ -20,8 +20,8 @@
 module Amazonka.ElasticSearch.Types.AutoTuneDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.ScheduledAutoTuneDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies details of the Auto-Tune action. See the

@@ -20,14 +20,17 @@
 module Amazonka.SSMIncidents.Types.EventSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSMIncidents.Types.EventReference
 
 -- | Details about a timeline event during an incident.
 --
 -- /See:/ 'newEventSummary' smart constructor.
 data EventSummary = EventSummary'
-  { -- | The timeline event ID.
+  { -- | A list of references in a @TimelineEvent@.
+    eventReferences :: Prelude.Maybe [EventReference],
+    -- | The timeline event ID.
     eventId :: Prelude.Text,
     -- | The time that the event occurred.
     eventTime :: Core.POSIX,
@@ -48,6 +51,8 @@ data EventSummary = EventSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'eventReferences', 'eventSummary_eventReferences' - A list of references in a @TimelineEvent@.
 --
 -- 'eventId', 'eventSummary_eventId' - The timeline event ID.
 --
@@ -78,13 +83,18 @@ newEventSummary
   pEventUpdatedTime_
   pIncidentRecordArn_ =
     EventSummary'
-      { eventId = pEventId_,
+      { eventReferences = Prelude.Nothing,
+        eventId = pEventId_,
         eventTime = Core._Time Lens.# pEventTime_,
         eventType = pEventType_,
         eventUpdatedTime =
           Core._Time Lens.# pEventUpdatedTime_,
         incidentRecordArn = pIncidentRecordArn_
       }
+
+-- | A list of references in a @TimelineEvent@.
+eventSummary_eventReferences :: Lens.Lens' EventSummary (Prelude.Maybe [EventReference])
+eventSummary_eventReferences = Lens.lens (\EventSummary' {eventReferences} -> eventReferences) (\s@EventSummary' {} a -> s {eventReferences = a} :: EventSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The timeline event ID.
 eventSummary_eventId :: Lens.Lens' EventSummary Prelude.Text
@@ -113,7 +123,10 @@ instance Core.FromJSON EventSummary where
       "EventSummary"
       ( \x ->
           EventSummary'
-            Prelude.<$> (x Core..: "eventId")
+            Prelude.<$> ( x Core..:? "eventReferences"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..: "eventId")
             Prelude.<*> (x Core..: "eventTime")
             Prelude.<*> (x Core..: "eventType")
             Prelude.<*> (x Core..: "eventUpdatedTime")
@@ -122,7 +135,8 @@ instance Core.FromJSON EventSummary where
 
 instance Prelude.Hashable EventSummary where
   hashWithSalt _salt EventSummary' {..} =
-    _salt `Prelude.hashWithSalt` eventId
+    _salt `Prelude.hashWithSalt` eventReferences
+      `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTime
       `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` eventUpdatedTime
@@ -130,7 +144,8 @@ instance Prelude.Hashable EventSummary where
 
 instance Prelude.NFData EventSummary where
   rnf EventSummary' {..} =
-    Prelude.rnf eventId
+    Prelude.rnf eventReferences
+      `Prelude.seq` Prelude.rnf eventId
       `Prelude.seq` Prelude.rnf eventTime
       `Prelude.seq` Prelude.rnf eventType
       `Prelude.seq` Prelude.rnf eventUpdatedTime

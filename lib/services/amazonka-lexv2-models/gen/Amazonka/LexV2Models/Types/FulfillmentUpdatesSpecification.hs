@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.FulfillmentUpdatesSpecification where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types.FulfillmentStartResponseSpecification
 import Amazonka.LexV2Models.Types.FulfillmentUpdateResponseSpecification
 import qualified Amazonka.Prelude as Prelude

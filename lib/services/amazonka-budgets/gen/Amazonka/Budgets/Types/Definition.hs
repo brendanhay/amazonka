@@ -23,7 +23,7 @@ import Amazonka.Budgets.Types.IamActionDefinition
 import Amazonka.Budgets.Types.ScpActionDefinition
 import Amazonka.Budgets.Types.SsmActionDefinition
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies all of the type-specific parameters.

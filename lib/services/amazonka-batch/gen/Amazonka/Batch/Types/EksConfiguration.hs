@@ -20,7 +20,7 @@
 module Amazonka.Batch.Types.EksConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration for the Amazon EKS cluster that supports the Batch compute

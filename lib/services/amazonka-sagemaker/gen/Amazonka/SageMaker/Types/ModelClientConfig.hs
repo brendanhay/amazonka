@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.ModelClientConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures the timeout and maximum number of retries for processing a

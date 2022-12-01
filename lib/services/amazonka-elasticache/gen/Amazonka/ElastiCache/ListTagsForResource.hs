@@ -49,8 +49,8 @@ module Amazonka.ElastiCache.ListTagsForResource
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,8 +104,8 @@ listTagsForResource_resourceName = Lens.lens (\ListTagsForResource' {resourceNam
 
 instance Core.AWSRequest ListTagsForResource where
   type AWSResponse ListTagsForResource = TagListMessage
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "ListTagsForResourceResult"

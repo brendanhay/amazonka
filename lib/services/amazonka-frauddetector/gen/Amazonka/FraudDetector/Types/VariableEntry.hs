@@ -20,7 +20,7 @@
 module Amazonka.FraudDetector.Types.VariableEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A variable in the list of variables for the batch create variable

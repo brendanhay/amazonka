@@ -20,7 +20,7 @@
 module Amazonka.Mobile.Types.Resource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an instance of an AWS resource associated with a

@@ -26,9 +26,9 @@
 -- permission to write to the S3 bucket that you specify as the
 -- destination.
 --
--- Exporting log data to Amazon S3 buckets that are encrypted by KMS is not
+-- Exporting log data to Amazon S3 buckets that are encrypted by KMS is
 -- supported. Exporting log data to Amazon S3 buckets that have S3 Object
--- Lock enabled with a retention period is not supported.
+-- Lock enabled with a retention period is also supported.
 --
 -- Exporting to S3 buckets that are encrypted with AES-256 is supported.
 --
@@ -75,7 +75,7 @@ where
 
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,6 +99,9 @@ data CreateExportTask = CreateExportTask'
     -- | The end time of the range for the request, expressed as the number of
     -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
     -- later than this time are not exported.
+    --
+    -- You must specify a time that is not earlier than when this log group was
+    -- created.
     to :: Prelude.Natural,
     -- | The name of S3 bucket for the exported log data. The bucket must be in
     -- the same Amazon Web Services region.
@@ -131,6 +134,9 @@ data CreateExportTask = CreateExportTask'
 -- 'to', 'createExportTask_to' - The end time of the range for the request, expressed as the number of
 -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
 -- later than this time are not exported.
+--
+-- You must specify a time that is not earlier than when this log group was
+-- created.
 --
 -- 'destination', 'createExportTask_destination' - The name of S3 bucket for the exported log data. The bucket must be in
 -- the same Amazon Web Services region.
@@ -187,6 +193,9 @@ createExportTask_from = Lens.lens (\CreateExportTask' {from} -> from) (\s@Create
 -- | The end time of the range for the request, expressed as the number of
 -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
 -- later than this time are not exported.
+--
+-- You must specify a time that is not earlier than when this log group was
+-- created.
 createExportTask_to :: Lens.Lens' CreateExportTask Prelude.Natural
 createExportTask_to = Lens.lens (\CreateExportTask' {to} -> to) (\s@CreateExportTask' {} a -> s {to = a} :: CreateExportTask)
 
@@ -199,8 +208,8 @@ instance Core.AWSRequest CreateExportTask where
   type
     AWSResponse CreateExportTask =
       CreateExportTaskResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

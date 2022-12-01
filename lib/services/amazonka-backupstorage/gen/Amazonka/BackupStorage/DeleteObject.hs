@@ -38,7 +38,7 @@ where
 
 import Amazonka.BackupStorage.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,8 +85,8 @@ deleteObject_objectName = Lens.lens (\DeleteObject' {objectName} -> objectName) 
 
 instance Core.AWSRequest DeleteObject where
   type AWSResponse DeleteObject = DeleteObjectResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteObjectResponse'
 
 instance Prelude.Hashable DeleteObject where

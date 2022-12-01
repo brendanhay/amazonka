@@ -20,7 +20,7 @@
 module Amazonka.RedshiftServerLess.Types.RecoveryPoint where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The automatically created recovery point of a namespace. Recovery points

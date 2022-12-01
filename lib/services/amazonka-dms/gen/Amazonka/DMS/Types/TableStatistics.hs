@@ -20,7 +20,7 @@
 module Amazonka.DMS.Types.TableStatistics where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a collection of table statistics in response to a request by
@@ -45,6 +45,8 @@ data TableStatistics = TableStatistics'
     fullLoadEndTime :: Prelude.Maybe Core.POSIX,
     -- | The time when the full load operation started.
     fullLoadStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The number of insert actions applied on a target table.
+    appliedInserts :: Prelude.Maybe Prelude.Integer,
     -- | A value that indicates if the table was reloaded (@true@) or loaded as
     -- part of a new full load operation (@false@).
     fullLoadReloaded :: Prelude.Maybe Prelude.Bool,
@@ -57,6 +59,8 @@ data TableStatistics = TableStatistics'
     validationSuspendedRecords :: Prelude.Maybe Prelude.Integer,
     -- | The number of records that failed validation.
     validationFailedRecords :: Prelude.Maybe Prelude.Integer,
+    -- | The number of delete actions applied on a target table.
+    appliedDeletes :: Prelude.Maybe Prelude.Integer,
     -- | The validation state of the table.
     --
     -- This parameter can have the following values:
@@ -93,12 +97,17 @@ data TableStatistics = TableStatistics'
     -- -   Pending revalidation – All rows in the table are pending validation
     --     after the table was updated.
     validationState :: Prelude.Maybe Prelude.Text,
+    -- | The number of update actions applied on a target table.
+    appliedUpdates :: Prelude.Maybe Prelude.Integer,
     -- | The number of rows added during the full load operation.
     fullLoadRows :: Prelude.Maybe Prelude.Integer,
     -- | Additional details about the state of validation.
     validationStateDetails :: Prelude.Maybe Prelude.Text,
     -- | The last time a table was updated.
     lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    -- | The number of data definition language (DDL) statements used to build
+    -- and modify the structure of your tables applied on the target.
+    appliedDdls :: Prelude.Maybe Prelude.Integer,
     -- | The number of insert actions performed on a table.
     inserts :: Prelude.Maybe Prelude.Integer,
     -- | The number of records that have yet to be validated.
@@ -135,6 +144,8 @@ data TableStatistics = TableStatistics'
 --
 -- 'fullLoadStartTime', 'tableStatistics_fullLoadStartTime' - The time when the full load operation started.
 --
+-- 'appliedInserts', 'tableStatistics_appliedInserts' - The number of insert actions applied on a target table.
+--
 -- 'fullLoadReloaded', 'tableStatistics_fullLoadReloaded' - A value that indicates if the table was reloaded (@true@) or loaded as
 -- part of a new full load operation (@false@).
 --
@@ -146,6 +157,8 @@ data TableStatistics = TableStatistics'
 -- 'validationSuspendedRecords', 'tableStatistics_validationSuspendedRecords' - The number of records that couldn\'t be validated.
 --
 -- 'validationFailedRecords', 'tableStatistics_validationFailedRecords' - The number of records that failed validation.
+--
+-- 'appliedDeletes', 'tableStatistics_appliedDeletes' - The number of delete actions applied on a target table.
 --
 -- 'validationState', 'tableStatistics_validationState' - The validation state of the table.
 --
@@ -183,11 +196,16 @@ data TableStatistics = TableStatistics'
 -- -   Pending revalidation – All rows in the table are pending validation
 --     after the table was updated.
 --
+-- 'appliedUpdates', 'tableStatistics_appliedUpdates' - The number of update actions applied on a target table.
+--
 -- 'fullLoadRows', 'tableStatistics_fullLoadRows' - The number of rows added during the full load operation.
 --
 -- 'validationStateDetails', 'tableStatistics_validationStateDetails' - Additional details about the state of validation.
 --
 -- 'lastUpdateTime', 'tableStatistics_lastUpdateTime' - The last time a table was updated.
+--
+-- 'appliedDdls', 'tableStatistics_appliedDdls' - The number of data definition language (DDL) statements used to build
+-- and modify the structure of your tables applied on the target.
 --
 -- 'inserts', 'tableStatistics_inserts' - The number of insert actions performed on a table.
 --
@@ -206,15 +224,19 @@ newTableStatistics =
       tableState = Prelude.Nothing,
       fullLoadEndTime = Prelude.Nothing,
       fullLoadStartTime = Prelude.Nothing,
+      appliedInserts = Prelude.Nothing,
       fullLoadReloaded = Prelude.Nothing,
       fullLoadErrorRows = Prelude.Nothing,
       schemaName = Prelude.Nothing,
       validationSuspendedRecords = Prelude.Nothing,
       validationFailedRecords = Prelude.Nothing,
+      appliedDeletes = Prelude.Nothing,
       validationState = Prelude.Nothing,
+      appliedUpdates = Prelude.Nothing,
       fullLoadRows = Prelude.Nothing,
       validationStateDetails = Prelude.Nothing,
       lastUpdateTime = Prelude.Nothing,
+      appliedDdls = Prelude.Nothing,
       inserts = Prelude.Nothing,
       validationPendingRecords = Prelude.Nothing,
       deletes = Prelude.Nothing,
@@ -250,6 +272,10 @@ tableStatistics_fullLoadEndTime = Lens.lens (\TableStatistics' {fullLoadEndTime}
 tableStatistics_fullLoadStartTime :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.UTCTime)
 tableStatistics_fullLoadStartTime = Lens.lens (\TableStatistics' {fullLoadStartTime} -> fullLoadStartTime) (\s@TableStatistics' {} a -> s {fullLoadStartTime = a} :: TableStatistics) Prelude.. Lens.mapping Core._Time
 
+-- | The number of insert actions applied on a target table.
+tableStatistics_appliedInserts :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.Integer)
+tableStatistics_appliedInserts = Lens.lens (\TableStatistics' {appliedInserts} -> appliedInserts) (\s@TableStatistics' {} a -> s {appliedInserts = a} :: TableStatistics)
+
 -- | A value that indicates if the table was reloaded (@true@) or loaded as
 -- part of a new full load operation (@false@).
 tableStatistics_fullLoadReloaded :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.Bool)
@@ -271,6 +297,10 @@ tableStatistics_validationSuspendedRecords = Lens.lens (\TableStatistics' {valid
 -- | The number of records that failed validation.
 tableStatistics_validationFailedRecords :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.Integer)
 tableStatistics_validationFailedRecords = Lens.lens (\TableStatistics' {validationFailedRecords} -> validationFailedRecords) (\s@TableStatistics' {} a -> s {validationFailedRecords = a} :: TableStatistics)
+
+-- | The number of delete actions applied on a target table.
+tableStatistics_appliedDeletes :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.Integer)
+tableStatistics_appliedDeletes = Lens.lens (\TableStatistics' {appliedDeletes} -> appliedDeletes) (\s@TableStatistics' {} a -> s {appliedDeletes = a} :: TableStatistics)
 
 -- | The validation state of the table.
 --
@@ -310,6 +340,10 @@ tableStatistics_validationFailedRecords = Lens.lens (\TableStatistics' {validati
 tableStatistics_validationState :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.Text)
 tableStatistics_validationState = Lens.lens (\TableStatistics' {validationState} -> validationState) (\s@TableStatistics' {} a -> s {validationState = a} :: TableStatistics)
 
+-- | The number of update actions applied on a target table.
+tableStatistics_appliedUpdates :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.Integer)
+tableStatistics_appliedUpdates = Lens.lens (\TableStatistics' {appliedUpdates} -> appliedUpdates) (\s@TableStatistics' {} a -> s {appliedUpdates = a} :: TableStatistics)
+
 -- | The number of rows added during the full load operation.
 tableStatistics_fullLoadRows :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.Integer)
 tableStatistics_fullLoadRows = Lens.lens (\TableStatistics' {fullLoadRows} -> fullLoadRows) (\s@TableStatistics' {} a -> s {fullLoadRows = a} :: TableStatistics)
@@ -321,6 +355,11 @@ tableStatistics_validationStateDetails = Lens.lens (\TableStatistics' {validatio
 -- | The last time a table was updated.
 tableStatistics_lastUpdateTime :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.UTCTime)
 tableStatistics_lastUpdateTime = Lens.lens (\TableStatistics' {lastUpdateTime} -> lastUpdateTime) (\s@TableStatistics' {} a -> s {lastUpdateTime = a} :: TableStatistics) Prelude.. Lens.mapping Core._Time
+
+-- | The number of data definition language (DDL) statements used to build
+-- and modify the structure of your tables applied on the target.
+tableStatistics_appliedDdls :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.Integer)
+tableStatistics_appliedDdls = Lens.lens (\TableStatistics' {appliedDdls} -> appliedDdls) (\s@TableStatistics' {} a -> s {appliedDdls = a} :: TableStatistics)
 
 -- | The number of insert actions performed on a table.
 tableStatistics_inserts :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.Integer)
@@ -350,15 +389,19 @@ instance Core.FromJSON TableStatistics where
             Prelude.<*> (x Core..:? "TableState")
             Prelude.<*> (x Core..:? "FullLoadEndTime")
             Prelude.<*> (x Core..:? "FullLoadStartTime")
+            Prelude.<*> (x Core..:? "AppliedInserts")
             Prelude.<*> (x Core..:? "FullLoadReloaded")
             Prelude.<*> (x Core..:? "FullLoadErrorRows")
             Prelude.<*> (x Core..:? "SchemaName")
             Prelude.<*> (x Core..:? "ValidationSuspendedRecords")
             Prelude.<*> (x Core..:? "ValidationFailedRecords")
+            Prelude.<*> (x Core..:? "AppliedDeletes")
             Prelude.<*> (x Core..:? "ValidationState")
+            Prelude.<*> (x Core..:? "AppliedUpdates")
             Prelude.<*> (x Core..:? "FullLoadRows")
             Prelude.<*> (x Core..:? "ValidationStateDetails")
             Prelude.<*> (x Core..:? "LastUpdateTime")
+            Prelude.<*> (x Core..:? "AppliedDdls")
             Prelude.<*> (x Core..:? "Inserts")
             Prelude.<*> (x Core..:? "ValidationPendingRecords")
             Prelude.<*> (x Core..:? "Deletes")
@@ -373,15 +416,19 @@ instance Prelude.Hashable TableStatistics where
       `Prelude.hashWithSalt` tableState
       `Prelude.hashWithSalt` fullLoadEndTime
       `Prelude.hashWithSalt` fullLoadStartTime
+      `Prelude.hashWithSalt` appliedInserts
       `Prelude.hashWithSalt` fullLoadReloaded
       `Prelude.hashWithSalt` fullLoadErrorRows
       `Prelude.hashWithSalt` schemaName
       `Prelude.hashWithSalt` validationSuspendedRecords
       `Prelude.hashWithSalt` validationFailedRecords
+      `Prelude.hashWithSalt` appliedDeletes
       `Prelude.hashWithSalt` validationState
+      `Prelude.hashWithSalt` appliedUpdates
       `Prelude.hashWithSalt` fullLoadRows
       `Prelude.hashWithSalt` validationStateDetails
       `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` appliedDdls
       `Prelude.hashWithSalt` inserts
       `Prelude.hashWithSalt` validationPendingRecords
       `Prelude.hashWithSalt` deletes
@@ -395,16 +442,21 @@ instance Prelude.NFData TableStatistics where
       `Prelude.seq` Prelude.rnf tableState
       `Prelude.seq` Prelude.rnf fullLoadEndTime
       `Prelude.seq` Prelude.rnf fullLoadStartTime
+      `Prelude.seq` Prelude.rnf appliedInserts
       `Prelude.seq` Prelude.rnf fullLoadReloaded
       `Prelude.seq` Prelude.rnf fullLoadErrorRows
       `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf validationSuspendedRecords
       `Prelude.seq` Prelude.rnf validationFailedRecords
+      `Prelude.seq` Prelude.rnf appliedDeletes
       `Prelude.seq` Prelude.rnf validationState
+      `Prelude.seq` Prelude.rnf appliedUpdates
       `Prelude.seq` Prelude.rnf fullLoadRows
       `Prelude.seq` Prelude.rnf validationStateDetails
       `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf appliedDdls
       `Prelude.seq` Prelude.rnf inserts
-      `Prelude.seq` Prelude.rnf validationPendingRecords
+      `Prelude.seq` Prelude.rnf
+        validationPendingRecords
       `Prelude.seq` Prelude.rnf deletes
       `Prelude.seq` Prelude.rnf updates

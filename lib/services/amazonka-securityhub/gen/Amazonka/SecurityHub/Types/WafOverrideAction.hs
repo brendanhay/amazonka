@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.WafOverrideAction where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about an override action for a rule.

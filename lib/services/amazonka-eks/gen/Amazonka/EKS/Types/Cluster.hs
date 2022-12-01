@@ -20,6 +20,7 @@
 module Amazonka.EKS.Types.Cluster where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types.Certificate
 import Amazonka.EKS.Types.ClusterHealth
 import Amazonka.EKS.Types.ClusterStatus
@@ -30,7 +31,6 @@ import Amazonka.EKS.Types.KubernetesNetworkConfigResponse
 import Amazonka.EKS.Types.Logging
 import Amazonka.EKS.Types.OutpostConfigResponse
 import Amazonka.EKS.Types.VpcConfigResponse
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an Amazon EKS cluster.

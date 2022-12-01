@@ -22,7 +22,7 @@ module Amazonka.Connect.Types.ContactFlow where
 import Amazonka.Connect.Types.ContactFlowState
 import Amazonka.Connect.Types.ContactFlowType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a flow.

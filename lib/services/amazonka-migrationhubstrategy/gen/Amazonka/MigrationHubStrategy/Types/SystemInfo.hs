@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubStrategy.Types.SystemInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubStrategy.Types.NetworkInfo
 import Amazonka.MigrationHubStrategy.Types.OSInfo
 import qualified Amazonka.Prelude as Prelude

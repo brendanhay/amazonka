@@ -41,7 +41,7 @@ module Amazonka.PrivateNetworks.GetOrder
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -76,8 +76,8 @@ getOrder_orderArn = Lens.lens (\GetOrder' {orderArn} -> orderArn) (\s@GetOrder' 
 
 instance Core.AWSRequest GetOrder where
   type AWSResponse GetOrder = GetOrderResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -48,7 +48,7 @@ where
 
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +56,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateCase' smart constructor.
 data CreateCase = CreateCase'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the Cases domain.
     domainId :: Prelude.Text,
@@ -77,7 +79,9 @@ data CreateCase = CreateCase'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'createCase_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'domainId', 'createCase_domainId' - The unique identifier of the Cases domain.
 --
@@ -100,7 +104,9 @@ newCreateCase pDomainId_ pTemplateId_ =
     }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 createCase_clientToken :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
 createCase_clientToken = Lens.lens (\CreateCase' {clientToken} -> clientToken) (\s@CreateCase' {} a -> s {clientToken = a} :: CreateCase)
 
@@ -119,8 +125,8 @@ createCase_templateId = Lens.lens (\CreateCase' {templateId} -> templateId) (\s@
 
 instance Core.AWSRequest CreateCase where
   type AWSResponse CreateCase = CreateCaseResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

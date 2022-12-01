@@ -22,7 +22,7 @@ module Amazonka.CodePipeline.Types.ExecutorConfiguration where
 import Amazonka.CodePipeline.Types.JobWorkerExecutorConfiguration
 import Amazonka.CodePipeline.Types.LambdaExecutorConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The action engine, or executor, related to the supported integration

@@ -20,13 +20,13 @@
 module Amazonka.KinesisAnalytics.Types.InputDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalytics.Types.InputParallelism
 import Amazonka.KinesisAnalytics.Types.InputProcessingConfigurationDescription
 import Amazonka.KinesisAnalytics.Types.InputStartingPositionConfiguration
 import Amazonka.KinesisAnalytics.Types.KinesisFirehoseInputDescription
 import Amazonka.KinesisAnalytics.Types.KinesisStreamsInputDescription
 import Amazonka.KinesisAnalytics.Types.SourceSchema
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the application input configuration. For more information, see

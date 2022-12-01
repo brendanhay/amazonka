@@ -46,8 +46,8 @@ module Amazonka.Grafana.UpdateWorkspaceAuthentication
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,9 +59,9 @@ data UpdateWorkspaceAuthentication = UpdateWorkspaceAuthentication'
     -- assertion attribute are to have the @Admin@ and @Editor@ roles in the
     -- workspace.
     samlConfiguration :: Prelude.Maybe SamlConfiguration,
-    -- | Specifies whether this workspace uses SAML 2.0, Amazon Web Services
-    -- Single Sign On, or both to authenticate users for using the Grafana
-    -- console within a workspace. For more information, see
+    -- | Specifies whether this workspace uses SAML 2.0, IAM Identity Center
+    -- (successor to Single Sign-On), or both to authenticate users for using
+    -- the Grafana console within a workspace. For more information, see
     -- <https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html User authentication in Amazon Managed Grafana>.
     authenticationProviders :: [AuthenticationProviderTypes],
     -- | The ID of the workspace to update the authentication for.
@@ -82,9 +82,9 @@ data UpdateWorkspaceAuthentication = UpdateWorkspaceAuthentication'
 -- assertion attribute are to have the @Admin@ and @Editor@ roles in the
 -- workspace.
 --
--- 'authenticationProviders', 'updateWorkspaceAuthentication_authenticationProviders' - Specifies whether this workspace uses SAML 2.0, Amazon Web Services
--- Single Sign On, or both to authenticate users for using the Grafana
--- console within a workspace. For more information, see
+-- 'authenticationProviders', 'updateWorkspaceAuthentication_authenticationProviders' - Specifies whether this workspace uses SAML 2.0, IAM Identity Center
+-- (successor to Single Sign-On), or both to authenticate users for using
+-- the Grafana console within a workspace. For more information, see
 -- <https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html User authentication in Amazon Managed Grafana>.
 --
 -- 'workspaceId', 'updateWorkspaceAuthentication_workspaceId' - The ID of the workspace to update the authentication for.
@@ -107,9 +107,9 @@ newUpdateWorkspaceAuthentication pWorkspaceId_ =
 updateWorkspaceAuthentication_samlConfiguration :: Lens.Lens' UpdateWorkspaceAuthentication (Prelude.Maybe SamlConfiguration)
 updateWorkspaceAuthentication_samlConfiguration = Lens.lens (\UpdateWorkspaceAuthentication' {samlConfiguration} -> samlConfiguration) (\s@UpdateWorkspaceAuthentication' {} a -> s {samlConfiguration = a} :: UpdateWorkspaceAuthentication)
 
--- | Specifies whether this workspace uses SAML 2.0, Amazon Web Services
--- Single Sign On, or both to authenticate users for using the Grafana
--- console within a workspace. For more information, see
+-- | Specifies whether this workspace uses SAML 2.0, IAM Identity Center
+-- (successor to Single Sign-On), or both to authenticate users for using
+-- the Grafana console within a workspace. For more information, see
 -- <https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html User authentication in Amazon Managed Grafana>.
 updateWorkspaceAuthentication_authenticationProviders :: Lens.Lens' UpdateWorkspaceAuthentication [AuthenticationProviderTypes]
 updateWorkspaceAuthentication_authenticationProviders = Lens.lens (\UpdateWorkspaceAuthentication' {authenticationProviders} -> authenticationProviders) (\s@UpdateWorkspaceAuthentication' {} a -> s {authenticationProviders = a} :: UpdateWorkspaceAuthentication) Prelude.. Lens.coerced
@@ -125,8 +125,8 @@ instance
   type
     AWSResponse UpdateWorkspaceAuthentication =
       UpdateWorkspaceAuthenticationResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

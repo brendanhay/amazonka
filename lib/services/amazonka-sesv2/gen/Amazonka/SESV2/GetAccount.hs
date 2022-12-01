@@ -32,6 +32,7 @@ module Amazonka.SESV2.GetAccount
     newGetAccountResponse,
 
     -- * Response Lenses
+    getAccountResponse_vdmAttributes,
     getAccountResponse_sendingEnabled,
     getAccountResponse_suppressionAttributes,
     getAccountResponse_enforcementStatus,
@@ -44,7 +45,7 @@ module Amazonka.SESV2.GetAccount
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,13 +70,14 @@ newGetAccount = GetAccount'
 
 instance Core.AWSRequest GetAccount where
   type AWSResponse GetAccount = GetAccountResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
           GetAccountResponse'
-            Prelude.<$> (x Core..?> "SendingEnabled")
+            Prelude.<$> (x Core..?> "VdmAttributes")
+            Prelude.<*> (x Core..?> "SendingEnabled")
             Prelude.<*> (x Core..?> "SuppressionAttributes")
             Prelude.<*> (x Core..?> "EnforcementStatus")
             Prelude.<*> (x Core..?> "ProductionAccessEnabled")
@@ -114,7 +116,9 @@ instance Core.ToQuery GetAccount where
 --
 -- /See:/ 'newGetAccountResponse' smart constructor.
 data GetAccountResponse = GetAccountResponse'
-  { -- | Indicates whether or not email sending is enabled for your Amazon SES
+  { -- | The VDM attributes that apply to your Amazon SES account.
+    vdmAttributes :: Prelude.Maybe VdmAttributes,
+    -- | Indicates whether or not email sending is enabled for your Amazon SES
     -- account in the current Amazon Web Services Region.
     sendingEnabled :: Prelude.Maybe Prelude.Bool,
     -- | An object that contains information about the email address suppression
@@ -171,6 +175,8 @@ data GetAccountResponse = GetAccountResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'vdmAttributes', 'getAccountResponse_vdmAttributes' - The VDM attributes that apply to your Amazon SES account.
+--
 -- 'sendingEnabled', 'getAccountResponse_sendingEnabled' - Indicates whether or not email sending is enabled for your Amazon SES
 -- account in the current Amazon Web Services Region.
 --
@@ -222,8 +228,9 @@ newGetAccountResponse ::
   GetAccountResponse
 newGetAccountResponse pHttpStatus_ =
   GetAccountResponse'
-    { sendingEnabled =
+    { vdmAttributes =
         Prelude.Nothing,
+      sendingEnabled = Prelude.Nothing,
       suppressionAttributes = Prelude.Nothing,
       enforcementStatus = Prelude.Nothing,
       productionAccessEnabled = Prelude.Nothing,
@@ -232,6 +239,10 @@ newGetAccountResponse pHttpStatus_ =
       sendQuota = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The VDM attributes that apply to your Amazon SES account.
+getAccountResponse_vdmAttributes :: Lens.Lens' GetAccountResponse (Prelude.Maybe VdmAttributes)
+getAccountResponse_vdmAttributes = Lens.lens (\GetAccountResponse' {vdmAttributes} -> vdmAttributes) (\s@GetAccountResponse' {} a -> s {vdmAttributes = a} :: GetAccountResponse)
 
 -- | Indicates whether or not email sending is enabled for your Amazon SES
 -- account in the current Amazon Web Services Region.
@@ -297,7 +308,8 @@ getAccountResponse_httpStatus = Lens.lens (\GetAccountResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetAccountResponse where
   rnf GetAccountResponse' {..} =
-    Prelude.rnf sendingEnabled
+    Prelude.rnf vdmAttributes
+      `Prelude.seq` Prelude.rnf sendingEnabled
       `Prelude.seq` Prelude.rnf suppressionAttributes
       `Prelude.seq` Prelude.rnf enforcementStatus
       `Prelude.seq` Prelude.rnf productionAccessEnabled

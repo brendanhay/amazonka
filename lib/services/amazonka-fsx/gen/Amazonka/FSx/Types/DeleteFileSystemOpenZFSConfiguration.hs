@@ -20,9 +20,9 @@
 module Amazonka.FSx.Types.DeleteFileSystemOpenZFSConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.DeleteFileSystemOpenZFSOption
 import Amazonka.FSx.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration object for the Amazon FSx for OpenZFS file system used

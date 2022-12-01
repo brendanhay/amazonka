@@ -49,6 +49,7 @@ module Amazonka.RDS.CreateDBInstance
     createDBInstance_dbParameterGroupName,
     createDBInstance_backupTarget,
     createDBInstance_preferredBackupWindow,
+    createDBInstance_storageThroughput,
     createDBInstance_backupRetentionPeriod,
     createDBInstance_characterSetName,
     createDBInstance_masterUsername,
@@ -104,7 +105,7 @@ module Amazonka.RDS.CreateDBInstance
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -258,6 +259,12 @@ data CreateDBInstance = CreateDBInstance'
     --
     -- -   Must be at least 30 minutes.
     preferredBackupWindow :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the storage throughput value for the DB instance.
+    --
+    -- This setting applies only to the @gp3@ storage type.
+    --
+    -- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+    storageThroughput :: Prelude.Maybe Prelude.Int,
     -- | The number of days for which automated backups are retained. Setting
     -- this parameter to a positive number enables backups. Setting this
     -- parameter to 0 disables automated backups.
@@ -521,10 +528,10 @@ data CreateDBInstance = CreateDBInstance'
     publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the storage type to be associated with the DB instance.
     --
-    -- Valid values: @standard | gp2 | io1@
+    -- Valid values: @gp2 | gp3 | io1 | standard@
     --
-    -- If you specify @io1@, you must also include a value for the @Iops@
-    -- parameter.
+    -- If you specify @io1@ or @gp3@, you must also include a value for the
+    -- @Iops@ parameter.
     --
     -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
     --
@@ -660,8 +667,8 @@ data CreateDBInstance = CreateDBInstance'
     -- Constraints to the amount of storage for each storage type are the
     -- following:
     --
-    -- -   General Purpose (SSD) storage (gp2): Must be an integer from 40 to
-    --     65536 for RDS Custom for Oracle, 16384 for RDS Custom for SQL
+    -- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 40
+    --     to 65536 for RDS Custom for Oracle, 16384 for RDS Custom for SQL
     --     Server.
     --
     -- -   Provisioned IOPS storage (io1): Must be an integer from 40 to 65536
@@ -672,8 +679,8 @@ data CreateDBInstance = CreateDBInstance'
     -- Constraints to the amount of storage for each storage type are the
     -- following:
     --
-    -- -   General Purpose (SSD) storage (gp2): Must be an integer from 20 to
-    --     65536.
+    -- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20
+    --     to 65536.
     --
     -- -   Provisioned IOPS storage (io1): Must be an integer from 100 to
     --     65536.
@@ -685,8 +692,8 @@ data CreateDBInstance = CreateDBInstance'
     -- Constraints to the amount of storage for each storage type are the
     -- following:
     --
-    -- -   General Purpose (SSD) storage (gp2): Must be an integer from 20 to
-    --     65536.
+    -- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20
+    --     to 65536.
     --
     -- -   Provisioned IOPS storage (io1): Must be an integer from 100 to
     --     65536.
@@ -698,8 +705,8 @@ data CreateDBInstance = CreateDBInstance'
     -- Constraints to the amount of storage for each storage type are the
     -- following:
     --
-    -- -   General Purpose (SSD) storage (gp2): Must be an integer from 20 to
-    --     65536.
+    -- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20
+    --     to 65536.
     --
     -- -   Provisioned IOPS storage (io1): Must be an integer from 100 to
     --     65536.
@@ -711,8 +718,8 @@ data CreateDBInstance = CreateDBInstance'
     -- Constraints to the amount of storage for each storage type are the
     -- following:
     --
-    -- -   General Purpose (SSD) storage (gp2): Must be an integer from 20 to
-    --     65536.
+    -- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20
+    --     to 65536.
     --
     -- -   Provisioned IOPS storage (io1): Must be an integer from 100 to
     --     65536.
@@ -724,7 +731,7 @@ data CreateDBInstance = CreateDBInstance'
     -- Constraints to the amount of storage for each storage type are the
     -- following:
     --
-    -- -   General Purpose (SSD) storage (gp2):
+    -- -   General Purpose (SSD) storage (gp2, gp3):
     --
     --     -   Enterprise and Standard editions: Must be an integer from 20 to
     --         16384.
@@ -792,8 +799,8 @@ data CreateDBInstance = CreateDBInstance'
     customIamInstanceProfile :: Prelude.Maybe Prelude.Text,
     -- | The amount of Provisioned IOPS (input\/output operations per second) to
     -- be initially allocated for the DB instance. For information about valid
-    -- @Iops@ values, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage to improve performance>
+    -- IOPS values, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html Amazon RDS DB instance storage>
     -- in the /Amazon RDS User Guide/.
     --
     -- Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL DB instances,
@@ -1251,6 +1258,12 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- -   Must be at least 30 minutes.
 --
+-- 'storageThroughput', 'createDBInstance_storageThroughput' - Specifies the storage throughput value for the DB instance.
+--
+-- This setting applies only to the @gp3@ storage type.
+--
+-- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+--
 -- 'backupRetentionPeriod', 'createDBInstance_backupRetentionPeriod' - The number of days for which automated backups are retained. Setting
 -- this parameter to a positive number enables backups. Setting this
 -- parameter to 0 disables automated backups.
@@ -1514,10 +1527,10 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- 'storageType', 'createDBInstance_storageType' - Specifies the storage type to be associated with the DB instance.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: @gp2 | gp3 | io1 | standard@
 --
--- If you specify @io1@, you must also include a value for the @Iops@
--- parameter.
+-- If you specify @io1@ or @gp3@, you must also include a value for the
+-- @Iops@ parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
 --
@@ -1653,8 +1666,8 @@ data CreateDBInstance = CreateDBInstance'
 -- Constraints to the amount of storage for each storage type are the
 -- following:
 --
--- -   General Purpose (SSD) storage (gp2): Must be an integer from 40 to
---     65536 for RDS Custom for Oracle, 16384 for RDS Custom for SQL
+-- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 40
+--     to 65536 for RDS Custom for Oracle, 16384 for RDS Custom for SQL
 --     Server.
 --
 -- -   Provisioned IOPS storage (io1): Must be an integer from 40 to 65536
@@ -1665,8 +1678,8 @@ data CreateDBInstance = CreateDBInstance'
 -- Constraints to the amount of storage for each storage type are the
 -- following:
 --
--- -   General Purpose (SSD) storage (gp2): Must be an integer from 20 to
---     65536.
+-- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20
+--     to 65536.
 --
 -- -   Provisioned IOPS storage (io1): Must be an integer from 100 to
 --     65536.
@@ -1678,8 +1691,8 @@ data CreateDBInstance = CreateDBInstance'
 -- Constraints to the amount of storage for each storage type are the
 -- following:
 --
--- -   General Purpose (SSD) storage (gp2): Must be an integer from 20 to
---     65536.
+-- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20
+--     to 65536.
 --
 -- -   Provisioned IOPS storage (io1): Must be an integer from 100 to
 --     65536.
@@ -1691,8 +1704,8 @@ data CreateDBInstance = CreateDBInstance'
 -- Constraints to the amount of storage for each storage type are the
 -- following:
 --
--- -   General Purpose (SSD) storage (gp2): Must be an integer from 20 to
---     65536.
+-- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20
+--     to 65536.
 --
 -- -   Provisioned IOPS storage (io1): Must be an integer from 100 to
 --     65536.
@@ -1704,8 +1717,8 @@ data CreateDBInstance = CreateDBInstance'
 -- Constraints to the amount of storage for each storage type are the
 -- following:
 --
--- -   General Purpose (SSD) storage (gp2): Must be an integer from 20 to
---     65536.
+-- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20
+--     to 65536.
 --
 -- -   Provisioned IOPS storage (io1): Must be an integer from 100 to
 --     65536.
@@ -1717,7 +1730,7 @@ data CreateDBInstance = CreateDBInstance'
 -- Constraints to the amount of storage for each storage type are the
 -- following:
 --
--- -   General Purpose (SSD) storage (gp2):
+-- -   General Purpose (SSD) storage (gp2, gp3):
 --
 --     -   Enterprise and Standard editions: Must be an integer from 20 to
 --         16384.
@@ -1785,8 +1798,8 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- 'iops', 'createDBInstance_iops' - The amount of Provisioned IOPS (input\/output operations per second) to
 -- be initially allocated for the DB instance. For information about valid
--- @Iops@ values, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage to improve performance>
+-- IOPS values, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html Amazon RDS DB instance storage>
 -- in the /Amazon RDS User Guide/.
 --
 -- Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL DB instances,
@@ -2109,6 +2122,7 @@ newCreateDBInstance
         dbParameterGroupName = Prelude.Nothing,
         backupTarget = Prelude.Nothing,
         preferredBackupWindow = Prelude.Nothing,
+        storageThroughput = Prelude.Nothing,
         backupRetentionPeriod = Prelude.Nothing,
         characterSetName = Prelude.Nothing,
         masterUsername = Prelude.Nothing,
@@ -2313,6 +2327,14 @@ createDBInstance_backupTarget = Lens.lens (\CreateDBInstance' {backupTarget} -> 
 -- -   Must be at least 30 minutes.
 createDBInstance_preferredBackupWindow :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
 createDBInstance_preferredBackupWindow = Lens.lens (\CreateDBInstance' {preferredBackupWindow} -> preferredBackupWindow) (\s@CreateDBInstance' {} a -> s {preferredBackupWindow = a} :: CreateDBInstance)
+
+-- | Specifies the storage throughput value for the DB instance.
+--
+-- This setting applies only to the @gp3@ storage type.
+--
+-- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+createDBInstance_storageThroughput :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Int)
+createDBInstance_storageThroughput = Lens.lens (\CreateDBInstance' {storageThroughput} -> storageThroughput) (\s@CreateDBInstance' {} a -> s {storageThroughput = a} :: CreateDBInstance)
 
 -- | The number of days for which automated backups are retained. Setting
 -- this parameter to a positive number enables backups. Setting this
@@ -2617,10 +2639,10 @@ createDBInstance_publiclyAccessible = Lens.lens (\CreateDBInstance' {publiclyAcc
 
 -- | Specifies the storage type to be associated with the DB instance.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: @gp2 | gp3 | io1 | standard@
 --
--- If you specify @io1@, you must also include a value for the @Iops@
--- parameter.
+-- If you specify @io1@ or @gp3@, you must also include a value for the
+-- @Iops@ parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
 --
@@ -2774,8 +2796,8 @@ createDBInstance_kmsKeyId = Lens.lens (\CreateDBInstance' {kmsKeyId} -> kmsKeyId
 -- Constraints to the amount of storage for each storage type are the
 -- following:
 --
--- -   General Purpose (SSD) storage (gp2): Must be an integer from 40 to
---     65536 for RDS Custom for Oracle, 16384 for RDS Custom for SQL
+-- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 40
+--     to 65536 for RDS Custom for Oracle, 16384 for RDS Custom for SQL
 --     Server.
 --
 -- -   Provisioned IOPS storage (io1): Must be an integer from 40 to 65536
@@ -2786,8 +2808,8 @@ createDBInstance_kmsKeyId = Lens.lens (\CreateDBInstance' {kmsKeyId} -> kmsKeyId
 -- Constraints to the amount of storage for each storage type are the
 -- following:
 --
--- -   General Purpose (SSD) storage (gp2): Must be an integer from 20 to
---     65536.
+-- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20
+--     to 65536.
 --
 -- -   Provisioned IOPS storage (io1): Must be an integer from 100 to
 --     65536.
@@ -2799,8 +2821,8 @@ createDBInstance_kmsKeyId = Lens.lens (\CreateDBInstance' {kmsKeyId} -> kmsKeyId
 -- Constraints to the amount of storage for each storage type are the
 -- following:
 --
--- -   General Purpose (SSD) storage (gp2): Must be an integer from 20 to
---     65536.
+-- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20
+--     to 65536.
 --
 -- -   Provisioned IOPS storage (io1): Must be an integer from 100 to
 --     65536.
@@ -2812,8 +2834,8 @@ createDBInstance_kmsKeyId = Lens.lens (\CreateDBInstance' {kmsKeyId} -> kmsKeyId
 -- Constraints to the amount of storage for each storage type are the
 -- following:
 --
--- -   General Purpose (SSD) storage (gp2): Must be an integer from 20 to
---     65536.
+-- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20
+--     to 65536.
 --
 -- -   Provisioned IOPS storage (io1): Must be an integer from 100 to
 --     65536.
@@ -2825,8 +2847,8 @@ createDBInstance_kmsKeyId = Lens.lens (\CreateDBInstance' {kmsKeyId} -> kmsKeyId
 -- Constraints to the amount of storage for each storage type are the
 -- following:
 --
--- -   General Purpose (SSD) storage (gp2): Must be an integer from 20 to
---     65536.
+-- -   General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20
+--     to 65536.
 --
 -- -   Provisioned IOPS storage (io1): Must be an integer from 100 to
 --     65536.
@@ -2838,7 +2860,7 @@ createDBInstance_kmsKeyId = Lens.lens (\CreateDBInstance' {kmsKeyId} -> kmsKeyId
 -- Constraints to the amount of storage for each storage type are the
 -- following:
 --
--- -   General Purpose (SSD) storage (gp2):
+-- -   General Purpose (SSD) storage (gp2, gp3):
 --
 --     -   Enterprise and Standard editions: Must be an integer from 20 to
 --         16384.
@@ -2914,8 +2936,8 @@ createDBInstance_customIamInstanceProfile = Lens.lens (\CreateDBInstance' {custo
 
 -- | The amount of Provisioned IOPS (input\/output operations per second) to
 -- be initially allocated for the DB instance. For information about valid
--- @Iops@ values, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage to improve performance>
+-- IOPS values, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html Amazon RDS DB instance storage>
 -- in the /Amazon RDS User Guide/.
 --
 -- Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL DB instances,
@@ -3242,8 +3264,8 @@ instance Core.AWSRequest CreateDBInstance where
   type
     AWSResponse CreateDBInstance =
       CreateDBInstanceResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "CreateDBInstanceResult"
@@ -3263,6 +3285,7 @@ instance Prelude.Hashable CreateDBInstance where
       `Prelude.hashWithSalt` dbParameterGroupName
       `Prelude.hashWithSalt` backupTarget
       `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` storageThroughput
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` characterSetName
       `Prelude.hashWithSalt` masterUsername
@@ -3317,6 +3340,7 @@ instance Prelude.NFData CreateDBInstance where
       `Prelude.seq` Prelude.rnf dbParameterGroupName
       `Prelude.seq` Prelude.rnf backupTarget
       `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf storageThroughput
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf characterSetName
       `Prelude.seq` Prelude.rnf masterUsername
@@ -3327,7 +3351,8 @@ instance Prelude.NFData CreateDBInstance where
       `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf
+        dbClusterIdentifier
       `Prelude.seq` Prelude.rnf timezone
       `Prelude.seq` Prelude.rnf
         performanceInsightsKMSKeyId
@@ -3421,6 +3446,7 @@ instance Core.ToQuery CreateDBInstance where
         "BackupTarget" Core.=: backupTarget,
         "PreferredBackupWindow"
           Core.=: preferredBackupWindow,
+        "StorageThroughput" Core.=: storageThroughput,
         "BackupRetentionPeriod"
           Core.=: backupRetentionPeriod,
         "CharacterSetName" Core.=: characterSetName,

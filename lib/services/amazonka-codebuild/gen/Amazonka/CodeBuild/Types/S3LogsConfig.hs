@@ -22,7 +22,7 @@ module Amazonka.CodeBuild.Types.S3LogsConfig where
 import Amazonka.CodeBuild.Types.BucketOwnerAccess
 import Amazonka.CodeBuild.Types.LogsConfigStatusType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about S3 logs for a build project.

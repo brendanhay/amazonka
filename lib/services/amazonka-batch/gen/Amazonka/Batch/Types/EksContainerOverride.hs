@@ -22,7 +22,7 @@ module Amazonka.Batch.Types.EksContainerOverride where
 import Amazonka.Batch.Types.EksContainerEnvironmentVariable
 import Amazonka.Batch.Types.EksContainerResourceRequirements
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object representing any Kubernetes overrides to a job definition that\'s

@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.Rule where
 
 import Amazonka.CloudDirectory.Types.RuleType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an Amazon Resource Name (ARN) and parameters that are

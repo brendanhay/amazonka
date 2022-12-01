@@ -20,6 +20,7 @@
 module Amazonka.ECS.Types.ContainerDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.ContainerDependency
 import Amazonka.ECS.Types.EnvironmentFile
 import Amazonka.ECS.Types.FirelensConfiguration
@@ -36,7 +37,6 @@ import Amazonka.ECS.Types.Secret
 import Amazonka.ECS.Types.SystemControl
 import Amazonka.ECS.Types.Ulimit
 import Amazonka.ECS.Types.VolumeFrom
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Container definitions are used in task definitions to describe the

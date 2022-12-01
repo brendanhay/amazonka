@@ -20,8 +20,8 @@
 module Amazonka.ELBV2.Types.AuthenticateCognitoActionConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Request parameters to use when integrating with Amazon Cognito to

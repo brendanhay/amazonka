@@ -20,10 +20,10 @@
 module Amazonka.EC2.Types.FpgaImageAttribute where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LoadPermission
 import Amazonka.EC2.Types.ProductCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon FPGA image (AFI) attribute.

@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.M2tsSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.DvbNitSettings
 import Amazonka.MediaConvert.Types.DvbSdtSettings
 import Amazonka.MediaConvert.Types.DvbTdtSettings

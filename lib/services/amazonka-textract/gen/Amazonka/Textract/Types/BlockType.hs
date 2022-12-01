@@ -28,6 +28,7 @@ module Amazonka.Textract.Types.BlockType
         BlockType_QUERY,
         BlockType_QUERY_RESULT,
         BlockType_SELECTION_ELEMENT,
+        BlockType_SIGNATURE,
         BlockType_TABLE,
         BlockType_TITLE,
         BlockType_WORD
@@ -90,6 +91,9 @@ pattern BlockType_QUERY_RESULT = BlockType' "QUERY_RESULT"
 pattern BlockType_SELECTION_ELEMENT :: BlockType
 pattern BlockType_SELECTION_ELEMENT = BlockType' "SELECTION_ELEMENT"
 
+pattern BlockType_SIGNATURE :: BlockType
+pattern BlockType_SIGNATURE = BlockType' "SIGNATURE"
+
 pattern BlockType_TABLE :: BlockType
 pattern BlockType_TABLE = BlockType' "TABLE"
 
@@ -108,6 +112,7 @@ pattern BlockType_WORD = BlockType' "WORD"
   BlockType_QUERY,
   BlockType_QUERY_RESULT,
   BlockType_SELECTION_ELEMENT,
+  BlockType_SIGNATURE,
   BlockType_TABLE,
   BlockType_TITLE,
   BlockType_WORD,

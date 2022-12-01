@@ -20,7 +20,7 @@
 module Amazonka.DataSync.Types.Ec2Config where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The subnet and security groups that DataSync uses to access your Amazon

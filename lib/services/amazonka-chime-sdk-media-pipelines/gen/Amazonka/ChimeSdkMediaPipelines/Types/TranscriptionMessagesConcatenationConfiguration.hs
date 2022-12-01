@@ -21,7 +21,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.TranscriptionMessagesConcatenationC
 
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration object for concatenating transcription messages.

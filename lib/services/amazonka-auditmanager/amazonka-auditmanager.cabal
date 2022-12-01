@@ -141,6 +141,9 @@ library
     Amazonka.AuditManager.Types.DelegationMetadata
     Amazonka.AuditManager.Types.DelegationStatus
     Amazonka.AuditManager.Types.Evidence
+    Amazonka.AuditManager.Types.EvidenceFinderBackfillStatus
+    Amazonka.AuditManager.Types.EvidenceFinderEnablement
+    Amazonka.AuditManager.Types.EvidenceFinderEnablementStatus
     Amazonka.AuditManager.Types.EvidenceInsights
     Amazonka.AuditManager.Types.Framework
     Amazonka.AuditManager.Types.FrameworkMetadata

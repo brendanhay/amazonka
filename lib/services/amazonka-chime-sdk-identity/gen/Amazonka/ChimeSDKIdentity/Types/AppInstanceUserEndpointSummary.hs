@@ -23,7 +23,7 @@ import Amazonka.ChimeSDKIdentity.Types.AllowMessages
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpointType
 import Amazonka.ChimeSDKIdentity.Types.EndpointState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the details of an @AppInstanceUserEndpoint@.

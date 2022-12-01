@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.ConnectionPoolConfigurationInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Displays the settings that control the size and behavior of the

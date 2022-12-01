@@ -20,12 +20,12 @@
 module Amazonka.DevOpsGuru.Types.ProactiveInsight where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.InsightSeverity
 import Amazonka.DevOpsGuru.Types.InsightStatus
 import Amazonka.DevOpsGuru.Types.InsightTimeRange
 import Amazonka.DevOpsGuru.Types.PredictionTimeRange
 import Amazonka.DevOpsGuru.Types.ResourceCollection
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a proactive insight. This object is returned by

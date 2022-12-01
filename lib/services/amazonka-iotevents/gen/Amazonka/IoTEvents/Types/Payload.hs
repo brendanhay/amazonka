@@ -20,8 +20,8 @@
 module Amazonka.IoTEvents.Types.Payload where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.PayloadType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information needed to configure the payload.

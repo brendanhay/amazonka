@@ -24,7 +24,7 @@ import Amazonka.AlexaBusiness.Types.BusinessReportContentRange
 import Amazonka.AlexaBusiness.Types.BusinessReportFormat
 import Amazonka.AlexaBusiness.Types.BusinessReportRecurrence
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The schedule of the usage report.

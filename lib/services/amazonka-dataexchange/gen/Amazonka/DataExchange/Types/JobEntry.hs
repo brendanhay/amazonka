@@ -20,11 +20,11 @@
 module Amazonka.DataExchange.Types.JobEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types.JobError
 import Amazonka.DataExchange.Types.ResponseDetails
 import Amazonka.DataExchange.Types.State
 import Amazonka.DataExchange.Types.Type
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | AWS Data Exchange Jobs are asynchronous import or export operations used

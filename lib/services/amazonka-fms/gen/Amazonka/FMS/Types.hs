@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -36,11 +37,17 @@ module Amazonka.FMS.Types
     -- * DestinationType
     DestinationType (..),
 
+    -- * FailedItemReason
+    FailedItemReason (..),
+
     -- * FirewallDeploymentModel
     FirewallDeploymentModel (..),
 
     -- * MarketplaceSubscriptionOnboardingStatus
     MarketplaceSubscriptionOnboardingStatus (..),
+
+    -- * NetworkFirewallOverrideAction
+    NetworkFirewallOverrideAction (..),
 
     -- * PolicyComplianceStatusType
     PolicyComplianceStatusType (..),
@@ -125,6 +132,14 @@ module Amazonka.FMS.Types
     complianceViolator_resourceType,
     complianceViolator_metadata,
     complianceViolator_violationReason,
+
+    -- * DiscoveredResource
+    DiscoveredResource (..),
+    newDiscoveredResource,
+    discoveredResource_name,
+    discoveredResource_type,
+    discoveredResource_uri,
+    discoveredResource_accountId,
 
     -- * DnsDuplicateRuleGroupViolation
     DnsDuplicateRuleGroupViolation (..),
@@ -228,6 +243,12 @@ module Amazonka.FMS.Types
     newFMSPolicyUpdateFirewallCreationConfigAction,
     fMSPolicyUpdateFirewallCreationConfigAction_firewallCreationConfig,
     fMSPolicyUpdateFirewallCreationConfigAction_description,
+
+    -- * FailedItem
+    FailedItem (..),
+    newFailedItem,
+    failedItem_uri,
+    failedItem_reason,
 
     -- * FirewallSubnetIsOutOfScopeViolation
     FirewallSubnetIsOutOfScopeViolation (..),
@@ -348,6 +369,11 @@ module Amazonka.FMS.Types
     networkFirewallPolicyModifiedViolation_currentPolicyDescription,
     networkFirewallPolicyModifiedViolation_expectedPolicyDescription,
 
+    -- * NetworkFirewallStatefulRuleGroupOverride
+    NetworkFirewallStatefulRuleGroupOverride (..),
+    newNetworkFirewallStatefulRuleGroupOverride,
+    networkFirewallStatefulRuleGroupOverride_action,
+
     -- * NetworkFirewallUnexpectedFirewallRoutesViolation
     NetworkFirewallUnexpectedFirewallRoutesViolation (..),
     newNetworkFirewallUnexpectedFirewallRoutesViolation,
@@ -378,7 +404,9 @@ module Amazonka.FMS.Types
     policy_policyUpdateToken,
     policy_resourceTags,
     policy_excludeMap,
+    policy_resourceSetIds,
     policy_deleteUnusedFMManagedResources,
+    policy_policyDescription,
     policy_includeMap,
     policy_resourceTypeList,
     policy_policyName,
@@ -477,6 +505,30 @@ module Amazonka.FMS.Types
     remediationActionWithOrder_remediationAction,
     remediationActionWithOrder_order,
 
+    -- * Resource
+    Resource (..),
+    newResource,
+    resource_accountId,
+    resource_uri,
+
+    -- * ResourceSet
+    ResourceSet (..),
+    newResourceSet,
+    resourceSet_updateToken,
+    resourceSet_id,
+    resourceSet_description,
+    resourceSet_lastUpdateTime,
+    resourceSet_name,
+    resourceSet_resourceTypeList,
+
+    -- * ResourceSetSummary
+    ResourceSetSummary (..),
+    newResourceSetSummary,
+    resourceSetSummary_name,
+    resourceSetSummary_id,
+    resourceSetSummary_description,
+    resourceSetSummary_lastUpdateTime,
+
     -- * ResourceTag
     ResourceTag (..),
     newResourceTag,
@@ -569,6 +621,7 @@ module Amazonka.FMS.Types
     newStatefulRuleGroup,
     statefulRuleGroup_resourceId,
     statefulRuleGroup_ruleGroupName,
+    statefulRuleGroup_override,
     statefulRuleGroup_priority,
 
     -- * StatelessRuleGroup
@@ -634,6 +687,7 @@ module Amazonka.FMS.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.AccountRoleStatus
 import Amazonka.FMS.Types.ActionTarget
 import Amazonka.FMS.Types.App
@@ -646,6 +700,7 @@ import Amazonka.FMS.Types.ComplianceViolator
 import Amazonka.FMS.Types.CustomerPolicyScopeIdType
 import Amazonka.FMS.Types.DependentServiceName
 import Amazonka.FMS.Types.DestinationType
+import Amazonka.FMS.Types.DiscoveredResource
 import Amazonka.FMS.Types.DnsDuplicateRuleGroupViolation
 import Amazonka.FMS.Types.DnsRuleGroupLimitExceededViolation
 import Amazonka.FMS.Types.DnsRuleGroupPriorityConflictViolation
@@ -659,6 +714,8 @@ import Amazonka.FMS.Types.EC2ReplaceRouteTableAssociationAction
 import Amazonka.FMS.Types.EvaluationResult
 import Amazonka.FMS.Types.ExpectedRoute
 import Amazonka.FMS.Types.FMSPolicyUpdateFirewallCreationConfigAction
+import Amazonka.FMS.Types.FailedItem
+import Amazonka.FMS.Types.FailedItemReason
 import Amazonka.FMS.Types.FirewallDeploymentModel
 import Amazonka.FMS.Types.FirewallSubnetIsOutOfScopeViolation
 import Amazonka.FMS.Types.FirewallSubnetMissingVPCEndpointViolation
@@ -670,9 +727,11 @@ import Amazonka.FMS.Types.NetworkFirewallMissingExpectedRTViolation
 import Amazonka.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation
 import Amazonka.FMS.Types.NetworkFirewallMissingFirewallViolation
 import Amazonka.FMS.Types.NetworkFirewallMissingSubnetViolation
+import Amazonka.FMS.Types.NetworkFirewallOverrideAction
 import Amazonka.FMS.Types.NetworkFirewallPolicy
 import Amazonka.FMS.Types.NetworkFirewallPolicyDescription
 import Amazonka.FMS.Types.NetworkFirewallPolicyModifiedViolation
+import Amazonka.FMS.Types.NetworkFirewallStatefulRuleGroupOverride
 import Amazonka.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
 import Amazonka.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
 import Amazonka.FMS.Types.PartialMatch
@@ -689,6 +748,9 @@ import Amazonka.FMS.Types.ProtocolsListDataSummary
 import Amazonka.FMS.Types.RemediationAction
 import Amazonka.FMS.Types.RemediationActionType
 import Amazonka.FMS.Types.RemediationActionWithOrder
+import Amazonka.FMS.Types.Resource
+import Amazonka.FMS.Types.ResourceSet
+import Amazonka.FMS.Types.ResourceSetSummary
 import Amazonka.FMS.Types.ResourceTag
 import Amazonka.FMS.Types.ResourceViolation
 import Amazonka.FMS.Types.Route
@@ -712,7 +774,6 @@ import Amazonka.FMS.Types.ThirdPartyFirewallMissingSubnetViolation
 import Amazonka.FMS.Types.ThirdPartyFirewallPolicy
 import Amazonka.FMS.Types.ViolationDetail
 import Amazonka.FMS.Types.ViolationReason
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -720,27 +781,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "FMS",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "fms",
-      Core._serviceSigningName = "fms",
-      Core._serviceVersion = "2018-01-01",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "FMS",
-      Core._serviceRetry = retry
+    { Core.abbrev = "FMS",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "fms",
+      Core.signingName = "fms",
+      Core.version = "2018-01-01",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "FMS",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

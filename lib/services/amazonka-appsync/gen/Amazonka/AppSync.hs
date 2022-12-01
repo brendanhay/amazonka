@@ -167,6 +167,12 @@ module Amazonka.AppSync
     DisassociateApiResponse (DisassociateApiResponse'),
     newDisassociateApiResponse,
 
+    -- ** EvaluateCode
+    EvaluateCode (EvaluateCode'),
+    newEvaluateCode,
+    EvaluateCodeResponse (EvaluateCodeResponse'),
+    newEvaluateCodeResponse,
+
     -- ** EvaluateMappingTemplate
     EvaluateMappingTemplate (EvaluateMappingTemplate'),
     newEvaluateMappingTemplate,
@@ -403,6 +409,9 @@ module Amazonka.AppSync
     -- ** ResolverKind
     ResolverKind (..),
 
+    -- ** RuntimeName
+    RuntimeName (..),
+
     -- ** SchemaStatus
     SchemaStatus (..),
 
@@ -425,6 +434,10 @@ module Amazonka.AppSync
     ApiKey (ApiKey'),
     newApiKey,
 
+    -- ** AppSyncRuntime
+    AppSyncRuntime (AppSyncRuntime'),
+    newAppSyncRuntime,
+
     -- ** AuthorizationConfig
     AuthorizationConfig (AuthorizationConfig'),
     newAuthorizationConfig,
@@ -436,6 +449,14 @@ module Amazonka.AppSync
     -- ** CachingConfig
     CachingConfig (CachingConfig'),
     newCachingConfig,
+
+    -- ** CodeError
+    CodeError (CodeError'),
+    newCodeError,
+
+    -- ** CodeErrorLocation
+    CodeErrorLocation (CodeErrorLocation'),
+    newCodeErrorLocation,
 
     -- ** CognitoUserPoolConfig
     CognitoUserPoolConfig (CognitoUserPoolConfig'),
@@ -464,6 +485,10 @@ module Amazonka.AppSync
     -- ** ErrorDetail
     ErrorDetail (ErrorDetail'),
     newErrorDetail,
+
+    -- ** EvaluateCodeErrorDetail
+    EvaluateCodeErrorDetail (EvaluateCodeErrorDetail'),
+    newEvaluateCodeErrorDetail,
 
     -- ** FunctionConfiguration
     FunctionConfiguration (FunctionConfiguration'),
@@ -549,6 +574,7 @@ import Amazonka.AppSync.DeleteGraphqlApi
 import Amazonka.AppSync.DeleteResolver
 import Amazonka.AppSync.DeleteType
 import Amazonka.AppSync.DisassociateApi
+import Amazonka.AppSync.EvaluateCode
 import Amazonka.AppSync.EvaluateMappingTemplate
 import Amazonka.AppSync.FlushApiCache
 import Amazonka.AppSync.GetApiAssociation

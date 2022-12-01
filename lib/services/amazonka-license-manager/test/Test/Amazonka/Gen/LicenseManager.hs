@@ -135,8 +135,14 @@ import Test.Tasty
 --         , requestListReceivedGrants $
 --             newListReceivedGrants
 --
+--         , requestListReceivedGrantsForOrganization $
+--             newListReceivedGrantsForOrganization
+--
 --         , requestListReceivedLicenses $
 --             newListReceivedLicenses
+--
+--         , requestListReceivedLicensesForOrganization $
+--             newListReceivedLicensesForOrganization
 --
 --         , requestListResourceInventory $
 --             newListResourceInventory
@@ -282,8 +288,14 @@ import Test.Tasty
 --         , responseListReceivedGrants $
 --             newListReceivedGrantsResponse
 --
+--         , responseListReceivedGrantsForOrganization $
+--             newListReceivedGrantsForOrganizationResponse
+--
 --         , responseListReceivedLicenses $
 --             newListReceivedLicensesResponse
+--
+--         , responseListReceivedLicensesForOrganization $
+--             newListReceivedLicensesForOrganizationResponse
 --
 --         , responseListResourceInventory $
 --             newListResourceInventoryResponse
@@ -539,11 +551,23 @@ requestListReceivedGrants =
     "ListReceivedGrants"
     "fixture/ListReceivedGrants.yaml"
 
+requestListReceivedGrantsForOrganization :: ListReceivedGrantsForOrganization -> TestTree
+requestListReceivedGrantsForOrganization =
+  req
+    "ListReceivedGrantsForOrganization"
+    "fixture/ListReceivedGrantsForOrganization.yaml"
+
 requestListReceivedLicenses :: ListReceivedLicenses -> TestTree
 requestListReceivedLicenses =
   req
     "ListReceivedLicenses"
     "fixture/ListReceivedLicenses.yaml"
+
+requestListReceivedLicensesForOrganization :: ListReceivedLicensesForOrganization -> TestTree
+requestListReceivedLicensesForOrganization =
+  req
+    "ListReceivedLicensesForOrganization"
+    "fixture/ListReceivedLicensesForOrganization.yaml"
 
 requestListResourceInventory :: ListResourceInventory -> TestTree
 requestListResourceInventory =
@@ -901,6 +925,14 @@ responseListReceivedGrants =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListReceivedGrants)
 
+responseListReceivedGrantsForOrganization :: ListReceivedGrantsForOrganizationResponse -> TestTree
+responseListReceivedGrantsForOrganization =
+  res
+    "ListReceivedGrantsForOrganizationResponse"
+    "fixture/ListReceivedGrantsForOrganizationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListReceivedGrantsForOrganization)
+
 responseListReceivedLicenses :: ListReceivedLicensesResponse -> TestTree
 responseListReceivedLicenses =
   res
@@ -908,6 +940,14 @@ responseListReceivedLicenses =
     "fixture/ListReceivedLicensesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListReceivedLicenses)
+
+responseListReceivedLicensesForOrganization :: ListReceivedLicensesForOrganizationResponse -> TestTree
+responseListReceivedLicensesForOrganization =
+  res
+    "ListReceivedLicensesForOrganizationResponse"
+    "fixture/ListReceivedLicensesForOrganizationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListReceivedLicensesForOrganization)
 
 responseListResourceInventory :: ListResourceInventoryResponse -> TestTree
 responseListResourceInventory =

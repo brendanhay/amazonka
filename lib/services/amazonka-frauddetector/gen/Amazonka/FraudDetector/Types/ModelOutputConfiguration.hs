@@ -20,8 +20,8 @@
 module Amazonka.FraudDetector.Types.ModelOutputConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FraudDetector.Types.ModelOutputDataFormat
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the Amazon Sagemaker model output configuration.

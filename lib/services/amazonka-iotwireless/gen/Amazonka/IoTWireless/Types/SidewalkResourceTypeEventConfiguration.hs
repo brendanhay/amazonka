@@ -20,8 +20,8 @@
 module Amazonka.IoTWireless.Types.SidewalkResourceTypeEventConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.EventNotificationTopicStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Sidewalk resource type event configuration object for enabling or

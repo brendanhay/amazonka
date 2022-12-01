@@ -20,7 +20,7 @@
 module Amazonka.EMRServerless.Types.Configuration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration specification to be used when provisioning an

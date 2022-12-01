@@ -25,7 +25,7 @@ import Amazonka.ComprehendMedical.Types.RxNormEntityCategory
 import Amazonka.ComprehendMedical.Types.RxNormEntityType
 import Amazonka.ComprehendMedical.Types.RxNormTrait
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The collection of medical entities extracted from the input text and

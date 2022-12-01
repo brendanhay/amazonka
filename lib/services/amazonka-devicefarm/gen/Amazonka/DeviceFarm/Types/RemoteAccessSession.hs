@@ -20,6 +20,7 @@
 module Amazonka.DeviceFarm.Types.RemoteAccessSession where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.BillingMethod
 import Amazonka.DeviceFarm.Types.Device
 import Amazonka.DeviceFarm.Types.DeviceMinutes
@@ -27,7 +28,6 @@ import Amazonka.DeviceFarm.Types.ExecutionResult
 import Amazonka.DeviceFarm.Types.ExecutionStatus
 import Amazonka.DeviceFarm.Types.InteractionMode
 import Amazonka.DeviceFarm.Types.VpcConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the remote access session.

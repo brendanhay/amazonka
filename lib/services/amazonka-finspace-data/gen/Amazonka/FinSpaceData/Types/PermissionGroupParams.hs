@@ -20,8 +20,8 @@
 module Amazonka.FinSpaceData.Types.PermissionGroupParams where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FinSpaceData.Types.ResourcePermission
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Permission group parameters for Dataset permissions.

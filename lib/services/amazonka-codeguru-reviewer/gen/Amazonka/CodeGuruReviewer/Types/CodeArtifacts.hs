@@ -20,7 +20,7 @@
 module Amazonka.CodeGuruReviewer.Types.CodeArtifacts where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Code artifacts are source code artifacts and build artifacts used in a

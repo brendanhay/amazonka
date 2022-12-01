@@ -20,8 +20,8 @@
 module Amazonka.IoTSiteWise.Types.AssetErrorDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.AssetErrorCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains error details for the requested associate project asset action.

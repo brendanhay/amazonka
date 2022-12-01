@@ -21,7 +21,7 @@ module Amazonka.CloudTrail.Types.ResourceTag where
 
 import Amazonka.CloudTrail.Types.Tag
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource tag.

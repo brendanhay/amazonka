@@ -22,12 +22,24 @@
 --
 -- Disassociates a previously associated principal ARN from a specified
 -- portfolio.
+--
+-- The @PrincipalType@ and @PrincipalARN@ must match the
+-- @AssociatePrincipalWithPortfolio@ call request details. For example, to
+-- disassociate an association created with a @PrincipalARN@ of
+-- @PrincipalType@ IAM you must use the @PrincipalType@ IAM when calling
+-- @DisassociatePrincipalFromPortfolio@.
+--
+-- For portfolios that have been shared with principal name sharing
+-- enabled: after disassociating a principal, share recipient accounts will
+-- no longer be able to provision products in this portfolio using a role
+-- matching the name of the associated principal.
 module Amazonka.ServiceCatalog.DisassociatePrincipalFromPortfolio
   ( -- * Creating a Request
     DisassociatePrincipalFromPortfolio (..),
     newDisassociatePrincipalFromPortfolio,
 
     -- * Request Lenses
+    disassociatePrincipalFromPortfolio_principalType,
     disassociatePrincipalFromPortfolio_acceptLanguage,
     disassociatePrincipalFromPortfolio_portfolioId,
     disassociatePrincipalFromPortfolio_principalARN,
@@ -42,7 +54,7 @@ module Amazonka.ServiceCatalog.DisassociatePrincipalFromPortfolio
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -50,7 +62,10 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newDisassociatePrincipalFromPortfolio' smart constructor.
 data DisassociatePrincipalFromPortfolio = DisassociatePrincipalFromPortfolio'
-  { -- | The language code.
+  { -- | The supported value is @IAM@ if you use a fully defined ARN, or
+    -- @IAM_PATTERN@ if you use no @accountID@.
+    principalType :: Prelude.Maybe PrincipalType,
+    -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -60,7 +75,8 @@ data DisassociatePrincipalFromPortfolio = DisassociatePrincipalFromPortfolio'
     acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The portfolio identifier.
     portfolioId :: Prelude.Text,
-    -- | The ARN of the principal (IAM user, role, or group).
+    -- | The ARN of the principal (IAM user, role, or group). This field allows
+    -- an ARN with no @accountID@ if @PrincipalType@ is @IAM_PATTERN@.
     principalARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,6 +89,9 @@ data DisassociatePrincipalFromPortfolio = DisassociatePrincipalFromPortfolio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'principalType', 'disassociatePrincipalFromPortfolio_principalType' - The supported value is @IAM@ if you use a fully defined ARN, or
+-- @IAM_PATTERN@ if you use no @accountID@.
+--
 -- 'acceptLanguage', 'disassociatePrincipalFromPortfolio_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -83,7 +102,8 @@ data DisassociatePrincipalFromPortfolio = DisassociatePrincipalFromPortfolio'
 --
 -- 'portfolioId', 'disassociatePrincipalFromPortfolio_portfolioId' - The portfolio identifier.
 --
--- 'principalARN', 'disassociatePrincipalFromPortfolio_principalARN' - The ARN of the principal (IAM user, role, or group).
+-- 'principalARN', 'disassociatePrincipalFromPortfolio_principalARN' - The ARN of the principal (IAM user, role, or group). This field allows
+-- an ARN with no @accountID@ if @PrincipalType@ is @IAM_PATTERN@.
 newDisassociatePrincipalFromPortfolio ::
   -- | 'portfolioId'
   Prelude.Text ->
@@ -94,11 +114,17 @@ newDisassociatePrincipalFromPortfolio
   pPortfolioId_
   pPrincipalARN_ =
     DisassociatePrincipalFromPortfolio'
-      { acceptLanguage =
+      { principalType =
           Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
         portfolioId = pPortfolioId_,
         principalARN = pPrincipalARN_
       }
+
+-- | The supported value is @IAM@ if you use a fully defined ARN, or
+-- @IAM_PATTERN@ if you use no @accountID@.
+disassociatePrincipalFromPortfolio_principalType :: Lens.Lens' DisassociatePrincipalFromPortfolio (Prelude.Maybe PrincipalType)
+disassociatePrincipalFromPortfolio_principalType = Lens.lens (\DisassociatePrincipalFromPortfolio' {principalType} -> principalType) (\s@DisassociatePrincipalFromPortfolio' {} a -> s {principalType = a} :: DisassociatePrincipalFromPortfolio)
 
 -- | The language code.
 --
@@ -114,7 +140,8 @@ disassociatePrincipalFromPortfolio_acceptLanguage = Lens.lens (\DisassociatePrin
 disassociatePrincipalFromPortfolio_portfolioId :: Lens.Lens' DisassociatePrincipalFromPortfolio Prelude.Text
 disassociatePrincipalFromPortfolio_portfolioId = Lens.lens (\DisassociatePrincipalFromPortfolio' {portfolioId} -> portfolioId) (\s@DisassociatePrincipalFromPortfolio' {} a -> s {portfolioId = a} :: DisassociatePrincipalFromPortfolio)
 
--- | The ARN of the principal (IAM user, role, or group).
+-- | The ARN of the principal (IAM user, role, or group). This field allows
+-- an ARN with no @accountID@ if @PrincipalType@ is @IAM_PATTERN@.
 disassociatePrincipalFromPortfolio_principalARN :: Lens.Lens' DisassociatePrincipalFromPortfolio Prelude.Text
 disassociatePrincipalFromPortfolio_principalARN = Lens.lens (\DisassociatePrincipalFromPortfolio' {principalARN} -> principalARN) (\s@DisassociatePrincipalFromPortfolio' {} a -> s {principalARN = a} :: DisassociatePrincipalFromPortfolio)
 
@@ -125,8 +152,8 @@ instance
   type
     AWSResponse DisassociatePrincipalFromPortfolio =
       DisassociatePrincipalFromPortfolioResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -141,7 +168,8 @@ instance
   hashWithSalt
     _salt
     DisassociatePrincipalFromPortfolio' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt `Prelude.hashWithSalt` principalType
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` portfolioId
         `Prelude.hashWithSalt` principalARN
 
@@ -150,7 +178,8 @@ instance
     DisassociatePrincipalFromPortfolio
   where
   rnf DisassociatePrincipalFromPortfolio' {..} =
-    Prelude.rnf acceptLanguage
+    Prelude.rnf principalType
+      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf portfolioId
       `Prelude.seq` Prelude.rnf principalARN
 
@@ -179,7 +208,8 @@ instance
   toJSON DisassociatePrincipalFromPortfolio' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("PrincipalType" Core..=) Prelude.<$> principalType,
+            ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
             Prelude.Just ("PortfolioId" Core..= portfolioId),
             Prelude.Just ("PrincipalARN" Core..= principalARN)

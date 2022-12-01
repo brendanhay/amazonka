@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all the outbound cross-cluster connections for a local domain.
+-- Lists all the outbound cross-cluster connections for a local (source)
+-- Amazon OpenSearch Service domain. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html Cross-cluster search for Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.DescribeOutboundConnections
   ( -- * Creating a Request
     DescribeOutboundConnections (..),
@@ -43,31 +45,26 @@ module Amazonka.OpenSearch.DescribeOutboundConnections
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ DescribeOutboundConnections @
+-- | Container for the parameters to the @DescribeOutboundConnections@
 -- operation.
 --
 -- /See:/ 'newDescribeOutboundConnections' smart constructor.
 data DescribeOutboundConnections = DescribeOutboundConnections'
-  { -- | NextToken is sent in case the earlier API call results contain the
-    -- NextToken parameter. Used for pagination.
+  { -- | If your initial @DescribeOutboundConnections@ operation returns a
+    -- @nextToken@, you can include the returned @nextToken@ in subsequent
+    -- @DescribeOutboundConnections@ operations, which returns results in the
+    -- next page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of filters used to match properties for outbound cross-cluster
-    -- connections. Available @ Filter @ names for this operation are:
-    --
-    -- -   connection-id
-    -- -   remote-domain-info.domain-name
-    -- -   remote-domain-info.owner-id
-    -- -   remote-domain-info.region
-    -- -   local-domain-info.domain-name
+    -- | List of filter names and values that you can use for requests.
     filters :: Prelude.Maybe [Filter],
-    -- | Set this value to limit the number of results returned. If not
-    -- specified, defaults to 100.
+    -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,20 +77,15 @@ data DescribeOutboundConnections = DescribeOutboundConnections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeOutboundConnections_nextToken' - NextToken is sent in case the earlier API call results contain the
--- NextToken parameter. Used for pagination.
+-- 'nextToken', 'describeOutboundConnections_nextToken' - If your initial @DescribeOutboundConnections@ operation returns a
+-- @nextToken@, you can include the returned @nextToken@ in subsequent
+-- @DescribeOutboundConnections@ operations, which returns results in the
+-- next page.
 --
--- 'filters', 'describeOutboundConnections_filters' - A list of filters used to match properties for outbound cross-cluster
--- connections. Available @ Filter @ names for this operation are:
+-- 'filters', 'describeOutboundConnections_filters' - List of filter names and values that you can use for requests.
 --
--- -   connection-id
--- -   remote-domain-info.domain-name
--- -   remote-domain-info.owner-id
--- -   remote-domain-info.region
--- -   local-domain-info.domain-name
---
--- 'maxResults', 'describeOutboundConnections_maxResults' - Set this value to limit the number of results returned. If not
--- specified, defaults to 100.
+-- 'maxResults', 'describeOutboundConnections_maxResults' - An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 newDescribeOutboundConnections ::
   DescribeOutboundConnections
 newDescribeOutboundConnections =
@@ -104,24 +96,19 @@ newDescribeOutboundConnections =
       maxResults = Prelude.Nothing
     }
 
--- | NextToken is sent in case the earlier API call results contain the
--- NextToken parameter. Used for pagination.
+-- | If your initial @DescribeOutboundConnections@ operation returns a
+-- @nextToken@, you can include the returned @nextToken@ in subsequent
+-- @DescribeOutboundConnections@ operations, which returns results in the
+-- next page.
 describeOutboundConnections_nextToken :: Lens.Lens' DescribeOutboundConnections (Prelude.Maybe Prelude.Text)
 describeOutboundConnections_nextToken = Lens.lens (\DescribeOutboundConnections' {nextToken} -> nextToken) (\s@DescribeOutboundConnections' {} a -> s {nextToken = a} :: DescribeOutboundConnections)
 
--- | A list of filters used to match properties for outbound cross-cluster
--- connections. Available @ Filter @ names for this operation are:
---
--- -   connection-id
--- -   remote-domain-info.domain-name
--- -   remote-domain-info.owner-id
--- -   remote-domain-info.region
--- -   local-domain-info.domain-name
+-- | List of filter names and values that you can use for requests.
 describeOutboundConnections_filters :: Lens.Lens' DescribeOutboundConnections (Prelude.Maybe [Filter])
 describeOutboundConnections_filters = Lens.lens (\DescribeOutboundConnections' {filters} -> filters) (\s@DescribeOutboundConnections' {} a -> s {filters = a} :: DescribeOutboundConnections) Prelude.. Lens.mapping Lens.coerced
 
--- | Set this value to limit the number of results returned. If not
--- specified, defaults to 100.
+-- | An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 describeOutboundConnections_maxResults :: Lens.Lens' DescribeOutboundConnections (Prelude.Maybe Prelude.Int)
 describeOutboundConnections_maxResults = Lens.lens (\DescribeOutboundConnections' {maxResults} -> maxResults) (\s@DescribeOutboundConnections' {} a -> s {maxResults = a} :: DescribeOutboundConnections)
 
@@ -129,8 +116,8 @@ instance Core.AWSRequest DescribeOutboundConnections where
   type
     AWSResponse DescribeOutboundConnections =
       DescribeOutboundConnectionsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,16 +160,15 @@ instance Core.ToPath DescribeOutboundConnections where
 instance Core.ToQuery DescribeOutboundConnections where
   toQuery = Prelude.const Prelude.mempty
 
--- | The result of a @ DescribeOutboundConnections @ request. Contains the
--- list of connections matching the filter criteria.
+-- | Contains a list of connections matching the filter criteria.
 --
 -- /See:/ 'newDescribeOutboundConnectionsResponse' smart constructor.
 data DescribeOutboundConnectionsResponse = DescribeOutboundConnectionsResponse'
-  { -- | If more results are available and NextToken is present, make the next
-    -- request to the same API with the received NextToken to paginate the
-    -- remaining results.
+  { -- | When @nextToken@ is returned, there are more results available. The
+    -- value of @nextToken@ is a unique pagination token for each page. Make
+    -- the call again using the returned token to retrieve the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @ OutboundConnection @ matching the specified filter criteria.
+    -- | List of outbound connections that match the filter criteria.
     connections :: Prelude.Maybe [OutboundConnection],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -197,11 +183,11 @@ data DescribeOutboundConnectionsResponse = DescribeOutboundConnectionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeOutboundConnectionsResponse_nextToken' - If more results are available and NextToken is present, make the next
--- request to the same API with the received NextToken to paginate the
--- remaining results.
+-- 'nextToken', 'describeOutboundConnectionsResponse_nextToken' - When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 --
--- 'connections', 'describeOutboundConnectionsResponse_connections' - A list of @ OutboundConnection @ matching the specified filter criteria.
+-- 'connections', 'describeOutboundConnectionsResponse_connections' - List of outbound connections that match the filter criteria.
 --
 -- 'httpStatus', 'describeOutboundConnectionsResponse_httpStatus' - The response's http status code.
 newDescribeOutboundConnectionsResponse ::
@@ -216,13 +202,13 @@ newDescribeOutboundConnectionsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | If more results are available and NextToken is present, make the next
--- request to the same API with the received NextToken to paginate the
--- remaining results.
+-- | When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 describeOutboundConnectionsResponse_nextToken :: Lens.Lens' DescribeOutboundConnectionsResponse (Prelude.Maybe Prelude.Text)
 describeOutboundConnectionsResponse_nextToken = Lens.lens (\DescribeOutboundConnectionsResponse' {nextToken} -> nextToken) (\s@DescribeOutboundConnectionsResponse' {} a -> s {nextToken = a} :: DescribeOutboundConnectionsResponse)
 
--- | A list of @ OutboundConnection @ matching the specified filter criteria.
+-- | List of outbound connections that match the filter criteria.
 describeOutboundConnectionsResponse_connections :: Lens.Lens' DescribeOutboundConnectionsResponse (Prelude.Maybe [OutboundConnection])
 describeOutboundConnectionsResponse_connections = Lens.lens (\DescribeOutboundConnectionsResponse' {connections} -> connections) (\s@DescribeOutboundConnectionsResponse' {} a -> s {connections = a} :: DescribeOutboundConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 

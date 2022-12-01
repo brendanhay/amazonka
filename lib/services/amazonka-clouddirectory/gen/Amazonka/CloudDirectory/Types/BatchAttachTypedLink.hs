@@ -23,7 +23,7 @@ import Amazonka.CloudDirectory.Types.AttributeNameAndValue
 import Amazonka.CloudDirectory.Types.ObjectReference
 import Amazonka.CloudDirectory.Types.TypedLinkSchemaAndFacetName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attaches a typed link to a specified source and target object inside a

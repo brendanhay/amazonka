@@ -21,7 +21,7 @@ module Amazonka.ChimeSdkMeetings.Types.MeetingFeaturesConfiguration where
 
 import Amazonka.ChimeSdkMeetings.Types.AudioFeatures
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration settings of the features available to a meeting.>

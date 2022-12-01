@@ -32,8 +32,8 @@ module Amazonka.IotTwinMaker.CreateEntity
     createEntity_parentEntityId,
     createEntity_description,
     createEntity_components,
-    createEntity_entityName,
     createEntity_workspaceId,
+    createEntity_entityName,
 
     -- * Destructuring the Response
     CreateEntityResponse (..),
@@ -41,16 +41,16 @@ module Amazonka.IotTwinMaker.CreateEntity
 
     -- * Response Lenses
     createEntityResponse_httpStatus,
+    createEntityResponse_entityId,
     createEntityResponse_arn,
     createEntityResponse_creationDateTime,
-    createEntityResponse_entityId,
     createEntityResponse_state,
   )
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,10 +68,10 @@ data CreateEntity = CreateEntity'
     -- | An object that maps strings to the components in the entity. Each string
     -- in the mapping must be unique to this object.
     components :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentRequest),
-    -- | The name of the entity.
-    entityName :: Prelude.Text,
     -- | The ID of the workspace that contains the entity.
-    workspaceId :: Prelude.Text
+    workspaceId :: Prelude.Text,
+    -- | The name of the entity.
+    entityName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,24 +94,24 @@ data CreateEntity = CreateEntity'
 -- 'components', 'createEntity_components' - An object that maps strings to the components in the entity. Each string
 -- in the mapping must be unique to this object.
 --
--- 'entityName', 'createEntity_entityName' - The name of the entity.
---
 -- 'workspaceId', 'createEntity_workspaceId' - The ID of the workspace that contains the entity.
+--
+-- 'entityName', 'createEntity_entityName' - The name of the entity.
 newCreateEntity ::
-  -- | 'entityName'
-  Prelude.Text ->
   -- | 'workspaceId'
   Prelude.Text ->
+  -- | 'entityName'
+  Prelude.Text ->
   CreateEntity
-newCreateEntity pEntityName_ pWorkspaceId_ =
+newCreateEntity pWorkspaceId_ pEntityName_ =
   CreateEntity'
     { tags = Prelude.Nothing,
       entityId = Prelude.Nothing,
       parentEntityId = Prelude.Nothing,
       description = Prelude.Nothing,
       components = Prelude.Nothing,
-      entityName = pEntityName_,
-      workspaceId = pWorkspaceId_
+      workspaceId = pWorkspaceId_,
+      entityName = pEntityName_
     }
 
 -- | Metadata that you can use to manage the entity.
@@ -135,26 +135,26 @@ createEntity_description = Lens.lens (\CreateEntity' {description} -> descriptio
 createEntity_components :: Lens.Lens' CreateEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentRequest))
 createEntity_components = Lens.lens (\CreateEntity' {components} -> components) (\s@CreateEntity' {} a -> s {components = a} :: CreateEntity) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the entity.
-createEntity_entityName :: Lens.Lens' CreateEntity Prelude.Text
-createEntity_entityName = Lens.lens (\CreateEntity' {entityName} -> entityName) (\s@CreateEntity' {} a -> s {entityName = a} :: CreateEntity)
-
 -- | The ID of the workspace that contains the entity.
 createEntity_workspaceId :: Lens.Lens' CreateEntity Prelude.Text
 createEntity_workspaceId = Lens.lens (\CreateEntity' {workspaceId} -> workspaceId) (\s@CreateEntity' {} a -> s {workspaceId = a} :: CreateEntity)
 
+-- | The name of the entity.
+createEntity_entityName :: Lens.Lens' CreateEntity Prelude.Text
+createEntity_entityName = Lens.lens (\CreateEntity' {entityName} -> entityName) (\s@CreateEntity' {} a -> s {entityName = a} :: CreateEntity)
+
 instance Core.AWSRequest CreateEntity where
   type AWSResponse CreateEntity = CreateEntityResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateEntityResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "entityId")
             Prelude.<*> (x Core..:> "arn")
             Prelude.<*> (x Core..:> "creationDateTime")
-            Prelude.<*> (x Core..:> "entityId")
             Prelude.<*> (x Core..:> "state")
       )
 
@@ -165,8 +165,8 @@ instance Prelude.Hashable CreateEntity where
       `Prelude.hashWithSalt` parentEntityId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` components
-      `Prelude.hashWithSalt` entityName
       `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` entityName
 
 instance Prelude.NFData CreateEntity where
   rnf CreateEntity' {..} =
@@ -175,8 +175,8 @@ instance Prelude.NFData CreateEntity where
       `Prelude.seq` Prelude.rnf parentEntityId
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf components
-      `Prelude.seq` Prelude.rnf entityName
       `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf entityName
 
 instance Core.ToHeaders CreateEntity where
   toHeaders =
@@ -215,12 +215,12 @@ instance Core.ToQuery CreateEntity where
 data CreateEntityResponse = CreateEntityResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
+    -- | The ID of the entity.
+    entityId :: Prelude.Text,
     -- | The ARN of the entity.
     arn :: Prelude.Text,
     -- | The date and time when the entity was created.
     creationDateTime :: Core.POSIX,
-    -- | The ID of the entity.
-    entityId :: Prelude.Text,
     -- | The current state of the entity.
     state :: State
   }
@@ -236,43 +236,47 @@ data CreateEntityResponse = CreateEntityResponse'
 --
 -- 'httpStatus', 'createEntityResponse_httpStatus' - The response's http status code.
 --
+-- 'entityId', 'createEntityResponse_entityId' - The ID of the entity.
+--
 -- 'arn', 'createEntityResponse_arn' - The ARN of the entity.
 --
 -- 'creationDateTime', 'createEntityResponse_creationDateTime' - The date and time when the entity was created.
---
--- 'entityId', 'createEntityResponse_entityId' - The ID of the entity.
 --
 -- 'state', 'createEntityResponse_state' - The current state of the entity.
 newCreateEntityResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'entityId'
+  Prelude.Text ->
   -- | 'arn'
   Prelude.Text ->
   -- | 'creationDateTime'
   Prelude.UTCTime ->
-  -- | 'entityId'
-  Prelude.Text ->
   -- | 'state'
   State ->
   CreateEntityResponse
 newCreateEntityResponse
   pHttpStatus_
+  pEntityId_
   pArn_
   pCreationDateTime_
-  pEntityId_
   pState_ =
     CreateEntityResponse'
       { httpStatus = pHttpStatus_,
+        entityId = pEntityId_,
         arn = pArn_,
         creationDateTime =
           Core._Time Lens.# pCreationDateTime_,
-        entityId = pEntityId_,
         state = pState_
       }
 
 -- | The response's http status code.
 createEntityResponse_httpStatus :: Lens.Lens' CreateEntityResponse Prelude.Int
 createEntityResponse_httpStatus = Lens.lens (\CreateEntityResponse' {httpStatus} -> httpStatus) (\s@CreateEntityResponse' {} a -> s {httpStatus = a} :: CreateEntityResponse)
+
+-- | The ID of the entity.
+createEntityResponse_entityId :: Lens.Lens' CreateEntityResponse Prelude.Text
+createEntityResponse_entityId = Lens.lens (\CreateEntityResponse' {entityId} -> entityId) (\s@CreateEntityResponse' {} a -> s {entityId = a} :: CreateEntityResponse)
 
 -- | The ARN of the entity.
 createEntityResponse_arn :: Lens.Lens' CreateEntityResponse Prelude.Text
@@ -282,10 +286,6 @@ createEntityResponse_arn = Lens.lens (\CreateEntityResponse' {arn} -> arn) (\s@C
 createEntityResponse_creationDateTime :: Lens.Lens' CreateEntityResponse Prelude.UTCTime
 createEntityResponse_creationDateTime = Lens.lens (\CreateEntityResponse' {creationDateTime} -> creationDateTime) (\s@CreateEntityResponse' {} a -> s {creationDateTime = a} :: CreateEntityResponse) Prelude.. Core._Time
 
--- | The ID of the entity.
-createEntityResponse_entityId :: Lens.Lens' CreateEntityResponse Prelude.Text
-createEntityResponse_entityId = Lens.lens (\CreateEntityResponse' {entityId} -> entityId) (\s@CreateEntityResponse' {} a -> s {entityId = a} :: CreateEntityResponse)
-
 -- | The current state of the entity.
 createEntityResponse_state :: Lens.Lens' CreateEntityResponse State
 createEntityResponse_state = Lens.lens (\CreateEntityResponse' {state} -> state) (\s@CreateEntityResponse' {} a -> s {state = a} :: CreateEntityResponse)
@@ -293,7 +293,7 @@ createEntityResponse_state = Lens.lens (\CreateEntityResponse' {state} -> state)
 instance Prelude.NFData CreateEntityResponse where
   rnf CreateEntityResponse' {..} =
     Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf state

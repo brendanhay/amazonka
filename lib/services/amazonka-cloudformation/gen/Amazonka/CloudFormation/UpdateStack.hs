@@ -66,7 +66,7 @@ where
 
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -782,8 +782,8 @@ updateStack_stackName = Lens.lens (\UpdateStack' {stackName} -> stackName) (\s@U
 
 instance Core.AWSRequest UpdateStack where
   type AWSResponse UpdateStack = UpdateStackResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "UpdateStackResult"

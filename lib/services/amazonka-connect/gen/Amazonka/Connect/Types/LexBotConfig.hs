@@ -22,7 +22,7 @@ module Amazonka.Connect.Types.LexBotConfig where
 import Amazonka.Connect.Types.LexBot
 import Amazonka.Connect.Types.LexV2Bot
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information of an Amazon Lex or Amazon Lex V2 bot.

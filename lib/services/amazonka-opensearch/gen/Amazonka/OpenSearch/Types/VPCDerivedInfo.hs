@@ -20,24 +20,27 @@
 module Amazonka.OpenSearch.Types.VPCDerivedInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Options to specify the subnets and security groups for the VPC endpoint.
--- For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+-- | Information about the subnets and security groups for an Amazon
+-- OpenSearch Service domain provisioned within a virtual private cloud
+-- (VPC). For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+-- This information only exists if the domain was created with
+-- @VPCOptions@.
 --
 -- /See:/ 'newVPCDerivedInfo' smart constructor.
 data VPCDerivedInfo = VPCDerivedInfo'
-  { -- | The security groups for the VPC endpoint.
+  { -- | The list of security group IDs associated with the VPC endpoints for the
+    -- domain.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The Availability Zones for the domain. Exists only if the domain was
-    -- created with @VPCOptions@.
+    -- | The list of Availability Zones associated with the VPC subnets.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
-    -- | The VPC ID for the domain. Exists only if the domain was created with
-    -- @VPCOptions@.
+    -- | The ID for your VPC. Amazon VPC generates this value when you create a
+    -- VPC.
     vPCId :: Prelude.Maybe Prelude.Text,
-    -- | The subnets for the VPC endpoint.
+    -- | A list of subnet IDs associated with the VPC endpoints for the domain.
     subnetIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,15 +53,15 @@ data VPCDerivedInfo = VPCDerivedInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'vPCDerivedInfo_securityGroupIds' - The security groups for the VPC endpoint.
+-- 'securityGroupIds', 'vPCDerivedInfo_securityGroupIds' - The list of security group IDs associated with the VPC endpoints for the
+-- domain.
 --
--- 'availabilityZones', 'vPCDerivedInfo_availabilityZones' - The Availability Zones for the domain. Exists only if the domain was
--- created with @VPCOptions@.
+-- 'availabilityZones', 'vPCDerivedInfo_availabilityZones' - The list of Availability Zones associated with the VPC subnets.
 --
--- 'vPCId', 'vPCDerivedInfo_vPCId' - The VPC ID for the domain. Exists only if the domain was created with
--- @VPCOptions@.
+-- 'vPCId', 'vPCDerivedInfo_vPCId' - The ID for your VPC. Amazon VPC generates this value when you create a
+-- VPC.
 --
--- 'subnetIds', 'vPCDerivedInfo_subnetIds' - The subnets for the VPC endpoint.
+-- 'subnetIds', 'vPCDerivedInfo_subnetIds' - A list of subnet IDs associated with the VPC endpoints for the domain.
 newVPCDerivedInfo ::
   VPCDerivedInfo
 newVPCDerivedInfo =
@@ -69,21 +72,21 @@ newVPCDerivedInfo =
       subnetIds = Prelude.Nothing
     }
 
--- | The security groups for the VPC endpoint.
+-- | The list of security group IDs associated with the VPC endpoints for the
+-- domain.
 vPCDerivedInfo_securityGroupIds :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
 vPCDerivedInfo_securityGroupIds = Lens.lens (\VPCDerivedInfo' {securityGroupIds} -> securityGroupIds) (\s@VPCDerivedInfo' {} a -> s {securityGroupIds = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
 
--- | The Availability Zones for the domain. Exists only if the domain was
--- created with @VPCOptions@.
+-- | The list of Availability Zones associated with the VPC subnets.
 vPCDerivedInfo_availabilityZones :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
 vPCDerivedInfo_availabilityZones = Lens.lens (\VPCDerivedInfo' {availabilityZones} -> availabilityZones) (\s@VPCDerivedInfo' {} a -> s {availabilityZones = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
 
--- | The VPC ID for the domain. Exists only if the domain was created with
--- @VPCOptions@.
+-- | The ID for your VPC. Amazon VPC generates this value when you create a
+-- VPC.
 vPCDerivedInfo_vPCId :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe Prelude.Text)
 vPCDerivedInfo_vPCId = Lens.lens (\VPCDerivedInfo' {vPCId} -> vPCId) (\s@VPCDerivedInfo' {} a -> s {vPCId = a} :: VPCDerivedInfo)
 
--- | The subnets for the VPC endpoint.
+-- | A list of subnet IDs associated with the VPC endpoints for the domain.
 vPCDerivedInfo_subnetIds :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
 vPCDerivedInfo_subnetIds = Lens.lens (\VPCDerivedInfo' {subnetIds} -> subnetIds) (\s@VPCDerivedInfo' {} a -> s {subnetIds = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
 

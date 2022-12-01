@@ -111,8 +111,8 @@ import Test.Tasty
 --         , requestGetQueryResults $
 --             newGetQueryResults
 --
---         , requestListTagsLogGroup $
---             newListTagsLogGroup
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestPutDestination $
 --             newPutDestination
@@ -144,14 +144,14 @@ import Test.Tasty
 --         , requestStopQuery $
 --             newStopQuery
 --
---         , requestTagLogGroup $
---             newTagLogGroup
+--         , requestTagResource $
+--             newTagResource
 --
 --         , requestTestMetricFilter $
 --             newTestMetricFilter
 --
---         , requestUntagLogGroup $
---             newUntagLogGroup
+--         , requestUntagResource $
+--             newUntagResource
 --
 --           ]
 
@@ -240,8 +240,8 @@ import Test.Tasty
 --         , responseGetQueryResults $
 --             newGetQueryResultsResponse
 --
---         , responseListTagsLogGroup $
---             newListTagsLogGroupResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responsePutDestination $
 --             newPutDestinationResponse
@@ -273,14 +273,14 @@ import Test.Tasty
 --         , responseStopQuery $
 --             newStopQueryResponse
 --
---         , responseTagLogGroup $
---             newTagLogGroupResponse
+--         , responseTagResource $
+--             newTagResourceResponse
 --
 --         , responseTestMetricFilter $
 --             newTestMetricFilterResponse
 --
---         , responseUntagLogGroup $
---             newUntagLogGroupResponse
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --           ]
 --     ]
@@ -455,11 +455,11 @@ requestGetQueryResults =
     "GetQueryResults"
     "fixture/GetQueryResults.yaml"
 
-requestListTagsLogGroup :: ListTagsLogGroup -> TestTree
-requestListTagsLogGroup =
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
   req
-    "ListTagsLogGroup"
-    "fixture/ListTagsLogGroup.yaml"
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestPutDestination :: PutDestination -> TestTree
 requestPutDestination =
@@ -521,11 +521,11 @@ requestStopQuery =
     "StopQuery"
     "fixture/StopQuery.yaml"
 
-requestTagLogGroup :: TagLogGroup -> TestTree
-requestTagLogGroup =
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
   req
-    "TagLogGroup"
-    "fixture/TagLogGroup.yaml"
+    "TagResource"
+    "fixture/TagResource.yaml"
 
 requestTestMetricFilter :: TestMetricFilter -> TestTree
 requestTestMetricFilter =
@@ -533,11 +533,11 @@ requestTestMetricFilter =
     "TestMetricFilter"
     "fixture/TestMetricFilter.yaml"
 
-requestUntagLogGroup :: UntagLogGroup -> TestTree
-requestUntagLogGroup =
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
   req
-    "UntagLogGroup"
-    "fixture/UntagLogGroup.yaml"
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 -- Responses
 
@@ -765,13 +765,13 @@ responseGetQueryResults =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetQueryResults)
 
-responseListTagsLogGroup :: ListTagsLogGroupResponse -> TestTree
-responseListTagsLogGroup =
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
   res
-    "ListTagsLogGroupResponse"
-    "fixture/ListTagsLogGroupResponse.proto"
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsLogGroup)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responsePutDestination :: PutDestinationResponse -> TestTree
 responsePutDestination =
@@ -853,13 +853,13 @@ responseStopQuery =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopQuery)
 
-responseTagLogGroup :: TagLogGroupResponse -> TestTree
-responseTagLogGroup =
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
   res
-    "TagLogGroupResponse"
-    "fixture/TagLogGroupResponse.proto"
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagLogGroup)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseTestMetricFilter :: TestMetricFilterResponse -> TestTree
 responseTestMetricFilter =
@@ -869,10 +869,10 @@ responseTestMetricFilter =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TestMetricFilter)
 
-responseUntagLogGroup :: UntagLogGroupResponse -> TestTree
-responseUntagLogGroup =
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
   res
-    "UntagLogGroupResponse"
-    "fixture/UntagLogGroupResponse.proto"
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagLogGroup)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)

@@ -20,7 +20,7 @@
 module Amazonka.Backup.Types.ControlInputParameter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of parameters for a control. A control can have zero, one, or

@@ -20,10 +20,10 @@
 module Amazonka.ElastiCache.Types.Snapshot where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.AutomaticFailoverStatus
 import Amazonka.ElastiCache.Types.DataTieringStatus
 import Amazonka.ElastiCache.Types.NodeSnapshot
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a copy of an entire Redis cluster as of the time when the
@@ -76,8 +76,7 @@ data Snapshot = Snapshot'
     --     -   Current generation:
     --
     --         __M6g node types__ (available only for Redis engine version
-    --         5.0.6 onward and for Memcached engine version 1.5.16 onward).
-    --
+    --         5.0.6 onward and for Memcached engine version 1.5.16 onward):
     --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
     --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
     --         @cache.m6g.16xlarge@
@@ -94,7 +93,6 @@ data Snapshot = Snapshot'
     --
     --         __T4g node types__ (available only for Redis engine version
     --         5.0.6 onward and Memcached engine version 1.5.16 onward):
-    --
     --         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
     --
     --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
@@ -123,17 +121,6 @@ data Snapshot = Snapshot'
     --
     --         __C1 node types:__ @cache.c1.xlarge@
     --
-    -- -   Memory optimized with data tiering:
-    --
-    --     -   Current generation:
-    --
-    --         __R6gd node types__ (available only for Redis engine version 6.2
-    --         onward).
-    --
-    --         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
-    --         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
-    --         @cache.r6gd.16xlarge@
-    --
     -- -   Memory optimized:
     --
     --     -   Current generation:
@@ -144,9 +131,6 @@ data Snapshot = Snapshot'
     --         @cache.r6g.large@, @cache.r6g.xlarge@, @cache.r6g.2xlarge@,
     --         @cache.r6g.4xlarge@, @cache.r6g.8xlarge@, @cache.r6g.12xlarge@,
     --         @cache.r6g.16xlarge@
-    --
-    --         For region availability, see
-    --         <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion Supported Node Types>
     --
     --         For region availability, see
     --         <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion Supported Node Types>
@@ -311,8 +295,7 @@ data Snapshot = Snapshot'
 --     -   Current generation:
 --
 --         __M6g node types__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward).
---
+--         5.0.6 onward and for Memcached engine version 1.5.16 onward):
 --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
 --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
 --         @cache.m6g.16xlarge@
@@ -329,7 +312,6 @@ data Snapshot = Snapshot'
 --
 --         __T4g node types__ (available only for Redis engine version
 --         5.0.6 onward and Memcached engine version 1.5.16 onward):
---
 --         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
 --
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
@@ -358,17 +340,6 @@ data Snapshot = Snapshot'
 --
 --         __C1 node types:__ @cache.c1.xlarge@
 --
--- -   Memory optimized with data tiering:
---
---     -   Current generation:
---
---         __R6gd node types__ (available only for Redis engine version 6.2
---         onward).
---
---         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
---         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
---         @cache.r6gd.16xlarge@
---
 -- -   Memory optimized:
 --
 --     -   Current generation:
@@ -379,9 +350,6 @@ data Snapshot = Snapshot'
 --         @cache.r6g.large@, @cache.r6g.xlarge@, @cache.r6g.2xlarge@,
 --         @cache.r6g.4xlarge@, @cache.r6g.8xlarge@, @cache.r6g.12xlarge@,
 --         @cache.r6g.16xlarge@
---
---         For region availability, see
---         <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion Supported Node Types>
 --
 --         For region availability, see
 --         <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion Supported Node Types>
@@ -590,8 +558,7 @@ snapshot_numCacheNodes = Lens.lens (\Snapshot' {numCacheNodes} -> numCacheNodes)
 --     -   Current generation:
 --
 --         __M6g node types__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward).
---
+--         5.0.6 onward and for Memcached engine version 1.5.16 onward):
 --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
 --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
 --         @cache.m6g.16xlarge@
@@ -608,7 +575,6 @@ snapshot_numCacheNodes = Lens.lens (\Snapshot' {numCacheNodes} -> numCacheNodes)
 --
 --         __T4g node types__ (available only for Redis engine version
 --         5.0.6 onward and Memcached engine version 1.5.16 onward):
---
 --         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
 --
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
@@ -637,17 +603,6 @@ snapshot_numCacheNodes = Lens.lens (\Snapshot' {numCacheNodes} -> numCacheNodes)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
 --
--- -   Memory optimized with data tiering:
---
---     -   Current generation:
---
---         __R6gd node types__ (available only for Redis engine version 6.2
---         onward).
---
---         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
---         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
---         @cache.r6gd.16xlarge@
---
 -- -   Memory optimized:
 --
 --     -   Current generation:
@@ -658,9 +613,6 @@ snapshot_numCacheNodes = Lens.lens (\Snapshot' {numCacheNodes} -> numCacheNodes)
 --         @cache.r6g.large@, @cache.r6g.xlarge@, @cache.r6g.2xlarge@,
 --         @cache.r6g.4xlarge@, @cache.r6g.8xlarge@, @cache.r6g.12xlarge@,
 --         @cache.r6g.16xlarge@
---
---         For region availability, see
---         <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion Supported Node Types>
 --
 --         For region availability, see
 --         <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion Supported Node Types>

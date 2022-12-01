@@ -20,7 +20,7 @@
 module Amazonka.AuditManager.Types.Resource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A system asset that\'s evaluated in an Audit Manager assessment.
@@ -29,6 +29,24 @@ import qualified Amazonka.Prelude as Prelude
 data Resource = Resource'
   { -- | The Amazon Resource Name (ARN) for the resource.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The evaluation status for a resource that was assessed when collecting
+    -- compliance check evidence.
+    --
+    -- -   Audit Manager classes the resource as non-compliant if Security Hub
+    --     reports a /Fail/ result, or if Config reports a /Non-compliant/
+    --     result.
+    --
+    -- -   Audit Manager classes the resource as compliant if Security Hub
+    --     reports a /Pass/ result, or if Config reports a /Compliant/ result.
+    --
+    -- -   If a compliance check isn\'t available or applicable, then no
+    --     compliance evaluation can be made for that resource. This is the
+    --     case if a resource assessment uses Config or Security Hub as the
+    --     underlying data source type, but those services aren\'t enabled.
+    --     This is also the case if the resource assessment uses an underlying
+    --     data source type that doesn\'t support compliance checks (such as
+    --     manual evidence, Amazon Web Services API calls, or CloudTrail).
+    complianceCheck :: Prelude.Maybe Prelude.Text,
     -- | The value of the resource.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -44,18 +62,57 @@ data Resource = Resource'
 --
 -- 'arn', 'resource_arn' - The Amazon Resource Name (ARN) for the resource.
 --
+-- 'complianceCheck', 'resource_complianceCheck' - The evaluation status for a resource that was assessed when collecting
+-- compliance check evidence.
+--
+-- -   Audit Manager classes the resource as non-compliant if Security Hub
+--     reports a /Fail/ result, or if Config reports a /Non-compliant/
+--     result.
+--
+-- -   Audit Manager classes the resource as compliant if Security Hub
+--     reports a /Pass/ result, or if Config reports a /Compliant/ result.
+--
+-- -   If a compliance check isn\'t available or applicable, then no
+--     compliance evaluation can be made for that resource. This is the
+--     case if a resource assessment uses Config or Security Hub as the
+--     underlying data source type, but those services aren\'t enabled.
+--     This is also the case if the resource assessment uses an underlying
+--     data source type that doesn\'t support compliance checks (such as
+--     manual evidence, Amazon Web Services API calls, or CloudTrail).
+--
 -- 'value', 'resource_value' - The value of the resource.
 newResource ::
   Resource
 newResource =
   Resource'
     { arn = Prelude.Nothing,
+      complianceCheck = Prelude.Nothing,
       value = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for the resource.
 resource_arn :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_arn = Lens.lens (\Resource' {arn} -> arn) (\s@Resource' {} a -> s {arn = a} :: Resource)
+
+-- | The evaluation status for a resource that was assessed when collecting
+-- compliance check evidence.
+--
+-- -   Audit Manager classes the resource as non-compliant if Security Hub
+--     reports a /Fail/ result, or if Config reports a /Non-compliant/
+--     result.
+--
+-- -   Audit Manager classes the resource as compliant if Security Hub
+--     reports a /Pass/ result, or if Config reports a /Compliant/ result.
+--
+-- -   If a compliance check isn\'t available or applicable, then no
+--     compliance evaluation can be made for that resource. This is the
+--     case if a resource assessment uses Config or Security Hub as the
+--     underlying data source type, but those services aren\'t enabled.
+--     This is also the case if the resource assessment uses an underlying
+--     data source type that doesn\'t support compliance checks (such as
+--     manual evidence, Amazon Web Services API calls, or CloudTrail).
+resource_complianceCheck :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_complianceCheck = Lens.lens (\Resource' {complianceCheck} -> complianceCheck) (\s@Resource' {} a -> s {complianceCheck = a} :: Resource)
 
 -- | The value of the resource.
 resource_value :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
@@ -67,14 +124,19 @@ instance Core.FromJSON Resource where
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "arn") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "complianceCheck")
+            Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
     _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` complianceCheck
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf arn `Prelude.seq` Prelude.rnf value
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf complianceCheck
+      `Prelude.seq` Prelude.rnf value

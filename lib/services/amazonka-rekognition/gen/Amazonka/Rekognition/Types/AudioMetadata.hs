@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.AudioMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata information about an audio stream. An array of @AudioMetadata@

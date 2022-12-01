@@ -22,7 +22,7 @@ module Amazonka.Chime.Types.ChannelMembershipForAppInstanceUserSummary where
 import Amazonka.Chime.Types.AppInstanceUserMembershipSummary
 import Amazonka.Chime.Types.ChannelSummary
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the channel membership details of an @AppInstanceUser@.

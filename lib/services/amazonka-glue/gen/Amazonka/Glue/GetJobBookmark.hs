@@ -21,6 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information on a job bookmark entry.
+--
+-- For more information about enabling and using job bookmarks, see:
+--
+-- -   <https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html Tracking processed data using job bookmarks>
+--
+-- -   <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Job parameters used by Glue>
+--
+-- -   <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job Job structure>
 module Amazonka.Glue.GetJobBookmark
   ( -- * Creating a Request
     GetJobBookmark (..),
@@ -41,8 +49,8 @@ module Amazonka.Glue.GetJobBookmark
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,8 +97,8 @@ instance Core.AWSRequest GetJobBookmark where
   type
     AWSResponse GetJobBookmark =
       GetJobBookmarkResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

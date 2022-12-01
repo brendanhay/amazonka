@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the complete history of the last 10 upgrades performed on the
--- domain.
+-- Retrieves the complete history of the last 10 upgrades performed on an
+-- Amazon OpenSearch Service domain.
 module Amazonka.OpenSearch.GetUpgradeHistory
   ( -- * Creating a Request
     GetUpgradeHistory (..),
@@ -44,19 +44,25 @@ module Amazonka.OpenSearch.GetUpgradeHistory
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the request parameters to the @ GetUpgradeHistory @
+-- | Container for the request parameters to the @GetUpgradeHistory@
 -- operation.
 --
 -- /See:/ 'newGetUpgradeHistory' smart constructor.
 data GetUpgradeHistory = GetUpgradeHistory'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | If your initial @GetUpgradeHistory@ operation returns a @nextToken@, you
+    -- can include the returned @nextToken@ in subsequent @GetUpgradeHistory@
+    -- operations, which returns results in the next page.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The name of an existing domain.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,11 +75,14 @@ data GetUpgradeHistory = GetUpgradeHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getUpgradeHistory_nextToken' - Undocumented member.
+-- 'nextToken', 'getUpgradeHistory_nextToken' - If your initial @GetUpgradeHistory@ operation returns a @nextToken@, you
+-- can include the returned @nextToken@ in subsequent @GetUpgradeHistory@
+-- operations, which returns results in the next page.
 --
--- 'maxResults', 'getUpgradeHistory_maxResults' - Undocumented member.
+-- 'maxResults', 'getUpgradeHistory_maxResults' - An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 --
--- 'domainName', 'getUpgradeHistory_domainName' - Undocumented member.
+-- 'domainName', 'getUpgradeHistory_domainName' - The name of an existing domain.
 newGetUpgradeHistory ::
   -- | 'domainName'
   Prelude.Text ->
@@ -85,15 +94,18 @@ newGetUpgradeHistory pDomainName_ =
       domainName = pDomainName_
     }
 
--- | Undocumented member.
+-- | If your initial @GetUpgradeHistory@ operation returns a @nextToken@, you
+-- can include the returned @nextToken@ in subsequent @GetUpgradeHistory@
+-- operations, which returns results in the next page.
 getUpgradeHistory_nextToken :: Lens.Lens' GetUpgradeHistory (Prelude.Maybe Prelude.Text)
 getUpgradeHistory_nextToken = Lens.lens (\GetUpgradeHistory' {nextToken} -> nextToken) (\s@GetUpgradeHistory' {} a -> s {nextToken = a} :: GetUpgradeHistory)
 
--- | Undocumented member.
+-- | An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 getUpgradeHistory_maxResults :: Lens.Lens' GetUpgradeHistory (Prelude.Maybe Prelude.Int)
 getUpgradeHistory_maxResults = Lens.lens (\GetUpgradeHistory' {maxResults} -> maxResults) (\s@GetUpgradeHistory' {} a -> s {maxResults = a} :: GetUpgradeHistory)
 
--- | Undocumented member.
+-- | The name of an existing domain.
 getUpgradeHistory_domainName :: Lens.Lens' GetUpgradeHistory Prelude.Text
 getUpgradeHistory_domainName = Lens.lens (\GetUpgradeHistory' {domainName} -> domainName) (\s@GetUpgradeHistory' {} a -> s {domainName = a} :: GetUpgradeHistory)
 
@@ -101,8 +113,8 @@ instance Core.AWSRequest GetUpgradeHistory where
   type
     AWSResponse GetUpgradeHistory =
       GetUpgradeHistoryResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,17 +156,17 @@ instance Core.ToQuery GetUpgradeHistory where
         "maxResults" Core.=: maxResults
       ]
 
--- | Container for the response returned by the @ GetUpgradeHistory @
+-- | Container for the response returned by the @GetUpgradeHistory@
 -- operation.
 --
 -- /See:/ 'newGetUpgradeHistoryResponse' smart constructor.
 data GetUpgradeHistoryResponse = GetUpgradeHistoryResponse'
-  { -- | Pagination token that needs to be supplied to the next call to get the
-    -- next page of results.
+  { -- | When @nextToken@ is returned, there are more results available. The
+    -- value of @nextToken@ is a unique pagination token for each page. Make
+    -- the call again using the returned token to retrieve the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @ UpgradeHistory @ objects corresponding to each upgrade or
-    -- upgrade eligibility check performed on a domain returned as part of the
-    -- @ GetUpgradeHistoryResponse @ object.
+    -- | A list of objects corresponding to each upgrade or upgrade eligibility
+    -- check performed on a domain.
     upgradeHistories :: Prelude.Maybe [UpgradeHistory],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -169,12 +181,12 @@ data GetUpgradeHistoryResponse = GetUpgradeHistoryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getUpgradeHistoryResponse_nextToken' - Pagination token that needs to be supplied to the next call to get the
--- next page of results.
+-- 'nextToken', 'getUpgradeHistoryResponse_nextToken' - When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 --
--- 'upgradeHistories', 'getUpgradeHistoryResponse_upgradeHistories' - A list of @ UpgradeHistory @ objects corresponding to each upgrade or
--- upgrade eligibility check performed on a domain returned as part of the
--- @ GetUpgradeHistoryResponse @ object.
+-- 'upgradeHistories', 'getUpgradeHistoryResponse_upgradeHistories' - A list of objects corresponding to each upgrade or upgrade eligibility
+-- check performed on a domain.
 --
 -- 'httpStatus', 'getUpgradeHistoryResponse_httpStatus' - The response's http status code.
 newGetUpgradeHistoryResponse ::
@@ -189,14 +201,14 @@ newGetUpgradeHistoryResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Pagination token that needs to be supplied to the next call to get the
--- next page of results.
+-- | When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 getUpgradeHistoryResponse_nextToken :: Lens.Lens' GetUpgradeHistoryResponse (Prelude.Maybe Prelude.Text)
 getUpgradeHistoryResponse_nextToken = Lens.lens (\GetUpgradeHistoryResponse' {nextToken} -> nextToken) (\s@GetUpgradeHistoryResponse' {} a -> s {nextToken = a} :: GetUpgradeHistoryResponse)
 
--- | A list of @ UpgradeHistory @ objects corresponding to each upgrade or
--- upgrade eligibility check performed on a domain returned as part of the
--- @ GetUpgradeHistoryResponse @ object.
+-- | A list of objects corresponding to each upgrade or upgrade eligibility
+-- check performed on a domain.
 getUpgradeHistoryResponse_upgradeHistories :: Lens.Lens' GetUpgradeHistoryResponse (Prelude.Maybe [UpgradeHistory])
 getUpgradeHistoryResponse_upgradeHistories = Lens.lens (\GetUpgradeHistoryResponse' {upgradeHistories} -> upgradeHistories) (\s@GetUpgradeHistoryResponse' {} a -> s {upgradeHistories = a} :: GetUpgradeHistoryResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -28,6 +28,7 @@ module Amazonka.SSMIncidents.CreateReplicationSet
     newCreateReplicationSet,
 
     -- * Request Lenses
+    createReplicationSet_tags,
     createReplicationSet_clientToken,
     createReplicationSet_regions,
 
@@ -42,7 +43,7 @@ module Amazonka.SSMIncidents.CreateReplicationSet
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -50,7 +51,9 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newCreateReplicationSet' smart constructor.
 data CreateReplicationSet = CreateReplicationSet'
-  { -- | A token ensuring that the operation is called only once with the
+  { -- | A list of tags to add to the replication set.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A token that ensures that the operation is called only once with the
     -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The Regions that Incident Manager replicates your data to. You can have
@@ -67,7 +70,9 @@ data CreateReplicationSet = CreateReplicationSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createReplicationSet_clientToken' - A token ensuring that the operation is called only once with the
+-- 'tags', 'createReplicationSet_tags' - A list of tags to add to the replication set.
+--
+-- 'clientToken', 'createReplicationSet_clientToken' - A token that ensures that the operation is called only once with the
 -- specified details.
 --
 -- 'regions', 'createReplicationSet_regions' - The Regions that Incident Manager replicates your data to. You can have
@@ -76,12 +81,16 @@ newCreateReplicationSet ::
   CreateReplicationSet
 newCreateReplicationSet =
   CreateReplicationSet'
-    { clientToken =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       regions = Prelude.mempty
     }
 
--- | A token ensuring that the operation is called only once with the
+-- | A list of tags to add to the replication set.
+createReplicationSet_tags :: Lens.Lens' CreateReplicationSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createReplicationSet_tags = Lens.lens (\CreateReplicationSet' {tags} -> tags) (\s@CreateReplicationSet' {} a -> s {tags = a} :: CreateReplicationSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token that ensures that the operation is called only once with the
 -- specified details.
 createReplicationSet_clientToken :: Lens.Lens' CreateReplicationSet (Prelude.Maybe Prelude.Text)
 createReplicationSet_clientToken = Lens.lens (\CreateReplicationSet' {clientToken} -> clientToken) (\s@CreateReplicationSet' {} a -> s {clientToken = a} :: CreateReplicationSet)
@@ -95,8 +104,8 @@ instance Core.AWSRequest CreateReplicationSet where
   type
     AWSResponse CreateReplicationSet =
       CreateReplicationSetResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,12 +116,14 @@ instance Core.AWSRequest CreateReplicationSet where
 
 instance Prelude.Hashable CreateReplicationSet where
   hashWithSalt _salt CreateReplicationSet' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` regions
 
 instance Prelude.NFData CreateReplicationSet where
   rnf CreateReplicationSet' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf regions
 
 instance Core.ToHeaders CreateReplicationSet where
@@ -130,7 +141,8 @@ instance Core.ToJSON CreateReplicationSet where
   toJSON CreateReplicationSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
             Prelude.Just ("regions" Core..= regions)
           ]
       )

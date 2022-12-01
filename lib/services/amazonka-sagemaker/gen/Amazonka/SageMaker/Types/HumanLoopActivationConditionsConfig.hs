@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.HumanLoopActivationConditionsConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines under what conditions SageMaker creates a human loop. Used

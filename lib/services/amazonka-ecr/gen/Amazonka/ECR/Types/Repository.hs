@@ -20,10 +20,10 @@
 module Amazonka.ECR.Types.Repository where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECR.Types.EncryptionConfiguration
 import Amazonka.ECR.Types.ImageScanningConfiguration
 import Amazonka.ECR.Types.ImageTagMutability
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a repository.

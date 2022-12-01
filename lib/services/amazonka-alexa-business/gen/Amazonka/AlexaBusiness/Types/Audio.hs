@@ -21,7 +21,7 @@ module Amazonka.AlexaBusiness.Types.Audio where
 
 import Amazonka.AlexaBusiness.Types.Locale
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The audio message. There is a 1 MB limit on the audio file input and the

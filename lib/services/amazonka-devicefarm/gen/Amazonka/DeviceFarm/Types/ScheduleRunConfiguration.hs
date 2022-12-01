@@ -20,11 +20,11 @@
 module Amazonka.DeviceFarm.Types.ScheduleRunConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.BillingMethod
 import Amazonka.DeviceFarm.Types.CustomerArtifactPaths
 import Amazonka.DeviceFarm.Types.Location
 import Amazonka.DeviceFarm.Types.Radios
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the settings for a run. Includes things like location, radio

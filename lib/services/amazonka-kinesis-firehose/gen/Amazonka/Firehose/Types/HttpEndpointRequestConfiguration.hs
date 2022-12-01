@@ -20,9 +20,9 @@
 module Amazonka.Firehose.Types.HttpEndpointRequestConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.ContentEncoding
 import Amazonka.Firehose.Types.HttpEndpointCommonAttribute
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of the HTTP endpoint request.

@@ -20,10 +20,10 @@
 module Amazonka.KinesisAnalyticsV2.Types.ApplicationSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationMode
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationStatus
 import Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides application summary information, including the application

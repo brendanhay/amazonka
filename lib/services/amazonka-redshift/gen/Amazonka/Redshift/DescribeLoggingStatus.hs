@@ -47,7 +47,7 @@ module Amazonka.Redshift.DescribeLoggingStatus
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -95,8 +95,8 @@ instance Core.AWSRequest DescribeLoggingStatus where
   type
     AWSResponse DescribeLoggingStatus =
       LoggingStatus
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "DescribeLoggingStatusResult"

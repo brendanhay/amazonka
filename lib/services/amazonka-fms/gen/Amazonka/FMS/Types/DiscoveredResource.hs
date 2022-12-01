@@ -1,0 +1,110 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.FMS.Types.DiscoveredResource
+-- Copyright   : (c) 2013-2022 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.FMS.Types.DiscoveredResource where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Prelude as Prelude
+
+-- | A resource in the organization that\'s available to be associated with a
+-- Firewall Manager resource set.
+--
+-- /See:/ 'newDiscoveredResource' smart constructor.
+data DiscoveredResource = DiscoveredResource'
+  { -- | The name of the discovered resource.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The type of the discovered resource.
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | The universal resource identifier (URI) of the discovered resource.
+    uri :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services account ID associated with the discovered
+    -- resource.
+    accountId :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DiscoveredResource' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'discoveredResource_name' - The name of the discovered resource.
+--
+-- 'type'', 'discoveredResource_type' - The type of the discovered resource.
+--
+-- 'uri', 'discoveredResource_uri' - The universal resource identifier (URI) of the discovered resource.
+--
+-- 'accountId', 'discoveredResource_accountId' - The Amazon Web Services account ID associated with the discovered
+-- resource.
+newDiscoveredResource ::
+  DiscoveredResource
+newDiscoveredResource =
+  DiscoveredResource'
+    { name = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      uri = Prelude.Nothing,
+      accountId = Prelude.Nothing
+    }
+
+-- | The name of the discovered resource.
+discoveredResource_name :: Lens.Lens' DiscoveredResource (Prelude.Maybe Prelude.Text)
+discoveredResource_name = Lens.lens (\DiscoveredResource' {name} -> name) (\s@DiscoveredResource' {} a -> s {name = a} :: DiscoveredResource)
+
+-- | The type of the discovered resource.
+discoveredResource_type :: Lens.Lens' DiscoveredResource (Prelude.Maybe Prelude.Text)
+discoveredResource_type = Lens.lens (\DiscoveredResource' {type'} -> type') (\s@DiscoveredResource' {} a -> s {type' = a} :: DiscoveredResource)
+
+-- | The universal resource identifier (URI) of the discovered resource.
+discoveredResource_uri :: Lens.Lens' DiscoveredResource (Prelude.Maybe Prelude.Text)
+discoveredResource_uri = Lens.lens (\DiscoveredResource' {uri} -> uri) (\s@DiscoveredResource' {} a -> s {uri = a} :: DiscoveredResource)
+
+-- | The Amazon Web Services account ID associated with the discovered
+-- resource.
+discoveredResource_accountId :: Lens.Lens' DiscoveredResource (Prelude.Maybe Prelude.Text)
+discoveredResource_accountId = Lens.lens (\DiscoveredResource' {accountId} -> accountId) (\s@DiscoveredResource' {} a -> s {accountId = a} :: DiscoveredResource)
+
+instance Core.FromJSON DiscoveredResource where
+  parseJSON =
+    Core.withObject
+      "DiscoveredResource"
+      ( \x ->
+          DiscoveredResource'
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "URI")
+            Prelude.<*> (x Core..:? "AccountId")
+      )
+
+instance Prelude.Hashable DiscoveredResource where
+  hashWithSalt _salt DiscoveredResource' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` accountId
+
+instance Prelude.NFData DiscoveredResource where
+  rnf DiscoveredResource' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf uri
+      `Prelude.seq` Prelude.rnf accountId

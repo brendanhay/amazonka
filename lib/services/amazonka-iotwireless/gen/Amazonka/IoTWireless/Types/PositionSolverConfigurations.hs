@@ -20,8 +20,8 @@
 module Amazonka.IoTWireless.Types.PositionSolverConfigurations where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.SemtechGnssConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The wrapper for position solver configurations.

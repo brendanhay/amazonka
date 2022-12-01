@@ -20,7 +20,7 @@
 module Amazonka.GlobalAccelerator.Types.SocketAddress where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An IP address\/port combination.

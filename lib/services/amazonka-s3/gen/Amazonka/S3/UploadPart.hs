@@ -169,7 +169,7 @@ module Amazonka.S3.UploadPart
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -563,9 +563,9 @@ uploadPart_body = Lens.lens (\UploadPart' {body} -> body) (\s@UploadPart' {} a -
 
 instance Core.AWSRequest UploadPart where
   type AWSResponse UploadPart = UploadPartResponse
-  service _ = defaultService
-  request srv =
-    Request.s3vhost Prelude.. Request.putBody srv
+  request overrides =
+    Request.s3vhost
+      Prelude.. Request.putBody (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

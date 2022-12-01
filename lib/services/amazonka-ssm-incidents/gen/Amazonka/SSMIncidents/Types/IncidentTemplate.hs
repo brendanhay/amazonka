@@ -20,7 +20,7 @@
 module Amazonka.SSMIncidents.Types.IncidentTemplate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.NotificationTargetItem
 
@@ -29,8 +29,9 @@ import Amazonka.SSMIncidents.Types.NotificationTargetItem
 --
 -- /See:/ 'newIncidentTemplate' smart constructor.
 data IncidentTemplate = IncidentTemplate'
-  { -- | Tags to apply to an incident when calling the @StartIncident@ API
-    -- action.
+  { -- | Tags to assign to the template. When the @StartIncident@ API action is
+    -- called, Incident Manager assigns the tags specified in the template to
+    -- the incident.
     incidentTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The summary of the incident. The summary is a brief synopsis of what
     -- occurred, what\'s currently happening, and context.
@@ -56,8 +57,9 @@ data IncidentTemplate = IncidentTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'incidentTags', 'incidentTemplate_incidentTags' - Tags to apply to an incident when calling the @StartIncident@ API
--- action.
+-- 'incidentTags', 'incidentTemplate_incidentTags' - Tags to assign to the template. When the @StartIncident@ API action is
+-- called, Incident Manager assigns the tags specified in the template to
+-- the incident.
 --
 -- 'summary', 'incidentTemplate_summary' - The summary of the incident. The summary is a brief synopsis of what
 -- occurred, what\'s currently happening, and context.
@@ -87,8 +89,9 @@ newIncidentTemplate pImpact_ pTitle_ =
       title = pTitle_
     }
 
--- | Tags to apply to an incident when calling the @StartIncident@ API
--- action.
+-- | Tags to assign to the template. When the @StartIncident@ API action is
+-- called, Incident Manager assigns the tags specified in the template to
+-- the incident.
 incidentTemplate_incidentTags :: Lens.Lens' IncidentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 incidentTemplate_incidentTags = Lens.lens (\IncidentTemplate' {incidentTags} -> incidentTags) (\s@IncidentTemplate' {} a -> s {incidentTags = a} :: IncidentTemplate) Prelude.. Lens.mapping Lens.coerced
 

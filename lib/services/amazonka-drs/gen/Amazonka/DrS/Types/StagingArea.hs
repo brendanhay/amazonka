@@ -20,8 +20,8 @@
 module Amazonka.DrS.Types.StagingArea where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.ExtensionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Staging information related to source server.

@@ -20,8 +20,8 @@
 module Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEventsData.Types.ErrorCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the error that occurred when attempting to update a

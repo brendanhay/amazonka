@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.AccessKeyLastUsed where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the last time an access key was used.
@@ -35,12 +35,13 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
     --
     -- This value is null if the access key has not been used.
     lastUsedDate :: Prelude.Maybe Core.POSIX,
-    -- | The AWS Region where this access key was most recently used.
+    -- | The Amazon Web Services Region where this access key was most recently
+    -- used.
     --
     -- This value is @N\/A@ if the access key has not been used.
     region :: Prelude.Maybe Prelude.Text,
-    -- | The name of the AWS service with which this access key was most recently
-    -- used.
+    -- | The name of the Amazon Web Services service with which this access key
+    -- was most recently used.
     --
     -- This value is @N\/A@ if the access key has not been used.
     serviceName :: Prelude.Maybe Prelude.Text
@@ -59,12 +60,13 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
 --
 -- This value is null if the access key has not been used.
 --
--- 'region', 'accessKeyLastUsed_region' - The AWS Region where this access key was most recently used.
+-- 'region', 'accessKeyLastUsed_region' - The Amazon Web Services Region where this access key was most recently
+-- used.
 --
 -- This value is @N\/A@ if the access key has not been used.
 --
--- 'serviceName', 'accessKeyLastUsed_serviceName' - The name of the AWS service with which this access key was most recently
--- used.
+-- 'serviceName', 'accessKeyLastUsed_serviceName' - The name of the Amazon Web Services service with which this access key
+-- was most recently used.
 --
 -- This value is @N\/A@ if the access key has not been used.
 newAccessKeyLastUsed ::
@@ -82,14 +84,15 @@ newAccessKeyLastUsed =
 accessKeyLastUsed_lastUsedDate :: Lens.Lens' AccessKeyLastUsed (Prelude.Maybe Prelude.UTCTime)
 accessKeyLastUsed_lastUsedDate = Lens.lens (\AccessKeyLastUsed' {lastUsedDate} -> lastUsedDate) (\s@AccessKeyLastUsed' {} a -> s {lastUsedDate = a} :: AccessKeyLastUsed) Prelude.. Lens.mapping Core._Time
 
--- | The AWS Region where this access key was most recently used.
+-- | The Amazon Web Services Region where this access key was most recently
+-- used.
 --
 -- This value is @N\/A@ if the access key has not been used.
 accessKeyLastUsed_region :: Lens.Lens' AccessKeyLastUsed (Prelude.Maybe Prelude.Text)
 accessKeyLastUsed_region = Lens.lens (\AccessKeyLastUsed' {region} -> region) (\s@AccessKeyLastUsed' {} a -> s {region = a} :: AccessKeyLastUsed)
 
--- | The name of the AWS service with which this access key was most recently
--- used.
+-- | The name of the Amazon Web Services service with which this access key
+-- was most recently used.
 --
 -- This value is @N\/A@ if the access key has not been used.
 accessKeyLastUsed_serviceName :: Lens.Lens' AccessKeyLastUsed (Prelude.Maybe Prelude.Text)

@@ -20,8 +20,8 @@
 module Amazonka.IoTAnalytics.Types.DatastorePartitions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.DatastorePartition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the partition dimensions in a data store.

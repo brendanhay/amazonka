@@ -20,7 +20,7 @@
 module Amazonka.StepFunctions.Types.ActivityStartedEventDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the start of an activity during an execution.

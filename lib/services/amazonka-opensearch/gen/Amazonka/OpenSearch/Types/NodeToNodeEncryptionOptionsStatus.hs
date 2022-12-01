@@ -20,7 +20,7 @@
 module Amazonka.OpenSearch.Types.NodeToNodeEncryptionOptionsStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.NodeToNodeEncryptionOptions
 import Amazonka.OpenSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude

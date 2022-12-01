@@ -43,6 +43,7 @@ module Amazonka.ElastiCache.CreateCacheCluster
     createCacheCluster_autoMinorVersionUpgrade,
     createCacheCluster_authToken,
     createCacheCluster_logDeliveryConfigurations,
+    createCacheCluster_ipDiscovery,
     createCacheCluster_numCacheNodes,
     createCacheCluster_cacheNodeType,
     createCacheCluster_cacheParameterGroupName,
@@ -58,6 +59,7 @@ module Amazonka.ElastiCache.CreateCacheCluster
     createCacheCluster_preferredMaintenanceWindow,
     createCacheCluster_replicationGroupId,
     createCacheCluster_engineVersion,
+    createCacheCluster_networkType,
     createCacheCluster_cacheClusterId,
 
     -- * Destructuring the Response
@@ -71,8 +73,8 @@ module Amazonka.ElastiCache.CreateCacheCluster
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,12 +84,12 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newCreateCacheCluster' smart constructor.
 data CreateCacheCluster = CreateCacheCluster'
   { -- | A flag that enables in-transit encryption when set to true. You cannot
-    -- modify the value of @TransitEncryptionEnabled@ after the cluster is
+    -- modify the value of TransitEncryptionEnabled after the cluster is
     -- created. To enable in-transit encryption on a cluster you must set
     -- @TransitEncryptionEnabled@ to true when you create a cluster.
     --
-    -- __Required:__ Only available when creating a cache cluster in an Amazon
-    -- VPC using Memcached version @1.6.12@ or later.
+    -- Only available when creating a cache cluster in an Amazon VPC using
+    -- Memcached version 1.6.12 or later.
     transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A list of tags to be added to this resource.
     tags :: Prelude.Maybe [Tag],
@@ -160,6 +162,11 @@ data CreateCacheCluster = CreateCacheCluster'
     authToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the destination, format and type of the logs.
     logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfigurationRequest],
+    -- | The network type you choose when modifying a cluster, either @ipv4@ |
+    -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+    -- onward or Memcached engine version 1.6.6 on all instances built on the
+    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    ipDiscovery :: Prelude.Maybe IpDiscovery,
     -- | The initial number of cache nodes that the cluster has.
     --
     -- For clusters running Redis, this value must be 1. For clusters running
@@ -366,6 +373,11 @@ data CreateCacheCluster = CreateCacheCluster'
     -- use an earlier engine version, you must delete the existing cluster or
     -- replication group and create it anew with the earlier engine version.
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
+    -- workloads using Redis engine version 6.2 onward or Memcached engine
+    -- version 1.6.6 on all instances built on the
+    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    networkType :: Prelude.Maybe NetworkType,
     -- | The node group (shard) identifier. This parameter is stored as a
     -- lowercase string.
     --
@@ -389,12 +401,12 @@ data CreateCacheCluster = CreateCacheCluster'
 -- for backwards compatibility:
 --
 -- 'transitEncryptionEnabled', 'createCacheCluster_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true. You cannot
--- modify the value of @TransitEncryptionEnabled@ after the cluster is
+-- modify the value of TransitEncryptionEnabled after the cluster is
 -- created. To enable in-transit encryption on a cluster you must set
 -- @TransitEncryptionEnabled@ to true when you create a cluster.
 --
--- __Required:__ Only available when creating a cache cluster in an Amazon
--- VPC using Memcached version @1.6.12@ or later.
+-- Only available when creating a cache cluster in an Amazon VPC using
+-- Memcached version 1.6.12 or later.
 --
 -- 'tags', 'createCacheCluster_tags' - A list of tags to be added to this resource.
 --
@@ -466,6 +478,11 @@ data CreateCacheCluster = CreateCacheCluster'
 -- at http:\/\/redis.io\/commands\/AUTH.
 --
 -- 'logDeliveryConfigurations', 'createCacheCluster_logDeliveryConfigurations' - Specifies the destination, format and type of the logs.
+--
+-- 'ipDiscovery', 'createCacheCluster_ipDiscovery' - The network type you choose when modifying a cluster, either @ipv4@ |
+-- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+-- onward or Memcached engine version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
 --
 -- 'numCacheNodes', 'createCacheCluster_numCacheNodes' - The initial number of cache nodes that the cluster has.
 --
@@ -673,6 +690,11 @@ data CreateCacheCluster = CreateCacheCluster'
 -- use an earlier engine version, you must delete the existing cluster or
 -- replication group and create it anew with the earlier engine version.
 --
+-- 'networkType', 'createCacheCluster_networkType' - Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
+-- workloads using Redis engine version 6.2 onward or Memcached engine
+-- version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+--
 -- 'cacheClusterId', 'createCacheCluster_cacheClusterId' - The node group (shard) identifier. This parameter is stored as a
 -- lowercase string.
 --
@@ -702,6 +724,7 @@ newCreateCacheCluster pCacheClusterId_ =
       autoMinorVersionUpgrade = Prelude.Nothing,
       authToken = Prelude.Nothing,
       logDeliveryConfigurations = Prelude.Nothing,
+      ipDiscovery = Prelude.Nothing,
       numCacheNodes = Prelude.Nothing,
       cacheNodeType = Prelude.Nothing,
       cacheParameterGroupName = Prelude.Nothing,
@@ -717,16 +740,17 @@ newCreateCacheCluster pCacheClusterId_ =
       preferredMaintenanceWindow = Prelude.Nothing,
       replicationGroupId = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      networkType = Prelude.Nothing,
       cacheClusterId = pCacheClusterId_
     }
 
 -- | A flag that enables in-transit encryption when set to true. You cannot
--- modify the value of @TransitEncryptionEnabled@ after the cluster is
+-- modify the value of TransitEncryptionEnabled after the cluster is
 -- created. To enable in-transit encryption on a cluster you must set
 -- @TransitEncryptionEnabled@ to true when you create a cluster.
 --
--- __Required:__ Only available when creating a cache cluster in an Amazon
--- VPC using Memcached version @1.6.12@ or later.
+-- Only available when creating a cache cluster in an Amazon VPC using
+-- Memcached version 1.6.12 or later.
 createCacheCluster_transitEncryptionEnabled :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Bool)
 createCacheCluster_transitEncryptionEnabled = Lens.lens (\CreateCacheCluster' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@CreateCacheCluster' {} a -> s {transitEncryptionEnabled = a} :: CreateCacheCluster)
 
@@ -822,6 +846,13 @@ createCacheCluster_authToken = Lens.lens (\CreateCacheCluster' {authToken} -> au
 -- | Specifies the destination, format and type of the logs.
 createCacheCluster_logDeliveryConfigurations :: Lens.Lens' CreateCacheCluster (Prelude.Maybe [LogDeliveryConfigurationRequest])
 createCacheCluster_logDeliveryConfigurations = Lens.lens (\CreateCacheCluster' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@CreateCacheCluster' {} a -> s {logDeliveryConfigurations = a} :: CreateCacheCluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | The network type you choose when modifying a cluster, either @ipv4@ |
+-- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+-- onward or Memcached engine version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+createCacheCluster_ipDiscovery :: Lens.Lens' CreateCacheCluster (Prelude.Maybe IpDiscovery)
+createCacheCluster_ipDiscovery = Lens.lens (\CreateCacheCluster' {ipDiscovery} -> ipDiscovery) (\s@CreateCacheCluster' {} a -> s {ipDiscovery = a} :: CreateCacheCluster)
 
 -- | The initial number of cache nodes that the cluster has.
 --
@@ -1059,6 +1090,13 @@ createCacheCluster_replicationGroupId = Lens.lens (\CreateCacheCluster' {replica
 createCacheCluster_engineVersion :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
 createCacheCluster_engineVersion = Lens.lens (\CreateCacheCluster' {engineVersion} -> engineVersion) (\s@CreateCacheCluster' {} a -> s {engineVersion = a} :: CreateCacheCluster)
 
+-- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
+-- workloads using Redis engine version 6.2 onward or Memcached engine
+-- version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+createCacheCluster_networkType :: Lens.Lens' CreateCacheCluster (Prelude.Maybe NetworkType)
+createCacheCluster_networkType = Lens.lens (\CreateCacheCluster' {networkType} -> networkType) (\s@CreateCacheCluster' {} a -> s {networkType = a} :: CreateCacheCluster)
+
 -- | The node group (shard) identifier. This parameter is stored as a
 -- lowercase string.
 --
@@ -1076,8 +1114,8 @@ instance Core.AWSRequest CreateCacheCluster where
   type
     AWSResponse CreateCacheCluster =
       CreateCacheClusterResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "CreateCacheClusterResult"
@@ -1102,6 +1140,7 @@ instance Prelude.Hashable CreateCacheCluster where
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` logDeliveryConfigurations
+      `Prelude.hashWithSalt` ipDiscovery
       `Prelude.hashWithSalt` numCacheNodes
       `Prelude.hashWithSalt` cacheNodeType
       `Prelude.hashWithSalt` cacheParameterGroupName
@@ -1117,6 +1156,7 @@ instance Prelude.Hashable CreateCacheCluster where
       `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` networkType
       `Prelude.hashWithSalt` cacheClusterId
 
 instance Prelude.NFData CreateCacheCluster where
@@ -1133,10 +1173,12 @@ instance Prelude.NFData CreateCacheCluster where
       `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf authToken
       `Prelude.seq` Prelude.rnf logDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf ipDiscovery
       `Prelude.seq` Prelude.rnf numCacheNodes
       `Prelude.seq` Prelude.rnf cacheNodeType
       `Prelude.seq` Prelude.rnf cacheParameterGroupName
-      `Prelude.seq` Prelude.rnf preferredAvailabilityZone
+      `Prelude.seq` Prelude.rnf
+        preferredAvailabilityZone
       `Prelude.seq` Prelude.rnf notificationTopicArn
       `Prelude.seq` Prelude.rnf snapshotArns
       `Prelude.seq` Prelude.rnf snapshotWindow
@@ -1154,6 +1196,8 @@ instance Prelude.NFData CreateCacheCluster where
         replicationGroupId
       `Prelude.seq` Prelude.rnf
         engineVersion
+      `Prelude.seq` Prelude.rnf
+        networkType
       `Prelude.seq` Prelude.rnf
         cacheClusterId
 
@@ -1202,6 +1246,7 @@ instance Core.ToQuery CreateCacheCluster where
             ( Core.toQueryList "LogDeliveryConfigurationRequest"
                 Prelude.<$> logDeliveryConfigurations
             ),
+        "IpDiscovery" Core.=: ipDiscovery,
         "NumCacheNodes" Core.=: numCacheNodes,
         "CacheNodeType" Core.=: cacheNodeType,
         "CacheParameterGroupName"
@@ -1229,6 +1274,7 @@ instance Core.ToQuery CreateCacheCluster where
           Core.=: preferredMaintenanceWindow,
         "ReplicationGroupId" Core.=: replicationGroupId,
         "EngineVersion" Core.=: engineVersion,
+        "NetworkType" Core.=: networkType,
         "CacheClusterId" Core.=: cacheClusterId
       ]
 

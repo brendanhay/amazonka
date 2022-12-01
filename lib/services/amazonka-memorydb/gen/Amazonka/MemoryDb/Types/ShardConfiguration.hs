@@ -20,7 +20,7 @@
 module Amazonka.MemoryDb.Types.ShardConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Shard configuration options. Each shard configuration has the following:

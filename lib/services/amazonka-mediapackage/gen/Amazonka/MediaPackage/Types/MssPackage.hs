@@ -20,7 +20,7 @@
 module Amazonka.MediaPackage.Types.MssPackage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaPackage.Types.MssEncryption
 import Amazonka.MediaPackage.Types.StreamSelection
 import qualified Amazonka.Prelude as Prelude

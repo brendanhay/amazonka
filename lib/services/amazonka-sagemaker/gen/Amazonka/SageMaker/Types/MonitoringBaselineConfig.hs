@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.MonitoringBaselineConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringConstraintsResource
 import Amazonka.SageMaker.Types.MonitoringStatisticsResource

@@ -20,8 +20,8 @@
 module Amazonka.Discovery.Types.ExportInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Discovery.Types.ExportStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information regarding the export status of discovered data. The value is

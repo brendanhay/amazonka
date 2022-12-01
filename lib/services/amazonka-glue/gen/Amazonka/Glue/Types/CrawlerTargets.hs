@@ -20,13 +20,13 @@
 module Amazonka.Glue.Types.CrawlerTargets where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.CatalogTarget
 import Amazonka.Glue.Types.DeltaTarget
 import Amazonka.Glue.Types.DynamoDBTarget
 import Amazonka.Glue.Types.JdbcTarget
 import Amazonka.Glue.Types.MongoDBTarget
 import Amazonka.Glue.Types.S3Target
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies data stores to crawl.

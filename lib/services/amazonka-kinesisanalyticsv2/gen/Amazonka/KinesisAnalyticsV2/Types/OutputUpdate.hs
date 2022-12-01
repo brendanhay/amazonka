@@ -20,11 +20,11 @@
 module Amazonka.KinesisAnalyticsV2.Types.OutputUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.DestinationSchema
 import Amazonka.KinesisAnalyticsV2.Types.KinesisFirehoseOutputUpdate
 import Amazonka.KinesisAnalyticsV2.Types.KinesisStreamsOutputUpdate
 import Amazonka.KinesisAnalyticsV2.Types.LambdaOutputUpdate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a SQL-based Kinesis Data Analytics application, describes updates to

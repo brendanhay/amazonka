@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.NoiseReducerTemporalFilterSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.NoiseFilterPostTemporalSharpening
 import Amazonka.MediaConvert.Types.NoiseFilterPostTemporalSharpeningStrength
 import qualified Amazonka.Prelude as Prelude

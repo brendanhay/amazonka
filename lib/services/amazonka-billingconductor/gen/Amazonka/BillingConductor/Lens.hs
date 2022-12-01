@@ -76,6 +76,7 @@ module Amazonka.BillingConductor.Lens
     -- ** CreatePricingRule
     createPricingRule_tags,
     createPricingRule_clientToken,
+    createPricingRule_billingEntity,
     createPricingRule_description,
     createPricingRule_service,
     createPricingRule_name,
@@ -143,6 +144,15 @@ module Amazonka.BillingConductor.Lens
     listBillingGroupsResponse_nextToken,
     listBillingGroupsResponse_billingGroups,
     listBillingGroupsResponse_httpStatus,
+
+    -- ** ListCustomLineItemVersions
+    listCustomLineItemVersions_nextToken,
+    listCustomLineItemVersions_filters,
+    listCustomLineItemVersions_maxResults,
+    listCustomLineItemVersions_arn,
+    listCustomLineItemVersionsResponse_nextToken,
+    listCustomLineItemVersionsResponse_customLineItemVersions,
+    listCustomLineItemVersionsResponse_httpStatus,
 
     -- ** ListCustomLineItems
     listCustomLineItems_nextToken,
@@ -272,6 +282,7 @@ module Amazonka.BillingConductor.Lens
     updatePricingRule_arn,
     updatePricingRuleResponse_modifierPercentage,
     updatePricingRuleResponse_name,
+    updatePricingRuleResponse_billingEntity,
     updatePricingRuleResponse_type,
     updatePricingRuleResponse_arn,
     updatePricingRuleResponse_description,
@@ -324,8 +335,8 @@ module Amazonka.BillingConductor.Lens
     computationPreference_pricingPlanArn,
 
     -- ** CustomLineItemBillingPeriodRange
-    customLineItemBillingPeriodRange_inclusiveStartBillingPeriod,
     customLineItemBillingPeriodRange_exclusiveEndBillingPeriod,
+    customLineItemBillingPeriodRange_inclusiveStartBillingPeriod,
 
     -- ** CustomLineItemChargeDetails
     customLineItemChargeDetails_flat,
@@ -350,6 +361,19 @@ module Amazonka.BillingConductor.Lens
     -- ** CustomLineItemPercentageChargeDetails
     customLineItemPercentageChargeDetails_associatedValues,
     customLineItemPercentageChargeDetails_percentageValue,
+
+    -- ** CustomLineItemVersionListElement
+    customLineItemVersionListElement_name,
+    customLineItemVersionListElement_chargeDetails,
+    customLineItemVersionListElement_billingGroupArn,
+    customLineItemVersionListElement_associationSize,
+    customLineItemVersionListElement_productCode,
+    customLineItemVersionListElement_description,
+    customLineItemVersionListElement_currencyCode,
+    customLineItemVersionListElement_lastModifiedTime,
+    customLineItemVersionListElement_startBillingPeriod,
+    customLineItemVersionListElement_endBillingPeriod,
+    customLineItemVersionListElement_creationTime,
 
     -- ** DisassociateResourceResponseElement
     disassociateResourceResponseElement_arn,
@@ -377,6 +401,13 @@ module Amazonka.BillingConductor.Lens
     -- ** ListCustomLineItemPercentageChargeDetails
     listCustomLineItemPercentageChargeDetails_percentageValue,
 
+    -- ** ListCustomLineItemVersionsBillingPeriodRangeFilter
+    listCustomLineItemVersionsBillingPeriodRangeFilter_startBillingPeriod,
+    listCustomLineItemVersionsBillingPeriodRangeFilter_endBillingPeriod,
+
+    -- ** ListCustomLineItemVersionsFilter
+    listCustomLineItemVersionsFilter_billingPeriodRange,
+
     -- ** ListCustomLineItemsFilter
     listCustomLineItemsFilter_arns,
     listCustomLineItemsFilter_names,
@@ -394,6 +425,7 @@ module Amazonka.BillingConductor.Lens
     -- ** ListResourcesAssociatedToCustomLineItemResponseElement
     listResourcesAssociatedToCustomLineItemResponseElement_relationship,
     listResourcesAssociatedToCustomLineItemResponseElement_arn,
+    listResourcesAssociatedToCustomLineItemResponseElement_endBillingPeriod,
 
     -- ** PricingPlanListElement
     pricingPlanListElement_name,
@@ -406,6 +438,7 @@ module Amazonka.BillingConductor.Lens
     -- ** PricingRuleListElement
     pricingRuleListElement_modifierPercentage,
     pricingRuleListElement_name,
+    pricingRuleListElement_billingEntity,
     pricingRuleListElement_type,
     pricingRuleListElement_arn,
     pricingRuleListElement_description,
@@ -444,6 +477,7 @@ import Amazonka.BillingConductor.DisassociatePricingRules
 import Amazonka.BillingConductor.ListAccountAssociations
 import Amazonka.BillingConductor.ListBillingGroupCostReports
 import Amazonka.BillingConductor.ListBillingGroups
+import Amazonka.BillingConductor.ListCustomLineItemVersions
 import Amazonka.BillingConductor.ListCustomLineItems
 import Amazonka.BillingConductor.ListPricingPlans
 import Amazonka.BillingConductor.ListPricingPlansAssociatedWithPricingRule
@@ -464,6 +498,7 @@ import Amazonka.BillingConductor.Types.CustomLineItemChargeDetails
 import Amazonka.BillingConductor.Types.CustomLineItemFlatChargeDetails
 import Amazonka.BillingConductor.Types.CustomLineItemListElement
 import Amazonka.BillingConductor.Types.CustomLineItemPercentageChargeDetails
+import Amazonka.BillingConductor.Types.CustomLineItemVersionListElement
 import Amazonka.BillingConductor.Types.DisassociateResourceResponseElement
 import Amazonka.BillingConductor.Types.ListAccountAssociationsFilter
 import Amazonka.BillingConductor.Types.ListBillingGroupCostReportsFilter
@@ -471,6 +506,8 @@ import Amazonka.BillingConductor.Types.ListBillingGroupsFilter
 import Amazonka.BillingConductor.Types.ListCustomLineItemChargeDetails
 import Amazonka.BillingConductor.Types.ListCustomLineItemFlatChargeDetails
 import Amazonka.BillingConductor.Types.ListCustomLineItemPercentageChargeDetails
+import Amazonka.BillingConductor.Types.ListCustomLineItemVersionsBillingPeriodRangeFilter
+import Amazonka.BillingConductor.Types.ListCustomLineItemVersionsFilter
 import Amazonka.BillingConductor.Types.ListCustomLineItemsFilter
 import Amazonka.BillingConductor.Types.ListPricingPlansFilter
 import Amazonka.BillingConductor.Types.ListPricingRulesFilter

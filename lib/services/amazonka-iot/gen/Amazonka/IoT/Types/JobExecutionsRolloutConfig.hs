@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.JobExecutionsRolloutConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.ExponentialRolloutRate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Allows you to create a staged rollout of a job.

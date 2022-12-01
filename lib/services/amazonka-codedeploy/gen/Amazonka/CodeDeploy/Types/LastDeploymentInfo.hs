@@ -21,7 +21,7 @@ module Amazonka.CodeDeploy.Types.LastDeploymentInfo where
 
 import Amazonka.CodeDeploy.Types.DeploymentStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the most recent attempted or successful deployment to

@@ -20,8 +20,8 @@
 module Amazonka.Forecast.Types.DatasetImportJobSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.DataSource
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the dataset import job properties used in the

@@ -67,7 +67,7 @@ module Amazonka.S3.GetObjectTagging
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -210,9 +210,9 @@ instance Core.AWSRequest GetObjectTagging where
   type
     AWSResponse GetObjectTagging =
       GetObjectTaggingResponse
-  service _ = defaultService
-  request srv =
-    Request.s3vhost Prelude.. Request.get srv
+  request overrides =
+    Request.s3vhost
+      Prelude.. Request.get (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

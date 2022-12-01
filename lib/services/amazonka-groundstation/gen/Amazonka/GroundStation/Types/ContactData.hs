@@ -20,9 +20,9 @@
 module Amazonka.GroundStation.Types.ContactData where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types.ContactStatus
 import Amazonka.GroundStation.Types.Elevation
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Data describing a contact.
@@ -44,7 +44,7 @@ data ContactData = ContactData'
     satelliteArn :: Prelude.Maybe Prelude.Text,
     -- | Status of a contact.
     contactStatus :: Prelude.Maybe ContactStatus,
-    -- | End time of a contact.
+    -- | End time of a contact in UTC.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | Region of a contact.
     region :: Prelude.Maybe Prelude.Text,
@@ -53,7 +53,7 @@ data ContactData = ContactData'
     prePassStartTime :: Prelude.Maybe Core.POSIX,
     -- | Name of a ground station.
     groundStation :: Prelude.Maybe Prelude.Text,
-    -- | Start time of a contact.
+    -- | Start time of a contact in UTC.
     startTime :: Prelude.Maybe Core.POSIX,
     -- | Maximum elevation angle of a contact.
     maximumElevation :: Prelude.Maybe Elevation
@@ -83,7 +83,7 @@ data ContactData = ContactData'
 --
 -- 'contactStatus', 'contactData_contactStatus' - Status of a contact.
 --
--- 'endTime', 'contactData_endTime' - End time of a contact.
+-- 'endTime', 'contactData_endTime' - End time of a contact in UTC.
 --
 -- 'region', 'contactData_region' - Region of a contact.
 --
@@ -92,7 +92,7 @@ data ContactData = ContactData'
 --
 -- 'groundStation', 'contactData_groundStation' - Name of a ground station.
 --
--- 'startTime', 'contactData_startTime' - Start time of a contact.
+-- 'startTime', 'contactData_startTime' - Start time of a contact in UTC.
 --
 -- 'maximumElevation', 'contactData_maximumElevation' - Maximum elevation angle of a contact.
 newContactData ::
@@ -143,7 +143,7 @@ contactData_satelliteArn = Lens.lens (\ContactData' {satelliteArn} -> satelliteA
 contactData_contactStatus :: Lens.Lens' ContactData (Prelude.Maybe ContactStatus)
 contactData_contactStatus = Lens.lens (\ContactData' {contactStatus} -> contactStatus) (\s@ContactData' {} a -> s {contactStatus = a} :: ContactData)
 
--- | End time of a contact.
+-- | End time of a contact in UTC.
 contactData_endTime :: Lens.Lens' ContactData (Prelude.Maybe Prelude.UTCTime)
 contactData_endTime = Lens.lens (\ContactData' {endTime} -> endTime) (\s@ContactData' {} a -> s {endTime = a} :: ContactData) Prelude.. Lens.mapping Core._Time
 
@@ -160,7 +160,7 @@ contactData_prePassStartTime = Lens.lens (\ContactData' {prePassStartTime} -> pr
 contactData_groundStation :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
 contactData_groundStation = Lens.lens (\ContactData' {groundStation} -> groundStation) (\s@ContactData' {} a -> s {groundStation = a} :: ContactData)
 
--- | Start time of a contact.
+-- | Start time of a contact in UTC.
 contactData_startTime :: Lens.Lens' ContactData (Prelude.Maybe Prelude.UTCTime)
 contactData_startTime = Lens.lens (\ContactData' {startTime} -> startTime) (\s@ContactData' {} a -> s {startTime = a} :: ContactData) Prelude.. Lens.mapping Core._Time
 

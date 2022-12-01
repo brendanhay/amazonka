@@ -76,17 +76,17 @@
 -- (Optional) You can pass inline or managed
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session session policies>
 -- to this operation. You can pass a single JSON policy document to use as
--- an inline session policy. You can also specify up to 10 managed policies
--- to use as managed session policies. The plaintext that you use for both
--- inline and managed session policies can\'t exceed 2,048 characters.
--- Passing policies to this operation returns new temporary credentials.
--- The resulting session\'s permissions are the intersection of the role\'s
--- identity-based policy and the session policies. You can use the role\'s
--- temporary credentials in subsequent Amazon Web Services API calls to
--- access resources in the account that owns the role. You cannot use
--- session policies to grant more permissions than those allowed by the
--- identity-based policy of the role that is being assumed. For more
--- information, see
+-- an inline session policy. You can also specify up to 10 managed policy
+-- Amazon Resource Names (ARNs) to use as managed session policies. The
+-- plaintext that you use for both inline and managed session policies
+-- can\'t exceed 2,048 characters. Passing policies to this operation
+-- returns new temporary credentials. The resulting session\'s permissions
+-- are the intersection of the role\'s identity-based policy and the
+-- session policies. You can use the role\'s temporary credentials in
+-- subsequent Amazon Web Services API calls to access resources in the
+-- account that owns the role. You cannot use session policies to grant
+-- more permissions than those allowed by the identity-based policy of the
+-- role that is being assumed. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
 -- in the /IAM User Guide/.
 --
@@ -116,12 +116,12 @@
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits>
 -- in the /IAM User Guide/.
 --
--- An Amazon Web Services conversion compresses the passed session policies
--- and session tags into a packed binary format that has a separate limit.
--- Your request can fail for this limit even if your plaintext meets the
--- other requirements. The @PackedPolicySize@ response element indicates by
--- percentage how close the policies and tags for your request are to the
--- upper size limit.
+-- An Amazon Web Services conversion compresses the passed inline session
+-- policy, managed policy ARNs, and session tags into a packed binary
+-- format that has a separate limit. Your request can fail for this limit
+-- even if your plaintext meets the other requirements. The
+-- @PackedPolicySize@ response element indicates by percentage how close
+-- the policies and tags for your request are to the upper size limit.
 --
 -- You can pass a session tag with the same key as a tag that is attached
 -- to the role. When you do, session tags override the role\'s tags with
@@ -193,7 +193,7 @@ module Amazonka.STS.AssumeRoleWithSAML
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -221,12 +221,12 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     -- character list (\\u0020 through \\u00FF). It can also include the tab
     -- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
     --
-    -- An Amazon Web Services conversion compresses the passed session policies
-    -- and session tags into a packed binary format that has a separate limit.
-    -- Your request can fail for this limit even if your plaintext meets the
-    -- other requirements. The @PackedPolicySize@ response element indicates by
-    -- percentage how close the policies and tags for your request are to the
-    -- upper size limit.
+    -- An Amazon Web Services conversion compresses the passed inline session
+    -- policy, managed policy ARNs, and session tags into a packed binary
+    -- format that has a separate limit. Your request can fail for this limit
+    -- even if your plaintext meets the other requirements. The
+    -- @PackedPolicySize@ response element indicates by percentage how close
+    -- the policies and tags for your request are to the upper size limit.
     policy :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Names (ARNs) of the IAM managed policies that you
     -- want to use as managed session policies. The policies must exist in the
@@ -239,12 +239,12 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the Amazon Web Services General Reference.
     --
-    -- An Amazon Web Services conversion compresses the passed session policies
-    -- and session tags into a packed binary format that has a separate limit.
-    -- Your request can fail for this limit even if your plaintext meets the
-    -- other requirements. The @PackedPolicySize@ response element indicates by
-    -- percentage how close the policies and tags for your request are to the
-    -- upper size limit.
+    -- An Amazon Web Services conversion compresses the passed inline session
+    -- policy, managed policy ARNs, and session tags into a packed binary
+    -- format that has a separate limit. Your request can fail for this limit
+    -- even if your plaintext meets the other requirements. The
+    -- @PackedPolicySize@ response element indicates by percentage how close
+    -- the policies and tags for your request are to the upper size limit.
     --
     -- Passing policies to this operation returns new temporary credentials.
     -- The resulting session\'s permissions are the intersection of the role\'s
@@ -323,12 +323,12 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
 -- character list (\\u0020 through \\u00FF). It can also include the tab
 -- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
 --
--- An Amazon Web Services conversion compresses the passed session policies
--- and session tags into a packed binary format that has a separate limit.
--- Your request can fail for this limit even if your plaintext meets the
--- other requirements. The @PackedPolicySize@ response element indicates by
--- percentage how close the policies and tags for your request are to the
--- upper size limit.
+-- An Amazon Web Services conversion compresses the passed inline session
+-- policy, managed policy ARNs, and session tags into a packed binary
+-- format that has a separate limit. Your request can fail for this limit
+-- even if your plaintext meets the other requirements. The
+-- @PackedPolicySize@ response element indicates by percentage how close
+-- the policies and tags for your request are to the upper size limit.
 --
 -- 'policyArns', 'assumeRoleWithSAML_policyArns' - The Amazon Resource Names (ARNs) of the IAM managed policies that you
 -- want to use as managed session policies. The policies must exist in the
@@ -341,12 +341,12 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the Amazon Web Services General Reference.
 --
--- An Amazon Web Services conversion compresses the passed session policies
--- and session tags into a packed binary format that has a separate limit.
--- Your request can fail for this limit even if your plaintext meets the
--- other requirements. The @PackedPolicySize@ response element indicates by
--- percentage how close the policies and tags for your request are to the
--- upper size limit.
+-- An Amazon Web Services conversion compresses the passed inline session
+-- policy, managed policy ARNs, and session tags into a packed binary
+-- format that has a separate limit. Your request can fail for this limit
+-- even if your plaintext meets the other requirements. The
+-- @PackedPolicySize@ response element indicates by percentage how close
+-- the policies and tags for your request are to the upper size limit.
 --
 -- Passing policies to this operation returns new temporary credentials.
 -- The resulting session\'s permissions are the intersection of the role\'s
@@ -434,12 +434,12 @@ newAssumeRoleWithSAML
 -- character list (\\u0020 through \\u00FF). It can also include the tab
 -- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
 --
--- An Amazon Web Services conversion compresses the passed session policies
--- and session tags into a packed binary format that has a separate limit.
--- Your request can fail for this limit even if your plaintext meets the
--- other requirements. The @PackedPolicySize@ response element indicates by
--- percentage how close the policies and tags for your request are to the
--- upper size limit.
+-- An Amazon Web Services conversion compresses the passed inline session
+-- policy, managed policy ARNs, and session tags into a packed binary
+-- format that has a separate limit. Your request can fail for this limit
+-- even if your plaintext meets the other requirements. The
+-- @PackedPolicySize@ response element indicates by percentage how close
+-- the policies and tags for your request are to the upper size limit.
 assumeRoleWithSAML_policy :: Lens.Lens' AssumeRoleWithSAML (Prelude.Maybe Prelude.Text)
 assumeRoleWithSAML_policy = Lens.lens (\AssumeRoleWithSAML' {policy} -> policy) (\s@AssumeRoleWithSAML' {} a -> s {policy = a} :: AssumeRoleWithSAML)
 
@@ -454,12 +454,12 @@ assumeRoleWithSAML_policy = Lens.lens (\AssumeRoleWithSAML' {policy} -> policy) 
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the Amazon Web Services General Reference.
 --
--- An Amazon Web Services conversion compresses the passed session policies
--- and session tags into a packed binary format that has a separate limit.
--- Your request can fail for this limit even if your plaintext meets the
--- other requirements. The @PackedPolicySize@ response element indicates by
--- percentage how close the policies and tags for your request are to the
--- upper size limit.
+-- An Amazon Web Services conversion compresses the passed inline session
+-- policy, managed policy ARNs, and session tags into a packed binary
+-- format that has a separate limit. Your request can fail for this limit
+-- even if your plaintext meets the other requirements. The
+-- @PackedPolicySize@ response element indicates by percentage how close
+-- the policies and tags for your request are to the upper size limit.
 --
 -- Passing policies to this operation returns new temporary credentials.
 -- The resulting session\'s permissions are the intersection of the role\'s
@@ -521,8 +521,8 @@ instance Core.AWSRequest AssumeRoleWithSAML where
   type
     AWSResponse AssumeRoleWithSAML =
       AssumeRoleWithSAMLResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "AssumeRoleWithSAMLResult"

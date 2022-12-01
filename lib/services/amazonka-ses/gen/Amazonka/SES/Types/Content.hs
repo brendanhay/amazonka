@@ -20,7 +20,7 @@
 module Amazonka.SES.Types.Content where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents textual data, plus an optional character set specification.

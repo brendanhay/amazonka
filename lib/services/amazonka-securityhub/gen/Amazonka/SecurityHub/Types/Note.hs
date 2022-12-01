@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.Note where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A user-defined note added to a finding.

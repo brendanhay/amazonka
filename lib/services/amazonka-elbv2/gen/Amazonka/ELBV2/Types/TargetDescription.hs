@@ -20,7 +20,7 @@
 module Amazonka.ELBV2.Types.TargetDescription where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a target.
@@ -38,6 +38,10 @@ data TargetDescription = TargetDescription'
     -- Availability Zone or from all enabled Availability Zones for the load
     -- balancer.
     --
+    -- For Application Load Balancer target groups, the specified Availability
+    -- Zone value is only applicable when cross-zone load balancing is off.
+    -- Otherwise the parameter is ignored and treated as @all@.
+    --
     -- This parameter is not supported if the target type of the target group
     -- is @instance@ or @alb@.
     --
@@ -46,9 +50,10 @@ data TargetDescription = TargetDescription'
     -- and this parameter is optional. If the IP address is outside the VPC,
     -- this parameter is required.
     --
-    -- With an Application Load Balancer, if the target type is @ip@ and the IP
-    -- address is outside the VPC for the target group, the only supported
-    -- value is @all@.
+    -- For Application Load Balancer target groups with cross-zone load
+    -- balancing off, if the target type is @ip@ and the IP address is outside
+    -- of the VPC for the target group, this should be an Availability Zone
+    -- inside the VPC for the target group.
     --
     -- If the target type is @lambda@, this parameter is optional and the only
     -- supported value is @all@.
@@ -81,6 +86,10 @@ data TargetDescription = TargetDescription'
 -- Availability Zone or from all enabled Availability Zones for the load
 -- balancer.
 --
+-- For Application Load Balancer target groups, the specified Availability
+-- Zone value is only applicable when cross-zone load balancing is off.
+-- Otherwise the parameter is ignored and treated as @all@.
+--
 -- This parameter is not supported if the target type of the target group
 -- is @instance@ or @alb@.
 --
@@ -89,9 +98,10 @@ data TargetDescription = TargetDescription'
 -- and this parameter is optional. If the IP address is outside the VPC,
 -- this parameter is required.
 --
--- With an Application Load Balancer, if the target type is @ip@ and the IP
--- address is outside the VPC for the target group, the only supported
--- value is @all@.
+-- For Application Load Balancer target groups with cross-zone load
+-- balancing off, if the target type is @ip@ and the IP address is outside
+-- of the VPC for the target group, this should be an Availability Zone
+-- inside the VPC for the target group.
 --
 -- If the target type is @lambda@, this parameter is optional and the only
 -- supported value is @all@.
@@ -125,6 +135,10 @@ targetDescription_port = Lens.lens (\TargetDescription' {port} -> port) (\s@Targ
 -- Availability Zone or from all enabled Availability Zones for the load
 -- balancer.
 --
+-- For Application Load Balancer target groups, the specified Availability
+-- Zone value is only applicable when cross-zone load balancing is off.
+-- Otherwise the parameter is ignored and treated as @all@.
+--
 -- This parameter is not supported if the target type of the target group
 -- is @instance@ or @alb@.
 --
@@ -133,9 +147,10 @@ targetDescription_port = Lens.lens (\TargetDescription' {port} -> port) (\s@Targ
 -- and this parameter is optional. If the IP address is outside the VPC,
 -- this parameter is required.
 --
--- With an Application Load Balancer, if the target type is @ip@ and the IP
--- address is outside the VPC for the target group, the only supported
--- value is @all@.
+-- For Application Load Balancer target groups with cross-zone load
+-- balancing off, if the target type is @ip@ and the IP address is outside
+-- of the VPC for the target group, this should be an Availability Zone
+-- inside the VPC for the target group.
 --
 -- If the target type is @lambda@, this parameter is optional and the only
 -- supported value is @all@.

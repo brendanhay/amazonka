@@ -21,7 +21,7 @@ module Amazonka.Config.Types.ComplianceByResource where
 
 import Amazonka.Config.Types.Compliance
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether an Amazon Web Services resource that is evaluated

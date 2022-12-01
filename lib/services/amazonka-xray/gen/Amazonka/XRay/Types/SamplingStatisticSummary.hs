@@ -20,7 +20,7 @@
 module Amazonka.XRay.Types.SamplingStatisticSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Aggregated request sampling data for a sampling rule across all services

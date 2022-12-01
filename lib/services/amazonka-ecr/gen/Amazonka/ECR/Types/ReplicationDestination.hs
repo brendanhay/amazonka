@@ -20,7 +20,7 @@
 module Amazonka.ECR.Types.ReplicationDestination where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An array of objects representing the destination for a replication rule.

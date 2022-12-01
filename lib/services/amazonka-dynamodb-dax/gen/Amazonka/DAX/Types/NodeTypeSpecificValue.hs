@@ -20,7 +20,7 @@
 module Amazonka.DAX.Types.NodeTypeSpecificValue where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a parameter value that is applicable to a particular node

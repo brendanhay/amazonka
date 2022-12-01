@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.SparkSQL where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.GlueSchema
 import Amazonka.Glue.Types.SqlAlias
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform where you enter a SQL query using Spark SQL syntax

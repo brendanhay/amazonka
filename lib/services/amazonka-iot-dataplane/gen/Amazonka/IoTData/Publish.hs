@@ -50,8 +50,8 @@ module Amazonka.IoTData.Publish
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTData.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -155,8 +155,8 @@ publish_topic = Lens.lens (\Publish' {topic} -> topic) (\s@Publish' {} a -> s {t
 
 instance Core.AWSRequest Publish where
   type AWSResponse Publish = PublishResponse
-  service _ = defaultService
-  request srv = Request.postBody srv
+  request overrides =
+    Request.postBody (overrides defaultService)
   response = Response.receiveNull PublishResponse'
 
 instance Prelude.Hashable Publish where

@@ -42,7 +42,7 @@ module Amazonka.Route53.CreateCidrCollection
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,8 +101,8 @@ instance Core.AWSRequest CreateCidrCollection where
   type
     AWSResponse CreateCidrCollection =
       CreateCidrCollectionResponse
-  service _ = defaultService
-  request srv = Request.postXML srv
+  request overrides =
+    Request.postXML (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

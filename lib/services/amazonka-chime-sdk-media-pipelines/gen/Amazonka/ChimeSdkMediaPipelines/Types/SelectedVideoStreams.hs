@@ -20,7 +20,7 @@
 module Amazonka.ChimeSdkMediaPipelines.Types.SelectedVideoStreams where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The video streams for a specified media pipeline. The total number of

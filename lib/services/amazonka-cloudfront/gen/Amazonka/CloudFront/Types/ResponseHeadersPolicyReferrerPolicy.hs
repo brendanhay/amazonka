@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyReferrerPolicy where
 
 import Amazonka.CloudFront.Types.ReferrerPolicyList
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Determines whether CloudFront includes the @Referrer-Policy@ HTTP

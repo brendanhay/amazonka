@@ -20,7 +20,7 @@
 module Amazonka.Evidently.Types.ExperimentSchedule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains the time and date that Evidently completed the

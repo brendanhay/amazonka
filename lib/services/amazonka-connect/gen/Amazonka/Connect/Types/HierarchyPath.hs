@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.HierarchyPath where
 
 import Amazonka.Connect.Types.HierarchyGroupSummary
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the levels of a hierarchy group.

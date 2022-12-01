@@ -21,7 +21,7 @@ module Amazonka.ConnectContactLens.Types.Categories where
 
 import Amazonka.ConnectContactLens.Types.CategoryDetails
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the category rules that are used to automatically categorize

@@ -22,7 +22,7 @@ module Amazonka.ApplicationInsights.Types.ApplicationComponent where
 import Amazonka.ApplicationInsights.Types.OsType
 import Amazonka.ApplicationInsights.Types.Tier
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a standalone resource or similarly grouped resources that the

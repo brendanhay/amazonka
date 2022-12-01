@@ -23,7 +23,7 @@ import Amazonka.AlexaBusiness.Types.Audio
 import Amazonka.AlexaBusiness.Types.Ssml
 import Amazonka.AlexaBusiness.Types.TextMessage
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The content definition. This can contain only one text, SSML, or audio

@@ -20,8 +20,9 @@
 module Amazonka.IotTwinMaker.Types.ComponentRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.IotTwinMaker.Types.ComponentPropertyGroupRequest
 import Amazonka.IotTwinMaker.Types.PropertyRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that sets information about a component type create or update
@@ -34,6 +35,8 @@ data ComponentRequest = ComponentRequest'
     properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyRequest),
     -- | The description of the component request.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The property groups.
+    propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentPropertyGroupRequest),
     -- | The ID of the component type.
     componentTypeId :: Prelude.Maybe Prelude.Text
   }
@@ -52,6 +55,8 @@ data ComponentRequest = ComponentRequest'
 --
 -- 'description', 'componentRequest_description' - The description of the component request.
 --
+-- 'propertyGroups', 'componentRequest_propertyGroups' - The property groups.
+--
 -- 'componentTypeId', 'componentRequest_componentTypeId' - The ID of the component type.
 newComponentRequest ::
   ComponentRequest
@@ -59,6 +64,7 @@ newComponentRequest =
   ComponentRequest'
     { properties = Prelude.Nothing,
       description = Prelude.Nothing,
+      propertyGroups = Prelude.Nothing,
       componentTypeId = Prelude.Nothing
     }
 
@@ -71,6 +77,10 @@ componentRequest_properties = Lens.lens (\ComponentRequest' {properties} -> prop
 componentRequest_description :: Lens.Lens' ComponentRequest (Prelude.Maybe Prelude.Text)
 componentRequest_description = Lens.lens (\ComponentRequest' {description} -> description) (\s@ComponentRequest' {} a -> s {description = a} :: ComponentRequest)
 
+-- | The property groups.
+componentRequest_propertyGroups :: Lens.Lens' ComponentRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentPropertyGroupRequest))
+componentRequest_propertyGroups = Lens.lens (\ComponentRequest' {propertyGroups} -> propertyGroups) (\s@ComponentRequest' {} a -> s {propertyGroups = a} :: ComponentRequest) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ID of the component type.
 componentRequest_componentTypeId :: Lens.Lens' ComponentRequest (Prelude.Maybe Prelude.Text)
 componentRequest_componentTypeId = Lens.lens (\ComponentRequest' {componentTypeId} -> componentTypeId) (\s@ComponentRequest' {} a -> s {componentTypeId = a} :: ComponentRequest)
@@ -79,12 +89,14 @@ instance Prelude.Hashable ComponentRequest where
   hashWithSalt _salt ComponentRequest' {..} =
     _salt `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` propertyGroups
       `Prelude.hashWithSalt` componentTypeId
 
 instance Prelude.NFData ComponentRequest where
   rnf ComponentRequest' {..} =
     Prelude.rnf properties
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf propertyGroups
       `Prelude.seq` Prelude.rnf componentTypeId
 
 instance Core.ToJSON ComponentRequest where
@@ -93,6 +105,8 @@ instance Core.ToJSON ComponentRequest where
       ( Prelude.catMaybes
           [ ("properties" Core..=) Prelude.<$> properties,
             ("description" Core..=) Prelude.<$> description,
+            ("propertyGroups" Core..=)
+              Prelude.<$> propertyGroups,
             ("componentTypeId" Core..=)
               Prelude.<$> componentTypeId
           ]

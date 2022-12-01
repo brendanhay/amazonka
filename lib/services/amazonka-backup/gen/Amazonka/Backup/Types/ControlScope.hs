@@ -20,7 +20,7 @@
 module Amazonka.Backup.Types.ControlScope where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A framework consists of one or more controls. Each control has its own

@@ -20,7 +20,7 @@
 module Amazonka.MediaConnect.Types.AddOutputRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConnect.Types.Encryption
 import Amazonka.MediaConnect.Types.MediaStreamOutputConfigurationRequest
 import Amazonka.MediaConnect.Types.Protocol

@@ -20,7 +20,7 @@
 module Amazonka.SSMIncidents.Types.TriggerDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about what caused the incident to be created in Incident

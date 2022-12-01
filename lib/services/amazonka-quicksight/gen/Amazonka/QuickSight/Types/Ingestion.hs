@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.Ingestion where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ErrorInfo
 import Amazonka.QuickSight.Types.IngestionRequestSource

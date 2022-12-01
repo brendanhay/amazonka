@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.UiConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provided configuration information for the worker UI for a labeling job.

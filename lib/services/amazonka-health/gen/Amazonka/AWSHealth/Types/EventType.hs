@@ -21,7 +21,7 @@ module Amazonka.AWSHealth.Types.EventType where
 
 import Amazonka.AWSHealth.Types.EventTypeCategory
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the metadata about a type of event that is reported by Health.

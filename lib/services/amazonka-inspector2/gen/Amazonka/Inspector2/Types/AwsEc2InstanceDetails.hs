@@ -20,7 +20,7 @@
 module Amazonka.Inspector2.Types.AwsEc2InstanceDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the Amazon EC2 instance involved in a finding.

@@ -20,8 +20,8 @@
 module Amazonka.KeySpaces.Types.PointInTimeRecoverySummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KeySpaces.Types.PointInTimeRecoveryStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The point-in-time recovery status of the specified table.

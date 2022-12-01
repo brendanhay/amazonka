@@ -39,6 +39,9 @@ import Test.Tasty
 --         , requestDeleteGroup $
 --             newDeleteGroup
 --
+--         , requestDeleteResourcePolicy $
+--             newDeleteResourcePolicy
+--
 --         , requestDeleteSamplingRule $
 --             newDeleteSamplingRule
 --
@@ -84,11 +87,17 @@ import Test.Tasty
 --         , requestGetTraceSummaries $
 --             newGetTraceSummaries
 --
+--         , requestListResourcePolicies $
+--             newListResourcePolicies
+--
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
 --         , requestPutEncryptionConfig $
 --             newPutEncryptionConfig
+--
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
 --
 --         , requestPutTelemetryRecords $
 --             newPutTelemetryRecords
@@ -122,6 +131,9 @@ import Test.Tasty
 --
 --         , responseDeleteGroup $
 --             newDeleteGroupResponse
+--
+--         , responseDeleteResourcePolicy $
+--             newDeleteResourcePolicyResponse
 --
 --         , responseDeleteSamplingRule $
 --             newDeleteSamplingRuleResponse
@@ -168,11 +180,17 @@ import Test.Tasty
 --         , responseGetTraceSummaries $
 --             newGetTraceSummariesResponse
 --
+--         , responseListResourcePolicies $
+--             newListResourcePoliciesResponse
+--
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
 --         , responsePutEncryptionConfig $
 --             newPutEncryptionConfigResponse
+--
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
 --
 --         , responsePutTelemetryRecords $
 --             newPutTelemetryRecordsResponse
@@ -220,6 +238,12 @@ requestDeleteGroup =
   req
     "DeleteGroup"
     "fixture/DeleteGroup.yaml"
+
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy =
+  req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
 
 requestDeleteSamplingRule :: DeleteSamplingRule -> TestTree
 requestDeleteSamplingRule =
@@ -311,6 +335,12 @@ requestGetTraceSummaries =
     "GetTraceSummaries"
     "fixture/GetTraceSummaries.yaml"
 
+requestListResourcePolicies :: ListResourcePolicies -> TestTree
+requestListResourcePolicies =
+  req
+    "ListResourcePolicies"
+    "fixture/ListResourcePolicies.yaml"
+
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
   req
@@ -322,6 +352,12 @@ requestPutEncryptionConfig =
   req
     "PutEncryptionConfig"
     "fixture/PutEncryptionConfig.yaml"
+
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
+  req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
 
 requestPutTelemetryRecords :: PutTelemetryRecords -> TestTree
 requestPutTelemetryRecords =
@@ -392,6 +428,14 @@ responseDeleteGroup =
     "fixture/DeleteGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteGroup)
+
+responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
+responseDeleteResourcePolicy =
+  res
+    "DeleteResourcePolicyResponse"
+    "fixture/DeleteResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
 
 responseDeleteSamplingRule :: DeleteSamplingRuleResponse -> TestTree
 responseDeleteSamplingRule =
@@ -513,6 +557,14 @@ responseGetTraceSummaries =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetTraceSummaries)
 
+responseListResourcePolicies :: ListResourcePoliciesResponse -> TestTree
+responseListResourcePolicies =
+  res
+    "ListResourcePoliciesResponse"
+    "fixture/ListResourcePoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResourcePolicies)
+
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
   res
@@ -528,6 +580,14 @@ responsePutEncryptionConfig =
     "fixture/PutEncryptionConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutEncryptionConfig)
+
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
+  res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
 
 responsePutTelemetryRecords :: PutTelemetryRecordsResponse -> TestTree
 responsePutTelemetryRecords =

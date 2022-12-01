@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.DvbSubDestinationSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.DvbSubSubtitleFallbackFont
 import Amazonka.MediaConvert.Types.DvbSubtitleAlignment
 import Amazonka.MediaConvert.Types.DvbSubtitleApplyFontColor

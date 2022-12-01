@@ -20,7 +20,8 @@
 module Amazonka.GroundStation.Types.SatelliteListItem where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.GroundStation.Types.EphemerisMetaData
 import qualified Amazonka.Prelude as Prelude
 
 -- | Item in a list of satellites.
@@ -29,6 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 data SatelliteListItem = SatelliteListItem'
   { -- | ARN of a satellite.
     satelliteArn :: Prelude.Maybe Prelude.Text,
+    -- | The current ephemeris being used to compute the trajectory of the
+    -- satellite.
+    currentEphemeris :: Prelude.Maybe EphemerisMetaData,
     -- | UUID of a satellite.
     satelliteId :: Prelude.Maybe Prelude.Text,
     -- | NORAD satellite ID number.
@@ -48,6 +52,9 @@ data SatelliteListItem = SatelliteListItem'
 --
 -- 'satelliteArn', 'satelliteListItem_satelliteArn' - ARN of a satellite.
 --
+-- 'currentEphemeris', 'satelliteListItem_currentEphemeris' - The current ephemeris being used to compute the trajectory of the
+-- satellite.
+--
 -- 'satelliteId', 'satelliteListItem_satelliteId' - UUID of a satellite.
 --
 -- 'noradSatelliteID', 'satelliteListItem_noradSatelliteID' - NORAD satellite ID number.
@@ -58,6 +65,7 @@ newSatelliteListItem ::
 newSatelliteListItem =
   SatelliteListItem'
     { satelliteArn = Prelude.Nothing,
+      currentEphemeris = Prelude.Nothing,
       satelliteId = Prelude.Nothing,
       noradSatelliteID = Prelude.Nothing,
       groundStations = Prelude.Nothing
@@ -66,6 +74,11 @@ newSatelliteListItem =
 -- | ARN of a satellite.
 satelliteListItem_satelliteArn :: Lens.Lens' SatelliteListItem (Prelude.Maybe Prelude.Text)
 satelliteListItem_satelliteArn = Lens.lens (\SatelliteListItem' {satelliteArn} -> satelliteArn) (\s@SatelliteListItem' {} a -> s {satelliteArn = a} :: SatelliteListItem)
+
+-- | The current ephemeris being used to compute the trajectory of the
+-- satellite.
+satelliteListItem_currentEphemeris :: Lens.Lens' SatelliteListItem (Prelude.Maybe EphemerisMetaData)
+satelliteListItem_currentEphemeris = Lens.lens (\SatelliteListItem' {currentEphemeris} -> currentEphemeris) (\s@SatelliteListItem' {} a -> s {currentEphemeris = a} :: SatelliteListItem)
 
 -- | UUID of a satellite.
 satelliteListItem_satelliteId :: Lens.Lens' SatelliteListItem (Prelude.Maybe Prelude.Text)
@@ -86,6 +99,7 @@ instance Core.FromJSON SatelliteListItem where
       ( \x ->
           SatelliteListItem'
             Prelude.<$> (x Core..:? "satelliteArn")
+            Prelude.<*> (x Core..:? "currentEphemeris")
             Prelude.<*> (x Core..:? "satelliteId")
             Prelude.<*> (x Core..:? "noradSatelliteID")
             Prelude.<*> ( x Core..:? "groundStations"
@@ -96,6 +110,7 @@ instance Core.FromJSON SatelliteListItem where
 instance Prelude.Hashable SatelliteListItem where
   hashWithSalt _salt SatelliteListItem' {..} =
     _salt `Prelude.hashWithSalt` satelliteArn
+      `Prelude.hashWithSalt` currentEphemeris
       `Prelude.hashWithSalt` satelliteId
       `Prelude.hashWithSalt` noradSatelliteID
       `Prelude.hashWithSalt` groundStations
@@ -103,6 +118,7 @@ instance Prelude.Hashable SatelliteListItem where
 instance Prelude.NFData SatelliteListItem where
   rnf SatelliteListItem' {..} =
     Prelude.rnf satelliteArn
+      `Prelude.seq` Prelude.rnf currentEphemeris
       `Prelude.seq` Prelude.rnf satelliteId
       `Prelude.seq` Prelude.rnf noradSatelliteID
       `Prelude.seq` Prelude.rnf groundStations

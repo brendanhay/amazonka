@@ -20,8 +20,8 @@
 module Amazonka.DocumentDB.Types.ResourcePendingMaintenanceActions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DocumentDB.Types.PendingMaintenanceAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of ApplyPendingMaintenanceAction.

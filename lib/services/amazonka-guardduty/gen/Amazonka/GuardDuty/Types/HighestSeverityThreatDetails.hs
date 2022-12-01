@@ -20,7 +20,7 @@
 module Amazonka.GuardDuty.Types.HighestSeverityThreatDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details of the highest severity threat detected during scan and

@@ -20,7 +20,7 @@
 module Amazonka.CostExplorer.Types.CoverageNormalizedUnits where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of instance usage, in normalized units. You can use

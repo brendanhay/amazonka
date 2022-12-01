@@ -23,7 +23,7 @@ import Amazonka.AuditManager.Types.AssessmentStatus
 import Amazonka.AuditManager.Types.Delegation
 import Amazonka.AuditManager.Types.Role
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A metadata object that\'s associated with an assessment in Audit

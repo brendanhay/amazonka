@@ -20,7 +20,7 @@
 module Amazonka.CloudSearchDomains.Types.DocumentServiceWarning where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A warning returned by the document service when an issue is discovered

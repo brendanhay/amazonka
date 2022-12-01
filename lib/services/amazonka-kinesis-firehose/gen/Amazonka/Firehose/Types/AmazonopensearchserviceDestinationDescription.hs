@@ -20,6 +20,7 @@
 module Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.AmazonopensearchserviceBufferingHints
 import Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod
 import Amazonka.Firehose.Types.AmazonopensearchserviceRetryOptions
@@ -28,7 +29,6 @@ import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.ProcessingConfiguration
 import Amazonka.Firehose.Types.S3DestinationDescription
 import Amazonka.Firehose.Types.VpcConfigurationDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newAmazonopensearchserviceDestinationDescription' smart constructor.

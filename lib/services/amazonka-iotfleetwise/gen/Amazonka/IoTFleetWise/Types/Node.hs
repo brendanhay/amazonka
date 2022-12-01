@@ -20,11 +20,11 @@
 module Amazonka.IoTFleetWise.Types.Node where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTFleetWise.Types.Actuator
 import Amazonka.IoTFleetWise.Types.Attribute
 import Amazonka.IoTFleetWise.Types.Branch
 import Amazonka.IoTFleetWise.Types.Sensor
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A general abstraction of a signal. A node can be specified as an

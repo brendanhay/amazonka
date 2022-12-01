@@ -20,8 +20,8 @@
 module Amazonka.DeviceFarm.Types.TestGridProject where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.TestGridVpcConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A Selenium testing project. Projects are used to collect and collate

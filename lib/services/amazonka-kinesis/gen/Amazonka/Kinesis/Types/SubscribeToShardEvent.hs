@@ -20,9 +20,9 @@
 module Amazonka.Kinesis.Types.SubscribeToShardEvent where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kinesis.Types.ChildShard
 import Amazonka.Kinesis.Types.Record
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | After you call SubscribeToShard, Kinesis Data Streams sends events of

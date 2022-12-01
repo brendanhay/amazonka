@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.Output where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.AudioDescription
 import Amazonka.MediaConvert.Types.CaptionDescription
 import Amazonka.MediaConvert.Types.ContainerSettings

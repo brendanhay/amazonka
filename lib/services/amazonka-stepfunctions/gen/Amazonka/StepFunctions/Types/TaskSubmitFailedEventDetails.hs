@@ -20,7 +20,7 @@
 module Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about a task that failed to submit during an execution.
@@ -31,9 +31,9 @@ data TaskSubmitFailedEventDetails = TaskSubmitFailedEventDetails'
     error :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A more detailed explanation of the cause of the failure.
     cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The action of the resource called by a task state.
-    resourceType :: Prelude.Text,
     -- | The service name of the resource in a task state.
+    resourceType :: Prelude.Text,
+    -- | The action of the resource called by a task state.
     resource :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -50,9 +50,9 @@ data TaskSubmitFailedEventDetails = TaskSubmitFailedEventDetails'
 --
 -- 'cause', 'taskSubmitFailedEventDetails_cause' - A more detailed explanation of the cause of the failure.
 --
--- 'resourceType', 'taskSubmitFailedEventDetails_resourceType' - The action of the resource called by a task state.
+-- 'resourceType', 'taskSubmitFailedEventDetails_resourceType' - The service name of the resource in a task state.
 --
--- 'resource', 'taskSubmitFailedEventDetails_resource' - The service name of the resource in a task state.
+-- 'resource', 'taskSubmitFailedEventDetails_resource' - The action of the resource called by a task state.
 newTaskSubmitFailedEventDetails ::
   -- | 'resourceType'
   Prelude.Text ->
@@ -78,11 +78,11 @@ taskSubmitFailedEventDetails_error = Lens.lens (\TaskSubmitFailedEventDetails' {
 taskSubmitFailedEventDetails_cause :: Lens.Lens' TaskSubmitFailedEventDetails (Prelude.Maybe Prelude.Text)
 taskSubmitFailedEventDetails_cause = Lens.lens (\TaskSubmitFailedEventDetails' {cause} -> cause) (\s@TaskSubmitFailedEventDetails' {} a -> s {cause = a} :: TaskSubmitFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
--- | The action of the resource called by a task state.
+-- | The service name of the resource in a task state.
 taskSubmitFailedEventDetails_resourceType :: Lens.Lens' TaskSubmitFailedEventDetails Prelude.Text
 taskSubmitFailedEventDetails_resourceType = Lens.lens (\TaskSubmitFailedEventDetails' {resourceType} -> resourceType) (\s@TaskSubmitFailedEventDetails' {} a -> s {resourceType = a} :: TaskSubmitFailedEventDetails)
 
--- | The service name of the resource in a task state.
+-- | The action of the resource called by a task state.
 taskSubmitFailedEventDetails_resource :: Lens.Lens' TaskSubmitFailedEventDetails Prelude.Text
 taskSubmitFailedEventDetails_resource = Lens.lens (\TaskSubmitFailedEventDetails' {resource} -> resource) (\s@TaskSubmitFailedEventDetails' {} a -> s {resource = a} :: TaskSubmitFailedEventDetails)
 

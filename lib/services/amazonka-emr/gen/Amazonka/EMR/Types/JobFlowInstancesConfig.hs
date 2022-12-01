@@ -20,10 +20,10 @@
 module Amazonka.EMR.Types.JobFlowInstancesConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.InstanceFleetConfig
 import Amazonka.EMR.Types.InstanceGroupConfig
 import Amazonka.EMR.Types.PlacementType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of the Amazon EC2 instance on which the cluster (job flow)

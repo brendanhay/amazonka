@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.AvailBlanking where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use ad avail blanking settings to specify your output content during

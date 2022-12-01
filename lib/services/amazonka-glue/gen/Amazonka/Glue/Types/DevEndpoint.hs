@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.DevEndpoint where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.WorkerType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A development endpoint where a developer can remotely debug extract,
@@ -98,7 +98,8 @@ data DevEndpoint = DevEndpoint'
     publicAddress :: Prelude.Maybe Prelude.Text,
     -- | The current status of this @DevEndpoint@.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Availability Zone where this @DevEndpoint@ is located.
+    -- | The Amazon Web Services Availability Zone where this @DevEndpoint@ is
+    -- located.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The path to one or more Java @.jar@ files in an S3 bucket that should be
     -- loaded in your @DevEndpoint@.
@@ -231,7 +232,8 @@ data DevEndpoint = DevEndpoint'
 --
 -- 'status', 'devEndpoint_status' - The current status of this @DevEndpoint@.
 --
--- 'availabilityZone', 'devEndpoint_availabilityZone' - The AWS Availability Zone where this @DevEndpoint@ is located.
+-- 'availabilityZone', 'devEndpoint_availabilityZone' - The Amazon Web Services Availability Zone where this @DevEndpoint@ is
+-- located.
 --
 -- 'extraJarsS3Path', 'devEndpoint_extraJarsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be
 -- loaded in your @DevEndpoint@.
@@ -412,7 +414,8 @@ devEndpoint_publicAddress = Lens.lens (\DevEndpoint' {publicAddress} -> publicAd
 devEndpoint_status :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
 devEndpoint_status = Lens.lens (\DevEndpoint' {status} -> status) (\s@DevEndpoint' {} a -> s {status = a} :: DevEndpoint)
 
--- | The AWS Availability Zone where this @DevEndpoint@ is located.
+-- | The Amazon Web Services Availability Zone where this @DevEndpoint@ is
+-- located.
 devEndpoint_availabilityZone :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
 devEndpoint_availabilityZone = Lens.lens (\DevEndpoint' {availabilityZone} -> availabilityZone) (\s@DevEndpoint' {} a -> s {availabilityZone = a} :: DevEndpoint)
 

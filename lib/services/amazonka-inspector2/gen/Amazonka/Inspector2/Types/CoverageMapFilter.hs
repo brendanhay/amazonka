@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.CoverageMapFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.CoverageMapComparison
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details of a coverage map filter.

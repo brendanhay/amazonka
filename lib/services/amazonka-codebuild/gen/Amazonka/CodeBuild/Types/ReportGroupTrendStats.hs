@@ -20,7 +20,7 @@
 module Amazonka.CodeBuild.Types.ReportGroupTrendStats where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains trend statistics for a set of reports. The actual values depend

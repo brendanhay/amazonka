@@ -20,7 +20,7 @@
 module Amazonka.MediaTailor.Types.Bumper where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for bumpers. Bumpers are short audio or video clips

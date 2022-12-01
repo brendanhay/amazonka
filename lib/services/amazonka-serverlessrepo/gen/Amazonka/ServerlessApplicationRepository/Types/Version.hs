@@ -20,7 +20,7 @@
 module Amazonka.ServerlessApplicationRepository.Types.Version where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServerlessApplicationRepository.Types.Capability
 import Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition

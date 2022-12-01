@@ -22,7 +22,7 @@ module Amazonka.CodeBuild.Types.BuildSummary where
 import Amazonka.CodeBuild.Types.ResolvedArtifact
 import Amazonka.CodeBuild.Types.StatusType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a batch build group.

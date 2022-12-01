@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomaly where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomalyResource
 import Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomalySourceDetail
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an anomaly that is related to a recommendation.

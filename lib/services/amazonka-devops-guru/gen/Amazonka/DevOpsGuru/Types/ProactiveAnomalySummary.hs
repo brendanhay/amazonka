@@ -20,6 +20,7 @@
 module Amazonka.DevOpsGuru.Types.ProactiveAnomalySummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.AnomalyReportedTimeRange
 import Amazonka.DevOpsGuru.Types.AnomalyResource
 import Amazonka.DevOpsGuru.Types.AnomalySeverity
@@ -29,7 +30,6 @@ import Amazonka.DevOpsGuru.Types.AnomalyStatus
 import Amazonka.DevOpsGuru.Types.AnomalyTimeRange
 import Amazonka.DevOpsGuru.Types.PredictionTimeRange
 import Amazonka.DevOpsGuru.Types.ResourceCollection
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a proactive anomaly. This object is returned by

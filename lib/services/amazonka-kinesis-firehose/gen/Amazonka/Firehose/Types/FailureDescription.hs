@@ -20,8 +20,8 @@
 module Amazonka.Firehose.Types.FailureDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.DeliveryStreamFailureType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details in case one of the following operations fails due to an

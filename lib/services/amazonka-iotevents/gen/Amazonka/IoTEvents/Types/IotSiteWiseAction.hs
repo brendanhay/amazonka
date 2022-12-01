@@ -20,8 +20,8 @@
 module Amazonka.IoTEvents.Types.IotSiteWiseAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.AssetPropertyValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Sends information about the detector model instance and the event that

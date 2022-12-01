@@ -20,10 +20,10 @@
 module Amazonka.Kafka.Types.BrokerNodeGroupInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.BrokerAZDistribution
 import Amazonka.Kafka.Types.ConnectivityInfo
 import Amazonka.Kafka.Types.StorageInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the setup to be used for Apache Kafka broker nodes in the

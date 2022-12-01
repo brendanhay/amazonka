@@ -20,6 +20,7 @@
 module Amazonka.Inspector2.Types.AggregationResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.AccountAggregationResponse
 import Amazonka.Inspector2.Types.AmiAggregationResponse
 import Amazonka.Inspector2.Types.AwsEcrContainerAggregationResponse
@@ -29,7 +30,6 @@ import Amazonka.Inspector2.Types.ImageLayerAggregationResponse
 import Amazonka.Inspector2.Types.PackageAggregationResponse
 import Amazonka.Inspector2.Types.RepositoryAggregationResponse
 import Amazonka.Inspector2.Types.TitleAggregationResponse
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains details about the results of an aggregation

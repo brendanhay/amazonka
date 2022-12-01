@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.EmergencyCallingConfiguration where
 
 import Amazonka.Chime.Types.DNISEmergencyCallingConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The emergency calling configuration details associated with an Amazon

@@ -20,7 +20,7 @@
 module Amazonka.SESV2.Types.RawMessage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the raw content of an email message.

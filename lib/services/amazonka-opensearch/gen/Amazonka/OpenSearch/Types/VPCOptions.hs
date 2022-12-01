@@ -20,18 +20,22 @@
 module Amazonka.OpenSearch.Types.VPCOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Options to specify the subnets and security groups for the VPC endpoint.
--- For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+-- | Options to specify the subnets and security groups for an Amazon
+-- OpenSearch Service VPC endpoint. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
 --
 -- /See:/ 'newVPCOptions' smart constructor.
 data VPCOptions = VPCOptions'
-  { -- | The security groups for the VPC endpoint.
+  { -- | The list of security group IDs associated with the VPC endpoints for the
+    -- domain. If you do not provide a security group ID, OpenSearch Service
+    -- uses the default security group for the VPC.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The subnets for the VPC endpoint.
+    -- | A list of subnet IDs associated with the VPC endpoints for the domain.
+    -- If your domain uses multiple Availability Zones, you need to provide two
+    -- subnet IDs, one per zone. Otherwise, provide only one.
     subnetIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,9 +48,13 @@ data VPCOptions = VPCOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'vPCOptions_securityGroupIds' - The security groups for the VPC endpoint.
+-- 'securityGroupIds', 'vPCOptions_securityGroupIds' - The list of security group IDs associated with the VPC endpoints for the
+-- domain. If you do not provide a security group ID, OpenSearch Service
+-- uses the default security group for the VPC.
 --
--- 'subnetIds', 'vPCOptions_subnetIds' - The subnets for the VPC endpoint.
+-- 'subnetIds', 'vPCOptions_subnetIds' - A list of subnet IDs associated with the VPC endpoints for the domain.
+-- If your domain uses multiple Availability Zones, you need to provide two
+-- subnet IDs, one per zone. Otherwise, provide only one.
 newVPCOptions ::
   VPCOptions
 newVPCOptions =
@@ -55,11 +63,15 @@ newVPCOptions =
       subnetIds = Prelude.Nothing
     }
 
--- | The security groups for the VPC endpoint.
+-- | The list of security group IDs associated with the VPC endpoints for the
+-- domain. If you do not provide a security group ID, OpenSearch Service
+-- uses the default security group for the VPC.
 vPCOptions_securityGroupIds :: Lens.Lens' VPCOptions (Prelude.Maybe [Prelude.Text])
 vPCOptions_securityGroupIds = Lens.lens (\VPCOptions' {securityGroupIds} -> securityGroupIds) (\s@VPCOptions' {} a -> s {securityGroupIds = a} :: VPCOptions) Prelude.. Lens.mapping Lens.coerced
 
--- | The subnets for the VPC endpoint.
+-- | A list of subnet IDs associated with the VPC endpoints for the domain.
+-- If your domain uses multiple Availability Zones, you need to provide two
+-- subnet IDs, one per zone. Otherwise, provide only one.
 vPCOptions_subnetIds :: Lens.Lens' VPCOptions (Prelude.Maybe [Prelude.Text])
 vPCOptions_subnetIds = Lens.lens (\VPCOptions' {subnetIds} -> subnetIds) (\s@VPCOptions' {} a -> s {subnetIds = a} :: VPCOptions) Prelude.. Lens.mapping Lens.coerced
 

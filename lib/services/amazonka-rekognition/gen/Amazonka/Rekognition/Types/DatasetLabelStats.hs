@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.DatasetLabelStats where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Statistics about a label used in a dataset. For more information, see

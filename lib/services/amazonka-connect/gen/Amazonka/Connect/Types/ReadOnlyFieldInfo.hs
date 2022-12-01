@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.ReadOnlyFieldInfo where
 
 import Amazonka.Connect.Types.TaskTemplateFieldIdentifier
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates a field that is read-only to an agent.

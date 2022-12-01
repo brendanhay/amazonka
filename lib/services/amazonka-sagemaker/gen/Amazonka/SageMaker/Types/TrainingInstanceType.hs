@@ -66,7 +66,9 @@ module Amazonka.SageMaker.Types.TrainingInstanceType
         TrainingInstanceType_Ml_p3_2xlarge,
         TrainingInstanceType_Ml_p3_8xlarge,
         TrainingInstanceType_Ml_p3dn_24xlarge,
-        TrainingInstanceType_Ml_p4d_24xlarge
+        TrainingInstanceType_Ml_p4d_24xlarge,
+        TrainingInstanceType_Ml_trn1_2xlarge,
+        TrainingInstanceType_Ml_trn1_32xlarge
       ),
   )
 where
@@ -243,6 +245,12 @@ pattern TrainingInstanceType_Ml_p3dn_24xlarge = TrainingInstanceType' "ml.p3dn.2
 pattern TrainingInstanceType_Ml_p4d_24xlarge :: TrainingInstanceType
 pattern TrainingInstanceType_Ml_p4d_24xlarge = TrainingInstanceType' "ml.p4d.24xlarge"
 
+pattern TrainingInstanceType_Ml_trn1_2xlarge :: TrainingInstanceType
+pattern TrainingInstanceType_Ml_trn1_2xlarge = TrainingInstanceType' "ml.trn1.2xlarge"
+
+pattern TrainingInstanceType_Ml_trn1_32xlarge :: TrainingInstanceType
+pattern TrainingInstanceType_Ml_trn1_32xlarge = TrainingInstanceType' "ml.trn1.32xlarge"
+
 {-# COMPLETE
   TrainingInstanceType_Ml_c4_2xlarge,
   TrainingInstanceType_Ml_c4_4xlarge,
@@ -291,5 +299,7 @@ pattern TrainingInstanceType_Ml_p4d_24xlarge = TrainingInstanceType' "ml.p4d.24x
   TrainingInstanceType_Ml_p3_8xlarge,
   TrainingInstanceType_Ml_p3dn_24xlarge,
   TrainingInstanceType_Ml_p4d_24xlarge,
+  TrainingInstanceType_Ml_trn1_2xlarge,
+  TrainingInstanceType_Ml_trn1_32xlarge,
   TrainingInstanceType'
   #-}

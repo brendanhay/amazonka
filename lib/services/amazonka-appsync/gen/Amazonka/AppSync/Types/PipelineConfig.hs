@@ -20,7 +20,7 @@
 module Amazonka.AppSync.Types.PipelineConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The pipeline configuration for a resolver of kind @PIPELINE@.

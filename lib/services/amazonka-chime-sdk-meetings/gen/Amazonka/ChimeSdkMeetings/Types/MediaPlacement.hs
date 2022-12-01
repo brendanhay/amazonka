@@ -20,7 +20,7 @@
 module Amazonka.ChimeSdkMeetings.Types.MediaPlacement where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of endpoints used by clients to connect to the media service group

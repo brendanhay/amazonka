@@ -20,8 +20,8 @@
 module Amazonka.Greengrass.Types.ResourceAccessPolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Greengrass.Types.Permission
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A policy used by the function to access a resource.

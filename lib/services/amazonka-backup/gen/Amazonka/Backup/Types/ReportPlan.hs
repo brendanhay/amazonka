@@ -22,7 +22,7 @@ module Amazonka.Backup.Types.ReportPlan where
 import Amazonka.Backup.Types.ReportDeliveryChannel
 import Amazonka.Backup.Types.ReportSetting
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about a report plan.

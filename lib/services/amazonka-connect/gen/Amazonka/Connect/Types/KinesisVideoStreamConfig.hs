@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.KinesisVideoStreamConfig where
 
 import Amazonka.Connect.Types.EncryptionConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information of a Kinesis video stream.

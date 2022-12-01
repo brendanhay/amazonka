@@ -21,7 +21,7 @@ module Amazonka.Config.Types.OrganizationResourceDetailedStatusFilters where
 
 import Amazonka.Config.Types.OrganizationResourceDetailedStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Status filter object to filter results based on specific member account

@@ -51,7 +51,7 @@ module Amazonka.StepFunctions.DescribeStateMachineForExecution
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,8 +97,8 @@ instance
   type
     AWSResponse DescribeStateMachineForExecution =
       DescribeStateMachineForExecutionResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -165,7 +165,7 @@ instance
 
 -- | /See:/ 'newDescribeStateMachineForExecutionResponse' smart constructor.
 data DescribeStateMachineForExecutionResponse = DescribeStateMachineForExecutionResponse'
-  { -- | Selects whether AWS X-Ray tracing is enabled.
+  { -- | Selects whether X-Ray tracing is enabled.
     tracingConfiguration :: Prelude.Maybe TracingConfiguration,
     loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | The response's http status code.
@@ -195,7 +195,7 @@ data DescribeStateMachineForExecutionResponse = DescribeStateMachineForExecution
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tracingConfiguration', 'describeStateMachineForExecutionResponse_tracingConfiguration' - Selects whether AWS X-Ray tracing is enabled.
+-- 'tracingConfiguration', 'describeStateMachineForExecutionResponse_tracingConfiguration' - Selects whether X-Ray tracing is enabled.
 --
 -- 'loggingConfiguration', 'describeStateMachineForExecutionResponse_loggingConfiguration' - Undocumented member.
 --
@@ -252,7 +252,7 @@ newDescribeStateMachineForExecutionResponse
           Core._Time Lens.# pUpdateDate_
       }
 
--- | Selects whether AWS X-Ray tracing is enabled.
+-- | Selects whether X-Ray tracing is enabled.
 describeStateMachineForExecutionResponse_tracingConfiguration :: Lens.Lens' DescribeStateMachineForExecutionResponse (Prelude.Maybe TracingConfiguration)
 describeStateMachineForExecutionResponse_tracingConfiguration = Lens.lens (\DescribeStateMachineForExecutionResponse' {tracingConfiguration} -> tracingConfiguration) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {tracingConfiguration = a} :: DescribeStateMachineForExecutionResponse)
 

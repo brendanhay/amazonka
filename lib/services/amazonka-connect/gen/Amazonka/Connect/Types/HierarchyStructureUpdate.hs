@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.HierarchyStructureUpdate where
 
 import Amazonka.Connect.Types.HierarchyLevelUpdate
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the level hierarchy to update.

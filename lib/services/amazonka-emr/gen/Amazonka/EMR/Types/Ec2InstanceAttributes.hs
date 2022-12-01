@@ -20,7 +20,7 @@
 module Amazonka.EMR.Types.Ec2InstanceAttributes where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the EC2 instances in a cluster grouped by

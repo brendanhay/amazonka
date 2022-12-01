@@ -20,8 +20,8 @@
 module Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details from an import from Amazon Redshift datashare request.

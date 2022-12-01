@@ -54,6 +54,9 @@ import Test.Tasty
 --         , requestCreateFilter $
 --             newCreateFilter
 --
+--         , requestCreateMetricAttribution $
+--             newCreateMetricAttribution
+--
 --         , requestCreateRecommender $
 --             newCreateRecommender
 --
@@ -80,6 +83,9 @@ import Test.Tasty
 --
 --         , requestDeleteFilter $
 --             newDeleteFilter
+--
+--         , requestDeleteMetricAttribution $
+--             newDeleteMetricAttribution
 --
 --         , requestDeleteRecommender $
 --             newDeleteRecommender
@@ -122,6 +128,9 @@ import Test.Tasty
 --
 --         , requestDescribeFilter $
 --             newDescribeFilter
+--
+--         , requestDescribeMetricAttribution $
+--             newDescribeMetricAttribution
 --
 --         , requestDescribeRecipe $
 --             newDescribeRecipe
@@ -168,6 +177,12 @@ import Test.Tasty
 --         , requestListFilters $
 --             newListFilters
 --
+--         , requestListMetricAttributionMetrics $
+--             newListMetricAttributionMetrics
+--
+--         , requestListMetricAttributions $
+--             newListMetricAttributions
+--
 --         , requestListRecipes $
 --             newListRecipes
 --
@@ -204,6 +219,9 @@ import Test.Tasty
 --         , requestUpdateCampaign $
 --             newUpdateCampaign
 --
+--         , requestUpdateMetricAttribution $
+--             newUpdateMetricAttribution
+--
 --         , requestUpdateRecommender $
 --             newUpdateRecommender
 --
@@ -237,6 +255,9 @@ import Test.Tasty
 --         , responseCreateFilter $
 --             newCreateFilterResponse
 --
+--         , responseCreateMetricAttribution $
+--             newCreateMetricAttributionResponse
+--
 --         , responseCreateRecommender $
 --             newCreateRecommenderResponse
 --
@@ -263,6 +284,9 @@ import Test.Tasty
 --
 --         , responseDeleteFilter $
 --             newDeleteFilterResponse
+--
+--         , responseDeleteMetricAttribution $
+--             newDeleteMetricAttributionResponse
 --
 --         , responseDeleteRecommender $
 --             newDeleteRecommenderResponse
@@ -305,6 +329,9 @@ import Test.Tasty
 --
 --         , responseDescribeFilter $
 --             newDescribeFilterResponse
+--
+--         , responseDescribeMetricAttribution $
+--             newDescribeMetricAttributionResponse
 --
 --         , responseDescribeRecipe $
 --             newDescribeRecipeResponse
@@ -351,6 +378,12 @@ import Test.Tasty
 --         , responseListFilters $
 --             newListFiltersResponse
 --
+--         , responseListMetricAttributionMetrics $
+--             newListMetricAttributionMetricsResponse
+--
+--         , responseListMetricAttributions $
+--             newListMetricAttributionsResponse
+--
 --         , responseListRecipes $
 --             newListRecipesResponse
 --
@@ -386,6 +419,9 @@ import Test.Tasty
 --
 --         , responseUpdateCampaign $
 --             newUpdateCampaignResponse
+--
+--         , responseUpdateMetricAttribution $
+--             newUpdateMetricAttributionResponse
 --
 --         , responseUpdateRecommender $
 --             newUpdateRecommenderResponse
@@ -449,6 +485,12 @@ requestCreateFilter =
     "CreateFilter"
     "fixture/CreateFilter.yaml"
 
+requestCreateMetricAttribution :: CreateMetricAttribution -> TestTree
+requestCreateMetricAttribution =
+  req
+    "CreateMetricAttribution"
+    "fixture/CreateMetricAttribution.yaml"
+
 requestCreateRecommender :: CreateRecommender -> TestTree
 requestCreateRecommender =
   req
@@ -502,6 +544,12 @@ requestDeleteFilter =
   req
     "DeleteFilter"
     "fixture/DeleteFilter.yaml"
+
+requestDeleteMetricAttribution :: DeleteMetricAttribution -> TestTree
+requestDeleteMetricAttribution =
+  req
+    "DeleteMetricAttribution"
+    "fixture/DeleteMetricAttribution.yaml"
 
 requestDeleteRecommender :: DeleteRecommender -> TestTree
 requestDeleteRecommender =
@@ -586,6 +634,12 @@ requestDescribeFilter =
   req
     "DescribeFilter"
     "fixture/DescribeFilter.yaml"
+
+requestDescribeMetricAttribution :: DescribeMetricAttribution -> TestTree
+requestDescribeMetricAttribution =
+  req
+    "DescribeMetricAttribution"
+    "fixture/DescribeMetricAttribution.yaml"
 
 requestDescribeRecipe :: DescribeRecipe -> TestTree
 requestDescribeRecipe =
@@ -677,6 +731,18 @@ requestListFilters =
     "ListFilters"
     "fixture/ListFilters.yaml"
 
+requestListMetricAttributionMetrics :: ListMetricAttributionMetrics -> TestTree
+requestListMetricAttributionMetrics =
+  req
+    "ListMetricAttributionMetrics"
+    "fixture/ListMetricAttributionMetrics.yaml"
+
+requestListMetricAttributions :: ListMetricAttributions -> TestTree
+requestListMetricAttributions =
+  req
+    "ListMetricAttributions"
+    "fixture/ListMetricAttributions.yaml"
+
 requestListRecipes :: ListRecipes -> TestTree
 requestListRecipes =
   req
@@ -748,6 +814,12 @@ requestUpdateCampaign =
   req
     "UpdateCampaign"
     "fixture/UpdateCampaign.yaml"
+
+requestUpdateMetricAttribution :: UpdateMetricAttribution -> TestTree
+requestUpdateMetricAttribution =
+  req
+    "UpdateMetricAttribution"
+    "fixture/UpdateMetricAttribution.yaml"
 
 requestUpdateRecommender :: UpdateRecommender -> TestTree
 requestUpdateRecommender =
@@ -829,6 +901,14 @@ responseCreateFilter =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateFilter)
 
+responseCreateMetricAttribution :: CreateMetricAttributionResponse -> TestTree
+responseCreateMetricAttribution =
+  res
+    "CreateMetricAttributionResponse"
+    "fixture/CreateMetricAttributionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateMetricAttribution)
+
 responseCreateRecommender :: CreateRecommenderResponse -> TestTree
 responseCreateRecommender =
   res
@@ -900,6 +980,14 @@ responseDeleteFilter =
     "fixture/DeleteFilterResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteFilter)
+
+responseDeleteMetricAttribution :: DeleteMetricAttributionResponse -> TestTree
+responseDeleteMetricAttribution =
+  res
+    "DeleteMetricAttributionResponse"
+    "fixture/DeleteMetricAttributionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteMetricAttribution)
 
 responseDeleteRecommender :: DeleteRecommenderResponse -> TestTree
 responseDeleteRecommender =
@@ -1012,6 +1100,14 @@ responseDescribeFilter =
     "fixture/DescribeFilterResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeFilter)
+
+responseDescribeMetricAttribution :: DescribeMetricAttributionResponse -> TestTree
+responseDescribeMetricAttribution =
+  res
+    "DescribeMetricAttributionResponse"
+    "fixture/DescribeMetricAttributionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeMetricAttribution)
 
 responseDescribeRecipe :: DescribeRecipeResponse -> TestTree
 responseDescribeRecipe =
@@ -1133,6 +1229,22 @@ responseListFilters =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListFilters)
 
+responseListMetricAttributionMetrics :: ListMetricAttributionMetricsResponse -> TestTree
+responseListMetricAttributionMetrics =
+  res
+    "ListMetricAttributionMetricsResponse"
+    "fixture/ListMetricAttributionMetricsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMetricAttributionMetrics)
+
+responseListMetricAttributions :: ListMetricAttributionsResponse -> TestTree
+responseListMetricAttributions =
+  res
+    "ListMetricAttributionsResponse"
+    "fixture/ListMetricAttributionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMetricAttributions)
+
 responseListRecipes :: ListRecipesResponse -> TestTree
 responseListRecipes =
   res
@@ -1228,6 +1340,14 @@ responseUpdateCampaign =
     "fixture/UpdateCampaignResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateCampaign)
+
+responseUpdateMetricAttribution :: UpdateMetricAttributionResponse -> TestTree
+responseUpdateMetricAttribution =
+  res
+    "UpdateMetricAttributionResponse"
+    "fixture/UpdateMetricAttributionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateMetricAttribution)
 
 responseUpdateRecommender :: UpdateRecommenderResponse -> TestTree
 responseUpdateRecommender =

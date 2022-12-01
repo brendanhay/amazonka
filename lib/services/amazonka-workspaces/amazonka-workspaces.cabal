@@ -51,6 +51,7 @@ library
     Amazonka.WorkSpaces.CreateConnectClientAddIn
     Amazonka.WorkSpaces.CreateConnectionAlias
     Amazonka.WorkSpaces.CreateIpGroup
+    Amazonka.WorkSpaces.CreateStandbyWorkspaces
     Amazonka.WorkSpaces.CreateTags
     Amazonka.WorkSpaces.CreateUpdatedWorkspaceImage
     Amazonka.WorkSpaces.CreateWorkspaceBundle
@@ -88,6 +89,7 @@ library
     Amazonka.WorkSpaces.ListAvailableManagementCidrRanges
     Amazonka.WorkSpaces.MigrateWorkspace
     Amazonka.WorkSpaces.ModifyAccount
+    Amazonka.WorkSpaces.ModifyCertificateBasedAuthProperties
     Amazonka.WorkSpaces.ModifyClientProperties
     Amazonka.WorkSpaces.ModifySamlProperties
     Amazonka.WorkSpaces.ModifySelfservicePermissions
@@ -108,6 +110,9 @@ library
     Amazonka.WorkSpaces.Types.AccountModification
     Amazonka.WorkSpaces.Types.Application
     Amazonka.WorkSpaces.Types.AssociationStatus
+    Amazonka.WorkSpaces.Types.BundleType
+    Amazonka.WorkSpaces.Types.CertificateBasedAuthProperties
+    Amazonka.WorkSpaces.Types.CertificateBasedAuthStatusEnum
     Amazonka.WorkSpaces.Types.ClientDeviceType
     Amazonka.WorkSpaces.Types.ClientProperties
     Amazonka.WorkSpaces.Types.ClientPropertiesResult
@@ -125,7 +130,9 @@ library
     Amazonka.WorkSpaces.Types.DefaultClientBrandingAttributes
     Amazonka.WorkSpaces.Types.DefaultImportClientBrandingAttributes
     Amazonka.WorkSpaces.Types.DefaultWorkspaceCreationProperties
+    Amazonka.WorkSpaces.Types.DeletableCertificateBasedAuthProperty
     Amazonka.WorkSpaces.Types.DeletableSamlProperty
+    Amazonka.WorkSpaces.Types.FailedCreateStandbyWorkspacesRequest
     Amazonka.WorkSpaces.Types.FailedCreateWorkspaceRequest
     Amazonka.WorkSpaces.Types.FailedWorkspaceChangeRequest
     Amazonka.WorkSpaces.Types.ImagePermission
@@ -139,15 +146,20 @@ library
     Amazonka.WorkSpaces.Types.ModificationStateEnum
     Amazonka.WorkSpaces.Types.OperatingSystem
     Amazonka.WorkSpaces.Types.OperatingSystemType
+    Amazonka.WorkSpaces.Types.PendingCreateStandbyWorkspacesRequest
+    Amazonka.WorkSpaces.Types.Protocol
     Amazonka.WorkSpaces.Types.RebootRequest
     Amazonka.WorkSpaces.Types.RebuildRequest
     Amazonka.WorkSpaces.Types.ReconnectEnum
+    Amazonka.WorkSpaces.Types.RelatedWorkspaceProperties
     Amazonka.WorkSpaces.Types.RootStorage
     Amazonka.WorkSpaces.Types.RunningMode
     Amazonka.WorkSpaces.Types.SamlProperties
     Amazonka.WorkSpaces.Types.SamlStatusEnum
     Amazonka.WorkSpaces.Types.SelfservicePermissions
     Amazonka.WorkSpaces.Types.Snapshot
+    Amazonka.WorkSpaces.Types.StandbyWorkspace
+    Amazonka.WorkSpaces.Types.StandbyWorkspaceRelationshipType
     Amazonka.WorkSpaces.Types.StartRequest
     Amazonka.WorkSpaces.Types.StopRequest
     Amazonka.WorkSpaces.Types.Tag
@@ -159,6 +171,7 @@ library
     Amazonka.WorkSpaces.Types.Workspace
     Amazonka.WorkSpaces.Types.WorkspaceAccessProperties
     Amazonka.WorkSpaces.Types.WorkspaceBundle
+    Amazonka.WorkSpaces.Types.WorkspaceBundleState
     Amazonka.WorkSpaces.Types.WorkspaceConnectionStatus
     Amazonka.WorkSpaces.Types.WorkspaceCreationProperties
     Amazonka.WorkSpaces.Types.WorkspaceDirectory

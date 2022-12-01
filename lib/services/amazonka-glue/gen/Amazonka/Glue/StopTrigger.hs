@@ -40,8 +40,8 @@ module Amazonka.Glue.StopTrigger
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -74,8 +74,8 @@ stopTrigger_name = Lens.lens (\StopTrigger' {name} -> name) (\s@StopTrigger' {} 
 
 instance Core.AWSRequest StopTrigger where
   type AWSResponse StopTrigger = StopTriggerResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

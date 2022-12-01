@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.ActiveTrustedKeyGroups where
 
 import Amazonka.CloudFront.Types.KGKeyPairIds
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of key groups, and the public keys in each key group, that

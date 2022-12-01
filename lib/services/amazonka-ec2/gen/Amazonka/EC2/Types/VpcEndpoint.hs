@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.VpcEndpoint where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DnsEntry
 import Amazonka.EC2.Types.DnsOptions
@@ -29,7 +30,6 @@ import Amazonka.EC2.Types.SecurityGroupIdentifier
 import Amazonka.EC2.Types.State
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.VpcEndpointType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a VPC endpoint.

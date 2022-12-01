@@ -20,8 +20,8 @@
 module Amazonka.EC2.Types.SpotPlacementScore where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Spot placement score for this Region or Availability Zone. The score

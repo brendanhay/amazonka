@@ -20,7 +20,7 @@
 module Amazonka.Detective.Types.TimestampForCollection where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on when data collection began for a source package.

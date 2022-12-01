@@ -20,7 +20,7 @@
 module Amazonka.OpsWorks.Types.WeeklyAutoScalingSchedule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a time-based instance\'s auto scaling schedule. The schedule

@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.InstanceMetadataOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.HttpEndpoint
 import Amazonka.Lightsail.Types.HttpProtocolIpv6
 import Amazonka.Lightsail.Types.HttpTokens

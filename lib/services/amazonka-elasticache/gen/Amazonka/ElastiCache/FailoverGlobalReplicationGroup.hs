@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used to failover the primary region to a selected secondary region. The
--- selected secondary region will become primary, and all other clusters
--- will become secondary.
+-- Used to failover the primary region to a secondary region. The secondary
+-- region will become primary, and all other clusters will become
+-- secondary.
 module Amazonka.ElastiCache.FailoverGlobalReplicationGroup
   ( -- * Creating a Request
     FailoverGlobalReplicationGroup (..),
@@ -44,8 +44,8 @@ module Amazonka.ElastiCache.FailoverGlobalReplicationGroup
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,8 +113,8 @@ instance
   type
     AWSResponse FailoverGlobalReplicationGroup =
       FailoverGlobalReplicationGroupResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "FailoverGlobalReplicationGroupResult"

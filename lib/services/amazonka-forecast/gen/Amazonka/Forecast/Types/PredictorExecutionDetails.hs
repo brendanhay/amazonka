@@ -20,8 +20,8 @@
 module Amazonka.Forecast.Types.PredictorExecutionDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.PredictorExecution
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details on the backtests performed to evaluate the accuracy of

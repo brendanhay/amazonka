@@ -22,7 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.ChallengeResponseType where
 import Amazonka.CognitoIdentityProvider.Types.ChallengeName
 import Amazonka.CognitoIdentityProvider.Types.ChallengeResponse
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The challenge response type.

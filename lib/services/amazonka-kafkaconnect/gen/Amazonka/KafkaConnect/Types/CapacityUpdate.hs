@@ -20,9 +20,9 @@
 module Amazonka.KafkaConnect.Types.CapacityUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KafkaConnect.Types.AutoScalingUpdate
 import Amazonka.KafkaConnect.Types.ProvisionedCapacityUpdate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The target capacity for the connector. The capacity can be auto scaled

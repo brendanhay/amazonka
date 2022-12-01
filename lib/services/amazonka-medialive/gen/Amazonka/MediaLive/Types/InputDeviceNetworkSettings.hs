@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.InputDeviceNetworkSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.InputDeviceIpScheme
 import qualified Amazonka.Prelude as Prelude
 

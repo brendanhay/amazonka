@@ -23,7 +23,7 @@ import Amazonka.CloudFormation.Types.ModuleInfo
 import Amazonka.CloudFormation.Types.ResourceStatus
 import Amazonka.CloudFormation.Types.StackResourceDriftInformation
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about the specified stack resource.

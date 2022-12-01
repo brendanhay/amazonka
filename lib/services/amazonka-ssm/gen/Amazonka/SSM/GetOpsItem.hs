@@ -38,6 +38,7 @@ module Amazonka.SSM.GetOpsItem
     newGetOpsItem,
 
     -- * Request Lenses
+    getOpsItem_opsItemArn,
     getOpsItem_opsItemId,
 
     -- * Destructuring the Response
@@ -51,7 +52,7 @@ module Amazonka.SSM.GetOpsItem
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,7 +60,9 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newGetOpsItem' smart constructor.
 data GetOpsItem = GetOpsItem'
-  { -- | The ID of the OpsItem that you want to get.
+  { -- | The OpsItem Amazon Resource Name (ARN).
+    opsItemArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the OpsItem that you want to get.
     opsItemId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,13 +75,22 @@ data GetOpsItem = GetOpsItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'opsItemArn', 'getOpsItem_opsItemArn' - The OpsItem Amazon Resource Name (ARN).
+--
 -- 'opsItemId', 'getOpsItem_opsItemId' - The ID of the OpsItem that you want to get.
 newGetOpsItem ::
   -- | 'opsItemId'
   Prelude.Text ->
   GetOpsItem
 newGetOpsItem pOpsItemId_ =
-  GetOpsItem' {opsItemId = pOpsItemId_}
+  GetOpsItem'
+    { opsItemArn = Prelude.Nothing,
+      opsItemId = pOpsItemId_
+    }
+
+-- | The OpsItem Amazon Resource Name (ARN).
+getOpsItem_opsItemArn :: Lens.Lens' GetOpsItem (Prelude.Maybe Prelude.Text)
+getOpsItem_opsItemArn = Lens.lens (\GetOpsItem' {opsItemArn} -> opsItemArn) (\s@GetOpsItem' {} a -> s {opsItemArn = a} :: GetOpsItem)
 
 -- | The ID of the OpsItem that you want to get.
 getOpsItem_opsItemId :: Lens.Lens' GetOpsItem Prelude.Text
@@ -86,8 +98,8 @@ getOpsItem_opsItemId = Lens.lens (\GetOpsItem' {opsItemId} -> opsItemId) (\s@Get
 
 instance Core.AWSRequest GetOpsItem where
   type AWSResponse GetOpsItem = GetOpsItemResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,10 +110,13 @@ instance Core.AWSRequest GetOpsItem where
 
 instance Prelude.Hashable GetOpsItem where
   hashWithSalt _salt GetOpsItem' {..} =
-    _salt `Prelude.hashWithSalt` opsItemId
+    _salt `Prelude.hashWithSalt` opsItemArn
+      `Prelude.hashWithSalt` opsItemId
 
 instance Prelude.NFData GetOpsItem where
-  rnf GetOpsItem' {..} = Prelude.rnf opsItemId
+  rnf GetOpsItem' {..} =
+    Prelude.rnf opsItemArn
+      `Prelude.seq` Prelude.rnf opsItemId
 
 instance Core.ToHeaders GetOpsItem where
   toHeaders =
@@ -120,7 +135,9 @@ instance Core.ToJSON GetOpsItem where
   toJSON GetOpsItem' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("OpsItemId" Core..= opsItemId)]
+          [ ("OpsItemArn" Core..=) Prelude.<$> opsItemArn,
+            Prelude.Just ("OpsItemId" Core..= opsItemId)
+          ]
       )
 
 instance Core.ToPath GetOpsItem where

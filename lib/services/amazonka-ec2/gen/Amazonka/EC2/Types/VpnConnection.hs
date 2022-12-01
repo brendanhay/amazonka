@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.VpnConnection where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.GatewayAssociationState
 import Amazonka.EC2.Types.GatewayType
@@ -28,7 +29,6 @@ import Amazonka.EC2.Types.VgwTelemetry
 import Amazonka.EC2.Types.VpnConnectionOptions
 import Amazonka.EC2.Types.VpnState
 import Amazonka.EC2.Types.VpnStaticRoute
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a VPN connection.

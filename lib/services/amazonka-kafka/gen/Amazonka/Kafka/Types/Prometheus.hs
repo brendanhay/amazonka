@@ -20,9 +20,9 @@
 module Amazonka.Kafka.Types.Prometheus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.JmxExporter
 import Amazonka.Kafka.Types.NodeExporter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Prometheus settings.

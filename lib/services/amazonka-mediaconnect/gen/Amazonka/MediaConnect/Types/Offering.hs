@@ -20,7 +20,7 @@
 module Amazonka.MediaConnect.Types.Offering where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConnect.Types.DurationUnits
 import Amazonka.MediaConnect.Types.PriceUnits
 import Amazonka.MediaConnect.Types.ResourceSpecification

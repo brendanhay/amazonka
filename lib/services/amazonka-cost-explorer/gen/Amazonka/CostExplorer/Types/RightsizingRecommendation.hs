@@ -20,12 +20,12 @@
 module Amazonka.CostExplorer.Types.RightsizingRecommendation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CurrentInstance
 import Amazonka.CostExplorer.Types.FindingReasonCode
 import Amazonka.CostExplorer.Types.ModifyRecommendationDetail
 import Amazonka.CostExplorer.Types.RightsizingType
 import Amazonka.CostExplorer.Types.TerminateRecommendationDetail
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Recommendations to rightsize resources.

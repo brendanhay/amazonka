@@ -26,7 +26,7 @@ import Amazonka.Comprehend.Types.PiiEntitiesDetectionMode
 import Amazonka.Comprehend.Types.PiiOutputDataConfig
 import Amazonka.Comprehend.Types.RedactionConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a PII entities detection job.

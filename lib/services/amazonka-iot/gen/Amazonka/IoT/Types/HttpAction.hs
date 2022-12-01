@@ -20,9 +20,9 @@
 module Amazonka.IoT.Types.HttpAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.HttpActionHeader
 import Amazonka.IoT.Types.HttpAuthorization
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Send data to an HTTPS endpoint.

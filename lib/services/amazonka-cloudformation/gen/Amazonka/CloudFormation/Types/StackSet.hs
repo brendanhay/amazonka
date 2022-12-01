@@ -28,7 +28,7 @@ import Amazonka.CloudFormation.Types.StackSetDriftDetectionDetails
 import Amazonka.CloudFormation.Types.StackSetStatus
 import Amazonka.CloudFormation.Types.Tag
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains information about a stack set. A stack set

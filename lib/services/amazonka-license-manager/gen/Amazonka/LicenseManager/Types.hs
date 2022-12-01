@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -407,7 +408,7 @@ module Amazonka.LicenseManager.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LicenseManager.Types.AllowedOperation
 import Amazonka.LicenseManager.Types.AutomatedDiscoveryInformation
 import Amazonka.LicenseManager.Types.BorrowConfiguration
@@ -470,29 +471,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "LicenseManager",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "license-manager",
-      Core._serviceSigningName = "license-manager",
-      Core._serviceVersion = "2018-08-01",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "LicenseManager",
-      Core._serviceRetry = retry
+    { Core.abbrev = "LicenseManager",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "license-manager",
+      Core.signingName = "license-manager",
+      Core.version = "2018-08-01",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "LicenseManager",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

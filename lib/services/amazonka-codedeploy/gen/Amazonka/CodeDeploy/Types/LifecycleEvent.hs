@@ -22,7 +22,7 @@ module Amazonka.CodeDeploy.Types.LifecycleEvent where
 import Amazonka.CodeDeploy.Types.Diagnostics
 import Amazonka.CodeDeploy.Types.LifecycleEventStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a deployment lifecycle event.

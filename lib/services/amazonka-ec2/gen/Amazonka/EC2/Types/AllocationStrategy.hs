@@ -23,7 +23,8 @@ module Amazonka.EC2.Types.AllocationStrategy
         AllocationStrategy_CapacityOptimized,
         AllocationStrategy_CapacityOptimizedPrioritized,
         AllocationStrategy_Diversified,
-        AllocationStrategy_LowestPrice
+        AllocationStrategy_LowestPrice,
+        AllocationStrategy_PriceCapacityOptimized
       ),
   )
 where
@@ -72,10 +73,14 @@ pattern AllocationStrategy_Diversified = AllocationStrategy' "diversified"
 pattern AllocationStrategy_LowestPrice :: AllocationStrategy
 pattern AllocationStrategy_LowestPrice = AllocationStrategy' "lowestPrice"
 
+pattern AllocationStrategy_PriceCapacityOptimized :: AllocationStrategy
+pattern AllocationStrategy_PriceCapacityOptimized = AllocationStrategy' "priceCapacityOptimized"
+
 {-# COMPLETE
   AllocationStrategy_CapacityOptimized,
   AllocationStrategy_CapacityOptimizedPrioritized,
   AllocationStrategy_Diversified,
   AllocationStrategy_LowestPrice,
+  AllocationStrategy_PriceCapacityOptimized,
   AllocationStrategy'
   #-}

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,6 +17,7 @@
 module Amazonka.EC2.Waiters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.DescribeBundleTasks
 import Amazonka.EC2.DescribeConversionTasks
 import Amazonka.EC2.DescribeCustomerGateways
@@ -38,17 +40,16 @@ import Amazonka.EC2.DescribeVpnConnections
 import Amazonka.EC2.GetPasswordData
 import Amazonka.EC2.Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceStopped :: Core.Wait DescribeInstances
 newInstanceStopped =
   Core.Wait
-    { Core._waitName = "InstanceStopped",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "InstanceStopped",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "stopped"
             Core.AcceptSuccess
@@ -107,10 +108,10 @@ newInstanceStopped =
 newExportTaskCompleted :: Core.Wait DescribeExportTasks
 newExportTaskCompleted =
   Core.Wait
-    { Core._waitName = "ExportTaskCompleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "ExportTaskCompleted",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "completed"
             Core.AcceptSuccess
@@ -130,11 +131,11 @@ newExportTaskCompleted =
 newSpotInstanceRequestFulfilled :: Core.Wait DescribeSpotInstanceRequests
 newSpotInstanceRequestFulfilled =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "SpotInstanceRequestFulfilled",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "fulfilled"
             Core.AcceptSuccess
@@ -235,10 +236,10 @@ newSpotInstanceRequestFulfilled =
 newImageExists :: Core.Wait DescribeImages
 newImageExists =
   Core.Wait
-    { Core._waitName = "ImageExists",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "ImageExists",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchNonEmpty
             Prelude.True
             Core.AcceptSuccess
@@ -259,10 +260,10 @@ newImageExists =
 newKeyPairExists :: Core.Wait DescribeKeyPairs
 newKeyPairExists =
   Core.Wait
-    { Core._waitName = "KeyPairExists",
-      Core._waitAttempts = 6,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "KeyPairExists",
+      Core.attempts = 6,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchNonEmpty
             Prelude.True
             Core.AcceptSuccess
@@ -285,10 +286,10 @@ newKeyPairExists =
 newExportTaskCancelled :: Core.Wait DescribeExportTasks
 newExportTaskCancelled =
   Core.Wait
-    { Core._waitName = "ExportTaskCancelled",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "ExportTaskCancelled",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "cancelled"
             Core.AcceptSuccess
@@ -308,10 +309,10 @@ newExportTaskCancelled =
 newInstanceStatusOk :: Core.Wait DescribeInstanceStatus
 newInstanceStatusOk =
   Core.Wait
-    { Core._waitName = "InstanceStatusOk",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "InstanceStatusOk",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "ok"
             Core.AcceptSuccess
@@ -336,10 +337,10 @@ newInstanceStatusOk =
 newBundleTaskComplete :: Core.Wait DescribeBundleTasks
 newBundleTaskComplete =
   Core.Wait
-    { Core._waitName = "BundleTaskComplete",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "BundleTaskComplete",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "complete"
             Core.AcceptSuccess
@@ -371,10 +372,10 @@ newBundleTaskComplete =
 newInstanceExists :: Core.Wait DescribeInstances
 newInstanceExists =
   Core.Wait
-    { Core._waitName = "InstanceExists",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "InstanceExists",
+      Core.attempts = 40,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchStatus 200 Core.AcceptSuccess,
           Core.matchError
             "InvalidInstanceIDNotFound"
@@ -386,10 +387,10 @@ newInstanceExists =
 newImageAvailable :: Core.Wait DescribeImages
 newImageAvailable =
   Core.Wait
-    { Core._waitName = "ImageAvailable",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "ImageAvailable",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -417,10 +418,10 @@ newImageAvailable =
 newVolumeDeleted :: Core.Wait DescribeVolumes
 newVolumeDeleted =
   Core.Wait
-    { Core._waitName = "VolumeDeleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "VolumeDeleted",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "deleted"
             Core.AcceptSuccess
@@ -443,10 +444,10 @@ newVolumeDeleted =
 newInstanceRunning :: Core.Wait DescribeInstances
 newInstanceRunning =
   Core.Wait
-    { Core._waitName = "InstanceRunning",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "InstanceRunning",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "running"
             Core.AcceptSuccess
@@ -525,10 +526,10 @@ newInstanceRunning =
 newVolumeAvailable :: Core.Wait DescribeVolumes
 newVolumeAvailable =
   Core.Wait
-    { Core._waitName = "VolumeAvailable",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "VolumeAvailable",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -560,10 +561,10 @@ newVolumeAvailable =
 newSubnetAvailable :: Core.Wait DescribeSubnets
 newSubnetAvailable =
   Core.Wait
-    { Core._waitName = "SubnetAvailable",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "SubnetAvailable",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -583,10 +584,10 @@ newSubnetAvailable =
 newVpnConnectionDeleted :: Core.Wait DescribeVpnConnections
 newVpnConnectionDeleted =
   Core.Wait
-    { Core._waitName = "VpnConnectionDeleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "VpnConnectionDeleted",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "deleted"
             Core.AcceptSuccess
@@ -618,11 +619,10 @@ newVpnConnectionDeleted =
 newCustomerGatewayAvailable :: Core.Wait DescribeCustomerGateways
 newCustomerGatewayAvailable =
   Core.Wait
-    { Core._waitName =
-        "CustomerGatewayAvailable",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "CustomerGatewayAvailable",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -666,10 +666,10 @@ newCustomerGatewayAvailable =
 newVolumeInUse :: Core.Wait DescribeVolumes
 newVolumeInUse =
   Core.Wait
-    { Core._waitName = "VolumeInUse",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "VolumeInUse",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "in-use"
             Core.AcceptSuccess
@@ -701,10 +701,10 @@ newVolumeInUse =
 newPasswordDataAvailable :: Core.Wait GetPasswordData
 newPasswordDataAvailable =
   Core.Wait
-    { Core._waitName = "PasswordDataAvailable",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "PasswordDataAvailable",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             Prelude.True
             Core.AcceptSuccess
@@ -718,10 +718,10 @@ newPasswordDataAvailable =
 newSystemStatusOk :: Core.Wait DescribeInstanceStatus
 newSystemStatusOk =
   Core.Wait
-    { Core._waitName = "SystemStatusOk",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "SystemStatusOk",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "ok"
             Core.AcceptSuccess
@@ -743,10 +743,10 @@ newSystemStatusOk =
 newNatGatewayDeleted :: Core.Wait DescribeNatGateways
 newNatGatewayDeleted =
   Core.Wait
-    { Core._waitName = "NatGatewayDeleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "NatGatewayDeleted",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "deleted"
             Core.AcceptSuccess
@@ -770,11 +770,10 @@ newNatGatewayDeleted =
 newVpnConnectionAvailable :: Core.Wait DescribeVpnConnections
 newVpnConnectionAvailable =
   Core.Wait
-    { Core._waitName =
-        "VpnConnectionAvailable",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "VpnConnectionAvailable",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -818,10 +817,10 @@ newVpnConnectionAvailable =
 newVpcExists :: Core.Wait DescribeVpcs
 newVpcExists =
   Core.Wait
-    { Core._waitName = "VpcExists",
-      Core._waitAttempts = 5,
-      Core._waitDelay = 1,
-      Core._waitAcceptors =
+    { Core.name = "VpcExists",
+      Core.attempts = 5,
+      Core.delay = 1,
+      Core.acceptors =
         [ Core.matchStatus 200 Core.AcceptSuccess,
           Core.matchError
             "InvalidVpcID.NotFound"
@@ -833,10 +832,10 @@ newVpcExists =
 newInternetGatewayExists :: Core.Wait DescribeInternetGateways
 newInternetGatewayExists =
   Core.Wait
-    { Core._waitName = "InternetGatewayExists",
-      Core._waitAttempts = 6,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "InternetGatewayExists",
+      Core.attempts = 6,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchNonEmpty
             Prelude.True
             Core.AcceptSuccess
@@ -858,11 +857,10 @@ newInternetGatewayExists =
 newNetworkInterfaceAvailable :: Core.Wait DescribeNetworkInterfaces
 newNetworkInterfaceAvailable =
   Core.Wait
-    { Core._waitName =
-        "NetworkInterfaceAvailable",
-      Core._waitAttempts = 10,
-      Core._waitDelay = 20,
-      Core._waitAcceptors =
+    { Core.name = "NetworkInterfaceAvailable",
+      Core.attempts = 10,
+      Core.delay = 20,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -886,11 +884,10 @@ newNetworkInterfaceAvailable =
 newConversionTaskCompleted :: Core.Wait DescribeConversionTasks
 newConversionTaskCompleted =
   Core.Wait
-    { Core._waitName =
-        "ConversionTaskCompleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "ConversionTaskCompleted",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "completed"
             Core.AcceptSuccess
@@ -937,11 +934,11 @@ newConversionTaskCompleted =
 newVpcPeeringConnectionDeleted :: Core.Wait DescribeVpcPeeringConnections
 newVpcPeeringConnectionDeleted =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "VpcPeeringConnectionDeleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "deleted"
             Core.AcceptSuccess
@@ -967,10 +964,10 @@ newVpcPeeringConnectionDeleted =
 newInstanceTerminated :: Core.Wait DescribeInstances
 newInstanceTerminated =
   Core.Wait
-    { Core._waitName = "InstanceTerminated",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "InstanceTerminated",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "terminated"
             Core.AcceptSuccess
@@ -1029,10 +1026,10 @@ newInstanceTerminated =
 newSnapshotCompleted :: Core.Wait DescribeSnapshots
 newSnapshotCompleted =
   Core.Wait
-    { Core._waitName = "SnapshotCompleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "SnapshotCompleted",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "completed"
             Core.AcceptSuccess
@@ -1064,10 +1061,10 @@ newSnapshotCompleted =
 newNatGatewayAvailable :: Core.Wait DescribeNatGateways
 newNatGatewayAvailable =
   Core.Wait
-    { Core._waitName = "NatGatewayAvailable",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "NatGatewayAvailable",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess
@@ -1130,11 +1127,10 @@ newNatGatewayAvailable =
 newVpcPeeringConnectionExists :: Core.Wait DescribeVpcPeeringConnections
 newVpcPeeringConnectionExists =
   Core.Wait
-    { Core._waitName =
-        "VpcPeeringConnectionExists",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "VpcPeeringConnectionExists",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchStatus 200 Core.AcceptSuccess,
           Core.matchError
             "InvalidVpcPeeringConnectionID.NotFound"
@@ -1146,11 +1142,10 @@ newVpcPeeringConnectionExists =
 newConversionTaskCancelled :: Core.Wait DescribeConversionTasks
 newConversionTaskCancelled =
   Core.Wait
-    { Core._waitName =
-        "ConversionTaskCancelled",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "ConversionTaskCancelled",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "cancelled"
             Core.AcceptSuccess
@@ -1171,10 +1166,10 @@ newConversionTaskCancelled =
 newConversionTaskDeleted :: Core.Wait DescribeConversionTasks
 newConversionTaskDeleted =
   Core.Wait
-    { Core._waitName = "ConversionTaskDeleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "ConversionTaskDeleted",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "deleted"
             Core.AcceptSuccess
@@ -1195,10 +1190,10 @@ newConversionTaskDeleted =
 newSecurityGroupExists :: Core.Wait DescribeSecurityGroups
 newSecurityGroupExists =
   Core.Wait
-    { Core._waitName = "SecurityGroupExists",
-      Core._waitAttempts = 6,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "SecurityGroupExists",
+      Core.attempts = 6,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchNonEmpty
             Prelude.True
             Core.AcceptSuccess
@@ -1220,10 +1215,10 @@ newSecurityGroupExists =
 newVpcAvailable :: Core.Wait DescribeVpcs
 newVpcAvailable =
   Core.Wait
-    { Core._waitName = "VpcAvailable",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "VpcAvailable",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "available"
             Core.AcceptSuccess

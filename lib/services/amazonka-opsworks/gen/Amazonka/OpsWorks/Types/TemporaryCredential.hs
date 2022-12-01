@@ -20,7 +20,7 @@
 module Amazonka.OpsWorks.Types.TemporaryCredential where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the data needed by RDP clients such as the Microsoft Remote

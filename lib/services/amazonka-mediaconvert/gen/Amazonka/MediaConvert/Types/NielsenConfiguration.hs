@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.NielsenConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for your Nielsen configuration. If you don\'t do Nielsen

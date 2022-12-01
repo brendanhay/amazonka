@@ -20,8 +20,8 @@
 module Amazonka.Inspector.Types.AssessmentTemplate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.Attribute
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector assessment template. This

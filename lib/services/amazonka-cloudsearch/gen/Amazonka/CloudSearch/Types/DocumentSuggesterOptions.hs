@@ -21,7 +21,7 @@ module Amazonka.CloudSearch.Types.DocumentSuggesterOptions where
 
 import Amazonka.CloudSearch.Types.SuggesterFuzzyMatching
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for a search suggester.

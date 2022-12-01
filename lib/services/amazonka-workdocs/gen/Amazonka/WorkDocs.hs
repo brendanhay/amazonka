@@ -44,6 +44,20 @@
 -- to any user. This allows developers to perform the three use cases
 -- above, as well as give users the ability to grant access on a selective
 -- basis using the IAM model.
+--
+-- The pricing for Amazon WorkDocs APIs varies depending on the API call
+-- type for these actions:
+--
+-- -   @READ (Get*)@
+--
+-- -   @WRITE (Activate*, Add*, Create*, Deactivate*, Initiate*, Update*)@
+--
+-- -   @LIST (Describe*)@
+--
+-- -   @DELETE*, CANCEL@
+--
+-- For information about Amazon WorkDocs API pricing, see
+-- <https://aws.amazon.com/workdocs/pricing/ Amazon WorkDocs Pricing>.
 module Amazonka.WorkDocs
   ( -- * Service Configuration
     defaultService,
@@ -210,6 +224,12 @@ module Amazonka.WorkDocs
     DeleteDocumentResponse (DeleteDocumentResponse'),
     newDeleteDocumentResponse,
 
+    -- ** DeleteDocumentVersion
+    DeleteDocumentVersion (DeleteDocumentVersion'),
+    newDeleteDocumentVersion,
+    DeleteDocumentVersionResponse (DeleteDocumentVersionResponse'),
+    newDeleteDocumentVersionResponse,
+
     -- ** DeleteFolder
     DeleteFolder (DeleteFolder'),
     newDeleteFolder,
@@ -353,6 +373,12 @@ module Amazonka.WorkDocs
     newRemoveResourcePermission,
     RemoveResourcePermissionResponse (RemoveResourcePermissionResponse'),
     newRemoveResourcePermissionResponse,
+
+    -- ** RestoreDocumentVersions
+    RestoreDocumentVersions (RestoreDocumentVersions'),
+    newRestoreDocumentVersions,
+    RestoreDocumentVersionsResponse (RestoreDocumentVersionsResponse'),
+    newRestoreDocumentVersionsResponse,
 
     -- ** UpdateDocument
     UpdateDocument (UpdateDocument'),
@@ -561,6 +587,7 @@ import Amazonka.WorkDocs.DeactivateUser
 import Amazonka.WorkDocs.DeleteComment
 import Amazonka.WorkDocs.DeleteCustomMetadata
 import Amazonka.WorkDocs.DeleteDocument
+import Amazonka.WorkDocs.DeleteDocumentVersion
 import Amazonka.WorkDocs.DeleteFolder
 import Amazonka.WorkDocs.DeleteFolderContents
 import Amazonka.WorkDocs.DeleteLabels
@@ -586,6 +613,7 @@ import Amazonka.WorkDocs.InitiateDocumentVersionUpload
 import Amazonka.WorkDocs.Lens
 import Amazonka.WorkDocs.RemoveAllResourcePermissions
 import Amazonka.WorkDocs.RemoveResourcePermission
+import Amazonka.WorkDocs.RestoreDocumentVersions
 import Amazonka.WorkDocs.Types
 import Amazonka.WorkDocs.UpdateDocument
 import Amazonka.WorkDocs.UpdateDocumentVersion

@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.MpdSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.MpdAccessibilityCaptionHints
 import Amazonka.MediaConvert.Types.MpdAudioDuration
 import Amazonka.MediaConvert.Types.MpdCaptionContainerType

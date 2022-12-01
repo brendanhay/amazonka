@@ -20,9 +20,9 @@
 module Amazonka.HoneyCode.Types.ImportOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HoneyCode.Types.DelimitedTextImportOptions
 import Amazonka.HoneyCode.Types.DestinationOptions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the options specified by the sumitter of the

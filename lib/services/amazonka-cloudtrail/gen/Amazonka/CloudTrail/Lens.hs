@@ -31,6 +31,7 @@ module Amazonka.CloudTrail.Lens
     createEventDataStore_multiRegionEnabled,
     createEventDataStore_tagsList,
     createEventDataStore_retentionPeriod,
+    createEventDataStore_kmsKeyId,
     createEventDataStore_organizationEnabled,
     createEventDataStore_terminationProtectionEnabled,
     createEventDataStore_name,
@@ -43,6 +44,7 @@ module Amazonka.CloudTrail.Lens
     createEventDataStoreResponse_updatedTimestamp,
     createEventDataStoreResponse_status,
     createEventDataStoreResponse_retentionPeriod,
+    createEventDataStoreResponse_kmsKeyId,
     createEventDataStoreResponse_organizationEnabled,
     createEventDataStoreResponse_terminationProtectionEnabled,
     createEventDataStoreResponse_httpStatus,
@@ -83,6 +85,10 @@ module Amazonka.CloudTrail.Lens
     deleteTrail_name,
     deleteTrailResponse_httpStatus,
 
+    -- ** DeregisterOrganizationDelegatedAdmin
+    deregisterOrganizationDelegatedAdmin_delegatedAdminAccountId,
+    deregisterOrganizationDelegatedAdminResponse_httpStatus,
+
     -- ** DescribeQuery
     describeQuery_eventDataStore,
     describeQuery_queryId,
@@ -120,6 +126,7 @@ module Amazonka.CloudTrail.Lens
     getEventDataStoreResponse_updatedTimestamp,
     getEventDataStoreResponse_status,
     getEventDataStoreResponse_retentionPeriod,
+    getEventDataStoreResponse_kmsKeyId,
     getEventDataStoreResponse_organizationEnabled,
     getEventDataStoreResponse_terminationProtectionEnabled,
     getEventDataStoreResponse_httpStatus,
@@ -152,8 +159,8 @@ module Amazonka.CloudTrail.Lens
 
     -- ** GetQueryResults
     getQueryResults_nextToken,
-    getQueryResults_maxQueryResults,
     getQueryResults_eventDataStore,
+    getQueryResults_maxQueryResults,
     getQueryResults_queryId,
     getQueryResultsResponse_nextToken,
     getQueryResultsResponse_queryStatistics,
@@ -278,6 +285,10 @@ module Amazonka.CloudTrail.Lens
     putInsightSelectorsResponse_trailARN,
     putInsightSelectorsResponse_httpStatus,
 
+    -- ** RegisterOrganizationDelegatedAdmin
+    registerOrganizationDelegatedAdmin_memberAccountId,
+    registerOrganizationDelegatedAdminResponse_httpStatus,
+
     -- ** RemoveTags
     removeTags_resourceId,
     removeTags_tagsList,
@@ -293,6 +304,7 @@ module Amazonka.CloudTrail.Lens
     restoreEventDataStoreResponse_updatedTimestamp,
     restoreEventDataStoreResponse_status,
     restoreEventDataStoreResponse_retentionPeriod,
+    restoreEventDataStoreResponse_kmsKeyId,
     restoreEventDataStoreResponse_organizationEnabled,
     restoreEventDataStoreResponse_terminationProtectionEnabled,
     restoreEventDataStoreResponse_httpStatus,
@@ -345,6 +357,7 @@ module Amazonka.CloudTrail.Lens
     updateEventDataStore_advancedEventSelectors,
     updateEventDataStore_multiRegionEnabled,
     updateEventDataStore_retentionPeriod,
+    updateEventDataStore_kmsKeyId,
     updateEventDataStore_organizationEnabled,
     updateEventDataStore_terminationProtectionEnabled,
     updateEventDataStore_eventDataStore,
@@ -356,6 +369,7 @@ module Amazonka.CloudTrail.Lens
     updateEventDataStoreResponse_updatedTimestamp,
     updateEventDataStoreResponse_status,
     updateEventDataStoreResponse_retentionPeriod,
+    updateEventDataStoreResponse_kmsKeyId,
     updateEventDataStoreResponse_organizationEnabled,
     updateEventDataStoreResponse_terminationProtectionEnabled,
     updateEventDataStoreResponse_httpStatus,
@@ -549,6 +563,7 @@ import Amazonka.CloudTrail.CreateEventDataStore
 import Amazonka.CloudTrail.CreateTrail
 import Amazonka.CloudTrail.DeleteEventDataStore
 import Amazonka.CloudTrail.DeleteTrail
+import Amazonka.CloudTrail.DeregisterOrganizationDelegatedAdmin
 import Amazonka.CloudTrail.DescribeQuery
 import Amazonka.CloudTrail.DescribeTrails
 import Amazonka.CloudTrail.GetChannel
@@ -570,6 +585,7 @@ import Amazonka.CloudTrail.ListTrails
 import Amazonka.CloudTrail.LookupEvents
 import Amazonka.CloudTrail.PutEventSelectors
 import Amazonka.CloudTrail.PutInsightSelectors
+import Amazonka.CloudTrail.RegisterOrganizationDelegatedAdmin
 import Amazonka.CloudTrail.RemoveTags
 import Amazonka.CloudTrail.RestoreEventDataStore
 import Amazonka.CloudTrail.StartImport

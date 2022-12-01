@@ -20,7 +20,7 @@
 module Amazonka.MediaPackage.Types.CmafPackage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaPackage.Types.CmafEncryption
 import Amazonka.MediaPackage.Types.HlsManifest
 import Amazonka.MediaPackage.Types.StreamSelection

@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.LineageConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.CrawlerLineageSettings
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies data lineage configuration settings for the crawler.

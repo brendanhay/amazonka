@@ -20,8 +20,8 @@
 module Amazonka.Inspector2.Types.EcrConfigurationState where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.EcrRescanDurationState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the state of the ECR scans for your environment.

@@ -20,7 +20,7 @@
 module Amazonka.GreengrassV2.Types.ComponentCandidate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a component that is a candidate to deploy to

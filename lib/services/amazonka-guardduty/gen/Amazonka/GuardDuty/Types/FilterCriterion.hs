@@ -20,9 +20,9 @@
 module Amazonka.GuardDuty.Types.FilterCriterion where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.CriterionKey
 import Amazonka.GuardDuty.Types.FilterCondition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a condition that when matched will be added to the response

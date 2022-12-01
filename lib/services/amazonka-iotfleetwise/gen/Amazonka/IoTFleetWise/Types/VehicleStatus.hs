@@ -20,8 +20,8 @@
 module Amazonka.IoTFleetWise.Types.VehicleStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTFleetWise.Types.VehicleState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the state of a vehicle and how it relates to the

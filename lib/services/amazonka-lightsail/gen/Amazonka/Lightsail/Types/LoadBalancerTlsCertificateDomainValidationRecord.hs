@@ -20,7 +20,8 @@
 module Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationRecord where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDnsRecordCreationState
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,6 +36,10 @@ data LoadBalancerTlsCertificateDomainValidationRecord = LoadBalancerTlsCertifica
     -- | The type of validation record. For example, @CNAME@ for domain
     -- validation.
     type' :: Prelude.Maybe Prelude.Text,
+    -- | An object that describes the state of the canonical name (CNAME) records
+    -- that are automatically added by Lightsail to the DNS of a domain to
+    -- validate domain ownership.
+    dnsRecordCreationState :: Prelude.Maybe LoadBalancerTlsCertificateDnsRecordCreationState,
     -- | The domain name against which your SSL\/TLS certificate was validated.
     domainName :: Prelude.Maybe Prelude.Text,
     -- | The validation status. Valid values are listed below.
@@ -58,6 +63,10 @@ data LoadBalancerTlsCertificateDomainValidationRecord = LoadBalancerTlsCertifica
 -- 'type'', 'loadBalancerTlsCertificateDomainValidationRecord_type' - The type of validation record. For example, @CNAME@ for domain
 -- validation.
 --
+-- 'dnsRecordCreationState', 'loadBalancerTlsCertificateDomainValidationRecord_dnsRecordCreationState' - An object that describes the state of the canonical name (CNAME) records
+-- that are automatically added by Lightsail to the DNS of a domain to
+-- validate domain ownership.
+--
 -- 'domainName', 'loadBalancerTlsCertificateDomainValidationRecord_domainName' - The domain name against which your SSL\/TLS certificate was validated.
 --
 -- 'validationStatus', 'loadBalancerTlsCertificateDomainValidationRecord_validationStatus' - The validation status. Valid values are listed below.
@@ -70,6 +79,8 @@ newLoadBalancerTlsCertificateDomainValidationRecord =
     { name =
         Prelude.Nothing,
       type' = Prelude.Nothing,
+      dnsRecordCreationState =
+        Prelude.Nothing,
       domainName =
         Prelude.Nothing,
       validationStatus =
@@ -86,6 +97,12 @@ loadBalancerTlsCertificateDomainValidationRecord_name = Lens.lens (\LoadBalancer
 -- validation.
 loadBalancerTlsCertificateDomainValidationRecord_type :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificateDomainValidationRecord_type = Lens.lens (\LoadBalancerTlsCertificateDomainValidationRecord' {type'} -> type') (\s@LoadBalancerTlsCertificateDomainValidationRecord' {} a -> s {type' = a} :: LoadBalancerTlsCertificateDomainValidationRecord)
+
+-- | An object that describes the state of the canonical name (CNAME) records
+-- that are automatically added by Lightsail to the DNS of a domain to
+-- validate domain ownership.
+loadBalancerTlsCertificateDomainValidationRecord_dnsRecordCreationState :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Prelude.Maybe LoadBalancerTlsCertificateDnsRecordCreationState)
+loadBalancerTlsCertificateDomainValidationRecord_dnsRecordCreationState = Lens.lens (\LoadBalancerTlsCertificateDomainValidationRecord' {dnsRecordCreationState} -> dnsRecordCreationState) (\s@LoadBalancerTlsCertificateDomainValidationRecord' {} a -> s {dnsRecordCreationState = a} :: LoadBalancerTlsCertificateDomainValidationRecord)
 
 -- | The domain name against which your SSL\/TLS certificate was validated.
 loadBalancerTlsCertificateDomainValidationRecord_domainName :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Prelude.Maybe Prelude.Text)
@@ -109,6 +126,7 @@ instance
       ( \x ->
           LoadBalancerTlsCertificateDomainValidationRecord'
             Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "type")
+              Prelude.<*> (x Core..:? "dnsRecordCreationState")
               Prelude.<*> (x Core..:? "domainName")
               Prelude.<*> (x Core..:? "validationStatus")
               Prelude.<*> (x Core..:? "value")
@@ -123,6 +141,7 @@ instance
     LoadBalancerTlsCertificateDomainValidationRecord' {..} =
       _salt `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` dnsRecordCreationState
         `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` validationStatus
         `Prelude.hashWithSalt` value
@@ -135,6 +154,7 @@ instance
     LoadBalancerTlsCertificateDomainValidationRecord' {..} =
       Prelude.rnf name
         `Prelude.seq` Prelude.rnf type'
+        `Prelude.seq` Prelude.rnf dnsRecordCreationState
         `Prelude.seq` Prelude.rnf domainName
         `Prelude.seq` Prelude.rnf validationStatus
         `Prelude.seq` Prelude.rnf value

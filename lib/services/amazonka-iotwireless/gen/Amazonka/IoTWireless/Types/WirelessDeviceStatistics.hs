@@ -20,11 +20,11 @@
 module Amazonka.IoTWireless.Types.WirelessDeviceStatistics where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.FuotaDeviceStatus
 import Amazonka.IoTWireless.Types.LoRaWANListDevice
 import Amazonka.IoTWireless.Types.SidewalkListDevice
 import Amazonka.IoTWireless.Types.WirelessDeviceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a wireless device\'s operation.

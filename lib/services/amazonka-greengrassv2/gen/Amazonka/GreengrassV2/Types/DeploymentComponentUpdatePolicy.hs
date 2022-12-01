@@ -20,8 +20,8 @@
 module Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a deployment\'s policy that defines when

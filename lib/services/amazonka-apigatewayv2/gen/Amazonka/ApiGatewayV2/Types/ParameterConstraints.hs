@@ -20,7 +20,7 @@
 module Amazonka.ApiGatewayV2.Types.ParameterConstraints where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Validation constraints imposed on parameters of a request (path, query

@@ -21,7 +21,7 @@ module Amazonka.Comprehend.Types.BatchDetectTargetedSentimentItemResult where
 
 import Amazonka.Comprehend.Types.TargetedSentimentEntity
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Analysis results for one of the documents in the batch.

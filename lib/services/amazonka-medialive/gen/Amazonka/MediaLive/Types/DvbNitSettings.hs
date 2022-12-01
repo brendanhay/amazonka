@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.DvbNitSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | DVB Network Information Table (NIT)

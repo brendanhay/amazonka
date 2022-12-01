@@ -20,8 +20,8 @@
 module Amazonka.DirectConnect.Types.ResourceTag where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectConnect.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a tag associated with an Direct Connect resource.

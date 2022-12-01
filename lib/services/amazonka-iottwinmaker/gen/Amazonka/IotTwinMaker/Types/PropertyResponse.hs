@@ -20,9 +20,9 @@
 module Amazonka.IotTwinMaker.Types.PropertyResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types.DataValue
 import Amazonka.IotTwinMaker.Types.PropertyDefinitionResponse
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about a property response.

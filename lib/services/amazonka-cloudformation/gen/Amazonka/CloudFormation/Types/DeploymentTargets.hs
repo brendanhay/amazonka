@@ -21,7 +21,7 @@ module Amazonka.CloudFormation.Types.DeploymentTargets where
 
 import Amazonka.CloudFormation.Types.AccountFilterType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | [Service-managed permissions] The Organizations accounts to which
@@ -48,8 +48,7 @@ data DeploymentTargets = DeploymentTargets'
     --     @Accounts@ parameter. This enables user to avoid certain accounts
     --     within an OU such as suspended accounts.
     --
-    -- -   @UNION@: (default value) StackSets includes additional accounts
-    --     deployment targets.
+    -- -   @UNION@: StackSets includes additional accounts deployment targets.
     --
     --     This is the default value if @AccountFilterType@ is not provided.
     --     This enables user to update an entire OU and individual accounts
@@ -91,8 +90,7 @@ data DeploymentTargets = DeploymentTargets'
 --     @Accounts@ parameter. This enables user to avoid certain accounts
 --     within an OU such as suspended accounts.
 --
--- -   @UNION@: (default value) StackSets includes additional accounts
---     deployment targets.
+-- -   @UNION@: StackSets includes additional accounts deployment targets.
 --
 --     This is the default value if @AccountFilterType@ is not provided.
 --     This enables user to update an entire OU and individual accounts
@@ -133,8 +131,7 @@ newDeploymentTargets =
 --     @Accounts@ parameter. This enables user to avoid certain accounts
 --     within an OU such as suspended accounts.
 --
--- -   @UNION@: (default value) StackSets includes additional accounts
---     deployment targets.
+-- -   @UNION@: StackSets includes additional accounts deployment targets.
 --
 --     This is the default value if @AccountFilterType@ is not provided.
 --     This enables user to update an entire OU and individual accounts

@@ -20,7 +20,7 @@
 module Amazonka.EBS.Types.ChangedBlock where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A block of data in an Amazon Elastic Block Store snapshot that is

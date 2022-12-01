@@ -20,7 +20,7 @@
 module Amazonka.MachineLearning.Types.Evaluation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MachineLearning.Types.EntityStatus
 import Amazonka.MachineLearning.Types.PerformanceMetrics
 import qualified Amazonka.Prelude as Prelude

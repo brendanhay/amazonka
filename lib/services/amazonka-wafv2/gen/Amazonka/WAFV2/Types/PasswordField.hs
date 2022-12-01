@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.PasswordField where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about your login page password field, used in a

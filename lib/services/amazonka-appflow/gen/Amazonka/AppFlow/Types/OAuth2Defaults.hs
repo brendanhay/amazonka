@@ -22,7 +22,7 @@ module Amazonka.AppFlow.Types.OAuth2Defaults where
 import Amazonka.AppFlow.Types.OAuth2CustomParameter
 import Amazonka.AppFlow.Types.OAuth2GrantType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the default values required for OAuth 2.0 authentication.

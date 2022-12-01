@@ -68,6 +68,7 @@ module Amazonka.ElastiCache.Lens
     createCacheCluster_autoMinorVersionUpgrade,
     createCacheCluster_authToken,
     createCacheCluster_logDeliveryConfigurations,
+    createCacheCluster_ipDiscovery,
     createCacheCluster_numCacheNodes,
     createCacheCluster_cacheNodeType,
     createCacheCluster_cacheParameterGroupName,
@@ -83,6 +84,7 @@ module Amazonka.ElastiCache.Lens
     createCacheCluster_preferredMaintenanceWindow,
     createCacheCluster_replicationGroupId,
     createCacheCluster_engineVersion,
+    createCacheCluster_networkType,
     createCacheCluster_cacheClusterId,
     createCacheClusterResponse_cacheCluster,
     createCacheClusterResponse_httpStatus,
@@ -131,6 +133,7 @@ module Amazonka.ElastiCache.Lens
     createReplicationGroup_authToken,
     createReplicationGroup_logDeliveryConfigurations,
     createReplicationGroup_atRestEncryptionEnabled,
+    createReplicationGroup_ipDiscovery,
     createReplicationGroup_replicasPerNodeGroup,
     createReplicationGroup_cacheNodeType,
     createReplicationGroup_cacheParameterGroupName,
@@ -150,6 +153,7 @@ module Amazonka.ElastiCache.Lens
     createReplicationGroup_numNodeGroups,
     createReplicationGroup_multiAZEnabled,
     createReplicationGroup_engineVersion,
+    createReplicationGroup_networkType,
     createReplicationGroup_replicationGroupId,
     createReplicationGroup_replicationGroupDescription,
     createReplicationGroupResponse_replicationGroup,
@@ -167,6 +171,7 @@ module Amazonka.ElastiCache.Lens
     -- ** CreateUser
     createUser_tags,
     createUser_passwords,
+    createUser_authenticationMode,
     createUser_noPasswordRequired,
     createUser_userId,
     createUser_userName,
@@ -489,6 +494,7 @@ module Amazonka.ElastiCache.Lens
     modifyCacheCluster_applyImmediately,
     modifyCacheCluster_authToken,
     modifyCacheCluster_logDeliveryConfigurations,
+    modifyCacheCluster_ipDiscovery,
     modifyCacheCluster_numCacheNodes,
     modifyCacheCluster_cacheNodeType,
     modifyCacheCluster_cacheParameterGroupName,
@@ -538,6 +544,7 @@ module Amazonka.ElastiCache.Lens
     modifyReplicationGroup_authToken,
     modifyReplicationGroup_snapshottingClusterId,
     modifyReplicationGroup_logDeliveryConfigurations,
+    modifyReplicationGroup_ipDiscovery,
     modifyReplicationGroup_cacheNodeType,
     modifyReplicationGroup_cacheParameterGroupName,
     modifyReplicationGroup_notificationTopicArn,
@@ -571,6 +578,7 @@ module Amazonka.ElastiCache.Lens
     modifyUser_accessString,
     modifyUser_passwords,
     modifyUser_appendAccessString,
+    modifyUser_authenticationMode,
     modifyUser_noPasswordRequired,
     modifyUser_userId,
     user_accessString,
@@ -652,6 +660,10 @@ module Amazonka.ElastiCache.Lens
     authentication_type,
     authentication_passwordCount,
 
+    -- ** AuthenticationMode
+    authenticationMode_passwords,
+    authenticationMode_type,
+
     -- ** AvailabilityZone
     availabilityZone_name,
 
@@ -666,6 +678,7 @@ module Amazonka.ElastiCache.Lens
     cacheCluster_logDeliveryConfigurations,
     cacheCluster_cacheClusterCreateTime,
     cacheCluster_atRestEncryptionEnabled,
+    cacheCluster_ipDiscovery,
     cacheCluster_numCacheNodes,
     cacheCluster_notificationConfiguration,
     cacheCluster_cacheNodeType,
@@ -684,6 +697,7 @@ module Amazonka.ElastiCache.Lens
     cacheCluster_authTokenLastModifiedDate,
     cacheCluster_replicationGroupId,
     cacheCluster_engineVersion,
+    cacheCluster_networkType,
     cacheCluster_cacheSecurityGroups,
     cacheCluster_configurationEndpoint,
 
@@ -761,6 +775,7 @@ module Amazonka.ElastiCache.Lens
     cacheSubnetGroup_arn,
     cacheSubnetGroup_cacheSubnetGroupDescription,
     cacheSubnetGroup_vpcId,
+    cacheSubnetGroup_supportedNetworkTypes,
 
     -- ** CloudWatchLogsDestinationDetails
     cloudWatchLogsDestinationDetails_logGroup,
@@ -961,6 +976,7 @@ module Amazonka.ElastiCache.Lens
     replicationGroup_snapshottingClusterId,
     replicationGroup_logDeliveryConfigurations,
     replicationGroup_atRestEncryptionEnabled,
+    replicationGroup_ipDiscovery,
     replicationGroup_status,
     replicationGroup_cacheNodeType,
     replicationGroup_description,
@@ -975,6 +991,7 @@ module Amazonka.ElastiCache.Lens
     replicationGroup_authTokenLastModifiedDate,
     replicationGroup_replicationGroupId,
     replicationGroup_memberClusters,
+    replicationGroup_networkType,
     replicationGroup_multiAZ,
     replicationGroup_configurationEndpoint,
 
@@ -1073,6 +1090,7 @@ module Amazonka.ElastiCache.Lens
     subnet_subnetOutpost,
     subnet_subnetIdentifier,
     subnet_subnetAvailabilityZone,
+    subnet_supportedNetworkTypes,
 
     -- ** SubnetOutpost
     subnetOutpost_subnetOutpostArn,
@@ -1215,6 +1233,7 @@ import Amazonka.ElastiCache.RevokeCacheSecurityGroupIngress
 import Amazonka.ElastiCache.StartMigration
 import Amazonka.ElastiCache.TestFailover
 import Amazonka.ElastiCache.Types.Authentication
+import Amazonka.ElastiCache.Types.AuthenticationMode
 import Amazonka.ElastiCache.Types.AvailabilityZone
 import Amazonka.ElastiCache.Types.CacheCluster
 import Amazonka.ElastiCache.Types.CacheEngineVersion

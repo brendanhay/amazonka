@@ -21,7 +21,7 @@ module Amazonka.ConnectCases.Types.FieldGroup where
 
 import Amazonka.ConnectCases.Types.FieldItem
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for a group of fields and associated properties.

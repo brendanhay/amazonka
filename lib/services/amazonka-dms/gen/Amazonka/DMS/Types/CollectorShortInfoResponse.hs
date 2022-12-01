@@ -20,7 +20,7 @@
 module Amazonka.DMS.Types.CollectorShortInfoResponse where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Briefly describes a Fleet Advisor collector.

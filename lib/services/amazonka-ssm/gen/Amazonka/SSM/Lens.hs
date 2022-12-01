@@ -116,6 +116,7 @@ module Amazonka.SSM.Lens
     createOpsItem_severity,
     createOpsItem_plannedStartTime,
     createOpsItem_plannedEndTime,
+    createOpsItem_accountId,
     createOpsItem_priority,
     createOpsItem_opsItemType,
     createOpsItem_category,
@@ -126,6 +127,7 @@ module Amazonka.SSM.Lens
     createOpsItem_description,
     createOpsItem_source,
     createOpsItem_title,
+    createOpsItemResponse_opsItemArn,
     createOpsItemResponse_opsItemId,
     createOpsItemResponse_httpStatus,
 
@@ -215,6 +217,12 @@ module Amazonka.SSM.Lens
     deleteResourceDataSync_syncType,
     deleteResourceDataSync_syncName,
     deleteResourceDataSyncResponse_httpStatus,
+
+    -- ** DeleteResourcePolicy
+    deleteResourcePolicy_resourceArn,
+    deleteResourcePolicy_policyId,
+    deleteResourcePolicy_policyHash,
+    deleteResourcePolicyResponse_httpStatus,
 
     -- ** DeregisterManagedInstance
     deregisterManagedInstance_instanceId,
@@ -721,6 +729,7 @@ module Amazonka.SSM.Lens
     getMaintenanceWindowTaskResponse_httpStatus,
 
     -- ** GetOpsItem
+    getOpsItem_opsItemArn,
     getOpsItem_opsItemId,
     getOpsItemResponse_opsItem,
     getOpsItemResponse_httpStatus,
@@ -804,6 +813,14 @@ module Amazonka.SSM.Lens
     getPatchBaselineForPatchGroupResponse_baselineId,
     getPatchBaselineForPatchGroupResponse_patchGroup,
     getPatchBaselineForPatchGroupResponse_httpStatus,
+
+    -- ** GetResourcePolicies
+    getResourcePolicies_nextToken,
+    getResourcePolicies_maxResults,
+    getResourcePolicies_resourceArn,
+    getResourcePoliciesResponse_nextToken,
+    getResourcePoliciesResponse_policies,
+    getResourcePoliciesResponse_httpStatus,
 
     -- ** GetServiceSetting
     getServiceSetting_settingId,
@@ -1003,6 +1020,15 @@ module Amazonka.SSM.Lens
     putParameterResponse_tier,
     putParameterResponse_httpStatus,
     putParameterResponse_version,
+
+    -- ** PutResourcePolicy
+    putResourcePolicy_policyId,
+    putResourcePolicy_policyHash,
+    putResourcePolicy_resourceArn,
+    putResourcePolicy_policy,
+    putResourcePolicyResponse_policyId,
+    putResourcePolicyResponse_policyHash,
+    putResourcePolicyResponse_httpStatus,
 
     -- ** RegisterDefaultPatchBaseline
     registerDefaultPatchBaseline_baselineId,
@@ -1297,6 +1323,7 @@ module Amazonka.SSM.Lens
 
     -- ** UpdateOpsItem
     updateOpsItem_notifications,
+    updateOpsItem_opsItemArn,
     updateOpsItem_severity,
     updateOpsItem_plannedStartTime,
     updateOpsItem_operationalDataToDelete,
@@ -1844,6 +1871,11 @@ module Amazonka.SSM.Lens
     failureDetails_details,
     failureDetails_failureStage,
 
+    -- ** GetResourcePoliciesResponseEntry
+    getResourcePoliciesResponseEntry_policyId,
+    getResourcePoliciesResponseEntry_policy,
+    getResourcePoliciesResponseEntry_policyHash,
+
     -- ** InstanceAggregatedAssociationOverview
     instanceAggregatedAssociationOverview_detailedStatus,
     instanceAggregatedAssociationOverview_instanceAssociationStatusAggregatedCount,
@@ -2153,6 +2185,7 @@ module Amazonka.SSM.Lens
 
     -- ** OpsItem
     opsItem_notifications,
+    opsItem_opsItemArn,
     opsItem_severity,
     opsItem_createdTime,
     opsItem_plannedStartTime,
@@ -2547,6 +2580,7 @@ module Amazonka.SSM.Lens
     stepExecution_maxAttempts,
     stepExecution_inputs,
     stepExecution_isCritical,
+    stepExecution_triggeredAlarms,
     stepExecution_stepStatus,
     stepExecution_responseCode,
     stepExecution_executionEndTime,
@@ -2564,6 +2598,7 @@ module Amazonka.SSM.Lens
     target_values,
 
     -- ** TargetLocation
+    targetLocation_targetLocationAlarmConfiguration,
     targetLocation_regions,
     targetLocation_targetLocationMaxConcurrency,
     targetLocation_accounts,
@@ -2595,6 +2630,7 @@ import Amazonka.SSM.DeleteParameter
 import Amazonka.SSM.DeleteParameters
 import Amazonka.SSM.DeletePatchBaseline
 import Amazonka.SSM.DeleteResourceDataSync
+import Amazonka.SSM.DeleteResourcePolicy
 import Amazonka.SSM.DeregisterManagedInstance
 import Amazonka.SSM.DeregisterPatchBaselineForPatchGroup
 import Amazonka.SSM.DeregisterTargetFromMaintenanceWindow
@@ -2655,6 +2691,7 @@ import Amazonka.SSM.GetParameters
 import Amazonka.SSM.GetParametersByPath
 import Amazonka.SSM.GetPatchBaseline
 import Amazonka.SSM.GetPatchBaselineForPatchGroup
+import Amazonka.SSM.GetResourcePolicies
 import Amazonka.SSM.GetServiceSetting
 import Amazonka.SSM.LabelParameterVersion
 import Amazonka.SSM.ListAssociationVersions
@@ -2677,6 +2714,7 @@ import Amazonka.SSM.ModifyDocumentPermission
 import Amazonka.SSM.PutComplianceItems
 import Amazonka.SSM.PutInventory
 import Amazonka.SSM.PutParameter
+import Amazonka.SSM.PutResourcePolicy
 import Amazonka.SSM.RegisterDefaultPatchBaseline
 import Amazonka.SSM.RegisterPatchBaselineForPatchGroup
 import Amazonka.SSM.RegisterTargetWithMaintenanceWindow
@@ -2742,6 +2780,7 @@ import Amazonka.SSM.Types.DocumentVersionInfo
 import Amazonka.SSM.Types.EffectivePatch
 import Amazonka.SSM.Types.FailedCreateAssociation
 import Amazonka.SSM.Types.FailureDetails
+import Amazonka.SSM.Types.GetResourcePoliciesResponseEntry
 import Amazonka.SSM.Types.InstanceAggregatedAssociationOverview
 import Amazonka.SSM.Types.InstanceAssociation
 import Amazonka.SSM.Types.InstanceAssociationOutputLocation

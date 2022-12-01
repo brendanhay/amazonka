@@ -21,7 +21,7 @@ module Amazonka.AppFlow.Types.CustomConnectorProfileProperties where
 
 import Amazonka.AppFlow.Types.OAuth2Properties
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The profile properties required by the custom connector.

@@ -20,7 +20,7 @@
 module Amazonka.CodeBuild.Types.GitSubmodulesConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the Git submodules configuration for an CodeBuild

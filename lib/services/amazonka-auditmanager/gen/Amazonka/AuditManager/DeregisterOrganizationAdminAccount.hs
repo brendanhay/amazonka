@@ -30,6 +30,24 @@
 -- Manager will stop collecting and attaching evidence to that delegated
 -- administrator account moving forward.
 --
+-- Keep in mind the following cleanup task if you use evidence finder:
+--
+-- Before you use your management account to remove a delegated
+-- administrator, make sure that the current delegated administrator
+-- account signs in to Audit Manager and disables evidence finder first.
+-- Disabling evidence finder automatically deletes the event data store
+-- that was created in their account when they enabled evidence finder. If
+-- this task isn’t completed, the event data store remains in their
+-- account. In this case, we recommend that the original delegated
+-- administrator goes to CloudTrail Lake and manually
+-- <https://docs.aws.amazon.com/userguide/awscloudtrail/latest/userguide/query-eds-disable-termination.html deletes the event data store>.
+--
+-- This cleanup task is necessary to ensure that you don\'t end up with
+-- multiple event data stores. Audit Manager will ignore an unused event
+-- data store after you remove or change a delegated administrator account.
+-- However, the unused event data store continues to incur storage costs
+-- from CloudTrail Lake if you don\'t delete it.
+--
 -- When you deregister a delegated administrator account for Audit Manager,
 -- the data for that account isn’t deleted. If you want to delete resource
 -- data for a delegated administrator account, you must perform that task
@@ -86,7 +104,7 @@ where
 
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,8 +144,8 @@ instance
   type
     AWSResponse DeregisterOrganizationAdminAccount =
       DeregisterOrganizationAdminAccountResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

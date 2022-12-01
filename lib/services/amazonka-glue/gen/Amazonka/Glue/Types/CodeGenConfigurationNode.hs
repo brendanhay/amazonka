@@ -20,6 +20,7 @@
 module Amazonka.Glue.Types.CodeGenConfigurationNode where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.Aggregate
 import Amazonka.Glue.Types.ApplyMapping
 import Amazonka.Glue.Types.AthenaConnectorSource
@@ -70,7 +71,6 @@ import Amazonka.Glue.Types.SparkSQL
 import Amazonka.Glue.Types.Spigot
 import Amazonka.Glue.Types.SplitFields
 import Amazonka.Glue.Types.Union
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | @CodeGenConfigurationNode@ enumerates all valid Node types. One and only

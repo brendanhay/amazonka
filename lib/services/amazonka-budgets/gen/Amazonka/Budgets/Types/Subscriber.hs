@@ -21,7 +21,7 @@ module Amazonka.Budgets.Types.Subscriber where
 
 import Amazonka.Budgets.Types.SubscriptionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The subscriber to a budget notification. The subscriber consists of a

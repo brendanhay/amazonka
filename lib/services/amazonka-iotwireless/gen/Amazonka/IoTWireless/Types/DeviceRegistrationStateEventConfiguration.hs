@@ -20,9 +20,9 @@
 module Amazonka.IoTWireless.Types.DeviceRegistrationStateEventConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.EventNotificationTopicStatus
 import Amazonka.IoTWireless.Types.SidewalkEventNotificationConfigurations
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Device registration state event configuration object for enabling and

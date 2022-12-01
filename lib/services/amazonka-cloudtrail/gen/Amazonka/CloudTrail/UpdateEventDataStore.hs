@@ -39,6 +39,7 @@ module Amazonka.CloudTrail.UpdateEventDataStore
     updateEventDataStore_advancedEventSelectors,
     updateEventDataStore_multiRegionEnabled,
     updateEventDataStore_retentionPeriod,
+    updateEventDataStore_kmsKeyId,
     updateEventDataStore_organizationEnabled,
     updateEventDataStore_terminationProtectionEnabled,
     updateEventDataStore_eventDataStore,
@@ -56,6 +57,7 @@ module Amazonka.CloudTrail.UpdateEventDataStore
     updateEventDataStoreResponse_updatedTimestamp,
     updateEventDataStoreResponse_status,
     updateEventDataStoreResponse_retentionPeriod,
+    updateEventDataStoreResponse_kmsKeyId,
     updateEventDataStoreResponse_organizationEnabled,
     updateEventDataStoreResponse_terminationProtectionEnabled,
     updateEventDataStoreResponse_httpStatus,
@@ -64,7 +66,7 @@ where
 
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,6 +84,34 @@ data UpdateEventDataStore = UpdateEventDataStore'
     multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The retention period, in days.
     retentionPeriod :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies the KMS key ID to use to encrypt the events delivered by
+    -- CloudTrail. The value can be an alias name prefixed by @alias\/@, a
+    -- fully specified ARN to an alias, a fully specified ARN to a key, or a
+    -- globally unique identifier.
+    --
+    -- Disabling or deleting the KMS key, or removing CloudTrail permissions on
+    -- the key, prevents CloudTrail from logging events to the event data
+    -- store, and prevents users from querying the data in the event data store
+    -- that was encrypted with the key. After you associate an event data store
+    -- with a KMS key, the KMS key cannot be removed or changed. Before you
+    -- disable or delete a KMS key that you are using with an event data store,
+    -- delete or back up your event data store.
+    --
+    -- CloudTrail also supports KMS multi-Region keys. For more information
+    -- about multi-Region keys, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
+    -- in the /Key Management Service Developer Guide/.
+    --
+    -- Examples:
+    --
+    -- -   @alias\/MyAliasName@
+    --
+    -- -   @arn:aws:kms:us-east-2:123456789012:alias\/MyAliasName@
+    --
+    -- -   @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
+    --
+    -- -   @12345678-1234-1234-1234-123456789012@
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether an event data store collects events logged for an
     -- organization in Organizations.
     organizationEnabled :: Prelude.Maybe Prelude.Bool,
@@ -113,6 +143,34 @@ data UpdateEventDataStore = UpdateEventDataStore'
 --
 -- 'retentionPeriod', 'updateEventDataStore_retentionPeriod' - The retention period, in days.
 --
+-- 'kmsKeyId', 'updateEventDataStore_kmsKeyId' - Specifies the KMS key ID to use to encrypt the events delivered by
+-- CloudTrail. The value can be an alias name prefixed by @alias\/@, a
+-- fully specified ARN to an alias, a fully specified ARN to a key, or a
+-- globally unique identifier.
+--
+-- Disabling or deleting the KMS key, or removing CloudTrail permissions on
+-- the key, prevents CloudTrail from logging events to the event data
+-- store, and prevents users from querying the data in the event data store
+-- that was encrypted with the key. After you associate an event data store
+-- with a KMS key, the KMS key cannot be removed or changed. Before you
+-- disable or delete a KMS key that you are using with an event data store,
+-- delete or back up your event data store.
+--
+-- CloudTrail also supports KMS multi-Region keys. For more information
+-- about multi-Region keys, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
+-- in the /Key Management Service Developer Guide/.
+--
+-- Examples:
+--
+-- -   @alias\/MyAliasName@
+--
+-- -   @arn:aws:kms:us-east-2:123456789012:alias\/MyAliasName@
+--
+-- -   @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
+--
+-- -   @12345678-1234-1234-1234-123456789012@
+--
 -- 'organizationEnabled', 'updateEventDataStore_organizationEnabled' - Specifies whether an event data store collects events logged for an
 -- organization in Organizations.
 --
@@ -131,6 +189,7 @@ newUpdateEventDataStore pEventDataStore_ =
       advancedEventSelectors = Prelude.Nothing,
       multiRegionEnabled = Prelude.Nothing,
       retentionPeriod = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       organizationEnabled = Prelude.Nothing,
       terminationProtectionEnabled = Prelude.Nothing,
       eventDataStore = pEventDataStore_
@@ -155,6 +214,36 @@ updateEventDataStore_multiRegionEnabled = Lens.lens (\UpdateEventDataStore' {mul
 updateEventDataStore_retentionPeriod :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prelude.Natural)
 updateEventDataStore_retentionPeriod = Lens.lens (\UpdateEventDataStore' {retentionPeriod} -> retentionPeriod) (\s@UpdateEventDataStore' {} a -> s {retentionPeriod = a} :: UpdateEventDataStore)
 
+-- | Specifies the KMS key ID to use to encrypt the events delivered by
+-- CloudTrail. The value can be an alias name prefixed by @alias\/@, a
+-- fully specified ARN to an alias, a fully specified ARN to a key, or a
+-- globally unique identifier.
+--
+-- Disabling or deleting the KMS key, or removing CloudTrail permissions on
+-- the key, prevents CloudTrail from logging events to the event data
+-- store, and prevents users from querying the data in the event data store
+-- that was encrypted with the key. After you associate an event data store
+-- with a KMS key, the KMS key cannot be removed or changed. Before you
+-- disable or delete a KMS key that you are using with an event data store,
+-- delete or back up your event data store.
+--
+-- CloudTrail also supports KMS multi-Region keys. For more information
+-- about multi-Region keys, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
+-- in the /Key Management Service Developer Guide/.
+--
+-- Examples:
+--
+-- -   @alias\/MyAliasName@
+--
+-- -   @arn:aws:kms:us-east-2:123456789012:alias\/MyAliasName@
+--
+-- -   @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
+--
+-- -   @12345678-1234-1234-1234-123456789012@
+updateEventDataStore_kmsKeyId :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prelude.Text)
+updateEventDataStore_kmsKeyId = Lens.lens (\UpdateEventDataStore' {kmsKeyId} -> kmsKeyId) (\s@UpdateEventDataStore' {} a -> s {kmsKeyId = a} :: UpdateEventDataStore)
+
 -- | Specifies whether an event data store collects events logged for an
 -- organization in Organizations.
 updateEventDataStore_organizationEnabled :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prelude.Bool)
@@ -174,8 +263,8 @@ instance Core.AWSRequest UpdateEventDataStore where
   type
     AWSResponse UpdateEventDataStore =
       UpdateEventDataStoreResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -190,6 +279,7 @@ instance Core.AWSRequest UpdateEventDataStore where
             Prelude.<*> (x Core..?> "UpdatedTimestamp")
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "RetentionPeriod")
+            Prelude.<*> (x Core..?> "KmsKeyId")
             Prelude.<*> (x Core..?> "OrganizationEnabled")
             Prelude.<*> (x Core..?> "TerminationProtectionEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -201,6 +291,7 @@ instance Prelude.Hashable UpdateEventDataStore where
       `Prelude.hashWithSalt` advancedEventSelectors
       `Prelude.hashWithSalt` multiRegionEnabled
       `Prelude.hashWithSalt` retentionPeriod
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` organizationEnabled
       `Prelude.hashWithSalt` terminationProtectionEnabled
       `Prelude.hashWithSalt` eventDataStore
@@ -211,6 +302,7 @@ instance Prelude.NFData UpdateEventDataStore where
       `Prelude.seq` Prelude.rnf advancedEventSelectors
       `Prelude.seq` Prelude.rnf multiRegionEnabled
       `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf organizationEnabled
       `Prelude.seq` Prelude.rnf terminationProtectionEnabled
       `Prelude.seq` Prelude.rnf eventDataStore
@@ -241,6 +333,7 @@ instance Core.ToJSON UpdateEventDataStore where
               Prelude.<$> multiRegionEnabled,
             ("RetentionPeriod" Core..=)
               Prelude.<$> retentionPeriod,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("OrganizationEnabled" Core..=)
               Prelude.<$> organizationEnabled,
             ("TerminationProtectionEnabled" Core..=)
@@ -278,6 +371,12 @@ data UpdateEventDataStoreResponse = UpdateEventDataStoreResponse'
     status :: Prelude.Maybe EventDataStoreStatus,
     -- | The retention period, in days.
     retentionPeriod :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies the KMS key ID that encrypts the events delivered by
+    -- CloudTrail. The value is a fully specified ARN to a KMS key in the
+    -- following format.
+    --
+    -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether an event data store is collecting logged events for an
     -- organization in Organizations.
     organizationEnabled :: Prelude.Maybe Prelude.Bool,
@@ -317,6 +416,12 @@ data UpdateEventDataStoreResponse = UpdateEventDataStoreResponse'
 --
 -- 'retentionPeriod', 'updateEventDataStoreResponse_retentionPeriod' - The retention period, in days.
 --
+-- 'kmsKeyId', 'updateEventDataStoreResponse_kmsKeyId' - Specifies the KMS key ID that encrypts the events delivered by
+-- CloudTrail. The value is a fully specified ARN to a KMS key in the
+-- following format.
+--
+-- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
+--
 -- 'organizationEnabled', 'updateEventDataStoreResponse_organizationEnabled' - Indicates whether an event data store is collecting logged events for an
 -- organization in Organizations.
 --
@@ -339,6 +444,7 @@ newUpdateEventDataStoreResponse pHttpStatus_ =
       updatedTimestamp = Prelude.Nothing,
       status = Prelude.Nothing,
       retentionPeriod = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       organizationEnabled = Prelude.Nothing,
       terminationProtectionEnabled =
         Prelude.Nothing,
@@ -381,6 +487,14 @@ updateEventDataStoreResponse_status = Lens.lens (\UpdateEventDataStoreResponse' 
 updateEventDataStoreResponse_retentionPeriod :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Natural)
 updateEventDataStoreResponse_retentionPeriod = Lens.lens (\UpdateEventDataStoreResponse' {retentionPeriod} -> retentionPeriod) (\s@UpdateEventDataStoreResponse' {} a -> s {retentionPeriod = a} :: UpdateEventDataStoreResponse)
 
+-- | Specifies the KMS key ID that encrypts the events delivered by
+-- CloudTrail. The value is a fully specified ARN to a KMS key in the
+-- following format.
+--
+-- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
+updateEventDataStoreResponse_kmsKeyId :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Text)
+updateEventDataStoreResponse_kmsKeyId = Lens.lens (\UpdateEventDataStoreResponse' {kmsKeyId} -> kmsKeyId) (\s@UpdateEventDataStoreResponse' {} a -> s {kmsKeyId = a} :: UpdateEventDataStoreResponse)
+
 -- | Indicates whether an event data store is collecting logged events for an
 -- organization in Organizations.
 updateEventDataStoreResponse_organizationEnabled :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Bool)
@@ -405,6 +519,7 @@ instance Prelude.NFData UpdateEventDataStoreResponse where
       `Prelude.seq` Prelude.rnf updatedTimestamp
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf organizationEnabled
       `Prelude.seq` Prelude.rnf terminationProtectionEnabled
       `Prelude.seq` Prelude.rnf httpStatus

@@ -20,7 +20,7 @@
 module Amazonka.EMRServerless.Types.S3MonitoringConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon S3 configuration for monitoring log publishing. You can

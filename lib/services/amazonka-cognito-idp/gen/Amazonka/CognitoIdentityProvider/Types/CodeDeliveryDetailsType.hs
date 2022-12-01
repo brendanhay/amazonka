@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.CodeDeliveryDetailsType where
 
 import Amazonka.CognitoIdentityProvider.Types.DeliveryMediumType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The delivery details for an email or SMS message that Amazon Cognito

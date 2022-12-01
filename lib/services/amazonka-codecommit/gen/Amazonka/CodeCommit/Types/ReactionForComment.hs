@@ -21,7 +21,7 @@ module Amazonka.CodeCommit.Types.ReactionForComment where
 
 import Amazonka.CodeCommit.Types.ReactionValueFormats
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the reaction values provided by users on a comment.

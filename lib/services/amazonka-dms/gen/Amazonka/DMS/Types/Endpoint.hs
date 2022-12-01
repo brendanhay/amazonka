@@ -20,6 +20,7 @@
 module Amazonka.DMS.Types.Endpoint where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.DmsSslModeValue
 import Amazonka.DMS.Types.DmsTransferSettings
 import Amazonka.DMS.Types.DocDbSettings
@@ -40,7 +41,6 @@ import Amazonka.DMS.Types.RedshiftSettings
 import Amazonka.DMS.Types.ReplicationEndpointTypeValue
 import Amazonka.DMS.Types.S3Settings
 import Amazonka.DMS.Types.SybaseSettings
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an endpoint of a database instance in response to operations
@@ -65,13 +65,13 @@ data Endpoint = Endpoint'
     externalTableDefinition :: Prelude.Maybe Prelude.Text,
     -- | The database engine name. Valid values, depending on the EndpointType,
     -- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
-    -- @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@, @\"redshift\"@,
-    -- @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
+    -- @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@, @\"s3\"@,
+    -- @\"db2\"@, @\"db2-zos\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
     -- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
-    -- @\"documentdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
+    -- @\"documentdb\"@, @\"sqlserver\"@, @\"neptune\"@, and @\"babelfish\"@.
     engineName :: Prelude.Maybe Prelude.Text,
     -- | The expanded name for the engine name. For example, if the @EngineName@
-    -- parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
+    -- parameter is \"aurora\", this value would be \"Amazon Aurora MySQL\".
     engineDisplayName :: Prelude.Maybe Prelude.Text,
     -- | The settings for the MySQL source and target endpoint. For more
     -- information, see the @MySQLSettings@ structure.
@@ -181,13 +181,13 @@ data Endpoint = Endpoint'
 --
 -- 'engineName', 'endpoint_engineName' - The database engine name. Valid values, depending on the EndpointType,
 -- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
--- @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@, @\"redshift\"@,
--- @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
+-- @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@, @\"s3\"@,
+-- @\"db2\"@, @\"db2-zos\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
 -- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
--- @\"documentdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
+-- @\"documentdb\"@, @\"sqlserver\"@, @\"neptune\"@, and @\"babelfish\"@.
 --
 -- 'engineDisplayName', 'endpoint_engineDisplayName' - The expanded name for the engine name. For example, if the @EngineName@
--- parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
+-- parameter is \"aurora\", this value would be \"Amazon Aurora MySQL\".
 --
 -- 'mySQLSettings', 'endpoint_mySQLSettings' - The settings for the MySQL source and target endpoint. For more
 -- information, see the @MySQLSettings@ structure.
@@ -335,15 +335,15 @@ endpoint_externalTableDefinition = Lens.lens (\Endpoint' {externalTableDefinitio
 
 -- | The database engine name. Valid values, depending on the EndpointType,
 -- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
--- @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@, @\"redshift\"@,
--- @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
+-- @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@, @\"s3\"@,
+-- @\"db2\"@, @\"db2-zos\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
 -- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
--- @\"documentdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
+-- @\"documentdb\"@, @\"sqlserver\"@, @\"neptune\"@, and @\"babelfish\"@.
 endpoint_engineName :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_engineName = Lens.lens (\Endpoint' {engineName} -> engineName) (\s@Endpoint' {} a -> s {engineName = a} :: Endpoint)
 
 -- | The expanded name for the engine name. For example, if the @EngineName@
--- parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
+-- parameter is \"aurora\", this value would be \"Amazon Aurora MySQL\".
 endpoint_engineDisplayName :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_engineDisplayName = Lens.lens (\Endpoint' {engineDisplayName} -> engineDisplayName) (\s@Endpoint' {} a -> s {engineDisplayName = a} :: Endpoint)
 

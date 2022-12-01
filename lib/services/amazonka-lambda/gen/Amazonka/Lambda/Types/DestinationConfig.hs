@@ -20,9 +20,9 @@
 module Amazonka.Lambda.Types.DestinationConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types.OnFailure
 import Amazonka.Lambda.Types.OnSuccess
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration object that specifies the destination of an event after

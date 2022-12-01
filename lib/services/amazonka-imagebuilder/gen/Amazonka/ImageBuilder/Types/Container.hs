@@ -20,7 +20,7 @@
 module Amazonka.ImageBuilder.Types.Container where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A container encapsulates the runtime environment for an application.

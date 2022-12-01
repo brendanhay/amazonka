@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.MultiplexProgram where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.MultiplexProgramPacketIdentifiersMap
 import Amazonka.MediaLive.Types.MultiplexProgramPipelineDetail
 import Amazonka.MediaLive.Types.MultiplexProgramSettings

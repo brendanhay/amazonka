@@ -20,7 +20,7 @@
 module Amazonka.PersonalizeEvents.Types.Item where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents item metadata added to an Items dataset using the @PutItems@
@@ -38,11 +38,11 @@ data Item = Item'
     -- categorical string data, to include multiple categories for a single
     -- item, separate each category with a pipe separator (@|@). For example,
     -- @\\\"Horror|Action\\\"@.
-    properties :: Prelude.Maybe Prelude.Text,
+    properties :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID associated with the item.
     itemId :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Item' with all optional fields omitted.
@@ -83,7 +83,7 @@ newItem pItemId_ =
 -- item, separate each category with a pipe separator (@|@). For example,
 -- @\\\"Horror|Action\\\"@.
 item_properties :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
-item_properties = Lens.lens (\Item' {properties} -> properties) (\s@Item' {} a -> s {properties = a} :: Item)
+item_properties = Lens.lens (\Item' {properties} -> properties) (\s@Item' {} a -> s {properties = a} :: Item) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID associated with the item.
 item_itemId :: Lens.Lens' Item Prelude.Text

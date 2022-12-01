@@ -44,8 +44,8 @@ module Amazonka.Evidently.DeleteLaunch
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Evidently.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,8 +92,8 @@ deleteLaunch_project = Lens.lens (\DeleteLaunch' {project} -> project) (\s@Delet
 
 instance Core.AWSRequest DeleteLaunch where
   type AWSResponse DeleteLaunch = DeleteLaunchResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

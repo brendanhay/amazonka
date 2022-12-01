@@ -20,8 +20,8 @@
 module Amazonka.Glacier.Types.InputSerialization where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glacier.Types.CSVInput
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes how the archive is serialized.

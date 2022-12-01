@@ -24,7 +24,7 @@ import Amazonka.AuditManager.Types.ControlSetStatus
 import Amazonka.AuditManager.Types.Delegation
 import Amazonka.AuditManager.Types.Role
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a set of controls in an Audit Manager assessment.

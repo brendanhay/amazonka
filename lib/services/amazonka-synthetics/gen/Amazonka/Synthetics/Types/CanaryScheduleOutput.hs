@@ -20,7 +20,7 @@
 module Amazonka.Synthetics.Types.CanaryScheduleOutput where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | How long, in seconds, for the canary to continue making regular runs

@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.SearchResourcesTagCriterion where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.SearchResourcesComparator
 import Amazonka.MacieV2.Types.SearchResourcesTagCriterionPair
 import qualified Amazonka.Prelude as Prelude

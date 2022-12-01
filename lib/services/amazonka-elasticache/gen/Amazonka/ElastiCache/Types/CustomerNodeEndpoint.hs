@@ -20,7 +20,7 @@
 module Amazonka.ElastiCache.Types.CustomerNodeEndpoint where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The endpoint from which data should be migrated.

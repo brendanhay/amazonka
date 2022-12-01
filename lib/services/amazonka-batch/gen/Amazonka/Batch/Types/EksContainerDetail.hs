@@ -24,7 +24,7 @@ import Amazonka.Batch.Types.EksContainerResourceRequirements
 import Amazonka.Batch.Types.EksContainerSecurityContext
 import Amazonka.Batch.Types.EksContainerVolumeMount
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details for container properties that are returned by @DescribeJobs@

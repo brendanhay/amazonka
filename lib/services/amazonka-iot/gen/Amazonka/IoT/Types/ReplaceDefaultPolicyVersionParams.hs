@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.ReplaceDefaultPolicyVersionParams where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.PolicyTemplateName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Parameters to define a mitigation action that adds a blank policy to

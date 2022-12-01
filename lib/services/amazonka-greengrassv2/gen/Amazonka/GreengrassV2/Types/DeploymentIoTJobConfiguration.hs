@@ -20,10 +20,10 @@
 module Amazonka.GreengrassV2.Types.DeploymentIoTJobConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types.IoTJobAbortConfig
 import Amazonka.GreengrassV2.Types.IoTJobExecutionsRolloutConfig
 import Amazonka.GreengrassV2.Types.IoTJobTimeoutConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an IoT job configuration.

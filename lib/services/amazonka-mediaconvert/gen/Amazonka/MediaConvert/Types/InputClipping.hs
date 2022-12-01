@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.InputClipping where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | To transcode only portions of your input, include one input clip for

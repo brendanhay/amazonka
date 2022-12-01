@@ -20,7 +20,7 @@
 module Amazonka.MechanicalTurk.Types.WorkerBlock where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The WorkerBlock data structure represents a Worker who has been blocked.

@@ -54,7 +54,7 @@ module Amazonka.Redshift.CancelResize
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -95,8 +95,8 @@ cancelResize_clusterIdentifier = Lens.lens (\CancelResize' {clusterIdentifier} -
 
 instance Core.AWSRequest CancelResize where
   type AWSResponse CancelResize = ResizeProgressMessage
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "CancelResizeResult"

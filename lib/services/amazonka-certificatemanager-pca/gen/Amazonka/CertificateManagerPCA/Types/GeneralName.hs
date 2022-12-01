@@ -23,7 +23,7 @@ import Amazonka.CertificateManagerPCA.Types.ASN1Subject
 import Amazonka.CertificateManagerPCA.Types.EdiPartyName
 import Amazonka.CertificateManagerPCA.Types.OtherName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an ASN.1 X.400 @GeneralName@ as defined in

@@ -20,7 +20,7 @@
 module Amazonka.CognitoIdentityProvider.Types.EventContextDataType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the user context data captured at the time of an event

@@ -45,8 +45,8 @@ module Amazonka.GroundStation.ListGroundStations
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,7 +59,7 @@ data ListGroundStations = ListGroundStations'
     -- ground stations.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of ground stations returned.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Satellite ID to retrieve on-boarded ground stations.
     satelliteId :: Prelude.Maybe Prelude.Text
   }
@@ -94,7 +94,7 @@ listGroundStations_nextToken :: Lens.Lens' ListGroundStations (Prelude.Maybe Pre
 listGroundStations_nextToken = Lens.lens (\ListGroundStations' {nextToken} -> nextToken) (\s@ListGroundStations' {} a -> s {nextToken = a} :: ListGroundStations)
 
 -- | Maximum number of ground stations returned.
-listGroundStations_maxResults :: Lens.Lens' ListGroundStations (Prelude.Maybe Prelude.Int)
+listGroundStations_maxResults :: Lens.Lens' ListGroundStations (Prelude.Maybe Prelude.Natural)
 listGroundStations_maxResults = Lens.lens (\ListGroundStations' {maxResults} -> maxResults) (\s@ListGroundStations' {} a -> s {maxResults = a} :: ListGroundStations)
 
 -- | Satellite ID to retrieve on-boarded ground stations.
@@ -127,8 +127,8 @@ instance Core.AWSRequest ListGroundStations where
   type
     AWSResponse ListGroundStations =
       ListGroundStationsResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

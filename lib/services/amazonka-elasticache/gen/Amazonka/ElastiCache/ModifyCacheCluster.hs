@@ -36,6 +36,7 @@ module Amazonka.ElastiCache.ModifyCacheCluster
     modifyCacheCluster_applyImmediately,
     modifyCacheCluster_authToken,
     modifyCacheCluster_logDeliveryConfigurations,
+    modifyCacheCluster_ipDiscovery,
     modifyCacheCluster_numCacheNodes,
     modifyCacheCluster_cacheNodeType,
     modifyCacheCluster_cacheParameterGroupName,
@@ -61,8 +62,8 @@ module Amazonka.ElastiCache.ModifyCacheCluster
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,6 +130,11 @@ data ModifyCacheCluster = ModifyCacheCluster'
     authToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the destination, format and type of the logs.
     logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfigurationRequest],
+    -- | The network type you choose when modifying a cluster, either @ipv4@ |
+    -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+    -- onward or Memcached engine version 1.6.6 on all instances built on the
+    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    ipDiscovery :: Prelude.Maybe IpDiscovery,
     -- | The number of cache nodes that the cluster should have. If the value for
     -- @NumCacheNodes@ is greater than the sum of the number of current cache
     -- nodes and the number of cache nodes pending creation (which may be
@@ -400,6 +406,11 @@ data ModifyCacheCluster = ModifyCacheCluster'
 --
 -- 'logDeliveryConfigurations', 'modifyCacheCluster_logDeliveryConfigurations' - Specifies the destination, format and type of the logs.
 --
+-- 'ipDiscovery', 'modifyCacheCluster_ipDiscovery' - The network type you choose when modifying a cluster, either @ipv4@ |
+-- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+-- onward or Memcached engine version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+--
 -- 'numCacheNodes', 'modifyCacheCluster_numCacheNodes' - The number of cache nodes that the cluster should have. If the value for
 -- @NumCacheNodes@ is greater than the sum of the number of current cache
 -- nodes and the number of cache nodes pending creation (which may be
@@ -615,6 +626,7 @@ newModifyCacheCluster pCacheClusterId_ =
       applyImmediately = Prelude.Nothing,
       authToken = Prelude.Nothing,
       logDeliveryConfigurations = Prelude.Nothing,
+      ipDiscovery = Prelude.Nothing,
       numCacheNodes = Prelude.Nothing,
       cacheNodeType = Prelude.Nothing,
       cacheParameterGroupName = Prelude.Nothing,
@@ -701,6 +713,13 @@ modifyCacheCluster_authToken = Lens.lens (\ModifyCacheCluster' {authToken} -> au
 -- | Specifies the destination, format and type of the logs.
 modifyCacheCluster_logDeliveryConfigurations :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [LogDeliveryConfigurationRequest])
 modifyCacheCluster_logDeliveryConfigurations = Lens.lens (\ModifyCacheCluster' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@ModifyCacheCluster' {} a -> s {logDeliveryConfigurations = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | The network type you choose when modifying a cluster, either @ipv4@ |
+-- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+-- onward or Memcached engine version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+modifyCacheCluster_ipDiscovery :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe IpDiscovery)
+modifyCacheCluster_ipDiscovery = Lens.lens (\ModifyCacheCluster' {ipDiscovery} -> ipDiscovery) (\s@ModifyCacheCluster' {} a -> s {ipDiscovery = a} :: ModifyCacheCluster)
 
 -- | The number of cache nodes that the cluster should have. If the value for
 -- @NumCacheNodes@ is greater than the sum of the number of current cache
@@ -934,8 +953,8 @@ instance Core.AWSRequest ModifyCacheCluster where
   type
     AWSResponse ModifyCacheCluster =
       ModifyCacheClusterResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "ModifyCacheClusterResult"
@@ -955,6 +974,7 @@ instance Prelude.Hashable ModifyCacheCluster where
       `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` logDeliveryConfigurations
+      `Prelude.hashWithSalt` ipDiscovery
       `Prelude.hashWithSalt` numCacheNodes
       `Prelude.hashWithSalt` cacheNodeType
       `Prelude.hashWithSalt` cacheParameterGroupName
@@ -978,6 +998,7 @@ instance Prelude.NFData ModifyCacheCluster where
       `Prelude.seq` Prelude.rnf applyImmediately
       `Prelude.seq` Prelude.rnf authToken
       `Prelude.seq` Prelude.rnf logDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf ipDiscovery
       `Prelude.seq` Prelude.rnf numCacheNodes
       `Prelude.seq` Prelude.rnf cacheNodeType
       `Prelude.seq` Prelude.rnf cacheParameterGroupName
@@ -989,7 +1010,8 @@ instance Prelude.NFData ModifyCacheCluster where
       `Prelude.seq` Prelude.rnf cacheSecurityGroupNames
       `Prelude.seq` Prelude.rnf
         preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf newAvailabilityZones'
+      `Prelude.seq` Prelude.rnf
+        newAvailabilityZones'
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf cacheClusterId
 
@@ -1027,6 +1049,7 @@ instance Core.ToQuery ModifyCacheCluster where
             ( Core.toQueryList "LogDeliveryConfigurationRequest"
                 Prelude.<$> logDeliveryConfigurations
             ),
+        "IpDiscovery" Core.=: ipDiscovery,
         "NumCacheNodes" Core.=: numCacheNodes,
         "CacheNodeType" Core.=: cacheNodeType,
         "CacheParameterGroupName"

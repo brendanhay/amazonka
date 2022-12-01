@@ -44,8 +44,8 @@ module Amazonka.IotTwinMaker.GetPropertyValueHistory
     getPropertyValueHistory_startTime,
     getPropertyValueHistory_endDateTime,
     getPropertyValueHistory_componentTypeId,
-    getPropertyValueHistory_selectedProperties,
     getPropertyValueHistory_workspaceId,
+    getPropertyValueHistory_selectedProperties,
 
     -- * Destructuring the Response
     GetPropertyValueHistoryResponse (..),
@@ -59,8 +59,8 @@ module Amazonka.IotTwinMaker.GetPropertyValueHistory
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,9 +81,11 @@ data GetPropertyValueHistory = GetPropertyValueHistory'
     --
     -- For more information about the ISO8601 DateTime format, see the data
     -- type
-    -- <https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html PropertyValue>.
+    -- <https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html PropertyValue>.
     endTime :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
+    -- | The maximum number of results to return at one time. The default is 25.
+    --
+    -- Valid Range: Minimum value of 1. Maximum value of 250.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | An object that specifies the interpolation type and the interval over
     -- which to interpolate data.
@@ -94,16 +96,16 @@ data GetPropertyValueHistory = GetPropertyValueHistory'
     --
     -- For more information about the ISO8601 DateTime format, see the data
     -- type
-    -- <https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html PropertyValue>.
+    -- <https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html PropertyValue>.
     startTime :: Prelude.Maybe Prelude.Text,
     -- | The date and time of the latest property value to return.
     endDateTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the component type.
     componentTypeId :: Prelude.Maybe Prelude.Text,
-    -- | A list of properties whose value histories the request retrieves.
-    selectedProperties :: Prelude.NonEmpty Prelude.Text,
     -- | The ID of the workspace.
-    workspaceId :: Prelude.Text
+    workspaceId :: Prelude.Text,
+    -- | A list of properties whose value histories the request retrieves.
+    selectedProperties :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -129,9 +131,11 @@ data GetPropertyValueHistory = GetPropertyValueHistory'
 --
 -- For more information about the ISO8601 DateTime format, see the data
 -- type
--- <https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html PropertyValue>.
+-- <https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html PropertyValue>.
 --
--- 'maxResults', 'getPropertyValueHistory_maxResults' - The maximum number of results to return.
+-- 'maxResults', 'getPropertyValueHistory_maxResults' - The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
 --
 -- 'interpolation', 'getPropertyValueHistory_interpolation' - An object that specifies the interpolation type and the interval over
 -- which to interpolate data.
@@ -142,24 +146,24 @@ data GetPropertyValueHistory = GetPropertyValueHistory'
 --
 -- For more information about the ISO8601 DateTime format, see the data
 -- type
--- <https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html PropertyValue>.
+-- <https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html PropertyValue>.
 --
 -- 'endDateTime', 'getPropertyValueHistory_endDateTime' - The date and time of the latest property value to return.
 --
 -- 'componentTypeId', 'getPropertyValueHistory_componentTypeId' - The ID of the component type.
 --
--- 'selectedProperties', 'getPropertyValueHistory_selectedProperties' - A list of properties whose value histories the request retrieves.
---
 -- 'workspaceId', 'getPropertyValueHistory_workspaceId' - The ID of the workspace.
+--
+-- 'selectedProperties', 'getPropertyValueHistory_selectedProperties' - A list of properties whose value histories the request retrieves.
 newGetPropertyValueHistory ::
-  -- | 'selectedProperties'
-  Prelude.NonEmpty Prelude.Text ->
   -- | 'workspaceId'
   Prelude.Text ->
+  -- | 'selectedProperties'
+  Prelude.NonEmpty Prelude.Text ->
   GetPropertyValueHistory
 newGetPropertyValueHistory
-  pSelectedProperties_
-  pWorkspaceId_ =
+  pWorkspaceId_
+  pSelectedProperties_ =
     GetPropertyValueHistory'
       { entityId =
           Prelude.Nothing,
@@ -174,9 +178,9 @@ newGetPropertyValueHistory
         startTime = Prelude.Nothing,
         endDateTime = Prelude.Nothing,
         componentTypeId = Prelude.Nothing,
+        workspaceId = pWorkspaceId_,
         selectedProperties =
-          Lens.coerced Lens.# pSelectedProperties_,
-        workspaceId = pWorkspaceId_
+          Lens.coerced Lens.# pSelectedProperties_
       }
 
 -- | The ID of the entity.
@@ -203,11 +207,13 @@ getPropertyValueHistory_startDateTime = Lens.lens (\GetPropertyValueHistory' {st
 --
 -- For more information about the ISO8601 DateTime format, see the data
 -- type
--- <https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html PropertyValue>.
+-- <https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html PropertyValue>.
 getPropertyValueHistory_endTime :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Text)
 getPropertyValueHistory_endTime = Lens.lens (\GetPropertyValueHistory' {endTime} -> endTime) (\s@GetPropertyValueHistory' {} a -> s {endTime = a} :: GetPropertyValueHistory)
 
--- | The maximum number of results to return.
+-- | The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
 getPropertyValueHistory_maxResults :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Natural)
 getPropertyValueHistory_maxResults = Lens.lens (\GetPropertyValueHistory' {maxResults} -> maxResults) (\s@GetPropertyValueHistory' {} a -> s {maxResults = a} :: GetPropertyValueHistory)
 
@@ -224,7 +230,7 @@ getPropertyValueHistory_orderByTime = Lens.lens (\GetPropertyValueHistory' {orde
 --
 -- For more information about the ISO8601 DateTime format, see the data
 -- type
--- <https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html PropertyValue>.
+-- <https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html PropertyValue>.
 getPropertyValueHistory_startTime :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Text)
 getPropertyValueHistory_startTime = Lens.lens (\GetPropertyValueHistory' {startTime} -> startTime) (\s@GetPropertyValueHistory' {} a -> s {startTime = a} :: GetPropertyValueHistory)
 
@@ -236,20 +242,20 @@ getPropertyValueHistory_endDateTime = Lens.lens (\GetPropertyValueHistory' {endD
 getPropertyValueHistory_componentTypeId :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Text)
 getPropertyValueHistory_componentTypeId = Lens.lens (\GetPropertyValueHistory' {componentTypeId} -> componentTypeId) (\s@GetPropertyValueHistory' {} a -> s {componentTypeId = a} :: GetPropertyValueHistory)
 
--- | A list of properties whose value histories the request retrieves.
-getPropertyValueHistory_selectedProperties :: Lens.Lens' GetPropertyValueHistory (Prelude.NonEmpty Prelude.Text)
-getPropertyValueHistory_selectedProperties = Lens.lens (\GetPropertyValueHistory' {selectedProperties} -> selectedProperties) (\s@GetPropertyValueHistory' {} a -> s {selectedProperties = a} :: GetPropertyValueHistory) Prelude.. Lens.coerced
-
 -- | The ID of the workspace.
 getPropertyValueHistory_workspaceId :: Lens.Lens' GetPropertyValueHistory Prelude.Text
 getPropertyValueHistory_workspaceId = Lens.lens (\GetPropertyValueHistory' {workspaceId} -> workspaceId) (\s@GetPropertyValueHistory' {} a -> s {workspaceId = a} :: GetPropertyValueHistory)
+
+-- | A list of properties whose value histories the request retrieves.
+getPropertyValueHistory_selectedProperties :: Lens.Lens' GetPropertyValueHistory (Prelude.NonEmpty Prelude.Text)
+getPropertyValueHistory_selectedProperties = Lens.lens (\GetPropertyValueHistory' {selectedProperties} -> selectedProperties) (\s@GetPropertyValueHistory' {} a -> s {selectedProperties = a} :: GetPropertyValueHistory) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetPropertyValueHistory where
   type
     AWSResponse GetPropertyValueHistory =
       GetPropertyValueHistoryResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -275,8 +281,8 @@ instance Prelude.Hashable GetPropertyValueHistory where
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endDateTime
       `Prelude.hashWithSalt` componentTypeId
-      `Prelude.hashWithSalt` selectedProperties
       `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` selectedProperties
 
 instance Prelude.NFData GetPropertyValueHistory where
   rnf GetPropertyValueHistory' {..} =
@@ -292,8 +298,8 @@ instance Prelude.NFData GetPropertyValueHistory where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endDateTime
       `Prelude.seq` Prelude.rnf componentTypeId
-      `Prelude.seq` Prelude.rnf selectedProperties
       `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf selectedProperties
 
 instance Core.ToHeaders GetPropertyValueHistory where
   toHeaders =

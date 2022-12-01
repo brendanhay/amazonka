@@ -20,8 +20,8 @@
 module Amazonka.DataBrew.Types.EntityDetectorConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.AllowedStatistics
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration of entity detection for a profile job. When undefined,

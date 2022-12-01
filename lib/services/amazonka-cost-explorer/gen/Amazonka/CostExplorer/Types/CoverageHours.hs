@@ -20,7 +20,7 @@
 module Amazonka.CostExplorer.Types.CoverageHours where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | How long a running instance either used a reservation or was On-Demand.

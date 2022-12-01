@@ -20,8 +20,8 @@
 module Amazonka.DirectoryService.Types.ConditionalForwarder where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.ReplicationScope
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Points to a remote domain with which you are setting up a trust

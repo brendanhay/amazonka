@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.ConfluenceBlogToIndexFieldMapping where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.ConfluenceBlogFieldName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Maps attributes or field names of Confluence blog to Amazon Kendra index

@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.SlotValueElicitationSetting where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types.PromptSpecification
 import Amazonka.LexV2Models.Types.SampleUtterance
 import Amazonka.LexV2Models.Types.SlotCaptureSetting

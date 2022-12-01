@@ -20,8 +20,8 @@
 module Amazonka.ImageBuilder.Types.ImageState where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.ImageStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Image state shows the image status and the reason for that status.

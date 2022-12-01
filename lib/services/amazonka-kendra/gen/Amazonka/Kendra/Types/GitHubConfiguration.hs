@@ -20,13 +20,13 @@
 module Amazonka.Kendra.Types.GitHubConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import Amazonka.Kendra.Types.DataSourceVpcConfiguration
 import Amazonka.Kendra.Types.GitHubDocumentCrawlProperties
 import Amazonka.Kendra.Types.OnPremiseConfiguration
 import Amazonka.Kendra.Types.SaaSConfiguration
 import Amazonka.Kendra.Types.Type
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information to connect to GitHub as your data

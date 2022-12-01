@@ -20,9 +20,9 @@
 module Amazonka.IoTAnalytics.Types.DatasetContentDeliveryDestination where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.IotEventsDestinationConfiguration
 import Amazonka.IoTAnalytics.Types.S3DestinationConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The destination to which dataset contents are delivered.

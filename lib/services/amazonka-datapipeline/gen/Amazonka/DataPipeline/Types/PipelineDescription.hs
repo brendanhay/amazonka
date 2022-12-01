@@ -20,9 +20,9 @@
 module Amazonka.DataPipeline.Types.PipelineDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataPipeline.Types.Field
 import Amazonka.DataPipeline.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains pipeline metadata.

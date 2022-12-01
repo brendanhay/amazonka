@@ -20,12 +20,12 @@
 module Amazonka.Inspector.Types.Finding where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.AssetAttributes
 import Amazonka.Inspector.Types.AssetType
 import Amazonka.Inspector.Types.Attribute
 import Amazonka.Inspector.Types.InspectorServiceAttributes
 import Amazonka.Inspector.Types.Severity
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector finding. This data type

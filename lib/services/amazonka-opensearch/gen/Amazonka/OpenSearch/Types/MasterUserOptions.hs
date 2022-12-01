@@ -20,20 +20,21 @@
 module Amazonka.OpenSearch.Types.MasterUserOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Credentials for the master user: username and password, ARN, or both.
+-- | Credentials for the master user for a domain.
 --
 -- /See:/ 'newMasterUserOptions' smart constructor.
 data MasterUserOptions = MasterUserOptions'
-  { -- | ARN for the master user (if IAM is enabled).
+  { -- | Amazon Resource Name (ARN) for the master user. Only specify if
+    -- @InternalUserDatabaseEnabled@ is @false@.
     masterUserARN :: Prelude.Maybe Prelude.Text,
-    -- | The master user\'s username, which is stored in the Amazon OpenSearch
-    -- Service domain\'s internal database.
+    -- | User name for the master user. Only specify if
+    -- @InternalUserDatabaseEnabled@ is @true@.
     masterUserName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The master user\'s password, which is stored in the Amazon OpenSearch
-    -- Service domain\'s internal database.
+    -- | Password for the master user. Only specify if
+    -- @InternalUserDatabaseEnabled@ is @true@.
     masterUserPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -46,13 +47,14 @@ data MasterUserOptions = MasterUserOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'masterUserARN', 'masterUserOptions_masterUserARN' - ARN for the master user (if IAM is enabled).
+-- 'masterUserARN', 'masterUserOptions_masterUserARN' - Amazon Resource Name (ARN) for the master user. Only specify if
+-- @InternalUserDatabaseEnabled@ is @false@.
 --
--- 'masterUserName', 'masterUserOptions_masterUserName' - The master user\'s username, which is stored in the Amazon OpenSearch
--- Service domain\'s internal database.
+-- 'masterUserName', 'masterUserOptions_masterUserName' - User name for the master user. Only specify if
+-- @InternalUserDatabaseEnabled@ is @true@.
 --
--- 'masterUserPassword', 'masterUserOptions_masterUserPassword' - The master user\'s password, which is stored in the Amazon OpenSearch
--- Service domain\'s internal database.
+-- 'masterUserPassword', 'masterUserOptions_masterUserPassword' - Password for the master user. Only specify if
+-- @InternalUserDatabaseEnabled@ is @true@.
 newMasterUserOptions ::
   MasterUserOptions
 newMasterUserOptions =
@@ -62,17 +64,18 @@ newMasterUserOptions =
       masterUserPassword = Prelude.Nothing
     }
 
--- | ARN for the master user (if IAM is enabled).
+-- | Amazon Resource Name (ARN) for the master user. Only specify if
+-- @InternalUserDatabaseEnabled@ is @false@.
 masterUserOptions_masterUserARN :: Lens.Lens' MasterUserOptions (Prelude.Maybe Prelude.Text)
 masterUserOptions_masterUserARN = Lens.lens (\MasterUserOptions' {masterUserARN} -> masterUserARN) (\s@MasterUserOptions' {} a -> s {masterUserARN = a} :: MasterUserOptions)
 
--- | The master user\'s username, which is stored in the Amazon OpenSearch
--- Service domain\'s internal database.
+-- | User name for the master user. Only specify if
+-- @InternalUserDatabaseEnabled@ is @true@.
 masterUserOptions_masterUserName :: Lens.Lens' MasterUserOptions (Prelude.Maybe Prelude.Text)
 masterUserOptions_masterUserName = Lens.lens (\MasterUserOptions' {masterUserName} -> masterUserName) (\s@MasterUserOptions' {} a -> s {masterUserName = a} :: MasterUserOptions) Prelude.. Lens.mapping Core._Sensitive
 
--- | The master user\'s password, which is stored in the Amazon OpenSearch
--- Service domain\'s internal database.
+-- | Password for the master user. Only specify if
+-- @InternalUserDatabaseEnabled@ is @true@.
 masterUserOptions_masterUserPassword :: Lens.Lens' MasterUserOptions (Prelude.Maybe Prelude.Text)
 masterUserOptions_masterUserPassword = Lens.lens (\MasterUserOptions' {masterUserPassword} -> masterUserPassword) (\s@MasterUserOptions' {} a -> s {masterUserPassword = a} :: MasterUserOptions) Prelude.. Lens.mapping Core._Sensitive
 

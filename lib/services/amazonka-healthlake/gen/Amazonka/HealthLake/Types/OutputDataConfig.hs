@@ -20,8 +20,8 @@
 module Amazonka.HealthLake.Types.OutputDataConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HealthLake.Types.S3Configuration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The output data configuration that was supplied when the export job was

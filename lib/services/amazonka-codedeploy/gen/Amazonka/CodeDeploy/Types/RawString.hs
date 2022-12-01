@@ -20,7 +20,7 @@
 module Amazonka.CodeDeploy.Types.RawString where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A revision for an Lambda deployment that is a YAML-formatted or

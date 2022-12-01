@@ -20,7 +20,7 @@
 module Amazonka.KinesisAnalyticsV2.Types.S3ContentLocationUpdate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an update for the Amazon S3 code content location for an

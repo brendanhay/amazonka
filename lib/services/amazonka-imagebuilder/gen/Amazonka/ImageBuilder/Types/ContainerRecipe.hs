@@ -20,12 +20,12 @@
 module Amazonka.ImageBuilder.Types.ContainerRecipe where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.ComponentConfiguration
 import Amazonka.ImageBuilder.Types.ContainerType
 import Amazonka.ImageBuilder.Types.InstanceConfiguration
 import Amazonka.ImageBuilder.Types.Platform
 import Amazonka.ImageBuilder.Types.TargetContainerRepository
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A container recipe.

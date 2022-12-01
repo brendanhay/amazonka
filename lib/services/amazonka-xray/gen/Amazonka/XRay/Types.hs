@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -17,9 +18,14 @@ module Amazonka.XRay.Types
     defaultService,
 
     -- * Errors
+    _PolicyCountLimitExceededException,
     _RuleLimitExceededException,
     _TooManyTagsException,
+    _PolicySizeLimitExceededException,
     _ResourceNotFoundException,
+    _InvalidPolicyRevisionIdException,
+    _LockoutPreventionException,
+    _MalformedPolicyDocumentException,
     _ThrottledException,
     _InvalidRequestException,
 
@@ -82,8 +88,10 @@ module Amazonka.XRay.Types
     edge_summaryStatistics,
     edge_endTime,
     edge_responseTimeHistogram,
+    edge_edgeType,
     edge_referenceId,
     edge_startTime,
+    edge_receivedEventAgeHistogram,
 
     -- * EdgeStatistics
     EdgeStatistics (..),
@@ -276,6 +284,14 @@ module Amazonka.XRay.Types
     ResourceARNDetail (..),
     newResourceARNDetail,
     resourceARNDetail_arn,
+
+    -- * ResourcePolicy
+    ResourcePolicy (..),
+    newResourcePolicy,
+    resourcePolicy_policyName,
+    resourcePolicy_lastUpdatedTime,
+    resourcePolicy_policyRevisionId,
+    resourcePolicy_policyDocument,
 
     -- * ResponseTimeRootCause
     ResponseTimeRootCause (..),
@@ -506,7 +522,7 @@ module Amazonka.XRay.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 import Amazonka.XRay.Types.Alias
@@ -543,6 +559,7 @@ import Amazonka.XRay.Types.InsightsConfiguration
 import Amazonka.XRay.Types.InstanceIdDetail
 import Amazonka.XRay.Types.RequestImpactStatistics
 import Amazonka.XRay.Types.ResourceARNDetail
+import Amazonka.XRay.Types.ResourcePolicy
 import Amazonka.XRay.Types.ResponseTimeRootCause
 import Amazonka.XRay.Types.ResponseTimeRootCauseEntity
 import Amazonka.XRay.Types.ResponseTimeRootCauseService
@@ -574,27 +591,25 @@ import Amazonka.XRay.Types.ValueWithServiceIds
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "XRay",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "xray",
-      Core._serviceSigningName = "xray",
-      Core._serviceVersion = "2016-04-12",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "XRay",
-      Core._serviceRetry = retry
+    { Core.abbrev = "XRay",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "xray",
+      Core.signingName = "xray",
+      Core.version = "2016-04-12",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "XRay",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =
@@ -642,6 +657,15 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | Exceeded the maximum number of resource policies for a target Amazon Web
+-- Services account.
+_PolicyCountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyCountLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "PolicyCountLimitExceededException"
+    Prelude.. Core.hasStatus 400
+
 -- | You have reached the maximum number of sampling rules.
 _RuleLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RuleLimitExceededException =
@@ -658,6 +682,14 @@ _TooManyTagsException =
     "TooManyTagsException"
     Prelude.. Core.hasStatus 400
 
+-- | Exceeded the maximum size for a resource policy.
+_PolicySizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicySizeLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "PolicySizeLimitExceededException"
+    Prelude.. Core.hasStatus 400
+
 -- | The resource was not found. Verify that the name or Amazon Resource Name
 -- (ARN) of the resource is correct.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -666,6 +698,34 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | A policy revision id was provided which does not match the latest policy
+-- revision. This exception is also if a policy revision id of 0 is
+-- provided via @PutResourcePolicy@ and a policy with the same name already
+-- exists.
+_InvalidPolicyRevisionIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPolicyRevisionIdException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPolicyRevisionIdException"
+    Prelude.. Core.hasStatus 400
+
+-- | The provided resource policy would prevent the caller of this request
+-- from calling PutResourcePolicy in the future.
+_LockoutPreventionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LockoutPreventionException =
+  Core._MatchServiceError
+    defaultService
+    "LockoutPreventionException"
+    Prelude.. Core.hasStatus 400
+
+-- | Invalid policy document provided in request.
+_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MalformedPolicyDocumentException =
+  Core._MatchServiceError
+    defaultService
+    "MalformedPolicyDocumentException"
+    Prelude.. Core.hasStatus 400
 
 -- | The request exceeds the maximum number of requests per second.
 _ThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

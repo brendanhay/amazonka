@@ -20,12 +20,12 @@
 module Amazonka.EFS.Types.FileSystemDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EFS.Types.FileSystemSize
 import Amazonka.EFS.Types.LifeCycleState
 import Amazonka.EFS.Types.PerformanceMode
 import Amazonka.EFS.Types.Tag
 import Amazonka.EFS.Types.ThroughputMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of the file system.

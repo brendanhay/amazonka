@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.SimpleCondition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Pinpoint.Types.EventCondition
 import Amazonka.Pinpoint.Types.SegmentCondition
 import Amazonka.Pinpoint.Types.SegmentDimensions

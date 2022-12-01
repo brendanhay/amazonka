@@ -20,9 +20,9 @@
 module Amazonka.ElasticTranscoder.Types.Playlist where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types.HlsContentProtection
 import Amazonka.ElasticTranscoder.Types.PlayReadyDrm
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a preset

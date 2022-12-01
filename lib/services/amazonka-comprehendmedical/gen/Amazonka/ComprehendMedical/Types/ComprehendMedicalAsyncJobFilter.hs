@@ -21,7 +21,7 @@ module Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter where
 
 import Amazonka.ComprehendMedical.Types.JobStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information for filtering a list of detection jobs.

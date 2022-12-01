@@ -20,9 +20,9 @@
 module Amazonka.CustomerProfiles.Types.AutoMerging where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.ConflictResolution
 import Amazonka.CustomerProfiles.Types.Consolidation
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration settings for how to perform the auto-merging of profiles.

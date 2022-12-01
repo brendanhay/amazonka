@@ -20,9 +20,9 @@
 module Amazonka.CostExplorer.Types.CostCategorySplitChargeRule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategorySplitChargeMethod
 import Amazonka.CostExplorer.Types.CostCategorySplitChargeRuleParameter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use the split charge rule to split the cost of one Cost Category value

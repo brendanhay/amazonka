@@ -40,7 +40,7 @@ module Amazonka.RedshiftServerLess.GetNamespace
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -75,8 +75,8 @@ getNamespace_namespaceName = Lens.lens (\GetNamespace' {namespaceName} -> namesp
 
 instance Core.AWSRequest GetNamespace where
   type AWSResponse GetNamespace = GetNamespaceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

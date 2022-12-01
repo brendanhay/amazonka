@@ -20,11 +20,11 @@
 module Amazonka.DataBrew.Types.ProfileConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.ColumnSelector
 import Amazonka.DataBrew.Types.ColumnStatisticsConfiguration
 import Amazonka.DataBrew.Types.EntityDetectorConfiguration
 import Amazonka.DataBrew.Types.StatisticsConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration for profile jobs. Configuration can be used to select

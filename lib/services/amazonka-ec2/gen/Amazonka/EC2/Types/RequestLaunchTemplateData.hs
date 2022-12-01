@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.RequestLaunchTemplateData where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CreditSpecificationRequest
 import Amazonka.EC2.Types.ElasticGpuSpecification
@@ -42,7 +43,6 @@ import Amazonka.EC2.Types.LaunchTemplatePrivateDnsNameOptionsRequest
 import Amazonka.EC2.Types.LaunchTemplateTagSpecificationRequest
 import Amazonka.EC2.Types.LaunchTemplatesMonitoringRequest
 import Amazonka.EC2.Types.ShutdownBehavior
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information to include in the launch template.

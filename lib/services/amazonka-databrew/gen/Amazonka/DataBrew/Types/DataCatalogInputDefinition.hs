@@ -20,8 +20,8 @@
 module Amazonka.DataBrew.Types.DataCatalogInputDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.S3Location
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents how metadata stored in the Glue Data Catalog is defined in a

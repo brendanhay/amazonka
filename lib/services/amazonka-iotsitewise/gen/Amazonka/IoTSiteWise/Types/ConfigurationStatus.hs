@@ -20,9 +20,9 @@
 module Amazonka.IoTSiteWise.Types.ConfigurationStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.ConfigurationErrorDetails
 import Amazonka.IoTSiteWise.Types.ConfigurationState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains current status information for the configuration.

@@ -20,10 +20,10 @@
 module Amazonka.GameLift.Types.LocationAttributes where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.FleetAction
 import Amazonka.GameLift.Types.LocationState
 import Amazonka.GameLift.Types.LocationUpdateStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a location in a multi-location fleet.

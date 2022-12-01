@@ -21,7 +21,7 @@ module Amazonka.AppStream.Types.AccessEndpoint where
 
 import Amazonka.AppStream.Types.AccessEndpointType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an interface VPC endpoint (interface endpoint) that lets you

@@ -56,8 +56,8 @@ module Amazonka.ImageBuilder.DeleteImage
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,8 +97,8 @@ deleteImage_imageBuildVersionArn = Lens.lens (\DeleteImage' {imageBuildVersionAr
 
 instance Core.AWSRequest DeleteImage where
   type AWSResponse DeleteImage = DeleteImageResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,11 +20,11 @@
 module Amazonka.EC2.Types.IpamScope where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpamScopeState
 import Amazonka.EC2.Types.IpamScopeType
 import Amazonka.EC2.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | In IPAM, a scope is the highest-level container within IPAM. An IPAM

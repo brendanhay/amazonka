@@ -21,7 +21,7 @@ module Amazonka.CloudTrail.Types.ImportsListItem where
 
 import Amazonka.CloudTrail.Types.ImportStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an import that was returned by a lookup

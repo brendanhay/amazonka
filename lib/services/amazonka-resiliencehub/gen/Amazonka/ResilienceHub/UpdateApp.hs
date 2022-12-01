@@ -44,7 +44,7 @@ module Amazonka.ResilienceHub.UpdateApp
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -144,8 +144,8 @@ updateApp_appArn = Lens.lens (\UpdateApp' {appArn} -> appArn) (\s@UpdateApp' {} 
 
 instance Core.AWSRequest UpdateApp where
   type AWSResponse UpdateApp = UpdateAppResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

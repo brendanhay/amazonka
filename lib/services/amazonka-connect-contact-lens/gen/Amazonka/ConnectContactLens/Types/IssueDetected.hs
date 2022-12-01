@@ -21,7 +21,7 @@ module Amazonka.ConnectContactLens.Types.IssueDetected where
 
 import Amazonka.ConnectContactLens.Types.CharacterOffsets
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Potential issues that are detected based on an artificial intelligence

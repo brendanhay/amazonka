@@ -20,6 +20,7 @@
 module Amazonka.DynamoDB.Types.SourceTableFeatureDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.GlobalSecondaryIndexInfo
 import Amazonka.DynamoDB.Types.LocalSecondaryIndexInfo
@@ -27,7 +28,6 @@ import Amazonka.DynamoDB.Types.SSEDescription
 import Amazonka.DynamoDB.Types.StreamSpecification
 import Amazonka.DynamoDB.Types.TimeToLiveDescription
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the details of the features enabled on the table when the

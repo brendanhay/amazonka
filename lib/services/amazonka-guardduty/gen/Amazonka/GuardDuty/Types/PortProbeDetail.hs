@@ -20,10 +20,10 @@
 module Amazonka.GuardDuty.Types.PortProbeDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.LocalIpDetails
 import Amazonka.GuardDuty.Types.LocalPortDetails
 import Amazonka.GuardDuty.Types.RemoteIpDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the port probe details.

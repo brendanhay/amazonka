@@ -399,6 +399,18 @@ module Amazonka.Athena
     ResultConfigurationUpdates (ResultConfigurationUpdates'),
     newResultConfigurationUpdates,
 
+    -- ** ResultReuseByAgeConfiguration
+    ResultReuseByAgeConfiguration (ResultReuseByAgeConfiguration'),
+    newResultReuseByAgeConfiguration,
+
+    -- ** ResultReuseConfiguration
+    ResultReuseConfiguration (ResultReuseConfiguration'),
+    newResultReuseConfiguration,
+
+    -- ** ResultReuseInformation
+    ResultReuseInformation (ResultReuseInformation'),
+    newResultReuseInformation,
+
     -- ** ResultSet
     ResultSet (ResultSet'),
     newResultSet,

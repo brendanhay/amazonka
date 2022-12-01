@@ -20,7 +20,7 @@
 module Amazonka.Mobile.Types.BundleDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Mobile.Types.Platform
 import qualified Amazonka.Prelude as Prelude
 

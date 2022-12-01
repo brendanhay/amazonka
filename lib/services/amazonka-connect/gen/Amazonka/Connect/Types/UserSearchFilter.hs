@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.UserSearchFilter where
 
 import Amazonka.Connect.Types.ControlPlaneTagFilter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters to be applied to search results.

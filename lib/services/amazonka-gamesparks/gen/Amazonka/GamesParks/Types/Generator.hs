@@ -20,7 +20,7 @@
 module Amazonka.GamesParks.Types.Generator where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Properties that specify the code generator for a generated code job.

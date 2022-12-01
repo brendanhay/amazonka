@@ -38,6 +38,7 @@ module Amazonka.SESV2.CreateConfigurationSet
     createConfigurationSet_trackingOptions,
     createConfigurationSet_suppressionOptions,
     createConfigurationSet_sendingOptions,
+    createConfigurationSet_vdmOptions,
     createConfigurationSet_configurationSetName,
 
     -- * Destructuring the Response
@@ -50,7 +51,7 @@ module Amazonka.SESV2.CreateConfigurationSet
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -76,6 +77,9 @@ data CreateConfigurationSet = CreateConfigurationSet'
     -- | An object that defines whether or not Amazon SES can send email that you
     -- send using the configuration set.
     sendingOptions :: Prelude.Maybe SendingOptions,
+    -- | An object that defines the VDM options for emails that you send using
+    -- the configuration set.
+    vdmOptions :: Prelude.Maybe VdmOptions,
     -- | The name of the configuration set. The name can contain up to 64
     -- alphanumeric characters, including letters, numbers, hyphens (-) and
     -- underscores (_) only.
@@ -108,6 +112,9 @@ data CreateConfigurationSet = CreateConfigurationSet'
 -- 'sendingOptions', 'createConfigurationSet_sendingOptions' - An object that defines whether or not Amazon SES can send email that you
 -- send using the configuration set.
 --
+-- 'vdmOptions', 'createConfigurationSet_vdmOptions' - An object that defines the VDM options for emails that you send using
+-- the configuration set.
+--
 -- 'configurationSetName', 'createConfigurationSet_configurationSetName' - The name of the configuration set. The name can contain up to 64
 -- alphanumeric characters, including letters, numbers, hyphens (-) and
 -- underscores (_) only.
@@ -123,6 +130,7 @@ newCreateConfigurationSet pConfigurationSetName_ =
       trackingOptions = Prelude.Nothing,
       suppressionOptions = Prelude.Nothing,
       sendingOptions = Prelude.Nothing,
+      vdmOptions = Prelude.Nothing,
       configurationSetName = pConfigurationSetName_
     }
 
@@ -155,6 +163,11 @@ createConfigurationSet_suppressionOptions = Lens.lens (\CreateConfigurationSet' 
 createConfigurationSet_sendingOptions :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe SendingOptions)
 createConfigurationSet_sendingOptions = Lens.lens (\CreateConfigurationSet' {sendingOptions} -> sendingOptions) (\s@CreateConfigurationSet' {} a -> s {sendingOptions = a} :: CreateConfigurationSet)
 
+-- | An object that defines the VDM options for emails that you send using
+-- the configuration set.
+createConfigurationSet_vdmOptions :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe VdmOptions)
+createConfigurationSet_vdmOptions = Lens.lens (\CreateConfigurationSet' {vdmOptions} -> vdmOptions) (\s@CreateConfigurationSet' {} a -> s {vdmOptions = a} :: CreateConfigurationSet)
+
 -- | The name of the configuration set. The name can contain up to 64
 -- alphanumeric characters, including letters, numbers, hyphens (-) and
 -- underscores (_) only.
@@ -165,8 +178,8 @@ instance Core.AWSRequest CreateConfigurationSet where
   type
     AWSResponse CreateConfigurationSet =
       CreateConfigurationSetResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -182,6 +195,7 @@ instance Prelude.Hashable CreateConfigurationSet where
       `Prelude.hashWithSalt` trackingOptions
       `Prelude.hashWithSalt` suppressionOptions
       `Prelude.hashWithSalt` sendingOptions
+      `Prelude.hashWithSalt` vdmOptions
       `Prelude.hashWithSalt` configurationSetName
 
 instance Prelude.NFData CreateConfigurationSet where
@@ -192,6 +206,7 @@ instance Prelude.NFData CreateConfigurationSet where
       `Prelude.seq` Prelude.rnf trackingOptions
       `Prelude.seq` Prelude.rnf suppressionOptions
       `Prelude.seq` Prelude.rnf sendingOptions
+      `Prelude.seq` Prelude.rnf vdmOptions
       `Prelude.seq` Prelude.rnf configurationSetName
 
 instance Core.ToHeaders CreateConfigurationSet where
@@ -220,6 +235,7 @@ instance Core.ToJSON CreateConfigurationSet where
               Prelude.<$> suppressionOptions,
             ("SendingOptions" Core..=)
               Prelude.<$> sendingOptions,
+            ("VdmOptions" Core..=) Prelude.<$> vdmOptions,
             Prelude.Just
               ( "ConfigurationSetName"
                   Core..= configurationSetName

@@ -20,7 +20,7 @@
 module Amazonka.NetworkFirewall.Types.LogDestinationConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkFirewall.Types.LogDestinationType
 import Amazonka.NetworkFirewall.Types.LogType
 import qualified Amazonka.Prelude as Prelude

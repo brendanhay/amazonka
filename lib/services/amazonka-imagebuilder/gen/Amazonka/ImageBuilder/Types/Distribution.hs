@@ -20,12 +20,12 @@
 module Amazonka.ImageBuilder.Types.Distribution where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.AmiDistributionConfiguration
 import Amazonka.ImageBuilder.Types.ContainerDistributionConfiguration
 import Amazonka.ImageBuilder.Types.FastLaunchConfiguration
 import Amazonka.ImageBuilder.Types.LaunchTemplateConfiguration
 import Amazonka.ImageBuilder.Types.S3ExportConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the settings for a specific Region.

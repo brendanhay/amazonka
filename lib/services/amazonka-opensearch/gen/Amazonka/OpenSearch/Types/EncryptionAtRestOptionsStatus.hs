@@ -20,18 +20,19 @@
 module Amazonka.OpenSearch.Types.EncryptionAtRestOptionsStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.EncryptionAtRestOptions
 import Amazonka.OpenSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | Status of the encryption At Rest options for the specified domain.
+-- | Status of the encryption at rest options for the specified OpenSearch
+-- Service domain.
 --
 -- /See:/ 'newEncryptionAtRestOptionsStatus' smart constructor.
 data EncryptionAtRestOptionsStatus = EncryptionAtRestOptionsStatus'
-  { -- | The Encryption At Rest options for the specified domain.
+  { -- | Encryption at rest options for the specified domain.
     options :: EncryptionAtRestOptions,
-    -- | The status of the Encryption At Rest options for the specified domain.
+    -- | The status of the encryption at rest options for the specified domain.
     status :: OptionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,9 +45,9 @@ data EncryptionAtRestOptionsStatus = EncryptionAtRestOptionsStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'options', 'encryptionAtRestOptionsStatus_options' - The Encryption At Rest options for the specified domain.
+-- 'options', 'encryptionAtRestOptionsStatus_options' - Encryption at rest options for the specified domain.
 --
--- 'status', 'encryptionAtRestOptionsStatus_status' - The status of the Encryption At Rest options for the specified domain.
+-- 'status', 'encryptionAtRestOptionsStatus_status' - The status of the encryption at rest options for the specified domain.
 newEncryptionAtRestOptionsStatus ::
   -- | 'options'
   EncryptionAtRestOptions ->
@@ -59,11 +60,11 @@ newEncryptionAtRestOptionsStatus pOptions_ pStatus_ =
       status = pStatus_
     }
 
--- | The Encryption At Rest options for the specified domain.
+-- | Encryption at rest options for the specified domain.
 encryptionAtRestOptionsStatus_options :: Lens.Lens' EncryptionAtRestOptionsStatus EncryptionAtRestOptions
 encryptionAtRestOptionsStatus_options = Lens.lens (\EncryptionAtRestOptionsStatus' {options} -> options) (\s@EncryptionAtRestOptionsStatus' {} a -> s {options = a} :: EncryptionAtRestOptionsStatus)
 
--- | The status of the Encryption At Rest options for the specified domain.
+-- | The status of the encryption at rest options for the specified domain.
 encryptionAtRestOptionsStatus_status :: Lens.Lens' EncryptionAtRestOptionsStatus OptionStatus
 encryptionAtRestOptionsStatus_status = Lens.lens (\EncryptionAtRestOptionsStatus' {status} -> status) (\s@EncryptionAtRestOptionsStatus' {} a -> s {status = a} :: EncryptionAtRestOptionsStatus)
 

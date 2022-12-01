@@ -20,8 +20,8 @@
 module Amazonka.DataBrew.Types.StatisticsConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.StatisticOverride
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration of evaluations for a profile job. This configuration can

@@ -262,6 +262,11 @@ module Amazonka.QuickSight.Lens
     deleteAccountCustomizationResponse_requestId,
     deleteAccountCustomizationResponse_status,
 
+    -- ** DeleteAccountSubscription
+    deleteAccountSubscription_awsAccountId,
+    deleteAccountSubscriptionResponse_requestId,
+    deleteAccountSubscriptionResponse_status,
+
     -- ** DeleteAnalysis
     deleteAnalysis_recoveryWindowInDays,
     deleteAnalysis_forceDeleteWithoutRecovery,
@@ -630,6 +635,7 @@ module Amazonka.QuickSight.Lens
     generateEmbedUrlForAnonymousUserResponse_status,
     generateEmbedUrlForAnonymousUserResponse_embedUrl,
     generateEmbedUrlForAnonymousUserResponse_requestId,
+    generateEmbedUrlForAnonymousUserResponse_anonymousUserArn,
 
     -- ** GenerateEmbedUrlForRegisteredUser
     generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes,
@@ -924,6 +930,26 @@ module Amazonka.QuickSight.Lens
     searchDashboardsResponse_requestId,
     searchDashboardsResponse_status,
 
+    -- ** SearchDataSets
+    searchDataSets_nextToken,
+    searchDataSets_maxResults,
+    searchDataSets_awsAccountId,
+    searchDataSets_filters,
+    searchDataSetsResponse_nextToken,
+    searchDataSetsResponse_dataSetSummaries,
+    searchDataSetsResponse_requestId,
+    searchDataSetsResponse_status,
+
+    -- ** SearchDataSources
+    searchDataSources_nextToken,
+    searchDataSources_maxResults,
+    searchDataSources_awsAccountId,
+    searchDataSources_filters,
+    searchDataSourcesResponse_nextToken,
+    searchDataSourcesResponse_requestId,
+    searchDataSourcesResponse_dataSourceSummaries,
+    searchDataSourcesResponse_status,
+
     -- ** SearchFolders
     searchFolders_nextToken,
     searchFolders_maxResults,
@@ -970,6 +996,7 @@ module Amazonka.QuickSight.Lens
 
     -- ** UpdateAccountSettings
     updateAccountSettings_notificationEmail,
+    updateAccountSettings_terminationProtectionEnabled,
     updateAccountSettings_awsAccountId,
     updateAccountSettings_defaultNamespace,
     updateAccountSettingsResponse_requestId,
@@ -1252,6 +1279,7 @@ module Amazonka.QuickSight.Lens
     accountSettings_edition,
     accountSettings_accountName,
     accountSettings_defaultNamespace,
+    accountSettings_terminationProtectionEnabled,
     accountSettings_publicSharingEnabled,
 
     -- ** ActiveIAMPolicyAssignment
@@ -1312,8 +1340,13 @@ module Amazonka.QuickSight.Lens
     -- ** AnonymousUserEmbeddingExperienceConfiguration
     anonymousUserEmbeddingExperienceConfiguration_dashboardVisual,
     anonymousUserEmbeddingExperienceConfiguration_dashboard,
+    anonymousUserEmbeddingExperienceConfiguration_qSearchBar,
+
+    -- ** AnonymousUserQSearchBarEmbeddingConfiguration
+    anonymousUserQSearchBarEmbeddingConfiguration_initialTopicId,
 
     -- ** AthenaParameters
+    athenaParameters_roleArn,
     athenaParameters_workGroup,
 
     -- ** AuroraParameters
@@ -1481,6 +1514,11 @@ module Amazonka.QuickSight.Lens
     -- ** DataSetSchema
     dataSetSchema_columnSchemaList,
 
+    -- ** DataSetSearchFilter
+    dataSetSearchFilter_operator,
+    dataSetSearchFilter_name,
+    dataSetSearchFilter_value,
+
     -- ** DataSetSummary
     dataSetSummary_name,
     dataSetSummary_columnLevelPermissionRulesApplied,
@@ -1539,10 +1577,29 @@ module Amazonka.QuickSight.Lens
     dataSourceParameters_mariaDbParameters,
     dataSourceParameters_athenaParameters,
     dataSourceParameters_amazonOpenSearchParameters,
+    dataSourceParameters_databricksParameters,
     dataSourceParameters_jiraParameters,
     dataSourceParameters_amazonElasticsearchParameters,
     dataSourceParameters_sqlServerParameters,
     dataSourceParameters_auroraParameters,
+
+    -- ** DataSourceSearchFilter
+    dataSourceSearchFilter_operator,
+    dataSourceSearchFilter_name,
+    dataSourceSearchFilter_value,
+
+    -- ** DataSourceSummary
+    dataSourceSummary_name,
+    dataSourceSummary_type,
+    dataSourceSummary_dataSourceId,
+    dataSourceSummary_createdTime,
+    dataSourceSummary_arn,
+    dataSourceSummary_lastUpdatedTime,
+
+    -- ** DatabricksParameters
+    databricksParameters_host,
+    databricksParameters_port,
+    databricksParameters_sqlEndpointPath,
 
     -- ** DateTimeParameter
     dateTimeParameter_name,
@@ -2069,6 +2126,7 @@ import Amazonka.QuickSight.CreateTemplateAlias
 import Amazonka.QuickSight.CreateTheme
 import Amazonka.QuickSight.CreateThemeAlias
 import Amazonka.QuickSight.DeleteAccountCustomization
+import Amazonka.QuickSight.DeleteAccountSubscription
 import Amazonka.QuickSight.DeleteAnalysis
 import Amazonka.QuickSight.DeleteDashboard
 import Amazonka.QuickSight.DeleteDataSet
@@ -2142,6 +2200,8 @@ import Amazonka.QuickSight.RegisterUser
 import Amazonka.QuickSight.RestoreAnalysis
 import Amazonka.QuickSight.SearchAnalyses
 import Amazonka.QuickSight.SearchDashboards
+import Amazonka.QuickSight.SearchDataSets
+import Amazonka.QuickSight.SearchDataSources
 import Amazonka.QuickSight.SearchFolders
 import Amazonka.QuickSight.SearchGroups
 import Amazonka.QuickSight.TagResource
@@ -2161,6 +2221,7 @@ import Amazonka.QuickSight.Types.AnalysisSummary
 import Amazonka.QuickSight.Types.AnonymousUserDashboardEmbeddingConfiguration
 import Amazonka.QuickSight.Types.AnonymousUserDashboardVisualEmbeddingConfiguration
 import Amazonka.QuickSight.Types.AnonymousUserEmbeddingExperienceConfiguration
+import Amazonka.QuickSight.Types.AnonymousUserQSearchBarEmbeddingConfiguration
 import Amazonka.QuickSight.Types.AthenaParameters
 import Amazonka.QuickSight.Types.AuroraParameters
 import Amazonka.QuickSight.Types.AuroraPostgreSqlParameters
@@ -2193,12 +2254,16 @@ import Amazonka.QuickSight.Types.DataSet
 import Amazonka.QuickSight.Types.DataSetConfiguration
 import Amazonka.QuickSight.Types.DataSetReference
 import Amazonka.QuickSight.Types.DataSetSchema
+import Amazonka.QuickSight.Types.DataSetSearchFilter
 import Amazonka.QuickSight.Types.DataSetSummary
 import Amazonka.QuickSight.Types.DataSetUsageConfiguration
 import Amazonka.QuickSight.Types.DataSource
 import Amazonka.QuickSight.Types.DataSourceCredentials
 import Amazonka.QuickSight.Types.DataSourceErrorInfo
 import Amazonka.QuickSight.Types.DataSourceParameters
+import Amazonka.QuickSight.Types.DataSourceSearchFilter
+import Amazonka.QuickSight.Types.DataSourceSummary
+import Amazonka.QuickSight.Types.DatabricksParameters
 import Amazonka.QuickSight.Types.DateTimeParameter
 import Amazonka.QuickSight.Types.DecimalParameter
 import Amazonka.QuickSight.Types.ErrorInfo

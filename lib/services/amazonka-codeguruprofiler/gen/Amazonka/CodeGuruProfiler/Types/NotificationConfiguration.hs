@@ -21,7 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.NotificationConfiguration where
 
 import Amazonka.CodeGuruProfiler.Types.Channel
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for notifications stored for each profiling group.

@@ -20,7 +20,7 @@
 module Amazonka.IoTAnalytics.Types.SelectAttributesActivity where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to create a new message using only the specified attributes from

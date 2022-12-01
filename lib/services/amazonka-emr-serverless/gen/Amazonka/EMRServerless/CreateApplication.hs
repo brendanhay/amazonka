@@ -34,6 +34,7 @@ module Amazonka.EMRServerless.CreateApplication
     createApplication_networkConfiguration,
     createApplication_autoStartConfiguration,
     createApplication_maximumCapacity,
+    createApplication_architecture,
     createApplication_releaseLabel,
     createApplication_type,
     createApplication_clientToken,
@@ -51,8 +52,8 @@ module Amazonka.EMRServerless.CreateApplication
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRServerless.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -78,6 +79,8 @@ data CreateApplication = CreateApplication'
     -- when an application is created. No new resources will be created once
     -- any one of the defined limits is hit.
     maximumCapacity :: Prelude.Maybe MaximumAllowedResources,
+    -- | The CPU architecture of an application.
+    architecture :: Prelude.Maybe Architecture,
     -- | The EMR release version associated with the application.
     releaseLabel :: Prelude.Text,
     -- | The type of application you want to start, such as Spark or Hive.
@@ -115,6 +118,8 @@ data CreateApplication = CreateApplication'
 -- when an application is created. No new resources will be created once
 -- any one of the defined limits is hit.
 --
+-- 'architecture', 'createApplication_architecture' - The CPU architecture of an application.
+--
 -- 'releaseLabel', 'createApplication_releaseLabel' - The EMR release version associated with the application.
 --
 -- 'type'', 'createApplication_type' - The type of application you want to start, such as Spark or Hive.
@@ -141,6 +146,7 @@ newCreateApplication
         networkConfiguration = Prelude.Nothing,
         autoStartConfiguration = Prelude.Nothing,
         maximumCapacity = Prelude.Nothing,
+        architecture = Prelude.Nothing,
         releaseLabel = pReleaseLabel_,
         type' = pType_,
         clientToken = pClientToken_
@@ -179,6 +185,10 @@ createApplication_autoStartConfiguration = Lens.lens (\CreateApplication' {autoS
 createApplication_maximumCapacity :: Lens.Lens' CreateApplication (Prelude.Maybe MaximumAllowedResources)
 createApplication_maximumCapacity = Lens.lens (\CreateApplication' {maximumCapacity} -> maximumCapacity) (\s@CreateApplication' {} a -> s {maximumCapacity = a} :: CreateApplication)
 
+-- | The CPU architecture of an application.
+createApplication_architecture :: Lens.Lens' CreateApplication (Prelude.Maybe Architecture)
+createApplication_architecture = Lens.lens (\CreateApplication' {architecture} -> architecture) (\s@CreateApplication' {} a -> s {architecture = a} :: CreateApplication)
+
 -- | The EMR release version associated with the application.
 createApplication_releaseLabel :: Lens.Lens' CreateApplication Prelude.Text
 createApplication_releaseLabel = Lens.lens (\CreateApplication' {releaseLabel} -> releaseLabel) (\s@CreateApplication' {} a -> s {releaseLabel = a} :: CreateApplication)
@@ -196,8 +206,8 @@ instance Core.AWSRequest CreateApplication where
   type
     AWSResponse CreateApplication =
       CreateApplicationResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -217,6 +227,7 @@ instance Prelude.Hashable CreateApplication where
       `Prelude.hashWithSalt` networkConfiguration
       `Prelude.hashWithSalt` autoStartConfiguration
       `Prelude.hashWithSalt` maximumCapacity
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` releaseLabel
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` clientToken
@@ -230,6 +241,7 @@ instance Prelude.NFData CreateApplication where
       `Prelude.seq` Prelude.rnf networkConfiguration
       `Prelude.seq` Prelude.rnf autoStartConfiguration
       `Prelude.seq` Prelude.rnf maximumCapacity
+      `Prelude.seq` Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf releaseLabel
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf clientToken
@@ -261,6 +273,7 @@ instance Core.ToJSON CreateApplication where
               Prelude.<$> autoStartConfiguration,
             ("maximumCapacity" Core..=)
               Prelude.<$> maximumCapacity,
+            ("architecture" Core..=) Prelude.<$> architecture,
             Prelude.Just ("releaseLabel" Core..= releaseLabel),
             Prelude.Just ("type" Core..= type'),
             Prelude.Just ("clientToken" Core..= clientToken)

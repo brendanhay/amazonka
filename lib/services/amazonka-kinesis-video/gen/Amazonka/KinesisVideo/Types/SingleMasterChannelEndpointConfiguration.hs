@@ -20,9 +20,9 @@
 module Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisVideo.Types.ChannelProtocol
 import Amazonka.KinesisVideo.Types.ChannelRole
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the endpoint configuration for the

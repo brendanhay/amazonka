@@ -20,8 +20,8 @@
 module Amazonka.Firehose.Types.DynamicPartitioningConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.RetryOptions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of the dynamic partitioning mechanism that creates

@@ -20,8 +20,8 @@
 module Amazonka.KinesisAnalyticsV2.Types.CodeContentUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.S3ContentLocationUpdate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an update to the code of an application. Not supported for

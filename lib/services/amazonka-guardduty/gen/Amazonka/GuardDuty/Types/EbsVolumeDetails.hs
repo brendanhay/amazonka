@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.EbsVolumeDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.VolumeDetail
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains list of scanned and skipped EBS volumes with details.

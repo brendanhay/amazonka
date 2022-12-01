@@ -20,7 +20,7 @@
 module Amazonka.ManagedBlockChain.Types.ProposalActions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ManagedBlockChain.Types.InviteAction
 import Amazonka.ManagedBlockChain.Types.RemoveAction
 import qualified Amazonka.Prelude as Prelude

@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.MultiplexProgramChannelDestinationSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Multiplex Program Input Destination Settings for outputting a Channel to

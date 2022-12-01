@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.ProresSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.ProresChromaSampling
 import Amazonka.MediaConvert.Types.ProresCodecProfile
 import Amazonka.MediaConvert.Types.ProresFramerateControl

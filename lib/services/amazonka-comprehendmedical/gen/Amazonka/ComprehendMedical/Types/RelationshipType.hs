@@ -22,6 +22,7 @@ module Amazonka.ComprehendMedical.Types.RelationshipType
       ( ..,
         RelationshipType_ACUITY,
         RelationshipType_ADMINISTERED_VIA,
+        RelationshipType_AMOUNT,
         RelationshipType_DIRECTION,
         RelationshipType_DOSAGE,
         RelationshipType_DURATION,
@@ -80,6 +81,9 @@ pattern RelationshipType_ACUITY = RelationshipType' "ACUITY"
 pattern RelationshipType_ADMINISTERED_VIA :: RelationshipType
 pattern RelationshipType_ADMINISTERED_VIA = RelationshipType' "ADMINISTERED_VIA"
 
+pattern RelationshipType_AMOUNT :: RelationshipType
+pattern RelationshipType_AMOUNT = RelationshipType' "AMOUNT"
+
 pattern RelationshipType_DIRECTION :: RelationshipType
 pattern RelationshipType_DIRECTION = RelationshipType' "DIRECTION"
 
@@ -134,6 +138,7 @@ pattern RelationshipType_WITH_DOSAGE = RelationshipType' "WITH_DOSAGE"
 {-# COMPLETE
   RelationshipType_ACUITY,
   RelationshipType_ADMINISTERED_VIA,
+  RelationshipType_AMOUNT,
   RelationshipType_DIRECTION,
   RelationshipType_DOSAGE,
   RelationshipType_DURATION,

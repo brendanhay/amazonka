@@ -20,9 +20,9 @@
 module Amazonka.DynamoDBStreams.Types.Shard where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.SequenceNumberRange
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A uniquely identified group of stream records within a stream.

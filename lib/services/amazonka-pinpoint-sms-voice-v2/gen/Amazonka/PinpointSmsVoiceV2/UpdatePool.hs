@@ -59,7 +59,7 @@ module Amazonka.PinpointSmsVoiceV2.UpdatePool
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -175,8 +175,8 @@ updatePool_poolId = Lens.lens (\UpdatePool' {poolId} -> poolId) (\s@UpdatePool' 
 
 instance Core.AWSRequest UpdatePool where
   type AWSResponse UpdatePool = UpdatePoolResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

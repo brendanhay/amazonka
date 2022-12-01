@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.WriteTreatmentResource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Pinpoint.Types.CustomDeliveryConfiguration
 import Amazonka.Pinpoint.Types.MessageConfiguration
 import Amazonka.Pinpoint.Types.Schedule

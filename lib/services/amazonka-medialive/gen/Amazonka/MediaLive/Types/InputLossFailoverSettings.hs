@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.InputLossFailoverSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | MediaLive will perform a failover if content is not detected in this

@@ -23,7 +23,7 @@ import Amazonka.Budgets.Types.ActionHistoryDetails
 import Amazonka.Budgets.Types.ActionStatus
 import Amazonka.Budgets.Types.EventType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The historical records for a budget action.

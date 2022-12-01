@@ -39,7 +39,7 @@ module Amazonka.MediaLive.DeleteInput
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -76,8 +76,8 @@ deleteInput_inputId = Lens.lens (\DeleteInput' {inputId} -> inputId) (\s@DeleteI
 
 instance Core.AWSRequest DeleteInput where
   type AWSResponse DeleteInput = DeleteInputResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

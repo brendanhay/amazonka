@@ -20,8 +20,8 @@
 module Amazonka.DAX.Types.SSEDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types.SSEStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the server-side encryption status on the specified

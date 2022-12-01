@@ -53,8 +53,8 @@ module Amazonka.IoT.CreateProvisioningTemplate
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -77,7 +77,10 @@ data CreateProvisioningTemplate = CreateProvisioningTemplate'
     -- information about provisioning template, see:
     -- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning template>.
     type' :: Prelude.Maybe TemplateType,
-    -- | Creates a pre-provisioning hook template.
+    -- | Creates a pre-provisioning hook template. Only supports template of type
+    -- @FLEET_PROVISIONING@. For more information about provisioning template
+    -- types, see
+    -- <https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type type>.
     preProvisioningHook :: Prelude.Maybe ProvisioningHook,
     -- | The description of the provisioning template.
     description :: Prelude.Maybe Prelude.Text,
@@ -117,7 +120,10 @@ data CreateProvisioningTemplate = CreateProvisioningTemplate'
 -- information about provisioning template, see:
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning template>.
 --
--- 'preProvisioningHook', 'createProvisioningTemplate_preProvisioningHook' - Creates a pre-provisioning hook template.
+-- 'preProvisioningHook', 'createProvisioningTemplate_preProvisioningHook' - Creates a pre-provisioning hook template. Only supports template of type
+-- @FLEET_PROVISIONING@. For more information about provisioning template
+-- types, see
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type type>.
 --
 -- 'description', 'createProvisioningTemplate_description' - The description of the provisioning template.
 --
@@ -172,7 +178,10 @@ createProvisioningTemplate_tags = Lens.lens (\CreateProvisioningTemplate' {tags}
 createProvisioningTemplate_type :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe TemplateType)
 createProvisioningTemplate_type = Lens.lens (\CreateProvisioningTemplate' {type'} -> type') (\s@CreateProvisioningTemplate' {} a -> s {type' = a} :: CreateProvisioningTemplate)
 
--- | Creates a pre-provisioning hook template.
+-- | Creates a pre-provisioning hook template. Only supports template of type
+-- @FLEET_PROVISIONING@. For more information about provisioning template
+-- types, see
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type type>.
 createProvisioningTemplate_preProvisioningHook :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe ProvisioningHook)
 createProvisioningTemplate_preProvisioningHook = Lens.lens (\CreateProvisioningTemplate' {preProvisioningHook} -> preProvisioningHook) (\s@CreateProvisioningTemplate' {} a -> s {preProvisioningHook = a} :: CreateProvisioningTemplate)
 
@@ -201,8 +210,8 @@ instance Core.AWSRequest CreateProvisioningTemplate where
   type
     AWSResponse CreateProvisioningTemplate =
       CreateProvisioningTemplateResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

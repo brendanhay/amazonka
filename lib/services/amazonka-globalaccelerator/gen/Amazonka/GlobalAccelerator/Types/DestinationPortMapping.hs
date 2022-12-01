@@ -20,10 +20,10 @@
 module Amazonka.GlobalAccelerator.Types.DestinationPortMapping where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState
 import Amazonka.GlobalAccelerator.Types.IpAddressType
 import Amazonka.GlobalAccelerator.Types.SocketAddress
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The port mappings for a specified endpoint IP address (destination).

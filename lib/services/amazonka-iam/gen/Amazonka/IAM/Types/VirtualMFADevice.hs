@@ -20,9 +20,9 @@
 module Amazonka.IAM.Types.VirtualMFADevice where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.Tag
 import Amazonka.IAM.Types.User
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a virtual MFA device.

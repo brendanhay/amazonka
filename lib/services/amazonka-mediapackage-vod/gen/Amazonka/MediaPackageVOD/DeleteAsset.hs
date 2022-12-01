@@ -39,7 +39,7 @@ module Amazonka.MediaPackageVOD.DeleteAsset
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaPackageVOD.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,8 +73,8 @@ deleteAsset_id = Lens.lens (\DeleteAsset' {id} -> id) (\s@DeleteAsset' {} a -> s
 
 instance Core.AWSRequest DeleteAsset where
   type AWSResponse DeleteAsset = DeleteAssetResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

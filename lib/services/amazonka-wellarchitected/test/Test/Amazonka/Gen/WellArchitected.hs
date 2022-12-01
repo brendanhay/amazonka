@@ -90,6 +90,12 @@ import Test.Tasty
 --         , requestListAnswers $
 --             newListAnswers
 --
+--         , requestListCheckDetails $
+--             newListCheckDetails
+--
+--         , requestListCheckSummaries $
+--             newListCheckSummaries
+--
 --         , requestListLensReviewImprovements $
 --             newListLensReviewImprovements
 --
@@ -212,6 +218,12 @@ import Test.Tasty
 --
 --         , responseListAnswers $
 --             newListAnswersResponse
+--
+--         , responseListCheckDetails $
+--             newListCheckDetailsResponse
+--
+--         , responseListCheckSummaries $
+--             newListCheckSummariesResponse
 --
 --         , responseListLensReviewImprovements $
 --             newListLensReviewImprovementsResponse
@@ -400,6 +412,18 @@ requestListAnswers =
   req
     "ListAnswers"
     "fixture/ListAnswers.yaml"
+
+requestListCheckDetails :: ListCheckDetails -> TestTree
+requestListCheckDetails =
+  req
+    "ListCheckDetails"
+    "fixture/ListCheckDetails.yaml"
+
+requestListCheckSummaries :: ListCheckSummaries -> TestTree
+requestListCheckSummaries =
+  req
+    "ListCheckSummaries"
+    "fixture/ListCheckSummaries.yaml"
 
 requestListLensReviewImprovements :: ListLensReviewImprovements -> TestTree
 requestListLensReviewImprovements =
@@ -684,6 +708,22 @@ responseListAnswers =
     "fixture/ListAnswersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAnswers)
+
+responseListCheckDetails :: ListCheckDetailsResponse -> TestTree
+responseListCheckDetails =
+  res
+    "ListCheckDetailsResponse"
+    "fixture/ListCheckDetailsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCheckDetails)
+
+responseListCheckSummaries :: ListCheckSummariesResponse -> TestTree
+responseListCheckSummaries =
+  res
+    "ListCheckSummariesResponse"
+    "fixture/ListCheckSummariesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCheckSummaries)
 
 responseListLensReviewImprovements :: ListLensReviewImprovementsResponse -> TestTree
 responseListLensReviewImprovements =

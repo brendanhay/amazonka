@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -111,6 +112,7 @@ module Amazonka.DynamoDBStreams.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.Identity
 import Amazonka.DynamoDBStreams.Types.KeySchemaElement
@@ -125,7 +127,6 @@ import Amazonka.DynamoDBStreams.Types.StreamDescription
 import Amazonka.DynamoDBStreams.Types.StreamRecord
 import Amazonka.DynamoDBStreams.Types.StreamStatus
 import Amazonka.DynamoDBStreams.Types.StreamViewType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -133,29 +134,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "DynamoDBStreams",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "streams.dynamodb",
-      Core._serviceSigningName = "dynamodb",
-      Core._serviceVersion = "2012-08-10",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "DynamoDBStreams",
-      Core._serviceRetry = retry
+    { Core.abbrev = "DynamoDBStreams",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "streams.dynamodb",
+      Core.signingName = "dynamodb",
+      Core.version = "2012-08-10",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "DynamoDBStreams",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =
@@ -214,15 +211,18 @@ _ResourceNotFoundException =
 -- | There is no limit to the number of daily on-demand backups that can be
 -- taken.
 --
--- Up to 500 simultaneous table operations are allowed per account. These
--- operations include @CreateTable@, @UpdateTable@,
+-- For most purposes, up to 500 simultaneous table operations are allowed
+-- per account. These operations include @CreateTable@, @UpdateTable@,
 -- @DeleteTable@,@UpdateTimeToLive@, @RestoreTableFromBackup@, and
 -- @RestoreTableToPointInTime@.
 --
--- The only exception is when you are creating a table with one or more
--- secondary indexes. You can have up to 250 such requests running at a
--- time; however, if the table or index specifications are complex,
--- DynamoDB might temporarily reduce the number of concurrent operations.
+-- When you are creating a table with one or more secondary indexes, you
+-- can have up to 250 such requests running at a time. However, if the
+-- table or index specifications are complex, then DynamoDB might
+-- temporarily reduce the number of concurrent operations.
+--
+-- When importing into DynamoDB, up to 50 simultaneous import table
+-- operations are allowed per account.
 --
 -- There is a soft account quota of 2,500 tables.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

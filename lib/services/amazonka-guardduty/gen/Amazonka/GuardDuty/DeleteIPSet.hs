@@ -41,8 +41,8 @@ module Amazonka.GuardDuty.DeleteIPSet
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,8 +89,8 @@ deleteIPSet_ipSetId = Lens.lens (\DeleteIPSet' {ipSetId} -> ipSetId) (\s@DeleteI
 
 instance Core.AWSRequest DeleteIPSet where
   type AWSResponse DeleteIPSet = DeleteIPSetResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

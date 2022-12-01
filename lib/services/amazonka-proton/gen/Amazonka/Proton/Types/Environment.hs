@@ -20,7 +20,7 @@
 module Amazonka.Proton.Types.Environment where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.DeploymentStatus
 import Amazonka.Proton.Types.Provisioning
@@ -34,6 +34,10 @@ data Environment = Environment'
   { -- | When included, indicates that the environment template is for customer
     -- provisioned and managed infrastructure.
     provisioning :: Prelude.Maybe Provisioning,
+    -- | The Amazon Resource Name (ARN) of the IAM service role that allows
+    -- Proton to provision infrastructure using CodeBuild-based provisioning on
+    -- your behalf.
+    codebuildRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The linked repository that you use to host your rendered infrastructure
     -- templates for self-managed provisioning. A linked repository is a
     -- repository that has been registered with Proton. For more information,
@@ -96,6 +100,10 @@ data Environment = Environment'
 --
 -- 'provisioning', 'environment_provisioning' - When included, indicates that the environment template is for customer
 -- provisioned and managed infrastructure.
+--
+-- 'codebuildRoleArn', 'environment_codebuildRoleArn' - The Amazon Resource Name (ARN) of the IAM service role that allows
+-- Proton to provision infrastructure using CodeBuild-based provisioning on
+-- your behalf.
 --
 -- 'provisioningRepository', 'environment_provisioningRepository' - The linked repository that you use to host your rendered infrastructure
 -- templates for self-managed provisioning. A linked repository is a
@@ -177,6 +185,7 @@ newEnvironment
   pTemplateName_ =
     Environment'
       { provisioning = Prelude.Nothing,
+        codebuildRoleArn = Prelude.Nothing,
         provisioningRepository = Prelude.Nothing,
         description = Prelude.Nothing,
         deploymentStatusMessage = Prelude.Nothing,
@@ -202,6 +211,12 @@ newEnvironment
 -- provisioned and managed infrastructure.
 environment_provisioning :: Lens.Lens' Environment (Prelude.Maybe Provisioning)
 environment_provisioning = Lens.lens (\Environment' {provisioning} -> provisioning) (\s@Environment' {} a -> s {provisioning = a} :: Environment)
+
+-- | The Amazon Resource Name (ARN) of the IAM service role that allows
+-- Proton to provision infrastructure using CodeBuild-based provisioning on
+-- your behalf.
+environment_codebuildRoleArn :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
+environment_codebuildRoleArn = Lens.lens (\Environment' {codebuildRoleArn} -> codebuildRoleArn) (\s@Environment' {} a -> s {codebuildRoleArn = a} :: Environment)
 
 -- | The linked repository that you use to host your rendered infrastructure
 -- templates for self-managed provisioning. A linked repository is a
@@ -293,6 +308,7 @@ instance Core.FromJSON Environment where
       ( \x ->
           Environment'
             Prelude.<$> (x Core..:? "provisioning")
+            Prelude.<*> (x Core..:? "codebuildRoleArn")
             Prelude.<*> (x Core..:? "provisioningRepository")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "deploymentStatusMessage")
@@ -315,6 +331,7 @@ instance Core.FromJSON Environment where
 instance Prelude.Hashable Environment where
   hashWithSalt _salt Environment' {..} =
     _salt `Prelude.hashWithSalt` provisioning
+      `Prelude.hashWithSalt` codebuildRoleArn
       `Prelude.hashWithSalt` provisioningRepository
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deploymentStatusMessage
@@ -336,6 +353,7 @@ instance Prelude.Hashable Environment where
 instance Prelude.NFData Environment where
   rnf Environment' {..} =
     Prelude.rnf provisioning
+      `Prelude.seq` Prelude.rnf codebuildRoleArn
       `Prelude.seq` Prelude.rnf provisioningRepository
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf deploymentStatusMessage

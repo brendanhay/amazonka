@@ -20,9 +20,9 @@
 module Amazonka.DynamoDBStreams.Types.StreamRecord where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.StreamViewType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of a single data modification that was performed on an

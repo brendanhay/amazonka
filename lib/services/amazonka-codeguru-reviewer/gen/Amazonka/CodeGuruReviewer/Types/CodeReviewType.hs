@@ -22,7 +22,7 @@ module Amazonka.CodeGuruReviewer.Types.CodeReviewType where
 import Amazonka.CodeGuruReviewer.Types.AnalysisType
 import Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type of a code review. There are two code review types:

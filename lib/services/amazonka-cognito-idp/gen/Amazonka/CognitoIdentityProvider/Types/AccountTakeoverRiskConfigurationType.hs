@@ -22,7 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.AccountTakeoverRiskConfigurationTy
 import Amazonka.CognitoIdentityProvider.Types.AccountTakeoverActionsType
 import Amazonka.CognitoIdentityProvider.Types.NotifyConfigurationType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration for mitigation actions and notification for different

@@ -20,8 +20,8 @@
 module Amazonka.DMS.Types.OracleSettings where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.CharLengthSemantics
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines an Oracle endpoint.
@@ -56,7 +56,7 @@ data OracleSettings = OracleSettings'
     -- additional destination ID. Doing this improves performance by ensuring
     -- that the correct logs are accessed from the outset.
     archivedLogDestId :: Prelude.Maybe Prelude.Int,
-    -- | Required only if your Oracle endpoint uses Advanced Storage Manager
+    -- | Required only if your Oracle endpoint uses Automatic Storage Management
     -- (ASM). The full ARN of the IAM role that specifies DMS as the trusted
     -- entity and grants the required permissions to access the
     -- @SecretsManagerOracleAsmSecret@. This @SecretsManagerOracleAsmSecret@
@@ -194,8 +194,8 @@ data OracleSettings = OracleSettings'
     -- the task fails instead of truncating the LOB data.
     failTasksOnLobTruncation :: Prelude.Maybe Prelude.Bool,
     -- | When this field is set to @Y@, DMS only accesses the archived redo logs.
-    -- If the archived redo logs are stored on Oracle ASM only, the DMS user
-    -- account needs to be granted ASM privileges.
+    -- If the archived redo logs are stored on Automatic Storage Management
+    -- (ASM) only, the DMS user account needs to be granted ASM privileges.
     archivedLogsOnly :: Prelude.Maybe Prelude.Bool,
     -- | Set this string attribute to the required value in order to use the
     -- Binary Reader to capture change data for an Amazon RDS for Oracle as the
@@ -266,7 +266,7 @@ data OracleSettings = OracleSettings'
     -- create existing tables or indexes under the same tablespace on the
     -- target.
     enableHomogenousTablespace :: Prelude.Maybe Prelude.Bool,
-    -- | Required only if your Oracle endpoint uses Advanced Storage Manager
+    -- | Required only if your Oracle endpoint uses Automatic Storage Management
     -- (ASM). The full ARN, partial ARN, or friendly name of the
     -- @SecretsManagerOracleAsmSecret@ that contains the Oracle ASM connection
     -- details for the Oracle endpoint.
@@ -330,7 +330,7 @@ data OracleSettings = OracleSettings'
 -- additional destination ID. Doing this improves performance by ensuring
 -- that the correct logs are accessed from the outset.
 --
--- 'secretsManagerOracleAsmAccessRoleArn', 'oracleSettings_secretsManagerOracleAsmAccessRoleArn' - Required only if your Oracle endpoint uses Advanced Storage Manager
+-- 'secretsManagerOracleAsmAccessRoleArn', 'oracleSettings_secretsManagerOracleAsmAccessRoleArn' - Required only if your Oracle endpoint uses Automatic Storage Management
 -- (ASM). The full ARN of the IAM role that specifies DMS as the trusted
 -- entity and grants the required permissions to access the
 -- @SecretsManagerOracleAsmSecret@. This @SecretsManagerOracleAsmSecret@
@@ -468,8 +468,8 @@ data OracleSettings = OracleSettings'
 -- the task fails instead of truncating the LOB data.
 --
 -- 'archivedLogsOnly', 'oracleSettings_archivedLogsOnly' - When this field is set to @Y@, DMS only accesses the archived redo logs.
--- If the archived redo logs are stored on Oracle ASM only, the DMS user
--- account needs to be granted ASM privileges.
+-- If the archived redo logs are stored on Automatic Storage Management
+-- (ASM) only, the DMS user account needs to be granted ASM privileges.
 --
 -- 'usePathPrefix', 'oracleSettings_usePathPrefix' - Set this string attribute to the required value in order to use the
 -- Binary Reader to capture change data for an Amazon RDS for Oracle as the
@@ -540,7 +540,7 @@ data OracleSettings = OracleSettings'
 -- create existing tables or indexes under the same tablespace on the
 -- target.
 --
--- 'secretsManagerOracleAsmSecretId', 'oracleSettings_secretsManagerOracleAsmSecretId' - Required only if your Oracle endpoint uses Advanced Storage Manager
+-- 'secretsManagerOracleAsmSecretId', 'oracleSettings_secretsManagerOracleAsmSecretId' - Required only if your Oracle endpoint uses Automatic Storage Management
 -- (ASM). The full ARN, partial ARN, or friendly name of the
 -- @SecretsManagerOracleAsmSecret@ that contains the Oracle ASM connection
 -- details for the Oracle endpoint.
@@ -654,7 +654,7 @@ oracleSettings_useDirectPathFullLoad = Lens.lens (\OracleSettings' {useDirectPat
 oracleSettings_archivedLogDestId :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Int)
 oracleSettings_archivedLogDestId = Lens.lens (\OracleSettings' {archivedLogDestId} -> archivedLogDestId) (\s@OracleSettings' {} a -> s {archivedLogDestId = a} :: OracleSettings)
 
--- | Required only if your Oracle endpoint uses Advanced Storage Manager
+-- | Required only if your Oracle endpoint uses Automatic Storage Management
 -- (ASM). The full ARN of the IAM role that specifies DMS as the trusted
 -- entity and grants the required permissions to access the
 -- @SecretsManagerOracleAsmSecret@. This @SecretsManagerOracleAsmSecret@
@@ -826,8 +826,8 @@ oracleSettings_failTasksOnLobTruncation :: Lens.Lens' OracleSettings (Prelude.Ma
 oracleSettings_failTasksOnLobTruncation = Lens.lens (\OracleSettings' {failTasksOnLobTruncation} -> failTasksOnLobTruncation) (\s@OracleSettings' {} a -> s {failTasksOnLobTruncation = a} :: OracleSettings)
 
 -- | When this field is set to @Y@, DMS only accesses the archived redo logs.
--- If the archived redo logs are stored on Oracle ASM only, the DMS user
--- account needs to be granted ASM privileges.
+-- If the archived redo logs are stored on Automatic Storage Management
+-- (ASM) only, the DMS user account needs to be granted ASM privileges.
 oracleSettings_archivedLogsOnly :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_archivedLogsOnly = Lens.lens (\OracleSettings' {archivedLogsOnly} -> archivedLogsOnly) (\s@OracleSettings' {} a -> s {archivedLogsOnly = a} :: OracleSettings)
 
@@ -926,7 +926,7 @@ oracleSettings_allowSelectNestedTables = Lens.lens (\OracleSettings' {allowSelec
 oracleSettings_enableHomogenousTablespace :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_enableHomogenousTablespace = Lens.lens (\OracleSettings' {enableHomogenousTablespace} -> enableHomogenousTablespace) (\s@OracleSettings' {} a -> s {enableHomogenousTablespace = a} :: OracleSettings)
 
--- | Required only if your Oracle endpoint uses Advanced Storage Manager
+-- | Required only if your Oracle endpoint uses Automatic Storage Management
 -- (ASM). The full ARN, partial ARN, or friendly name of the
 -- @SecretsManagerOracleAsmSecret@ that contains the Oracle ASM connection
 -- details for the Oracle endpoint.

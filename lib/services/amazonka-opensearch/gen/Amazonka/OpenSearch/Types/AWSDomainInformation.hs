@@ -20,13 +20,18 @@
 module Amazonka.OpenSearch.Types.AWSDomainInformation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newAWSDomainInformation' smart constructor.
+-- | Information about an Amazon OpenSearch Service domain.
+--
+-- /See:/ 'newAWSDomainInformation' smart constructor.
 data AWSDomainInformation = AWSDomainInformation'
-  { ownerId :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Web Services account ID of the domain owner.
+    ownerId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Region in which the domain is located.
     region :: Prelude.Maybe Prelude.Text,
+    -- | Name of the domain.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -39,11 +44,11 @@ data AWSDomainInformation = AWSDomainInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'aWSDomainInformation_ownerId' - Undocumented member.
+-- 'ownerId', 'aWSDomainInformation_ownerId' - The Amazon Web Services account ID of the domain owner.
 --
--- 'region', 'aWSDomainInformation_region' - Undocumented member.
+-- 'region', 'aWSDomainInformation_region' - The Amazon Web Services Region in which the domain is located.
 --
--- 'domainName', 'aWSDomainInformation_domainName' - Undocumented member.
+-- 'domainName', 'aWSDomainInformation_domainName' - Name of the domain.
 newAWSDomainInformation ::
   -- | 'domainName'
   Prelude.Text ->
@@ -55,15 +60,15 @@ newAWSDomainInformation pDomainName_ =
       domainName = pDomainName_
     }
 
--- | Undocumented member.
+-- | The Amazon Web Services account ID of the domain owner.
 aWSDomainInformation_ownerId :: Lens.Lens' AWSDomainInformation (Prelude.Maybe Prelude.Text)
 aWSDomainInformation_ownerId = Lens.lens (\AWSDomainInformation' {ownerId} -> ownerId) (\s@AWSDomainInformation' {} a -> s {ownerId = a} :: AWSDomainInformation)
 
--- | Undocumented member.
+-- | The Amazon Web Services Region in which the domain is located.
 aWSDomainInformation_region :: Lens.Lens' AWSDomainInformation (Prelude.Maybe Prelude.Text)
 aWSDomainInformation_region = Lens.lens (\AWSDomainInformation' {region} -> region) (\s@AWSDomainInformation' {} a -> s {region = a} :: AWSDomainInformation)
 
--- | Undocumented member.
+-- | Name of the domain.
 aWSDomainInformation_domainName :: Lens.Lens' AWSDomainInformation Prelude.Text
 aWSDomainInformation_domainName = Lens.lens (\AWSDomainInformation' {domainName} -> domainName) (\s@AWSDomainInformation' {} a -> s {domainName = a} :: AWSDomainInformation)
 

@@ -20,8 +20,8 @@
 module Amazonka.DeviceFarm.Types.TestGridSession where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.TestGridSessionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A TestGridSession is a single instance of a browser launched from the

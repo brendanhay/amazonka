@@ -20,11 +20,11 @@
 module Amazonka.DynamoDB.Types.ReplicaUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.CreateReplicaAction
 import Amazonka.DynamoDB.Types.DeleteReplicaAction
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents one of the following:

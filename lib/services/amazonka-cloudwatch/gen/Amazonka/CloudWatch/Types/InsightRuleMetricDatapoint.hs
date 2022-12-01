@@ -20,7 +20,7 @@
 module Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | One data point from the metric time series returned in a Contributor

@@ -11,9 +11,9 @@
 --
 -- Derived from API version @2015-12-10@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Service Catalog
+-- Service Catalog
 --
--- <https://aws.amazon.com/servicecatalog/ Service Catalog> enables
+-- <http://aws.amazon.com/servicecatalog Service Catalog> enables
 -- organizations to create and manage catalogs of IT services that are
 -- approved for Amazon Web Services. To get the most out of this
 -- documentation, you should be familiar with the terminology discussed in
@@ -600,6 +600,9 @@ module Amazonka.ServiceCatalog
     -- ** EvaluationType
     EvaluationType (..),
 
+    -- ** LastSyncStatus
+    LastSyncStatus (..),
+
     -- ** OrganizationNodeType
     OrganizationNodeType (..),
 
@@ -675,6 +678,9 @@ module Amazonka.ServiceCatalog
     -- ** SortOrder
     SortOrder (..),
 
+    -- ** SourceType
+    SourceType (..),
+
     -- ** StackInstanceStatus
     StackInstanceStatus (..),
 
@@ -693,6 +699,10 @@ module Amazonka.ServiceCatalog
     CloudWatchDashboard (CloudWatchDashboard'),
     newCloudWatchDashboard,
 
+    -- ** CodeStarParameters
+    CodeStarParameters (CodeStarParameters'),
+    newCodeStarParameters,
+
     -- ** ConstraintDetail
     ConstraintDetail (ConstraintDetail'),
     newConstraintDetail,
@@ -708,6 +718,10 @@ module Amazonka.ServiceCatalog
     -- ** FailedServiceActionAssociation
     FailedServiceActionAssociation (FailedServiceActionAssociation'),
     newFailedServiceActionAssociation,
+
+    -- ** LastSync
+    LastSync (LastSync'),
+    newLastSync,
 
     -- ** LaunchPath
     LaunchPath (LaunchPath'),
@@ -864,6 +878,18 @@ module Amazonka.ServiceCatalog
     -- ** ShareError
     ShareError (ShareError'),
     newShareError,
+
+    -- ** SourceConnection
+    SourceConnection (SourceConnection'),
+    newSourceConnection,
+
+    -- ** SourceConnectionDetail
+    SourceConnectionDetail (SourceConnectionDetail'),
+    newSourceConnectionDetail,
+
+    -- ** SourceConnectionParameters
+    SourceConnectionParameters (SourceConnectionParameters'),
+    newSourceConnectionParameters,
 
     -- ** StackInstance
     StackInstance (StackInstance'),

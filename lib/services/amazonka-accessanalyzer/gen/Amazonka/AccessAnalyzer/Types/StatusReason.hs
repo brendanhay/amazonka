@@ -21,7 +21,7 @@ module Amazonka.AccessAnalyzer.Types.StatusReason where
 
 import Amazonka.AccessAnalyzer.Types.ReasonCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides more details about the current status of the analyzer. For

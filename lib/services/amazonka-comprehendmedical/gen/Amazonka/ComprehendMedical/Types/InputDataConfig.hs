@@ -20,7 +20,7 @@
 module Amazonka.ComprehendMedical.Types.InputDataConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input properties for an entities detection job. This includes the

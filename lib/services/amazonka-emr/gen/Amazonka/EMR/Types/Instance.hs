@@ -20,10 +20,10 @@
 module Amazonka.EMR.Types.Instance where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.EbsVolume
 import Amazonka.EMR.Types.InstanceStatus
 import Amazonka.EMR.Types.MarketType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an EC2 instance provisioned as part of cluster.

@@ -24,7 +24,7 @@ import Amazonka.Connect.Types.QueueQuickConnectConfig
 import Amazonka.Connect.Types.QuickConnectType
 import Amazonka.Connect.Types.UserQuickConnectConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration settings for a quick connect.

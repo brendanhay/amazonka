@@ -21,7 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.AnomalyInstance where
 
 import Amazonka.CodeGuruProfiler.Types.UserFeedback
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The specific duration in which the metric is flagged as anomalous.

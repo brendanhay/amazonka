@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.MouthOpen where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether or not the mouth on the face is open, and the

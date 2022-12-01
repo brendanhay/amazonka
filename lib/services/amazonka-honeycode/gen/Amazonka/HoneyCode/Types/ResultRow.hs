@@ -20,8 +20,8 @@
 module Amazonka.HoneyCode.Types.ResultRow where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HoneyCode.Types.DataItem
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single row in the ResultSet.

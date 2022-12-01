@@ -20,10 +20,10 @@
 module Amazonka.GuardDuty.Types.OrganizationDataSourceConfigurations where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.OrganizationKubernetesConfiguration
 import Amazonka.GuardDuty.Types.OrganizationMalwareProtectionConfiguration
 import Amazonka.GuardDuty.Types.OrganizationS3LogsConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information on which data sources will be

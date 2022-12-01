@@ -22,7 +22,7 @@ module Amazonka.ConnectCampaigns.Types.DialerConfig where
 import Amazonka.ConnectCampaigns.Types.PredictiveDialerConfig
 import Amazonka.ConnectCampaigns.Types.ProgressiveDialerConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The possible types of dialer config parameters

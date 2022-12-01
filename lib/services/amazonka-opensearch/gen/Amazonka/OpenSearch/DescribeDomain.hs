@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns domain configuration information about the specified domain,
--- including the domain ID, domain endpoint, and domain ARN.
+-- Describes the domain configuration for the specified Amazon OpenSearch
+-- Service domain, including the domain ID, domain service endpoint, and
+-- domain ARN.
 module Amazonka.OpenSearch.DescribeDomain
   ( -- * Creating a Request
     DescribeDomain (..),
@@ -41,17 +42,17 @@ module Amazonka.OpenSearch.DescribeDomain
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ DescribeDomain @ operation.
+-- | Container for the parameters to the @DescribeDomain@ operation.
 --
 -- /See:/ 'newDescribeDomain' smart constructor.
 data DescribeDomain = DescribeDomain'
-  { -- | The name of the domain for which you want information.
+  { -- | The name of the domain that you want information about.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +65,7 @@ data DescribeDomain = DescribeDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainName', 'describeDomain_domainName' - The name of the domain for which you want information.
+-- 'domainName', 'describeDomain_domainName' - The name of the domain that you want information about.
 newDescribeDomain ::
   -- | 'domainName'
   Prelude.Text ->
@@ -72,7 +73,7 @@ newDescribeDomain ::
 newDescribeDomain pDomainName_ =
   DescribeDomain' {domainName = pDomainName_}
 
--- | The name of the domain for which you want information.
+-- | The name of the domain that you want information about.
 describeDomain_domainName :: Lens.Lens' DescribeDomain Prelude.Text
 describeDomain_domainName = Lens.lens (\DescribeDomain' {domainName} -> domainName) (\s@DescribeDomain' {} a -> s {domainName = a} :: DescribeDomain)
 
@@ -80,8 +81,8 @@ instance Core.AWSRequest DescribeDomain where
   type
     AWSResponse DescribeDomain =
       DescribeDomainResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,14 +111,14 @@ instance Core.ToPath DescribeDomain where
 instance Core.ToQuery DescribeDomain where
   toQuery = Prelude.const Prelude.mempty
 
--- | The result of a @DescribeDomain@ request. Contains the status of the
--- domain specified in the request.
+-- | Contains the status of the domain specified in the request.
 --
 -- /See:/ 'newDescribeDomainResponse' smart constructor.
 data DescribeDomainResponse = DescribeDomainResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The current status of the domain.
+    -- | List that contains the status of each specified OpenSearch Service
+    -- domain.
     domainStatus :: DomainStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -132,7 +133,8 @@ data DescribeDomainResponse = DescribeDomainResponse'
 --
 -- 'httpStatus', 'describeDomainResponse_httpStatus' - The response's http status code.
 --
--- 'domainStatus', 'describeDomainResponse_domainStatus' - The current status of the domain.
+-- 'domainStatus', 'describeDomainResponse_domainStatus' - List that contains the status of each specified OpenSearch Service
+-- domain.
 newDescribeDomainResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -149,7 +151,8 @@ newDescribeDomainResponse pHttpStatus_ pDomainStatus_ =
 describeDomainResponse_httpStatus :: Lens.Lens' DescribeDomainResponse Prelude.Int
 describeDomainResponse_httpStatus = Lens.lens (\DescribeDomainResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainResponse' {} a -> s {httpStatus = a} :: DescribeDomainResponse)
 
--- | The current status of the domain.
+-- | List that contains the status of each specified OpenSearch Service
+-- domain.
 describeDomainResponse_domainStatus :: Lens.Lens' DescribeDomainResponse DomainStatus
 describeDomainResponse_domainStatus = Lens.lens (\DescribeDomainResponse' {domainStatus} -> domainStatus) (\s@DescribeDomainResponse' {} a -> s {domainStatus = a} :: DescribeDomainResponse)
 

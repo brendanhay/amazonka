@@ -59,7 +59,7 @@ where
 
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +106,10 @@ data CreateApp = CreateApp'
     basicAuthCredentials :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The description for an Amplify app.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The platform or framework for an Amplify app.
+    -- | The platform for the Amplify app. For a static app, set the platform
+    -- type to @WEB@. For a dynamic server-side rendered (SSR) app, set the
+    -- platform type to @WEB_COMPUTE@. For an app requiring Amplify Hosting\'s
+    -- original SSR support only, set the platform type to @WEB_DYNAMIC@.
     platform :: Prelude.Maybe Platform,
     -- | The OAuth token for a third-party source control system for an Amplify
     -- app. The OAuth token is used to create a webhook and a read-only deploy
@@ -189,7 +192,10 @@ data CreateApp = CreateApp'
 --
 -- 'description', 'createApp_description' - The description for an Amplify app.
 --
--- 'platform', 'createApp_platform' - The platform or framework for an Amplify app.
+-- 'platform', 'createApp_platform' - The platform for the Amplify app. For a static app, set the platform
+-- type to @WEB@. For a dynamic server-side rendered (SSR) app, set the
+-- platform type to @WEB_COMPUTE@. For an app requiring Amplify Hosting\'s
+-- original SSR support only, set the platform type to @WEB_DYNAMIC@.
 --
 -- 'oauthToken', 'createApp_oauthToken' - The OAuth token for a third-party source control system for an Amplify
 -- app. The OAuth token is used to create a webhook and a read-only deploy
@@ -307,7 +313,10 @@ createApp_basicAuthCredentials = Lens.lens (\CreateApp' {basicAuthCredentials} -
 createApp_description :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
 createApp_description = Lens.lens (\CreateApp' {description} -> description) (\s@CreateApp' {} a -> s {description = a} :: CreateApp)
 
--- | The platform or framework for an Amplify app.
+-- | The platform for the Amplify app. For a static app, set the platform
+-- type to @WEB@. For a dynamic server-side rendered (SSR) app, set the
+-- platform type to @WEB_COMPUTE@. For an app requiring Amplify Hosting\'s
+-- original SSR support only, set the platform type to @WEB_DYNAMIC@.
 createApp_platform :: Lens.Lens' CreateApp (Prelude.Maybe Platform)
 createApp_platform = Lens.lens (\CreateApp' {platform} -> platform) (\s@CreateApp' {} a -> s {platform = a} :: CreateApp)
 
@@ -361,8 +370,8 @@ createApp_name = Lens.lens (\CreateApp' {name} -> name) (\s@CreateApp' {} a -> s
 
 instance Core.AWSRequest CreateApp where
   type AWSResponse CreateApp = CreateAppResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,7 @@
 module Amazonka.MediaConnect.Types.SourcePriority where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The priority you want to assign to a source. You can have a primary

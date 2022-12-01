@@ -20,11 +20,11 @@
 module Amazonka.DAX.Types.Parameter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types.ChangeType
 import Amazonka.DAX.Types.IsModifiable
 import Amazonka.DAX.Types.NodeTypeSpecificValue
 import Amazonka.DAX.Types.ParameterType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an individual setting that controls some aspect of DAX

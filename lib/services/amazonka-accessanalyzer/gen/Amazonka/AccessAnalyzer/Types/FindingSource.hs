@@ -22,7 +22,7 @@ module Amazonka.AccessAnalyzer.Types.FindingSource where
 import Amazonka.AccessAnalyzer.Types.FindingSourceDetail
 import Amazonka.AccessAnalyzer.Types.FindingSourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The source of the finding. This indicates how the access that generated

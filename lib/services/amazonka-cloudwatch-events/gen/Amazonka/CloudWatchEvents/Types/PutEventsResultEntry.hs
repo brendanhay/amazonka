@@ -20,7 +20,7 @@
 module Amazonka.CloudWatchEvents.Types.PutEventsResultEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an event that failed to be submitted. For information about

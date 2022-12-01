@@ -20,7 +20,7 @@
 module Amazonka.Config.Types.ConformancePackComplianceScoresFilters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of filters to apply to the conformance pack compliance score

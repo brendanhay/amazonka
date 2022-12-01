@@ -24,16 +24,19 @@ import Amazonka.Athena.Types.QueryExecutionContext
 import Amazonka.Athena.Types.QueryExecutionStatistics
 import Amazonka.Athena.Types.QueryExecutionStatus
 import Amazonka.Athena.Types.ResultConfiguration
+import Amazonka.Athena.Types.ResultReuseConfiguration
 import Amazonka.Athena.Types.StatementType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a single instance of a query execution.
 --
 -- /See:/ 'newQueryExecution' smart constructor.
 data QueryExecution = QueryExecution'
-  { -- | The unique identifier for each query execution.
+  { -- | Specifies the query result reuse behavior that was used for the query.
+    resultReuseConfiguration :: Prelude.Maybe ResultReuseConfiguration,
+    -- | The unique identifier for each query execution.
     queryExecutionId :: Prelude.Maybe Prelude.Text,
     -- | Query execution statistics, such as the amount of data scanned, the
     -- amount of time that the query took to process, and the type of statement
@@ -77,6 +80,8 @@ data QueryExecution = QueryExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resultReuseConfiguration', 'queryExecution_resultReuseConfiguration' - Specifies the query result reuse behavior that was used for the query.
+--
 -- 'queryExecutionId', 'queryExecution_queryExecutionId' - The unique identifier for each query execution.
 --
 -- 'statistics', 'queryExecution_statistics' - Query execution statistics, such as the amount of data scanned, the
@@ -113,7 +118,9 @@ newQueryExecution ::
   QueryExecution
 newQueryExecution =
   QueryExecution'
-    { queryExecutionId = Prelude.Nothing,
+    { resultReuseConfiguration =
+        Prelude.Nothing,
+      queryExecutionId = Prelude.Nothing,
       statistics = Prelude.Nothing,
       statementType = Prelude.Nothing,
       workGroup = Prelude.Nothing,
@@ -124,6 +131,10 @@ newQueryExecution =
       executionParameters = Prelude.Nothing,
       engineVersion = Prelude.Nothing
     }
+
+-- | Specifies the query result reuse behavior that was used for the query.
+queryExecution_resultReuseConfiguration :: Lens.Lens' QueryExecution (Prelude.Maybe ResultReuseConfiguration)
+queryExecution_resultReuseConfiguration = Lens.lens (\QueryExecution' {resultReuseConfiguration} -> resultReuseConfiguration) (\s@QueryExecution' {} a -> s {resultReuseConfiguration = a} :: QueryExecution)
 
 -- | The unique identifier for each query execution.
 queryExecution_queryExecutionId :: Lens.Lens' QueryExecution (Prelude.Maybe Prelude.Text)
@@ -184,7 +195,8 @@ instance Core.FromJSON QueryExecution where
       "QueryExecution"
       ( \x ->
           QueryExecution'
-            Prelude.<$> (x Core..:? "QueryExecutionId")
+            Prelude.<$> (x Core..:? "ResultReuseConfiguration")
+            Prelude.<*> (x Core..:? "QueryExecutionId")
             Prelude.<*> (x Core..:? "Statistics")
             Prelude.<*> (x Core..:? "StatementType")
             Prelude.<*> (x Core..:? "WorkGroup")
@@ -198,7 +210,9 @@ instance Core.FromJSON QueryExecution where
 
 instance Prelude.Hashable QueryExecution where
   hashWithSalt _salt QueryExecution' {..} =
-    _salt `Prelude.hashWithSalt` queryExecutionId
+    _salt
+      `Prelude.hashWithSalt` resultReuseConfiguration
+      `Prelude.hashWithSalt` queryExecutionId
       `Prelude.hashWithSalt` statistics
       `Prelude.hashWithSalt` statementType
       `Prelude.hashWithSalt` workGroup
@@ -211,7 +225,8 @@ instance Prelude.Hashable QueryExecution where
 
 instance Prelude.NFData QueryExecution where
   rnf QueryExecution' {..} =
-    Prelude.rnf queryExecutionId
+    Prelude.rnf resultReuseConfiguration
+      `Prelude.seq` Prelude.rnf queryExecutionId
       `Prelude.seq` Prelude.rnf statistics
       `Prelude.seq` Prelude.rnf statementType
       `Prelude.seq` Prelude.rnf workGroup

@@ -20,9 +20,9 @@
 module Amazonka.Forecast.Types.TimeSeriesTransformation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.Action
 import Amazonka.Forecast.Types.TimeSeriesCondition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A transformation function is a pair of operations that select and modify

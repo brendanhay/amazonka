@@ -20,9 +20,9 @@
 module Amazonka.FSx.Types.CreateFileCacheLustreConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.FileCacheLustreDeploymentType
 import Amazonka.FSx.Types.FileCacheLustreMetadataConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon File Cache configuration for the cache that you are creating.

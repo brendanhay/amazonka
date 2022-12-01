@@ -20,8 +20,8 @@
 module Amazonka.EKS.Types.LogSetup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types.LogType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the enabled or disabled Kubernetes control plane

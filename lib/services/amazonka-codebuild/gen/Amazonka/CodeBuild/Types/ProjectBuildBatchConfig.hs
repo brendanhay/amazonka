@@ -22,7 +22,7 @@ module Amazonka.CodeBuild.Types.ProjectBuildBatchConfig where
 import Amazonka.CodeBuild.Types.BatchReportModeType
 import Amazonka.CodeBuild.Types.BatchRestrictions
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information about a batch build project.

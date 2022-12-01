@@ -22,7 +22,7 @@ module Amazonka.CloudDirectory.Types.FacetAttributeUpdate where
 import Amazonka.CloudDirectory.Types.FacetAttribute
 import Amazonka.CloudDirectory.Types.UpdateActionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains information used to update an attribute.

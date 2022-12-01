@@ -22,7 +22,7 @@ module Amazonka.AccessAnalyzer.Types.AccessPreviewSummary where
 import Amazonka.AccessAnalyzer.Types.AccessPreviewStatus
 import Amazonka.AccessAnalyzer.Types.AccessPreviewStatusReason
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a summary of information about an access preview.

@@ -20,12 +20,12 @@
 module Amazonka.OpenSearch.Types.VPCDerivedInfoStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.OptionStatus
 import Amazonka.OpenSearch.Types.VPCDerivedInfo
 import qualified Amazonka.Prelude as Prelude
 
--- | Status of the VPC options for the specified domain.
+-- | Status of the VPC options for a specified domain.
 --
 -- /See:/ 'newVPCDerivedInfoStatus' smart constructor.
 data VPCDerivedInfoStatus = VPCDerivedInfoStatus'

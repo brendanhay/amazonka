@@ -21,7 +21,7 @@ module Amazonka.CodeDeploy.Types.AutoRollbackConfiguration where
 
 import Amazonka.CodeDeploy.Types.AutoRollbackEvent
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a configuration for automatically rolling back to a

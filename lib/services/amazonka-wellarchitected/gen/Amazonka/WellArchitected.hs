@@ -180,6 +180,18 @@ module Amazonka.WellArchitected
     ListAnswersResponse (ListAnswersResponse'),
     newListAnswersResponse,
 
+    -- ** ListCheckDetails
+    ListCheckDetails (ListCheckDetails'),
+    newListCheckDetails,
+    ListCheckDetailsResponse (ListCheckDetailsResponse'),
+    newListCheckDetailsResponse,
+
+    -- ** ListCheckSummaries
+    ListCheckSummaries (ListCheckSummaries'),
+    newListCheckSummaries,
+    ListCheckSummariesResponse (ListCheckSummariesResponse'),
+    newListCheckSummariesResponse,
+
     -- ** ListLensReviewImprovements
     ListLensReviewImprovements (ListLensReviewImprovements'),
     newListLensReviewImprovements,
@@ -302,6 +314,15 @@ module Amazonka.WellArchitected
     -- ** AnswerReason
     AnswerReason (..),
 
+    -- ** CheckFailureReason
+    CheckFailureReason (..),
+
+    -- ** CheckProvider
+    CheckProvider (..),
+
+    -- ** CheckStatus
+    CheckStatus (..),
+
     -- ** ChoiceReason
     ChoiceReason (..),
 
@@ -344,6 +365,9 @@ module Amazonka.WellArchitected
     -- ** ShareStatus
     ShareStatus (..),
 
+    -- ** TrustedAdvisorIntegrationStatus
+    TrustedAdvisorIntegrationStatus (..),
+
     -- ** WorkloadEnvironment
     WorkloadEnvironment (..),
 
@@ -361,6 +385,14 @@ module Amazonka.WellArchitected
     -- ** AnswerSummary
     AnswerSummary (AnswerSummary'),
     newAnswerSummary,
+
+    -- ** CheckDetail
+    CheckDetail (CheckDetail'),
+    newCheckDetail,
+
+    -- ** CheckSummary
+    CheckSummary (CheckSummary'),
+    newCheckSummary,
 
     -- ** Choice
     Choice (Choice'),
@@ -458,6 +490,10 @@ module Amazonka.WellArchitected
     Workload (Workload'),
     newWorkload,
 
+    -- ** WorkloadDiscoveryConfig
+    WorkloadDiscoveryConfig (WorkloadDiscoveryConfig'),
+    newWorkloadDiscoveryConfig,
+
     -- ** WorkloadShare
     WorkloadShare (WorkloadShare'),
     newWorkloadShare,
@@ -494,6 +530,8 @@ import Amazonka.WellArchitected.GetWorkload
 import Amazonka.WellArchitected.ImportLens
 import Amazonka.WellArchitected.Lens
 import Amazonka.WellArchitected.ListAnswers
+import Amazonka.WellArchitected.ListCheckDetails
+import Amazonka.WellArchitected.ListCheckSummaries
 import Amazonka.WellArchitected.ListLensReviewImprovements
 import Amazonka.WellArchitected.ListLensReviews
 import Amazonka.WellArchitected.ListLensShares

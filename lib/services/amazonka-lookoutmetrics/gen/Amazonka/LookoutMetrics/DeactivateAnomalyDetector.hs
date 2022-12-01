@@ -39,7 +39,7 @@ module Amazonka.LookoutMetrics.DeactivateAnomalyDetector
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -79,8 +79,8 @@ instance Core.AWSRequest DeactivateAnomalyDetector where
   type
     AWSResponse DeactivateAnomalyDetector =
       DeactivateAnomalyDetectorResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

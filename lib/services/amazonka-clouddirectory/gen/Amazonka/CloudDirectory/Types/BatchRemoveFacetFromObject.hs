@@ -22,7 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchRemoveFacetFromObject where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import Amazonka.CloudDirectory.Types.SchemaFacet
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A batch operation to remove a facet from an object.

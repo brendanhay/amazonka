@@ -20,15 +20,17 @@
 module Amazonka.ElastiCache.Types.CacheCluster where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.CacheNode
 import Amazonka.ElastiCache.Types.CacheParameterGroupStatus
 import Amazonka.ElastiCache.Types.CacheSecurityGroupMembership
 import Amazonka.ElastiCache.Types.Endpoint
+import Amazonka.ElastiCache.Types.IpDiscovery
 import Amazonka.ElastiCache.Types.LogDeliveryConfiguration
+import Amazonka.ElastiCache.Types.NetworkType
 import Amazonka.ElastiCache.Types.NotificationConfiguration
 import Amazonka.ElastiCache.Types.PendingModifiedValues
 import Amazonka.ElastiCache.Types.SecurityGroupMembership
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains all of the attributes of a specific cluster.
@@ -80,6 +82,11 @@ data CacheCluster = CacheCluster'
     --
     -- Default: @false@
     atRestEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The network type associated with the cluster, either @ipv4@ | @ipv6@.
+    -- IPv6 is supported for workloads using Redis engine version 6.2 onward or
+    -- Memcached engine version 1.6.6 on all instances built on the
+    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    ipDiscovery :: Prelude.Maybe IpDiscovery,
     -- | The number of cache nodes in the cluster.
     --
     -- For clusters running Redis, this value must be 1. For clusters running
@@ -100,7 +107,7 @@ data CacheCluster = CacheCluster'
     --
     --     -   Current generation:
     --
-    --         __M6g node types:__ (available only for Redis engine version
+    --         __M6g node types__ (available only for Redis engine version
     --         5.0.6 onward and for Memcached engine version 1.5.16 onward):
     --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
     --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
@@ -117,7 +124,7 @@ data CacheCluster = CacheCluster'
     --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
     --
     --         __T4g node types__ (available only for Redis engine version
-    --         5.0.6 onward and for Memcached engine version 1.5.16 onward):
+    --         5.0.6 onward and Memcached engine version 1.5.16 onward):
     --         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
     --
     --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
@@ -145,17 +152,6 @@ data CacheCluster = CacheCluster'
     --         for these types.)
     --
     --         __C1 node types:__ @cache.c1.xlarge@
-    --
-    -- -   Memory optimized with data tiering:
-    --
-    --     -   Current generation:
-    --
-    --         __R6gd node types__ (available only for Redis engine version 6.2
-    --         onward).
-    --
-    --         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
-    --         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
-    --         @cache.r6gd.16xlarge@
     --
     -- -   Memory optimized:
     --
@@ -270,6 +266,11 @@ data CacheCluster = CacheCluster'
     replicationGroupId :: Prelude.Maybe Prelude.Text,
     -- | The version of the cache engine that is used in this cluster.
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
+    -- workloads using Redis engine version 6.2 onward or Memcached engine
+    -- version 1.6.6 on all instances built on the
+    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    networkType :: Prelude.Maybe NetworkType,
     -- | A list of cache security group elements, composed of name and status
     -- sub-elements.
     cacheSecurityGroups :: Prelude.Maybe [CacheSecurityGroupMembership],
@@ -335,6 +336,11 @@ data CacheCluster = CacheCluster'
 --
 -- Default: @false@
 --
+-- 'ipDiscovery', 'cacheCluster_ipDiscovery' - The network type associated with the cluster, either @ipv4@ | @ipv6@.
+-- IPv6 is supported for workloads using Redis engine version 6.2 onward or
+-- Memcached engine version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+--
 -- 'numCacheNodes', 'cacheCluster_numCacheNodes' - The number of cache nodes in the cluster.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
@@ -355,7 +361,7 @@ data CacheCluster = CacheCluster'
 --
 --     -   Current generation:
 --
---         __M6g node types:__ (available only for Redis engine version
+--         __M6g node types__ (available only for Redis engine version
 --         5.0.6 onward and for Memcached engine version 1.5.16 onward):
 --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
 --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
@@ -372,7 +378,7 @@ data CacheCluster = CacheCluster'
 --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
 --
 --         __T4g node types__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward):
+--         5.0.6 onward and Memcached engine version 1.5.16 onward):
 --         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
 --
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
@@ -400,17 +406,6 @@ data CacheCluster = CacheCluster'
 --         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
---
--- -   Memory optimized with data tiering:
---
---     -   Current generation:
---
---         __R6gd node types__ (available only for Redis engine version 6.2
---         onward).
---
---         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
---         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
---         @cache.r6gd.16xlarge@
 --
 -- -   Memory optimized:
 --
@@ -526,6 +521,11 @@ data CacheCluster = CacheCluster'
 --
 -- 'engineVersion', 'cacheCluster_engineVersion' - The version of the cache engine that is used in this cluster.
 --
+-- 'networkType', 'cacheCluster_networkType' - Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
+-- workloads using Redis engine version 6.2 onward or Memcached engine
+-- version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+--
 -- 'cacheSecurityGroups', 'cacheCluster_cacheSecurityGroups' - A list of cache security group elements, composed of name and status
 -- sub-elements.
 --
@@ -549,6 +549,7 @@ newCacheCluster =
       logDeliveryConfigurations = Prelude.Nothing,
       cacheClusterCreateTime = Prelude.Nothing,
       atRestEncryptionEnabled = Prelude.Nothing,
+      ipDiscovery = Prelude.Nothing,
       numCacheNodes = Prelude.Nothing,
       notificationConfiguration = Prelude.Nothing,
       cacheNodeType = Prelude.Nothing,
@@ -567,6 +568,7 @@ newCacheCluster =
       authTokenLastModifiedDate = Prelude.Nothing,
       replicationGroupId = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      networkType = Prelude.Nothing,
       cacheSecurityGroups = Prelude.Nothing,
       configurationEndpoint = Prelude.Nothing
     }
@@ -636,6 +638,13 @@ cacheCluster_cacheClusterCreateTime = Lens.lens (\CacheCluster' {cacheClusterCre
 cacheCluster_atRestEncryptionEnabled :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Bool)
 cacheCluster_atRestEncryptionEnabled = Lens.lens (\CacheCluster' {atRestEncryptionEnabled} -> atRestEncryptionEnabled) (\s@CacheCluster' {} a -> s {atRestEncryptionEnabled = a} :: CacheCluster)
 
+-- | The network type associated with the cluster, either @ipv4@ | @ipv6@.
+-- IPv6 is supported for workloads using Redis engine version 6.2 onward or
+-- Memcached engine version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+cacheCluster_ipDiscovery :: Lens.Lens' CacheCluster (Prelude.Maybe IpDiscovery)
+cacheCluster_ipDiscovery = Lens.lens (\CacheCluster' {ipDiscovery} -> ipDiscovery) (\s@CacheCluster' {} a -> s {ipDiscovery = a} :: CacheCluster)
+
 -- | The number of cache nodes in the cluster.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
@@ -660,7 +669,7 @@ cacheCluster_notificationConfiguration = Lens.lens (\CacheCluster' {notification
 --
 --     -   Current generation:
 --
---         __M6g node types:__ (available only for Redis engine version
+--         __M6g node types__ (available only for Redis engine version
 --         5.0.6 onward and for Memcached engine version 1.5.16 onward):
 --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
 --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
@@ -677,7 +686,7 @@ cacheCluster_notificationConfiguration = Lens.lens (\CacheCluster' {notification
 --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
 --
 --         __T4g node types__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward):
+--         5.0.6 onward and Memcached engine version 1.5.16 onward):
 --         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
 --
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
@@ -705,17 +714,6 @@ cacheCluster_notificationConfiguration = Lens.lens (\CacheCluster' {notification
 --         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
---
--- -   Memory optimized with data tiering:
---
---     -   Current generation:
---
---         __R6gd node types__ (available only for Redis engine version 6.2
---         onward).
---
---         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
---         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
---         @cache.r6gd.16xlarge@
 --
 -- -   Memory optimized:
 --
@@ -863,6 +861,13 @@ cacheCluster_replicationGroupId = Lens.lens (\CacheCluster' {replicationGroupId}
 cacheCluster_engineVersion :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
 cacheCluster_engineVersion = Lens.lens (\CacheCluster' {engineVersion} -> engineVersion) (\s@CacheCluster' {} a -> s {engineVersion = a} :: CacheCluster)
 
+-- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
+-- workloads using Redis engine version 6.2 onward or Memcached engine
+-- version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+cacheCluster_networkType :: Lens.Lens' CacheCluster (Prelude.Maybe NetworkType)
+cacheCluster_networkType = Lens.lens (\CacheCluster' {networkType} -> networkType) (\s@CacheCluster' {} a -> s {networkType = a} :: CacheCluster)
+
 -- | A list of cache security group elements, composed of name and status
 -- sub-elements.
 cacheCluster_cacheSecurityGroups :: Lens.Lens' CacheCluster (Prelude.Maybe [CacheSecurityGroupMembership])
@@ -893,6 +898,7 @@ instance Core.FromXML CacheCluster where
                   )
       Prelude.<*> (x Core..@? "CacheClusterCreateTime")
       Prelude.<*> (x Core..@? "AtRestEncryptionEnabled")
+      Prelude.<*> (x Core..@? "IpDiscovery")
       Prelude.<*> (x Core..@? "NumCacheNodes")
       Prelude.<*> (x Core..@? "NotificationConfiguration")
       Prelude.<*> (x Core..@? "CacheNodeType")
@@ -915,6 +921,7 @@ instance Core.FromXML CacheCluster where
       Prelude.<*> (x Core..@? "AuthTokenLastModifiedDate")
       Prelude.<*> (x Core..@? "ReplicationGroupId")
       Prelude.<*> (x Core..@? "EngineVersion")
+      Prelude.<*> (x Core..@? "NetworkType")
       Prelude.<*> ( x Core..@? "CacheSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "CacheSecurityGroup")
@@ -934,6 +941,7 @@ instance Prelude.Hashable CacheCluster where
       `Prelude.hashWithSalt` logDeliveryConfigurations
       `Prelude.hashWithSalt` cacheClusterCreateTime
       `Prelude.hashWithSalt` atRestEncryptionEnabled
+      `Prelude.hashWithSalt` ipDiscovery
       `Prelude.hashWithSalt` numCacheNodes
       `Prelude.hashWithSalt` notificationConfiguration
       `Prelude.hashWithSalt` cacheNodeType
@@ -952,6 +960,7 @@ instance Prelude.Hashable CacheCluster where
       `Prelude.hashWithSalt` authTokenLastModifiedDate
       `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` networkType
       `Prelude.hashWithSalt` cacheSecurityGroups
       `Prelude.hashWithSalt` configurationEndpoint
 
@@ -967,6 +976,7 @@ instance Prelude.NFData CacheCluster where
       `Prelude.seq` Prelude.rnf logDeliveryConfigurations
       `Prelude.seq` Prelude.rnf cacheClusterCreateTime
       `Prelude.seq` Prelude.rnf atRestEncryptionEnabled
+      `Prelude.seq` Prelude.rnf ipDiscovery
       `Prelude.seq` Prelude.rnf numCacheNodes
       `Prelude.seq` Prelude.rnf notificationConfiguration
       `Prelude.seq` Prelude.rnf cacheNodeType
@@ -993,6 +1003,8 @@ instance Prelude.NFData CacheCluster where
         replicationGroupId
       `Prelude.seq` Prelude.rnf
         engineVersion
+      `Prelude.seq` Prelude.rnf
+        networkType
       `Prelude.seq` Prelude.rnf
         cacheSecurityGroups
       `Prelude.seq` Prelude.rnf

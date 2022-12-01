@@ -20,8 +20,8 @@
 module Amazonka.FMS.Types.NetworkFirewallPolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.FirewallDeploymentModel
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures the firewall policy deployment model of Network Firewall. For

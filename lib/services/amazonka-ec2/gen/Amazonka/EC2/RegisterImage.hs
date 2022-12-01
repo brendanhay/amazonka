@@ -23,7 +23,7 @@
 -- Registers an AMI. When you\'re creating an AMI, this is the final step
 -- you must complete before you can launch an instance from the AMI. For
 -- more information about creating AMIs, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating your own AMIs>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Create your own AMI>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- For Amazon EBS-backed instances, CreateImage creates and registers the
@@ -77,7 +77,7 @@
 -- the Reserved Instance will not be applied to the On-Demand Instance. For
 -- information about how to obtain the platform details and billing
 -- information of an AMI, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understanding AMI billing>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understand AMI billing information>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.RegisterImage
   ( -- * Creating a Request
@@ -114,8 +114,8 @@ module Amazonka.EC2.RegisterImage
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -479,8 +479,8 @@ instance Core.AWSRequest RegisterImage where
   type
     AWSResponse RegisterImage =
       RegisterImageResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

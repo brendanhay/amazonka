@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.UiTemplate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Liquid template for the worker user interface.

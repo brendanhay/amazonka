@@ -25,7 +25,7 @@ import Amazonka.ChimeSdkMeetings.Types.TranscribeMedicalRegion
 import Amazonka.ChimeSdkMeetings.Types.TranscribeMedicalSpecialty
 import Amazonka.ChimeSdkMeetings.Types.TranscribeMedicalType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings specific to the Amazon Transcribe Medical engine.

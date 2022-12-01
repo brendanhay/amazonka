@@ -21,7 +21,7 @@ module Amazonka.Config.Types.ExecutionControls where
 
 import Amazonka.Config.Types.SsmControls
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The controls that Config uses for executing remediations.

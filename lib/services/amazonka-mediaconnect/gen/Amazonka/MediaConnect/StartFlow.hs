@@ -41,7 +41,7 @@ module Amazonka.MediaConnect.StartFlow
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -76,8 +76,8 @@ startFlow_flowArn = Lens.lens (\StartFlow' {flowArn} -> flowArn) (\s@StartFlow' 
 
 instance Core.AWSRequest StartFlow where
   type AWSResponse StartFlow = StartFlowResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

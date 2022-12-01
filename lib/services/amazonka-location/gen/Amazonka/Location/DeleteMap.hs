@@ -42,7 +42,7 @@ module Amazonka.Location.DeleteMap
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -77,8 +77,8 @@ deleteMap_mapName = Lens.lens (\DeleteMap' {mapName} -> mapName) (\s@DeleteMap' 
 
 instance Core.AWSRequest DeleteMap where
   type AWSResponse DeleteMap = DeleteMapResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

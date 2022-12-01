@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -98,9 +99,16 @@ module Amazonka.SSMIncidents.Types
     EmptyChatChannel (..),
     newEmptyChatChannel,
 
+    -- * EventReference
+    EventReference (..),
+    newEventReference,
+    eventReference_relatedItemId,
+    eventReference_resource,
+
     -- * EventSummary
     EventSummary (..),
     newEventSummary,
+    eventSummary_eventReferences,
     eventSummary_eventId,
     eventSummary_eventTime,
     eventSummary_eventType,
@@ -160,6 +168,11 @@ module Amazonka.SSMIncidents.Types
     incidentTemplate_impact,
     incidentTemplate_title,
 
+    -- * Integration
+    Integration (..),
+    newIntegration,
+    integration_pagerDutyConfiguration,
+
     -- * ItemIdentifier
     ItemIdentifier (..),
     newItemIdentifier,
@@ -172,11 +185,31 @@ module Amazonka.SSMIncidents.Types
     itemValue_arn,
     itemValue_url,
     itemValue_metricDefinition,
+    itemValue_pagerDutyIncidentDetail,
 
     -- * NotificationTargetItem
     NotificationTargetItem (..),
     newNotificationTargetItem,
     notificationTargetItem_snsTopicArn,
+
+    -- * PagerDutyConfiguration
+    PagerDutyConfiguration (..),
+    newPagerDutyConfiguration,
+    pagerDutyConfiguration_name,
+    pagerDutyConfiguration_pagerDutyIncidentConfiguration,
+    pagerDutyConfiguration_secretId,
+
+    -- * PagerDutyIncidentConfiguration
+    PagerDutyIncidentConfiguration (..),
+    newPagerDutyIncidentConfiguration,
+    pagerDutyIncidentConfiguration_serviceId,
+
+    -- * PagerDutyIncidentDetail
+    PagerDutyIncidentDetail (..),
+    newPagerDutyIncidentDetail,
+    pagerDutyIncidentDetail_secretId,
+    pagerDutyIncidentDetail_autoResolve,
+    pagerDutyIncidentDetail_id,
 
     -- * RegionInfo
     RegionInfo (..),
@@ -194,6 +227,7 @@ module Amazonka.SSMIncidents.Types
     -- * RelatedItem
     RelatedItem (..),
     newRelatedItem,
+    relatedItem_generatedId,
     relatedItem_title,
     relatedItem_identifier,
 
@@ -242,6 +276,7 @@ module Amazonka.SSMIncidents.Types
     -- * TimelineEvent
     TimelineEvent (..),
     newTimelineEvent,
+    timelineEvent_eventReferences,
     timelineEvent_eventData,
     timelineEvent_eventId,
     timelineEvent_eventTime,
@@ -266,7 +301,7 @@ module Amazonka.SSMIncidents.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.Action
 import Amazonka.SSMIncidents.Types.AddRegionAction
@@ -277,6 +312,7 @@ import Amazonka.SSMIncidents.Types.Condition
 import Amazonka.SSMIncidents.Types.DeleteRegionAction
 import Amazonka.SSMIncidents.Types.DynamicSsmParameterValue
 import Amazonka.SSMIncidents.Types.EmptyChatChannel
+import Amazonka.SSMIncidents.Types.EventReference
 import Amazonka.SSMIncidents.Types.EventSummary
 import Amazonka.SSMIncidents.Types.Filter
 import Amazonka.SSMIncidents.Types.IncidentRecord
@@ -284,10 +320,14 @@ import Amazonka.SSMIncidents.Types.IncidentRecordSource
 import Amazonka.SSMIncidents.Types.IncidentRecordStatus
 import Amazonka.SSMIncidents.Types.IncidentRecordSummary
 import Amazonka.SSMIncidents.Types.IncidentTemplate
+import Amazonka.SSMIncidents.Types.Integration
 import Amazonka.SSMIncidents.Types.ItemIdentifier
 import Amazonka.SSMIncidents.Types.ItemType
 import Amazonka.SSMIncidents.Types.ItemValue
 import Amazonka.SSMIncidents.Types.NotificationTargetItem
+import Amazonka.SSMIncidents.Types.PagerDutyConfiguration
+import Amazonka.SSMIncidents.Types.PagerDutyIncidentConfiguration
+import Amazonka.SSMIncidents.Types.PagerDutyIncidentDetail
 import Amazonka.SSMIncidents.Types.RegionInfo
 import Amazonka.SSMIncidents.Types.RegionMapInputValue
 import Amazonka.SSMIncidents.Types.RegionStatus
@@ -311,28 +351,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "SSMIncidents",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "ssm-incidents",
-      Core._serviceSigningName = "ssm-incidents",
-      Core._serviceVersion = "2018-05-10",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "SSMIncidents",
-      Core._serviceRetry = retry
+    { Core.abbrev = "SSMIncidents",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "ssm-incidents",
+      Core.signingName = "ssm-incidents",
+      Core.version = "2018-05-10",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "SSMIncidents",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

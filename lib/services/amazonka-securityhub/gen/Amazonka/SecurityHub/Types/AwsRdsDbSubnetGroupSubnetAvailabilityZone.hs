@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsRdsDbSubnetGroupSubnetAvailabilityZone where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Availability Zone for a subnet in a subnet group.

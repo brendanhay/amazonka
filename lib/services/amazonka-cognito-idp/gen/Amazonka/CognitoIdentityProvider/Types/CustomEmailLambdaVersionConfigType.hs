@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType
 
 import Amazonka.CognitoIdentityProvider.Types.CustomEmailSenderLambdaVersionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A custom email sender Lambda configuration type.

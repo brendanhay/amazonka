@@ -20,7 +20,7 @@
 module Amazonka.AppStream.Types.ServiceAccountCredentials where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the credentials for the service account used by the fleet or

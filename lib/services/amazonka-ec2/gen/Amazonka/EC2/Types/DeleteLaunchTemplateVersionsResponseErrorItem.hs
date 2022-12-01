@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.DeleteLaunchTemplateVersionsResponseErrorItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ResponseError
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a launch template version that could not be deleted.

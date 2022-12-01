@@ -20,7 +20,7 @@
 module Amazonka.IoTAnalytics.Types.CustomerManagedChannelS3Storage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to store channel data in an S3 bucket that you manage. If

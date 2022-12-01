@@ -20,9 +20,9 @@
 module Amazonka.IAM.Types.Statement where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.PolicySourceType
 import Amazonka.IAM.Types.Position
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a reference to a @Statement@ element in a policy document that

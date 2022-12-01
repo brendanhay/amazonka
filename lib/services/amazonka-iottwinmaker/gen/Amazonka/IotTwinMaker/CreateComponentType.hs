@@ -31,10 +31,11 @@ module Amazonka.IotTwinMaker.CreateComponentType
     createComponentType_functions,
     createComponentType_propertyDefinitions,
     createComponentType_description,
+    createComponentType_propertyGroups,
     createComponentType_isSingleton,
     createComponentType_extendsFrom,
-    createComponentType_componentTypeId,
     createComponentType_workspaceId,
+    createComponentType_componentTypeId,
 
     -- * Destructuring the Response
     CreateComponentTypeResponse (..),
@@ -49,8 +50,8 @@ module Amazonka.IotTwinMaker.CreateComponentType
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -67,15 +68,16 @@ data CreateComponentType = CreateComponentType'
     propertyDefinitions :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionRequest),
     -- | The description of the component type.
     description :: Prelude.Maybe Prelude.Text,
+    propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest),
     -- | A Boolean value that specifies whether an entity can have more than one
     -- component of this type.
     isSingleton :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the parent component type to extend.
     extendsFrom :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the component type.
-    componentTypeId :: Prelude.Text,
     -- | The ID of the workspace that contains the component type.
-    workspaceId :: Prelude.Text
+    workspaceId :: Prelude.Text,
+    -- | The ID of the component type.
+    componentTypeId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,32 +99,35 @@ data CreateComponentType = CreateComponentType'
 --
 -- 'description', 'createComponentType_description' - The description of the component type.
 --
+-- 'propertyGroups', 'createComponentType_propertyGroups' -
+--
 -- 'isSingleton', 'createComponentType_isSingleton' - A Boolean value that specifies whether an entity can have more than one
 -- component of this type.
 --
 -- 'extendsFrom', 'createComponentType_extendsFrom' - Specifies the parent component type to extend.
 --
--- 'componentTypeId', 'createComponentType_componentTypeId' - The ID of the component type.
---
 -- 'workspaceId', 'createComponentType_workspaceId' - The ID of the workspace that contains the component type.
+--
+-- 'componentTypeId', 'createComponentType_componentTypeId' - The ID of the component type.
 newCreateComponentType ::
-  -- | 'componentTypeId'
-  Prelude.Text ->
   -- | 'workspaceId'
+  Prelude.Text ->
+  -- | 'componentTypeId'
   Prelude.Text ->
   CreateComponentType
 newCreateComponentType
-  pComponentTypeId_
-  pWorkspaceId_ =
+  pWorkspaceId_
+  pComponentTypeId_ =
     CreateComponentType'
       { tags = Prelude.Nothing,
         functions = Prelude.Nothing,
         propertyDefinitions = Prelude.Nothing,
         description = Prelude.Nothing,
+        propertyGroups = Prelude.Nothing,
         isSingleton = Prelude.Nothing,
         extendsFrom = Prelude.Nothing,
-        componentTypeId = pComponentTypeId_,
-        workspaceId = pWorkspaceId_
+        workspaceId = pWorkspaceId_,
+        componentTypeId = pComponentTypeId_
       }
 
 -- | Metadata that you can use to manage the component type.
@@ -143,6 +148,10 @@ createComponentType_propertyDefinitions = Lens.lens (\CreateComponentType' {prop
 createComponentType_description :: Lens.Lens' CreateComponentType (Prelude.Maybe Prelude.Text)
 createComponentType_description = Lens.lens (\CreateComponentType' {description} -> description) (\s@CreateComponentType' {} a -> s {description = a} :: CreateComponentType)
 
+-- |
+createComponentType_propertyGroups :: Lens.Lens' CreateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest))
+createComponentType_propertyGroups = Lens.lens (\CreateComponentType' {propertyGroups} -> propertyGroups) (\s@CreateComponentType' {} a -> s {propertyGroups = a} :: CreateComponentType) Prelude.. Lens.mapping Lens.coerced
+
 -- | A Boolean value that specifies whether an entity can have more than one
 -- component of this type.
 createComponentType_isSingleton :: Lens.Lens' CreateComponentType (Prelude.Maybe Prelude.Bool)
@@ -152,20 +161,20 @@ createComponentType_isSingleton = Lens.lens (\CreateComponentType' {isSingleton}
 createComponentType_extendsFrom :: Lens.Lens' CreateComponentType (Prelude.Maybe [Prelude.Text])
 createComponentType_extendsFrom = Lens.lens (\CreateComponentType' {extendsFrom} -> extendsFrom) (\s@CreateComponentType' {} a -> s {extendsFrom = a} :: CreateComponentType) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the component type.
-createComponentType_componentTypeId :: Lens.Lens' CreateComponentType Prelude.Text
-createComponentType_componentTypeId = Lens.lens (\CreateComponentType' {componentTypeId} -> componentTypeId) (\s@CreateComponentType' {} a -> s {componentTypeId = a} :: CreateComponentType)
-
 -- | The ID of the workspace that contains the component type.
 createComponentType_workspaceId :: Lens.Lens' CreateComponentType Prelude.Text
 createComponentType_workspaceId = Lens.lens (\CreateComponentType' {workspaceId} -> workspaceId) (\s@CreateComponentType' {} a -> s {workspaceId = a} :: CreateComponentType)
+
+-- | The ID of the component type.
+createComponentType_componentTypeId :: Lens.Lens' CreateComponentType Prelude.Text
+createComponentType_componentTypeId = Lens.lens (\CreateComponentType' {componentTypeId} -> componentTypeId) (\s@CreateComponentType' {} a -> s {componentTypeId = a} :: CreateComponentType)
 
 instance Core.AWSRequest CreateComponentType where
   type
     AWSResponse CreateComponentType =
       CreateComponentTypeResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -182,10 +191,11 @@ instance Prelude.Hashable CreateComponentType where
       `Prelude.hashWithSalt` functions
       `Prelude.hashWithSalt` propertyDefinitions
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` propertyGroups
       `Prelude.hashWithSalt` isSingleton
       `Prelude.hashWithSalt` extendsFrom
-      `Prelude.hashWithSalt` componentTypeId
       `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` componentTypeId
 
 instance Prelude.NFData CreateComponentType where
   rnf CreateComponentType' {..} =
@@ -193,10 +203,11 @@ instance Prelude.NFData CreateComponentType where
       `Prelude.seq` Prelude.rnf functions
       `Prelude.seq` Prelude.rnf propertyDefinitions
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf propertyGroups
       `Prelude.seq` Prelude.rnf isSingleton
       `Prelude.seq` Prelude.rnf extendsFrom
-      `Prelude.seq` Prelude.rnf componentTypeId
       `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf componentTypeId
 
 instance Core.ToHeaders CreateComponentType where
   toHeaders =
@@ -218,6 +229,8 @@ instance Core.ToJSON CreateComponentType where
             ("propertyDefinitions" Core..=)
               Prelude.<$> propertyDefinitions,
             ("description" Core..=) Prelude.<$> description,
+            ("propertyGroups" Core..=)
+              Prelude.<$> propertyGroups,
             ("isSingleton" Core..=) Prelude.<$> isSingleton,
             ("extendsFrom" Core..=) Prelude.<$> extendsFrom
           ]

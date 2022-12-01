@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.FaceDetection where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.FaceDetail
 
@@ -30,7 +30,8 @@ import Amazonka.Rekognition.Types.FaceDetail
 -- /See:/ 'newFaceDetection' smart constructor.
 data FaceDetection = FaceDetection'
   { -- | Time, in milliseconds from the start of the video, that the face was
-    -- detected.
+    -- detected. Note that @Timestamp@ is not guaranteed to be accurate to the
+    -- individual frame where the face first appears.
     timestamp :: Prelude.Maybe Prelude.Integer,
     -- | The face properties for the detected face.
     face :: Prelude.Maybe FaceDetail
@@ -46,7 +47,8 @@ data FaceDetection = FaceDetection'
 -- for backwards compatibility:
 --
 -- 'timestamp', 'faceDetection_timestamp' - Time, in milliseconds from the start of the video, that the face was
--- detected.
+-- detected. Note that @Timestamp@ is not guaranteed to be accurate to the
+-- individual frame where the face first appears.
 --
 -- 'face', 'faceDetection_face' - The face properties for the detected face.
 newFaceDetection ::
@@ -58,7 +60,8 @@ newFaceDetection =
     }
 
 -- | Time, in milliseconds from the start of the video, that the face was
--- detected.
+-- detected. Note that @Timestamp@ is not guaranteed to be accurate to the
+-- individual frame where the face first appears.
 faceDetection_timestamp :: Lens.Lens' FaceDetection (Prelude.Maybe Prelude.Integer)
 faceDetection_timestamp = Lens.lens (\FaceDetection' {timestamp} -> timestamp) (\s@FaceDetection' {} a -> s {timestamp = a} :: FaceDetection)
 

@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.GlobalConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.GlobalConfigurationInputEndAction
 import Amazonka.MediaLive.Types.GlobalConfigurationLowFramerateInputs
 import Amazonka.MediaLive.Types.GlobalConfigurationOutputLockingMode

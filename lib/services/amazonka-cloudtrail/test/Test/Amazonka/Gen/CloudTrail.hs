@@ -45,6 +45,9 @@ import Test.Tasty
 --         , requestDeleteTrail $
 --             newDeleteTrail
 --
+--         , requestDeregisterOrganizationDelegatedAdmin $
+--             newDeregisterOrganizationDelegatedAdmin
+--
 --         , requestDescribeQuery $
 --             newDescribeQuery
 --
@@ -108,6 +111,9 @@ import Test.Tasty
 --         , requestPutInsightSelectors $
 --             newPutInsightSelectors
 --
+--         , requestRegisterOrganizationDelegatedAdmin $
+--             newRegisterOrganizationDelegatedAdmin
+--
 --         , requestRemoveTags $
 --             newRemoveTags
 --
@@ -155,6 +161,9 @@ import Test.Tasty
 --
 --         , responseDeleteTrail $
 --             newDeleteTrailResponse
+--
+--         , responseDeregisterOrganizationDelegatedAdmin $
+--             newDeregisterOrganizationDelegatedAdminResponse
 --
 --         , responseDescribeQuery $
 --             newDescribeQueryResponse
@@ -218,6 +227,9 @@ import Test.Tasty
 --
 --         , responsePutInsightSelectors $
 --             newPutInsightSelectorsResponse
+--
+--         , responseRegisterOrganizationDelegatedAdmin $
+--             newRegisterOrganizationDelegatedAdminResponse
 --
 --         , responseRemoveTags $
 --             newRemoveTagsResponse
@@ -286,6 +298,12 @@ requestDeleteTrail =
   req
     "DeleteTrail"
     "fixture/DeleteTrail.yaml"
+
+requestDeregisterOrganizationDelegatedAdmin :: DeregisterOrganizationDelegatedAdmin -> TestTree
+requestDeregisterOrganizationDelegatedAdmin =
+  req
+    "DeregisterOrganizationDelegatedAdmin"
+    "fixture/DeregisterOrganizationDelegatedAdmin.yaml"
 
 requestDescribeQuery :: DescribeQuery -> TestTree
 requestDescribeQuery =
@@ -413,6 +431,12 @@ requestPutInsightSelectors =
     "PutInsightSelectors"
     "fixture/PutInsightSelectors.yaml"
 
+requestRegisterOrganizationDelegatedAdmin :: RegisterOrganizationDelegatedAdmin -> TestTree
+requestRegisterOrganizationDelegatedAdmin =
+  req
+    "RegisterOrganizationDelegatedAdmin"
+    "fixture/RegisterOrganizationDelegatedAdmin.yaml"
+
 requestRemoveTags :: RemoveTags -> TestTree
 requestRemoveTags =
   req
@@ -516,6 +540,14 @@ responseDeleteTrail =
     "fixture/DeleteTrailResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteTrail)
+
+responseDeregisterOrganizationDelegatedAdmin :: DeregisterOrganizationDelegatedAdminResponse -> TestTree
+responseDeregisterOrganizationDelegatedAdmin =
+  res
+    "DeregisterOrganizationDelegatedAdminResponse"
+    "fixture/DeregisterOrganizationDelegatedAdminResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeregisterOrganizationDelegatedAdmin)
 
 responseDescribeQuery :: DescribeQueryResponse -> TestTree
 responseDescribeQuery =
@@ -684,6 +716,14 @@ responsePutInsightSelectors =
     "fixture/PutInsightSelectorsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutInsightSelectors)
+
+responseRegisterOrganizationDelegatedAdmin :: RegisterOrganizationDelegatedAdminResponse -> TestTree
+responseRegisterOrganizationDelegatedAdmin =
+  res
+    "RegisterOrganizationDelegatedAdminResponse"
+    "fixture/RegisterOrganizationDelegatedAdminResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterOrganizationDelegatedAdmin)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
 responseRemoveTags =

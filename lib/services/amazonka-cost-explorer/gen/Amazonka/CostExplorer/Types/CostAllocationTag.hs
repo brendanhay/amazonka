@@ -20,9 +20,9 @@
 module Amazonka.CostExplorer.Types.CostAllocationTag where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostAllocationTagStatus
 import Amazonka.CostExplorer.Types.CostAllocationTagType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The cost allocation tag structure. This includes detailed metadata for

@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.ColumnStatisticsError where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.ColumnStatistics
 import Amazonka.Glue.Types.ErrorDetail
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encapsulates a @ColumnStatistics@ object that failed and the reason for

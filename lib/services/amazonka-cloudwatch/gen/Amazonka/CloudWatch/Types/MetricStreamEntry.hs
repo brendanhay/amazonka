@@ -21,7 +21,7 @@ module Amazonka.CloudWatch.Types.MetricStreamEntry where
 
 import Amazonka.CloudWatch.Types.MetricStreamOutputFormat
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains the configuration information about one metric

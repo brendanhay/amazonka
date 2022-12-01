@@ -20,7 +20,7 @@
 module Amazonka.Config.Types.ConformancePackComplianceScore where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A compliance score is the percentage of the number of compliant

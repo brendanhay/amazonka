@@ -20,8 +20,8 @@
 module Amazonka.DataBrew.Types.OutputFormatOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.CsvOutputOptions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a set of options that define the structure of comma-separated

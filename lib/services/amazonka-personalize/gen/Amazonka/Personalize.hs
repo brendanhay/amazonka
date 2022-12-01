@@ -104,6 +104,12 @@ module Amazonka.Personalize
     CreateFilterResponse (CreateFilterResponse'),
     newCreateFilterResponse,
 
+    -- ** CreateMetricAttribution
+    CreateMetricAttribution (CreateMetricAttribution'),
+    newCreateMetricAttribution,
+    CreateMetricAttributionResponse (CreateMetricAttributionResponse'),
+    newCreateMetricAttributionResponse,
+
     -- ** CreateRecommender
     CreateRecommender (CreateRecommender'),
     newCreateRecommender,
@@ -157,6 +163,12 @@ module Amazonka.Personalize
     newDeleteFilter,
     DeleteFilterResponse (DeleteFilterResponse'),
     newDeleteFilterResponse,
+
+    -- ** DeleteMetricAttribution
+    DeleteMetricAttribution (DeleteMetricAttribution'),
+    newDeleteMetricAttribution,
+    DeleteMetricAttributionResponse (DeleteMetricAttributionResponse'),
+    newDeleteMetricAttributionResponse,
 
     -- ** DeleteRecommender
     DeleteRecommender (DeleteRecommender'),
@@ -241,6 +253,12 @@ module Amazonka.Personalize
     newDescribeFilter,
     DescribeFilterResponse (DescribeFilterResponse'),
     newDescribeFilterResponse,
+
+    -- ** DescribeMetricAttribution
+    DescribeMetricAttribution (DescribeMetricAttribution'),
+    newDescribeMetricAttribution,
+    DescribeMetricAttributionResponse (DescribeMetricAttributionResponse'),
+    newDescribeMetricAttributionResponse,
 
     -- ** DescribeRecipe
     DescribeRecipe (DescribeRecipe'),
@@ -332,6 +350,18 @@ module Amazonka.Personalize
     ListFiltersResponse (ListFiltersResponse'),
     newListFiltersResponse,
 
+    -- ** ListMetricAttributionMetrics (Paginated)
+    ListMetricAttributionMetrics (ListMetricAttributionMetrics'),
+    newListMetricAttributionMetrics,
+    ListMetricAttributionMetricsResponse (ListMetricAttributionMetricsResponse'),
+    newListMetricAttributionMetricsResponse,
+
+    -- ** ListMetricAttributions (Paginated)
+    ListMetricAttributions (ListMetricAttributions'),
+    newListMetricAttributions,
+    ListMetricAttributionsResponse (ListMetricAttributionsResponse'),
+    newListMetricAttributionsResponse,
+
     -- ** ListRecipes (Paginated)
     ListRecipes (ListRecipes'),
     newListRecipes,
@@ -403,6 +433,12 @@ module Amazonka.Personalize
     newUpdateCampaign,
     UpdateCampaignResponse (UpdateCampaignResponse'),
     newUpdateCampaignResponse,
+
+    -- ** UpdateMetricAttribution
+    UpdateMetricAttribution (UpdateMetricAttribution'),
+    newUpdateMetricAttribution,
+    UpdateMetricAttributionResponse (UpdateMetricAttributionResponse'),
+    newUpdateMetricAttributionResponse,
 
     -- ** UpdateRecommender
     UpdateRecommender (UpdateRecommender'),
@@ -610,6 +646,22 @@ module Amazonka.Personalize
     IntegerHyperParameterRange (IntegerHyperParameterRange'),
     newIntegerHyperParameterRange,
 
+    -- ** MetricAttribute
+    MetricAttribute (MetricAttribute'),
+    newMetricAttribute,
+
+    -- ** MetricAttribution
+    MetricAttribution (MetricAttribution'),
+    newMetricAttribution,
+
+    -- ** MetricAttributionOutput
+    MetricAttributionOutput (MetricAttributionOutput'),
+    newMetricAttributionOutput,
+
+    -- ** MetricAttributionSummary
+    MetricAttributionSummary (MetricAttributionSummary'),
+    newMetricAttributionSummary,
+
     -- ** OptimizationObjective
     OptimizationObjective (OptimizationObjective'),
     newOptimizationObjective,
@@ -681,6 +733,7 @@ import Amazonka.Personalize.CreateDatasetGroup
 import Amazonka.Personalize.CreateDatasetImportJob
 import Amazonka.Personalize.CreateEventTracker
 import Amazonka.Personalize.CreateFilter
+import Amazonka.Personalize.CreateMetricAttribution
 import Amazonka.Personalize.CreateRecommender
 import Amazonka.Personalize.CreateSchema
 import Amazonka.Personalize.CreateSolution
@@ -690,6 +743,7 @@ import Amazonka.Personalize.DeleteDataset
 import Amazonka.Personalize.DeleteDatasetGroup
 import Amazonka.Personalize.DeleteEventTracker
 import Amazonka.Personalize.DeleteFilter
+import Amazonka.Personalize.DeleteMetricAttribution
 import Amazonka.Personalize.DeleteRecommender
 import Amazonka.Personalize.DeleteSchema
 import Amazonka.Personalize.DeleteSolution
@@ -704,6 +758,7 @@ import Amazonka.Personalize.DescribeDatasetImportJob
 import Amazonka.Personalize.DescribeEventTracker
 import Amazonka.Personalize.DescribeFeatureTransformation
 import Amazonka.Personalize.DescribeFilter
+import Amazonka.Personalize.DescribeMetricAttribution
 import Amazonka.Personalize.DescribeRecipe
 import Amazonka.Personalize.DescribeRecommender
 import Amazonka.Personalize.DescribeSchema
@@ -720,6 +775,8 @@ import Amazonka.Personalize.ListDatasetImportJobs
 import Amazonka.Personalize.ListDatasets
 import Amazonka.Personalize.ListEventTrackers
 import Amazonka.Personalize.ListFilters
+import Amazonka.Personalize.ListMetricAttributionMetrics
+import Amazonka.Personalize.ListMetricAttributions
 import Amazonka.Personalize.ListRecipes
 import Amazonka.Personalize.ListRecommenders
 import Amazonka.Personalize.ListSchemas
@@ -733,6 +790,7 @@ import Amazonka.Personalize.TagResource
 import Amazonka.Personalize.Types
 import Amazonka.Personalize.UntagResource
 import Amazonka.Personalize.UpdateCampaign
+import Amazonka.Personalize.UpdateMetricAttribution
 import Amazonka.Personalize.UpdateRecommender
 import Amazonka.Personalize.Waiters
 

@@ -86,11 +86,29 @@ module Amazonka.MarketplaceCatalog
     ListEntitiesResponse (ListEntitiesResponse'),
     newListEntitiesResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** StartChangeSet
     StartChangeSet (StartChangeSet'),
     newStartChangeSet,
     StartChangeSetResponse (StartChangeSetResponse'),
     newStartChangeSetResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- * Types
 
@@ -134,6 +152,10 @@ module Amazonka.MarketplaceCatalog
     -- ** Sort
     Sort (Sort'),
     newSort,
+
+    -- ** Tag
+    Tag (Tag'),
+    newTag,
   )
 where
 
@@ -143,8 +165,11 @@ import Amazonka.MarketplaceCatalog.DescribeEntity
 import Amazonka.MarketplaceCatalog.Lens
 import Amazonka.MarketplaceCatalog.ListChangeSets
 import Amazonka.MarketplaceCatalog.ListEntities
+import Amazonka.MarketplaceCatalog.ListTagsForResource
 import Amazonka.MarketplaceCatalog.StartChangeSet
+import Amazonka.MarketplaceCatalog.TagResource
 import Amazonka.MarketplaceCatalog.Types
+import Amazonka.MarketplaceCatalog.UntagResource
 import Amazonka.MarketplaceCatalog.Waiters
 
 -- $errors

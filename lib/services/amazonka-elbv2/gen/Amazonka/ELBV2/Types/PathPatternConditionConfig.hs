@@ -20,17 +20,17 @@
 module Amazonka.ELBV2.Types.PathPatternConditionConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a path pattern condition.
 --
 -- /See:/ 'newPathPatternConditionConfig' smart constructor.
 data PathPatternConditionConfig = PathPatternConditionConfig'
-  { -- | One or more path patterns to compare against the request URL. The
-    -- maximum size of each string is 128 characters. The comparison is case
-    -- sensitive. The following wildcard characters are supported: * (matches 0
-    -- or more characters) and ? (matches exactly 1 character).
+  { -- | The path patterns to compare against the request URL. The maximum size
+    -- of each string is 128 characters. The comparison is case sensitive. The
+    -- following wildcard characters are supported: * (matches 0 or more
+    -- characters) and ? (matches exactly 1 character).
     --
     -- If you specify multiple strings, the condition is satisfied if one of
     -- them matches the request URL. The path pattern is compared only to the
@@ -48,10 +48,10 @@ data PathPatternConditionConfig = PathPatternConditionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'pathPatternConditionConfig_values' - One or more path patterns to compare against the request URL. The
--- maximum size of each string is 128 characters. The comparison is case
--- sensitive. The following wildcard characters are supported: * (matches 0
--- or more characters) and ? (matches exactly 1 character).
+-- 'values', 'pathPatternConditionConfig_values' - The path patterns to compare against the request URL. The maximum size
+-- of each string is 128 characters. The comparison is case sensitive. The
+-- following wildcard characters are supported: * (matches 0 or more
+-- characters) and ? (matches exactly 1 character).
 --
 -- If you specify multiple strings, the condition is satisfied if one of
 -- them matches the request URL. The path pattern is compared only to the
@@ -65,10 +65,10 @@ newPathPatternConditionConfig =
         Prelude.Nothing
     }
 
--- | One or more path patterns to compare against the request URL. The
--- maximum size of each string is 128 characters. The comparison is case
--- sensitive. The following wildcard characters are supported: * (matches 0
--- or more characters) and ? (matches exactly 1 character).
+-- | The path patterns to compare against the request URL. The maximum size
+-- of each string is 128 characters. The comparison is case sensitive. The
+-- following wildcard characters are supported: * (matches 0 or more
+-- characters) and ? (matches exactly 1 character).
 --
 -- If you specify multiple strings, the condition is satisfied if one of
 -- them matches the request URL. The path pattern is compared only to the

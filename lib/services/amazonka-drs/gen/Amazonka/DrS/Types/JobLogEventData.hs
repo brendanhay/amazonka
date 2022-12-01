@@ -20,8 +20,8 @@
 module Amazonka.DrS.Types.JobLogEventData where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.ConversionProperties
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata associated with a Job log.

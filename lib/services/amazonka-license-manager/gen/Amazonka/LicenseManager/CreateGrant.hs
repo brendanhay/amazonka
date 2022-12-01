@@ -48,7 +48,7 @@ module Amazonka.LicenseManager.CreateGrant
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -63,7 +63,8 @@ data CreateGrant = CreateGrant'
     grantName :: Prelude.Text,
     -- | Amazon Resource Name (ARN) of the license.
     licenseArn :: Prelude.Text,
-    -- | The grant principals.
+    -- | The grant principals. This value should be specified as an Amazon
+    -- Resource Name (ARN).
     principals :: Prelude.NonEmpty Prelude.Text,
     -- | Home Region of the grant.
     homeRegion :: Prelude.Text,
@@ -87,7 +88,8 @@ data CreateGrant = CreateGrant'
 --
 -- 'licenseArn', 'createGrant_licenseArn' - Amazon Resource Name (ARN) of the license.
 --
--- 'principals', 'createGrant_principals' - The grant principals.
+-- 'principals', 'createGrant_principals' - The grant principals. This value should be specified as an Amazon
+-- Resource Name (ARN).
 --
 -- 'homeRegion', 'createGrant_homeRegion' - Home Region of the grant.
 --
@@ -136,7 +138,8 @@ createGrant_grantName = Lens.lens (\CreateGrant' {grantName} -> grantName) (\s@C
 createGrant_licenseArn :: Lens.Lens' CreateGrant Prelude.Text
 createGrant_licenseArn = Lens.lens (\CreateGrant' {licenseArn} -> licenseArn) (\s@CreateGrant' {} a -> s {licenseArn = a} :: CreateGrant)
 
--- | The grant principals.
+-- | The grant principals. This value should be specified as an Amazon
+-- Resource Name (ARN).
 createGrant_principals :: Lens.Lens' CreateGrant (Prelude.NonEmpty Prelude.Text)
 createGrant_principals = Lens.lens (\CreateGrant' {principals} -> principals) (\s@CreateGrant' {} a -> s {principals = a} :: CreateGrant) Prelude.. Lens.coerced
 
@@ -150,8 +153,8 @@ createGrant_allowedOperations = Lens.lens (\CreateGrant' {allowedOperations} -> 
 
 instance Core.AWSRequest CreateGrant where
   type AWSResponse CreateGrant = CreateGrantResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -21,7 +21,7 @@ module Amazonka.AuditManager.Types.SourceKeyword where
 
 import Amazonka.AuditManager.Types.KeywordInputType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The keyword to search for in CloudTrail logs, Config rules, Security Hub
@@ -79,11 +79,6 @@ data SourceKeyword = SourceKeyword'
     --         CustomRuleForAccount-conformance-pack-szsm1uv0w
     --
     --         @keywordValue@: @Custom_CustomRuleForAccount-conformance-pack@
-    --
-    --     -   Service-linked rule name:
-    --         securityhub-api-gw-cache-encrypted-101104e1
-    --
-    --         @keywordValue@: @Custom_securityhub-api-gw-cache-encrypted@
     --
     --     -   Service-linked rule name:
     --         OrgConfigRule-s3-bucket-versioning-enabled-dbgzf8ba
@@ -144,11 +139,6 @@ data SourceKeyword = SourceKeyword'
 --         @keywordValue@: @Custom_CustomRuleForAccount-conformance-pack@
 --
 --     -   Service-linked rule name:
---         securityhub-api-gw-cache-encrypted-101104e1
---
---         @keywordValue@: @Custom_securityhub-api-gw-cache-encrypted@
---
---     -   Service-linked rule name:
 --         OrgConfigRule-s3-bucket-versioning-enabled-dbgzf8ba
 --
 --         @keywordValue@:
@@ -201,11 +191,6 @@ newSourceKeyword =
 --         CustomRuleForAccount-conformance-pack-szsm1uv0w
 --
 --         @keywordValue@: @Custom_CustomRuleForAccount-conformance-pack@
---
---     -   Service-linked rule name:
---         securityhub-api-gw-cache-encrypted-101104e1
---
---         @keywordValue@: @Custom_securityhub-api-gw-cache-encrypted@
 --
 --     -   Service-linked rule name:
 --         OrgConfigRule-s3-bucket-versioning-enabled-dbgzf8ba

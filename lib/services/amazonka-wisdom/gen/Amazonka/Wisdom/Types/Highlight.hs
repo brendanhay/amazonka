@@ -20,7 +20,7 @@
 module Amazonka.Wisdom.Types.Highlight where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Offset specification to describe highlighting of document excerpts for

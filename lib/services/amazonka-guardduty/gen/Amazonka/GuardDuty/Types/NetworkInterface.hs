@@ -20,9 +20,9 @@
 module Amazonka.GuardDuty.Types.NetworkInterface where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.PrivateIpAddressDetails
 import Amazonka.GuardDuty.Types.SecurityGroup
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the elastic network interface of the EC2

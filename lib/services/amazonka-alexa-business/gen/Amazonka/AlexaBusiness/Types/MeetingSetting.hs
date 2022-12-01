@@ -21,7 +21,7 @@ module Amazonka.AlexaBusiness.Types.MeetingSetting where
 
 import Amazonka.AlexaBusiness.Types.RequirePin
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values that indicate whether a pin is always required (YES), never

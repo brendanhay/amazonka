@@ -79,6 +79,7 @@ module Amazonka.Personalize.Lens
 
     -- ** CreateDatasetImportJob
     createDatasetImportJob_tags,
+    createDatasetImportJob_publishAttributionMetricsToS3,
     createDatasetImportJob_importMode,
     createDatasetImportJob_jobName,
     createDatasetImportJob_datasetArn,
@@ -102,6 +103,14 @@ module Amazonka.Personalize.Lens
     createFilter_filterExpression,
     createFilterResponse_filterArn,
     createFilterResponse_httpStatus,
+
+    -- ** CreateMetricAttribution
+    createMetricAttribution_name,
+    createMetricAttribution_datasetGroupArn,
+    createMetricAttribution_metrics,
+    createMetricAttribution_metricsOutputConfig,
+    createMetricAttributionResponse_metricAttributionArn,
+    createMetricAttributionResponse_httpStatus,
 
     -- ** CreateRecommender
     createRecommender_tags,
@@ -133,6 +142,7 @@ module Amazonka.Personalize.Lens
 
     -- ** CreateSolutionVersion
     createSolutionVersion_tags,
+    createSolutionVersion_name,
     createSolutionVersion_trainingMode,
     createSolutionVersion_solutionArn,
     createSolutionVersionResponse_solutionVersionArn,
@@ -152,6 +162,9 @@ module Amazonka.Personalize.Lens
 
     -- ** DeleteFilter
     deleteFilter_filterArn,
+
+    -- ** DeleteMetricAttribution
+    deleteMetricAttribution_metricAttributionArn,
 
     -- ** DeleteRecommender
     deleteRecommender_recommenderArn,
@@ -216,6 +229,11 @@ module Amazonka.Personalize.Lens
     describeFilter_filterArn,
     describeFilterResponse_filter,
     describeFilterResponse_httpStatus,
+
+    -- ** DescribeMetricAttribution
+    describeMetricAttribution_metricAttributionArn,
+    describeMetricAttributionResponse_metricAttribution,
+    describeMetricAttributionResponse_httpStatus,
 
     -- ** DescribeRecipe
     describeRecipe_recipeArn,
@@ -319,6 +337,22 @@ module Amazonka.Personalize.Lens
     listFiltersResponse_filters,
     listFiltersResponse_httpStatus,
 
+    -- ** ListMetricAttributionMetrics
+    listMetricAttributionMetrics_nextToken,
+    listMetricAttributionMetrics_maxResults,
+    listMetricAttributionMetrics_metricAttributionArn,
+    listMetricAttributionMetricsResponse_nextToken,
+    listMetricAttributionMetricsResponse_metrics,
+    listMetricAttributionMetricsResponse_httpStatus,
+
+    -- ** ListMetricAttributions
+    listMetricAttributions_nextToken,
+    listMetricAttributions_maxResults,
+    listMetricAttributions_datasetGroupArn,
+    listMetricAttributionsResponse_nextToken,
+    listMetricAttributionsResponse_metricAttributions,
+    listMetricAttributionsResponse_httpStatus,
+
     -- ** ListRecipes
     listRecipes_nextToken,
     listRecipes_recipeProvider,
@@ -394,6 +428,14 @@ module Amazonka.Personalize.Lens
     updateCampaign_campaignArn,
     updateCampaignResponse_campaignArn,
     updateCampaignResponse_httpStatus,
+
+    -- ** UpdateMetricAttribution
+    updateMetricAttribution_addMetrics,
+    updateMetricAttribution_metricsOutputConfig,
+    updateMetricAttribution_metricAttributionArn,
+    updateMetricAttribution_removeMetrics,
+    updateMetricAttributionResponse_metricAttributionArn,
+    updateMetricAttributionResponse_httpStatus,
 
     -- ** UpdateRecommender
     updateRecommender_recommenderArn,
@@ -590,6 +632,7 @@ module Amazonka.Personalize.Lens
     datasetImportJob_creationDateTime,
     datasetImportJob_jobName,
     datasetImportJob_status,
+    datasetImportJob_publishAttributionMetricsToS3,
     datasetImportJob_datasetArn,
     datasetImportJob_datasetImportJobArn,
     datasetImportJob_dataSource,
@@ -719,6 +762,33 @@ module Amazonka.Personalize.Lens
     integerHyperParameterRange_minValue,
     integerHyperParameterRange_maxValue,
 
+    -- ** MetricAttribute
+    metricAttribute_eventType,
+    metricAttribute_metricName,
+    metricAttribute_expression,
+
+    -- ** MetricAttribution
+    metricAttribution_name,
+    metricAttribution_creationDateTime,
+    metricAttribution_status,
+    metricAttribution_metricsOutputConfig,
+    metricAttribution_metricAttributionArn,
+    metricAttribution_datasetGroupArn,
+    metricAttribution_lastUpdatedDateTime,
+    metricAttribution_failureReason,
+
+    -- ** MetricAttributionOutput
+    metricAttributionOutput_s3DataDestination,
+    metricAttributionOutput_roleArn,
+
+    -- ** MetricAttributionSummary
+    metricAttributionSummary_name,
+    metricAttributionSummary_creationDateTime,
+    metricAttributionSummary_status,
+    metricAttributionSummary_metricAttributionArn,
+    metricAttributionSummary_lastUpdatedDateTime,
+    metricAttributionSummary_failureReason,
+
     -- ** OptimizationObjective
     optimizationObjective_objectiveSensitivity,
     optimizationObjective_itemAttribute,
@@ -808,11 +878,13 @@ module Amazonka.Personalize.Lens
     solutionSummary_name,
     solutionSummary_creationDateTime,
     solutionSummary_status,
+    solutionSummary_recipeArn,
     solutionSummary_lastUpdatedDateTime,
 
     -- ** SolutionVersion
     solutionVersion_solutionArn,
     solutionVersion_eventType,
+    solutionVersion_name,
     solutionVersion_tunedHPOParams,
     solutionVersion_performAutoML,
     solutionVersion_performHPO,
@@ -852,6 +924,7 @@ import Amazonka.Personalize.CreateDatasetGroup
 import Amazonka.Personalize.CreateDatasetImportJob
 import Amazonka.Personalize.CreateEventTracker
 import Amazonka.Personalize.CreateFilter
+import Amazonka.Personalize.CreateMetricAttribution
 import Amazonka.Personalize.CreateRecommender
 import Amazonka.Personalize.CreateSchema
 import Amazonka.Personalize.CreateSolution
@@ -861,6 +934,7 @@ import Amazonka.Personalize.DeleteDataset
 import Amazonka.Personalize.DeleteDatasetGroup
 import Amazonka.Personalize.DeleteEventTracker
 import Amazonka.Personalize.DeleteFilter
+import Amazonka.Personalize.DeleteMetricAttribution
 import Amazonka.Personalize.DeleteRecommender
 import Amazonka.Personalize.DeleteSchema
 import Amazonka.Personalize.DeleteSolution
@@ -875,6 +949,7 @@ import Amazonka.Personalize.DescribeDatasetImportJob
 import Amazonka.Personalize.DescribeEventTracker
 import Amazonka.Personalize.DescribeFeatureTransformation
 import Amazonka.Personalize.DescribeFilter
+import Amazonka.Personalize.DescribeMetricAttribution
 import Amazonka.Personalize.DescribeRecipe
 import Amazonka.Personalize.DescribeRecommender
 import Amazonka.Personalize.DescribeSchema
@@ -890,6 +965,8 @@ import Amazonka.Personalize.ListDatasetImportJobs
 import Amazonka.Personalize.ListDatasets
 import Amazonka.Personalize.ListEventTrackers
 import Amazonka.Personalize.ListFilters
+import Amazonka.Personalize.ListMetricAttributionMetrics
+import Amazonka.Personalize.ListMetricAttributions
 import Amazonka.Personalize.ListRecipes
 import Amazonka.Personalize.ListRecommenders
 import Amazonka.Personalize.ListSchemas
@@ -945,6 +1022,10 @@ import Amazonka.Personalize.Types.HPOObjective
 import Amazonka.Personalize.Types.HPOResourceConfig
 import Amazonka.Personalize.Types.HyperParameterRanges
 import Amazonka.Personalize.Types.IntegerHyperParameterRange
+import Amazonka.Personalize.Types.MetricAttribute
+import Amazonka.Personalize.Types.MetricAttribution
+import Amazonka.Personalize.Types.MetricAttributionOutput
+import Amazonka.Personalize.Types.MetricAttributionSummary
 import Amazonka.Personalize.Types.OptimizationObjective
 import Amazonka.Personalize.Types.Recipe
 import Amazonka.Personalize.Types.RecipeSummary
@@ -962,4 +1043,5 @@ import Amazonka.Personalize.Types.Tag
 import Amazonka.Personalize.Types.TunedHPOParams
 import Amazonka.Personalize.UntagResource
 import Amazonka.Personalize.UpdateCampaign
+import Amazonka.Personalize.UpdateMetricAttribution
 import Amazonka.Personalize.UpdateRecommender

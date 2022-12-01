@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -66,6 +67,9 @@ module Amazonka.WAFV2.Types
     -- * IPAddressVersion
     IPAddressVersion (..),
 
+    -- * InspectionLevel
+    InspectionLevel (..),
+
     -- * JsonMatchScope
     JsonMatchScope (..),
 
@@ -104,6 +108,11 @@ module Amazonka.WAFV2.Types
 
     -- * TextTransformationType
     TextTransformationType (..),
+
+    -- * AWSManagedRulesBotControlRuleSet
+    AWSManagedRulesBotControlRuleSet (..),
+    newAWSManagedRulesBotControlRuleSet,
+    aWSManagedRulesBotControlRuleSet_inspectionLevel,
 
     -- * ActionCondition
     ActionCondition (..),
@@ -162,6 +171,23 @@ module Amazonka.WAFV2.Types
     captchaResponse_solveTimestamp,
     captchaResponse_responseCode,
     captchaResponse_failureReason,
+
+    -- * ChallengeAction
+    ChallengeAction (..),
+    newChallengeAction,
+    challengeAction_customRequestHandling,
+
+    -- * ChallengeConfig
+    ChallengeConfig (..),
+    newChallengeConfig,
+    challengeConfig_immunityTimeProperty,
+
+    -- * ChallengeResponse
+    ChallengeResponse (..),
+    newChallengeResponse,
+    challengeResponse_solveTimestamp,
+    challengeResponse_responseCode,
+    challengeResponse_failureReason,
 
     -- * Condition
     Condition (..),
@@ -393,6 +419,7 @@ module Amazonka.WAFV2.Types
     newManagedRuleGroupConfig,
     managedRuleGroupConfig_passwordField,
     managedRuleGroupConfig_loginPath,
+    managedRuleGroupConfig_aWSManagedRulesBotControlRuleSet,
     managedRuleGroupConfig_payloadType,
     managedRuleGroupConfig_usernameField,
 
@@ -400,6 +427,7 @@ module Amazonka.WAFV2.Types
     ManagedRuleGroupStatement (..),
     newManagedRuleGroupStatement,
     managedRuleGroupStatement_managedRuleGroupConfigs,
+    managedRuleGroupStatement_ruleActionOverrides,
     managedRuleGroupStatement_scopeDownStatement,
     managedRuleGroupStatement_excludedRules,
     managedRuleGroupStatement_version,
@@ -556,6 +584,7 @@ module Amazonka.WAFV2.Types
     rule_overrideAction,
     rule_ruleLabels,
     rule_action,
+    rule_challengeConfig,
     rule_name,
     rule_priority,
     rule_statement,
@@ -564,10 +593,17 @@ module Amazonka.WAFV2.Types
     -- * RuleAction
     RuleAction (..),
     newRuleAction,
+    ruleAction_challenge,
     ruleAction_allow,
     ruleAction_count,
     ruleAction_captcha,
     ruleAction_block,
+
+    -- * RuleActionOverride
+    RuleActionOverride (..),
+    newRuleActionOverride,
+    ruleActionOverride_name,
+    ruleActionOverride_actionToUse,
 
     -- * RuleGroup
     RuleGroup (..),
@@ -587,6 +623,7 @@ module Amazonka.WAFV2.Types
     -- * RuleGroupReferenceStatement
     RuleGroupReferenceStatement (..),
     newRuleGroupReferenceStatement,
+    ruleGroupReferenceStatement_ruleActionOverrides,
     ruleGroupReferenceStatement_excludedRules,
     ruleGroupReferenceStatement_arn,
 
@@ -608,6 +645,8 @@ module Amazonka.WAFV2.Types
     -- * SampledHTTPRequest
     SampledHTTPRequest (..),
     newSampledHTTPRequest,
+    sampledHTTPRequest_challengeResponse,
+    sampledHTTPRequest_overriddenAction,
     sampledHTTPRequest_timestamp,
     sampledHTTPRequest_captchaResponse,
     sampledHTTPRequest_ruleNameWithinRuleGroup,
@@ -712,6 +751,7 @@ module Amazonka.WAFV2.Types
     WebACL (..),
     newWebACL,
     webACL_managedByFirewallManager,
+    webACL_tokenDomains,
     webACL_captchaConfig,
     webACL_rules,
     webACL_preProcessFirewallManagerRuleGroups,
@@ -719,6 +759,7 @@ module Amazonka.WAFV2.Types
     webACL_labelNamespace,
     webACL_customResponseBodies,
     webACL_capacity,
+    webACL_challengeConfig,
     webACL_postProcessFirewallManagerRuleGroups,
     webACL_name,
     webACL_id,
@@ -744,9 +785,10 @@ module Amazonka.WAFV2.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.WAFV2.Types.AWSManagedRulesBotControlRuleSet
 import Amazonka.WAFV2.Types.ActionCondition
 import Amazonka.WAFV2.Types.ActionValue
 import Amazonka.WAFV2.Types.All
@@ -760,6 +802,9 @@ import Amazonka.WAFV2.Types.ByteMatchStatement
 import Amazonka.WAFV2.Types.CaptchaAction
 import Amazonka.WAFV2.Types.CaptchaConfig
 import Amazonka.WAFV2.Types.CaptchaResponse
+import Amazonka.WAFV2.Types.ChallengeAction
+import Amazonka.WAFV2.Types.ChallengeConfig
+import Amazonka.WAFV2.Types.ChallengeResponse
 import Amazonka.WAFV2.Types.ComparisonOperator
 import Amazonka.WAFV2.Types.Condition
 import Amazonka.WAFV2.Types.CookieMatchPattern
@@ -793,6 +838,7 @@ import Amazonka.WAFV2.Types.IPSetForwardedIPConfig
 import Amazonka.WAFV2.Types.IPSetReferenceStatement
 import Amazonka.WAFV2.Types.IPSetSummary
 import Amazonka.WAFV2.Types.ImmunityTimeProperty
+import Amazonka.WAFV2.Types.InspectionLevel
 import Amazonka.WAFV2.Types.JsonBody
 import Amazonka.WAFV2.Types.JsonMatchPattern
 import Amazonka.WAFV2.Types.JsonMatchScope
@@ -836,6 +882,7 @@ import Amazonka.WAFV2.Types.ResourceType
 import Amazonka.WAFV2.Types.ResponseContentType
 import Amazonka.WAFV2.Types.Rule
 import Amazonka.WAFV2.Types.RuleAction
+import Amazonka.WAFV2.Types.RuleActionOverride
 import Amazonka.WAFV2.Types.RuleGroup
 import Amazonka.WAFV2.Types.RuleGroupReferenceStatement
 import Amazonka.WAFV2.Types.RuleGroupSummary
@@ -865,27 +912,25 @@ import Amazonka.WAFV2.Types.XssMatchStatement
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "WAFV2",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "wafv2",
-      Core._serviceSigningName = "wafv2",
-      Core._serviceVersion = "2019-07-29",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "WAFV2",
-      Core._serviceRetry = retry
+    { Core.abbrev = "WAFV2",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "wafv2",
+      Core.signingName = "wafv2",
+      Core.version = "2019-07-29",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "WAFV2",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

@@ -22,7 +22,7 @@ module Amazonka.CodeBuild.Types.EnvironmentLanguage where
 import Amazonka.CodeBuild.Types.EnvironmentImage
 import Amazonka.CodeBuild.Types.LanguageType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of Docker images that are related by programming language and are

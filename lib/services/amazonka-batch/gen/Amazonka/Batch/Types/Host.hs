@@ -20,7 +20,7 @@
 module Amazonka.Batch.Types.Host where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Determine whether your data volume persists on the host container

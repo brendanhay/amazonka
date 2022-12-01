@@ -20,7 +20,7 @@
 module Amazonka.FraudDetector.Types.TFIMetricDataPoint where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The performance metrics data points for Transaction Fraud Insights (TFI)

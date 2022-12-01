@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.UpdateResourceCollectionFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.UpdateCloudFormationCollectionFilter
 import Amazonka.DevOpsGuru.Types.UpdateTagCollectionFilter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information used to update a collection of Amazon Web Services

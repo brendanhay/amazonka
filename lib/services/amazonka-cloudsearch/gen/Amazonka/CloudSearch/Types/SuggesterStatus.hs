@@ -22,7 +22,7 @@ module Amazonka.CloudSearch.Types.SuggesterStatus where
 import Amazonka.CloudSearch.Types.OptionStatus
 import Amazonka.CloudSearch.Types.Suggester
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value of a @Suggester@ and its current status.

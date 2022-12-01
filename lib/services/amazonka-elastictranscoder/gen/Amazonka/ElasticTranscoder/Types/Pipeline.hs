@@ -20,9 +20,9 @@
 module Amazonka.ElasticTranscoder.Types.Pipeline where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types.Notifications
 import Amazonka.ElasticTranscoder.Types.PipelineOutputConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The pipeline (queue) that is used to manage jobs.

@@ -44,7 +44,7 @@ where
 
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,8 +96,8 @@ deleteBudget_budgetName = Lens.lens (\DeleteBudget' {budgetName} -> budgetName) 
 
 instance Core.AWSRequest DeleteBudget where
   type AWSResponse DeleteBudget = DeleteBudgetResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

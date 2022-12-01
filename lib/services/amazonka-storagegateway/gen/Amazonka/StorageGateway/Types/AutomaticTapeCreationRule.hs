@@ -20,7 +20,7 @@
 module Amazonka.StorageGateway.Types.AutomaticTapeCreationRule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An automatic tape creation policy consists of automatic tape creation

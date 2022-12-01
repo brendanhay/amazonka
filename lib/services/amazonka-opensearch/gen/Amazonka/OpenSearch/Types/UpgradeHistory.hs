@@ -20,29 +20,33 @@
 module Amazonka.OpenSearch.Types.UpgradeHistory where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.UpgradeStatus
 import Amazonka.OpenSearch.Types.UpgradeStepItem
 import qualified Amazonka.Prelude as Prelude
 
--- | History of the last 10 upgrades and upgrade eligibility checks.
+-- | History of the last 10 upgrades and upgrade eligibility checks for an
+-- Amazon OpenSearch Service domain.
 --
 -- /See:/ 'newUpgradeHistory' smart constructor.
 data UpgradeHistory = UpgradeHistory'
-  { -- | UTC timestamp at which the upgrade API call was made in
-    -- \"yyyy-MM-ddTHH:mm:ssZ\" format.
+  { -- | UTC timestamp at which the upgrade API call was made, in the format
+    -- @yyyy-MM-ddTHH:mm:ssZ@.
     startTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | A list of @ UpgradeStepItem @ s representing information about each step
-    -- performed as part of a specific upgrade or upgrade eligibility check.
+    -- | A list of each step performed as part of a specific upgrade or upgrade
+    -- eligibility check.
     stepsList :: Prelude.Maybe [UpgradeStepItem],
-    -- | A string that briefly describes the upgrade.
+    -- | A string that describes the upgrade.
     upgradeName :: Prelude.Maybe Prelude.Text,
     -- | The current status of the upgrade. The status can take one of the
     -- following values:
     --
     -- -   In Progress
+    --
     -- -   Succeeded
+    --
     -- -   Succeeded with Issues
+    --
     -- -   Failed
     upgradeStatus :: Prelude.Maybe UpgradeStatus
   }
@@ -56,20 +60,23 @@ data UpgradeHistory = UpgradeHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTimestamp', 'upgradeHistory_startTimestamp' - UTC timestamp at which the upgrade API call was made in
--- \"yyyy-MM-ddTHH:mm:ssZ\" format.
+-- 'startTimestamp', 'upgradeHistory_startTimestamp' - UTC timestamp at which the upgrade API call was made, in the format
+-- @yyyy-MM-ddTHH:mm:ssZ@.
 --
--- 'stepsList', 'upgradeHistory_stepsList' - A list of @ UpgradeStepItem @ s representing information about each step
--- performed as part of a specific upgrade or upgrade eligibility check.
+-- 'stepsList', 'upgradeHistory_stepsList' - A list of each step performed as part of a specific upgrade or upgrade
+-- eligibility check.
 --
--- 'upgradeName', 'upgradeHistory_upgradeName' - A string that briefly describes the upgrade.
+-- 'upgradeName', 'upgradeHistory_upgradeName' - A string that describes the upgrade.
 --
 -- 'upgradeStatus', 'upgradeHistory_upgradeStatus' - The current status of the upgrade. The status can take one of the
 -- following values:
 --
 -- -   In Progress
+--
 -- -   Succeeded
+--
 -- -   Succeeded with Issues
+--
 -- -   Failed
 newUpgradeHistory ::
   UpgradeHistory
@@ -81,17 +88,17 @@ newUpgradeHistory =
       upgradeStatus = Prelude.Nothing
     }
 
--- | UTC timestamp at which the upgrade API call was made in
--- \"yyyy-MM-ddTHH:mm:ssZ\" format.
+-- | UTC timestamp at which the upgrade API call was made, in the format
+-- @yyyy-MM-ddTHH:mm:ssZ@.
 upgradeHistory_startTimestamp :: Lens.Lens' UpgradeHistory (Prelude.Maybe Prelude.UTCTime)
 upgradeHistory_startTimestamp = Lens.lens (\UpgradeHistory' {startTimestamp} -> startTimestamp) (\s@UpgradeHistory' {} a -> s {startTimestamp = a} :: UpgradeHistory) Prelude.. Lens.mapping Core._Time
 
--- | A list of @ UpgradeStepItem @ s representing information about each step
--- performed as part of a specific upgrade or upgrade eligibility check.
+-- | A list of each step performed as part of a specific upgrade or upgrade
+-- eligibility check.
 upgradeHistory_stepsList :: Lens.Lens' UpgradeHistory (Prelude.Maybe [UpgradeStepItem])
 upgradeHistory_stepsList = Lens.lens (\UpgradeHistory' {stepsList} -> stepsList) (\s@UpgradeHistory' {} a -> s {stepsList = a} :: UpgradeHistory) Prelude.. Lens.mapping Lens.coerced
 
--- | A string that briefly describes the upgrade.
+-- | A string that describes the upgrade.
 upgradeHistory_upgradeName :: Lens.Lens' UpgradeHistory (Prelude.Maybe Prelude.Text)
 upgradeHistory_upgradeName = Lens.lens (\UpgradeHistory' {upgradeName} -> upgradeName) (\s@UpgradeHistory' {} a -> s {upgradeName = a} :: UpgradeHistory)
 
@@ -99,8 +106,11 @@ upgradeHistory_upgradeName = Lens.lens (\UpgradeHistory' {upgradeName} -> upgrad
 -- following values:
 --
 -- -   In Progress
+--
 -- -   Succeeded
+--
 -- -   Succeeded with Issues
+--
 -- -   Failed
 upgradeHistory_upgradeStatus :: Lens.Lens' UpgradeHistory (Prelude.Maybe UpgradeStatus)
 upgradeHistory_upgradeStatus = Lens.lens (\UpgradeHistory' {upgradeStatus} -> upgradeStatus) (\s@UpgradeHistory' {} a -> s {upgradeStatus = a} :: UpgradeHistory)

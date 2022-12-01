@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.DataCatalogEncryptionSettings where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.ConnectionPasswordEncryption
 import Amazonka.Glue.Types.EncryptionAtRest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information for maintaining Data Catalog

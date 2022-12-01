@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.CampaignEmailMessage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the content and \"From\" address for an email message that\'s

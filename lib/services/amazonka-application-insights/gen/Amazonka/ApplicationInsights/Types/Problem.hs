@@ -24,7 +24,7 @@ import Amazonka.ApplicationInsights.Types.FeedbackValue
 import Amazonka.ApplicationInsights.Types.SeverityLevel
 import Amazonka.ApplicationInsights.Types.Status
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a problem that is detected by correlating observations.

@@ -20,7 +20,7 @@
 module Amazonka.WorkDocs.Types.Participants where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.GroupMetadata
 import Amazonka.WorkDocs.Types.UserMetadata
@@ -34,7 +34,7 @@ data Participants = Participants'
     -- | The list of user groups.
     groups :: Prelude.Maybe [GroupMetadata]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Participants' with all optional fields omitted.

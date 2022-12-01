@@ -20,7 +20,7 @@
 module Amazonka.DataBrew.Types.CsvOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a set of options that define how DataBrew will read a

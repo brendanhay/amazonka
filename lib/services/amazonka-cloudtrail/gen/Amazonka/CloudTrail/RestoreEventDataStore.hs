@@ -46,6 +46,7 @@ module Amazonka.CloudTrail.RestoreEventDataStore
     restoreEventDataStoreResponse_updatedTimestamp,
     restoreEventDataStoreResponse_status,
     restoreEventDataStoreResponse_retentionPeriod,
+    restoreEventDataStoreResponse_kmsKeyId,
     restoreEventDataStoreResponse_organizationEnabled,
     restoreEventDataStoreResponse_terminationProtectionEnabled,
     restoreEventDataStoreResponse_httpStatus,
@@ -54,7 +55,7 @@ where
 
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,8 +97,8 @@ instance Core.AWSRequest RestoreEventDataStore where
   type
     AWSResponse RestoreEventDataStore =
       RestoreEventDataStoreResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +113,7 @@ instance Core.AWSRequest RestoreEventDataStore where
             Prelude.<*> (x Core..?> "UpdatedTimestamp")
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "RetentionPeriod")
+            Prelude.<*> (x Core..?> "KmsKeyId")
             Prelude.<*> (x Core..?> "OrganizationEnabled")
             Prelude.<*> (x Core..?> "TerminationProtectionEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -177,6 +179,12 @@ data RestoreEventDataStoreResponse = RestoreEventDataStoreResponse'
     status :: Prelude.Maybe EventDataStoreStatus,
     -- | The retention period, in days.
     retentionPeriod :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies the KMS key ID that encrypts the events delivered by
+    -- CloudTrail. The value is a fully specified ARN to a KMS key in the
+    -- following format.
+    --
+    -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether an event data store is collecting logged events for an
     -- organization in Organizations.
     organizationEnabled :: Prelude.Maybe Prelude.Bool,
@@ -216,6 +224,12 @@ data RestoreEventDataStoreResponse = RestoreEventDataStoreResponse'
 --
 -- 'retentionPeriod', 'restoreEventDataStoreResponse_retentionPeriod' - The retention period, in days.
 --
+-- 'kmsKeyId', 'restoreEventDataStoreResponse_kmsKeyId' - Specifies the KMS key ID that encrypts the events delivered by
+-- CloudTrail. The value is a fully specified ARN to a KMS key in the
+-- following format.
+--
+-- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
+--
 -- 'organizationEnabled', 'restoreEventDataStoreResponse_organizationEnabled' - Indicates whether an event data store is collecting logged events for an
 -- organization in Organizations.
 --
@@ -238,6 +252,7 @@ newRestoreEventDataStoreResponse pHttpStatus_ =
       updatedTimestamp = Prelude.Nothing,
       status = Prelude.Nothing,
       retentionPeriod = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       organizationEnabled = Prelude.Nothing,
       terminationProtectionEnabled =
         Prelude.Nothing,
@@ -280,6 +295,14 @@ restoreEventDataStoreResponse_status = Lens.lens (\RestoreEventDataStoreResponse
 restoreEventDataStoreResponse_retentionPeriod :: Lens.Lens' RestoreEventDataStoreResponse (Prelude.Maybe Prelude.Natural)
 restoreEventDataStoreResponse_retentionPeriod = Lens.lens (\RestoreEventDataStoreResponse' {retentionPeriod} -> retentionPeriod) (\s@RestoreEventDataStoreResponse' {} a -> s {retentionPeriod = a} :: RestoreEventDataStoreResponse)
 
+-- | Specifies the KMS key ID that encrypts the events delivered by
+-- CloudTrail. The value is a fully specified ARN to a KMS key in the
+-- following format.
+--
+-- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
+restoreEventDataStoreResponse_kmsKeyId :: Lens.Lens' RestoreEventDataStoreResponse (Prelude.Maybe Prelude.Text)
+restoreEventDataStoreResponse_kmsKeyId = Lens.lens (\RestoreEventDataStoreResponse' {kmsKeyId} -> kmsKeyId) (\s@RestoreEventDataStoreResponse' {} a -> s {kmsKeyId = a} :: RestoreEventDataStoreResponse)
+
 -- | Indicates whether an event data store is collecting logged events for an
 -- organization in Organizations.
 restoreEventDataStoreResponse_organizationEnabled :: Lens.Lens' RestoreEventDataStoreResponse (Prelude.Maybe Prelude.Bool)
@@ -304,6 +327,7 @@ instance Prelude.NFData RestoreEventDataStoreResponse where
       `Prelude.seq` Prelude.rnf updatedTimestamp
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf organizationEnabled
       `Prelude.seq` Prelude.rnf terminationProtectionEnabled
       `Prelude.seq` Prelude.rnf httpStatus

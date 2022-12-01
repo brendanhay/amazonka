@@ -20,7 +20,7 @@
 module Amazonka.CloudWatch.Types.Dimension where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A dimension is a name\/value pair that is part of the identity of a

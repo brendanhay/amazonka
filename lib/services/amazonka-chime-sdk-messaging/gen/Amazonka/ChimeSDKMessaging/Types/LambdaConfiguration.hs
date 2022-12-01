@@ -21,7 +21,7 @@ module Amazonka.ChimeSDKMessaging.Types.LambdaConfiguration where
 
 import Amazonka.ChimeSDKMessaging.Types.InvocationType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stores metadata about a Lambda processor.

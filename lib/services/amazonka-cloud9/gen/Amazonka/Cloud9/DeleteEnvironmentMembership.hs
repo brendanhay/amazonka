@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an environment member from an Cloud9 development environment.
+-- Deletes an environment member from a development environment.
 module Amazonka.Cloud9.DeleteEnvironmentMembership
   ( -- * Creating a Request
     DeleteEnvironmentMembership (..),
@@ -41,7 +41,7 @@ where
 
 import Amazonka.Cloud9.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,8 +96,8 @@ instance Core.AWSRequest DeleteEnvironmentMembership where
   type
     AWSResponse DeleteEnvironmentMembership =
       DeleteEnvironmentMembershipResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

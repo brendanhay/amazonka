@@ -20,7 +20,7 @@
 module Amazonka.LookoutMetrics.Types.DetectedMetricSource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutMetrics.Types.DetectedS3SourceConfig
 import qualified Amazonka.Prelude as Prelude
 

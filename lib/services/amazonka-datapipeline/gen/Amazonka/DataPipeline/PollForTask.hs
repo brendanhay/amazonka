@@ -56,8 +56,8 @@ module Amazonka.DataPipeline.PollForTask
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataPipeline.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +149,8 @@ pollForTask_workerGroup = Lens.lens (\PollForTask' {workerGroup} -> workerGroup)
 
 instance Core.AWSRequest PollForTask where
   type AWSResponse PollForTask = PollForTaskResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

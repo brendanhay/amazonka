@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.Eac3AtmosSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.Eac3AtmosCodingMode
 import Amazonka.MediaLive.Types.Eac3AtmosDrcLine
 import Amazonka.MediaLive.Types.Eac3AtmosDrcRf

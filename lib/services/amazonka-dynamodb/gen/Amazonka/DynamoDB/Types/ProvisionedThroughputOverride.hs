@@ -20,9 +20,9 @@
 module Amazonka.DynamoDB.Types.ProvisionedThroughputOverride where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Replica-specific provisioned throughput settings. If not specified, uses

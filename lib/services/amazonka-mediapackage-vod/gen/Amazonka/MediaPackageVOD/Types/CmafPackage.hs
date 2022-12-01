@@ -20,7 +20,7 @@
 module Amazonka.MediaPackageVOD.Types.CmafPackage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaPackageVOD.Types.CmafEncryption
 import Amazonka.MediaPackageVOD.Types.HlsManifest
 import qualified Amazonka.Prelude as Prelude

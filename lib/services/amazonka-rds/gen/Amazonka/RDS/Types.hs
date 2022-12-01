@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -248,10 +249,13 @@ module Amazonka.RDS.Types
     -- * ClusterPendingModifiedValues
     ClusterPendingModifiedValues (..),
     newClusterPendingModifiedValues,
+    clusterPendingModifiedValues_backupRetentionPeriod,
     clusterPendingModifiedValues_dbClusterIdentifier,
     clusterPendingModifiedValues_pendingCloudwatchLogsExports,
     clusterPendingModifiedValues_masterUserPassword,
+    clusterPendingModifiedValues_allocatedStorage,
     clusterPendingModifiedValues_iAMDatabaseAuthenticationEnabled,
+    clusterPendingModifiedValues_iops,
     clusterPendingModifiedValues_engineVersion,
 
     -- * ConnectionPoolConfiguration
@@ -334,6 +338,7 @@ module Amazonka.RDS.Types
     dbCluster_capacity,
     dbCluster_clusterCreateTime,
     dbCluster_readReplicaIdentifiers,
+    dbCluster_dbSystemId,
     dbCluster_enabledCloudwatchLogsExports,
     dbCluster_iops,
     dbCluster_dbClusterResourceId,
@@ -424,6 +429,7 @@ module Amazonka.RDS.Types
     dbClusterSnapshot_iAMDatabaseAuthenticationEnabled,
     dbClusterSnapshot_vpcId,
     dbClusterSnapshot_clusterCreateTime,
+    dbClusterSnapshot_dbSystemId,
     dbClusterSnapshot_dbClusterSnapshotArn,
     dbClusterSnapshot_engineVersion,
     dbClusterSnapshot_licenseModel,
@@ -455,6 +461,7 @@ module Amazonka.RDS.Types
     dbEngineVersion_supportedEngineModes,
     dbEngineVersion_defaultCharacterSet,
     dbEngineVersion_status,
+    dbEngineVersion_customDBEngineVersionManifest,
     dbEngineVersion_majorEngineVersion,
     dbEngineVersion_databaseInstallationFilesS3BucketName,
     dbEngineVersion_dbEngineVersionDescription,
@@ -482,6 +489,7 @@ module Amazonka.RDS.Types
     dbInstance_optionGroupMemberships,
     dbInstance_backupTarget,
     dbInstance_preferredBackupWindow,
+    dbInstance_storageThroughput,
     dbInstance_backupRetentionPeriod,
     dbInstance_dbInstanceClass,
     dbInstance_characterSetName,
@@ -537,6 +545,7 @@ module Amazonka.RDS.Types
     dbInstance_dbiResourceId,
     dbInstance_customIamInstanceProfile,
     dbInstance_dbParameterGroups,
+    dbInstance_dbSystemId,
     dbInstance_enabledCloudwatchLogsExports,
     dbInstance_iops,
     dbInstance_associatedRoles,
@@ -557,6 +566,7 @@ module Amazonka.RDS.Types
     dbInstanceAutomatedBackup_port,
     dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsReplications,
     dbInstanceAutomatedBackup_backupTarget,
+    dbInstanceAutomatedBackup_storageThroughput,
     dbInstanceAutomatedBackup_backupRetentionPeriod,
     dbInstanceAutomatedBackup_masterUsername,
     dbInstanceAutomatedBackup_dbInstanceIdentifier,
@@ -702,6 +712,7 @@ module Amazonka.RDS.Types
     dbSnapshot_port,
     dbSnapshot_originalSnapshotCreateTime,
     dbSnapshot_percentProgress,
+    dbSnapshot_storageThroughput,
     dbSnapshot_masterUsername,
     dbSnapshot_sourceRegion,
     dbSnapshot_dbInstanceIdentifier,
@@ -995,6 +1006,7 @@ module Amazonka.RDS.Types
     orderableDBInstanceOption_supportsClusters,
     orderableDBInstanceOption_maxStorageSize,
     orderableDBInstanceOption_multiAZCapable,
+    orderableDBInstanceOption_maxStorageThroughputPerIops,
     orderableDBInstanceOption_dbInstanceClass,
     orderableDBInstanceOption_vpc,
     orderableDBInstanceOption_supportsPerformanceInsights,
@@ -1008,6 +1020,7 @@ module Amazonka.RDS.Types
     orderableDBInstanceOption_outpostCapable,
     orderableDBInstanceOption_supportsIops,
     orderableDBInstanceOption_maxIopsPerDbInstance,
+    orderableDBInstanceOption_minStorageThroughputPerDbInstance,
     orderableDBInstanceOption_supportsIAMDatabaseAuthentication,
     orderableDBInstanceOption_supportsEnhancedMonitoring,
     orderableDBInstanceOption_availableProcessorFeatures,
@@ -1016,10 +1029,13 @@ module Amazonka.RDS.Types
     orderableDBInstanceOption_supportsStorageAutoscaling,
     orderableDBInstanceOption_supportsGlobalDatabases,
     orderableDBInstanceOption_maxIopsPerGib,
+    orderableDBInstanceOption_minStorageThroughputPerIops,
     orderableDBInstanceOption_engineVersion,
     orderableDBInstanceOption_supportsKerberosAuthentication,
     orderableDBInstanceOption_minIopsPerGib,
     orderableDBInstanceOption_licenseModel,
+    orderableDBInstanceOption_supportsStorageThroughput,
+    orderableDBInstanceOption_maxStorageThroughputPerDbInstance,
     orderableDBInstanceOption_supportedNetworkTypes,
 
     -- * Outpost
@@ -1062,6 +1078,7 @@ module Amazonka.RDS.Types
     PendingModifiedValues (..),
     newPendingModifiedValues,
     pendingModifiedValues_port,
+    pendingModifiedValues_storageThroughput,
     pendingModifiedValues_backupRetentionPeriod,
     pendingModifiedValues_dbInstanceClass,
     pendingModifiedValues_automationMode,
@@ -1254,8 +1271,10 @@ module Amazonka.RDS.Types
     validStorageOptions_storageSize,
     validStorageOptions_iopsToStorageRatio,
     validStorageOptions_provisionedIops,
+    validStorageOptions_provisionedStorageThroughput,
     validStorageOptions_storageType,
     validStorageOptions_supportsStorageAutoscaling,
+    validStorageOptions_storageThroughputToIopsRatio,
 
     -- * VpcSecurityGroupMembership
     VpcSecurityGroupMembership (..),
@@ -1266,7 +1285,7 @@ module Amazonka.RDS.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.AccountQuota
 import Amazonka.RDS.Types.ActivityStreamMode
@@ -1387,27 +1406,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "RDS",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "rds",
-      Core._serviceSigningName = "rds",
-      Core._serviceVersion = "2014-10-31",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseXMLError "RDS",
-      Core._serviceRetry = retry
+    { Core.abbrev = "RDS",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "rds",
+      Core.signingName = "rds",
+      Core.version = "2014-10-31",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseXMLError "RDS",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

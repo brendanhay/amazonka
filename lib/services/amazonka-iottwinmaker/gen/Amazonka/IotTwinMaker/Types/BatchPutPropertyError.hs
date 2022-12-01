@@ -20,21 +20,21 @@
 module Amazonka.IotTwinMaker.Types.BatchPutPropertyError where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types.PropertyValueEntry
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An error returned by the @BatchPutProperty@ action.
 --
 -- /See:/ 'newBatchPutPropertyError' smart constructor.
 data BatchPutPropertyError = BatchPutPropertyError'
-  { -- | An object that contains information about errors returned by the
-    -- @BatchPutProperty@ action.
-    entry :: PropertyValueEntry,
-    -- | The error code.
+  { -- | The error code.
     errorCode :: Prelude.Text,
     -- | The error message.
-    errorMessage :: Prelude.Text
+    errorMessage :: Prelude.Text,
+    -- | An object that contains information about errors returned by the
+    -- @BatchPutProperty@ action.
+    entry :: PropertyValueEntry
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,34 +46,29 @@ data BatchPutPropertyError = BatchPutPropertyError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entry', 'batchPutPropertyError_entry' - An object that contains information about errors returned by the
--- @BatchPutProperty@ action.
---
 -- 'errorCode', 'batchPutPropertyError_errorCode' - The error code.
 --
 -- 'errorMessage', 'batchPutPropertyError_errorMessage' - The error message.
+--
+-- 'entry', 'batchPutPropertyError_entry' - An object that contains information about errors returned by the
+-- @BatchPutProperty@ action.
 newBatchPutPropertyError ::
-  -- | 'entry'
-  PropertyValueEntry ->
   -- | 'errorCode'
   Prelude.Text ->
   -- | 'errorMessage'
   Prelude.Text ->
+  -- | 'entry'
+  PropertyValueEntry ->
   BatchPutPropertyError
 newBatchPutPropertyError
-  pEntry_
   pErrorCode_
-  pErrorMessage_ =
+  pErrorMessage_
+  pEntry_ =
     BatchPutPropertyError'
-      { entry = pEntry_,
-        errorCode = pErrorCode_,
-        errorMessage = pErrorMessage_
+      { errorCode = pErrorCode_,
+        errorMessage = pErrorMessage_,
+        entry = pEntry_
       }
-
--- | An object that contains information about errors returned by the
--- @BatchPutProperty@ action.
-batchPutPropertyError_entry :: Lens.Lens' BatchPutPropertyError PropertyValueEntry
-batchPutPropertyError_entry = Lens.lens (\BatchPutPropertyError' {entry} -> entry) (\s@BatchPutPropertyError' {} a -> s {entry = a} :: BatchPutPropertyError)
 
 -- | The error code.
 batchPutPropertyError_errorCode :: Lens.Lens' BatchPutPropertyError Prelude.Text
@@ -83,25 +78,30 @@ batchPutPropertyError_errorCode = Lens.lens (\BatchPutPropertyError' {errorCode}
 batchPutPropertyError_errorMessage :: Lens.Lens' BatchPutPropertyError Prelude.Text
 batchPutPropertyError_errorMessage = Lens.lens (\BatchPutPropertyError' {errorMessage} -> errorMessage) (\s@BatchPutPropertyError' {} a -> s {errorMessage = a} :: BatchPutPropertyError)
 
+-- | An object that contains information about errors returned by the
+-- @BatchPutProperty@ action.
+batchPutPropertyError_entry :: Lens.Lens' BatchPutPropertyError PropertyValueEntry
+batchPutPropertyError_entry = Lens.lens (\BatchPutPropertyError' {entry} -> entry) (\s@BatchPutPropertyError' {} a -> s {entry = a} :: BatchPutPropertyError)
+
 instance Core.FromJSON BatchPutPropertyError where
   parseJSON =
     Core.withObject
       "BatchPutPropertyError"
       ( \x ->
           BatchPutPropertyError'
-            Prelude.<$> (x Core..: "entry")
-            Prelude.<*> (x Core..: "errorCode")
+            Prelude.<$> (x Core..: "errorCode")
             Prelude.<*> (x Core..: "errorMessage")
+            Prelude.<*> (x Core..: "entry")
       )
 
 instance Prelude.Hashable BatchPutPropertyError where
   hashWithSalt _salt BatchPutPropertyError' {..} =
-    _salt `Prelude.hashWithSalt` entry
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` entry
 
 instance Prelude.NFData BatchPutPropertyError where
   rnf BatchPutPropertyError' {..} =
-    Prelude.rnf entry
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf entry

@@ -20,9 +20,9 @@
 module Amazonka.ECS.Types.AutoScalingGroupProviderUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.ManagedScaling
 import Amazonka.ECS.Types.ManagedTerminationProtection
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the Auto Scaling group capacity provider to update.

@@ -20,8 +20,8 @@
 module Amazonka.Forecast.Types.ContinuousParameterRange where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.ScalingType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a continuous hyperparameter and it\'s range of tunable values.

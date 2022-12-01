@@ -23,7 +23,7 @@
 -- @AnalyzeExpense@ synchronously analyzes an input document for
 -- financially related relationships between text.
 --
--- Information is returned as @ExpenseDocuments@ and seperated as follows.
+-- Information is returned as @ExpenseDocuments@ and seperated as follows:
 --
 -- -   @LineItemGroups@- A data set containing @LineItems@ which store
 --     information about the lines of text, such as an item purchased and
@@ -51,7 +51,7 @@ module Amazonka.Textract.AnalyzeExpense
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,8 +87,8 @@ instance Core.AWSRequest AnalyzeExpense where
   type
     AWSResponse AnalyzeExpense =
       AnalyzeExpenseResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

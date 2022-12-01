@@ -20,7 +20,7 @@
 module Amazonka.MediaConnect.Types.SetSourceRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConnect.Types.Encryption
 import Amazonka.MediaConnect.Types.MediaStreamSourceConfigurationRequest
 import Amazonka.MediaConnect.Types.Protocol

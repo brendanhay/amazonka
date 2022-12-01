@@ -1,0 +1,100 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.Scheduler.Types.SageMakerPipelineParameter
+-- Copyright   : (c) 2013-2022 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.Scheduler.Types.SageMakerPipelineParameter where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Prelude as Prelude
+
+-- | The name and value pair of a parameter to use to start execution of a
+-- SageMaker Model Building Pipeline.
+--
+-- /See:/ 'newSageMakerPipelineParameter' smart constructor.
+data SageMakerPipelineParameter = SageMakerPipelineParameter'
+  { -- | Name of parameter to start execution of a SageMaker Model Building
+    -- Pipeline.
+    name :: Prelude.Text,
+    -- | Value of parameter to start execution of a SageMaker Model Building
+    -- Pipeline.
+    value :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'SageMakerPipelineParameter' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'sageMakerPipelineParameter_name' - Name of parameter to start execution of a SageMaker Model Building
+-- Pipeline.
+--
+-- 'value', 'sageMakerPipelineParameter_value' - Value of parameter to start execution of a SageMaker Model Building
+-- Pipeline.
+newSageMakerPipelineParameter ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'value'
+  Prelude.Text ->
+  SageMakerPipelineParameter
+newSageMakerPipelineParameter pName_ pValue_ =
+  SageMakerPipelineParameter'
+    { name = pName_,
+      value = pValue_
+    }
+
+-- | Name of parameter to start execution of a SageMaker Model Building
+-- Pipeline.
+sageMakerPipelineParameter_name :: Lens.Lens' SageMakerPipelineParameter Prelude.Text
+sageMakerPipelineParameter_name = Lens.lens (\SageMakerPipelineParameter' {name} -> name) (\s@SageMakerPipelineParameter' {} a -> s {name = a} :: SageMakerPipelineParameter)
+
+-- | Value of parameter to start execution of a SageMaker Model Building
+-- Pipeline.
+sageMakerPipelineParameter_value :: Lens.Lens' SageMakerPipelineParameter Prelude.Text
+sageMakerPipelineParameter_value = Lens.lens (\SageMakerPipelineParameter' {value} -> value) (\s@SageMakerPipelineParameter' {} a -> s {value = a} :: SageMakerPipelineParameter)
+
+instance Core.FromJSON SageMakerPipelineParameter where
+  parseJSON =
+    Core.withObject
+      "SageMakerPipelineParameter"
+      ( \x ->
+          SageMakerPipelineParameter'
+            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
+      )
+
+instance Prelude.Hashable SageMakerPipelineParameter where
+  hashWithSalt _salt SageMakerPipelineParameter' {..} =
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
+
+instance Prelude.NFData SageMakerPipelineParameter where
+  rnf SageMakerPipelineParameter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
+
+instance Core.ToJSON SageMakerPipelineParameter where
+  toJSON SageMakerPipelineParameter' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Value" Core..= value)
+          ]
+      )

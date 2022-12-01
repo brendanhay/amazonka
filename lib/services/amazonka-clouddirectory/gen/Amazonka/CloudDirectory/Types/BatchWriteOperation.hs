@@ -35,7 +35,7 @@ import Amazonka.CloudDirectory.Types.BatchRemoveFacetFromObject
 import Amazonka.CloudDirectory.Types.BatchUpdateLinkAttributes
 import Amazonka.CloudDirectory.Types.BatchUpdateObjectAttributes
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @BatchWrite@ operation.

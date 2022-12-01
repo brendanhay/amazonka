@@ -23,7 +23,7 @@ import Amazonka.AlexaBusiness.Types.BusinessReportFailureCode
 import Amazonka.AlexaBusiness.Types.BusinessReportS3Location
 import Amazonka.AlexaBusiness.Types.BusinessReportStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Usage report with specified parameters.

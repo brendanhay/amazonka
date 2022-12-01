@@ -20,7 +20,7 @@
 module Amazonka.CloudTrail.Types.QueryStatistics where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata about a query, such as the number of results.

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,20 +17,20 @@
 module Amazonka.DynamoDB.Waiters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.DescribeTable
 import Amazonka.DynamoDB.Lens
 import Amazonka.DynamoDB.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
 newTableNotExists :: Core.Wait DescribeTable
 newTableNotExists =
   Core.Wait
-    { Core._waitName = "TableNotExists",
-      Core._waitAttempts = 25,
-      Core._waitDelay = 20,
-      Core._waitAcceptors =
+    { Core.name = "TableNotExists",
+      Core.attempts = 25,
+      Core.delay = 20,
+      Core.acceptors =
         [ Core.matchError
             "ResourceNotFoundException"
             Core.AcceptSuccess
@@ -40,10 +41,10 @@ newTableNotExists =
 newTableExists :: Core.Wait DescribeTable
 newTableExists =
   Core.Wait
-    { Core._waitName = "TableExists",
-      Core._waitAttempts = 25,
-      Core._waitDelay = 20,
-      Core._waitAcceptors =
+    { Core.name = "TableExists",
+      Core.attempts = 25,
+      Core.delay = 20,
+      Core.acceptors =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess

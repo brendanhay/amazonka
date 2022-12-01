@@ -21,7 +21,7 @@ module Amazonka.ConnectCampaigns.Types.InstanceConfig where
 
 import Amazonka.ConnectCampaigns.Types.EncryptionConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Instance config object

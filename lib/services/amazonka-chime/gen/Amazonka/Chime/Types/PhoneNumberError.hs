@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.PhoneNumberError where
 
 import Amazonka.Chime.Types.ErrorCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | If the phone number action fails for one or more of the phone numbers in

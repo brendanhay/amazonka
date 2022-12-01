@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.OpsItemSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.OpsItemDataValue
 import Amazonka.SSM.Types.OpsItemStatus
@@ -53,8 +53,23 @@ data OpsItemSummary = OpsItemSummary'
     -- | The importance of this OpsItem in relation to other OpsItems in the
     -- system.
     priority :: Prelude.Maybe Prelude.Natural,
-    -- | The type of OpsItem. Currently, the only valid values are
-    -- @\/aws\/changerequest@ and @\/aws\/issue@.
+    -- | The type of OpsItem. Systems Manager supports the following types of
+    -- OpsItems:
+    --
+    -- -   @\/aws\/issue@
+    --
+    --     This type of OpsItem is used for default OpsItems created by
+    --     OpsCenter.
+    --
+    -- -   @\/aws\/changerequest@
+    --
+    --     This type of OpsItem is used by Change Manager for reviewing and
+    --     approving or rejecting change requests.
+    --
+    -- -   @\/aws\/insights@
+    --
+    --     This type of OpsItem is used by OpsCenter for aggregating and
+    --     reporting on duplicate OpsItems.
     opsItemType :: Prelude.Maybe Prelude.Text,
     -- | A list of OpsItems by category.
     category :: Prelude.Maybe Prelude.Text,
@@ -108,8 +123,23 @@ data OpsItemSummary = OpsItemSummary'
 -- 'priority', 'opsItemSummary_priority' - The importance of this OpsItem in relation to other OpsItems in the
 -- system.
 --
--- 'opsItemType', 'opsItemSummary_opsItemType' - The type of OpsItem. Currently, the only valid values are
--- @\/aws\/changerequest@ and @\/aws\/issue@.
+-- 'opsItemType', 'opsItemSummary_opsItemType' - The type of OpsItem. Systems Manager supports the following types of
+-- OpsItems:
+--
+-- -   @\/aws\/issue@
+--
+--     This type of OpsItem is used for default OpsItems created by
+--     OpsCenter.
+--
+-- -   @\/aws\/changerequest@
+--
+--     This type of OpsItem is used by Change Manager for reviewing and
+--     approving or rejecting change requests.
+--
+-- -   @\/aws\/insights@
+--
+--     This type of OpsItem is used by OpsCenter for aggregating and
+--     reporting on duplicate OpsItems.
 --
 -- 'category', 'opsItemSummary_category' - A list of OpsItems by category.
 --
@@ -194,8 +224,23 @@ opsItemSummary_source = Lens.lens (\OpsItemSummary' {source} -> source) (\s@OpsI
 opsItemSummary_priority :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Natural)
 opsItemSummary_priority = Lens.lens (\OpsItemSummary' {priority} -> priority) (\s@OpsItemSummary' {} a -> s {priority = a} :: OpsItemSummary)
 
--- | The type of OpsItem. Currently, the only valid values are
--- @\/aws\/changerequest@ and @\/aws\/issue@.
+-- | The type of OpsItem. Systems Manager supports the following types of
+-- OpsItems:
+--
+-- -   @\/aws\/issue@
+--
+--     This type of OpsItem is used for default OpsItems created by
+--     OpsCenter.
+--
+-- -   @\/aws\/changerequest@
+--
+--     This type of OpsItem is used by Change Manager for reviewing and
+--     approving or rejecting change requests.
+--
+-- -   @\/aws\/insights@
+--
+--     This type of OpsItem is used by OpsCenter for aggregating and
+--     reporting on duplicate OpsItems.
 opsItemSummary_opsItemType :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
 opsItemSummary_opsItemType = Lens.lens (\OpsItemSummary' {opsItemType} -> opsItemType) (\s@OpsItemSummary' {} a -> s {opsItemType = a} :: OpsItemSummary)
 

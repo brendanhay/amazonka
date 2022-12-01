@@ -20,8 +20,8 @@
 module Amazonka.DirectoryService.Types.IpRouteInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.IpRouteStatusMsg
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about one or more IP address blocks.

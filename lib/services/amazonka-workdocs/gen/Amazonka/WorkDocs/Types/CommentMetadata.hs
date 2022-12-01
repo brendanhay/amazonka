@@ -20,7 +20,7 @@
 module Amazonka.WorkDocs.Types.CommentMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.CommentStatusType
 import Amazonka.WorkDocs.Types.User
@@ -40,7 +40,7 @@ data CommentMetadata = CommentMetadata'
     -- | The ID of the user being replied to.
     recipientId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CommentMetadata' with all optional fields omitted.

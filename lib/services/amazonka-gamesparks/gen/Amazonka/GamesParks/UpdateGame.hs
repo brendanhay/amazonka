@@ -41,8 +41,8 @@ module Amazonka.GamesParks.UpdateGame
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GamesParks.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,8 +87,8 @@ updateGame_gameName = Lens.lens (\UpdateGame' {gameName} -> gameName) (\s@Update
 
 instance Core.AWSRequest UpdateGame where
   type AWSResponse UpdateGame = UpdateGameResponse
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,7 +20,7 @@
 module Amazonka.MachineLearning.Types.PerformanceMetrics where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Measurements of how well the @MLModel@ performed on known observations.

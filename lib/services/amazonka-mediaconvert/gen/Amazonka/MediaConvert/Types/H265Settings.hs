@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.H265Settings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.H265AdaptiveQuantization
 import Amazonka.MediaConvert.Types.H265AlternateTransferFunctionSei
 import Amazonka.MediaConvert.Types.H265CodecLevel

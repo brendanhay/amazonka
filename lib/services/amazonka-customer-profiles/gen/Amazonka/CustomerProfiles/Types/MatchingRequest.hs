@@ -20,10 +20,10 @@
 module Amazonka.CustomerProfiles.Types.MatchingRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.AutoMerging
 import Amazonka.CustomerProfiles.Types.ExportingConfig
 import Amazonka.CustomerProfiles.Types.JobSchedule
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The flag that enables the matching process of duplicate profiles.

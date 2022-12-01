@@ -20,11 +20,11 @@
 module Amazonka.IoT.Types.BehaviorCriteria where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.ComparisonOperator
 import Amazonka.IoT.Types.MachineLearningDetectionConfig
 import Amazonka.IoT.Types.MetricValue
 import Amazonka.IoT.Types.StatisticalThreshold
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The criteria by which the behavior is determined to be normal.

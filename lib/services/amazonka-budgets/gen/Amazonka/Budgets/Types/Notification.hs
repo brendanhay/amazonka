@@ -24,7 +24,7 @@ import Amazonka.Budgets.Types.NotificationState
 import Amazonka.Budgets.Types.NotificationType
 import Amazonka.Budgets.Types.ThresholdType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A notification that\'s associated with a budget. A budget can have up to

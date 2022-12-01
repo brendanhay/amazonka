@@ -20,11 +20,11 @@
 module Amazonka.EC2.Types.TrafficMirrorFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TrafficMirrorFilterRule
 import Amazonka.EC2.Types.TrafficMirrorNetworkService
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the Traffic Mirror filter.

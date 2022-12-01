@@ -23,7 +23,7 @@ import Amazonka.CloudFormation.Types.ChangeSetHookTargetDetails
 import Amazonka.CloudFormation.Types.HookFailureMode
 import Amazonka.CloudFormation.Types.HookInvocationPoint
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the resource, the hook, and the hook version to be invoked.

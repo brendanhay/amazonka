@@ -20,9 +20,9 @@
 module Amazonka.IoTEventsData.Types.SystemEvent where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEventsData.Types.EventType
 import Amazonka.IoTEventsData.Types.StateChangeConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about alarm state changes.

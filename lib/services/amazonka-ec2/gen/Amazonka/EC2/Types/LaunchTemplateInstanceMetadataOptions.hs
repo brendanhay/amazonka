@@ -20,13 +20,13 @@
 module Amazonka.EC2.Types.LaunchTemplateInstanceMetadataOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LaunchTemplateHttpTokensState
 import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataEndpointState
 import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataOptionsState
 import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataProtocolIpv6
 import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataTagsState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata options for the instance. For more information, see

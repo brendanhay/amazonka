@@ -20,7 +20,7 @@
 module Amazonka.IoT.Types.StatisticalThreshold where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A statistical ranking (percentile) that indicates a threshold value by

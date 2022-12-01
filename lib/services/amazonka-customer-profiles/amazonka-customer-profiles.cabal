@@ -81,6 +81,7 @@ library
     Amazonka.CustomerProfiles.SearchProfiles
     Amazonka.CustomerProfiles.TagResource
     Amazonka.CustomerProfiles.Types
+    Amazonka.CustomerProfiles.Types.AdditionalSearchKey
     Amazonka.CustomerProfiles.Types.Address
     Amazonka.CustomerProfiles.Types.AppflowIntegration
     Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowAttributes
@@ -99,6 +100,7 @@ library
     Amazonka.CustomerProfiles.Types.FieldContentType
     Amazonka.CustomerProfiles.Types.FieldSourceProfileIds
     Amazonka.CustomerProfiles.Types.FlowDefinition
+    Amazonka.CustomerProfiles.Types.FoundByKeyValue
     Amazonka.CustomerProfiles.Types.Gender
     Amazonka.CustomerProfiles.Types.IdentityResolutionJob
     Amazonka.CustomerProfiles.Types.IdentityResolutionJobStatus
@@ -113,6 +115,7 @@ library
     Amazonka.CustomerProfiles.Types.ListProfileObjectTypeItem
     Amazonka.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem
     Amazonka.CustomerProfiles.Types.ListWorkflowsItem
+    Amazonka.CustomerProfiles.Types.LogicalOperator
     Amazonka.CustomerProfiles.Types.MarketoConnectorOperator
     Amazonka.CustomerProfiles.Types.MarketoSourceProperties
     Amazonka.CustomerProfiles.Types.MatchingRequest

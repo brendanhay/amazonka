@@ -22,7 +22,7 @@ module Amazonka.Amplify.Types.Job where
 import Amazonka.Amplify.Types.JobSummary
 import Amazonka.Amplify.Types.Step
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an execution job for an Amplify app.

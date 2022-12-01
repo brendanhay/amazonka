@@ -25,7 +25,7 @@ import Amazonka.AppMesh.Types.Listener
 import Amazonka.AppMesh.Types.Logging
 import Amazonka.AppMesh.Types.ServiceDiscovery
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the specification of a virtual node.

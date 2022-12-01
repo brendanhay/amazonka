@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.Database where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.DatabaseIdentifier
 import Amazonka.Glue.Types.PrincipalPermissions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @Database@ object represents a logical grouping of tables that might

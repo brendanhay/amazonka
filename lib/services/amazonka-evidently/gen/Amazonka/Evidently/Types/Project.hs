@@ -20,10 +20,10 @@
 module Amazonka.Evidently.Types.Project where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Evidently.Types.ProjectAppConfigResource
 import Amazonka.Evidently.Types.ProjectDataDelivery
 import Amazonka.Evidently.Types.ProjectStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure defines a project, which is the logical object in

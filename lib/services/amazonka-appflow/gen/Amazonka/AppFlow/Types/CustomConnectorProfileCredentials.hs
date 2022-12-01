@@ -25,7 +25,7 @@ import Amazonka.AppFlow.Types.BasicAuthCredentials
 import Amazonka.AppFlow.Types.CustomAuthCredentials
 import Amazonka.AppFlow.Types.OAuth2Credentials
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile credentials that are required when using

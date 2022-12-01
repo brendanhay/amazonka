@@ -20,10 +20,10 @@
 module Amazonka.HealthLake.Types.ImportJobProperties where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HealthLake.Types.InputDataConfig
 import Amazonka.HealthLake.Types.JobStatus
 import Amazonka.HealthLake.Types.OutputDataConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Displays the properties of the import job, including the ID, Arn, Name,

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -33,6 +34,7 @@ module Amazonka.QuickSight.Types
     _ThrottlingException,
     _ResourceExistsException,
     _DomainNotWhitelistedException,
+    _InvalidRequestException,
     _InvalidParameterValueException,
     _InternalFailureException,
 
@@ -66,11 +68,17 @@ module Amazonka.QuickSight.Types
     -- * DashboardUIState
     DashboardUIState (..),
 
+    -- * DataSetFilterAttribute
+    DataSetFilterAttribute (..),
+
     -- * DataSetImportMode
     DataSetImportMode (..),
 
     -- * DataSourceErrorInfoType
     DataSourceErrorInfoType (..),
+
+    -- * DataSourceFilterAttribute
+    DataSourceFilterAttribute (..),
 
     -- * DataSourceType
     DataSourceType (..),
@@ -190,6 +198,7 @@ module Amazonka.QuickSight.Types
     accountSettings_edition,
     accountSettings_accountName,
     accountSettings_defaultNamespace,
+    accountSettings_terminationProtectionEnabled,
     accountSettings_publicSharingEnabled,
 
     -- * ActiveIAMPolicyAssignment
@@ -276,10 +285,17 @@ module Amazonka.QuickSight.Types
     newAnonymousUserEmbeddingExperienceConfiguration,
     anonymousUserEmbeddingExperienceConfiguration_dashboardVisual,
     anonymousUserEmbeddingExperienceConfiguration_dashboard,
+    anonymousUserEmbeddingExperienceConfiguration_qSearchBar,
+
+    -- * AnonymousUserQSearchBarEmbeddingConfiguration
+    AnonymousUserQSearchBarEmbeddingConfiguration (..),
+    newAnonymousUserQSearchBarEmbeddingConfiguration,
+    anonymousUserQSearchBarEmbeddingConfiguration_initialTopicId,
 
     -- * AthenaParameters
     AthenaParameters (..),
     newAthenaParameters,
+    athenaParameters_roleArn,
     athenaParameters_workGroup,
 
     -- * AuroraParameters
@@ -509,6 +525,13 @@ module Amazonka.QuickSight.Types
     newDataSetSchema,
     dataSetSchema_columnSchemaList,
 
+    -- * DataSetSearchFilter
+    DataSetSearchFilter (..),
+    newDataSetSearchFilter,
+    dataSetSearchFilter_operator,
+    dataSetSearchFilter_name,
+    dataSetSearchFilter_value,
+
     -- * DataSetSummary
     DataSetSummary (..),
     newDataSetSummary,
@@ -579,10 +602,35 @@ module Amazonka.QuickSight.Types
     dataSourceParameters_mariaDbParameters,
     dataSourceParameters_athenaParameters,
     dataSourceParameters_amazonOpenSearchParameters,
+    dataSourceParameters_databricksParameters,
     dataSourceParameters_jiraParameters,
     dataSourceParameters_amazonElasticsearchParameters,
     dataSourceParameters_sqlServerParameters,
     dataSourceParameters_auroraParameters,
+
+    -- * DataSourceSearchFilter
+    DataSourceSearchFilter (..),
+    newDataSourceSearchFilter,
+    dataSourceSearchFilter_operator,
+    dataSourceSearchFilter_name,
+    dataSourceSearchFilter_value,
+
+    -- * DataSourceSummary
+    DataSourceSummary (..),
+    newDataSourceSummary,
+    dataSourceSummary_name,
+    dataSourceSummary_type,
+    dataSourceSummary_dataSourceId,
+    dataSourceSummary_createdTime,
+    dataSourceSummary_arn,
+    dataSourceSummary_lastUpdatedTime,
+
+    -- * DatabricksParameters
+    DatabricksParameters (..),
+    newDatabricksParameters,
+    databricksParameters_host,
+    databricksParameters_port,
+    databricksParameters_sqlEndpointPath,
 
     -- * DateTimeParameter
     DateTimeParameter (..),
@@ -1285,7 +1333,7 @@ module Amazonka.QuickSight.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AccountCustomization
 import Amazonka.QuickSight.Types.AccountInfo
@@ -1305,6 +1353,7 @@ import Amazonka.QuickSight.Types.AnalysisSummary
 import Amazonka.QuickSight.Types.AnonymousUserDashboardEmbeddingConfiguration
 import Amazonka.QuickSight.Types.AnonymousUserDashboardVisualEmbeddingConfiguration
 import Amazonka.QuickSight.Types.AnonymousUserEmbeddingExperienceConfiguration
+import Amazonka.QuickSight.Types.AnonymousUserQSearchBarEmbeddingConfiguration
 import Amazonka.QuickSight.Types.AssignmentStatus
 import Amazonka.QuickSight.Types.AthenaParameters
 import Amazonka.QuickSight.Types.AuroraParameters
@@ -1343,17 +1392,23 @@ import Amazonka.QuickSight.Types.DashboardVisualId
 import Amazonka.QuickSight.Types.DataColorPalette
 import Amazonka.QuickSight.Types.DataSet
 import Amazonka.QuickSight.Types.DataSetConfiguration
+import Amazonka.QuickSight.Types.DataSetFilterAttribute
 import Amazonka.QuickSight.Types.DataSetImportMode
 import Amazonka.QuickSight.Types.DataSetReference
 import Amazonka.QuickSight.Types.DataSetSchema
+import Amazonka.QuickSight.Types.DataSetSearchFilter
 import Amazonka.QuickSight.Types.DataSetSummary
 import Amazonka.QuickSight.Types.DataSetUsageConfiguration
 import Amazonka.QuickSight.Types.DataSource
 import Amazonka.QuickSight.Types.DataSourceCredentials
 import Amazonka.QuickSight.Types.DataSourceErrorInfo
 import Amazonka.QuickSight.Types.DataSourceErrorInfoType
+import Amazonka.QuickSight.Types.DataSourceFilterAttribute
 import Amazonka.QuickSight.Types.DataSourceParameters
+import Amazonka.QuickSight.Types.DataSourceSearchFilter
+import Amazonka.QuickSight.Types.DataSourceSummary
 import Amazonka.QuickSight.Types.DataSourceType
+import Amazonka.QuickSight.Types.DatabricksParameters
 import Amazonka.QuickSight.Types.DateTimeParameter
 import Amazonka.QuickSight.Types.DecimalParameter
 import Amazonka.QuickSight.Types.Edition
@@ -1488,28 +1543,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "QuickSight",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "quicksight",
-      Core._serviceSigningName = "quicksight",
-      Core._serviceVersion = "2018-04-01",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "QuickSight",
-      Core._serviceRetry = retry
+    { Core.abbrev = "QuickSight",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "quicksight",
+      Core.signingName = "quicksight",
+      Core.version = "2018-04-01",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "QuickSight",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =
@@ -1707,6 +1759,15 @@ _DomainNotWhitelistedException =
     defaultService
     "DomainNotWhitelistedException"
     Prelude.. Core.hasStatus 403
+
+-- | You don\'t have this feature activated for your account. To fix this
+-- issue, contact Amazon Web Services support.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
 
 -- | One or more parameters has a value that isn\'t valid.
 _InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

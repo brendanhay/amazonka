@@ -20,8 +20,8 @@
 module Amazonka.IoTWireless.Types.SidewalkListDevice where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.CertificateList
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Sidewalk object used by list functions.

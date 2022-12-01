@@ -20,8 +20,8 @@
 module Amazonka.ImageBuilder.Types.TargetContainerRepository where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.ContainerRepositoryService
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The container repository where the output container image is stored.

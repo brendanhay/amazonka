@@ -20,10 +20,10 @@
 module Amazonka.Forecast.Types.PredictorMonitorEvaluation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.MetricResult
 import Amazonka.Forecast.Types.MonitorDataSource
 import Amazonka.Forecast.Types.PredictorEvent
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the results of a monitor evaluation.

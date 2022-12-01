@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.S3.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.HeadBucket
 import Amazonka.S3.HeadObject
@@ -27,10 +28,10 @@ import Amazonka.S3.Types
 newObjectNotExists :: Core.Wait HeadObject
 newObjectNotExists =
   Core.Wait
-    { Core._waitName = "ObjectNotExists",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ObjectNotExists",
+      Core.attempts = 20,
+      Core.delay = 5,
+      Core.acceptors =
         [Core.matchStatus 404 Core.AcceptSuccess]
     }
 
@@ -38,10 +39,10 @@ newObjectNotExists =
 newObjectExists :: Core.Wait HeadObject
 newObjectExists =
   Core.Wait
-    { Core._waitName = "ObjectExists",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ObjectExists",
+      Core.attempts = 20,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchStatus 200 Core.AcceptSuccess,
           Core.matchStatus 404 Core.AcceptRetry
         ]
@@ -51,10 +52,10 @@ newObjectExists =
 newBucketNotExists :: Core.Wait HeadBucket
 newBucketNotExists =
   Core.Wait
-    { Core._waitName = "BucketNotExists",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "BucketNotExists",
+      Core.attempts = 20,
+      Core.delay = 5,
+      Core.acceptors =
         [Core.matchStatus 404 Core.AcceptSuccess]
     }
 
@@ -62,10 +63,10 @@ newBucketNotExists =
 newBucketExists :: Core.Wait HeadBucket
 newBucketExists =
   Core.Wait
-    { Core._waitName = "BucketExists",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "BucketExists",
+      Core.attempts = 20,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchStatus 200 Core.AcceptSuccess,
           Core.matchStatus 301 Core.AcceptSuccess,
           Core.matchStatus 403 Core.AcceptSuccess,

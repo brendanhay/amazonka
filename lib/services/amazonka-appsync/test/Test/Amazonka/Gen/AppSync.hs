@@ -81,6 +81,9 @@ import Test.Tasty
 --         , requestDisassociateApi $
 --             newDisassociateApi
 --
+--         , requestEvaluateCode $
+--             newEvaluateCode
+--
 --         , requestEvaluateMappingTemplate $
 --             newEvaluateMappingTemplate
 --
@@ -233,6 +236,9 @@ import Test.Tasty
 --
 --         , responseDisassociateApi $
 --             newDisassociateApiResponse
+--
+--         , responseEvaluateCode $
+--             newEvaluateCodeResponse
 --
 --         , responseEvaluateMappingTemplate $
 --             newEvaluateMappingTemplateResponse
@@ -442,6 +448,12 @@ requestDisassociateApi =
   req
     "DisassociateApi"
     "fixture/DisassociateApi.yaml"
+
+requestEvaluateCode :: EvaluateCode -> TestTree
+requestEvaluateCode =
+  req
+    "EvaluateCode"
+    "fixture/EvaluateCode.yaml"
 
 requestEvaluateMappingTemplate :: EvaluateMappingTemplate -> TestTree
 requestEvaluateMappingTemplate =
@@ -780,6 +792,14 @@ responseDisassociateApi =
     "fixture/DisassociateApiResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateApi)
+
+responseEvaluateCode :: EvaluateCodeResponse -> TestTree
+responseEvaluateCode =
+  res
+    "EvaluateCodeResponse"
+    "fixture/EvaluateCodeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EvaluateCode)
 
 responseEvaluateMappingTemplate :: EvaluateMappingTemplateResponse -> TestTree
 responseEvaluateMappingTemplate =

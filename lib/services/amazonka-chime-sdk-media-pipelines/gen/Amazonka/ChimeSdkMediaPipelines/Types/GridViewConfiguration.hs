@@ -22,7 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.GridViewConfiguration where
 import Amazonka.ChimeSdkMediaPipelines.Types.ContentShareLayoutOption
 import Amazonka.ChimeSdkMediaPipelines.Types.PresenterOnlyConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the type of grid layout.

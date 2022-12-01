@@ -20,7 +20,7 @@
 module Amazonka.MediaPackageVOD.Types.HlsEncryption where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaPackageVOD.Types.EncryptionMethod
 import Amazonka.MediaPackageVOD.Types.SpekeKeyProvider
 import qualified Amazonka.Prelude as Prelude

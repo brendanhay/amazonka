@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.CategoricalParameter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Environment parameters you want to benchmark your load test against.

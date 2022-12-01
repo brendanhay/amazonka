@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.CloudWatchMetricsDataSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.CloudWatchMetricDataStatusCode
 import Amazonka.DevOpsGuru.Types.TimestampMetricValuePair
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the analyzed metrics that displayed anomalous

@@ -20,7 +20,7 @@
 module Amazonka.DocumentDB.Types.EventCategoriesMap where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An event source type, accompanied by one or more event category names.

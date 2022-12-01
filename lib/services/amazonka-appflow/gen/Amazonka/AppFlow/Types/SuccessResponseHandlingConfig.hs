@@ -20,7 +20,7 @@
 module Amazonka.AppFlow.Types.SuccessResponseHandlingConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Determines how Amazon AppFlow handles the success response that it gets

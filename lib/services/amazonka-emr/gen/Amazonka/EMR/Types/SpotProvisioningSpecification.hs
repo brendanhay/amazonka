@@ -20,9 +20,9 @@
 module Amazonka.EMR.Types.SpotProvisioningSpecification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.SpotProvisioningAllocationStrategy
 import Amazonka.EMR.Types.SpotProvisioningTimeoutAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The launch specification for Spot Instances in the instance fleet, which

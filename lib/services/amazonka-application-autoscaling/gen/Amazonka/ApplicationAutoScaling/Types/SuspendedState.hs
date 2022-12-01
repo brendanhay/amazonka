@@ -20,7 +20,7 @@
 module Amazonka.ApplicationAutoScaling.Types.SuspendedState where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies whether the scaling activities for a scalable target are in a

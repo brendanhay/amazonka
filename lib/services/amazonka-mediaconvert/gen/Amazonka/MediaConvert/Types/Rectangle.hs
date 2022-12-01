@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.Rectangle where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use Rectangle to identify a specific area of the video frame.

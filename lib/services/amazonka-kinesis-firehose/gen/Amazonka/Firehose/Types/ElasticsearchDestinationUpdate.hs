@@ -20,13 +20,13 @@
 module Amazonka.Firehose.Types.ElasticsearchDestinationUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.ElasticsearchBufferingHints
 import Amazonka.Firehose.Types.ElasticsearchIndexRotationPeriod
 import Amazonka.Firehose.Types.ElasticsearchRetryOptions
 import Amazonka.Firehose.Types.ProcessingConfiguration
 import Amazonka.Firehose.Types.S3DestinationUpdate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an update for a destination in Amazon ES.

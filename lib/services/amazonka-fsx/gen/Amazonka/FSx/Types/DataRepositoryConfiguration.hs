@@ -20,10 +20,10 @@
 module Amazonka.FSx.Types.DataRepositoryConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.AutoImportPolicyType
 import Amazonka.FSx.Types.DataRepositoryFailureDetails
 import Amazonka.FSx.Types.DataRepositoryLifecycle
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data repository configuration object for Lustre file systems

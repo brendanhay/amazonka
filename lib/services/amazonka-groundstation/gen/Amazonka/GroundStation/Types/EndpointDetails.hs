@@ -20,9 +20,9 @@
 module Amazonka.GroundStation.Types.EndpointDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types.DataflowEndpoint
 import Amazonka.GroundStation.Types.SecurityDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the endpoint details.
@@ -31,7 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 data EndpointDetails = EndpointDetails'
   { -- | A dataflow endpoint.
     endpoint :: Prelude.Maybe DataflowEndpoint,
-    -- | Endpoint security details.
+    -- | Endpoint security details including a list of subnets, a list of
+    -- security groups and a role to connect streams to instances.
     securityDetails :: Prelude.Maybe SecurityDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,7 +47,8 @@ data EndpointDetails = EndpointDetails'
 --
 -- 'endpoint', 'endpointDetails_endpoint' - A dataflow endpoint.
 --
--- 'securityDetails', 'endpointDetails_securityDetails' - Endpoint security details.
+-- 'securityDetails', 'endpointDetails_securityDetails' - Endpoint security details including a list of subnets, a list of
+-- security groups and a role to connect streams to instances.
 newEndpointDetails ::
   EndpointDetails
 newEndpointDetails =
@@ -59,7 +61,8 @@ newEndpointDetails =
 endpointDetails_endpoint :: Lens.Lens' EndpointDetails (Prelude.Maybe DataflowEndpoint)
 endpointDetails_endpoint = Lens.lens (\EndpointDetails' {endpoint} -> endpoint) (\s@EndpointDetails' {} a -> s {endpoint = a} :: EndpointDetails)
 
--- | Endpoint security details.
+-- | Endpoint security details including a list of subnets, a list of
+-- security groups and a role to connect streams to instances.
 endpointDetails_securityDetails :: Lens.Lens' EndpointDetails (Prelude.Maybe SecurityDetails)
 endpointDetails_securityDetails = Lens.lens (\EndpointDetails' {securityDetails} -> securityDetails) (\s@EndpointDetails' {} a -> s {securityDetails = a} :: EndpointDetails)
 

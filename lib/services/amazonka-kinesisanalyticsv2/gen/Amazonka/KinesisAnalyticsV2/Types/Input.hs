@@ -20,12 +20,12 @@
 module Amazonka.KinesisAnalyticsV2.Types.Input where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.InputParallelism
 import Amazonka.KinesisAnalyticsV2.Types.InputProcessingConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.KinesisFirehoseInput
 import Amazonka.KinesisAnalyticsV2.Types.KinesisStreamsInput
 import Amazonka.KinesisAnalyticsV2.Types.SourceSchema
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | When you configure the application input for a SQL-based Kinesis Data

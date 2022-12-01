@@ -30,6 +30,7 @@ module Amazonka.RBin.CreateRule
 
     -- * Request Lenses
     createRule_tags,
+    createRule_lockConfiguration,
     createRule_resourceTags,
     createRule_description,
     createRule_retentionPeriod,
@@ -42,6 +43,8 @@ module Amazonka.RBin.CreateRule
     -- * Response Lenses
     createRuleResponse_tags,
     createRuleResponse_resourceType,
+    createRuleResponse_lockState,
+    createRuleResponse_lockConfiguration,
     createRuleResponse_status,
     createRuleResponse_resourceTags,
     createRuleResponse_description,
@@ -52,7 +55,7 @@ module Amazonka.RBin.CreateRule
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RBin.Types
 import qualified Amazonka.Request as Request
@@ -62,6 +65,8 @@ import qualified Amazonka.Response as Response
 data CreateRule = CreateRule'
   { -- | Information about the tags to assign to the retention rule.
     tags :: Prelude.Maybe [Tag],
+    -- | Information about the retention rule lock configuration.
+    lockConfiguration :: Prelude.Maybe LockConfiguration,
     -- | Specifies the resource tags to use to identify resources that are to be
     -- retained by a tag-level retention rule. For tag-level retention rules,
     -- only deleted resources, of the specified resource type, that have one or
@@ -102,6 +107,8 @@ data CreateRule = CreateRule'
 --
 -- 'tags', 'createRule_tags' - Information about the tags to assign to the retention rule.
 --
+-- 'lockConfiguration', 'createRule_lockConfiguration' - Information about the retention rule lock configuration.
+--
 -- 'resourceTags', 'createRule_resourceTags' - Specifies the resource tags to use to identify resources that are to be
 -- retained by a tag-level retention rule. For tag-level retention rules,
 -- only deleted resources, of the specified resource type, that have one or
@@ -137,6 +144,7 @@ newCreateRule ::
 newCreateRule pRetentionPeriod_ pResourceType_ =
   CreateRule'
     { tags = Prelude.Nothing,
+      lockConfiguration = Prelude.Nothing,
       resourceTags = Prelude.Nothing,
       description = Prelude.Nothing,
       retentionPeriod = pRetentionPeriod_,
@@ -146,6 +154,10 @@ newCreateRule pRetentionPeriod_ pResourceType_ =
 -- | Information about the tags to assign to the retention rule.
 createRule_tags :: Lens.Lens' CreateRule (Prelude.Maybe [Tag])
 createRule_tags = Lens.lens (\CreateRule' {tags} -> tags) (\s@CreateRule' {} a -> s {tags = a} :: CreateRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the retention rule lock configuration.
+createRule_lockConfiguration :: Lens.Lens' CreateRule (Prelude.Maybe LockConfiguration)
+createRule_lockConfiguration = Lens.lens (\CreateRule' {lockConfiguration} -> lockConfiguration) (\s@CreateRule' {} a -> s {lockConfiguration = a} :: CreateRule)
 
 -- | Specifies the resource tags to use to identify resources that are to be
 -- retained by a tag-level retention rule. For tag-level retention rules,
@@ -184,14 +196,16 @@ createRule_resourceType = Lens.lens (\CreateRule' {resourceType} -> resourceType
 
 instance Core.AWSRequest CreateRule where
   type AWSResponse CreateRule = CreateRuleResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateRuleResponse'
             Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "ResourceType")
+            Prelude.<*> (x Core..?> "LockState")
+            Prelude.<*> (x Core..?> "LockConfiguration")
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "ResourceTags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Description")
@@ -203,6 +217,7 @@ instance Core.AWSRequest CreateRule where
 instance Prelude.Hashable CreateRule where
   hashWithSalt _salt CreateRule' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` lockConfiguration
       `Prelude.hashWithSalt` resourceTags
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` retentionPeriod
@@ -211,6 +226,7 @@ instance Prelude.Hashable CreateRule where
 instance Prelude.NFData CreateRule where
   rnf CreateRule' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lockConfiguration
       `Prelude.seq` Prelude.rnf resourceTags
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf retentionPeriod
@@ -232,6 +248,8 @@ instance Core.ToJSON CreateRule where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("LockConfiguration" Core..=)
+              Prelude.<$> lockConfiguration,
             ("ResourceTags" Core..=) Prelude.<$> resourceTags,
             ("Description" Core..=) Prelude.<$> description,
             Prelude.Just
@@ -252,6 +270,24 @@ data CreateRuleResponse = CreateRuleResponse'
     tags :: Prelude.Maybe [Tag],
     -- | The resource type retained by the retention rule.
     resourceType :: Prelude.Maybe ResourceType,
+    -- | The lock state for the retention rule.
+    --
+    -- -   @locked@ - The retention rule is locked and can\'t be modified or
+    --     deleted.
+    --
+    -- -   @pending_unlock@ - The retention rule has been unlocked but it is
+    --     still within the unlock delay period. The retention rule can be
+    --     modified or deleted only after the unlock delay period has expired.
+    --
+    -- -   @unlocked@ - The retention rule is unlocked and it can be modified
+    --     or deleted by any user with the required permissions.
+    --
+    -- -   @null@ - The retention rule has never been locked. Once a retention
+    --     rule has been locked, it can transition between the @locked@ and
+    --     @unlocked@ states only; it can never transition back to @null@.
+    lockState :: Prelude.Maybe LockState,
+    -- | Information about the retention rule lock configuration.
+    lockConfiguration :: Prelude.Maybe LockConfiguration,
     -- | The state of the retention rule. Only retention rules that are in the
     -- @available@ state retain resources.
     status :: Prelude.Maybe RuleStatus,
@@ -280,6 +316,24 @@ data CreateRuleResponse = CreateRuleResponse'
 --
 -- 'resourceType', 'createRuleResponse_resourceType' - The resource type retained by the retention rule.
 --
+-- 'lockState', 'createRuleResponse_lockState' - The lock state for the retention rule.
+--
+-- -   @locked@ - The retention rule is locked and can\'t be modified or
+--     deleted.
+--
+-- -   @pending_unlock@ - The retention rule has been unlocked but it is
+--     still within the unlock delay period. The retention rule can be
+--     modified or deleted only after the unlock delay period has expired.
+--
+-- -   @unlocked@ - The retention rule is unlocked and it can be modified
+--     or deleted by any user with the required permissions.
+--
+-- -   @null@ - The retention rule has never been locked. Once a retention
+--     rule has been locked, it can transition between the @locked@ and
+--     @unlocked@ states only; it can never transition back to @null@.
+--
+-- 'lockConfiguration', 'createRuleResponse_lockConfiguration' - Information about the retention rule lock configuration.
+--
 -- 'status', 'createRuleResponse_status' - The state of the retention rule. Only retention rules that are in the
 -- @available@ state retain resources.
 --
@@ -301,6 +355,8 @@ newCreateRuleResponse pHttpStatus_ =
   CreateRuleResponse'
     { tags = Prelude.Nothing,
       resourceType = Prelude.Nothing,
+      lockState = Prelude.Nothing,
+      lockConfiguration = Prelude.Nothing,
       status = Prelude.Nothing,
       resourceTags = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -316,6 +372,28 @@ createRuleResponse_tags = Lens.lens (\CreateRuleResponse' {tags} -> tags) (\s@Cr
 -- | The resource type retained by the retention rule.
 createRuleResponse_resourceType :: Lens.Lens' CreateRuleResponse (Prelude.Maybe ResourceType)
 createRuleResponse_resourceType = Lens.lens (\CreateRuleResponse' {resourceType} -> resourceType) (\s@CreateRuleResponse' {} a -> s {resourceType = a} :: CreateRuleResponse)
+
+-- | The lock state for the retention rule.
+--
+-- -   @locked@ - The retention rule is locked and can\'t be modified or
+--     deleted.
+--
+-- -   @pending_unlock@ - The retention rule has been unlocked but it is
+--     still within the unlock delay period. The retention rule can be
+--     modified or deleted only after the unlock delay period has expired.
+--
+-- -   @unlocked@ - The retention rule is unlocked and it can be modified
+--     or deleted by any user with the required permissions.
+--
+-- -   @null@ - The retention rule has never been locked. Once a retention
+--     rule has been locked, it can transition between the @locked@ and
+--     @unlocked@ states only; it can never transition back to @null@.
+createRuleResponse_lockState :: Lens.Lens' CreateRuleResponse (Prelude.Maybe LockState)
+createRuleResponse_lockState = Lens.lens (\CreateRuleResponse' {lockState} -> lockState) (\s@CreateRuleResponse' {} a -> s {lockState = a} :: CreateRuleResponse)
+
+-- | Information about the retention rule lock configuration.
+createRuleResponse_lockConfiguration :: Lens.Lens' CreateRuleResponse (Prelude.Maybe LockConfiguration)
+createRuleResponse_lockConfiguration = Lens.lens (\CreateRuleResponse' {lockConfiguration} -> lockConfiguration) (\s@CreateRuleResponse' {} a -> s {lockConfiguration = a} :: CreateRuleResponse)
 
 -- | The state of the retention rule. Only retention rules that are in the
 -- @available@ state retain resources.
@@ -347,6 +425,8 @@ instance Prelude.NFData CreateRuleResponse where
   rnf CreateRuleResponse' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf lockState
+      `Prelude.seq` Prelude.rnf lockConfiguration
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf resourceTags
       `Prelude.seq` Prelude.rnf description

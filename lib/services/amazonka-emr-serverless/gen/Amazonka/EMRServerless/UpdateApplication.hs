@@ -33,6 +33,7 @@ module Amazonka.EMRServerless.UpdateApplication
     updateApplication_networkConfiguration,
     updateApplication_autoStartConfiguration,
     updateApplication_maximumCapacity,
+    updateApplication_architecture,
     updateApplication_applicationId,
     updateApplication_clientToken,
 
@@ -47,8 +48,8 @@ module Amazonka.EMRServerless.UpdateApplication
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRServerless.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,6 +70,8 @@ data UpdateApplication = UpdateApplication'
     -- lifespan of the application. No new resources will be created once any
     -- one of the defined limits is hit.
     maximumCapacity :: Prelude.Maybe MaximumAllowedResources,
+    -- | The CPU architecture of an application.
+    architecture :: Prelude.Maybe Architecture,
     -- | The ID of the application to update.
     applicationId :: Prelude.Text,
     -- | The client idempotency token of the application to update. Its value
@@ -100,6 +103,8 @@ data UpdateApplication = UpdateApplication'
 -- lifespan of the application. No new resources will be created once any
 -- one of the defined limits is hit.
 --
+-- 'architecture', 'updateApplication_architecture' - The CPU architecture of an application.
+--
 -- 'applicationId', 'updateApplication_applicationId' - The ID of the application to update.
 --
 -- 'clientToken', 'updateApplication_clientToken' - The client idempotency token of the application to update. Its value
@@ -118,6 +123,7 @@ newUpdateApplication pApplicationId_ pClientToken_ =
       networkConfiguration = Prelude.Nothing,
       autoStartConfiguration = Prelude.Nothing,
       maximumCapacity = Prelude.Nothing,
+      architecture = Prelude.Nothing,
       applicationId = pApplicationId_,
       clientToken = pClientToken_
     }
@@ -147,6 +153,10 @@ updateApplication_autoStartConfiguration = Lens.lens (\UpdateApplication' {autoS
 updateApplication_maximumCapacity :: Lens.Lens' UpdateApplication (Prelude.Maybe MaximumAllowedResources)
 updateApplication_maximumCapacity = Lens.lens (\UpdateApplication' {maximumCapacity} -> maximumCapacity) (\s@UpdateApplication' {} a -> s {maximumCapacity = a} :: UpdateApplication)
 
+-- | The CPU architecture of an application.
+updateApplication_architecture :: Lens.Lens' UpdateApplication (Prelude.Maybe Architecture)
+updateApplication_architecture = Lens.lens (\UpdateApplication' {architecture} -> architecture) (\s@UpdateApplication' {} a -> s {architecture = a} :: UpdateApplication)
+
 -- | The ID of the application to update.
 updateApplication_applicationId :: Lens.Lens' UpdateApplication Prelude.Text
 updateApplication_applicationId = Lens.lens (\UpdateApplication' {applicationId} -> applicationId) (\s@UpdateApplication' {} a -> s {applicationId = a} :: UpdateApplication)
@@ -160,8 +170,8 @@ instance Core.AWSRequest UpdateApplication where
   type
     AWSResponse UpdateApplication =
       UpdateApplicationResponse
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,6 +187,7 @@ instance Prelude.Hashable UpdateApplication where
       `Prelude.hashWithSalt` networkConfiguration
       `Prelude.hashWithSalt` autoStartConfiguration
       `Prelude.hashWithSalt` maximumCapacity
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` clientToken
 
@@ -187,6 +198,7 @@ instance Prelude.NFData UpdateApplication where
       `Prelude.seq` Prelude.rnf networkConfiguration
       `Prelude.seq` Prelude.rnf autoStartConfiguration
       `Prelude.seq` Prelude.rnf maximumCapacity
+      `Prelude.seq` Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf clientToken
 
@@ -215,6 +227,7 @@ instance Core.ToJSON UpdateApplication where
               Prelude.<$> autoStartConfiguration,
             ("maximumCapacity" Core..=)
               Prelude.<$> maximumCapacity,
+            ("architecture" Core..=) Prelude.<$> architecture,
             Prelude.Just ("clientToken" Core..= clientToken)
           ]
       )

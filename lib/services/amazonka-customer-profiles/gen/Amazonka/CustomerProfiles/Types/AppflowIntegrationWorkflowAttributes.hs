@@ -20,8 +20,8 @@
 module Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowAttributes where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.SourceConnectorType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure holding all @APPFLOW_INTEGRATION@ specific workflow

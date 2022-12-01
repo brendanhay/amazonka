@@ -53,7 +53,7 @@ module Amazonka.LexModels.DeleteBot
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,8 +87,8 @@ deleteBot_name = Lens.lens (\DeleteBot' {name} -> name) (\s@DeleteBot' {} a -> s
 
 instance Core.AWSRequest DeleteBot where
   type AWSResponse DeleteBot = DeleteBotResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteBotResponse'
 
 instance Prelude.Hashable DeleteBot where

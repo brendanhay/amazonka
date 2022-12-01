@@ -22,7 +22,7 @@ module Amazonka.CodeBuild.Types.LogsLocation where
 import Amazonka.CodeBuild.Types.CloudWatchLogsConfig
 import Amazonka.CodeBuild.Types.S3LogsConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about build logs in CloudWatch Logs.

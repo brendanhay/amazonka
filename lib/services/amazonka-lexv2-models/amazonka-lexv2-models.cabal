@@ -44,6 +44,9 @@ library
 
   exposed-modules:
     Amazonka.LexV2Models
+    Amazonka.LexV2Models.BatchCreateCustomVocabularyItem
+    Amazonka.LexV2Models.BatchDeleteCustomVocabularyItem
+    Amazonka.LexV2Models.BatchUpdateCustomVocabularyItem
     Amazonka.LexV2Models.BuildBotLocale
     Amazonka.LexV2Models.CreateBot
     Amazonka.LexV2Models.CreateBotAlias
@@ -90,6 +93,7 @@ library
     Amazonka.LexV2Models.ListBotVersions
     Amazonka.LexV2Models.ListBuiltInIntents
     Amazonka.LexV2Models.ListBuiltInSlotTypes
+    Amazonka.LexV2Models.ListCustomVocabularyItems
     Amazonka.LexV2Models.ListExports
     Amazonka.LexV2Models.ListImports
     Amazonka.LexV2Models.ListIntents
@@ -165,8 +169,10 @@ library
     Amazonka.LexV2Models.Types.ConditionalSpecification
     Amazonka.LexV2Models.Types.ConversationLogSettings
     Amazonka.LexV2Models.Types.CustomPayload
+    Amazonka.LexV2Models.Types.CustomVocabularyEntryId
     Amazonka.LexV2Models.Types.CustomVocabularyExportSpecification
     Amazonka.LexV2Models.Types.CustomVocabularyImportSpecification
+    Amazonka.LexV2Models.Types.CustomVocabularyItem
     Amazonka.LexV2Models.Types.CustomVocabularyStatus
     Amazonka.LexV2Models.Types.DataPrivacy
     Amazonka.LexV2Models.Types.DateRangeFilter
@@ -180,6 +186,7 @@ library
     Amazonka.LexV2Models.Types.Effect
     Amazonka.LexV2Models.Types.ElicitationCodeHookInvocationSetting
     Amazonka.LexV2Models.Types.EncryptionSetting
+    Amazonka.LexV2Models.Types.ErrorCode
     Amazonka.LexV2Models.Types.ExportFilter
     Amazonka.LexV2Models.Types.ExportFilterName
     Amazonka.LexV2Models.Types.ExportFilterOperator
@@ -189,6 +196,7 @@ library
     Amazonka.LexV2Models.Types.ExportStatus
     Amazonka.LexV2Models.Types.ExportSummary
     Amazonka.LexV2Models.Types.ExternalSourceSetting
+    Amazonka.LexV2Models.Types.FailedCustomVocabularyItem
     Amazonka.LexV2Models.Types.FulfillmentCodeHookSettings
     Amazonka.LexV2Models.Types.FulfillmentStartResponseSpecification
     Amazonka.LexV2Models.Types.FulfillmentUpdateResponseSpecification
@@ -226,6 +234,7 @@ library
     Amazonka.LexV2Models.Types.MessageGroup
     Amazonka.LexV2Models.Types.MessageSelectionStrategy
     Amazonka.LexV2Models.Types.MultipleValuesSetting
+    Amazonka.LexV2Models.Types.NewCustomVocabularyItem
     Amazonka.LexV2Models.Types.ObfuscationSetting
     Amazonka.LexV2Models.Types.ObfuscationSettingType
     Amazonka.LexV2Models.Types.OutputContext

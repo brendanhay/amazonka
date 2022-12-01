@@ -21,7 +21,7 @@ module Amazonka.AccessAnalyzer.Types.KmsKeyConfiguration where
 
 import Amazonka.AccessAnalyzer.Types.KmsGrantConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Proposed access control configuration for a KMS key. You can propose a

@@ -20,7 +20,7 @@
 module Amazonka.NetworkFirewall.Types.FirewallMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | High-level information about a firewall, returned by operations like

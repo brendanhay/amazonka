@@ -20,9 +20,9 @@
 module Amazonka.IoTSiteWise.Types.TransformProcessingConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.ComputeLocation
 import Amazonka.IoTSiteWise.Types.ForwardingConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The processing configuration for the given transform property. You can

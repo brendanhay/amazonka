@@ -21,16 +21,16 @@ module Amazonka.BillingConductor.Types.AssociateResourceError where
 
 import Amazonka.BillingConductor.Types.AssociateResourceErrorReason
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a resource association error.
 --
 -- /See:/ 'newAssociateResourceError' smart constructor.
 data AssociateResourceError = AssociateResourceError'
-  { -- | The reason the resource association failed.
+  { -- | The reason why the resource association failed.
     message :: Prelude.Maybe Prelude.Text,
-    -- | A static error code that used to classify the type of failure.
+    -- | A static error code that\'s used to classify the type of failure.
     reason :: Prelude.Maybe AssociateResourceErrorReason
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +43,9 @@ data AssociateResourceError = AssociateResourceError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'associateResourceError_message' - The reason the resource association failed.
+-- 'message', 'associateResourceError_message' - The reason why the resource association failed.
 --
--- 'reason', 'associateResourceError_reason' - A static error code that used to classify the type of failure.
+-- 'reason', 'associateResourceError_reason' - A static error code that\'s used to classify the type of failure.
 newAssociateResourceError ::
   AssociateResourceError
 newAssociateResourceError =
@@ -54,11 +54,11 @@ newAssociateResourceError =
       reason = Prelude.Nothing
     }
 
--- | The reason the resource association failed.
+-- | The reason why the resource association failed.
 associateResourceError_message :: Lens.Lens' AssociateResourceError (Prelude.Maybe Prelude.Text)
 associateResourceError_message = Lens.lens (\AssociateResourceError' {message} -> message) (\s@AssociateResourceError' {} a -> s {message = a} :: AssociateResourceError)
 
--- | A static error code that used to classify the type of failure.
+-- | A static error code that\'s used to classify the type of failure.
 associateResourceError_reason :: Lens.Lens' AssociateResourceError (Prelude.Maybe AssociateResourceErrorReason)
 associateResourceError_reason = Lens.lens (\AssociateResourceError' {reason} -> reason) (\s@AssociateResourceError' {} a -> s {reason = a} :: AssociateResourceError)
 

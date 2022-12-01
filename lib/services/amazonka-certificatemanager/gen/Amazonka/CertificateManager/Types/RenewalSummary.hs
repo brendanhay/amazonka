@@ -23,7 +23,7 @@ import Amazonka.CertificateManager.Types.DomainValidation
 import Amazonka.CertificateManager.Types.FailureReason
 import Amazonka.CertificateManager.Types.RenewalStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the status of ACM\'s

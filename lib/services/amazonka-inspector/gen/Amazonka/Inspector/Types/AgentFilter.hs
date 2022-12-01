@@ -20,9 +20,9 @@
 module Amazonka.Inspector.Types.AgentFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.AgentHealth
 import Amazonka.Inspector.Types.AgentHealthCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector agent. This data type is

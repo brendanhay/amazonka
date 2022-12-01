@@ -40,7 +40,7 @@ module Amazonka.Nimble.GetStudio
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -75,8 +75,8 @@ getStudio_studioId = Lens.lens (\GetStudio' {studioId} -> studioId) (\s@GetStudi
 
 instance Core.AWSRequest GetStudio where
   type AWSResponse GetStudio = GetStudioResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

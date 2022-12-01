@@ -49,8 +49,8 @@ module Amazonka.IoT.UpdateProvisioningTemplate
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -61,7 +61,10 @@ data UpdateProvisioningTemplate = UpdateProvisioningTemplate'
     removePreProvisioningHook :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the default provisioning template version.
     defaultVersionId :: Prelude.Maybe Prelude.Int,
-    -- | Updates the pre-provisioning hook template.
+    -- | Updates the pre-provisioning hook template. Only supports template of
+    -- type @FLEET_PROVISIONING@. For more information about provisioning
+    -- template types, see
+    -- <https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type type>.
     preProvisioningHook :: Prelude.Maybe ProvisioningHook,
     -- | The description of the provisioning template.
     description :: Prelude.Maybe Prelude.Text,
@@ -87,7 +90,10 @@ data UpdateProvisioningTemplate = UpdateProvisioningTemplate'
 --
 -- 'defaultVersionId', 'updateProvisioningTemplate_defaultVersionId' - The ID of the default provisioning template version.
 --
--- 'preProvisioningHook', 'updateProvisioningTemplate_preProvisioningHook' - Updates the pre-provisioning hook template.
+-- 'preProvisioningHook', 'updateProvisioningTemplate_preProvisioningHook' - Updates the pre-provisioning hook template. Only supports template of
+-- type @FLEET_PROVISIONING@. For more information about provisioning
+-- template types, see
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type type>.
 --
 -- 'description', 'updateProvisioningTemplate_description' - The description of the provisioning template.
 --
@@ -121,7 +127,10 @@ updateProvisioningTemplate_removePreProvisioningHook = Lens.lens (\UpdateProvisi
 updateProvisioningTemplate_defaultVersionId :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Int)
 updateProvisioningTemplate_defaultVersionId = Lens.lens (\UpdateProvisioningTemplate' {defaultVersionId} -> defaultVersionId) (\s@UpdateProvisioningTemplate' {} a -> s {defaultVersionId = a} :: UpdateProvisioningTemplate)
 
--- | Updates the pre-provisioning hook template.
+-- | Updates the pre-provisioning hook template. Only supports template of
+-- type @FLEET_PROVISIONING@. For more information about provisioning
+-- template types, see
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type type>.
 updateProvisioningTemplate_preProvisioningHook :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe ProvisioningHook)
 updateProvisioningTemplate_preProvisioningHook = Lens.lens (\UpdateProvisioningTemplate' {preProvisioningHook} -> preProvisioningHook) (\s@UpdateProvisioningTemplate' {} a -> s {preProvisioningHook = a} :: UpdateProvisioningTemplate)
 
@@ -146,8 +155,8 @@ instance Core.AWSRequest UpdateProvisioningTemplate where
   type
     AWSResponse UpdateProvisioningTemplate =
       UpdateProvisioningTemplateResponse
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

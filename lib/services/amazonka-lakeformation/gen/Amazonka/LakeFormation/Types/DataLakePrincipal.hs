@@ -20,7 +20,7 @@
 module Amazonka.LakeFormation.Types.DataLakePrincipal where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Lake Formation principal. Supported principals are IAM users or IAM

@@ -20,10 +20,10 @@
 module Amazonka.Kendra.Types.SalesforceKnowledgeArticleConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.SalesforceCustomKnowledgeArticleTypeConfiguration
 import Amazonka.Kendra.Types.SalesforceKnowledgeArticleState
 import Amazonka.Kendra.Types.SalesforceStandardKnowledgeArticleTypeConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information for the knowledge article types

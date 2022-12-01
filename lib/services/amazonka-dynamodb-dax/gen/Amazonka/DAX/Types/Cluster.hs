@@ -20,6 +20,7 @@
 module Amazonka.DAX.Types.Cluster where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types.ClusterEndpointEncryptionType
 import Amazonka.DAX.Types.Endpoint
 import Amazonka.DAX.Types.Node
@@ -27,7 +28,6 @@ import Amazonka.DAX.Types.NotificationConfiguration
 import Amazonka.DAX.Types.ParameterGroupStatus
 import Amazonka.DAX.Types.SSEDescription
 import Amazonka.DAX.Types.SecurityGroupMembership
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains all of the attributes of a specific DAX cluster.

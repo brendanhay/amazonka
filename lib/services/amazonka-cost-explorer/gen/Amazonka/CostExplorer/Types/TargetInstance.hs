@@ -20,10 +20,10 @@
 module Amazonka.CostExplorer.Types.TargetInstance where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.PlatformDifference
 import Amazonka.CostExplorer.Types.ResourceDetails
 import Amazonka.CostExplorer.Types.ResourceUtilization
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on recommended instance.

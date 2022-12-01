@@ -20,9 +20,9 @@
 module Amazonka.ECS.Types.ProxyConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.KeyValuePair
 import Amazonka.ECS.Types.ProxyConfigurationType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration details for the App Mesh proxy.

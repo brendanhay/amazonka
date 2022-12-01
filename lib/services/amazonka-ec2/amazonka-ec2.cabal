@@ -44,6 +44,7 @@ library
 
   exposed-modules:
     Amazonka.EC2
+    Amazonka.EC2.AcceptAddressTransfer
     Amazonka.EC2.AcceptReservedInstancesExchangeQuote
     Amazonka.EC2.AcceptTransitGatewayMulticastDomainAssociations
     Amazonka.EC2.AcceptTransitGatewayPeeringAttachment
@@ -84,6 +85,7 @@ library
     Amazonka.EC2.CancelCapacityReservationFleets
     Amazonka.EC2.CancelConversionTask
     Amazonka.EC2.CancelExportTask
+    Amazonka.EC2.CancelImageLaunchPermission
     Amazonka.EC2.CancelImportTask
     Amazonka.EC2.CancelReservedInstancesListing
     Amazonka.EC2.CancelSpotFleetRequests
@@ -246,6 +248,7 @@ library
     Amazonka.EC2.DescribeAccountAttributes
     Amazonka.EC2.DescribeAddresses
     Amazonka.EC2.DescribeAddressesAttribute
+    Amazonka.EC2.DescribeAddressTransfers
     Amazonka.EC2.DescribeAggregateIdFormat
     Amazonka.EC2.DescribeAvailabilityZones
     Amazonka.EC2.DescribeBundleTasks
@@ -383,6 +386,7 @@ library
     Amazonka.EC2.DetachNetworkInterface
     Amazonka.EC2.DetachVolume
     Amazonka.EC2.DetachVpnGateway
+    Amazonka.EC2.DisableAddressTransfer
     Amazonka.EC2.DisableEbsEncryptionByDefault
     Amazonka.EC2.DisableFastLaunch
     Amazonka.EC2.DisableFastSnapshotRestores
@@ -405,6 +409,7 @@ library
     Amazonka.EC2.DisassociateTransitGatewayRouteTable
     Amazonka.EC2.DisassociateTrunkInterface
     Amazonka.EC2.DisassociateVpcCidrBlock
+    Amazonka.EC2.EnableAddressTransfer
     Amazonka.EC2.EnableEbsEncryptionByDefault
     Amazonka.EC2.EnableFastLaunch
     Amazonka.EC2.EnableFastSnapshotRestores
@@ -607,6 +612,8 @@ library
     Amazonka.EC2.Types.AddressAttributeName
     Amazonka.EC2.Types.AddressFamily
     Amazonka.EC2.Types.AddressStatus
+    Amazonka.EC2.Types.AddressTransfer
+    Amazonka.EC2.Types.AddressTransferStatus
     Amazonka.EC2.Types.Affinity
     Amazonka.EC2.Types.AllocationState
     Amazonka.EC2.Types.AllocationStrategy
@@ -1130,6 +1137,8 @@ library
     Amazonka.EC2.Types.NetworkAcl
     Amazonka.EC2.Types.NetworkAclAssociation
     Amazonka.EC2.Types.NetworkAclEntry
+    Amazonka.EC2.Types.NetworkBandwidthGbps
+    Amazonka.EC2.Types.NetworkBandwidthGbpsRequest
     Amazonka.EC2.Types.NetworkCardInfo
     Amazonka.EC2.Types.NetworkInfo
     Amazonka.EC2.Types.NetworkInsightsAccessScope

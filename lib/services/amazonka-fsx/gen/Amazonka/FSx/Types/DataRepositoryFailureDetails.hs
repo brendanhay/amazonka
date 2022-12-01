@@ -20,7 +20,7 @@
 module Amazonka.FSx.Types.DataRepositoryFailureDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides detailed information about the data respository if its

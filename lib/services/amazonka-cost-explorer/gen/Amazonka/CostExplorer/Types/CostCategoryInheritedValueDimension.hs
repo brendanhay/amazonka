@@ -20,8 +20,8 @@
 module Amazonka.CostExplorer.Types.CostCategoryInheritedValueDimension where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategoryInheritedValueDimensionName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | When you create or update a cost category, you can define the

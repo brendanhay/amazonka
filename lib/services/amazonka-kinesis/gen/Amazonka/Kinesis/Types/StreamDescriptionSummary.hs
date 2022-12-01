@@ -20,11 +20,11 @@
 module Amazonka.Kinesis.Types.StreamDescriptionSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kinesis.Types.EncryptionType
 import Amazonka.Kinesis.Types.EnhancedMetrics
 import Amazonka.Kinesis.Types.StreamModeDetails
 import Amazonka.Kinesis.Types.StreamStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output for DescribeStreamSummary

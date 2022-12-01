@@ -20,7 +20,7 @@
 module Amazonka.CostExplorer.Types.AnomalyScore where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Quantifies the anomaly. The higher score means that it\'s more

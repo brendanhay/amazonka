@@ -20,8 +20,8 @@
 module Amazonka.Inspector.Types.EventSubscription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.InspectorEvent
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data type is used in the Subscription data type.

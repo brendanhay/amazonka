@@ -65,6 +65,10 @@ module Amazonka.PersonalizeEvents
     Item (Item'),
     newItem,
 
+    -- ** MetricAttribution
+    MetricAttribution (MetricAttribution'),
+    newMetricAttribution,
+
     -- ** User
     User (User'),
     newUser,

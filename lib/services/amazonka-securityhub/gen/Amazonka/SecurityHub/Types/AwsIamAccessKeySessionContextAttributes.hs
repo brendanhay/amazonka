@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsIamAccessKeySessionContextAttributes where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes of the session that the key was used for.

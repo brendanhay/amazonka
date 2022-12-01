@@ -20,9 +20,9 @@
 module Amazonka.IoTAnalytics.Types.Pipeline where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.PipelineActivity
 import Amazonka.IoTAnalytics.Types.ReprocessingSummary
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a pipeline.

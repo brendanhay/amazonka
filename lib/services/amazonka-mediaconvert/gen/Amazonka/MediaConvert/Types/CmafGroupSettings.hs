@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.CmafGroupSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.CmafAdditionalManifest
 import Amazonka.MediaConvert.Types.CmafClientCache
 import Amazonka.MediaConvert.Types.CmafCodecSpecification

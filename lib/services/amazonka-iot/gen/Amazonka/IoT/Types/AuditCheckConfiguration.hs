@@ -20,7 +20,7 @@
 module Amazonka.IoT.Types.AuditCheckConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Which audit checks are enabled and disabled for this account.

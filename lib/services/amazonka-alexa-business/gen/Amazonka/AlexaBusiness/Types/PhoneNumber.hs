@@ -21,7 +21,7 @@ module Amazonka.AlexaBusiness.Types.PhoneNumber where
 
 import Amazonka.AlexaBusiness.Types.PhoneNumberType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The phone number for the contact containing the raw number and phone

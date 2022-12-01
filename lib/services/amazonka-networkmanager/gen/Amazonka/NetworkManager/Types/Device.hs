@@ -20,7 +20,7 @@
 module Amazonka.NetworkManager.Types.Device where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkManager.Types.AWSLocation
 import Amazonka.NetworkManager.Types.DeviceState
 import Amazonka.NetworkManager.Types.Location

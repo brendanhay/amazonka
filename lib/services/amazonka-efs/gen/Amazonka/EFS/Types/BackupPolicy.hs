@@ -20,8 +20,8 @@
 module Amazonka.EFS.Types.BackupPolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EFS.Types.BackupStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The backup policy for the file system used to create automatic daily

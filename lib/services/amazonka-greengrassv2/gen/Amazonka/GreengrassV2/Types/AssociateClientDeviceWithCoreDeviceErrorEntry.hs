@@ -20,7 +20,7 @@
 module Amazonka.GreengrassV2.Types.AssociateClientDeviceWithCoreDeviceErrorEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an error that occurs from a request to associate a client

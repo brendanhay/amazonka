@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsEcsServiceServiceRegistriesDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a service discovery registry to assign to the service.

@@ -48,6 +48,9 @@ import Test.Tasty
 --         , requestCreateIpGroup $
 --             newCreateIpGroup
 --
+--         , requestCreateStandbyWorkspaces $
+--             newCreateStandbyWorkspaces
+--
 --         , requestCreateTags $
 --             newCreateTags
 --
@@ -156,6 +159,9 @@ import Test.Tasty
 --         , requestModifyAccount $
 --             newModifyAccount
 --
+--         , requestModifyCertificateBasedAuthProperties $
+--             newModifyCertificateBasedAuthProperties
+--
 --         , requestModifyClientProperties $
 --             newModifyClientProperties
 --
@@ -239,6 +245,9 @@ import Test.Tasty
 --
 --         , responseCreateIpGroup $
 --             newCreateIpGroupResponse
+--
+--         , responseCreateStandbyWorkspaces $
+--             newCreateStandbyWorkspacesResponse
 --
 --         , responseCreateTags $
 --             newCreateTagsResponse
@@ -348,6 +357,9 @@ import Test.Tasty
 --         , responseModifyAccount $
 --             newModifyAccountResponse
 --
+--         , responseModifyCertificateBasedAuthProperties $
+--             newModifyCertificateBasedAuthPropertiesResponse
+--
 --         , responseModifyClientProperties $
 --             newModifyClientPropertiesResponse
 --
@@ -454,6 +466,12 @@ requestCreateIpGroup =
   req
     "CreateIpGroup"
     "fixture/CreateIpGroup.yaml"
+
+requestCreateStandbyWorkspaces :: CreateStandbyWorkspaces -> TestTree
+requestCreateStandbyWorkspaces =
+  req
+    "CreateStandbyWorkspaces"
+    "fixture/CreateStandbyWorkspaces.yaml"
 
 requestCreateTags :: CreateTags -> TestTree
 requestCreateTags =
@@ -671,6 +689,12 @@ requestModifyAccount =
     "ModifyAccount"
     "fixture/ModifyAccount.yaml"
 
+requestModifyCertificateBasedAuthProperties :: ModifyCertificateBasedAuthProperties -> TestTree
+requestModifyCertificateBasedAuthProperties =
+  req
+    "ModifyCertificateBasedAuthProperties"
+    "fixture/ModifyCertificateBasedAuthProperties.yaml"
+
 requestModifyClientProperties :: ModifyClientProperties -> TestTree
 requestModifyClientProperties =
   req
@@ -848,6 +872,14 @@ responseCreateIpGroup =
     "fixture/CreateIpGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateIpGroup)
+
+responseCreateStandbyWorkspaces :: CreateStandbyWorkspacesResponse -> TestTree
+responseCreateStandbyWorkspaces =
+  res
+    "CreateStandbyWorkspacesResponse"
+    "fixture/CreateStandbyWorkspacesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateStandbyWorkspaces)
 
 responseCreateTags :: CreateTagsResponse -> TestTree
 responseCreateTags =
@@ -1136,6 +1168,14 @@ responseModifyAccount =
     "fixture/ModifyAccountResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ModifyAccount)
+
+responseModifyCertificateBasedAuthProperties :: ModifyCertificateBasedAuthPropertiesResponse -> TestTree
+responseModifyCertificateBasedAuthProperties =
+  res
+    "ModifyCertificateBasedAuthPropertiesResponse"
+    "fixture/ModifyCertificateBasedAuthPropertiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyCertificateBasedAuthProperties)
 
 responseModifyClientProperties :: ModifyClientPropertiesResponse -> TestTree
 responseModifyClientProperties =

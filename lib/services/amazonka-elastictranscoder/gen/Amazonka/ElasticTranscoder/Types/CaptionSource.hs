@@ -20,8 +20,8 @@
 module Amazonka.ElasticTranscoder.Types.CaptionSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types.Encryption
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A source file for the input sidecar captions used during the transcoding

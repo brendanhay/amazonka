@@ -24,7 +24,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineSinkType
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineSourceType
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A media pipeline object consisting of an ID, source type, source ARN, a

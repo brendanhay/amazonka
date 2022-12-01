@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.Filter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.FilterExpression
 import Amazonka.Glue.Types.FilterLogicalOperator
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that splits a dataset into two, based on a filter

@@ -20,8 +20,8 @@
 module Amazonka.IAM.Types.ServiceLastAccessed where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.TrackedActionLastAccessed
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the most recent attempt to access the service.

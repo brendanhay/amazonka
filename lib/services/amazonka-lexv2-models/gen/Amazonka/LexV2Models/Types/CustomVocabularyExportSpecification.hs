@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.CustomVocabularyExportSpecification where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the parameters required for exporting a custom vocabulary.

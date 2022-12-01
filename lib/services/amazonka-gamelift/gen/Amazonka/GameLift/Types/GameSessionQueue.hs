@@ -20,11 +20,11 @@
 module Amazonka.GameLift.Types.GameSessionQueue where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.FilterConfiguration
 import Amazonka.GameLift.Types.GameSessionQueueDestination
 import Amazonka.GameLift.Types.PlayerLatencyPolicy
 import Amazonka.GameLift.Types.PriorityConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration for a game session placement mechanism that processes

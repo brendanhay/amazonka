@@ -23,7 +23,7 @@ import Amazonka.CodePipeline.Types.ActionExecutionInput
 import Amazonka.CodePipeline.Types.ActionExecutionOutput
 import Amazonka.CodePipeline.Types.ActionExecutionStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about an execution of an action, including the

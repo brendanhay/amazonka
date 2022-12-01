@@ -20,9 +20,9 @@
 module Amazonka.DataSync.Types.LocationFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataSync.Types.LocationFilterName
 import Amazonka.DataSync.Types.Operator
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Narrow down the list of resources returned by @ListLocations@. For

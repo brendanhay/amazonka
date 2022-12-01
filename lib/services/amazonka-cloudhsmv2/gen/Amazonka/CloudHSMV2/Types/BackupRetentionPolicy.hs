@@ -21,7 +21,7 @@ module Amazonka.CloudHSMV2.Types.BackupRetentionPolicy where
 
 import Amazonka.CloudHSMV2.Types.BackupRetentionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A policy that defines the number of days to retain backups.

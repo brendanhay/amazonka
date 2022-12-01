@@ -23,7 +23,7 @@ import Amazonka.ConnectParticipant.Types.AttachmentItem
 import Amazonka.ConnectParticipant.Types.ChatItemType
 import Amazonka.ConnectParticipant.Types.ParticipantRole
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An item - message or event - that has been sent.

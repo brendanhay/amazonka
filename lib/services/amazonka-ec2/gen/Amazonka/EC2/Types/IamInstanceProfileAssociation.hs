@@ -20,10 +20,10 @@
 module Amazonka.EC2.Types.IamInstanceProfileAssociation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IamInstanceProfile
 import Amazonka.EC2.Types.IamInstanceProfileAssociationState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an association between an IAM instance profile and an

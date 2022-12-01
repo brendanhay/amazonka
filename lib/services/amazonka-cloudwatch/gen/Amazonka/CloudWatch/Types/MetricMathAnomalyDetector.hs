@@ -21,7 +21,7 @@ module Amazonka.CloudWatch.Types.MetricMathAnomalyDetector where
 
 import Amazonka.CloudWatch.Types.MetricDataQuery
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates the CloudWatch math expression that provides the time series

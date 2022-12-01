@@ -20,7 +20,7 @@
 module Amazonka.MemoryDb.Types.ClusterPendingUpdates where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MemoryDb.Types.ACLsUpdateStatus
 import Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate
 import Amazonka.MemoryDb.Types.ReshardingStatus

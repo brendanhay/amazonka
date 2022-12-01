@@ -20,8 +20,8 @@
 module Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the encryption in transit to the Apache Kafka

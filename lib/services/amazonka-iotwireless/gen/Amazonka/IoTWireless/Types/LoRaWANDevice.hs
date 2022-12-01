@@ -20,12 +20,12 @@
 module Amazonka.IoTWireless.Types.LoRaWANDevice where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.AbpV1_0_x
 import Amazonka.IoTWireless.Types.AbpV1_1
 import Amazonka.IoTWireless.Types.FPorts
 import Amazonka.IoTWireless.Types.OtaaV1_0_x
 import Amazonka.IoTWireless.Types.OtaaV1_1
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | LoRaWAN object for create functions.

@@ -23,7 +23,7 @@ import Amazonka.CodeBuild.Types.BuildBatchPhaseType
 import Amazonka.CodeBuild.Types.PhaseContext
 import Amazonka.CodeBuild.Types.StatusType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a stage for a batch build.

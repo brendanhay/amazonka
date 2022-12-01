@@ -20,9 +20,9 @@
 module Amazonka.DynamoDBStreams.Types.KeySchemaElement where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.KeyType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents /a single element/ of a key schema. A key schema specifies

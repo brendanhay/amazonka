@@ -20,7 +20,13 @@
 module Amazonka.QuickSight.Types.AnalysisFilterAttribute
   ( AnalysisFilterAttribute
       ( ..,
-        AnalysisFilterAttribute_QUICKSIGHT_USER
+        AnalysisFilterAttribute_ANALYSIS_NAME,
+        AnalysisFilterAttribute_DIRECT_QUICKSIGHT_OWNER,
+        AnalysisFilterAttribute_DIRECT_QUICKSIGHT_SOLE_OWNER,
+        AnalysisFilterAttribute_DIRECT_QUICKSIGHT_VIEWER_OR_OWNER,
+        AnalysisFilterAttribute_QUICKSIGHT_OWNER,
+        AnalysisFilterAttribute_QUICKSIGHT_USER,
+        AnalysisFilterAttribute_QUICKSIGHT_VIEWER_OR_OWNER
       ),
   )
 where
@@ -56,10 +62,34 @@ newtype AnalysisFilterAttribute = AnalysisFilterAttribute'
       Core.ToXML
     )
 
+pattern AnalysisFilterAttribute_ANALYSIS_NAME :: AnalysisFilterAttribute
+pattern AnalysisFilterAttribute_ANALYSIS_NAME = AnalysisFilterAttribute' "ANALYSIS_NAME"
+
+pattern AnalysisFilterAttribute_DIRECT_QUICKSIGHT_OWNER :: AnalysisFilterAttribute
+pattern AnalysisFilterAttribute_DIRECT_QUICKSIGHT_OWNER = AnalysisFilterAttribute' "DIRECT_QUICKSIGHT_OWNER"
+
+pattern AnalysisFilterAttribute_DIRECT_QUICKSIGHT_SOLE_OWNER :: AnalysisFilterAttribute
+pattern AnalysisFilterAttribute_DIRECT_QUICKSIGHT_SOLE_OWNER = AnalysisFilterAttribute' "DIRECT_QUICKSIGHT_SOLE_OWNER"
+
+pattern AnalysisFilterAttribute_DIRECT_QUICKSIGHT_VIEWER_OR_OWNER :: AnalysisFilterAttribute
+pattern AnalysisFilterAttribute_DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = AnalysisFilterAttribute' "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
+
+pattern AnalysisFilterAttribute_QUICKSIGHT_OWNER :: AnalysisFilterAttribute
+pattern AnalysisFilterAttribute_QUICKSIGHT_OWNER = AnalysisFilterAttribute' "QUICKSIGHT_OWNER"
+
 pattern AnalysisFilterAttribute_QUICKSIGHT_USER :: AnalysisFilterAttribute
 pattern AnalysisFilterAttribute_QUICKSIGHT_USER = AnalysisFilterAttribute' "QUICKSIGHT_USER"
 
+pattern AnalysisFilterAttribute_QUICKSIGHT_VIEWER_OR_OWNER :: AnalysisFilterAttribute
+pattern AnalysisFilterAttribute_QUICKSIGHT_VIEWER_OR_OWNER = AnalysisFilterAttribute' "QUICKSIGHT_VIEWER_OR_OWNER"
+
 {-# COMPLETE
+  AnalysisFilterAttribute_ANALYSIS_NAME,
+  AnalysisFilterAttribute_DIRECT_QUICKSIGHT_OWNER,
+  AnalysisFilterAttribute_DIRECT_QUICKSIGHT_SOLE_OWNER,
+  AnalysisFilterAttribute_DIRECT_QUICKSIGHT_VIEWER_OR_OWNER,
+  AnalysisFilterAttribute_QUICKSIGHT_OWNER,
   AnalysisFilterAttribute_QUICKSIGHT_USER,
+  AnalysisFilterAttribute_QUICKSIGHT_VIEWER_OR_OWNER,
   AnalysisFilterAttribute'
   #-}

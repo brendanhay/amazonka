@@ -41,7 +41,7 @@ module Amazonka.LexModels.DeleteBotVersion
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,8 +97,8 @@ instance Core.AWSRequest DeleteBotVersion where
   type
     AWSResponse DeleteBotVersion =
       DeleteBotVersionResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteBotVersionResponse'
 

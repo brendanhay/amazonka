@@ -65,8 +65,8 @@ module Amazonka.Glacier.CreateVault
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glacier.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,10 +130,9 @@ createVault_vaultName = Lens.lens (\CreateVault' {vaultName} -> vaultName) (\s@C
 
 instance Core.AWSRequest CreateVault where
   type AWSResponse CreateVault = CreateVaultResponse
-  service _ = defaultService
-  request srv =
-    Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.putJSON srv
+  request overrides =
+    Request.glacierVersionHeader (Core.version defaultService)
+      Prelude.. Request.putJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

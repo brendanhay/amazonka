@@ -20,6 +20,7 @@
 module Amazonka.ELB.Types.LoadBalancerDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELB.Internal
 import Amazonka.ELB.Types.BackendServerDescription
 import Amazonka.ELB.Types.HealthCheck
@@ -27,7 +28,6 @@ import Amazonka.ELB.Types.Instance
 import Amazonka.ELB.Types.ListenerDescription
 import Amazonka.ELB.Types.Policies
 import Amazonka.ELB.Types.SourceSecurityGroup
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a load balancer.

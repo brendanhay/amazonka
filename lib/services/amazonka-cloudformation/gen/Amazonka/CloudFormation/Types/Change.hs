@@ -22,7 +22,7 @@ module Amazonka.CloudFormation.Types.Change where
 import Amazonka.CloudFormation.Types.ChangeType
 import Amazonka.CloudFormation.Types.ResourceChange
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @Change@ structure describes the changes CloudFormation will perform

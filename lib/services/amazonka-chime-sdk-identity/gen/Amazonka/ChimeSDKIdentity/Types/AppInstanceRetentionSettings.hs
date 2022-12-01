@@ -21,7 +21,7 @@ module Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings where
 
 import Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the data-retention settings for an @AppInstance@.

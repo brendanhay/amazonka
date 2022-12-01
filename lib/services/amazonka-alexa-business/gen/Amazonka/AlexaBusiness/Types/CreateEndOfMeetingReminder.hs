@@ -21,7 +21,7 @@ module Amazonka.AlexaBusiness.Types.CreateEndOfMeetingReminder where
 
 import Amazonka.AlexaBusiness.Types.EndOfMeetingReminderType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Creates settings for the end of meeting reminder feature that are

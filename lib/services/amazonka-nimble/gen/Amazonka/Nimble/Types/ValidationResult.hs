@@ -20,7 +20,7 @@
 module Amazonka.Nimble.Types.ValidationResult where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Nimble.Types.LaunchProfileValidationState
 import Amazonka.Nimble.Types.LaunchProfileValidationStatusCode
 import Amazonka.Nimble.Types.LaunchProfileValidationType

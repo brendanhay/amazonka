@@ -1432,10 +1432,15 @@ module Amazonka.Lightsail.Lens
     distributionBundle_price,
     distributionBundle_bundleId,
 
+    -- ** DnsRecordCreationState
+    dnsRecordCreationState_message,
+    dnsRecordCreationState_code,
+
     -- ** Domain
     domain_tags,
     domain_resourceType,
     domain_name,
+    domain_registeredDomainDelegationInfo,
     domain_arn,
     domain_location,
     domain_domainEntries,
@@ -1451,7 +1456,9 @@ module Amazonka.Lightsail.Lens
     domainEntry_options,
 
     -- ** DomainValidationRecord
+    domainValidationRecord_dnsRecordCreationState,
     domainValidationRecord_domainName,
+    domainValidationRecord_validationStatus,
     domainValidationRecord_resourceRecord,
 
     -- ** EndpointRequest
@@ -1689,6 +1696,10 @@ module Amazonka.Lightsail.Lens
     loadBalancerTlsCertificate_failureReason,
     loadBalancerTlsCertificate_issuedAt,
 
+    -- ** LoadBalancerTlsCertificateDnsRecordCreationState
+    loadBalancerTlsCertificateDnsRecordCreationState_message,
+    loadBalancerTlsCertificateDnsRecordCreationState_code,
+
     -- ** LoadBalancerTlsCertificateDomainValidationOption
     loadBalancerTlsCertificateDomainValidationOption_domainName,
     loadBalancerTlsCertificateDomainValidationOption_validationStatus,
@@ -1696,6 +1707,7 @@ module Amazonka.Lightsail.Lens
     -- ** LoadBalancerTlsCertificateDomainValidationRecord
     loadBalancerTlsCertificateDomainValidationRecord_name,
     loadBalancerTlsCertificateDomainValidationRecord_type,
+    loadBalancerTlsCertificateDomainValidationRecord_dnsRecordCreationState,
     loadBalancerTlsCertificateDomainValidationRecord_domainName,
     loadBalancerTlsCertificateDomainValidationRecord_validationStatus,
     loadBalancerTlsCertificateDomainValidationRecord_value,
@@ -1735,6 +1747,10 @@ module Amazonka.Lightsail.Lens
 
     -- ** MonthlyTransfer
     monthlyTransfer_gbPerMonthAllocated,
+
+    -- ** NameServersUpdateState
+    nameServersUpdateState_message,
+    nameServersUpdateState_code,
 
     -- ** Operation
     operation_resourceType,
@@ -1788,6 +1804,10 @@ module Amazonka.Lightsail.Lens
     queryStringObject_queryStringsAllowList,
     queryStringObject_option,
 
+    -- ** R53HostedZoneDeletionState
+    r53HostedZoneDeletionState_message,
+    r53HostedZoneDeletionState_code,
+
     -- ** RegionInfo
     regionInfo_relationalDatabaseAvailabilityZones,
     regionInfo_name,
@@ -1795,6 +1815,10 @@ module Amazonka.Lightsail.Lens
     regionInfo_displayName,
     regionInfo_description,
     regionInfo_continentCode,
+
+    -- ** RegisteredDomainDelegationInfo
+    registeredDomainDelegationInfo_r53HostedZoneDeletionState,
+    registeredDomainDelegationInfo_nameServersUpdateState,
 
     -- ** RelationalDatabase
     relationalDatabase_relationalDatabaseBundleId,
@@ -2110,6 +2134,7 @@ import Amazonka.Lightsail.Types.DiskMap
 import Amazonka.Lightsail.Types.DiskSnapshot
 import Amazonka.Lightsail.Types.DiskSnapshotInfo
 import Amazonka.Lightsail.Types.DistributionBundle
+import Amazonka.Lightsail.Types.DnsRecordCreationState
 import Amazonka.Lightsail.Types.Domain
 import Amazonka.Lightsail.Types.DomainEntry
 import Amazonka.Lightsail.Types.DomainValidationRecord
@@ -2135,6 +2160,7 @@ import Amazonka.Lightsail.Types.KeyPair
 import Amazonka.Lightsail.Types.LightsailDistribution
 import Amazonka.Lightsail.Types.LoadBalancer
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificate
+import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDnsRecordCreationState
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationOption
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationRecord
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateRenewalSummary
@@ -2144,6 +2170,7 @@ import Amazonka.Lightsail.Types.LogEvent
 import Amazonka.Lightsail.Types.MetricDatapoint
 import Amazonka.Lightsail.Types.MonitoredResourceInfo
 import Amazonka.Lightsail.Types.MonthlyTransfer
+import Amazonka.Lightsail.Types.NameServersUpdateState
 import Amazonka.Lightsail.Types.Operation
 import Amazonka.Lightsail.Types.Origin
 import Amazonka.Lightsail.Types.PasswordData
@@ -2153,7 +2180,9 @@ import Amazonka.Lightsail.Types.PortInfo
 import Amazonka.Lightsail.Types.PrivateRegistryAccess
 import Amazonka.Lightsail.Types.PrivateRegistryAccessRequest
 import Amazonka.Lightsail.Types.QueryStringObject
+import Amazonka.Lightsail.Types.R53HostedZoneDeletionState
 import Amazonka.Lightsail.Types.RegionInfo
+import Amazonka.Lightsail.Types.RegisteredDomainDelegationInfo
 import Amazonka.Lightsail.Types.RelationalDatabase
 import Amazonka.Lightsail.Types.RelationalDatabaseBlueprint
 import Amazonka.Lightsail.Types.RelationalDatabaseBundle

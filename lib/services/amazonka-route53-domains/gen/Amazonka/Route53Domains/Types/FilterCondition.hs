@@ -20,7 +20,7 @@
 module Amazonka.Route53Domains.Types.FilterCondition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Domains.Types.ListDomainsAttributeName
 import Amazonka.Route53Domains.Types.Operator

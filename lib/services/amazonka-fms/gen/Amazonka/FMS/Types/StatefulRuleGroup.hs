@@ -20,7 +20,8 @@
 module Amazonka.FMS.Types.StatefulRuleGroup where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.FMS.Types.NetworkFirewallStatefulRuleGroupOverride
 import qualified Amazonka.Prelude as Prelude
 
 -- | Network Firewall stateful rule group, used in a
@@ -32,6 +33,9 @@ data StatefulRuleGroup = StatefulRuleGroup'
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The name of the rule group.
     ruleGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The action that allows the policy owner to override the behavior of the
+    -- rule group within a policy.
+    override :: Prelude.Maybe NetworkFirewallStatefulRuleGroupOverride,
     -- | An integer setting that indicates the order in which to run the stateful
     -- rule groups in a single Network Firewall firewall policy. This setting
     -- only applies to firewall policies that specify the @STRICT_ORDER@ rule
@@ -61,6 +65,9 @@ data StatefulRuleGroup = StatefulRuleGroup'
 --
 -- 'ruleGroupName', 'statefulRuleGroup_ruleGroupName' - The name of the rule group.
 --
+-- 'override', 'statefulRuleGroup_override' - The action that allows the policy owner to override the behavior of the
+-- rule group within a policy.
+--
 -- 'priority', 'statefulRuleGroup_priority' - An integer setting that indicates the order in which to run the stateful
 -- rule groups in a single Network Firewall firewall policy. This setting
 -- only applies to firewall policies that specify the @STRICT_ORDER@ rule
@@ -80,6 +87,7 @@ newStatefulRuleGroup =
   StatefulRuleGroup'
     { resourceId = Prelude.Nothing,
       ruleGroupName = Prelude.Nothing,
+      override = Prelude.Nothing,
       priority = Prelude.Nothing
     }
 
@@ -90,6 +98,11 @@ statefulRuleGroup_resourceId = Lens.lens (\StatefulRuleGroup' {resourceId} -> re
 -- | The name of the rule group.
 statefulRuleGroup_ruleGroupName :: Lens.Lens' StatefulRuleGroup (Prelude.Maybe Prelude.Text)
 statefulRuleGroup_ruleGroupName = Lens.lens (\StatefulRuleGroup' {ruleGroupName} -> ruleGroupName) (\s@StatefulRuleGroup' {} a -> s {ruleGroupName = a} :: StatefulRuleGroup)
+
+-- | The action that allows the policy owner to override the behavior of the
+-- rule group within a policy.
+statefulRuleGroup_override :: Lens.Lens' StatefulRuleGroup (Prelude.Maybe NetworkFirewallStatefulRuleGroupOverride)
+statefulRuleGroup_override = Lens.lens (\StatefulRuleGroup' {override} -> override) (\s@StatefulRuleGroup' {} a -> s {override = a} :: StatefulRuleGroup)
 
 -- | An integer setting that indicates the order in which to run the stateful
 -- rule groups in a single Network Firewall firewall policy. This setting
@@ -115,6 +128,7 @@ instance Core.FromJSON StatefulRuleGroup where
           StatefulRuleGroup'
             Prelude.<$> (x Core..:? "ResourceId")
             Prelude.<*> (x Core..:? "RuleGroupName")
+            Prelude.<*> (x Core..:? "Override")
             Prelude.<*> (x Core..:? "Priority")
       )
 
@@ -122,10 +136,12 @@ instance Prelude.Hashable StatefulRuleGroup where
   hashWithSalt _salt StatefulRuleGroup' {..} =
     _salt `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` ruleGroupName
+      `Prelude.hashWithSalt` override
       `Prelude.hashWithSalt` priority
 
 instance Prelude.NFData StatefulRuleGroup where
   rnf StatefulRuleGroup' {..} =
     Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf ruleGroupName
+      `Prelude.seq` Prelude.rnf override
       `Prelude.seq` Prelude.rnf priority

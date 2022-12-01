@@ -29,8 +29,8 @@ module Amazonka.CloudTrail.GetQueryResults
 
     -- * Request Lenses
     getQueryResults_nextToken,
-    getQueryResults_maxQueryResults,
     getQueryResults_eventDataStore,
+    getQueryResults_maxQueryResults,
     getQueryResults_queryId,
 
     -- * Destructuring the Response
@@ -49,7 +49,7 @@ where
 
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,11 +58,11 @@ import qualified Amazonka.Response as Response
 data GetQueryResults = GetQueryResults'
   { -- | A token you can use to get the next page of query results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of query results to display on a single page.
-    maxQueryResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN (or ID suffix of the ARN) of the event data store against which
     -- the query was run.
-    eventDataStore :: Prelude.Text,
+    eventDataStore :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of query results to display on a single page.
+    maxQueryResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the query for which you want to get results.
     queryId :: Prelude.Text
   }
@@ -78,23 +78,21 @@ data GetQueryResults = GetQueryResults'
 --
 -- 'nextToken', 'getQueryResults_nextToken' - A token you can use to get the next page of query results.
 --
--- 'maxQueryResults', 'getQueryResults_maxQueryResults' - The maximum number of query results to display on a single page.
---
 -- 'eventDataStore', 'getQueryResults_eventDataStore' - The ARN (or ID suffix of the ARN) of the event data store against which
 -- the query was run.
 --
+-- 'maxQueryResults', 'getQueryResults_maxQueryResults' - The maximum number of query results to display on a single page.
+--
 -- 'queryId', 'getQueryResults_queryId' - The ID of the query for which you want to get results.
 newGetQueryResults ::
-  -- | 'eventDataStore'
-  Prelude.Text ->
   -- | 'queryId'
   Prelude.Text ->
   GetQueryResults
-newGetQueryResults pEventDataStore_ pQueryId_ =
+newGetQueryResults pQueryId_ =
   GetQueryResults'
     { nextToken = Prelude.Nothing,
+      eventDataStore = Prelude.Nothing,
       maxQueryResults = Prelude.Nothing,
-      eventDataStore = pEventDataStore_,
       queryId = pQueryId_
     }
 
@@ -102,14 +100,14 @@ newGetQueryResults pEventDataStore_ pQueryId_ =
 getQueryResults_nextToken :: Lens.Lens' GetQueryResults (Prelude.Maybe Prelude.Text)
 getQueryResults_nextToken = Lens.lens (\GetQueryResults' {nextToken} -> nextToken) (\s@GetQueryResults' {} a -> s {nextToken = a} :: GetQueryResults)
 
+-- | The ARN (or ID suffix of the ARN) of the event data store against which
+-- the query was run.
+getQueryResults_eventDataStore :: Lens.Lens' GetQueryResults (Prelude.Maybe Prelude.Text)
+getQueryResults_eventDataStore = Lens.lens (\GetQueryResults' {eventDataStore} -> eventDataStore) (\s@GetQueryResults' {} a -> s {eventDataStore = a} :: GetQueryResults)
+
 -- | The maximum number of query results to display on a single page.
 getQueryResults_maxQueryResults :: Lens.Lens' GetQueryResults (Prelude.Maybe Prelude.Natural)
 getQueryResults_maxQueryResults = Lens.lens (\GetQueryResults' {maxQueryResults} -> maxQueryResults) (\s@GetQueryResults' {} a -> s {maxQueryResults = a} :: GetQueryResults)
-
--- | The ARN (or ID suffix of the ARN) of the event data store against which
--- the query was run.
-getQueryResults_eventDataStore :: Lens.Lens' GetQueryResults Prelude.Text
-getQueryResults_eventDataStore = Lens.lens (\GetQueryResults' {eventDataStore} -> eventDataStore) (\s@GetQueryResults' {} a -> s {eventDataStore = a} :: GetQueryResults)
 
 -- | The ID of the query for which you want to get results.
 getQueryResults_queryId :: Lens.Lens' GetQueryResults Prelude.Text
@@ -119,8 +117,8 @@ instance Core.AWSRequest GetQueryResults where
   type
     AWSResponse GetQueryResults =
       GetQueryResultsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,15 +136,15 @@ instance Core.AWSRequest GetQueryResults where
 instance Prelude.Hashable GetQueryResults where
   hashWithSalt _salt GetQueryResults' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxQueryResults
       `Prelude.hashWithSalt` eventDataStore
+      `Prelude.hashWithSalt` maxQueryResults
       `Prelude.hashWithSalt` queryId
 
 instance Prelude.NFData GetQueryResults where
   rnf GetQueryResults' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxQueryResults
       `Prelude.seq` Prelude.rnf eventDataStore
+      `Prelude.seq` Prelude.rnf maxQueryResults
       `Prelude.seq` Prelude.rnf queryId
 
 instance Core.ToHeaders GetQueryResults where
@@ -169,10 +167,10 @@ instance Core.ToJSON GetQueryResults where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("EventDataStore" Core..=)
+              Prelude.<$> eventDataStore,
             ("MaxQueryResults" Core..=)
               Prelude.<$> maxQueryResults,
-            Prelude.Just
-              ("EventDataStore" Core..= eventDataStore),
             Prelude.Just ("QueryId" Core..= queryId)
           ]
       )

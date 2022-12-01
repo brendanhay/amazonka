@@ -49,7 +49,7 @@ module Amazonka.WorkDocs.CreateUser
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -67,7 +67,7 @@ data CreateUser = CreateUser'
     -- | The ID of the organization.
     organizationId :: Prelude.Maybe Prelude.Text,
     -- | The email address of the user.
-    emailAddress :: Prelude.Maybe Prelude.Text,
+    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The login name of the user.
     username :: Prelude.Text,
     -- | The given name of the user.
@@ -151,7 +151,7 @@ createUser_organizationId = Lens.lens (\CreateUser' {organizationId} -> organiza
 
 -- | The email address of the user.
 createUser_emailAddress :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_emailAddress = Lens.lens (\CreateUser' {emailAddress} -> emailAddress) (\s@CreateUser' {} a -> s {emailAddress = a} :: CreateUser)
+createUser_emailAddress = Lens.lens (\CreateUser' {emailAddress} -> emailAddress) (\s@CreateUser' {} a -> s {emailAddress = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The login name of the user.
 createUser_username :: Lens.Lens' CreateUser Prelude.Text
@@ -171,8 +171,8 @@ createUser_password = Lens.lens (\CreateUser' {password} -> password) (\s@Create
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = CreateUserResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -242,7 +242,7 @@ data CreateUserResponse = CreateUserResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateUserResponse' with all optional fields omitted.

@@ -20,7 +20,7 @@
 module Amazonka.FraudDetector.Types.ModelEndpointDataBlob where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A pre-formed Amazon SageMaker model input you can include if your

@@ -20,15 +20,15 @@
 module Amazonka.OpenSearch.Types.SnapshotOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The time, in UTC format, when the service takes a daily automated
+-- | The time, in UTC format, when OpenSearch Service takes a daily automated
 -- snapshot of the specified domain. Default is @0@ hours.
 --
 -- /See:/ 'newSnapshotOptions' smart constructor.
 data SnapshotOptions = SnapshotOptions'
-  { -- | The time, in UTC format, when the service takes a daily automated
+  { -- | The time, in UTC format, when OpenSearch Service takes a daily automated
     -- snapshot of the specified domain. Default is @0@ hours.
     automatedSnapshotStartHour :: Prelude.Maybe Prelude.Int
   }
@@ -42,7 +42,7 @@ data SnapshotOptions = SnapshotOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'automatedSnapshotStartHour', 'snapshotOptions_automatedSnapshotStartHour' - The time, in UTC format, when the service takes a daily automated
+-- 'automatedSnapshotStartHour', 'snapshotOptions_automatedSnapshotStartHour' - The time, in UTC format, when OpenSearch Service takes a daily automated
 -- snapshot of the specified domain. Default is @0@ hours.
 newSnapshotOptions ::
   SnapshotOptions
@@ -52,7 +52,7 @@ newSnapshotOptions =
         Prelude.Nothing
     }
 
--- | The time, in UTC format, when the service takes a daily automated
+-- | The time, in UTC format, when OpenSearch Service takes a daily automated
 -- snapshot of the specified domain. Default is @0@ hours.
 snapshotOptions_automatedSnapshotStartHour :: Lens.Lens' SnapshotOptions (Prelude.Maybe Prelude.Int)
 snapshotOptions_automatedSnapshotStartHour = Lens.lens (\SnapshotOptions' {automatedSnapshotStartHour} -> automatedSnapshotStartHour) (\s@SnapshotOptions' {} a -> s {automatedSnapshotStartHour = a} :: SnapshotOptions)

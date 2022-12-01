@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.Directory where
 
 import Amazonka.CloudDirectory.Types.DirectoryState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Directory structure that includes the directory name and directory ARN.

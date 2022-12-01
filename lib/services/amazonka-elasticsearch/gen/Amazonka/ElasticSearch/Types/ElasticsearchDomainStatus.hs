@@ -20,6 +20,7 @@
 module Amazonka.ElasticSearch.Types.ElasticsearchDomainStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.AdvancedSecurityOptions
 import Amazonka.ElasticSearch.Types.AutoTuneOptionsOutput
 import Amazonka.ElasticSearch.Types.ChangeProgressDetails
@@ -34,7 +35,6 @@ import Amazonka.ElasticSearch.Types.NodeToNodeEncryptionOptions
 import Amazonka.ElasticSearch.Types.ServiceSoftwareOptions
 import Amazonka.ElasticSearch.Types.SnapshotOptions
 import Amazonka.ElasticSearch.Types.VPCDerivedInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current status of an Elasticsearch domain.

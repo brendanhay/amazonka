@@ -30,6 +30,7 @@ module Amazonka.RBin.ListRules
 
     -- * Request Lenses
     listRules_nextToken,
+    listRules_lockState,
     listRules_resourceTags,
     listRules_maxResults,
     listRules_resourceType,
@@ -46,7 +47,7 @@ module Amazonka.RBin.ListRules
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RBin.Types
 import qualified Amazonka.Request as Request
@@ -56,6 +57,9 @@ import qualified Amazonka.Response as Response
 data ListRules = ListRules'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The lock state of the retention rules to list. Only retention rules with
+    -- the specified lock state are returned.
+    lockState :: Prelude.Maybe LockState,
     -- | Information about the resource tags used to identify resources that are
     -- retained by the retention rule.
     resourceTags :: Prelude.Maybe [ResourceTag],
@@ -82,6 +86,9 @@ data ListRules = ListRules'
 --
 -- 'nextToken', 'listRules_nextToken' - The token for the next page of results.
 --
+-- 'lockState', 'listRules_lockState' - The lock state of the retention rules to list. Only retention rules with
+-- the specified lock state are returned.
+--
 -- 'resourceTags', 'listRules_resourceTags' - Information about the resource tags used to identify resources that are
 -- retained by the retention rule.
 --
@@ -101,6 +108,7 @@ newListRules ::
 newListRules pResourceType_ =
   ListRules'
     { nextToken = Prelude.Nothing,
+      lockState = Prelude.Nothing,
       resourceTags = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       resourceType = pResourceType_
@@ -109,6 +117,11 @@ newListRules pResourceType_ =
 -- | The token for the next page of results.
 listRules_nextToken :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
 listRules_nextToken = Lens.lens (\ListRules' {nextToken} -> nextToken) (\s@ListRules' {} a -> s {nextToken = a} :: ListRules)
+
+-- | The lock state of the retention rules to list. Only retention rules with
+-- the specified lock state are returned.
+listRules_lockState :: Lens.Lens' ListRules (Prelude.Maybe LockState)
+listRules_lockState = Lens.lens (\ListRules' {lockState} -> lockState) (\s@ListRules' {} a -> s {lockState = a} :: ListRules)
 
 -- | Information about the resource tags used to identify resources that are
 -- retained by the retention rule.
@@ -150,8 +163,8 @@ instance Core.AWSPager ListRules where
 
 instance Core.AWSRequest ListRules where
   type AWSResponse ListRules = ListRulesResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +177,7 @@ instance Core.AWSRequest ListRules where
 instance Prelude.Hashable ListRules where
   hashWithSalt _salt ListRules' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` lockState
       `Prelude.hashWithSalt` resourceTags
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` resourceType
@@ -171,6 +185,7 @@ instance Prelude.Hashable ListRules where
 instance Prelude.NFData ListRules where
   rnf ListRules' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf lockState
       `Prelude.seq` Prelude.rnf resourceTags
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceType
@@ -191,6 +206,7 @@ instance Core.ToJSON ListRules where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("LockState" Core..=) Prelude.<$> lockState,
             ("ResourceTags" Core..=) Prelude.<$> resourceTags,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("ResourceType" Core..= resourceType)

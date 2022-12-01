@@ -513,6 +513,9 @@ import Test.Tasty
 --         , requestListProvisioningTemplates $
 --             newListProvisioningTemplates
 --
+--         , requestListRelatedResourcesForAuditFinding $
+--             newListRelatedResourcesForAuditFinding
+--
 --         , requestListRoleAliases $
 --             newListRoleAliases
 --
@@ -1214,6 +1217,9 @@ import Test.Tasty
 --
 --         , responseListProvisioningTemplates $
 --             newListProvisioningTemplatesResponse
+--
+--         , responseListRelatedResourcesForAuditFinding $
+--             newListRelatedResourcesForAuditFindingResponse
 --
 --         , responseListRoleAliases $
 --             newListRoleAliasesResponse
@@ -2404,6 +2410,12 @@ requestListProvisioningTemplates =
   req
     "ListProvisioningTemplates"
     "fixture/ListProvisioningTemplates.yaml"
+
+requestListRelatedResourcesForAuditFinding :: ListRelatedResourcesForAuditFinding -> TestTree
+requestListRelatedResourcesForAuditFinding =
+  req
+    "ListRelatedResourcesForAuditFinding"
+    "fixture/ListRelatedResourcesForAuditFinding.yaml"
 
 requestListRoleAliases :: ListRoleAliases -> TestTree
 requestListRoleAliases =
@@ -4128,6 +4140,14 @@ responseListProvisioningTemplates =
     "fixture/ListProvisioningTemplatesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListProvisioningTemplates)
+
+responseListRelatedResourcesForAuditFinding :: ListRelatedResourcesForAuditFindingResponse -> TestTree
+responseListRelatedResourcesForAuditFinding =
+  res
+    "ListRelatedResourcesForAuditFindingResponse"
+    "fixture/ListRelatedResourcesForAuditFindingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRelatedResourcesForAuditFinding)
 
 responseListRoleAliases :: ListRoleAliasesResponse -> TestTree
 responseListRoleAliases =

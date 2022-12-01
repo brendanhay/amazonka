@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.S3CatalogSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.S3SourceAdditionalOptions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Amazon S3 data store in the Glue Data Catalog.

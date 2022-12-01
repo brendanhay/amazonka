@@ -20,8 +20,8 @@
 module Amazonka.DMS.Types.SupportedEndpointType where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.ReplicationEndpointTypeValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about types of supported endpoints in response to a
@@ -34,12 +34,12 @@ data SupportedEndpointType = SupportedEndpointType'
   { -- | The database engine name. Valid values, depending on the EndpointType,
     -- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
     -- @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@, @\"s3\"@,
-    -- @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@, @\"mongodb\"@,
-    -- @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@, @\"documentdb\"@,
-    -- @\"sqlserver\"@, and @\"neptune\"@.
+    -- @\"db2\"@, @\"db2-zos\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
+    -- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
+    -- @\"documentdb\"@, @\"sqlserver\"@, @\"neptune\"@, and @\"babelfish\"@.
     engineName :: Prelude.Maybe Prelude.Text,
     -- | The expanded name for the engine name. For example, if the @EngineName@
-    -- parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
+    -- parameter is \"aurora\", this value would be \"Amazon Aurora MySQL\".
     engineDisplayName :: Prelude.Maybe Prelude.Text,
     -- | Indicates if change data capture (CDC) is supported.
     supportsCDC :: Prelude.Maybe Prelude.Bool,
@@ -63,12 +63,12 @@ data SupportedEndpointType = SupportedEndpointType'
 -- 'engineName', 'supportedEndpointType_engineName' - The database engine name. Valid values, depending on the EndpointType,
 -- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
 -- @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@, @\"s3\"@,
--- @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@, @\"mongodb\"@,
--- @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@, @\"documentdb\"@,
--- @\"sqlserver\"@, and @\"neptune\"@.
+-- @\"db2\"@, @\"db2-zos\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
+-- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
+-- @\"documentdb\"@, @\"sqlserver\"@, @\"neptune\"@, and @\"babelfish\"@.
 --
 -- 'engineDisplayName', 'supportedEndpointType_engineDisplayName' - The expanded name for the engine name. For example, if the @EngineName@
--- parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
+-- parameter is \"aurora\", this value would be \"Amazon Aurora MySQL\".
 --
 -- 'supportsCDC', 'supportedEndpointType_supportsCDC' - Indicates if change data capture (CDC) is supported.
 --
@@ -93,14 +93,14 @@ newSupportedEndpointType =
 -- | The database engine name. Valid values, depending on the EndpointType,
 -- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
 -- @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@, @\"s3\"@,
--- @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@, @\"mongodb\"@,
--- @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@, @\"documentdb\"@,
--- @\"sqlserver\"@, and @\"neptune\"@.
+-- @\"db2\"@, @\"db2-zos\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
+-- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
+-- @\"documentdb\"@, @\"sqlserver\"@, @\"neptune\"@, and @\"babelfish\"@.
 supportedEndpointType_engineName :: Lens.Lens' SupportedEndpointType (Prelude.Maybe Prelude.Text)
 supportedEndpointType_engineName = Lens.lens (\SupportedEndpointType' {engineName} -> engineName) (\s@SupportedEndpointType' {} a -> s {engineName = a} :: SupportedEndpointType)
 
 -- | The expanded name for the engine name. For example, if the @EngineName@
--- parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
+-- parameter is \"aurora\", this value would be \"Amazon Aurora MySQL\".
 supportedEndpointType_engineDisplayName :: Lens.Lens' SupportedEndpointType (Prelude.Maybe Prelude.Text)
 supportedEndpointType_engineDisplayName = Lens.lens (\SupportedEndpointType' {engineDisplayName} -> engineDisplayName) (\s@SupportedEndpointType' {} a -> s {engineDisplayName = a} :: SupportedEndpointType)
 

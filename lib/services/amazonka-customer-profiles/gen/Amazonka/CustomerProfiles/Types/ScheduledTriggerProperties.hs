@@ -20,8 +20,8 @@
 module Amazonka.CustomerProfiles.Types.ScheduledTriggerProperties where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.DataPullMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration details of a scheduled-trigger flow that you

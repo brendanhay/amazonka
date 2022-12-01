@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsRedshiftClusterPendingModifiedValues where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Changes to the Amazon Redshift cluster that are currently pending.

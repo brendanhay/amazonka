@@ -26,7 +26,7 @@ import Amazonka.CertificateManager.Types.KeyAlgorithm
 import Amazonka.CertificateManager.Types.KeyUsageName
 import Amazonka.CertificateManager.Types.RenewalEligibility
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure is returned in the response object of ListCertificates

@@ -20,6 +20,7 @@
 module Amazonka.DataSync.Types.Options where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataSync.Types.Atime
 import Amazonka.DataSync.Types.Gid
 import Amazonka.DataSync.Types.LogLevel
@@ -34,7 +35,6 @@ import Amazonka.DataSync.Types.TaskQueueing
 import Amazonka.DataSync.Types.TransferMode
 import Amazonka.DataSync.Types.Uid
 import Amazonka.DataSync.Types.VerifyMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the options that are available to control the behavior of a

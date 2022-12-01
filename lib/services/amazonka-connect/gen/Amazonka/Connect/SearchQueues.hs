@@ -52,7 +52,7 @@ where
 
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -64,6 +64,10 @@ data SearchQueues = SearchQueues'
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The search criteria to be used to return queues.
+    --
+    -- The @name@ and @description@ fields support \"contains\" queries with a
+    -- minimum of 2 characters and a maximum of 25 characters. Any queries with
+    -- character lengths outside of this range will throw invalid results.
     searchCriteria :: Prelude.Maybe QueueSearchCriteria,
     -- | Filters to be applied to search results.
     searchFilter :: Prelude.Maybe QueueSearchFilter,
@@ -88,6 +92,10 @@ data SearchQueues = SearchQueues'
 -- results.
 --
 -- 'searchCriteria', 'searchQueues_searchCriteria' - The search criteria to be used to return queues.
+--
+-- The @name@ and @description@ fields support \"contains\" queries with a
+-- minimum of 2 characters and a maximum of 25 characters. Any queries with
+-- character lengths outside of this range will throw invalid results.
 --
 -- 'searchFilter', 'searchQueues_searchFilter' - Filters to be applied to search results.
 --
@@ -115,6 +123,10 @@ searchQueues_nextToken :: Lens.Lens' SearchQueues (Prelude.Maybe Prelude.Text)
 searchQueues_nextToken = Lens.lens (\SearchQueues' {nextToken} -> nextToken) (\s@SearchQueues' {} a -> s {nextToken = a} :: SearchQueues)
 
 -- | The search criteria to be used to return queues.
+--
+-- The @name@ and @description@ fields support \"contains\" queries with a
+-- minimum of 2 characters and a maximum of 25 characters. Any queries with
+-- character lengths outside of this range will throw invalid results.
 searchQueues_searchCriteria :: Lens.Lens' SearchQueues (Prelude.Maybe QueueSearchCriteria)
 searchQueues_searchCriteria = Lens.lens (\SearchQueues' {searchCriteria} -> searchCriteria) (\s@SearchQueues' {} a -> s {searchCriteria = a} :: SearchQueues)
 
@@ -152,8 +164,8 @@ instance Core.AWSPager SearchQueues where
 
 instance Core.AWSRequest SearchQueues where
   type AWSResponse SearchQueues = SearchQueuesResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

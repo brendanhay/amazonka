@@ -20,9 +20,9 @@
 module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistorySkippedEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.BatchEntryCompletionStatus
 import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryErrorInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information for an entry that has been processed by the

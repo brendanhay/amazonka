@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.Session where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.SessionManagerOutputUrl
 import Amazonka.SSM.Types.SessionStatus

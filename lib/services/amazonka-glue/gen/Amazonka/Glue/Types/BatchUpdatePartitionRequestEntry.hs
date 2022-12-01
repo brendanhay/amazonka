@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.BatchUpdatePartitionRequestEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.PartitionInput
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the values and structure used to update a

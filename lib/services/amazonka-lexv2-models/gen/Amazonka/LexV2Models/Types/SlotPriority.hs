@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.SlotPriority where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Sets the priority that Amazon Lex should use when eliciting slot values

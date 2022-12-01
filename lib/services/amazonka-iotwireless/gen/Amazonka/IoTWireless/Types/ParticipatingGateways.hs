@@ -20,9 +20,9 @@
 module Amazonka.IoTWireless.Types.ParticipatingGateways where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.DownlinkMode
 import Amazonka.IoTWireless.Types.GatewayListItem
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the list of gateways to which you want to send downlink data

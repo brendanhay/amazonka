@@ -26,7 +26,7 @@ import Amazonka.Chime.Types.TranscribePartialResultsStability
 import Amazonka.Chime.Types.TranscribeRegion
 import Amazonka.Chime.Types.TranscribeVocabularyFilterMethod
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings specific to the Amazon Transcribe engine.

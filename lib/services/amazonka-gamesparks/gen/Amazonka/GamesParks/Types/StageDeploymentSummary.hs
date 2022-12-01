@@ -20,10 +20,10 @@
 module Amazonka.GamesParks.Types.StageDeploymentSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GamesParks.Types.DeploymentAction
 import Amazonka.GamesParks.Types.DeploymentResult
 import Amazonka.GamesParks.Types.DeploymentState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of the properties of a stage deployment.

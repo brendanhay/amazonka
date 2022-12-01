@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.S3Config where
 
 import Amazonka.Connect.Types.EncryptionConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the Amazon Simple Storage Service (Amazon S3) storage

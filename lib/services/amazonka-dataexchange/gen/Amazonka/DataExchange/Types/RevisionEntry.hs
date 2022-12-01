@@ -20,7 +20,7 @@
 module Amazonka.DataExchange.Types.RevisionEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A revision is a container for one or more assets.

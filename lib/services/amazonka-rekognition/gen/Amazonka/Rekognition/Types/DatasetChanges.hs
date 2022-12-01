@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.DatasetChanges where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes updates or additions to a dataset. A Single update or addition

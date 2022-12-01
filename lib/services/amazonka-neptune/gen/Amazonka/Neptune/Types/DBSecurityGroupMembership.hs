@@ -20,7 +20,7 @@
 module Amazonka.Neptune.Types.DBSecurityGroupMembership where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies membership in a designated DB security group.

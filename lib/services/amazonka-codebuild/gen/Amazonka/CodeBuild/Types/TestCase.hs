@@ -20,7 +20,7 @@
 module Amazonka.CodeBuild.Types.TestCase where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a test case created using a framework such as NUnit or

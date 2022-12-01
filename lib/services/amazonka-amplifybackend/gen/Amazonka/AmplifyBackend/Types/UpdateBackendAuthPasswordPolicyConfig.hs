@@ -21,7 +21,7 @@ module Amazonka.AmplifyBackend.Types.UpdateBackendAuthPasswordPolicyConfig where
 
 import Amazonka.AmplifyBackend.Types.AdditionalConstraintsElement
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the password policy for your Amazon Cognito user pool

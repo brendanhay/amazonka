@@ -20,11 +20,11 @@
 module Amazonka.GuardDuty.Types.NetworkConnectionAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.LocalIpDetails
 import Amazonka.GuardDuty.Types.LocalPortDetails
 import Amazonka.GuardDuty.Types.RemoteIpDetails
 import Amazonka.GuardDuty.Types.RemotePortDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the NETWORK_CONNECTION action described in

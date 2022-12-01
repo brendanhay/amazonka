@@ -58,10 +58,12 @@ module Amazonka.WAFV2.Lens
 
     -- ** CreateWebACL
     createWebACL_tags,
+    createWebACL_tokenDomains,
     createWebACL_captchaConfig,
     createWebACL_rules,
     createWebACL_description,
     createWebACL_customResponseBodies,
+    createWebACL_challengeConfig,
     createWebACL_name,
     createWebACL_scope,
     createWebACL_defaultAction,
@@ -383,10 +385,12 @@ module Amazonka.WAFV2.Lens
     updateRuleGroupResponse_httpStatus,
 
     -- ** UpdateWebACL
+    updateWebACL_tokenDomains,
     updateWebACL_captchaConfig,
     updateWebACL_rules,
     updateWebACL_description,
     updateWebACL_customResponseBodies,
+    updateWebACL_challengeConfig,
     updateWebACL_name,
     updateWebACL_scope,
     updateWebACL_id,
@@ -397,6 +401,9 @@ module Amazonka.WAFV2.Lens
     updateWebACLResponse_httpStatus,
 
     -- * Types
+
+    -- ** AWSManagedRulesBotControlRuleSet
+    aWSManagedRulesBotControlRuleSet_inspectionLevel,
 
     -- ** ActionCondition
     actionCondition_action,
@@ -433,6 +440,17 @@ module Amazonka.WAFV2.Lens
     captchaResponse_solveTimestamp,
     captchaResponse_responseCode,
     captchaResponse_failureReason,
+
+    -- ** ChallengeAction
+    challengeAction_customRequestHandling,
+
+    -- ** ChallengeConfig
+    challengeConfig_immunityTimeProperty,
+
+    -- ** ChallengeResponse
+    challengeResponse_solveTimestamp,
+    challengeResponse_responseCode,
+    challengeResponse_failureReason,
 
     -- ** Condition
     condition_labelNameCondition,
@@ -596,11 +614,13 @@ module Amazonka.WAFV2.Lens
     -- ** ManagedRuleGroupConfig
     managedRuleGroupConfig_passwordField,
     managedRuleGroupConfig_loginPath,
+    managedRuleGroupConfig_aWSManagedRulesBotControlRuleSet,
     managedRuleGroupConfig_payloadType,
     managedRuleGroupConfig_usernameField,
 
     -- ** ManagedRuleGroupStatement
     managedRuleGroupStatement_managedRuleGroupConfigs,
+    managedRuleGroupStatement_ruleActionOverrides,
     managedRuleGroupStatement_scopeDownStatement,
     managedRuleGroupStatement_excludedRules,
     managedRuleGroupStatement_version,
@@ -713,16 +733,22 @@ module Amazonka.WAFV2.Lens
     rule_overrideAction,
     rule_ruleLabels,
     rule_action,
+    rule_challengeConfig,
     rule_name,
     rule_priority,
     rule_statement,
     rule_visibilityConfig,
 
     -- ** RuleAction
+    ruleAction_challenge,
     ruleAction_allow,
     ruleAction_count,
     ruleAction_captcha,
     ruleAction_block,
+
+    -- ** RuleActionOverride
+    ruleActionOverride_name,
+    ruleActionOverride_actionToUse,
 
     -- ** RuleGroup
     ruleGroup_availableLabels,
@@ -738,6 +764,7 @@ module Amazonka.WAFV2.Lens
     ruleGroup_visibilityConfig,
 
     -- ** RuleGroupReferenceStatement
+    ruleGroupReferenceStatement_ruleActionOverrides,
     ruleGroupReferenceStatement_excludedRules,
     ruleGroupReferenceStatement_arn,
 
@@ -753,6 +780,8 @@ module Amazonka.WAFV2.Lens
     ruleSummary_action,
 
     -- ** SampledHTTPRequest
+    sampledHTTPRequest_challengeResponse,
+    sampledHTTPRequest_overriddenAction,
     sampledHTTPRequest_timestamp,
     sampledHTTPRequest_captchaResponse,
     sampledHTTPRequest_ruleNameWithinRuleGroup,
@@ -829,6 +858,7 @@ module Amazonka.WAFV2.Lens
 
     -- ** WebACL
     webACL_managedByFirewallManager,
+    webACL_tokenDomains,
     webACL_captchaConfig,
     webACL_rules,
     webACL_preProcessFirewallManagerRuleGroups,
@@ -836,6 +866,7 @@ module Amazonka.WAFV2.Lens
     webACL_labelNamespace,
     webACL_customResponseBodies,
     webACL_capacity,
+    webACL_challengeConfig,
     webACL_postProcessFirewallManagerRuleGroups,
     webACL_name,
     webACL_id,
@@ -898,6 +929,7 @@ import Amazonka.WAFV2.PutLoggingConfiguration
 import Amazonka.WAFV2.PutManagedRuleSetVersions
 import Amazonka.WAFV2.PutPermissionPolicy
 import Amazonka.WAFV2.TagResource
+import Amazonka.WAFV2.Types.AWSManagedRulesBotControlRuleSet
 import Amazonka.WAFV2.Types.ActionCondition
 import Amazonka.WAFV2.Types.All
 import Amazonka.WAFV2.Types.AllQueryArguments
@@ -909,6 +941,9 @@ import Amazonka.WAFV2.Types.ByteMatchStatement
 import Amazonka.WAFV2.Types.CaptchaAction
 import Amazonka.WAFV2.Types.CaptchaConfig
 import Amazonka.WAFV2.Types.CaptchaResponse
+import Amazonka.WAFV2.Types.ChallengeAction
+import Amazonka.WAFV2.Types.ChallengeConfig
+import Amazonka.WAFV2.Types.ChallengeResponse
 import Amazonka.WAFV2.Types.Condition
 import Amazonka.WAFV2.Types.CookieMatchPattern
 import Amazonka.WAFV2.Types.Cookies
@@ -967,6 +1002,7 @@ import Amazonka.WAFV2.Types.RegexPatternSetSummary
 import Amazonka.WAFV2.Types.ReleaseSummary
 import Amazonka.WAFV2.Types.Rule
 import Amazonka.WAFV2.Types.RuleAction
+import Amazonka.WAFV2.Types.RuleActionOverride
 import Amazonka.WAFV2.Types.RuleGroup
 import Amazonka.WAFV2.Types.RuleGroupReferenceStatement
 import Amazonka.WAFV2.Types.RuleGroupSummary

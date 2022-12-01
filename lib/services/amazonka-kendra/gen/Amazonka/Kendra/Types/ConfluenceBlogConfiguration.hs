@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.ConfluenceBlogConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.ConfluenceBlogToIndexFieldMapping
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration of blog settings for the Confluence data source. Blogs are

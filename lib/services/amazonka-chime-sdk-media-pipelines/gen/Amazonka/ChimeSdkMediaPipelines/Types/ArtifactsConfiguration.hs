@@ -24,7 +24,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.CompositedVideoArtifactsConfigurati
 import Amazonka.ChimeSdkMediaPipelines.Types.ContentArtifactsConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.VideoArtifactsConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the artifacts.

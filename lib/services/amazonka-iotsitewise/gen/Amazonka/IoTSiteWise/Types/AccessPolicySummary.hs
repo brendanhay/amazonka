@@ -20,10 +20,10 @@
 module Amazonka.IoTSiteWise.Types.AccessPolicySummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.Identity
 import Amazonka.IoTSiteWise.Types.Permission
 import Amazonka.IoTSiteWise.Types.Resource
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an access policy that defines an identity\'s access to an IoT
@@ -37,8 +37,8 @@ data AccessPolicySummary = AccessPolicySummary'
     lastUpdateDate :: Prelude.Maybe Core.POSIX,
     -- | The ID of the access policy.
     id :: Prelude.Text,
-    -- | The identity (an Amazon Web Services SSO user, an Amazon Web Services
-    -- SSO group, or an IAM user).
+    -- | The identity (an IAM Identity Center user, an IAM Identity Center group,
+    -- or an IAM user).
     identity :: Identity,
     -- | The IoT SiteWise Monitor resource (a portal or project).
     resource :: Resource,
@@ -62,8 +62,8 @@ data AccessPolicySummary = AccessPolicySummary'
 --
 -- 'id', 'accessPolicySummary_id' - The ID of the access policy.
 --
--- 'identity', 'accessPolicySummary_identity' - The identity (an Amazon Web Services SSO user, an Amazon Web Services
--- SSO group, or an IAM user).
+-- 'identity', 'accessPolicySummary_identity' - The identity (an IAM Identity Center user, an IAM Identity Center group,
+-- or an IAM user).
 --
 -- 'resource', 'accessPolicySummary_resource' - The IoT SiteWise Monitor resource (a portal or project).
 --
@@ -106,8 +106,8 @@ accessPolicySummary_lastUpdateDate = Lens.lens (\AccessPolicySummary' {lastUpdat
 accessPolicySummary_id :: Lens.Lens' AccessPolicySummary Prelude.Text
 accessPolicySummary_id = Lens.lens (\AccessPolicySummary' {id} -> id) (\s@AccessPolicySummary' {} a -> s {id = a} :: AccessPolicySummary)
 
--- | The identity (an Amazon Web Services SSO user, an Amazon Web Services
--- SSO group, or an IAM user).
+-- | The identity (an IAM Identity Center user, an IAM Identity Center group,
+-- or an IAM user).
 accessPolicySummary_identity :: Lens.Lens' AccessPolicySummary Identity
 accessPolicySummary_identity = Lens.lens (\AccessPolicySummary' {identity} -> identity) (\s@AccessPolicySummary' {} a -> s {identity = a} :: AccessPolicySummary)
 

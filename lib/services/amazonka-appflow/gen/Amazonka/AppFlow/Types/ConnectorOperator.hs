@@ -36,7 +36,7 @@ import Amazonka.AppFlow.Types.TrendmicroConnectorOperator
 import Amazonka.AppFlow.Types.VeevaConnectorOperator
 import Amazonka.AppFlow.Types.ZendeskConnectorOperator
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The operation to be performed on the provided source fields.

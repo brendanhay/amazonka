@@ -20,9 +20,9 @@
 module Amazonka.ElastiCache.Types.EngineDefaults where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.CacheNodeTypeSpecificParameter
 import Amazonka.ElastiCache.Types.Parameter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @DescribeEngineDefaultParameters@ operation.

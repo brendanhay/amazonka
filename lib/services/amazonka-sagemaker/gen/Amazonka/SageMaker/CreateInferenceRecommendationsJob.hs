@@ -48,7 +48,7 @@ module Amazonka.SageMaker.CreateInferenceRecommendationsJob
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -200,8 +200,8 @@ instance
   type
     AWSResponse CreateInferenceRecommendationsJob =
       CreateInferenceRecommendationsJobResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

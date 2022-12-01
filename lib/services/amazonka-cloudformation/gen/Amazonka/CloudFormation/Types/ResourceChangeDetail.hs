@@ -23,7 +23,7 @@ import Amazonka.CloudFormation.Types.ChangeSource
 import Amazonka.CloudFormation.Types.EvaluationType
 import Amazonka.CloudFormation.Types.ResourceTargetDefinition
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a resource with @Modify@ as the action, the @ResourceChange@

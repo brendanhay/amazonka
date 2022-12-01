@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.Bot where
 
 import Amazonka.Chime.Types.BotType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource that allows Enterprise account administrators to configure an

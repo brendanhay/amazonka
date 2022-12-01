@@ -50,8 +50,8 @@ module Amazonka.GameLift.DeleteBuild
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,8 +90,8 @@ deleteBuild_buildId = Lens.lens (\DeleteBuild' {buildId} -> buildId) (\s@DeleteB
 
 instance Core.AWSRequest DeleteBuild where
   type AWSResponse DeleteBuild = DeleteBuildResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteBuildResponse'
 
 instance Prelude.Hashable DeleteBuild where

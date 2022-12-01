@@ -48,6 +48,9 @@ import Test.Tasty
 --         , requestDescribeWorkspaceAuthentication $
 --             newDescribeWorkspaceAuthentication
 --
+--         , requestDescribeWorkspaceConfiguration $
+--             newDescribeWorkspaceConfiguration
+--
 --         , requestDisassociateLicense $
 --             newDisassociateLicense
 --
@@ -75,6 +78,9 @@ import Test.Tasty
 --         , requestUpdateWorkspaceAuthentication $
 --             newUpdateWorkspaceAuthentication
 --
+--         , requestUpdateWorkspaceConfiguration $
+--             newUpdateWorkspaceConfiguration
+--
 --           ]
 
 --     , testGroup "response"
@@ -98,6 +104,9 @@ import Test.Tasty
 --
 --         , responseDescribeWorkspaceAuthentication $
 --             newDescribeWorkspaceAuthenticationResponse
+--
+--         , responseDescribeWorkspaceConfiguration $
+--             newDescribeWorkspaceConfigurationResponse
 --
 --         , responseDisassociateLicense $
 --             newDisassociateLicenseResponse
@@ -125,6 +134,9 @@ import Test.Tasty
 --
 --         , responseUpdateWorkspaceAuthentication $
 --             newUpdateWorkspaceAuthenticationResponse
+--
+--         , responseUpdateWorkspaceConfiguration $
+--             newUpdateWorkspaceConfigurationResponse
 --
 --           ]
 --     ]
@@ -172,6 +184,12 @@ requestDescribeWorkspaceAuthentication =
   req
     "DescribeWorkspaceAuthentication"
     "fixture/DescribeWorkspaceAuthentication.yaml"
+
+requestDescribeWorkspaceConfiguration :: DescribeWorkspaceConfiguration -> TestTree
+requestDescribeWorkspaceConfiguration =
+  req
+    "DescribeWorkspaceConfiguration"
+    "fixture/DescribeWorkspaceConfiguration.yaml"
 
 requestDisassociateLicense :: DisassociateLicense -> TestTree
 requestDisassociateLicense =
@@ -226,6 +244,12 @@ requestUpdateWorkspaceAuthentication =
   req
     "UpdateWorkspaceAuthentication"
     "fixture/UpdateWorkspaceAuthentication.yaml"
+
+requestUpdateWorkspaceConfiguration :: UpdateWorkspaceConfiguration -> TestTree
+requestUpdateWorkspaceConfiguration =
+  req
+    "UpdateWorkspaceConfiguration"
+    "fixture/UpdateWorkspaceConfiguration.yaml"
 
 -- Responses
 
@@ -284,6 +308,14 @@ responseDescribeWorkspaceAuthentication =
     "fixture/DescribeWorkspaceAuthenticationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeWorkspaceAuthentication)
+
+responseDescribeWorkspaceConfiguration :: DescribeWorkspaceConfigurationResponse -> TestTree
+responseDescribeWorkspaceConfiguration =
+  res
+    "DescribeWorkspaceConfigurationResponse"
+    "fixture/DescribeWorkspaceConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkspaceConfiguration)
 
 responseDisassociateLicense :: DisassociateLicenseResponse -> TestTree
 responseDisassociateLicense =
@@ -356,3 +388,11 @@ responseUpdateWorkspaceAuthentication =
     "fixture/UpdateWorkspaceAuthenticationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateWorkspaceAuthentication)
+
+responseUpdateWorkspaceConfiguration :: UpdateWorkspaceConfigurationResponse -> TestTree
+responseUpdateWorkspaceConfiguration =
+  res
+    "UpdateWorkspaceConfigurationResponse"
+    "fixture/UpdateWorkspaceConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateWorkspaceConfiguration)

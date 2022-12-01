@@ -20,7 +20,7 @@
 module Amazonka.WorkMail.Types.BookingOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | At least one delegate must be associated to the resource to disable

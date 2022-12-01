@@ -20,7 +20,7 @@
 module Amazonka.OpenSearch.Types.DescribePackagesFilter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.DescribePackagesFilterName
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data DescribePackagesFilter = DescribePackagesFilter'
   { -- | Any field from @PackageDetails@.
     name :: Prelude.Maybe DescribePackagesFilterName,
-    -- | A list of values for the specified field.
+    -- | A list of values for the specified filter field.
     value :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +45,7 @@ data DescribePackagesFilter = DescribePackagesFilter'
 --
 -- 'name', 'describePackagesFilter_name' - Any field from @PackageDetails@.
 --
--- 'value', 'describePackagesFilter_value' - A list of values for the specified field.
+-- 'value', 'describePackagesFilter_value' - A list of values for the specified filter field.
 newDescribePackagesFilter ::
   DescribePackagesFilter
 newDescribePackagesFilter =
@@ -58,7 +58,7 @@ newDescribePackagesFilter =
 describePackagesFilter_name :: Lens.Lens' DescribePackagesFilter (Prelude.Maybe DescribePackagesFilterName)
 describePackagesFilter_name = Lens.lens (\DescribePackagesFilter' {name} -> name) (\s@DescribePackagesFilter' {} a -> s {name = a} :: DescribePackagesFilter)
 
--- | A list of values for the specified field.
+-- | A list of values for the specified filter field.
 describePackagesFilter_value :: Lens.Lens' DescribePackagesFilter (Prelude.Maybe [Prelude.Text])
 describePackagesFilter_value = Lens.lens (\DescribePackagesFilter' {value} -> value) (\s@DescribePackagesFilter' {} a -> s {value = a} :: DescribePackagesFilter) Prelude.. Lens.mapping Lens.coerced
 

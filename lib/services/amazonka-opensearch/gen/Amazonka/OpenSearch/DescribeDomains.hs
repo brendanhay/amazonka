@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns domain configuration information about the specified domains,
--- including the domain ID, domain endpoint, and domain ARN.
+-- Returns domain configuration information about the specified Amazon
+-- OpenSearch Service domains.
 module Amazonka.OpenSearch.DescribeDomains
   ( -- * Creating a Request
     DescribeDomains (..),
@@ -41,18 +41,19 @@ module Amazonka.OpenSearch.DescribeDomains
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ DescribeDomains @ operation. By
--- default, the API returns the status of all domains.
+-- | Container for the parameters to the @DescribeDomains@ operation.
 --
 -- /See:/ 'newDescribeDomains' smart constructor.
 data DescribeDomains = DescribeDomains'
-  { -- | The domains for which you want information.
+  { -- | Array of OpenSearch Service domain names that you want information
+    -- about. If you don\'t specify any domains, OpenSearch Service returns
+    -- information about all domains owned by the account.
     domainNames :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,13 +66,17 @@ data DescribeDomains = DescribeDomains'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainNames', 'describeDomains_domainNames' - The domains for which you want information.
+-- 'domainNames', 'describeDomains_domainNames' - Array of OpenSearch Service domain names that you want information
+-- about. If you don\'t specify any domains, OpenSearch Service returns
+-- information about all domains owned by the account.
 newDescribeDomains ::
   DescribeDomains
 newDescribeDomains =
   DescribeDomains' {domainNames = Prelude.mempty}
 
--- | The domains for which you want information.
+-- | Array of OpenSearch Service domain names that you want information
+-- about. If you don\'t specify any domains, OpenSearch Service returns
+-- information about all domains owned by the account.
 describeDomains_domainNames :: Lens.Lens' DescribeDomains [Prelude.Text]
 describeDomains_domainNames = Lens.lens (\DescribeDomains' {domainNames} -> domainNames) (\s@DescribeDomains' {} a -> s {domainNames = a} :: DescribeDomains) Prelude.. Lens.coerced
 
@@ -79,8 +84,8 @@ instance Core.AWSRequest DescribeDomains where
   type
     AWSResponse DescribeDomains =
       DescribeDomainsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,14 +120,14 @@ instance Core.ToPath DescribeDomains where
 instance Core.ToQuery DescribeDomains where
   toQuery = Prelude.const Prelude.mempty
 
--- | The result of a @DescribeDomains@ request. Contains the status of the
--- specified domains or all domains owned by the account.
+-- | Contains the status of the specified domains or all domains owned by the
+-- account.
 --
 -- /See:/ 'newDescribeDomainsResponse' smart constructor.
 data DescribeDomainsResponse = DescribeDomainsResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The status of the domains requested in the @DescribeDomains@ request.
+    -- | The status of the requested domains.
     domainStatusList :: [DomainStatus]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -137,7 +142,7 @@ data DescribeDomainsResponse = DescribeDomainsResponse'
 --
 -- 'httpStatus', 'describeDomainsResponse_httpStatus' - The response's http status code.
 --
--- 'domainStatusList', 'describeDomainsResponse_domainStatusList' - The status of the domains requested in the @DescribeDomains@ request.
+-- 'domainStatusList', 'describeDomainsResponse_domainStatusList' - The status of the requested domains.
 newDescribeDomainsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -152,7 +157,7 @@ newDescribeDomainsResponse pHttpStatus_ =
 describeDomainsResponse_httpStatus :: Lens.Lens' DescribeDomainsResponse Prelude.Int
 describeDomainsResponse_httpStatus = Lens.lens (\DescribeDomainsResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainsResponse' {} a -> s {httpStatus = a} :: DescribeDomainsResponse)
 
--- | The status of the domains requested in the @DescribeDomains@ request.
+-- | The status of the requested domains.
 describeDomainsResponse_domainStatusList :: Lens.Lens' DescribeDomainsResponse [DomainStatus]
 describeDomainsResponse_domainStatusList = Lens.lens (\DescribeDomainsResponse' {domainStatusList} -> domainStatusList) (\s@DescribeDomainsResponse' {} a -> s {domainStatusList = a} :: DescribeDomainsResponse) Prelude.. Lens.coerced
 

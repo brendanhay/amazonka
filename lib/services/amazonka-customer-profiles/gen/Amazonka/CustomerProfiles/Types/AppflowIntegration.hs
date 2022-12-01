@@ -20,9 +20,9 @@
 module Amazonka.CustomerProfiles.Types.AppflowIntegration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.Batch
 import Amazonka.CustomerProfiles.Types.FlowDefinition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for workflow of type @APPFLOW_INTEGRATION@.

@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestAssociatePackage $
 --             newAssociatePackage
 --
+--         , requestAuthorizeVpcEndpointAccess $
+--             newAuthorizeVpcEndpointAccess
+--
 --         , requestCancelElasticsearchServiceSoftwareUpdate $
 --             newCancelElasticsearchServiceSoftwareUpdate
 --
@@ -47,6 +50,9 @@ import Test.Tasty
 --
 --         , requestCreatePackage $
 --             newCreatePackage
+--
+--         , requestCreateVpcEndpoint $
+--             newCreateVpcEndpoint
 --
 --         , requestDeleteElasticsearchDomain $
 --             newDeleteElasticsearchDomain
@@ -62,6 +68,9 @@ import Test.Tasty
 --
 --         , requestDeletePackage $
 --             newDeletePackage
+--
+--         , requestDeleteVpcEndpoint $
+--             newDeleteVpcEndpoint
 --
 --         , requestDescribeDomainAutoTunes $
 --             newDescribeDomainAutoTunes
@@ -96,6 +105,9 @@ import Test.Tasty
 --         , requestDescribeReservedElasticsearchInstances $
 --             newDescribeReservedElasticsearchInstances
 --
+--         , requestDescribeVpcEndpoints $
+--             newDescribeVpcEndpoints
+--
 --         , requestDissociatePackage $
 --             newDissociatePackage
 --
@@ -129,6 +141,15 @@ import Test.Tasty
 --         , requestListTags $
 --             newListTags
 --
+--         , requestListVpcEndpointAccess $
+--             newListVpcEndpointAccess
+--
+--         , requestListVpcEndpoints $
+--             newListVpcEndpoints
+--
+--         , requestListVpcEndpointsForDomain $
+--             newListVpcEndpointsForDomain
+--
 --         , requestPurchaseReservedElasticsearchInstanceOffering $
 --             newPurchaseReservedElasticsearchInstanceOffering
 --
@@ -138,6 +159,9 @@ import Test.Tasty
 --         , requestRemoveTags $
 --             newRemoveTags
 --
+--         , requestRevokeVpcEndpointAccess $
+--             newRevokeVpcEndpointAccess
+--
 --         , requestStartElasticsearchServiceSoftwareUpdate $
 --             newStartElasticsearchServiceSoftwareUpdate
 --
@@ -146,6 +170,9 @@ import Test.Tasty
 --
 --         , requestUpdatePackage $
 --             newUpdatePackage
+--
+--         , requestUpdateVpcEndpoint $
+--             newUpdateVpcEndpoint
 --
 --         , requestUpgradeElasticsearchDomain $
 --             newUpgradeElasticsearchDomain
@@ -162,6 +189,9 @@ import Test.Tasty
 --         , responseAssociatePackage $
 --             newAssociatePackageResponse
 --
+--         , responseAuthorizeVpcEndpointAccess $
+--             newAuthorizeVpcEndpointAccessResponse
+--
 --         , responseCancelElasticsearchServiceSoftwareUpdate $
 --             newCancelElasticsearchServiceSoftwareUpdateResponse
 --
@@ -173,6 +203,9 @@ import Test.Tasty
 --
 --         , responseCreatePackage $
 --             newCreatePackageResponse
+--
+--         , responseCreateVpcEndpoint $
+--             newCreateVpcEndpointResponse
 --
 --         , responseDeleteElasticsearchDomain $
 --             newDeleteElasticsearchDomainResponse
@@ -188,6 +221,9 @@ import Test.Tasty
 --
 --         , responseDeletePackage $
 --             newDeletePackageResponse
+--
+--         , responseDeleteVpcEndpoint $
+--             newDeleteVpcEndpointResponse
 --
 --         , responseDescribeDomainAutoTunes $
 --             newDescribeDomainAutoTunesResponse
@@ -222,6 +258,9 @@ import Test.Tasty
 --         , responseDescribeReservedElasticsearchInstances $
 --             newDescribeReservedElasticsearchInstancesResponse
 --
+--         , responseDescribeVpcEndpoints $
+--             newDescribeVpcEndpointsResponse
+--
 --         , responseDissociatePackage $
 --             newDissociatePackageResponse
 --
@@ -255,6 +294,15 @@ import Test.Tasty
 --         , responseListTags $
 --             newListTagsResponse
 --
+--         , responseListVpcEndpointAccess $
+--             newListVpcEndpointAccessResponse
+--
+--         , responseListVpcEndpoints $
+--             newListVpcEndpointsResponse
+--
+--         , responseListVpcEndpointsForDomain $
+--             newListVpcEndpointsForDomainResponse
+--
 --         , responsePurchaseReservedElasticsearchInstanceOffering $
 --             newPurchaseReservedElasticsearchInstanceOfferingResponse
 --
@@ -264,6 +312,9 @@ import Test.Tasty
 --         , responseRemoveTags $
 --             newRemoveTagsResponse
 --
+--         , responseRevokeVpcEndpointAccess $
+--             newRevokeVpcEndpointAccessResponse
+--
 --         , responseStartElasticsearchServiceSoftwareUpdate $
 --             newStartElasticsearchServiceSoftwareUpdateResponse
 --
@@ -272,6 +323,9 @@ import Test.Tasty
 --
 --         , responseUpdatePackage $
 --             newUpdatePackageResponse
+--
+--         , responseUpdateVpcEndpoint $
+--             newUpdateVpcEndpointResponse
 --
 --         , responseUpgradeElasticsearchDomain $
 --             newUpgradeElasticsearchDomainResponse
@@ -299,6 +353,12 @@ requestAssociatePackage =
     "AssociatePackage"
     "fixture/AssociatePackage.yaml"
 
+requestAuthorizeVpcEndpointAccess :: AuthorizeVpcEndpointAccess -> TestTree
+requestAuthorizeVpcEndpointAccess =
+  req
+    "AuthorizeVpcEndpointAccess"
+    "fixture/AuthorizeVpcEndpointAccess.yaml"
+
 requestCancelElasticsearchServiceSoftwareUpdate :: CancelElasticsearchServiceSoftwareUpdate -> TestTree
 requestCancelElasticsearchServiceSoftwareUpdate =
   req
@@ -322,6 +382,12 @@ requestCreatePackage =
   req
     "CreatePackage"
     "fixture/CreatePackage.yaml"
+
+requestCreateVpcEndpoint :: CreateVpcEndpoint -> TestTree
+requestCreateVpcEndpoint =
+  req
+    "CreateVpcEndpoint"
+    "fixture/CreateVpcEndpoint.yaml"
 
 requestDeleteElasticsearchDomain :: DeleteElasticsearchDomain -> TestTree
 requestDeleteElasticsearchDomain =
@@ -352,6 +418,12 @@ requestDeletePackage =
   req
     "DeletePackage"
     "fixture/DeletePackage.yaml"
+
+requestDeleteVpcEndpoint :: DeleteVpcEndpoint -> TestTree
+requestDeleteVpcEndpoint =
+  req
+    "DeleteVpcEndpoint"
+    "fixture/DeleteVpcEndpoint.yaml"
 
 requestDescribeDomainAutoTunes :: DescribeDomainAutoTunes -> TestTree
 requestDescribeDomainAutoTunes =
@@ -419,6 +491,12 @@ requestDescribeReservedElasticsearchInstances =
     "DescribeReservedElasticsearchInstances"
     "fixture/DescribeReservedElasticsearchInstances.yaml"
 
+requestDescribeVpcEndpoints :: DescribeVpcEndpoints -> TestTree
+requestDescribeVpcEndpoints =
+  req
+    "DescribeVpcEndpoints"
+    "fixture/DescribeVpcEndpoints.yaml"
+
 requestDissociatePackage :: DissociatePackage -> TestTree
 requestDissociatePackage =
   req
@@ -485,6 +563,24 @@ requestListTags =
     "ListTags"
     "fixture/ListTags.yaml"
 
+requestListVpcEndpointAccess :: ListVpcEndpointAccess -> TestTree
+requestListVpcEndpointAccess =
+  req
+    "ListVpcEndpointAccess"
+    "fixture/ListVpcEndpointAccess.yaml"
+
+requestListVpcEndpoints :: ListVpcEndpoints -> TestTree
+requestListVpcEndpoints =
+  req
+    "ListVpcEndpoints"
+    "fixture/ListVpcEndpoints.yaml"
+
+requestListVpcEndpointsForDomain :: ListVpcEndpointsForDomain -> TestTree
+requestListVpcEndpointsForDomain =
+  req
+    "ListVpcEndpointsForDomain"
+    "fixture/ListVpcEndpointsForDomain.yaml"
+
 requestPurchaseReservedElasticsearchInstanceOffering :: PurchaseReservedElasticsearchInstanceOffering -> TestTree
 requestPurchaseReservedElasticsearchInstanceOffering =
   req
@@ -503,6 +599,12 @@ requestRemoveTags =
     "RemoveTags"
     "fixture/RemoveTags.yaml"
 
+requestRevokeVpcEndpointAccess :: RevokeVpcEndpointAccess -> TestTree
+requestRevokeVpcEndpointAccess =
+  req
+    "RevokeVpcEndpointAccess"
+    "fixture/RevokeVpcEndpointAccess.yaml"
+
 requestStartElasticsearchServiceSoftwareUpdate :: StartElasticsearchServiceSoftwareUpdate -> TestTree
 requestStartElasticsearchServiceSoftwareUpdate =
   req
@@ -520,6 +622,12 @@ requestUpdatePackage =
   req
     "UpdatePackage"
     "fixture/UpdatePackage.yaml"
+
+requestUpdateVpcEndpoint :: UpdateVpcEndpoint -> TestTree
+requestUpdateVpcEndpoint =
+  req
+    "UpdateVpcEndpoint"
+    "fixture/UpdateVpcEndpoint.yaml"
 
 requestUpgradeElasticsearchDomain :: UpgradeElasticsearchDomain -> TestTree
 requestUpgradeElasticsearchDomain =
@@ -553,6 +661,14 @@ responseAssociatePackage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociatePackage)
 
+responseAuthorizeVpcEndpointAccess :: AuthorizeVpcEndpointAccessResponse -> TestTree
+responseAuthorizeVpcEndpointAccess =
+  res
+    "AuthorizeVpcEndpointAccessResponse"
+    "fixture/AuthorizeVpcEndpointAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AuthorizeVpcEndpointAccess)
+
 responseCancelElasticsearchServiceSoftwareUpdate :: CancelElasticsearchServiceSoftwareUpdateResponse -> TestTree
 responseCancelElasticsearchServiceSoftwareUpdate =
   res
@@ -584,6 +700,14 @@ responseCreatePackage =
     "fixture/CreatePackageResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreatePackage)
+
+responseCreateVpcEndpoint :: CreateVpcEndpointResponse -> TestTree
+responseCreateVpcEndpoint =
+  res
+    "CreateVpcEndpointResponse"
+    "fixture/CreateVpcEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVpcEndpoint)
 
 responseDeleteElasticsearchDomain :: DeleteElasticsearchDomainResponse -> TestTree
 responseDeleteElasticsearchDomain =
@@ -624,6 +748,14 @@ responseDeletePackage =
     "fixture/DeletePackageResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeletePackage)
+
+responseDeleteVpcEndpoint :: DeleteVpcEndpointResponse -> TestTree
+responseDeleteVpcEndpoint =
+  res
+    "DeleteVpcEndpointResponse"
+    "fixture/DeleteVpcEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpcEndpoint)
 
 responseDescribeDomainAutoTunes :: DescribeDomainAutoTunesResponse -> TestTree
 responseDescribeDomainAutoTunes =
@@ -713,6 +845,14 @@ responseDescribeReservedElasticsearchInstances =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeReservedElasticsearchInstances)
 
+responseDescribeVpcEndpoints :: DescribeVpcEndpointsResponse -> TestTree
+responseDescribeVpcEndpoints =
+  res
+    "DescribeVpcEndpointsResponse"
+    "fixture/DescribeVpcEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcEndpoints)
+
 responseDissociatePackage :: DissociatePackageResponse -> TestTree
 responseDissociatePackage =
   res
@@ -801,6 +941,30 @@ responseListTags =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTags)
 
+responseListVpcEndpointAccess :: ListVpcEndpointAccessResponse -> TestTree
+responseListVpcEndpointAccess =
+  res
+    "ListVpcEndpointAccessResponse"
+    "fixture/ListVpcEndpointAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVpcEndpointAccess)
+
+responseListVpcEndpoints :: ListVpcEndpointsResponse -> TestTree
+responseListVpcEndpoints =
+  res
+    "ListVpcEndpointsResponse"
+    "fixture/ListVpcEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVpcEndpoints)
+
+responseListVpcEndpointsForDomain :: ListVpcEndpointsForDomainResponse -> TestTree
+responseListVpcEndpointsForDomain =
+  res
+    "ListVpcEndpointsForDomainResponse"
+    "fixture/ListVpcEndpointsForDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVpcEndpointsForDomain)
+
 responsePurchaseReservedElasticsearchInstanceOffering :: PurchaseReservedElasticsearchInstanceOfferingResponse -> TestTree
 responsePurchaseReservedElasticsearchInstanceOffering =
   res
@@ -825,6 +989,14 @@ responseRemoveTags =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RemoveTags)
 
+responseRevokeVpcEndpointAccess :: RevokeVpcEndpointAccessResponse -> TestTree
+responseRevokeVpcEndpointAccess =
+  res
+    "RevokeVpcEndpointAccessResponse"
+    "fixture/RevokeVpcEndpointAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RevokeVpcEndpointAccess)
+
 responseStartElasticsearchServiceSoftwareUpdate :: StartElasticsearchServiceSoftwareUpdateResponse -> TestTree
 responseStartElasticsearchServiceSoftwareUpdate =
   res
@@ -848,6 +1020,14 @@ responseUpdatePackage =
     "fixture/UpdatePackageResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdatePackage)
+
+responseUpdateVpcEndpoint :: UpdateVpcEndpointResponse -> TestTree
+responseUpdateVpcEndpoint =
+  res
+    "UpdateVpcEndpointResponse"
+    "fixture/UpdateVpcEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVpcEndpoint)
 
 responseUpgradeElasticsearchDomain :: UpgradeElasticsearchDomainResponse -> TestTree
 responseUpgradeElasticsearchDomain =

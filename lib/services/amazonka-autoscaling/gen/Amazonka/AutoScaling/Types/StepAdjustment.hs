@@ -20,7 +20,7 @@
 module Amazonka.AutoScaling.Types.StepAdjustment where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes information used to create a step adjustment for a step

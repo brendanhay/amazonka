@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.ClusterSetting where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.ClusterSettingName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings to use when creating a cluster. This parameter is used to

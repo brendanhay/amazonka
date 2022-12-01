@@ -20,11 +20,11 @@
 module Amazonka.GuardDuty.Types.ScanDetections where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.HighestSeverityThreatDetails
 import Amazonka.GuardDuty.Types.ScannedItemCount
 import Amazonka.GuardDuty.Types.ThreatDetectedByName
 import Amazonka.GuardDuty.Types.ThreatsDetectedItemCount
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a complete view providing malware scan result details.

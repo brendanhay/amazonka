@@ -21,7 +21,7 @@ module Amazonka.CodePipeline.Types.EncryptionKey where
 
 import Amazonka.CodePipeline.Types.EncryptionKeyType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the key used to encrypt data in the

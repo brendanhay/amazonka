@@ -20,8 +20,8 @@
 module Amazonka.IAM.Types.SimulatePolicyResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types.EvaluationResult
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the response to a successful SimulatePrincipalPolicy or

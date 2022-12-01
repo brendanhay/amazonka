@@ -20,7 +20,7 @@
 module Amazonka.XRay.Types.SamplingStatisticsDocument where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Request sampling results for a single rule from a service. Results are

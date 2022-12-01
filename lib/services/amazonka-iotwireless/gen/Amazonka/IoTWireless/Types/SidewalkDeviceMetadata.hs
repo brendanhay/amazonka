@@ -20,10 +20,10 @@
 module Amazonka.IoTWireless.Types.SidewalkDeviceMetadata where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.BatteryLevel
 import Amazonka.IoTWireless.Types.DeviceState
 import Amazonka.IoTWireless.Types.Event
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | MetaData for Sidewalk device.

@@ -21,7 +21,7 @@ module Amazonka.CloudFormation.Types.TypeFilters where
 
 import Amazonka.CloudFormation.Types.Category
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filter criteria to use in determining which extensions to return.

@@ -20,7 +20,7 @@
 module Amazonka.CloudWatch.Types.MetricStreamFilter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains the name of one of the metric namespaces that is

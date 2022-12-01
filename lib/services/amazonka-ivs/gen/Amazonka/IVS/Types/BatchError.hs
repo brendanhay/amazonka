@@ -20,7 +20,7 @@
 module Amazonka.IVS.Types.BatchError where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Error related to a specific channel, specified by its ARN.

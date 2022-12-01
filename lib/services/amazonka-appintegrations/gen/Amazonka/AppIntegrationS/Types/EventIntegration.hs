@@ -21,7 +21,7 @@ module Amazonka.AppIntegrationS.Types.EventIntegration where
 
 import Amazonka.AppIntegrationS.Types.EventFilter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The event integration.

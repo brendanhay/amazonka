@@ -23,7 +23,7 @@ import Amazonka.Config.Types.CustomPolicyDetails
 import Amazonka.Config.Types.Owner
 import Amazonka.Config.Types.SourceDetail
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the CustomPolicyDetails, the rule owner (@Amazon Web Services@

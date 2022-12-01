@@ -22,7 +22,7 @@ module Amazonka.AppConfig.Types.Environment where
 import Amazonka.AppConfig.Types.EnvironmentState
 import Amazonka.AppConfig.Types.Monitor
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newEnvironment' smart constructor.

@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.StorageVirtualMachineFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.StorageVirtualMachineFilterName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter used to restrict the results of describe calls for Amazon FSx

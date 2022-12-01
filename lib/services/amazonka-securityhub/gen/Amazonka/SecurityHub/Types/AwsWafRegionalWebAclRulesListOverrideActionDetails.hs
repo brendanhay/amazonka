@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsWafRegionalWebAclRulesListOverrideActionDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details about the action to use in the place of the action that

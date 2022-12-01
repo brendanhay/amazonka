@@ -20,13 +20,13 @@
 module Amazonka.ELBV2.Types.RuleCondition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types.HostHeaderConditionConfig
 import Amazonka.ELBV2.Types.HttpHeaderConditionConfig
 import Amazonka.ELBV2.Types.HttpRequestMethodConditionConfig
 import Amazonka.ELBV2.Types.PathPatternConditionConfig
 import Amazonka.ELBV2.Types.QueryStringConditionConfig
 import Amazonka.ELBV2.Types.SourceIpConditionConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a condition for a rule.

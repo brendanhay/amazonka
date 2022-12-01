@@ -20,8 +20,8 @@
 module Amazonka.GreengrassV2.Types.ComponentRunWith where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types.SystemResourceLimits
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information system user and group that the IoT Greengrass Core

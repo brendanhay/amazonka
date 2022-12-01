@@ -20,7 +20,7 @@
 module Amazonka.CodeBuild.Types.PhaseContext where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional information about a build phase that has an error. You can

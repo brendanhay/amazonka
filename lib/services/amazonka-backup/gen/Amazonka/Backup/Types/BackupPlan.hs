@@ -22,7 +22,7 @@ module Amazonka.Backup.Types.BackupPlan where
 import Amazonka.Backup.Types.AdvancedBackupSetting
 import Amazonka.Backup.Types.BackupRule
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an optional backup plan display name and an array of

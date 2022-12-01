@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.OriginRequestPolicyList where
 
 import Amazonka.CloudFront.Types.OriginRequestPolicySummary
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of origin request policies.

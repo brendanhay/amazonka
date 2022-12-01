@@ -20,16 +20,17 @@
 module Amazonka.OpenSearch.Types.EBSOptionsStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.EBSOptions
 import Amazonka.OpenSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | Status of the EBS options for the specified domain.
+-- | The status of the EBS options for the specified OpenSearch Service
+-- domain.
 --
 -- /See:/ 'newEBSOptionsStatus' smart constructor.
 data EBSOptionsStatus = EBSOptionsStatus'
-  { -- | The EBS options for the specified domain.
+  { -- | The configured EBS options for the specified domain.
     options :: EBSOptions,
     -- | The status of the EBS options for the specified domain.
     status :: OptionStatus
@@ -44,7 +45,7 @@ data EBSOptionsStatus = EBSOptionsStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'options', 'eBSOptionsStatus_options' - The EBS options for the specified domain.
+-- 'options', 'eBSOptionsStatus_options' - The configured EBS options for the specified domain.
 --
 -- 'status', 'eBSOptionsStatus_status' - The status of the EBS options for the specified domain.
 newEBSOptionsStatus ::
@@ -59,7 +60,7 @@ newEBSOptionsStatus pOptions_ pStatus_ =
       status = pStatus_
     }
 
--- | The EBS options for the specified domain.
+-- | The configured EBS options for the specified domain.
 eBSOptionsStatus_options :: Lens.Lens' EBSOptionsStatus EBSOptions
 eBSOptionsStatus_options = Lens.lens (\EBSOptionsStatus' {options} -> options) (\s@EBSOptionsStatus' {} a -> s {options = a} :: EBSOptionsStatus)
 

@@ -21,7 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.FrameMetricDatum where
 
 import Amazonka.CodeGuruProfiler.Types.FrameMetric
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a frame metric and its values.

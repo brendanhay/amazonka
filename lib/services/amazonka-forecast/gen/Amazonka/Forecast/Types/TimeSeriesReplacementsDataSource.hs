@@ -20,9 +20,9 @@
 module Amazonka.Forecast.Types.TimeSeriesReplacementsDataSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.S3Config
 import Amazonka.Forecast.Types.Schema
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A replacement dataset is a modified version of the baseline related time

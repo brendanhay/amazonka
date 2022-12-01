@@ -20,8 +20,8 @@
 module Amazonka.DynamoDBStreams.Types.SequenceNumberRange where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDBStreams.Internal
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The beginning and ending sequence numbers for the stream records

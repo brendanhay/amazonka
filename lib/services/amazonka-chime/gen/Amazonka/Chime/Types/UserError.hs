@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.UserError where
 
 import Amazonka.Chime.Types.ErrorCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of errors returned when errors are encountered during the

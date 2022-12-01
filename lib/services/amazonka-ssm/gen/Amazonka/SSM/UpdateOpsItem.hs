@@ -38,6 +38,7 @@ module Amazonka.SSM.UpdateOpsItem
 
     -- * Request Lenses
     updateOpsItem_notifications,
+    updateOpsItem_opsItemArn,
     updateOpsItem_severity,
     updateOpsItem_plannedStartTime,
     updateOpsItem_operationalDataToDelete,
@@ -63,7 +64,7 @@ module Amazonka.SSM.UpdateOpsItem
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -74,6 +75,8 @@ data UpdateOpsItem = UpdateOpsItem'
   { -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
     -- sent when this OpsItem is edited or changed.
     notifications :: Prelude.Maybe [OpsItemNotification],
+    -- | The OpsItem Amazon Resource Name (ARN).
+    opsItemArn :: Prelude.Maybe Prelude.Text,
     -- | Specify a new severity for an OpsItem.
     severity :: Prelude.Maybe Prelude.Text,
     -- | The time specified in a change request for a runbook workflow to start.
@@ -154,6 +157,8 @@ data UpdateOpsItem = UpdateOpsItem'
 -- 'notifications', 'updateOpsItem_notifications' - The Amazon Resource Name (ARN) of an SNS topic where notifications are
 -- sent when this OpsItem is edited or changed.
 --
+-- 'opsItemArn', 'updateOpsItem_opsItemArn' - The OpsItem Amazon Resource Name (ARN).
+--
 -- 'severity', 'updateOpsItem_severity' - Specify a new severity for an OpsItem.
 --
 -- 'plannedStartTime', 'updateOpsItem_plannedStartTime' - The time specified in a change request for a runbook workflow to start.
@@ -226,6 +231,7 @@ newUpdateOpsItem ::
 newUpdateOpsItem pOpsItemId_ =
   UpdateOpsItem'
     { notifications = Prelude.Nothing,
+      opsItemArn = Prelude.Nothing,
       severity = Prelude.Nothing,
       plannedStartTime = Prelude.Nothing,
       operationalDataToDelete = Prelude.Nothing,
@@ -246,6 +252,10 @@ newUpdateOpsItem pOpsItemId_ =
 -- sent when this OpsItem is edited or changed.
 updateOpsItem_notifications :: Lens.Lens' UpdateOpsItem (Prelude.Maybe [OpsItemNotification])
 updateOpsItem_notifications = Lens.lens (\UpdateOpsItem' {notifications} -> notifications) (\s@UpdateOpsItem' {} a -> s {notifications = a} :: UpdateOpsItem) Prelude.. Lens.mapping Lens.coerced
+
+-- | The OpsItem Amazon Resource Name (ARN).
+updateOpsItem_opsItemArn :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.Text)
+updateOpsItem_opsItemArn = Lens.lens (\UpdateOpsItem' {opsItemArn} -> opsItemArn) (\s@UpdateOpsItem' {} a -> s {opsItemArn = a} :: UpdateOpsItem)
 
 -- | Specify a new severity for an OpsItem.
 updateOpsItem_severity :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.Text)
@@ -345,8 +355,8 @@ instance Core.AWSRequest UpdateOpsItem where
   type
     AWSResponse UpdateOpsItem =
       UpdateOpsItemResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -357,6 +367,7 @@ instance Core.AWSRequest UpdateOpsItem where
 instance Prelude.Hashable UpdateOpsItem where
   hashWithSalt _salt UpdateOpsItem' {..} =
     _salt `Prelude.hashWithSalt` notifications
+      `Prelude.hashWithSalt` opsItemArn
       `Prelude.hashWithSalt` severity
       `Prelude.hashWithSalt` plannedStartTime
       `Prelude.hashWithSalt` operationalDataToDelete
@@ -375,6 +386,7 @@ instance Prelude.Hashable UpdateOpsItem where
 instance Prelude.NFData UpdateOpsItem where
   rnf UpdateOpsItem' {..} =
     Prelude.rnf notifications
+      `Prelude.seq` Prelude.rnf opsItemArn
       `Prelude.seq` Prelude.rnf severity
       `Prelude.seq` Prelude.rnf plannedStartTime
       `Prelude.seq` Prelude.rnf operationalDataToDelete
@@ -408,6 +420,7 @@ instance Core.ToJSON UpdateOpsItem where
     Core.object
       ( Prelude.catMaybes
           [ ("Notifications" Core..=) Prelude.<$> notifications,
+            ("OpsItemArn" Core..=) Prelude.<$> opsItemArn,
             ("Severity" Core..=) Prelude.<$> severity,
             ("PlannedStartTime" Core..=)
               Prelude.<$> plannedStartTime,

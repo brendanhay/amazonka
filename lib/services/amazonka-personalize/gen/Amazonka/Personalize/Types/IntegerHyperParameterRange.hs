@@ -20,7 +20,7 @@
 module Amazonka.Personalize.Types.IntegerHyperParameterRange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the name and range of an integer-valued hyperparameter.

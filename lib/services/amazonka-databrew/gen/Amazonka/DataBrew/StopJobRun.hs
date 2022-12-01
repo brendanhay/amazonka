@@ -41,8 +41,8 @@ module Amazonka.DataBrew.StopJobRun
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,8 +86,8 @@ stopJobRun_runId = Lens.lens (\StopJobRun' {runId} -> runId) (\s@StopJobRun' {} 
 
 instance Core.AWSRequest StopJobRun where
   type AWSResponse StopJobRun = StopJobRunResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

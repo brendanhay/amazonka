@@ -20,7 +20,7 @@
 module Amazonka.GuardDuty.Types.Total where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the total usage with the corresponding currency unit for that

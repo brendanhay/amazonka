@@ -20,9 +20,9 @@
 module Amazonka.EMRContainers.Types.VirtualCluster where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRContainers.Types.ContainerProvider
 import Amazonka.EMRContainers.Types.VirtualClusterState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This entity describes a virtual cluster. A virtual cluster is a

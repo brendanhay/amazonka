@@ -20,12 +20,11 @@
 module Amazonka.OpenSearch.Types.RecurringCharge where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains the specific price and frequency of a recurring charges for a
--- reserved OpenSearch instance, or for a reserved OpenSearch instance
--- offering.
+-- | Contains the specific price and frequency of a recurring charges for an
+-- OpenSearch Reserved Instance, or for a Reserved Instance offering.
 --
 -- /See:/ 'newRecurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'

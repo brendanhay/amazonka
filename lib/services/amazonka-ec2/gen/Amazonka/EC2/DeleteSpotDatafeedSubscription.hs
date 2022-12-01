@@ -36,8 +36,8 @@ module Amazonka.EC2.DeleteSpotDatafeedSubscription
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,8 +88,8 @@ instance
   type
     AWSResponse DeleteSpotDatafeedSubscription =
       DeleteSpotDatafeedSubscriptionResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull
       DeleteSpotDatafeedSubscriptionResponse'

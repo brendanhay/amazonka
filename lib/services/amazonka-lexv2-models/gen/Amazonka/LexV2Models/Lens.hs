@@ -14,6 +14,42 @@
 module Amazonka.LexV2Models.Lens
   ( -- * Operations
 
+    -- ** BatchCreateCustomVocabularyItem
+    batchCreateCustomVocabularyItem_botId,
+    batchCreateCustomVocabularyItem_botVersion,
+    batchCreateCustomVocabularyItem_localeId,
+    batchCreateCustomVocabularyItem_customVocabularyItemList,
+    batchCreateCustomVocabularyItemResponse_botVersion,
+    batchCreateCustomVocabularyItemResponse_localeId,
+    batchCreateCustomVocabularyItemResponse_botId,
+    batchCreateCustomVocabularyItemResponse_errors,
+    batchCreateCustomVocabularyItemResponse_resources,
+    batchCreateCustomVocabularyItemResponse_httpStatus,
+
+    -- ** BatchDeleteCustomVocabularyItem
+    batchDeleteCustomVocabularyItem_botId,
+    batchDeleteCustomVocabularyItem_botVersion,
+    batchDeleteCustomVocabularyItem_localeId,
+    batchDeleteCustomVocabularyItem_customVocabularyItemList,
+    batchDeleteCustomVocabularyItemResponse_botVersion,
+    batchDeleteCustomVocabularyItemResponse_localeId,
+    batchDeleteCustomVocabularyItemResponse_botId,
+    batchDeleteCustomVocabularyItemResponse_errors,
+    batchDeleteCustomVocabularyItemResponse_resources,
+    batchDeleteCustomVocabularyItemResponse_httpStatus,
+
+    -- ** BatchUpdateCustomVocabularyItem
+    batchUpdateCustomVocabularyItem_botId,
+    batchUpdateCustomVocabularyItem_botVersion,
+    batchUpdateCustomVocabularyItem_localeId,
+    batchUpdateCustomVocabularyItem_customVocabularyItemList,
+    batchUpdateCustomVocabularyItemResponse_botVersion,
+    batchUpdateCustomVocabularyItemResponse_localeId,
+    batchUpdateCustomVocabularyItemResponse_botId,
+    batchUpdateCustomVocabularyItemResponse_errors,
+    batchUpdateCustomVocabularyItemResponse_resources,
+    batchUpdateCustomVocabularyItemResponse_httpStatus,
+
     -- ** BuildBotLocale
     buildBotLocale_botId,
     buildBotLocale_botVersion,
@@ -610,6 +646,19 @@ module Amazonka.LexV2Models.Lens
     listBuiltInSlotTypesResponse_builtInSlotTypeSummaries,
     listBuiltInSlotTypesResponse_httpStatus,
 
+    -- ** ListCustomVocabularyItems
+    listCustomVocabularyItems_nextToken,
+    listCustomVocabularyItems_maxResults,
+    listCustomVocabularyItems_botId,
+    listCustomVocabularyItems_botVersion,
+    listCustomVocabularyItems_localeId,
+    listCustomVocabularyItemsResponse_nextToken,
+    listCustomVocabularyItemsResponse_customVocabularyItems,
+    listCustomVocabularyItemsResponse_botVersion,
+    listCustomVocabularyItemsResponse_localeId,
+    listCustomVocabularyItemsResponse_botId,
+    listCustomVocabularyItemsResponse_httpStatus,
+
     -- ** ListExports
     listExports_nextToken,
     listExports_botVersion,
@@ -1176,6 +1225,9 @@ module Amazonka.LexV2Models.Lens
     -- ** CustomPayload
     customPayload_value,
 
+    -- ** CustomVocabularyEntryId
+    customVocabularyEntryId_itemId,
+
     -- ** CustomVocabularyExportSpecification
     customVocabularyExportSpecification_botId,
     customVocabularyExportSpecification_botVersion,
@@ -1185,6 +1237,12 @@ module Amazonka.LexV2Models.Lens
     customVocabularyImportSpecification_botId,
     customVocabularyImportSpecification_botVersion,
     customVocabularyImportSpecification_localeId,
+
+    -- ** CustomVocabularyItem
+    customVocabularyItem_displayAs,
+    customVocabularyItem_weight,
+    customVocabularyItem_itemId,
+    customVocabularyItem_phrase,
 
     -- ** DTMFSpecification
     dTMFSpecification_maxLength,
@@ -1255,6 +1313,11 @@ module Amazonka.LexV2Models.Lens
 
     -- ** ExternalSourceSetting
     externalSourceSetting_grammarSlotTypeSetting,
+
+    -- ** FailedCustomVocabularyItem
+    failedCustomVocabularyItem_errorMessage,
+    failedCustomVocabularyItem_errorCode,
+    failedCustomVocabularyItem_itemId,
 
     -- ** FulfillmentCodeHookSettings
     fulfillmentCodeHookSettings_active,
@@ -1395,6 +1458,11 @@ module Amazonka.LexV2Models.Lens
 
     -- ** MultipleValuesSetting
     multipleValuesSetting_allowMultipleValues,
+
+    -- ** NewCustomVocabularyItem
+    newCustomVocabularyItem_displayAs,
+    newCustomVocabularyItem_weight,
+    newCustomVocabularyItem_phrase,
 
     -- ** ObfuscationSetting
     obfuscationSetting_obfuscationSettingType,
@@ -1627,6 +1695,9 @@ module Amazonka.LexV2Models.Lens
   )
 where
 
+import Amazonka.LexV2Models.BatchCreateCustomVocabularyItem
+import Amazonka.LexV2Models.BatchDeleteCustomVocabularyItem
+import Amazonka.LexV2Models.BatchUpdateCustomVocabularyItem
 import Amazonka.LexV2Models.BuildBotLocale
 import Amazonka.LexV2Models.CreateBot
 import Amazonka.LexV2Models.CreateBotAlias
@@ -1672,6 +1743,7 @@ import Amazonka.LexV2Models.ListBotVersions
 import Amazonka.LexV2Models.ListBots
 import Amazonka.LexV2Models.ListBuiltInIntents
 import Amazonka.LexV2Models.ListBuiltInSlotTypes
+import Amazonka.LexV2Models.ListCustomVocabularyItems
 import Amazonka.LexV2Models.ListExports
 import Amazonka.LexV2Models.ListImports
 import Amazonka.LexV2Models.ListIntents
@@ -1728,8 +1800,10 @@ import Amazonka.LexV2Models.Types.ConditionalBranch
 import Amazonka.LexV2Models.Types.ConditionalSpecification
 import Amazonka.LexV2Models.Types.ConversationLogSettings
 import Amazonka.LexV2Models.Types.CustomPayload
+import Amazonka.LexV2Models.Types.CustomVocabularyEntryId
 import Amazonka.LexV2Models.Types.CustomVocabularyExportSpecification
 import Amazonka.LexV2Models.Types.CustomVocabularyImportSpecification
+import Amazonka.LexV2Models.Types.CustomVocabularyItem
 import Amazonka.LexV2Models.Types.DTMFSpecification
 import Amazonka.LexV2Models.Types.DataPrivacy
 import Amazonka.LexV2Models.Types.DateRangeFilter
@@ -1745,6 +1819,7 @@ import Amazonka.LexV2Models.Types.ExportResourceSpecification
 import Amazonka.LexV2Models.Types.ExportSortBy
 import Amazonka.LexV2Models.Types.ExportSummary
 import Amazonka.LexV2Models.Types.ExternalSourceSetting
+import Amazonka.LexV2Models.Types.FailedCustomVocabularyItem
 import Amazonka.LexV2Models.Types.FulfillmentCodeHookSettings
 import Amazonka.LexV2Models.Types.FulfillmentStartResponseSpecification
 import Amazonka.LexV2Models.Types.FulfillmentUpdateResponseSpecification
@@ -1771,6 +1846,7 @@ import Amazonka.LexV2Models.Types.LexTranscriptFilter
 import Amazonka.LexV2Models.Types.Message
 import Amazonka.LexV2Models.Types.MessageGroup
 import Amazonka.LexV2Models.Types.MultipleValuesSetting
+import Amazonka.LexV2Models.Types.NewCustomVocabularyItem
 import Amazonka.LexV2Models.Types.ObfuscationSetting
 import Amazonka.LexV2Models.Types.OutputContext
 import Amazonka.LexV2Models.Types.PathFormat

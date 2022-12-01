@@ -30,10 +30,10 @@
 -- its monthly network transfer quota and is incurring an overage fee.
 --
 -- You can update your distribution\'s bundle only one time within your
--- monthly AWS billing cycle. To determine if you can update your
--- distribution\'s bundle, use the @GetDistributions@ action. The
--- @ableToUpdateBundle@ parameter in the result will indicate whether you
--- can currently update your distribution\'s bundle.
+-- monthly Amazon Web Services billing cycle. To determine if you can
+-- update your distribution\'s bundle, use the @GetDistributions@ action.
+-- The @ableToUpdateBundle@ parameter in the result will indicate whether
+-- you can currently update your distribution\'s bundle.
 module Amazonka.Lightsail.UpdateDistributionBundle
   ( -- * Creating a Request
     UpdateDistributionBundle (..),
@@ -54,7 +54,7 @@ module Amazonka.Lightsail.UpdateDistributionBundle
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,8 +119,8 @@ instance Core.AWSRequest UpdateDistributionBundle where
   type
     AWSResponse UpdateDistributionBundle =
       UpdateDistributionBundleResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

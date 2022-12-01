@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.BlackoutSlate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.BlackoutSlateNetworkEndBlackout
 import Amazonka.MediaLive.Types.BlackoutSlateState
 import Amazonka.MediaLive.Types.InputLocation

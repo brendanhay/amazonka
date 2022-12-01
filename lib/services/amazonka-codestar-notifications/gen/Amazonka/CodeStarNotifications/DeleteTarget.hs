@@ -41,7 +41,7 @@ where
 
 import Amazonka.CodeStarNotifications.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,8 +100,8 @@ deleteTarget_targetAddress = Lens.lens (\DeleteTarget' {targetAddress} -> target
 
 instance Core.AWSRequest DeleteTarget where
   type AWSResponse DeleteTarget = DeleteTargetResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

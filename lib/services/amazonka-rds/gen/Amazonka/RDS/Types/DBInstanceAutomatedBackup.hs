@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.DBInstanceAutomatedBackup where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.DBInstanceAutomatedBackupsReplication
 import Amazonka.RDS.Types.RestoreWindow
@@ -43,6 +43,8 @@ data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
     -- | Specifies where automated backups are stored: Amazon Web Services
     -- Outposts or the Amazon Web Services Region.
     backupTarget :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the storage throughput for the automated backup.
+    storageThroughput :: Prelude.Maybe Prelude.Int,
     -- | The retention period for the automated backups.
     backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The license model of an automated backup.
@@ -97,7 +99,7 @@ data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
     -- | True if mapping of Amazon Web Services Identity and Access Management
     -- (IAM) accounts to database accounts is enabled, and otherwise false.
     iAMDatabaseAuthenticationEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Provides the VPC ID associated with the DB instance
+    -- | Provides the VPC ID associated with the DB instance.
     vpcId :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the source DB instance, which can\'t be changed and
     -- which is unique to an Amazon Web Services Region.
@@ -132,6 +134,8 @@ data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
 --
 -- 'backupTarget', 'dbInstanceAutomatedBackup_backupTarget' - Specifies where automated backups are stored: Amazon Web Services
 -- Outposts or the Amazon Web Services Region.
+--
+-- 'storageThroughput', 'dbInstanceAutomatedBackup_storageThroughput' - Specifies the storage throughput for the automated backup.
 --
 -- 'backupRetentionPeriod', 'dbInstanceAutomatedBackup_backupRetentionPeriod' - The retention period for the automated backups.
 --
@@ -187,7 +191,7 @@ data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
 -- 'iAMDatabaseAuthenticationEnabled', 'dbInstanceAutomatedBackup_iAMDatabaseAuthenticationEnabled' - True if mapping of Amazon Web Services Identity and Access Management
 -- (IAM) accounts to database accounts is enabled, and otherwise false.
 --
--- 'vpcId', 'dbInstanceAutomatedBackup_vpcId' - Provides the VPC ID associated with the DB instance
+-- 'vpcId', 'dbInstanceAutomatedBackup_vpcId' - Provides the VPC ID associated with the DB instance.
 --
 -- 'dbiResourceId', 'dbInstanceAutomatedBackup_dbiResourceId' - The identifier for the source DB instance, which can\'t be changed and
 -- which is unique to an Amazon Web Services Region.
@@ -207,6 +211,7 @@ newDBInstanceAutomatedBackup =
       dbInstanceAutomatedBackupsReplications =
         Prelude.Nothing,
       backupTarget = Prelude.Nothing,
+      storageThroughput = Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
       masterUsername = Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
@@ -251,6 +256,10 @@ dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsReplications = Lens.lens (\D
 -- Outposts or the Amazon Web Services Region.
 dbInstanceAutomatedBackup_backupTarget :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_backupTarget = Lens.lens (\DBInstanceAutomatedBackup' {backupTarget} -> backupTarget) (\s@DBInstanceAutomatedBackup' {} a -> s {backupTarget = a} :: DBInstanceAutomatedBackup)
+
+-- | Specifies the storage throughput for the automated backup.
+dbInstanceAutomatedBackup_storageThroughput :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Int)
+dbInstanceAutomatedBackup_storageThroughput = Lens.lens (\DBInstanceAutomatedBackup' {storageThroughput} -> storageThroughput) (\s@DBInstanceAutomatedBackup' {} a -> s {storageThroughput = a} :: DBInstanceAutomatedBackup)
 
 -- | The retention period for the automated backups.
 dbInstanceAutomatedBackup_backupRetentionPeriod :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Int)
@@ -342,7 +351,7 @@ dbInstanceAutomatedBackup_allocatedStorage = Lens.lens (\DBInstanceAutomatedBack
 dbInstanceAutomatedBackup_iAMDatabaseAuthenticationEnabled :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Bool)
 dbInstanceAutomatedBackup_iAMDatabaseAuthenticationEnabled = Lens.lens (\DBInstanceAutomatedBackup' {iAMDatabaseAuthenticationEnabled} -> iAMDatabaseAuthenticationEnabled) (\s@DBInstanceAutomatedBackup' {} a -> s {iAMDatabaseAuthenticationEnabled = a} :: DBInstanceAutomatedBackup)
 
--- | Provides the VPC ID associated with the DB instance
+-- | Provides the VPC ID associated with the DB instance.
 dbInstanceAutomatedBackup_vpcId :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_vpcId = Lens.lens (\DBInstanceAutomatedBackup' {vpcId} -> vpcId) (\s@DBInstanceAutomatedBackup' {} a -> s {vpcId = a} :: DBInstanceAutomatedBackup)
 
@@ -379,6 +388,7 @@ instance Core.FromXML DBInstanceAutomatedBackup where
                         )
                   )
       Prelude.<*> (x Core..@? "BackupTarget")
+      Prelude.<*> (x Core..@? "StorageThroughput")
       Prelude.<*> (x Core..@? "BackupRetentionPeriod")
       Prelude.<*> (x Core..@? "MasterUsername")
       Prelude.<*> (x Core..@? "DBInstanceIdentifier")
@@ -409,6 +419,7 @@ instance Prelude.Hashable DBInstanceAutomatedBackup where
     _salt `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` dbInstanceAutomatedBackupsReplications
       `Prelude.hashWithSalt` backupTarget
+      `Prelude.hashWithSalt` storageThroughput
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` masterUsername
       `Prelude.hashWithSalt` dbInstanceIdentifier
@@ -439,6 +450,7 @@ instance Prelude.NFData DBInstanceAutomatedBackup where
     Prelude.rnf port
       `Prelude.seq` Prelude.rnf dbInstanceAutomatedBackupsReplications
       `Prelude.seq` Prelude.rnf backupTarget
+      `Prelude.seq` Prelude.rnf storageThroughput
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf masterUsername
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier

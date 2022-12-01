@@ -31,7 +31,7 @@ import Amazonka.CloudFront.Types.PriceClass
 import Amazonka.CloudFront.Types.Restrictions
 import Amazonka.CloudFront.Types.ViewerCertificate
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the information about a CloudFront distribution.

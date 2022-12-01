@@ -20,7 +20,7 @@
 module Amazonka.GameLift.Types.VpcPeeringAuthorization where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an authorization for a VPC peering connection between the VPC

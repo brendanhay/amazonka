@@ -20,7 +20,7 @@
 module Amazonka.ManagedBlockChain.Types.InviteAction where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An action to invite a specific Amazon Web Services account to create a

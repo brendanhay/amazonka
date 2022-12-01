@@ -65,6 +65,7 @@ library
     Amazonka.ECS.DescribeTaskSets
     Amazonka.ECS.DiscoverPollEndpoint
     Amazonka.ECS.ExecuteCommand
+    Amazonka.ECS.GetTaskProtection
     Amazonka.ECS.Lens
     Amazonka.ECS.ListAccountSettings
     Amazonka.ECS.ListAttributes
@@ -184,6 +185,7 @@ library
     Amazonka.ECS.Types.PlatformDeviceType
     Amazonka.ECS.Types.PortMapping
     Amazonka.ECS.Types.PropagateTags
+    Amazonka.ECS.Types.ProtectedTask
     Amazonka.ECS.Types.ProxyConfiguration
     Amazonka.ECS.Types.ProxyConfigurationType
     Amazonka.ECS.Types.RepositoryCredentials
@@ -234,6 +236,7 @@ library
     Amazonka.ECS.UpdateContainerInstancesState
     Amazonka.ECS.UpdateService
     Amazonka.ECS.UpdateServicePrimaryTaskSet
+    Amazonka.ECS.UpdateTaskProtection
     Amazonka.ECS.UpdateTaskSet
     Amazonka.ECS.Waiters
 

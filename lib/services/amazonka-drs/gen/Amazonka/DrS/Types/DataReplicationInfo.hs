@@ -20,11 +20,11 @@
 module Amazonka.DrS.Types.DataReplicationInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.DataReplicationError
 import Amazonka.DrS.Types.DataReplicationInfoReplicatedDisk
 import Amazonka.DrS.Types.DataReplicationInitiation
 import Amazonka.DrS.Types.DataReplicationState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about Data Replication

@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.EndPoint where
 
 import Amazonka.CloudFront.Types.KinesisStreamConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the Amazon Kinesis data stream where you are

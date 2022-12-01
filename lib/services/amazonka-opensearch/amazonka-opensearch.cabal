@@ -47,14 +47,17 @@ library
     Amazonka.OpenSearch.AcceptInboundConnection
     Amazonka.OpenSearch.AddTags
     Amazonka.OpenSearch.AssociatePackage
+    Amazonka.OpenSearch.AuthorizeVpcEndpointAccess
     Amazonka.OpenSearch.CancelServiceSoftwareUpdate
     Amazonka.OpenSearch.CreateDomain
     Amazonka.OpenSearch.CreateOutboundConnection
     Amazonka.OpenSearch.CreatePackage
+    Amazonka.OpenSearch.CreateVpcEndpoint
     Amazonka.OpenSearch.DeleteDomain
     Amazonka.OpenSearch.DeleteInboundConnection
     Amazonka.OpenSearch.DeleteOutboundConnection
     Amazonka.OpenSearch.DeletePackage
+    Amazonka.OpenSearch.DeleteVpcEndpoint
     Amazonka.OpenSearch.DescribeDomain
     Amazonka.OpenSearch.DescribeDomainAutoTunes
     Amazonka.OpenSearch.DescribeDomainChangeProgress
@@ -66,6 +69,7 @@ library
     Amazonka.OpenSearch.DescribePackages
     Amazonka.OpenSearch.DescribeReservedInstanceOfferings
     Amazonka.OpenSearch.DescribeReservedInstances
+    Amazonka.OpenSearch.DescribeVpcEndpoints
     Amazonka.OpenSearch.DissociatePackage
     Amazonka.OpenSearch.GetCompatibleVersions
     Amazonka.OpenSearch.GetPackageVersionHistory
@@ -78,9 +82,13 @@ library
     Amazonka.OpenSearch.ListPackagesForDomain
     Amazonka.OpenSearch.ListTags
     Amazonka.OpenSearch.ListVersions
+    Amazonka.OpenSearch.ListVpcEndpointAccess
+    Amazonka.OpenSearch.ListVpcEndpoints
+    Amazonka.OpenSearch.ListVpcEndpointsForDomain
     Amazonka.OpenSearch.PurchaseReservedInstanceOffering
     Amazonka.OpenSearch.RejectInboundConnection
     Amazonka.OpenSearch.RemoveTags
+    Amazonka.OpenSearch.RevokeVpcEndpointAccess
     Amazonka.OpenSearch.StartServiceSoftwareUpdate
     Amazonka.OpenSearch.Types
     Amazonka.OpenSearch.Types.AccessPoliciesStatus
@@ -89,6 +97,7 @@ library
     Amazonka.OpenSearch.Types.AdvancedSecurityOptions
     Amazonka.OpenSearch.Types.AdvancedSecurityOptionsInput
     Amazonka.OpenSearch.Types.AdvancedSecurityOptionsStatus
+    Amazonka.OpenSearch.Types.AuthorizedPrincipal
     Amazonka.OpenSearch.Types.AutoTune
     Amazonka.OpenSearch.Types.AutoTuneDesiredState
     Amazonka.OpenSearch.Types.AutoTuneDetails
@@ -156,6 +165,7 @@ library
     Amazonka.OpenSearch.Types.PackageStatus
     Amazonka.OpenSearch.Types.PackageType
     Amazonka.OpenSearch.Types.PackageVersionHistory
+    Amazonka.OpenSearch.Types.PrincipalType
     Amazonka.OpenSearch.Types.RecurringCharge
     Amazonka.OpenSearch.Types.ReservedInstance
     Amazonka.OpenSearch.Types.ReservedInstanceOffering
@@ -183,10 +193,16 @@ library
     Amazonka.OpenSearch.Types.VolumeType
     Amazonka.OpenSearch.Types.VPCDerivedInfo
     Amazonka.OpenSearch.Types.VPCDerivedInfoStatus
+    Amazonka.OpenSearch.Types.VpcEndpoint
+    Amazonka.OpenSearch.Types.VpcEndpointError
+    Amazonka.OpenSearch.Types.VpcEndpointErrorCode
+    Amazonka.OpenSearch.Types.VpcEndpointStatus
+    Amazonka.OpenSearch.Types.VpcEndpointSummary
     Amazonka.OpenSearch.Types.VPCOptions
     Amazonka.OpenSearch.Types.ZoneAwarenessConfig
     Amazonka.OpenSearch.UpdateDomainConfig
     Amazonka.OpenSearch.UpdatePackage
+    Amazonka.OpenSearch.UpdateVpcEndpoint
     Amazonka.OpenSearch.UpgradeDomain
     Amazonka.OpenSearch.Waiters
 

@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.InstancePortState where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.NetworkProtocol
 import Amazonka.Lightsail.Types.PortState
 import qualified Amazonka.Prelude as Prelude

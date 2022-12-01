@@ -454,6 +454,10 @@ module Amazonka.MediaTailor
     SegmentDeliveryConfiguration (SegmentDeliveryConfiguration'),
     newSegmentDeliveryConfiguration,
 
+    -- ** SegmentationDescriptor
+    SegmentationDescriptor (SegmentationDescriptor'),
+    newSegmentationDescriptor,
+
     -- ** SlateSource
     SlateSource (SlateSource'),
     newSlateSource,
@@ -465,6 +469,10 @@ module Amazonka.MediaTailor
     -- ** SpliceInsertMessage
     SpliceInsertMessage (SpliceInsertMessage'),
     newSpliceInsertMessage,
+
+    -- ** TimeSignalMessage
+    TimeSignalMessage (TimeSignalMessage'),
+    newTimeSignalMessage,
 
     -- ** Transition
     Transition (Transition'),

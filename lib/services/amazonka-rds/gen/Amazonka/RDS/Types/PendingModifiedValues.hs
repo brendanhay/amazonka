@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.PendingModifiedValues where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.AutomationMode
 import Amazonka.RDS.Types.PendingCloudwatchLogsExports
@@ -34,6 +34,8 @@ import Amazonka.RDS.Types.ProcessorFeature
 data PendingModifiedValues = PendingModifiedValues'
   { -- | The port for the DB instance.
     port :: Prelude.Maybe Prelude.Int,
+    -- | The storage throughput of the DB instance.
+    storageThroughput :: Prelude.Maybe Prelude.Int,
     -- | The number of days for which automated backups are retained.
     backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The name of the compute and memory capacity class for the DB instance.
@@ -92,6 +94,8 @@ data PendingModifiedValues = PendingModifiedValues'
 --
 -- 'port', 'pendingModifiedValues_port' - The port for the DB instance.
 --
+-- 'storageThroughput', 'pendingModifiedValues_storageThroughput' - The storage throughput of the DB instance.
+--
 -- 'backupRetentionPeriod', 'pendingModifiedValues_backupRetentionPeriod' - The number of days for which automated backups are retained.
 --
 -- 'dbInstanceClass', 'pendingModifiedValues_dbInstanceClass' - The name of the compute and memory capacity class for the DB instance.
@@ -142,6 +146,7 @@ newPendingModifiedValues ::
 newPendingModifiedValues =
   PendingModifiedValues'
     { port = Prelude.Nothing,
+      storageThroughput = Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
       dbInstanceClass = Prelude.Nothing,
       automationMode = Prelude.Nothing,
@@ -164,6 +169,10 @@ newPendingModifiedValues =
 -- | The port for the DB instance.
 pendingModifiedValues_port :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Int)
 pendingModifiedValues_port = Lens.lens (\PendingModifiedValues' {port} -> port) (\s@PendingModifiedValues' {} a -> s {port = a} :: PendingModifiedValues)
+
+-- | The storage throughput of the DB instance.
+pendingModifiedValues_storageThroughput :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Int)
+pendingModifiedValues_storageThroughput = Lens.lens (\PendingModifiedValues' {storageThroughput} -> storageThroughput) (\s@PendingModifiedValues' {} a -> s {storageThroughput = a} :: PendingModifiedValues)
 
 -- | The number of days for which automated backups are retained.
 pendingModifiedValues_backupRetentionPeriod :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Int)
@@ -249,6 +258,7 @@ instance Core.FromXML PendingModifiedValues where
   parseXML x =
     PendingModifiedValues'
       Prelude.<$> (x Core..@? "Port")
+      Prelude.<*> (x Core..@? "StorageThroughput")
       Prelude.<*> (x Core..@? "BackupRetentionPeriod")
       Prelude.<*> (x Core..@? "DBInstanceClass")
       Prelude.<*> (x Core..@? "AutomationMode")
@@ -273,6 +283,7 @@ instance Core.FromXML PendingModifiedValues where
 instance Prelude.Hashable PendingModifiedValues where
   hashWithSalt _salt PendingModifiedValues' {..} =
     _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` storageThroughput
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` dbInstanceClass
       `Prelude.hashWithSalt` automationMode
@@ -294,6 +305,7 @@ instance Prelude.Hashable PendingModifiedValues where
 instance Prelude.NFData PendingModifiedValues where
   rnf PendingModifiedValues' {..} =
     Prelude.rnf port
+      `Prelude.seq` Prelude.rnf storageThroughput
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf dbInstanceClass
       `Prelude.seq` Prelude.rnf automationMode

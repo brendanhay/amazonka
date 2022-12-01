@@ -20,7 +20,7 @@
 module Amazonka.IoTFleetWise.Types.Branch where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A group of signals that are defined in a hierarchical structure.

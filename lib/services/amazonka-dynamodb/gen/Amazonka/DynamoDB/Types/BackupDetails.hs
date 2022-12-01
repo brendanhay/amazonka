@@ -20,11 +20,11 @@
 module Amazonka.DynamoDB.Types.BackupDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.BackupStatus
 import Amazonka.DynamoDB.Types.BackupType
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the details of the backup created for the table.

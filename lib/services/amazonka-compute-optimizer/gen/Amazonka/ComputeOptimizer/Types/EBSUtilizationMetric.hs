@@ -22,7 +22,7 @@ module Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric where
 import Amazonka.ComputeOptimizer.Types.EBSMetricName
 import Amazonka.ComputeOptimizer.Types.MetricStatistic
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a utilization metric of an Amazon Elastic Block Store (Amazon

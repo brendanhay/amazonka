@@ -20,7 +20,7 @@
 module Amazonka.CloudWatchEvents.Types.Condition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A JSON string which you can use to limit the event bus permissions you

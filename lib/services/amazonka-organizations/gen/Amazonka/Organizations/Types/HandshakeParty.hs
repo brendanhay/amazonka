@@ -20,7 +20,7 @@
 module Amazonka.Organizations.Types.HandshakeParty where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Organizations.Types.HandshakePartyType
 import qualified Amazonka.Prelude as Prelude
 

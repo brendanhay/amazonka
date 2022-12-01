@@ -24,7 +24,7 @@ import Amazonka.ComprehendMedical.Types.JobStatus
 import Amazonka.ComprehendMedical.Types.LanguageCode
 import Amazonka.ComprehendMedical.Types.OutputDataConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a detection job.

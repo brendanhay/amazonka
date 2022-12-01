@@ -42,6 +42,7 @@ module Amazonka.RDS.RestoreDBInstanceFromS3
     restoreDBInstanceFromS3_vpcSecurityGroupIds,
     restoreDBInstanceFromS3_dbParameterGroupName,
     restoreDBInstanceFromS3_preferredBackupWindow,
+    restoreDBInstanceFromS3_storageThroughput,
     restoreDBInstanceFromS3_backupRetentionPeriod,
     restoreDBInstanceFromS3_masterUsername,
     restoreDBInstanceFromS3_copyTagsToSnapshot,
@@ -92,7 +93,7 @@ module Amazonka.RDS.RestoreDBInstanceFromS3
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -165,6 +166,10 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
     --
     -- -   Must be at least 30 minutes.
     preferredBackupWindow :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the storage throughput value for the DB instance.
+    --
+    -- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+    storageThroughput :: Prelude.Maybe Prelude.Int,
     -- | The number of days for which automated backups are retained. Setting
     -- this parameter to a positive number enables backups. For more
     -- information, see @CreateDBInstance@.
@@ -268,10 +273,10 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
     publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the storage type to be associated with the DB instance.
     --
-    -- Valid values: @standard@ | @gp2@ | @io1@
+    -- Valid values: @gp2 | gp3 | io1 | standard@
     --
-    -- If you specify @io1@, you must also include a value for the @Iops@
-    -- parameter.
+    -- If you specify @io1@ or @gp3@, you must also include a value for the
+    -- @Iops@ parameter.
     --
     -- Default: @io1@ if the @Iops@ parameter is specified; otherwise @gp2@
     storageType :: Prelude.Maybe Prelude.Text,
@@ -346,9 +351,9 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
     -- -   Must be at least 30 minutes.
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The amount of Provisioned IOPS (input\/output operations per second) to
-    -- allocate initially for the DB instance. For information about valid Iops
+    -- allocate initially for the DB instance. For information about valid IOPS
     -- values, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
     -- in the /Amazon RDS User Guide./
     iops :: Prelude.Maybe Prelude.Int,
     -- | The version number of the database engine to use. Choose the latest
@@ -504,6 +509,10 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 --
 -- -   Must be at least 30 minutes.
 --
+-- 'storageThroughput', 'restoreDBInstanceFromS3_storageThroughput' - Specifies the storage throughput value for the DB instance.
+--
+-- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+--
 -- 'backupRetentionPeriod', 'restoreDBInstanceFromS3_backupRetentionPeriod' - The number of days for which automated backups are retained. Setting
 -- this parameter to a positive number enables backups. For more
 -- information, see @CreateDBInstance@.
@@ -607,10 +616,10 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 --
 -- 'storageType', 'restoreDBInstanceFromS3_storageType' - Specifies the storage type to be associated with the DB instance.
 --
--- Valid values: @standard@ | @gp2@ | @io1@
+-- Valid values: @gp2 | gp3 | io1 | standard@
 --
--- If you specify @io1@, you must also include a value for the @Iops@
--- parameter.
+-- If you specify @io1@ or @gp3@, you must also include a value for the
+-- @Iops@ parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified; otherwise @gp2@
 --
@@ -685,9 +694,9 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 -- -   Must be at least 30 minutes.
 --
 -- 'iops', 'restoreDBInstanceFromS3_iops' - The amount of Provisioned IOPS (input\/output operations per second) to
--- allocate initially for the DB instance. For information about valid Iops
+-- allocate initially for the DB instance. For information about valid IOPS
 -- values, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
 -- in the /Amazon RDS User Guide./
 --
 -- 'engineVersion', 'restoreDBInstanceFromS3_engineVersion' - The version number of the database engine to use. Choose the latest
@@ -799,6 +808,7 @@ newRestoreDBInstanceFromS3
         vpcSecurityGroupIds = Prelude.Nothing,
         dbParameterGroupName = Prelude.Nothing,
         preferredBackupWindow = Prelude.Nothing,
+        storageThroughput = Prelude.Nothing,
         backupRetentionPeriod = Prelude.Nothing,
         masterUsername = Prelude.Nothing,
         copyTagsToSnapshot = Prelude.Nothing,
@@ -917,6 +927,12 @@ restoreDBInstanceFromS3_dbParameterGroupName = Lens.lens (\RestoreDBInstanceFrom
 -- -   Must be at least 30 minutes.
 restoreDBInstanceFromS3_preferredBackupWindow :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromS3_preferredBackupWindow = Lens.lens (\RestoreDBInstanceFromS3' {preferredBackupWindow} -> preferredBackupWindow) (\s@RestoreDBInstanceFromS3' {} a -> s {preferredBackupWindow = a} :: RestoreDBInstanceFromS3)
+
+-- | Specifies the storage throughput value for the DB instance.
+--
+-- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+restoreDBInstanceFromS3_storageThroughput :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Int)
+restoreDBInstanceFromS3_storageThroughput = Lens.lens (\RestoreDBInstanceFromS3' {storageThroughput} -> storageThroughput) (\s@RestoreDBInstanceFromS3' {} a -> s {storageThroughput = a} :: RestoreDBInstanceFromS3)
 
 -- | The number of days for which automated backups are retained. Setting
 -- this parameter to a positive number enables backups. For more
@@ -1047,10 +1063,10 @@ restoreDBInstanceFromS3_publiclyAccessible = Lens.lens (\RestoreDBInstanceFromS3
 
 -- | Specifies the storage type to be associated with the DB instance.
 --
--- Valid values: @standard@ | @gp2@ | @io1@
+-- Valid values: @gp2 | gp3 | io1 | standard@
 --
--- If you specify @io1@, you must also include a value for the @Iops@
--- parameter.
+-- If you specify @io1@ or @gp3@, you must also include a value for the
+-- @Iops@ parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified; otherwise @gp2@
 restoreDBInstanceFromS3_storageType :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
@@ -1145,9 +1161,9 @@ restoreDBInstanceFromS3_preferredMaintenanceWindow :: Lens.Lens' RestoreDBInstan
 restoreDBInstanceFromS3_preferredMaintenanceWindow = Lens.lens (\RestoreDBInstanceFromS3' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@RestoreDBInstanceFromS3' {} a -> s {preferredMaintenanceWindow = a} :: RestoreDBInstanceFromS3)
 
 -- | The amount of Provisioned IOPS (input\/output operations per second) to
--- allocate initially for the DB instance. For information about valid Iops
+-- allocate initially for the DB instance. For information about valid IOPS
 -- values, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
 -- in the /Amazon RDS User Guide./
 restoreDBInstanceFromS3_iops :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Int)
 restoreDBInstanceFromS3_iops = Lens.lens (\RestoreDBInstanceFromS3' {iops} -> iops) (\s@RestoreDBInstanceFromS3' {} a -> s {iops = a} :: RestoreDBInstanceFromS3)
@@ -1261,8 +1277,8 @@ instance Core.AWSRequest RestoreDBInstanceFromS3 where
   type
     AWSResponse RestoreDBInstanceFromS3 =
       RestoreDBInstanceFromS3Response
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "RestoreDBInstanceFromS3Result"
@@ -1281,6 +1297,7 @@ instance Prelude.Hashable RestoreDBInstanceFromS3 where
       `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` dbParameterGroupName
       `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` storageThroughput
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` masterUsername
       `Prelude.hashWithSalt` copyTagsToSnapshot
@@ -1329,6 +1346,7 @@ instance Prelude.NFData RestoreDBInstanceFromS3 where
       `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf dbParameterGroupName
       `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf storageThroughput
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf masterUsername
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
@@ -1342,7 +1360,8 @@ instance Prelude.NFData RestoreDBInstanceFromS3 where
       `Prelude.seq` Prelude.rnf monitoringInterval
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf masterUserPassword
-      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf
+        publiclyAccessible
       `Prelude.seq` Prelude.rnf storageType
       `Prelude.seq` Prelude.rnf
         enableCloudwatchLogsExports
@@ -1421,6 +1440,7 @@ instance Core.ToQuery RestoreDBInstanceFromS3 where
         "DBParameterGroupName" Core.=: dbParameterGroupName,
         "PreferredBackupWindow"
           Core.=: preferredBackupWindow,
+        "StorageThroughput" Core.=: storageThroughput,
         "BackupRetentionPeriod"
           Core.=: backupRetentionPeriod,
         "MasterUsername" Core.=: masterUsername,

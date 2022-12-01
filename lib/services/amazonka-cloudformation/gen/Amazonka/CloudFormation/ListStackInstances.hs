@@ -53,7 +53,7 @@ where
 
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +84,7 @@ data ListStackInstances = ListStackInstances'
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /CloudFormation User Guide/.
     callAs :: Prelude.Maybe CallAs,
-    -- | The status that stack instances are filtered by.
+    -- | The filter to apply to stack instances
     filters :: Prelude.Maybe [StackInstanceFilter],
     -- | The maximum number of results to be returned with a single call. If the
     -- number of available results exceeds this maximum, the response includes
@@ -134,7 +134,7 @@ data ListStackInstances = ListStackInstances'
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /CloudFormation User Guide/.
 --
--- 'filters', 'listStackInstances_filters' - The status that stack instances are filtered by.
+-- 'filters', 'listStackInstances_filters' - The filter to apply to stack instances
 --
 -- 'maxResults', 'listStackInstances_maxResults' - The maximum number of results to be returned with a single call. If the
 -- number of available results exceeds this maximum, the response includes
@@ -191,7 +191,7 @@ listStackInstances_nextToken = Lens.lens (\ListStackInstances' {nextToken} -> ne
 listStackInstances_callAs :: Lens.Lens' ListStackInstances (Prelude.Maybe CallAs)
 listStackInstances_callAs = Lens.lens (\ListStackInstances' {callAs} -> callAs) (\s@ListStackInstances' {} a -> s {callAs = a} :: ListStackInstances)
 
--- | The status that stack instances are filtered by.
+-- | The filter to apply to stack instances
 listStackInstances_filters :: Lens.Lens' ListStackInstances (Prelude.Maybe [StackInstanceFilter])
 listStackInstances_filters = Lens.lens (\ListStackInstances' {filters} -> filters) (\s@ListStackInstances' {} a -> s {filters = a} :: ListStackInstances) Prelude.. Lens.mapping Lens.coerced
 
@@ -242,8 +242,8 @@ instance Core.AWSRequest ListStackInstances where
   type
     AWSResponse ListStackInstances =
       ListStackInstancesResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "ListStackInstancesResult"

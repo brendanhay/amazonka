@@ -42,6 +42,7 @@ module Amazonka.SSM.CreateOpsItem
     createOpsItem_severity,
     createOpsItem_plannedStartTime,
     createOpsItem_plannedEndTime,
+    createOpsItem_accountId,
     createOpsItem_priority,
     createOpsItem_opsItemType,
     createOpsItem_category,
@@ -58,13 +59,14 @@ module Amazonka.SSM.CreateOpsItem
     newCreateOpsItemResponse,
 
     -- * Response Lenses
+    createOpsItemResponse_opsItemArn,
     createOpsItemResponse_opsItemId,
     createOpsItemResponse_httpStatus,
   )
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,11 +100,32 @@ data CreateOpsItem = CreateOpsItem'
     -- | The time specified in a change request for a runbook workflow to end.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
     plannedEndTime :: Prelude.Maybe Core.POSIX,
+    -- | The target Amazon Web Services account where you want to create an
+    -- OpsItem. To make this call, your account must be configured to work with
+    -- OpsItems across accounts. For more information, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-OpsCenter-multiple-accounts.html Setting up OpsCenter to work with OpsItems across accounts>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The importance of this OpsItem in relation to other OpsItems in the
     -- system.
     priority :: Prelude.Maybe Prelude.Natural,
-    -- | The type of OpsItem to create. Currently, the only valid values are
-    -- @\/aws\/changerequest@ and @\/aws\/issue@.
+    -- | The type of OpsItem to create. Systems Manager supports the following
+    -- types of OpsItems:
+    --
+    -- -   @\/aws\/issue@
+    --
+    --     This type of OpsItem is used for default OpsItems created by
+    --     OpsCenter.
+    --
+    -- -   @\/aws\/changerequest@
+    --
+    --     This type of OpsItem is used by Change Manager for reviewing and
+    --     approving or rejecting change requests.
+    --
+    -- -   @\/aws\/insights@
+    --
+    --     This type of OpsItem is used by OpsCenter for aggregating and
+    --     reporting on duplicate OpsItems.
     opsItemType :: Prelude.Maybe Prelude.Text,
     -- | Specify a category to assign to an OpsItem.
     category :: Prelude.Maybe Prelude.Text,
@@ -188,11 +211,32 @@ data CreateOpsItem = CreateOpsItem'
 -- 'plannedEndTime', 'createOpsItem_plannedEndTime' - The time specified in a change request for a runbook workflow to end.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
 --
+-- 'accountId', 'createOpsItem_accountId' - The target Amazon Web Services account where you want to create an
+-- OpsItem. To make this call, your account must be configured to work with
+-- OpsItems across accounts. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-OpsCenter-multiple-accounts.html Setting up OpsCenter to work with OpsItems across accounts>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
 -- 'priority', 'createOpsItem_priority' - The importance of this OpsItem in relation to other OpsItems in the
 -- system.
 --
--- 'opsItemType', 'createOpsItem_opsItemType' - The type of OpsItem to create. Currently, the only valid values are
--- @\/aws\/changerequest@ and @\/aws\/issue@.
+-- 'opsItemType', 'createOpsItem_opsItemType' - The type of OpsItem to create. Systems Manager supports the following
+-- types of OpsItems:
+--
+-- -   @\/aws\/issue@
+--
+--     This type of OpsItem is used for default OpsItems created by
+--     OpsCenter.
+--
+-- -   @\/aws\/changerequest@
+--
+--     This type of OpsItem is used by Change Manager for reviewing and
+--     approving or rejecting change requests.
+--
+-- -   @\/aws\/insights@
+--
+--     This type of OpsItem is used by OpsCenter for aggregating and
+--     reporting on duplicate OpsItems.
 --
 -- 'category', 'createOpsItem_category' - Specify a category to assign to an OpsItem.
 --
@@ -255,6 +299,7 @@ newCreateOpsItem pDescription_ pSource_ pTitle_ =
       severity = Prelude.Nothing,
       plannedStartTime = Prelude.Nothing,
       plannedEndTime = Prelude.Nothing,
+      accountId = Prelude.Nothing,
       priority = Prelude.Nothing,
       opsItemType = Prelude.Nothing,
       category = Prelude.Nothing,
@@ -303,13 +348,36 @@ createOpsItem_plannedStartTime = Lens.lens (\CreateOpsItem' {plannedStartTime} -
 createOpsItem_plannedEndTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
 createOpsItem_plannedEndTime = Lens.lens (\CreateOpsItem' {plannedEndTime} -> plannedEndTime) (\s@CreateOpsItem' {} a -> s {plannedEndTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Core._Time
 
+-- | The target Amazon Web Services account where you want to create an
+-- OpsItem. To make this call, your account must be configured to work with
+-- OpsItems across accounts. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-OpsCenter-multiple-accounts.html Setting up OpsCenter to work with OpsItems across accounts>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+createOpsItem_accountId :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Text)
+createOpsItem_accountId = Lens.lens (\CreateOpsItem' {accountId} -> accountId) (\s@CreateOpsItem' {} a -> s {accountId = a} :: CreateOpsItem)
+
 -- | The importance of this OpsItem in relation to other OpsItems in the
 -- system.
 createOpsItem_priority :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Natural)
 createOpsItem_priority = Lens.lens (\CreateOpsItem' {priority} -> priority) (\s@CreateOpsItem' {} a -> s {priority = a} :: CreateOpsItem)
 
--- | The type of OpsItem to create. Currently, the only valid values are
--- @\/aws\/changerequest@ and @\/aws\/issue@.
+-- | The type of OpsItem to create. Systems Manager supports the following
+-- types of OpsItems:
+--
+-- -   @\/aws\/issue@
+--
+--     This type of OpsItem is used for default OpsItems created by
+--     OpsCenter.
+--
+-- -   @\/aws\/changerequest@
+--
+--     This type of OpsItem is used by Change Manager for reviewing and
+--     approving or rejecting change requests.
+--
+-- -   @\/aws\/insights@
+--
+--     This type of OpsItem is used by OpsCenter for aggregating and
+--     reporting on duplicate OpsItems.
 createOpsItem_opsItemType :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Text)
 createOpsItem_opsItemType = Lens.lens (\CreateOpsItem' {opsItemType} -> opsItemType) (\s@CreateOpsItem' {} a -> s {opsItemType = a} :: CreateOpsItem)
 
@@ -380,13 +448,14 @@ instance Core.AWSRequest CreateOpsItem where
   type
     AWSResponse CreateOpsItem =
       CreateOpsItemResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateOpsItemResponse'
-            Prelude.<$> (x Core..?> "OpsItemId")
+            Prelude.<$> (x Core..?> "OpsItemArn")
+            Prelude.<*> (x Core..?> "OpsItemId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -397,6 +466,7 @@ instance Prelude.Hashable CreateOpsItem where
       `Prelude.hashWithSalt` severity
       `Prelude.hashWithSalt` plannedStartTime
       `Prelude.hashWithSalt` plannedEndTime
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` opsItemType
       `Prelude.hashWithSalt` category
@@ -415,6 +485,7 @@ instance Prelude.NFData CreateOpsItem where
       `Prelude.seq` Prelude.rnf severity
       `Prelude.seq` Prelude.rnf plannedStartTime
       `Prelude.seq` Prelude.rnf plannedEndTime
+      `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf opsItemType
       `Prelude.seq` Prelude.rnf category
@@ -450,6 +521,7 @@ instance Core.ToJSON CreateOpsItem where
               Prelude.<$> plannedStartTime,
             ("PlannedEndTime" Core..=)
               Prelude.<$> plannedEndTime,
+            ("AccountId" Core..=) Prelude.<$> accountId,
             ("Priority" Core..=) Prelude.<$> priority,
             ("OpsItemType" Core..=) Prelude.<$> opsItemType,
             ("Category" Core..=) Prelude.<$> category,
@@ -474,7 +546,9 @@ instance Core.ToQuery CreateOpsItem where
 
 -- | /See:/ 'newCreateOpsItemResponse' smart constructor.
 data CreateOpsItemResponse = CreateOpsItemResponse'
-  { -- | The ID of the OpsItem.
+  { -- | The OpsItem Amazon Resource Name (ARN).
+    opsItemArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the OpsItem.
     opsItemId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -489,6 +563,8 @@ data CreateOpsItemResponse = CreateOpsItemResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'opsItemArn', 'createOpsItemResponse_opsItemArn' - The OpsItem Amazon Resource Name (ARN).
+--
 -- 'opsItemId', 'createOpsItemResponse_opsItemId' - The ID of the OpsItem.
 --
 -- 'httpStatus', 'createOpsItemResponse_httpStatus' - The response's http status code.
@@ -498,9 +574,15 @@ newCreateOpsItemResponse ::
   CreateOpsItemResponse
 newCreateOpsItemResponse pHttpStatus_ =
   CreateOpsItemResponse'
-    { opsItemId = Prelude.Nothing,
+    { opsItemArn =
+        Prelude.Nothing,
+      opsItemId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The OpsItem Amazon Resource Name (ARN).
+createOpsItemResponse_opsItemArn :: Lens.Lens' CreateOpsItemResponse (Prelude.Maybe Prelude.Text)
+createOpsItemResponse_opsItemArn = Lens.lens (\CreateOpsItemResponse' {opsItemArn} -> opsItemArn) (\s@CreateOpsItemResponse' {} a -> s {opsItemArn = a} :: CreateOpsItemResponse)
 
 -- | The ID of the OpsItem.
 createOpsItemResponse_opsItemId :: Lens.Lens' CreateOpsItemResponse (Prelude.Maybe Prelude.Text)
@@ -512,5 +594,6 @@ createOpsItemResponse_httpStatus = Lens.lens (\CreateOpsItemResponse' {httpStatu
 
 instance Prelude.NFData CreateOpsItemResponse where
   rnf CreateOpsItemResponse' {..} =
-    Prelude.rnf opsItemId
+    Prelude.rnf opsItemArn
+      `Prelude.seq` Prelude.rnf opsItemId
       `Prelude.seq` Prelude.rnf httpStatus

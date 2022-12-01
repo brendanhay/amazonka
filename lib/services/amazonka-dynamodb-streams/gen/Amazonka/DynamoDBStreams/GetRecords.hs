@@ -52,8 +52,8 @@ module Amazonka.DynamoDBStreams.GetRecords
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDBStreams.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,8 +109,8 @@ getRecords_shardIterator = Lens.lens (\GetRecords' {shardIterator} -> shardItera
 
 instance Core.AWSRequest GetRecords where
   type AWSResponse GetRecords = GetRecordsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -47,8 +47,8 @@ module Amazonka.Lambda.GetProvisionedConcurrencyConfig
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,8 +139,8 @@ instance
   type
     AWSResponse GetProvisionedConcurrencyConfig =
       GetProvisionedConcurrencyConfigResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -210,7 +210,10 @@ data GetProvisionedConcurrencyConfigResponse = GetProvisionedConcurrencyConfigRe
     -- | The date and time that a user last updated the configuration, in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format>.
     lastModified :: Prelude.Maybe Prelude.Text,
-    -- | The amount of provisioned concurrency allocated.
+    -- | The amount of provisioned concurrency allocated. When a weighted alias
+    -- is used during linear and canary deployments, this value fluctuates
+    -- depending on the amount of concurrency that is provisioned for the
+    -- function versions.
     allocatedProvisionedConcurrentExecutions :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -237,7 +240,10 @@ data GetProvisionedConcurrencyConfigResponse = GetProvisionedConcurrencyConfigRe
 -- 'lastModified', 'getProvisionedConcurrencyConfigResponse_lastModified' - The date and time that a user last updated the configuration, in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format>.
 --
--- 'allocatedProvisionedConcurrentExecutions', 'getProvisionedConcurrencyConfigResponse_allocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated.
+-- 'allocatedProvisionedConcurrentExecutions', 'getProvisionedConcurrencyConfigResponse_allocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated. When a weighted alias
+-- is used during linear and canary deployments, this value fluctuates
+-- depending on the amount of concurrency that is provisioned for the
+-- function versions.
 --
 -- 'httpStatus', 'getProvisionedConcurrencyConfigResponse_httpStatus' - The response's http status code.
 newGetProvisionedConcurrencyConfigResponse ::
@@ -281,7 +287,10 @@ getProvisionedConcurrencyConfigResponse_requestedProvisionedConcurrentExecutions
 getProvisionedConcurrencyConfigResponse_lastModified :: Lens.Lens' GetProvisionedConcurrencyConfigResponse (Prelude.Maybe Prelude.Text)
 getProvisionedConcurrencyConfigResponse_lastModified = Lens.lens (\GetProvisionedConcurrencyConfigResponse' {lastModified} -> lastModified) (\s@GetProvisionedConcurrencyConfigResponse' {} a -> s {lastModified = a} :: GetProvisionedConcurrencyConfigResponse)
 
--- | The amount of provisioned concurrency allocated.
+-- | The amount of provisioned concurrency allocated. When a weighted alias
+-- is used during linear and canary deployments, this value fluctuates
+-- depending on the amount of concurrency that is provisioned for the
+-- function versions.
 getProvisionedConcurrencyConfigResponse_allocatedProvisionedConcurrentExecutions :: Lens.Lens' GetProvisionedConcurrencyConfigResponse (Prelude.Maybe Prelude.Natural)
 getProvisionedConcurrencyConfigResponse_allocatedProvisionedConcurrentExecutions = Lens.lens (\GetProvisionedConcurrencyConfigResponse' {allocatedProvisionedConcurrentExecutions} -> allocatedProvisionedConcurrentExecutions) (\s@GetProvisionedConcurrencyConfigResponse' {} a -> s {allocatedProvisionedConcurrentExecutions = a} :: GetProvisionedConcurrencyConfigResponse)
 

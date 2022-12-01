@@ -20,12 +20,12 @@
 module Amazonka.CustomerProfiles.Types.SourceConnectorProperties where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.MarketoSourceProperties
 import Amazonka.CustomerProfiles.Types.S3SourceProperties
 import Amazonka.CustomerProfiles.Types.SalesforceSourceProperties
 import Amazonka.CustomerProfiles.Types.ServiceNowSourceProperties
 import Amazonka.CustomerProfiles.Types.ZendeskSourceProperties
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the information that is required to query a particular Amazon

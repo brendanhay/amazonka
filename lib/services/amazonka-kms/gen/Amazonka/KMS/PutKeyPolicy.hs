@@ -58,8 +58,8 @@ module Amazonka.KMS.PutKeyPolicy
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KMS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -322,8 +322,8 @@ putKeyPolicy_policy = Lens.lens (\PutKeyPolicy' {policy} -> policy) (\s@PutKeyPo
 
 instance Core.AWSRequest PutKeyPolicy where
   type AWSResponse PutKeyPolicy = PutKeyPolicyResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull PutKeyPolicyResponse'
 
 instance Prelude.Hashable PutKeyPolicy where

@@ -20,7 +20,7 @@
 module Amazonka.ELBV2.Types.HttpHeaderConditionConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an HTTP header condition.
@@ -37,10 +37,10 @@ data HttpHeaderConditionConfig = HttpHeaderConditionConfig'
     -- You can\'t use an HTTP header condition to specify the host header. Use
     -- HostHeaderConditionConfig to specify a host header condition.
     httpHeaderName :: Prelude.Maybe Prelude.Text,
-    -- | One or more strings to compare against the value of the HTTP header. The
-    -- maximum size of each string is 128 characters. The comparison strings
-    -- are case insensitive. The following wildcard characters are supported: *
-    -- (matches 0 or more characters) and ? (matches exactly 1 character).
+    -- | The strings to compare against the value of the HTTP header. The maximum
+    -- size of each string is 128 characters. The comparison strings are case
+    -- insensitive. The following wildcard characters are supported: * (matches
+    -- 0 or more characters) and ? (matches exactly 1 character).
     --
     -- If the same header appears multiple times in the request, we search them
     -- in order until a match is found.
@@ -67,10 +67,10 @@ data HttpHeaderConditionConfig = HttpHeaderConditionConfig'
 -- You can\'t use an HTTP header condition to specify the host header. Use
 -- HostHeaderConditionConfig to specify a host header condition.
 --
--- 'values', 'httpHeaderConditionConfig_values' - One or more strings to compare against the value of the HTTP header. The
--- maximum size of each string is 128 characters. The comparison strings
--- are case insensitive. The following wildcard characters are supported: *
--- (matches 0 or more characters) and ? (matches exactly 1 character).
+-- 'values', 'httpHeaderConditionConfig_values' - The strings to compare against the value of the HTTP header. The maximum
+-- size of each string is 128 characters. The comparison strings are case
+-- insensitive. The following wildcard characters are supported: * (matches
+-- 0 or more characters) and ? (matches exactly 1 character).
 --
 -- If the same header appears multiple times in the request, we search them
 -- in order until a match is found.
@@ -96,10 +96,10 @@ newHttpHeaderConditionConfig =
 httpHeaderConditionConfig_httpHeaderName :: Lens.Lens' HttpHeaderConditionConfig (Prelude.Maybe Prelude.Text)
 httpHeaderConditionConfig_httpHeaderName = Lens.lens (\HttpHeaderConditionConfig' {httpHeaderName} -> httpHeaderName) (\s@HttpHeaderConditionConfig' {} a -> s {httpHeaderName = a} :: HttpHeaderConditionConfig)
 
--- | One or more strings to compare against the value of the HTTP header. The
--- maximum size of each string is 128 characters. The comparison strings
--- are case insensitive. The following wildcard characters are supported: *
--- (matches 0 or more characters) and ? (matches exactly 1 character).
+-- | The strings to compare against the value of the HTTP header. The maximum
+-- size of each string is 128 characters. The comparison strings are case
+-- insensitive. The following wildcard characters are supported: * (matches
+-- 0 or more characters) and ? (matches exactly 1 character).
 --
 -- If the same header appears multiple times in the request, we search them
 -- in order until a match is found.

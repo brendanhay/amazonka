@@ -21,7 +21,7 @@ module Amazonka.CloudSearch.Types.AnalysisOptions where
 
 import Amazonka.CloudSearch.Types.AlgorithmicStemming
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Synonyms, stopwords, and stemming options for an analysis scheme.

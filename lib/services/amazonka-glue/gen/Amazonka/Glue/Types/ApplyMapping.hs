@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.ApplyMapping where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.Mapping
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that maps data property keys in the data source to

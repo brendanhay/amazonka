@@ -20,10 +20,10 @@
 module Amazonka.Inspector2.Types.ResourceScanMetadata where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.Ec2Metadata
 import Amazonka.Inspector2.Types.EcrContainerImageMetadata
 import Amazonka.Inspector2.Types.EcrRepositoryMetadata
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains details about the metadata for an Amazon ECR

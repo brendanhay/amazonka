@@ -22,7 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.ActionParameters where
 import Amazonka.AmplifyUiBuilder.Types.ComponentProperty
 import Amazonka.AmplifyUiBuilder.Types.MutationActionSetStateParameter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the event action configuration for an element of a

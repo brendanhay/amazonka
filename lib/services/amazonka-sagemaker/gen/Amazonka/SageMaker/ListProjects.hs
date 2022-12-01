@@ -47,7 +47,7 @@ module Amazonka.SageMaker.ListProjects
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,8 +151,8 @@ listProjects_creationTimeAfter = Lens.lens (\ListProjects' {creationTimeAfter} -
 
 instance Core.AWSRequest ListProjects where
   type AWSResponse ListProjects = ListProjectsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

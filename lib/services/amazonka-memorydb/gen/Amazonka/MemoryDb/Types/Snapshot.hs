@@ -20,8 +20,9 @@
 module Amazonka.MemoryDb.Types.Snapshot where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MemoryDb.Types.ClusterConfiguration
+import Amazonka.MemoryDb.Types.DataTieringStatus
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a copy of an entire cluster as of the time when the snapshot
@@ -42,7 +43,12 @@ data Snapshot = Snapshot'
     -- or was created manually (manual).
     source :: Prelude.Maybe Prelude.Text,
     -- | The ID of the KMS key used to encrypt the snapshot.
-    kmsKeyId :: Prelude.Maybe Prelude.Text
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Enables data tiering. Data tiering is only supported for clusters using
+    -- the r6gd node type. This parameter must be set when using r6gd nodes.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html Data tiering>.
+    dataTiering :: Prelude.Maybe DataTieringStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,6 +73,11 @@ data Snapshot = Snapshot'
 -- or was created manually (manual).
 --
 -- 'kmsKeyId', 'snapshot_kmsKeyId' - The ID of the KMS key used to encrypt the snapshot.
+--
+-- 'dataTiering', 'snapshot_dataTiering' - Enables data tiering. Data tiering is only supported for clusters using
+-- the r6gd node type. This parameter must be set when using r6gd nodes.
+-- For more information, see
+-- <https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html Data tiering>.
 newSnapshot ::
   Snapshot
 newSnapshot =
@@ -76,7 +87,8 @@ newSnapshot =
       arn = Prelude.Nothing,
       status = Prelude.Nothing,
       source = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing
+      kmsKeyId = Prelude.Nothing,
+      dataTiering = Prelude.Nothing
     }
 
 -- | The configuration of the cluster from which the snapshot was taken
@@ -105,6 +117,13 @@ snapshot_source = Lens.lens (\Snapshot' {source} -> source) (\s@Snapshot' {} a -
 snapshot_kmsKeyId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_kmsKeyId = Lens.lens (\Snapshot' {kmsKeyId} -> kmsKeyId) (\s@Snapshot' {} a -> s {kmsKeyId = a} :: Snapshot)
 
+-- | Enables data tiering. Data tiering is only supported for clusters using
+-- the r6gd node type. This parameter must be set when using r6gd nodes.
+-- For more information, see
+-- <https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html Data tiering>.
+snapshot_dataTiering :: Lens.Lens' Snapshot (Prelude.Maybe DataTieringStatus)
+snapshot_dataTiering = Lens.lens (\Snapshot' {dataTiering} -> dataTiering) (\s@Snapshot' {} a -> s {dataTiering = a} :: Snapshot)
+
 instance Core.FromJSON Snapshot where
   parseJSON =
     Core.withObject
@@ -117,6 +136,7 @@ instance Core.FromJSON Snapshot where
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Source")
             Prelude.<*> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..:? "DataTiering")
       )
 
 instance Prelude.Hashable Snapshot where
@@ -127,6 +147,7 @@ instance Prelude.Hashable Snapshot where
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` dataTiering
 
 instance Prelude.NFData Snapshot where
   rnf Snapshot' {..} =
@@ -136,3 +157,4 @@ instance Prelude.NFData Snapshot where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf dataTiering

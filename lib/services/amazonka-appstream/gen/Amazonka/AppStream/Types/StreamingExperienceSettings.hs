@@ -21,7 +21,7 @@ module Amazonka.AppStream.Types.StreamingExperienceSettings where
 
 import Amazonka.AppStream.Types.PreferredProtocol
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The streaming protocol you want your stack to prefer. This can be UDP or

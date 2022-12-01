@@ -20,8 +20,8 @@
 module Amazonka.DMS.Types.KinesisSettings where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.MessageFormatValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that describes an Amazon Kinesis Data Stream

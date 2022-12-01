@@ -20,10 +20,10 @@
 module Amazonka.FinSpace.Types.Environment where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FinSpace.Types.EnvironmentStatus
 import Amazonka.FinSpace.Types.FederationMode
 import Amazonka.FinSpace.Types.FederationParameters
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an FinSpace environment.

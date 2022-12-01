@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.AssociatedTranscript where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The object containing information that associates the recommended

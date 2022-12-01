@@ -20,11 +20,11 @@
 module Amazonka.GuardDuty.Types.RemoteIpDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.City
 import Amazonka.GuardDuty.Types.Country
 import Amazonka.GuardDuty.Types.GeoLocation
 import Amazonka.GuardDuty.Types.Organization
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the remote IP address of the connection.

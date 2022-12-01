@@ -20,8 +20,8 @@
 module Amazonka.DataSync.Types.FsxProtocolNfs where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataSync.Types.NfsMountOptions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the Network File System (NFS) protocol configuration that

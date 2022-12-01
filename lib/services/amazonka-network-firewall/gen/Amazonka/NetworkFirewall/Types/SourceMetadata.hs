@@ -20,7 +20,7 @@
 module Amazonka.NetworkFirewall.Types.SourceMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | High-level information about the managed rule group that your own rule

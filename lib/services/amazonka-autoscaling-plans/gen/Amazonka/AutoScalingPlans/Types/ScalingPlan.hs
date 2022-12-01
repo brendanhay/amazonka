@@ -23,7 +23,7 @@ import Amazonka.AutoScalingPlans.Types.ApplicationSource
 import Amazonka.AutoScalingPlans.Types.ScalingInstruction
 import Amazonka.AutoScalingPlans.Types.ScalingPlanStatusCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a scaling plan.

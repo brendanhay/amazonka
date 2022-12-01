@@ -22,7 +22,7 @@ module Amazonka.AppMesh.Types.MeshSpec where
 import Amazonka.AppMesh.Types.EgressFilter
 import Amazonka.AppMesh.Types.MeshServiceDiscovery
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the specification of a service mesh.

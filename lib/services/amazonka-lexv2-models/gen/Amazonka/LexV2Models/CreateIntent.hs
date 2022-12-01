@@ -100,7 +100,7 @@ module Amazonka.LexV2Models.CreateIntent
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -448,8 +448,8 @@ createIntent_localeId = Lens.lens (\CreateIntent' {localeId} -> localeId) (\s@Cr
 
 instance Core.AWSRequest CreateIntent where
   type AWSResponse CreateIntent = CreateIntentResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

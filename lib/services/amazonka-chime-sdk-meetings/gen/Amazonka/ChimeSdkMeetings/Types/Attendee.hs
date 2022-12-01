@@ -21,7 +21,7 @@ module Amazonka.ChimeSdkMeetings.Types.Attendee where
 
 import Amazonka.ChimeSdkMeetings.Types.AttendeeCapabilities
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon Chime SDK meeting attendee. Includes a unique @AttendeeId@ and

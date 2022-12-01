@@ -20,7 +20,7 @@
 module Amazonka.IoTAnalytics.Types.DeltaTime where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to limit data to that which has arrived since the last execution of

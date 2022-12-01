@@ -20,7 +20,7 @@
 module Amazonka.IoTWireless.Types.GatewayListItem where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gateway list item object that specifies the frequency and list of

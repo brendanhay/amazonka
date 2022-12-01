@@ -20,7 +20,7 @@
 module Amazonka.GameLift.Types.GameProperty where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Set of key-value pairs that contain information about a game session.

@@ -21,7 +21,7 @@ module Amazonka.CloudWatchEvents.Types.ReplicationConfig where
 
 import Amazonka.CloudWatchEvents.Types.ReplicationState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Endpoints can replicate all events to the secondary Region.

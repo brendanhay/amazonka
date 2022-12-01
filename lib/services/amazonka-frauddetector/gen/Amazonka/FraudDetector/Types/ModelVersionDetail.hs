@@ -20,6 +20,7 @@
 module Amazonka.FraudDetector.Types.ModelVersionDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FraudDetector.Types.ExternalEventsDetail
 import Amazonka.FraudDetector.Types.IngestedEventsDetail
 import Amazonka.FraudDetector.Types.ModelTypeEnum
@@ -27,7 +28,6 @@ import Amazonka.FraudDetector.Types.TrainingDataSchema
 import Amazonka.FraudDetector.Types.TrainingDataSourceEnum
 import Amazonka.FraudDetector.Types.TrainingResult
 import Amazonka.FraudDetector.Types.TrainingResultV2
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the model version.

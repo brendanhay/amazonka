@@ -20,10 +20,10 @@
 module Amazonka.ElasticBeanstalk.Types.ManagedActionHistoryItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticBeanstalk.Types.ActionHistoryStatus
 import Amazonka.ElasticBeanstalk.Types.ActionType
 import Amazonka.ElasticBeanstalk.Types.FailureType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The record of a completed or failed managed action.

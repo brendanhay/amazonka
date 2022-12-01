@@ -12,6 +12,7 @@ haskell_library(
         "gen/Amazonka/PersonalizeEvents/Types.hs",
         "gen/Amazonka/PersonalizeEvents/Types/Event.hs",
         "gen/Amazonka/PersonalizeEvents/Types/Item.hs",
+        "gen/Amazonka/PersonalizeEvents/Types/MetricAttribution.hs",
         "gen/Amazonka/PersonalizeEvents/Types/User.hs",
         "gen/Amazonka/PersonalizeEvents/Waiters.hs",
     ],

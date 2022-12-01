@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.OpsWorksCM.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpsWorksCM.DescribeNodeAssociationStatus
 import Amazonka.OpsWorksCM.Lens
 import Amazonka.OpsWorksCM.Types
@@ -26,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 newNodeAssociated :: Core.Wait DescribeNodeAssociationStatus
 newNodeAssociated =
   Core.Wait
-    { Core._waitName = "NodeAssociated",
-      Core._waitAttempts = 15,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "NodeAssociated",
+      Core.attempts = 15,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "SUCCESS"
             Core.AcceptSuccess

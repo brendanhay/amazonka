@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.S3BucketLogDestination where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Amazon S3 bucket for logging audio conversations

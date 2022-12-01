@@ -22,7 +22,7 @@ module Amazonka.CertificateManagerPCA.Types.RevocationConfiguration where
 import Amazonka.CertificateManagerPCA.Types.CrlConfiguration
 import Amazonka.CertificateManagerPCA.Types.OcspConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Certificate revocation information used by the

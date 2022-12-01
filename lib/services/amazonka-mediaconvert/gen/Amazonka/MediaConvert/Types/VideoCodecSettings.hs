@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.VideoCodecSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.Av1Settings
 import Amazonka.MediaConvert.Types.AvcIntraSettings
 import Amazonka.MediaConvert.Types.FrameCaptureSettings

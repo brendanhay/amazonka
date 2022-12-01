@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -21,6 +22,7 @@ module Amazonka.SSM.Types
     _InvalidAggregatorException,
     _InvocationDoesNotExist,
     _OpsMetadataInvalidArgumentException,
+    _ResourcePolicyConflictException,
     _InvalidFilterKey,
     _OpsItemLimitExceededException,
     _AutomationExecutionLimitExceededException,
@@ -32,6 +34,7 @@ module Amazonka.SSM.Types
     _ParameterAlreadyExists,
     _InvalidTypeNameException,
     _InvalidResourceId,
+    _OpsItemAccessDeniedException,
     _ResourceDataSyncAlreadyExistsException,
     _DocumentLimitExceeded,
     _OpsItemRelatedItemAlreadyExistsException,
@@ -73,6 +76,7 @@ module Amazonka.SSM.Types
     _AssociationDoesNotExist,
     _ResourceInUseException,
     _AlreadyExistsException,
+    _ResourcePolicyLimitExceededException,
     _AssociationVersionLimitExceeded,
     _InvalidFilterValue,
     _ParameterVersionNotFound,
@@ -141,6 +145,7 @@ module Amazonka.SSM.Types
     _OpsMetadataAlreadyExistsException,
     _UnsupportedOperatingSystem,
     _InvalidTargetMaps,
+    _ResourcePolicyInvalidParameterException,
 
     -- * AssociationComplianceSeverity
     AssociationComplianceSeverity (..),
@@ -979,6 +984,13 @@ module Amazonka.SSM.Types
     failureDetails_details,
     failureDetails_failureStage,
 
+    -- * GetResourcePoliciesResponseEntry
+    GetResourcePoliciesResponseEntry (..),
+    newGetResourcePoliciesResponseEntry,
+    getResourcePoliciesResponseEntry_policyId,
+    getResourcePoliciesResponseEntry_policy,
+    getResourcePoliciesResponseEntry_policyHash,
+
     -- * InstanceAggregatedAssociationOverview
     InstanceAggregatedAssociationOverview (..),
     newInstanceAggregatedAssociationOverview,
@@ -1376,6 +1388,7 @@ module Amazonka.SSM.Types
     OpsItem (..),
     newOpsItem,
     opsItem_notifications,
+    opsItem_opsItemArn,
     opsItem_severity,
     opsItem_createdTime,
     opsItem_plannedStartTime,
@@ -1878,6 +1891,7 @@ module Amazonka.SSM.Types
     stepExecution_maxAttempts,
     stepExecution_inputs,
     stepExecution_isCritical,
+    stepExecution_triggeredAlarms,
     stepExecution_stepStatus,
     stepExecution_responseCode,
     stepExecution_executionEndTime,
@@ -1903,6 +1917,7 @@ module Amazonka.SSM.Types
     -- * TargetLocation
     TargetLocation (..),
     newTargetLocation,
+    targetLocation_targetLocationAlarmConfiguration,
     targetLocation_regions,
     targetLocation_targetLocationMaxConcurrency,
     targetLocation_accounts,
@@ -1912,7 +1927,7 @@ module Amazonka.SSM.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AccountSharingInfo
 import Amazonka.SSM.Types.Activation
@@ -2001,6 +2016,7 @@ import Amazonka.SSM.Types.ExternalAlarmState
 import Amazonka.SSM.Types.FailedCreateAssociation
 import Amazonka.SSM.Types.FailureDetails
 import Amazonka.SSM.Types.Fault
+import Amazonka.SSM.Types.GetResourcePoliciesResponseEntry
 import Amazonka.SSM.Types.InstanceAggregatedAssociationOverview
 import Amazonka.SSM.Types.InstanceAssociation
 import Amazonka.SSM.Types.InstanceAssociationOutputLocation
@@ -2157,27 +2173,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "SSM",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "ssm",
-      Core._serviceSigningName = "ssm",
-      Core._serviceVersion = "2014-11-06",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "SSM",
-      Core._serviceRetry = retry
+    { Core.abbrev = "SSM",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "ssm",
+      Core.signingName = "ssm",
+      Core.version = "2014-11-06",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "SSM",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =
@@ -2257,6 +2271,15 @@ _OpsMetadataInvalidArgumentException =
   Core._MatchServiceError
     defaultService
     "OpsMetadataInvalidArgumentException"
+
+-- | The hash provided in the call doesn\'t match the stored hash. This
+-- exception is thrown when trying to update an obsolete policy version or
+-- when multiple requests to update a policy are sent.
+_ResourcePolicyConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourcePolicyConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ResourcePolicyConflictException"
 
 -- | The specified key isn\'t valid.
 _InvalidFilterKey :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -2349,6 +2372,16 @@ _InvalidResourceId =
   Core._MatchServiceError
     defaultService
     "InvalidResourceId"
+
+-- | You don\'t have permission to view OpsItems in the specified account.
+-- Verify that your account is configured either as a Systems Manager
+-- delegated administrator or that you are logged into the Organizations
+-- management account.
+_OpsItemAccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemAccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "OpsItemAccessDeniedException"
 
 -- | A sync configuration with the same name already exists.
 _ResourceDataSyncAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -2681,6 +2714,15 @@ _AlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "AlreadyExistsException"
+
+-- | The PutResourcePolicy API action enforces two limits. A policy can\'t be
+-- greater than 1024 bytes in size. And only one policy can be attached to
+-- @OpsItemGroup@. Verify these limits and try again.
+_ResourcePolicyLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourcePolicyLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ResourcePolicyLimitExceededException"
 
 -- | You have reached the maximum number versions allowed for an association.
 -- Each association has a limit of 1,000 versions.
@@ -3236,3 +3278,11 @@ _InvalidTargetMaps =
   Core._MatchServiceError
     defaultService
     "InvalidTargetMaps"
+
+-- | One or more parameters specified for the call aren\'t valid. Verify the
+-- parameters and their values and try again.
+_ResourcePolicyInvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourcePolicyInvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "ResourcePolicyInvalidParameterException"

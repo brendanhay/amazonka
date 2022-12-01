@@ -20,7 +20,7 @@
 module Amazonka.KafkaConnect.Types.FirehoseLogDelivery where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for delivering logs to Amazon Kinesis Data Firehose.

@@ -20,7 +20,7 @@
 module Amazonka.GlobalAccelerator.Types.AcceleratorEvent where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains a @Timestamp@ value and @Message@ for

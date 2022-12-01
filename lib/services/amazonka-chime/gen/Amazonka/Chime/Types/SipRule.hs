@@ -22,7 +22,7 @@ module Amazonka.Chime.Types.SipRule where
 import Amazonka.Chime.Types.SipRuleTargetApplication
 import Amazonka.Chime.Types.SipRuleTriggerType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SIP rule details, including name, triggers, and target applications.

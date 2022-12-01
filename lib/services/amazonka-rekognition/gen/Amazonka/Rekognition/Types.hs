@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -61,6 +62,9 @@ module Amazonka.Rekognition.Types
 
     -- * DatasetType
     DatasetType (..),
+
+    -- * DetectLabelsFeatureName
+    DetectLabelsFeatureName (..),
 
     -- * EmotionName
     EmotionName (..),
@@ -296,6 +300,44 @@ module Amazonka.Rekognition.Types
     datasetStats_totalLabels,
     datasetStats_labeledEntries,
 
+    -- * DetectLabelsImageBackground
+    DetectLabelsImageBackground (..),
+    newDetectLabelsImageBackground,
+    detectLabelsImageBackground_quality,
+    detectLabelsImageBackground_dominantColors,
+
+    -- * DetectLabelsImageForeground
+    DetectLabelsImageForeground (..),
+    newDetectLabelsImageForeground,
+    detectLabelsImageForeground_quality,
+    detectLabelsImageForeground_dominantColors,
+
+    -- * DetectLabelsImageProperties
+    DetectLabelsImageProperties (..),
+    newDetectLabelsImageProperties,
+    detectLabelsImageProperties_foreground,
+    detectLabelsImageProperties_quality,
+    detectLabelsImageProperties_background,
+    detectLabelsImageProperties_dominantColors,
+
+    -- * DetectLabelsImagePropertiesSettings
+    DetectLabelsImagePropertiesSettings (..),
+    newDetectLabelsImagePropertiesSettings,
+    detectLabelsImagePropertiesSettings_maxDominantColors,
+
+    -- * DetectLabelsImageQuality
+    DetectLabelsImageQuality (..),
+    newDetectLabelsImageQuality,
+    detectLabelsImageQuality_sharpness,
+    detectLabelsImageQuality_brightness,
+    detectLabelsImageQuality_contrast,
+
+    -- * DetectLabelsSettings
+    DetectLabelsSettings (..),
+    newDetectLabelsSettings,
+    detectLabelsSettings_generalLabels,
+    detectLabelsSettings_imageProperties,
+
     -- * DetectTextFilters
     DetectTextFilters (..),
     newDetectTextFilters,
@@ -313,6 +355,17 @@ module Amazonka.Rekognition.Types
     DistributeDataset (..),
     newDistributeDataset,
     distributeDataset_arn,
+
+    -- * DominantColor
+    DominantColor (..),
+    newDominantColor,
+    dominantColor_simplifiedColor,
+    dominantColor_hexCode,
+    dominantColor_pixelPercent,
+    dominantColor_green,
+    dominantColor_cSSColor,
+    dominantColor_blue,
+    dominantColor_red,
 
     -- * Emotion
     Emotion (..),
@@ -405,6 +458,14 @@ module Amazonka.Rekognition.Types
     gender_confidence,
     gender_value,
 
+    -- * GeneralLabelsSettings
+    GeneralLabelsSettings (..),
+    newGeneralLabelsSettings,
+    generalLabelsSettings_labelCategoryInclusionFilters,
+    generalLabelsSettings_labelExclusionFilters,
+    generalLabelsSettings_labelInclusionFilters,
+    generalLabelsSettings_labelCategoryExclusionFilters,
+
     -- * Geometry
     Geometry (..),
     newGeometry,
@@ -452,6 +513,7 @@ module Amazonka.Rekognition.Types
     newInstance,
     instance_confidence,
     instance_boundingBox,
+    instance_dominantColors,
 
     -- * KinesisDataStream
     KinesisDataStream (..),
@@ -479,8 +541,20 @@ module Amazonka.Rekognition.Types
     newLabel,
     label_instances,
     label_name,
+    label_aliases,
     label_confidence,
     label_parents,
+    label_categories,
+
+    -- * LabelAlias
+    LabelAlias (..),
+    newLabelAlias,
+    labelAlias_name,
+
+    -- * LabelCategory
+    LabelCategory (..),
+    newLabelCategory,
+    labelCategory_name,
 
     -- * LabelDetection
     LabelDetection (..),
@@ -841,7 +915,7 @@ module Amazonka.Rekognition.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.AgeRange
 import Amazonka.Rekognition.Types.Asset
@@ -875,9 +949,17 @@ import Amazonka.Rekognition.Types.DatasetStats
 import Amazonka.Rekognition.Types.DatasetStatus
 import Amazonka.Rekognition.Types.DatasetStatusMessageCode
 import Amazonka.Rekognition.Types.DatasetType
+import Amazonka.Rekognition.Types.DetectLabelsFeatureName
+import Amazonka.Rekognition.Types.DetectLabelsImageBackground
+import Amazonka.Rekognition.Types.DetectLabelsImageForeground
+import Amazonka.Rekognition.Types.DetectLabelsImageProperties
+import Amazonka.Rekognition.Types.DetectLabelsImagePropertiesSettings
+import Amazonka.Rekognition.Types.DetectLabelsImageQuality
+import Amazonka.Rekognition.Types.DetectLabelsSettings
 import Amazonka.Rekognition.Types.DetectTextFilters
 import Amazonka.Rekognition.Types.DetectionFilter
 import Amazonka.Rekognition.Types.DistributeDataset
+import Amazonka.Rekognition.Types.DominantColor
 import Amazonka.Rekognition.Types.Emotion
 import Amazonka.Rekognition.Types.EmotionName
 import Amazonka.Rekognition.Types.EquipmentDetection
@@ -894,6 +976,7 @@ import Amazonka.Rekognition.Types.FaceSearchSettings
 import Amazonka.Rekognition.Types.FaceSearchSortBy
 import Amazonka.Rekognition.Types.Gender
 import Amazonka.Rekognition.Types.GenderType
+import Amazonka.Rekognition.Types.GeneralLabelsSettings
 import Amazonka.Rekognition.Types.Geometry
 import Amazonka.Rekognition.Types.GroundTruthManifest
 import Amazonka.Rekognition.Types.HumanLoopActivationOutput
@@ -908,6 +991,8 @@ import Amazonka.Rekognition.Types.KinesisVideoStreamStartSelector
 import Amazonka.Rekognition.Types.KnownGender
 import Amazonka.Rekognition.Types.KnownGenderType
 import Amazonka.Rekognition.Types.Label
+import Amazonka.Rekognition.Types.LabelAlias
+import Amazonka.Rekognition.Types.LabelCategory
 import Amazonka.Rekognition.Types.LabelDetection
 import Amazonka.Rekognition.Types.LabelDetectionSortBy
 import Amazonka.Rekognition.Types.Landmark
@@ -983,28 +1068,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "Rekognition",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "rekognition",
-      Core._serviceSigningName = "rekognition",
-      Core._serviceVersion = "2016-06-27",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "Rekognition",
-      Core._serviceRetry = retry
+    { Core.abbrev = "Rekognition",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "rekognition",
+      Core.signingName = "rekognition",
+      Core.version = "2016-06-27",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "Rekognition",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

@@ -20,7 +20,7 @@
 module Amazonka.BackupGateway.Types.MaintenanceStartTime where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This is your gateway\'s weekly maintenance start time including the day

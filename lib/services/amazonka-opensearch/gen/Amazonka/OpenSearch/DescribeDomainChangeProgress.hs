@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the current blue\/green deployment happening
--- on a domain, including a change ID, status, and progress stages.
+-- on an Amazon OpenSearch Service domain. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html Making configuration changes in Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.DescribeDomainChangeProgress
   ( -- * Creating a Request
     DescribeDomainChangeProgress (..),
@@ -42,23 +43,22 @@ module Amazonka.OpenSearch.DescribeDomainChangeProgress
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to the @DescribeDomainChangeProgress@
--- operation. Specifies the domain name and optional change specific
--- identity for which you want progress information.
+-- operation.
 --
 -- /See:/ 'newDescribeDomainChangeProgress' smart constructor.
 data DescribeDomainChangeProgress = DescribeDomainChangeProgress'
   { -- | The specific change ID for which you want to get progress information.
-    -- This is an optional parameter. If omitted, the service returns
-    -- information about the most recent configuration change.
+    -- If omitted, the request returns information about the most recent
+    -- configuration change.
     changeId :: Prelude.Maybe Prelude.Text,
-    -- | The domain you want to get the progress information about.
+    -- | The name of the domain to get progress information for.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,10 +72,10 @@ data DescribeDomainChangeProgress = DescribeDomainChangeProgress'
 -- for backwards compatibility:
 --
 -- 'changeId', 'describeDomainChangeProgress_changeId' - The specific change ID for which you want to get progress information.
--- This is an optional parameter. If omitted, the service returns
--- information about the most recent configuration change.
+-- If omitted, the request returns information about the most recent
+-- configuration change.
 --
--- 'domainName', 'describeDomainChangeProgress_domainName' - The domain you want to get the progress information about.
+-- 'domainName', 'describeDomainChangeProgress_domainName' - The name of the domain to get progress information for.
 newDescribeDomainChangeProgress ::
   -- | 'domainName'
   Prelude.Text ->
@@ -88,12 +88,12 @@ newDescribeDomainChangeProgress pDomainName_ =
     }
 
 -- | The specific change ID for which you want to get progress information.
--- This is an optional parameter. If omitted, the service returns
--- information about the most recent configuration change.
+-- If omitted, the request returns information about the most recent
+-- configuration change.
 describeDomainChangeProgress_changeId :: Lens.Lens' DescribeDomainChangeProgress (Prelude.Maybe Prelude.Text)
 describeDomainChangeProgress_changeId = Lens.lens (\DescribeDomainChangeProgress' {changeId} -> changeId) (\s@DescribeDomainChangeProgress' {} a -> s {changeId = a} :: DescribeDomainChangeProgress)
 
--- | The domain you want to get the progress information about.
+-- | The name of the domain to get progress information for.
 describeDomainChangeProgress_domainName :: Lens.Lens' DescribeDomainChangeProgress Prelude.Text
 describeDomainChangeProgress_domainName = Lens.lens (\DescribeDomainChangeProgress' {domainName} -> domainName) (\s@DescribeDomainChangeProgress' {} a -> s {domainName = a} :: DescribeDomainChangeProgress)
 
@@ -101,8 +101,8 @@ instance Core.AWSRequest DescribeDomainChangeProgress where
   type
     AWSResponse DescribeDomainChangeProgress =
       DescribeDomainChangeProgressResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,13 +139,13 @@ instance Core.ToQuery DescribeDomainChangeProgress where
   toQuery DescribeDomainChangeProgress' {..} =
     Prelude.mconcat ["changeid" Core.=: changeId]
 
--- | The result of a @DescribeDomainChangeProgress@ request. Contains the
--- progress information of the requested domain change.
+-- | The result of a @DescribeDomainChangeProgress@ request. Contains
+-- progress information for the requested domain change.
 --
 -- /See:/ 'newDescribeDomainChangeProgressResponse' smart constructor.
 data DescribeDomainChangeProgressResponse = DescribeDomainChangeProgressResponse'
-  { -- | Progress information for the configuration change that is requested in
-    -- the @DescribeDomainChangeProgress@ request.
+  { -- | Container for information about the stages of a configuration change
+    -- happening on a domain.
     changeProgressStatus :: Prelude.Maybe ChangeProgressStatusDetails,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -160,8 +160,8 @@ data DescribeDomainChangeProgressResponse = DescribeDomainChangeProgressResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'changeProgressStatus', 'describeDomainChangeProgressResponse_changeProgressStatus' - Progress information for the configuration change that is requested in
--- the @DescribeDomainChangeProgress@ request.
+-- 'changeProgressStatus', 'describeDomainChangeProgressResponse_changeProgressStatus' - Container for information about the stages of a configuration change
+-- happening on a domain.
 --
 -- 'httpStatus', 'describeDomainChangeProgressResponse_httpStatus' - The response's http status code.
 newDescribeDomainChangeProgressResponse ::
@@ -175,8 +175,8 @@ newDescribeDomainChangeProgressResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Progress information for the configuration change that is requested in
--- the @DescribeDomainChangeProgress@ request.
+-- | Container for information about the stages of a configuration change
+-- happening on a domain.
 describeDomainChangeProgressResponse_changeProgressStatus :: Lens.Lens' DescribeDomainChangeProgressResponse (Prelude.Maybe ChangeProgressStatusDetails)
 describeDomainChangeProgressResponse_changeProgressStatus = Lens.lens (\DescribeDomainChangeProgressResponse' {changeProgressStatus} -> changeProgressStatus) (\s@DescribeDomainChangeProgressResponse' {} a -> s {changeProgressStatus = a} :: DescribeDomainChangeProgressResponse)
 

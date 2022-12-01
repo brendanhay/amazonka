@@ -20,7 +20,7 @@
 module Amazonka.LakeFormation.Types.VirtualObject where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that defines an Amazon S3 object to be deleted if a

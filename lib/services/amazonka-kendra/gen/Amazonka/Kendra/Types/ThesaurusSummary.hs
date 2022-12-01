@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.ThesaurusSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.ThesaurusStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An array of summary information for a thesaurus or multiple thesauri.

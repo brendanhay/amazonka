@@ -21,7 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.FormDataTypeConfig where
 
 import Amazonka.AmplifyUiBuilder.Types.FormDataSourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the data type configuration for the data source associated

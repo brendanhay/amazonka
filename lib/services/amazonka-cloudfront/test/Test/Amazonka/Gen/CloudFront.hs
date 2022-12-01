@@ -30,11 +30,17 @@ import Test.Tasty
 --         [ requestAssociateAlias $
 --             newAssociateAlias
 --
+--         , requestCopyDistribution $
+--             newCopyDistribution
+--
 --         , requestCreateCachePolicy $
 --             newCreateCachePolicy
 --
 --         , requestCreateCloudFrontOriginAccessIdentity $
 --             newCreateCloudFrontOriginAccessIdentity
+--
+--         , requestCreateContinuousDeploymentPolicy $
+--             newCreateContinuousDeploymentPolicy
 --
 --         , requestCreateDistribution $
 --             newCreateDistribution
@@ -87,6 +93,9 @@ import Test.Tasty
 --         , requestDeleteCloudFrontOriginAccessIdentity $
 --             newDeleteCloudFrontOriginAccessIdentity
 --
+--         , requestDeleteContinuousDeploymentPolicy $
+--             newDeleteContinuousDeploymentPolicy
+--
 --         , requestDeleteDistribution $
 --             newDeleteDistribution
 --
@@ -137,6 +146,12 @@ import Test.Tasty
 --
 --         , requestGetCloudFrontOriginAccessIdentityConfig $
 --             newGetCloudFrontOriginAccessIdentityConfig
+--
+--         , requestGetContinuousDeploymentPolicy $
+--             newGetContinuousDeploymentPolicy
+--
+--         , requestGetContinuousDeploymentPolicyConfig $
+--             newGetContinuousDeploymentPolicyConfig
 --
 --         , requestGetDistribution $
 --             newGetDistribution
@@ -213,6 +228,9 @@ import Test.Tasty
 --         , requestListConflictingAliases $
 --             newListConflictingAliases
 --
+--         , requestListContinuousDeploymentPolicies $
+--             newListContinuousDeploymentPolicies
+--
 --         , requestListDistributions $
 --             newListDistributions
 --
@@ -288,6 +306,9 @@ import Test.Tasty
 --         , requestUpdateCloudFrontOriginAccessIdentity $
 --             newUpdateCloudFrontOriginAccessIdentity
 --
+--         , requestUpdateContinuousDeploymentPolicy $
+--             newUpdateContinuousDeploymentPolicy
+--
 --         , requestUpdateDistribution $
 --             newUpdateDistribution
 --
@@ -327,11 +348,17 @@ import Test.Tasty
 --         [ responseAssociateAlias $
 --             newAssociateAliasResponse
 --
+--         , responseCopyDistribution $
+--             newCopyDistributionResponse
+--
 --         , responseCreateCachePolicy $
 --             newCreateCachePolicyResponse
 --
 --         , responseCreateCloudFrontOriginAccessIdentity $
 --             newCreateCloudFrontOriginAccessIdentityResponse
+--
+--         , responseCreateContinuousDeploymentPolicy $
+--             newCreateContinuousDeploymentPolicyResponse
 --
 --         , responseCreateDistribution $
 --             newCreateDistributionResponse
@@ -384,6 +411,9 @@ import Test.Tasty
 --         , responseDeleteCloudFrontOriginAccessIdentity $
 --             newDeleteCloudFrontOriginAccessIdentityResponse
 --
+--         , responseDeleteContinuousDeploymentPolicy $
+--             newDeleteContinuousDeploymentPolicyResponse
+--
 --         , responseDeleteDistribution $
 --             newDeleteDistributionResponse
 --
@@ -434,6 +464,12 @@ import Test.Tasty
 --
 --         , responseGetCloudFrontOriginAccessIdentityConfig $
 --             newGetCloudFrontOriginAccessIdentityConfigResponse
+--
+--         , responseGetContinuousDeploymentPolicy $
+--             newGetContinuousDeploymentPolicyResponse
+--
+--         , responseGetContinuousDeploymentPolicyConfig $
+--             newGetContinuousDeploymentPolicyConfigResponse
 --
 --         , responseGetDistribution $
 --             newGetDistributionResponse
@@ -510,6 +546,9 @@ import Test.Tasty
 --         , responseListConflictingAliases $
 --             newListConflictingAliasesResponse
 --
+--         , responseListContinuousDeploymentPolicies $
+--             newListContinuousDeploymentPoliciesResponse
+--
 --         , responseListDistributions $
 --             newListDistributionsResponse
 --
@@ -585,6 +624,9 @@ import Test.Tasty
 --         , responseUpdateCloudFrontOriginAccessIdentity $
 --             newUpdateCloudFrontOriginAccessIdentityResponse
 --
+--         , responseUpdateContinuousDeploymentPolicy $
+--             newUpdateContinuousDeploymentPolicyResponse
+--
 --         , responseUpdateDistribution $
 --             newUpdateDistributionResponse
 --
@@ -629,6 +671,12 @@ requestAssociateAlias =
     "AssociateAlias"
     "fixture/AssociateAlias.yaml"
 
+requestCopyDistribution :: CopyDistribution -> TestTree
+requestCopyDistribution =
+  req
+    "CopyDistribution"
+    "fixture/CopyDistribution.yaml"
+
 requestCreateCachePolicy :: CreateCachePolicy -> TestTree
 requestCreateCachePolicy =
   req
@@ -640,6 +688,12 @@ requestCreateCloudFrontOriginAccessIdentity =
   req
     "CreateCloudFrontOriginAccessIdentity"
     "fixture/CreateCloudFrontOriginAccessIdentity.yaml"
+
+requestCreateContinuousDeploymentPolicy :: CreateContinuousDeploymentPolicy -> TestTree
+requestCreateContinuousDeploymentPolicy =
+  req
+    "CreateContinuousDeploymentPolicy"
+    "fixture/CreateContinuousDeploymentPolicy.yaml"
 
 requestCreateDistribution :: CreateDistribution -> TestTree
 requestCreateDistribution =
@@ -743,6 +797,12 @@ requestDeleteCloudFrontOriginAccessIdentity =
     "DeleteCloudFrontOriginAccessIdentity"
     "fixture/DeleteCloudFrontOriginAccessIdentity.yaml"
 
+requestDeleteContinuousDeploymentPolicy :: DeleteContinuousDeploymentPolicy -> TestTree
+requestDeleteContinuousDeploymentPolicy =
+  req
+    "DeleteContinuousDeploymentPolicy"
+    "fixture/DeleteContinuousDeploymentPolicy.yaml"
+
 requestDeleteDistribution :: DeleteDistribution -> TestTree
 requestDeleteDistribution =
   req
@@ -844,6 +904,18 @@ requestGetCloudFrontOriginAccessIdentityConfig =
   req
     "GetCloudFrontOriginAccessIdentityConfig"
     "fixture/GetCloudFrontOriginAccessIdentityConfig.yaml"
+
+requestGetContinuousDeploymentPolicy :: GetContinuousDeploymentPolicy -> TestTree
+requestGetContinuousDeploymentPolicy =
+  req
+    "GetContinuousDeploymentPolicy"
+    "fixture/GetContinuousDeploymentPolicy.yaml"
+
+requestGetContinuousDeploymentPolicyConfig :: GetContinuousDeploymentPolicyConfig -> TestTree
+requestGetContinuousDeploymentPolicyConfig =
+  req
+    "GetContinuousDeploymentPolicyConfig"
+    "fixture/GetContinuousDeploymentPolicyConfig.yaml"
 
 requestGetDistribution :: GetDistribution -> TestTree
 requestGetDistribution =
@@ -995,6 +1067,12 @@ requestListConflictingAliases =
     "ListConflictingAliases"
     "fixture/ListConflictingAliases.yaml"
 
+requestListContinuousDeploymentPolicies :: ListContinuousDeploymentPolicies -> TestTree
+requestListContinuousDeploymentPolicies =
+  req
+    "ListContinuousDeploymentPolicies"
+    "fixture/ListContinuousDeploymentPolicies.yaml"
+
 requestListDistributions :: ListDistributions -> TestTree
 requestListDistributions =
   req
@@ -1145,6 +1223,12 @@ requestUpdateCloudFrontOriginAccessIdentity =
     "UpdateCloudFrontOriginAccessIdentity"
     "fixture/UpdateCloudFrontOriginAccessIdentity.yaml"
 
+requestUpdateContinuousDeploymentPolicy :: UpdateContinuousDeploymentPolicy -> TestTree
+requestUpdateContinuousDeploymentPolicy =
+  req
+    "UpdateContinuousDeploymentPolicy"
+    "fixture/UpdateContinuousDeploymentPolicy.yaml"
+
 requestUpdateDistribution :: UpdateDistribution -> TestTree
 requestUpdateDistribution =
   req
@@ -1221,6 +1305,14 @@ responseAssociateAlias =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateAlias)
 
+responseCopyDistribution :: CopyDistributionResponse -> TestTree
+responseCopyDistribution =
+  res
+    "CopyDistributionResponse"
+    "fixture/CopyDistributionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CopyDistribution)
+
 responseCreateCachePolicy :: CreateCachePolicyResponse -> TestTree
 responseCreateCachePolicy =
   res
@@ -1236,6 +1328,14 @@ responseCreateCloudFrontOriginAccessIdentity =
     "fixture/CreateCloudFrontOriginAccessIdentityResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateCloudFrontOriginAccessIdentity)
+
+responseCreateContinuousDeploymentPolicy :: CreateContinuousDeploymentPolicyResponse -> TestTree
+responseCreateContinuousDeploymentPolicy =
+  res
+    "CreateContinuousDeploymentPolicyResponse"
+    "fixture/CreateContinuousDeploymentPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateContinuousDeploymentPolicy)
 
 responseCreateDistribution :: CreateDistributionResponse -> TestTree
 responseCreateDistribution =
@@ -1373,6 +1473,14 @@ responseDeleteCloudFrontOriginAccessIdentity =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteCloudFrontOriginAccessIdentity)
 
+responseDeleteContinuousDeploymentPolicy :: DeleteContinuousDeploymentPolicyResponse -> TestTree
+responseDeleteContinuousDeploymentPolicy =
+  res
+    "DeleteContinuousDeploymentPolicyResponse"
+    "fixture/DeleteContinuousDeploymentPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteContinuousDeploymentPolicy)
+
 responseDeleteDistribution :: DeleteDistributionResponse -> TestTree
 responseDeleteDistribution =
   res
@@ -1508,6 +1616,22 @@ responseGetCloudFrontOriginAccessIdentityConfig =
     "fixture/GetCloudFrontOriginAccessIdentityConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetCloudFrontOriginAccessIdentityConfig)
+
+responseGetContinuousDeploymentPolicy :: GetContinuousDeploymentPolicyResponse -> TestTree
+responseGetContinuousDeploymentPolicy =
+  res
+    "GetContinuousDeploymentPolicyResponse"
+    "fixture/GetContinuousDeploymentPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetContinuousDeploymentPolicy)
+
+responseGetContinuousDeploymentPolicyConfig :: GetContinuousDeploymentPolicyConfigResponse -> TestTree
+responseGetContinuousDeploymentPolicyConfig =
+  res
+    "GetContinuousDeploymentPolicyConfigResponse"
+    "fixture/GetContinuousDeploymentPolicyConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetContinuousDeploymentPolicyConfig)
 
 responseGetDistribution :: GetDistributionResponse -> TestTree
 responseGetDistribution =
@@ -1709,6 +1833,14 @@ responseListConflictingAliases =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListConflictingAliases)
 
+responseListContinuousDeploymentPolicies :: ListContinuousDeploymentPoliciesResponse -> TestTree
+responseListContinuousDeploymentPolicies =
+  res
+    "ListContinuousDeploymentPoliciesResponse"
+    "fixture/ListContinuousDeploymentPoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListContinuousDeploymentPolicies)
+
 responseListDistributions :: ListDistributionsResponse -> TestTree
 responseListDistributions =
   res
@@ -1908,6 +2040,14 @@ responseUpdateCloudFrontOriginAccessIdentity =
     "fixture/UpdateCloudFrontOriginAccessIdentityResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateCloudFrontOriginAccessIdentity)
+
+responseUpdateContinuousDeploymentPolicy :: UpdateContinuousDeploymentPolicyResponse -> TestTree
+responseUpdateContinuousDeploymentPolicy =
+  res
+    "UpdateContinuousDeploymentPolicyResponse"
+    "fixture/UpdateContinuousDeploymentPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateContinuousDeploymentPolicy)
 
 responseUpdateDistribution :: UpdateDistributionResponse -> TestTree
 responseUpdateDistribution =

@@ -20,7 +20,7 @@
 module Amazonka.CognitoIdentityProvider.Types.RiskExceptionConfigurationType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type of the configuration to override the risk decision.

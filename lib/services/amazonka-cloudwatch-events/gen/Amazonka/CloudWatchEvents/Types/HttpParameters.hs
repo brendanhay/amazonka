@@ -20,7 +20,7 @@
 module Amazonka.CloudWatchEvents.Types.HttpParameters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | These are custom parameter to be used when the target is an API Gateway

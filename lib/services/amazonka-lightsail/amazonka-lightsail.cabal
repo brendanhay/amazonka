@@ -220,6 +220,7 @@ library
     Amazonka.Lightsail.Types.CacheBehaviorPerPath
     Amazonka.Lightsail.Types.CacheSettings
     Amazonka.Lightsail.Types.Certificate
+    Amazonka.Lightsail.Types.CertificateDomainValidationStatus
     Amazonka.Lightsail.Types.CertificateStatus
     Amazonka.Lightsail.Types.CertificateSummary
     Amazonka.Lightsail.Types.CloudFormationStackRecord
@@ -260,6 +261,8 @@ library
     Amazonka.Lightsail.Types.DiskState
     Amazonka.Lightsail.Types.DistributionBundle
     Amazonka.Lightsail.Types.DistributionMetricName
+    Amazonka.Lightsail.Types.DnsRecordCreationState
+    Amazonka.Lightsail.Types.DnsRecordCreationStateCode
     Amazonka.Lightsail.Types.Domain
     Amazonka.Lightsail.Types.DomainEntry
     Amazonka.Lightsail.Types.DomainValidationRecord
@@ -303,6 +306,8 @@ library
     Amazonka.Lightsail.Types.LoadBalancerProtocol
     Amazonka.Lightsail.Types.LoadBalancerState
     Amazonka.Lightsail.Types.LoadBalancerTlsCertificate
+    Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDnsRecordCreationState
+    Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDnsRecordCreationStateCode
     Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainStatus
     Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationOption
     Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationRecord
@@ -320,6 +325,8 @@ library
     Amazonka.Lightsail.Types.MetricUnit
     Amazonka.Lightsail.Types.MonitoredResourceInfo
     Amazonka.Lightsail.Types.MonthlyTransfer
+    Amazonka.Lightsail.Types.NameServersUpdateState
+    Amazonka.Lightsail.Types.NameServersUpdateStateCode
     Amazonka.Lightsail.Types.NetworkProtocol
     Amazonka.Lightsail.Types.Operation
     Amazonka.Lightsail.Types.OperationStatus
@@ -336,9 +343,12 @@ library
     Amazonka.Lightsail.Types.PrivateRegistryAccess
     Amazonka.Lightsail.Types.PrivateRegistryAccessRequest
     Amazonka.Lightsail.Types.QueryStringObject
+    Amazonka.Lightsail.Types.R53HostedZoneDeletionState
+    Amazonka.Lightsail.Types.R53HostedZoneDeletionStateCode
     Amazonka.Lightsail.Types.RecordState
     Amazonka.Lightsail.Types.RegionInfo
     Amazonka.Lightsail.Types.RegionName
+    Amazonka.Lightsail.Types.RegisteredDomainDelegationInfo
     Amazonka.Lightsail.Types.RelationalDatabase
     Amazonka.Lightsail.Types.RelationalDatabaseBlueprint
     Amazonka.Lightsail.Types.RelationalDatabaseBundle

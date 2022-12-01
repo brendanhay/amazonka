@@ -22,7 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.FormCTA where
 import Amazonka.AmplifyUiBuilder.Types.FormButton
 import Amazonka.AmplifyUiBuilder.Types.FormButtonsPosition
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the call to action button configuration for the form.

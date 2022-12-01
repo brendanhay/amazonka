@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.ResourceServerType where
 
 import Amazonka.CognitoIdentityProvider.Types.ResourceServerScopeType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A container for information about a resource server for a user pool.

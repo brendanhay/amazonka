@@ -40,8 +40,8 @@ module Amazonka.GamesParks.DeleteStage
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GamesParks.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,8 +88,8 @@ deleteStage_stageName = Lens.lens (\DeleteStage' {stageName} -> stageName) (\s@D
 
 instance Core.AWSRequest DeleteStage where
   type AWSResponse DeleteStage = DeleteStageResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

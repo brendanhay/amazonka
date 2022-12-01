@@ -78,6 +78,7 @@ module Amazonka.AuditManager.Lens
 
     -- ** CreateAssessmentReport
     createAssessmentReport_description,
+    createAssessmentReport_queryStatement,
     createAssessmentReport_name,
     createAssessmentReport_assessmentId,
     createAssessmentReportResponse_assessmentReport,
@@ -424,6 +425,7 @@ module Amazonka.AuditManager.Lens
     updateSettings_snsTopic,
     updateSettings_kmsKey,
     updateSettings_defaultAssessmentReportsDestination,
+    updateSettings_evidenceFinderEnabled,
     updateSettingsResponse_settings,
     updateSettingsResponse_httpStatus,
 
@@ -732,6 +734,12 @@ module Amazonka.AuditManager.Lens
     evidence_attributes,
     evidence_eventSource,
 
+    -- ** EvidenceFinderEnablement
+    evidenceFinderEnablement_eventDataStoreArn,
+    evidenceFinderEnablement_enablementStatus,
+    evidenceFinderEnablement_backfillStatus,
+    evidenceFinderEnablement_error,
+
     -- ** EvidenceInsights
     evidenceInsights_compliantEvidenceCount,
     evidenceInsights_inconclusiveEvidenceCount,
@@ -791,6 +799,7 @@ module Amazonka.AuditManager.Lens
 
     -- ** Resource
     resource_arn,
+    resource_complianceCheck,
     resource_value,
 
     -- ** Role
@@ -812,6 +821,7 @@ module Amazonka.AuditManager.Lens
     settings_snsTopic,
     settings_isAwsOrgEnabled,
     settings_kmsKey,
+    settings_evidenceFinderEnablement,
     settings_defaultAssessmentReportsDestination,
 
     -- ** SourceKeyword
@@ -914,6 +924,7 @@ import Amazonka.AuditManager.Types.CreateDelegationRequest
 import Amazonka.AuditManager.Types.Delegation
 import Amazonka.AuditManager.Types.DelegationMetadata
 import Amazonka.AuditManager.Types.Evidence
+import Amazonka.AuditManager.Types.EvidenceFinderEnablement
 import Amazonka.AuditManager.Types.EvidenceInsights
 import Amazonka.AuditManager.Types.Framework
 import Amazonka.AuditManager.Types.FrameworkMetadata

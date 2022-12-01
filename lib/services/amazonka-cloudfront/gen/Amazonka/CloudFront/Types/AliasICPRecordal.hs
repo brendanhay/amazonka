@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.AliasICPRecordal where
 
 import Amazonka.CloudFront.Types.ICPRecordalStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon Web Services services in China customers must file for an

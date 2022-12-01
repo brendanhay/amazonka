@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.PatchSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides an overview of the patch compliance status for an instance

@@ -22,7 +22,7 @@ module Amazonka.Comprehend.Types.InputDataConfig where
 import Amazonka.Comprehend.Types.DocumentReaderConfig
 import Amazonka.Comprehend.Types.InputFormat
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input properties for an inference job.

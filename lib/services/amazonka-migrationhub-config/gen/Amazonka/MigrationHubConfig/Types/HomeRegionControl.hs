@@ -20,7 +20,7 @@
 module Amazonka.MigrationHubConfig.Types.HomeRegionControl where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MigrationHubConfig.Types.Target
 import qualified Amazonka.Prelude as Prelude
 

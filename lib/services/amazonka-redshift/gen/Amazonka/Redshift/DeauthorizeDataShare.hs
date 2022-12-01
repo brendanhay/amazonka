@@ -45,7 +45,7 @@ module Amazonka.Redshift.DeauthorizeDataShare
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -105,8 +105,8 @@ deauthorizeDataShare_consumerIdentifier = Lens.lens (\DeauthorizeDataShare' {con
 
 instance Core.AWSRequest DeauthorizeDataShare where
   type AWSResponse DeauthorizeDataShare = DataShare
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "DeauthorizeDataShareResult"

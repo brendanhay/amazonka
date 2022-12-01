@@ -22,7 +22,7 @@ module Amazonka.AppMesh.Types.HttpGatewayRouteAction where
 import Amazonka.AppMesh.Types.GatewayRouteTarget
 import Amazonka.AppMesh.Types.HttpGatewayRouteRewrite
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the action to take if a match is determined.

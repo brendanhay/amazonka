@@ -48,6 +48,7 @@ library
     Amazonka.XRay.CreateGroup
     Amazonka.XRay.CreateSamplingRule
     Amazonka.XRay.DeleteGroup
+    Amazonka.XRay.DeleteResourcePolicy
     Amazonka.XRay.DeleteSamplingRule
     Amazonka.XRay.GetEncryptionConfig
     Amazonka.XRay.GetGroup
@@ -64,8 +65,10 @@ library
     Amazonka.XRay.GetTraceGraph
     Amazonka.XRay.GetTraceSummaries
     Amazonka.XRay.Lens
+    Amazonka.XRay.ListResourcePolicies
     Amazonka.XRay.ListTagsForResource
     Amazonka.XRay.PutEncryptionConfig
+    Amazonka.XRay.PutResourcePolicy
     Amazonka.XRay.PutTelemetryRecords
     Amazonka.XRay.PutTraceSegments
     Amazonka.XRay.TagResource
@@ -104,6 +107,7 @@ library
     Amazonka.XRay.Types.InstanceIdDetail
     Amazonka.XRay.Types.RequestImpactStatistics
     Amazonka.XRay.Types.ResourceARNDetail
+    Amazonka.XRay.Types.ResourcePolicy
     Amazonka.XRay.Types.ResponseTimeRootCause
     Amazonka.XRay.Types.ResponseTimeRootCauseEntity
     Amazonka.XRay.Types.ResponseTimeRootCauseService

@@ -20,13 +20,19 @@
 module Amazonka.DynamoDB.Types.BillingModeSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.BillingMode
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains the details for the read\/write capacity mode.
+-- | Contains the details for the read\/write capacity mode. This page talks
+-- about @PROVISIONED@ and @PAY_PER_REQUEST@ billing modes. For more
+-- information about these modes, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html Read\/write capacity mode>.
+--
+-- You may need to switch to on-demand mode at least once in order to
+-- return a @BillingModeSummary@ response.
 --
 -- /See:/ 'newBillingModeSummary' smart constructor.
 data BillingModeSummary = BillingModeSummary'

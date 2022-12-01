@@ -51,8 +51,8 @@ module Amazonka.IoT.DeleteJob
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -166,8 +166,8 @@ deleteJob_jobId = Lens.lens (\DeleteJob' {jobId} -> jobId) (\s@DeleteJob' {} a -
 
 instance Core.AWSRequest DeleteJob where
   type AWSResponse DeleteJob = DeleteJobResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteJobResponse'
 
 instance Prelude.Hashable DeleteJob where

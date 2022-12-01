@@ -20,8 +20,8 @@
 module Amazonka.CostExplorer.Types.CostCategorySplitChargeRuleParameter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategorySplitChargeRuleParameterType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for a split charge method.

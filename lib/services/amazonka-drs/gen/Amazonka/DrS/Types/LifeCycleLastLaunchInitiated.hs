@@ -20,8 +20,8 @@
 module Amazonka.DrS.Types.LifeCycleLastLaunchInitiated where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.LastLaunchType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object containing information regarding the initiation of the last

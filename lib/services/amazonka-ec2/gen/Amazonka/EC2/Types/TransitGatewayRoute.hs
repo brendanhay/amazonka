@@ -20,11 +20,11 @@
 module Amazonka.EC2.Types.TransitGatewayRoute where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.TransitGatewayRouteAttachment
 import Amazonka.EC2.Types.TransitGatewayRouteState
 import Amazonka.EC2.Types.TransitGatewayRouteType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a route for a transit gateway route table.

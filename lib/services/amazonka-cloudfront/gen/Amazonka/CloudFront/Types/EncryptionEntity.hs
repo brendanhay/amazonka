@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.EncryptionEntity where
 
 import Amazonka.CloudFront.Types.FieldPatterns
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Complex data type for field-level encryption profiles that includes the

@@ -21,10 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the attributes of an existing template. The template attributes
--- that can be modified include @name@, @description@, @layouts@, and
--- @requiredFields@. At least one of these attributes must not be null. If
--- a null value is provided for a given attribute, that attribute is
--- ignored and its current value is preserved.
+-- that can be modified include @name@, @description@,
+-- @layoutConfiguration@, @requiredFields@, and @status@. At least one of
+-- these attributes must not be null. If a null value is provided for a
+-- given attribute, that attribute is ignored and its current value is
+-- preserved.
 module Amazonka.ConnectCases.UpdateTemplate
   ( -- * Creating a Request
     UpdateTemplate (..),
@@ -33,6 +34,7 @@ module Amazonka.ConnectCases.UpdateTemplate
     -- * Request Lenses
     updateTemplate_layoutConfiguration,
     updateTemplate_name,
+    updateTemplate_status,
     updateTemplate_description,
     updateTemplate_requiredFields,
     updateTemplate_domainId,
@@ -49,7 +51,7 @@ where
 
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,6 +62,8 @@ data UpdateTemplate = UpdateTemplate'
     layoutConfiguration :: Prelude.Maybe LayoutConfiguration,
     -- | The name of the template. It must be unique per domain.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The status of the template.
+    status :: Prelude.Maybe TemplateStatus,
     -- | A brief description of the template.
     description :: Prelude.Maybe Prelude.Text,
     -- | A list of fields that must contain a value for a case to be successfully
@@ -84,6 +88,8 @@ data UpdateTemplate = UpdateTemplate'
 --
 -- 'name', 'updateTemplate_name' - The name of the template. It must be unique per domain.
 --
+-- 'status', 'updateTemplate_status' - The status of the template.
+--
 -- 'description', 'updateTemplate_description' - A brief description of the template.
 --
 -- 'requiredFields', 'updateTemplate_requiredFields' - A list of fields that must contain a value for a case to be successfully
@@ -103,6 +109,7 @@ newUpdateTemplate pDomainId_ pTemplateId_ =
     { layoutConfiguration =
         Prelude.Nothing,
       name = Prelude.Nothing,
+      status = Prelude.Nothing,
       description = Prelude.Nothing,
       requiredFields = Prelude.Nothing,
       domainId = pDomainId_,
@@ -116,6 +123,10 @@ updateTemplate_layoutConfiguration = Lens.lens (\UpdateTemplate' {layoutConfigur
 -- | The name of the template. It must be unique per domain.
 updateTemplate_name :: Lens.Lens' UpdateTemplate (Prelude.Maybe Prelude.Text)
 updateTemplate_name = Lens.lens (\UpdateTemplate' {name} -> name) (\s@UpdateTemplate' {} a -> s {name = a} :: UpdateTemplate)
+
+-- | The status of the template.
+updateTemplate_status :: Lens.Lens' UpdateTemplate (Prelude.Maybe TemplateStatus)
+updateTemplate_status = Lens.lens (\UpdateTemplate' {status} -> status) (\s@UpdateTemplate' {} a -> s {status = a} :: UpdateTemplate)
 
 -- | A brief description of the template.
 updateTemplate_description :: Lens.Lens' UpdateTemplate (Prelude.Maybe Prelude.Text)
@@ -138,8 +149,8 @@ instance Core.AWSRequest UpdateTemplate where
   type
     AWSResponse UpdateTemplate =
       UpdateTemplateResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -151,6 +162,7 @@ instance Prelude.Hashable UpdateTemplate where
   hashWithSalt _salt UpdateTemplate' {..} =
     _salt `Prelude.hashWithSalt` layoutConfiguration
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` requiredFields
       `Prelude.hashWithSalt` domainId
@@ -160,6 +172,7 @@ instance Prelude.NFData UpdateTemplate where
   rnf UpdateTemplate' {..} =
     Prelude.rnf layoutConfiguration
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf requiredFields
       `Prelude.seq` Prelude.rnf domainId
@@ -183,6 +196,7 @@ instance Core.ToJSON UpdateTemplate where
           [ ("layoutConfiguration" Core..=)
               Prelude.<$> layoutConfiguration,
             ("name" Core..=) Prelude.<$> name,
+            ("status" Core..=) Prelude.<$> status,
             ("description" Core..=) Prelude.<$> description,
             ("requiredFields" Core..=)
               Prelude.<$> requiredFields

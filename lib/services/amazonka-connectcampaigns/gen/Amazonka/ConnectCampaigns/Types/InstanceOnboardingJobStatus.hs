@@ -22,7 +22,7 @@ module Amazonka.ConnectCampaigns.Types.InstanceOnboardingJobStatus where
 import Amazonka.ConnectCampaigns.Types.InstanceOnboardingJobFailureCode
 import Amazonka.ConnectCampaigns.Types.InstanceOnboardingJobStatusCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Instance onboarding job status object

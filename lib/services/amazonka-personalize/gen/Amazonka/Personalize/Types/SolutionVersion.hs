@@ -20,7 +20,7 @@
 module Amazonka.Personalize.Types.SolutionVersion where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Personalize.Types.SolutionConfig
 import Amazonka.Personalize.Types.TrainingMode
 import Amazonka.Personalize.Types.TunedHPOParams
@@ -37,6 +37,8 @@ data SolutionVersion = SolutionVersion'
     -- | The event type (for example, \'click\' or \'like\') that is used for
     -- training the model.
     eventType :: Prelude.Maybe Prelude.Text,
+    -- | The name of the solution version.
+    name :: Prelude.Maybe Prelude.Text,
     -- | If hyperparameter optimization was performed, contains the
     -- hyperparameter values of the best performing model.
     tunedHPOParams :: Prelude.Maybe TunedHPOParams,
@@ -114,6 +116,8 @@ data SolutionVersion = SolutionVersion'
 -- 'eventType', 'solutionVersion_eventType' - The event type (for example, \'click\' or \'like\') that is used for
 -- training the model.
 --
+-- 'name', 'solutionVersion_name' - The name of the solution version.
+--
 -- 'tunedHPOParams', 'solutionVersion_tunedHPOParams' - If hyperparameter optimization was performed, contains the
 -- hyperparameter values of the best performing model.
 --
@@ -180,6 +184,7 @@ newSolutionVersion =
   SolutionVersion'
     { solutionArn = Prelude.Nothing,
       eventType = Prelude.Nothing,
+      name = Prelude.Nothing,
       tunedHPOParams = Prelude.Nothing,
       performAutoML = Prelude.Nothing,
       performHPO = Prelude.Nothing,
@@ -203,6 +208,10 @@ solutionVersion_solutionArn = Lens.lens (\SolutionVersion' {solutionArn} -> solu
 -- training the model.
 solutionVersion_eventType :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
 solutionVersion_eventType = Lens.lens (\SolutionVersion' {eventType} -> eventType) (\s@SolutionVersion' {} a -> s {eventType = a} :: SolutionVersion)
+
+-- | The name of the solution version.
+solutionVersion_name :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
+solutionVersion_name = Lens.lens (\SolutionVersion' {name} -> name) (\s@SolutionVersion' {} a -> s {name = a} :: SolutionVersion)
 
 -- | If hyperparameter optimization was performed, contains the
 -- hyperparameter values of the best performing model.
@@ -299,6 +308,7 @@ instance Core.FromJSON SolutionVersion where
           SolutionVersion'
             Prelude.<$> (x Core..:? "solutionArn")
             Prelude.<*> (x Core..:? "eventType")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "tunedHPOParams")
             Prelude.<*> (x Core..:? "performAutoML")
             Prelude.<*> (x Core..:? "performHPO")
@@ -318,6 +328,7 @@ instance Prelude.Hashable SolutionVersion where
   hashWithSalt _salt SolutionVersion' {..} =
     _salt `Prelude.hashWithSalt` solutionArn
       `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tunedHPOParams
       `Prelude.hashWithSalt` performAutoML
       `Prelude.hashWithSalt` performHPO
@@ -336,6 +347,7 @@ instance Prelude.NFData SolutionVersion where
   rnf SolutionVersion' {..} =
     Prelude.rnf solutionArn
       `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf tunedHPOParams
       `Prelude.seq` Prelude.rnf performAutoML
       `Prelude.seq` Prelude.rnf performHPO

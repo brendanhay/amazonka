@@ -156,6 +156,10 @@ module Amazonka.Textract.Lens
     -- ** DocumentMetadata
     documentMetadata_pages,
 
+    -- ** ExpenseCurrency
+    expenseCurrency_code,
+    expenseCurrency_confidence,
+
     -- ** ExpenseDetection
     expenseDetection_confidence,
     expenseDetection_text,
@@ -165,12 +169,19 @@ module Amazonka.Textract.Lens
     expenseDocument_lineItemGroups,
     expenseDocument_summaryFields,
     expenseDocument_expenseIndex,
+    expenseDocument_blocks,
 
     -- ** ExpenseField
     expenseField_type,
+    expenseField_groupProperties,
     expenseField_pageNumber,
     expenseField_labelDetection,
+    expenseField_currency,
     expenseField_valueDetection,
+
+    -- ** ExpenseGroupProperty
+    expenseGroupProperty_id,
+    expenseGroupProperty_types,
 
     -- ** ExpenseType
     expenseType_confidence,
@@ -196,6 +207,7 @@ module Amazonka.Textract.Lens
     -- ** IdentityDocument
     identityDocument_documentIndex,
     identityDocument_identityDocumentFields,
+    identityDocument_blocks,
 
     -- ** IdentityDocumentField
     identityDocumentField_type,
@@ -263,9 +275,11 @@ import Amazonka.Textract.Types.BoundingBox
 import Amazonka.Textract.Types.Document
 import Amazonka.Textract.Types.DocumentLocation
 import Amazonka.Textract.Types.DocumentMetadata
+import Amazonka.Textract.Types.ExpenseCurrency
 import Amazonka.Textract.Types.ExpenseDetection
 import Amazonka.Textract.Types.ExpenseDocument
 import Amazonka.Textract.Types.ExpenseField
+import Amazonka.Textract.Types.ExpenseGroupProperty
 import Amazonka.Textract.Types.ExpenseType
 import Amazonka.Textract.Types.Geometry
 import Amazonka.Textract.Types.HumanLoopActivationOutput

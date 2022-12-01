@@ -39,6 +39,9 @@ module Amazonka.IotTwinMaker
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** QueryTimeoutException
+    _QueryTimeoutException,
+
     -- ** ConflictException
     _ConflictException,
 
@@ -114,6 +117,12 @@ module Amazonka.IotTwinMaker
     DeleteWorkspaceResponse (DeleteWorkspaceResponse'),
     newDeleteWorkspaceResponse,
 
+    -- ** ExecuteQuery
+    ExecuteQuery (ExecuteQuery'),
+    newExecuteQuery,
+    ExecuteQueryResponse (ExecuteQueryResponse'),
+    newExecuteQueryResponse,
+
     -- ** GetComponentType
     GetComponentType (GetComponentType'),
     newGetComponentType,
@@ -125,6 +134,12 @@ module Amazonka.IotTwinMaker
     newGetEntity,
     GetEntityResponse (GetEntityResponse'),
     newGetEntityResponse,
+
+    -- ** GetPricingPlan
+    GetPricingPlan (GetPricingPlan'),
+    newGetPricingPlan,
+    GetPricingPlanResponse (GetPricingPlanResponse'),
+    newGetPricingPlanResponse,
 
     -- ** GetPropertyValue
     GetPropertyValue (GetPropertyValue'),
@@ -204,6 +219,12 @@ module Amazonka.IotTwinMaker
     UpdateEntityResponse (UpdateEntityResponse'),
     newUpdateEntityResponse,
 
+    -- ** UpdatePricingPlan
+    UpdatePricingPlan (UpdatePricingPlan'),
+    newUpdatePricingPlan,
+    UpdatePricingPlanResponse (UpdatePricingPlanResponse'),
+    newUpdatePricingPlanResponse,
+
     -- ** UpdateScene
     UpdateScene (UpdateScene'),
     newUpdateScene,
@@ -218,20 +239,38 @@ module Amazonka.IotTwinMaker
 
     -- * Types
 
+    -- ** ColumnType
+    ColumnType (..),
+
     -- ** ComponentUpdateType
     ComponentUpdateType (..),
 
     -- ** ErrorCode
     ErrorCode (..),
 
+    -- ** GroupType
+    GroupType (..),
+
     -- ** InterpolationType
     InterpolationType (..),
+
+    -- ** Order
+    Order (..),
 
     -- ** OrderByTime
     OrderByTime (..),
 
     -- ** ParentEntityUpdateType
     ParentEntityUpdateType (..),
+
+    -- ** PricingMode
+    PricingMode (..),
+
+    -- ** PricingTier
+    PricingTier (..),
+
+    -- ** PropertyGroupUpdateType
+    PropertyGroupUpdateType (..),
 
     -- ** PropertyUpdateType
     PropertyUpdateType (..),
@@ -245,6 +284,9 @@ module Amazonka.IotTwinMaker
     -- ** Type
     Type (..),
 
+    -- ** UpdateReason
+    UpdateReason (..),
+
     -- ** BatchPutPropertyError
     BatchPutPropertyError (BatchPutPropertyError'),
     newBatchPutPropertyError,
@@ -252,6 +294,22 @@ module Amazonka.IotTwinMaker
     -- ** BatchPutPropertyErrorEntry
     BatchPutPropertyErrorEntry (BatchPutPropertyErrorEntry'),
     newBatchPutPropertyErrorEntry,
+
+    -- ** BundleInformation
+    BundleInformation (BundleInformation'),
+    newBundleInformation,
+
+    -- ** ColumnDescription
+    ColumnDescription (ColumnDescription'),
+    newColumnDescription,
+
+    -- ** ComponentPropertyGroupRequest
+    ComponentPropertyGroupRequest (ComponentPropertyGroupRequest'),
+    newComponentPropertyGroupRequest,
+
+    -- ** ComponentPropertyGroupResponse
+    ComponentPropertyGroupResponse (ComponentPropertyGroupResponse'),
+    newComponentPropertyGroupResponse,
 
     -- ** ComponentRequest
     ComponentRequest (ComponentRequest'),
@@ -317,9 +375,17 @@ module Amazonka.IotTwinMaker
     ListEntitiesFilter (ListEntitiesFilter'),
     newListEntitiesFilter,
 
+    -- ** OrderBy
+    OrderBy (OrderBy'),
+    newOrderBy,
+
     -- ** ParentEntityUpdateRequest
     ParentEntityUpdateRequest (ParentEntityUpdateRequest'),
     newParentEntityUpdateRequest,
+
+    -- ** PricingPlan
+    PricingPlan (PricingPlan'),
+    newPricingPlan,
 
     -- ** PropertyDefinitionRequest
     PropertyDefinitionRequest (PropertyDefinitionRequest'),
@@ -332,6 +398,14 @@ module Amazonka.IotTwinMaker
     -- ** PropertyFilter
     PropertyFilter (PropertyFilter'),
     newPropertyFilter,
+
+    -- ** PropertyGroupRequest
+    PropertyGroupRequest (PropertyGroupRequest'),
+    newPropertyGroupRequest,
+
+    -- ** PropertyGroupResponse
+    PropertyGroupResponse (PropertyGroupResponse'),
+    newPropertyGroupResponse,
 
     -- ** PropertyLatestValue
     PropertyLatestValue (PropertyLatestValue'),
@@ -357,6 +431,10 @@ module Amazonka.IotTwinMaker
     PropertyValueHistory (PropertyValueHistory'),
     newPropertyValueHistory,
 
+    -- ** QueryResultValue
+    QueryResultValue (QueryResultValue'),
+    newQueryResultValue,
+
     -- ** Relationship
     Relationship (Relationship'),
     newRelationship,
@@ -365,6 +443,10 @@ module Amazonka.IotTwinMaker
     RelationshipValue (RelationshipValue'),
     newRelationshipValue,
 
+    -- ** Row
+    Row (Row'),
+    newRow,
+
     -- ** SceneSummary
     SceneSummary (SceneSummary'),
     newSceneSummary,
@@ -372,6 +454,10 @@ module Amazonka.IotTwinMaker
     -- ** Status
     Status (Status'),
     newStatus,
+
+    -- ** TabularConditions
+    TabularConditions (TabularConditions'),
+    newTabularConditions,
 
     -- ** WorkspaceSummary
     WorkspaceSummary (WorkspaceSummary'),
@@ -388,8 +474,10 @@ import Amazonka.IotTwinMaker.DeleteComponentType
 import Amazonka.IotTwinMaker.DeleteEntity
 import Amazonka.IotTwinMaker.DeleteScene
 import Amazonka.IotTwinMaker.DeleteWorkspace
+import Amazonka.IotTwinMaker.ExecuteQuery
 import Amazonka.IotTwinMaker.GetComponentType
 import Amazonka.IotTwinMaker.GetEntity
+import Amazonka.IotTwinMaker.GetPricingPlan
 import Amazonka.IotTwinMaker.GetPropertyValue
 import Amazonka.IotTwinMaker.GetPropertyValueHistory
 import Amazonka.IotTwinMaker.GetScene
@@ -405,6 +493,7 @@ import Amazonka.IotTwinMaker.Types
 import Amazonka.IotTwinMaker.UntagResource
 import Amazonka.IotTwinMaker.UpdateComponentType
 import Amazonka.IotTwinMaker.UpdateEntity
+import Amazonka.IotTwinMaker.UpdatePricingPlan
 import Amazonka.IotTwinMaker.UpdateScene
 import Amazonka.IotTwinMaker.UpdateWorkspace
 import Amazonka.IotTwinMaker.Waiters

@@ -20,9 +20,9 @@
 module Amazonka.ELB.Types.ListenerDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELB.Internal
 import Amazonka.ELB.Types.Listener
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The policies enabled for a listener.

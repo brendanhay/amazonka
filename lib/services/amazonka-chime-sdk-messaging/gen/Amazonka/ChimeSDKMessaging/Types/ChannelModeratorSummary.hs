@@ -21,7 +21,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelModeratorSummary where
 
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the details of a @ChannelModerator@.

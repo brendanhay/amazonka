@@ -28,6 +28,7 @@ module Amazonka.IVSChat.CreateRoom
 
     -- * Request Lenses
     createRoom_tags,
+    createRoom_loggingConfigurationIdentifiers,
     createRoom_name,
     createRoom_messageReviewHandler,
     createRoom_maximumMessageRatePerSecond,
@@ -39,6 +40,7 @@ module Amazonka.IVSChat.CreateRoom
 
     -- * Response Lenses
     createRoomResponse_tags,
+    createRoomResponse_loggingConfigurationIdentifiers,
     createRoomResponse_name,
     createRoomResponse_messageReviewHandler,
     createRoomResponse_arn,
@@ -52,8 +54,8 @@ module Amazonka.IVSChat.CreateRoom
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVSChat.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -67,6 +69,8 @@ data CreateRoom = CreateRoom'
     -- limits and requirements\"; Amazon IVS Chat has no constraints beyond
     -- what is documented there.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Array of logging-configuration identifiers attached to the room.
+    loggingConfigurationIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | Room name. The value does not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
     -- | Configuration information for optional review of messages.
@@ -96,6 +100,8 @@ data CreateRoom = CreateRoom'
 -- limits and requirements\"; Amazon IVS Chat has no constraints beyond
 -- what is documented there.
 --
+-- 'loggingConfigurationIdentifiers', 'createRoom_loggingConfigurationIdentifiers' - Array of logging-configuration identifiers attached to the room.
+--
 -- 'name', 'createRoom_name' - Room name. The value does not need to be unique.
 --
 -- 'messageReviewHandler', 'createRoom_messageReviewHandler' - Configuration information for optional review of messages.
@@ -111,6 +117,7 @@ newCreateRoom ::
 newCreateRoom =
   CreateRoom'
     { tags = Prelude.Nothing,
+      loggingConfigurationIdentifiers = Prelude.Nothing,
       name = Prelude.Nothing,
       messageReviewHandler = Prelude.Nothing,
       maximumMessageRatePerSecond = Prelude.Nothing,
@@ -125,6 +132,10 @@ newCreateRoom =
 -- what is documented there.
 createRoom_tags :: Lens.Lens' CreateRoom (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRoom_tags = Lens.lens (\CreateRoom' {tags} -> tags) (\s@CreateRoom' {} a -> s {tags = a} :: CreateRoom) Prelude.. Lens.mapping Lens.coerced
+
+-- | Array of logging-configuration identifiers attached to the room.
+createRoom_loggingConfigurationIdentifiers :: Lens.Lens' CreateRoom (Prelude.Maybe [Prelude.Text])
+createRoom_loggingConfigurationIdentifiers = Lens.lens (\CreateRoom' {loggingConfigurationIdentifiers} -> loggingConfigurationIdentifiers) (\s@CreateRoom' {} a -> s {loggingConfigurationIdentifiers = a} :: CreateRoom) Prelude.. Lens.mapping Lens.coerced
 
 -- | Room name. The value does not need to be unique.
 createRoom_name :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
@@ -147,13 +158,16 @@ createRoom_maximumMessageLength = Lens.lens (\CreateRoom' {maximumMessageLength}
 
 instance Core.AWSRequest CreateRoom where
   type AWSResponse CreateRoom = CreateRoomResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateRoomResponse'
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "loggingConfigurationIdentifiers"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "messageReviewHandler")
             Prelude.<*> (x Core..?> "arn")
@@ -168,6 +182,7 @@ instance Core.AWSRequest CreateRoom where
 instance Prelude.Hashable CreateRoom where
   hashWithSalt _salt CreateRoom' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` loggingConfigurationIdentifiers
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` messageReviewHandler
       `Prelude.hashWithSalt` maximumMessageRatePerSecond
@@ -176,6 +191,7 @@ instance Prelude.Hashable CreateRoom where
 instance Prelude.NFData CreateRoom where
   rnf CreateRoom' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf loggingConfigurationIdentifiers
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf messageReviewHandler
       `Prelude.seq` Prelude.rnf maximumMessageRatePerSecond
@@ -197,6 +213,8 @@ instance Core.ToJSON CreateRoom where
     Core.object
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
+            ("loggingConfigurationIdentifiers" Core..=)
+              Prelude.<$> loggingConfigurationIdentifiers,
             ("name" Core..=) Prelude.<$> name,
             ("messageReviewHandler" Core..=)
               Prelude.<$> messageReviewHandler,
@@ -215,8 +233,11 @@ instance Core.ToQuery CreateRoom where
 
 -- | /See:/ 'newCreateRoomResponse' smart constructor.
 data CreateRoomResponse = CreateRoomResponse'
-  { -- | Tags attached to the resource, from the request.
+  { -- | Tags attached to the resource, from the request (if specified).
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Array of logging configurations attached to the room, from the request
+    -- (if specified).
+    loggingConfigurationIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | Room name, from the request (if specified).
     name :: Prelude.Maybe Prelude.Text,
     -- | Configuration information for optional review of messages.
@@ -227,9 +248,10 @@ data CreateRoomResponse = CreateRoomResponse'
     -- part of the ARN that uniquely identifies the room.
     id :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of messages per second that can be sent to the room (by
-    -- all clients), from the request.
+    -- all clients), from the request (if specified).
     maximumMessageRatePerSecond :: Prelude.Maybe Prelude.Natural,
-    -- | Maximum number of characters in a single message, from the request.
+    -- | Maximum number of characters in a single message, from the request (if
+    -- specified).
     maximumMessageLength :: Prelude.Maybe Prelude.Natural,
     -- | Time of the room’s last update. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/.
@@ -250,7 +272,10 @@ data CreateRoomResponse = CreateRoomResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRoomResponse_tags' - Tags attached to the resource, from the request.
+-- 'tags', 'createRoomResponse_tags' - Tags attached to the resource, from the request (if specified).
+--
+-- 'loggingConfigurationIdentifiers', 'createRoomResponse_loggingConfigurationIdentifiers' - Array of logging configurations attached to the room, from the request
+-- (if specified).
 --
 -- 'name', 'createRoomResponse_name' - Room name, from the request (if specified).
 --
@@ -262,9 +287,10 @@ data CreateRoomResponse = CreateRoomResponse'
 -- part of the ARN that uniquely identifies the room.
 --
 -- 'maximumMessageRatePerSecond', 'createRoomResponse_maximumMessageRatePerSecond' - Maximum number of messages per second that can be sent to the room (by
--- all clients), from the request.
+-- all clients), from the request (if specified).
 --
--- 'maximumMessageLength', 'createRoomResponse_maximumMessageLength' - Maximum number of characters in a single message, from the request.
+-- 'maximumMessageLength', 'createRoomResponse_maximumMessageLength' - Maximum number of characters in a single message, from the request (if
+-- specified).
 --
 -- 'updateTime', 'createRoomResponse_updateTime' - Time of the room’s last update. This is an ISO 8601 timestamp; /note
 -- that this is returned as a string/.
@@ -280,6 +306,7 @@ newCreateRoomResponse ::
 newCreateRoomResponse pHttpStatus_ =
   CreateRoomResponse'
     { tags = Prelude.Nothing,
+      loggingConfigurationIdentifiers = Prelude.Nothing,
       name = Prelude.Nothing,
       messageReviewHandler = Prelude.Nothing,
       arn = Prelude.Nothing,
@@ -291,9 +318,14 @@ newCreateRoomResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Tags attached to the resource, from the request.
+-- | Tags attached to the resource, from the request (if specified).
 createRoomResponse_tags :: Lens.Lens' CreateRoomResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRoomResponse_tags = Lens.lens (\CreateRoomResponse' {tags} -> tags) (\s@CreateRoomResponse' {} a -> s {tags = a} :: CreateRoomResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Array of logging configurations attached to the room, from the request
+-- (if specified).
+createRoomResponse_loggingConfigurationIdentifiers :: Lens.Lens' CreateRoomResponse (Prelude.Maybe [Prelude.Text])
+createRoomResponse_loggingConfigurationIdentifiers = Lens.lens (\CreateRoomResponse' {loggingConfigurationIdentifiers} -> loggingConfigurationIdentifiers) (\s@CreateRoomResponse' {} a -> s {loggingConfigurationIdentifiers = a} :: CreateRoomResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Room name, from the request (if specified).
 createRoomResponse_name :: Lens.Lens' CreateRoomResponse (Prelude.Maybe Prelude.Text)
@@ -313,11 +345,12 @@ createRoomResponse_id :: Lens.Lens' CreateRoomResponse (Prelude.Maybe Prelude.Te
 createRoomResponse_id = Lens.lens (\CreateRoomResponse' {id} -> id) (\s@CreateRoomResponse' {} a -> s {id = a} :: CreateRoomResponse)
 
 -- | Maximum number of messages per second that can be sent to the room (by
--- all clients), from the request.
+-- all clients), from the request (if specified).
 createRoomResponse_maximumMessageRatePerSecond :: Lens.Lens' CreateRoomResponse (Prelude.Maybe Prelude.Natural)
 createRoomResponse_maximumMessageRatePerSecond = Lens.lens (\CreateRoomResponse' {maximumMessageRatePerSecond} -> maximumMessageRatePerSecond) (\s@CreateRoomResponse' {} a -> s {maximumMessageRatePerSecond = a} :: CreateRoomResponse)
 
--- | Maximum number of characters in a single message, from the request.
+-- | Maximum number of characters in a single message, from the request (if
+-- specified).
 createRoomResponse_maximumMessageLength :: Lens.Lens' CreateRoomResponse (Prelude.Maybe Prelude.Natural)
 createRoomResponse_maximumMessageLength = Lens.lens (\CreateRoomResponse' {maximumMessageLength} -> maximumMessageLength) (\s@CreateRoomResponse' {} a -> s {maximumMessageLength = a} :: CreateRoomResponse)
 
@@ -338,6 +371,7 @@ createRoomResponse_httpStatus = Lens.lens (\CreateRoomResponse' {httpStatus} -> 
 instance Prelude.NFData CreateRoomResponse where
   rnf CreateRoomResponse' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf loggingConfigurationIdentifiers
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf messageReviewHandler
       `Prelude.seq` Prelude.rnf arn

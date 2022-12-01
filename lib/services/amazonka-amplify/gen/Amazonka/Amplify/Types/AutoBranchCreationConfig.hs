@@ -21,7 +21,7 @@ module Amazonka.Amplify.Types.AutoBranchCreationConfig where
 
 import Amazonka.Amplify.Types.Stage
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the automated branch creation configuration.

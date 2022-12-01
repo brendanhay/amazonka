@@ -20,8 +20,8 @@
 module Amazonka.Lambda.Types.CodeSigningPolicies where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types.CodeSigningPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Code signing configuration

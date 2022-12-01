@@ -20,8 +20,8 @@
 module Amazonka.IoTDeviceAdvisor.Types.GroupResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTDeviceAdvisor.Types.TestCaseRun
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Show Group Result.

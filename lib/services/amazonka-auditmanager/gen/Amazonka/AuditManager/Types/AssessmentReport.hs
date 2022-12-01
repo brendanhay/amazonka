@@ -21,7 +21,7 @@ module Amazonka.AuditManager.Types.AssessmentReport where
 
 import Amazonka.AuditManager.Types.AssessmentReportStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A finalized document that\'s generated from an Audit Manager assessment.

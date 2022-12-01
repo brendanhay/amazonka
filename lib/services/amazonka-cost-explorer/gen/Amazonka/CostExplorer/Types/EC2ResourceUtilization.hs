@@ -20,10 +20,10 @@
 module Amazonka.CostExplorer.Types.EC2ResourceUtilization where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.DiskResourceUtilization
 import Amazonka.CostExplorer.Types.EBSResourceUtilization
 import Amazonka.CostExplorer.Types.NetworkResourceUtilization
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Utilization metrics for the instance.

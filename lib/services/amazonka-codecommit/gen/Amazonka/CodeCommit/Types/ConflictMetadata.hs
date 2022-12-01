@@ -25,7 +25,7 @@ import Amazonka.CodeCommit.Types.IsBinaryFile
 import Amazonka.CodeCommit.Types.MergeOperations
 import Amazonka.CodeCommit.Types.ObjectTypes
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the metadata for a conflict in a merge operation.

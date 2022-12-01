@@ -20,8 +20,8 @@
 module Amazonka.Greengrass.Types.SageMakerMachineLearningModelResourceData where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Greengrass.Types.ResourceDownloadOwnerSetting
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes that define an Amazon SageMaker machine learning resource.

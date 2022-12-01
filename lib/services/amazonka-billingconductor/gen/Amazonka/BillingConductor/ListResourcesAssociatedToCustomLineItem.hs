@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List the resources associated to a custom line item.
+-- List the resources that are associated to a custom line item.
 --
 -- This operation returns paginated results.
 module Amazonka.BillingConductor.ListResourcesAssociatedToCustomLineItem
@@ -49,14 +49,14 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourcesAssociatedToCustomLineItem' smart constructor.
 data ListResourcesAssociatedToCustomLineItem = ListResourcesAssociatedToCustomLineItem'
-  { -- | (Optional) The pagination token returned by a previous request.
+  { -- | (Optional) The pagination token that\'s returned by a previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The billing period for which the resource associations will be listed.
     billingPeriod :: Prelude.Maybe Prelude.Text,
@@ -79,7 +79,7 @@ data ListResourcesAssociatedToCustomLineItem = ListResourcesAssociatedToCustomLi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourcesAssociatedToCustomLineItem_nextToken' - (Optional) The pagination token returned by a previous request.
+-- 'nextToken', 'listResourcesAssociatedToCustomLineItem_nextToken' - (Optional) The pagination token that\'s returned by a previous request.
 --
 -- 'billingPeriod', 'listResourcesAssociatedToCustomLineItem_billingPeriod' - The billing period for which the resource associations will be listed.
 --
@@ -104,7 +104,7 @@ newListResourcesAssociatedToCustomLineItem pArn_ =
       arn = pArn_
     }
 
--- | (Optional) The pagination token returned by a previous request.
+-- | (Optional) The pagination token that\'s returned by a previous request.
 listResourcesAssociatedToCustomLineItem_nextToken :: Lens.Lens' ListResourcesAssociatedToCustomLineItem (Prelude.Maybe Prelude.Text)
 listResourcesAssociatedToCustomLineItem_nextToken = Lens.lens (\ListResourcesAssociatedToCustomLineItem' {nextToken} -> nextToken) (\s@ListResourcesAssociatedToCustomLineItem' {} a -> s {nextToken = a} :: ListResourcesAssociatedToCustomLineItem)
 
@@ -159,8 +159,8 @@ instance
     AWSResponse
       ListResourcesAssociatedToCustomLineItem =
       ListResourcesAssociatedToCustomLineItemResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

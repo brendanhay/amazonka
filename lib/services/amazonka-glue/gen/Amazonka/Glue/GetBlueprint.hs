@@ -42,8 +42,8 @@ module Amazonka.Glue.GetBlueprint
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,8 +97,8 @@ getBlueprint_name = Lens.lens (\GetBlueprint' {name} -> name) (\s@GetBlueprint' 
 
 instance Core.AWSRequest GetBlueprint where
   type AWSResponse GetBlueprint = GetBlueprintResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

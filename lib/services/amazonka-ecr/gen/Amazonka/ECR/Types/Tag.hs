@@ -20,7 +20,7 @@
 module Amazonka.ECR.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata to apply to a resource to help you categorize and organize

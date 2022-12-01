@@ -22,7 +22,7 @@ module Amazonka.ConnectContactLens.Types.RealtimeContactAnalysisSegment where
 import Amazonka.ConnectContactLens.Types.Categories
 import Amazonka.ConnectContactLens.Types.Transcript
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An analyzed segment for a real-time analysis session.

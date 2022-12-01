@@ -20,11 +20,11 @@
 module Amazonka.Inspector2.Types.CoveredResource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.CoverageResourceType
 import Amazonka.Inspector2.Types.ResourceScanMetadata
 import Amazonka.Inspector2.Types.ScanStatus
 import Amazonka.Inspector2.Types.ScanType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains details about a resource covered by Amazon

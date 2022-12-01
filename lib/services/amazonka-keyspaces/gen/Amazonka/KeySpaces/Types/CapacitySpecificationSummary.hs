@@ -20,8 +20,8 @@
 module Amazonka.KeySpaces.Types.CapacitySpecificationSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KeySpaces.Types.ThroughputMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The read\/write throughput capacity mode for a table. The options are:

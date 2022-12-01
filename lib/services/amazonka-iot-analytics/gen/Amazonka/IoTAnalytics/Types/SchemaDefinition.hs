@@ -20,8 +20,8 @@
 module Amazonka.IoTAnalytics.Types.SchemaDefinition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.Column
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information needed to define a schema.

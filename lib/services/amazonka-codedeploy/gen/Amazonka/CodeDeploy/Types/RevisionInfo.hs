@@ -22,7 +22,7 @@ module Amazonka.CodeDeploy.Types.RevisionInfo where
 import Amazonka.CodeDeploy.Types.GenericRevisionInfo
 import Amazonka.CodeDeploy.Types.RevisionLocation
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an application revision.

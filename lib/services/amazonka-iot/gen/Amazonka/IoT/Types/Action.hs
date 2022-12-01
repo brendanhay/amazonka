@@ -20,6 +20,7 @@
 module Amazonka.IoT.Types.Action where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.CloudwatchAlarmAction
 import Amazonka.IoT.Types.CloudwatchLogsAction
 import Amazonka.IoT.Types.CloudwatchMetricAction
@@ -34,6 +35,7 @@ import Amazonka.IoT.Types.IotSiteWiseAction
 import Amazonka.IoT.Types.KafkaAction
 import Amazonka.IoT.Types.KinesisAction
 import Amazonka.IoT.Types.LambdaAction
+import Amazonka.IoT.Types.LocationAction
 import Amazonka.IoT.Types.OpenSearchAction
 import Amazonka.IoT.Types.RepublishAction
 import Amazonka.IoT.Types.S3Action
@@ -42,7 +44,6 @@ import Amazonka.IoT.Types.SnsAction
 import Amazonka.IoT.Types.SqsAction
 import Amazonka.IoT.Types.StepFunctionsAction
 import Amazonka.IoT.Types.TimestreamAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the actions associated with a rule.
@@ -76,6 +77,9 @@ data Action = Action'
     cloudwatchMetric :: Prelude.Maybe CloudwatchMetricAction,
     -- | Publish to another MQTT topic.
     republish :: Prelude.Maybe RepublishAction,
+    -- | The Amazon Location Service rule action sends device location updates
+    -- from an MQTT message to an Amazon Location tracker resource.
+    location :: Prelude.Maybe LocationAction,
     -- | The Timestream rule action writes attributes (measures) from an MQTT
     -- message into an Amazon Timestream table. For more information, see the
     -- <https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html Timestream>
@@ -143,6 +147,9 @@ data Action = Action'
 --
 -- 'republish', 'action_republish' - Publish to another MQTT topic.
 --
+-- 'location', 'action_location' - The Amazon Location Service rule action sends device location updates
+-- from an MQTT message to an Amazon Location tracker resource.
+--
 -- 'timestream', 'action_timestream' - The Timestream rule action writes attributes (measures) from an MQTT
 -- message into an Amazon Timestream table. For more information, see the
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html Timestream>
@@ -187,6 +194,7 @@ newAction =
       dynamoDB = Prelude.Nothing,
       cloudwatchMetric = Prelude.Nothing,
       republish = Prelude.Nothing,
+      location = Prelude.Nothing,
       timestream = Prelude.Nothing,
       lambda = Prelude.Nothing,
       iotEvents = Prelude.Nothing,
@@ -249,6 +257,11 @@ action_cloudwatchMetric = Lens.lens (\Action' {cloudwatchMetric} -> cloudwatchMe
 -- | Publish to another MQTT topic.
 action_republish :: Lens.Lens' Action (Prelude.Maybe RepublishAction)
 action_republish = Lens.lens (\Action' {republish} -> republish) (\s@Action' {} a -> s {republish = a} :: Action)
+
+-- | The Amazon Location Service rule action sends device location updates
+-- from an MQTT message to an Amazon Location tracker resource.
+action_location :: Lens.Lens' Action (Prelude.Maybe LocationAction)
+action_location = Lens.lens (\Action' {location} -> location) (\s@Action' {} a -> s {location = a} :: Action)
 
 -- | The Timestream rule action writes attributes (measures) from an MQTT
 -- message into an Amazon Timestream table. For more information, see the
@@ -317,6 +330,7 @@ instance Core.FromJSON Action where
             Prelude.<*> (x Core..:? "dynamoDB")
             Prelude.<*> (x Core..:? "cloudwatchMetric")
             Prelude.<*> (x Core..:? "republish")
+            Prelude.<*> (x Core..:? "location")
             Prelude.<*> (x Core..:? "timestream")
             Prelude.<*> (x Core..:? "lambda")
             Prelude.<*> (x Core..:? "iotEvents")
@@ -343,6 +357,7 @@ instance Prelude.Hashable Action where
       `Prelude.hashWithSalt` dynamoDB
       `Prelude.hashWithSalt` cloudwatchMetric
       `Prelude.hashWithSalt` republish
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` timestream
       `Prelude.hashWithSalt` lambda
       `Prelude.hashWithSalt` iotEvents
@@ -368,6 +383,7 @@ instance Prelude.NFData Action where
       `Prelude.seq` Prelude.rnf dynamoDB
       `Prelude.seq` Prelude.rnf cloudwatchMetric
       `Prelude.seq` Prelude.rnf republish
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf timestream
       `Prelude.seq` Prelude.rnf lambda
       `Prelude.seq` Prelude.rnf iotEvents
@@ -398,6 +414,7 @@ instance Core.ToJSON Action where
             ("cloudwatchMetric" Core..=)
               Prelude.<$> cloudwatchMetric,
             ("republish" Core..=) Prelude.<$> republish,
+            ("location" Core..=) Prelude.<$> location,
             ("timestream" Core..=) Prelude.<$> timestream,
             ("lambda" Core..=) Prelude.<$> lambda,
             ("iotEvents" Core..=) Prelude.<$> iotEvents,

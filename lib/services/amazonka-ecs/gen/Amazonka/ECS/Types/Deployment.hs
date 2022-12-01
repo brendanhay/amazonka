@@ -20,11 +20,11 @@
 module Amazonka.ECS.Types.Deployment where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.CapacityProviderStrategyItem
 import Amazonka.ECS.Types.DeploymentRolloutState
 import Amazonka.ECS.Types.LaunchType
 import Amazonka.ECS.Types.NetworkConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of an Amazon ECS service deployment. This is used only when

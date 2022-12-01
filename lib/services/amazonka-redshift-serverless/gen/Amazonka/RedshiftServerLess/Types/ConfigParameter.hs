@@ -20,7 +20,7 @@
 module Amazonka.RedshiftServerLess.Types.ConfigParameter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An array of key-value pairs to set for advanced control over Amazon

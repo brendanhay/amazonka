@@ -20,8 +20,8 @@
 module Amazonka.DataBrew.Types.S3TableOutputOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.S3Location
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents options that specify how and where DataBrew writes the Amazon

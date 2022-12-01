@@ -90,6 +90,9 @@ import Test.Tasty
 --         , requestUpdateConnectorProfile $
 --             newUpdateConnectorProfile
 --
+--         , requestUpdateConnectorRegistration $
+--             newUpdateConnectorRegistration
+--
 --         , requestUpdateFlow $
 --             newUpdateFlow
 --
@@ -158,6 +161,9 @@ import Test.Tasty
 --
 --         , responseUpdateConnectorProfile $
 --             newUpdateConnectorProfileResponse
+--
+--         , responseUpdateConnectorRegistration $
+--             newUpdateConnectorRegistrationResponse
 --
 --         , responseUpdateFlow $
 --             newUpdateFlowResponse
@@ -292,6 +298,12 @@ requestUpdateConnectorProfile =
   req
     "UpdateConnectorProfile"
     "fixture/UpdateConnectorProfile.yaml"
+
+requestUpdateConnectorRegistration :: UpdateConnectorRegistration -> TestTree
+requestUpdateConnectorRegistration =
+  req
+    "UpdateConnectorRegistration"
+    "fixture/UpdateConnectorRegistration.yaml"
 
 requestUpdateFlow :: UpdateFlow -> TestTree
 requestUpdateFlow =
@@ -468,6 +480,14 @@ responseUpdateConnectorProfile =
     "fixture/UpdateConnectorProfileResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateConnectorProfile)
+
+responseUpdateConnectorRegistration :: UpdateConnectorRegistrationResponse -> TestTree
+responseUpdateConnectorRegistration =
+  res
+    "UpdateConnectorRegistrationResponse"
+    "fixture/UpdateConnectorRegistrationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnectorRegistration)
 
 responseUpdateFlow :: UpdateFlowResponse -> TestTree
 responseUpdateFlow =

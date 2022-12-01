@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.Recommendation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A recommendation on how to remediate the issue identified in a finding.

@@ -20,6 +20,7 @@
 module Amazonka.Lambda.Types.FunctionConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types.Architecture
 import Amazonka.Lambda.Types.DeadLetterConfig
 import Amazonka.Lambda.Types.EnvironmentResponse
@@ -35,7 +36,6 @@ import Amazonka.Lambda.Types.State
 import Amazonka.Lambda.Types.StateReasonCode
 import Amazonka.Lambda.Types.TracingConfigResponse
 import Amazonka.Lambda.Types.VpcConfigResponse
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a function\'s configuration.
@@ -65,6 +65,7 @@ data FunctionConfiguration = FunctionConfiguration'
     codeSha256 :: Prelude.Maybe Prelude.Text,
     -- | The function\'s
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html environment variables>.
+    -- Omitted from CloudTrail logs.
     environment :: Prelude.Maybe EnvironmentResponse,
     -- | The function\'s networking configuration.
     vpcConfig :: Prelude.Maybe VpcConfigResponse,
@@ -157,6 +158,7 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- 'environment', 'functionConfiguration_environment' - The function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html environment variables>.
+-- Omitted from CloudTrail logs.
 --
 -- 'vpcConfig', 'functionConfiguration_vpcConfig' - The function\'s networking configuration.
 --
@@ -295,6 +297,7 @@ functionConfiguration_codeSha256 = Lens.lens (\FunctionConfiguration' {codeSha25
 
 -- | The function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html environment variables>.
+-- Omitted from CloudTrail logs.
 functionConfiguration_environment :: Lens.Lens' FunctionConfiguration (Prelude.Maybe EnvironmentResponse)
 functionConfiguration_environment = Lens.lens (\FunctionConfiguration' {environment} -> environment) (\s@FunctionConfiguration' {} a -> s {environment = a} :: FunctionConfiguration)
 

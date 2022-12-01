@@ -20,8 +20,8 @@
 module Amazonka.EKS.Types.KubernetesNetworkConfigResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EKS.Types.IpFamily
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Kubernetes network configuration for the cluster. The response

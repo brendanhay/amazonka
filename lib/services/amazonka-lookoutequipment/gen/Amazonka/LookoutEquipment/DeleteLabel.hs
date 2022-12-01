@@ -37,7 +37,7 @@ module Amazonka.LookoutEquipment.DeleteLabel
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,8 +91,8 @@ deleteLabel_labelId = Lens.lens (\DeleteLabel' {labelId} -> labelId) (\s@DeleteL
 
 instance Core.AWSRequest DeleteLabel where
   type AWSResponse DeleteLabel = DeleteLabelResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteLabelResponse'
 
 instance Prelude.Hashable DeleteLabel where

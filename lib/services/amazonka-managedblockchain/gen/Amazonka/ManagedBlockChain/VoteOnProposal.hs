@@ -46,7 +46,7 @@ module Amazonka.ManagedBlockChain.VoteOnProposal
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,8 +122,8 @@ instance Core.AWSRequest VoteOnProposal where
   type
     AWSResponse VoteOnProposal =
       VoteOnProposalResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

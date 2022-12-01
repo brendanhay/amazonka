@@ -86,7 +86,7 @@ module Amazonka.RDS.RestoreDBClusterFromSnapshot
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -330,8 +330,8 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
     -- | The amount of Provisioned IOPS (input\/output operations per second) to
     -- be initially allocated for each DB instance in the Multi-AZ DB cluster.
     --
-    -- For information about valid Iops values, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
+    -- For information about valid IOPS values, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
     -- in the /Amazon RDS User Guide/.
     --
     -- Constraints: Must be a multiple between .5 and 50 of the storage amount
@@ -692,8 +692,8 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 -- 'iops', 'restoreDBClusterFromSnapshot_iops' - The amount of Provisioned IOPS (input\/output operations per second) to
 -- be initially allocated for each DB instance in the Multi-AZ DB cluster.
 --
--- For information about valid Iops values, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
+-- For information about valid IOPS values, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
 -- in the /Amazon RDS User Guide/.
 --
 -- Constraints: Must be a multiple between .5 and 50 of the storage amount
@@ -1132,8 +1132,8 @@ restoreDBClusterFromSnapshot_dbClusterParameterGroupName = Lens.lens (\RestoreDB
 -- | The amount of Provisioned IOPS (input\/output operations per second) to
 -- be initially allocated for each DB instance in the Multi-AZ DB cluster.
 --
--- For information about valid Iops values, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
+-- For information about valid IOPS values, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage>
 -- in the /Amazon RDS User Guide/.
 --
 -- Constraints: Must be a multiple between .5 and 50 of the storage amount
@@ -1264,8 +1264,8 @@ instance Core.AWSRequest RestoreDBClusterFromSnapshot where
   type
     AWSResponse RestoreDBClusterFromSnapshot =
       RestoreDBClusterFromSnapshotResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "RestoreDBClusterFromSnapshotResult"

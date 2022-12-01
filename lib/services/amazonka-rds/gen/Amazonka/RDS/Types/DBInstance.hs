@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.DBInstance where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.ActivityStreamMode
 import Amazonka.RDS.Types.ActivityStreamPolicyStatus
@@ -94,6 +94,10 @@ data DBInstance = DBInstance'
     -- created if automated backups are enabled, as determined by the
     -- @BackupRetentionPeriod@.
     preferredBackupWindow :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the storage throughput for the DB instance.
+    --
+    -- This setting applies only to the @gp3@ storage type.
+    storageThroughput :: Prelude.Maybe Prelude.Int,
     -- | Specifies the number of days for which automatic DB snapshots are
     -- retained.
     backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
@@ -215,7 +219,7 @@ data DBInstance = DBInstance'
     --
     -- For more information, see CreateDBInstance.
     publiclyAccessible :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the storage type associated with DB instance.
+    -- | Specifies the storage type associated with the DB instance.
     storageType :: Prelude.Maybe Prelude.Text,
     -- | The number of CPU cores and the number of threads per core for the DB
     -- instance class of the DB instance.
@@ -334,6 +338,10 @@ data DBInstance = DBInstance'
     customIamInstanceProfile :: Prelude.Maybe Prelude.Text,
     -- | Provides the list of DB parameter groups applied to this DB instance.
     dbParameterGroups :: Prelude.Maybe [DBParameterGroupStatus],
+    -- | The Oracle system ID (Oracle SID) for a container database (CDB). The
+    -- Oracle SID is also the name of the CDB. This setting is valid for RDS
+    -- Custom only.
+    dbSystemId :: Prelude.Maybe Prelude.Text,
     -- | A list of log types that this DB instance is configured to export to
     -- CloudWatch Logs.
     --
@@ -459,6 +467,10 @@ data DBInstance = DBInstance'
 -- created if automated backups are enabled, as determined by the
 -- @BackupRetentionPeriod@.
 --
+-- 'storageThroughput', 'dbInstance_storageThroughput' - Specifies the storage throughput for the DB instance.
+--
+-- This setting applies only to the @gp3@ storage type.
+--
 -- 'backupRetentionPeriod', 'dbInstance_backupRetentionPeriod' - Specifies the number of days for which automatic DB snapshots are
 -- retained.
 --
@@ -581,7 +593,7 @@ data DBInstance = DBInstance'
 --
 -- For more information, see CreateDBInstance.
 --
--- 'storageType', 'dbInstance_storageType' - Specifies the storage type associated with DB instance.
+-- 'storageType', 'dbInstance_storageType' - Specifies the storage type associated with the DB instance.
 --
 -- 'processorFeatures', 'dbInstance_processorFeatures' - The number of CPU cores and the number of threads per core for the DB
 -- instance class of the DB instance.
@@ -700,6 +712,10 @@ data DBInstance = DBInstance'
 --
 -- 'dbParameterGroups', 'dbInstance_dbParameterGroups' - Provides the list of DB parameter groups applied to this DB instance.
 --
+-- 'dbSystemId', 'dbInstance_dbSystemId' - The Oracle system ID (Oracle SID) for a container database (CDB). The
+-- Oracle SID is also the name of the CDB. This setting is valid for RDS
+-- Custom only.
+--
 -- 'enabledCloudwatchLogsExports', 'dbInstance_enabledCloudwatchLogsExports' - A list of log types that this DB instance is configured to export to
 -- CloudWatch Logs.
 --
@@ -784,6 +800,7 @@ newDBInstance =
       optionGroupMemberships = Prelude.Nothing,
       backupTarget = Prelude.Nothing,
       preferredBackupWindow = Prelude.Nothing,
+      storageThroughput = Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
       dbInstanceClass = Prelude.Nothing,
       characterSetName = Prelude.Nothing,
@@ -840,6 +857,7 @@ newDBInstance =
       dbiResourceId = Prelude.Nothing,
       customIamInstanceProfile = Prelude.Nothing,
       dbParameterGroups = Prelude.Nothing,
+      dbSystemId = Prelude.Nothing,
       enabledCloudwatchLogsExports = Prelude.Nothing,
       iops = Prelude.Nothing,
       associatedRoles = Prelude.Nothing,
@@ -913,6 +931,12 @@ dbInstance_backupTarget = Lens.lens (\DBInstance' {backupTarget} -> backupTarget
 -- @BackupRetentionPeriod@.
 dbInstance_preferredBackupWindow :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
 dbInstance_preferredBackupWindow = Lens.lens (\DBInstance' {preferredBackupWindow} -> preferredBackupWindow) (\s@DBInstance' {} a -> s {preferredBackupWindow = a} :: DBInstance)
+
+-- | Specifies the storage throughput for the DB instance.
+--
+-- This setting applies only to the @gp3@ storage type.
+dbInstance_storageThroughput :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Int)
+dbInstance_storageThroughput = Lens.lens (\DBInstance' {storageThroughput} -> storageThroughput) (\s@DBInstance' {} a -> s {storageThroughput = a} :: DBInstance)
 
 -- | Specifies the number of days for which automatic DB snapshots are
 -- retained.
@@ -1100,7 +1124,7 @@ dbInstance_resumeFullAutomationModeTime = Lens.lens (\DBInstance' {resumeFullAut
 dbInstance_publiclyAccessible :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Bool)
 dbInstance_publiclyAccessible = Lens.lens (\DBInstance' {publiclyAccessible} -> publiclyAccessible) (\s@DBInstance' {} a -> s {publiclyAccessible = a} :: DBInstance)
 
--- | Specifies the storage type associated with DB instance.
+-- | Specifies the storage type associated with the DB instance.
 dbInstance_storageType :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
 dbInstance_storageType = Lens.lens (\DBInstance' {storageType} -> storageType) (\s@DBInstance' {} a -> s {storageType = a} :: DBInstance)
 
@@ -1265,6 +1289,12 @@ dbInstance_customIamInstanceProfile = Lens.lens (\DBInstance' {customIamInstance
 dbInstance_dbParameterGroups :: Lens.Lens' DBInstance (Prelude.Maybe [DBParameterGroupStatus])
 dbInstance_dbParameterGroups = Lens.lens (\DBInstance' {dbParameterGroups} -> dbParameterGroups) (\s@DBInstance' {} a -> s {dbParameterGroups = a} :: DBInstance) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Oracle system ID (Oracle SID) for a container database (CDB). The
+-- Oracle SID is also the name of the CDB. This setting is valid for RDS
+-- Custom only.
+dbInstance_dbSystemId :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
+dbInstance_dbSystemId = Lens.lens (\DBInstance' {dbSystemId} -> dbSystemId) (\s@DBInstance' {} a -> s {dbSystemId = a} :: DBInstance)
+
 -- | A list of log types that this DB instance is configured to export to
 -- CloudWatch Logs.
 --
@@ -1383,6 +1413,7 @@ instance Core.FromXML DBInstance where
                   )
       Prelude.<*> (x Core..@? "BackupTarget")
       Prelude.<*> (x Core..@? "PreferredBackupWindow")
+      Prelude.<*> (x Core..@? "StorageThroughput")
       Prelude.<*> (x Core..@? "BackupRetentionPeriod")
       Prelude.<*> (x Core..@? "DBInstanceClass")
       Prelude.<*> (x Core..@? "CharacterSetName")
@@ -1464,6 +1495,7 @@ instance Core.FromXML DBInstance where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "DBParameterGroup")
                   )
+      Prelude.<*> (x Core..@? "DBSystemId")
       Prelude.<*> ( x Core..@? "EnabledCloudwatchLogsExports"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
@@ -1499,6 +1531,7 @@ instance Prelude.Hashable DBInstance where
       `Prelude.hashWithSalt` optionGroupMemberships
       `Prelude.hashWithSalt` backupTarget
       `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` storageThroughput
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` dbInstanceClass
       `Prelude.hashWithSalt` characterSetName
@@ -1554,6 +1587,7 @@ instance Prelude.Hashable DBInstance where
       `Prelude.hashWithSalt` dbiResourceId
       `Prelude.hashWithSalt` customIamInstanceProfile
       `Prelude.hashWithSalt` dbParameterGroups
+      `Prelude.hashWithSalt` dbSystemId
       `Prelude.hashWithSalt` enabledCloudwatchLogsExports
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` associatedRoles
@@ -1578,6 +1612,7 @@ instance Prelude.NFData DBInstance where
       `Prelude.seq` Prelude.rnf optionGroupMemberships
       `Prelude.seq` Prelude.rnf backupTarget
       `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf storageThroughput
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf dbInstanceClass
       `Prelude.seq` Prelude.rnf characterSetName
@@ -1678,6 +1713,8 @@ instance Prelude.NFData DBInstance where
         customIamInstanceProfile
       `Prelude.seq` Prelude.rnf
         dbParameterGroups
+      `Prelude.seq` Prelude.rnf
+        dbSystemId
       `Prelude.seq` Prelude.rnf
         enabledCloudwatchLogsExports
       `Prelude.seq` Prelude.rnf

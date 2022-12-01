@@ -21,7 +21,7 @@ module Amazonka.CloudFormation.Types.TypeVersionSummary where
 
 import Amazonka.CloudFormation.Types.RegistryType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a specific version of a

@@ -22,7 +22,7 @@ module Amazonka.AppFlow.Types.PrivateConnectionProvisioningState where
 import Amazonka.AppFlow.Types.PrivateConnectionProvisioningFailureCause
 import Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the private connection provisioning state.

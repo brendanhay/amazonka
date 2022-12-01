@@ -20,7 +20,7 @@
 module Amazonka.AppFlow.Types.RedshiftConnectorProfileCredentials where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile credentials required when using Amazon
@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRedshiftConnectorProfileCredentials' smart constructor.
 data RedshiftConnectorProfileCredentials = RedshiftConnectorProfileCredentials'
-  { -- | The name of the user.
-    username :: Prelude.Text,
-    -- | The password that corresponds to the user name.
-    password :: Core.Sensitive Prelude.Text
+  { -- | The password that corresponds to the user name.
+    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The name of the user.
+    username :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -43,32 +43,25 @@ data RedshiftConnectorProfileCredentials = RedshiftConnectorProfileCredentials'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'username', 'redshiftConnectorProfileCredentials_username' - The name of the user.
---
 -- 'password', 'redshiftConnectorProfileCredentials_password' - The password that corresponds to the user name.
+--
+-- 'username', 'redshiftConnectorProfileCredentials_username' - The name of the user.
 newRedshiftConnectorProfileCredentials ::
-  -- | 'username'
-  Prelude.Text ->
-  -- | 'password'
-  Prelude.Text ->
   RedshiftConnectorProfileCredentials
-newRedshiftConnectorProfileCredentials
-  pUsername_
-  pPassword_ =
-    RedshiftConnectorProfileCredentials'
-      { username =
-          pUsername_,
-        password =
-          Core._Sensitive Lens.# pPassword_
-      }
-
--- | The name of the user.
-redshiftConnectorProfileCredentials_username :: Lens.Lens' RedshiftConnectorProfileCredentials Prelude.Text
-redshiftConnectorProfileCredentials_username = Lens.lens (\RedshiftConnectorProfileCredentials' {username} -> username) (\s@RedshiftConnectorProfileCredentials' {} a -> s {username = a} :: RedshiftConnectorProfileCredentials)
+newRedshiftConnectorProfileCredentials =
+  RedshiftConnectorProfileCredentials'
+    { password =
+        Prelude.Nothing,
+      username = Prelude.Nothing
+    }
 
 -- | The password that corresponds to the user name.
-redshiftConnectorProfileCredentials_password :: Lens.Lens' RedshiftConnectorProfileCredentials Prelude.Text
-redshiftConnectorProfileCredentials_password = Lens.lens (\RedshiftConnectorProfileCredentials' {password} -> password) (\s@RedshiftConnectorProfileCredentials' {} a -> s {password = a} :: RedshiftConnectorProfileCredentials) Prelude.. Core._Sensitive
+redshiftConnectorProfileCredentials_password :: Lens.Lens' RedshiftConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
+redshiftConnectorProfileCredentials_password = Lens.lens (\RedshiftConnectorProfileCredentials' {password} -> password) (\s@RedshiftConnectorProfileCredentials' {} a -> s {password = a} :: RedshiftConnectorProfileCredentials) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The name of the user.
+redshiftConnectorProfileCredentials_username :: Lens.Lens' RedshiftConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
+redshiftConnectorProfileCredentials_username = Lens.lens (\RedshiftConnectorProfileCredentials' {username} -> username) (\s@RedshiftConnectorProfileCredentials' {} a -> s {username = a} :: RedshiftConnectorProfileCredentials)
 
 instance
   Prelude.Hashable
@@ -77,16 +70,16 @@ instance
   hashWithSalt
     _salt
     RedshiftConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` username
-        `Prelude.hashWithSalt` password
+      _salt `Prelude.hashWithSalt` password
+        `Prelude.hashWithSalt` username
 
 instance
   Prelude.NFData
     RedshiftConnectorProfileCredentials
   where
   rnf RedshiftConnectorProfileCredentials' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf password
+      `Prelude.seq` Prelude.rnf username
 
 instance
   Core.ToJSON
@@ -95,7 +88,7 @@ instance
   toJSON RedshiftConnectorProfileCredentials' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("username" Core..= username),
-            Prelude.Just ("password" Core..= password)
+          [ ("password" Core..=) Prelude.<$> password,
+            ("username" Core..=) Prelude.<$> username
           ]
       )

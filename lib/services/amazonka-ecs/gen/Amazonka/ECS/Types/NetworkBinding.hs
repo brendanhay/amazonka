@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.NetworkBinding where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.TransportProtocol
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on the network bindings between a container and its host

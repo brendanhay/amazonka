@@ -20,9 +20,9 @@
 module Amazonka.KinesisAnalyticsV2.Types.MappingParameters where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.CSVMappingParameters
 import Amazonka.KinesisAnalyticsV2.Types.JSONMappingParameters
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | When you configure a SQL-based Kinesis Data Analytics application\'s

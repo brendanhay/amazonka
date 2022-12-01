@@ -23,7 +23,7 @@ import Amazonka.CodeDeploy.Types.TimeBasedCanary
 import Amazonka.CodeDeploy.Types.TimeBasedLinear
 import Amazonka.CodeDeploy.Types.TrafficRoutingType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that specifies how traffic is shifted from one version

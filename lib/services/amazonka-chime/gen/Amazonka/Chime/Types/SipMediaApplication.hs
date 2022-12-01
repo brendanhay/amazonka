@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.SipMediaApplication where
 
 import Amazonka.Chime.Types.SipMediaApplicationEndpoint
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the SIP media application, including name and endpoints.

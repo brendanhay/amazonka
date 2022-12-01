@@ -20,10 +20,10 @@
 module Amazonka.Detective.Types.MembershipDatasources where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Detective.Types.DatasourcePackage
 import Amazonka.Detective.Types.DatasourcePackageIngestState
 import Amazonka.Detective.Types.TimestampForCollection
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on data source packages for members of the behavior graph.

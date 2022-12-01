@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.Av1Settings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.Av1AdaptiveQuantization
 import Amazonka.MediaConvert.Types.Av1BitDepth
 import Amazonka.MediaConvert.Types.Av1FramerateControl

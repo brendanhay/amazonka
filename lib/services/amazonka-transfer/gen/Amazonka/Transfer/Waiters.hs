@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.Transfer.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.DescribeServer
 import Amazonka.Transfer.Lens
@@ -26,10 +27,10 @@ import Amazonka.Transfer.Types
 newServerOnline :: Core.Wait DescribeServer
 newServerOnline =
   Core.Wait
-    { Core._waitName = "ServerOnline",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "ServerOnline",
+      Core.attempts = 120,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "ONLINE"
             Core.AcceptSuccess
@@ -53,10 +54,10 @@ newServerOnline =
 newServerOffline :: Core.Wait DescribeServer
 newServerOffline =
   Core.Wait
-    { Core._waitName = "ServerOffline",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "ServerOffline",
+      Core.attempts = 120,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "OFFLINE"
             Core.AcceptSuccess

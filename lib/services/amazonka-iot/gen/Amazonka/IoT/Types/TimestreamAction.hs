@@ -20,9 +20,9 @@
 module Amazonka.IoT.Types.TimestreamAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.TimestreamDimension
 import Amazonka.IoT.Types.TimestreamTimestamp
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Timestream rule action writes attributes (measures) from an MQTT

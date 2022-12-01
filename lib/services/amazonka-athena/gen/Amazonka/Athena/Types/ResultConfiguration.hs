@@ -22,7 +22,7 @@ module Amazonka.Athena.Types.ResultConfiguration where
 import Amazonka.Athena.Types.AclConfiguration
 import Amazonka.Athena.Types.EncryptionConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location in Amazon S3 where query results are stored and the

@@ -19,9 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.AppStream.Types.DirectoryConfig where
 
+import Amazonka.AppStream.Types.CertificateBasedAuthProperties
 import Amazonka.AppStream.Types.ServiceAccountCredentials
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration information required to join fleets and
@@ -37,6 +38,17 @@ data DirectoryConfig = DirectoryConfig'
     organizationalUnitDistinguishedNames :: Prelude.Maybe [Prelude.Text],
     -- | The time the directory configuration was created.
     createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The certificate-based authentication properties used to authenticate
+    -- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
+    -- domain-joined streaming instances. Fallback is turned on by default when
+    -- certificate-based authentication is __Enabled__ . Fallback allows users
+    -- to log in using their AD domain password if certificate-based
+    -- authentication is unsuccessful, or to unlock a desktop lock screen.
+    -- __Enabled_no_directory_login_fallback__ enables certificate-based
+    -- authentication, but does not allow users to log in using their AD domain
+    -- password. Users will be disconnected to re-authenticate using
+    -- certificates.
+    certificateBasedAuthProperties :: Prelude.Maybe CertificateBasedAuthProperties,
     -- | The fully qualified name of the directory (for example,
     -- corp.example.com).
     directoryName :: Prelude.Text
@@ -59,6 +71,17 @@ data DirectoryConfig = DirectoryConfig'
 --
 -- 'createdTime', 'directoryConfig_createdTime' - The time the directory configuration was created.
 --
+-- 'certificateBasedAuthProperties', 'directoryConfig_certificateBasedAuthProperties' - The certificate-based authentication properties used to authenticate
+-- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
+-- domain-joined streaming instances. Fallback is turned on by default when
+-- certificate-based authentication is __Enabled__ . Fallback allows users
+-- to log in using their AD domain password if certificate-based
+-- authentication is unsuccessful, or to unlock a desktop lock screen.
+-- __Enabled_no_directory_login_fallback__ enables certificate-based
+-- authentication, but does not allow users to log in using their AD domain
+-- password. Users will be disconnected to re-authenticate using
+-- certificates.
+--
 -- 'directoryName', 'directoryConfig_directoryName' - The fully qualified name of the directory (for example,
 -- corp.example.com).
 newDirectoryConfig ::
@@ -72,6 +95,7 @@ newDirectoryConfig pDirectoryName_ =
       organizationalUnitDistinguishedNames =
         Prelude.Nothing,
       createdTime = Prelude.Nothing,
+      certificateBasedAuthProperties = Prelude.Nothing,
       directoryName = pDirectoryName_
     }
 
@@ -89,6 +113,19 @@ directoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\DirectoryConf
 directoryConfig_createdTime :: Lens.Lens' DirectoryConfig (Prelude.Maybe Prelude.UTCTime)
 directoryConfig_createdTime = Lens.lens (\DirectoryConfig' {createdTime} -> createdTime) (\s@DirectoryConfig' {} a -> s {createdTime = a} :: DirectoryConfig) Prelude.. Lens.mapping Core._Time
 
+-- | The certificate-based authentication properties used to authenticate
+-- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
+-- domain-joined streaming instances. Fallback is turned on by default when
+-- certificate-based authentication is __Enabled__ . Fallback allows users
+-- to log in using their AD domain password if certificate-based
+-- authentication is unsuccessful, or to unlock a desktop lock screen.
+-- __Enabled_no_directory_login_fallback__ enables certificate-based
+-- authentication, but does not allow users to log in using their AD domain
+-- password. Users will be disconnected to re-authenticate using
+-- certificates.
+directoryConfig_certificateBasedAuthProperties :: Lens.Lens' DirectoryConfig (Prelude.Maybe CertificateBasedAuthProperties)
+directoryConfig_certificateBasedAuthProperties = Lens.lens (\DirectoryConfig' {certificateBasedAuthProperties} -> certificateBasedAuthProperties) (\s@DirectoryConfig' {} a -> s {certificateBasedAuthProperties = a} :: DirectoryConfig)
+
 -- | The fully qualified name of the directory (for example,
 -- corp.example.com).
 directoryConfig_directoryName :: Lens.Lens' DirectoryConfig Prelude.Text
@@ -105,6 +142,7 @@ instance Core.FromJSON DirectoryConfig where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "CertificateBasedAuthProperties")
             Prelude.<*> (x Core..: "DirectoryName")
       )
 
@@ -114,6 +152,7 @@ instance Prelude.Hashable DirectoryConfig where
       `Prelude.hashWithSalt` serviceAccountCredentials
       `Prelude.hashWithSalt` organizationalUnitDistinguishedNames
       `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` certificateBasedAuthProperties
       `Prelude.hashWithSalt` directoryName
 
 instance Prelude.NFData DirectoryConfig where
@@ -121,4 +160,5 @@ instance Prelude.NFData DirectoryConfig where
     Prelude.rnf serviceAccountCredentials
       `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedNames
       `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf certificateBasedAuthProperties
       `Prelude.seq` Prelude.rnf directoryName

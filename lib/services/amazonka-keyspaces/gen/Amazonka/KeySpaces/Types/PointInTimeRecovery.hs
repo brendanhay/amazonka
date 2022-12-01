@@ -20,8 +20,8 @@
 module Amazonka.KeySpaces.Types.PointInTimeRecovery where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KeySpaces.Types.PointInTimeRecoveryStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Point-in-time recovery (PITR) helps protect your Amazon Keyspaces tables

@@ -20,7 +20,7 @@
 module Amazonka.MQ.Types.BrokerSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MQ.Types.BrokerState
 import Amazonka.MQ.Types.DeploymentMode
 import Amazonka.MQ.Types.EngineType

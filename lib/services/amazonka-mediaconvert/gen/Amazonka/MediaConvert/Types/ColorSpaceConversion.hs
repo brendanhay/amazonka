@@ -24,6 +24,8 @@ module Amazonka.MediaConvert.Types.ColorSpaceConversion
         ColorSpaceConversion_FORCE_709,
         ColorSpaceConversion_FORCE_HDR10,
         ColorSpaceConversion_FORCE_HLG_2020,
+        ColorSpaceConversion_FORCE_P3D65_SDR,
+        ColorSpaceConversion_FORCE_P3DCI,
         ColorSpaceConversion_NONE
       ),
   )
@@ -38,7 +40,9 @@ import qualified Amazonka.Prelude as Prelude
 -- range. The converted video has an HDR format, but visually appears the
 -- same as an unconverted output. HDR to SDR conversion uses Elemental tone
 -- mapping technology to approximate the outcome of manually regrading from
--- HDR to SDR.
+-- HDR to SDR. Select Force P3D65 (SDR) to set the output color space
+-- metadata to the following: * Color primaries: Display P3 * Transfer
+-- characteristics: SMPTE 428M * Matrix coefficients: BT.709
 newtype ColorSpaceConversion = ColorSpaceConversion'
   { fromColorSpaceConversion ::
       Core.Text
@@ -79,6 +83,12 @@ pattern ColorSpaceConversion_FORCE_HDR10 = ColorSpaceConversion' "FORCE_HDR10"
 pattern ColorSpaceConversion_FORCE_HLG_2020 :: ColorSpaceConversion
 pattern ColorSpaceConversion_FORCE_HLG_2020 = ColorSpaceConversion' "FORCE_HLG_2020"
 
+pattern ColorSpaceConversion_FORCE_P3D65_SDR :: ColorSpaceConversion
+pattern ColorSpaceConversion_FORCE_P3D65_SDR = ColorSpaceConversion' "FORCE_P3D65_SDR"
+
+pattern ColorSpaceConversion_FORCE_P3DCI :: ColorSpaceConversion
+pattern ColorSpaceConversion_FORCE_P3DCI = ColorSpaceConversion' "FORCE_P3DCI"
+
 pattern ColorSpaceConversion_NONE :: ColorSpaceConversion
 pattern ColorSpaceConversion_NONE = ColorSpaceConversion' "NONE"
 
@@ -87,6 +97,8 @@ pattern ColorSpaceConversion_NONE = ColorSpaceConversion' "NONE"
   ColorSpaceConversion_FORCE_709,
   ColorSpaceConversion_FORCE_HDR10,
   ColorSpaceConversion_FORCE_HLG_2020,
+  ColorSpaceConversion_FORCE_P3D65_SDR,
+  ColorSpaceConversion_FORCE_P3DCI,
   ColorSpaceConversion_NONE,
   ColorSpaceConversion'
   #-}

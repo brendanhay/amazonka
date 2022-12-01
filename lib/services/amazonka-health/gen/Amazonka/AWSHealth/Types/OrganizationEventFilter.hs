@@ -23,7 +23,7 @@ import Amazonka.AWSHealth.Types.DateTimeRange
 import Amazonka.AWSHealth.Types.EventStatusCode
 import Amazonka.AWSHealth.Types.EventTypeCategory
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values to filter results from the

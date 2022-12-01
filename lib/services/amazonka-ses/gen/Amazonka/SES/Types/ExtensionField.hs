@@ -20,7 +20,7 @@
 module Amazonka.SES.Types.ExtensionField where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional X-headers to include in the Delivery Status Notification

@@ -20,7 +20,9 @@
 module Amazonka.WAFV2.Types.FailureReason
   ( FailureReason
       ( ..,
+        FailureReason_TOKEN_DOMAIN_MISMATCH,
         FailureReason_TOKEN_EXPIRED,
+        FailureReason_TOKEN_INVALID,
         FailureReason_TOKEN_MISSING
       ),
   )
@@ -57,14 +59,22 @@ newtype FailureReason = FailureReason'
       Core.ToXML
     )
 
+pattern FailureReason_TOKEN_DOMAIN_MISMATCH :: FailureReason
+pattern FailureReason_TOKEN_DOMAIN_MISMATCH = FailureReason' "TOKEN_DOMAIN_MISMATCH"
+
 pattern FailureReason_TOKEN_EXPIRED :: FailureReason
 pattern FailureReason_TOKEN_EXPIRED = FailureReason' "TOKEN_EXPIRED"
+
+pattern FailureReason_TOKEN_INVALID :: FailureReason
+pattern FailureReason_TOKEN_INVALID = FailureReason' "TOKEN_INVALID"
 
 pattern FailureReason_TOKEN_MISSING :: FailureReason
 pattern FailureReason_TOKEN_MISSING = FailureReason' "TOKEN_MISSING"
 
 {-# COMPLETE
+  FailureReason_TOKEN_DOMAIN_MISMATCH,
   FailureReason_TOKEN_EXPIRED,
+  FailureReason_TOKEN_INVALID,
   FailureReason_TOKEN_MISSING,
   FailureReason'
   #-}

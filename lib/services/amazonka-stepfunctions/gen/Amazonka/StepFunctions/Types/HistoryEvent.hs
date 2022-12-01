@@ -20,7 +20,7 @@
 module Amazonka.StepFunctions.Types.HistoryEvent where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.ActivityFailedEventDetails
 import Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails
@@ -76,7 +76,7 @@ data HistoryEvent = HistoryEvent'
     -- | Contains details about an iteration of a Map state that was started.
     mapIterationStartedEventDetails :: Prelude.Maybe MapIterationEventDetails,
     executionStartedEventDetails :: Prelude.Maybe ExecutionStartedEventDetails,
-    -- | Contains details about a lambda function that terminated successfully
+    -- | Contains details about a Lambda function that terminated successfully
     -- during an execution.
     lambdaFunctionSucceededEventDetails :: Prelude.Maybe LambdaFunctionSucceededEventDetails,
     -- | Contains details about an activity schedule event that failed during an
@@ -151,7 +151,7 @@ data HistoryEvent = HistoryEvent'
 --
 -- 'executionStartedEventDetails', 'historyEvent_executionStartedEventDetails' - Undocumented member.
 --
--- 'lambdaFunctionSucceededEventDetails', 'historyEvent_lambdaFunctionSucceededEventDetails' - Contains details about a lambda function that terminated successfully
+-- 'lambdaFunctionSucceededEventDetails', 'historyEvent_lambdaFunctionSucceededEventDetails' - Contains details about a Lambda function that terminated successfully
 -- during an execution.
 --
 -- 'activityScheduleFailedEventDetails', 'historyEvent_activityScheduleFailedEventDetails' - Contains details about an activity schedule event that failed during an
@@ -302,7 +302,7 @@ historyEvent_mapIterationStartedEventDetails = Lens.lens (\HistoryEvent' {mapIte
 historyEvent_executionStartedEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe ExecutionStartedEventDetails)
 historyEvent_executionStartedEventDetails = Lens.lens (\HistoryEvent' {executionStartedEventDetails} -> executionStartedEventDetails) (\s@HistoryEvent' {} a -> s {executionStartedEventDetails = a} :: HistoryEvent)
 
--- | Contains details about a lambda function that terminated successfully
+-- | Contains details about a Lambda function that terminated successfully
 -- during an execution.
 historyEvent_lambdaFunctionSucceededEventDetails :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionSucceededEventDetails)
 historyEvent_lambdaFunctionSucceededEventDetails = Lens.lens (\HistoryEvent' {lambdaFunctionSucceededEventDetails} -> lambdaFunctionSucceededEventDetails) (\s@HistoryEvent' {} a -> s {lambdaFunctionSucceededEventDetails = a} :: HistoryEvent)

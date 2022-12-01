@@ -20,7 +20,7 @@
 module Amazonka.ElasticBeanstalk.Types.StatusCodes where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the percentage of requests over the last 10 seconds that

@@ -22,7 +22,7 @@ module Amazonka.CodePipeline.Types.ActionState where
 import Amazonka.CodePipeline.Types.ActionExecution
 import Amazonka.CodePipeline.Types.ActionRevision
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the state of an action.

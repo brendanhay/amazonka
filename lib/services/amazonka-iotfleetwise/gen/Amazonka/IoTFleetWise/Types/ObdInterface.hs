@@ -20,7 +20,7 @@
 module Amazonka.IoTFleetWise.Types.ObdInterface where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A network interface that specifies the On-board diagnostic (OBD) II

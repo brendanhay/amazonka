@@ -22,7 +22,7 @@ module Amazonka.CloudWatchEvents.Types.Connection where
 import Amazonka.CloudWatchEvents.Types.ConnectionAuthorizationType
 import Amazonka.CloudWatchEvents.Types.ConnectionState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a connection.

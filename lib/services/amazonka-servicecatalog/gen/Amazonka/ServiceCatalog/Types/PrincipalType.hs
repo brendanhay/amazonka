@@ -20,7 +20,8 @@
 module Amazonka.ServiceCatalog.Types.PrincipalType
   ( PrincipalType
       ( ..,
-        PrincipalType_IAM
+        PrincipalType_IAM,
+        PrincipalType_IAM_PATTERN
       ),
   )
 where
@@ -59,7 +60,11 @@ newtype PrincipalType = PrincipalType'
 pattern PrincipalType_IAM :: PrincipalType
 pattern PrincipalType_IAM = PrincipalType' "IAM"
 
+pattern PrincipalType_IAM_PATTERN :: PrincipalType
+pattern PrincipalType_IAM_PATTERN = PrincipalType' "IAM_PATTERN"
+
 {-# COMPLETE
   PrincipalType_IAM,
+  PrincipalType_IAM_PATTERN,
   PrincipalType'
   #-}

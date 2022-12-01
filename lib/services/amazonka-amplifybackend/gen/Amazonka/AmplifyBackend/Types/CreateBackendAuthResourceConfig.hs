@@ -24,7 +24,7 @@ import Amazonka.AmplifyBackend.Types.CreateBackendAuthIdentityPoolConfig
 import Amazonka.AmplifyBackend.Types.CreateBackendAuthUserPoolConfig
 import Amazonka.AmplifyBackend.Types.Service
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the resource configuration when creating an auth resource in

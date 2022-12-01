@@ -20,7 +20,8 @@
 module Amazonka.WorkDocs.Types.SubscriptionProtocolType
   ( SubscriptionProtocolType
       ( ..,
-        SubscriptionProtocolType_HTTPS
+        SubscriptionProtocolType_HTTPS,
+        SubscriptionProtocolType_SQS
       ),
   )
 where
@@ -59,7 +60,11 @@ newtype SubscriptionProtocolType = SubscriptionProtocolType'
 pattern SubscriptionProtocolType_HTTPS :: SubscriptionProtocolType
 pattern SubscriptionProtocolType_HTTPS = SubscriptionProtocolType' "HTTPS"
 
+pattern SubscriptionProtocolType_SQS :: SubscriptionProtocolType
+pattern SubscriptionProtocolType_SQS = SubscriptionProtocolType' "SQS"
+
 {-# COMPLETE
   SubscriptionProtocolType_HTTPS,
+  SubscriptionProtocolType_SQS,
   SubscriptionProtocolType'
   #-}

@@ -208,6 +208,7 @@ module Amazonka.Athena.Lens
     listWorkGroupsResponse_httpStatus,
 
     -- ** StartQueryExecution
+    startQueryExecution_resultReuseConfiguration,
     startQueryExecution_clientRequestToken,
     startQueryExecution_workGroup,
     startQueryExecution_resultConfiguration,
@@ -333,6 +334,7 @@ module Amazonka.Athena.Lens
     preparedStatementSummary_statementName,
 
     -- ** QueryExecution
+    queryExecution_resultReuseConfiguration,
     queryExecution_queryExecutionId,
     queryExecution_statistics,
     queryExecution_statementType,
@@ -351,6 +353,7 @@ module Amazonka.Athena.Lens
     -- ** QueryExecutionStatistics
     queryExecutionStatistics_dataScannedInBytes,
     queryExecutionStatistics_queryQueueTimeInMillis,
+    queryExecutionStatistics_resultReuseInformation,
     queryExecutionStatistics_serviceProcessingTimeInMillis,
     queryExecutionStatistics_dataManifestLocation,
     queryExecutionStatistics_totalExecutionTimeInMillis,
@@ -414,6 +417,16 @@ module Amazonka.Athena.Lens
     resultConfigurationUpdates_removeExpectedBucketOwner,
     resultConfigurationUpdates_removeOutputLocation,
     resultConfigurationUpdates_encryptionConfiguration,
+
+    -- ** ResultReuseByAgeConfiguration
+    resultReuseByAgeConfiguration_maxAgeInMinutes,
+    resultReuseByAgeConfiguration_enabled,
+
+    -- ** ResultReuseConfiguration
+    resultReuseConfiguration_resultReuseByAgeConfiguration,
+
+    -- ** ResultReuseInformation
+    resultReuseInformation_reusedPreviousResult,
 
     -- ** ResultSet
     resultSet_rows,
@@ -542,6 +555,9 @@ import Amazonka.Athena.Types.QueryStage
 import Amazonka.Athena.Types.QueryStagePlanNode
 import Amazonka.Athena.Types.ResultConfiguration
 import Amazonka.Athena.Types.ResultConfigurationUpdates
+import Amazonka.Athena.Types.ResultReuseByAgeConfiguration
+import Amazonka.Athena.Types.ResultReuseConfiguration
+import Amazonka.Athena.Types.ResultReuseInformation
 import Amazonka.Athena.Types.ResultSet
 import Amazonka.Athena.Types.ResultSetMetadata
 import Amazonka.Athena.Types.Row

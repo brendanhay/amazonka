@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.ContainerDependency where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.ContainerCondition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The dependencies defined for container startup and shutdown. A container

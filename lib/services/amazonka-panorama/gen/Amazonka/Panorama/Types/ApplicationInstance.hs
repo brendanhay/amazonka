@@ -20,7 +20,7 @@
 module Amazonka.Panorama.Types.ApplicationInstance where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Panorama.Types.ApplicationInstanceHealthStatus
 import Amazonka.Panorama.Types.ApplicationInstanceStatus
 import Amazonka.Panorama.Types.ReportedRuntimeContextState

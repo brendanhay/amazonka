@@ -20,7 +20,7 @@
 module Amazonka.Neptune.Types.DBClusterMember where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an instance that is part of a DB cluster.

@@ -20,7 +20,7 @@
 module Amazonka.WorkMail.Types.EwsAvailabilityProvider where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an EWS based availability provider. This is only used as input

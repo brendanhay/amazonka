@@ -20,17 +20,18 @@
 module Amazonka.OpenSearch.Types.AutoTuneDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.ScheduledAutoTuneDetails
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies details about the Auto-Tune action. See
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
--- for more information.
+-- | Specifies details about a scheduled Auto-Tune action. For more
+-- information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>.
 --
 -- /See:/ 'newAutoTuneDetails' smart constructor.
 data AutoTuneDetails = AutoTuneDetails'
-  { scheduledAutoTuneDetails :: Prelude.Maybe ScheduledAutoTuneDetails
+  { -- | Container for details about a scheduled Auto-Tune action.
+    scheduledAutoTuneDetails :: Prelude.Maybe ScheduledAutoTuneDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,7 +43,7 @@ data AutoTuneDetails = AutoTuneDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scheduledAutoTuneDetails', 'autoTuneDetails_scheduledAutoTuneDetails' - Undocumented member.
+-- 'scheduledAutoTuneDetails', 'autoTuneDetails_scheduledAutoTuneDetails' - Container for details about a scheduled Auto-Tune action.
 newAutoTuneDetails ::
   AutoTuneDetails
 newAutoTuneDetails =
@@ -51,7 +52,7 @@ newAutoTuneDetails =
         Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | Container for details about a scheduled Auto-Tune action.
 autoTuneDetails_scheduledAutoTuneDetails :: Lens.Lens' AutoTuneDetails (Prelude.Maybe ScheduledAutoTuneDetails)
 autoTuneDetails_scheduledAutoTuneDetails = Lens.lens (\AutoTuneDetails' {scheduledAutoTuneDetails} -> scheduledAutoTuneDetails) (\s@AutoTuneDetails' {} a -> s {scheduledAutoTuneDetails = a} :: AutoTuneDetails)
 

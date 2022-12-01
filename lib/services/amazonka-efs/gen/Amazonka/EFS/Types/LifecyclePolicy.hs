@@ -20,9 +20,9 @@
 module Amazonka.EFS.Types.LifecyclePolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EFS.Types.TransitionToIARules
 import Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a policy used by EFS lifecycle management and EFS

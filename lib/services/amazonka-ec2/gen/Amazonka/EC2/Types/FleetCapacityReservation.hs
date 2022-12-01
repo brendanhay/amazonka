@@ -20,10 +20,10 @@
 module Amazonka.EC2.Types.FleetCapacityReservation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CapacityReservationInstancePlatform
 import Amazonka.EC2.Types.InstanceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a Capacity Reservation in a Capacity Reservation

@@ -20,7 +20,7 @@
 module Amazonka.NetworkFirewall.Types.MatchAttributes where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkFirewall.Types.Address
 import Amazonka.NetworkFirewall.Types.PortRange
 import Amazonka.NetworkFirewall.Types.TCPFlagField

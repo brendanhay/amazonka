@@ -20,7 +20,7 @@
 module Amazonka.CloudSearch.Types.DoubleArrayOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for a field that contains an array of double-precision 64-bit

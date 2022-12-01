@@ -25,7 +25,7 @@ import Amazonka.Chime.Types.License
 import Amazonka.Chime.Types.RegistrationStatus
 import Amazonka.Chime.Types.UserType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user on the Amazon Chime account.

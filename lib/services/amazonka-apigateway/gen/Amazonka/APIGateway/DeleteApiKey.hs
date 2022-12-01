@@ -37,7 +37,7 @@ where
 
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -73,8 +73,8 @@ deleteApiKey_apiKey = Lens.lens (\DeleteApiKey' {apiKey} -> apiKey) (\s@DeleteAp
 
 instance Core.AWSRequest DeleteApiKey where
   type AWSResponse DeleteApiKey = DeleteApiKeyResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteApiKeyResponse'
 
 instance Prelude.Hashable DeleteApiKey where

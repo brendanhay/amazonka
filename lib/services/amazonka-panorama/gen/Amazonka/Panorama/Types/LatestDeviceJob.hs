@@ -20,7 +20,7 @@
 module Amazonka.Panorama.Types.LatestDeviceJob where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Panorama.Types.JobType
 import Amazonka.Panorama.Types.UpdateProgress
 import qualified Amazonka.Prelude as Prelude

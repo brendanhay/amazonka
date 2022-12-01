@@ -20,8 +20,8 @@
 module Amazonka.IoTEvents.Types.AlarmNotification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.NotificationAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about one or more notification actions.

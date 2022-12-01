@@ -20,8 +20,8 @@
 module Amazonka.IoTEvents.Types.AlarmRule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.SimpleRule
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines when your alarm is invoked.

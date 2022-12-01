@@ -20,25 +20,28 @@
 module Amazonka.OpenSearch.Types.AutoTuneStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.AutoTuneState
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides the current Auto-Tune status for the domain.
+-- | The current status of Auto-Tune for the domain. For more information,
+-- see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>.
 --
 -- /See:/ 'newAutoTuneStatus' smart constructor.
 data AutoTuneStatus = AutoTuneStatus'
   { -- | Indicates whether the domain is being deleted.
     pendingDeletion :: Prelude.Maybe Prelude.Bool,
-    -- | The error message while enabling or disabling Auto-Tune.
+    -- | Any errors that occurred while enabling or disabling Auto-Tune.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The latest version of the Auto-Tune options.
     updateVersion :: Prelude.Maybe Prelude.Natural,
-    -- | The timestamp of the Auto-Tune options creation date.
+    -- | Date and time when Auto-Tune was enabled for the domain.
     creationDate :: Core.POSIX,
-    -- | The timestamp of when the Auto-Tune options were last updated.
+    -- | Date and time when the Auto-Tune options were last updated for the
+    -- domain.
     updateDate :: Core.POSIX,
-    -- | The @AutoTuneState@ for the domain.
+    -- | The current state of Auto-Tune on the domain.
     state :: AutoTuneState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,15 +56,16 @@ data AutoTuneStatus = AutoTuneStatus'
 --
 -- 'pendingDeletion', 'autoTuneStatus_pendingDeletion' - Indicates whether the domain is being deleted.
 --
--- 'errorMessage', 'autoTuneStatus_errorMessage' - The error message while enabling or disabling Auto-Tune.
+-- 'errorMessage', 'autoTuneStatus_errorMessage' - Any errors that occurred while enabling or disabling Auto-Tune.
 --
 -- 'updateVersion', 'autoTuneStatus_updateVersion' - The latest version of the Auto-Tune options.
 --
--- 'creationDate', 'autoTuneStatus_creationDate' - The timestamp of the Auto-Tune options creation date.
+-- 'creationDate', 'autoTuneStatus_creationDate' - Date and time when Auto-Tune was enabled for the domain.
 --
--- 'updateDate', 'autoTuneStatus_updateDate' - The timestamp of when the Auto-Tune options were last updated.
+-- 'updateDate', 'autoTuneStatus_updateDate' - Date and time when the Auto-Tune options were last updated for the
+-- domain.
 --
--- 'state', 'autoTuneStatus_state' - The @AutoTuneState@ for the domain.
+-- 'state', 'autoTuneStatus_state' - The current state of Auto-Tune on the domain.
 newAutoTuneStatus ::
   -- | 'creationDate'
   Prelude.UTCTime ->
@@ -84,7 +88,7 @@ newAutoTuneStatus pCreationDate_ pUpdateDate_ pState_ =
 autoTuneStatus_pendingDeletion :: Lens.Lens' AutoTuneStatus (Prelude.Maybe Prelude.Bool)
 autoTuneStatus_pendingDeletion = Lens.lens (\AutoTuneStatus' {pendingDeletion} -> pendingDeletion) (\s@AutoTuneStatus' {} a -> s {pendingDeletion = a} :: AutoTuneStatus)
 
--- | The error message while enabling or disabling Auto-Tune.
+-- | Any errors that occurred while enabling or disabling Auto-Tune.
 autoTuneStatus_errorMessage :: Lens.Lens' AutoTuneStatus (Prelude.Maybe Prelude.Text)
 autoTuneStatus_errorMessage = Lens.lens (\AutoTuneStatus' {errorMessage} -> errorMessage) (\s@AutoTuneStatus' {} a -> s {errorMessage = a} :: AutoTuneStatus)
 
@@ -92,15 +96,16 @@ autoTuneStatus_errorMessage = Lens.lens (\AutoTuneStatus' {errorMessage} -> erro
 autoTuneStatus_updateVersion :: Lens.Lens' AutoTuneStatus (Prelude.Maybe Prelude.Natural)
 autoTuneStatus_updateVersion = Lens.lens (\AutoTuneStatus' {updateVersion} -> updateVersion) (\s@AutoTuneStatus' {} a -> s {updateVersion = a} :: AutoTuneStatus)
 
--- | The timestamp of the Auto-Tune options creation date.
+-- | Date and time when Auto-Tune was enabled for the domain.
 autoTuneStatus_creationDate :: Lens.Lens' AutoTuneStatus Prelude.UTCTime
 autoTuneStatus_creationDate = Lens.lens (\AutoTuneStatus' {creationDate} -> creationDate) (\s@AutoTuneStatus' {} a -> s {creationDate = a} :: AutoTuneStatus) Prelude.. Core._Time
 
--- | The timestamp of when the Auto-Tune options were last updated.
+-- | Date and time when the Auto-Tune options were last updated for the
+-- domain.
 autoTuneStatus_updateDate :: Lens.Lens' AutoTuneStatus Prelude.UTCTime
 autoTuneStatus_updateDate = Lens.lens (\AutoTuneStatus' {updateDate} -> updateDate) (\s@AutoTuneStatus' {} a -> s {updateDate = a} :: AutoTuneStatus) Prelude.. Core._Time
 
--- | The @AutoTuneState@ for the domain.
+-- | The current state of Auto-Tune on the domain.
 autoTuneStatus_state :: Lens.Lens' AutoTuneStatus AutoTuneState
 autoTuneStatus_state = Lens.lens (\AutoTuneStatus' {state} -> state) (\s@AutoTuneStatus' {} a -> s {state = a} :: AutoTuneStatus)
 

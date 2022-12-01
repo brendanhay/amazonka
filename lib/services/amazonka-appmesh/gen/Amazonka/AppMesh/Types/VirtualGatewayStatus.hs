@@ -21,7 +21,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayStatus where
 
 import Amazonka.AppMesh.Types.VirtualGatewayStatusCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the status of the mesh resource.

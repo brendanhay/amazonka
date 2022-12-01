@@ -21,7 +21,7 @@ module Amazonka.CodeBuild.Types.SourceAuth where
 
 import Amazonka.CodeBuild.Types.SourceAuthType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the authorization settings for CodeBuild to access the

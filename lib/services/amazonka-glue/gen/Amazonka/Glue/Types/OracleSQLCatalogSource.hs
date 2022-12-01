@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.OracleSQLCatalogSource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Oracle data source in the Glue Data Catalog.

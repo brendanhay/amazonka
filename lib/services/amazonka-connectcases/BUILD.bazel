@@ -73,6 +73,7 @@ haskell_library(
         "gen/Amazonka/ConnectCases/Types/SearchRelatedItemsResponseItem.hs",
         "gen/Amazonka/ConnectCases/Types/Section.hs",
         "gen/Amazonka/ConnectCases/Types/Sort.hs",
+        "gen/Amazonka/ConnectCases/Types/TemplateStatus.hs",
         "gen/Amazonka/ConnectCases/Types/TemplateSummary.hs",
         "gen/Amazonka/ConnectCases/UntagResource.hs",
         "gen/Amazonka/ConnectCases/UpdateCase.hs",

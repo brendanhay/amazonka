@@ -20,7 +20,7 @@
 module Amazonka.IoTSiteWise.Types.Greengrass where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details for a gateway that runs on IoT Greengrass. To create a

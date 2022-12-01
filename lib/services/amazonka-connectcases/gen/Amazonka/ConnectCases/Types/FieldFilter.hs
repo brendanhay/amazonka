@@ -21,7 +21,7 @@ module Amazonka.ConnectCases.Types.FieldFilter where
 
 import Amazonka.ConnectCases.Types.FieldValue
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter for fields. Only one value can be provided.

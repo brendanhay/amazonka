@@ -20,8 +20,8 @@
 module Amazonka.EC2.Types.S3Storage where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the storage parameters for Amazon S3 and Amazon S3 buckets for
@@ -36,7 +36,7 @@ data S3Storage = S3Storage'
     bucket :: Prelude.Maybe Prelude.Text,
     -- | The access key ID of the owner of the bucket. Before you specify a value
     -- for your access key ID, review and follow the guidance in
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing Amazon Web Services Access Keys>.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best practices for managing Amazon Web Services access keys>.
     aWSAccessKeyId :: Prelude.Maybe Prelude.Text,
     -- | An Amazon S3 upload policy that gives Amazon EC2 permission to upload
     -- items into Amazon S3 on your behalf.
@@ -63,7 +63,7 @@ data S3Storage = S3Storage'
 --
 -- 'aWSAccessKeyId', 's3Storage_aWSAccessKeyId' - The access key ID of the owner of the bucket. Before you specify a value
 -- for your access key ID, review and follow the guidance in
--- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing Amazon Web Services Access Keys>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best practices for managing Amazon Web Services access keys>.
 --
 -- 'uploadPolicy', 's3Storage_uploadPolicy' - An Amazon S3 upload policy that gives Amazon EC2 permission to upload
 -- items into Amazon S3 on your behalf.--
@@ -95,7 +95,7 @@ s3Storage_bucket = Lens.lens (\S3Storage' {bucket} -> bucket) (\s@S3Storage' {} 
 
 -- | The access key ID of the owner of the bucket. Before you specify a value
 -- for your access key ID, review and follow the guidance in
--- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing Amazon Web Services Access Keys>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best practices for managing Amazon Web Services access keys>.
 s3Storage_aWSAccessKeyId :: Lens.Lens' S3Storage (Prelude.Maybe Prelude.Text)
 s3Storage_aWSAccessKeyId = Lens.lens (\S3Storage' {aWSAccessKeyId} -> aWSAccessKeyId) (\s@S3Storage' {} a -> s {aWSAccessKeyId = a} :: S3Storage)
 

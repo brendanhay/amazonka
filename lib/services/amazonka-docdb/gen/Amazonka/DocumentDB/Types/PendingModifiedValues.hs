@@ -20,8 +20,8 @@
 module Amazonka.DocumentDB.Types.PendingModifiedValues where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DocumentDB.Types.PendingCloudwatchLogsExports
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | One or more modified settings for an instance. These modified settings

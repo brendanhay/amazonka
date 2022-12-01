@@ -21,7 +21,7 @@ module Amazonka.AppRunner.Types.AutoScalingConfiguration where
 
 import Amazonka.AppRunner.Types.AutoScalingConfigurationStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an App Runner automatic scaling configuration resource.

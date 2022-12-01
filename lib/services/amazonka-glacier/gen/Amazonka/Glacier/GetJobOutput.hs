@@ -94,8 +94,8 @@ module Amazonka.Glacier.GetJobOutput
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glacier.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -266,10 +266,9 @@ getJobOutput_jobId = Lens.lens (\GetJobOutput' {jobId} -> jobId) (\s@GetJobOutpu
 
 instance Core.AWSRequest GetJobOutput where
   type AWSResponse GetJobOutput = GetJobOutputResponse
-  service _ = defaultService
-  request srv =
-    Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get srv
+  request overrides =
+    Request.glacierVersionHeader (Core.version defaultService)
+      Prelude.. Request.get (overrides defaultService)
   response =
     Response.receiveBody
       ( \s h x ->

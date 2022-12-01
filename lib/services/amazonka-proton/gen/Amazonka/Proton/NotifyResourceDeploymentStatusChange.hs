@@ -33,10 +33,10 @@ module Amazonka.Proton.NotifyResourceDeploymentStatusChange
 
     -- * Request Lenses
     notifyResourceDeploymentStatusChange_deploymentId,
+    notifyResourceDeploymentStatusChange_status,
     notifyResourceDeploymentStatusChange_outputs,
     notifyResourceDeploymentStatusChange_statusMessage,
     notifyResourceDeploymentStatusChange_resourceArn,
-    notifyResourceDeploymentStatusChange_status,
 
     -- * Destructuring the Response
     NotifyResourceDeploymentStatusChangeResponse (..),
@@ -48,7 +48,7 @@ module Amazonka.Proton.NotifyResourceDeploymentStatusChange
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -58,15 +58,15 @@ import qualified Amazonka.Response as Response
 data NotifyResourceDeploymentStatusChange = NotifyResourceDeploymentStatusChange'
   { -- | The deployment ID for your provisioned resource.
     deploymentId :: Prelude.Maybe Prelude.Text,
+    -- | The status of your provisioned resource.
+    status :: Prelude.Maybe ResourceDeploymentStatus,
     -- | The provisioned resource state change detail data that\'s returned by
     -- Proton.
     outputs :: Prelude.Maybe [Core.Sensitive Output],
     -- | The deployment status message for your provisioned resource.
     statusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The provisioned resource Amazon Resource Name (ARN).
-    resourceArn :: Prelude.Text,
-    -- | The status of your provisioned resource.
-    status :: ResourceDeploymentStatus
+    resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -80,35 +80,35 @@ data NotifyResourceDeploymentStatusChange = NotifyResourceDeploymentStatusChange
 --
 -- 'deploymentId', 'notifyResourceDeploymentStatusChange_deploymentId' - The deployment ID for your provisioned resource.
 --
+-- 'status', 'notifyResourceDeploymentStatusChange_status' - The status of your provisioned resource.
+--
 -- 'outputs', 'notifyResourceDeploymentStatusChange_outputs' - The provisioned resource state change detail data that\'s returned by
 -- Proton.
 --
 -- 'statusMessage', 'notifyResourceDeploymentStatusChange_statusMessage' - The deployment status message for your provisioned resource.
 --
 -- 'resourceArn', 'notifyResourceDeploymentStatusChange_resourceArn' - The provisioned resource Amazon Resource Name (ARN).
---
--- 'status', 'notifyResourceDeploymentStatusChange_status' - The status of your provisioned resource.
 newNotifyResourceDeploymentStatusChange ::
   -- | 'resourceArn'
   Prelude.Text ->
-  -- | 'status'
-  ResourceDeploymentStatus ->
   NotifyResourceDeploymentStatusChange
-newNotifyResourceDeploymentStatusChange
-  pResourceArn_
-  pStatus_ =
-    NotifyResourceDeploymentStatusChange'
-      { deploymentId =
-          Prelude.Nothing,
-        outputs = Prelude.Nothing,
-        statusMessage = Prelude.Nothing,
-        resourceArn = pResourceArn_,
-        status = pStatus_
-      }
+newNotifyResourceDeploymentStatusChange pResourceArn_ =
+  NotifyResourceDeploymentStatusChange'
+    { deploymentId =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      outputs = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      resourceArn = pResourceArn_
+    }
 
 -- | The deployment ID for your provisioned resource.
 notifyResourceDeploymentStatusChange_deploymentId :: Lens.Lens' NotifyResourceDeploymentStatusChange (Prelude.Maybe Prelude.Text)
 notifyResourceDeploymentStatusChange_deploymentId = Lens.lens (\NotifyResourceDeploymentStatusChange' {deploymentId} -> deploymentId) (\s@NotifyResourceDeploymentStatusChange' {} a -> s {deploymentId = a} :: NotifyResourceDeploymentStatusChange)
+
+-- | The status of your provisioned resource.
+notifyResourceDeploymentStatusChange_status :: Lens.Lens' NotifyResourceDeploymentStatusChange (Prelude.Maybe ResourceDeploymentStatus)
+notifyResourceDeploymentStatusChange_status = Lens.lens (\NotifyResourceDeploymentStatusChange' {status} -> status) (\s@NotifyResourceDeploymentStatusChange' {} a -> s {status = a} :: NotifyResourceDeploymentStatusChange)
 
 -- | The provisioned resource state change detail data that\'s returned by
 -- Proton.
@@ -123,10 +123,6 @@ notifyResourceDeploymentStatusChange_statusMessage = Lens.lens (\NotifyResourceD
 notifyResourceDeploymentStatusChange_resourceArn :: Lens.Lens' NotifyResourceDeploymentStatusChange Prelude.Text
 notifyResourceDeploymentStatusChange_resourceArn = Lens.lens (\NotifyResourceDeploymentStatusChange' {resourceArn} -> resourceArn) (\s@NotifyResourceDeploymentStatusChange' {} a -> s {resourceArn = a} :: NotifyResourceDeploymentStatusChange)
 
--- | The status of your provisioned resource.
-notifyResourceDeploymentStatusChange_status :: Lens.Lens' NotifyResourceDeploymentStatusChange ResourceDeploymentStatus
-notifyResourceDeploymentStatusChange_status = Lens.lens (\NotifyResourceDeploymentStatusChange' {status} -> status) (\s@NotifyResourceDeploymentStatusChange' {} a -> s {status = a} :: NotifyResourceDeploymentStatusChange)
-
 instance
   Core.AWSRequest
     NotifyResourceDeploymentStatusChange
@@ -134,8 +130,8 @@ instance
   type
     AWSResponse NotifyResourceDeploymentStatusChange =
       NotifyResourceDeploymentStatusChangeResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -151,10 +147,10 @@ instance
     _salt
     NotifyResourceDeploymentStatusChange' {..} =
       _salt `Prelude.hashWithSalt` deploymentId
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` outputs
         `Prelude.hashWithSalt` statusMessage
         `Prelude.hashWithSalt` resourceArn
-        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
@@ -162,10 +158,10 @@ instance
   where
   rnf NotifyResourceDeploymentStatusChange' {..} =
     Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf status
 
 instance
   Core.ToHeaders
@@ -193,10 +189,10 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("deploymentId" Core..=) Prelude.<$> deploymentId,
+            ("status" Core..=) Prelude.<$> status,
             ("outputs" Core..=) Prelude.<$> outputs,
             ("statusMessage" Core..=) Prelude.<$> statusMessage,
-            Prelude.Just ("resourceArn" Core..= resourceArn),
-            Prelude.Just ("status" Core..= status)
+            Prelude.Just ("resourceArn" Core..= resourceArn)
           ]
       )
 

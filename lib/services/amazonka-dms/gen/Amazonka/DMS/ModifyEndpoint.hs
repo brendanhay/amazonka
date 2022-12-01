@@ -79,8 +79,8 @@ module Amazonka.DMS.ModifyEndpoint
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,13 +99,12 @@ data ModifyEndpoint = ModifyEndpoint'
     redshiftSettings :: Prelude.Maybe RedshiftSettings,
     -- | The external table definition.
     externalTableDefinition :: Prelude.Maybe Prelude.Text,
-    -- | The type of engine for the endpoint. Valid values, depending on the
-    -- EndpointType, include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@,
-    -- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@,
-    -- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@,
-    -- @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
-    -- @\"elasticsearch\"@, @\"documentdb\"@, @\"sqlserver\"@, and
-    -- @\"neptune\"@.
+    -- | The database engine name. Valid values, depending on the EndpointType,
+    -- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
+    -- @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@, @\"s3\"@,
+    -- @\"db2\"@, @\"db2-zos\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
+    -- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
+    -- @\"documentdb\"@, @\"sqlserver\"@, @\"neptune\"@, and @\"babelfish\"@.
     engineName :: Prelude.Maybe Prelude.Text,
     -- | Settings in JSON format for the source and target MySQL endpoint. For
     -- information about other available settings, see
@@ -281,13 +280,12 @@ data ModifyEndpoint = ModifyEndpoint'
 --
 -- 'externalTableDefinition', 'modifyEndpoint_externalTableDefinition' - The external table definition.
 --
--- 'engineName', 'modifyEndpoint_engineName' - The type of engine for the endpoint. Valid values, depending on the
--- EndpointType, include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@,
--- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@,
--- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@,
--- @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
--- @\"elasticsearch\"@, @\"documentdb\"@, @\"sqlserver\"@, and
--- @\"neptune\"@.
+-- 'engineName', 'modifyEndpoint_engineName' - The database engine name. Valid values, depending on the EndpointType,
+-- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
+-- @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@, @\"s3\"@,
+-- @\"db2\"@, @\"db2-zos\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
+-- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
+-- @\"documentdb\"@, @\"sqlserver\"@, @\"neptune\"@, and @\"babelfish\"@.
 --
 -- 'mySQLSettings', 'modifyEndpoint_mySQLSettings' - Settings in JSON format for the source and target MySQL endpoint. For
 -- information about other available settings, see
@@ -500,13 +498,12 @@ modifyEndpoint_redshiftSettings = Lens.lens (\ModifyEndpoint' {redshiftSettings}
 modifyEndpoint_externalTableDefinition :: Lens.Lens' ModifyEndpoint (Prelude.Maybe Prelude.Text)
 modifyEndpoint_externalTableDefinition = Lens.lens (\ModifyEndpoint' {externalTableDefinition} -> externalTableDefinition) (\s@ModifyEndpoint' {} a -> s {externalTableDefinition = a} :: ModifyEndpoint)
 
--- | The type of engine for the endpoint. Valid values, depending on the
--- EndpointType, include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@,
--- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@,
--- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@,
--- @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
--- @\"elasticsearch\"@, @\"documentdb\"@, @\"sqlserver\"@, and
--- @\"neptune\"@.
+-- | The database engine name. Valid values, depending on the EndpointType,
+-- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
+-- @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@, @\"s3\"@,
+-- @\"db2\"@, @\"db2-zos\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
+-- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
+-- @\"documentdb\"@, @\"sqlserver\"@, @\"neptune\"@, and @\"babelfish\"@.
 modifyEndpoint_engineName :: Lens.Lens' ModifyEndpoint (Prelude.Maybe Prelude.Text)
 modifyEndpoint_engineName = Lens.lens (\ModifyEndpoint' {engineName} -> engineName) (\s@ModifyEndpoint' {} a -> s {engineName = a} :: ModifyEndpoint)
 
@@ -722,8 +719,8 @@ instance Core.AWSRequest ModifyEndpoint where
   type
     AWSResponse ModifyEndpoint =
       ModifyEndpointResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

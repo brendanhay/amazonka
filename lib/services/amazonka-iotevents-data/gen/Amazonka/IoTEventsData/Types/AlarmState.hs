@@ -20,11 +20,11 @@
 module Amazonka.IoTEventsData.Types.AlarmState where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEventsData.Types.AlarmStateName
 import Amazonka.IoTEventsData.Types.CustomerAction
 import Amazonka.IoTEventsData.Types.RuleEvaluation
 import Amazonka.IoTEventsData.Types.SystemEvent
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the current state of the alarm.

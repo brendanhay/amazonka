@@ -20,11 +20,11 @@
 module Amazonka.DrS.Types.RecoveryInstanceDataReplicationInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.RecoveryInstanceDataReplicationError
 import Amazonka.DrS.Types.RecoveryInstanceDataReplicationInfoReplicatedDisk
 import Amazonka.DrS.Types.RecoveryInstanceDataReplicationInitiation
 import Amazonka.DrS.Types.RecoveryInstanceDataReplicationState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about Data Replication

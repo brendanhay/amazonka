@@ -20,7 +20,7 @@
 module Amazonka.Detective.Types.Account where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon Web Services account that is the administrator account of or a

@@ -20,7 +20,7 @@
 module Amazonka.LookoutVision.Types.GreengrassOutputDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the AWS IoT Greengrass component created by a model

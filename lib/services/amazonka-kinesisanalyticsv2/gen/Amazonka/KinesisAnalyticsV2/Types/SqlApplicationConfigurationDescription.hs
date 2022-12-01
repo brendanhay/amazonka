@@ -20,10 +20,10 @@
 module Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfigurationDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.InputDescription
 import Amazonka.KinesisAnalyticsV2.Types.OutputDescription
 import Amazonka.KinesisAnalyticsV2.Types.ReferenceDataSourceDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the inputs, outputs, and reference data sources for a

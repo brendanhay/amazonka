@@ -22,7 +22,7 @@ module Amazonka.CodePipeline.Types.ListWebhookItem where
 import Amazonka.CodePipeline.Types.Tag
 import Amazonka.CodePipeline.Types.WebhookDefinition
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detail returned for each webhook after listing webhooks, such as the

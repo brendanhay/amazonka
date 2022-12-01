@@ -20,8 +20,8 @@
 module Amazonka.HealthLake.Types.KmsEncryptionConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HealthLake.Types.CmkType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The customer-managed-key(CMK) used when creating a Data Store. If a

@@ -22,7 +22,7 @@ module Amazonka.CodeCommit.Types.CommentsForComparedCommit where
 import Amazonka.CodeCommit.Types.Comment
 import Amazonka.CodeCommit.Types.Location
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about comments on the comparison between two

@@ -20,7 +20,7 @@
 module Amazonka.LicenseManager.Types.LicenseSpecification where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for associating a license configuration with a resource.

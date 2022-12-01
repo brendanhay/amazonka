@@ -27,8 +27,8 @@ module Amazonka.IotTwinMaker.GetComponentType
     newGetComponentType,
 
     -- * Request Lenses
-    getComponentType_componentTypeId,
     getComponentType_workspaceId,
+    getComponentType_componentTypeId,
 
     -- * Destructuring the Response
     GetComponentTypeResponse (..),
@@ -41,30 +41,31 @@ module Amazonka.IotTwinMaker.GetComponentType
     getComponentTypeResponse_propertyDefinitions,
     getComponentTypeResponse_status,
     getComponentTypeResponse_description,
+    getComponentTypeResponse_propertyGroups,
     getComponentTypeResponse_isSingleton,
     getComponentTypeResponse_extendsFrom,
     getComponentTypeResponse_httpStatus,
-    getComponentTypeResponse_arn,
+    getComponentTypeResponse_workspaceId,
     getComponentTypeResponse_componentTypeId,
     getComponentTypeResponse_creationDateTime,
     getComponentTypeResponse_updateDateTime,
-    getComponentTypeResponse_workspaceId,
+    getComponentTypeResponse_arn,
   )
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetComponentType' smart constructor.
 data GetComponentType = GetComponentType'
-  { -- | The ID of the component type.
-    componentTypeId :: Prelude.Text,
-    -- | The ID of the workspace that contains the component type.
-    workspaceId :: Prelude.Text
+  { -- | The ID of the workspace that contains the component type.
+    workspaceId :: Prelude.Text,
+    -- | The ID of the component type.
+    componentTypeId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,36 +77,35 @@ data GetComponentType = GetComponentType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'componentTypeId', 'getComponentType_componentTypeId' - The ID of the component type.
---
 -- 'workspaceId', 'getComponentType_workspaceId' - The ID of the workspace that contains the component type.
+--
+-- 'componentTypeId', 'getComponentType_componentTypeId' - The ID of the component type.
 newGetComponentType ::
-  -- | 'componentTypeId'
-  Prelude.Text ->
   -- | 'workspaceId'
   Prelude.Text ->
+  -- | 'componentTypeId'
+  Prelude.Text ->
   GetComponentType
-newGetComponentType pComponentTypeId_ pWorkspaceId_ =
+newGetComponentType pWorkspaceId_ pComponentTypeId_ =
   GetComponentType'
-    { componentTypeId =
-        pComponentTypeId_,
-      workspaceId = pWorkspaceId_
+    { workspaceId = pWorkspaceId_,
+      componentTypeId = pComponentTypeId_
     }
-
--- | The ID of the component type.
-getComponentType_componentTypeId :: Lens.Lens' GetComponentType Prelude.Text
-getComponentType_componentTypeId = Lens.lens (\GetComponentType' {componentTypeId} -> componentTypeId) (\s@GetComponentType' {} a -> s {componentTypeId = a} :: GetComponentType)
 
 -- | The ID of the workspace that contains the component type.
 getComponentType_workspaceId :: Lens.Lens' GetComponentType Prelude.Text
 getComponentType_workspaceId = Lens.lens (\GetComponentType' {workspaceId} -> workspaceId) (\s@GetComponentType' {} a -> s {workspaceId = a} :: GetComponentType)
 
+-- | The ID of the component type.
+getComponentType_componentTypeId :: Lens.Lens' GetComponentType Prelude.Text
+getComponentType_componentTypeId = Lens.lens (\GetComponentType' {componentTypeId} -> componentTypeId) (\s@GetComponentType' {} a -> s {componentTypeId = a} :: GetComponentType)
+
 instance Core.AWSRequest GetComponentType where
   type
     AWSResponse GetComponentType =
       GetComponentTypeResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,25 +118,26 @@ instance Core.AWSRequest GetComponentType where
                         )
             Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "description")
+            Prelude.<*> (x Core..?> "propertyGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "isSingleton")
             Prelude.<*> (x Core..?> "extendsFrom" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Core..:> "workspaceId")
             Prelude.<*> (x Core..:> "componentTypeId")
             Prelude.<*> (x Core..:> "creationDateTime")
             Prelude.<*> (x Core..:> "updateDateTime")
-            Prelude.<*> (x Core..:> "workspaceId")
+            Prelude.<*> (x Core..:> "arn")
       )
 
 instance Prelude.Hashable GetComponentType where
   hashWithSalt _salt GetComponentType' {..} =
-    _salt `Prelude.hashWithSalt` componentTypeId
-      `Prelude.hashWithSalt` workspaceId
+    _salt `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` componentTypeId
 
 instance Prelude.NFData GetComponentType where
   rnf GetComponentType' {..} =
-    Prelude.rnf componentTypeId
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf componentTypeId
 
 instance Core.ToHeaders GetComponentType where
   toHeaders =
@@ -178,6 +179,10 @@ data GetComponentTypeResponse = GetComponentTypeResponse'
     status :: Prelude.Maybe Status,
     -- | The description of the component type.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return at one time. The default is 25.
+    --
+    -- Valid Range: Minimum value of 1. Maximum value of 250.
+    propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupResponse),
     -- | A Boolean value that specifies whether an entity can have more than one
     -- component of this type.
     isSingleton :: Prelude.Maybe Prelude.Bool,
@@ -185,16 +190,16 @@ data GetComponentTypeResponse = GetComponentTypeResponse'
     extendsFrom :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The ARN of the component type.
-    arn :: Prelude.Text,
+    -- | The ID of the workspace that contains the component type.
+    workspaceId :: Prelude.Text,
     -- | The ID of the component type.
     componentTypeId :: Prelude.Text,
     -- | The date and time when the component type was created.
     creationDateTime :: Core.POSIX,
     -- | The date and time when the component was last updated.
     updateDateTime :: Core.POSIX,
-    -- | The ID of the workspace that contains the component type.
-    workspaceId :: Prelude.Text
+    -- | The ARN of the component type.
+    arn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -221,6 +226,10 @@ data GetComponentTypeResponse = GetComponentTypeResponse'
 --
 -- 'description', 'getComponentTypeResponse_description' - The description of the component type.
 --
+-- 'propertyGroups', 'getComponentTypeResponse_propertyGroups' - The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
+--
 -- 'isSingleton', 'getComponentTypeResponse_isSingleton' - A Boolean value that specifies whether an entity can have more than one
 -- component of this type.
 --
@@ -228,7 +237,7 @@ data GetComponentTypeResponse = GetComponentTypeResponse'
 --
 -- 'httpStatus', 'getComponentTypeResponse_httpStatus' - The response's http status code.
 --
--- 'arn', 'getComponentTypeResponse_arn' - The ARN of the component type.
+-- 'workspaceId', 'getComponentTypeResponse_workspaceId' - The ID of the workspace that contains the component type.
 --
 -- 'componentTypeId', 'getComponentTypeResponse_componentTypeId' - The ID of the component type.
 --
@@ -236,11 +245,11 @@ data GetComponentTypeResponse = GetComponentTypeResponse'
 --
 -- 'updateDateTime', 'getComponentTypeResponse_updateDateTime' - The date and time when the component was last updated.
 --
--- 'workspaceId', 'getComponentTypeResponse_workspaceId' - The ID of the workspace that contains the component type.
+-- 'arn', 'getComponentTypeResponse_arn' - The ARN of the component type.
 newGetComponentTypeResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'arn'
+  -- | 'workspaceId'
   Prelude.Text ->
   -- | 'componentTypeId'
   Prelude.Text ->
@@ -248,16 +257,16 @@ newGetComponentTypeResponse ::
   Prelude.UTCTime ->
   -- | 'updateDateTime'
   Prelude.UTCTime ->
-  -- | 'workspaceId'
+  -- | 'arn'
   Prelude.Text ->
   GetComponentTypeResponse
 newGetComponentTypeResponse
   pHttpStatus_
-  pArn_
+  pWorkspaceId_
   pComponentTypeId_
   pCreationDateTime_
   pUpdateDateTime_
-  pWorkspaceId_ =
+  pArn_ =
     GetComponentTypeResponse'
       { isSchemaInitialized =
           Prelude.Nothing,
@@ -266,16 +275,17 @@ newGetComponentTypeResponse
         propertyDefinitions = Prelude.Nothing,
         status = Prelude.Nothing,
         description = Prelude.Nothing,
+        propertyGroups = Prelude.Nothing,
         isSingleton = Prelude.Nothing,
         extendsFrom = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        arn = pArn_,
+        workspaceId = pWorkspaceId_,
         componentTypeId = pComponentTypeId_,
         creationDateTime =
           Core._Time Lens.# pCreationDateTime_,
         updateDateTime =
           Core._Time Lens.# pUpdateDateTime_,
-        workspaceId = pWorkspaceId_
+        arn = pArn_
       }
 
 -- | A Boolean value that specifies whether the component type has a schema
@@ -305,6 +315,12 @@ getComponentTypeResponse_status = Lens.lens (\GetComponentTypeResponse' {status}
 getComponentTypeResponse_description :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Prelude.Text)
 getComponentTypeResponse_description = Lens.lens (\GetComponentTypeResponse' {description} -> description) (\s@GetComponentTypeResponse' {} a -> s {description = a} :: GetComponentTypeResponse)
 
+-- | The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
+getComponentTypeResponse_propertyGroups :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupResponse))
+getComponentTypeResponse_propertyGroups = Lens.lens (\GetComponentTypeResponse' {propertyGroups} -> propertyGroups) (\s@GetComponentTypeResponse' {} a -> s {propertyGroups = a} :: GetComponentTypeResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | A Boolean value that specifies whether an entity can have more than one
 -- component of this type.
 getComponentTypeResponse_isSingleton :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Prelude.Bool)
@@ -318,9 +334,9 @@ getComponentTypeResponse_extendsFrom = Lens.lens (\GetComponentTypeResponse' {ex
 getComponentTypeResponse_httpStatus :: Lens.Lens' GetComponentTypeResponse Prelude.Int
 getComponentTypeResponse_httpStatus = Lens.lens (\GetComponentTypeResponse' {httpStatus} -> httpStatus) (\s@GetComponentTypeResponse' {} a -> s {httpStatus = a} :: GetComponentTypeResponse)
 
--- | The ARN of the component type.
-getComponentTypeResponse_arn :: Lens.Lens' GetComponentTypeResponse Prelude.Text
-getComponentTypeResponse_arn = Lens.lens (\GetComponentTypeResponse' {arn} -> arn) (\s@GetComponentTypeResponse' {} a -> s {arn = a} :: GetComponentTypeResponse)
+-- | The ID of the workspace that contains the component type.
+getComponentTypeResponse_workspaceId :: Lens.Lens' GetComponentTypeResponse Prelude.Text
+getComponentTypeResponse_workspaceId = Lens.lens (\GetComponentTypeResponse' {workspaceId} -> workspaceId) (\s@GetComponentTypeResponse' {} a -> s {workspaceId = a} :: GetComponentTypeResponse)
 
 -- | The ID of the component type.
 getComponentTypeResponse_componentTypeId :: Lens.Lens' GetComponentTypeResponse Prelude.Text
@@ -334,9 +350,9 @@ getComponentTypeResponse_creationDateTime = Lens.lens (\GetComponentTypeResponse
 getComponentTypeResponse_updateDateTime :: Lens.Lens' GetComponentTypeResponse Prelude.UTCTime
 getComponentTypeResponse_updateDateTime = Lens.lens (\GetComponentTypeResponse' {updateDateTime} -> updateDateTime) (\s@GetComponentTypeResponse' {} a -> s {updateDateTime = a} :: GetComponentTypeResponse) Prelude.. Core._Time
 
--- | The ID of the workspace that contains the component type.
-getComponentTypeResponse_workspaceId :: Lens.Lens' GetComponentTypeResponse Prelude.Text
-getComponentTypeResponse_workspaceId = Lens.lens (\GetComponentTypeResponse' {workspaceId} -> workspaceId) (\s@GetComponentTypeResponse' {} a -> s {workspaceId = a} :: GetComponentTypeResponse)
+-- | The ARN of the component type.
+getComponentTypeResponse_arn :: Lens.Lens' GetComponentTypeResponse Prelude.Text
+getComponentTypeResponse_arn = Lens.lens (\GetComponentTypeResponse' {arn} -> arn) (\s@GetComponentTypeResponse' {} a -> s {arn = a} :: GetComponentTypeResponse)
 
 instance Prelude.NFData GetComponentTypeResponse where
   rnf GetComponentTypeResponse' {..} =
@@ -346,11 +362,12 @@ instance Prelude.NFData GetComponentTypeResponse where
       `Prelude.seq` Prelude.rnf propertyDefinitions
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf propertyGroups
       `Prelude.seq` Prelude.rnf isSingleton
       `Prelude.seq` Prelude.rnf extendsFrom
       `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf componentTypeId
       `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf updateDateTime
-      `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf arn

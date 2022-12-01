@@ -21,7 +21,7 @@ module Amazonka.ConnectCases.Types.SearchCasesResponseItem where
 
 import Amazonka.ConnectCases.Types.FieldValue
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of items that represent cases.

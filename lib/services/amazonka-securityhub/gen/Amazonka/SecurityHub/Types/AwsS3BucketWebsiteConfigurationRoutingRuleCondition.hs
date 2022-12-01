@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRoutingRuleCondition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The condition that must be met in order to apply the routing rule.

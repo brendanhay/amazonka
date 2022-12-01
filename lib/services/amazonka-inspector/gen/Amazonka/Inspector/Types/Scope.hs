@@ -20,8 +20,8 @@
 module Amazonka.Inspector.Types.Scope where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.ScopeType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data type contains key-value pairs that identify various Amazon

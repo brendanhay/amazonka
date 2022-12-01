@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.VideoSelector where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.VideoSelectorColorSpace
 import Amazonka.MediaLive.Types.VideoSelectorColorSpaceSettings
 import Amazonka.MediaLive.Types.VideoSelectorColorSpaceUsage

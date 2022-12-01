@@ -25,7 +25,7 @@
 -- parameters are not changed.
 --
 -- To modify the user authentication methods that the workspace uses, such
--- as SAML or Amazon Web Services SSO, use
+-- as SAML or IAM Identity Center, use
 -- <https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html UpdateWorkspaceAuthentication>.
 --
 -- To modify which users in the workspace have the @Admin@ and @Editor@
@@ -37,6 +37,7 @@ module Amazonka.Grafana.UpdateWorkspace
     newUpdateWorkspace,
 
     -- * Request Lenses
+    updateWorkspace_vpcConfiguration,
     updateWorkspace_permissionType,
     updateWorkspace_organizationRoleName,
     updateWorkspace_workspaceOrganizationalUnits,
@@ -44,6 +45,7 @@ module Amazonka.Grafana.UpdateWorkspace
     updateWorkspace_workspaceRoleArn,
     updateWorkspace_workspaceNotificationDestinations,
     updateWorkspace_workspaceDataSources,
+    updateWorkspace_removeVpcConfiguration,
     updateWorkspace_workspaceName,
     updateWorkspace_accountAccessType,
     updateWorkspace_workspaceDescription,
@@ -60,15 +62,18 @@ module Amazonka.Grafana.UpdateWorkspace
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateWorkspace' smart constructor.
 data UpdateWorkspace = UpdateWorkspace'
-  { -- | If you specify @Service Managed@, Amazon Managed Grafana automatically
+  { -- | The configuration settings for an Amazon VPC that contains data sources
+    -- for your Grafana workspace to connect to.
+    vpcConfiguration :: Prelude.Maybe VpcConfiguration,
+    -- | If you specify @Service Managed@, Amazon Managed Grafana automatically
     -- creates the IAM roles and provisions the permissions that the workspace
     -- needs to use Amazon Web Services data sources and notification channels.
     --
@@ -114,6 +119,11 @@ data UpdateWorkspace = UpdateWorkspace'
     -- source later in the workspace console. However, you will then have to
     -- manually configure permissions for it.
     workspaceDataSources :: Prelude.Maybe [DataSourceType],
+    -- | Whether to remove the VPC configuration from the workspace.
+    --
+    -- Setting this to @true@ and providing a @vpcConfiguration@ to set will
+    -- return an error.
+    removeVpcConfiguration :: Prelude.Maybe Prelude.Bool,
     -- | A new name for the workspace to update.
     workspaceName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Specifies whether the workspace can access Amazon Web Services resources
@@ -138,6 +148,9 @@ data UpdateWorkspace = UpdateWorkspace'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'vpcConfiguration', 'updateWorkspace_vpcConfiguration' - The configuration settings for an Amazon VPC that contains data sources
+-- for your Grafana workspace to connect to.
 --
 -- 'permissionType', 'updateWorkspace_permissionType' - If you specify @Service Managed@, Amazon Managed Grafana automatically
 -- creates the IAM roles and provisions the permissions that the workspace
@@ -185,6 +198,11 @@ data UpdateWorkspace = UpdateWorkspace'
 -- source later in the workspace console. However, you will then have to
 -- manually configure permissions for it.
 --
+-- 'removeVpcConfiguration', 'updateWorkspace_removeVpcConfiguration' - Whether to remove the VPC configuration from the workspace.
+--
+-- Setting this to @true@ and providing a @vpcConfiguration@ to set will
+-- return an error.
+--
 -- 'workspaceName', 'updateWorkspace_workspaceName' - A new name for the workspace to update.
 --
 -- 'accountAccessType', 'updateWorkspace_accountAccessType' - Specifies whether the workspace can access Amazon Web Services resources
@@ -204,18 +222,26 @@ newUpdateWorkspace ::
   UpdateWorkspace
 newUpdateWorkspace pWorkspaceId_ =
   UpdateWorkspace'
-    { permissionType = Prelude.Nothing,
+    { vpcConfiguration =
+        Prelude.Nothing,
+      permissionType = Prelude.Nothing,
       organizationRoleName = Prelude.Nothing,
       workspaceOrganizationalUnits = Prelude.Nothing,
       stackSetName = Prelude.Nothing,
       workspaceRoleArn = Prelude.Nothing,
       workspaceNotificationDestinations = Prelude.Nothing,
       workspaceDataSources = Prelude.Nothing,
+      removeVpcConfiguration = Prelude.Nothing,
       workspaceName = Prelude.Nothing,
       accountAccessType = Prelude.Nothing,
       workspaceDescription = Prelude.Nothing,
       workspaceId = pWorkspaceId_
     }
+
+-- | The configuration settings for an Amazon VPC that contains data sources
+-- for your Grafana workspace to connect to.
+updateWorkspace_vpcConfiguration :: Lens.Lens' UpdateWorkspace (Prelude.Maybe VpcConfiguration)
+updateWorkspace_vpcConfiguration = Lens.lens (\UpdateWorkspace' {vpcConfiguration} -> vpcConfiguration) (\s@UpdateWorkspace' {} a -> s {vpcConfiguration = a} :: UpdateWorkspace)
 
 -- | If you specify @Service Managed@, Amazon Managed Grafana automatically
 -- creates the IAM roles and provisions the permissions that the workspace
@@ -277,6 +303,13 @@ updateWorkspace_workspaceNotificationDestinations = Lens.lens (\UpdateWorkspace'
 updateWorkspace_workspaceDataSources :: Lens.Lens' UpdateWorkspace (Prelude.Maybe [DataSourceType])
 updateWorkspace_workspaceDataSources = Lens.lens (\UpdateWorkspace' {workspaceDataSources} -> workspaceDataSources) (\s@UpdateWorkspace' {} a -> s {workspaceDataSources = a} :: UpdateWorkspace) Prelude.. Lens.mapping Lens.coerced
 
+-- | Whether to remove the VPC configuration from the workspace.
+--
+-- Setting this to @true@ and providing a @vpcConfiguration@ to set will
+-- return an error.
+updateWorkspace_removeVpcConfiguration :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Bool)
+updateWorkspace_removeVpcConfiguration = Lens.lens (\UpdateWorkspace' {removeVpcConfiguration} -> removeVpcConfiguration) (\s@UpdateWorkspace' {} a -> s {removeVpcConfiguration = a} :: UpdateWorkspace)
+
 -- | A new name for the workspace to update.
 updateWorkspace_workspaceName :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
 updateWorkspace_workspaceName = Lens.lens (\UpdateWorkspace' {workspaceName} -> workspaceName) (\s@UpdateWorkspace' {} a -> s {workspaceName = a} :: UpdateWorkspace) Prelude.. Lens.mapping Core._Sensitive
@@ -303,8 +336,8 @@ instance Core.AWSRequest UpdateWorkspace where
   type
     AWSResponse UpdateWorkspace =
       UpdateWorkspaceResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -315,13 +348,15 @@ instance Core.AWSRequest UpdateWorkspace where
 
 instance Prelude.Hashable UpdateWorkspace where
   hashWithSalt _salt UpdateWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` permissionType
+    _salt `Prelude.hashWithSalt` vpcConfiguration
+      `Prelude.hashWithSalt` permissionType
       `Prelude.hashWithSalt` organizationRoleName
       `Prelude.hashWithSalt` workspaceOrganizationalUnits
       `Prelude.hashWithSalt` stackSetName
       `Prelude.hashWithSalt` workspaceRoleArn
       `Prelude.hashWithSalt` workspaceNotificationDestinations
       `Prelude.hashWithSalt` workspaceDataSources
+      `Prelude.hashWithSalt` removeVpcConfiguration
       `Prelude.hashWithSalt` workspaceName
       `Prelude.hashWithSalt` accountAccessType
       `Prelude.hashWithSalt` workspaceDescription
@@ -329,13 +364,15 @@ instance Prelude.Hashable UpdateWorkspace where
 
 instance Prelude.NFData UpdateWorkspace where
   rnf UpdateWorkspace' {..} =
-    Prelude.rnf permissionType
+    Prelude.rnf vpcConfiguration
+      `Prelude.seq` Prelude.rnf permissionType
       `Prelude.seq` Prelude.rnf organizationRoleName
       `Prelude.seq` Prelude.rnf workspaceOrganizationalUnits
       `Prelude.seq` Prelude.rnf stackSetName
       `Prelude.seq` Prelude.rnf workspaceRoleArn
       `Prelude.seq` Prelude.rnf workspaceNotificationDestinations
       `Prelude.seq` Prelude.rnf workspaceDataSources
+      `Prelude.seq` Prelude.rnf removeVpcConfiguration
       `Prelude.seq` Prelude.rnf workspaceName
       `Prelude.seq` Prelude.rnf accountAccessType
       `Prelude.seq` Prelude.rnf workspaceDescription
@@ -356,7 +393,9 @@ instance Core.ToJSON UpdateWorkspace where
   toJSON UpdateWorkspace' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("permissionType" Core..=)
+          [ ("vpcConfiguration" Core..=)
+              Prelude.<$> vpcConfiguration,
+            ("permissionType" Core..=)
               Prelude.<$> permissionType,
             ("organizationRoleName" Core..=)
               Prelude.<$> organizationRoleName,
@@ -369,6 +408,8 @@ instance Core.ToJSON UpdateWorkspace where
               Prelude.<$> workspaceNotificationDestinations,
             ("workspaceDataSources" Core..=)
               Prelude.<$> workspaceDataSources,
+            ("removeVpcConfiguration" Core..=)
+              Prelude.<$> removeVpcConfiguration,
             ("workspaceName" Core..=) Prelude.<$> workspaceName,
             ("accountAccessType" Core..=)
               Prelude.<$> accountAccessType,

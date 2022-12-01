@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.H265Settings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.AfdSignaling
 import Amazonka.MediaLive.Types.FixedAfd
 import Amazonka.MediaLive.Types.H265AdaptiveQuantization

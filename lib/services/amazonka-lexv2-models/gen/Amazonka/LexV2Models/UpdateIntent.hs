@@ -74,7 +74,7 @@ module Amazonka.LexV2Models.UpdateIntent
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -301,8 +301,8 @@ updateIntent_localeId = Lens.lens (\UpdateIntent' {localeId} -> localeId) (\s@Up
 
 instance Core.AWSRequest UpdateIntent where
   type AWSResponse UpdateIntent = UpdateIntentResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

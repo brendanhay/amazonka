@@ -20,7 +20,7 @@
 module Amazonka.CertificateManagerPCA.Types.OtherName where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a custom ASN.1 X.400 @GeneralName@ using an object identifier

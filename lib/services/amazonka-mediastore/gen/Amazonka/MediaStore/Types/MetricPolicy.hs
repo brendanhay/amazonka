@@ -20,7 +20,7 @@
 module Amazonka.MediaStore.Types.MetricPolicy where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaStore.Types.ContainerLevelMetrics
 import Amazonka.MediaStore.Types.MetricPolicyRule
 import qualified Amazonka.Prelude as Prelude

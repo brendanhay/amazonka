@@ -77,7 +77,7 @@ where
 
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -334,8 +334,8 @@ registerType_schemaHandlerPackage = Lens.lens (\RegisterType' {schemaHandlerPack
 
 instance Core.AWSRequest RegisterType where
   type AWSResponse RegisterType = RegisterTypeResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "RegisterTypeResult"

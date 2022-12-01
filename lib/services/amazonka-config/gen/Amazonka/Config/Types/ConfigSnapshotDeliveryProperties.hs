@@ -21,7 +21,7 @@ module Amazonka.Config.Types.ConfigSnapshotDeliveryProperties where
 
 import Amazonka.Config.Types.MaximumExecutionFrequency
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides options for how often Config delivers configuration snapshots

@@ -20,7 +20,7 @@
 module Amazonka.KinesisAnalyticsV2.Types.PropertyGroup where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Property key-value pairs passed into an application.

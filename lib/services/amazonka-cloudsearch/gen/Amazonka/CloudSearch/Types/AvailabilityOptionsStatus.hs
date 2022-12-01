@@ -21,7 +21,7 @@ module Amazonka.CloudSearch.Types.AvailabilityOptionsStatus where
 
 import Amazonka.CloudSearch.Types.OptionStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status and configuration of the domain\'s availability options.

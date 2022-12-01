@@ -21,7 +21,7 @@ module Amazonka.AutoScaling.Types.MetricStat where
 
 import Amazonka.AutoScaling.Types.Metric
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure defines the CloudWatch metric to return, along with the

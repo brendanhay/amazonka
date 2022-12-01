@@ -20,8 +20,8 @@
 module Amazonka.EC2.Types.RegisterInstanceTagAttributeRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the tag keys to register for the current Region. You

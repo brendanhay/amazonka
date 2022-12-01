@@ -22,7 +22,7 @@ module Amazonka.Comprehend.Types.MentionSentiment where
 import Amazonka.Comprehend.Types.SentimentScore
 import Amazonka.Comprehend.Types.SentimentType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the sentiment and sentiment score for one mention of an entity.

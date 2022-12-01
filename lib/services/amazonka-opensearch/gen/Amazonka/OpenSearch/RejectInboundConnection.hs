@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows the remote domain owner to reject an inbound cross-cluster
--- connection request.
+-- Allows the remote Amazon OpenSearch Service domain owner to reject an
+-- inbound cross-cluster connection request.
 module Amazonka.OpenSearch.RejectInboundConnection
   ( -- * Creating a Request
     RejectInboundConnection (..),
@@ -41,18 +41,18 @@ module Amazonka.OpenSearch.RejectInboundConnection
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ RejectInboundConnection @
+-- | Container for the request parameters to the @RejectInboundConnection@
 -- operation.
 --
 -- /See:/ 'newRejectInboundConnection' smart constructor.
 data RejectInboundConnection = RejectInboundConnection'
-  { -- | The ID of the inbound connection to reject.
+  { -- | The unique identifier of the inbound connection to reject.
     connectionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +65,7 @@ data RejectInboundConnection = RejectInboundConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionId', 'rejectInboundConnection_connectionId' - The ID of the inbound connection to reject.
+-- 'connectionId', 'rejectInboundConnection_connectionId' - The unique identifier of the inbound connection to reject.
 newRejectInboundConnection ::
   -- | 'connectionId'
   Prelude.Text ->
@@ -76,7 +76,7 @@ newRejectInboundConnection pConnectionId_ =
         pConnectionId_
     }
 
--- | The ID of the inbound connection to reject.
+-- | The unique identifier of the inbound connection to reject.
 rejectInboundConnection_connectionId :: Lens.Lens' RejectInboundConnection Prelude.Text
 rejectInboundConnection_connectionId = Lens.lens (\RejectInboundConnection' {connectionId} -> connectionId) (\s@RejectInboundConnection' {} a -> s {connectionId = a} :: RejectInboundConnection)
 
@@ -84,8 +84,8 @@ instance Core.AWSRequest RejectInboundConnection where
   type
     AWSResponse RejectInboundConnection =
       RejectInboundConnectionResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,12 +119,11 @@ instance Core.ToPath RejectInboundConnection where
 instance Core.ToQuery RejectInboundConnection where
   toQuery = Prelude.const Prelude.mempty
 
--- | The result of a @ RejectInboundConnection @ operation. Contains details
--- about the rejected inbound connection.
+-- | Represents the output of a @RejectInboundConnection@ operation.
 --
 -- /See:/ 'newRejectInboundConnectionResponse' smart constructor.
 data RejectInboundConnectionResponse = RejectInboundConnectionResponse'
-  { -- | The @ InboundConnection @ of the rejected inbound connection.
+  { -- | Contains details about the rejected inbound connection.
     connection :: Prelude.Maybe InboundConnection,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -139,7 +138,7 @@ data RejectInboundConnectionResponse = RejectInboundConnectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connection', 'rejectInboundConnectionResponse_connection' - The @ InboundConnection @ of the rejected inbound connection.
+-- 'connection', 'rejectInboundConnectionResponse_connection' - Contains details about the rejected inbound connection.
 --
 -- 'httpStatus', 'rejectInboundConnectionResponse_httpStatus' - The response's http status code.
 newRejectInboundConnectionResponse ::
@@ -153,7 +152,7 @@ newRejectInboundConnectionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The @ InboundConnection @ of the rejected inbound connection.
+-- | Contains details about the rejected inbound connection.
 rejectInboundConnectionResponse_connection :: Lens.Lens' RejectInboundConnectionResponse (Prelude.Maybe InboundConnection)
 rejectInboundConnectionResponse_connection = Lens.lens (\RejectInboundConnectionResponse' {connection} -> connection) (\s@RejectInboundConnectionResponse' {} a -> s {connection = a} :: RejectInboundConnectionResponse)
 

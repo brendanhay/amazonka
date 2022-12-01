@@ -20,7 +20,7 @@
 module Amazonka.ServiceCatalog.Types.ShareError where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Errors that occurred during the portfolio share operation.

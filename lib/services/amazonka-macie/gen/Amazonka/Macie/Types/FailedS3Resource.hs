@@ -20,7 +20,7 @@
 module Amazonka.Macie.Types.FailedS3Resource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Macie.Types.S3Resource
 import qualified Amazonka.Prelude as Prelude
 

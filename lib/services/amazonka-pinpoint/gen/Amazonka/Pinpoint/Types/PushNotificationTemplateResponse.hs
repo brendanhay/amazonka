@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.PushNotificationTemplateResponse where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Pinpoint.Types.APNSPushNotificationTemplate
 import Amazonka.Pinpoint.Types.AndroidPushNotificationTemplate
 import Amazonka.Pinpoint.Types.DefaultPushNotificationTemplate

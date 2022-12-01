@@ -81,7 +81,9 @@ library
     Amazonka.LicenseManager.ListLicenseSpecificationsForResource
     Amazonka.LicenseManager.ListLicenseVersions
     Amazonka.LicenseManager.ListReceivedGrants
+    Amazonka.LicenseManager.ListReceivedGrantsForOrganization
     Amazonka.LicenseManager.ListReceivedLicenses
+    Amazonka.LicenseManager.ListReceivedLicensesForOrganization
     Amazonka.LicenseManager.ListResourceInventory
     Amazonka.LicenseManager.ListTagsForResource
     Amazonka.LicenseManager.ListTokens

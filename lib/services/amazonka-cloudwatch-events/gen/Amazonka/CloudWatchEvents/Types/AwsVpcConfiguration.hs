@@ -21,7 +21,7 @@ module Amazonka.CloudWatchEvents.Types.AwsVpcConfiguration where
 
 import Amazonka.CloudWatchEvents.Types.AssignPublicIp
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure specifies the VPC subnets and security groups for the

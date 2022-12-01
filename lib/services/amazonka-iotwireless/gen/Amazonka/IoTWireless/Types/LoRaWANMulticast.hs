@@ -20,9 +20,9 @@
 module Amazonka.IoTWireless.Types.LoRaWANMulticast where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.DlClass
 import Amazonka.IoTWireless.Types.SupportedRfRegion
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The LoRaWAN information that is to be used with the multicast group.

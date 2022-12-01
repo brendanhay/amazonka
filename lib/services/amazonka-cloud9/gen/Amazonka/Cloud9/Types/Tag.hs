@@ -20,7 +20,7 @@
 module Amazonka.Cloud9.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata that is associated with Amazon Web Services resources. In

@@ -20,8 +20,9 @@
 module Amazonka.Textract.Types.ExpenseDocument where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.Textract.Types.Block
 import Amazonka.Textract.Types.ExpenseField
 import Amazonka.Textract.Types.LineItemGroup
 
@@ -36,7 +37,10 @@ data ExpenseDocument = ExpenseDocument'
     summaryFields :: Prelude.Maybe [ExpenseField],
     -- | Denotes which invoice or receipt in the document the information is
     -- coming from. First document will be 1, the second 2, and so on.
-    expenseIndex :: Prelude.Maybe Prelude.Natural
+    expenseIndex :: Prelude.Maybe Prelude.Natural,
+    -- | This is a block object, the same as reported when DetectDocumentText is
+    -- run on a document. It provides word level recognition of text.
+    blocks :: Prelude.Maybe [Block]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,13 +59,17 @@ data ExpenseDocument = ExpenseDocument'
 --
 -- 'expenseIndex', 'expenseDocument_expenseIndex' - Denotes which invoice or receipt in the document the information is
 -- coming from. First document will be 1, the second 2, and so on.
+--
+-- 'blocks', 'expenseDocument_blocks' - This is a block object, the same as reported when DetectDocumentText is
+-- run on a document. It provides word level recognition of text.
 newExpenseDocument ::
   ExpenseDocument
 newExpenseDocument =
   ExpenseDocument'
     { lineItemGroups = Prelude.Nothing,
       summaryFields = Prelude.Nothing,
-      expenseIndex = Prelude.Nothing
+      expenseIndex = Prelude.Nothing,
+      blocks = Prelude.Nothing
     }
 
 -- | Information detected on each table of a document, seperated into
@@ -78,6 +86,11 @@ expenseDocument_summaryFields = Lens.lens (\ExpenseDocument' {summaryFields} -> 
 expenseDocument_expenseIndex :: Lens.Lens' ExpenseDocument (Prelude.Maybe Prelude.Natural)
 expenseDocument_expenseIndex = Lens.lens (\ExpenseDocument' {expenseIndex} -> expenseIndex) (\s@ExpenseDocument' {} a -> s {expenseIndex = a} :: ExpenseDocument)
 
+-- | This is a block object, the same as reported when DetectDocumentText is
+-- run on a document. It provides word level recognition of text.
+expenseDocument_blocks :: Lens.Lens' ExpenseDocument (Prelude.Maybe [Block])
+expenseDocument_blocks = Lens.lens (\ExpenseDocument' {blocks} -> blocks) (\s@ExpenseDocument' {} a -> s {blocks = a} :: ExpenseDocument) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON ExpenseDocument where
   parseJSON =
     Core.withObject
@@ -87,6 +100,7 @@ instance Core.FromJSON ExpenseDocument where
             Prelude.<$> (x Core..:? "LineItemGroups" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "SummaryFields" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ExpenseIndex")
+            Prelude.<*> (x Core..:? "Blocks" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ExpenseDocument where
@@ -94,9 +108,11 @@ instance Prelude.Hashable ExpenseDocument where
     _salt `Prelude.hashWithSalt` lineItemGroups
       `Prelude.hashWithSalt` summaryFields
       `Prelude.hashWithSalt` expenseIndex
+      `Prelude.hashWithSalt` blocks
 
 instance Prelude.NFData ExpenseDocument where
   rnf ExpenseDocument' {..} =
     Prelude.rnf lineItemGroups
       `Prelude.seq` Prelude.rnf summaryFields
       `Prelude.seq` Prelude.rnf expenseIndex
+      `Prelude.seq` Prelude.rnf blocks

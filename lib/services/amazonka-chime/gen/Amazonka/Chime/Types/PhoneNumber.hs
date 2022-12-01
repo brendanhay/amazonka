@@ -26,7 +26,7 @@ import Amazonka.Chime.Types.PhoneNumberProductType
 import Amazonka.Chime.Types.PhoneNumberStatus
 import Amazonka.Chime.Types.PhoneNumberType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A phone number used for Amazon Chime Business Calling or an Amazon Chime

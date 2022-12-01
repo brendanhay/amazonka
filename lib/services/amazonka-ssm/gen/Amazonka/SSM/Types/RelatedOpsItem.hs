@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.RelatedOpsItem where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An OpsItems that shares something in common with the current OpsItem.

@@ -22,7 +22,7 @@ module Amazonka.AccessAnalyzer.Types.S3BucketAclGrantConfiguration where
 import Amazonka.AccessAnalyzer.Types.AclGrantee
 import Amazonka.AccessAnalyzer.Types.AclPermission
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A proposed access control list grant configuration for an Amazon S3

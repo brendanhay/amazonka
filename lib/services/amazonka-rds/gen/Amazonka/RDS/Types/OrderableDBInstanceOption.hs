@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.OrderableDBInstanceOption where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.AvailabilityZone
 import Amazonka.RDS.Types.AvailableProcessorFeature
@@ -44,6 +44,8 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
     maxStorageSize :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether a DB instance is Multi-AZ capable.
     multiAZCapable :: Prelude.Maybe Prelude.Bool,
+    -- | Maximum storage throughput to provisioned IOPS ratio for a DB instance.
+    maxStorageThroughputPerIops :: Prelude.Maybe Prelude.Double,
     -- | The DB instance class for a DB instance.
     dbInstanceClass :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether a DB instance is in a VPC.
@@ -77,6 +79,8 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
     supportsIops :: Prelude.Maybe Prelude.Bool,
     -- | Maximum total provisioned IOPS for a DB instance.
     maxIopsPerDbInstance :: Prelude.Maybe Prelude.Int,
+    -- | Minimum storage throughput for a DB instance.
+    minStorageThroughputPerDbInstance :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether a DB instance supports IAM database authentication.
     supportsIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether a DB instance supports Enhanced Monitoring at
@@ -97,6 +101,8 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
     supportsGlobalDatabases :: Prelude.Maybe Prelude.Bool,
     -- | Maximum provisioned IOPS per GiB for a DB instance.
     maxIopsPerGib :: Prelude.Maybe Prelude.Double,
+    -- | Minimum storage throughput to provisioned IOPS ratio for a DB instance.
+    minStorageThroughputPerIops :: Prelude.Maybe Prelude.Double,
     -- | The engine version of a DB instance.
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | Whether a DB instance supports Kerberos Authentication.
@@ -105,6 +111,10 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
     minIopsPerGib :: Prelude.Maybe Prelude.Double,
     -- | The license model for a DB instance.
     licenseModel :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether a DB instance supports storage throughput.
+    supportsStorageThroughput :: Prelude.Maybe Prelude.Bool,
+    -- | Maximum storage throughput for a DB instance.
+    maxStorageThroughputPerDbInstance :: Prelude.Maybe Prelude.Int,
     -- | The network types supported by the DB instance (@IPV4@ or @DUAL@).
     --
     -- A DB instance can support only the IPv4 protocol or the IPv4 and the
@@ -136,6 +146,8 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 -- 'maxStorageSize', 'orderableDBInstanceOption_maxStorageSize' - Maximum storage size for a DB instance.
 --
 -- 'multiAZCapable', 'orderableDBInstanceOption_multiAZCapable' - Indicates whether a DB instance is Multi-AZ capable.
+--
+-- 'maxStorageThroughputPerIops', 'orderableDBInstanceOption_maxStorageThroughputPerIops' - Maximum storage throughput to provisioned IOPS ratio for a DB instance.
 --
 -- 'dbInstanceClass', 'orderableDBInstanceOption_dbInstanceClass' - The DB instance class for a DB instance.
 --
@@ -170,6 +182,8 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 --
 -- 'maxIopsPerDbInstance', 'orderableDBInstanceOption_maxIopsPerDbInstance' - Maximum total provisioned IOPS for a DB instance.
 --
+-- 'minStorageThroughputPerDbInstance', 'orderableDBInstanceOption_minStorageThroughputPerDbInstance' - Minimum storage throughput for a DB instance.
+--
 -- 'supportsIAMDatabaseAuthentication', 'orderableDBInstanceOption_supportsIAMDatabaseAuthentication' - Indicates whether a DB instance supports IAM database authentication.
 --
 -- 'supportsEnhancedMonitoring', 'orderableDBInstanceOption_supportsEnhancedMonitoring' - Indicates whether a DB instance supports Enhanced Monitoring at
@@ -190,6 +204,8 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 --
 -- 'maxIopsPerGib', 'orderableDBInstanceOption_maxIopsPerGib' - Maximum provisioned IOPS per GiB for a DB instance.
 --
+-- 'minStorageThroughputPerIops', 'orderableDBInstanceOption_minStorageThroughputPerIops' - Minimum storage throughput to provisioned IOPS ratio for a DB instance.
+--
 -- 'engineVersion', 'orderableDBInstanceOption_engineVersion' - The engine version of a DB instance.
 --
 -- 'supportsKerberosAuthentication', 'orderableDBInstanceOption_supportsKerberosAuthentication' - Whether a DB instance supports Kerberos Authentication.
@@ -197,6 +213,10 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 -- 'minIopsPerGib', 'orderableDBInstanceOption_minIopsPerGib' - Minimum provisioned IOPS per GiB for a DB instance.
 --
 -- 'licenseModel', 'orderableDBInstanceOption_licenseModel' - The license model for a DB instance.
+--
+-- 'supportsStorageThroughput', 'orderableDBInstanceOption_supportsStorageThroughput' - Indicates whether a DB instance supports storage throughput.
+--
+-- 'maxStorageThroughputPerDbInstance', 'orderableDBInstanceOption_maxStorageThroughputPerDbInstance' - Maximum storage throughput for a DB instance.
 --
 -- 'supportedNetworkTypes', 'orderableDBInstanceOption_supportedNetworkTypes' - The network types supported by the DB instance (@IPV4@ or @DUAL@).
 --
@@ -215,6 +235,7 @@ newOrderableDBInstanceOption =
       supportsClusters = Prelude.Nothing,
       maxStorageSize = Prelude.Nothing,
       multiAZCapable = Prelude.Nothing,
+      maxStorageThroughputPerIops = Prelude.Nothing,
       dbInstanceClass = Prelude.Nothing,
       vpc = Prelude.Nothing,
       supportsPerformanceInsights = Prelude.Nothing,
@@ -228,6 +249,8 @@ newOrderableDBInstanceOption =
       outpostCapable = Prelude.Nothing,
       supportsIops = Prelude.Nothing,
       maxIopsPerDbInstance = Prelude.Nothing,
+      minStorageThroughputPerDbInstance =
+        Prelude.Nothing,
       supportsIAMDatabaseAuthentication =
         Prelude.Nothing,
       supportsEnhancedMonitoring = Prelude.Nothing,
@@ -237,10 +260,14 @@ newOrderableDBInstanceOption =
       supportsStorageAutoscaling = Prelude.Nothing,
       supportsGlobalDatabases = Prelude.Nothing,
       maxIopsPerGib = Prelude.Nothing,
+      minStorageThroughputPerIops = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       supportsKerberosAuthentication = Prelude.Nothing,
       minIopsPerGib = Prelude.Nothing,
       licenseModel = Prelude.Nothing,
+      supportsStorageThroughput = Prelude.Nothing,
+      maxStorageThroughputPerDbInstance =
+        Prelude.Nothing,
       supportedNetworkTypes = Prelude.Nothing
     }
 
@@ -263,6 +290,10 @@ orderableDBInstanceOption_maxStorageSize = Lens.lens (\OrderableDBInstanceOption
 -- | Indicates whether a DB instance is Multi-AZ capable.
 orderableDBInstanceOption_multiAZCapable :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
 orderableDBInstanceOption_multiAZCapable = Lens.lens (\OrderableDBInstanceOption' {multiAZCapable} -> multiAZCapable) (\s@OrderableDBInstanceOption' {} a -> s {multiAZCapable = a} :: OrderableDBInstanceOption)
+
+-- | Maximum storage throughput to provisioned IOPS ratio for a DB instance.
+orderableDBInstanceOption_maxStorageThroughputPerIops :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Double)
+orderableDBInstanceOption_maxStorageThroughputPerIops = Lens.lens (\OrderableDBInstanceOption' {maxStorageThroughputPerIops} -> maxStorageThroughputPerIops) (\s@OrderableDBInstanceOption' {} a -> s {maxStorageThroughputPerIops = a} :: OrderableDBInstanceOption)
 
 -- | The DB instance class for a DB instance.
 orderableDBInstanceOption_dbInstanceClass :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
@@ -323,6 +354,10 @@ orderableDBInstanceOption_supportsIops = Lens.lens (\OrderableDBInstanceOption' 
 orderableDBInstanceOption_maxIopsPerDbInstance :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Int)
 orderableDBInstanceOption_maxIopsPerDbInstance = Lens.lens (\OrderableDBInstanceOption' {maxIopsPerDbInstance} -> maxIopsPerDbInstance) (\s@OrderableDBInstanceOption' {} a -> s {maxIopsPerDbInstance = a} :: OrderableDBInstanceOption)
 
+-- | Minimum storage throughput for a DB instance.
+orderableDBInstanceOption_minStorageThroughputPerDbInstance :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Int)
+orderableDBInstanceOption_minStorageThroughputPerDbInstance = Lens.lens (\OrderableDBInstanceOption' {minStorageThroughputPerDbInstance} -> minStorageThroughputPerDbInstance) (\s@OrderableDBInstanceOption' {} a -> s {minStorageThroughputPerDbInstance = a} :: OrderableDBInstanceOption)
+
 -- | Indicates whether a DB instance supports IAM database authentication.
 orderableDBInstanceOption_supportsIAMDatabaseAuthentication :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
 orderableDBInstanceOption_supportsIAMDatabaseAuthentication = Lens.lens (\OrderableDBInstanceOption' {supportsIAMDatabaseAuthentication} -> supportsIAMDatabaseAuthentication) (\s@OrderableDBInstanceOption' {} a -> s {supportsIAMDatabaseAuthentication = a} :: OrderableDBInstanceOption)
@@ -359,6 +394,10 @@ orderableDBInstanceOption_supportsGlobalDatabases = Lens.lens (\OrderableDBInsta
 orderableDBInstanceOption_maxIopsPerGib :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Double)
 orderableDBInstanceOption_maxIopsPerGib = Lens.lens (\OrderableDBInstanceOption' {maxIopsPerGib} -> maxIopsPerGib) (\s@OrderableDBInstanceOption' {} a -> s {maxIopsPerGib = a} :: OrderableDBInstanceOption)
 
+-- | Minimum storage throughput to provisioned IOPS ratio for a DB instance.
+orderableDBInstanceOption_minStorageThroughputPerIops :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Double)
+orderableDBInstanceOption_minStorageThroughputPerIops = Lens.lens (\OrderableDBInstanceOption' {minStorageThroughputPerIops} -> minStorageThroughputPerIops) (\s@OrderableDBInstanceOption' {} a -> s {minStorageThroughputPerIops = a} :: OrderableDBInstanceOption)
+
 -- | The engine version of a DB instance.
 orderableDBInstanceOption_engineVersion :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
 orderableDBInstanceOption_engineVersion = Lens.lens (\OrderableDBInstanceOption' {engineVersion} -> engineVersion) (\s@OrderableDBInstanceOption' {} a -> s {engineVersion = a} :: OrderableDBInstanceOption)
@@ -374,6 +413,14 @@ orderableDBInstanceOption_minIopsPerGib = Lens.lens (\OrderableDBInstanceOption'
 -- | The license model for a DB instance.
 orderableDBInstanceOption_licenseModel :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
 orderableDBInstanceOption_licenseModel = Lens.lens (\OrderableDBInstanceOption' {licenseModel} -> licenseModel) (\s@OrderableDBInstanceOption' {} a -> s {licenseModel = a} :: OrderableDBInstanceOption)
+
+-- | Indicates whether a DB instance supports storage throughput.
+orderableDBInstanceOption_supportsStorageThroughput :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
+orderableDBInstanceOption_supportsStorageThroughput = Lens.lens (\OrderableDBInstanceOption' {supportsStorageThroughput} -> supportsStorageThroughput) (\s@OrderableDBInstanceOption' {} a -> s {supportsStorageThroughput = a} :: OrderableDBInstanceOption)
+
+-- | Maximum storage throughput for a DB instance.
+orderableDBInstanceOption_maxStorageThroughputPerDbInstance :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Int)
+orderableDBInstanceOption_maxStorageThroughputPerDbInstance = Lens.lens (\OrderableDBInstanceOption' {maxStorageThroughputPerDbInstance} -> maxStorageThroughputPerDbInstance) (\s@OrderableDBInstanceOption' {} a -> s {maxStorageThroughputPerDbInstance = a} :: OrderableDBInstanceOption)
 
 -- | The network types supported by the DB instance (@IPV4@ or @DUAL@).
 --
@@ -393,6 +440,7 @@ instance Core.FromXML OrderableDBInstanceOption where
       Prelude.<*> (x Core..@? "SupportsClusters")
       Prelude.<*> (x Core..@? "MaxStorageSize")
       Prelude.<*> (x Core..@? "MultiAZCapable")
+      Prelude.<*> (x Core..@? "MaxStorageThroughputPerIops")
       Prelude.<*> (x Core..@? "DBInstanceClass")
       Prelude.<*> (x Core..@? "Vpc")
       Prelude.<*> (x Core..@? "SupportsPerformanceInsights")
@@ -415,6 +463,7 @@ instance Core.FromXML OrderableDBInstanceOption where
       Prelude.<*> (x Core..@? "OutpostCapable")
       Prelude.<*> (x Core..@? "SupportsIops")
       Prelude.<*> (x Core..@? "MaxIopsPerDbInstance")
+      Prelude.<*> (x Core..@? "MinStorageThroughputPerDbInstance")
       Prelude.<*> (x Core..@? "SupportsIAMDatabaseAuthentication")
       Prelude.<*> (x Core..@? "SupportsEnhancedMonitoring")
       Prelude.<*> ( x Core..@? "AvailableProcessorFeatures"
@@ -427,10 +476,13 @@ instance Core.FromXML OrderableDBInstanceOption where
       Prelude.<*> (x Core..@? "SupportsStorageAutoscaling")
       Prelude.<*> (x Core..@? "SupportsGlobalDatabases")
       Prelude.<*> (x Core..@? "MaxIopsPerGib")
+      Prelude.<*> (x Core..@? "MinStorageThroughputPerIops")
       Prelude.<*> (x Core..@? "EngineVersion")
       Prelude.<*> (x Core..@? "SupportsKerberosAuthentication")
       Prelude.<*> (x Core..@? "MinIopsPerGib")
       Prelude.<*> (x Core..@? "LicenseModel")
+      Prelude.<*> (x Core..@? "SupportsStorageThroughput")
+      Prelude.<*> (x Core..@? "MaxStorageThroughputPerDbInstance")
       Prelude.<*> ( x Core..@? "SupportedNetworkTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
@@ -443,6 +495,7 @@ instance Prelude.Hashable OrderableDBInstanceOption where
       `Prelude.hashWithSalt` supportsClusters
       `Prelude.hashWithSalt` maxStorageSize
       `Prelude.hashWithSalt` multiAZCapable
+      `Prelude.hashWithSalt` maxStorageThroughputPerIops
       `Prelude.hashWithSalt` dbInstanceClass
       `Prelude.hashWithSalt` vpc
       `Prelude.hashWithSalt` supportsPerformanceInsights
@@ -456,6 +509,7 @@ instance Prelude.Hashable OrderableDBInstanceOption where
       `Prelude.hashWithSalt` outpostCapable
       `Prelude.hashWithSalt` supportsIops
       `Prelude.hashWithSalt` maxIopsPerDbInstance
+      `Prelude.hashWithSalt` minStorageThroughputPerDbInstance
       `Prelude.hashWithSalt` supportsIAMDatabaseAuthentication
       `Prelude.hashWithSalt` supportsEnhancedMonitoring
       `Prelude.hashWithSalt` availableProcessorFeatures
@@ -464,10 +518,13 @@ instance Prelude.Hashable OrderableDBInstanceOption where
       `Prelude.hashWithSalt` supportsStorageAutoscaling
       `Prelude.hashWithSalt` supportsGlobalDatabases
       `Prelude.hashWithSalt` maxIopsPerGib
+      `Prelude.hashWithSalt` minStorageThroughputPerIops
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` supportsKerberosAuthentication
       `Prelude.hashWithSalt` minIopsPerGib
       `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` supportsStorageThroughput
+      `Prelude.hashWithSalt` maxStorageThroughputPerDbInstance
       `Prelude.hashWithSalt` supportedNetworkTypes
 
 instance Prelude.NFData OrderableDBInstanceOption where
@@ -476,6 +533,7 @@ instance Prelude.NFData OrderableDBInstanceOption where
       `Prelude.seq` Prelude.rnf supportsClusters
       `Prelude.seq` Prelude.rnf maxStorageSize
       `Prelude.seq` Prelude.rnf multiAZCapable
+      `Prelude.seq` Prelude.rnf maxStorageThroughputPerIops
       `Prelude.seq` Prelude.rnf dbInstanceClass
       `Prelude.seq` Prelude.rnf vpc
       `Prelude.seq` Prelude.rnf supportsPerformanceInsights
@@ -489,6 +547,8 @@ instance Prelude.NFData OrderableDBInstanceOption where
       `Prelude.seq` Prelude.rnf outpostCapable
       `Prelude.seq` Prelude.rnf supportsIops
       `Prelude.seq` Prelude.rnf maxIopsPerDbInstance
+      `Prelude.seq` Prelude.rnf
+        minStorageThroughputPerDbInstance
       `Prelude.seq` Prelude.rnf
         supportsIAMDatabaseAuthentication
       `Prelude.seq` Prelude.rnf
@@ -505,6 +565,8 @@ instance Prelude.NFData OrderableDBInstanceOption where
       `Prelude.seq` Prelude.rnf
         maxIopsPerGib
       `Prelude.seq` Prelude.rnf
+        minStorageThroughputPerIops
+      `Prelude.seq` Prelude.rnf
         engineVersion
       `Prelude.seq` Prelude.rnf
         supportsKerberosAuthentication
@@ -512,5 +574,9 @@ instance Prelude.NFData OrderableDBInstanceOption where
         minIopsPerGib
       `Prelude.seq` Prelude.rnf
         licenseModel
+      `Prelude.seq` Prelude.rnf
+        supportsStorageThroughput
+      `Prelude.seq` Prelude.rnf
+        maxStorageThroughputPerDbInstance
       `Prelude.seq` Prelude.rnf
         supportedNetworkTypes

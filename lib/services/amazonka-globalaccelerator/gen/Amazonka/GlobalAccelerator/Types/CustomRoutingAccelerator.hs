@@ -20,10 +20,10 @@
 module Amazonka.GlobalAccelerator.Types.CustomRoutingAccelerator where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus
 import Amazonka.GlobalAccelerator.Types.IpAddressType
 import Amazonka.GlobalAccelerator.Types.IpSet
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes of a custom routing accelerator.

@@ -20,7 +20,7 @@
 module Amazonka.LicenseManager.Types.DatetimeRange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a time range, in ISO8601-UTC format.

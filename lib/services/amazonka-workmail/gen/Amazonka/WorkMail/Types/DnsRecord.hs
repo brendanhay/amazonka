@@ -20,7 +20,7 @@
 module Amazonka.WorkMail.Types.DnsRecord where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A DNS record uploaded to your DNS provider.

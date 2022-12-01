@@ -22,7 +22,7 @@ module Amazonka.Config.Types.ConfigurationAggregator where
 import Amazonka.Config.Types.AccountAggregationSource
 import Amazonka.Config.Types.OrganizationAggregationSource
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details about the configuration aggregator, including information

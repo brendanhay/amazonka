@@ -1,0 +1,91 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.OpenSearch.Types.AuthorizedPrincipal
+-- Copyright   : (c) 2013-2022 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.OpenSearch.Types.AuthorizedPrincipal where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.OpenSearch.Types.PrincipalType
+import qualified Amazonka.Prelude as Prelude
+
+-- | Information about an Amazon Web Services account or service that has
+-- access to an Amazon OpenSearch Service domain through the use of an
+-- interface VPC endpoint.
+--
+-- /See:/ 'newAuthorizedPrincipal' smart constructor.
+data AuthorizedPrincipal = AuthorizedPrincipal'
+  { -- | The
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html IAM principal>
+    -- that is allowed access to the domain.
+    principal :: Prelude.Maybe Prelude.Text,
+    -- | The type of principal.
+    principalType :: Prelude.Maybe PrincipalType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AuthorizedPrincipal' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'principal', 'authorizedPrincipal_principal' - The
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html IAM principal>
+-- that is allowed access to the domain.
+--
+-- 'principalType', 'authorizedPrincipal_principalType' - The type of principal.
+newAuthorizedPrincipal ::
+  AuthorizedPrincipal
+newAuthorizedPrincipal =
+  AuthorizedPrincipal'
+    { principal = Prelude.Nothing,
+      principalType = Prelude.Nothing
+    }
+
+-- | The
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html IAM principal>
+-- that is allowed access to the domain.
+authorizedPrincipal_principal :: Lens.Lens' AuthorizedPrincipal (Prelude.Maybe Prelude.Text)
+authorizedPrincipal_principal = Lens.lens (\AuthorizedPrincipal' {principal} -> principal) (\s@AuthorizedPrincipal' {} a -> s {principal = a} :: AuthorizedPrincipal)
+
+-- | The type of principal.
+authorizedPrincipal_principalType :: Lens.Lens' AuthorizedPrincipal (Prelude.Maybe PrincipalType)
+authorizedPrincipal_principalType = Lens.lens (\AuthorizedPrincipal' {principalType} -> principalType) (\s@AuthorizedPrincipal' {} a -> s {principalType = a} :: AuthorizedPrincipal)
+
+instance Core.FromJSON AuthorizedPrincipal where
+  parseJSON =
+    Core.withObject
+      "AuthorizedPrincipal"
+      ( \x ->
+          AuthorizedPrincipal'
+            Prelude.<$> (x Core..:? "Principal")
+            Prelude.<*> (x Core..:? "PrincipalType")
+      )
+
+instance Prelude.Hashable AuthorizedPrincipal where
+  hashWithSalt _salt AuthorizedPrincipal' {..} =
+    _salt `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` principalType
+
+instance Prelude.NFData AuthorizedPrincipal where
+  rnf AuthorizedPrincipal' {..} =
+    Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf principalType

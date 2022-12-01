@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.DecimalColumnStatisticsData where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.DecimalNumber
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines column statistics supported for fixed-point number data columns.

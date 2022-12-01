@@ -346,6 +346,7 @@ library
     Amazonka.Glue.Types.JDBCConnectorSource
     Amazonka.Glue.Types.JDBCConnectorTarget
     Amazonka.Glue.Types.JDBCDataType
+    Amazonka.Glue.Types.JdbcMetadataEntry
     Amazonka.Glue.Types.JdbcTarget
     Amazonka.Glue.Types.Job
     Amazonka.Glue.Types.JobBookmarkEntry

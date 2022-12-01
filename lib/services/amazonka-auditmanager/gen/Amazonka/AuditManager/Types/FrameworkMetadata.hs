@@ -20,7 +20,7 @@
 module Amazonka.AuditManager.Types.FrameworkMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata of a framework, such as the name, ID, or description.

@@ -24,7 +24,7 @@ import Amazonka.AppMesh.Types.GrpcRouteAction
 import Amazonka.AppMesh.Types.GrpcRouteMatch
 import Amazonka.AppMesh.Types.GrpcTimeout
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a gRPC route type.

@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.OriginAccessControl where
 
 import Amazonka.CloudFront.Types.OriginAccessControlConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A CloudFront origin access control, including its unique identifier.

@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.DataSourceParameters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AmazonElasticsearchParameters
 import Amazonka.QuickSight.Types.AmazonOpenSearchParameters
@@ -28,6 +28,7 @@ import Amazonka.QuickSight.Types.AthenaParameters
 import Amazonka.QuickSight.Types.AuroraParameters
 import Amazonka.QuickSight.Types.AuroraPostgreSqlParameters
 import Amazonka.QuickSight.Types.AwsIotAnalyticsParameters
+import Amazonka.QuickSight.Types.DatabricksParameters
 import Amazonka.QuickSight.Types.ExasolParameters
 import Amazonka.QuickSight.Types.JiraParameters
 import Amazonka.QuickSight.Types.MariaDbParameters
@@ -87,6 +88,9 @@ data DataSourceParameters = DataSourceParameters'
     athenaParameters :: Prelude.Maybe AthenaParameters,
     -- | The parameters for OpenSearch.
     amazonOpenSearchParameters :: Prelude.Maybe AmazonOpenSearchParameters,
+    -- | The required parameters that are needed to connect to a Databricks data
+    -- source.
+    databricksParameters :: Prelude.Maybe DatabricksParameters,
     -- | The parameters for Jira.
     jiraParameters :: Prelude.Maybe JiraParameters,
     -- | The parameters for OpenSearch.
@@ -142,6 +146,9 @@ data DataSourceParameters = DataSourceParameters'
 --
 -- 'amazonOpenSearchParameters', 'dataSourceParameters_amazonOpenSearchParameters' - The parameters for OpenSearch.
 --
+-- 'databricksParameters', 'dataSourceParameters_databricksParameters' - The required parameters that are needed to connect to a Databricks data
+-- source.
+--
 -- 'jiraParameters', 'dataSourceParameters_jiraParameters' - The parameters for Jira.
 --
 -- 'amazonElasticsearchParameters', 'dataSourceParameters_amazonElasticsearchParameters' - The parameters for OpenSearch.
@@ -172,6 +179,7 @@ newDataSourceParameters =
       mariaDbParameters = Prelude.Nothing,
       athenaParameters = Prelude.Nothing,
       amazonOpenSearchParameters = Prelude.Nothing,
+      databricksParameters = Prelude.Nothing,
       jiraParameters = Prelude.Nothing,
       amazonElasticsearchParameters = Prelude.Nothing,
       sqlServerParameters = Prelude.Nothing,
@@ -250,6 +258,11 @@ dataSourceParameters_athenaParameters = Lens.lens (\DataSourceParameters' {athen
 dataSourceParameters_amazonOpenSearchParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AmazonOpenSearchParameters)
 dataSourceParameters_amazonOpenSearchParameters = Lens.lens (\DataSourceParameters' {amazonOpenSearchParameters} -> amazonOpenSearchParameters) (\s@DataSourceParameters' {} a -> s {amazonOpenSearchParameters = a} :: DataSourceParameters)
 
+-- | The required parameters that are needed to connect to a Databricks data
+-- source.
+dataSourceParameters_databricksParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe DatabricksParameters)
+dataSourceParameters_databricksParameters = Lens.lens (\DataSourceParameters' {databricksParameters} -> databricksParameters) (\s@DataSourceParameters' {} a -> s {databricksParameters = a} :: DataSourceParameters)
+
 -- | The parameters for Jira.
 dataSourceParameters_jiraParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe JiraParameters)
 dataSourceParameters_jiraParameters = Lens.lens (\DataSourceParameters' {jiraParameters} -> jiraParameters) (\s@DataSourceParameters' {} a -> s {jiraParameters = a} :: DataSourceParameters)
@@ -290,6 +303,7 @@ instance Core.FromJSON DataSourceParameters where
             Prelude.<*> (x Core..:? "MariaDbParameters")
             Prelude.<*> (x Core..:? "AthenaParameters")
             Prelude.<*> (x Core..:? "AmazonOpenSearchParameters")
+            Prelude.<*> (x Core..:? "DatabricksParameters")
             Prelude.<*> (x Core..:? "JiraParameters")
             Prelude.<*> (x Core..:? "AmazonElasticsearchParameters")
             Prelude.<*> (x Core..:? "SqlServerParameters")
@@ -316,6 +330,7 @@ instance Prelude.Hashable DataSourceParameters where
       `Prelude.hashWithSalt` mariaDbParameters
       `Prelude.hashWithSalt` athenaParameters
       `Prelude.hashWithSalt` amazonOpenSearchParameters
+      `Prelude.hashWithSalt` databricksParameters
       `Prelude.hashWithSalt` jiraParameters
       `Prelude.hashWithSalt` amazonElasticsearchParameters
       `Prelude.hashWithSalt` sqlServerParameters
@@ -342,6 +357,7 @@ instance Prelude.NFData DataSourceParameters where
       `Prelude.seq` Prelude.rnf athenaParameters
       `Prelude.seq` Prelude.rnf
         amazonOpenSearchParameters
+      `Prelude.seq` Prelude.rnf databricksParameters
       `Prelude.seq` Prelude.rnf jiraParameters
       `Prelude.seq` Prelude.rnf
         amazonElasticsearchParameters
@@ -388,6 +404,8 @@ instance Core.ToJSON DataSourceParameters where
               Prelude.<$> athenaParameters,
             ("AmazonOpenSearchParameters" Core..=)
               Prelude.<$> amazonOpenSearchParameters,
+            ("DatabricksParameters" Core..=)
+              Prelude.<$> databricksParameters,
             ("JiraParameters" Core..=)
               Prelude.<$> jiraParameters,
             ("AmazonElasticsearchParameters" Core..=)

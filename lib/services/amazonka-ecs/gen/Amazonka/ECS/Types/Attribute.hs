@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.Attribute where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.TargetType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attribute is a name-value pair that\'s associated with an Amazon ECS

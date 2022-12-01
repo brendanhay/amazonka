@@ -20,7 +20,7 @@
 module Amazonka.AccessAnalyzer.Types.RdsDbSnapshotAttributeValue where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name and values of a manual Amazon RDS DB snapshot attribute. Manual

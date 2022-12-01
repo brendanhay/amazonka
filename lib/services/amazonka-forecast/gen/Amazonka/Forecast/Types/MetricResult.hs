@@ -20,7 +20,7 @@
 module Amazonka.Forecast.Types.MetricResult where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An individual metric Forecast calculated when monitoring predictor

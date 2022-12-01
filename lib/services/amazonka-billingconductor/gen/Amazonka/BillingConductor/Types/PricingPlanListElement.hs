@@ -20,7 +20,7 @@
 module Amazonka.BillingConductor.Types.PricingPlanListElement where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a pricing plan.
@@ -32,14 +32,14 @@ data PricingPlanListElement = PricingPlanListElement'
     -- | The pricing plan Amazon Resource Names (ARN). This can be used to
     -- uniquely identify a pricing plan.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The pricing rules count currently associated with this pricing plan list
-    -- element.
+    -- | The pricing rules count that\'s currently associated with this pricing
+    -- plan list element.
     size :: Prelude.Maybe Prelude.Natural,
     -- | The pricing plan description.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The most recent time the pricing plan was modified.
+    -- | The most recent time when the pricing plan was modified.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
-    -- | The time the pricing plan was created.
+    -- | The time when the pricing plan was created.
     creationTime :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -57,14 +57,14 @@ data PricingPlanListElement = PricingPlanListElement'
 -- 'arn', 'pricingPlanListElement_arn' - The pricing plan Amazon Resource Names (ARN). This can be used to
 -- uniquely identify a pricing plan.
 --
--- 'size', 'pricingPlanListElement_size' - The pricing rules count currently associated with this pricing plan list
--- element.
+-- 'size', 'pricingPlanListElement_size' - The pricing rules count that\'s currently associated with this pricing
+-- plan list element.
 --
 -- 'description', 'pricingPlanListElement_description' - The pricing plan description.
 --
--- 'lastModifiedTime', 'pricingPlanListElement_lastModifiedTime' - The most recent time the pricing plan was modified.
+-- 'lastModifiedTime', 'pricingPlanListElement_lastModifiedTime' - The most recent time when the pricing plan was modified.
 --
--- 'creationTime', 'pricingPlanListElement_creationTime' - The time the pricing plan was created.
+-- 'creationTime', 'pricingPlanListElement_creationTime' - The time when the pricing plan was created.
 newPricingPlanListElement ::
   PricingPlanListElement
 newPricingPlanListElement =
@@ -86,8 +86,8 @@ pricingPlanListElement_name = Lens.lens (\PricingPlanListElement' {name} -> name
 pricingPlanListElement_arn :: Lens.Lens' PricingPlanListElement (Prelude.Maybe Prelude.Text)
 pricingPlanListElement_arn = Lens.lens (\PricingPlanListElement' {arn} -> arn) (\s@PricingPlanListElement' {} a -> s {arn = a} :: PricingPlanListElement)
 
--- | The pricing rules count currently associated with this pricing plan list
--- element.
+-- | The pricing rules count that\'s currently associated with this pricing
+-- plan list element.
 pricingPlanListElement_size :: Lens.Lens' PricingPlanListElement (Prelude.Maybe Prelude.Natural)
 pricingPlanListElement_size = Lens.lens (\PricingPlanListElement' {size} -> size) (\s@PricingPlanListElement' {} a -> s {size = a} :: PricingPlanListElement)
 
@@ -95,11 +95,11 @@ pricingPlanListElement_size = Lens.lens (\PricingPlanListElement' {size} -> size
 pricingPlanListElement_description :: Lens.Lens' PricingPlanListElement (Prelude.Maybe Prelude.Text)
 pricingPlanListElement_description = Lens.lens (\PricingPlanListElement' {description} -> description) (\s@PricingPlanListElement' {} a -> s {description = a} :: PricingPlanListElement) Prelude.. Lens.mapping Core._Sensitive
 
--- | The most recent time the pricing plan was modified.
+-- | The most recent time when the pricing plan was modified.
 pricingPlanListElement_lastModifiedTime :: Lens.Lens' PricingPlanListElement (Prelude.Maybe Prelude.Integer)
 pricingPlanListElement_lastModifiedTime = Lens.lens (\PricingPlanListElement' {lastModifiedTime} -> lastModifiedTime) (\s@PricingPlanListElement' {} a -> s {lastModifiedTime = a} :: PricingPlanListElement)
 
--- | The time the pricing plan was created.
+-- | The time when the pricing plan was created.
 pricingPlanListElement_creationTime :: Lens.Lens' PricingPlanListElement (Prelude.Maybe Prelude.Integer)
 pricingPlanListElement_creationTime = Lens.lens (\PricingPlanListElement' {creationTime} -> creationTime) (\s@PricingPlanListElement' {} a -> s {creationTime = a} :: PricingPlanListElement)
 

@@ -53,7 +53,7 @@ where
 
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,8 +100,8 @@ resolveRoom_skillId = Lens.lens (\ResolveRoom' {skillId} -> skillId) (\s@Resolve
 
 instance Core.AWSRequest ResolveRoom where
   type AWSResponse ResolveRoom = ResolveRoomResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -20,14 +20,15 @@
 module Amazonka.Grafana.Types.WorkspaceDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types.AccountAccessType
 import Amazonka.Grafana.Types.AuthenticationSummary
 import Amazonka.Grafana.Types.DataSourceType
 import Amazonka.Grafana.Types.LicenseType
 import Amazonka.Grafana.Types.NotificationDestinationType
 import Amazonka.Grafana.Types.PermissionType
+import Amazonka.Grafana.Types.VpcConfiguration
 import Amazonka.Grafana.Types.WorkspaceStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing information about an Amazon Managed Grafana
@@ -35,7 +36,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWorkspaceDescription' smart constructor.
 data WorkspaceDescription = WorkspaceDescription'
-  { -- | The list of tags associated with the workspace.
+  { -- | The configuration for connecting to data sources in a private VPC
+    -- (Amazon Virtual Private Cloud).
+    vpcConfiguration :: Prelude.Maybe VpcConfiguration,
+    -- | The list of tags associated with the workspace.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | If this is @Service Managed@, Amazon Managed Grafana automatically
     -- creates the IAM roles and provisions the permissions that the workspace
@@ -92,8 +96,8 @@ data WorkspaceDescription = WorkspaceDescription'
     -- @workspaceOrganizationalUnits@ parameter specifies which organizational
     -- units the workspace can access.
     accountAccessType :: Prelude.Maybe AccountAccessType,
-    -- | A structure that describes whether the workspace uses SAML, Amazon Web
-    -- Services SSO, or both methods for user authentication.
+    -- | A structure that describes whether the workspace uses SAML, IAM Identity
+    -- Center, or both methods for user authentication.
     authentication :: AuthenticationSummary,
     -- | The date that the workspace was created.
     created :: Core.POSIX,
@@ -122,6 +126,9 @@ data WorkspaceDescription = WorkspaceDescription'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'vpcConfiguration', 'workspaceDescription_vpcConfiguration' - The configuration for connecting to data sources in a private VPC
+-- (Amazon Virtual Private Cloud).
 --
 -- 'tags', 'workspaceDescription_tags' - The list of tags associated with the workspace.
 --
@@ -180,8 +187,8 @@ data WorkspaceDescription = WorkspaceDescription'
 -- @workspaceOrganizationalUnits@ parameter specifies which organizational
 -- units the workspace can access.
 --
--- 'authentication', 'workspaceDescription_authentication' - A structure that describes whether the workspace uses SAML, Amazon Web
--- Services SSO, or both methods for user authentication.
+-- 'authentication', 'workspaceDescription_authentication' - A structure that describes whether the workspace uses SAML, IAM Identity
+-- Center, or both methods for user authentication.
 --
 -- 'created', 'workspaceDescription_created' - The date that the workspace was created.
 --
@@ -224,7 +231,9 @@ newWorkspaceDescription
   pModified_
   pStatus_ =
     WorkspaceDescription'
-      { tags = Prelude.Nothing,
+      { vpcConfiguration =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         permissionType = Prelude.Nothing,
         name = Prelude.Nothing,
         organizationRoleName = Prelude.Nothing,
@@ -247,6 +256,11 @@ newWorkspaceDescription
         modified = Core._Time Lens.# pModified_,
         status = pStatus_
       }
+
+-- | The configuration for connecting to data sources in a private VPC
+-- (Amazon Virtual Private Cloud).
+workspaceDescription_vpcConfiguration :: Lens.Lens' WorkspaceDescription (Prelude.Maybe VpcConfiguration)
+workspaceDescription_vpcConfiguration = Lens.lens (\WorkspaceDescription' {vpcConfiguration} -> vpcConfiguration) (\s@WorkspaceDescription' {} a -> s {vpcConfiguration = a} :: WorkspaceDescription)
 
 -- | The list of tags associated with the workspace.
 workspaceDescription_tags :: Lens.Lens' WorkspaceDescription (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -333,8 +347,8 @@ workspaceDescription_notificationDestinations = Lens.lens (\WorkspaceDescription
 workspaceDescription_accountAccessType :: Lens.Lens' WorkspaceDescription (Prelude.Maybe AccountAccessType)
 workspaceDescription_accountAccessType = Lens.lens (\WorkspaceDescription' {accountAccessType} -> accountAccessType) (\s@WorkspaceDescription' {} a -> s {accountAccessType = a} :: WorkspaceDescription)
 
--- | A structure that describes whether the workspace uses SAML, Amazon Web
--- Services SSO, or both methods for user authentication.
+-- | A structure that describes whether the workspace uses SAML, IAM Identity
+-- Center, or both methods for user authentication.
 workspaceDescription_authentication :: Lens.Lens' WorkspaceDescription AuthenticationSummary
 workspaceDescription_authentication = Lens.lens (\WorkspaceDescription' {authentication} -> authentication) (\s@WorkspaceDescription' {} a -> s {authentication = a} :: WorkspaceDescription)
 
@@ -375,7 +389,8 @@ instance Core.FromJSON WorkspaceDescription where
       "WorkspaceDescription"
       ( \x ->
           WorkspaceDescription'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "vpcConfiguration")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "permissionType")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "organizationRoleName")
@@ -405,7 +420,8 @@ instance Core.FromJSON WorkspaceDescription where
 
 instance Prelude.Hashable WorkspaceDescription where
   hashWithSalt _salt WorkspaceDescription' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` vpcConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` permissionType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` organizationRoleName
@@ -430,7 +446,8 @@ instance Prelude.Hashable WorkspaceDescription where
 
 instance Prelude.NFData WorkspaceDescription where
   rnf WorkspaceDescription' {..} =
-    Prelude.rnf tags
+    Prelude.rnf vpcConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf permissionType
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf organizationRoleName

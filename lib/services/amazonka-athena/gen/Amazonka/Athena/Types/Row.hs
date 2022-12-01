@@ -21,7 +21,7 @@ module Amazonka.Athena.Types.Row where
 
 import Amazonka.Athena.Types.Datum
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The rows that make up a query result table.

@@ -20,8 +20,8 @@
 module Amazonka.Forecast.Types.DataSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.S3Config
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The source of your data, an AWS Identity and Access Management (IAM)

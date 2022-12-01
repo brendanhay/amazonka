@@ -46,7 +46,7 @@ module Amazonka.QuickSight.ListGroupMemberships
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -134,8 +134,8 @@ instance Core.AWSRequest ListGroupMemberships where
   type
     AWSResponse ListGroupMemberships =
       ListGroupMembershipsResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

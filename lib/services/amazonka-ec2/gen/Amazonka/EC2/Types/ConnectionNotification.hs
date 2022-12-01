@@ -20,10 +20,10 @@
 module Amazonka.EC2.Types.ConnectionNotification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ConnectionNotificationState
 import Amazonka.EC2.Types.ConnectionNotificationType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a connection notification for a VPC endpoint or VPC endpoint

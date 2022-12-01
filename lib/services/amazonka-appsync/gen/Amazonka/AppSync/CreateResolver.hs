@@ -30,10 +30,12 @@ module Amazonka.AppSync.CreateResolver
     newCreateResolver,
 
     -- * Request Lenses
+    createResolver_code,
     createResolver_maxBatchSize,
     createResolver_cachingConfig,
     createResolver_pipelineConfig,
     createResolver_kind,
+    createResolver_runtime,
     createResolver_dataSourceName,
     createResolver_responseMappingTemplate,
     createResolver_syncConfig,
@@ -54,14 +56,18 @@ where
 
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateResolver' smart constructor.
 data CreateResolver = CreateResolver'
-  { -- | The maximum batching size for a resolver.
+  { -- | The @resolver@ code that contains the request and response functions.
+    -- When code is used, the @runtime@ is required. The @runtime@ value must
+    -- be @APPSYNC_JS@.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | The maximum batching size for a resolver.
     maxBatchSize :: Prelude.Maybe Prelude.Natural,
     -- | The caching configuration for the resolver.
     cachingConfig :: Prelude.Maybe CachingConfig,
@@ -78,6 +84,7 @@ data CreateResolver = CreateResolver'
     --     manner. You can use a pipeline resolver to run a GraphQL query
     --     against multiple data sources.
     kind :: Prelude.Maybe ResolverKind,
+    runtime :: Prelude.Maybe AppSyncRuntime,
     -- | The name of the data source for which the resolver is being created.
     dataSourceName :: Prelude.Maybe Prelude.Text,
     -- | The mapping template to use for responses from the data source.
@@ -111,6 +118,10 @@ data CreateResolver = CreateResolver'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'code', 'createResolver_code' - The @resolver@ code that contains the request and response functions.
+-- When code is used, the @runtime@ is required. The @runtime@ value must
+-- be @APPSYNC_JS@.
+--
 -- 'maxBatchSize', 'createResolver_maxBatchSize' - The maximum batching size for a resolver.
 --
 -- 'cachingConfig', 'createResolver_cachingConfig' - The caching configuration for the resolver.
@@ -127,6 +138,8 @@ data CreateResolver = CreateResolver'
 --     resolver to invoke a series of @Function@ objects in a serial
 --     manner. You can use a pipeline resolver to run a GraphQL query
 --     against multiple data sources.
+--
+-- 'runtime', 'createResolver_runtime' - Undocumented member.
 --
 -- 'dataSourceName', 'createResolver_dataSourceName' - The name of the data source for which the resolver is being created.
 --
@@ -159,10 +172,12 @@ newCreateResolver ::
   CreateResolver
 newCreateResolver pApiId_ pTypeName_ pFieldName_ =
   CreateResolver'
-    { maxBatchSize = Prelude.Nothing,
+    { code = Prelude.Nothing,
+      maxBatchSize = Prelude.Nothing,
       cachingConfig = Prelude.Nothing,
       pipelineConfig = Prelude.Nothing,
       kind = Prelude.Nothing,
+      runtime = Prelude.Nothing,
       dataSourceName = Prelude.Nothing,
       responseMappingTemplate = Prelude.Nothing,
       syncConfig = Prelude.Nothing,
@@ -171,6 +186,12 @@ newCreateResolver pApiId_ pTypeName_ pFieldName_ =
       typeName = pTypeName_,
       fieldName = pFieldName_
     }
+
+-- | The @resolver@ code that contains the request and response functions.
+-- When code is used, the @runtime@ is required. The @runtime@ value must
+-- be @APPSYNC_JS@.
+createResolver_code :: Lens.Lens' CreateResolver (Prelude.Maybe Prelude.Text)
+createResolver_code = Lens.lens (\CreateResolver' {code} -> code) (\s@CreateResolver' {} a -> s {code = a} :: CreateResolver)
 
 -- | The maximum batching size for a resolver.
 createResolver_maxBatchSize :: Lens.Lens' CreateResolver (Prelude.Maybe Prelude.Natural)
@@ -196,6 +217,10 @@ createResolver_pipelineConfig = Lens.lens (\CreateResolver' {pipelineConfig} -> 
 --     against multiple data sources.
 createResolver_kind :: Lens.Lens' CreateResolver (Prelude.Maybe ResolverKind)
 createResolver_kind = Lens.lens (\CreateResolver' {kind} -> kind) (\s@CreateResolver' {} a -> s {kind = a} :: CreateResolver)
+
+-- | Undocumented member.
+createResolver_runtime :: Lens.Lens' CreateResolver (Prelude.Maybe AppSyncRuntime)
+createResolver_runtime = Lens.lens (\CreateResolver' {runtime} -> runtime) (\s@CreateResolver' {} a -> s {runtime = a} :: CreateResolver)
 
 -- | The name of the data source for which the resolver is being created.
 createResolver_dataSourceName :: Lens.Lens' CreateResolver (Prelude.Maybe Prelude.Text)
@@ -237,8 +262,8 @@ instance Core.AWSRequest CreateResolver where
   type
     AWSResponse CreateResolver =
       CreateResolverResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -249,10 +274,12 @@ instance Core.AWSRequest CreateResolver where
 
 instance Prelude.Hashable CreateResolver where
   hashWithSalt _salt CreateResolver' {..} =
-    _salt `Prelude.hashWithSalt` maxBatchSize
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` maxBatchSize
       `Prelude.hashWithSalt` cachingConfig
       `Prelude.hashWithSalt` pipelineConfig
       `Prelude.hashWithSalt` kind
+      `Prelude.hashWithSalt` runtime
       `Prelude.hashWithSalt` dataSourceName
       `Prelude.hashWithSalt` responseMappingTemplate
       `Prelude.hashWithSalt` syncConfig
@@ -263,10 +290,12 @@ instance Prelude.Hashable CreateResolver where
 
 instance Prelude.NFData CreateResolver where
   rnf CreateResolver' {..} =
-    Prelude.rnf maxBatchSize
+    Prelude.rnf code
+      `Prelude.seq` Prelude.rnf maxBatchSize
       `Prelude.seq` Prelude.rnf cachingConfig
       `Prelude.seq` Prelude.rnf pipelineConfig
       `Prelude.seq` Prelude.rnf kind
+      `Prelude.seq` Prelude.rnf runtime
       `Prelude.seq` Prelude.rnf dataSourceName
       `Prelude.seq` Prelude.rnf responseMappingTemplate
       `Prelude.seq` Prelude.rnf syncConfig
@@ -290,11 +319,13 @@ instance Core.ToJSON CreateResolver where
   toJSON CreateResolver' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
+          [ ("code" Core..=) Prelude.<$> code,
+            ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
             ("cachingConfig" Core..=) Prelude.<$> cachingConfig,
             ("pipelineConfig" Core..=)
               Prelude.<$> pipelineConfig,
             ("kind" Core..=) Prelude.<$> kind,
+            ("runtime" Core..=) Prelude.<$> runtime,
             ("dataSourceName" Core..=)
               Prelude.<$> dataSourceName,
             ("responseMappingTemplate" Core..=)

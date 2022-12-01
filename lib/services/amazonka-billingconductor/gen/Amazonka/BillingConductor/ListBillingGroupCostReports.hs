@@ -49,14 +49,14 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBillingGroupCostReports' smart constructor.
 data ListBillingGroupCostReports = ListBillingGroupCostReports'
-  { -- | The pagination token used on subsequent calls to get reports.
+  { -- | The pagination token that\'s used on subsequent calls to get reports.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The preferred billing period for your report.
     billingPeriod :: Prelude.Maybe Prelude.Text,
@@ -76,7 +76,7 @@ data ListBillingGroupCostReports = ListBillingGroupCostReports'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBillingGroupCostReports_nextToken' - The pagination token used on subsequent calls to get reports.
+-- 'nextToken', 'listBillingGroupCostReports_nextToken' - The pagination token that\'s used on subsequent calls to get reports.
 --
 -- 'billingPeriod', 'listBillingGroupCostReports_billingPeriod' - The preferred billing period for your report.
 --
@@ -95,7 +95,7 @@ newListBillingGroupCostReports =
       maxResults = Prelude.Nothing
     }
 
--- | The pagination token used on subsequent calls to get reports.
+-- | The pagination token that\'s used on subsequent calls to get reports.
 listBillingGroupCostReports_nextToken :: Lens.Lens' ListBillingGroupCostReports (Prelude.Maybe Prelude.Text)
 listBillingGroupCostReports_nextToken = Lens.lens (\ListBillingGroupCostReports' {nextToken} -> nextToken) (\s@ListBillingGroupCostReports' {} a -> s {nextToken = a} :: ListBillingGroupCostReports)
 
@@ -138,8 +138,8 @@ instance Core.AWSRequest ListBillingGroupCostReports where
   type
     AWSResponse ListBillingGroupCostReports =
       ListBillingGroupCostReportsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -196,7 +196,7 @@ instance Core.ToQuery ListBillingGroupCostReports where
 
 -- | /See:/ 'newListBillingGroupCostReportsResponse' smart constructor.
 data ListBillingGroupCostReportsResponse = ListBillingGroupCostReportsResponse'
-  { -- | The pagination token used on subsequent calls to get reports.
+  { -- | The pagination token that\'s used on subsequent calls to get reports.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @BillingGroupCostReportElement@ retrieved.
     billingGroupCostReports :: Prelude.Maybe [BillingGroupCostReportElement],
@@ -213,7 +213,7 @@ data ListBillingGroupCostReportsResponse = ListBillingGroupCostReportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBillingGroupCostReportsResponse_nextToken' - The pagination token used on subsequent calls to get reports.
+-- 'nextToken', 'listBillingGroupCostReportsResponse_nextToken' - The pagination token that\'s used on subsequent calls to get reports.
 --
 -- 'billingGroupCostReports', 'listBillingGroupCostReportsResponse_billingGroupCostReports' - A list of @BillingGroupCostReportElement@ retrieved.
 --
@@ -231,7 +231,7 @@ newListBillingGroupCostReportsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The pagination token used on subsequent calls to get reports.
+-- | The pagination token that\'s used on subsequent calls to get reports.
 listBillingGroupCostReportsResponse_nextToken :: Lens.Lens' ListBillingGroupCostReportsResponse (Prelude.Maybe Prelude.Text)
 listBillingGroupCostReportsResponse_nextToken = Lens.lens (\ListBillingGroupCostReportsResponse' {nextToken} -> nextToken) (\s@ListBillingGroupCostReportsResponse' {} a -> s {nextToken = a} :: ListBillingGroupCostReportsResponse)
 

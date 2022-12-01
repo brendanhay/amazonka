@@ -40,7 +40,7 @@ module Amazonka.SageMaker.DeleteDomain
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,8 +92,8 @@ deleteDomain_domainId = Lens.lens (\DeleteDomain' {domainId} -> domainId) (\s@De
 
 instance Core.AWSRequest DeleteDomain where
   type AWSResponse DeleteDomain = DeleteDomainResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteDomainResponse'
 
 instance Prelude.Hashable DeleteDomain where

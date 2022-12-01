@@ -22,7 +22,7 @@ module Amazonka.CodeDeploy.Types.TargetInstances where
 import Amazonka.CodeDeploy.Types.EC2TagFilter
 import Amazonka.CodeDeploy.Types.EC2TagSet
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the instances to be used in the replacement

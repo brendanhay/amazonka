@@ -24,7 +24,7 @@ import Amazonka.AppFlow.Types.ConnectorProfileProperties
 import Amazonka.AppFlow.Types.ConnectorType
 import Amazonka.AppFlow.Types.PrivateConnectionProvisioningState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance of a connector. This includes the provided name,

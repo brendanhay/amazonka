@@ -30,9 +30,9 @@ module Amazonka.IotTwinMaker.CreateScene
     createScene_tags,
     createScene_description,
     createScene_capabilities,
-    createScene_contentLocation,
-    createScene_sceneId,
     createScene_workspaceId,
+    createScene_sceneId,
+    createScene_contentLocation,
 
     -- * Destructuring the Response
     CreateSceneResponse (..),
@@ -46,8 +46,8 @@ module Amazonka.IotTwinMaker.CreateScene
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,13 +60,13 @@ data CreateScene = CreateScene'
     description :: Prelude.Maybe Prelude.Text,
     -- | A list of capabilities that the scene uses to render itself.
     capabilities :: Prelude.Maybe [Prelude.Text],
-    -- | The relative path that specifies the location of the content definition
-    -- file.
-    contentLocation :: Prelude.Text,
+    -- | The ID of the workspace that contains the scene.
+    workspaceId :: Prelude.Text,
     -- | The ID of the scene.
     sceneId :: Prelude.Text,
-    -- | The ID of the workspace that contains the scene.
-    workspaceId :: Prelude.Text
+    -- | The relative path that specifies the location of the content definition
+    -- file.
+    contentLocation :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,31 +84,31 @@ data CreateScene = CreateScene'
 --
 -- 'capabilities', 'createScene_capabilities' - A list of capabilities that the scene uses to render itself.
 --
--- 'contentLocation', 'createScene_contentLocation' - The relative path that specifies the location of the content definition
--- file.
+-- 'workspaceId', 'createScene_workspaceId' - The ID of the workspace that contains the scene.
 --
 -- 'sceneId', 'createScene_sceneId' - The ID of the scene.
 --
--- 'workspaceId', 'createScene_workspaceId' - The ID of the workspace that contains the scene.
+-- 'contentLocation', 'createScene_contentLocation' - The relative path that specifies the location of the content definition
+-- file.
 newCreateScene ::
-  -- | 'contentLocation'
+  -- | 'workspaceId'
   Prelude.Text ->
   -- | 'sceneId'
   Prelude.Text ->
-  -- | 'workspaceId'
+  -- | 'contentLocation'
   Prelude.Text ->
   CreateScene
 newCreateScene
-  pContentLocation_
+  pWorkspaceId_
   pSceneId_
-  pWorkspaceId_ =
+  pContentLocation_ =
     CreateScene'
       { tags = Prelude.Nothing,
         description = Prelude.Nothing,
         capabilities = Prelude.Nothing,
-        contentLocation = pContentLocation_,
+        workspaceId = pWorkspaceId_,
         sceneId = pSceneId_,
-        workspaceId = pWorkspaceId_
+        contentLocation = pContentLocation_
       }
 
 -- | Metadata that you can use to manage the scene.
@@ -123,23 +123,23 @@ createScene_description = Lens.lens (\CreateScene' {description} -> description)
 createScene_capabilities :: Lens.Lens' CreateScene (Prelude.Maybe [Prelude.Text])
 createScene_capabilities = Lens.lens (\CreateScene' {capabilities} -> capabilities) (\s@CreateScene' {} a -> s {capabilities = a} :: CreateScene) Prelude.. Lens.mapping Lens.coerced
 
--- | The relative path that specifies the location of the content definition
--- file.
-createScene_contentLocation :: Lens.Lens' CreateScene Prelude.Text
-createScene_contentLocation = Lens.lens (\CreateScene' {contentLocation} -> contentLocation) (\s@CreateScene' {} a -> s {contentLocation = a} :: CreateScene)
+-- | The ID of the workspace that contains the scene.
+createScene_workspaceId :: Lens.Lens' CreateScene Prelude.Text
+createScene_workspaceId = Lens.lens (\CreateScene' {workspaceId} -> workspaceId) (\s@CreateScene' {} a -> s {workspaceId = a} :: CreateScene)
 
 -- | The ID of the scene.
 createScene_sceneId :: Lens.Lens' CreateScene Prelude.Text
 createScene_sceneId = Lens.lens (\CreateScene' {sceneId} -> sceneId) (\s@CreateScene' {} a -> s {sceneId = a} :: CreateScene)
 
--- | The ID of the workspace that contains the scene.
-createScene_workspaceId :: Lens.Lens' CreateScene Prelude.Text
-createScene_workspaceId = Lens.lens (\CreateScene' {workspaceId} -> workspaceId) (\s@CreateScene' {} a -> s {workspaceId = a} :: CreateScene)
+-- | The relative path that specifies the location of the content definition
+-- file.
+createScene_contentLocation :: Lens.Lens' CreateScene Prelude.Text
+createScene_contentLocation = Lens.lens (\CreateScene' {contentLocation} -> contentLocation) (\s@CreateScene' {} a -> s {contentLocation = a} :: CreateScene)
 
 instance Core.AWSRequest CreateScene where
   type AWSResponse CreateScene = CreateSceneResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,18 +154,18 @@ instance Prelude.Hashable CreateScene where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` capabilities
-      `Prelude.hashWithSalt` contentLocation
-      `Prelude.hashWithSalt` sceneId
       `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` sceneId
+      `Prelude.hashWithSalt` contentLocation
 
 instance Prelude.NFData CreateScene where
   rnf CreateScene' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf contentLocation
-      `Prelude.seq` Prelude.rnf sceneId
       `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf sceneId
+      `Prelude.seq` Prelude.rnf contentLocation
 
 instance Core.ToHeaders CreateScene where
   toHeaders =
@@ -185,9 +185,9 @@ instance Core.ToJSON CreateScene where
           [ ("tags" Core..=) Prelude.<$> tags,
             ("description" Core..=) Prelude.<$> description,
             ("capabilities" Core..=) Prelude.<$> capabilities,
+            Prelude.Just ("sceneId" Core..= sceneId),
             Prelude.Just
-              ("contentLocation" Core..= contentLocation),
-            Prelude.Just ("sceneId" Core..= sceneId)
+              ("contentLocation" Core..= contentLocation)
           ]
       )
 

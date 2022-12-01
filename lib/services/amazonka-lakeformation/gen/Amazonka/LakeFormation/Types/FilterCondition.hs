@@ -20,9 +20,9 @@
 module Amazonka.LakeFormation.Types.FilterCondition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LakeFormation.Types.ComparisonOperator
 import Amazonka.LakeFormation.Types.FieldNameString
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure describes the filtering of columns in a table based on a

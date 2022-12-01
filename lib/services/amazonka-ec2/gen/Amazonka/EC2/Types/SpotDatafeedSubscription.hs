@@ -20,10 +20,10 @@
 module Amazonka.EC2.Types.SpotDatafeedSubscription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DatafeedSubscriptionState
 import Amazonka.EC2.Types.SpotInstanceStateFault
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the data feed for a Spot Instance.

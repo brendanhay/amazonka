@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.ReservedInstanceReservationValue where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ReservationValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The total value of the Convertible Reserved Instance.

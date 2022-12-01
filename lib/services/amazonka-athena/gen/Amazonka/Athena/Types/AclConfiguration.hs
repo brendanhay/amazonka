@@ -21,7 +21,7 @@ module Amazonka.Athena.Types.AclConfiguration where
 
 import Amazonka.Athena.Types.S3AclOption
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates that an Amazon S3 canned ACL should be set to control

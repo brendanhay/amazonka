@@ -49,6 +49,7 @@ module Amazonka.RDS.CreateDBInstanceReadReplica
     createDBInstanceReadReplica_performanceInsightsRetentionPeriod,
     createDBInstanceReadReplica_vpcSecurityGroupIds,
     createDBInstanceReadReplica_dbParameterGroupName,
+    createDBInstanceReadReplica_storageThroughput,
     createDBInstanceReadReplica_dbInstanceClass,
     createDBInstanceReadReplica_copyTagsToSnapshot,
     createDBInstanceReadReplica_domainIAMRoleName,
@@ -90,7 +91,7 @@ module Amazonka.RDS.CreateDBInstanceReadReplica
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -163,6 +164,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     --
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
     dbParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the storage throughput value for the read replica.
+    --
+    -- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+    storageThroughput :: Prelude.Maybe Prelude.Int,
     -- | The compute and memory capacity of the read replica, for example
     -- db.m4.large. Not all DB instance classes are available in all Amazon Web
     -- Services Regions, or for all database engines. For the full list of DB
@@ -288,10 +293,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the storage type to be associated with the read replica.
     --
-    -- Valid values: @standard | gp2 | io1@
+    -- Valid values: @gp2 | gp3 | io1 | standard@
     --
-    -- If you specify @io1@, you must also include a value for the @Iops@
-    -- parameter.
+    -- If you specify @io1@ or @gp3@, you must also include a value for the
+    -- @Iops@ parameter.
     --
     -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
     storageType :: Prelude.Maybe Prelude.Text,
@@ -621,6 +626,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 --
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
+-- 'storageThroughput', 'createDBInstanceReadReplica_storageThroughput' - Specifies the storage throughput value for the read replica.
+--
+-- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+--
 -- 'dbInstanceClass', 'createDBInstanceReadReplica_dbInstanceClass' - The compute and memory capacity of the read replica, for example
 -- db.m4.large. Not all DB instance classes are available in all Amazon Web
 -- Services Regions, or for all database engines. For the full list of DB
@@ -746,10 +755,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 --
 -- 'storageType', 'createDBInstanceReadReplica_storageType' - Specifies the storage type to be associated with the read replica.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: @gp2 | gp3 | io1 | standard@
 --
--- If you specify @io1@, you must also include a value for the @Iops@
--- parameter.
+-- If you specify @io1@ or @gp3@, you must also include a value for the
+-- @Iops@ parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
 --
@@ -1019,6 +1028,7 @@ newCreateDBInstanceReadReplica
           Prelude.Nothing,
         vpcSecurityGroupIds = Prelude.Nothing,
         dbParameterGroupName = Prelude.Nothing,
+        storageThroughput = Prelude.Nothing,
         dbInstanceClass = Prelude.Nothing,
         copyTagsToSnapshot = Prelude.Nothing,
         domainIAMRoleName = Prelude.Nothing,
@@ -1129,6 +1139,12 @@ createDBInstanceReadReplica_vpcSecurityGroupIds = Lens.lens (\CreateDBInstanceRe
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 createDBInstanceReadReplica_dbParameterGroupName :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
 createDBInstanceReadReplica_dbParameterGroupName = Lens.lens (\CreateDBInstanceReadReplica' {dbParameterGroupName} -> dbParameterGroupName) (\s@CreateDBInstanceReadReplica' {} a -> s {dbParameterGroupName = a} :: CreateDBInstanceReadReplica)
+
+-- | Specifies the storage throughput value for the read replica.
+--
+-- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
+createDBInstanceReadReplica_storageThroughput :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
+createDBInstanceReadReplica_storageThroughput = Lens.lens (\CreateDBInstanceReadReplica' {storageThroughput} -> storageThroughput) (\s@CreateDBInstanceReadReplica' {} a -> s {storageThroughput = a} :: CreateDBInstanceReadReplica)
 
 -- | The compute and memory capacity of the read replica, for example
 -- db.m4.large. Not all DB instance classes are available in all Amazon Web
@@ -1279,10 +1295,10 @@ createDBInstanceReadReplica_publiclyAccessible = Lens.lens (\CreateDBInstanceRea
 
 -- | Specifies the storage type to be associated with the read replica.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: @gp2 | gp3 | io1 | standard@
 --
--- If you specify @io1@, you must also include a value for the @Iops@
--- parameter.
+-- If you specify @io1@ or @gp3@, you must also include a value for the
+-- @Iops@ parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
 createDBInstanceReadReplica_storageType :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
@@ -1573,8 +1589,8 @@ instance Core.AWSRequest CreateDBInstanceReadReplica where
   type
     AWSResponse CreateDBInstanceReadReplica =
       CreateDBInstanceReadReplicaResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "CreateDBInstanceReadReplicaResult"
@@ -1592,6 +1608,7 @@ instance Prelude.Hashable CreateDBInstanceReadReplica where
       `Prelude.hashWithSalt` performanceInsightsRetentionPeriod
       `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` dbParameterGroupName
+      `Prelude.hashWithSalt` storageThroughput
       `Prelude.hashWithSalt` dbInstanceClass
       `Prelude.hashWithSalt` copyTagsToSnapshot
       `Prelude.hashWithSalt` domainIAMRoleName
@@ -1630,6 +1647,7 @@ instance Prelude.NFData CreateDBInstanceReadReplica where
       `Prelude.seq` Prelude.rnf performanceInsightsRetentionPeriod
       `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf dbParameterGroupName
+      `Prelude.seq` Prelude.rnf storageThroughput
       `Prelude.seq` Prelude.rnf dbInstanceClass
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
       `Prelude.seq` Prelude.rnf domainIAMRoleName
@@ -1654,7 +1672,8 @@ instance Prelude.NFData CreateDBInstanceReadReplica where
         monitoringRoleArn
       `Prelude.seq` Prelude.rnf
         replicaMode
-      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf
+        kmsKeyId
       `Prelude.seq` Prelude.rnf
         deletionProtection
       `Prelude.seq` Prelude.rnf
@@ -1704,6 +1723,7 @@ instance Core.ToQuery CreateDBInstanceReadReplica where
                 Prelude.<$> vpcSecurityGroupIds
             ),
         "DBParameterGroupName" Core.=: dbParameterGroupName,
+        "StorageThroughput" Core.=: storageThroughput,
         "DBInstanceClass" Core.=: dbInstanceClass,
         "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
         "DomainIAMRoleName" Core.=: domainIAMRoleName,

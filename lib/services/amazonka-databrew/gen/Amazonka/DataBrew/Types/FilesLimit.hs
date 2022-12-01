@@ -20,9 +20,9 @@
 module Amazonka.DataBrew.Types.FilesLimit where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.Order
 import Amazonka.DataBrew.Types.OrderedBy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a limit imposed on number of Amazon S3 files that should be

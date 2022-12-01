@@ -23,7 +23,7 @@ import Amazonka.AppFlow.Types.ConnectorOperator
 import Amazonka.AppFlow.Types.OperatorPropertiesKeys
 import Amazonka.AppFlow.Types.TaskType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A class for modeling different type of tasks. Task implementation varies

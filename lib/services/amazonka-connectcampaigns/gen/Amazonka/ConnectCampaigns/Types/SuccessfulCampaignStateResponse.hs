@@ -21,7 +21,7 @@ module Amazonka.ConnectCampaigns.Types.SuccessfulCampaignStateResponse where
 
 import Amazonka.ConnectCampaigns.Types.CampaignState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Successful response of campaign state

@@ -38,7 +38,7 @@ module Amazonka.Personalize.DeleteSchema
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,8 +73,8 @@ deleteSchema_schemaArn = Lens.lens (\DeleteSchema' {schemaArn} -> schemaArn) (\s
 
 instance Core.AWSRequest DeleteSchema where
   type AWSResponse DeleteSchema = DeleteSchemaResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteSchemaResponse'
 
 instance Prelude.Hashable DeleteSchema where

@@ -20,6 +20,7 @@
 module Amazonka.DirectoryService.Types.DirectoryDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.DirectoryConnectSettingsDescription
 import Amazonka.DirectoryService.Types.DirectoryEdition
 import Amazonka.DirectoryService.Types.DirectorySize
@@ -33,7 +34,6 @@ import Amazonka.DirectoryService.Types.RadiusStatus
 import Amazonka.DirectoryService.Types.RegionsInfo
 import Amazonka.DirectoryService.Types.ShareMethod
 import Amazonka.DirectoryService.Types.ShareStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an Directory Service directory.

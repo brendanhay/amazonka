@@ -20,7 +20,7 @@
 module Amazonka.PinpointEmail.Types.PinpointDestination where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that defines a Amazon Pinpoint destination for email events.

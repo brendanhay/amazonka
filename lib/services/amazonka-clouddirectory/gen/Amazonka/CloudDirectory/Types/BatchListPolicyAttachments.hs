@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchListPolicyAttachments where
 
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns all of the @ObjectIdentifiers@ to which a given policy is

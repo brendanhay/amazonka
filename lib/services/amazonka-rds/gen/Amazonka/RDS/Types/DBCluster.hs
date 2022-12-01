@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.DBCluster where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.ActivityStreamMode
 import Amazonka.RDS.Types.ActivityStreamStatus
@@ -303,6 +303,8 @@ data DBCluster = DBCluster'
     -- | Contains one or more identifiers of the read replicas associated with
     -- this DB cluster.
     readReplicaIdentifiers :: Prelude.Maybe [Prelude.Text],
+    -- | Reserved for future use.
+    dbSystemId :: Prelude.Maybe Prelude.Text,
     -- | A list of log types that this DB cluster is configured to export to
     -- CloudWatch Logs.
     --
@@ -615,6 +617,8 @@ data DBCluster = DBCluster'
 -- 'readReplicaIdentifiers', 'dbCluster_readReplicaIdentifiers' - Contains one or more identifiers of the read replicas associated with
 -- this DB cluster.
 --
+-- 'dbSystemId', 'dbCluster_dbSystemId' - Reserved for future use.
+--
 -- 'enabledCloudwatchLogsExports', 'dbCluster_enabledCloudwatchLogsExports' - A list of log types that this DB cluster is configured to export to
 -- CloudWatch Logs.
 --
@@ -733,6 +737,7 @@ newDBCluster =
       capacity = Prelude.Nothing,
       clusterCreateTime = Prelude.Nothing,
       readReplicaIdentifiers = Prelude.Nothing,
+      dbSystemId = Prelude.Nothing,
       enabledCloudwatchLogsExports = Prelude.Nothing,
       iops = Prelude.Nothing,
       dbClusterResourceId = Prelude.Nothing,
@@ -1108,6 +1113,10 @@ dbCluster_clusterCreateTime = Lens.lens (\DBCluster' {clusterCreateTime} -> clus
 dbCluster_readReplicaIdentifiers :: Lens.Lens' DBCluster (Prelude.Maybe [Prelude.Text])
 dbCluster_readReplicaIdentifiers = Lens.lens (\DBCluster' {readReplicaIdentifiers} -> readReplicaIdentifiers) (\s@DBCluster' {} a -> s {readReplicaIdentifiers = a} :: DBCluster) Prelude.. Lens.mapping Lens.coerced
 
+-- | Reserved for future use.
+dbCluster_dbSystemId :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
+dbCluster_dbSystemId = Lens.lens (\DBCluster' {dbSystemId} -> dbSystemId) (\s@DBCluster' {} a -> s {dbSystemId = a} :: DBCluster)
+
 -- | A list of log types that this DB cluster is configured to export to
 -- CloudWatch Logs.
 --
@@ -1265,6 +1274,7 @@ instance Core.FromXML DBCluster where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "ReadReplicaIdentifier")
                   )
+      Prelude.<*> (x Core..@? "DBSystemId")
       Prelude.<*> ( x Core..@? "EnabledCloudwatchLogsExports"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
@@ -1346,6 +1356,7 @@ instance Prelude.Hashable DBCluster where
       `Prelude.hashWithSalt` capacity
       `Prelude.hashWithSalt` clusterCreateTime
       `Prelude.hashWithSalt` readReplicaIdentifiers
+      `Prelude.hashWithSalt` dbSystemId
       `Prelude.hashWithSalt` enabledCloudwatchLogsExports
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` dbClusterResourceId
@@ -1457,6 +1468,8 @@ instance Prelude.NFData DBCluster where
         clusterCreateTime
       `Prelude.seq` Prelude.rnf
         readReplicaIdentifiers
+      `Prelude.seq` Prelude.rnf
+        dbSystemId
       `Prelude.seq` Prelude.rnf
         enabledCloudwatchLogsExports
       `Prelude.seq` Prelude.rnf

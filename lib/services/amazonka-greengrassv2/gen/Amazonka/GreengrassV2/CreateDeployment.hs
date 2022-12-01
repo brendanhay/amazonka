@@ -47,6 +47,7 @@ module Amazonka.GreengrassV2.CreateDeployment
     createDeployment_clientToken,
     createDeployment_iotJobConfiguration,
     createDeployment_deploymentName,
+    createDeployment_parentTargetArn,
     createDeployment_deploymentPolicies,
     createDeployment_components,
     createDeployment_targetArn,
@@ -64,8 +65,8 @@ module Amazonka.GreengrassV2.CreateDeployment
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,6 +93,10 @@ data CreateDeployment = CreateDeployment'
     iotJobConfiguration :: Prelude.Maybe DeploymentIoTJobConfiguration,
     -- | The name of the deployment.
     deploymentName :: Prelude.Maybe Prelude.Text,
+    -- | The parent deployment\'s target
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+    -- within a subdeployment.
+    parentTargetArn :: Prelude.Maybe Prelude.Text,
     -- | The deployment policies for the deployment. These policies define how
     -- the deployment updates components and handles failure.
     deploymentPolicies :: Prelude.Maybe DeploymentPolicies,
@@ -101,7 +106,8 @@ data CreateDeployment = CreateDeployment'
     components :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDeploymentSpecification),
     -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
-    -- of the target IoT thing or thing group.
+    -- of the target IoT thing or thing group. When creating a subdeployment,
+    -- the targetARN can only be a thing group.
     targetArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -134,6 +140,10 @@ data CreateDeployment = CreateDeployment'
 --
 -- 'deploymentName', 'createDeployment_deploymentName' - The name of the deployment.
 --
+-- 'parentTargetArn', 'createDeployment_parentTargetArn' - The parent deployment\'s target
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+-- within a subdeployment.
+--
 -- 'deploymentPolicies', 'createDeployment_deploymentPolicies' - The deployment policies for the deployment. These policies define how
 -- the deployment updates components and handles failure.
 --
@@ -143,7 +153,8 @@ data CreateDeployment = CreateDeployment'
 --
 -- 'targetArn', 'createDeployment_targetArn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
--- of the target IoT thing or thing group.
+-- of the target IoT thing or thing group. When creating a subdeployment,
+-- the targetARN can only be a thing group.
 newCreateDeployment ::
   -- | 'targetArn'
   Prelude.Text ->
@@ -154,6 +165,7 @@ newCreateDeployment pTargetArn_ =
       clientToken = Prelude.Nothing,
       iotJobConfiguration = Prelude.Nothing,
       deploymentName = Prelude.Nothing,
+      parentTargetArn = Prelude.Nothing,
       deploymentPolicies = Prelude.Nothing,
       components = Prelude.Nothing,
       targetArn = pTargetArn_
@@ -187,6 +199,12 @@ createDeployment_iotJobConfiguration = Lens.lens (\CreateDeployment' {iotJobConf
 createDeployment_deploymentName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_deploymentName = Lens.lens (\CreateDeployment' {deploymentName} -> deploymentName) (\s@CreateDeployment' {} a -> s {deploymentName = a} :: CreateDeployment)
 
+-- | The parent deployment\'s target
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+-- within a subdeployment.
+createDeployment_parentTargetArn :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_parentTargetArn = Lens.lens (\CreateDeployment' {parentTargetArn} -> parentTargetArn) (\s@CreateDeployment' {} a -> s {parentTargetArn = a} :: CreateDeployment)
+
 -- | The deployment policies for the deployment. These policies define how
 -- the deployment updates components and handles failure.
 createDeployment_deploymentPolicies :: Lens.Lens' CreateDeployment (Prelude.Maybe DeploymentPolicies)
@@ -200,7 +218,8 @@ createDeployment_components = Lens.lens (\CreateDeployment' {components} -> comp
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
--- of the target IoT thing or thing group.
+-- of the target IoT thing or thing group. When creating a subdeployment,
+-- the targetARN can only be a thing group.
 createDeployment_targetArn :: Lens.Lens' CreateDeployment Prelude.Text
 createDeployment_targetArn = Lens.lens (\CreateDeployment' {targetArn} -> targetArn) (\s@CreateDeployment' {} a -> s {targetArn = a} :: CreateDeployment)
 
@@ -208,8 +227,8 @@ instance Core.AWSRequest CreateDeployment where
   type
     AWSResponse CreateDeployment =
       CreateDeploymentResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -226,6 +245,7 @@ instance Prelude.Hashable CreateDeployment where
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` iotJobConfiguration
       `Prelude.hashWithSalt` deploymentName
+      `Prelude.hashWithSalt` parentTargetArn
       `Prelude.hashWithSalt` deploymentPolicies
       `Prelude.hashWithSalt` components
       `Prelude.hashWithSalt` targetArn
@@ -236,6 +256,7 @@ instance Prelude.NFData CreateDeployment where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf iotJobConfiguration
       `Prelude.seq` Prelude.rnf deploymentName
+      `Prelude.seq` Prelude.rnf parentTargetArn
       `Prelude.seq` Prelude.rnf deploymentPolicies
       `Prelude.seq` Prelude.rnf components
       `Prelude.seq` Prelude.rnf targetArn
@@ -253,6 +274,8 @@ instance Core.ToJSON CreateDeployment where
               Prelude.<$> iotJobConfiguration,
             ("deploymentName" Core..=)
               Prelude.<$> deploymentName,
+            ("parentTargetArn" Core..=)
+              Prelude.<$> parentTargetArn,
             ("deploymentPolicies" Core..=)
               Prelude.<$> deploymentPolicies,
             ("components" Core..=) Prelude.<$> components,

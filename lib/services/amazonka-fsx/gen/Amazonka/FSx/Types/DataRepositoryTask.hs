@@ -20,13 +20,13 @@
 module Amazonka.FSx.Types.DataRepositoryTask where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.CompletionReport
 import Amazonka.FSx.Types.DataRepositoryTaskFailureDetails
 import Amazonka.FSx.Types.DataRepositoryTaskLifecycle
 import Amazonka.FSx.Types.DataRepositoryTaskStatus
 import Amazonka.FSx.Types.DataRepositoryTaskType
 import Amazonka.FSx.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of the data repository task. You use data repository tasks

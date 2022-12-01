@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.UsageResourceResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.Total
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on the sum of usage based on an Amazon Web Services

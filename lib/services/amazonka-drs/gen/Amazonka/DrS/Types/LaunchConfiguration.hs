@@ -20,10 +20,10 @@
 module Amazonka.DrS.Types.LaunchConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.LaunchDisposition
 import Amazonka.DrS.Types.Licensing
 import Amazonka.DrS.Types.TargetInstanceTypeRightSizingMethod
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newLaunchConfiguration' smart constructor.

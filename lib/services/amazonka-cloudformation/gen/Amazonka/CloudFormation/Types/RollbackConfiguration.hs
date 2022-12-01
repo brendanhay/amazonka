@@ -21,7 +21,7 @@ module Amazonka.CloudFormation.Types.RollbackConfiguration where
 
 import Amazonka.CloudFormation.Types.RollbackTrigger
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure containing the rollback triggers for CloudFormation to monitor

@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.BooleanColumnStatisticsData where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines column statistics supported for Boolean data columns.

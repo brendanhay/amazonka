@@ -20,7 +20,7 @@
 module Amazonka.NetworkManager.Types.ConnectAttachment where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkManager.Types.Attachment
 import Amazonka.NetworkManager.Types.ConnectAttachmentOptions
 import qualified Amazonka.Prelude as Prelude

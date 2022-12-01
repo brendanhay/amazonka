@@ -20,7 +20,7 @@
 module Amazonka.LexRuntime.Types.ResponseCard where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexRuntime.Types.ContentType
 import Amazonka.LexRuntime.Types.GenericAttachment
 import qualified Amazonka.Prelude as Prelude

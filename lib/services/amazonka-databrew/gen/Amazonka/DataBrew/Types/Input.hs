@@ -20,11 +20,11 @@
 module Amazonka.DataBrew.Types.Input where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.DataCatalogInputDefinition
 import Amazonka.DataBrew.Types.DatabaseInputDefinition
 import Amazonka.DataBrew.Types.Metadata
 import Amazonka.DataBrew.Types.S3Location
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information on how DataBrew can find data, in either the Glue

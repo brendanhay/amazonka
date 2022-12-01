@@ -145,7 +145,7 @@ module Amazonka.Rekognition.IndexFaces
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -364,8 +364,8 @@ indexFaces_image = Lens.lens (\IndexFaces' {image} -> image) (\s@IndexFaces' {} 
 
 instance Core.AWSRequest IndexFaces where
   type AWSResponse IndexFaces = IndexFacesResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

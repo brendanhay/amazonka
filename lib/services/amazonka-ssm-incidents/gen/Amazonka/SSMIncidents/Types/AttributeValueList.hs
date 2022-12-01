@@ -20,7 +20,7 @@
 module Amazonka.SSMIncidents.Types.AttributeValueList where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use the AttributeValueList to filter by string or integer values.

@@ -20,8 +20,8 @@
 module Amazonka.DirectoryService.Types.SettingEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectoryService.Types.DirectoryConfigurationStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the specified configurable setting for a

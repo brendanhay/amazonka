@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.UpdateAttributesRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies one or more attributes to remove from all the endpoints that

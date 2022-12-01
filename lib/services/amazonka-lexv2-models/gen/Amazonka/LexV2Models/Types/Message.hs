@@ -20,7 +20,7 @@
 module Amazonka.LexV2Models.Types.Message where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types.CustomPayload
 import Amazonka.LexV2Models.Types.ImageResponseCard
 import Amazonka.LexV2Models.Types.PlainTextMessage

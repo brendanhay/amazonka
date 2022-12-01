@@ -20,8 +20,8 @@
 module Amazonka.IoT.Types.MachineLearningDetectionConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.ConfidenceLevel
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of an ML Detect Security Profile.

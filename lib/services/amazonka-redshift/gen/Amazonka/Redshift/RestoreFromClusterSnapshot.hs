@@ -87,7 +87,7 @@ module Amazonka.Redshift.RestoreFromClusterSnapshot
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -110,7 +110,9 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     --
     -- VPC security groups only apply to clusters in VPCs.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The elastic IP (EIP) address for the cluster.
+    -- | The Elastic IP (EIP) address for the cluster. Don\'t specify the Elastic
+    -- IP address for a publicly accessible cluster with availability zone
+    -- relocation turned on.
     elasticIp :: Prelude.Maybe Prelude.Text,
     -- | The default number of days to retain a manual snapshot. If the value is
     -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
@@ -323,7 +325,9 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --
 -- VPC security groups only apply to clusters in VPCs.
 --
--- 'elasticIp', 'restoreFromClusterSnapshot_elasticIp' - The elastic IP (EIP) address for the cluster.
+-- 'elasticIp', 'restoreFromClusterSnapshot_elasticIp' - The Elastic IP (EIP) address for the cluster. Don\'t specify the Elastic
+-- IP address for a publicly accessible cluster with availability zone
+-- relocation turned on.
 --
 -- 'manualSnapshotRetentionPeriod', 'restoreFromClusterSnapshot_manualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot. If the value is
 -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
@@ -571,7 +575,9 @@ restoreFromClusterSnapshot_port = Lens.lens (\RestoreFromClusterSnapshot' {port}
 restoreFromClusterSnapshot_vpcSecurityGroupIds :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe [Prelude.Text])
 restoreFromClusterSnapshot_vpcSecurityGroupIds = Lens.lens (\RestoreFromClusterSnapshot' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreFromClusterSnapshot' {} a -> s {vpcSecurityGroupIds = a} :: RestoreFromClusterSnapshot) Prelude.. Lens.mapping Lens.coerced
 
--- | The elastic IP (EIP) address for the cluster.
+-- | The Elastic IP (EIP) address for the cluster. Don\'t specify the Elastic
+-- IP address for a publicly accessible cluster with availability zone
+-- relocation turned on.
 restoreFromClusterSnapshot_elasticIp :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
 restoreFromClusterSnapshot_elasticIp = Lens.lens (\RestoreFromClusterSnapshot' {elasticIp} -> elasticIp) (\s@RestoreFromClusterSnapshot' {} a -> s {elasticIp = a} :: RestoreFromClusterSnapshot)
 
@@ -826,8 +832,8 @@ instance Core.AWSRequest RestoreFromClusterSnapshot where
   type
     AWSResponse RestoreFromClusterSnapshot =
       RestoreFromClusterSnapshotResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "RestoreFromClusterSnapshotResult"

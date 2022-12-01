@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.DataColorPalette where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The theme colors that are used for data colors in charts. The colors

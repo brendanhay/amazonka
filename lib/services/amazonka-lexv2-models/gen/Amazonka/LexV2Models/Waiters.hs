@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.LexV2Models.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.DescribeBot
 import Amazonka.LexV2Models.DescribeBotAlias
 import Amazonka.LexV2Models.DescribeBotLocale
@@ -31,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 newBotLocaleBuilt :: Core.Wait DescribeBotLocale
 newBotLocaleBuilt =
   Core.Wait
-    { Core._waitName = "BotLocaleBuilt",
-      Core._waitAttempts = 35,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "BotLocaleBuilt",
+      Core.attempts = 35,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "Built"
             Core.AcceptSuccess
@@ -70,10 +71,10 @@ newBotLocaleBuilt =
 newBotImportCompleted :: Core.Wait DescribeImport
 newBotImportCompleted =
   Core.Wait
-    { Core._waitName = "BotImportCompleted",
-      Core._waitAttempts = 35,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "BotImportCompleted",
+      Core.attempts = 35,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "Completed"
             Core.AcceptSuccess
@@ -102,11 +103,11 @@ newBotImportCompleted =
 newBotLocaleExpressTestingAvailable :: Core.Wait DescribeBotLocale
 newBotLocaleExpressTestingAvailable =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "BotLocaleExpressTestingAvailable",
-      Core._waitAttempts = 35,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+      Core.attempts = 35,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "Built"
             Core.AcceptSuccess
@@ -149,10 +150,10 @@ newBotLocaleExpressTestingAvailable =
 newBotAvailable :: Core.Wait DescribeBot
 newBotAvailable =
   Core.Wait
-    { Core._waitName = "BotAvailable",
-      Core._waitAttempts = 35,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "BotAvailable",
+      Core.attempts = 35,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "Available"
             Core.AcceptSuccess
@@ -184,10 +185,10 @@ newBotAvailable =
 newBotAliasAvailable :: Core.Wait DescribeBotAlias
 newBotAliasAvailable =
   Core.Wait
-    { Core._waitName = "BotAliasAvailable",
-      Core._waitAttempts = 35,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "BotAliasAvailable",
+      Core.attempts = 35,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "Available"
             Core.AcceptSuccess
@@ -216,10 +217,10 @@ newBotAliasAvailable =
 newBotLocaleCreated :: Core.Wait DescribeBotLocale
 newBotLocaleCreated =
   Core.Wait
-    { Core._waitName = "BotLocaleCreated",
-      Core._waitAttempts = 35,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "BotLocaleCreated",
+      Core.attempts = 35,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "Built"
             Core.AcceptSuccess
@@ -262,10 +263,10 @@ newBotLocaleCreated =
 newBotVersionAvailable :: Core.Wait DescribeBotVersion
 newBotVersionAvailable =
   Core.Wait
-    { Core._waitName = "BotVersionAvailable",
-      Core._waitAttempts = 35,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "BotVersionAvailable",
+      Core.attempts = 35,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "Available"
             Core.AcceptSuccess
@@ -295,10 +296,10 @@ newBotVersionAvailable =
 newBotExportCompleted :: Core.Wait DescribeExport
 newBotExportCompleted =
   Core.Wait
-    { Core._waitName = "BotExportCompleted",
-      Core._waitAttempts = 35,
-      Core._waitDelay = 10,
-      Core._waitAcceptors =
+    { Core.name = "BotExportCompleted",
+      Core.attempts = 35,
+      Core.delay = 10,
+      Core.acceptors =
         [ Core.matchAll
             "Completed"
             Core.AcceptSuccess

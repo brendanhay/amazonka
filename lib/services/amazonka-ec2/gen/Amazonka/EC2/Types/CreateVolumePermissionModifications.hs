@@ -20,9 +20,9 @@
 module Amazonka.EC2.Types.CreateVolumePermissionModifications where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CreateVolumePermission
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes modifications to the list of create volume permissions for a

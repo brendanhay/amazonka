@@ -22,7 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorSourceConfiguration wh
 import Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingLiveConnectorConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorSourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data source configuration object of a streaming media pipeline.

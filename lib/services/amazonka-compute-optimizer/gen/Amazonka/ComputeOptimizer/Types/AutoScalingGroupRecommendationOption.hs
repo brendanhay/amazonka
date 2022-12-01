@@ -24,7 +24,7 @@ import Amazonka.ComputeOptimizer.Types.MigrationEffort
 import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a recommendation option for an Auto Scaling group.

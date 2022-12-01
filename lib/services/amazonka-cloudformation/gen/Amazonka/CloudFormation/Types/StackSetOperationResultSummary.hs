@@ -22,7 +22,7 @@ module Amazonka.CloudFormation.Types.StackSetOperationResultSummary where
 import Amazonka.CloudFormation.Types.AccountGateResult
 import Amazonka.CloudFormation.Types.StackSetOperationResultStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure that contains information about a specified operation\'s

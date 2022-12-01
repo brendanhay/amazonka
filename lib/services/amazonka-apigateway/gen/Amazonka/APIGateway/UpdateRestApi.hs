@@ -53,7 +53,7 @@ where
 
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,8 +103,8 @@ updateRestApi_restApiId = Lens.lens (\UpdateRestApi' {restApiId} -> restApiId) (
 
 instance Core.AWSRequest UpdateRestApi where
   type AWSResponse UpdateRestApi = RestApi
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

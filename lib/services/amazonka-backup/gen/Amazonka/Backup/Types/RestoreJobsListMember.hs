@@ -21,7 +21,7 @@ module Amazonka.Backup.Types.RestoreJobsListMember where
 
 import Amazonka.Backup.Types.RestoreJobStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about a restore job.

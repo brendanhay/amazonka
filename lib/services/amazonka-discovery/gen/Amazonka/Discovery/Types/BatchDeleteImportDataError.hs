@@ -20,8 +20,8 @@
 module Amazonka.Discovery.Types.BatchDeleteImportDataError where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Error messages returned for each import task that you deleted as a

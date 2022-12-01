@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityList where
 
 import Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentitySummary
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lists the origin access identities for CloudFront.Send a @GET@ request

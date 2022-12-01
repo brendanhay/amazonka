@@ -20,11 +20,11 @@
 module Amazonka.EC2.Types.BundleTask where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.BundleTaskError
 import Amazonka.EC2.Types.BundleTaskState
 import Amazonka.EC2.Types.Storage
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a bundle task.

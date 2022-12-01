@@ -31,6 +31,17 @@ module Amazonka.GroundStation.Lens
     createDataflowEndpointGroup_endpointDetails,
     dataflowEndpointGroupIdResponse_dataflowEndpointGroupId,
 
+    -- ** CreateEphemeris
+    createEphemeris_tags,
+    createEphemeris_expirationTime,
+    createEphemeris_enabled,
+    createEphemeris_kmsKeyArn,
+    createEphemeris_priority,
+    createEphemeris_ephemeris,
+    createEphemeris_name,
+    createEphemeris_satelliteId,
+    ephemerisIdResponse_ephemerisId,
+
     -- ** CreateMissionProfile
     createMissionProfile_tags,
     createMissionProfile_contactPrePassDurationSeconds,
@@ -51,6 +62,10 @@ module Amazonka.GroundStation.Lens
     -- ** DeleteDataflowEndpointGroup
     deleteDataflowEndpointGroup_dataflowEndpointGroupId,
     dataflowEndpointGroupIdResponse_dataflowEndpointGroupId,
+
+    -- ** DeleteEphemeris
+    deleteEphemeris_ephemerisId,
+    ephemerisIdResponse_ephemerisId,
 
     -- ** DeleteMissionProfile
     deleteMissionProfile_missionProfileId,
@@ -73,6 +88,20 @@ module Amazonka.GroundStation.Lens
     describeContactResponse_startTime,
     describeContactResponse_maximumElevation,
     describeContactResponse_httpStatus,
+
+    -- ** DescribeEphemeris
+    describeEphemeris_ephemerisId,
+    describeEphemerisResponse_tags,
+    describeEphemerisResponse_name,
+    describeEphemerisResponse_suppliedData,
+    describeEphemerisResponse_invalidReason,
+    describeEphemerisResponse_status,
+    describeEphemerisResponse_enabled,
+    describeEphemerisResponse_priority,
+    describeEphemerisResponse_satelliteId,
+    describeEphemerisResponse_creationTime,
+    describeEphemerisResponse_ephemerisId,
+    describeEphemerisResponse_httpStatus,
 
     -- ** GetConfig
     getConfig_configId,
@@ -120,6 +149,7 @@ module Amazonka.GroundStation.Lens
     -- ** GetSatellite
     getSatellite_satelliteId,
     getSatelliteResponse_satelliteArn,
+    getSatelliteResponse_currentEphemeris,
     getSatelliteResponse_satelliteId,
     getSatelliteResponse_noradSatelliteID,
     getSatelliteResponse_groundStations,
@@ -151,6 +181,17 @@ module Amazonka.GroundStation.Lens
     listDataflowEndpointGroupsResponse_nextToken,
     listDataflowEndpointGroupsResponse_dataflowEndpointGroupList,
     listDataflowEndpointGroupsResponse_httpStatus,
+
+    -- ** ListEphemerides
+    listEphemerides_nextToken,
+    listEphemerides_maxResults,
+    listEphemerides_statusList,
+    listEphemerides_endTime,
+    listEphemerides_satelliteId,
+    listEphemerides_startTime,
+    listEphemeridesResponse_nextToken,
+    listEphemeridesResponse_ephemerides,
+    listEphemeridesResponse_httpStatus,
 
     -- ** ListGroundStations
     listGroundStations_nextToken,
@@ -206,6 +247,13 @@ module Amazonka.GroundStation.Lens
     configIdResponse_configId,
     configIdResponse_configType,
     configIdResponse_configArn,
+
+    -- ** UpdateEphemeris
+    updateEphemeris_name,
+    updateEphemeris_priority,
+    updateEphemeris_enabled,
+    updateEphemeris_ephemerisId,
+    ephemerisIdResponse_ephemerisId,
 
     -- ** UpdateMissionProfile
     updateMissionProfile_name,
@@ -324,6 +372,36 @@ module Amazonka.GroundStation.Lens
     endpointDetails_endpoint,
     endpointDetails_securityDetails,
 
+    -- ** EphemerisData
+    ephemerisData_tle,
+    ephemerisData_oem,
+
+    -- ** EphemerisDescription
+    ephemerisDescription_sourceS3Object,
+    ephemerisDescription_ephemerisData,
+
+    -- ** EphemerisIdResponse
+    ephemerisIdResponse_ephemerisId,
+
+    -- ** EphemerisItem
+    ephemerisItem_name,
+    ephemerisItem_sourceS3Object,
+    ephemerisItem_status,
+    ephemerisItem_enabled,
+    ephemerisItem_priority,
+    ephemerisItem_creationTime,
+    ephemerisItem_ephemerisId,
+
+    -- ** EphemerisMetaData
+    ephemerisMetaData_name,
+    ephemerisMetaData_epoch,
+    ephemerisMetaData_ephemerisId,
+    ephemerisMetaData_source,
+
+    -- ** EphemerisTypeDescription
+    ephemerisTypeDescription_tle,
+    ephemerisTypeDescription_oem,
+
     -- ** Frequency
     frequency_units,
     frequency_value,
@@ -346,6 +424,15 @@ module Amazonka.GroundStation.Lens
     missionProfileListItem_missionProfileId,
     missionProfileListItem_region,
 
+    -- ** OEMEphemeris
+    oEMEphemeris_oemData,
+    oEMEphemeris_s3Object,
+
+    -- ** S3Object
+    s3Object_key,
+    s3Object_bucket,
+    s3Object_version,
+
     -- ** S3RecordingConfig
     s3RecordingConfig_prefix,
     s3RecordingConfig_bucketArn,
@@ -357,6 +444,7 @@ module Amazonka.GroundStation.Lens
 
     -- ** SatelliteListItem
     satelliteListItem_satelliteArn,
+    satelliteListItem_currentEphemeris,
     satelliteListItem_satelliteId,
     satelliteListItem_noradSatelliteID,
     satelliteListItem_groundStations,
@@ -381,6 +469,19 @@ module Amazonka.GroundStation.Lens
     spectrumConfig_bandwidth,
     spectrumConfig_centerFrequency,
 
+    -- ** TLEData
+    tLEData_tleLine1,
+    tLEData_tleLine2,
+    tLEData_validTimeRange,
+
+    -- ** TLEEphemeris
+    tLEEphemeris_tleData,
+    tLEEphemeris_s3Object,
+
+    -- ** TimeRange
+    timeRange_endTime,
+    timeRange_startTime,
+
     -- ** TrackingConfig
     trackingConfig_autotrack,
 
@@ -397,11 +498,14 @@ where
 import Amazonka.GroundStation.CancelContact
 import Amazonka.GroundStation.CreateConfig
 import Amazonka.GroundStation.CreateDataflowEndpointGroup
+import Amazonka.GroundStation.CreateEphemeris
 import Amazonka.GroundStation.CreateMissionProfile
 import Amazonka.GroundStation.DeleteConfig
 import Amazonka.GroundStation.DeleteDataflowEndpointGroup
+import Amazonka.GroundStation.DeleteEphemeris
 import Amazonka.GroundStation.DeleteMissionProfile
 import Amazonka.GroundStation.DescribeContact
+import Amazonka.GroundStation.DescribeEphemeris
 import Amazonka.GroundStation.GetConfig
 import Amazonka.GroundStation.GetDataflowEndpointGroup
 import Amazonka.GroundStation.GetMinuteUsage
@@ -410,6 +514,7 @@ import Amazonka.GroundStation.GetSatellite
 import Amazonka.GroundStation.ListConfigs
 import Amazonka.GroundStation.ListContacts
 import Amazonka.GroundStation.ListDataflowEndpointGroups
+import Amazonka.GroundStation.ListEphemerides
 import Amazonka.GroundStation.ListGroundStations
 import Amazonka.GroundStation.ListMissionProfiles
 import Amazonka.GroundStation.ListSatellites
@@ -437,11 +542,19 @@ import Amazonka.GroundStation.Types.Destination
 import Amazonka.GroundStation.Types.Eirp
 import Amazonka.GroundStation.Types.Elevation
 import Amazonka.GroundStation.Types.EndpointDetails
+import Amazonka.GroundStation.Types.EphemerisData
+import Amazonka.GroundStation.Types.EphemerisDescription
+import Amazonka.GroundStation.Types.EphemerisIdResponse
+import Amazonka.GroundStation.Types.EphemerisItem
+import Amazonka.GroundStation.Types.EphemerisMetaData
+import Amazonka.GroundStation.Types.EphemerisTypeDescription
 import Amazonka.GroundStation.Types.Frequency
 import Amazonka.GroundStation.Types.FrequencyBandwidth
 import Amazonka.GroundStation.Types.GroundStationData
 import Amazonka.GroundStation.Types.MissionProfileIdResponse
 import Amazonka.GroundStation.Types.MissionProfileListItem
+import Amazonka.GroundStation.Types.OEMEphemeris
+import Amazonka.GroundStation.Types.S3Object
 import Amazonka.GroundStation.Types.S3RecordingConfig
 import Amazonka.GroundStation.Types.S3RecordingDetails
 import Amazonka.GroundStation.Types.SatelliteListItem
@@ -449,9 +562,13 @@ import Amazonka.GroundStation.Types.SecurityDetails
 import Amazonka.GroundStation.Types.SocketAddress
 import Amazonka.GroundStation.Types.Source
 import Amazonka.GroundStation.Types.SpectrumConfig
+import Amazonka.GroundStation.Types.TLEData
+import Amazonka.GroundStation.Types.TLEEphemeris
+import Amazonka.GroundStation.Types.TimeRange
 import Amazonka.GroundStation.Types.TrackingConfig
 import Amazonka.GroundStation.Types.UplinkEchoConfig
 import Amazonka.GroundStation.Types.UplinkSpectrumConfig
 import Amazonka.GroundStation.UntagResource
 import Amazonka.GroundStation.UpdateConfig
+import Amazonka.GroundStation.UpdateEphemeris
 import Amazonka.GroundStation.UpdateMissionProfile

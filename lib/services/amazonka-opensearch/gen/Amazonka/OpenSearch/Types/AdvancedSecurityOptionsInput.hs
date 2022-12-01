@@ -20,28 +20,29 @@
 module Amazonka.OpenSearch.Types.AdvancedSecurityOptionsInput where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.MasterUserOptions
 import Amazonka.OpenSearch.Types.SAMLOptionsInput
 import qualified Amazonka.Prelude as Prelude
 
--- | The advanced security configuration: whether advanced security is
--- enabled, whether the internal database option is enabled, master
--- username and password (if internal database is enabled), and master user
--- ARN (if IAM is enabled).
+-- | Options for enabling and configuring fine-grained access control. For
+-- more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html Fine-grained access control in Amazon OpenSearch Service>.
 --
 -- /See:/ 'newAdvancedSecurityOptionsInput' smart constructor.
 data AdvancedSecurityOptionsInput = AdvancedSecurityOptionsInput'
-  { -- | True if the internal user database is enabled.
+  { -- | True to enable the internal user database.
     internalUserDatabaseEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The SAML application configuration for the domain.
+    -- | Container for information about the SAML configuration for OpenSearch
+    -- Dashboards.
     sAMLOptions :: Prelude.Maybe SAMLOptionsInput,
-    -- | True if Anonymous auth is enabled. Anonymous auth can be enabled only
-    -- when AdvancedSecurity is enabled on existing domains.
+    -- | True to enable a 30-day migration period during which administrators can
+    -- create role mappings. Only necessary when
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
     anonymousAuthEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | True if advanced security is enabled.
+    -- | True to enable fine-grained access control.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | Credentials for the master user: username and password, ARN, or both.
+    -- | Container for information about the master user.
     masterUserOptions :: Prelude.Maybe MasterUserOptions
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -54,16 +55,18 @@ data AdvancedSecurityOptionsInput = AdvancedSecurityOptionsInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'internalUserDatabaseEnabled', 'advancedSecurityOptionsInput_internalUserDatabaseEnabled' - True if the internal user database is enabled.
+-- 'internalUserDatabaseEnabled', 'advancedSecurityOptionsInput_internalUserDatabaseEnabled' - True to enable the internal user database.
 --
--- 'sAMLOptions', 'advancedSecurityOptionsInput_sAMLOptions' - The SAML application configuration for the domain.
+-- 'sAMLOptions', 'advancedSecurityOptionsInput_sAMLOptions' - Container for information about the SAML configuration for OpenSearch
+-- Dashboards.
 --
--- 'anonymousAuthEnabled', 'advancedSecurityOptionsInput_anonymousAuthEnabled' - True if Anonymous auth is enabled. Anonymous auth can be enabled only
--- when AdvancedSecurity is enabled on existing domains.
+-- 'anonymousAuthEnabled', 'advancedSecurityOptionsInput_anonymousAuthEnabled' - True to enable a 30-day migration period during which administrators can
+-- create role mappings. Only necessary when
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
 --
--- 'enabled', 'advancedSecurityOptionsInput_enabled' - True if advanced security is enabled.
+-- 'enabled', 'advancedSecurityOptionsInput_enabled' - True to enable fine-grained access control.
 --
--- 'masterUserOptions', 'advancedSecurityOptionsInput_masterUserOptions' - Credentials for the master user: username and password, ARN, or both.
+-- 'masterUserOptions', 'advancedSecurityOptionsInput_masterUserOptions' - Container for information about the master user.
 newAdvancedSecurityOptionsInput ::
   AdvancedSecurityOptionsInput
 newAdvancedSecurityOptionsInput =
@@ -76,24 +79,26 @@ newAdvancedSecurityOptionsInput =
       masterUserOptions = Prelude.Nothing
     }
 
--- | True if the internal user database is enabled.
+-- | True to enable the internal user database.
 advancedSecurityOptionsInput_internalUserDatabaseEnabled :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe Prelude.Bool)
 advancedSecurityOptionsInput_internalUserDatabaseEnabled = Lens.lens (\AdvancedSecurityOptionsInput' {internalUserDatabaseEnabled} -> internalUserDatabaseEnabled) (\s@AdvancedSecurityOptionsInput' {} a -> s {internalUserDatabaseEnabled = a} :: AdvancedSecurityOptionsInput)
 
--- | The SAML application configuration for the domain.
+-- | Container for information about the SAML configuration for OpenSearch
+-- Dashboards.
 advancedSecurityOptionsInput_sAMLOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe SAMLOptionsInput)
 advancedSecurityOptionsInput_sAMLOptions = Lens.lens (\AdvancedSecurityOptionsInput' {sAMLOptions} -> sAMLOptions) (\s@AdvancedSecurityOptionsInput' {} a -> s {sAMLOptions = a} :: AdvancedSecurityOptionsInput)
 
--- | True if Anonymous auth is enabled. Anonymous auth can be enabled only
--- when AdvancedSecurity is enabled on existing domains.
+-- | True to enable a 30-day migration period during which administrators can
+-- create role mappings. Only necessary when
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
 advancedSecurityOptionsInput_anonymousAuthEnabled :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe Prelude.Bool)
 advancedSecurityOptionsInput_anonymousAuthEnabled = Lens.lens (\AdvancedSecurityOptionsInput' {anonymousAuthEnabled} -> anonymousAuthEnabled) (\s@AdvancedSecurityOptionsInput' {} a -> s {anonymousAuthEnabled = a} :: AdvancedSecurityOptionsInput)
 
--- | True if advanced security is enabled.
+-- | True to enable fine-grained access control.
 advancedSecurityOptionsInput_enabled :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe Prelude.Bool)
 advancedSecurityOptionsInput_enabled = Lens.lens (\AdvancedSecurityOptionsInput' {enabled} -> enabled) (\s@AdvancedSecurityOptionsInput' {} a -> s {enabled = a} :: AdvancedSecurityOptionsInput)
 
--- | Credentials for the master user: username and password, ARN, or both.
+-- | Container for information about the master user.
 advancedSecurityOptionsInput_masterUserOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe MasterUserOptions)
 advancedSecurityOptionsInput_masterUserOptions = Lens.lens (\AdvancedSecurityOptionsInput' {masterUserOptions} -> masterUserOptions) (\s@AdvancedSecurityOptionsInput' {} a -> s {masterUserOptions = a} :: AdvancedSecurityOptionsInput)
 

@@ -20,7 +20,7 @@
 module Amazonka.OpsWorksCM.Types.ServerEvent where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An event that is related to the server, such as the start of maintenance

@@ -49,7 +49,7 @@ module Amazonka.QLDB.UpdateLedgerPermissionsMode
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -176,8 +176,8 @@ instance Core.AWSRequest UpdateLedgerPermissionsMode where
   type
     AWSResponse UpdateLedgerPermissionsMode =
       UpdateLedgerPermissionsModeResponse
-  service _ = defaultService
-  request srv = Request.patchJSON srv
+  request overrides =
+    Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

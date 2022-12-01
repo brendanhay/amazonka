@@ -21,7 +21,7 @@ module Amazonka.AMP.Types.WorkspaceSummary where
 
 import Amazonka.AMP.Types.WorkspaceStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a summary of the properties of a workspace.

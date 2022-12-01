@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.DeleteFileSystemOpenZFSResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The response object for the Amazon FSx for OpenZFS file system that\'s

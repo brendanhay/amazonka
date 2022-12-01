@@ -20,8 +20,8 @@
 module Amazonka.Forecast.Types.FeaturizationMethod where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.FeaturizationMethodName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the method that featurizes (transforms) a

@@ -20,6 +20,7 @@
 module Amazonka.ECS.Types.Task where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.Attachment
 import Amazonka.ECS.Types.Attribute
 import Amazonka.ECS.Types.Connectivity
@@ -31,7 +32,6 @@ import Amazonka.ECS.Types.LaunchType
 import Amazonka.ECS.Types.Tag
 import Amazonka.ECS.Types.TaskOverride
 import Amazonka.ECS.Types.TaskStopCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on a task in a cluster.

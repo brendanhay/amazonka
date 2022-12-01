@@ -20,11 +20,11 @@
 module Amazonka.CostExplorer.Types.Anomaly where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.AnomalyFeedbackType
 import Amazonka.CostExplorer.Types.AnomalyScore
 import Amazonka.CostExplorer.Types.Impact
 import Amazonka.CostExplorer.Types.RootCause
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An unusual cost pattern. This consists of the detailed metadata and the

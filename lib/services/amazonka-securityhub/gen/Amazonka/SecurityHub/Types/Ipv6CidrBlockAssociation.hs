@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.Ipv6CidrBlockAssociation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An IPV6 CIDR block association.

@@ -20,10 +20,10 @@
 module Amazonka.EMRContainers.Types.MonitoringConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration
 import Amazonka.EMRContainers.Types.PersistentAppUI
 import Amazonka.EMRContainers.Types.S3MonitoringConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration setting for monitoring.

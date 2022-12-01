@@ -21,7 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.UserFeedback where
 
 import Amazonka.CodeGuruProfiler.Types.FeedbackType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Feedback that can be submitted for each instance of an anomaly by the

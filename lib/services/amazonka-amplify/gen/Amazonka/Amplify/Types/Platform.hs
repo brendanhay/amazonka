@@ -21,6 +21,7 @@ module Amazonka.Amplify.Types.Platform
   ( Platform
       ( ..,
         Platform_WEB,
+        Platform_WEB_COMPUTE,
         Platform_WEB_DYNAMIC
       ),
   )
@@ -60,11 +61,15 @@ newtype Platform = Platform'
 pattern Platform_WEB :: Platform
 pattern Platform_WEB = Platform' "WEB"
 
+pattern Platform_WEB_COMPUTE :: Platform
+pattern Platform_WEB_COMPUTE = Platform' "WEB_COMPUTE"
+
 pattern Platform_WEB_DYNAMIC :: Platform
 pattern Platform_WEB_DYNAMIC = Platform' "WEB_DYNAMIC"
 
 {-# COMPLETE
   Platform_WEB,
+  Platform_WEB_COMPUTE,
   Platform_WEB_DYNAMIC,
   Platform'
   #-}

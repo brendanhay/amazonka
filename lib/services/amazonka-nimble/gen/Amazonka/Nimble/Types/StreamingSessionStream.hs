@@ -20,7 +20,7 @@
 module Amazonka.Nimble.Types.StreamingSessionStream where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Nimble.Types.StreamingSessionStreamState
 import Amazonka.Nimble.Types.StreamingSessionStreamStatusCode
 import qualified Amazonka.Prelude as Prelude

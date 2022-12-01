@@ -23,7 +23,7 @@ import Amazonka.AppMesh.Types.VirtualGatewayGrpcConnectionPool
 import Amazonka.AppMesh.Types.VirtualGatewayHttp2ConnectionPool
 import Amazonka.AppMesh.Types.VirtualGatewayHttpConnectionPool
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the type of virtual gateway connection pool.

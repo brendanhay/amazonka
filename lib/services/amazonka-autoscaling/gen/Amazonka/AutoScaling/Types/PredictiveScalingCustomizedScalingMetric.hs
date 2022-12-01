@@ -21,7 +21,7 @@ module Amazonka.AutoScaling.Types.PredictiveScalingCustomizedScalingMetric where
 
 import Amazonka.AutoScaling.Types.MetricDataQuery
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a custom scaling metric for a predictive scaling policy.

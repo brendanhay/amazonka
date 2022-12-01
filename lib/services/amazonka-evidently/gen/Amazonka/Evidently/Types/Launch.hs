@@ -20,13 +20,13 @@
 module Amazonka.Evidently.Types.Launch where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Evidently.Types.LaunchExecution
 import Amazonka.Evidently.Types.LaunchGroup
 import Amazonka.Evidently.Types.LaunchStatus
 import Amazonka.Evidently.Types.LaunchType
 import Amazonka.Evidently.Types.MetricMonitor
 import Amazonka.Evidently.Types.ScheduledSplitsLaunchDefinition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains the configuration details of one Evidently

@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.MembershipItem where
 
 import Amazonka.Chime.Types.RoomMembershipRole
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Membership details, such as member ID and member role.

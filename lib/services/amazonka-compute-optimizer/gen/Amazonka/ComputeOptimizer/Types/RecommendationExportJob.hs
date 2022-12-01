@@ -23,7 +23,7 @@ import Amazonka.ComputeOptimizer.Types.ExportDestination
 import Amazonka.ComputeOptimizer.Types.JobStatus
 import Amazonka.ComputeOptimizer.Types.ResourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a recommendation export job.

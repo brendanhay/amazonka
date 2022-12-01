@@ -46,6 +46,9 @@ module Amazonka.RBin
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** ValidationException
     _ValidationException,
 
@@ -85,11 +88,23 @@ module Amazonka.RBin
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** LockRule
+    LockRule (LockRule'),
+    newLockRule,
+    LockRuleResponse (LockRuleResponse'),
+    newLockRuleResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
+
+    -- ** UnlockRule
+    UnlockRule (UnlockRule'),
+    newUnlockRule,
+    UnlockRuleResponse (UnlockRuleResponse'),
+    newUnlockRuleResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -105,6 +120,9 @@ module Amazonka.RBin
 
     -- * Types
 
+    -- ** LockState
+    LockState (..),
+
     -- ** ResourceType
     ResourceType (..),
 
@@ -113,6 +131,13 @@ module Amazonka.RBin
 
     -- ** RuleStatus
     RuleStatus (..),
+
+    -- ** UnlockDelayUnit
+    UnlockDelayUnit (..),
+
+    -- ** LockConfiguration
+    LockConfiguration (LockConfiguration'),
+    newLockConfiguration,
 
     -- ** ResourceTag
     ResourceTag (ResourceTag'),
@@ -129,6 +154,10 @@ module Amazonka.RBin
     -- ** Tag
     Tag (Tag'),
     newTag,
+
+    -- ** UnlockDelay
+    UnlockDelay (UnlockDelay'),
+    newUnlockDelay,
   )
 where
 
@@ -138,8 +167,10 @@ import Amazonka.RBin.GetRule
 import Amazonka.RBin.Lens
 import Amazonka.RBin.ListRules
 import Amazonka.RBin.ListTagsForResource
+import Amazonka.RBin.LockRule
 import Amazonka.RBin.TagResource
 import Amazonka.RBin.Types
+import Amazonka.RBin.UnlockRule
 import Amazonka.RBin.UntagResource
 import Amazonka.RBin.UpdateRule
 import Amazonka.RBin.Waiters

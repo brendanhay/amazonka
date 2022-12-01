@@ -22,7 +22,7 @@ module Amazonka.ApiGatewayV2.Types.Route where
 import Amazonka.ApiGatewayV2.Types.AuthorizationType
 import Amazonka.ApiGatewayV2.Types.ParameterConstraints
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a route.

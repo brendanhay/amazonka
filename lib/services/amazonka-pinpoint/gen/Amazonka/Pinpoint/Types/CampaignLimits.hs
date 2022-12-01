@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.CampaignLimits where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a campaign, specifies limits on the messages that the campaign can

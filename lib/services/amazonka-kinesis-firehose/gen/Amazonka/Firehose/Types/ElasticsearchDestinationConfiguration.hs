@@ -20,6 +20,7 @@
 module Amazonka.Firehose.Types.ElasticsearchDestinationConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.ElasticsearchBufferingHints
 import Amazonka.Firehose.Types.ElasticsearchIndexRotationPeriod
@@ -28,7 +29,6 @@ import Amazonka.Firehose.Types.ElasticsearchS3BackupMode
 import Amazonka.Firehose.Types.ProcessingConfiguration
 import Amazonka.Firehose.Types.S3DestinationConfiguration
 import Amazonka.Firehose.Types.VpcConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of a destination in Amazon ES.

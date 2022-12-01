@@ -56,8 +56,8 @@ module Amazonka.EC2.ModifyIpamResourceCidr
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,8 +178,8 @@ instance Core.AWSRequest ModifyIpamResourceCidr where
   type
     AWSResponse ModifyIpamResourceCidr =
       ModifyIpamResourceCidrResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->
@@ -233,7 +233,8 @@ instance Core.ToQuery ModifyIpamResourceCidr where
 
 -- | /See:/ 'newModifyIpamResourceCidrResponse' smart constructor.
 data ModifyIpamResourceCidrResponse = ModifyIpamResourceCidrResponse'
-  { ipamResourceCidr :: Prelude.Maybe IpamResourceCidr,
+  { -- | The CIDR of the resource.
+    ipamResourceCidr :: Prelude.Maybe IpamResourceCidr,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -247,7 +248,7 @@ data ModifyIpamResourceCidrResponse = ModifyIpamResourceCidrResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipamResourceCidr', 'modifyIpamResourceCidrResponse_ipamResourceCidr' - Undocumented member.
+-- 'ipamResourceCidr', 'modifyIpamResourceCidrResponse_ipamResourceCidr' - The CIDR of the resource.
 --
 -- 'httpStatus', 'modifyIpamResourceCidrResponse_httpStatus' - The response's http status code.
 newModifyIpamResourceCidrResponse ::
@@ -261,7 +262,7 @@ newModifyIpamResourceCidrResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The CIDR of the resource.
 modifyIpamResourceCidrResponse_ipamResourceCidr :: Lens.Lens' ModifyIpamResourceCidrResponse (Prelude.Maybe IpamResourceCidr)
 modifyIpamResourceCidrResponse_ipamResourceCidr = Lens.lens (\ModifyIpamResourceCidrResponse' {ipamResourceCidr} -> ipamResourceCidr) (\s@ModifyIpamResourceCidrResponse' {} a -> s {ipamResourceCidr = a} :: ModifyIpamResourceCidrResponse)
 

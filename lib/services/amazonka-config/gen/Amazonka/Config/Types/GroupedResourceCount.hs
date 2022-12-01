@@ -20,7 +20,7 @@
 module Amazonka.Config.Types.GroupedResourceCount where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The count of resources that are grouped by the group name.

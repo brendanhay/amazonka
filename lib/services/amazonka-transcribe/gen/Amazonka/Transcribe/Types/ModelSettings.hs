@@ -20,7 +20,7 @@
 module Amazonka.Transcribe.Types.ModelSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the name of the custom language model that was included in the

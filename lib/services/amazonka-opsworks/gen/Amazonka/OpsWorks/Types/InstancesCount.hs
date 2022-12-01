@@ -20,7 +20,7 @@
 module Amazonka.OpsWorks.Types.InstancesCount where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes how many instances a stack has for each status.

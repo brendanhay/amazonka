@@ -22,7 +22,7 @@ module Amazonka.ComputeOptimizer.Types.VolumeRecommendationOption where
 import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.VolumeConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a recommendation option for an Amazon Elastic Block Store

@@ -20,9 +20,9 @@
 module Amazonka.IoTWireless.Types.MessageDeliveryStatusEventConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.EventNotificationTopicStatus
 import Amazonka.IoTWireless.Types.SidewalkEventNotificationConfigurations
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Message delivery status event configuration object for enabling and

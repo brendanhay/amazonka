@@ -20,8 +20,8 @@
 module Amazonka.ELBV2.Types.LoadBalancerState where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types.LoadBalancerStateEnum
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the state of the load balancer.

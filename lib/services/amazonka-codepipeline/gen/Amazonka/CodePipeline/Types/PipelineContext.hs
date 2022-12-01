@@ -22,7 +22,7 @@ module Amazonka.CodePipeline.Types.PipelineContext where
 import Amazonka.CodePipeline.Types.ActionContext
 import Amazonka.CodePipeline.Types.StageContext
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about a pipeline to a job worker.

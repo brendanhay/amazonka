@@ -40,8 +40,8 @@ module Amazonka.IVS.GetStreamKey
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -74,8 +74,8 @@ getStreamKey_arn = Lens.lens (\GetStreamKey' {arn} -> arn) (\s@GetStreamKey' {} 
 
 instance Core.AWSRequest GetStreamKey where
   type AWSResponse GetStreamKey = GetStreamKeyResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

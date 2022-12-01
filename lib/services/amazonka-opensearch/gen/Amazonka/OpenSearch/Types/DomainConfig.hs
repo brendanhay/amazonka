@@ -20,7 +20,7 @@
 module Amazonka.OpenSearch.Types.DomainConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.AccessPoliciesStatus
 import Amazonka.OpenSearch.Types.AdvancedOptionsStatus
 import Amazonka.OpenSearch.Types.AdvancedSecurityOptionsStatus
@@ -38,44 +38,45 @@ import Amazonka.OpenSearch.Types.VPCDerivedInfoStatus
 import Amazonka.OpenSearch.Types.VersionStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | The configuration of a domain.
+-- | Container for the configuration of an OpenSearch Service domain.
 --
 -- /See:/ 'newDomainConfig' smart constructor.
 data DomainConfig = DomainConfig'
-  { -- | The @NodeToNodeEncryptionOptions@ for the domain.
+  { -- | Whether node-to-node encryption is enabled or disabled.
     nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptionsStatus,
-    -- | The @ClusterConfig@ for the domain.
+    -- | Container for the cluster configuration of a the domain.
     clusterConfig :: Prelude.Maybe ClusterConfigStatus,
-    -- | The @AdvancedOptions@ for the domain. See
-    -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced options>
-    -- for more information.
+    -- | Key-value pairs to specify advanced configuration options. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced options>.
     advancedOptions :: Prelude.Maybe AdvancedOptionsStatus,
-    -- | Specifies change details of the domain configuration change.
+    -- | Container for information about the progress of an existing
+    -- configuration change.
     changeProgressDetails :: Prelude.Maybe ChangeProgressDetails,
-    -- | Specifies @AdvancedSecurityOptions@ for the domain.
+    -- | Container for fine-grained access control settings for the domain.
     advancedSecurityOptions :: Prelude.Maybe AdvancedSecurityOptionsStatus,
-    -- | The @CognitoOptions@ for the specified domain. For more information, see
-    -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
+    -- | Container for Amazon Cognito options for the domain.
     cognitoOptions :: Prelude.Maybe CognitoOptionsStatus,
-    -- | The @EncryptionAtRestOptions@ for the domain.
+    -- | Key-value pairs to enable encryption at rest.
     encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptionsStatus,
-    -- | The @EBSOptions@ for the domain.
+    -- | Container for EBS options configured for an OpenSearch Service domain.
     eBSOptions :: Prelude.Maybe EBSOptionsStatus,
-    -- | IAM access policy as a JSON-formatted string.
+    -- | Specifies the access policies for the domain.
     accessPolicies :: Prelude.Maybe AccessPoliciesStatus,
-    -- | The @VPCOptions@ for the specified domain. For more information, see
-    -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+    -- | The current VPC options for the domain and the status of any updates to
+    -- their configuration.
     vPCOptions :: Prelude.Maybe VPCDerivedInfoStatus,
-    -- | Specifies @AutoTuneOptions@ for the domain.
+    -- | Container for Auto-Tune settings for the domain.
     autoTuneOptions :: Prelude.Maybe AutoTuneOptionsStatus,
-    -- | The @DomainEndpointOptions@ for the domain.
+    -- | Additional options for the domain endpoint, such as whether to require
+    -- HTTPS for all traffic.
     domainEndpointOptions :: Prelude.Maybe DomainEndpointOptionsStatus,
-    -- | The @SnapshotOptions@ for the domain.
+    -- | DEPRECATED. Container for parameters required to configure automated
+    -- snapshots of domain indexes.
     snapshotOptions :: Prelude.Maybe SnapshotOptionsStatus,
-    -- | Log publishing options for the given domain.
+    -- | Key-value pairs to configure slow log publishing.
     logPublishingOptions :: Prelude.Maybe LogPublishingOptionsStatus,
-    -- | String of format Elasticsearch_X.Y or OpenSearch_X.Y to specify the
-    -- engine version for the OpenSearch or Elasticsearch domain.
+    -- | The OpenSearch or Elasticsearch version that the domain is running.
     engineVersion :: Prelude.Maybe VersionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,40 +89,41 @@ data DomainConfig = DomainConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodeToNodeEncryptionOptions', 'domainConfig_nodeToNodeEncryptionOptions' - The @NodeToNodeEncryptionOptions@ for the domain.
+-- 'nodeToNodeEncryptionOptions', 'domainConfig_nodeToNodeEncryptionOptions' - Whether node-to-node encryption is enabled or disabled.
 --
--- 'clusterConfig', 'domainConfig_clusterConfig' - The @ClusterConfig@ for the domain.
+-- 'clusterConfig', 'domainConfig_clusterConfig' - Container for the cluster configuration of a the domain.
 --
--- 'advancedOptions', 'domainConfig_advancedOptions' - The @AdvancedOptions@ for the domain. See
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced options>
--- for more information.
+-- 'advancedOptions', 'domainConfig_advancedOptions' - Key-value pairs to specify advanced configuration options. For more
+-- information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced options>.
 --
--- 'changeProgressDetails', 'domainConfig_changeProgressDetails' - Specifies change details of the domain configuration change.
+-- 'changeProgressDetails', 'domainConfig_changeProgressDetails' - Container for information about the progress of an existing
+-- configuration change.
 --
--- 'advancedSecurityOptions', 'domainConfig_advancedSecurityOptions' - Specifies @AdvancedSecurityOptions@ for the domain.
+-- 'advancedSecurityOptions', 'domainConfig_advancedSecurityOptions' - Container for fine-grained access control settings for the domain.
 --
--- 'cognitoOptions', 'domainConfig_cognitoOptions' - The @CognitoOptions@ for the specified domain. For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
+-- 'cognitoOptions', 'domainConfig_cognitoOptions' - Container for Amazon Cognito options for the domain.
 --
--- 'encryptionAtRestOptions', 'domainConfig_encryptionAtRestOptions' - The @EncryptionAtRestOptions@ for the domain.
+-- 'encryptionAtRestOptions', 'domainConfig_encryptionAtRestOptions' - Key-value pairs to enable encryption at rest.
 --
--- 'eBSOptions', 'domainConfig_eBSOptions' - The @EBSOptions@ for the domain.
+-- 'eBSOptions', 'domainConfig_eBSOptions' - Container for EBS options configured for an OpenSearch Service domain.
 --
--- 'accessPolicies', 'domainConfig_accessPolicies' - IAM access policy as a JSON-formatted string.
+-- 'accessPolicies', 'domainConfig_accessPolicies' - Specifies the access policies for the domain.
 --
--- 'vPCOptions', 'domainConfig_vPCOptions' - The @VPCOptions@ for the specified domain. For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+-- 'vPCOptions', 'domainConfig_vPCOptions' - The current VPC options for the domain and the status of any updates to
+-- their configuration.
 --
--- 'autoTuneOptions', 'domainConfig_autoTuneOptions' - Specifies @AutoTuneOptions@ for the domain.
+-- 'autoTuneOptions', 'domainConfig_autoTuneOptions' - Container for Auto-Tune settings for the domain.
 --
--- 'domainEndpointOptions', 'domainConfig_domainEndpointOptions' - The @DomainEndpointOptions@ for the domain.
+-- 'domainEndpointOptions', 'domainConfig_domainEndpointOptions' - Additional options for the domain endpoint, such as whether to require
+-- HTTPS for all traffic.
 --
--- 'snapshotOptions', 'domainConfig_snapshotOptions' - The @SnapshotOptions@ for the domain.
+-- 'snapshotOptions', 'domainConfig_snapshotOptions' - DEPRECATED. Container for parameters required to configure automated
+-- snapshots of domain indexes.
 --
--- 'logPublishingOptions', 'domainConfig_logPublishingOptions' - Log publishing options for the given domain.
+-- 'logPublishingOptions', 'domainConfig_logPublishingOptions' - Key-value pairs to configure slow log publishing.
 --
--- 'engineVersion', 'domainConfig_engineVersion' - String of format Elasticsearch_X.Y or OpenSearch_X.Y to specify the
--- engine version for the OpenSearch or Elasticsearch domain.
+-- 'engineVersion', 'domainConfig_engineVersion' - The OpenSearch or Elasticsearch version that the domain is running.
 newDomainConfig ::
   DomainConfig
 newDomainConfig =
@@ -144,68 +146,69 @@ newDomainConfig =
       engineVersion = Prelude.Nothing
     }
 
--- | The @NodeToNodeEncryptionOptions@ for the domain.
+-- | Whether node-to-node encryption is enabled or disabled.
 domainConfig_nodeToNodeEncryptionOptions :: Lens.Lens' DomainConfig (Prelude.Maybe NodeToNodeEncryptionOptionsStatus)
 domainConfig_nodeToNodeEncryptionOptions = Lens.lens (\DomainConfig' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@DomainConfig' {} a -> s {nodeToNodeEncryptionOptions = a} :: DomainConfig)
 
--- | The @ClusterConfig@ for the domain.
+-- | Container for the cluster configuration of a the domain.
 domainConfig_clusterConfig :: Lens.Lens' DomainConfig (Prelude.Maybe ClusterConfigStatus)
 domainConfig_clusterConfig = Lens.lens (\DomainConfig' {clusterConfig} -> clusterConfig) (\s@DomainConfig' {} a -> s {clusterConfig = a} :: DomainConfig)
 
--- | The @AdvancedOptions@ for the domain. See
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced options>
--- for more information.
+-- | Key-value pairs to specify advanced configuration options. For more
+-- information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced options>.
 domainConfig_advancedOptions :: Lens.Lens' DomainConfig (Prelude.Maybe AdvancedOptionsStatus)
 domainConfig_advancedOptions = Lens.lens (\DomainConfig' {advancedOptions} -> advancedOptions) (\s@DomainConfig' {} a -> s {advancedOptions = a} :: DomainConfig)
 
--- | Specifies change details of the domain configuration change.
+-- | Container for information about the progress of an existing
+-- configuration change.
 domainConfig_changeProgressDetails :: Lens.Lens' DomainConfig (Prelude.Maybe ChangeProgressDetails)
 domainConfig_changeProgressDetails = Lens.lens (\DomainConfig' {changeProgressDetails} -> changeProgressDetails) (\s@DomainConfig' {} a -> s {changeProgressDetails = a} :: DomainConfig)
 
--- | Specifies @AdvancedSecurityOptions@ for the domain.
+-- | Container for fine-grained access control settings for the domain.
 domainConfig_advancedSecurityOptions :: Lens.Lens' DomainConfig (Prelude.Maybe AdvancedSecurityOptionsStatus)
 domainConfig_advancedSecurityOptions = Lens.lens (\DomainConfig' {advancedSecurityOptions} -> advancedSecurityOptions) (\s@DomainConfig' {} a -> s {advancedSecurityOptions = a} :: DomainConfig)
 
--- | The @CognitoOptions@ for the specified domain. For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
+-- | Container for Amazon Cognito options for the domain.
 domainConfig_cognitoOptions :: Lens.Lens' DomainConfig (Prelude.Maybe CognitoOptionsStatus)
 domainConfig_cognitoOptions = Lens.lens (\DomainConfig' {cognitoOptions} -> cognitoOptions) (\s@DomainConfig' {} a -> s {cognitoOptions = a} :: DomainConfig)
 
--- | The @EncryptionAtRestOptions@ for the domain.
+-- | Key-value pairs to enable encryption at rest.
 domainConfig_encryptionAtRestOptions :: Lens.Lens' DomainConfig (Prelude.Maybe EncryptionAtRestOptionsStatus)
 domainConfig_encryptionAtRestOptions = Lens.lens (\DomainConfig' {encryptionAtRestOptions} -> encryptionAtRestOptions) (\s@DomainConfig' {} a -> s {encryptionAtRestOptions = a} :: DomainConfig)
 
--- | The @EBSOptions@ for the domain.
+-- | Container for EBS options configured for an OpenSearch Service domain.
 domainConfig_eBSOptions :: Lens.Lens' DomainConfig (Prelude.Maybe EBSOptionsStatus)
 domainConfig_eBSOptions = Lens.lens (\DomainConfig' {eBSOptions} -> eBSOptions) (\s@DomainConfig' {} a -> s {eBSOptions = a} :: DomainConfig)
 
--- | IAM access policy as a JSON-formatted string.
+-- | Specifies the access policies for the domain.
 domainConfig_accessPolicies :: Lens.Lens' DomainConfig (Prelude.Maybe AccessPoliciesStatus)
 domainConfig_accessPolicies = Lens.lens (\DomainConfig' {accessPolicies} -> accessPolicies) (\s@DomainConfig' {} a -> s {accessPolicies = a} :: DomainConfig)
 
--- | The @VPCOptions@ for the specified domain. For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+-- | The current VPC options for the domain and the status of any updates to
+-- their configuration.
 domainConfig_vPCOptions :: Lens.Lens' DomainConfig (Prelude.Maybe VPCDerivedInfoStatus)
 domainConfig_vPCOptions = Lens.lens (\DomainConfig' {vPCOptions} -> vPCOptions) (\s@DomainConfig' {} a -> s {vPCOptions = a} :: DomainConfig)
 
--- | Specifies @AutoTuneOptions@ for the domain.
+-- | Container for Auto-Tune settings for the domain.
 domainConfig_autoTuneOptions :: Lens.Lens' DomainConfig (Prelude.Maybe AutoTuneOptionsStatus)
 domainConfig_autoTuneOptions = Lens.lens (\DomainConfig' {autoTuneOptions} -> autoTuneOptions) (\s@DomainConfig' {} a -> s {autoTuneOptions = a} :: DomainConfig)
 
--- | The @DomainEndpointOptions@ for the domain.
+-- | Additional options for the domain endpoint, such as whether to require
+-- HTTPS for all traffic.
 domainConfig_domainEndpointOptions :: Lens.Lens' DomainConfig (Prelude.Maybe DomainEndpointOptionsStatus)
 domainConfig_domainEndpointOptions = Lens.lens (\DomainConfig' {domainEndpointOptions} -> domainEndpointOptions) (\s@DomainConfig' {} a -> s {domainEndpointOptions = a} :: DomainConfig)
 
--- | The @SnapshotOptions@ for the domain.
+-- | DEPRECATED. Container for parameters required to configure automated
+-- snapshots of domain indexes.
 domainConfig_snapshotOptions :: Lens.Lens' DomainConfig (Prelude.Maybe SnapshotOptionsStatus)
 domainConfig_snapshotOptions = Lens.lens (\DomainConfig' {snapshotOptions} -> snapshotOptions) (\s@DomainConfig' {} a -> s {snapshotOptions = a} :: DomainConfig)
 
--- | Log publishing options for the given domain.
+-- | Key-value pairs to configure slow log publishing.
 domainConfig_logPublishingOptions :: Lens.Lens' DomainConfig (Prelude.Maybe LogPublishingOptionsStatus)
 domainConfig_logPublishingOptions = Lens.lens (\DomainConfig' {logPublishingOptions} -> logPublishingOptions) (\s@DomainConfig' {} a -> s {logPublishingOptions = a} :: DomainConfig)
 
--- | String of format Elasticsearch_X.Y or OpenSearch_X.Y to specify the
--- engine version for the OpenSearch or Elasticsearch domain.
+-- | The OpenSearch or Elasticsearch version that the domain is running.
 domainConfig_engineVersion :: Lens.Lens' DomainConfig (Prelude.Maybe VersionStatus)
 domainConfig_engineVersion = Lens.lens (\DomainConfig' {engineVersion} -> engineVersion) (\s@DomainConfig' {} a -> s {engineVersion = a} :: DomainConfig)
 

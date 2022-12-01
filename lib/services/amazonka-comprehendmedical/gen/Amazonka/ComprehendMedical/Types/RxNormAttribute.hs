@@ -22,7 +22,7 @@ module Amazonka.ComprehendMedical.Types.RxNormAttribute where
 import Amazonka.ComprehendMedical.Types.RxNormAttributeType
 import Amazonka.ComprehendMedical.Types.RxNormTrait
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The extracted attributes that relate to this entity. The attributes

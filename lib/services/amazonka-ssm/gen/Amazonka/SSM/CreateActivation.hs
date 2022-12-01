@@ -60,7 +60,7 @@ module Amazonka.SSM.CreateActivation
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,6 +120,9 @@ data CreateActivation = CreateActivation'
     -- principal @ssm.amazonaws.com@. For more information, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment>
     -- in the /Amazon Web Services Systems Manager User Guide/.
+    --
+    -- You can\'t specify an IAM service-linked role for this parameter. You
+    -- must create a unique role.
     iamRole :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -184,6 +187,9 @@ data CreateActivation = CreateActivation'
 -- principal @ssm.amazonaws.com@. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment>
 -- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- You can\'t specify an IAM service-linked role for this parameter. You
+-- must create a unique role.
 newCreateActivation ::
   -- | 'iamRole'
   Prelude.Text ->
@@ -263,6 +269,9 @@ createActivation_expirationDate = Lens.lens (\CreateActivation' {expirationDate}
 -- principal @ssm.amazonaws.com@. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment>
 -- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- You can\'t specify an IAM service-linked role for this parameter. You
+-- must create a unique role.
 createActivation_iamRole :: Lens.Lens' CreateActivation Prelude.Text
 createActivation_iamRole = Lens.lens (\CreateActivation' {iamRole} -> iamRole) (\s@CreateActivation' {} a -> s {iamRole = a} :: CreateActivation)
 
@@ -270,8 +279,8 @@ instance Core.AWSRequest CreateActivation where
   type
     AWSResponse CreateActivation =
       CreateActivationResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

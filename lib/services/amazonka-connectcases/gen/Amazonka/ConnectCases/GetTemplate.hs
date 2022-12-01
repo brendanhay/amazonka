@@ -41,6 +41,7 @@ module Amazonka.ConnectCases.GetTemplate
     getTemplateResponse_requiredFields,
     getTemplateResponse_httpStatus,
     getTemplateResponse_name,
+    getTemplateResponse_status,
     getTemplateResponse_templateArn,
     getTemplateResponse_templateId,
   )
@@ -48,7 +49,7 @@ where
 
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,8 +96,8 @@ getTemplate_templateId = Lens.lens (\GetTemplate' {templateId} -> templateId) (\
 
 instance Core.AWSRequest GetTemplate where
   type AWSResponse GetTemplate = GetTemplateResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +108,7 @@ instance Core.AWSRequest GetTemplate where
             Prelude.<*> (x Core..?> "requiredFields" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "name")
+            Prelude.<*> (x Core..:> "status")
             Prelude.<*> (x Core..:> "templateArn")
             Prelude.<*> (x Core..:> "templateId")
       )
@@ -163,6 +165,8 @@ data GetTemplateResponse = GetTemplateResponse'
     httpStatus :: Prelude.Int,
     -- | The name of the template.
     name :: Prelude.Text,
+    -- | The status of the template.
+    status :: TemplateStatus,
     -- | The Amazon Resource Name (ARN) of the template.
     templateArn :: Prelude.Text,
     -- | A unique identifier of a template.
@@ -192,6 +196,8 @@ data GetTemplateResponse = GetTemplateResponse'
 --
 -- 'name', 'getTemplateResponse_name' - The name of the template.
 --
+-- 'status', 'getTemplateResponse_status' - The status of the template.
+--
 -- 'templateArn', 'getTemplateResponse_templateArn' - The Amazon Resource Name (ARN) of the template.
 --
 -- 'templateId', 'getTemplateResponse_templateId' - A unique identifier of a template.
@@ -200,6 +206,8 @@ newGetTemplateResponse ::
   Prelude.Int ->
   -- | 'name'
   Prelude.Text ->
+  -- | 'status'
+  TemplateStatus ->
   -- | 'templateArn'
   Prelude.Text ->
   -- | 'templateId'
@@ -208,6 +216,7 @@ newGetTemplateResponse ::
 newGetTemplateResponse
   pHttpStatus_
   pName_
+  pStatus_
   pTemplateArn_
   pTemplateId_ =
     GetTemplateResponse'
@@ -217,6 +226,7 @@ newGetTemplateResponse
         requiredFields = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         name = pName_,
+        status = pStatus_,
         templateArn = pTemplateArn_,
         templateId = pTemplateId_
       }
@@ -247,6 +257,10 @@ getTemplateResponse_httpStatus = Lens.lens (\GetTemplateResponse' {httpStatus} -
 getTemplateResponse_name :: Lens.Lens' GetTemplateResponse Prelude.Text
 getTemplateResponse_name = Lens.lens (\GetTemplateResponse' {name} -> name) (\s@GetTemplateResponse' {} a -> s {name = a} :: GetTemplateResponse)
 
+-- | The status of the template.
+getTemplateResponse_status :: Lens.Lens' GetTemplateResponse TemplateStatus
+getTemplateResponse_status = Lens.lens (\GetTemplateResponse' {status} -> status) (\s@GetTemplateResponse' {} a -> s {status = a} :: GetTemplateResponse)
+
 -- | The Amazon Resource Name (ARN) of the template.
 getTemplateResponse_templateArn :: Lens.Lens' GetTemplateResponse Prelude.Text
 getTemplateResponse_templateArn = Lens.lens (\GetTemplateResponse' {templateArn} -> templateArn) (\s@GetTemplateResponse' {} a -> s {templateArn = a} :: GetTemplateResponse)
@@ -263,5 +277,6 @@ instance Prelude.NFData GetTemplateResponse where
       `Prelude.seq` Prelude.rnf requiredFields
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf templateArn
       `Prelude.seq` Prelude.rnf templateId

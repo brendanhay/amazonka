@@ -20,8 +20,9 @@
 module Amazonka.Lightsail.Types.Domain where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.DomainEntry
+import Amazonka.Lightsail.Types.RegisteredDomainDelegationInfo
 import Amazonka.Lightsail.Types.ResourceLocation
 import Amazonka.Lightsail.Types.ResourceType
 import Amazonka.Lightsail.Types.Tag
@@ -39,6 +40,9 @@ data Domain = Domain'
     resourceType :: Prelude.Maybe ResourceType,
     -- | The name of the domain.
     name :: Prelude.Maybe Prelude.Text,
+    -- | An object that describes the state of the Route 53 domain delegation to
+    -- a Lightsail DNS zone.
+    registeredDomainDelegationInfo :: Prelude.Maybe RegisteredDomainDelegationInfo,
     -- | The Amazon Resource Name (ARN) of the domain recordset (e.g.,
     -- @arn:aws:lightsail:global:123456789101:Domain\/824cede0-abc7-4f84-8dbc-12345EXAMPLE@).
     arn :: Prelude.Maybe Prelude.Text,
@@ -74,6 +78,9 @@ data Domain = Domain'
 --
 -- 'name', 'domain_name' - The name of the domain.
 --
+-- 'registeredDomainDelegationInfo', 'domain_registeredDomainDelegationInfo' - An object that describes the state of the Route 53 domain delegation to
+-- a Lightsail DNS zone.
+--
 -- 'arn', 'domain_arn' - The Amazon Resource Name (ARN) of the domain recordset (e.g.,
 -- @arn:aws:lightsail:global:123456789101:Domain\/824cede0-abc7-4f84-8dbc-12345EXAMPLE@).
 --
@@ -96,6 +103,7 @@ newDomain =
     { tags = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       name = Prelude.Nothing,
+      registeredDomainDelegationInfo = Prelude.Nothing,
       arn = Prelude.Nothing,
       location = Prelude.Nothing,
       domainEntries = Prelude.Nothing,
@@ -116,6 +124,11 @@ domain_resourceType = Lens.lens (\Domain' {resourceType} -> resourceType) (\s@Do
 -- | The name of the domain.
 domain_name :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_name = Lens.lens (\Domain' {name} -> name) (\s@Domain' {} a -> s {name = a} :: Domain)
+
+-- | An object that describes the state of the Route 53 domain delegation to
+-- a Lightsail DNS zone.
+domain_registeredDomainDelegationInfo :: Lens.Lens' Domain (Prelude.Maybe RegisteredDomainDelegationInfo)
+domain_registeredDomainDelegationInfo = Lens.lens (\Domain' {registeredDomainDelegationInfo} -> registeredDomainDelegationInfo) (\s@Domain' {} a -> s {registeredDomainDelegationInfo = a} :: Domain)
 
 -- | The Amazon Resource Name (ARN) of the domain recordset (e.g.,
 -- @arn:aws:lightsail:global:123456789101:Domain\/824cede0-abc7-4f84-8dbc-12345EXAMPLE@).
@@ -152,6 +165,7 @@ instance Core.FromJSON Domain where
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "registeredDomainDelegationInfo")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "location")
             Prelude.<*> (x Core..:? "domainEntries" Core..!= Prelude.mempty)
@@ -164,6 +178,7 @@ instance Prelude.Hashable Domain where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` registeredDomainDelegationInfo
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` domainEntries
@@ -175,6 +190,7 @@ instance Prelude.NFData Domain where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf registeredDomainDelegationInfo
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf domainEntries

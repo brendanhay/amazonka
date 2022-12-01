@@ -20,7 +20,7 @@
 module Amazonka.Panorama.Types.NtpPayload where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Network time protocol (NTP) server settings. Use this option to connect

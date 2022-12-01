@@ -20,7 +20,7 @@
 module Amazonka.QLDBSession.Types.IOUsage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains I\/O usage metrics for a command that was invoked.

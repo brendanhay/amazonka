@@ -22,7 +22,7 @@ module Amazonka.ConnectCampaigns.Types.Campaign where
 import Amazonka.ConnectCampaigns.Types.DialerConfig
 import Amazonka.ConnectCampaigns.Types.OutboundCallConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon Connect campaign.

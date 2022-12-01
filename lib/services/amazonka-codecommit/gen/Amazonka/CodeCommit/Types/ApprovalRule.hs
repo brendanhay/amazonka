@@ -21,7 +21,7 @@ module Amazonka.CodeCommit.Types.ApprovalRule where
 
 import Amazonka.CodeCommit.Types.OriginApprovalRuleTemplate
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about an approval rule.

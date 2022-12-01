@@ -23,7 +23,7 @@ import Amazonka.ApiGatewayV2.Types.DomainNameStatus
 import Amazonka.ApiGatewayV2.Types.EndpointType
 import Amazonka.ApiGatewayV2.Types.SecurityPolicy
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The domain name configuration.

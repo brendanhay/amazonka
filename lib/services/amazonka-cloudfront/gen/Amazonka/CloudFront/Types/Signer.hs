@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.Signer where
 
 import Amazonka.CloudFront.Types.KeyPairIds
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of Amazon Web Services accounts and the active CloudFront key

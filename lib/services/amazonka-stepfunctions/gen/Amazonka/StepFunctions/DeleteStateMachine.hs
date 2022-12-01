@@ -23,7 +23,7 @@
 -- Deletes a state machine. This is an asynchronous operation: It sets the
 -- state machine\'s status to @DELETING@ and begins the deletion process.
 --
--- For @EXPRESS@state machines, the deletion will happen eventually
+-- For @EXPRESS@ state machines, the deletion will happen eventually
 -- (usually less than a minute). Running executions may emit logs after
 -- @DeleteStateMachine@ API is called.
 module Amazonka.StepFunctions.DeleteStateMachine
@@ -44,7 +44,7 @@ module Amazonka.StepFunctions.DeleteStateMachine
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,8 +84,8 @@ instance Core.AWSRequest DeleteStateMachine where
   type
     AWSResponse DeleteStateMachine =
       DeleteStateMachineResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

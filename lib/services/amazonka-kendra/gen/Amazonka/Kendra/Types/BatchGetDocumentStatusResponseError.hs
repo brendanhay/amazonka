@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.BatchGetDocumentStatusResponseError where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.ErrorCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a response when the status of a document could not be

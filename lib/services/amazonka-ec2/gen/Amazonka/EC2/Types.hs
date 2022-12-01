@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -44,6 +45,9 @@ module Amazonka.EC2.Types
 
     -- * AddressStatus
     AddressStatus (..),
+
+    -- * AddressTransferStatus
+    AddressTransferStatus (..),
 
     -- * Affinity
     Affinity (..),
@@ -991,6 +995,16 @@ module Amazonka.EC2.Types
     addressAttribute_allocationId,
     addressAttribute_publicIp,
     addressAttribute_ptrRecordUpdate,
+
+    -- * AddressTransfer
+    AddressTransfer (..),
+    newAddressTransfer,
+    addressTransfer_allocationId,
+    addressTransfer_transferOfferExpirationTimestamp,
+    addressTransfer_transferOfferAcceptedTimestamp,
+    addressTransfer_transferAccountId,
+    addressTransfer_publicIp,
+    addressTransfer_addressTransferStatus,
 
     -- * AllowedPrincipal
     AllowedPrincipal (..),
@@ -3022,7 +3036,9 @@ module Amazonka.EC2.Types
     instanceRequirements_totalLocalStorageGB,
     instanceRequirements_localStorageTypes,
     instanceRequirements_onDemandMaxPricePercentageOverLowestPrice,
+    instanceRequirements_allowedInstanceTypes,
     instanceRequirements_acceleratorNames,
+    instanceRequirements_networkBandwidthGbps,
     instanceRequirements_acceleratorManufacturers,
     instanceRequirements_excludedInstanceTypes,
     instanceRequirements_networkInterfaceCount,
@@ -3047,7 +3063,9 @@ module Amazonka.EC2.Types
     instanceRequirementsRequest_totalLocalStorageGB,
     instanceRequirementsRequest_localStorageTypes,
     instanceRequirementsRequest_onDemandMaxPricePercentageOverLowestPrice,
+    instanceRequirementsRequest_allowedInstanceTypes,
     instanceRequirementsRequest_acceleratorNames,
+    instanceRequirementsRequest_networkBandwidthGbps,
     instanceRequirementsRequest_acceleratorManufacturers,
     instanceRequirementsRequest_excludedInstanceTypes,
     instanceRequirementsRequest_networkInterfaceCount,
@@ -3704,6 +3722,7 @@ module Amazonka.EC2.Types
     launchTemplatePlacement_groupName,
     launchTemplatePlacement_affinity,
     launchTemplatePlacement_tenancy,
+    launchTemplatePlacement_groupId,
 
     -- * LaunchTemplatePlacementRequest
     LaunchTemplatePlacementRequest (..),
@@ -3716,6 +3735,7 @@ module Amazonka.EC2.Types
     launchTemplatePlacementRequest_groupName,
     launchTemplatePlacementRequest_affinity,
     launchTemplatePlacementRequest_tenancy,
+    launchTemplatePlacementRequest_groupId,
 
     -- * LaunchTemplatePrivateDnsNameOptions
     LaunchTemplatePrivateDnsNameOptions (..),
@@ -4057,6 +4077,18 @@ module Amazonka.EC2.Types
     networkAclEntry_ruleAction,
     networkAclEntry_protocol,
     networkAclEntry_ipv6CidrBlock,
+
+    -- * NetworkBandwidthGbps
+    NetworkBandwidthGbps (..),
+    newNetworkBandwidthGbps,
+    networkBandwidthGbps_max,
+    networkBandwidthGbps_min,
+
+    -- * NetworkBandwidthGbpsRequest
+    NetworkBandwidthGbpsRequest (..),
+    newNetworkBandwidthGbpsRequest,
+    networkBandwidthGbpsRequest_max,
+    networkBandwidthGbpsRequest_min,
 
     -- * NetworkCardInfo
     NetworkCardInfo (..),
@@ -4432,6 +4464,7 @@ module Amazonka.EC2.Types
     placement_groupName,
     placement_affinity,
     placement_tenancy,
+    placement_groupId,
 
     -- * PlacementGroup
     PlacementGroup (..),
@@ -4671,10 +4704,13 @@ module Amazonka.EC2.Types
     newReplaceRootVolumeTask,
     replaceRootVolumeTask_tags,
     replaceRootVolumeTask_taskState,
+    replaceRootVolumeTask_snapshotId,
     replaceRootVolumeTask_replaceRootVolumeTaskId,
     replaceRootVolumeTask_completeTime,
     replaceRootVolumeTask_instanceId,
+    replaceRootVolumeTask_deleteReplacedRootVolume,
     replaceRootVolumeTask_startTime,
+    replaceRootVolumeTask_imageId,
 
     -- * RequestIpamResourceTag
     RequestIpamResourceTag (..),
@@ -6645,6 +6681,7 @@ module Amazonka.EC2.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AcceleratorCount
 import Amazonka.EC2.Types.AcceleratorCountRequest
@@ -6670,6 +6707,8 @@ import Amazonka.EC2.Types.AddressAttribute
 import Amazonka.EC2.Types.AddressAttributeName
 import Amazonka.EC2.Types.AddressFamily
 import Amazonka.EC2.Types.AddressStatus
+import Amazonka.EC2.Types.AddressTransfer
+import Amazonka.EC2.Types.AddressTransferStatus
 import Amazonka.EC2.Types.Affinity
 import Amazonka.EC2.Types.AllocationState
 import Amazonka.EC2.Types.AllocationStrategy
@@ -7193,6 +7232,8 @@ import Amazonka.EC2.Types.NatGatewayState
 import Amazonka.EC2.Types.NetworkAcl
 import Amazonka.EC2.Types.NetworkAclAssociation
 import Amazonka.EC2.Types.NetworkAclEntry
+import Amazonka.EC2.Types.NetworkBandwidthGbps
+import Amazonka.EC2.Types.NetworkBandwidthGbpsRequest
 import Amazonka.EC2.Types.NetworkCardInfo
 import Amazonka.EC2.Types.NetworkInfo
 import Amazonka.EC2.Types.NetworkInsightsAccessScope
@@ -7581,7 +7622,6 @@ import Amazonka.EC2.Types.VpnTunnelLogOptions
 import Amazonka.EC2.Types.VpnTunnelLogOptionsSpecification
 import Amazonka.EC2.Types.VpnTunnelOptionsSpecification
 import Amazonka.EC2.Types.WeekDay
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -7589,27 +7629,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "EC2",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "ec2",
-      Core._serviceSigningName = "ec2",
-      Core._serviceVersion = "2016-11-15",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseXMLError "EC2",
-      Core._serviceRetry = retry
+    { Core.abbrev = "EC2",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "ec2",
+      Core.signingName = "ec2",
+      Core.version = "2016-11-15",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseXMLError "EC2",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

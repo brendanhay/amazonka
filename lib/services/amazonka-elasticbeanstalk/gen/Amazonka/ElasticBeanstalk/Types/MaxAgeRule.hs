@@ -20,7 +20,7 @@
 module Amazonka.ElasticBeanstalk.Types.MaxAgeRule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A lifecycle rule that deletes application versions after the specified

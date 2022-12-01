@@ -20,6 +20,7 @@
 module Amazonka.ElasticSearch.Types.ElasticsearchDomainConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.AccessPoliciesStatus
 import Amazonka.ElasticSearch.Types.AdvancedOptionsStatus
 import Amazonka.ElasticSearch.Types.AdvancedSecurityOptionsStatus
@@ -35,7 +36,6 @@ import Amazonka.ElasticSearch.Types.LogPublishingOptionsStatus
 import Amazonka.ElasticSearch.Types.NodeToNodeEncryptionOptionsStatus
 import Amazonka.ElasticSearch.Types.SnapshotOptionsStatus
 import Amazonka.ElasticSearch.Types.VPCDerivedInfoStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of an Elasticsearch domain.

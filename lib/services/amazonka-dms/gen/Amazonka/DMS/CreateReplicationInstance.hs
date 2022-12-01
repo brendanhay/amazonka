@@ -46,6 +46,7 @@ module Amazonka.DMS.CreateReplicationInstance
     createReplicationInstance_dnsNameServers,
     createReplicationInstance_replicationSubnetGroupIdentifier,
     createReplicationInstance_engineVersion,
+    createReplicationInstance_networkType,
     createReplicationInstance_multiAZ,
     createReplicationInstance_replicationInstanceIdentifier,
     createReplicationInstance_replicationInstanceClass,
@@ -61,8 +62,8 @@ module Amazonka.DMS.CreateReplicationInstance
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,6 +144,10 @@ data CreateReplicationInstance = CreateReplicationInstance'
     -- If an engine version number is not specified when a replication instance
     -- is created, the default is the latest engine version available.
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The type of IP address protocol used by a replication instance, such as
+    -- IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+    -- IPv6 only is not yet supported.
+    networkType :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the replication instance is a Multi-AZ deployment. You
     -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
     -- set to @true@.
@@ -251,6 +256,10 @@ data CreateReplicationInstance = CreateReplicationInstance'
 -- If an engine version number is not specified when a replication instance
 -- is created, the default is the latest engine version available.
 --
+-- 'networkType', 'createReplicationInstance_networkType' - The type of IP address protocol used by a replication instance, such as
+-- IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+-- IPv6 only is not yet supported.
+--
 -- 'multiAZ', 'createReplicationInstance_multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You
 -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
 -- set to @true@.
@@ -298,6 +307,7 @@ newCreateReplicationInstance
         replicationSubnetGroupIdentifier =
           Prelude.Nothing,
         engineVersion = Prelude.Nothing,
+        networkType = Prelude.Nothing,
         multiAZ = Prelude.Nothing,
         replicationInstanceIdentifier =
           pReplicationInstanceIdentifier_,
@@ -401,6 +411,12 @@ createReplicationInstance_replicationSubnetGroupIdentifier = Lens.lens (\CreateR
 createReplicationInstance_engineVersion :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_engineVersion = Lens.lens (\CreateReplicationInstance' {engineVersion} -> engineVersion) (\s@CreateReplicationInstance' {} a -> s {engineVersion = a} :: CreateReplicationInstance)
 
+-- | The type of IP address protocol used by a replication instance, such as
+-- IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+-- IPv6 only is not yet supported.
+createReplicationInstance_networkType :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
+createReplicationInstance_networkType = Lens.lens (\CreateReplicationInstance' {networkType} -> networkType) (\s@CreateReplicationInstance' {} a -> s {networkType = a} :: CreateReplicationInstance)
+
 -- | Specifies whether the replication instance is a Multi-AZ deployment. You
 -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
 -- set to @true@.
@@ -436,8 +452,8 @@ instance Core.AWSRequest CreateReplicationInstance where
   type
     AWSResponse CreateReplicationInstance =
       CreateReplicationInstanceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -460,6 +476,7 @@ instance Prelude.Hashable CreateReplicationInstance where
       `Prelude.hashWithSalt` dnsNameServers
       `Prelude.hashWithSalt` replicationSubnetGroupIdentifier
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` networkType
       `Prelude.hashWithSalt` multiAZ
       `Prelude.hashWithSalt` replicationInstanceIdentifier
       `Prelude.hashWithSalt` replicationInstanceClass
@@ -478,8 +495,10 @@ instance Prelude.NFData CreateReplicationInstance where
       `Prelude.seq` Prelude.rnf dnsNameServers
       `Prelude.seq` Prelude.rnf replicationSubnetGroupIdentifier
       `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf networkType
       `Prelude.seq` Prelude.rnf multiAZ
-      `Prelude.seq` Prelude.rnf replicationInstanceIdentifier
+      `Prelude.seq` Prelude.rnf
+        replicationInstanceIdentifier
       `Prelude.seq` Prelude.rnf replicationInstanceClass
 
 instance Core.ToHeaders CreateReplicationInstance where
@@ -522,6 +541,7 @@ instance Core.ToJSON CreateReplicationInstance where
             ("ReplicationSubnetGroupIdentifier" Core..=)
               Prelude.<$> replicationSubnetGroupIdentifier,
             ("EngineVersion" Core..=) Prelude.<$> engineVersion,
+            ("NetworkType" Core..=) Prelude.<$> networkType,
             ("MultiAZ" Core..=) Prelude.<$> multiAZ,
             Prelude.Just
               ( "ReplicationInstanceIdentifier"

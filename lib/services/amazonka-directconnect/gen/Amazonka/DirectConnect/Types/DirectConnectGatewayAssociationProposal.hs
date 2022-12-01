@@ -20,10 +20,10 @@
 module Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposal where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectConnect.Types.AssociatedGateway
 import Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState
 import Amazonka.DirectConnect.Types.RouteFilterPrefix
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the proposal request to attach a virtual private

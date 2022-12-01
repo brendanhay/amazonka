@@ -20,7 +20,7 @@
 module Amazonka.EMRServerless.Types.TotalResourceUtilization where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The aggregate vCPU, memory, and storage resources used from the time job

@@ -20,7 +20,7 @@
 module Amazonka.ServiceCatalog.Types.ServiceActionDetail where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ServiceActionDefinitionKey
 import Amazonka.ServiceCatalog.Types.ServiceActionSummary

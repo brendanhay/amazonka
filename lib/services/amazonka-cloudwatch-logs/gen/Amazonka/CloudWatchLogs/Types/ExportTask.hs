@@ -22,7 +22,7 @@ module Amazonka.CloudWatchLogs.Types.ExportTask where
 import Amazonka.CloudWatchLogs.Types.ExportTaskExecutionInfo
 import Amazonka.CloudWatchLogs.Types.ExportTaskStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an export task.

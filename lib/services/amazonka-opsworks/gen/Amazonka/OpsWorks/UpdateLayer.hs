@@ -58,7 +58,7 @@ module Amazonka.OpsWorks.UpdateLayer
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -328,8 +328,8 @@ updateLayer_layerId = Lens.lens (\UpdateLayer' {layerId} -> layerId) (\s@UpdateL
 
 instance Core.AWSRequest UpdateLayer where
   type AWSResponse UpdateLayer = UpdateLayerResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull UpdateLayerResponse'
 
 instance Prelude.Hashable UpdateLayer where

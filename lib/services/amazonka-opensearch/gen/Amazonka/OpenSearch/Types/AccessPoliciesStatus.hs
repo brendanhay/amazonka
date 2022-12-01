@@ -20,22 +20,20 @@
 module Amazonka.OpenSearch.Types.AccessPoliciesStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | The configured access rules for the domain\'s document and search
--- endpoints, and the current status of those rules.
+-- | The configured access rules for the domain\'s search endpoint, and the
+-- current status of those rules.
 --
 -- /See:/ 'newAccessPoliciesStatus' smart constructor.
 data AccessPoliciesStatus = AccessPoliciesStatus'
   { -- | The access policy configured for the domain. Access policies can be
-    -- resource-based, IP-based, or IAM-based. See
-    -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-access-policies Configuring access policies>for
-    -- more information.
+    -- resource-based, IP-based, or IAM-based. For more information, see
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-access-policies Configuring access policies>.
     options :: Prelude.Text,
-    -- | The status of the access policy for the domain. See @OptionStatus@ for
-    -- the status information that\'s included.
+    -- | The status of the access policy for the domain.
     status :: OptionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,12 +47,10 @@ data AccessPoliciesStatus = AccessPoliciesStatus'
 -- for backwards compatibility:
 --
 -- 'options', 'accessPoliciesStatus_options' - The access policy configured for the domain. Access policies can be
--- resource-based, IP-based, or IAM-based. See
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-access-policies Configuring access policies>for
--- more information.
+-- resource-based, IP-based, or IAM-based. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-access-policies Configuring access policies>.
 --
--- 'status', 'accessPoliciesStatus_status' - The status of the access policy for the domain. See @OptionStatus@ for
--- the status information that\'s included.
+-- 'status', 'accessPoliciesStatus_status' - The status of the access policy for the domain.
 newAccessPoliciesStatus ::
   -- | 'options'
   Prelude.Text ->
@@ -68,14 +64,12 @@ newAccessPoliciesStatus pOptions_ pStatus_ =
     }
 
 -- | The access policy configured for the domain. Access policies can be
--- resource-based, IP-based, or IAM-based. See
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-access-policies Configuring access policies>for
--- more information.
+-- resource-based, IP-based, or IAM-based. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-access-policies Configuring access policies>.
 accessPoliciesStatus_options :: Lens.Lens' AccessPoliciesStatus Prelude.Text
 accessPoliciesStatus_options = Lens.lens (\AccessPoliciesStatus' {options} -> options) (\s@AccessPoliciesStatus' {} a -> s {options = a} :: AccessPoliciesStatus)
 
--- | The status of the access policy for the domain. See @OptionStatus@ for
--- the status information that\'s included.
+-- | The status of the access policy for the domain.
 accessPoliciesStatus_status :: Lens.Lens' AccessPoliciesStatus OptionStatus
 accessPoliciesStatus_status = Lens.lens (\AccessPoliciesStatus' {status} -> status) (\s@AccessPoliciesStatus' {} a -> s {status = a} :: AccessPoliciesStatus)
 

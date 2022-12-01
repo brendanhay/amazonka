@@ -20,18 +20,18 @@
 module Amazonka.OpenSearch.Types.PackageVersionHistory where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Details of a package version.
+-- | Details about a package version.
 --
 -- /See:/ 'newPackageVersionHistory' smart constructor.
 data PackageVersionHistory = PackageVersionHistory'
   { -- | The package version.
     packageVersion :: Prelude.Maybe Prelude.Text,
-    -- | A message associated with the package version.
+    -- | A message associated with the package version when it was uploaded.
     commitMessage :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp of when the package was created.
+    -- | The date and time when the package was created.
     createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,9 +46,9 @@ data PackageVersionHistory = PackageVersionHistory'
 --
 -- 'packageVersion', 'packageVersionHistory_packageVersion' - The package version.
 --
--- 'commitMessage', 'packageVersionHistory_commitMessage' - A message associated with the package version.
+-- 'commitMessage', 'packageVersionHistory_commitMessage' - A message associated with the package version when it was uploaded.
 --
--- 'createdAt', 'packageVersionHistory_createdAt' - The timestamp of when the package was created.
+-- 'createdAt', 'packageVersionHistory_createdAt' - The date and time when the package was created.
 newPackageVersionHistory ::
   PackageVersionHistory
 newPackageVersionHistory =
@@ -63,11 +63,11 @@ newPackageVersionHistory =
 packageVersionHistory_packageVersion :: Lens.Lens' PackageVersionHistory (Prelude.Maybe Prelude.Text)
 packageVersionHistory_packageVersion = Lens.lens (\PackageVersionHistory' {packageVersion} -> packageVersion) (\s@PackageVersionHistory' {} a -> s {packageVersion = a} :: PackageVersionHistory)
 
--- | A message associated with the package version.
+-- | A message associated with the package version when it was uploaded.
 packageVersionHistory_commitMessage :: Lens.Lens' PackageVersionHistory (Prelude.Maybe Prelude.Text)
 packageVersionHistory_commitMessage = Lens.lens (\PackageVersionHistory' {commitMessage} -> commitMessage) (\s@PackageVersionHistory' {} a -> s {commitMessage = a} :: PackageVersionHistory)
 
--- | The timestamp of when the package was created.
+-- | The date and time when the package was created.
 packageVersionHistory_createdAt :: Lens.Lens' PackageVersionHistory (Prelude.Maybe Prelude.UTCTime)
 packageVersionHistory_createdAt = Lens.lens (\PackageVersionHistory' {createdAt} -> createdAt) (\s@PackageVersionHistory' {} a -> s {createdAt = a} :: PackageVersionHistory) Prelude.. Lens.mapping Core._Time
 

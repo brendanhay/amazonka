@@ -20,8 +20,8 @@
 module Amazonka.DevOpsGuru.Types.ListInsightsOngoingStatusFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.InsightType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to filter for insights that have the status @ONGOING@.

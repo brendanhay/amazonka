@@ -24,7 +24,7 @@ import Amazonka.CloudFront.Types.ActiveTrustedSigners
 import Amazonka.CloudFront.Types.AliasICPRecordal
 import Amazonka.CloudFront.Types.DistributionConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A distribution tells CloudFront where you want content to be delivered
@@ -57,26 +57,22 @@ data Distribution = Distribution'
     -- that CloudFront can use to verify the signatures of signed URLs or
     -- signed cookies.
     activeTrustedSigners :: Prelude.Maybe ActiveTrustedSigners,
-    -- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@.
+    -- | The distribution’s identifier. For example: @E1U5RQF7T870K0@.
     id :: Prelude.Text,
-    -- | The ARN (Amazon Resource Name) for the distribution. For example:
-    -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
-    -- @123456789012@ is your Amazon Web Services account ID.
+    -- | The distribution’s Amazon Resource Name (ARN).
     arn :: Prelude.Text,
-    -- | This response element indicates the current status of the distribution.
-    -- When the status is @Deployed@, the distribution\'s information is fully
-    -- propagated to all CloudFront edge locations.
+    -- | The distribution’s status. When the status is @Deployed@, the
+    -- distribution’s information is fully propagated to all CloudFront edge
+    -- locations.
     status :: Prelude.Text,
-    -- | The date and time the distribution was last modified.
+    -- | The date and time when the distribution was last modified.
     lastModifiedTime :: Core.ISO8601,
     -- | The number of invalidation batches currently in progress.
     inProgressInvalidationBatches :: Prelude.Int,
-    -- | The domain name corresponding to the distribution, for example,
+    -- | The distribution’s CloudFront domain name. For example:
     -- @d111111abcdef8.cloudfront.net@.
     domainName :: Prelude.Text,
-    -- | The current configuration information for the distribution. Send a @GET@
-    -- request to the @\/CloudFront API version\/distribution ID\/config@
-    -- resource.
+    -- | The distribution’s configuration.
     distributionConfig :: DistributionConfig
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -114,26 +110,22 @@ data Distribution = Distribution'
 -- that CloudFront can use to verify the signatures of signed URLs or
 -- signed cookies.
 --
--- 'id', 'distribution_id' - The identifier for the distribution. For example: @EDFDVBD632BHDS5@.
+-- 'id', 'distribution_id' - The distribution’s identifier. For example: @E1U5RQF7T870K0@.
 --
--- 'arn', 'distribution_arn' - The ARN (Amazon Resource Name) for the distribution. For example:
--- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
--- @123456789012@ is your Amazon Web Services account ID.
+-- 'arn', 'distribution_arn' - The distribution’s Amazon Resource Name (ARN).
 --
--- 'status', 'distribution_status' - This response element indicates the current status of the distribution.
--- When the status is @Deployed@, the distribution\'s information is fully
--- propagated to all CloudFront edge locations.
+-- 'status', 'distribution_status' - The distribution’s status. When the status is @Deployed@, the
+-- distribution’s information is fully propagated to all CloudFront edge
+-- locations.
 --
--- 'lastModifiedTime', 'distribution_lastModifiedTime' - The date and time the distribution was last modified.
+-- 'lastModifiedTime', 'distribution_lastModifiedTime' - The date and time when the distribution was last modified.
 --
 -- 'inProgressInvalidationBatches', 'distribution_inProgressInvalidationBatches' - The number of invalidation batches currently in progress.
 --
--- 'domainName', 'distribution_domainName' - The domain name corresponding to the distribution, for example,
+-- 'domainName', 'distribution_domainName' - The distribution’s CloudFront domain name. For example:
 -- @d111111abcdef8.cloudfront.net@.
 --
--- 'distributionConfig', 'distribution_distributionConfig' - The current configuration information for the distribution. Send a @GET@
--- request to the @\/CloudFront API version\/distribution ID\/config@
--- resource.
+-- 'distributionConfig', 'distribution_distributionConfig' - The distribution’s configuration.
 newDistribution ::
   -- | 'id'
   Prelude.Text ->
@@ -204,23 +196,21 @@ distribution_activeTrustedKeyGroups = Lens.lens (\Distribution' {activeTrustedKe
 distribution_activeTrustedSigners :: Lens.Lens' Distribution (Prelude.Maybe ActiveTrustedSigners)
 distribution_activeTrustedSigners = Lens.lens (\Distribution' {activeTrustedSigners} -> activeTrustedSigners) (\s@Distribution' {} a -> s {activeTrustedSigners = a} :: Distribution)
 
--- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@.
+-- | The distribution’s identifier. For example: @E1U5RQF7T870K0@.
 distribution_id :: Lens.Lens' Distribution Prelude.Text
 distribution_id = Lens.lens (\Distribution' {id} -> id) (\s@Distribution' {} a -> s {id = a} :: Distribution)
 
--- | The ARN (Amazon Resource Name) for the distribution. For example:
--- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
--- @123456789012@ is your Amazon Web Services account ID.
+-- | The distribution’s Amazon Resource Name (ARN).
 distribution_arn :: Lens.Lens' Distribution Prelude.Text
 distribution_arn = Lens.lens (\Distribution' {arn} -> arn) (\s@Distribution' {} a -> s {arn = a} :: Distribution)
 
--- | This response element indicates the current status of the distribution.
--- When the status is @Deployed@, the distribution\'s information is fully
--- propagated to all CloudFront edge locations.
+-- | The distribution’s status. When the status is @Deployed@, the
+-- distribution’s information is fully propagated to all CloudFront edge
+-- locations.
 distribution_status :: Lens.Lens' Distribution Prelude.Text
 distribution_status = Lens.lens (\Distribution' {status} -> status) (\s@Distribution' {} a -> s {status = a} :: Distribution)
 
--- | The date and time the distribution was last modified.
+-- | The date and time when the distribution was last modified.
 distribution_lastModifiedTime :: Lens.Lens' Distribution Prelude.UTCTime
 distribution_lastModifiedTime = Lens.lens (\Distribution' {lastModifiedTime} -> lastModifiedTime) (\s@Distribution' {} a -> s {lastModifiedTime = a} :: Distribution) Prelude.. Core._Time
 
@@ -228,14 +218,12 @@ distribution_lastModifiedTime = Lens.lens (\Distribution' {lastModifiedTime} -> 
 distribution_inProgressInvalidationBatches :: Lens.Lens' Distribution Prelude.Int
 distribution_inProgressInvalidationBatches = Lens.lens (\Distribution' {inProgressInvalidationBatches} -> inProgressInvalidationBatches) (\s@Distribution' {} a -> s {inProgressInvalidationBatches = a} :: Distribution)
 
--- | The domain name corresponding to the distribution, for example,
+-- | The distribution’s CloudFront domain name. For example:
 -- @d111111abcdef8.cloudfront.net@.
 distribution_domainName :: Lens.Lens' Distribution Prelude.Text
 distribution_domainName = Lens.lens (\Distribution' {domainName} -> domainName) (\s@Distribution' {} a -> s {domainName = a} :: Distribution)
 
--- | The current configuration information for the distribution. Send a @GET@
--- request to the @\/CloudFront API version\/distribution ID\/config@
--- resource.
+-- | The distribution’s configuration.
 distribution_distributionConfig :: Lens.Lens' Distribution DistributionConfig
 distribution_distributionConfig = Lens.lens (\Distribution' {distributionConfig} -> distributionConfig) (\s@Distribution' {} a -> s {distributionConfig = a} :: Distribution)
 

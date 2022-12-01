@@ -20,7 +20,7 @@
 module Amazonka.LookoutMetrics.Types.Alert where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutMetrics.Types.Action
 import Amazonka.LookoutMetrics.Types.AlertFilters
 import Amazonka.LookoutMetrics.Types.AlertStatus

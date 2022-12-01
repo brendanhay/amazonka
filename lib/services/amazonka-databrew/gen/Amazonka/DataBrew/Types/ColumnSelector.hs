@@ -20,7 +20,7 @@
 module Amazonka.DataBrew.Types.ColumnSelector where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Selector of a column from a dataset for profile job configuration. One

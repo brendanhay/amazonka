@@ -20,8 +20,8 @@
 module Amazonka.EFS.Types.RootDirectory where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EFS.Types.CreationInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the directory on the Amazon EFS file system that the access

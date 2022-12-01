@@ -20,7 +20,7 @@
 module Amazonka.EMR.Types.Application where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | With Amazon EMR release version 4.0 and later, the only accepted

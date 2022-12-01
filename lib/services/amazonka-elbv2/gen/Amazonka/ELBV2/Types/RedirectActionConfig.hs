@@ -20,8 +20,8 @@
 module Amazonka.ELBV2.Types.RedirectActionConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types.RedirectActionStatusCodeEnum
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a redirect action.

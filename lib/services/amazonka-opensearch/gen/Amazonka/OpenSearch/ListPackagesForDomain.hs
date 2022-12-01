@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all packages associated with the Amazon OpenSearch Service domain.
+-- Lists all packages associated with an Amazon OpenSearch Service domain.
+-- For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html Custom packages for Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.ListPackagesForDomain
   ( -- * Creating a Request
     ListPackagesForDomain (..),
@@ -43,22 +45,24 @@ module Amazonka.OpenSearch.ListPackagesForDomain
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the request parameters to the @ ListPackagesForDomain @
+-- | Container for the request parameters to the @ListPackagesForDomain@
 -- operation.
 --
 -- /See:/ 'newListPackagesForDomain' smart constructor.
 data ListPackagesForDomain = ListPackagesForDomain'
-  { -- | Used for pagination. Only necessary if a previous API call includes a
-    -- non-null NextToken value. If provided, returns results for the next
+  { -- | If your initial @ListPackagesForDomain@ operation returns a @nextToken@,
+    -- you can include the returned @nextToken@ in subsequent
+    -- @ListPackagesForDomain@ operations, which returns results in the next
     -- page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Limits results to a maximum number of packages.
+    -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | The name of the domain for which you want to list associated packages.
     domainName :: Prelude.Text
@@ -73,11 +77,13 @@ data ListPackagesForDomain = ListPackagesForDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPackagesForDomain_nextToken' - Used for pagination. Only necessary if a previous API call includes a
--- non-null NextToken value. If provided, returns results for the next
+-- 'nextToken', 'listPackagesForDomain_nextToken' - If your initial @ListPackagesForDomain@ operation returns a @nextToken@,
+-- you can include the returned @nextToken@ in subsequent
+-- @ListPackagesForDomain@ operations, which returns results in the next
 -- page.
 --
--- 'maxResults', 'listPackagesForDomain_maxResults' - Limits results to a maximum number of packages.
+-- 'maxResults', 'listPackagesForDomain_maxResults' - An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 --
 -- 'domainName', 'listPackagesForDomain_domainName' - The name of the domain for which you want to list associated packages.
 newListPackagesForDomain ::
@@ -91,13 +97,15 @@ newListPackagesForDomain pDomainName_ =
       domainName = pDomainName_
     }
 
--- | Used for pagination. Only necessary if a previous API call includes a
--- non-null NextToken value. If provided, returns results for the next
+-- | If your initial @ListPackagesForDomain@ operation returns a @nextToken@,
+-- you can include the returned @nextToken@ in subsequent
+-- @ListPackagesForDomain@ operations, which returns results in the next
 -- page.
 listPackagesForDomain_nextToken :: Lens.Lens' ListPackagesForDomain (Prelude.Maybe Prelude.Text)
 listPackagesForDomain_nextToken = Lens.lens (\ListPackagesForDomain' {nextToken} -> nextToken) (\s@ListPackagesForDomain' {} a -> s {nextToken = a} :: ListPackagesForDomain)
 
--- | Limits results to a maximum number of packages.
+-- | An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
 listPackagesForDomain_maxResults :: Lens.Lens' ListPackagesForDomain (Prelude.Maybe Prelude.Int)
 listPackagesForDomain_maxResults = Lens.lens (\ListPackagesForDomain' {maxResults} -> maxResults) (\s@ListPackagesForDomain' {} a -> s {maxResults = a} :: ListPackagesForDomain)
 
@@ -109,8 +117,8 @@ instance Core.AWSRequest ListPackagesForDomain where
   type
     AWSResponse ListPackagesForDomain =
       ListPackagesForDomainResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,15 +160,16 @@ instance Core.ToQuery ListPackagesForDomain where
         "maxResults" Core.=: maxResults
       ]
 
--- | Container for the response parameters to the @ ListPackagesForDomain @
+-- | Container for the response parameters to the @ListPackagesForDomain@
 -- operation.
 --
 -- /See:/ 'newListPackagesForDomainResponse' smart constructor.
 data ListPackagesForDomainResponse = ListPackagesForDomainResponse'
-  { -- | Pagination token to supply to the next call to get the next page of
-    -- results.
+  { -- | When @nextToken@ is returned, there are more results available. The
+    -- value of @nextToken@ is a unique pagination token for each page. Make
+    -- the call again using the returned token to retrieve the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of @DomainPackageDetails@ objects.
+    -- | List of all packages associated with a domain.
     domainPackageDetailsList :: Prelude.Maybe [DomainPackageDetails],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -175,10 +184,11 @@ data ListPackagesForDomainResponse = ListPackagesForDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPackagesForDomainResponse_nextToken' - Pagination token to supply to the next call to get the next page of
--- results.
+-- 'nextToken', 'listPackagesForDomainResponse_nextToken' - When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 --
--- 'domainPackageDetailsList', 'listPackagesForDomainResponse_domainPackageDetailsList' - List of @DomainPackageDetails@ objects.
+-- 'domainPackageDetailsList', 'listPackagesForDomainResponse_domainPackageDetailsList' - List of all packages associated with a domain.
 --
 -- 'httpStatus', 'listPackagesForDomainResponse_httpStatus' - The response's http status code.
 newListPackagesForDomainResponse ::
@@ -193,12 +203,13 @@ newListPackagesForDomainResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Pagination token to supply to the next call to get the next page of
--- results.
+-- | When @nextToken@ is returned, there are more results available. The
+-- value of @nextToken@ is a unique pagination token for each page. Make
+-- the call again using the returned token to retrieve the next page.
 listPackagesForDomainResponse_nextToken :: Lens.Lens' ListPackagesForDomainResponse (Prelude.Maybe Prelude.Text)
 listPackagesForDomainResponse_nextToken = Lens.lens (\ListPackagesForDomainResponse' {nextToken} -> nextToken) (\s@ListPackagesForDomainResponse' {} a -> s {nextToken = a} :: ListPackagesForDomainResponse)
 
--- | List of @DomainPackageDetails@ objects.
+-- | List of all packages associated with a domain.
 listPackagesForDomainResponse_domainPackageDetailsList :: Lens.Lens' ListPackagesForDomainResponse (Prelude.Maybe [DomainPackageDetails])
 listPackagesForDomainResponse_domainPackageDetailsList = Lens.lens (\ListPackagesForDomainResponse' {domainPackageDetailsList} -> domainPackageDetailsList) (\s@ListPackagesForDomainResponse' {} a -> s {domainPackageDetailsList = a} :: ListPackagesForDomainResponse) Prelude.. Lens.mapping Lens.coerced
 

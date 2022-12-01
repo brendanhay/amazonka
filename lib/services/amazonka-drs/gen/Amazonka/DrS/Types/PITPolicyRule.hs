@@ -20,8 +20,8 @@
 module Amazonka.DrS.Types.PITPolicyRule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.PITPolicyRuleUnits
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A rule in the Point in Time (PIT) policy representing when to take

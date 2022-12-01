@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -133,6 +134,9 @@ module Amazonka.Glue.Types
 
     -- * JDBCDataType
     JDBCDataType (..),
+
+    -- * JdbcMetadataEntry
+    JdbcMetadataEntry (..),
 
     -- * JobBookmarksEncryptionMode
     JobBookmarksEncryptionMode (..),
@@ -752,6 +756,8 @@ module Amazonka.Glue.Types
     createCsvClassifierRequest_disableValueTrimming,
     createCsvClassifierRequest_allowSingleColumn,
     createCsvClassifierRequest_delimiter,
+    createCsvClassifierRequest_customDatatypeConfigured,
+    createCsvClassifierRequest_customDatatypes,
     createCsvClassifierRequest_name,
 
     -- * CreateGrokClassifierRequest
@@ -785,7 +791,9 @@ module Amazonka.Glue.Types
     csvClassifier_allowSingleColumn,
     csvClassifier_lastUpdated,
     csvClassifier_delimiter,
+    csvClassifier_customDatatypeConfigured,
     csvClassifier_creationTime,
+    csvClassifier_customDatatypes,
     csvClassifier_version,
     csvClassifier_name,
 
@@ -1199,6 +1207,7 @@ module Amazonka.Glue.Types
     -- * JdbcTarget
     JdbcTarget (..),
     newJdbcTarget,
+    jdbcTarget_enableAdditionalMetadata,
     jdbcTarget_path,
     jdbcTarget_exclusions,
     jdbcTarget_connectionName,
@@ -2335,6 +2344,8 @@ module Amazonka.Glue.Types
     updateCsvClassifierRequest_disableValueTrimming,
     updateCsvClassifierRequest_allowSingleColumn,
     updateCsvClassifierRequest_delimiter,
+    updateCsvClassifierRequest_customDatatypeConfigured,
+    updateCsvClassifierRequest_customDatatypes,
     updateCsvClassifierRequest_name,
 
     -- * UpdateGrokClassifierRequest
@@ -2445,6 +2456,7 @@ module Amazonka.Glue.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.Action
 import Amazonka.Glue.Types.AggFunction
 import Amazonka.Glue.Types.Aggregate
@@ -2580,6 +2592,7 @@ import Amazonka.Glue.Types.JDBCConnectorOptions
 import Amazonka.Glue.Types.JDBCConnectorSource
 import Amazonka.Glue.Types.JDBCConnectorTarget
 import Amazonka.Glue.Types.JDBCDataType
+import Amazonka.Glue.Types.JdbcMetadataEntry
 import Amazonka.Glue.Types.JdbcTarget
 import Amazonka.Glue.Types.Job
 import Amazonka.Glue.Types.JobBookmarkEntry
@@ -2764,7 +2777,6 @@ import Amazonka.Glue.Types.WorkflowRun
 import Amazonka.Glue.Types.WorkflowRunStatistics
 import Amazonka.Glue.Types.WorkflowRunStatus
 import Amazonka.Glue.Types.XMLClassifier
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -2772,27 +2784,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "Glue",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "glue",
-      Core._serviceSigningName = "glue",
-      Core._serviceVersion = "2017-03-31",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "Glue",
-      Core._serviceRetry = retry
+    { Core.abbrev = "Glue",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "glue",
+      Core.signingName = "glue",
+      Core.version = "2017-03-31",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "Glue",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

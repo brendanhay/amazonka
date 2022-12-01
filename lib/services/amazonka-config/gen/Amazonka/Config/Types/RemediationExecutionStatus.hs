@@ -23,7 +23,7 @@ import Amazonka.Config.Types.RemediationExecutionState
 import Amazonka.Config.Types.RemediationExecutionStep
 import Amazonka.Config.Types.ResourceKey
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details of the current status of the invoked remediation action

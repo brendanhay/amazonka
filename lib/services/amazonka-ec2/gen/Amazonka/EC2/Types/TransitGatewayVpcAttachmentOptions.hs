@@ -20,11 +20,11 @@
 module Amazonka.EC2.Types.TransitGatewayVpcAttachmentOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ApplianceModeSupportValue
 import Amazonka.EC2.Types.DnsSupportValue
 import Amazonka.EC2.Types.Ipv6SupportValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the VPC attachment options.

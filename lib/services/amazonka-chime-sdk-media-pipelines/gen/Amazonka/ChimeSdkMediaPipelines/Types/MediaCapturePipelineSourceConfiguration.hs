@@ -21,7 +21,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipelineSourceConfigura
 
 import Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingConcatenationConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The source configuration object of a media capture pipeline.

@@ -20,7 +20,7 @@
 module Amazonka.Evidently.Types.ProjectAppConfigResource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This is a structure that defines the configuration of how your

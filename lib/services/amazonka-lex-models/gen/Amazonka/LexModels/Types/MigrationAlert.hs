@@ -20,7 +20,7 @@
 module Amazonka.LexModels.Types.MigrationAlert where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexModels.Types.MigrationAlertType
 import qualified Amazonka.Prelude as Prelude
 

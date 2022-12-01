@@ -20,7 +20,7 @@
 module Amazonka.Transcribe.Types.RelativeTimeRange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A time range, in percentage, between two points in your media file.

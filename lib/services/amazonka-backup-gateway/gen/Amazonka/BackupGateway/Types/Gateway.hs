@@ -21,7 +21,7 @@ module Amazonka.BackupGateway.Types.Gateway where
 
 import Amazonka.BackupGateway.Types.GatewayType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A gateway is an Backup Gateway appliance that runs on the customer\'s

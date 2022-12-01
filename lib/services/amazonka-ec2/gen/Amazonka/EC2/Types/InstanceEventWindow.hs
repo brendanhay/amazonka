@@ -20,12 +20,12 @@
 module Amazonka.EC2.Types.InstanceEventWindow where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceEventWindowAssociationTarget
 import Amazonka.EC2.Types.InstanceEventWindowState
 import Amazonka.EC2.Types.InstanceEventWindowTimeRange
 import Amazonka.EC2.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The event window.

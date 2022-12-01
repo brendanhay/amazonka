@@ -68,6 +68,24 @@ module Amazonka.LexV2Models
     -- * Operations
     -- $operations
 
+    -- ** BatchCreateCustomVocabularyItem
+    BatchCreateCustomVocabularyItem (BatchCreateCustomVocabularyItem'),
+    newBatchCreateCustomVocabularyItem,
+    BatchCreateCustomVocabularyItemResponse (BatchCreateCustomVocabularyItemResponse'),
+    newBatchCreateCustomVocabularyItemResponse,
+
+    -- ** BatchDeleteCustomVocabularyItem
+    BatchDeleteCustomVocabularyItem (BatchDeleteCustomVocabularyItem'),
+    newBatchDeleteCustomVocabularyItem,
+    BatchDeleteCustomVocabularyItemResponse (BatchDeleteCustomVocabularyItemResponse'),
+    newBatchDeleteCustomVocabularyItemResponse,
+
+    -- ** BatchUpdateCustomVocabularyItem
+    BatchUpdateCustomVocabularyItem (BatchUpdateCustomVocabularyItem'),
+    newBatchUpdateCustomVocabularyItem,
+    BatchUpdateCustomVocabularyItemResponse (BatchUpdateCustomVocabularyItemResponse'),
+    newBatchUpdateCustomVocabularyItemResponse,
+
     -- ** BuildBotLocale
     BuildBotLocale (BuildBotLocale'),
     newBuildBotLocale,
@@ -338,6 +356,12 @@ module Amazonka.LexV2Models
     ListBuiltInSlotTypesResponse (ListBuiltInSlotTypesResponse'),
     newListBuiltInSlotTypesResponse,
 
+    -- ** ListCustomVocabularyItems
+    ListCustomVocabularyItems (ListCustomVocabularyItems'),
+    newListCustomVocabularyItems,
+    ListCustomVocabularyItemsResponse (ListCustomVocabularyItemsResponse'),
+    newListCustomVocabularyItemsResponse,
+
     -- ** ListExports
     ListExports (ListExports'),
     newListExports,
@@ -534,6 +558,9 @@ module Amazonka.LexV2Models
 
     -- ** Effect
     Effect (..),
+
+    -- ** ErrorCode
+    ErrorCode (..),
 
     -- ** ExportFilterName
     ExportFilterName (..),
@@ -807,6 +834,10 @@ module Amazonka.LexV2Models
     CustomPayload (CustomPayload'),
     newCustomPayload,
 
+    -- ** CustomVocabularyEntryId
+    CustomVocabularyEntryId (CustomVocabularyEntryId'),
+    newCustomVocabularyEntryId,
+
     -- ** CustomVocabularyExportSpecification
     CustomVocabularyExportSpecification (CustomVocabularyExportSpecification'),
     newCustomVocabularyExportSpecification,
@@ -814,6 +845,10 @@ module Amazonka.LexV2Models
     -- ** CustomVocabularyImportSpecification
     CustomVocabularyImportSpecification (CustomVocabularyImportSpecification'),
     newCustomVocabularyImportSpecification,
+
+    -- ** CustomVocabularyItem
+    CustomVocabularyItem (CustomVocabularyItem'),
+    newCustomVocabularyItem,
 
     -- ** DTMFSpecification
     DTMFSpecification (DTMFSpecification'),
@@ -874,6 +909,10 @@ module Amazonka.LexV2Models
     -- ** ExternalSourceSetting
     ExternalSourceSetting (ExternalSourceSetting'),
     newExternalSourceSetting,
+
+    -- ** FailedCustomVocabularyItem
+    FailedCustomVocabularyItem (FailedCustomVocabularyItem'),
+    newFailedCustomVocabularyItem,
 
     -- ** FulfillmentCodeHookSettings
     FulfillmentCodeHookSettings (FulfillmentCodeHookSettings'),
@@ -978,6 +1017,10 @@ module Amazonka.LexV2Models
     -- ** MultipleValuesSetting
     MultipleValuesSetting (MultipleValuesSetting'),
     newMultipleValuesSetting,
+
+    -- ** NewCustomVocabularyItem
+    NewCustomVocabularyItem (NewCustomVocabularyItem'),
+    newNewCustomVocabularyItem,
 
     -- ** ObfuscationSetting
     ObfuscationSetting (ObfuscationSetting'),
@@ -1173,6 +1216,9 @@ module Amazonka.LexV2Models
   )
 where
 
+import Amazonka.LexV2Models.BatchCreateCustomVocabularyItem
+import Amazonka.LexV2Models.BatchDeleteCustomVocabularyItem
+import Amazonka.LexV2Models.BatchUpdateCustomVocabularyItem
 import Amazonka.LexV2Models.BuildBotLocale
 import Amazonka.LexV2Models.CreateBot
 import Amazonka.LexV2Models.CreateBotAlias
@@ -1219,6 +1265,7 @@ import Amazonka.LexV2Models.ListBotVersions
 import Amazonka.LexV2Models.ListBots
 import Amazonka.LexV2Models.ListBuiltInIntents
 import Amazonka.LexV2Models.ListBuiltInSlotTypes
+import Amazonka.LexV2Models.ListCustomVocabularyItems
 import Amazonka.LexV2Models.ListExports
 import Amazonka.LexV2Models.ListImports
 import Amazonka.LexV2Models.ListIntents

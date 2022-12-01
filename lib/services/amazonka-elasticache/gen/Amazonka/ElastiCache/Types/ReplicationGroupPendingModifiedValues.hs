@@ -20,12 +20,12 @@
 module Amazonka.ElastiCache.Types.ReplicationGroupPendingModifiedValues where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.AuthTokenUpdateStatus
 import Amazonka.ElastiCache.Types.PendingAutomaticFailoverStatus
 import Amazonka.ElastiCache.Types.PendingLogDeliveryConfiguration
 import Amazonka.ElastiCache.Types.ReshardingStatus
 import Amazonka.ElastiCache.Types.UserGroupsUpdateStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings to be applied to the Redis replication group, either

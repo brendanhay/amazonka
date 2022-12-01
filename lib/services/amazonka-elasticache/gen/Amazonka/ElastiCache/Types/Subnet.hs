@@ -20,9 +20,10 @@
 module Amazonka.ElastiCache.Types.Subnet where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.AvailabilityZone
+import Amazonka.ElastiCache.Types.NetworkType
 import Amazonka.ElastiCache.Types.SubnetOutpost
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the subnet associated with a cluster. This parameter refers
@@ -36,7 +37,12 @@ data Subnet = Subnet'
     -- | The unique identifier for the subnet.
     subnetIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone associated with the subnet.
-    subnetAvailabilityZone :: Prelude.Maybe AvailabilityZone
+    subnetAvailabilityZone :: Prelude.Maybe AvailabilityZone,
+    -- | Either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for workloads
+    -- using Redis engine version 6.2 onward or Memcached engine version 1.6.6
+    -- on all instances built on the
+    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    supportedNetworkTypes :: Prelude.Maybe [NetworkType]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,13 +59,19 @@ data Subnet = Subnet'
 -- 'subnetIdentifier', 'subnet_subnetIdentifier' - The unique identifier for the subnet.
 --
 -- 'subnetAvailabilityZone', 'subnet_subnetAvailabilityZone' - The Availability Zone associated with the subnet.
+--
+-- 'supportedNetworkTypes', 'subnet_supportedNetworkTypes' - Either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for workloads
+-- using Redis engine version 6.2 onward or Memcached engine version 1.6.6
+-- on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
 newSubnet ::
   Subnet
 newSubnet =
   Subnet'
     { subnetOutpost = Prelude.Nothing,
       subnetIdentifier = Prelude.Nothing,
-      subnetAvailabilityZone = Prelude.Nothing
+      subnetAvailabilityZone = Prelude.Nothing,
+      supportedNetworkTypes = Prelude.Nothing
     }
 
 -- | The outpost ARN of the subnet.
@@ -74,21 +86,34 @@ subnet_subnetIdentifier = Lens.lens (\Subnet' {subnetIdentifier} -> subnetIdenti
 subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Prelude.Maybe AvailabilityZone)
 subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@Subnet' {} a -> s {subnetAvailabilityZone = a} :: Subnet)
 
+-- | Either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for workloads
+-- using Redis engine version 6.2 onward or Memcached engine version 1.6.6
+-- on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+subnet_supportedNetworkTypes :: Lens.Lens' Subnet (Prelude.Maybe [NetworkType])
+subnet_supportedNetworkTypes = Lens.lens (\Subnet' {supportedNetworkTypes} -> supportedNetworkTypes) (\s@Subnet' {} a -> s {supportedNetworkTypes = a} :: Subnet) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML Subnet where
   parseXML x =
     Subnet'
       Prelude.<$> (x Core..@? "SubnetOutpost")
       Prelude.<*> (x Core..@? "SubnetIdentifier")
       Prelude.<*> (x Core..@? "SubnetAvailabilityZone")
+      Prelude.<*> ( x Core..@? "SupportedNetworkTypes"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
 instance Prelude.Hashable Subnet where
   hashWithSalt _salt Subnet' {..} =
     _salt `Prelude.hashWithSalt` subnetOutpost
       `Prelude.hashWithSalt` subnetIdentifier
       `Prelude.hashWithSalt` subnetAvailabilityZone
+      `Prelude.hashWithSalt` supportedNetworkTypes
 
 instance Prelude.NFData Subnet where
   rnf Subnet' {..} =
     Prelude.rnf subnetOutpost
       `Prelude.seq` Prelude.rnf subnetIdentifier
       `Prelude.seq` Prelude.rnf subnetAvailabilityZone
+      `Prelude.seq` Prelude.rnf supportedNetworkTypes

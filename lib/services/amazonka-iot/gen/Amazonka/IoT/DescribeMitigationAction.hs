@@ -51,8 +51,8 @@ module Amazonka.IoT.DescribeMitigationAction
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,8 +91,8 @@ instance Core.AWSRequest DescribeMitigationAction where
   type
     AWSResponse DescribeMitigationAction =
       DescribeMitigationActionResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

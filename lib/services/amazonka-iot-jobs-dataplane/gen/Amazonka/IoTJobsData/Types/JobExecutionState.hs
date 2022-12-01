@@ -20,8 +20,8 @@
 module Amazonka.IoTJobsData.Types.JobExecutionState where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTJobsData.Types.JobExecutionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains data about the state of a job execution.

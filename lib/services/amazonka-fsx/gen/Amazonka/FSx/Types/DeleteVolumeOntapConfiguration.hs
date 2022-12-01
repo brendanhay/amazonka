@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.DeleteVolumeOntapConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use to specify skipping a final backup, or to add tags to a final

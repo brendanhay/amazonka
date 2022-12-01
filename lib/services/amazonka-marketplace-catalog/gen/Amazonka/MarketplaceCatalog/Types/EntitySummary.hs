@@ -20,7 +20,7 @@
 module Amazonka.MarketplaceCatalog.Types.EntitySummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This object is a container for common summary information about the

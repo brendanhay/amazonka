@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.MediaConnect.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConnect.DescribeFlow
 import Amazonka.MediaConnect.Lens
 import Amazonka.MediaConnect.Types
@@ -26,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 newFlowStandby :: Core.Wait DescribeFlow
 newFlowStandby =
   Core.Wait
-    { Core._waitName = "FlowStandby",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 3,
-      Core._waitAcceptors =
+    { Core.name = "FlowStandby",
+      Core.attempts = 40,
+      Core.delay = 3,
+      Core.acceptors =
         [ Core.matchAll
             "STANDBY"
             Core.AcceptSuccess
@@ -60,10 +61,10 @@ newFlowStandby =
 newFlowDeleted :: Core.Wait DescribeFlow
 newFlowDeleted =
   Core.Wait
-    { Core._waitName = "FlowDeleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 3,
-      Core._waitAcceptors =
+    { Core.name = "FlowDeleted",
+      Core.attempts = 40,
+      Core.delay = 3,
+      Core.acceptors =
         [ Core.matchStatus 404 Core.AcceptSuccess,
           Core.matchAll
             "DELETING"
@@ -88,10 +89,10 @@ newFlowDeleted =
 newFlowActive :: Core.Wait DescribeFlow
 newFlowActive =
   Core.Wait
-    { Core._waitName = "FlowActive",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 3,
-      Core._waitAcceptors =
+    { Core.name = "FlowActive",
+      Core.attempts = 40,
+      Core.delay = 3,
+      Core.acceptors =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess

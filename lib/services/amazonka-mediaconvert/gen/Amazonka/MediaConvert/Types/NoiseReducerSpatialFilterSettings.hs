@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.NoiseReducerSpatialFilterSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Noise reducer filter settings for spatial filter.

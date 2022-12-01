@@ -103,7 +103,7 @@ where
 
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +118,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
     -- or custom health check. This is useful if your instances do not
     -- immediately pass these health checks after they enter the @InService@
     -- state. For more information, see
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period Health check grace period>
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     healthCheckGracePeriod :: Prelude.Maybe Prelude.Int,
     -- | The launch template and version to use to specify the updates. If you
@@ -169,8 +169,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
     -- keeping the default instance warmup enabled by specifying a minimum
     -- value of @0@.
     defaultInstanceWarmup :: Prelude.Maybe Prelude.Int,
-    -- | An embedded object that specifies a mixed instances policy. For more
-    -- information, see
+    -- | The mixed instances policy. For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     mixedInstancesPolicy :: Prelude.Maybe MixedInstancesPolicy,
@@ -265,7 +264,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
 -- or custom health check. This is useful if your instances do not
 -- immediately pass these health checks after they enter the @InService@
 -- state. For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period Health check grace period>
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- 'launchTemplate', 'updateAutoScalingGroup_launchTemplate' - The launch template and version to use to specify the updates. If you
@@ -316,8 +315,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
 -- keeping the default instance warmup enabled by specifying a minimum
 -- value of @0@.
 --
--- 'mixedInstancesPolicy', 'updateAutoScalingGroup_mixedInstancesPolicy' - An embedded object that specifies a mixed instances policy. For more
--- information, see
+-- 'mixedInstancesPolicy', 'updateAutoScalingGroup_mixedInstancesPolicy' - The mixed instances policy. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
@@ -432,7 +430,7 @@ updateAutoScalingGroup_availabilityZones = Lens.lens (\UpdateAutoScalingGroup' {
 -- or custom health check. This is useful if your instances do not
 -- immediately pass these health checks after they enter the @InService@
 -- state. For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period Health check grace period>
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 updateAutoScalingGroup_healthCheckGracePeriod :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
 updateAutoScalingGroup_healthCheckGracePeriod = Lens.lens (\UpdateAutoScalingGroup' {healthCheckGracePeriod} -> healthCheckGracePeriod) (\s@UpdateAutoScalingGroup' {} a -> s {healthCheckGracePeriod = a} :: UpdateAutoScalingGroup)
@@ -499,8 +497,7 @@ updateAutoScalingGroup_launchConfigurationName = Lens.lens (\UpdateAutoScalingGr
 updateAutoScalingGroup_defaultInstanceWarmup :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
 updateAutoScalingGroup_defaultInstanceWarmup = Lens.lens (\UpdateAutoScalingGroup' {defaultInstanceWarmup} -> defaultInstanceWarmup) (\s@UpdateAutoScalingGroup' {} a -> s {defaultInstanceWarmup = a} :: UpdateAutoScalingGroup)
 
--- | An embedded object that specifies a mixed instances policy. For more
--- information, see
+-- | The mixed instances policy. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 updateAutoScalingGroup_mixedInstancesPolicy :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe MixedInstancesPolicy)
@@ -604,8 +601,8 @@ instance Core.AWSRequest UpdateAutoScalingGroup where
   type
     AWSResponse UpdateAutoScalingGroup =
       UpdateAutoScalingGroupResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull
       UpdateAutoScalingGroupResponse'

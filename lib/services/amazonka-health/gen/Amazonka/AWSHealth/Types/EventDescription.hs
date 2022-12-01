@@ -20,7 +20,7 @@
 module Amazonka.AWSHealth.Types.EventDescription where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detailed description of the event. Included in the information

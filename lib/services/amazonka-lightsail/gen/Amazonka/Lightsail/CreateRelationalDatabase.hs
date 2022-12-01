@@ -54,7 +54,7 @@ module Amazonka.Lightsail.CreateRelationalDatabase
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,8 +73,7 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
     -- block of time for each AWS Region. For more information about the
     -- preferred backup window time blocks for each region, see the
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow Working With Backups>
-    -- guide in the Amazon Relational Database Service (Amazon RDS)
-    -- documentation.
+    -- guide in the Amazon Relational Database Service documentation.
     --
     -- Constraints:
     --
@@ -264,8 +263,7 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
 -- block of time for each AWS Region. For more information about the
 -- preferred backup window time blocks for each region, see the
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow Working With Backups>
--- guide in the Amazon Relational Database Service (Amazon RDS)
--- documentation.
+-- guide in the Amazon Relational Database Service documentation.
 --
 -- Constraints:
 --
@@ -479,8 +477,7 @@ createRelationalDatabase_tags = Lens.lens (\CreateRelationalDatabase' {tags} -> 
 -- block of time for each AWS Region. For more information about the
 -- preferred backup window time blocks for each region, see the
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow Working With Backups>
--- guide in the Amazon Relational Database Service (Amazon RDS)
--- documentation.
+-- guide in the Amazon Relational Database Service documentation.
 --
 -- Constraints:
 --
@@ -672,8 +669,8 @@ instance Core.AWSRequest CreateRelationalDatabase where
   type
     AWSResponse CreateRelationalDatabase =
       CreateRelationalDatabaseResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

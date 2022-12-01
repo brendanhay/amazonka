@@ -20,7 +20,13 @@
 module Amazonka.QuickSight.Types.DashboardFilterAttribute
   ( DashboardFilterAttribute
       ( ..,
-        DashboardFilterAttribute_QUICKSIGHT_USER
+        DashboardFilterAttribute_DASHBOARD_NAME,
+        DashboardFilterAttribute_DIRECT_QUICKSIGHT_OWNER,
+        DashboardFilterAttribute_DIRECT_QUICKSIGHT_SOLE_OWNER,
+        DashboardFilterAttribute_DIRECT_QUICKSIGHT_VIEWER_OR_OWNER,
+        DashboardFilterAttribute_QUICKSIGHT_OWNER,
+        DashboardFilterAttribute_QUICKSIGHT_USER,
+        DashboardFilterAttribute_QUICKSIGHT_VIEWER_OR_OWNER
       ),
   )
 where
@@ -56,10 +62,34 @@ newtype DashboardFilterAttribute = DashboardFilterAttribute'
       Core.ToXML
     )
 
+pattern DashboardFilterAttribute_DASHBOARD_NAME :: DashboardFilterAttribute
+pattern DashboardFilterAttribute_DASHBOARD_NAME = DashboardFilterAttribute' "DASHBOARD_NAME"
+
+pattern DashboardFilterAttribute_DIRECT_QUICKSIGHT_OWNER :: DashboardFilterAttribute
+pattern DashboardFilterAttribute_DIRECT_QUICKSIGHT_OWNER = DashboardFilterAttribute' "DIRECT_QUICKSIGHT_OWNER"
+
+pattern DashboardFilterAttribute_DIRECT_QUICKSIGHT_SOLE_OWNER :: DashboardFilterAttribute
+pattern DashboardFilterAttribute_DIRECT_QUICKSIGHT_SOLE_OWNER = DashboardFilterAttribute' "DIRECT_QUICKSIGHT_SOLE_OWNER"
+
+pattern DashboardFilterAttribute_DIRECT_QUICKSIGHT_VIEWER_OR_OWNER :: DashboardFilterAttribute
+pattern DashboardFilterAttribute_DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = DashboardFilterAttribute' "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
+
+pattern DashboardFilterAttribute_QUICKSIGHT_OWNER :: DashboardFilterAttribute
+pattern DashboardFilterAttribute_QUICKSIGHT_OWNER = DashboardFilterAttribute' "QUICKSIGHT_OWNER"
+
 pattern DashboardFilterAttribute_QUICKSIGHT_USER :: DashboardFilterAttribute
 pattern DashboardFilterAttribute_QUICKSIGHT_USER = DashboardFilterAttribute' "QUICKSIGHT_USER"
 
+pattern DashboardFilterAttribute_QUICKSIGHT_VIEWER_OR_OWNER :: DashboardFilterAttribute
+pattern DashboardFilterAttribute_QUICKSIGHT_VIEWER_OR_OWNER = DashboardFilterAttribute' "QUICKSIGHT_VIEWER_OR_OWNER"
+
 {-# COMPLETE
+  DashboardFilterAttribute_DASHBOARD_NAME,
+  DashboardFilterAttribute_DIRECT_QUICKSIGHT_OWNER,
+  DashboardFilterAttribute_DIRECT_QUICKSIGHT_SOLE_OWNER,
+  DashboardFilterAttribute_DIRECT_QUICKSIGHT_VIEWER_OR_OWNER,
+  DashboardFilterAttribute_QUICKSIGHT_OWNER,
   DashboardFilterAttribute_QUICKSIGHT_USER,
+  DashboardFilterAttribute_QUICKSIGHT_VIEWER_OR_OWNER,
   DashboardFilterAttribute'
   #-}

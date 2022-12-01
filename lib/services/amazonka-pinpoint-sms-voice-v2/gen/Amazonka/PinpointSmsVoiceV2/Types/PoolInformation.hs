@@ -20,7 +20,7 @@
 module Amazonka.PinpointSmsVoiceV2.Types.PoolInformation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.PinpointSmsVoiceV2.Types.MessageType
 import Amazonka.PinpointSmsVoiceV2.Types.PoolStatus
 import qualified Amazonka.Prelude as Prelude

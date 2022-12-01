@@ -46,7 +46,7 @@ module Amazonka.ManagedBlockChain.CreateNode
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,6 +82,8 @@ data CreateNode = CreateNode'
     -- Ethereum public networks have the following @NetworkId@s:
     --
     -- -   @n-ethereum-mainnet@
+    --
+    -- -   @n-ethereum-goerli@
     --
     -- -   @n-ethereum-rinkeby@
     --
@@ -128,6 +130,8 @@ data CreateNode = CreateNode'
 -- Ethereum public networks have the following @NetworkId@s:
 --
 -- -   @n-ethereum-mainnet@
+--
+-- -   @n-ethereum-goerli@
 --
 -- -   @n-ethereum-rinkeby@
 --
@@ -189,6 +193,8 @@ createNode_clientRequestToken = Lens.lens (\CreateNode' {clientRequestToken} -> 
 --
 -- -   @n-ethereum-mainnet@
 --
+-- -   @n-ethereum-goerli@
+--
 -- -   @n-ethereum-rinkeby@
 --
 -- -   @n-ethereum-ropsten@
@@ -201,8 +207,8 @@ createNode_nodeConfiguration = Lens.lens (\CreateNode' {nodeConfiguration} -> no
 
 instance Core.AWSRequest CreateNode where
   type AWSResponse CreateNode = CreateNodeResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

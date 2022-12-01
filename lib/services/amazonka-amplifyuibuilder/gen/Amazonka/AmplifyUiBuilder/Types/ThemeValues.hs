@@ -21,7 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.ThemeValues where
 
 import {-# SOURCE #-} Amazonka.AmplifyUiBuilder.Types.ThemeValue
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A key-value pair that defines a property of a theme.

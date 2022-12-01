@@ -25,7 +25,7 @@ import Amazonka.CodeDeploy.Types.RawString
 import Amazonka.CodeDeploy.Types.RevisionLocationType
 import Amazonka.CodeDeploy.Types.S3Location
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the location of an application revision.

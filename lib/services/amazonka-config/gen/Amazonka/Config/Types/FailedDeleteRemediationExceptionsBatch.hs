@@ -21,7 +21,7 @@ module Amazonka.Config.Types.FailedDeleteRemediationExceptionsBatch where
 
 import Amazonka.Config.Types.RemediationExceptionResourceKey
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of each of the failed delete remediation exceptions with specific

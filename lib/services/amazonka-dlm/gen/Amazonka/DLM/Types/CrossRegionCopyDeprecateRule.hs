@@ -20,8 +20,8 @@
 module Amazonka.DLM.Types.CrossRegionCopyDeprecateRule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.RetentionIntervalUnitValues
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[AMI policies only]__ Specifies an AMI deprecation rule for

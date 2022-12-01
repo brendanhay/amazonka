@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.KGKeyPairIds where
 
 import Amazonka.CloudFront.Types.KeyPairIds
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of identifiers for the public keys that CloudFront can use to

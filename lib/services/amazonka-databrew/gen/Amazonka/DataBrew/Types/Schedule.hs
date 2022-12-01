@@ -20,7 +20,7 @@
 module Amazonka.DataBrew.Types.Schedule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents one or more dates and times when a job is to run.

@@ -20,9 +20,9 @@
 module Amazonka.Discovery.Types.ContinuousExportDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Discovery.Types.ContinuousExportStatus
 import Amazonka.Discovery.Types.DataSource
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of continuous export descriptions.

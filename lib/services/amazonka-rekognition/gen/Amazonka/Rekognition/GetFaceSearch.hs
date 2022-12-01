@@ -78,7 +78,7 @@ module Amazonka.Rekognition.GetFaceSearch
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -168,8 +168,8 @@ instance Core.AWSRequest GetFaceSearch where
   type
     AWSResponse GetFaceSearch =
       GetFaceSearchResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

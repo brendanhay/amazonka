@@ -20,7 +20,7 @@
 module Amazonka.LexRuntime.Types.ActiveContextTimeToLive where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The length of time or number of turns that a context remains active.

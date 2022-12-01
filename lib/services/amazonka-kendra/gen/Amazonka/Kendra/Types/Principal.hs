@@ -20,9 +20,9 @@
 module Amazonka.Kendra.Types.Principal where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.PrincipalType
 import Amazonka.Kendra.Types.ReadAccessType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides user and group information for

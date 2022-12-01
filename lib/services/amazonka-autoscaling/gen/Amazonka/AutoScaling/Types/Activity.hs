@@ -21,7 +21,7 @@ module Amazonka.AutoScaling.Types.Activity where
 
 import Amazonka.AutoScaling.Types.ScalingActivityStatusCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes scaling activity, which is a long-running process that

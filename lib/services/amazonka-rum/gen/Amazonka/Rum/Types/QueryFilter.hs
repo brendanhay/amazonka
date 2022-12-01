@@ -20,7 +20,7 @@
 module Amazonka.Rum.Types.QueryFilter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that defines a key and values that you can use to filter the

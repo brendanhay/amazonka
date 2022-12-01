@@ -20,8 +20,8 @@
 module Amazonka.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.Route
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail for an internet gateway route with an inactive state in

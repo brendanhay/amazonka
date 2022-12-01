@@ -94,6 +94,7 @@ module Amazonka.Proton.UpdateEnvironment
 
     -- * Request Lenses
     updateEnvironment_templateMajorVersion,
+    updateEnvironment_codebuildRoleArn,
     updateEnvironment_provisioningRepository,
     updateEnvironment_description,
     updateEnvironment_templateMinorVersion,
@@ -115,7 +116,7 @@ module Amazonka.Proton.UpdateEnvironment
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -125,6 +126,10 @@ import qualified Amazonka.Response as Response
 data UpdateEnvironment = UpdateEnvironment'
   { -- | The major version of the environment to update.
     templateMajorVersion :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM service role that allows
+    -- Proton to provision infrastructure using CodeBuild-based provisioning on
+    -- your behalf.
+    codebuildRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The linked repository that you use to host your rendered infrastructure
     -- templates for self-managed provisioning. A linked repository is a
     -- repository that has been registered with Proton. For more information,
@@ -206,6 +211,10 @@ data UpdateEnvironment = UpdateEnvironment'
 --
 -- 'templateMajorVersion', 'updateEnvironment_templateMajorVersion' - The major version of the environment to update.
 --
+-- 'codebuildRoleArn', 'updateEnvironment_codebuildRoleArn' - The Amazon Resource Name (ARN) of the IAM service role that allows
+-- Proton to provision infrastructure using CodeBuild-based provisioning on
+-- your behalf.
+--
 -- 'provisioningRepository', 'updateEnvironment_provisioningRepository' - The linked repository that you use to host your rendered infrastructure
 -- templates for self-managed provisioning. A linked repository is a
 -- repository that has been registered with Proton. For more information,
@@ -283,6 +292,7 @@ newUpdateEnvironment pDeploymentType_ pName_ =
   UpdateEnvironment'
     { templateMajorVersion =
         Prelude.Nothing,
+      codebuildRoleArn = Prelude.Nothing,
       provisioningRepository = Prelude.Nothing,
       description = Prelude.Nothing,
       templateMinorVersion = Prelude.Nothing,
@@ -297,6 +307,12 @@ newUpdateEnvironment pDeploymentType_ pName_ =
 -- | The major version of the environment to update.
 updateEnvironment_templateMajorVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_templateMajorVersion = Lens.lens (\UpdateEnvironment' {templateMajorVersion} -> templateMajorVersion) (\s@UpdateEnvironment' {} a -> s {templateMajorVersion = a} :: UpdateEnvironment)
+
+-- | The Amazon Resource Name (ARN) of the IAM service role that allows
+-- Proton to provision infrastructure using CodeBuild-based provisioning on
+-- your behalf.
+updateEnvironment_codebuildRoleArn :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_codebuildRoleArn = Lens.lens (\UpdateEnvironment' {codebuildRoleArn} -> codebuildRoleArn) (\s@UpdateEnvironment' {} a -> s {codebuildRoleArn = a} :: UpdateEnvironment)
 
 -- | The linked repository that you use to host your rendered infrastructure
 -- templates for self-managed provisioning. A linked repository is a
@@ -388,8 +404,8 @@ instance Core.AWSRequest UpdateEnvironment where
   type
     AWSResponse UpdateEnvironment =
       UpdateEnvironmentResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -401,6 +417,7 @@ instance Core.AWSRequest UpdateEnvironment where
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =
     _salt `Prelude.hashWithSalt` templateMajorVersion
+      `Prelude.hashWithSalt` codebuildRoleArn
       `Prelude.hashWithSalt` provisioningRepository
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` templateMinorVersion
@@ -414,6 +431,7 @@ instance Prelude.Hashable UpdateEnvironment where
 instance Prelude.NFData UpdateEnvironment where
   rnf UpdateEnvironment' {..} =
     Prelude.rnf templateMajorVersion
+      `Prelude.seq` Prelude.rnf codebuildRoleArn
       `Prelude.seq` Prelude.rnf provisioningRepository
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf templateMinorVersion
@@ -445,6 +463,8 @@ instance Core.ToJSON UpdateEnvironment where
       ( Prelude.catMaybes
           [ ("templateMajorVersion" Core..=)
               Prelude.<$> templateMajorVersion,
+            ("codebuildRoleArn" Core..=)
+              Prelude.<$> codebuildRoleArn,
             ("provisioningRepository" Core..=)
               Prelude.<$> provisioningRepository,
             ("description" Core..=) Prelude.<$> description,

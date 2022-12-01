@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.ResourceCollectionFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.CloudFormationCollectionFilter
 import Amazonka.DevOpsGuru.Types.TagCollectionFilter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a filter used to specify which Amazon Web Services

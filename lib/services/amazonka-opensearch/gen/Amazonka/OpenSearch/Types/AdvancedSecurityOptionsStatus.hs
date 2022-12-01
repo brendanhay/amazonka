@@ -20,18 +20,18 @@
 module Amazonka.OpenSearch.Types.AdvancedSecurityOptionsStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.AdvancedSecurityOptions
 import Amazonka.OpenSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | The status of advanced security options for the specified domain.
+-- | The status of fine-grained access control settings for a domain.
 --
 -- /See:/ 'newAdvancedSecurityOptionsStatus' smart constructor.
 data AdvancedSecurityOptionsStatus = AdvancedSecurityOptionsStatus'
-  { -- | Advanced security options for the specified domain.
+  { -- | Container for fine-grained access control settings.
     options :: AdvancedSecurityOptions,
-    -- | Status of the advanced security options for the specified domain.
+    -- | Status of the fine-grained access control settings for a domain.
     status :: OptionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,9 +44,9 @@ data AdvancedSecurityOptionsStatus = AdvancedSecurityOptionsStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'options', 'advancedSecurityOptionsStatus_options' - Advanced security options for the specified domain.
+-- 'options', 'advancedSecurityOptionsStatus_options' - Container for fine-grained access control settings.
 --
--- 'status', 'advancedSecurityOptionsStatus_status' - Status of the advanced security options for the specified domain.
+-- 'status', 'advancedSecurityOptionsStatus_status' - Status of the fine-grained access control settings for a domain.
 newAdvancedSecurityOptionsStatus ::
   -- | 'options'
   AdvancedSecurityOptions ->
@@ -59,11 +59,11 @@ newAdvancedSecurityOptionsStatus pOptions_ pStatus_ =
       status = pStatus_
     }
 
--- | Advanced security options for the specified domain.
+-- | Container for fine-grained access control settings.
 advancedSecurityOptionsStatus_options :: Lens.Lens' AdvancedSecurityOptionsStatus AdvancedSecurityOptions
 advancedSecurityOptionsStatus_options = Lens.lens (\AdvancedSecurityOptionsStatus' {options} -> options) (\s@AdvancedSecurityOptionsStatus' {} a -> s {options = a} :: AdvancedSecurityOptionsStatus)
 
--- | Status of the advanced security options for the specified domain.
+-- | Status of the fine-grained access control settings for a domain.
 advancedSecurityOptionsStatus_status :: Lens.Lens' AdvancedSecurityOptionsStatus OptionStatus
 advancedSecurityOptionsStatus_status = Lens.lens (\AdvancedSecurityOptionsStatus' {status} -> status) (\s@AdvancedSecurityOptionsStatus' {} a -> s {status = a} :: AdvancedSecurityOptionsStatus)
 

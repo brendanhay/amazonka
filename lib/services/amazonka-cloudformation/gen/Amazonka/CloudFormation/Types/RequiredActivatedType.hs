@@ -20,7 +20,7 @@
 module Amazonka.CloudFormation.Types.RequiredActivatedType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | For extensions that are modules, a public third-party extension that

@@ -20,10 +20,10 @@
 module Amazonka.Glue.Types.TriggerUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.Action
 import Amazonka.Glue.Types.EventBatchingCondition
 import Amazonka.Glue.Types.Predicate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure used to provide information used to update a trigger. This

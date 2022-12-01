@@ -20,9 +20,9 @@
 module Amazonka.Inspector2.Types.ResourceDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.AwsEc2InstanceDetails
 import Amazonka.Inspector2.Types.AwsEcrContainerImageDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the resource involved in the finding.

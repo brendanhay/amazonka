@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentity.Types.RulesConfigurationType where
 
 import Amazonka.CognitoIdentity.Types.MappingRule
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A container for rules.

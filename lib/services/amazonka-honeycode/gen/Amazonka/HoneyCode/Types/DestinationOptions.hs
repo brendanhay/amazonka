@@ -20,8 +20,8 @@
 module Amazonka.HoneyCode.Types.DestinationOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.HoneyCode.Types.SourceDataColumnProperties
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the options relating to the destination of the

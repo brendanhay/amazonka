@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.ResourceLocation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.RegionName
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data ResourceLocation = ResourceLocation'
   { -- | The Availability Zone. Follows the format @us-east-2a@ (case-sensitive).
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Region name.
+    -- | The Amazon Web Services Region name.
     regionName :: Prelude.Maybe RegionName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +45,7 @@ data ResourceLocation = ResourceLocation'
 --
 -- 'availabilityZone', 'resourceLocation_availabilityZone' - The Availability Zone. Follows the format @us-east-2a@ (case-sensitive).
 --
--- 'regionName', 'resourceLocation_regionName' - The AWS Region name.
+-- 'regionName', 'resourceLocation_regionName' - The Amazon Web Services Region name.
 newResourceLocation ::
   ResourceLocation
 newResourceLocation =
@@ -59,7 +59,7 @@ newResourceLocation =
 resourceLocation_availabilityZone :: Lens.Lens' ResourceLocation (Prelude.Maybe Prelude.Text)
 resourceLocation_availabilityZone = Lens.lens (\ResourceLocation' {availabilityZone} -> availabilityZone) (\s@ResourceLocation' {} a -> s {availabilityZone = a} :: ResourceLocation)
 
--- | The AWS Region name.
+-- | The Amazon Web Services Region name.
 resourceLocation_regionName :: Lens.Lens' ResourceLocation (Prelude.Maybe RegionName)
 resourceLocation_regionName = Lens.lens (\ResourceLocation' {regionName} -> regionName) (\s@ResourceLocation' {} a -> s {regionName = a} :: ResourceLocation)
 

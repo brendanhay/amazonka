@@ -20,9 +20,9 @@
 module Amazonka.DataBrew.Types.DatabaseOutput where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.DatabaseOutputMode
 import Amazonka.DataBrew.Types.DatabaseTableOutputOptions
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a JDBC database output object which defines the output

@@ -20,7 +20,7 @@
 module Amazonka.EMRServerless.Types.SparkSubmit where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configurations for the Spark submit job driver.

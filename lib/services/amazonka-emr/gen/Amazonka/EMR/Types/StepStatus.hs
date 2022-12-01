@@ -20,11 +20,11 @@
 module Amazonka.EMR.Types.StepStatus where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.FailureDetails
 import Amazonka.EMR.Types.StepState
 import Amazonka.EMR.Types.StepStateChangeReason
 import Amazonka.EMR.Types.StepTimeline
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The execution status details of the cluster step.

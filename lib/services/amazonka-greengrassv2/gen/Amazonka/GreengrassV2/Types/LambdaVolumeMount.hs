@@ -20,8 +20,8 @@
 module Amazonka.GreengrassV2.Types.LambdaVolumeMount where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types.LambdaFilesystemPermission
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a volume that Linux processes in a container

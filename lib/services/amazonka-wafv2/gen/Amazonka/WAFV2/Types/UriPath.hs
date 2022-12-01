@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.UriPath where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Inspect the path component of the URI of the web request. This is the

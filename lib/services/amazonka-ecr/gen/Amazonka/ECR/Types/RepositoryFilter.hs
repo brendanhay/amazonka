@@ -20,8 +20,8 @@
 module Amazonka.ECR.Types.RepositoryFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECR.Types.RepositoryFilterType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter settings used with image replication. Specifying a repository

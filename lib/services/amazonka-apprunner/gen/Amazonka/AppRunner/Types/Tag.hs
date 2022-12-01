@@ -20,7 +20,7 @@
 module Amazonka.AppRunner.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a tag that is applied to an App Runner resource. A tag is a

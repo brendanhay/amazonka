@@ -24,7 +24,7 @@ import Amazonka.AppStream.Types.NetworkAccessConfiguration
 import Amazonka.AppStream.Types.SessionConnectionState
 import Amazonka.AppStream.Types.SessionState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a streaming session.

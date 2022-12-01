@@ -20,8 +20,8 @@
 module Amazonka.DocumentDB.Types.Event where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DocumentDB.Types.SourceType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about an event.

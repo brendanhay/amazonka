@@ -21,7 +21,7 @@ module Amazonka.CodeCommit.Types.ApprovalRuleOverriddenEventMetadata where
 
 import Amazonka.CodeCommit.Types.OverrideStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about an override event for approval rules for a

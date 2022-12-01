@@ -22,7 +22,7 @@ module Amazonka.AmplifyBackend.Types.CreateBackendStorageResourceConfig where
 import Amazonka.AmplifyBackend.Types.BackendStoragePermissions
 import Amazonka.AmplifyBackend.Types.ServiceName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The resource configuration for creating backend storage.

@@ -66,6 +66,8 @@ library
     Amazonka.WellArchitected.ImportLens
     Amazonka.WellArchitected.Lens
     Amazonka.WellArchitected.ListAnswers
+    Amazonka.WellArchitected.ListCheckDetails
+    Amazonka.WellArchitected.ListCheckSummaries
     Amazonka.WellArchitected.ListLenses
     Amazonka.WellArchitected.ListLensReviewImprovements
     Amazonka.WellArchitected.ListLensReviews
@@ -83,6 +85,11 @@ library
     Amazonka.WellArchitected.Types.Answer
     Amazonka.WellArchitected.Types.AnswerReason
     Amazonka.WellArchitected.Types.AnswerSummary
+    Amazonka.WellArchitected.Types.CheckDetail
+    Amazonka.WellArchitected.Types.CheckFailureReason
+    Amazonka.WellArchitected.Types.CheckProvider
+    Amazonka.WellArchitected.Types.CheckStatus
+    Amazonka.WellArchitected.Types.CheckSummary
     Amazonka.WellArchitected.Types.Choice
     Amazonka.WellArchitected.Types.ChoiceAnswer
     Amazonka.WellArchitected.Types.ChoiceAnswerSummary
@@ -119,8 +126,10 @@ library
     Amazonka.WellArchitected.Types.ShareInvitationSummary
     Amazonka.WellArchitected.Types.ShareResourceType
     Amazonka.WellArchitected.Types.ShareStatus
+    Amazonka.WellArchitected.Types.TrustedAdvisorIntegrationStatus
     Amazonka.WellArchitected.Types.VersionDifferences
     Amazonka.WellArchitected.Types.Workload
+    Amazonka.WellArchitected.Types.WorkloadDiscoveryConfig
     Amazonka.WellArchitected.Types.WorkloadEnvironment
     Amazonka.WellArchitected.Types.WorkloadImprovementStatus
     Amazonka.WellArchitected.Types.WorkloadShare

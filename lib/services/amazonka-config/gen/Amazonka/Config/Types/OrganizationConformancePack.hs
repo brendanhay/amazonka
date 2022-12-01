@@ -21,7 +21,7 @@ module Amazonka.Config.Types.OrganizationConformancePack where
 
 import Amazonka.Config.Types.ConformancePackInputParameter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An organization conformance pack that has information about conformance

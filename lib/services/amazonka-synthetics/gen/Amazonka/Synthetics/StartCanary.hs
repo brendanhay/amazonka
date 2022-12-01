@@ -42,7 +42,7 @@ module Amazonka.Synthetics.StartCanary
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,8 +79,8 @@ startCanary_name = Lens.lens (\StartCanary' {name} -> name) (\s@StartCanary' {} 
 
 instance Core.AWSRequest StartCanary where
   type AWSResponse StartCanary = StartCanaryResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

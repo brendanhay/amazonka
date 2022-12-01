@@ -45,8 +45,8 @@ module Amazonka.IVS.StopStream
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IVS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -80,8 +80,8 @@ stopStream_channelArn = Lens.lens (\StopStream' {channelArn} -> channelArn) (\s@
 
 instance Core.AWSRequest StopStream where
   type AWSResponse StopStream = StopStreamResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

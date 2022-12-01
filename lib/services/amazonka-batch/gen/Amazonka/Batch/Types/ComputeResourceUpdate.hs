@@ -24,7 +24,7 @@ import Amazonka.Batch.Types.CRUpdateAllocationStrategy
 import Amazonka.Batch.Types.Ec2Configuration
 import Amazonka.Batch.Types.LaunchTemplateSpecification
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the attributes of a compute environment that
@@ -168,6 +168,10 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources. Don\'t specify it.
+    --
+    -- Batch doesn\'t support changing the desired number of vCPUs of an
+    -- existing compute environment. Don\'t specify this parameter for compute
+    -- environments using Amazon EKS clusters.
     desiredvCpus :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of Amazon EC2 vCPUs that an environment can reach.
     --
@@ -476,6 +480,10 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources. Don\'t specify it.
+--
+-- Batch doesn\'t support changing the desired number of vCPUs of an
+-- existing compute environment. Don\'t specify this parameter for compute
+-- environments using Amazon EKS clusters.
 --
 -- 'maxvCpus', 'computeResourceUpdate_maxvCpus' - The maximum number of Amazon EC2 vCPUs that an environment can reach.
 --
@@ -811,6 +819,10 @@ computeResourceUpdate_securityGroupIds = Lens.lens (\ComputeResourceUpdate' {sec
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources. Don\'t specify it.
+--
+-- Batch doesn\'t support changing the desired number of vCPUs of an
+-- existing compute environment. Don\'t specify this parameter for compute
+-- environments using Amazon EKS clusters.
 computeResourceUpdate_desiredvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
 computeResourceUpdate_desiredvCpus = Lens.lens (\ComputeResourceUpdate' {desiredvCpus} -> desiredvCpus) (\s@ComputeResourceUpdate' {} a -> s {desiredvCpus = a} :: ComputeResourceUpdate)
 

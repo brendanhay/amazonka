@@ -43,8 +43,8 @@ module Amazonka.IotTwinMaker.ListTagsForResource
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -53,7 +53,9 @@ import qualified Amazonka.Response as Response
 data ListTagsForResource = ListTagsForResource'
   { -- | The string that specifies the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to display.
+    -- | The maximum number of results to return at one time. The default is 25.
+    --
+    -- Valid Range: Minimum value of 1. Maximum value of 250.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the resource.
     resourceARN :: Prelude.Text
@@ -70,7 +72,9 @@ data ListTagsForResource = ListTagsForResource'
 --
 -- 'nextToken', 'listTagsForResource_nextToken' - The string that specifies the next page of results.
 --
--- 'maxResults', 'listTagsForResource_maxResults' - The maximum number of results to display.
+-- 'maxResults', 'listTagsForResource_maxResults' - The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
 --
 -- 'resourceARN', 'listTagsForResource_resourceARN' - The ARN of the resource.
 newListTagsForResource ::
@@ -88,7 +92,9 @@ newListTagsForResource pResourceARN_ =
 listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
 listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
--- | The maximum number of results to display.
+-- | The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
 listTagsForResource_maxResults :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
 listTagsForResource_maxResults = Lens.lens (\ListTagsForResource' {maxResults} -> maxResults) (\s@ListTagsForResource' {} a -> s {maxResults = a} :: ListTagsForResource)
 
@@ -100,8 +106,8 @@ instance Core.AWSRequest ListTagsForResource where
   type
     AWSResponse ListTagsForResource =
       ListTagsForResourceResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

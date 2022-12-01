@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsApiGatewayV2StageDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsApiGatewayAccessLogSettings
 import Amazonka.SecurityHub.Types.AwsApiGatewayV2RouteSettings

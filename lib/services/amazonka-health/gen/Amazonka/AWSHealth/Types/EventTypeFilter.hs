@@ -21,7 +21,7 @@ module Amazonka.AWSHealth.Types.EventTypeFilter where
 
 import Amazonka.AWSHealth.Types.EventTypeCategory
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values to use to filter results from the

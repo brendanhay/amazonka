@@ -20,7 +20,7 @@
 module Amazonka.Chime.Types.MessagingSessionEndpoint where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The websocket endpoint used to connect to Amazon Chime SDK messaging.

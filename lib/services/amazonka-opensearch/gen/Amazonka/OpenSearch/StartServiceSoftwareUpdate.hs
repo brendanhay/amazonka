@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Schedules a service software update for an Amazon OpenSearch Service
--- domain.
+-- domain. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html Service software updates in Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.StartServiceSoftwareUpdate
   ( -- * Creating a Request
     StartServiceSoftwareUpdate (..),
@@ -41,15 +42,14 @@ module Amazonka.OpenSearch.StartServiceSoftwareUpdate
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ StartServiceSoftwareUpdate @
--- operation. Specifies the name of the domain to schedule a service
--- software update for.
+-- | Container for the request parameters to the @StartServiceSoftwareUpdate@
+-- operation.
 --
 -- /See:/ 'newStartServiceSoftwareUpdate' smart constructor.
 data StartServiceSoftwareUpdate = StartServiceSoftwareUpdate'
@@ -88,8 +88,8 @@ instance Core.AWSRequest StartServiceSoftwareUpdate where
   type
     AWSResponse StartServiceSoftwareUpdate =
       StartServiceSoftwareUpdateResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,12 +124,12 @@ instance Core.ToPath StartServiceSoftwareUpdate where
 instance Core.ToQuery StartServiceSoftwareUpdate where
   toQuery = Prelude.const Prelude.mempty
 
--- | The result of a @StartServiceSoftwareUpdate@ operation. Contains the
--- status of the update.
+-- | Represents the output of a @StartServiceSoftwareUpdate@ operation.
+-- Contains the status of the update.
 --
 -- /See:/ 'newStartServiceSoftwareUpdateResponse' smart constructor.
 data StartServiceSoftwareUpdateResponse = StartServiceSoftwareUpdateResponse'
-  { -- | The current status of the OpenSearch service software update.
+  { -- | The current status of the OpenSearch Service software update.
     serviceSoftwareOptions :: Prelude.Maybe ServiceSoftwareOptions,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -144,7 +144,7 @@ data StartServiceSoftwareUpdateResponse = StartServiceSoftwareUpdateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceSoftwareOptions', 'startServiceSoftwareUpdateResponse_serviceSoftwareOptions' - The current status of the OpenSearch service software update.
+-- 'serviceSoftwareOptions', 'startServiceSoftwareUpdateResponse_serviceSoftwareOptions' - The current status of the OpenSearch Service software update.
 --
 -- 'httpStatus', 'startServiceSoftwareUpdateResponse_httpStatus' - The response's http status code.
 newStartServiceSoftwareUpdateResponse ::
@@ -158,7 +158,7 @@ newStartServiceSoftwareUpdateResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The current status of the OpenSearch service software update.
+-- | The current status of the OpenSearch Service software update.
 startServiceSoftwareUpdateResponse_serviceSoftwareOptions :: Lens.Lens' StartServiceSoftwareUpdateResponse (Prelude.Maybe ServiceSoftwareOptions)
 startServiceSoftwareUpdateResponse_serviceSoftwareOptions = Lens.lens (\StartServiceSoftwareUpdateResponse' {serviceSoftwareOptions} -> serviceSoftwareOptions) (\s@StartServiceSoftwareUpdateResponse' {} a -> s {serviceSoftwareOptions = a} :: StartServiceSoftwareUpdateResponse)
 

@@ -20,7 +20,7 @@
 module Amazonka.ECS.Types.InferenceAccelerator where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on an Elastic Inference accelerator. For more information, see

@@ -20,9 +20,9 @@
 module Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnection where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.DomainInformation
 import Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies details of an inbound connection.

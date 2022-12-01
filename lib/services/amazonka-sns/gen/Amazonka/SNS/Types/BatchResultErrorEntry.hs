@@ -20,7 +20,7 @@
 module Amazonka.SNS.Types.BatchResultErrorEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gives a detailed description of failed messages in the batch.

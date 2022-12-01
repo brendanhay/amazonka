@@ -20,9 +20,9 @@
 module Amazonka.EMR.Types.OnDemandCapacityReservationOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.OnDemandCapacityReservationPreference
 import Amazonka.EMR.Types.OnDemandCapacityReservationUsageStrategy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the strategy for using unused Capacity Reservations for

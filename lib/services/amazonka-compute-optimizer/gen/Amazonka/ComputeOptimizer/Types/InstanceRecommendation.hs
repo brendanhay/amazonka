@@ -28,7 +28,7 @@ import Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption
 import Amazonka.ComputeOptimizer.Types.RecommendationSource
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon EC2 instance recommendation.

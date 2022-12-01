@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.ArchiveGroupSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.ArchiveCdnSettings
 import Amazonka.MediaLive.Types.OutputLocationRef
 import qualified Amazonka.Prelude as Prelude

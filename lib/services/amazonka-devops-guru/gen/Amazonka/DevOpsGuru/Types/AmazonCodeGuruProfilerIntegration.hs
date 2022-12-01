@@ -20,8 +20,8 @@
 module Amazonka.DevOpsGuru.Types.AmazonCodeGuruProfilerIntegration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.EventSourceOptInStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about your account\'s integration with Amazon CodeGuru

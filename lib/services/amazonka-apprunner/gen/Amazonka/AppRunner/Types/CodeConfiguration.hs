@@ -22,7 +22,7 @@ module Amazonka.AppRunner.Types.CodeConfiguration where
 import Amazonka.AppRunner.Types.CodeConfigurationValues
 import Amazonka.AppRunner.Types.ConfigurationSource
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration that App Runner uses to build and run an App

@@ -23,6 +23,7 @@ haskell_library(
         "gen/Amazonka/EMRServerless/Types/Application.hs",
         "gen/Amazonka/EMRServerless/Types/ApplicationState.hs",
         "gen/Amazonka/EMRServerless/Types/ApplicationSummary.hs",
+        "gen/Amazonka/EMRServerless/Types/Architecture.hs",
         "gen/Amazonka/EMRServerless/Types/AutoStartConfig.hs",
         "gen/Amazonka/EMRServerless/Types/AutoStopConfig.hs",
         "gen/Amazonka/EMRServerless/Types/Configuration.hs",

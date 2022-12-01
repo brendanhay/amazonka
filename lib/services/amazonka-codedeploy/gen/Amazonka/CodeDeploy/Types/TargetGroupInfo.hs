@@ -20,7 +20,7 @@
 module Amazonka.CodeDeploy.Types.TargetGroupInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a target group in Elastic Load Balancing to use in a

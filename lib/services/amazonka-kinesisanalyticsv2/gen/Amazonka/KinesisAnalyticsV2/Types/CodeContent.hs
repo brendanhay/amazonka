@@ -20,8 +20,8 @@
 module Amazonka.KinesisAnalyticsV2.Types.CodeContent where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.S3ContentLocation
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies either the application code, or the location of the

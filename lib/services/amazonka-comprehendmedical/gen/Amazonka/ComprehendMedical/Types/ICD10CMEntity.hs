@@ -25,7 +25,7 @@ import Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory
 import Amazonka.ComprehendMedical.Types.ICD10CMEntityType
 import Amazonka.ComprehendMedical.Types.ICD10CMTrait
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The collection of medical entities extracted from the input text and

@@ -21,7 +21,7 @@ module Amazonka.CloudFormation.Types.ChangeSetHookResourceTargetDetails where
 
 import Amazonka.CloudFormation.Types.ChangeAction
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies @RESOURCE@ type target details for activated hooks.

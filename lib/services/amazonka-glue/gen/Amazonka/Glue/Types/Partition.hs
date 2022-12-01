@@ -20,8 +20,8 @@
 module Amazonka.Glue.Types.Partition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.StorageDescriptor
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a slice of table data.

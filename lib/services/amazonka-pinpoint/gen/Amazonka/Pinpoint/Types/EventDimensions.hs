@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.EventDimensions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Pinpoint.Types.AttributeDimension
 import Amazonka.Pinpoint.Types.MetricDimension
 import Amazonka.Pinpoint.Types.SetDimension

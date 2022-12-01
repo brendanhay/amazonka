@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.NotificationChannelConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.NotificationFilterConfig
 import Amazonka.DevOpsGuru.Types.SnsChannelConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about notification channels you have configured with DevOps

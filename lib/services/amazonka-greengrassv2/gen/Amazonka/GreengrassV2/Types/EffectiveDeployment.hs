@@ -20,9 +20,9 @@
 module Amazonka.GreengrassV2.Types.EffectiveDeployment where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus
 import Amazonka.GreengrassV2.Types.EffectiveDeploymentStatusDetails
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a deployment job that IoT Greengrass sends to

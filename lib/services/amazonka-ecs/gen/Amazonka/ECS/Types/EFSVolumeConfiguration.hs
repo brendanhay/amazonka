@@ -20,9 +20,9 @@
 module Amazonka.ECS.Types.EFSVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.EFSAuthorizationConfig
 import Amazonka.ECS.Types.EFSTransitEncryption
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This parameter is specified when you\'re using an Amazon Elastic File

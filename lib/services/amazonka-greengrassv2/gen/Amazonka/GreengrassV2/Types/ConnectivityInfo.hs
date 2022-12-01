@@ -20,7 +20,7 @@
 module Amazonka.GreengrassV2.Types.ConnectivityInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an endpoint and port where client devices can

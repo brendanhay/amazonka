@@ -20,7 +20,7 @@
 module Amazonka.Textract.Types.Query where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Each query contains the question you want to ask in the Text and the
@@ -30,16 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 data Query = Query'
   { -- | Alias attached to the query, for ease of location.
     alias :: Prelude.Maybe Prelude.Text,
-    -- | List of pages associated with the query. The following is a list of
-    -- rules for using this parameter.
+    -- | Pages is a parameter that the user inputs to specify which pages to
+    -- apply a query to. The following is a list of rules for using this
+    -- parameter.
     --
     -- -   If a page is not specified, it is set to @[\"1\"]@ by default.
     --
     -- -   The following characters are allowed in the parameter\'s string:
     --     @0 1 2 3 4 5 6 7 8 9 - *@. No whitespace is allowed.
     --
-    -- -   When using @*@ to indicate all pages, it must be the only element in
-    --     the string.
+    -- -   When using * to indicate all pages, it must be the only element in
+    --     the list.
     --
     -- -   You can use page intervals, such as @[“1-3”, “1-1”, “4-*”]@. Where
     --     @*@ indicates last page of document.
@@ -63,16 +64,17 @@ data Query = Query'
 --
 -- 'alias', 'query_alias' - Alias attached to the query, for ease of location.
 --
--- 'pages', 'query_pages' - List of pages associated with the query. The following is a list of
--- rules for using this parameter.
+-- 'pages', 'query_pages' - Pages is a parameter that the user inputs to specify which pages to
+-- apply a query to. The following is a list of rules for using this
+-- parameter.
 --
 -- -   If a page is not specified, it is set to @[\"1\"]@ by default.
 --
 -- -   The following characters are allowed in the parameter\'s string:
 --     @0 1 2 3 4 5 6 7 8 9 - *@. No whitespace is allowed.
 --
--- -   When using @*@ to indicate all pages, it must be the only element in
---     the string.
+-- -   When using * to indicate all pages, it must be the only element in
+--     the list.
 --
 -- -   You can use page intervals, such as @[“1-3”, “1-1”, “4-*”]@. Where
 --     @*@ indicates last page of document.
@@ -97,16 +99,17 @@ newQuery pText_ =
 query_alias :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
 query_alias = Lens.lens (\Query' {alias} -> alias) (\s@Query' {} a -> s {alias = a} :: Query)
 
--- | List of pages associated with the query. The following is a list of
--- rules for using this parameter.
+-- | Pages is a parameter that the user inputs to specify which pages to
+-- apply a query to. The following is a list of rules for using this
+-- parameter.
 --
 -- -   If a page is not specified, it is set to @[\"1\"]@ by default.
 --
 -- -   The following characters are allowed in the parameter\'s string:
 --     @0 1 2 3 4 5 6 7 8 9 - *@. No whitespace is allowed.
 --
--- -   When using @*@ to indicate all pages, it must be the only element in
---     the string.
+-- -   When using * to indicate all pages, it must be the only element in
+--     the list.
 --
 -- -   You can use page intervals, such as @[“1-3”, “1-1”, “4-*”]@. Where
 --     @*@ indicates last page of document.

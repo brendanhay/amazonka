@@ -72,6 +72,7 @@ module Amazonka.ConnectCases.Lens
 
     -- ** CreateTemplate
     createTemplate_layoutConfiguration,
+    createTemplate_status,
     createTemplate_description,
     createTemplate_requiredFields,
     createTemplate_domainId,
@@ -125,6 +126,7 @@ module Amazonka.ConnectCases.Lens
     getTemplateResponse_requiredFields,
     getTemplateResponse_httpStatus,
     getTemplateResponse_name,
+    getTemplateResponse_status,
     getTemplateResponse_templateArn,
     getTemplateResponse_templateId,
 
@@ -177,6 +179,7 @@ module Amazonka.ConnectCases.Lens
 
     -- ** ListTemplates
     listTemplates_nextToken,
+    listTemplates_status,
     listTemplates_maxResults,
     listTemplates_domainId,
     listTemplatesResponse_nextToken,
@@ -241,6 +244,7 @@ module Amazonka.ConnectCases.Lens
     -- ** UpdateTemplate
     updateTemplate_layoutConfiguration,
     updateTemplate_name,
+    updateTemplate_status,
     updateTemplate_description,
     updateTemplate_requiredFields,
     updateTemplate_domainId,
@@ -408,6 +412,7 @@ module Amazonka.ConnectCases.Lens
 
     -- ** TemplateSummary
     templateSummary_name,
+    templateSummary_status,
     templateSummary_templateArn,
     templateSummary_templateId,
   )

@@ -47,6 +47,7 @@ module Amazonka.EC2.CreateNatGateway
     createNatGateway_clientToken,
     createNatGateway_allocationId,
     createNatGateway_dryRun,
+    createNatGateway_privateIpAddress,
     createNatGateway_connectivityType,
     createNatGateway_tagSpecifications,
     createNatGateway_subnetId,
@@ -63,8 +64,8 @@ module Amazonka.EC2.CreateNatGateway
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,6 +88,10 @@ data CreateNatGateway = CreateNatGateway'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The private IPv4 address to assign to the NAT gateway. If you don\'t
+    -- provide an address, a private IPv4 address will be automatically
+    -- assigned.
+    privateIpAddress :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the NAT gateway supports public or private
     -- connectivity. The default is public connectivity.
     connectivityType :: Prelude.Maybe ConnectivityType,
@@ -121,6 +126,10 @@ data CreateNatGateway = CreateNatGateway'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'privateIpAddress', 'createNatGateway_privateIpAddress' - The private IPv4 address to assign to the NAT gateway. If you don\'t
+-- provide an address, a private IPv4 address will be automatically
+-- assigned.
+--
 -- 'connectivityType', 'createNatGateway_connectivityType' - Indicates whether the NAT gateway supports public or private
 -- connectivity. The default is public connectivity.
 --
@@ -136,6 +145,7 @@ newCreateNatGateway pSubnetId_ =
     { clientToken = Prelude.Nothing,
       allocationId = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      privateIpAddress = Prelude.Nothing,
       connectivityType = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
       subnetId = pSubnetId_
@@ -163,6 +173,12 @@ createNatGateway_allocationId = Lens.lens (\CreateNatGateway' {allocationId} -> 
 createNatGateway_dryRun :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Bool)
 createNatGateway_dryRun = Lens.lens (\CreateNatGateway' {dryRun} -> dryRun) (\s@CreateNatGateway' {} a -> s {dryRun = a} :: CreateNatGateway)
 
+-- | The private IPv4 address to assign to the NAT gateway. If you don\'t
+-- provide an address, a private IPv4 address will be automatically
+-- assigned.
+createNatGateway_privateIpAddress :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Text)
+createNatGateway_privateIpAddress = Lens.lens (\CreateNatGateway' {privateIpAddress} -> privateIpAddress) (\s@CreateNatGateway' {} a -> s {privateIpAddress = a} :: CreateNatGateway)
+
 -- | Indicates whether the NAT gateway supports public or private
 -- connectivity. The default is public connectivity.
 createNatGateway_connectivityType :: Lens.Lens' CreateNatGateway (Prelude.Maybe ConnectivityType)
@@ -180,8 +196,8 @@ instance Core.AWSRequest CreateNatGateway where
   type
     AWSResponse CreateNatGateway =
       CreateNatGatewayResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->
@@ -196,6 +212,7 @@ instance Prelude.Hashable CreateNatGateway where
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` privateIpAddress
       `Prelude.hashWithSalt` connectivityType
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` subnetId
@@ -205,6 +222,7 @@ instance Prelude.NFData CreateNatGateway where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf allocationId
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf privateIpAddress
       `Prelude.seq` Prelude.rnf connectivityType
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf subnetId
@@ -225,6 +243,7 @@ instance Core.ToQuery CreateNatGateway where
         "ClientToken" Core.=: clientToken,
         "AllocationId" Core.=: allocationId,
         "DryRun" Core.=: dryRun,
+        "PrivateIpAddress" Core.=: privateIpAddress,
         "ConnectivityType" Core.=: connectivityType,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"

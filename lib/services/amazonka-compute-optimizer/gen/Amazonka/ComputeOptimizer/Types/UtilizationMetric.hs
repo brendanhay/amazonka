@@ -22,7 +22,7 @@ module Amazonka.ComputeOptimizer.Types.UtilizationMetric where
 import Amazonka.ComputeOptimizer.Types.MetricName
 import Amazonka.ComputeOptimizer.Types.MetricStatistic
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a utilization metric of a resource, such as an Amazon EC2

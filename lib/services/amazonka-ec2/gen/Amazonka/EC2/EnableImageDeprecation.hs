@@ -46,8 +46,8 @@ module Amazonka.EC2.EnableImageDeprecation
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -66,7 +66,8 @@ data EnableImageDeprecation = EnableImageDeprecation'
     -- Amazon EC2 rounds the seconds to the nearest minute.
     --
     -- You can’t specify a date in the past. The upper limit for @DeprecateAt@
-    -- is 10 years from now.
+    -- is 10 years from now, except for public AMIs, where the upper limit is 2
+    -- years from the creation date.
     deprecateAt :: Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,7 +92,8 @@ data EnableImageDeprecation = EnableImageDeprecation'
 -- Amazon EC2 rounds the seconds to the nearest minute.
 --
 -- You can’t specify a date in the past. The upper limit for @DeprecateAt@
--- is 10 years from now.
+-- is 10 years from now, except for public AMIs, where the upper limit is 2
+-- years from the creation date.
 newEnableImageDeprecation ::
   -- | 'imageId'
   Prelude.Text ->
@@ -121,7 +123,8 @@ enableImageDeprecation_imageId = Lens.lens (\EnableImageDeprecation' {imageId} -
 -- Amazon EC2 rounds the seconds to the nearest minute.
 --
 -- You can’t specify a date in the past. The upper limit for @DeprecateAt@
--- is 10 years from now.
+-- is 10 years from now, except for public AMIs, where the upper limit is 2
+-- years from the creation date.
 enableImageDeprecation_deprecateAt :: Lens.Lens' EnableImageDeprecation Prelude.UTCTime
 enableImageDeprecation_deprecateAt = Lens.lens (\EnableImageDeprecation' {deprecateAt} -> deprecateAt) (\s@EnableImageDeprecation' {} a -> s {deprecateAt = a} :: EnableImageDeprecation) Prelude.. Core._Time
 
@@ -129,8 +132,8 @@ instance Core.AWSRequest EnableImageDeprecation where
   type
     AWSResponse EnableImageDeprecation =
       EnableImageDeprecationResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

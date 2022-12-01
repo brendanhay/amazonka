@@ -20,9 +20,9 @@
 module Amazonka.GuardDuty.Types.Destination where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.DestinationType
 import Amazonka.GuardDuty.Types.PublishingStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the publishing destination, including the ID,

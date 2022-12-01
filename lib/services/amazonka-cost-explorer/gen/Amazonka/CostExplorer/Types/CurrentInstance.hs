@@ -20,10 +20,10 @@
 module Amazonka.CostExplorer.Types.CurrentInstance where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.ResourceDetails
 import Amazonka.CostExplorer.Types.ResourceUtilization
 import Amazonka.CostExplorer.Types.TagValues
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Context about the current instance.

@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsApiGatewayCanarySettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about settings for canary deployment in the stage.

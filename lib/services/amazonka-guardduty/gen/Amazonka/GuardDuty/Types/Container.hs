@@ -20,9 +20,9 @@
 module Amazonka.GuardDuty.Types.Container where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.SecurityContext
 import Amazonka.GuardDuty.Types.VolumeMount
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of a container.

@@ -29,6 +29,7 @@ module Amazonka.ConnectCases.ListTemplates
 
     -- * Request Lenses
     listTemplates_nextToken,
+    listTemplates_status,
     listTemplates_maxResults,
     listTemplates_domainId,
 
@@ -45,7 +46,7 @@ where
 
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,6 +57,8 @@ data ListTemplates = ListTemplates'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of status values to filter on.
+    status :: Prelude.Maybe (Prelude.NonEmpty TemplateStatus),
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the Cases domain.
@@ -75,6 +78,8 @@ data ListTemplates = ListTemplates'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
+-- 'status', 'listTemplates_status' - A list of status values to filter on.
+--
 -- 'maxResults', 'listTemplates_maxResults' - The maximum number of results to return per page.
 --
 -- 'domainId', 'listTemplates_domainId' - The unique identifier of the Cases domain.
@@ -85,6 +90,7 @@ newListTemplates ::
 newListTemplates pDomainId_ =
   ListTemplates'
     { nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       domainId = pDomainId_
     }
@@ -94,6 +100,10 @@ newListTemplates pDomainId_ =
 -- results.
 listTemplates_nextToken :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
 listTemplates_nextToken = Lens.lens (\ListTemplates' {nextToken} -> nextToken) (\s@ListTemplates' {} a -> s {nextToken = a} :: ListTemplates)
+
+-- | A list of status values to filter on.
+listTemplates_status :: Lens.Lens' ListTemplates (Prelude.Maybe (Prelude.NonEmpty TemplateStatus))
+listTemplates_status = Lens.lens (\ListTemplates' {status} -> status) (\s@ListTemplates' {} a -> s {status = a} :: ListTemplates) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return per page.
 listTemplates_maxResults :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Natural)
@@ -107,8 +117,8 @@ instance Core.AWSRequest ListTemplates where
   type
     AWSResponse ListTemplates =
       ListTemplatesResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,12 +131,14 @@ instance Core.AWSRequest ListTemplates where
 instance Prelude.Hashable ListTemplates where
   hashWithSalt _salt ListTemplates' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` domainId
 
 instance Prelude.NFData ListTemplates where
   rnf ListTemplates' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf domainId
 
@@ -153,6 +165,9 @@ instance Core.ToQuery ListTemplates where
   toQuery ListTemplates' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
+        "status"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> status),
         "maxResults" Core.=: maxResults
       ]
 

@@ -39,12 +39,13 @@ module Amazonka.ServiceCatalog.CreateProduct
     createProduct_supportEmail,
     createProduct_supportUrl,
     createProduct_description,
+    createProduct_provisioningArtifactParameters,
     createProduct_distributor,
+    createProduct_sourceConnection,
     createProduct_acceptLanguage,
     createProduct_name,
     createProduct_owner,
     createProduct_productType,
-    createProduct_provisioningArtifactParameters,
     createProduct_idempotencyToken,
 
     -- * Destructuring the Response
@@ -60,7 +61,7 @@ module Amazonka.ServiceCatalog.CreateProduct
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -80,8 +81,19 @@ data CreateProduct = CreateProduct'
     supportUrl :: Prelude.Maybe Prelude.Text,
     -- | The description of the product.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The configuration of the provisioning artifact.
+    provisioningArtifactParameters :: Prelude.Maybe ProvisioningArtifactProperties,
     -- | The distributor of the product.
     distributor :: Prelude.Maybe Prelude.Text,
+    -- | Specifies connection details for the created product and syncs the
+    -- product to the connection source artifact. This automatically manages
+    -- the product\'s artifacts based on changes to the source. The
+    -- @SourceConnection@ parameter consists of the following sub-fields.
+    --
+    -- -   @Type@
+    --
+    -- -   @ConnectionParamters@
+    sourceConnection :: Prelude.Maybe SourceConnection,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -96,8 +108,6 @@ data CreateProduct = CreateProduct'
     owner :: Prelude.Text,
     -- | The type of product.
     productType :: ProductType,
-    -- | The configuration of the provisioning artifact.
-    provisioningArtifactParameters :: ProvisioningArtifactProperties,
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
@@ -125,7 +135,18 @@ data CreateProduct = CreateProduct'
 --
 -- 'description', 'createProduct_description' - The description of the product.
 --
+-- 'provisioningArtifactParameters', 'createProduct_provisioningArtifactParameters' - The configuration of the provisioning artifact.
+--
 -- 'distributor', 'createProduct_distributor' - The distributor of the product.
+--
+-- 'sourceConnection', 'createProduct_sourceConnection' - Specifies connection details for the created product and syncs the
+-- product to the connection source artifact. This automatically manages
+-- the product\'s artifacts based on changes to the source. The
+-- @SourceConnection@ parameter consists of the following sub-fields.
+--
+-- -   @Type@
+--
+-- -   @ConnectionParamters@
 --
 -- 'acceptLanguage', 'createProduct_acceptLanguage' - The language code.
 --
@@ -141,8 +162,6 @@ data CreateProduct = CreateProduct'
 --
 -- 'productType', 'createProduct_productType' - The type of product.
 --
--- 'provisioningArtifactParameters', 'createProduct_provisioningArtifactParameters' - The configuration of the provisioning artifact.
---
 -- 'idempotencyToken', 'createProduct_idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
@@ -153,8 +172,6 @@ newCreateProduct ::
   Prelude.Text ->
   -- | 'productType'
   ProductType ->
-  -- | 'provisioningArtifactParameters'
-  ProvisioningArtifactProperties ->
   -- | 'idempotencyToken'
   Prelude.Text ->
   CreateProduct
@@ -162,7 +179,6 @@ newCreateProduct
   pName_
   pOwner_
   pProductType_
-  pProvisioningArtifactParameters_
   pIdempotencyToken_ =
     CreateProduct'
       { tags = Prelude.Nothing,
@@ -170,13 +186,13 @@ newCreateProduct
         supportEmail = Prelude.Nothing,
         supportUrl = Prelude.Nothing,
         description = Prelude.Nothing,
+        provisioningArtifactParameters = Prelude.Nothing,
         distributor = Prelude.Nothing,
+        sourceConnection = Prelude.Nothing,
         acceptLanguage = Prelude.Nothing,
         name = pName_,
         owner = pOwner_,
         productType = pProductType_,
-        provisioningArtifactParameters =
-          pProvisioningArtifactParameters_,
         idempotencyToken = pIdempotencyToken_
       }
 
@@ -202,9 +218,24 @@ createProduct_supportUrl = Lens.lens (\CreateProduct' {supportUrl} -> supportUrl
 createProduct_description :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
 createProduct_description = Lens.lens (\CreateProduct' {description} -> description) (\s@CreateProduct' {} a -> s {description = a} :: CreateProduct)
 
+-- | The configuration of the provisioning artifact.
+createProduct_provisioningArtifactParameters :: Lens.Lens' CreateProduct (Prelude.Maybe ProvisioningArtifactProperties)
+createProduct_provisioningArtifactParameters = Lens.lens (\CreateProduct' {provisioningArtifactParameters} -> provisioningArtifactParameters) (\s@CreateProduct' {} a -> s {provisioningArtifactParameters = a} :: CreateProduct)
+
 -- | The distributor of the product.
 createProduct_distributor :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
 createProduct_distributor = Lens.lens (\CreateProduct' {distributor} -> distributor) (\s@CreateProduct' {} a -> s {distributor = a} :: CreateProduct)
+
+-- | Specifies connection details for the created product and syncs the
+-- product to the connection source artifact. This automatically manages
+-- the product\'s artifacts based on changes to the source. The
+-- @SourceConnection@ parameter consists of the following sub-fields.
+--
+-- -   @Type@
+--
+-- -   @ConnectionParamters@
+createProduct_sourceConnection :: Lens.Lens' CreateProduct (Prelude.Maybe SourceConnection)
+createProduct_sourceConnection = Lens.lens (\CreateProduct' {sourceConnection} -> sourceConnection) (\s@CreateProduct' {} a -> s {sourceConnection = a} :: CreateProduct)
 
 -- | The language code.
 --
@@ -228,10 +259,6 @@ createProduct_owner = Lens.lens (\CreateProduct' {owner} -> owner) (\s@CreatePro
 createProduct_productType :: Lens.Lens' CreateProduct ProductType
 createProduct_productType = Lens.lens (\CreateProduct' {productType} -> productType) (\s@CreateProduct' {} a -> s {productType = a} :: CreateProduct)
 
--- | The configuration of the provisioning artifact.
-createProduct_provisioningArtifactParameters :: Lens.Lens' CreateProduct ProvisioningArtifactProperties
-createProduct_provisioningArtifactParameters = Lens.lens (\CreateProduct' {provisioningArtifactParameters} -> provisioningArtifactParameters) (\s@CreateProduct' {} a -> s {provisioningArtifactParameters = a} :: CreateProduct)
-
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
@@ -242,8 +269,8 @@ instance Core.AWSRequest CreateProduct where
   type
     AWSResponse CreateProduct =
       CreateProductResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -261,12 +288,13 @@ instance Prelude.Hashable CreateProduct where
       `Prelude.hashWithSalt` supportEmail
       `Prelude.hashWithSalt` supportUrl
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` provisioningArtifactParameters
       `Prelude.hashWithSalt` distributor
+      `Prelude.hashWithSalt` sourceConnection
       `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` productType
-      `Prelude.hashWithSalt` provisioningArtifactParameters
       `Prelude.hashWithSalt` idempotencyToken
 
 instance Prelude.NFData CreateProduct where
@@ -276,12 +304,13 @@ instance Prelude.NFData CreateProduct where
       `Prelude.seq` Prelude.rnf supportEmail
       `Prelude.seq` Prelude.rnf supportUrl
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf provisioningArtifactParameters
       `Prelude.seq` Prelude.rnf distributor
+      `Prelude.seq` Prelude.rnf sourceConnection
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf provisioningArtifactParameters
       `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance Core.ToHeaders CreateProduct where
@@ -309,16 +338,16 @@ instance Core.ToJSON CreateProduct where
             ("SupportEmail" Core..=) Prelude.<$> supportEmail,
             ("SupportUrl" Core..=) Prelude.<$> supportUrl,
             ("Description" Core..=) Prelude.<$> description,
+            ("ProvisioningArtifactParameters" Core..=)
+              Prelude.<$> provisioningArtifactParameters,
             ("Distributor" Core..=) Prelude.<$> distributor,
+            ("SourceConnection" Core..=)
+              Prelude.<$> sourceConnection,
             ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Owner" Core..= owner),
             Prelude.Just ("ProductType" Core..= productType),
-            Prelude.Just
-              ( "ProvisioningArtifactParameters"
-                  Core..= provisioningArtifactParameters
-              ),
             Prelude.Just
               ("IdempotencyToken" Core..= idempotencyToken)
           ]

@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.AwsVpcConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.AssignPublicIp
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the networking details for a task or service.

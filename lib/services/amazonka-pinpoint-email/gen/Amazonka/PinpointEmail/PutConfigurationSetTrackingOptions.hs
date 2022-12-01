@@ -41,7 +41,7 @@ module Amazonka.PinpointEmail.PutConfigurationSetTrackingOptions
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.PinpointEmail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,8 +101,8 @@ instance
   type
     AWSResponse PutConfigurationSetTrackingOptions =
       PutConfigurationSetTrackingOptionsResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsElasticsearchDomainServiceSoftwareOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the state of the domain relative to the latest service

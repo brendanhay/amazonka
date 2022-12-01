@@ -20,9 +20,9 @@
 module Amazonka.IoTEvents.Types.OnInputLifecycle where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.Event
 import Amazonka.IoTEvents.Types.TransitionEvent
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the actions performed when the @condition@ evaluates to TRUE.

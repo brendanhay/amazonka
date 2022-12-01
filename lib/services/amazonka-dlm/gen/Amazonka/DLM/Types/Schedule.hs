@@ -20,6 +20,7 @@
 module Amazonka.DLM.Types.Schedule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.ArchiveRule
 import Amazonka.DLM.Types.CreateRule
 import Amazonka.DLM.Types.CrossRegionCopyRule
@@ -28,7 +29,6 @@ import Amazonka.DLM.Types.FastRestoreRule
 import Amazonka.DLM.Types.RetainRule
 import Amazonka.DLM.Types.ShareRule
 import Amazonka.DLM.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot and AMI policies only]__ Specifies a schedule for a snapshot

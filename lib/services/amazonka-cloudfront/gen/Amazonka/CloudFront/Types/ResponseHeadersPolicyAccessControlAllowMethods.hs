@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowMethods 
 
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowMethodsValues
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of HTTP methods that CloudFront includes as values for the

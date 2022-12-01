@@ -20,8 +20,8 @@
 module Amazonka.ImageBuilder.Types.Ami where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.ImageState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of an Amazon EC2 AMI.

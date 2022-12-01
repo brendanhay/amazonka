@@ -20,8 +20,8 @@
 module Amazonka.Grafana.Types.UpdateError where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types.UpdateInstruction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing information about one error encountered while

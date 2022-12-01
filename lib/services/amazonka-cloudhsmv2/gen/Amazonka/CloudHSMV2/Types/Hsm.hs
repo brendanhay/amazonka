@@ -21,7 +21,7 @@ module Amazonka.CloudHSMV2.Types.Hsm where
 
 import Amazonka.CloudHSMV2.Types.HsmState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a hardware security module (HSM) in an AWS

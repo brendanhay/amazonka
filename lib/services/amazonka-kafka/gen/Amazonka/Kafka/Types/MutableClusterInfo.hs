@@ -20,6 +20,7 @@
 module Amazonka.Kafka.Types.MutableClusterInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kafka.Types.BrokerEBSVolumeInfo
 import Amazonka.Kafka.Types.ClientAuthentication
 import Amazonka.Kafka.Types.ConfigurationInfo
@@ -29,7 +30,6 @@ import Amazonka.Kafka.Types.EnhancedMonitoring
 import Amazonka.Kafka.Types.LoggingInfo
 import Amazonka.Kafka.Types.OpenMonitoring
 import Amazonka.Kafka.Types.StorageMode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about cluster attributes that can be updated via update

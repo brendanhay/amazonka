@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.Scte35SpliceInsert where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior
 import Amazonka.MediaLive.Types.Scte35SpliceInsertWebDeliveryAllowedBehavior
 import qualified Amazonka.Prelude as Prelude

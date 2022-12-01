@@ -20,7 +20,7 @@
 module Amazonka.CloudWatchLogs.Types.LogStream where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a log stream, which is a sequence of log events from a single

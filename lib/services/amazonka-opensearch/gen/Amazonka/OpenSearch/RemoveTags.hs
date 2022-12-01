@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified set of tags from the given domain.
+-- Removes the specified set of tags from an Amazon OpenSearch Service
+-- domain. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging Tagging Amazon OpenSearch Service domains>.
 module Amazonka.OpenSearch.RemoveTags
   ( -- * Creating a Request
     RemoveTags (..),
@@ -37,22 +39,20 @@ module Amazonka.OpenSearch.RemoveTags
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ RemoveTags @ operation. Specify
--- the @ARN@ for the domain from which you want to remove the specified
--- @TagKey@.
+-- | Container for the request parameters to the @RemoveTags@ operation.
 --
 -- /See:/ 'newRemoveTags' smart constructor.
 data RemoveTags = RemoveTags'
-  { -- | The @ARN@ of the domain from which you want to delete the specified
-    -- tags.
+  { -- | The Amazon Resource Name (ARN) of the domain from which you want to
+    -- delete the specified tags.
     arn :: Prelude.Text,
-    -- | The @TagKey@ list you want to remove from the domain.
+    -- | The list of tag keys to remove from the domain.
     tagKeys :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,10 +65,10 @@ data RemoveTags = RemoveTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'removeTags_arn' - The @ARN@ of the domain from which you want to delete the specified
--- tags.
+-- 'arn', 'removeTags_arn' - The Amazon Resource Name (ARN) of the domain from which you want to
+-- delete the specified tags.
 --
--- 'tagKeys', 'removeTags_tagKeys' - The @TagKey@ list you want to remove from the domain.
+-- 'tagKeys', 'removeTags_tagKeys' - The list of tag keys to remove from the domain.
 newRemoveTags ::
   -- | 'arn'
   Prelude.Text ->
@@ -76,19 +76,19 @@ newRemoveTags ::
 newRemoveTags pARN_ =
   RemoveTags' {arn = pARN_, tagKeys = Prelude.mempty}
 
--- | The @ARN@ of the domain from which you want to delete the specified
--- tags.
+-- | The Amazon Resource Name (ARN) of the domain from which you want to
+-- delete the specified tags.
 removeTags_arn :: Lens.Lens' RemoveTags Prelude.Text
 removeTags_arn = Lens.lens (\RemoveTags' {arn} -> arn) (\s@RemoveTags' {} a -> s {arn = a} :: RemoveTags)
 
--- | The @TagKey@ list you want to remove from the domain.
+-- | The list of tag keys to remove from the domain.
 removeTags_tagKeys :: Lens.Lens' RemoveTags [Prelude.Text]
 removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveTags where
   type AWSResponse RemoveTags = RemoveTagsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull RemoveTagsResponse'
 
 instance Prelude.Hashable RemoveTags where

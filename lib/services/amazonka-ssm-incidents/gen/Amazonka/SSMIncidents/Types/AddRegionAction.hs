@@ -20,7 +20,7 @@
 module Amazonka.SSMIncidents.Types.AddRegionAction where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the Amazon Web Services Region and KMS key to add to the

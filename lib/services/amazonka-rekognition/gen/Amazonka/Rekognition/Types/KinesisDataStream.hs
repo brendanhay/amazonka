@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.KinesisDataStream where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Kinesis data stream Amazon Rekognition to which the analysis results

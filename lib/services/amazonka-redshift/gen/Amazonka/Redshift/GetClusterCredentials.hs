@@ -72,7 +72,7 @@ module Amazonka.Redshift.GetClusterCredentials
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -362,8 +362,8 @@ instance Core.AWSRequest GetClusterCredentials where
   type
     AWSResponse GetClusterCredentials =
       GetClusterCredentialsResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "GetClusterCredentialsResult"

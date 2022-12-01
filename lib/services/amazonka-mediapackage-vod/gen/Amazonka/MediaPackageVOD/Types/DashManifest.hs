@@ -20,7 +20,7 @@
 module Amazonka.MediaPackageVOD.Types.DashManifest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaPackageVOD.Types.ManifestLayout
 import Amazonka.MediaPackageVOD.Types.Profile
 import Amazonka.MediaPackageVOD.Types.ScteMarkersSource

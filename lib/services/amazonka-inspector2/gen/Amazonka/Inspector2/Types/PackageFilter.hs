@@ -20,9 +20,9 @@
 module Amazonka.Inspector2.Types.PackageFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector2.Types.NumberFilter
 import Amazonka.Inspector2.Types.StringFilter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on the details of a package filter.

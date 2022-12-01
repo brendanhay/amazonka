@@ -20,7 +20,7 @@
 module Amazonka.Panorama.Types.ManifestPayload where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A application verion\'s manifest file. This is a JSON document that has

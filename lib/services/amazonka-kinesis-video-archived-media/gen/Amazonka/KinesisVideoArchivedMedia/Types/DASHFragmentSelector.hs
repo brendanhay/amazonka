@@ -20,9 +20,9 @@
 module Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType
 import Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the range of timestamps for the requested media, and the source

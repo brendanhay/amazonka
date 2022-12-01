@@ -22,7 +22,7 @@ module Amazonka.AppMesh.Types.ListenerTlsValidationContext where
 import Amazonka.AppMesh.Types.ListenerTlsValidationContextTrust
 import Amazonka.AppMesh.Types.SubjectAlternativeNames
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a listener\'s Transport Layer Security (TLS)

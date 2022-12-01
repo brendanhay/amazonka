@@ -20,9 +20,9 @@
 module Amazonka.DevOpsGuru.Types.UpdateServiceIntegrationConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.LogsAnomalyDetectionIntegrationConfig
 import Amazonka.DevOpsGuru.Types.OpsCenterIntegrationConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about updating the integration status of an Amazon Web

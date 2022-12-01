@@ -59,7 +59,7 @@ module Amazonka.RDS.DescribeDBClusters
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -96,9 +96,10 @@ data DescribeDBClusters = DescribeDBClusters'
     -- -   @engine@ - Accepts engine names. The results list only includes
     --     information about the DB clusters for these engines.
     filters :: Prelude.Maybe [Filter],
-    -- | The user-supplied DB cluster identifier. If this parameter is specified,
-    -- information from only the specific DB cluster is returned. This
-    -- parameter isn\'t case-sensitive.
+    -- | The user-supplied DB cluster identifier or the Amazon Resource Name
+    -- (ARN) of the DB cluster. If this parameter is specified, information
+    -- from only the specific DB cluster is returned. This parameter isn\'t
+    -- case-sensitive.
     --
     -- Constraints:
     --
@@ -151,9 +152,10 @@ data DescribeDBClusters = DescribeDBClusters'
 -- -   @engine@ - Accepts engine names. The results list only includes
 --     information about the DB clusters for these engines.
 --
--- 'dbClusterIdentifier', 'describeDBClusters_dbClusterIdentifier' - The user-supplied DB cluster identifier. If this parameter is specified,
--- information from only the specific DB cluster is returned. This
--- parameter isn\'t case-sensitive.
+-- 'dbClusterIdentifier', 'describeDBClusters_dbClusterIdentifier' - The user-supplied DB cluster identifier or the Amazon Resource Name
+-- (ARN) of the DB cluster. If this parameter is specified, information
+-- from only the specific DB cluster is returned. This parameter isn\'t
+-- case-sensitive.
 --
 -- Constraints:
 --
@@ -212,9 +214,10 @@ describeDBClusters_marker = Lens.lens (\DescribeDBClusters' {marker} -> marker) 
 describeDBClusters_filters :: Lens.Lens' DescribeDBClusters (Prelude.Maybe [Filter])
 describeDBClusters_filters = Lens.lens (\DescribeDBClusters' {filters} -> filters) (\s@DescribeDBClusters' {} a -> s {filters = a} :: DescribeDBClusters) Prelude.. Lens.mapping Lens.coerced
 
--- | The user-supplied DB cluster identifier. If this parameter is specified,
--- information from only the specific DB cluster is returned. This
--- parameter isn\'t case-sensitive.
+-- | The user-supplied DB cluster identifier or the Amazon Resource Name
+-- (ARN) of the DB cluster. If this parameter is specified, information
+-- from only the specific DB cluster is returned. This parameter isn\'t
+-- case-sensitive.
 --
 -- Constraints:
 --
@@ -259,8 +262,8 @@ instance Core.AWSRequest DescribeDBClusters where
   type
     AWSResponse DescribeDBClusters =
       DescribeDBClustersResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "DescribeDBClustersResult"

@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a portal, which can contain projects and dashboards. IoT
--- SiteWise Monitor uses Amazon Web Services SSO or IAM to authenticate
--- portal users and manage user permissions.
+-- SiteWise Monitor uses IAM Identity Center or IAM to authenticate portal
+-- users and manage user permissions.
 --
 -- Before you can sign in to a new portal, you must add at least one
 -- identity to that portal. For more information, see
@@ -60,8 +60,8 @@ module Amazonka.IoTSiteWise.CreatePortal
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,11 +89,11 @@ data CreatePortal = CreatePortal'
     -- | The service to use to authenticate users to the portal. Choose from the
     -- following options:
     --
-    -- -   @SSO@ – The portal uses Amazon Web Services Single Sign On to
-    --     authenticate users and manage user permissions. Before you can
-    --     create a portal that uses Amazon Web Services SSO, you must enable
-    --     Amazon Web Services SSO. For more information, see
-    --     <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso Enabling Amazon Web Services SSO>
+    -- -   @SSO@ – The portal uses IAM Identity Center (successor to Single
+    --     Sign-On) to authenticate users and manage user permissions. Before
+    --     you can create a portal that uses IAM Identity Center, you must
+    --     enable IAM Identity Center. For more information, see
+    --     <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso Enabling IAM Identity Center>
     --     in the /IoT SiteWise User Guide/. This option is only available in
     --     Amazon Web Services Regions other than the China Regions.
     --
@@ -157,11 +157,11 @@ data CreatePortal = CreatePortal'
 -- 'portalAuthMode', 'createPortal_portalAuthMode' - The service to use to authenticate users to the portal. Choose from the
 -- following options:
 --
--- -   @SSO@ – The portal uses Amazon Web Services Single Sign On to
---     authenticate users and manage user permissions. Before you can
---     create a portal that uses Amazon Web Services SSO, you must enable
---     Amazon Web Services SSO. For more information, see
---     <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso Enabling Amazon Web Services SSO>
+-- -   @SSO@ – The portal uses IAM Identity Center (successor to Single
+--     Sign-On) to authenticate users and manage user permissions. Before
+--     you can create a portal that uses IAM Identity Center, you must
+--     enable IAM Identity Center. For more information, see
+--     <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso Enabling IAM Identity Center>
 --     in the /IoT SiteWise User Guide/. This option is only available in
 --     Amazon Web Services Regions other than the China Regions.
 --
@@ -246,11 +246,11 @@ createPortal_portalDescription = Lens.lens (\CreatePortal' {portalDescription} -
 -- | The service to use to authenticate users to the portal. Choose from the
 -- following options:
 --
--- -   @SSO@ – The portal uses Amazon Web Services Single Sign On to
---     authenticate users and manage user permissions. Before you can
---     create a portal that uses Amazon Web Services SSO, you must enable
---     Amazon Web Services SSO. For more information, see
---     <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso Enabling Amazon Web Services SSO>
+-- -   @SSO@ – The portal uses IAM Identity Center (successor to Single
+--     Sign-On) to authenticate users and manage user permissions. Before
+--     you can create a portal that uses IAM Identity Center, you must
+--     enable IAM Identity Center. For more information, see
+--     <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso Enabling IAM Identity Center>
 --     in the /IoT SiteWise User Guide/. This option is only available in
 --     Amazon Web Services Regions other than the China Regions.
 --
@@ -296,8 +296,8 @@ createPortal_roleArn = Lens.lens (\CreatePortal' {roleArn} -> roleArn) (\s@Creat
 
 instance Core.AWSRequest CreatePortal where
   type AWSResponse CreatePortal = CreatePortalResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -388,15 +388,15 @@ data CreatePortalResponse = CreatePortalResponse'
     -- @arn:${Partition}:iotsitewise:${Region}:${Account}:portal\/${PortalId}@
     portalArn :: Prelude.Text,
     -- | The URL for the IoT SiteWise Monitor portal. You can use this URL to
-    -- access portals that use Amazon Web Services SSO for authentication. For
+    -- access portals that use IAM Identity Center for authentication. For
     -- portals that use IAM for authentication, you must use the IoT SiteWise
     -- console to get a URL that you can use to access the portal.
     portalStartUrl :: Prelude.Text,
     -- | The status of the portal, which contains a state (@CREATING@ after
     -- successfully calling this operation) and any error message.
     portalStatus :: PortalStatus,
-    -- | The associated Amazon Web Services SSO application ID, if the portal
-    -- uses Amazon Web Services SSO.
+    -- | The associated IAM Identity Center application ID, if the portal uses
+    -- IAM Identity Center.
     ssoApplicationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -420,15 +420,15 @@ data CreatePortalResponse = CreatePortalResponse'
 -- @arn:${Partition}:iotsitewise:${Region}:${Account}:portal\/${PortalId}@
 --
 -- 'portalStartUrl', 'createPortalResponse_portalStartUrl' - The URL for the IoT SiteWise Monitor portal. You can use this URL to
--- access portals that use Amazon Web Services SSO for authentication. For
+-- access portals that use IAM Identity Center for authentication. For
 -- portals that use IAM for authentication, you must use the IoT SiteWise
 -- console to get a URL that you can use to access the portal.
 --
 -- 'portalStatus', 'createPortalResponse_portalStatus' - The status of the portal, which contains a state (@CREATING@ after
 -- successfully calling this operation) and any error message.
 --
--- 'ssoApplicationId', 'createPortalResponse_ssoApplicationId' - The associated Amazon Web Services SSO application ID, if the portal
--- uses Amazon Web Services SSO.
+-- 'ssoApplicationId', 'createPortalResponse_ssoApplicationId' - The associated IAM Identity Center application ID, if the portal uses
+-- IAM Identity Center.
 newCreatePortalResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -476,7 +476,7 @@ createPortalResponse_portalArn :: Lens.Lens' CreatePortalResponse Prelude.Text
 createPortalResponse_portalArn = Lens.lens (\CreatePortalResponse' {portalArn} -> portalArn) (\s@CreatePortalResponse' {} a -> s {portalArn = a} :: CreatePortalResponse)
 
 -- | The URL for the IoT SiteWise Monitor portal. You can use this URL to
--- access portals that use Amazon Web Services SSO for authentication. For
+-- access portals that use IAM Identity Center for authentication. For
 -- portals that use IAM for authentication, you must use the IoT SiteWise
 -- console to get a URL that you can use to access the portal.
 createPortalResponse_portalStartUrl :: Lens.Lens' CreatePortalResponse Prelude.Text
@@ -487,8 +487,8 @@ createPortalResponse_portalStartUrl = Lens.lens (\CreatePortalResponse' {portalS
 createPortalResponse_portalStatus :: Lens.Lens' CreatePortalResponse PortalStatus
 createPortalResponse_portalStatus = Lens.lens (\CreatePortalResponse' {portalStatus} -> portalStatus) (\s@CreatePortalResponse' {} a -> s {portalStatus = a} :: CreatePortalResponse)
 
--- | The associated Amazon Web Services SSO application ID, if the portal
--- uses Amazon Web Services SSO.
+-- | The associated IAM Identity Center application ID, if the portal uses
+-- IAM Identity Center.
 createPortalResponse_ssoApplicationId :: Lens.Lens' CreatePortalResponse Prelude.Text
 createPortalResponse_ssoApplicationId = Lens.lens (\CreatePortalResponse' {ssoApplicationId} -> ssoApplicationId) (\s@CreatePortalResponse' {} a -> s {ssoApplicationId = a} :: CreatePortalResponse)
 

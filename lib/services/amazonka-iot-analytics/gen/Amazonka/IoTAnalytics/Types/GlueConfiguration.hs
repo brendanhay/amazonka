@@ -20,7 +20,7 @@
 module Amazonka.IoTAnalytics.Types.GlueConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for coordination with Glue, a fully managed

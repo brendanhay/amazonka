@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -323,7 +324,9 @@ module Amazonka.AutoScaling.Types
     instanceRequirements_totalLocalStorageGB,
     instanceRequirements_localStorageTypes,
     instanceRequirements_onDemandMaxPricePercentageOverLowestPrice,
+    instanceRequirements_allowedInstanceTypes,
     instanceRequirements_acceleratorNames,
+    instanceRequirements_networkBandwidthGbps,
     instanceRequirements_acceleratorManufacturers,
     instanceRequirements_excludedInstanceTypes,
     instanceRequirements_networkInterfaceCount,
@@ -496,6 +499,12 @@ module Amazonka.AutoScaling.Types
     newMixedInstancesPolicy,
     mixedInstancesPolicy_instancesDistribution,
     mixedInstancesPolicy_launchTemplate,
+
+    -- * NetworkBandwidthGbpsRequest
+    NetworkBandwidthGbpsRequest (..),
+    newNetworkBandwidthGbpsRequest,
+    networkBandwidthGbpsRequest_max,
+    networkBandwidthGbpsRequest_min,
 
     -- * NetworkInterfaceCountRequest
     NetworkInterfaceCountRequest (..),
@@ -757,6 +766,7 @@ import Amazonka.AutoScaling.Types.MetricStat
 import Amazonka.AutoScaling.Types.MetricStatistic
 import Amazonka.AutoScaling.Types.MetricType
 import Amazonka.AutoScaling.Types.MixedInstancesPolicy
+import Amazonka.AutoScaling.Types.NetworkBandwidthGbpsRequest
 import Amazonka.AutoScaling.Types.NetworkInterfaceCountRequest
 import Amazonka.AutoScaling.Types.NotificationConfiguration
 import Amazonka.AutoScaling.Types.PredefinedLoadMetricType
@@ -792,7 +802,7 @@ import Amazonka.AutoScaling.Types.WarmPoolConfiguration
 import Amazonka.AutoScaling.Types.WarmPoolState
 import Amazonka.AutoScaling.Types.WarmPoolStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -800,28 +810,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "AutoScaling",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "autoscaling",
-      Core._serviceSigningName = "autoscaling",
-      Core._serviceVersion = "2011-01-01",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseXMLError "AutoScaling",
-      Core._serviceRetry = retry
+    { Core.abbrev = "AutoScaling",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "autoscaling",
+      Core.signingName = "autoscaling",
+      Core.version = "2011-01-01",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseXMLError "AutoScaling",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

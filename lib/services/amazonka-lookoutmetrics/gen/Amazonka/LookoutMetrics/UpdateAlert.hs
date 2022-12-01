@@ -44,7 +44,7 @@ module Amazonka.LookoutMetrics.UpdateAlert
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,8 +120,8 @@ updateAlert_alertArn = Lens.lens (\UpdateAlert' {alertArn} -> alertArn) (\s@Upda
 
 instance Core.AWSRequest UpdateAlert where
   type AWSResponse UpdateAlert = UpdateAlertResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -42,7 +42,7 @@ module Amazonka.WorkDocs.CreateLabels
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,8 +101,8 @@ createLabels_labels = Lens.lens (\CreateLabels' {labels} -> labels) (\s@CreateLa
 
 instance Core.AWSRequest CreateLabels where
   type AWSResponse CreateLabels = CreateLabelsResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

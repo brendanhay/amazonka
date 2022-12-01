@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.OpsWorks.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpsWorks.DescribeApps
 import Amazonka.OpsWorks.DescribeDeployments
 import Amazonka.OpsWorks.DescribeInstances
@@ -28,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 newInstanceStopped :: Core.Wait DescribeInstances
 newInstanceStopped =
   Core.Wait
-    { Core._waitName = "InstanceStopped",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "InstanceStopped",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "stopped"
             Core.AcceptSuccess
@@ -156,10 +157,10 @@ newInstanceStopped =
 newInstanceRegistered :: Core.Wait DescribeInstances
 newInstanceRegistered =
   Core.Wait
-    { Core._waitName = "InstanceRegistered",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "InstanceRegistered",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "registered"
             Core.AcceptSuccess
@@ -271,10 +272,10 @@ newInstanceRegistered =
 newInstanceTerminated :: Core.Wait DescribeInstances
 newInstanceTerminated =
   Core.Wait
-    { Core._waitName = "InstanceTerminated",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "InstanceTerminated",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "terminated"
             Core.AcceptSuccess
@@ -402,10 +403,10 @@ newInstanceTerminated =
 newAppExists :: Core.Wait DescribeApps
 newAppExists =
   Core.Wait
-    { Core._waitName = "AppExists",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 1,
-      Core._waitAcceptors =
+    { Core.name = "AppExists",
+      Core.attempts = 40,
+      Core.delay = 1,
+      Core.acceptors =
         [ Core.matchStatus 200 Core.AcceptSuccess,
           Core.matchStatus 400 Core.AcceptFailure
         ]
@@ -415,10 +416,10 @@ newAppExists =
 newDeploymentSuccessful :: Core.Wait DescribeDeployments
 newDeploymentSuccessful =
   Core.Wait
-    { Core._waitName = "DeploymentSuccessful",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "DeploymentSuccessful",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "successful"
             Core.AcceptSuccess
@@ -452,10 +453,10 @@ newDeploymentSuccessful =
 newInstanceOnline :: Core.Wait DescribeInstances
 newInstanceOnline =
   Core.Wait
-    { Core._waitName = "InstanceOnline",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "InstanceOnline",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "online"
             Core.AcceptSuccess

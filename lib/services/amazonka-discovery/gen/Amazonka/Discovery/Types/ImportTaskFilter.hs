@@ -20,8 +20,8 @@
 module Amazonka.Discovery.Types.ImportTaskFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Discovery.Types.ImportTaskFilterName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A name-values pair of elements you can use to filter the results when

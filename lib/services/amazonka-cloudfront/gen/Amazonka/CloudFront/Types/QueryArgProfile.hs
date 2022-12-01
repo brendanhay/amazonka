@@ -20,7 +20,7 @@
 module Amazonka.CloudFront.Types.QueryArgProfile where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Query argument-profile mapping for field-level encryption.

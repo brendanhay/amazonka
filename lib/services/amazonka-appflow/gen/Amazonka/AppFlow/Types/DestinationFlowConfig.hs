@@ -22,7 +22,7 @@ module Amazonka.AppFlow.Types.DestinationFlowConfig where
 import Amazonka.AppFlow.Types.ConnectorType
 import Amazonka.AppFlow.Types.DestinationConnectorProperties
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the configuration of destination connectors

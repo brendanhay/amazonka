@@ -20,8 +20,8 @@
 module Amazonka.ECR.Types.LifecyclePolicyPreviewResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECR.Types.LifecyclePolicyRuleAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The result of the lifecycle policy preview.

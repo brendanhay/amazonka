@@ -20,10 +20,10 @@
 module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesEntry where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.AggregateType
 import Amazonka.IoTSiteWise.Types.Quality
 import Amazonka.IoTSiteWise.Types.TimeOrdering
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information for an asset property aggregate entry that is

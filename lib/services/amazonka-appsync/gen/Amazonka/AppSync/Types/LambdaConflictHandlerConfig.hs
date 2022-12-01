@@ -20,7 +20,7 @@
 module Amazonka.AppSync.Types.LambdaConflictHandlerConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @LambdaConflictHandlerConfig@ object when configuring @LAMBDA@ as

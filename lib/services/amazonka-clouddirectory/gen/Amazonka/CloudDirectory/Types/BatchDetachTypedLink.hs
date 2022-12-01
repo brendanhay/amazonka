@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchDetachTypedLink where
 
 import Amazonka.CloudDirectory.Types.TypedLinkSpecifier
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detaches a typed link from a specified source and target object inside a

@@ -21,7 +21,7 @@ module Amazonka.AppStream.Types.LastReportGenerationExecutionError where
 
 import Amazonka.AppStream.Types.UsageReportExecutionErrorCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the error that is returned when a usage report can\'t be

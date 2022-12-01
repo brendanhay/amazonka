@@ -20,10 +20,10 @@
 module Amazonka.GreengrassV2.Types.LambdaFunctionRecipeSource where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types.ComponentDependencyRequirement
 import Amazonka.GreengrassV2.Types.ComponentPlatform
 import Amazonka.GreengrassV2.Types.LambdaExecutionParameters
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an Lambda function to import to create a

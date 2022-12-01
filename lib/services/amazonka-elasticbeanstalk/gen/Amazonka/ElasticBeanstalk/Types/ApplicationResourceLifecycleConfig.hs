@@ -20,8 +20,8 @@
 module Amazonka.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The resource lifecycle configuration for an application. Defines

@@ -20,12 +20,12 @@
 module Amazonka.GuardDuty.Types.Scan where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.ResourceDetails
 import Amazonka.GuardDuty.Types.ScanResultDetails
 import Amazonka.GuardDuty.Types.ScanStatus
 import Amazonka.GuardDuty.Types.TriggerDetails
 import Amazonka.GuardDuty.Types.VolumeDetail
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a malware scan.

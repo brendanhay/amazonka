@@ -20,7 +20,7 @@
 module Amazonka.CodePipeline.Types.WebhookFilterRule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The event criteria that specify when a webhook notification is sent to

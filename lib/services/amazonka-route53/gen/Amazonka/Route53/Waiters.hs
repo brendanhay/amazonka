@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.Route53.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.GetChange
 import Amazonka.Route53.Lens
@@ -26,11 +27,10 @@ import Amazonka.Route53.Types
 newResourceRecordSetsChanged :: Core.Wait GetChange
 newResourceRecordSetsChanged =
   Core.Wait
-    { Core._waitName =
-        "ResourceRecordSetsChanged",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "ResourceRecordSetsChanged",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "INSYNC"
             Core.AcceptSuccess

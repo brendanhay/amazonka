@@ -23,7 +23,7 @@ import Amazonka.Batch.Types.ComputeEnvironmentOrder
 import Amazonka.Batch.Types.JQState
 import Amazonka.Batch.Types.JQStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the details for an Batch job queue.

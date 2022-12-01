@@ -28,6 +28,7 @@ module Amazonka.SSMIncidents.UpdateResponsePlan
 
     -- * Request Lenses
     updateResponsePlan_clientToken,
+    updateResponsePlan_integrations,
     updateResponsePlan_incidentTemplateDedupeString,
     updateResponsePlan_incidentTemplateNotificationTargets,
     updateResponsePlan_incidentTemplateTags,
@@ -50,7 +51,7 @@ module Amazonka.SSMIncidents.UpdateResponsePlan
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -61,15 +62,19 @@ data UpdateResponsePlan = UpdateResponsePlan'
   { -- | A token ensuring that the operation is called only once with the
     -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about third-party services integrated into the response
+    -- plan.
+    integrations :: Prelude.Maybe [Integration],
     -- | The string Incident Manager uses to prevent duplicate incidents from
     -- being created by the same incident in the same account.
     incidentTemplateDedupeString :: Prelude.Maybe Prelude.Text,
     -- | The Amazon SNS targets that are notified when updates are made to an
     -- incident.
     incidentTemplateNotificationTargets :: Prelude.Maybe [NotificationTargetItem],
-    -- | Tags to apply to an incident when calling the @StartIncident@ API
-    -- action. To call this action, you must also have permission to call the
-    -- @TagResource@ API action for the incident record resource.
+    -- | Tags to assign to the template. When the @StartIncident@ API action is
+    -- called, Incident Manager assigns the tags specified in the template to
+    -- the incident. To call this action, you must also have permission to call
+    -- the @TagResource@ API action for the incident record resource.
     incidentTemplateTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Chatbot chat channel used for collaboration during an incident.
     --
@@ -97,8 +102,8 @@ data UpdateResponsePlan = UpdateResponsePlan'
     -- | A brief summary of the incident. This typically contains what has
     -- happened, what\'s currently happening, and next steps.
     incidentTemplateSummary :: Prelude.Maybe Prelude.Text,
-    -- | The contacts and escalation plans that Incident Manager engages at the
-    -- start of the incident.
+    -- | The Amazon Resource Name (ARN) for the contacts and escalation plans
+    -- that the response plan engages during an incident.
     engagements :: Prelude.Maybe [Prelude.Text],
     -- | The short format name of the incident. The title can\'t contain spaces.
     incidentTemplateTitle :: Prelude.Maybe Prelude.Text,
@@ -121,15 +126,19 @@ data UpdateResponsePlan = UpdateResponsePlan'
 -- 'clientToken', 'updateResponsePlan_clientToken' - A token ensuring that the operation is called only once with the
 -- specified details.
 --
+-- 'integrations', 'updateResponsePlan_integrations' - Information about third-party services integrated into the response
+-- plan.
+--
 -- 'incidentTemplateDedupeString', 'updateResponsePlan_incidentTemplateDedupeString' - The string Incident Manager uses to prevent duplicate incidents from
 -- being created by the same incident in the same account.
 --
 -- 'incidentTemplateNotificationTargets', 'updateResponsePlan_incidentTemplateNotificationTargets' - The Amazon SNS targets that are notified when updates are made to an
 -- incident.
 --
--- 'incidentTemplateTags', 'updateResponsePlan_incidentTemplateTags' - Tags to apply to an incident when calling the @StartIncident@ API
--- action. To call this action, you must also have permission to call the
--- @TagResource@ API action for the incident record resource.
+-- 'incidentTemplateTags', 'updateResponsePlan_incidentTemplateTags' - Tags to assign to the template. When the @StartIncident@ API action is
+-- called, Incident Manager assigns the tags specified in the template to
+-- the incident. To call this action, you must also have permission to call
+-- the @TagResource@ API action for the incident record resource.
 --
 -- 'chatChannel', 'updateResponsePlan_chatChannel' - The Chatbot chat channel used for collaboration during an incident.
 --
@@ -157,8 +166,8 @@ data UpdateResponsePlan = UpdateResponsePlan'
 -- 'incidentTemplateSummary', 'updateResponsePlan_incidentTemplateSummary' - A brief summary of the incident. This typically contains what has
 -- happened, what\'s currently happening, and next steps.
 --
--- 'engagements', 'updateResponsePlan_engagements' - The contacts and escalation plans that Incident Manager engages at the
--- start of the incident.
+-- 'engagements', 'updateResponsePlan_engagements' - The Amazon Resource Name (ARN) for the contacts and escalation plans
+-- that the response plan engages during an incident.
 --
 -- 'incidentTemplateTitle', 'updateResponsePlan_incidentTemplateTitle' - The short format name of the incident. The title can\'t contain spaces.
 --
@@ -173,6 +182,7 @@ newUpdateResponsePlan ::
 newUpdateResponsePlan pArn_ =
   UpdateResponsePlan'
     { clientToken = Prelude.Nothing,
+      integrations = Prelude.Nothing,
       incidentTemplateDedupeString = Prelude.Nothing,
       incidentTemplateNotificationTargets =
         Prelude.Nothing,
@@ -192,6 +202,11 @@ newUpdateResponsePlan pArn_ =
 updateResponsePlan_clientToken :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe Prelude.Text)
 updateResponsePlan_clientToken = Lens.lens (\UpdateResponsePlan' {clientToken} -> clientToken) (\s@UpdateResponsePlan' {} a -> s {clientToken = a} :: UpdateResponsePlan)
 
+-- | Information about third-party services integrated into the response
+-- plan.
+updateResponsePlan_integrations :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe [Integration])
+updateResponsePlan_integrations = Lens.lens (\UpdateResponsePlan' {integrations} -> integrations) (\s@UpdateResponsePlan' {} a -> s {integrations = a} :: UpdateResponsePlan) Prelude.. Lens.mapping Lens.coerced
+
 -- | The string Incident Manager uses to prevent duplicate incidents from
 -- being created by the same incident in the same account.
 updateResponsePlan_incidentTemplateDedupeString :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe Prelude.Text)
@@ -202,9 +217,10 @@ updateResponsePlan_incidentTemplateDedupeString = Lens.lens (\UpdateResponsePlan
 updateResponsePlan_incidentTemplateNotificationTargets :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe [NotificationTargetItem])
 updateResponsePlan_incidentTemplateNotificationTargets = Lens.lens (\UpdateResponsePlan' {incidentTemplateNotificationTargets} -> incidentTemplateNotificationTargets) (\s@UpdateResponsePlan' {} a -> s {incidentTemplateNotificationTargets = a} :: UpdateResponsePlan) Prelude.. Lens.mapping Lens.coerced
 
--- | Tags to apply to an incident when calling the @StartIncident@ API
--- action. To call this action, you must also have permission to call the
--- @TagResource@ API action for the incident record resource.
+-- | Tags to assign to the template. When the @StartIncident@ API action is
+-- called, Incident Manager assigns the tags specified in the template to
+-- the incident. To call this action, you must also have permission to call
+-- the @TagResource@ API action for the incident record resource.
 updateResponsePlan_incidentTemplateTags :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateResponsePlan_incidentTemplateTags = Lens.lens (\UpdateResponsePlan' {incidentTemplateTags} -> incidentTemplateTags) (\s@UpdateResponsePlan' {} a -> s {incidentTemplateTags = a} :: UpdateResponsePlan) Prelude.. Lens.mapping Lens.coerced
 
@@ -242,8 +258,8 @@ updateResponsePlan_incidentTemplateImpact = Lens.lens (\UpdateResponsePlan' {inc
 updateResponsePlan_incidentTemplateSummary :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe Prelude.Text)
 updateResponsePlan_incidentTemplateSummary = Lens.lens (\UpdateResponsePlan' {incidentTemplateSummary} -> incidentTemplateSummary) (\s@UpdateResponsePlan' {} a -> s {incidentTemplateSummary = a} :: UpdateResponsePlan)
 
--- | The contacts and escalation plans that Incident Manager engages at the
--- start of the incident.
+-- | The Amazon Resource Name (ARN) for the contacts and escalation plans
+-- that the response plan engages during an incident.
 updateResponsePlan_engagements :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe [Prelude.Text])
 updateResponsePlan_engagements = Lens.lens (\UpdateResponsePlan' {engagements} -> engagements) (\s@UpdateResponsePlan' {} a -> s {engagements = a} :: UpdateResponsePlan) Prelude.. Lens.mapping Lens.coerced
 
@@ -264,8 +280,8 @@ instance Core.AWSRequest UpdateResponsePlan where
   type
     AWSResponse UpdateResponsePlan =
       UpdateResponsePlanResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -276,6 +292,7 @@ instance Core.AWSRequest UpdateResponsePlan where
 instance Prelude.Hashable UpdateResponsePlan where
   hashWithSalt _salt UpdateResponsePlan' {..} =
     _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` integrations
       `Prelude.hashWithSalt` incidentTemplateDedupeString
       `Prelude.hashWithSalt` incidentTemplateNotificationTargets
       `Prelude.hashWithSalt` incidentTemplateTags
@@ -291,6 +308,7 @@ instance Prelude.Hashable UpdateResponsePlan where
 instance Prelude.NFData UpdateResponsePlan where
   rnf UpdateResponsePlan' {..} =
     Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf integrations
       `Prelude.seq` Prelude.rnf incidentTemplateDedupeString
       `Prelude.seq` Prelude.rnf incidentTemplateNotificationTargets
       `Prelude.seq` Prelude.rnf incidentTemplateTags
@@ -319,6 +337,7 @@ instance Core.ToJSON UpdateResponsePlan where
     Core.object
       ( Prelude.catMaybes
           [ ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("integrations" Core..=) Prelude.<$> integrations,
             ("incidentTemplateDedupeString" Core..=)
               Prelude.<$> incidentTemplateDedupeString,
             ("incidentTemplateNotificationTargets" Core..=)

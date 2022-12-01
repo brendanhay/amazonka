@@ -23,7 +23,7 @@ import Amazonka.AppConfig.Types.ActionInvocation
 import Amazonka.AppConfig.Types.DeploymentEventType
 import Amazonka.AppConfig.Types.TriggeredBy
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that describes a deployment event.

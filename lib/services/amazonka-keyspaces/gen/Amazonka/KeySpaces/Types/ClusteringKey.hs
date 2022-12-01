@@ -20,8 +20,8 @@
 module Amazonka.KeySpaces.Types.ClusteringKey where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KeySpaces.Types.SortOrder
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The optional clustering column portion of your primary key determines

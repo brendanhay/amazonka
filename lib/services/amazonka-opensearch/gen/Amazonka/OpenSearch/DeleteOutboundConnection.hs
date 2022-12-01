@@ -20,8 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows the local domain owner to delete an existing outbound
--- cross-cluster connection.
+-- Allows the source Amazon OpenSearch Service domain owner to delete an
+-- existing outbound cross-cluster search connection. For more information,
+-- see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html Cross-cluster search for Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.DeleteOutboundConnection
   ( -- * Creating a Request
     DeleteOutboundConnection (..),
@@ -41,13 +43,13 @@ module Amazonka.OpenSearch.DeleteOutboundConnection
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ DeleteOutboundConnection @
+-- | Container for the parameters to the @DeleteOutboundConnection@
 -- operation.
 --
 -- /See:/ 'newDeleteOutboundConnection' smart constructor.
@@ -84,8 +86,8 @@ instance Core.AWSRequest DeleteOutboundConnection where
   type
     AWSResponse DeleteOutboundConnection =
       DeleteOutboundConnectionResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,12 +117,11 @@ instance Core.ToPath DeleteOutboundConnection where
 instance Core.ToQuery DeleteOutboundConnection where
   toQuery = Prelude.const Prelude.mempty
 
--- | The result of a @ DeleteOutboundConnection @ operation. Contains details
--- about the deleted outbound connection.
+-- | Details about the deleted outbound connection.
 --
 -- /See:/ 'newDeleteOutboundConnectionResponse' smart constructor.
 data DeleteOutboundConnectionResponse = DeleteOutboundConnectionResponse'
-  { -- | The @ OutboundConnection @ of the deleted outbound connection.
+  { -- | The deleted inbound connection.
     connection :: Prelude.Maybe OutboundConnection,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -135,7 +136,7 @@ data DeleteOutboundConnectionResponse = DeleteOutboundConnectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connection', 'deleteOutboundConnectionResponse_connection' - The @ OutboundConnection @ of the deleted outbound connection.
+-- 'connection', 'deleteOutboundConnectionResponse_connection' - The deleted inbound connection.
 --
 -- 'httpStatus', 'deleteOutboundConnectionResponse_httpStatus' - The response's http status code.
 newDeleteOutboundConnectionResponse ::
@@ -149,7 +150,7 @@ newDeleteOutboundConnectionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The @ OutboundConnection @ of the deleted outbound connection.
+-- | The deleted inbound connection.
 deleteOutboundConnectionResponse_connection :: Lens.Lens' DeleteOutboundConnectionResponse (Prelude.Maybe OutboundConnection)
 deleteOutboundConnectionResponse_connection = Lens.lens (\DeleteOutboundConnectionResponse' {connection} -> connection) (\s@DeleteOutboundConnectionResponse' {} a -> s {connection = a} :: DeleteOutboundConnectionResponse)
 

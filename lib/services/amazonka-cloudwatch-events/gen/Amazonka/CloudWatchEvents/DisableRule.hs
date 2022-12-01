@@ -42,7 +42,7 @@ where
 
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,8 +90,8 @@ disableRule_name = Lens.lens (\DisableRule' {name} -> name) (\s@DisableRule' {} 
 
 instance Core.AWSRequest DisableRule where
   type AWSResponse DisableRule = DisableRuleResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response = Response.receiveNull DisableRuleResponse'
 
 instance Prelude.Hashable DisableRule where

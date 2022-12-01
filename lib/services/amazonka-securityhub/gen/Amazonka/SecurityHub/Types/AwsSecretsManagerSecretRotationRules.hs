@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsSecretsManagerSecretRotationRules where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the rotation schedule for the secret.

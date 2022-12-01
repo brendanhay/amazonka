@@ -22,7 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorSinkConfiguration wher
 import Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorRTMPConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorSinkType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The media pipeline\'s sink configuration settings.

@@ -76,6 +76,7 @@ library
     Amazonka.AppFlow.Types.AuthenticationType
     Amazonka.AppFlow.Types.AuthParameter
     Amazonka.AppFlow.Types.BasicAuthCredentials
+    Amazonka.AppFlow.Types.CatalogType
     Amazonka.AppFlow.Types.ConnectionMode
     Amazonka.AppFlow.Types.ConnectorConfiguration
     Amazonka.AppFlow.Types.ConnectorDetail
@@ -126,6 +127,7 @@ library
     Amazonka.AppFlow.Types.FileType
     Amazonka.AppFlow.Types.FlowDefinition
     Amazonka.AppFlow.Types.FlowStatus
+    Amazonka.AppFlow.Types.GlueDataCatalogConfig
     Amazonka.AppFlow.Types.GoogleAnalyticsConnectorOperator
     Amazonka.AppFlow.Types.GoogleAnalyticsConnectorProfileCredentials
     Amazonka.AppFlow.Types.GoogleAnalyticsConnectorProfileProperties
@@ -149,6 +151,8 @@ library
     Amazonka.AppFlow.Types.MarketoDestinationProperties
     Amazonka.AppFlow.Types.MarketoMetadata
     Amazonka.AppFlow.Types.MarketoSourceProperties
+    Amazonka.AppFlow.Types.MetadataCatalogConfig
+    Amazonka.AppFlow.Types.MetadataCatalogDetail
     Amazonka.AppFlow.Types.OAuth2Credentials
     Amazonka.AppFlow.Types.OAuth2CustomParameter
     Amazonka.AppFlow.Types.OAuth2CustomPropType
@@ -160,6 +164,7 @@ library
     Amazonka.AppFlow.Types.Operator
     Amazonka.AppFlow.Types.OperatorPropertiesKeys
     Amazonka.AppFlow.Types.Operators
+    Amazonka.AppFlow.Types.PathPrefix
     Amazonka.AppFlow.Types.PrefixConfig
     Amazonka.AppFlow.Types.PrefixFormat
     Amazonka.AppFlow.Types.PrefixType
@@ -171,6 +176,7 @@ library
     Amazonka.AppFlow.Types.RedshiftConnectorProfileProperties
     Amazonka.AppFlow.Types.RedshiftDestinationProperties
     Amazonka.AppFlow.Types.RedshiftMetadata
+    Amazonka.AppFlow.Types.RegistrationOutput
     Amazonka.AppFlow.Types.S3ConnectorOperator
     Amazonka.AppFlow.Types.S3DestinationProperties
     Amazonka.AppFlow.Types.S3InputFileType
@@ -245,6 +251,7 @@ library
     Amazonka.AppFlow.UnregisterConnector
     Amazonka.AppFlow.UntagResource
     Amazonka.AppFlow.UpdateConnectorProfile
+    Amazonka.AppFlow.UpdateConnectorRegistration
     Amazonka.AppFlow.UpdateFlow
     Amazonka.AppFlow.Waiters
 

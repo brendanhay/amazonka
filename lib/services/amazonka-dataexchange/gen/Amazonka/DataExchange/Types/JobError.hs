@@ -20,11 +20,11 @@
 module Amazonka.DataExchange.Types.JobError where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types.Code
 import Amazonka.DataExchange.Types.Details
 import Amazonka.DataExchange.Types.JobErrorLimitName
 import Amazonka.DataExchange.Types.JobErrorResourceTypes
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An error that occurred with the job request.

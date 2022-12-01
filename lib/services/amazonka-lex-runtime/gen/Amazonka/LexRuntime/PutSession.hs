@@ -63,7 +63,7 @@ module Amazonka.LexRuntime.PutSession
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexRuntime.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -329,8 +329,8 @@ putSession_userId = Lens.lens (\PutSession' {userId} -> userId) (\s@PutSession' 
 
 instance Core.AWSRequest PutSession where
   type AWSResponse PutSession = PutSessionResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveBody
       ( \s h x ->

@@ -22,7 +22,7 @@ module Amazonka.CodeBuild.Types.Webhook where
 import Amazonka.CodeBuild.Types.WebhookBuildType
 import Amazonka.CodeBuild.Types.WebhookFilter
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a webhook that connects repository events to a build

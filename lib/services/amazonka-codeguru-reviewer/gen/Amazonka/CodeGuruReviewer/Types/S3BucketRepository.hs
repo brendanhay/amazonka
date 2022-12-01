@@ -21,7 +21,7 @@ module Amazonka.CodeGuruReviewer.Types.S3BucketRepository where
 
 import Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an associated repository in an S3 bucket. The

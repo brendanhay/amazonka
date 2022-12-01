@@ -20,7 +20,7 @@
 module Amazonka.ElasticInference.Types.ElasticInferenceAcceleratorHealth where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The health details of an Elastic Inference Accelerator.

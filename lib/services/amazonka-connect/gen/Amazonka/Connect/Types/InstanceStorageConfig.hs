@@ -25,7 +25,7 @@ import Amazonka.Connect.Types.KinesisVideoStreamConfig
 import Amazonka.Connect.Types.S3Config
 import Amazonka.Connect.Types.StorageType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The storage configuration for the instance.

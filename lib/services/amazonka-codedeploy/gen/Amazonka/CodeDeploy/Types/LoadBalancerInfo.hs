@@ -23,7 +23,7 @@ import Amazonka.CodeDeploy.Types.ELBInfo
 import Amazonka.CodeDeploy.Types.TargetGroupInfo
 import Amazonka.CodeDeploy.Types.TargetGroupPairInfo
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the Elastic Load Balancing load balancer or target

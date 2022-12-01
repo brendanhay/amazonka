@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an access policy that grants the specified identity (Amazon Web
--- Services SSO user, Amazon Web Services SSO group, or IAM user) access to
+-- Creates an access policy that grants the specified identity (IAM
+-- Identity Center user, IAM Identity Center group, or IAM user) access to
 -- the specified IoT SiteWise Monitor portal or project resource.
 module Amazonka.IoTSiteWise.CreateAccessPolicy
   ( -- * Creating a Request
@@ -47,8 +47,8 @@ module Amazonka.IoTSiteWise.CreateAccessPolicy
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -64,8 +64,8 @@ data CreateAccessPolicy = CreateAccessPolicy'
     -- idempotency of the request. Don\'t reuse this client token if a new
     -- idempotent request is required.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The identity for this access policy. Choose an Amazon Web Services SSO
-    -- user, an Amazon Web Services SSO group, or an IAM user.
+    -- | The identity for this access policy. Choose an IAM Identity Center user,
+    -- an IAM Identity Center group, or an IAM user.
     accessPolicyIdentity :: Identity,
     -- | The IoT SiteWise Monitor resource for this access policy. Choose either
     -- a portal or a project.
@@ -93,8 +93,8 @@ data CreateAccessPolicy = CreateAccessPolicy'
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
 --
--- 'accessPolicyIdentity', 'createAccessPolicy_accessPolicyIdentity' - The identity for this access policy. Choose an Amazon Web Services SSO
--- user, an Amazon Web Services SSO group, or an IAM user.
+-- 'accessPolicyIdentity', 'createAccessPolicy_accessPolicyIdentity' - The identity for this access policy. Choose an IAM Identity Center user,
+-- an IAM Identity Center group, or an IAM user.
 --
 -- 'accessPolicyResource', 'createAccessPolicy_accessPolicyResource' - The IoT SiteWise Monitor resource for this access policy. Choose either
 -- a portal or a project.
@@ -134,8 +134,8 @@ createAccessPolicy_tags = Lens.lens (\CreateAccessPolicy' {tags} -> tags) (\s@Cr
 createAccessPolicy_clientToken :: Lens.Lens' CreateAccessPolicy (Prelude.Maybe Prelude.Text)
 createAccessPolicy_clientToken = Lens.lens (\CreateAccessPolicy' {clientToken} -> clientToken) (\s@CreateAccessPolicy' {} a -> s {clientToken = a} :: CreateAccessPolicy)
 
--- | The identity for this access policy. Choose an Amazon Web Services SSO
--- user, an Amazon Web Services SSO group, or an IAM user.
+-- | The identity for this access policy. Choose an IAM Identity Center user,
+-- an IAM Identity Center group, or an IAM user.
 createAccessPolicy_accessPolicyIdentity :: Lens.Lens' CreateAccessPolicy Identity
 createAccessPolicy_accessPolicyIdentity = Lens.lens (\CreateAccessPolicy' {accessPolicyIdentity} -> accessPolicyIdentity) (\s@CreateAccessPolicy' {} a -> s {accessPolicyIdentity = a} :: CreateAccessPolicy)
 
@@ -153,8 +153,8 @@ instance Core.AWSRequest CreateAccessPolicy where
   type
     AWSResponse CreateAccessPolicy =
       CreateAccessPolicyResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

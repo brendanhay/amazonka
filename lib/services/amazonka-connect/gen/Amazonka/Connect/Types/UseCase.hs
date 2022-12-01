@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.UseCase where
 
 import Amazonka.Connect.Types.UseCaseType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the use case.

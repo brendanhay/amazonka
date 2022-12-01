@@ -23,7 +23,7 @@ import Amazonka.ApplicationCostProfiler.Types.Format
 import Amazonka.ApplicationCostProfiler.Types.ReportFrequency
 import Amazonka.ApplicationCostProfiler.Types.S3Location
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of a report in AWS Application Cost Profiler.

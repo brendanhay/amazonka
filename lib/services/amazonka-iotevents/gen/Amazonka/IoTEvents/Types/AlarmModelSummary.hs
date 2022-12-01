@@ -20,7 +20,7 @@
 module Amazonka.IoTEvents.Types.AlarmModelSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a summary of an alarm model.

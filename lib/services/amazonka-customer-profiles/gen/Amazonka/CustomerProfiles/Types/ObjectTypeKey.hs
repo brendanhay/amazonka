@@ -20,8 +20,8 @@
 module Amazonka.CustomerProfiles.Types.ObjectTypeKey where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.StandardIdentifier
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that defines the Key element of a ProfileObject. A Key is a

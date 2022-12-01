@@ -20,8 +20,8 @@
 module Amazonka.DeviceFarm.Types.UniqueProblem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.Problem
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of one or more problems, grouped by their result.

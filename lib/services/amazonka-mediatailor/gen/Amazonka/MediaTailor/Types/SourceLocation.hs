@@ -20,7 +20,7 @@
 module Amazonka.MediaTailor.Types.SourceLocation where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaTailor.Types.AccessConfiguration
 import Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration
 import Amazonka.MediaTailor.Types.HttpConfiguration

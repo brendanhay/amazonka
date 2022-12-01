@@ -20,7 +20,7 @@
 module Amazonka.KinesisAnalyticsV2.Types.S3ApplicationCodeLocationDescription where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the location of an application\'s code stored in an S3 bucket.

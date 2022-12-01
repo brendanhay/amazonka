@@ -20,8 +20,8 @@
 module Amazonka.Firehose.Types.SourceDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.KinesisStreamSourceDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a Kinesis data stream used as the source for a Kinesis

@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.NeoVpcConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VpcConfig configuration object that specifies the VPC that you want

@@ -20,7 +20,7 @@
 module Amazonka.MacieV2.Types.S3JobDefinition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MacieV2.Types.S3BucketCriteriaForJob
 import Amazonka.MacieV2.Types.S3BucketDefinitionForJob
 import Amazonka.MacieV2.Types.Scoping

@@ -23,7 +23,7 @@ import Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture
 import Amazonka.ComputeOptimizer.Types.EnhancedInfrastructureMetrics
 import Amazonka.ComputeOptimizer.Types.InferredWorkloadTypesPreference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the effective recommendation preferences for a resource.

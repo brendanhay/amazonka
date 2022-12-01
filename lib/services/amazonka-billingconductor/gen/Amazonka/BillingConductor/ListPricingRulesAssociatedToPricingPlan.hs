@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the pricing rules associated with a pricing plan.
+-- Lists the pricing rules that are associated with a pricing plan.
 --
 -- This operation returns paginated results.
 module Amazonka.BillingConductor.ListPricingRulesAssociatedToPricingPlan
@@ -49,7 +49,7 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,8 +152,8 @@ instance
     AWSResponse
       ListPricingRulesAssociatedToPricingPlan =
       ListPricingRulesAssociatedToPricingPlanResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -239,8 +239,8 @@ data ListPricingRulesAssociatedToPricingPlanResponse = ListPricingRulesAssociate
     -- | The Amazon Resource Name (ARN) of the pricing plan for which
     -- associations are listed.
     pricingPlanArn :: Prelude.Maybe Prelude.Text,
-    -- | A list containing pricing rules associated with the requested pricing
-    -- plan.
+    -- | A list containing pricing rules that are associated with the requested
+    -- pricing plan.
     pricingRuleArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -262,8 +262,8 @@ data ListPricingRulesAssociatedToPricingPlanResponse = ListPricingRulesAssociate
 -- 'pricingPlanArn', 'listPricingRulesAssociatedToPricingPlanResponse_pricingPlanArn' - The Amazon Resource Name (ARN) of the pricing plan for which
 -- associations are listed.
 --
--- 'pricingRuleArns', 'listPricingRulesAssociatedToPricingPlanResponse_pricingRuleArns' - A list containing pricing rules associated with the requested pricing
--- plan.
+-- 'pricingRuleArns', 'listPricingRulesAssociatedToPricingPlanResponse_pricingRuleArns' - A list containing pricing rules that are associated with the requested
+-- pricing plan.
 --
 -- 'httpStatus', 'listPricingRulesAssociatedToPricingPlanResponse_httpStatus' - The response's http status code.
 newListPricingRulesAssociatedToPricingPlanResponse ::
@@ -297,8 +297,8 @@ listPricingRulesAssociatedToPricingPlanResponse_billingPeriod = Lens.lens (\List
 listPricingRulesAssociatedToPricingPlanResponse_pricingPlanArn :: Lens.Lens' ListPricingRulesAssociatedToPricingPlanResponse (Prelude.Maybe Prelude.Text)
 listPricingRulesAssociatedToPricingPlanResponse_pricingPlanArn = Lens.lens (\ListPricingRulesAssociatedToPricingPlanResponse' {pricingPlanArn} -> pricingPlanArn) (\s@ListPricingRulesAssociatedToPricingPlanResponse' {} a -> s {pricingPlanArn = a} :: ListPricingRulesAssociatedToPricingPlanResponse)
 
--- | A list containing pricing rules associated with the requested pricing
--- plan.
+-- | A list containing pricing rules that are associated with the requested
+-- pricing plan.
 listPricingRulesAssociatedToPricingPlanResponse_pricingRuleArns :: Lens.Lens' ListPricingRulesAssociatedToPricingPlanResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listPricingRulesAssociatedToPricingPlanResponse_pricingRuleArns = Lens.lens (\ListPricingRulesAssociatedToPricingPlanResponse' {pricingRuleArns} -> pricingRuleArns) (\s@ListPricingRulesAssociatedToPricingPlanResponse' {} a -> s {pricingRuleArns = a} :: ListPricingRulesAssociatedToPricingPlanResponse) Prelude.. Lens.mapping Lens.coerced
 

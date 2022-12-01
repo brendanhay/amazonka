@@ -20,12 +20,12 @@
 module Amazonka.Kendra.Types.QueryResultItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.AdditionalResultAttribute
 import Amazonka.Kendra.Types.DocumentAttribute
 import Amazonka.Kendra.Types.QueryResultType
 import Amazonka.Kendra.Types.ScoreAttributes
 import Amazonka.Kendra.Types.TextWithHighlights
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single query result.

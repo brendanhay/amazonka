@@ -20,7 +20,7 @@
 module Amazonka.MediaPackageVOD.Types.DashPackage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaPackageVOD.Types.DashEncryption
 import Amazonka.MediaPackageVOD.Types.DashManifest
 import Amazonka.MediaPackageVOD.Types.PeriodTriggersElement
@@ -39,6 +39,8 @@ data DashPackage = DashPackage'
     -- NUMBER_WITH_DURATION, only a duration is included in each
     -- SegmentTemplate, with $Number$ media URLs.
     segmentTemplateFormat :: Prelude.Maybe SegmentTemplateFormat,
+    -- | When enabled, an I-Frame only stream will be included in the output.
+    includeIframeOnlyStream :: Prelude.Maybe Prelude.Bool,
     -- | Duration (in seconds) of each segment. Actual segments will be rounded
     -- to the nearest multiple of the source segment duration.
     segmentDurationSeconds :: Prelude.Maybe Prelude.Int,
@@ -76,6 +78,8 @@ data DashPackage = DashPackage'
 -- NUMBER_WITH_DURATION, only a duration is included in each
 -- SegmentTemplate, with $Number$ media URLs.
 --
+-- 'includeIframeOnlyStream', 'dashPackage_includeIframeOnlyStream' - When enabled, an I-Frame only stream will be included in the output.
+--
 -- 'segmentDurationSeconds', 'dashPackage_segmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be rounded
 -- to the nearest multiple of the source segment duration.
 --
@@ -100,6 +104,7 @@ newDashPackage =
   DashPackage'
     { segmentTemplateFormat =
         Prelude.Nothing,
+      includeIframeOnlyStream = Prelude.Nothing,
       segmentDurationSeconds = Prelude.Nothing,
       periodTriggers = Prelude.Nothing,
       encryption = Prelude.Nothing,
@@ -117,6 +122,10 @@ newDashPackage =
 -- SegmentTemplate, with $Number$ media URLs.
 dashPackage_segmentTemplateFormat :: Lens.Lens' DashPackage (Prelude.Maybe SegmentTemplateFormat)
 dashPackage_segmentTemplateFormat = Lens.lens (\DashPackage' {segmentTemplateFormat} -> segmentTemplateFormat) (\s@DashPackage' {} a -> s {segmentTemplateFormat = a} :: DashPackage)
+
+-- | When enabled, an I-Frame only stream will be included in the output.
+dashPackage_includeIframeOnlyStream :: Lens.Lens' DashPackage (Prelude.Maybe Prelude.Bool)
+dashPackage_includeIframeOnlyStream = Lens.lens (\DashPackage' {includeIframeOnlyStream} -> includeIframeOnlyStream) (\s@DashPackage' {} a -> s {includeIframeOnlyStream = a} :: DashPackage)
 
 -- | Duration (in seconds) of each segment. Actual segments will be rounded
 -- to the nearest multiple of the source segment duration.
@@ -154,6 +163,7 @@ instance Core.FromJSON DashPackage where
       ( \x ->
           DashPackage'
             Prelude.<$> (x Core..:? "segmentTemplateFormat")
+            Prelude.<*> (x Core..:? "includeIframeOnlyStream")
             Prelude.<*> (x Core..:? "segmentDurationSeconds")
             Prelude.<*> (x Core..:? "periodTriggers" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "encryption")
@@ -164,6 +174,7 @@ instance Core.FromJSON DashPackage where
 instance Prelude.Hashable DashPackage where
   hashWithSalt _salt DashPackage' {..} =
     _salt `Prelude.hashWithSalt` segmentTemplateFormat
+      `Prelude.hashWithSalt` includeIframeOnlyStream
       `Prelude.hashWithSalt` segmentDurationSeconds
       `Prelude.hashWithSalt` periodTriggers
       `Prelude.hashWithSalt` encryption
@@ -173,6 +184,7 @@ instance Prelude.Hashable DashPackage where
 instance Prelude.NFData DashPackage where
   rnf DashPackage' {..} =
     Prelude.rnf segmentTemplateFormat
+      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
       `Prelude.seq` Prelude.rnf segmentDurationSeconds
       `Prelude.seq` Prelude.rnf periodTriggers
       `Prelude.seq` Prelude.rnf encryption
@@ -185,6 +197,8 @@ instance Core.ToJSON DashPackage where
       ( Prelude.catMaybes
           [ ("segmentTemplateFormat" Core..=)
               Prelude.<$> segmentTemplateFormat,
+            ("includeIframeOnlyStream" Core..=)
+              Prelude.<$> includeIframeOnlyStream,
             ("segmentDurationSeconds" Core..=)
               Prelude.<$> segmentDurationSeconds,
             ("periodTriggers" Core..=)

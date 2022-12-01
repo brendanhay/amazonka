@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.HierarchyGroupCondition where
 
 import Amazonka.Connect.Types.HierarchyGroupMatchType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A leaf node condition which can be used to specify a hierarchy group

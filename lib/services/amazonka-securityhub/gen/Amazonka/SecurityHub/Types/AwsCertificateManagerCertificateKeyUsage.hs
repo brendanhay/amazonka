@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateKeyUsage where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a key usage X.509 v3 extension object.

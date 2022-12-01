@@ -20,34 +20,35 @@
 module Amazonka.OpenSearch.Types.ServiceSoftwareOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.DeploymentStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | The current options of an domain service software options.
+-- | The current status of the service software for an Amazon OpenSearch
+-- Service domain. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html Service software updates in Amazon OpenSearch Service>.
 --
 -- /See:/ 'newServiceSoftwareOptions' smart constructor.
 data ServiceSoftwareOptions = ServiceSoftwareOptions'
-  { -- | @True@ if a service software is never automatically updated. @False@ if
-    -- a service software is automatically updated after @AutomatedUpdateDate@.
+  { -- | True if a service software is never automatically updated. False if a
+    -- service software is automatically updated after the automated update
+    -- date.
     optionalDeployment :: Prelude.Maybe Prelude.Bool,
-    -- | The new service software version if one is available.
+    -- | The new service software version, if one is available.
     newVersion' :: Prelude.Maybe Prelude.Text,
-    -- | @True@ if you\'re able to update your service software version. @False@
-    -- if you can\'t update your service software version.
+    -- | True if you\'re able to update your service software version. False if
+    -- you can\'t update your service software version.
     updateAvailable :: Prelude.Maybe Prelude.Bool,
-    -- | @True@ if you\'re able to cancel your service software version update.
-    -- @False@ if you can\'t cancel your service software update.
+    -- | True if you\'re able to cancel your service software version update.
+    -- False if you can\'t cancel your service software update.
     cancellable :: Prelude.Maybe Prelude.Bool,
-    -- | The status of your service software update. This field can take the
-    -- following values: @ ELIGIBLE@, @PENDING_UPDATE@, @IN_PROGRESS@,
-    -- @COMPLETED@, and @ NOT_ELIGIBLE@.
+    -- | The status of your service software update.
     updateStatus :: Prelude.Maybe DeploymentStatus,
     -- | The timestamp, in Epoch time, until which you can manually request a
     -- service software update. After this date, we automatically update your
     -- service software.
     automatedUpdateDate :: Prelude.Maybe Core.POSIX,
-    -- | The description of the @UpdateStatus@.
+    -- | A description of the service software update status.
     description :: Prelude.Maybe Prelude.Text,
     -- | The current service software version present on the domain.
     currentVersion :: Prelude.Maybe Prelude.Text
@@ -62,26 +63,25 @@ data ServiceSoftwareOptions = ServiceSoftwareOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'optionalDeployment', 'serviceSoftwareOptions_optionalDeployment' - @True@ if a service software is never automatically updated. @False@ if
--- a service software is automatically updated after @AutomatedUpdateDate@.
+-- 'optionalDeployment', 'serviceSoftwareOptions_optionalDeployment' - True if a service software is never automatically updated. False if a
+-- service software is automatically updated after the automated update
+-- date.
 --
--- 'newVersion'', 'serviceSoftwareOptions_newVersion' - The new service software version if one is available.
+-- 'newVersion'', 'serviceSoftwareOptions_newVersion' - The new service software version, if one is available.
 --
--- 'updateAvailable', 'serviceSoftwareOptions_updateAvailable' - @True@ if you\'re able to update your service software version. @False@
--- if you can\'t update your service software version.
+-- 'updateAvailable', 'serviceSoftwareOptions_updateAvailable' - True if you\'re able to update your service software version. False if
+-- you can\'t update your service software version.
 --
--- 'cancellable', 'serviceSoftwareOptions_cancellable' - @True@ if you\'re able to cancel your service software version update.
--- @False@ if you can\'t cancel your service software update.
+-- 'cancellable', 'serviceSoftwareOptions_cancellable' - True if you\'re able to cancel your service software version update.
+-- False if you can\'t cancel your service software update.
 --
--- 'updateStatus', 'serviceSoftwareOptions_updateStatus' - The status of your service software update. This field can take the
--- following values: @ ELIGIBLE@, @PENDING_UPDATE@, @IN_PROGRESS@,
--- @COMPLETED@, and @ NOT_ELIGIBLE@.
+-- 'updateStatus', 'serviceSoftwareOptions_updateStatus' - The status of your service software update.
 --
 -- 'automatedUpdateDate', 'serviceSoftwareOptions_automatedUpdateDate' - The timestamp, in Epoch time, until which you can manually request a
 -- service software update. After this date, we automatically update your
 -- service software.
 --
--- 'description', 'serviceSoftwareOptions_description' - The description of the @UpdateStatus@.
+-- 'description', 'serviceSoftwareOptions_description' - A description of the service software update status.
 --
 -- 'currentVersion', 'serviceSoftwareOptions_currentVersion' - The current service software version present on the domain.
 newServiceSoftwareOptions ::
@@ -99,28 +99,27 @@ newServiceSoftwareOptions =
       currentVersion = Prelude.Nothing
     }
 
--- | @True@ if a service software is never automatically updated. @False@ if
--- a service software is automatically updated after @AutomatedUpdateDate@.
+-- | True if a service software is never automatically updated. False if a
+-- service software is automatically updated after the automated update
+-- date.
 serviceSoftwareOptions_optionalDeployment :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe Prelude.Bool)
 serviceSoftwareOptions_optionalDeployment = Lens.lens (\ServiceSoftwareOptions' {optionalDeployment} -> optionalDeployment) (\s@ServiceSoftwareOptions' {} a -> s {optionalDeployment = a} :: ServiceSoftwareOptions)
 
--- | The new service software version if one is available.
+-- | The new service software version, if one is available.
 serviceSoftwareOptions_newVersion :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
 serviceSoftwareOptions_newVersion = Lens.lens (\ServiceSoftwareOptions' {newVersion'} -> newVersion') (\s@ServiceSoftwareOptions' {} a -> s {newVersion' = a} :: ServiceSoftwareOptions)
 
--- | @True@ if you\'re able to update your service software version. @False@
--- if you can\'t update your service software version.
+-- | True if you\'re able to update your service software version. False if
+-- you can\'t update your service software version.
 serviceSoftwareOptions_updateAvailable :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe Prelude.Bool)
 serviceSoftwareOptions_updateAvailable = Lens.lens (\ServiceSoftwareOptions' {updateAvailable} -> updateAvailable) (\s@ServiceSoftwareOptions' {} a -> s {updateAvailable = a} :: ServiceSoftwareOptions)
 
--- | @True@ if you\'re able to cancel your service software version update.
--- @False@ if you can\'t cancel your service software update.
+-- | True if you\'re able to cancel your service software version update.
+-- False if you can\'t cancel your service software update.
 serviceSoftwareOptions_cancellable :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe Prelude.Bool)
 serviceSoftwareOptions_cancellable = Lens.lens (\ServiceSoftwareOptions' {cancellable} -> cancellable) (\s@ServiceSoftwareOptions' {} a -> s {cancellable = a} :: ServiceSoftwareOptions)
 
--- | The status of your service software update. This field can take the
--- following values: @ ELIGIBLE@, @PENDING_UPDATE@, @IN_PROGRESS@,
--- @COMPLETED@, and @ NOT_ELIGIBLE@.
+-- | The status of your service software update.
 serviceSoftwareOptions_updateStatus :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe DeploymentStatus)
 serviceSoftwareOptions_updateStatus = Lens.lens (\ServiceSoftwareOptions' {updateStatus} -> updateStatus) (\s@ServiceSoftwareOptions' {} a -> s {updateStatus = a} :: ServiceSoftwareOptions)
 
@@ -130,7 +129,7 @@ serviceSoftwareOptions_updateStatus = Lens.lens (\ServiceSoftwareOptions' {updat
 serviceSoftwareOptions_automatedUpdateDate :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe Prelude.UTCTime)
 serviceSoftwareOptions_automatedUpdateDate = Lens.lens (\ServiceSoftwareOptions' {automatedUpdateDate} -> automatedUpdateDate) (\s@ServiceSoftwareOptions' {} a -> s {automatedUpdateDate = a} :: ServiceSoftwareOptions) Prelude.. Lens.mapping Core._Time
 
--- | The description of the @UpdateStatus@.
+-- | A description of the service software update status.
 serviceSoftwareOptions_description :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
 serviceSoftwareOptions_description = Lens.lens (\ServiceSoftwareOptions' {description} -> description) (\s@ServiceSoftwareOptions' {} a -> s {description = a} :: ServiceSoftwareOptions)
 

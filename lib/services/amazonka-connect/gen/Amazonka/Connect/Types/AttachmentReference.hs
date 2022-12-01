@@ -21,7 +21,7 @@ module Amazonka.Connect.Types.AttachmentReference where
 
 import Amazonka.Connect.Types.ReferenceStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a reference when the @referenceType@ is @ATTACHMENT@.

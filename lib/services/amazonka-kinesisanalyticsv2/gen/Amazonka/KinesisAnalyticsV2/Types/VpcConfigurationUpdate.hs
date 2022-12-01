@@ -20,7 +20,7 @@
 module Amazonka.KinesisAnalyticsV2.Types.VpcConfigurationUpdate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes updates to the VPC configuration used by the application.

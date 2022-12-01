@@ -20,10 +20,10 @@
 module Amazonka.IoTSiteWise.Types.Metric where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.ExpressionVariable
 import Amazonka.IoTSiteWise.Types.MetricProcessingConfig
 import Amazonka.IoTSiteWise.Types.MetricWindow
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an asset metric property. With metrics, you can calculate

@@ -66,6 +66,7 @@ haskell_library(
         "gen/Amazonka/StepFunctions/Types/StateMachineType.hs",
         "gen/Amazonka/StepFunctions/Types/SyncExecutionStatus.hs",
         "gen/Amazonka/StepFunctions/Types/Tag.hs",
+        "gen/Amazonka/StepFunctions/Types/TaskCredentials.hs",
         "gen/Amazonka/StepFunctions/Types/TaskFailedEventDetails.hs",
         "gen/Amazonka/StepFunctions/Types/TaskScheduledEventDetails.hs",
         "gen/Amazonka/StepFunctions/Types/TaskStartFailedEventDetails.hs",

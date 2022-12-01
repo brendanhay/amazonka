@@ -20,7 +20,7 @@
 module Amazonka.Personalize.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The optional metadata that you apply to resources to help you categorize

@@ -20,9 +20,9 @@
 module Amazonka.DeviceFarm.Types.DeviceInstance where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.InstanceProfile
 import Amazonka.DeviceFarm.Types.InstanceStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the device instance.

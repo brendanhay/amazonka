@@ -20,13 +20,13 @@
 module Amazonka.Firehose.Types.RedshiftDestinationUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.CopyCommand
 import Amazonka.Firehose.Types.ProcessingConfiguration
 import Amazonka.Firehose.Types.RedshiftRetryOptions
 import Amazonka.Firehose.Types.RedshiftS3BackupMode
 import Amazonka.Firehose.Types.S3DestinationUpdate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an update for a destination in Amazon Redshift.

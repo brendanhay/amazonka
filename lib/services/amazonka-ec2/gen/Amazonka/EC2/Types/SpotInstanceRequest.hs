@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.SpotInstanceRequest where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceInterruptionBehavior
 import Amazonka.EC2.Types.LaunchSpecification
@@ -29,7 +30,6 @@ import Amazonka.EC2.Types.SpotInstanceStateFault
 import Amazonka.EC2.Types.SpotInstanceStatus
 import Amazonka.EC2.Types.SpotInstanceType
 import Amazonka.EC2.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Spot Instance request.

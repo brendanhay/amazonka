@@ -20,7 +20,7 @@
 module Amazonka.ServiceCatalog.Types.RecordOutput where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The output for the product created as the result of a request. For

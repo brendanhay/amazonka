@@ -20,8 +20,8 @@
 module Amazonka.GroundStation.Types.Elevation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types.AngleUnits
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Elevation angle of the satellite in the sky during a contact.

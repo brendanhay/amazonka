@@ -20,9 +20,9 @@
 module Amazonka.Kendra.Types.DocumentAttributeValueCountPair where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.DocumentAttributeValue
 import {-# SOURCE #-} Amazonka.Kendra.Types.FacetResult
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the count of documents that match a particular attribute when

@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.M3u8Settings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.M3u8AudioDuration
 import Amazonka.MediaConvert.Types.M3u8DataPtsControl
 import Amazonka.MediaConvert.Types.M3u8NielsenId3

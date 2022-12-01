@@ -20,8 +20,8 @@
 module Amazonka.KinesisAnalyticsV2.Types.DeployAsApplicationConfigurationDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisAnalyticsV2.Types.S3ContentBaseLocationDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration information required to deploy an Amazon Data

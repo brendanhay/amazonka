@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.LastActiveDefinition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | When there are multiple versions of a blueprint and the latest version

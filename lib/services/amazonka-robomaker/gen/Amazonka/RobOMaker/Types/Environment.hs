@@ -20,7 +20,7 @@
 module Amazonka.RobOMaker.Types.Environment where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The object that contains the Docker image URI for either your robot or

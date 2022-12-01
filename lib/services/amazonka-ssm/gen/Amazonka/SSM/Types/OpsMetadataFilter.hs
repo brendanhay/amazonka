@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.OpsMetadataFilter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter to limit the number of OpsMetadata objects displayed.

@@ -20,8 +20,8 @@
 module Amazonka.DeviceFarm.Types.MonetaryAmount where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.CurrencyCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A number that represents the monetary amount for an offering or

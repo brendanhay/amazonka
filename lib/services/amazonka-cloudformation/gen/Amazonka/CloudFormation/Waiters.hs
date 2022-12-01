@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -21,17 +22,17 @@ import Amazonka.CloudFormation.DescribeTypeRegistration
 import Amazonka.CloudFormation.Lens
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newStackUpdateComplete :: Core.Wait DescribeStacks
 newStackUpdateComplete =
   Core.Wait
-    { Core._waitName = "StackUpdateComplete",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "StackUpdateComplete",
+      Core.attempts = 120,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "UPDATE_COMPLETE"
             Core.AcceptSuccess
@@ -82,10 +83,10 @@ newStackUpdateComplete =
 newStackImportComplete :: Core.Wait DescribeStacks
 newStackImportComplete =
   Core.Wait
-    { Core._waitName = "StackImportComplete",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "StackImportComplete",
+      Core.attempts = 120,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "IMPORT_COMPLETE"
             Core.AcceptSuccess
@@ -156,10 +157,10 @@ newStackImportComplete =
 newStackCreateComplete :: Core.Wait DescribeStacks
 newStackCreateComplete =
   Core.Wait
-    { Core._waitName = "StackCreateComplete",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "StackCreateComplete",
+      Core.attempts = 120,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "CREATE_COMPLETE"
             Core.AcceptSuccess
@@ -230,10 +231,10 @@ newStackCreateComplete =
 newStackRollbackComplete :: Core.Wait DescribeStacks
 newStackRollbackComplete =
   Core.Wait
-    { Core._waitName = "StackRollbackComplete",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "StackRollbackComplete",
+      Core.attempts = 120,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "UPDATE_ROLLBACK_COMPLETE"
             Core.AcceptSuccess
@@ -284,10 +285,10 @@ newStackRollbackComplete =
 newStackExists :: Core.Wait DescribeStacks
 newStackExists =
   Core.Wait
-    { Core._waitName = "StackExists",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "StackExists",
+      Core.attempts = 20,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchStatus 200 Core.AcceptSuccess,
           Core.matchError "ValidationError" Core.AcceptRetry
         ]
@@ -297,11 +298,10 @@ newStackExists =
 newTypeRegistrationComplete :: Core.Wait DescribeTypeRegistration
 newTypeRegistrationComplete =
   Core.Wait
-    { Core._waitName =
-        "TypeRegistrationComplete",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "TypeRegistrationComplete",
+      Core.attempts = 120,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "COMPLETE"
             Core.AcceptSuccess
@@ -323,11 +323,10 @@ newTypeRegistrationComplete =
 newChangeSetCreateComplete :: Core.Wait DescribeChangeSet
 newChangeSetCreateComplete =
   Core.Wait
-    { Core._waitName =
-        "ChangeSetCreateComplete",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "ChangeSetCreateComplete",
+      Core.attempts = 120,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "CREATE_COMPLETE"
             Core.AcceptSuccess
@@ -350,10 +349,10 @@ newChangeSetCreateComplete =
 newStackDeleteComplete :: Core.Wait DescribeStacks
 newStackDeleteComplete =
   Core.Wait
-    { Core._waitName = "StackDeleteComplete",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
+    { Core.name = "StackDeleteComplete",
+      Core.attempts = 120,
+      Core.delay = 30,
+      Core.acceptors =
         [ Core.matchAll
             "DELETE_COMPLETE"
             Core.AcceptSuccess

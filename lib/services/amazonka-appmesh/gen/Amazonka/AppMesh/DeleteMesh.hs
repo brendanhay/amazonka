@@ -45,7 +45,7 @@ where
 
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,8 +81,8 @@ deleteMesh_meshName = Lens.lens (\DeleteMesh' {meshName} -> meshName) (\s@Delete
 
 instance Core.AWSRequest DeleteMesh where
   type AWSResponse DeleteMesh = DeleteMeshResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

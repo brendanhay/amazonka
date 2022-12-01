@@ -20,7 +20,7 @@
 module Amazonka.Polly.Types.Voice where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Polly.Types.Engine
 import Amazonka.Polly.Types.Gender
 import Amazonka.Polly.Types.LanguageCode

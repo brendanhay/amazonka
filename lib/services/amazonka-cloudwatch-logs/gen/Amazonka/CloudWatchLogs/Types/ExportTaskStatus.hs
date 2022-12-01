@@ -21,7 +21,7 @@ module Amazonka.CloudWatchLogs.Types.ExportTaskStatus where
 
 import Amazonka.CloudWatchLogs.Types.ExportTaskStatusCode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the status of an export task.

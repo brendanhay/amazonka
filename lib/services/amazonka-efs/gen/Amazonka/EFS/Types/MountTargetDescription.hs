@@ -20,8 +20,8 @@
 module Amazonka.EFS.Types.MountTargetDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EFS.Types.LifeCycleState
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a description of a mount target.

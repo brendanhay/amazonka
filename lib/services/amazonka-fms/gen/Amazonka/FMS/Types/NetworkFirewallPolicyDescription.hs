@@ -20,10 +20,10 @@
 module Amazonka.FMS.Types.NetworkFirewallPolicyDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.StatefulEngineOptions
 import Amazonka.FMS.Types.StatefulRuleGroup
 import Amazonka.FMS.Types.StatelessRuleGroup
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The definition of the Network Firewall firewall policy.

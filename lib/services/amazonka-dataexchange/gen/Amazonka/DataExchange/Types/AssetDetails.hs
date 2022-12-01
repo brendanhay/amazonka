@@ -20,10 +20,10 @@
 module Amazonka.DataExchange.Types.AssetDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataExchange.Types.ApiGatewayApiAsset
 import Amazonka.DataExchange.Types.RedshiftDataShareAsset
 import Amazonka.DataExchange.Types.S3SnapshotAsset
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the asset.

@@ -20,8 +20,8 @@
 module Amazonka.Lambda.Types.ProvisionedConcurrencyConfigListItem where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types.ProvisionedConcurrencyStatusEnum
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the provisioned concurrency configuration for a function
@@ -43,7 +43,10 @@ data ProvisionedConcurrencyConfigListItem = ProvisionedConcurrencyConfigListItem
     -- | The date and time that a user last updated the configuration, in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format>.
     lastModified :: Prelude.Maybe Prelude.Text,
-    -- | The amount of provisioned concurrency allocated.
+    -- | The amount of provisioned concurrency allocated. When a weighted alias
+    -- is used during linear and canary deployments, this value fluctuates
+    -- depending on the amount of concurrency that is provisioned for the
+    -- function versions.
     allocatedProvisionedConcurrentExecutions :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +73,10 @@ data ProvisionedConcurrencyConfigListItem = ProvisionedConcurrencyConfigListItem
 -- 'lastModified', 'provisionedConcurrencyConfigListItem_lastModified' - The date and time that a user last updated the configuration, in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format>.
 --
--- 'allocatedProvisionedConcurrentExecutions', 'provisionedConcurrencyConfigListItem_allocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated.
+-- 'allocatedProvisionedConcurrentExecutions', 'provisionedConcurrencyConfigListItem_allocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated. When a weighted alias
+-- is used during linear and canary deployments, this value fluctuates
+-- depending on the amount of concurrency that is provisioned for the
+-- function versions.
 newProvisionedConcurrencyConfigListItem ::
   ProvisionedConcurrencyConfigListItem
 newProvisionedConcurrencyConfigListItem =
@@ -114,7 +120,10 @@ provisionedConcurrencyConfigListItem_requestedProvisionedConcurrentExecutions = 
 provisionedConcurrencyConfigListItem_lastModified :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Prelude.Maybe Prelude.Text)
 provisionedConcurrencyConfigListItem_lastModified = Lens.lens (\ProvisionedConcurrencyConfigListItem' {lastModified} -> lastModified) (\s@ProvisionedConcurrencyConfigListItem' {} a -> s {lastModified = a} :: ProvisionedConcurrencyConfigListItem)
 
--- | The amount of provisioned concurrency allocated.
+-- | The amount of provisioned concurrency allocated. When a weighted alias
+-- is used during linear and canary deployments, this value fluctuates
+-- depending on the amount of concurrency that is provisioned for the
+-- function versions.
 provisionedConcurrencyConfigListItem_allocatedProvisionedConcurrentExecutions :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Prelude.Maybe Prelude.Natural)
 provisionedConcurrencyConfigListItem_allocatedProvisionedConcurrentExecutions = Lens.lens (\ProvisionedConcurrencyConfigListItem' {allocatedProvisionedConcurrentExecutions} -> allocatedProvisionedConcurrentExecutions) (\s@ProvisionedConcurrencyConfigListItem' {} a -> s {allocatedProvisionedConcurrentExecutions = a} :: ProvisionedConcurrencyConfigListItem)
 

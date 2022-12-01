@@ -20,7 +20,7 @@
 module Amazonka.Macie.Types.S3Resource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | (Discontinued) Contains information about the S3 resource. This data

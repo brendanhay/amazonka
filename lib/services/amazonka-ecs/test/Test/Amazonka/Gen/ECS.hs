@@ -90,6 +90,9 @@ import Test.Tasty
 --         , requestExecuteCommand $
 --             newExecuteCommand
 --
+--         , requestGetTaskProtection $
+--             newGetTaskProtection
+--
 --         , requestListAccountSettings $
 --             newListAccountSettings
 --
@@ -180,6 +183,9 @@ import Test.Tasty
 --         , requestUpdateServicePrimaryTaskSet $
 --             newUpdateServicePrimaryTaskSet
 --
+--         , requestUpdateTaskProtection $
+--             newUpdateTaskProtection
+--
 --         , requestUpdateTaskSet $
 --             newUpdateTaskSet
 --
@@ -248,6 +254,9 @@ import Test.Tasty
 --
 --         , responseExecuteCommand $
 --             newExecuteCommandResponse
+--
+--         , responseGetTaskProtection $
+--             newGetTaskProtectionResponse
 --
 --         , responseListAccountSettings $
 --             newListAccountSettingsResponse
@@ -338,6 +347,9 @@ import Test.Tasty
 --
 --         , responseUpdateServicePrimaryTaskSet $
 --             newUpdateServicePrimaryTaskSetResponse
+--
+--         , responseUpdateTaskProtection $
+--             newUpdateTaskProtectionResponse
 --
 --         , responseUpdateTaskSet $
 --             newUpdateTaskSetResponse
@@ -472,6 +484,12 @@ requestExecuteCommand =
   req
     "ExecuteCommand"
     "fixture/ExecuteCommand.yaml"
+
+requestGetTaskProtection :: GetTaskProtection -> TestTree
+requestGetTaskProtection =
+  req
+    "GetTaskProtection"
+    "fixture/GetTaskProtection.yaml"
 
 requestListAccountSettings :: ListAccountSettings -> TestTree
 requestListAccountSettings =
@@ -653,6 +671,12 @@ requestUpdateServicePrimaryTaskSet =
     "UpdateServicePrimaryTaskSet"
     "fixture/UpdateServicePrimaryTaskSet.yaml"
 
+requestUpdateTaskProtection :: UpdateTaskProtection -> TestTree
+requestUpdateTaskProtection =
+  req
+    "UpdateTaskProtection"
+    "fixture/UpdateTaskProtection.yaml"
+
 requestUpdateTaskSet :: UpdateTaskSet -> TestTree
 requestUpdateTaskSet =
   req
@@ -828,6 +852,14 @@ responseExecuteCommand =
     "fixture/ExecuteCommandResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ExecuteCommand)
+
+responseGetTaskProtection :: GetTaskProtectionResponse -> TestTree
+responseGetTaskProtection =
+  res
+    "GetTaskProtectionResponse"
+    "fixture/GetTaskProtectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTaskProtection)
 
 responseListAccountSettings :: ListAccountSettingsResponse -> TestTree
 responseListAccountSettings =
@@ -1068,6 +1100,14 @@ responseUpdateServicePrimaryTaskSet =
     "fixture/UpdateServicePrimaryTaskSetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateServicePrimaryTaskSet)
+
+responseUpdateTaskProtection :: UpdateTaskProtectionResponse -> TestTree
+responseUpdateTaskProtection =
+  res
+    "UpdateTaskProtectionResponse"
+    "fixture/UpdateTaskProtectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTaskProtection)
 
 responseUpdateTaskSet :: UpdateTaskSetResponse -> TestTree
 responseUpdateTaskSet =

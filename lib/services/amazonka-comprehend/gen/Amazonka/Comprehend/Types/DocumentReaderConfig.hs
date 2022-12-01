@@ -23,7 +23,7 @@ import Amazonka.Comprehend.Types.DocumentReadAction
 import Amazonka.Comprehend.Types.DocumentReadFeatureTypes
 import Amazonka.Comprehend.Types.DocumentReadMode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input properties for a topic detection job.

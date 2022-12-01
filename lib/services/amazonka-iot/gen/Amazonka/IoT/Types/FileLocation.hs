@@ -20,9 +20,9 @@
 module Amazonka.IoT.Types.FileLocation where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.S3Location
 import Amazonka.IoT.Types.Stream
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location of the OTA update.

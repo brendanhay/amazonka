@@ -20,6 +20,7 @@
 module Amazonka.Firehose.Types.HttpEndpointDestinationUpdate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.HttpEndpointBufferingHints
 import Amazonka.Firehose.Types.HttpEndpointConfiguration
@@ -28,7 +29,6 @@ import Amazonka.Firehose.Types.HttpEndpointRetryOptions
 import Amazonka.Firehose.Types.HttpEndpointS3BackupMode
 import Amazonka.Firehose.Types.ProcessingConfiguration
 import Amazonka.Firehose.Types.S3DestinationUpdate
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates the specified HTTP endpoint destination.

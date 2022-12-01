@@ -44,8 +44,8 @@ module Amazonka.IoTEventsData.ListAlarms
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEventsData.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,8 +99,8 @@ listAlarms_alarmModelName = Lens.lens (\ListAlarms' {alarmModelName} -> alarmMod
 
 instance Core.AWSRequest ListAlarms where
   type AWSResponse ListAlarms = ListAlarmsResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

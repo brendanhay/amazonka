@@ -20,10 +20,10 @@
 module Amazonka.DynamoDB.Types.BatchStatementError where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.BatchStatementErrorCodeEnum
 import Amazonka.DynamoDB.Types.WriteRequest
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An error associated with a statement in a PartiQL batch that was run.

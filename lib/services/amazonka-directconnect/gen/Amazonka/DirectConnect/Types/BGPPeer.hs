@@ -20,10 +20,10 @@
 module Amazonka.DirectConnect.Types.BGPPeer where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DirectConnect.Types.AddressFamily
 import Amazonka.DirectConnect.Types.BGPPeerState
 import Amazonka.DirectConnect.Types.BGPStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a BGP peer.

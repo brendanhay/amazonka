@@ -20,8 +20,8 @@
 module Amazonka.DevOpsGuru.Types.RecommendationRelatedEvent where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.RecommendationRelatedEventResource
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an event that is related to a recommendation.

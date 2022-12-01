@@ -21,7 +21,7 @@ module Amazonka.CloudFormation.Types.BatchDescribeTypeConfigurationsError where
 
 import Amazonka.CloudFormation.Types.TypeConfigurationIdentifier
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information concerning an error generated during the setting of

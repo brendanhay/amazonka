@@ -43,8 +43,8 @@ module Amazonka.EC2.ModifyInstanceEventStartTime
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,8 +126,8 @@ instance Core.AWSRequest ModifyInstanceEventStartTime where
   type
     AWSResponse ModifyInstanceEventStartTime =
       ModifyInstanceEventStartTimeResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->
@@ -176,7 +176,8 @@ instance Core.ToQuery ModifyInstanceEventStartTime where
 
 -- | /See:/ 'newModifyInstanceEventStartTimeResponse' smart constructor.
 data ModifyInstanceEventStartTimeResponse = ModifyInstanceEventStartTimeResponse'
-  { event :: Prelude.Maybe InstanceStatusEvent,
+  { -- | Information about the event.
+    event :: Prelude.Maybe InstanceStatusEvent,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,7 +191,7 @@ data ModifyInstanceEventStartTimeResponse = ModifyInstanceEventStartTimeResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'event', 'modifyInstanceEventStartTimeResponse_event' - Undocumented member.
+-- 'event', 'modifyInstanceEventStartTimeResponse_event' - Information about the event.
 --
 -- 'httpStatus', 'modifyInstanceEventStartTimeResponse_httpStatus' - The response's http status code.
 newModifyInstanceEventStartTimeResponse ::
@@ -204,7 +205,7 @@ newModifyInstanceEventStartTimeResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Information about the event.
 modifyInstanceEventStartTimeResponse_event :: Lens.Lens' ModifyInstanceEventStartTimeResponse (Prelude.Maybe InstanceStatusEvent)
 modifyInstanceEventStartTimeResponse_event = Lens.lens (\ModifyInstanceEventStartTimeResponse' {event} -> event) (\s@ModifyInstanceEventStartTimeResponse' {} a -> s {event = a} :: ModifyInstanceEventStartTimeResponse)
 

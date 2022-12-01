@@ -21,8 +21,9 @@ module Amazonka.AppFlow.Types.ExecutionRecord where
 
 import Amazonka.AppFlow.Types.ExecutionResult
 import Amazonka.AppFlow.Types.ExecutionStatus
+import Amazonka.AppFlow.Types.MetadataCatalogDetail
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies information about the past flow run instances for a given
@@ -32,6 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 data ExecutionRecord = ExecutionRecord'
   { -- | Specifies the time of the most recent update.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | Describes the metadata catalog, metadata table, and data partitions that
+    -- Amazon AppFlow used for the associated flow run.
+    metadataCatalogDetails :: Prelude.Maybe [MetadataCatalogDetail],
     -- | The timestamp that determines the first new or updated record to be
     -- transferred in the flow run.
     dataPullStartTime :: Prelude.Maybe Core.POSIX,
@@ -60,6 +64,9 @@ data ExecutionRecord = ExecutionRecord'
 --
 -- 'lastUpdatedAt', 'executionRecord_lastUpdatedAt' - Specifies the time of the most recent update.
 --
+-- 'metadataCatalogDetails', 'executionRecord_metadataCatalogDetails' - Describes the metadata catalog, metadata table, and data partitions that
+-- Amazon AppFlow used for the associated flow run.
+--
 -- 'dataPullStartTime', 'executionRecord_dataPullStartTime' - The timestamp that determines the first new or updated record to be
 -- transferred in the flow run.
 --
@@ -79,6 +86,7 @@ newExecutionRecord ::
 newExecutionRecord =
   ExecutionRecord'
     { lastUpdatedAt = Prelude.Nothing,
+      metadataCatalogDetails = Prelude.Nothing,
       dataPullStartTime = Prelude.Nothing,
       executionId = Prelude.Nothing,
       startedAt = Prelude.Nothing,
@@ -90,6 +98,11 @@ newExecutionRecord =
 -- | Specifies the time of the most recent update.
 executionRecord_lastUpdatedAt :: Lens.Lens' ExecutionRecord (Prelude.Maybe Prelude.UTCTime)
 executionRecord_lastUpdatedAt = Lens.lens (\ExecutionRecord' {lastUpdatedAt} -> lastUpdatedAt) (\s@ExecutionRecord' {} a -> s {lastUpdatedAt = a} :: ExecutionRecord) Prelude.. Lens.mapping Core._Time
+
+-- | Describes the metadata catalog, metadata table, and data partitions that
+-- Amazon AppFlow used for the associated flow run.
+executionRecord_metadataCatalogDetails :: Lens.Lens' ExecutionRecord (Prelude.Maybe [MetadataCatalogDetail])
+executionRecord_metadataCatalogDetails = Lens.lens (\ExecutionRecord' {metadataCatalogDetails} -> metadataCatalogDetails) (\s@ExecutionRecord' {} a -> s {metadataCatalogDetails = a} :: ExecutionRecord) Prelude.. Lens.mapping Lens.coerced
 
 -- | The timestamp that determines the first new or updated record to be
 -- transferred in the flow run.
@@ -125,6 +138,9 @@ instance Core.FromJSON ExecutionRecord where
       ( \x ->
           ExecutionRecord'
             Prelude.<$> (x Core..:? "lastUpdatedAt")
+            Prelude.<*> ( x Core..:? "metadataCatalogDetails"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "dataPullStartTime")
             Prelude.<*> (x Core..:? "executionId")
             Prelude.<*> (x Core..:? "startedAt")
@@ -136,6 +152,7 @@ instance Core.FromJSON ExecutionRecord where
 instance Prelude.Hashable ExecutionRecord where
   hashWithSalt _salt ExecutionRecord' {..} =
     _salt `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` metadataCatalogDetails
       `Prelude.hashWithSalt` dataPullStartTime
       `Prelude.hashWithSalt` executionId
       `Prelude.hashWithSalt` startedAt
@@ -146,6 +163,7 @@ instance Prelude.Hashable ExecutionRecord where
 instance Prelude.NFData ExecutionRecord where
   rnf ExecutionRecord' {..} =
     Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf metadataCatalogDetails
       `Prelude.seq` Prelude.rnf dataPullStartTime
       `Prelude.seq` Prelude.rnf executionId
       `Prelude.seq` Prelude.rnf startedAt

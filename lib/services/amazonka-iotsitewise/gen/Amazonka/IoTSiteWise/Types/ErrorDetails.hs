@@ -20,9 +20,9 @@
 module Amazonka.IoTSiteWise.Types.ErrorDetails where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.DetailedError
 import Amazonka.IoTSiteWise.Types.ErrorCode
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the details of an IoT SiteWise error.

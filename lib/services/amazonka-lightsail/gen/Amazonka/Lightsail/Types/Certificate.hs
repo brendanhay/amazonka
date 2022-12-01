@@ -20,7 +20,7 @@
 module Amazonka.Lightsail.Types.Certificate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types.CertificateStatus
 import Amazonka.Lightsail.Types.DomainValidationRecord
 import Amazonka.Lightsail.Types.RenewalSummary
@@ -64,8 +64,8 @@ data Certificate = Certificate'
     --     happen as a fraud-protection measure, such as when the domain ranks
     --     within the Alexa top 1000 websites. To provide the required
     --     information, use the
-    --     <https://console.aws.amazon.com/support/home AWS Support Center> to
-    --     contact AWS Support.
+    --     <https://console.aws.amazon.com/support/home Amazon Web Services Support Center>
+    --     to contact Amazon Web Services Support.
     --
     --     You cannot request a certificate for Amazon-owned domain names such
     --     as those ending in amazonaws.com, cloudfront.net, or
@@ -89,8 +89,8 @@ data Certificate = Certificate'
     --
     --     If you see this error and your domain is not included in the
     --     VirusTotal list, visit the
-    --     <https://console.aws.amazon.com/support/home AWS Support Center> and
-    --     create a case.
+    --     <https://console.aws.amazon.com/support/home Amazon Web Services Support Center>
+    --     and create a case.
     --
     -- -   __@INVALID_PUBLIC_DOMAIN@__ - One or more of the domain names in the
     --     certificate request is not valid. Typically, this is because a
@@ -180,8 +180,8 @@ data Certificate = Certificate'
 --     happen as a fraud-protection measure, such as when the domain ranks
 --     within the Alexa top 1000 websites. To provide the required
 --     information, use the
---     <https://console.aws.amazon.com/support/home AWS Support Center> to
---     contact AWS Support.
+--     <https://console.aws.amazon.com/support/home Amazon Web Services Support Center>
+--     to contact Amazon Web Services Support.
 --
 --     You cannot request a certificate for Amazon-owned domain names such
 --     as those ending in amazonaws.com, cloudfront.net, or
@@ -205,8 +205,8 @@ data Certificate = Certificate'
 --
 --     If you see this error and your domain is not included in the
 --     VirusTotal list, visit the
---     <https://console.aws.amazon.com/support/home AWS Support Center> and
---     create a case.
+--     <https://console.aws.amazon.com/support/home Amazon Web Services Support Center>
+--     and create a case.
 --
 -- -   __@INVALID_PUBLIC_DOMAIN@__ - One or more of the domain names in the
 --     certificate request is not valid. Typically, this is because a
@@ -323,8 +323,8 @@ certificate_keyAlgorithm = Lens.lens (\Certificate' {keyAlgorithm} -> keyAlgorit
 --     happen as a fraud-protection measure, such as when the domain ranks
 --     within the Alexa top 1000 websites. To provide the required
 --     information, use the
---     <https://console.aws.amazon.com/support/home AWS Support Center> to
---     contact AWS Support.
+--     <https://console.aws.amazon.com/support/home Amazon Web Services Support Center>
+--     to contact Amazon Web Services Support.
 --
 --     You cannot request a certificate for Amazon-owned domain names such
 --     as those ending in amazonaws.com, cloudfront.net, or
@@ -348,8 +348,8 @@ certificate_keyAlgorithm = Lens.lens (\Certificate' {keyAlgorithm} -> keyAlgorit
 --
 --     If you see this error and your domain is not included in the
 --     VirusTotal list, visit the
---     <https://console.aws.amazon.com/support/home AWS Support Center> and
---     create a case.
+--     <https://console.aws.amazon.com/support/home Amazon Web Services Support Center>
+--     and create a case.
 --
 -- -   __@INVALID_PUBLIC_DOMAIN@__ - One or more of the domain names in the
 --     certificate request is not valid. Typically, this is because a

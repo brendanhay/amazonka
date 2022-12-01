@@ -20,7 +20,7 @@
 module Amazonka.CodeGuruProfiler.Types.TimestampStructure where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A data type that contains a @Timestamp@ object. This is specified using

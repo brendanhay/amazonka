@@ -15,8 +15,8 @@ module Amazonka.IotTwinMaker.Lens
   ( -- * Operations
 
     -- ** BatchPutPropertyValues
-    batchPutPropertyValues_entries,
     batchPutPropertyValues_workspaceId,
+    batchPutPropertyValues_entries,
     batchPutPropertyValuesResponse_httpStatus,
     batchPutPropertyValuesResponse_errorEntries,
 
@@ -25,10 +25,11 @@ module Amazonka.IotTwinMaker.Lens
     createComponentType_functions,
     createComponentType_propertyDefinitions,
     createComponentType_description,
+    createComponentType_propertyGroups,
     createComponentType_isSingleton,
     createComponentType_extendsFrom,
-    createComponentType_componentTypeId,
     createComponentType_workspaceId,
+    createComponentType_componentTypeId,
     createComponentTypeResponse_httpStatus,
     createComponentTypeResponse_arn,
     createComponentTypeResponse_creationDateTime,
@@ -40,21 +41,21 @@ module Amazonka.IotTwinMaker.Lens
     createEntity_parentEntityId,
     createEntity_description,
     createEntity_components,
-    createEntity_entityName,
     createEntity_workspaceId,
+    createEntity_entityName,
     createEntityResponse_httpStatus,
+    createEntityResponse_entityId,
     createEntityResponse_arn,
     createEntityResponse_creationDateTime,
-    createEntityResponse_entityId,
     createEntityResponse_state,
 
     -- ** CreateScene
     createScene_tags,
     createScene_description,
     createScene_capabilities,
-    createScene_contentLocation,
-    createScene_sceneId,
     createScene_workspaceId,
+    createScene_sceneId,
+    createScene_contentLocation,
     createSceneResponse_httpStatus,
     createSceneResponse_arn,
     createSceneResponse_creationDateTime,
@@ -62,77 +63,99 @@ module Amazonka.IotTwinMaker.Lens
     -- ** CreateWorkspace
     createWorkspace_tags,
     createWorkspace_description,
-    createWorkspace_role,
-    createWorkspace_s3Location,
     createWorkspace_workspaceId,
+    createWorkspace_s3Location,
+    createWorkspace_role,
     createWorkspaceResponse_httpStatus,
     createWorkspaceResponse_arn,
     createWorkspaceResponse_creationDateTime,
 
     -- ** DeleteComponentType
-    deleteComponentType_componentTypeId,
     deleteComponentType_workspaceId,
+    deleteComponentType_componentTypeId,
     deleteComponentTypeResponse_httpStatus,
     deleteComponentTypeResponse_state,
 
     -- ** DeleteEntity
     deleteEntity_isRecursive,
-    deleteEntity_entityId,
     deleteEntity_workspaceId,
+    deleteEntity_entityId,
     deleteEntityResponse_httpStatus,
     deleteEntityResponse_state,
 
     -- ** DeleteScene
-    deleteScene_sceneId,
     deleteScene_workspaceId,
+    deleteScene_sceneId,
     deleteSceneResponse_httpStatus,
 
     -- ** DeleteWorkspace
     deleteWorkspace_workspaceId,
     deleteWorkspaceResponse_httpStatus,
 
+    -- ** ExecuteQuery
+    executeQuery_nextToken,
+    executeQuery_maxResults,
+    executeQuery_workspaceId,
+    executeQuery_queryStatement,
+    executeQueryResponse_nextToken,
+    executeQueryResponse_rows,
+    executeQueryResponse_columnDescriptions,
+    executeQueryResponse_httpStatus,
+
     -- ** GetComponentType
-    getComponentType_componentTypeId,
     getComponentType_workspaceId,
+    getComponentType_componentTypeId,
     getComponentTypeResponse_isSchemaInitialized,
     getComponentTypeResponse_functions,
     getComponentTypeResponse_isAbstract,
     getComponentTypeResponse_propertyDefinitions,
     getComponentTypeResponse_status,
     getComponentTypeResponse_description,
+    getComponentTypeResponse_propertyGroups,
     getComponentTypeResponse_isSingleton,
     getComponentTypeResponse_extendsFrom,
     getComponentTypeResponse_httpStatus,
-    getComponentTypeResponse_arn,
+    getComponentTypeResponse_workspaceId,
     getComponentTypeResponse_componentTypeId,
     getComponentTypeResponse_creationDateTime,
     getComponentTypeResponse_updateDateTime,
-    getComponentTypeResponse_workspaceId,
+    getComponentTypeResponse_arn,
 
     -- ** GetEntity
-    getEntity_entityId,
     getEntity_workspaceId,
+    getEntity_entityId,
     getEntityResponse_description,
     getEntityResponse_components,
     getEntityResponse_httpStatus,
-    getEntityResponse_arn,
-    getEntityResponse_creationDateTime,
     getEntityResponse_entityId,
     getEntityResponse_entityName,
-    getEntityResponse_hasChildEntities,
-    getEntityResponse_parentEntityId,
+    getEntityResponse_arn,
     getEntityResponse_status,
-    getEntityResponse_updateDateTime,
     getEntityResponse_workspaceId,
+    getEntityResponse_parentEntityId,
+    getEntityResponse_hasChildEntities,
+    getEntityResponse_creationDateTime,
+    getEntityResponse_updateDateTime,
+
+    -- ** GetPricingPlan
+    getPricingPlanResponse_pendingPricingPlan,
+    getPricingPlanResponse_httpStatus,
+    getPricingPlanResponse_currentPricingPlan,
 
     -- ** GetPropertyValue
     getPropertyValue_entityId,
+    getPropertyValue_nextToken,
+    getPropertyValue_propertyGroupName,
     getPropertyValue_componentName,
+    getPropertyValue_maxResults,
+    getPropertyValue_tabularConditions,
     getPropertyValue_componentTypeId,
     getPropertyValue_selectedProperties,
     getPropertyValue_workspaceId,
-    getPropertyValueResponse_httpStatus,
+    getPropertyValueResponse_nextToken,
+    getPropertyValueResponse_tabularPropertyValues,
     getPropertyValueResponse_propertyValues,
+    getPropertyValueResponse_httpStatus,
 
     -- ** GetPropertyValueHistory
     getPropertyValueHistory_entityId,
@@ -147,35 +170,35 @@ module Amazonka.IotTwinMaker.Lens
     getPropertyValueHistory_startTime,
     getPropertyValueHistory_endDateTime,
     getPropertyValueHistory_componentTypeId,
-    getPropertyValueHistory_selectedProperties,
     getPropertyValueHistory_workspaceId,
+    getPropertyValueHistory_selectedProperties,
     getPropertyValueHistoryResponse_nextToken,
     getPropertyValueHistoryResponse_httpStatus,
     getPropertyValueHistoryResponse_propertyValues,
 
     -- ** GetScene
-    getScene_sceneId,
     getScene_workspaceId,
+    getScene_sceneId,
     getSceneResponse_description,
     getSceneResponse_capabilities,
     getSceneResponse_httpStatus,
-    getSceneResponse_arn,
-    getSceneResponse_contentLocation,
-    getSceneResponse_creationDateTime,
-    getSceneResponse_sceneId,
-    getSceneResponse_updateDateTime,
     getSceneResponse_workspaceId,
+    getSceneResponse_sceneId,
+    getSceneResponse_contentLocation,
+    getSceneResponse_arn,
+    getSceneResponse_creationDateTime,
+    getSceneResponse_updateDateTime,
 
     -- ** GetWorkspace
     getWorkspace_workspaceId,
     getWorkspaceResponse_description,
     getWorkspaceResponse_httpStatus,
-    getWorkspaceResponse_arn,
-    getWorkspaceResponse_creationDateTime,
-    getWorkspaceResponse_role,
-    getWorkspaceResponse_s3Location,
-    getWorkspaceResponse_updateDateTime,
     getWorkspaceResponse_workspaceId,
+    getWorkspaceResponse_arn,
+    getWorkspaceResponse_s3Location,
+    getWorkspaceResponse_role,
+    getWorkspaceResponse_creationDateTime,
+    getWorkspaceResponse_updateDateTime,
 
     -- ** ListComponentTypes
     listComponentTypes_nextToken,
@@ -185,8 +208,8 @@ module Amazonka.IotTwinMaker.Lens
     listComponentTypesResponse_nextToken,
     listComponentTypesResponse_maxResults,
     listComponentTypesResponse_httpStatus,
-    listComponentTypesResponse_componentTypeSummaries,
     listComponentTypesResponse_workspaceId,
+    listComponentTypesResponse_componentTypeSummaries,
 
     -- ** ListEntities
     listEntities_nextToken,
@@ -234,33 +257,41 @@ module Amazonka.IotTwinMaker.Lens
     updateComponentType_functions,
     updateComponentType_propertyDefinitions,
     updateComponentType_description,
+    updateComponentType_propertyGroups,
     updateComponentType_isSingleton,
     updateComponentType_extendsFrom,
-    updateComponentType_componentTypeId,
     updateComponentType_workspaceId,
+    updateComponentType_componentTypeId,
     updateComponentTypeResponse_httpStatus,
+    updateComponentTypeResponse_workspaceId,
     updateComponentTypeResponse_arn,
     updateComponentTypeResponse_componentTypeId,
     updateComponentTypeResponse_state,
-    updateComponentTypeResponse_workspaceId,
 
     -- ** UpdateEntity
     updateEntity_entityName,
     updateEntity_componentUpdates,
     updateEntity_description,
     updateEntity_parentEntityUpdate,
-    updateEntity_entityId,
     updateEntity_workspaceId,
+    updateEntity_entityId,
     updateEntityResponse_httpStatus,
-    updateEntityResponse_state,
     updateEntityResponse_updateDateTime,
+    updateEntityResponse_state,
+
+    -- ** UpdatePricingPlan
+    updatePricingPlan_bundleNames,
+    updatePricingPlan_pricingMode,
+    updatePricingPlanResponse_pendingPricingPlan,
+    updatePricingPlanResponse_httpStatus,
+    updatePricingPlanResponse_currentPricingPlan,
 
     -- ** UpdateScene
     updateScene_contentLocation,
     updateScene_description,
     updateScene_capabilities,
-    updateScene_sceneId,
     updateScene_workspaceId,
+    updateScene_sceneId,
     updateSceneResponse_httpStatus,
     updateSceneResponse_updateDateTime,
 
@@ -274,16 +305,35 @@ module Amazonka.IotTwinMaker.Lens
     -- * Types
 
     -- ** BatchPutPropertyError
-    batchPutPropertyError_entry,
     batchPutPropertyError_errorCode,
     batchPutPropertyError_errorMessage,
+    batchPutPropertyError_entry,
 
     -- ** BatchPutPropertyErrorEntry
     batchPutPropertyErrorEntry_errors,
 
+    -- ** BundleInformation
+    bundleInformation_pricingTier,
+    bundleInformation_bundleNames,
+
+    -- ** ColumnDescription
+    columnDescription_name,
+    columnDescription_type,
+
+    -- ** ComponentPropertyGroupRequest
+    componentPropertyGroupRequest_updateType,
+    componentPropertyGroupRequest_propertyNames,
+    componentPropertyGroupRequest_groupType,
+
+    -- ** ComponentPropertyGroupResponse
+    componentPropertyGroupResponse_groupType,
+    componentPropertyGroupResponse_propertyNames,
+    componentPropertyGroupResponse_isInherited,
+
     -- ** ComponentRequest
     componentRequest_properties,
     componentRequest_description,
+    componentRequest_propertyGroups,
     componentRequest_componentTypeId,
 
     -- ** ComponentResponse
@@ -292,6 +342,7 @@ module Amazonka.IotTwinMaker.Lens
     componentResponse_definedIn,
     componentResponse_status,
     componentResponse_description,
+    componentResponse_propertyGroups,
     componentResponse_componentTypeId,
 
     -- ** ComponentTypeSummary
@@ -305,6 +356,7 @@ module Amazonka.IotTwinMaker.Lens
     -- ** ComponentUpdateRequest
     componentUpdateRequest_updateType,
     componentUpdateRequest_propertyUpdates,
+    componentUpdateRequest_propertyGroupUpdates,
     componentUpdateRequest_description,
     componentUpdateRequest_componentTypeId,
 
@@ -340,11 +392,11 @@ module Amazonka.IotTwinMaker.Lens
     entitySummary_hasChildEntities,
     entitySummary_parentEntityId,
     entitySummary_description,
-    entitySummary_arn,
-    entitySummary_creationDateTime,
     entitySummary_entityId,
     entitySummary_entityName,
+    entitySummary_arn,
     entitySummary_status,
+    entitySummary_creationDateTime,
     entitySummary_updateDateTime,
 
     -- ** ErrorDetails
@@ -379,9 +431,21 @@ module Amazonka.IotTwinMaker.Lens
     listEntitiesFilter_externalId,
     listEntitiesFilter_componentTypeId,
 
+    -- ** OrderBy
+    orderBy_order,
+    orderBy_propertyName,
+
     -- ** ParentEntityUpdateRequest
     parentEntityUpdateRequest_parentEntityId,
     parentEntityUpdateRequest_updateType,
+
+    -- ** PricingPlan
+    pricingPlan_bundleInformation,
+    pricingPlan_billableEntityCount,
+    pricingPlan_effectiveDateTime,
+    pricingPlan_pricingMode,
+    pricingPlan_updateDateTime,
+    pricingPlan_updateReason,
 
     -- ** PropertyDefinitionRequest
     propertyDefinitionRequest_isExternalId,
@@ -396,18 +460,27 @@ module Amazonka.IotTwinMaker.Lens
     propertyDefinitionResponse_configuration,
     propertyDefinitionResponse_defaultValue,
     propertyDefinitionResponse_dataType,
-    propertyDefinitionResponse_isExternalId,
-    propertyDefinitionResponse_isFinal,
-    propertyDefinitionResponse_isImported,
-    propertyDefinitionResponse_isInherited,
-    propertyDefinitionResponse_isRequiredInEntity,
-    propertyDefinitionResponse_isStoredExternally,
     propertyDefinitionResponse_isTimeSeries,
+    propertyDefinitionResponse_isRequiredInEntity,
+    propertyDefinitionResponse_isExternalId,
+    propertyDefinitionResponse_isStoredExternally,
+    propertyDefinitionResponse_isImported,
+    propertyDefinitionResponse_isFinal,
+    propertyDefinitionResponse_isInherited,
 
     -- ** PropertyFilter
     propertyFilter_operator,
     propertyFilter_propertyName,
     propertyFilter_value,
+
+    -- ** PropertyGroupRequest
+    propertyGroupRequest_propertyNames,
+    propertyGroupRequest_groupType,
+
+    -- ** PropertyGroupResponse
+    propertyGroupResponse_groupType,
+    propertyGroupResponse_propertyNames,
+    propertyGroupResponse_isInherited,
 
     -- ** PropertyLatestValue
     propertyLatestValue_propertyValue,
@@ -435,6 +508,8 @@ module Amazonka.IotTwinMaker.Lens
     propertyValueHistory_values,
     propertyValueHistory_entityPropertyReference,
 
+    -- ** QueryResultValue
+
     -- ** Relationship
     relationship_targetComponentTypeId,
     relationship_relationshipType,
@@ -443,24 +518,31 @@ module Amazonka.IotTwinMaker.Lens
     relationshipValue_targetEntityId,
     relationshipValue_targetComponentName,
 
+    -- ** Row
+    row_rowData,
+
     -- ** SceneSummary
     sceneSummary_description,
-    sceneSummary_arn,
-    sceneSummary_contentLocation,
-    sceneSummary_creationDateTime,
     sceneSummary_sceneId,
+    sceneSummary_contentLocation,
+    sceneSummary_arn,
+    sceneSummary_creationDateTime,
     sceneSummary_updateDateTime,
 
     -- ** Status
     status_state,
     status_error,
 
+    -- ** TabularConditions
+    tabularConditions_propertyFilters,
+    tabularConditions_orderBy,
+
     -- ** WorkspaceSummary
     workspaceSummary_description,
+    workspaceSummary_workspaceId,
     workspaceSummary_arn,
     workspaceSummary_creationDateTime,
     workspaceSummary_updateDateTime,
-    workspaceSummary_workspaceId,
   )
 where
 
@@ -473,8 +555,10 @@ import Amazonka.IotTwinMaker.DeleteComponentType
 import Amazonka.IotTwinMaker.DeleteEntity
 import Amazonka.IotTwinMaker.DeleteScene
 import Amazonka.IotTwinMaker.DeleteWorkspace
+import Amazonka.IotTwinMaker.ExecuteQuery
 import Amazonka.IotTwinMaker.GetComponentType
 import Amazonka.IotTwinMaker.GetEntity
+import Amazonka.IotTwinMaker.GetPricingPlan
 import Amazonka.IotTwinMaker.GetPropertyValue
 import Amazonka.IotTwinMaker.GetPropertyValueHistory
 import Amazonka.IotTwinMaker.GetScene
@@ -487,6 +571,10 @@ import Amazonka.IotTwinMaker.ListWorkspaces
 import Amazonka.IotTwinMaker.TagResource
 import Amazonka.IotTwinMaker.Types.BatchPutPropertyError
 import Amazonka.IotTwinMaker.Types.BatchPutPropertyErrorEntry
+import Amazonka.IotTwinMaker.Types.BundleInformation
+import Amazonka.IotTwinMaker.Types.ColumnDescription
+import Amazonka.IotTwinMaker.Types.ComponentPropertyGroupRequest
+import Amazonka.IotTwinMaker.Types.ComponentPropertyGroupResponse
 import Amazonka.IotTwinMaker.Types.ComponentRequest
 import Amazonka.IotTwinMaker.Types.ComponentResponse
 import Amazonka.IotTwinMaker.Types.ComponentTypeSummary
@@ -503,23 +591,31 @@ import Amazonka.IotTwinMaker.Types.InterpolationParameters
 import Amazonka.IotTwinMaker.Types.LambdaFunction
 import Amazonka.IotTwinMaker.Types.ListComponentTypesFilter
 import Amazonka.IotTwinMaker.Types.ListEntitiesFilter
+import Amazonka.IotTwinMaker.Types.OrderBy
 import Amazonka.IotTwinMaker.Types.ParentEntityUpdateRequest
+import Amazonka.IotTwinMaker.Types.PricingPlan
 import Amazonka.IotTwinMaker.Types.PropertyDefinitionRequest
 import Amazonka.IotTwinMaker.Types.PropertyDefinitionResponse
 import Amazonka.IotTwinMaker.Types.PropertyFilter
+import Amazonka.IotTwinMaker.Types.PropertyGroupRequest
+import Amazonka.IotTwinMaker.Types.PropertyGroupResponse
 import Amazonka.IotTwinMaker.Types.PropertyLatestValue
 import Amazonka.IotTwinMaker.Types.PropertyRequest
 import Amazonka.IotTwinMaker.Types.PropertyResponse
 import Amazonka.IotTwinMaker.Types.PropertyValue
 import Amazonka.IotTwinMaker.Types.PropertyValueEntry
 import Amazonka.IotTwinMaker.Types.PropertyValueHistory
+import Amazonka.IotTwinMaker.Types.QueryResultValue
 import Amazonka.IotTwinMaker.Types.Relationship
 import Amazonka.IotTwinMaker.Types.RelationshipValue
+import Amazonka.IotTwinMaker.Types.Row
 import Amazonka.IotTwinMaker.Types.SceneSummary
 import Amazonka.IotTwinMaker.Types.Status
+import Amazonka.IotTwinMaker.Types.TabularConditions
 import Amazonka.IotTwinMaker.Types.WorkspaceSummary
 import Amazonka.IotTwinMaker.UntagResource
 import Amazonka.IotTwinMaker.UpdateComponentType
 import Amazonka.IotTwinMaker.UpdateEntity
+import Amazonka.IotTwinMaker.UpdatePricingPlan
 import Amazonka.IotTwinMaker.UpdateScene
 import Amazonka.IotTwinMaker.UpdateWorkspace

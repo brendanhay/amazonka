@@ -37,7 +37,8 @@ module Amazonka.CloudFormation.Types.HandlerErrorCode
         HandlerErrorCode_ServiceInternalError,
         HandlerErrorCode_ServiceLimitExceeded,
         HandlerErrorCode_Throttling,
-        HandlerErrorCode_Unknown
+        HandlerErrorCode_Unknown,
+        HandlerErrorCode_UnsupportedTarget
       ),
   )
 where
@@ -127,6 +128,9 @@ pattern HandlerErrorCode_Throttling = HandlerErrorCode' "Throttling"
 pattern HandlerErrorCode_Unknown :: HandlerErrorCode
 pattern HandlerErrorCode_Unknown = HandlerErrorCode' "Unknown"
 
+pattern HandlerErrorCode_UnsupportedTarget :: HandlerErrorCode
+pattern HandlerErrorCode_UnsupportedTarget = HandlerErrorCode' "UnsupportedTarget"
+
 {-# COMPLETE
   HandlerErrorCode_AccessDenied,
   HandlerErrorCode_AlreadyExists,
@@ -146,5 +150,6 @@ pattern HandlerErrorCode_Unknown = HandlerErrorCode' "Unknown"
   HandlerErrorCode_ServiceLimitExceeded,
   HandlerErrorCode_Throttling,
   HandlerErrorCode_Unknown,
+  HandlerErrorCode_UnsupportedTarget,
   HandlerErrorCode'
   #-}

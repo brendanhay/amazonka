@@ -20,12 +20,12 @@
 module Amazonka.CustomerProfiles.Types.ConnectorOperator where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.MarketoConnectorOperator
 import Amazonka.CustomerProfiles.Types.S3ConnectorOperator
 import Amazonka.CustomerProfiles.Types.SalesforceConnectorOperator
 import Amazonka.CustomerProfiles.Types.ServiceNowConnectorOperator
 import Amazonka.CustomerProfiles.Types.ZendeskConnectorOperator
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The operation to be performed on the provided source fields.

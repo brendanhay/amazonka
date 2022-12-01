@@ -417,6 +417,9 @@ module Amazonka.CloudFront
     -- ** InvalidProtocolSettings
     _InvalidProtocolSettings,
 
+    -- ** StagingDistributionInUse
+    _StagingDistributionInUse,
+
     -- ** NoSuchCachePolicy
     _NoSuchCachePolicy,
 
@@ -459,6 +462,12 @@ module Amazonka.CloudFront
     AssociateAliasResponse (AssociateAliasResponse'),
     newAssociateAliasResponse,
 
+    -- ** CopyDistribution
+    CopyDistribution (CopyDistribution'),
+    newCopyDistribution,
+    CopyDistributionResponse (CopyDistributionResponse'),
+    newCopyDistributionResponse,
+
     -- ** CreateCachePolicy
     CreateCachePolicy (CreateCachePolicy'),
     newCreateCachePolicy,
@@ -470,6 +479,12 @@ module Amazonka.CloudFront
     newCreateCloudFrontOriginAccessIdentity,
     CreateCloudFrontOriginAccessIdentityResponse (CreateCloudFrontOriginAccessIdentityResponse'),
     newCreateCloudFrontOriginAccessIdentityResponse,
+
+    -- ** CreateContinuousDeploymentPolicy
+    CreateContinuousDeploymentPolicy (CreateContinuousDeploymentPolicy'),
+    newCreateContinuousDeploymentPolicy,
+    CreateContinuousDeploymentPolicyResponse (CreateContinuousDeploymentPolicyResponse'),
+    newCreateContinuousDeploymentPolicyResponse,
 
     -- ** CreateDistribution
     CreateDistribution (CreateDistribution'),
@@ -573,6 +588,12 @@ module Amazonka.CloudFront
     DeleteCloudFrontOriginAccessIdentityResponse (DeleteCloudFrontOriginAccessIdentityResponse'),
     newDeleteCloudFrontOriginAccessIdentityResponse,
 
+    -- ** DeleteContinuousDeploymentPolicy
+    DeleteContinuousDeploymentPolicy (DeleteContinuousDeploymentPolicy'),
+    newDeleteContinuousDeploymentPolicy,
+    DeleteContinuousDeploymentPolicyResponse (DeleteContinuousDeploymentPolicyResponse'),
+    newDeleteContinuousDeploymentPolicyResponse,
+
     -- ** DeleteDistribution
     DeleteDistribution (DeleteDistribution'),
     newDeleteDistribution,
@@ -674,6 +695,18 @@ module Amazonka.CloudFront
     newGetCloudFrontOriginAccessIdentityConfig,
     GetCloudFrontOriginAccessIdentityConfigResponse (GetCloudFrontOriginAccessIdentityConfigResponse'),
     newGetCloudFrontOriginAccessIdentityConfigResponse,
+
+    -- ** GetContinuousDeploymentPolicy
+    GetContinuousDeploymentPolicy (GetContinuousDeploymentPolicy'),
+    newGetContinuousDeploymentPolicy,
+    GetContinuousDeploymentPolicyResponse (GetContinuousDeploymentPolicyResponse'),
+    newGetContinuousDeploymentPolicyResponse,
+
+    -- ** GetContinuousDeploymentPolicyConfig
+    GetContinuousDeploymentPolicyConfig (GetContinuousDeploymentPolicyConfig'),
+    newGetContinuousDeploymentPolicyConfig,
+    GetContinuousDeploymentPolicyConfigResponse (GetContinuousDeploymentPolicyConfigResponse'),
+    newGetContinuousDeploymentPolicyConfigResponse,
 
     -- ** GetDistribution
     GetDistribution (GetDistribution'),
@@ -825,6 +858,12 @@ module Amazonka.CloudFront
     ListConflictingAliasesResponse (ListConflictingAliasesResponse'),
     newListConflictingAliasesResponse,
 
+    -- ** ListContinuousDeploymentPolicies
+    ListContinuousDeploymentPolicies (ListContinuousDeploymentPolicies'),
+    newListContinuousDeploymentPolicies,
+    ListContinuousDeploymentPoliciesResponse (ListContinuousDeploymentPoliciesResponse'),
+    newListContinuousDeploymentPoliciesResponse,
+
     -- ** ListDistributions (Paginated)
     ListDistributions (ListDistributions'),
     newListDistributions,
@@ -975,6 +1014,12 @@ module Amazonka.CloudFront
     UpdateCloudFrontOriginAccessIdentityResponse (UpdateCloudFrontOriginAccessIdentityResponse'),
     newUpdateCloudFrontOriginAccessIdentityResponse,
 
+    -- ** UpdateContinuousDeploymentPolicy
+    UpdateContinuousDeploymentPolicy (UpdateContinuousDeploymentPolicy'),
+    newUpdateContinuousDeploymentPolicy,
+    UpdateContinuousDeploymentPolicyResponse (UpdateContinuousDeploymentPolicyResponse'),
+    newUpdateContinuousDeploymentPolicyResponse,
+
     -- ** UpdateDistribution
     UpdateDistribution (UpdateDistribution'),
     newUpdateDistribution,
@@ -1057,6 +1102,9 @@ module Amazonka.CloudFront
 
     -- ** CertificateSource
     CertificateSource (..),
+
+    -- ** ContinuousDeploymentPolicyType
+    ContinuousDeploymentPolicyType (..),
 
     -- ** EventType
     EventType (..),
@@ -1234,6 +1282,30 @@ module Amazonka.CloudFront
     -- ** ContentTypeProfiles
     ContentTypeProfiles (ContentTypeProfiles'),
     newContentTypeProfiles,
+
+    -- ** ContinuousDeploymentPolicy
+    ContinuousDeploymentPolicy (ContinuousDeploymentPolicy'),
+    newContinuousDeploymentPolicy,
+
+    -- ** ContinuousDeploymentPolicyConfig
+    ContinuousDeploymentPolicyConfig (ContinuousDeploymentPolicyConfig'),
+    newContinuousDeploymentPolicyConfig,
+
+    -- ** ContinuousDeploymentPolicyList
+    ContinuousDeploymentPolicyList (ContinuousDeploymentPolicyList'),
+    newContinuousDeploymentPolicyList,
+
+    -- ** ContinuousDeploymentPolicySummary
+    ContinuousDeploymentPolicySummary (ContinuousDeploymentPolicySummary'),
+    newContinuousDeploymentPolicySummary,
+
+    -- ** ContinuousDeploymentSingleHeaderConfig
+    ContinuousDeploymentSingleHeaderConfig (ContinuousDeploymentSingleHeaderConfig'),
+    newContinuousDeploymentSingleHeaderConfig,
+
+    -- ** ContinuousDeploymentSingleWeightConfig
+    ContinuousDeploymentSingleWeightConfig (ContinuousDeploymentSingleWeightConfig'),
+    newContinuousDeploymentSingleWeightConfig,
 
     -- ** CookieNames
     CookieNames (CookieNames'),
@@ -1659,9 +1731,17 @@ module Amazonka.CloudFront
     S3OriginConfig (S3OriginConfig'),
     newS3OriginConfig,
 
+    -- ** SessionStickinessConfig
+    SessionStickinessConfig (SessionStickinessConfig'),
+    newSessionStickinessConfig,
+
     -- ** Signer
     Signer (Signer'),
     newSigner,
+
+    -- ** StagingDistributionDnsNames
+    StagingDistributionDnsNames (StagingDistributionDnsNames'),
+    newStagingDistributionDnsNames,
 
     -- ** StatusCodes
     StatusCodes (StatusCodes'),
@@ -1707,6 +1787,10 @@ module Amazonka.CloudFront
     TestResult (TestResult'),
     newTestResult,
 
+    -- ** TrafficConfig
+    TrafficConfig (TrafficConfig'),
+    newTrafficConfig,
+
     -- ** TrustedKeyGroups
     TrustedKeyGroups (TrustedKeyGroups'),
     newTrustedKeyGroups,
@@ -1722,8 +1806,10 @@ module Amazonka.CloudFront
 where
 
 import Amazonka.CloudFront.AssociateAlias
+import Amazonka.CloudFront.CopyDistribution
 import Amazonka.CloudFront.CreateCachePolicy
 import Amazonka.CloudFront.CreateCloudFrontOriginAccessIdentity
+import Amazonka.CloudFront.CreateContinuousDeploymentPolicy
 import Amazonka.CloudFront.CreateDistribution
 import Amazonka.CloudFront.CreateDistributionWithTags
 import Amazonka.CloudFront.CreateFieldLevelEncryptionConfig
@@ -1741,6 +1827,7 @@ import Amazonka.CloudFront.CreateStreamingDistribution
 import Amazonka.CloudFront.CreateStreamingDistributionWithTags
 import Amazonka.CloudFront.DeleteCachePolicy
 import Amazonka.CloudFront.DeleteCloudFrontOriginAccessIdentity
+import Amazonka.CloudFront.DeleteContinuousDeploymentPolicy
 import Amazonka.CloudFront.DeleteDistribution
 import Amazonka.CloudFront.DeleteFieldLevelEncryptionConfig
 import Amazonka.CloudFront.DeleteFieldLevelEncryptionProfile
@@ -1758,6 +1845,8 @@ import Amazonka.CloudFront.GetCachePolicy
 import Amazonka.CloudFront.GetCachePolicyConfig
 import Amazonka.CloudFront.GetCloudFrontOriginAccessIdentity
 import Amazonka.CloudFront.GetCloudFrontOriginAccessIdentityConfig
+import Amazonka.CloudFront.GetContinuousDeploymentPolicy
+import Amazonka.CloudFront.GetContinuousDeploymentPolicyConfig
 import Amazonka.CloudFront.GetDistribution
 import Amazonka.CloudFront.GetDistributionConfig
 import Amazonka.CloudFront.GetFieldLevelEncryption
@@ -1784,6 +1873,7 @@ import Amazonka.CloudFront.Lens
 import Amazonka.CloudFront.ListCachePolicies
 import Amazonka.CloudFront.ListCloudFrontOriginAccessIdentities
 import Amazonka.CloudFront.ListConflictingAliases
+import Amazonka.CloudFront.ListContinuousDeploymentPolicies
 import Amazonka.CloudFront.ListDistributions
 import Amazonka.CloudFront.ListDistributionsByCachePolicyId
 import Amazonka.CloudFront.ListDistributionsByKeyGroup
@@ -1810,6 +1900,7 @@ import Amazonka.CloudFront.Types
 import Amazonka.CloudFront.UntagResource
 import Amazonka.CloudFront.UpdateCachePolicy
 import Amazonka.CloudFront.UpdateCloudFrontOriginAccessIdentity
+import Amazonka.CloudFront.UpdateContinuousDeploymentPolicy
 import Amazonka.CloudFront.UpdateDistribution
 import Amazonka.CloudFront.UpdateFieldLevelEncryptionConfig
 import Amazonka.CloudFront.UpdateFieldLevelEncryptionProfile

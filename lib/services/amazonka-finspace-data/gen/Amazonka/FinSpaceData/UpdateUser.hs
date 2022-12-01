@@ -47,8 +47,8 @@ module Amazonka.FinSpaceData.UpdateUser
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FinSpaceData.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -183,8 +183,8 @@ updateUser_userId = Lens.lens (\UpdateUser' {userId} -> userId) (\s@UpdateUser' 
 
 instance Core.AWSRequest UpdateUser where
   type AWSResponse UpdateUser = UpdateUserResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

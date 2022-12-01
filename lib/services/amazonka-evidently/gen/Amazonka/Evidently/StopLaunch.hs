@@ -48,8 +48,8 @@ module Amazonka.Evidently.StopLaunch
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Evidently.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,8 +120,8 @@ stopLaunch_project = Lens.lens (\StopLaunch' {project} -> project) (\s@StopLaunc
 
 instance Core.AWSRequest StopLaunch where
   type AWSResponse StopLaunch = StopLaunchResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

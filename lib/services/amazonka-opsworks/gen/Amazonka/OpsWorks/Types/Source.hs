@@ -20,7 +20,7 @@
 module Amazonka.OpsWorks.Types.Source where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpsWorks.Types.SourceType
 import qualified Amazonka.Prelude as Prelude
 

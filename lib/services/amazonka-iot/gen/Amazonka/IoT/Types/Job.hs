@@ -20,6 +20,7 @@
 module Amazonka.IoT.Types.Job where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.AbortConfig
 import Amazonka.IoT.Types.JobExecutionsRetryConfig
 import Amazonka.IoT.Types.JobExecutionsRolloutConfig
@@ -28,7 +29,6 @@ import Amazonka.IoT.Types.JobStatus
 import Amazonka.IoT.Types.PresignedUrlConfig
 import Amazonka.IoT.Types.TargetSelection
 import Amazonka.IoT.Types.TimeoutConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @Job@ object contains details about a job.

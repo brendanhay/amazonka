@@ -57,6 +57,7 @@ library
     Amazonka.WorkDocs.DeleteComment
     Amazonka.WorkDocs.DeleteCustomMetadata
     Amazonka.WorkDocs.DeleteDocument
+    Amazonka.WorkDocs.DeleteDocumentVersion
     Amazonka.WorkDocs.DeleteFolder
     Amazonka.WorkDocs.DeleteFolderContents
     Amazonka.WorkDocs.DeleteLabels
@@ -82,6 +83,7 @@ library
     Amazonka.WorkDocs.Lens
     Amazonka.WorkDocs.RemoveAllResourcePermissions
     Amazonka.WorkDocs.RemoveResourcePermission
+    Amazonka.WorkDocs.RestoreDocumentVersions
     Amazonka.WorkDocs.Types
     Amazonka.WorkDocs.Types.Activity
     Amazonka.WorkDocs.Types.ActivityType

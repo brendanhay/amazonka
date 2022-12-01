@@ -20,8 +20,8 @@
 module Amazonka.IoTFleetWise.Types.TimestreamRegistrationResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTFleetWise.Types.RegistrationStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the registered Amazon Timestream resources or errors,

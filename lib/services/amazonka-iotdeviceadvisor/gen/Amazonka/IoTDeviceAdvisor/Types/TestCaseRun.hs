@@ -20,9 +20,9 @@
 module Amazonka.IoTDeviceAdvisor.Types.TestCaseRun where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTDeviceAdvisor.Types.Status
 import Amazonka.IoTDeviceAdvisor.Types.TestCaseScenario
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the test case run.

@@ -20,11 +20,11 @@
 module Amazonka.EFS.Types.AccessPointDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EFS.Types.LifeCycleState
 import Amazonka.EFS.Types.PosixUser
 import Amazonka.EFS.Types.RootDirectory
 import Amazonka.EFS.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a description of an EFS file system access point.

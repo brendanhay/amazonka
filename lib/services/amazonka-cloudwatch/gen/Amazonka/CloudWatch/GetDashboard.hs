@@ -47,7 +47,7 @@ where
 
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,8 +81,8 @@ getDashboard_dashboardName = Lens.lens (\GetDashboard' {dashboardName} -> dashbo
 
 instance Core.AWSRequest GetDashboard where
   type AWSResponse GetDashboard = GetDashboardResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXMLWrapper
       "GetDashboardResult"

@@ -20,7 +20,7 @@
 module Amazonka.MQ.Types.LdapServerMetadataOutput where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Optional. The metadata of the LDAP server used to authenticate and

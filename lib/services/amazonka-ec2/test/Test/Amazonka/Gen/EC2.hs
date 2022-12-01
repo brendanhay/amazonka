@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAcceptReservedInstancesExchangeQuote $
+--         [ requestAcceptAddressTransfer $
+--             newAcceptAddressTransfer
+--
+--         , requestAcceptReservedInstancesExchangeQuote $
 --             newAcceptReservedInstancesExchangeQuote
 --
 --         , requestAcceptTransitGatewayMulticastDomainAssociations $
@@ -146,6 +149,9 @@ import Test.Tasty
 --
 --         , requestCancelExportTask $
 --             newCancelExportTask
+--
+--         , requestCancelImageLaunchPermission $
+--             newCancelImageLaunchPermission
 --
 --         , requestCancelImportTask $
 --             newCancelImportTask
@@ -627,6 +633,9 @@ import Test.Tasty
 --         , requestDescribeAccountAttributes $
 --             newDescribeAccountAttributes
 --
+--         , requestDescribeAddressTransfers $
+--             newDescribeAddressTransfers
+--
 --         , requestDescribeAddresses $
 --             newDescribeAddresses
 --
@@ -1044,6 +1053,9 @@ import Test.Tasty
 --         , requestDetachVpnGateway $
 --             newDetachVpnGateway
 --
+--         , requestDisableAddressTransfer $
+--             newDisableAddressTransfer
+--
 --         , requestDisableEbsEncryptionByDefault $
 --             newDisableEbsEncryptionByDefault
 --
@@ -1109,6 +1121,9 @@ import Test.Tasty
 --
 --         , requestDisassociateVpcCidrBlock $
 --             newDisassociateVpcCidrBlock
+--
+--         , requestEnableAddressTransfer $
+--             newEnableAddressTransfer
 --
 --         , requestEnableEbsEncryptionByDefault $
 --             newEnableEbsEncryptionByDefault
@@ -1656,7 +1671,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseAcceptReservedInstancesExchangeQuote $
+--         [ responseAcceptAddressTransfer $
+--             newAcceptAddressTransferResponse
+--
+--         , responseAcceptReservedInstancesExchangeQuote $
 --             newAcceptReservedInstancesExchangeQuoteResponse
 --
 --         , responseAcceptTransitGatewayMulticastDomainAssociations $
@@ -1775,6 +1793,9 @@ import Test.Tasty
 --
 --         , responseCancelExportTask $
 --             newCancelExportTaskResponse
+--
+--         , responseCancelImageLaunchPermission $
+--             newCancelImageLaunchPermissionResponse
 --
 --         , responseCancelImportTask $
 --             newCancelImportTaskResponse
@@ -2256,6 +2277,9 @@ import Test.Tasty
 --         , responseDescribeAccountAttributes $
 --             newDescribeAccountAttributesResponse
 --
+--         , responseDescribeAddressTransfers $
+--             newDescribeAddressTransfersResponse
+--
 --         , responseDescribeAddresses $
 --             newDescribeAddressesResponse
 --
@@ -2673,6 +2697,9 @@ import Test.Tasty
 --         , responseDetachVpnGateway $
 --             newDetachVpnGatewayResponse
 --
+--         , responseDisableAddressTransfer $
+--             newDisableAddressTransferResponse
+--
 --         , responseDisableEbsEncryptionByDefault $
 --             newDisableEbsEncryptionByDefaultResponse
 --
@@ -2738,6 +2765,9 @@ import Test.Tasty
 --
 --         , responseDisassociateVpcCidrBlock $
 --             newDisassociateVpcCidrBlockResponse
+--
+--         , responseEnableAddressTransfer $
+--             newEnableAddressTransferResponse
 --
 --         , responseEnableEbsEncryptionByDefault $
 --             newEnableEbsEncryptionByDefaultResponse
@@ -3287,6 +3317,12 @@ import Test.Tasty
 
 -- Requests
 
+requestAcceptAddressTransfer :: AcceptAddressTransfer -> TestTree
+requestAcceptAddressTransfer =
+  req
+    "AcceptAddressTransfer"
+    "fixture/AcceptAddressTransfer.yaml"
+
 requestAcceptReservedInstancesExchangeQuote :: AcceptReservedInstancesExchangeQuote -> TestTree
 requestAcceptReservedInstancesExchangeQuote =
   req
@@ -3526,6 +3562,12 @@ requestCancelExportTask =
   req
     "CancelExportTask"
     "fixture/CancelExportTask.yaml"
+
+requestCancelImageLaunchPermission :: CancelImageLaunchPermission -> TestTree
+requestCancelImageLaunchPermission =
+  req
+    "CancelImageLaunchPermission"
+    "fixture/CancelImageLaunchPermission.yaml"
 
 requestCancelImportTask :: CancelImportTask -> TestTree
 requestCancelImportTask =
@@ -4487,6 +4529,12 @@ requestDescribeAccountAttributes =
     "DescribeAccountAttributes"
     "fixture/DescribeAccountAttributes.yaml"
 
+requestDescribeAddressTransfers :: DescribeAddressTransfers -> TestTree
+requestDescribeAddressTransfers =
+  req
+    "DescribeAddressTransfers"
+    "fixture/DescribeAddressTransfers.yaml"
+
 requestDescribeAddresses :: DescribeAddresses -> TestTree
 requestDescribeAddresses =
   req
@@ -5321,6 +5369,12 @@ requestDetachVpnGateway =
     "DetachVpnGateway"
     "fixture/DetachVpnGateway.yaml"
 
+requestDisableAddressTransfer :: DisableAddressTransfer -> TestTree
+requestDisableAddressTransfer =
+  req
+    "DisableAddressTransfer"
+    "fixture/DisableAddressTransfer.yaml"
+
 requestDisableEbsEncryptionByDefault :: DisableEbsEncryptionByDefault -> TestTree
 requestDisableEbsEncryptionByDefault =
   req
@@ -5452,6 +5506,12 @@ requestDisassociateVpcCidrBlock =
   req
     "DisassociateVpcCidrBlock"
     "fixture/DisassociateVpcCidrBlock.yaml"
+
+requestEnableAddressTransfer :: EnableAddressTransfer -> TestTree
+requestEnableAddressTransfer =
+  req
+    "EnableAddressTransfer"
+    "fixture/EnableAddressTransfer.yaml"
 
 requestEnableEbsEncryptionByDefault :: EnableEbsEncryptionByDefault -> TestTree
 requestEnableEbsEncryptionByDefault =
@@ -6541,6 +6601,14 @@ requestWithdrawByoipCidr =
 
 -- Responses
 
+responseAcceptAddressTransfer :: AcceptAddressTransferResponse -> TestTree
+responseAcceptAddressTransfer =
+  res
+    "AcceptAddressTransferResponse"
+    "fixture/AcceptAddressTransferResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AcceptAddressTransfer)
+
 responseAcceptReservedInstancesExchangeQuote :: AcceptReservedInstancesExchangeQuoteResponse -> TestTree
 responseAcceptReservedInstancesExchangeQuote =
   res
@@ -6860,6 +6928,14 @@ responseCancelExportTask =
     "fixture/CancelExportTaskResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelExportTask)
+
+responseCancelImageLaunchPermission :: CancelImageLaunchPermissionResponse -> TestTree
+responseCancelImageLaunchPermission =
+  res
+    "CancelImageLaunchPermissionResponse"
+    "fixture/CancelImageLaunchPermissionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelImageLaunchPermission)
 
 responseCancelImportTask :: CancelImportTaskResponse -> TestTree
 responseCancelImportTask =
@@ -8141,6 +8217,14 @@ responseDescribeAccountAttributes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAccountAttributes)
 
+responseDescribeAddressTransfers :: DescribeAddressTransfersResponse -> TestTree
+responseDescribeAddressTransfers =
+  res
+    "DescribeAddressTransfersResponse"
+    "fixture/DescribeAddressTransfersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAddressTransfers)
+
 responseDescribeAddresses :: DescribeAddressesResponse -> TestTree
 responseDescribeAddresses =
   res
@@ -9253,6 +9337,14 @@ responseDetachVpnGateway =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DetachVpnGateway)
 
+responseDisableAddressTransfer :: DisableAddressTransferResponse -> TestTree
+responseDisableAddressTransfer =
+  res
+    "DisableAddressTransferResponse"
+    "fixture/DisableAddressTransferResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisableAddressTransfer)
+
 responseDisableEbsEncryptionByDefault :: DisableEbsEncryptionByDefaultResponse -> TestTree
 responseDisableEbsEncryptionByDefault =
   res
@@ -9428,6 +9520,14 @@ responseDisassociateVpcCidrBlock =
     "fixture/DisassociateVpcCidrBlockResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateVpcCidrBlock)
+
+responseEnableAddressTransfer :: EnableAddressTransferResponse -> TestTree
+responseEnableAddressTransfer =
+  res
+    "EnableAddressTransferResponse"
+    "fixture/EnableAddressTransferResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableAddressTransfer)
 
 responseEnableEbsEncryptionByDefault :: EnableEbsEncryptionByDefaultResponse -> TestTree
 responseEnableEbsEncryptionByDefault =

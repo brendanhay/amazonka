@@ -20,7 +20,7 @@
 module Amazonka.RedshiftServerLess.Types.ResourcePolicy where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The resource policy object. Currently, you can use policies to share

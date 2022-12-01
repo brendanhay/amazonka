@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.WorkforceVpcConfigRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VPC object you use to create or update a workforce.

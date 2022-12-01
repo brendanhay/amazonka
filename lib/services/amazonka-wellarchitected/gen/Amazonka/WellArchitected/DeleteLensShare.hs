@@ -22,9 +22,10 @@
 --
 -- Delete a lens share.
 --
--- After the lens share is deleted, Amazon Web Services accounts and IAM
--- users that you shared the lens with can continue to use it, but they
--- will no longer be able to apply it to new workloads.
+-- After the lens share is deleted, Amazon Web Services accounts, IAM
+-- users, organizations, and organizational units (OUs) that you shared the
+-- lens with can continue to use it, but they will no longer be able to
+-- apply it to new workloads.
 --
 -- __Disclaimer__
 --
@@ -51,7 +52,7 @@ module Amazonka.WellArchitected.DeleteLensShare
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,8 +113,8 @@ instance Core.AWSRequest DeleteLensShare where
   type
     AWSResponse DeleteLensShare =
       DeleteLensShareResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteLensShareResponse'
 

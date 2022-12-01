@@ -20,8 +20,8 @@
 module Amazonka.DataPipeline.Types.Operator where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataPipeline.Types.OperatorType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a logical operation for comparing the value of a field with a

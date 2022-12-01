@@ -43,7 +43,7 @@ module Amazonka.NetworkManager.CreateSite
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,8 +137,8 @@ createSite_globalNetworkId = Lens.lens (\CreateSite' {globalNetworkId} -> global
 
 instance Core.AWSRequest CreateSite where
   type AWSResponse CreateSite = CreateSiteResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

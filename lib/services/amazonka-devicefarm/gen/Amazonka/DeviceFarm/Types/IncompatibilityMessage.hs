@@ -20,8 +20,8 @@
 module Amazonka.DeviceFarm.Types.IncompatibilityMessage where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.DeviceAttribute
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about incompatibility.

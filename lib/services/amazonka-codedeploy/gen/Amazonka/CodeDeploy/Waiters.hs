@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -19,17 +20,17 @@ import Amazonka.CodeDeploy.GetDeployment
 import Amazonka.CodeDeploy.Lens
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.CodeDeploy.GetDeployment' every 15 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newDeploymentSuccessful :: Core.Wait GetDeployment
 newDeploymentSuccessful =
   Core.Wait
-    { Core._waitName = "DeploymentSuccessful",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
+    { Core.name = "DeploymentSuccessful",
+      Core.attempts = 120,
+      Core.delay = 15,
+      Core.acceptors =
         [ Core.matchAll
             "Succeeded"
             Core.AcceptSuccess

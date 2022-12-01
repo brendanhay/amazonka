@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.S3DestinationAccessControl where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.S3ObjectCannedAcl
 import qualified Amazonka.Prelude as Prelude
 

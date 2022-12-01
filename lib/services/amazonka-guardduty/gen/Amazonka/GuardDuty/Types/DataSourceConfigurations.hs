@@ -20,10 +20,10 @@
 module Amazonka.GuardDuty.Types.DataSourceConfigurations where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.KubernetesConfiguration
 import Amazonka.GuardDuty.Types.MalwareProtectionConfiguration
 import Amazonka.GuardDuty.Types.S3LogsConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about which data sources are enabled.

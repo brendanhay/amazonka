@@ -220,6 +220,7 @@ module Amazonka.IoTSiteWise.Lens
     describeAccessPolicyResponse_accessPolicyLastUpdateDate,
 
     -- ** DescribeAsset
+    describeAsset_excludeProperties,
     describeAsset_assetId,
     describeAssetResponse_assetCompositeModels,
     describeAssetResponse_assetDescription,
@@ -235,6 +236,7 @@ module Amazonka.IoTSiteWise.Lens
     describeAssetResponse_assetStatus,
 
     -- ** DescribeAssetModel
+    describeAssetModel_excludeProperties,
     describeAssetModel_assetModelId,
     describeAssetModelResponse_assetModelCompositeModels,
     describeAssetModelResponse_httpStatus,
@@ -445,12 +447,30 @@ module Amazonka.IoTSiteWise.Lens
     listAccessPoliciesResponse_httpStatus,
     listAccessPoliciesResponse_accessPolicySummaries,
 
+    -- ** ListAssetModelProperties
+    listAssetModelProperties_nextToken,
+    listAssetModelProperties_filter,
+    listAssetModelProperties_maxResults,
+    listAssetModelProperties_assetModelId,
+    listAssetModelPropertiesResponse_nextToken,
+    listAssetModelPropertiesResponse_httpStatus,
+    listAssetModelPropertiesResponse_assetModelPropertySummaries,
+
     -- ** ListAssetModels
     listAssetModels_nextToken,
     listAssetModels_maxResults,
     listAssetModelsResponse_nextToken,
     listAssetModelsResponse_httpStatus,
     listAssetModelsResponse_assetModelSummaries,
+
+    -- ** ListAssetProperties
+    listAssetProperties_nextToken,
+    listAssetProperties_filter,
+    listAssetProperties_maxResults,
+    listAssetProperties_assetId,
+    listAssetPropertiesResponse_nextToken,
+    listAssetPropertiesResponse_httpStatus,
+    listAssetPropertiesResponse_assetPropertySummaries,
 
     -- ** ListAssetRelationships
     listAssetRelationships_nextToken,
@@ -679,6 +699,7 @@ module Amazonka.IoTSiteWise.Lens
 
     -- ** AssetCompositeModel
     assetCompositeModel_description,
+    assetCompositeModel_id,
     assetCompositeModel_name,
     assetCompositeModel_type,
     assetCompositeModel_properties,
@@ -699,6 +720,7 @@ module Amazonka.IoTSiteWise.Lens
     -- ** AssetModelCompositeModel
     assetModelCompositeModel_properties,
     assetModelCompositeModel_description,
+    assetModelCompositeModel_id,
     assetModelCompositeModel_name,
     assetModelCompositeModel_type,
 
@@ -732,6 +754,15 @@ module Amazonka.IoTSiteWise.Lens
     assetModelPropertyDefinition_dataType,
     assetModelPropertyDefinition_type,
 
+    -- ** AssetModelPropertySummary
+    assetModelPropertySummary_dataTypeSpec,
+    assetModelPropertySummary_assetModelCompositeModelId,
+    assetModelPropertySummary_id,
+    assetModelPropertySummary_unit,
+    assetModelPropertySummary_name,
+    assetModelPropertySummary_dataType,
+    assetModelPropertySummary_type,
+
     -- ** AssetModelStatus
     assetModelStatus_error,
     assetModelStatus_state,
@@ -753,6 +784,13 @@ module Amazonka.IoTSiteWise.Lens
     assetProperty_id,
     assetProperty_name,
     assetProperty_dataType,
+
+    -- ** AssetPropertySummary
+    assetPropertySummary_alias,
+    assetPropertySummary_id,
+    assetPropertySummary_notification,
+    assetPropertySummary_assetCompositeModelId,
+    assetPropertySummary_unit,
 
     -- ** AssetPropertyValue
     assetPropertyValue_quality,
@@ -884,6 +922,7 @@ module Amazonka.IoTSiteWise.Lens
     batchPutAssetPropertyErrorEntry_errors,
 
     -- ** CompositeModelProperty
+    compositeModelProperty_id,
     compositeModelProperty_name,
     compositeModelProperty_type,
     compositeModelProperty_assetProperty,
@@ -1175,7 +1214,9 @@ import Amazonka.IoTSiteWise.GetAssetPropertyValue
 import Amazonka.IoTSiteWise.GetAssetPropertyValueHistory
 import Amazonka.IoTSiteWise.GetInterpolatedAssetPropertyValues
 import Amazonka.IoTSiteWise.ListAccessPolicies
+import Amazonka.IoTSiteWise.ListAssetModelProperties
 import Amazonka.IoTSiteWise.ListAssetModels
+import Amazonka.IoTSiteWise.ListAssetProperties
 import Amazonka.IoTSiteWise.ListAssetRelationships
 import Amazonka.IoTSiteWise.ListAssets
 import Amazonka.IoTSiteWise.ListAssociatedAssets
@@ -1205,9 +1246,11 @@ import Amazonka.IoTSiteWise.Types.AssetModelHierarchy
 import Amazonka.IoTSiteWise.Types.AssetModelHierarchyDefinition
 import Amazonka.IoTSiteWise.Types.AssetModelProperty
 import Amazonka.IoTSiteWise.Types.AssetModelPropertyDefinition
+import Amazonka.IoTSiteWise.Types.AssetModelPropertySummary
 import Amazonka.IoTSiteWise.Types.AssetModelStatus
 import Amazonka.IoTSiteWise.Types.AssetModelSummary
 import Amazonka.IoTSiteWise.Types.AssetProperty
+import Amazonka.IoTSiteWise.Types.AssetPropertySummary
 import Amazonka.IoTSiteWise.Types.AssetPropertyValue
 import Amazonka.IoTSiteWise.Types.AssetRelationshipSummary
 import Amazonka.IoTSiteWise.Types.AssetStatus

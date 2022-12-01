@@ -22,7 +22,7 @@ module Amazonka.CloudDirectory.Types.ObjectAttributeRange where
 import Amazonka.CloudDirectory.Types.AttributeKey
 import Amazonka.CloudDirectory.Types.TypedAttributeValueRange
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A range of attributes.

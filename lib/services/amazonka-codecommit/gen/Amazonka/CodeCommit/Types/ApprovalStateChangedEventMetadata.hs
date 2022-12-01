@@ -21,7 +21,7 @@ module Amazonka.CodeCommit.Types.ApprovalStateChangedEventMetadata where
 
 import Amazonka.CodeCommit.Types.ApprovalState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a change in the approval state for a pull

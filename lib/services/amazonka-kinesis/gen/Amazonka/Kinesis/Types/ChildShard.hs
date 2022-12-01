@@ -20,8 +20,8 @@
 module Amazonka.Kinesis.Types.ChildShard where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kinesis.Types.HashKeyRange
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Output parameter of the GetRecords API. The existing child shard of the

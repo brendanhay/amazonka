@@ -20,10 +20,10 @@
 module Amazonka.Kendra.Types.GroupMembers where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.MemberGroup
 import Amazonka.Kendra.Types.MemberUser
 import Amazonka.Kendra.Types.S3Path
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of users or sub groups that belong to a group. This is useful for

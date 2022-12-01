@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.AnnotationConsolidationConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures how labels are consolidated across human workers and

@@ -20,6 +20,7 @@
 module Amazonka.FSx.Types.Backup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.ActiveDirectoryBackupAttributes
 import Amazonka.FSx.Types.BackupFailureDetails
 import Amazonka.FSx.Types.BackupLifecycle
@@ -28,7 +29,6 @@ import Amazonka.FSx.Types.FileSystem
 import Amazonka.FSx.Types.ResourceType
 import Amazonka.FSx.Types.Tag
 import Amazonka.FSx.Types.Volume
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A backup of an Amazon FSx for Windows File Server, Amazon FSx for Lustre

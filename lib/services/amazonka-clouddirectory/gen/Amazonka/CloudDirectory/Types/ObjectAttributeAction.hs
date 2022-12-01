@@ -22,7 +22,7 @@ module Amazonka.CloudDirectory.Types.ObjectAttributeAction where
 import Amazonka.CloudDirectory.Types.TypedAttributeValue
 import Amazonka.CloudDirectory.Types.UpdateActionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The action to take on the object attribute.

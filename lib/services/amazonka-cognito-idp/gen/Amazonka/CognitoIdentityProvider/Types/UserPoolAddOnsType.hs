@@ -21,7 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.UserPoolAddOnsType where
 
 import Amazonka.CognitoIdentityProvider.Types.AdvancedSecurityModeType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user pool add-ons type.

@@ -21,7 +21,7 @@ module Amazonka.AppFlow.Types.ScheduledTriggerProperties where
 
 import Amazonka.AppFlow.Types.DataPullMode
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration details of a schedule-triggered flow as

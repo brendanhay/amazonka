@@ -20,8 +20,8 @@
 module Amazonka.IoTEvents.Types.SimpleRule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.ComparisonOperator
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A rule that compares an input property value to a threshold value with a

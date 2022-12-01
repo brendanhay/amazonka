@@ -20,7 +20,7 @@
 module Amazonka.NetworkFirewall.Types.StatefulRule where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkFirewall.Types.Header
 import Amazonka.NetworkFirewall.Types.RuleOption
 import Amazonka.NetworkFirewall.Types.StatefulAction

@@ -20,8 +20,8 @@
 module Amazonka.Forecast.Types.TimeSeriesCondition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Forecast.Types.Condition
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Creates a subset of items within an attribute that are modified. For

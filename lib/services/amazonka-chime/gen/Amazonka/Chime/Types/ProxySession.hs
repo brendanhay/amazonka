@@ -26,7 +26,7 @@ import Amazonka.Chime.Types.NumberSelectionBehavior
 import Amazonka.Chime.Types.Participant
 import Amazonka.Chime.Types.ProxySessionStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The proxy session for an Amazon Chime Voice Connector.

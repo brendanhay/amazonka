@@ -20,18 +20,27 @@
 module Amazonka.Lightsail.Types.DomainValidationRecord where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.Lightsail.Types.CertificateDomainValidationStatus
+import Amazonka.Lightsail.Types.DnsRecordCreationState
 import Amazonka.Lightsail.Types.ResourceRecord
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the domain validation records of an Amazon Lightsail SSL\/TLS
--- certificate.
+-- | Describes the domain name system (DNS) records that you must add to the
+-- DNS of your registered domain to validate ownership for an Amazon
+-- Lightsail SSL\/TLS certificate.
 --
 -- /See:/ 'newDomainValidationRecord' smart constructor.
 data DomainValidationRecord = DomainValidationRecord'
-  { -- | The domain name of the certificate validation record. For example,
+  { -- | An object that describes the state of the canonical name (CNAME) records
+    -- that are automatically added by Lightsail to the DNS of the domain to
+    -- validate domain ownership.
+    dnsRecordCreationState :: Prelude.Maybe DnsRecordCreationState,
+    -- | The domain name of the certificate validation record. For example,
     -- @example.com@ or @www.example.com@.
     domainName :: Prelude.Maybe Prelude.Text,
+    -- | The validation status of the record.
+    validationStatus :: Prelude.Maybe CertificateDomainValidationStatus,
     -- | An object that describes the DNS records to add to your domain\'s DNS to
     -- validate it for the certificate.
     resourceRecord :: Prelude.Maybe ResourceRecord
@@ -46,8 +55,14 @@ data DomainValidationRecord = DomainValidationRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dnsRecordCreationState', 'domainValidationRecord_dnsRecordCreationState' - An object that describes the state of the canonical name (CNAME) records
+-- that are automatically added by Lightsail to the DNS of the domain to
+-- validate domain ownership.
+--
 -- 'domainName', 'domainValidationRecord_domainName' - The domain name of the certificate validation record. For example,
 -- @example.com@ or @www.example.com@.
+--
+-- 'validationStatus', 'domainValidationRecord_validationStatus' - The validation status of the record.
 --
 -- 'resourceRecord', 'domainValidationRecord_resourceRecord' - An object that describes the DNS records to add to your domain\'s DNS to
 -- validate it for the certificate.
@@ -55,15 +70,27 @@ newDomainValidationRecord ::
   DomainValidationRecord
 newDomainValidationRecord =
   DomainValidationRecord'
-    { domainName =
+    { dnsRecordCreationState =
         Prelude.Nothing,
+      domainName = Prelude.Nothing,
+      validationStatus = Prelude.Nothing,
       resourceRecord = Prelude.Nothing
     }
+
+-- | An object that describes the state of the canonical name (CNAME) records
+-- that are automatically added by Lightsail to the DNS of the domain to
+-- validate domain ownership.
+domainValidationRecord_dnsRecordCreationState :: Lens.Lens' DomainValidationRecord (Prelude.Maybe DnsRecordCreationState)
+domainValidationRecord_dnsRecordCreationState = Lens.lens (\DomainValidationRecord' {dnsRecordCreationState} -> dnsRecordCreationState) (\s@DomainValidationRecord' {} a -> s {dnsRecordCreationState = a} :: DomainValidationRecord)
 
 -- | The domain name of the certificate validation record. For example,
 -- @example.com@ or @www.example.com@.
 domainValidationRecord_domainName :: Lens.Lens' DomainValidationRecord (Prelude.Maybe Prelude.Text)
 domainValidationRecord_domainName = Lens.lens (\DomainValidationRecord' {domainName} -> domainName) (\s@DomainValidationRecord' {} a -> s {domainName = a} :: DomainValidationRecord)
+
+-- | The validation status of the record.
+domainValidationRecord_validationStatus :: Lens.Lens' DomainValidationRecord (Prelude.Maybe CertificateDomainValidationStatus)
+domainValidationRecord_validationStatus = Lens.lens (\DomainValidationRecord' {validationStatus} -> validationStatus) (\s@DomainValidationRecord' {} a -> s {validationStatus = a} :: DomainValidationRecord)
 
 -- | An object that describes the DNS records to add to your domain\'s DNS to
 -- validate it for the certificate.
@@ -76,16 +103,22 @@ instance Core.FromJSON DomainValidationRecord where
       "DomainValidationRecord"
       ( \x ->
           DomainValidationRecord'
-            Prelude.<$> (x Core..:? "domainName")
+            Prelude.<$> (x Core..:? "dnsRecordCreationState")
+            Prelude.<*> (x Core..:? "domainName")
+            Prelude.<*> (x Core..:? "validationStatus")
             Prelude.<*> (x Core..:? "resourceRecord")
       )
 
 instance Prelude.Hashable DomainValidationRecord where
   hashWithSalt _salt DomainValidationRecord' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt `Prelude.hashWithSalt` dnsRecordCreationState
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` validationStatus
       `Prelude.hashWithSalt` resourceRecord
 
 instance Prelude.NFData DomainValidationRecord where
   rnf DomainValidationRecord' {..} =
-    Prelude.rnf domainName
+    Prelude.rnf dnsRecordCreationState
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf validationStatus
       `Prelude.seq` Prelude.rnf resourceRecord

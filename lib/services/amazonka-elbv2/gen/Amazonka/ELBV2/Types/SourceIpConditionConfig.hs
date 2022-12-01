@@ -20,7 +20,7 @@
 module Amazonka.ELBV2.Types.SourceIpConditionConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a source IP condition.
@@ -32,8 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceIpConditionConfig' smart constructor.
 data SourceIpConditionConfig = SourceIpConditionConfig'
-  { -- | One or more source IP addresses, in CIDR format. You can use both IPv4
-    -- and IPv6 addresses. Wildcards are not supported.
+  { -- | The source IP addresses, in CIDR format. You can use both IPv4 and IPv6
+    -- addresses. Wildcards are not supported.
     --
     -- If you specify multiple addresses, the condition is satisfied if the
     -- source IP address of the request matches one of the CIDR blocks. This
@@ -52,8 +52,8 @@ data SourceIpConditionConfig = SourceIpConditionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'sourceIpConditionConfig_values' - One or more source IP addresses, in CIDR format. You can use both IPv4
--- and IPv6 addresses. Wildcards are not supported.
+-- 'values', 'sourceIpConditionConfig_values' - The source IP addresses, in CIDR format. You can use both IPv4 and IPv6
+-- addresses. Wildcards are not supported.
 --
 -- If you specify multiple addresses, the condition is satisfied if the
 -- source IP address of the request matches one of the CIDR blocks. This
@@ -65,8 +65,8 @@ newSourceIpConditionConfig ::
 newSourceIpConditionConfig =
   SourceIpConditionConfig' {values = Prelude.Nothing}
 
--- | One or more source IP addresses, in CIDR format. You can use both IPv4
--- and IPv6 addresses. Wildcards are not supported.
+-- | The source IP addresses, in CIDR format. You can use both IPv4 and IPv6
+-- addresses. Wildcards are not supported.
 --
 -- If you specify multiple addresses, the condition is satisfied if the
 -- source IP address of the request matches one of the CIDR blocks. This

@@ -21,7 +21,7 @@ module Amazonka.CloudWatchEvents.Types.Replay where
 
 import Amazonka.CloudWatchEvents.Types.ReplayState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @Replay@ object that contains details about a replay.

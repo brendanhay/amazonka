@@ -20,7 +20,7 @@
 module Amazonka.Transfer.Types.PosixProfile where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The full POSIX identity, including user ID (@Uid@), group ID (@Gid@),

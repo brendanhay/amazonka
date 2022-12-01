@@ -20,12 +20,12 @@
 module Amazonka.IoTSecureTunneling.Types.Tunnel where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSecureTunneling.Types.ConnectionState
 import Amazonka.IoTSecureTunneling.Types.DestinationConfig
 import Amazonka.IoTSecureTunneling.Types.Tag
 import Amazonka.IoTSecureTunneling.Types.TimeoutConfig
 import Amazonka.IoTSecureTunneling.Types.TunnelStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A connection between a source computer and a destination device.

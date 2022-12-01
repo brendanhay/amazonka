@@ -22,7 +22,7 @@ module Amazonka.AppStream.Types.UsageReportSubscription where
 import Amazonka.AppStream.Types.LastReportGenerationExecutionError
 import Amazonka.AppStream.Types.UsageReportSchedule
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes information about the usage report subscription.

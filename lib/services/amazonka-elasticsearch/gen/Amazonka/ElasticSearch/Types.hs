@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -77,6 +78,9 @@ module Amazonka.ElasticSearch.Types
     -- * PackageType
     PackageType (..),
 
+    -- * PrincipalType
+    PrincipalType (..),
+
     -- * ReservedElasticsearchInstancePaymentOption
     ReservedElasticsearchInstancePaymentOption (..),
 
@@ -103,6 +107,12 @@ module Amazonka.ElasticSearch.Types
 
     -- * VolumeType
     VolumeType (..),
+
+    -- * VpcEndpointErrorCode
+    VpcEndpointErrorCode (..),
+
+    -- * VpcEndpointStatus
+    VpcEndpointStatus (..),
 
     -- * AccessPoliciesStatus
     AccessPoliciesStatus (..),
@@ -145,6 +155,12 @@ module Amazonka.ElasticSearch.Types
     newAdvancedSecurityOptionsStatus,
     advancedSecurityOptionsStatus_options,
     advancedSecurityOptionsStatus_status,
+
+    -- * AuthorizedPrincipal
+    AuthorizedPrincipal (..),
+    newAuthorizedPrincipal,
+    authorizedPrincipal_principal,
+    authorizedPrincipal_principalType,
 
     -- * AutoTune
     AutoTune (..),
@@ -681,6 +697,31 @@ module Amazonka.ElasticSearch.Types
     vPCOptions_securityGroupIds,
     vPCOptions_subnetIds,
 
+    -- * VpcEndpoint
+    VpcEndpoint (..),
+    newVpcEndpoint,
+    vpcEndpoint_vpcEndpointOwner,
+    vpcEndpoint_domainArn,
+    vpcEndpoint_status,
+    vpcEndpoint_vpcEndpointId,
+    vpcEndpoint_vpcOptions,
+    vpcEndpoint_endpoint,
+
+    -- * VpcEndpointError
+    VpcEndpointError (..),
+    newVpcEndpointError,
+    vpcEndpointError_errorMessage,
+    vpcEndpointError_vpcEndpointId,
+    vpcEndpointError_errorCode,
+
+    -- * VpcEndpointSummary
+    VpcEndpointSummary (..),
+    newVpcEndpointSummary,
+    vpcEndpointSummary_vpcEndpointOwner,
+    vpcEndpointSummary_domainArn,
+    vpcEndpointSummary_status,
+    vpcEndpointSummary_vpcEndpointId,
+
     -- * ZoneAwarenessConfig
     ZoneAwarenessConfig (..),
     newZoneAwarenessConfig,
@@ -689,12 +730,14 @@ module Amazonka.ElasticSearch.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.AccessPoliciesStatus
 import Amazonka.ElasticSearch.Types.AdditionalLimit
 import Amazonka.ElasticSearch.Types.AdvancedOptionsStatus
 import Amazonka.ElasticSearch.Types.AdvancedSecurityOptions
 import Amazonka.ElasticSearch.Types.AdvancedSecurityOptionsInput
 import Amazonka.ElasticSearch.Types.AdvancedSecurityOptionsStatus
+import Amazonka.ElasticSearch.Types.AuthorizedPrincipal
 import Amazonka.ElasticSearch.Types.AutoTune
 import Amazonka.ElasticSearch.Types.AutoTuneDesiredState
 import Amazonka.ElasticSearch.Types.AutoTuneDetails
@@ -761,6 +804,7 @@ import Amazonka.ElasticSearch.Types.PackageSource
 import Amazonka.ElasticSearch.Types.PackageStatus
 import Amazonka.ElasticSearch.Types.PackageType
 import Amazonka.ElasticSearch.Types.PackageVersionHistory
+import Amazonka.ElasticSearch.Types.PrincipalType
 import Amazonka.ElasticSearch.Types.RecurringCharge
 import Amazonka.ElasticSearch.Types.ReservedElasticsearchInstance
 import Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering
@@ -788,8 +832,12 @@ import Amazonka.ElasticSearch.Types.VPCDerivedInfo
 import Amazonka.ElasticSearch.Types.VPCDerivedInfoStatus
 import Amazonka.ElasticSearch.Types.VPCOptions
 import Amazonka.ElasticSearch.Types.VolumeType
+import Amazonka.ElasticSearch.Types.VpcEndpoint
+import Amazonka.ElasticSearch.Types.VpcEndpointError
+import Amazonka.ElasticSearch.Types.VpcEndpointErrorCode
+import Amazonka.ElasticSearch.Types.VpcEndpointStatus
+import Amazonka.ElasticSearch.Types.VpcEndpointSummary
 import Amazonka.ElasticSearch.Types.ZoneAwarenessConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -797,28 +845,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "ElasticSearch",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "es",
-      Core._serviceSigningName = "es",
-      Core._serviceVersion = "2015-01-01",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "ElasticSearch",
-      Core._serviceRetry = retry
+    { Core.abbrev = "ElasticSearch",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "es",
+      Core.signingName = "es",
+      Core.version = "2015-01-01",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "ElasticSearch",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

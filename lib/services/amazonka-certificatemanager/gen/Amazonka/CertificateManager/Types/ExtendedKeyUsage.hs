@@ -21,7 +21,7 @@ module Amazonka.CertificateManager.Types.ExtendedKeyUsage where
 
 import Amazonka.CertificateManager.Types.ExtendedKeyUsageName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Extended Key Usage X.509 v3 extension defines one or more purposes

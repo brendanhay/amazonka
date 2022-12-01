@@ -40,7 +40,7 @@ module Amazonka.Lightsail.GetDomain
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -75,8 +75,8 @@ getDomain_domainName = Lens.lens (\GetDomain' {domainName} -> domainName) (\s@Ge
 
 instance Core.AWSRequest GetDomain where
   type AWSResponse GetDomain = GetDomainResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

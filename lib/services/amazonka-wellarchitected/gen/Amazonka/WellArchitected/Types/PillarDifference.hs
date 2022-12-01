@@ -20,7 +20,7 @@
 module Amazonka.WellArchitected.Types.PillarDifference where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.DifferenceStatus
 import Amazonka.WellArchitected.Types.QuestionDifference

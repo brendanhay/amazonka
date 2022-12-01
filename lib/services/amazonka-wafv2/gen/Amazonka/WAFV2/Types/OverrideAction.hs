@@ -20,7 +20,7 @@
 module Amazonka.WAFV2.Types.OverrideAction where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CountAction
 import Amazonka.WAFV2.Types.NoneAction
@@ -35,8 +35,9 @@ import Amazonka.WAFV2.Types.NoneAction
 --
 -- This option is usually set to none. It does not affect how the rules in
 -- the rule group are evaluated. If you want the rules in the rule group to
--- only count matches, do not use this and instead exclude those rules in
--- your rule group reference statement settings.
+-- only count matches, do not use this and instead use the rule action
+-- override option, with @Count@ action, in your rule group reference
+-- statement settings.
 --
 -- /See:/ 'newOverrideAction' smart constructor.
 data OverrideAction = OverrideAction'
@@ -47,8 +48,9 @@ data OverrideAction = OverrideAction'
     --
     -- This option is usually set to none. It does not affect how the rules in
     -- the rule group are evaluated. If you want the rules in the rule group to
-    -- only count matches, do not use this and instead exclude those rules in
-    -- your rule group reference statement settings.
+    -- only count matches, do not use this and instead use the rule action
+    -- override option, with @Count@ action, in your rule group reference
+    -- statement settings.
     count :: Prelude.Maybe CountAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,8 +70,9 @@ data OverrideAction = OverrideAction'
 --
 -- This option is usually set to none. It does not affect how the rules in
 -- the rule group are evaluated. If you want the rules in the rule group to
--- only count matches, do not use this and instead exclude those rules in
--- your rule group reference statement settings.
+-- only count matches, do not use this and instead use the rule action
+-- override option, with @Count@ action, in your rule group reference
+-- statement settings.
 newOverrideAction ::
   OverrideAction
 newOverrideAction =
@@ -87,8 +90,9 @@ overrideAction_none = Lens.lens (\OverrideAction' {none} -> none) (\s@OverrideAc
 --
 -- This option is usually set to none. It does not affect how the rules in
 -- the rule group are evaluated. If you want the rules in the rule group to
--- only count matches, do not use this and instead exclude those rules in
--- your rule group reference statement settings.
+-- only count matches, do not use this and instead use the rule action
+-- override option, with @Count@ action, in your rule group reference
+-- statement settings.
 overrideAction_count :: Lens.Lens' OverrideAction (Prelude.Maybe CountAction)
 overrideAction_count = Lens.lens (\OverrideAction' {count} -> count) (\s@OverrideAction' {} a -> s {count = a} :: OverrideAction)
 

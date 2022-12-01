@@ -20,7 +20,7 @@
 module Amazonka.XRay.Types.AnnotationValue where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Value of a segment annotation. Has one of three value types: Number,

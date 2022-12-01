@@ -20,7 +20,7 @@
 module Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies S3 configuration information for the input data for the data

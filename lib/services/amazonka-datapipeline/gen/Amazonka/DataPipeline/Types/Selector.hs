@@ -20,8 +20,8 @@
 module Amazonka.DataPipeline.Types.Selector where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataPipeline.Types.Operator
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A comparision that is used to determine whether a query should return

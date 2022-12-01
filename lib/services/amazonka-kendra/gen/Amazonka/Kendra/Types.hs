@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -1282,6 +1283,7 @@ module Amazonka.Kendra.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.AccessControlConfigurationSummary
 import Amazonka.Kendra.Types.AccessControlListConfiguration
 import Amazonka.Kendra.Types.AclConfiguration
@@ -1472,7 +1474,6 @@ import Amazonka.Kendra.Types.WarningCode
 import Amazonka.Kendra.Types.WebCrawlerConfiguration
 import Amazonka.Kendra.Types.WebCrawlerMode
 import Amazonka.Kendra.Types.WorkDocsConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -1480,27 +1481,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "Kendra",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "kendra",
-      Core._serviceSigningName = "kendra",
-      Core._serviceVersion = "2019-02-03",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "Kendra",
-      Core._serviceRetry = retry
+    { Core.abbrev = "Kendra",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "kendra",
+      Core.signingName = "kendra",
+      Core.version = "2019-02-03",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "Kendra",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

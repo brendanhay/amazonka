@@ -20,7 +20,7 @@
 module Amazonka.IoTEventsData.Types.ResetAlarmActionRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information needed to reset the alarm.

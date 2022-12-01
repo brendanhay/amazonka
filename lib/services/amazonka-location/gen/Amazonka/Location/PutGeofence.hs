@@ -46,7 +46,7 @@ module Amazonka.Location.PutGeofence
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,8 +126,8 @@ putGeofence_geometry = Lens.lens (\PutGeofence' {geometry} -> geometry) (\s@PutG
 
 instance Core.AWSRequest PutGeofence where
   type AWSResponse PutGeofence = PutGeofenceResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

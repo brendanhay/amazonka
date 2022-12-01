@@ -21,7 +21,7 @@ module Amazonka.AutoScaling.Types.LoadForecast where
 
 import Amazonka.AutoScaling.Types.PredictiveScalingMetricSpecification
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @GetPredictiveScalingForecast@ call returns the load forecast for a

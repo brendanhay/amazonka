@@ -20,7 +20,7 @@
 module Amazonka.EMR.Types.FailureDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the step failure. The service attempts to detect the root

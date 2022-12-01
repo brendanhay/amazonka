@@ -22,7 +22,7 @@ module Amazonka.BillingConductor.Types.CustomLineItemListElement where
 import Amazonka.BillingConductor.Types.CurrencyCode
 import Amazonka.BillingConductor.Types.ListCustomLineItemChargeDetails
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a custom line item.
@@ -41,7 +41,7 @@ data CustomLineItemListElement = CustomLineItemListElement'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The number of resources that are associated to the custom line item.
     associationSize :: Prelude.Maybe Prelude.Natural,
-    -- | The product code associated with the custom line item.
+    -- | The product code that\'s associated with the custom line item.
     productCode :: Prelude.Maybe Prelude.Text,
     -- | The custom line item\'s description. This is shown on the Bills page in
     -- association with the charge value.
@@ -49,7 +49,7 @@ data CustomLineItemListElement = CustomLineItemListElement'
     -- | The custom line item\'s charge value currency. Only one of the valid
     -- values can be used.
     currencyCode :: Prelude.Maybe CurrencyCode,
-    -- | The most recent time the custom line item was modified.
+    -- | The most recent time when the custom line item was modified.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
     -- | The time created.
     creationTime :: Prelude.Maybe Prelude.Integer
@@ -76,7 +76,7 @@ data CustomLineItemListElement = CustomLineItemListElement'
 --
 -- 'associationSize', 'customLineItemListElement_associationSize' - The number of resources that are associated to the custom line item.
 --
--- 'productCode', 'customLineItemListElement_productCode' - The product code associated with the custom line item.
+-- 'productCode', 'customLineItemListElement_productCode' - The product code that\'s associated with the custom line item.
 --
 -- 'description', 'customLineItemListElement_description' - The custom line item\'s description. This is shown on the Bills page in
 -- association with the charge value.
@@ -84,7 +84,7 @@ data CustomLineItemListElement = CustomLineItemListElement'
 -- 'currencyCode', 'customLineItemListElement_currencyCode' - The custom line item\'s charge value currency. Only one of the valid
 -- values can be used.
 --
--- 'lastModifiedTime', 'customLineItemListElement_lastModifiedTime' - The most recent time the custom line item was modified.
+-- 'lastModifiedTime', 'customLineItemListElement_lastModifiedTime' - The most recent time when the custom line item was modified.
 --
 -- 'creationTime', 'customLineItemListElement_creationTime' - The time created.
 newCustomLineItemListElement ::
@@ -125,7 +125,7 @@ customLineItemListElement_arn = Lens.lens (\CustomLineItemListElement' {arn} -> 
 customLineItemListElement_associationSize :: Lens.Lens' CustomLineItemListElement (Prelude.Maybe Prelude.Natural)
 customLineItemListElement_associationSize = Lens.lens (\CustomLineItemListElement' {associationSize} -> associationSize) (\s@CustomLineItemListElement' {} a -> s {associationSize = a} :: CustomLineItemListElement)
 
--- | The product code associated with the custom line item.
+-- | The product code that\'s associated with the custom line item.
 customLineItemListElement_productCode :: Lens.Lens' CustomLineItemListElement (Prelude.Maybe Prelude.Text)
 customLineItemListElement_productCode = Lens.lens (\CustomLineItemListElement' {productCode} -> productCode) (\s@CustomLineItemListElement' {} a -> s {productCode = a} :: CustomLineItemListElement)
 
@@ -139,7 +139,7 @@ customLineItemListElement_description = Lens.lens (\CustomLineItemListElement' {
 customLineItemListElement_currencyCode :: Lens.Lens' CustomLineItemListElement (Prelude.Maybe CurrencyCode)
 customLineItemListElement_currencyCode = Lens.lens (\CustomLineItemListElement' {currencyCode} -> currencyCode) (\s@CustomLineItemListElement' {} a -> s {currencyCode = a} :: CustomLineItemListElement)
 
--- | The most recent time the custom line item was modified.
+-- | The most recent time when the custom line item was modified.
 customLineItemListElement_lastModifiedTime :: Lens.Lens' CustomLineItemListElement (Prelude.Maybe Prelude.Integer)
 customLineItemListElement_lastModifiedTime = Lens.lens (\CustomLineItemListElement' {lastModifiedTime} -> lastModifiedTime) (\s@CustomLineItemListElement' {} a -> s {lastModifiedTime = a} :: CustomLineItemListElement)
 

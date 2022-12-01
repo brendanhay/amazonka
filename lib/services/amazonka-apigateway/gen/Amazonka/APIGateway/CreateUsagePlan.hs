@@ -53,7 +53,7 @@ where
 
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,8 +144,8 @@ createUsagePlan_name = Lens.lens (\CreateUsagePlan' {name} -> name) (\s@CreateUs
 
 instance Core.AWSRequest CreateUsagePlan where
   type AWSResponse CreateUsagePlan = UsagePlan
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)

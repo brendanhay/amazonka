@@ -20,10 +20,10 @@
 module Amazonka.EMR.Types.Step where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.ActionOnFailure
 import Amazonka.EMR.Types.HadoopStepConfig
 import Amazonka.EMR.Types.StepStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This represents a step in a cluster.

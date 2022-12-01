@@ -20,6 +20,7 @@
 module Amazonka.DMS.Types.S3Settings where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.CannedAclForObjectsValue
 import Amazonka.DMS.Types.CompressionTypeValue
 import Amazonka.DMS.Types.DataFormatValue
@@ -28,7 +29,6 @@ import Amazonka.DMS.Types.DatePartitionSequenceValue
 import Amazonka.DMS.Types.EncodingTypeValue
 import Amazonka.DMS.Types.EncryptionModeValue
 import Amazonka.DMS.Types.ParquetVersionValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for exporting data to Amazon S3.
@@ -80,7 +80,7 @@ data S3Settings = S3Settings'
     ignoreHeaderRows :: Prelude.Maybe Prelude.Int,
     -- | Specifies how tables are defined in the S3 source files only.
     externalTableDefinition :: Prelude.Maybe Prelude.Text,
-    -- | Minimum file size, defined in megabytes, to reach for a file output to
+    -- | Minimum file size, defined in kilobytes, to reach for a file output to
     -- Amazon S3.
     --
     -- When @CdcMinFileSize@ and @CdcMaxBatchInterval@ are both specified, the
@@ -500,7 +500,7 @@ data S3Settings = S3Settings'
 --
 -- 'externalTableDefinition', 's3Settings_externalTableDefinition' - Specifies how tables are defined in the S3 source files only.
 --
--- 'cdcMinFileSize', 's3Settings_cdcMinFileSize' - Minimum file size, defined in megabytes, to reach for a file output to
+-- 'cdcMinFileSize', 's3Settings_cdcMinFileSize' - Minimum file size, defined in kilobytes, to reach for a file output to
 -- Amazon S3.
 --
 -- When @CdcMinFileSize@ and @CdcMaxBatchInterval@ are both specified, the
@@ -965,7 +965,7 @@ s3Settings_ignoreHeaderRows = Lens.lens (\S3Settings' {ignoreHeaderRows} -> igno
 s3Settings_externalTableDefinition :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
 s3Settings_externalTableDefinition = Lens.lens (\S3Settings' {externalTableDefinition} -> externalTableDefinition) (\s@S3Settings' {} a -> s {externalTableDefinition = a} :: S3Settings)
 
--- | Minimum file size, defined in megabytes, to reach for a file output to
+-- | Minimum file size, defined in kilobytes, to reach for a file output to
 -- Amazon S3.
 --
 -- When @CdcMinFileSize@ and @CdcMaxBatchInterval@ are both specified, the

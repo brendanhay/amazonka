@@ -21,7 +21,7 @@ module Amazonka.Chime.Types.CreateAttendeeRequestItem where
 
 import Amazonka.Chime.Types.Tag
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Chime SDK attendee fields to create, used with the

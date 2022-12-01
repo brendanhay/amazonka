@@ -24,7 +24,7 @@ import Amazonka.Chime.Types.MediaPipelineSinkType
 import Amazonka.Chime.Types.MediaPipelineSourceType
 import Amazonka.Chime.Types.MediaPipelineStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A media capture pipeline object consisting of an ID, source type, source

@@ -21,7 +21,7 @@ module Amazonka.Backup.Types.BackupPlansListMember where
 
 import Amazonka.Backup.Types.AdvancedBackupSetting
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about a backup plan.

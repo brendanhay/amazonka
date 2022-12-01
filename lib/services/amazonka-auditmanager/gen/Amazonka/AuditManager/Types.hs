@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -53,6 +54,12 @@ module Amazonka.AuditManager.Types
 
     -- * DelegationStatus
     DelegationStatus (..),
+
+    -- * EvidenceFinderBackfillStatus
+    EvidenceFinderBackfillStatus (..),
+
+    -- * EvidenceFinderEnablementStatus
+    EvidenceFinderEnablementStatus (..),
 
     -- * FrameworkType
     FrameworkType (..),
@@ -449,6 +456,14 @@ module Amazonka.AuditManager.Types
     evidence_attributes,
     evidence_eventSource,
 
+    -- * EvidenceFinderEnablement
+    EvidenceFinderEnablement (..),
+    newEvidenceFinderEnablement,
+    evidenceFinderEnablement_eventDataStoreArn,
+    evidenceFinderEnablement_enablementStatus,
+    evidenceFinderEnablement_backfillStatus,
+    evidenceFinderEnablement_error,
+
     -- * EvidenceInsights
     EvidenceInsights (..),
     newEvidenceInsights,
@@ -524,6 +539,7 @@ module Amazonka.AuditManager.Types
     Resource (..),
     newResource,
     resource_arn,
+    resource_complianceCheck,
     resource_value,
 
     -- * Role
@@ -553,6 +569,7 @@ module Amazonka.AuditManager.Types
     settings_snsTopic,
     settings_isAwsOrgEnabled,
     settings_kmsKey,
+    settings_evidenceFinderEnablement,
     settings_defaultAssessmentReportsDestination,
 
     -- * SourceKeyword
@@ -620,6 +637,9 @@ import Amazonka.AuditManager.Types.Delegation
 import Amazonka.AuditManager.Types.DelegationMetadata
 import Amazonka.AuditManager.Types.DelegationStatus
 import Amazonka.AuditManager.Types.Evidence
+import Amazonka.AuditManager.Types.EvidenceFinderBackfillStatus
+import Amazonka.AuditManager.Types.EvidenceFinderEnablement
+import Amazonka.AuditManager.Types.EvidenceFinderEnablementStatus
 import Amazonka.AuditManager.Types.EvidenceInsights
 import Amazonka.AuditManager.Types.Framework
 import Amazonka.AuditManager.Types.FrameworkMetadata
@@ -647,7 +667,7 @@ import Amazonka.AuditManager.Types.SourceType
 import Amazonka.AuditManager.Types.URL
 import Amazonka.AuditManager.Types.UpdateAssessmentFrameworkControlSet
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -655,28 +675,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "AuditManager",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "auditmanager",
-      Core._serviceSigningName = "auditmanager",
-      Core._serviceVersion = "2017-07-25",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "AuditManager",
-      Core._serviceRetry = retry
+    { Core.abbrev = "AuditManager",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "auditmanager",
+      Core.signingName = "auditmanager",
+      Core.version = "2017-07-25",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "AuditManager",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

@@ -21,7 +21,7 @@ module Amazonka.Backup.Types.Condition where
 
 import Amazonka.Backup.Types.ConditionType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an array of triplets made up of a condition type (such as

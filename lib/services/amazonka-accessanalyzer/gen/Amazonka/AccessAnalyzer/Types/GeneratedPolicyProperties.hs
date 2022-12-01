@@ -21,7 +21,7 @@ module Amazonka.AccessAnalyzer.Types.GeneratedPolicyProperties where
 
 import Amazonka.AccessAnalyzer.Types.CloudTrailProperties
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the generated policy details.

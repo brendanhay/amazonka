@@ -20,7 +20,7 @@
 module Amazonka.MachineLearning.Types.DataSource where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MachineLearning.Types.EntityStatus
 import Amazonka.MachineLearning.Types.RDSMetadata
 import Amazonka.MachineLearning.Types.RedshiftMetadata

@@ -20,7 +20,7 @@
 module Amazonka.AppFlow.Types.CustomerProfilesMetadata where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Amazon Connect Customer Profiles.

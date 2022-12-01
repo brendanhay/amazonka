@@ -20,7 +20,7 @@
 module Amazonka.QLDB.Types.KinesisConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration settings of the Amazon Kinesis Data Streams

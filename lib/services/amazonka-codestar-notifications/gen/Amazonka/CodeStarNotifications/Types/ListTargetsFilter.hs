@@ -21,7 +21,7 @@ module Amazonka.CodeStarNotifications.Types.ListTargetsFilter where
 
 import Amazonka.CodeStarNotifications.Types.ListTargetsFilterName
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a filter to apply to the list of returned targets. You

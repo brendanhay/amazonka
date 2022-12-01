@@ -23,7 +23,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.CompositedVideoArtifactsConfigurati
 import Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorMuxType
 import Amazonka.ChimeSdkMediaPipelines.Types.SourceConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The media pipeline\'s configuration object.

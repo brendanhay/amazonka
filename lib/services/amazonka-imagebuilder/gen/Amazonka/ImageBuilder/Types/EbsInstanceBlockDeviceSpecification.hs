@@ -20,8 +20,8 @@
 module Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ImageBuilder.Types.EbsVolumeType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon EBS-specific block device mapping specifications.

@@ -20,7 +20,7 @@
 module Amazonka.OpsWorksCM.Types.EngineAttribute where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A name and value pair that is specific to the engine of the server.

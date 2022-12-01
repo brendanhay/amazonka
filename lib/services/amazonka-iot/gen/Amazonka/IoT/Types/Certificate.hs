@@ -20,9 +20,9 @@
 module Amazonka.IoT.Types.Certificate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoT.Types.CertificateMode
 import Amazonka.IoT.Types.CertificateStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a certificate.

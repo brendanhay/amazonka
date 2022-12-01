@@ -20,7 +20,7 @@
 module Amazonka.BillingConductor.Types.ListCustomLineItemsFilter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter that specifies the custom line items and billing groups to

@@ -20,10 +20,10 @@
 module Amazonka.Inspector.Types.AssessmentRunFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.AssessmentRunState
 import Amazonka.Inspector.Types.DurationRange
 import Amazonka.Inspector.Types.TimestampRange
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used as the request parameter in the ListAssessmentRuns action.

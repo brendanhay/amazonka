@@ -20,23 +20,23 @@
 module Amazonka.OpenSearch.Types.OptionStatus where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.OptionState
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides the current status of the entity.
+-- | Provides the current status of an entity.
 --
 -- /See:/ 'newOptionStatus' smart constructor.
 data OptionStatus = OptionStatus'
-  { -- | Indicates whether the domain is being deleted.
+  { -- | Indicates whether the entity is being deleted.
     pendingDeletion :: Prelude.Maybe Prelude.Bool,
     -- | The latest version of the entity.
     updateVersion :: Prelude.Maybe Prelude.Natural,
-    -- | The timestamp of when the entity was created.
+    -- | The timestamp when the entity was created.
     creationDate :: Core.POSIX,
     -- | The timestamp of the last time the entity was updated.
     updateDate :: Core.POSIX,
-    -- | Provides the @OptionState@ for the domain.
+    -- | The state of the entity.
     state :: OptionState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,15 +49,15 @@ data OptionStatus = OptionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pendingDeletion', 'optionStatus_pendingDeletion' - Indicates whether the domain is being deleted.
+-- 'pendingDeletion', 'optionStatus_pendingDeletion' - Indicates whether the entity is being deleted.
 --
 -- 'updateVersion', 'optionStatus_updateVersion' - The latest version of the entity.
 --
--- 'creationDate', 'optionStatus_creationDate' - The timestamp of when the entity was created.
+-- 'creationDate', 'optionStatus_creationDate' - The timestamp when the entity was created.
 --
 -- 'updateDate', 'optionStatus_updateDate' - The timestamp of the last time the entity was updated.
 --
--- 'state', 'optionStatus_state' - Provides the @OptionState@ for the domain.
+-- 'state', 'optionStatus_state' - The state of the entity.
 newOptionStatus ::
   -- | 'creationDate'
   Prelude.UTCTime ->
@@ -75,7 +75,7 @@ newOptionStatus pCreationDate_ pUpdateDate_ pState_ =
       state = pState_
     }
 
--- | Indicates whether the domain is being deleted.
+-- | Indicates whether the entity is being deleted.
 optionStatus_pendingDeletion :: Lens.Lens' OptionStatus (Prelude.Maybe Prelude.Bool)
 optionStatus_pendingDeletion = Lens.lens (\OptionStatus' {pendingDeletion} -> pendingDeletion) (\s@OptionStatus' {} a -> s {pendingDeletion = a} :: OptionStatus)
 
@@ -83,7 +83,7 @@ optionStatus_pendingDeletion = Lens.lens (\OptionStatus' {pendingDeletion} -> pe
 optionStatus_updateVersion :: Lens.Lens' OptionStatus (Prelude.Maybe Prelude.Natural)
 optionStatus_updateVersion = Lens.lens (\OptionStatus' {updateVersion} -> updateVersion) (\s@OptionStatus' {} a -> s {updateVersion = a} :: OptionStatus)
 
--- | The timestamp of when the entity was created.
+-- | The timestamp when the entity was created.
 optionStatus_creationDate :: Lens.Lens' OptionStatus Prelude.UTCTime
 optionStatus_creationDate = Lens.lens (\OptionStatus' {creationDate} -> creationDate) (\s@OptionStatus' {} a -> s {creationDate = a} :: OptionStatus) Prelude.. Core._Time
 
@@ -91,7 +91,7 @@ optionStatus_creationDate = Lens.lens (\OptionStatus' {creationDate} -> creation
 optionStatus_updateDate :: Lens.Lens' OptionStatus Prelude.UTCTime
 optionStatus_updateDate = Lens.lens (\OptionStatus' {updateDate} -> updateDate) (\s@OptionStatus' {} a -> s {updateDate = a} :: OptionStatus) Prelude.. Core._Time
 
--- | Provides the @OptionState@ for the domain.
+-- | The state of the entity.
 optionStatus_state :: Lens.Lens' OptionStatus OptionState
 optionStatus_state = Lens.lens (\OptionStatus' {state} -> state) (\s@OptionStatus' {} a -> s {state = a} :: OptionStatus)
 

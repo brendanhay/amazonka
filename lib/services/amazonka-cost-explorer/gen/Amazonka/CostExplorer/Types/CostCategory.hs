@@ -20,11 +20,11 @@
 module Amazonka.CostExplorer.Types.CostCategory where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategoryProcessingStatus
 import Amazonka.CostExplorer.Types.CostCategoryRule
 import Amazonka.CostExplorer.Types.CostCategoryRuleVersion
 import Amazonka.CostExplorer.Types.CostCategorySplitChargeRule
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure of Cost Categories. This includes detailed metadata and

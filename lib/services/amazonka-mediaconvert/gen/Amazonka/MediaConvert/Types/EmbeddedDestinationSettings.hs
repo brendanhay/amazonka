@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.EmbeddedDestinationSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings related to CEA\/EIA-608 and CEA\/EIA-708 (also called embedded

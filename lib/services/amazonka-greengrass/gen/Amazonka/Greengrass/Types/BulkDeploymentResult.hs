@@ -20,9 +20,9 @@
 module Amazonka.Greengrass.Types.BulkDeploymentResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Greengrass.Types.DeploymentType
 import Amazonka.Greengrass.Types.ErrorDetail
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an individual group deployment in a bulk deployment

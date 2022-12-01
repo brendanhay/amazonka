@@ -46,7 +46,7 @@ module Amazonka.StorageGateway.DeleteBandwidthRateLimit
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,8 +111,8 @@ instance Core.AWSRequest DeleteBandwidthRateLimit where
   type
     AWSResponse DeleteBandwidthRateLimit =
       DeleteBandwidthRateLimitResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

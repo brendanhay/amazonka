@@ -20,8 +20,8 @@
 module Amazonka.GuardDuty.Types.ScanThreatName where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.ScanFilePath
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains files infected with the given threat providing details of

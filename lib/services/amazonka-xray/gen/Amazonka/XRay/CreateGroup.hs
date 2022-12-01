@@ -43,7 +43,7 @@ module Amazonka.XRay.CreateGroup
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -77,7 +77,7 @@ data CreateGroup = CreateGroup'
     -- -   The InsightsEnabled boolean can be set to true to enable insights
     --     for the new group or false to disable insights for the new group.
     --
-    -- -   The NotifcationsEnabled boolean can be set to true to enable
+    -- -   The NotificationsEnabled boolean can be set to true to enable
     --     insights notifications for the new group. Notifications may only be
     --     enabled on a group with InsightsEnabled set to true.
     insightsConfiguration :: Prelude.Maybe InsightsConfiguration,
@@ -123,7 +123,7 @@ data CreateGroup = CreateGroup'
 -- -   The InsightsEnabled boolean can be set to true to enable insights
 --     for the new group or false to disable insights for the new group.
 --
--- -   The NotifcationsEnabled boolean can be set to true to enable
+-- -   The NotificationsEnabled boolean can be set to true to enable
 --     insights notifications for the new group. Notifications may only be
 --     enabled on a group with InsightsEnabled set to true.
 --
@@ -171,7 +171,7 @@ createGroup_tags = Lens.lens (\CreateGroup' {tags} -> tags) (\s@CreateGroup' {} 
 -- -   The InsightsEnabled boolean can be set to true to enable insights
 --     for the new group or false to disable insights for the new group.
 --
--- -   The NotifcationsEnabled boolean can be set to true to enable
+-- -   The NotificationsEnabled boolean can be set to true to enable
 --     insights notifications for the new group. Notifications may only be
 --     enabled on a group with InsightsEnabled set to true.
 createGroup_insightsConfiguration :: Lens.Lens' CreateGroup (Prelude.Maybe InsightsConfiguration)
@@ -188,8 +188,8 @@ createGroup_groupName = Lens.lens (\CreateGroup' {groupName} -> groupName) (\s@C
 
 instance Core.AWSRequest CreateGroup where
   type AWSResponse CreateGroup = CreateGroupResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

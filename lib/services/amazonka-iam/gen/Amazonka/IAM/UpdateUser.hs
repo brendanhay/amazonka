@@ -52,8 +52,8 @@ module Amazonka.IAM.UpdateUser
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IAM.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,8 +167,8 @@ updateUser_userName = Lens.lens (\UpdateUser' {userName} -> userName) (\s@Update
 
 instance Core.AWSRequest UpdateUser where
   type AWSResponse UpdateUser = UpdateUserResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response = Response.receiveNull UpdateUserResponse'
 
 instance Prelude.Hashable UpdateUser where

@@ -21,7 +21,7 @@ module Amazonka.AMP.Types.AlertManagerDefinitionDescription where
 
 import Amazonka.AMP.Types.AlertManagerDefinitionStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the properties of an alert manager definition.

@@ -21,7 +21,7 @@ module Amazonka.CertificateManager.Types.CertificateOptions where
 
 import Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure that contains options for your certificate. Currently, you can

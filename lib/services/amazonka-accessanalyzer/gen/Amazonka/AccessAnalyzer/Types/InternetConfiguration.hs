@@ -20,7 +20,7 @@
 module Amazonka.AccessAnalyzer.Types.InternetConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This configuration sets the network origin for the Amazon S3 access

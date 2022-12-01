@@ -39,8 +39,8 @@ module Amazonka.DevOpsGuru.PutFeedback
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -75,8 +75,8 @@ putFeedback_insightFeedback = Lens.lens (\PutFeedback' {insightFeedback} -> insi
 
 instance Core.AWSRequest PutFeedback where
   type AWSResponse PutFeedback = PutFeedbackResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

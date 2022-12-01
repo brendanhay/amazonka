@@ -21,7 +21,7 @@ module Amazonka.CertificateManagerPCA.Types.Validity where
 
 import Amazonka.CertificateManagerPCA.Types.ValidityPeriodType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Validity specifies the period of time during which a certificate is

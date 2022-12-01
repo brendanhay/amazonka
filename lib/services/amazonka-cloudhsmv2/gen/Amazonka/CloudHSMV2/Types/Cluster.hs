@@ -26,7 +26,7 @@ import Amazonka.CloudHSMV2.Types.ClusterState
 import Amazonka.CloudHSMV2.Types.Hsm
 import Amazonka.CloudHSMV2.Types.Tag
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an AWS CloudHSM cluster.

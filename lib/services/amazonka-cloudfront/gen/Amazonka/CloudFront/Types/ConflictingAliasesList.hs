@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.ConflictingAliasesList where
 
 import Amazonka.CloudFront.Types.ConflictingAlias
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of aliases (also called CNAMEs) and the CloudFront distributions

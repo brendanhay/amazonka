@@ -28,7 +28,7 @@ import Amazonka.CodeCommit.Types.PullRequestMergedStateChangedEventMetadata
 import Amazonka.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetadata
 import Amazonka.CodeCommit.Types.PullRequestStatusChangedEventMetadata
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a pull request event.

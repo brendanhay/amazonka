@@ -24,7 +24,7 @@ import Amazonka.Backup.Types.Lifecycle
 import Amazonka.Backup.Types.RecoveryPointCreator
 import Amazonka.Backup.Types.RecoveryPointStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about the recovery points stored in a

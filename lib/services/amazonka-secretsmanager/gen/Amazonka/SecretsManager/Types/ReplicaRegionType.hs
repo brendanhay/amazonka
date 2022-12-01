@@ -20,7 +20,7 @@
 module Amazonka.SecretsManager.Types.ReplicaRegionType where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A custom type that specifies a @Region@ and the @KmsKeyId@ for a replica

@@ -20,7 +20,7 @@
 module Amazonka.Translate.Types.JobDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of documents successfully and unsuccessfully processed during

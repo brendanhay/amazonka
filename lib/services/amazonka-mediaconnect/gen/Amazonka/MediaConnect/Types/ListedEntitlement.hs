@@ -20,7 +20,7 @@
 module Amazonka.MediaConnect.Types.ListedEntitlement where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An entitlement that has been granted to you from other AWS accounts.

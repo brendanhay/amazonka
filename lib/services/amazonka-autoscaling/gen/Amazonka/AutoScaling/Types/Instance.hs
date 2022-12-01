@@ -22,7 +22,7 @@ module Amazonka.AutoScaling.Types.Instance where
 import Amazonka.AutoScaling.Types.LaunchTemplateSpecification
 import Amazonka.AutoScaling.Types.LifecycleState
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an EC2 instance.

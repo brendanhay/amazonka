@@ -293,11 +293,23 @@ module Amazonka.LicenseManager
     ListReceivedGrantsResponse (ListReceivedGrantsResponse'),
     newListReceivedGrantsResponse,
 
+    -- ** ListReceivedGrantsForOrganization
+    ListReceivedGrantsForOrganization (ListReceivedGrantsForOrganization'),
+    newListReceivedGrantsForOrganization,
+    ListReceivedGrantsForOrganizationResponse (ListReceivedGrantsForOrganizationResponse'),
+    newListReceivedGrantsForOrganizationResponse,
+
     -- ** ListReceivedLicenses
     ListReceivedLicenses (ListReceivedLicenses'),
     newListReceivedLicenses,
     ListReceivedLicensesResponse (ListReceivedLicensesResponse'),
     newListReceivedLicensesResponse,
+
+    -- ** ListReceivedLicensesForOrganization
+    ListReceivedLicensesForOrganization (ListReceivedLicensesForOrganization'),
+    newListReceivedLicensesForOrganization,
+    ListReceivedLicensesForOrganizationResponse (ListReceivedLicensesForOrganizationResponse'),
+    newListReceivedLicensesForOrganizationResponse,
 
     -- ** ListResourceInventory (Paginated)
     ListResourceInventory (ListResourceInventory'),
@@ -608,7 +620,9 @@ import Amazonka.LicenseManager.ListLicenseSpecificationsForResource
 import Amazonka.LicenseManager.ListLicenseVersions
 import Amazonka.LicenseManager.ListLicenses
 import Amazonka.LicenseManager.ListReceivedGrants
+import Amazonka.LicenseManager.ListReceivedGrantsForOrganization
 import Amazonka.LicenseManager.ListReceivedLicenses
+import Amazonka.LicenseManager.ListReceivedLicensesForOrganization
 import Amazonka.LicenseManager.ListResourceInventory
 import Amazonka.LicenseManager.ListTagsForResource
 import Amazonka.LicenseManager.ListTokens

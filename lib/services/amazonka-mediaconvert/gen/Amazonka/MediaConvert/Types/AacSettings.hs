@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.AacSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.AacAudioDescriptionBroadcasterMix
 import Amazonka.MediaConvert.Types.AacCodecProfile
 import Amazonka.MediaConvert.Types.AacCodingMode

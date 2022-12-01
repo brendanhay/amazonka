@@ -20,9 +20,9 @@
 module Amazonka.ElastiCache.Types.GlobalReplicationGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.GlobalNodeGroup
 import Amazonka.ElastiCache.Types.GlobalReplicationGroupMember
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Consists of a primary cluster that accepts writes and an associated

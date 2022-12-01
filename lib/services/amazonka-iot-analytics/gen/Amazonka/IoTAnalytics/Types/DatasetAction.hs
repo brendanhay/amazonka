@@ -20,9 +20,9 @@
 module Amazonka.IoTAnalytics.Types.DatasetAction where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTAnalytics.Types.ContainerDatasetAction
 import Amazonka.IoTAnalytics.Types.SqlQueryDatasetAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @DatasetAction@ object that specifies how dataset contents are

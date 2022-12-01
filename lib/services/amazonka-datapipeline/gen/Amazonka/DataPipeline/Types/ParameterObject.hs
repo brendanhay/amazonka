@@ -20,8 +20,8 @@
 module Amazonka.DataPipeline.Types.ParameterObject where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataPipeline.Types.ParameterAttribute
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a parameter object.

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -41,6 +42,9 @@ module Amazonka.CustomerProfiles.Types
     -- * JobScheduleDayOfTheWeek
     JobScheduleDayOfTheWeek (..),
 
+    -- * LogicalOperator
+    LogicalOperator (..),
+
     -- * MarketoConnectorOperator
     MarketoConnectorOperator (..),
 
@@ -79,6 +83,12 @@ module Amazonka.CustomerProfiles.Types
 
     -- * ZendeskConnectorOperator
     ZendeskConnectorOperator (..),
+
+    -- * AdditionalSearchKey
+    AdditionalSearchKey (..),
+    newAdditionalSearchKey,
+    additionalSearchKey_keyName,
+    additionalSearchKey_values,
 
     -- * Address
     Address (..),
@@ -212,6 +222,12 @@ module Amazonka.CustomerProfiles.Types
     flowDefinition_sourceFlowConfig,
     flowDefinition_tasks,
     flowDefinition_triggerConfig,
+
+    -- * FoundByKeyValue
+    FoundByKeyValue (..),
+    newFoundByKeyValue,
+    foundByKeyValue_keyName,
+    foundByKeyValue_values,
 
     -- * IdentityResolutionJob
     IdentityResolutionJob (..),
@@ -367,6 +383,7 @@ module Amazonka.CustomerProfiles.Types
     profile_address,
     profile_partyType,
     profile_gender,
+    profile_foundByItems,
     profile_mobilePhoneNumber,
     profile_middleName,
     profile_attributes,
@@ -490,6 +507,8 @@ module Amazonka.CustomerProfiles.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.CustomerProfiles.Types.AdditionalSearchKey
 import Amazonka.CustomerProfiles.Types.Address
 import Amazonka.CustomerProfiles.Types.AppflowIntegration
 import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowAttributes
@@ -508,6 +527,7 @@ import Amazonka.CustomerProfiles.Types.ExportingLocation
 import Amazonka.CustomerProfiles.Types.FieldContentType
 import Amazonka.CustomerProfiles.Types.FieldSourceProfileIds
 import Amazonka.CustomerProfiles.Types.FlowDefinition
+import Amazonka.CustomerProfiles.Types.FoundByKeyValue
 import Amazonka.CustomerProfiles.Types.Gender
 import Amazonka.CustomerProfiles.Types.IdentityResolutionJob
 import Amazonka.CustomerProfiles.Types.IdentityResolutionJobStatus
@@ -522,6 +542,7 @@ import Amazonka.CustomerProfiles.Types.ListProfileObjectTypeItem
 import Amazonka.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem
 import Amazonka.CustomerProfiles.Types.ListProfileObjectsItem
 import Amazonka.CustomerProfiles.Types.ListWorkflowsItem
+import Amazonka.CustomerProfiles.Types.LogicalOperator
 import Amazonka.CustomerProfiles.Types.MarketoConnectorOperator
 import Amazonka.CustomerProfiles.Types.MarketoSourceProperties
 import Amazonka.CustomerProfiles.Types.MatchItem
@@ -559,7 +580,6 @@ import Amazonka.CustomerProfiles.Types.WorkflowStepItem
 import Amazonka.CustomerProfiles.Types.WorkflowType
 import Amazonka.CustomerProfiles.Types.ZendeskConnectorOperator
 import Amazonka.CustomerProfiles.Types.ZendeskSourceProperties
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -567,29 +587,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "CustomerProfiles",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "profile",
-      Core._serviceSigningName = "profile",
-      Core._serviceVersion = "2020-08-15",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "CustomerProfiles",
-      Core._serviceRetry = retry
+    { Core.abbrev = "CustomerProfiles",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "profile",
+      Core.signingName = "profile",
+      Core.version = "2020-08-15",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "CustomerProfiles",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

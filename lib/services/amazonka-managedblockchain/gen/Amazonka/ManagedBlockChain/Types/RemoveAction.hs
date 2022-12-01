@@ -20,7 +20,7 @@
 module Amazonka.ManagedBlockChain.Types.RemoveAction where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An action to remove a member from a Managed Blockchain network as the

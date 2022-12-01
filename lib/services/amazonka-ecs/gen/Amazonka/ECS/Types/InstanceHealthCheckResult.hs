@@ -20,9 +20,9 @@
 module Amazonka.ECS.Types.InstanceHealthCheckResult where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.InstanceHealthCheckState
 import Amazonka.ECS.Types.InstanceHealthCheckType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the result of a container instance health status

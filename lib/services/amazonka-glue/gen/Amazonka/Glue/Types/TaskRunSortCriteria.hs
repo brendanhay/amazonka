@@ -20,9 +20,9 @@
 module Amazonka.Glue.Types.TaskRunSortCriteria where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.SortDirectionType
 import Amazonka.Glue.Types.TaskRunSortColumnType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The sorting criteria that are used to sort the list of task runs for the

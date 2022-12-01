@@ -21,7 +21,7 @@ module Amazonka.CertificateManagerPCA.Types.CrlConfiguration where
 
 import Amazonka.CertificateManagerPCA.Types.S3ObjectAcl
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information for a certificate revocation list

@@ -22,7 +22,7 @@ module Amazonka.Connect.Types.HistoricalMetricResult where
 import Amazonka.Connect.Types.Dimensions
 import Amazonka.Connect.Types.HistoricalMetricData
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the historical metrics retrieved.

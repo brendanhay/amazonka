@@ -20,7 +20,7 @@
 module Amazonka.M2.Types.Definition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The application definition for a particular application.

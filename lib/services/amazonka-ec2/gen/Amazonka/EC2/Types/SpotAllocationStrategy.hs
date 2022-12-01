@@ -23,7 +23,8 @@ module Amazonka.EC2.Types.SpotAllocationStrategy
         SpotAllocationStrategy_Capacity_optimized,
         SpotAllocationStrategy_Capacity_optimized_prioritized,
         SpotAllocationStrategy_Diversified,
-        SpotAllocationStrategy_Lowest_price
+        SpotAllocationStrategy_Lowest_price,
+        SpotAllocationStrategy_Price_capacity_optimized
       ),
   )
 where
@@ -72,10 +73,14 @@ pattern SpotAllocationStrategy_Diversified = SpotAllocationStrategy' "diversifie
 pattern SpotAllocationStrategy_Lowest_price :: SpotAllocationStrategy
 pattern SpotAllocationStrategy_Lowest_price = SpotAllocationStrategy' "lowest-price"
 
+pattern SpotAllocationStrategy_Price_capacity_optimized :: SpotAllocationStrategy
+pattern SpotAllocationStrategy_Price_capacity_optimized = SpotAllocationStrategy' "price-capacity-optimized"
+
 {-# COMPLETE
   SpotAllocationStrategy_Capacity_optimized,
   SpotAllocationStrategy_Capacity_optimized_prioritized,
   SpotAllocationStrategy_Diversified,
   SpotAllocationStrategy_Lowest_price,
+  SpotAllocationStrategy_Price_capacity_optimized,
   SpotAllocationStrategy'
   #-}

@@ -20,7 +20,7 @@
 module Amazonka.NetworkManager.Types.CoreNetworkChange where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.NetworkManager.Types.ChangeAction
 import Amazonka.NetworkManager.Types.ChangeType
 import Amazonka.NetworkManager.Types.CoreNetworkChangeValues

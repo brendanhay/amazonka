@@ -20,7 +20,7 @@
 module Amazonka.SMS.Types.UserDataValidationParameters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.ScriptType
 import Amazonka.SMS.Types.Source

@@ -20,9 +20,9 @@
 module Amazonka.Greengrass.Types.FunctionConfigurationEnvironment where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Greengrass.Types.FunctionExecutionConfig
 import Amazonka.Greengrass.Types.ResourceAccessPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The environment configuration of the function.

@@ -23,7 +23,7 @@ import Amazonka.CodeDeploy.Types.BlueInstanceTerminationOption
 import Amazonka.CodeDeploy.Types.DeploymentReadyOption
 import Amazonka.CodeDeploy.Types.GreenFleetProvisioningOption
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about blue\/green deployment options for a deployment group.

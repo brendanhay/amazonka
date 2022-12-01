@@ -20,8 +20,8 @@
 module Amazonka.Lambda.Types.EnvironmentResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types.EnvironmentError
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The results of an operation to update or read environment variables. If
@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data EnvironmentResponse = EnvironmentResponse'
   { -- | Error messages for environment variables that couldn\'t be applied.
     error :: Prelude.Maybe EnvironmentError,
-    -- | Environment variable key-value pairs.
+    -- | Environment variable key-value pairs. Omitted from CloudTrail logs.
     variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -47,7 +47,7 @@ data EnvironmentResponse = EnvironmentResponse'
 --
 -- 'error', 'environmentResponse_error' - Error messages for environment variables that couldn\'t be applied.
 --
--- 'variables', 'environmentResponse_variables' - Environment variable key-value pairs.
+-- 'variables', 'environmentResponse_variables' - Environment variable key-value pairs. Omitted from CloudTrail logs.
 newEnvironmentResponse ::
   EnvironmentResponse
 newEnvironmentResponse =
@@ -60,7 +60,7 @@ newEnvironmentResponse =
 environmentResponse_error :: Lens.Lens' EnvironmentResponse (Prelude.Maybe EnvironmentError)
 environmentResponse_error = Lens.lens (\EnvironmentResponse' {error} -> error) (\s@EnvironmentResponse' {} a -> s {error = a} :: EnvironmentResponse)
 
--- | Environment variable key-value pairs.
+-- | Environment variable key-value pairs. Omitted from CloudTrail logs.
 environmentResponse_variables :: Lens.Lens' EnvironmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 environmentResponse_variables = Lens.lens (\EnvironmentResponse' {variables} -> variables) (\s@EnvironmentResponse' {} a -> s {variables = a} :: EnvironmentResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 

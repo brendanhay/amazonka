@@ -22,7 +22,7 @@ module Amazonka.ChimeSDKIdentity.Types.EndpointState where
 import Amazonka.ChimeSDKIdentity.Types.EndpointStatus
 import Amazonka.ChimeSDKIdentity.Types.EndpointStatusReason
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A read-only field that represents the state of an

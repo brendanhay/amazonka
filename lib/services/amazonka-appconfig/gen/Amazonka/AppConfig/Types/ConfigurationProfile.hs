@@ -21,7 +21,7 @@ module Amazonka.AppConfig.Types.ConfigurationProfile where
 
 import Amazonka.AppConfig.Types.Validator
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newConfigurationProfile' smart constructor.

@@ -20,6 +20,7 @@
 module Amazonka.Kendra.Types.ConfluenceConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.ConfluenceAttachmentConfiguration
 import Amazonka.Kendra.Types.ConfluenceAuthenticationType
 import Amazonka.Kendra.Types.ConfluenceBlogConfiguration
@@ -28,7 +29,6 @@ import Amazonka.Kendra.Types.ConfluenceSpaceConfiguration
 import Amazonka.Kendra.Types.ConfluenceVersion
 import Amazonka.Kendra.Types.DataSourceVpcConfiguration
 import Amazonka.Kendra.Types.ProxyConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information to connect to Confluence as your

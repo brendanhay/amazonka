@@ -40,8 +40,8 @@ module Amazonka.ElasticTranscoder.ReadJob
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,8 +79,8 @@ readJob_id = Lens.lens (\ReadJob' {id} -> id) (\s@ReadJob' {} a -> s {id = a} ::
 
 instance Core.AWSRequest ReadJob where
   type AWSResponse ReadJob = ReadJobResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

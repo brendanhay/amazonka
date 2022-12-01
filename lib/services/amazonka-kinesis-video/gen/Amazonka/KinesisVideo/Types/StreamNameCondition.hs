@@ -20,8 +20,8 @@
 module Amazonka.KinesisVideo.Types.StreamNameCondition where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KinesisVideo.Types.ComparisonOperator
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the condition that streams must satisfy to be returned when

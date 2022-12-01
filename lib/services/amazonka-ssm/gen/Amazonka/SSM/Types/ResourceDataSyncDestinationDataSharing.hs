@@ -20,7 +20,7 @@
 module Amazonka.SSM.Types.ResourceDataSyncDestinationDataSharing where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Synchronize Amazon Web Services Systems Manager Inventory data from

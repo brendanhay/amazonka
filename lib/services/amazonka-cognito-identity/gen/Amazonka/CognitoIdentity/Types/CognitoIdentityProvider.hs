@@ -20,7 +20,7 @@
 module Amazonka.CognitoIdentity.Types.CognitoIdentityProvider where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A provider representing an Amazon Cognito user pool and its client ID.

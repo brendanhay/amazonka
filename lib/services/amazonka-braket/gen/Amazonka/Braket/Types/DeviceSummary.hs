@@ -22,7 +22,7 @@ module Amazonka.Braket.Types.DeviceSummary where
 import Amazonka.Braket.Types.DeviceStatus
 import Amazonka.Braket.Types.DeviceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Includes information about the device.

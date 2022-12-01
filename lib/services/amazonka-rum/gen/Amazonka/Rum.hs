@@ -18,7 +18,12 @@
 -- you can see it all aggregated together and also see breakdowns by the
 -- browsers and devices that your customers use.
 --
--- >  <p>You can use the collected data to quickly identify and debug client-side performance issues. CloudWatch RUM helps you visualize anomalies in your application performance and find relevant debugging data such as error messages, stack traces, and user sessions. You can also use RUM to understand the range of end-user impact including the number of users, geolocations, and browsers used.</p>
+-- You can use the collected data to quickly identify and debug client-side
+-- performance issues. CloudWatch RUM helps you visualize anomalies in your
+-- application performance and find relevant debugging data such as error
+-- messages, stack traces, and user sessions. You can also use RUM to
+-- understand the range of end-user impact including the number of users,
+-- geolocations, and browsers used.
 module Amazonka.Rum
   ( -- * Service Configuration
     defaultService,
@@ -157,6 +162,9 @@ module Amazonka.Rum
 
     -- * Types
 
+    -- ** CustomEventsStatus
+    CustomEventsStatus (..),
+
     -- ** MetricDestination
     MetricDestination (..),
 
@@ -189,6 +197,10 @@ module Amazonka.Rum
     -- ** BatchDeleteRumMetricDefinitionsError
     BatchDeleteRumMetricDefinitionsError (BatchDeleteRumMetricDefinitionsError'),
     newBatchDeleteRumMetricDefinitionsError,
+
+    -- ** CustomEvents
+    CustomEvents (CustomEvents'),
+    newCustomEvents,
 
     -- ** CwLog
     CwLog (CwLog'),

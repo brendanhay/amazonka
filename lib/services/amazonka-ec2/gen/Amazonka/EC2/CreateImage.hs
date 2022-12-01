@@ -42,7 +42,7 @@
 -- those additional volumes.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html Creating Amazon EBS-Backed Linux AMIs>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html Create an Amazon EBS-backed Linux AMI>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.CreateImage
   ( -- * Creating a Request
@@ -69,8 +69,8 @@ module Amazonka.EC2.CreateImage
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -264,8 +264,8 @@ createImage_name = Lens.lens (\CreateImage' {name} -> name) (\s@CreateImage' {} 
 
 instance Core.AWSRequest CreateImage where
   type AWSResponse CreateImage = CreateImageResponse
-  service _ = defaultService
-  request srv = Request.postQuery srv
+  request overrides =
+    Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML
       ( \s h x ->

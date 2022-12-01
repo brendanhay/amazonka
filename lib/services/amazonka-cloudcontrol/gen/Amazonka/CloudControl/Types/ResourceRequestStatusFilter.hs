@@ -22,7 +22,7 @@ module Amazonka.CloudControl.Types.ResourceRequestStatusFilter where
 import Amazonka.CloudControl.Types.Operation
 import Amazonka.CloudControl.Types.OperationStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter criteria to use in determining the requests returned.

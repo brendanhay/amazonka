@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.CelebrityRecognition where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.CelebrityDetail
 
@@ -31,7 +31,8 @@ import Amazonka.Rekognition.Types.CelebrityDetail
 -- /See:/ 'newCelebrityRecognition' smart constructor.
 data CelebrityRecognition = CelebrityRecognition'
   { -- | The time, in milliseconds from the start of the video, that the
-    -- celebrity was recognized.
+    -- celebrity was recognized. Note that @Timestamp@ is not guaranteed to be
+    -- accurate to the individual frame where the celebrity first appears.
     timestamp :: Prelude.Maybe Prelude.Integer,
     -- | Information about a recognized celebrity.
     celebrity :: Prelude.Maybe CelebrityDetail
@@ -47,7 +48,8 @@ data CelebrityRecognition = CelebrityRecognition'
 -- for backwards compatibility:
 --
 -- 'timestamp', 'celebrityRecognition_timestamp' - The time, in milliseconds from the start of the video, that the
--- celebrity was recognized.
+-- celebrity was recognized. Note that @Timestamp@ is not guaranteed to be
+-- accurate to the individual frame where the celebrity first appears.
 --
 -- 'celebrity', 'celebrityRecognition_celebrity' - Information about a recognized celebrity.
 newCelebrityRecognition ::
@@ -59,7 +61,8 @@ newCelebrityRecognition =
     }
 
 -- | The time, in milliseconds from the start of the video, that the
--- celebrity was recognized.
+-- celebrity was recognized. Note that @Timestamp@ is not guaranteed to be
+-- accurate to the individual frame where the celebrity first appears.
 celebrityRecognition_timestamp :: Lens.Lens' CelebrityRecognition (Prelude.Maybe Prelude.Integer)
 celebrityRecognition_timestamp = Lens.lens (\CelebrityRecognition' {timestamp} -> timestamp) (\s@CelebrityRecognition' {} a -> s {timestamp = a} :: CelebrityRecognition)
 

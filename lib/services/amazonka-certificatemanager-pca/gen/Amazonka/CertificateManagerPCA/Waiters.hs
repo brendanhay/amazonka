@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -21,17 +22,17 @@ import Amazonka.CertificateManagerPCA.GetCertificateAuthorityCsr
 import Amazonka.CertificateManagerPCA.Lens
 import Amazonka.CertificateManagerPCA.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newAuditReportCreated :: Core.Wait DescribeCertificateAuthorityAuditReport
 newAuditReportCreated =
   Core.Wait
-    { Core._waitName = "AuditReportCreated",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 3,
-      Core._waitAcceptors =
+    { Core.name = "AuditReportCreated",
+      Core.attempts = 60,
+      Core.delay = 3,
+      Core.acceptors =
         [ Core.matchAll
             "SUCCESS"
             Core.AcceptSuccess
@@ -53,10 +54,10 @@ newAuditReportCreated =
 newCertificateIssued :: Core.Wait GetCertificate
 newCertificateIssued =
   Core.Wait
-    { Core._waitName = "CertificateIssued",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 3,
-      Core._waitAcceptors =
+    { Core.name = "CertificateIssued",
+      Core.attempts = 60,
+      Core.delay = 3,
+      Core.acceptors =
         [ Core.matchStatus 200 Core.AcceptSuccess,
           Core.matchError
             "RequestInProgressException"
@@ -68,11 +69,11 @@ newCertificateIssued =
 newCertificateAuthorityCSRCreated :: Core.Wait GetCertificateAuthorityCsr
 newCertificateAuthorityCSRCreated =
   Core.Wait
-    { Core._waitName =
+    { Core.name =
         "CertificateAuthorityCSRCreated",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 3,
-      Core._waitAcceptors =
+      Core.attempts = 60,
+      Core.delay = 3,
+      Core.acceptors =
         [ Core.matchStatus 200 Core.AcceptSuccess,
           Core.matchError
             "RequestInProgressException"

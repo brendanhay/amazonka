@@ -21,7 +21,7 @@ module Amazonka.Config.Types.DeliveryChannel where
 
 import Amazonka.Config.Types.ConfigSnapshotDeliveryProperties
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The channel through which Config delivers notifications and updated

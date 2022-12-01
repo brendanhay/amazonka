@@ -22,7 +22,7 @@ module Amazonka.Config.Types.AggregatedSourceStatus where
 import Amazonka.Config.Types.AggregatedSourceStatusType
 import Amazonka.Config.Types.AggregatedSourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current sync status between the source and the aggregator account.

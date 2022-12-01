@@ -21,7 +21,7 @@ module Amazonka.CodeCommit.Types.PullRequestStatusChangedEventMetadata where
 
 import Amazonka.CodeCommit.Types.PullRequestStatusEnum
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a change to the status of a pull request.

@@ -20,10 +20,10 @@
 module Amazonka.DevOpsGuru.Types.CloudWatchMetricsDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DevOpsGuru.Types.CloudWatchMetricsDataSummary
 import Amazonka.DevOpsGuru.Types.CloudWatchMetricsDimension
 import Amazonka.DevOpsGuru.Types.CloudWatchMetricsStat
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon CloudWatch metric.

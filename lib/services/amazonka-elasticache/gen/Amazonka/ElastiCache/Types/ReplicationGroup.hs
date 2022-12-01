@@ -20,15 +20,17 @@
 module Amazonka.ElastiCache.Types.ReplicationGroup where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElastiCache.Types.AutomaticFailoverStatus
 import Amazonka.ElastiCache.Types.DataTieringStatus
 import Amazonka.ElastiCache.Types.Endpoint
 import Amazonka.ElastiCache.Types.GlobalReplicationGroupInfo
+import Amazonka.ElastiCache.Types.IpDiscovery
 import Amazonka.ElastiCache.Types.LogDeliveryConfiguration
 import Amazonka.ElastiCache.Types.MultiAZStatus
+import Amazonka.ElastiCache.Types.NetworkType
 import Amazonka.ElastiCache.Types.NodeGroup
 import Amazonka.ElastiCache.Types.ReplicationGroupPendingModifiedValues
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains all of the attributes of a specific Redis replication group.
@@ -57,9 +59,9 @@ data ReplicationGroup = ReplicationGroup'
     --
     -- Valid values: @true@ | @false@
     clusterEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | If you are running Redis engine version 6.0 or later, set this
-    -- parameter to yes if you want to opt-in to the next auto minor version
-    -- upgrade campaign. This parameter is disabled for previous versions.
+    -- | If you are running Redis engine version 6.0 or later, set this parameter
+    -- to yes if you want to opt-in to the next auto minor version upgrade
+    -- campaign. This parameter is disabled for previous versions.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The date and time when the cluster was created.
     replicationGroupCreateTime :: Prelude.Maybe Core.ISO8601,
@@ -84,6 +86,11 @@ data ReplicationGroup = ReplicationGroup'
     --
     -- Default: @false@
     atRestEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The network type you choose when modifying a cluster, either @ipv4@ |
+    -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+    -- onward or Memcached engine version 1.6.6 on all instances built on the
+    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    ipDiscovery :: Prelude.Maybe IpDiscovery,
     -- | The current state of this replication group - @creating@, @available@,
     -- @modifying@, @deleting@, @create-failed@, @snapshotting@.
     status :: Prelude.Maybe Prelude.Text,
@@ -139,6 +146,11 @@ data ReplicationGroup = ReplicationGroup'
     -- | The names of all the cache clusters that are part of this replication
     -- group.
     memberClusters :: Prelude.Maybe [Prelude.Text],
+    -- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
+    -- workloads using Redis engine version 6.2 onward or Memcached engine
+    -- version 1.6.6 on all instances built on the
+    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    networkType :: Prelude.Maybe NetworkType,
     -- | A flag indicating if you have Multi-AZ enabled to enhance fault
     -- tolerance. For more information, see
     -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>
@@ -179,9 +191,9 @@ data ReplicationGroup = ReplicationGroup'
 --
 -- Valid values: @true@ | @false@
 --
--- 'autoMinorVersionUpgrade', 'replicationGroup_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this
--- parameter to yes if you want to opt-in to the next auto minor version
--- upgrade campaign. This parameter is disabled for previous versions.
+-- 'autoMinorVersionUpgrade', 'replicationGroup_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this parameter
+-- to yes if you want to opt-in to the next auto minor version upgrade
+-- campaign. This parameter is disabled for previous versions.
 --
 -- 'replicationGroupCreateTime', 'replicationGroup_replicationGroupCreateTime' - The date and time when the cluster was created.
 --
@@ -205,6 +217,11 @@ data ReplicationGroup = ReplicationGroup'
 -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
 --
 -- Default: @false@
+--
+-- 'ipDiscovery', 'replicationGroup_ipDiscovery' - The network type you choose when modifying a cluster, either @ipv4@ |
+-- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+-- onward or Memcached engine version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
 --
 -- 'status', 'replicationGroup_status' - The current state of this replication group - @creating@, @available@,
 -- @modifying@, @deleting@, @create-failed@, @snapshotting@.
@@ -261,6 +278,11 @@ data ReplicationGroup = ReplicationGroup'
 -- 'memberClusters', 'replicationGroup_memberClusters' - The names of all the cache clusters that are part of this replication
 -- group.
 --
+-- 'networkType', 'replicationGroup_networkType' - Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
+-- workloads using Redis engine version 6.2 onward or Memcached engine
+-- version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+--
 -- 'multiAZ', 'replicationGroup_multiAZ' - A flag indicating if you have Multi-AZ enabled to enhance fault
 -- tolerance. For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>
@@ -283,6 +305,7 @@ newReplicationGroup =
       snapshottingClusterId = Prelude.Nothing,
       logDeliveryConfigurations = Prelude.Nothing,
       atRestEncryptionEnabled = Prelude.Nothing,
+      ipDiscovery = Prelude.Nothing,
       status = Prelude.Nothing,
       cacheNodeType = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -297,6 +320,7 @@ newReplicationGroup =
       authTokenLastModifiedDate = Prelude.Nothing,
       replicationGroupId = Prelude.Nothing,
       memberClusters = Prelude.Nothing,
+      networkType = Prelude.Nothing,
       multiAZ = Prelude.Nothing,
       configurationEndpoint = Prelude.Nothing
     }
@@ -331,9 +355,9 @@ replicationGroup_globalReplicationGroupInfo = Lens.lens (\ReplicationGroup' {glo
 replicationGroup_clusterEnabled :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Bool)
 replicationGroup_clusterEnabled = Lens.lens (\ReplicationGroup' {clusterEnabled} -> clusterEnabled) (\s@ReplicationGroup' {} a -> s {clusterEnabled = a} :: ReplicationGroup)
 
--- | If you are running Redis engine version 6.0 or later, set this
--- parameter to yes if you want to opt-in to the next auto minor version
--- upgrade campaign. This parameter is disabled for previous versions.
+-- | If you are running Redis engine version 6.0 or later, set this parameter
+-- to yes if you want to opt-in to the next auto minor version upgrade
+-- campaign. This parameter is disabled for previous versions.
 replicationGroup_autoMinorVersionUpgrade :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Bool)
 replicationGroup_autoMinorVersionUpgrade = Lens.lens (\ReplicationGroup' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ReplicationGroup' {} a -> s {autoMinorVersionUpgrade = a} :: ReplicationGroup)
 
@@ -371,6 +395,13 @@ replicationGroup_logDeliveryConfigurations = Lens.lens (\ReplicationGroup' {logD
 -- Default: @false@
 replicationGroup_atRestEncryptionEnabled :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Bool)
 replicationGroup_atRestEncryptionEnabled = Lens.lens (\ReplicationGroup' {atRestEncryptionEnabled} -> atRestEncryptionEnabled) (\s@ReplicationGroup' {} a -> s {atRestEncryptionEnabled = a} :: ReplicationGroup)
+
+-- | The network type you choose when modifying a cluster, either @ipv4@ |
+-- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+-- onward or Memcached engine version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+replicationGroup_ipDiscovery :: Lens.Lens' ReplicationGroup (Prelude.Maybe IpDiscovery)
+replicationGroup_ipDiscovery = Lens.lens (\ReplicationGroup' {ipDiscovery} -> ipDiscovery) (\s@ReplicationGroup' {} a -> s {ipDiscovery = a} :: ReplicationGroup)
 
 -- | The current state of this replication group - @creating@, @available@,
 -- @modifying@, @deleting@, @create-failed@, @snapshotting@.
@@ -455,6 +486,13 @@ replicationGroup_replicationGroupId = Lens.lens (\ReplicationGroup' {replication
 replicationGroup_memberClusters :: Lens.Lens' ReplicationGroup (Prelude.Maybe [Prelude.Text])
 replicationGroup_memberClusters = Lens.lens (\ReplicationGroup' {memberClusters} -> memberClusters) (\s@ReplicationGroup' {} a -> s {memberClusters = a} :: ReplicationGroup) Prelude.. Lens.mapping Lens.coerced
 
+-- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
+-- workloads using Redis engine version 6.2 onward or Memcached engine
+-- version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+replicationGroup_networkType :: Lens.Lens' ReplicationGroup (Prelude.Maybe NetworkType)
+replicationGroup_networkType = Lens.lens (\ReplicationGroup' {networkType} -> networkType) (\s@ReplicationGroup' {} a -> s {networkType = a} :: ReplicationGroup)
+
 -- | A flag indicating if you have Multi-AZ enabled to enhance fault
 -- tolerance. For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>
@@ -488,6 +526,7 @@ instance Core.FromXML ReplicationGroup where
                         (Core.parseXMLList "LogDeliveryConfiguration")
                   )
       Prelude.<*> (x Core..@? "AtRestEncryptionEnabled")
+      Prelude.<*> (x Core..@? "IpDiscovery")
       Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "CacheNodeType")
       Prelude.<*> (x Core..@? "Description")
@@ -508,6 +547,7 @@ instance Core.FromXML ReplicationGroup where
       Prelude.<*> ( x Core..@? "MemberClusters" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "ClusterId")
                   )
+      Prelude.<*> (x Core..@? "NetworkType")
       Prelude.<*> (x Core..@? "MultiAZ")
       Prelude.<*> (x Core..@? "ConfigurationEndpoint")
 
@@ -525,6 +565,7 @@ instance Prelude.Hashable ReplicationGroup where
       `Prelude.hashWithSalt` snapshottingClusterId
       `Prelude.hashWithSalt` logDeliveryConfigurations
       `Prelude.hashWithSalt` atRestEncryptionEnabled
+      `Prelude.hashWithSalt` ipDiscovery
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` cacheNodeType
       `Prelude.hashWithSalt` description
@@ -539,6 +580,7 @@ instance Prelude.Hashable ReplicationGroup where
       `Prelude.hashWithSalt` authTokenLastModifiedDate
       `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` memberClusters
+      `Prelude.hashWithSalt` networkType
       `Prelude.hashWithSalt` multiAZ
       `Prelude.hashWithSalt` configurationEndpoint
 
@@ -555,13 +597,15 @@ instance Prelude.NFData ReplicationGroup where
       `Prelude.seq` Prelude.rnf snapshottingClusterId
       `Prelude.seq` Prelude.rnf logDeliveryConfigurations
       `Prelude.seq` Prelude.rnf atRestEncryptionEnabled
+      `Prelude.seq` Prelude.rnf ipDiscovery
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf cacheNodeType
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf authTokenEnabled
       `Prelude.seq` Prelude.rnf nodeGroups
       `Prelude.seq` Prelude.rnf snapshotWindow
-      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
+      `Prelude.seq` Prelude.rnf
+        snapshotRetentionLimit
       `Prelude.seq` Prelude.rnf userGroupIds
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf
@@ -573,6 +617,8 @@ instance Prelude.NFData ReplicationGroup where
         replicationGroupId
       `Prelude.seq` Prelude.rnf
         memberClusters
+      `Prelude.seq` Prelude.rnf
+        networkType
       `Prelude.seq` Prelude.rnf
         multiAZ
       `Prelude.seq` Prelude.rnf

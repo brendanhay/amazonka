@@ -20,10 +20,10 @@
 module Amazonka.FinSpaceData.Types.DataViewSummary where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FinSpaceData.Types.DataViewDestinationTypeParams
 import Amazonka.FinSpaceData.Types.DataViewErrorInfo
 import Amazonka.FinSpaceData.Types.DataViewStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure for the summary of a Dataview.

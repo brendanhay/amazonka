@@ -20,7 +20,7 @@
 module Amazonka.DevOpsGuru.Types.CloudWatchMetricsDimension where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The dimension of an Amazon CloudWatch metric that is used when DevOps

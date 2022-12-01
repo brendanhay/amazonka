@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.Input where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.InputClass
 import Amazonka.MediaLive.Types.InputDestination
 import Amazonka.MediaLive.Types.InputDeviceSettings

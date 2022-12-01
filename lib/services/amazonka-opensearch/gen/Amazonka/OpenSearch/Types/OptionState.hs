@@ -30,10 +30,13 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The state of a requested change. One of the following:
+-- | The state of a requested domain configuration change. Can be one of the
+-- following:
 --
--- -   Processing: The request change is still in progress.
--- -   Active: The request change is processed and deployed to the domain.
+-- -   __Processing__ - The requested change is still in progress.
+--
+-- -   __Active__ - The requested change is processed and deployed to the
+--     domain.
 newtype OptionState = OptionState'
   { fromOptionState ::
       Core.Text

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the cluster configuration of the specified domain, such as
--- setting the instance type and the number of instances.
+-- Modifies the cluster configuration of the specified Amazon OpenSearch
+-- Service domain.
 module Amazonka.OpenSearch.UpdateDomainConfig
   ( -- * Creating a Request
     UpdateDomainConfig (..),
@@ -56,60 +56,82 @@ module Amazonka.OpenSearch.UpdateDomainConfig
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ UpdateDomain @ operation.
--- Specifies the type and number of instances in the domain cluster.
+-- | Container for the request parameters to the @UpdateDomain@ operation.
 --
 -- /See:/ 'newUpdateDomainConfig' smart constructor.
 data UpdateDomainConfig = UpdateDomainConfig'
-  { -- | Specifies node-to-node encryption options.
+  { -- | Node-To-Node Encryption options for the domain.
     nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
-    -- | The type and number of instances to instantiate for the domain cluster.
+    -- | Changes that you want to make to the cluster configuration, such as the
+    -- instance type and number of EC2 instances.
     clusterConfig :: Prelude.Maybe ClusterConfig,
-    -- | Modifies the advanced option to allow references to indices in an HTTP
-    -- request body. Must be @false@ when configuring access to individual
-    -- sub-resources. By default, the value is @true@. See
-    -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced options>
-    -- for more information.
+    -- | Key-value pairs to specify advanced configuration options. The following
+    -- key-value pairs are supported:
+    --
+    -- -   @\"rest.action.multi.allow_explicit_index\": \"true\" | \"false\"@ -
+    --     Note the use of a string rather than a boolean. Specifies whether
+    --     explicit references to indexes are allowed inside the body of HTTP
+    --     requests. If you want to configure access policies for domain
+    --     sub-resources, such as specific indexes and domain APIs, you must
+    --     disable this property. Default is true.
+    --
+    -- -   @\"indices.fielddata.cache.size\": \"80\" @ - Note the use of a
+    --     string rather than a boolean. Specifies the percentage of heap space
+    --     allocated to field data. Default is unbounded.
+    --
+    -- -   @\"indices.query.bool.max_clause_count\": \"1024\"@ - Note the use
+    --     of a string rather than a boolean. Specifies the maximum number of
+    --     clauses allowed in a Lucene boolean query. Default is 1,024. Queries
+    --     with more than the permitted number of clauses result in a
+    --     @TooManyClauses@ error.
+    --
+    -- -   @\"override_main_response_version\": \"true\" | \"false\"@ - Note
+    --     the use of a string rather than a boolean. Specifies whether the
+    --     domain reports its version as 7.10 to allow Elasticsearch OSS
+    --     clients and plugins to continue working with it. Default is false
+    --     when creating a domain and true when upgrading a domain.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced cluster parameters>.
     advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies advanced security options.
+    -- | Options for fine-grained access control.
     advancedSecurityOptions :: Prelude.Maybe AdvancedSecurityOptionsInput,
-    -- | Options to specify the Cognito user and identity pools for OpenSearch
-    -- Dashboards authentication. For more information, see
-    -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
+    -- | Key-value pairs to configure Amazon Cognito authentication for
+    -- OpenSearch Dashboards.
     cognitoOptions :: Prelude.Maybe CognitoOptions,
-    -- | Specifies encryption of data at rest options.
+    -- | Encryption at rest options for the domain.
     encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
     -- | This flag, when set to True, specifies whether the @UpdateDomain@
-    -- request should return the results of validation checks (DryRunResults)
-    -- without actually applying the change.
+    -- request should return the results of validation check without actually
+    -- applying the change.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Specify the type and size of the EBS volume to use.
+    -- | The type and size of the EBS volume to attach to instances in the
+    -- domain.
     eBSOptions :: Prelude.Maybe EBSOptions,
-    -- | IAM access policy as a JSON-formatted string.
+    -- | Identity and Access Management (IAM) access policy as a JSON-formatted
+    -- string.
     accessPolicies :: Prelude.Maybe Prelude.Text,
-    -- | Options to specify the subnets and security groups for the VPC endpoint.
+    -- | Options to specify the subnets and security groups for a VPC endpoint.
     -- For more information, see
-    -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>
-    -- .
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
     vPCOptions :: Prelude.Maybe VPCOptions,
-    -- | Specifies Auto-Tune options.
+    -- | Options for Auto-Tune.
     autoTuneOptions :: Prelude.Maybe AutoTuneOptions,
-    -- | Options to specify configuration that will be applied to the domain
-    -- endpoint.
+    -- | Additional options for the domain endpoint, such as whether to require
+    -- HTTPS for all traffic.
     domainEndpointOptions :: Prelude.Maybe DomainEndpointOptions,
     -- | Option to set the time, in UTC format, for the daily automated snapshot.
     -- Default value is @0@ hours.
     snapshotOptions :: Prelude.Maybe SnapshotOptions,
-    -- | Map of @LogType@ and @LogPublishingOption@, each containing options to
-    -- publish a given type of OpenSearch log.
+    -- | Options to publish OpenSearch lots to Amazon CloudWatch Logs.
     logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
-    -- | The name of the domain you\'re updating.
+    -- | The name of the domain that you\'re updating.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -122,49 +144,72 @@ data UpdateDomainConfig = UpdateDomainConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodeToNodeEncryptionOptions', 'updateDomainConfig_nodeToNodeEncryptionOptions' - Specifies node-to-node encryption options.
+-- 'nodeToNodeEncryptionOptions', 'updateDomainConfig_nodeToNodeEncryptionOptions' - Node-To-Node Encryption options for the domain.
 --
--- 'clusterConfig', 'updateDomainConfig_clusterConfig' - The type and number of instances to instantiate for the domain cluster.
+-- 'clusterConfig', 'updateDomainConfig_clusterConfig' - Changes that you want to make to the cluster configuration, such as the
+-- instance type and number of EC2 instances.
 --
--- 'advancedOptions', 'updateDomainConfig_advancedOptions' - Modifies the advanced option to allow references to indices in an HTTP
--- request body. Must be @false@ when configuring access to individual
--- sub-resources. By default, the value is @true@. See
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced options>
--- for more information.
+-- 'advancedOptions', 'updateDomainConfig_advancedOptions' - Key-value pairs to specify advanced configuration options. The following
+-- key-value pairs are supported:
 --
--- 'advancedSecurityOptions', 'updateDomainConfig_advancedSecurityOptions' - Specifies advanced security options.
+-- -   @\"rest.action.multi.allow_explicit_index\": \"true\" | \"false\"@ -
+--     Note the use of a string rather than a boolean. Specifies whether
+--     explicit references to indexes are allowed inside the body of HTTP
+--     requests. If you want to configure access policies for domain
+--     sub-resources, such as specific indexes and domain APIs, you must
+--     disable this property. Default is true.
 --
--- 'cognitoOptions', 'updateDomainConfig_cognitoOptions' - Options to specify the Cognito user and identity pools for OpenSearch
--- Dashboards authentication. For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
+-- -   @\"indices.fielddata.cache.size\": \"80\" @ - Note the use of a
+--     string rather than a boolean. Specifies the percentage of heap space
+--     allocated to field data. Default is unbounded.
 --
--- 'encryptionAtRestOptions', 'updateDomainConfig_encryptionAtRestOptions' - Specifies encryption of data at rest options.
+-- -   @\"indices.query.bool.max_clause_count\": \"1024\"@ - Note the use
+--     of a string rather than a boolean. Specifies the maximum number of
+--     clauses allowed in a Lucene boolean query. Default is 1,024. Queries
+--     with more than the permitted number of clauses result in a
+--     @TooManyClauses@ error.
+--
+-- -   @\"override_main_response_version\": \"true\" | \"false\"@ - Note
+--     the use of a string rather than a boolean. Specifies whether the
+--     domain reports its version as 7.10 to allow Elasticsearch OSS
+--     clients and plugins to continue working with it. Default is false
+--     when creating a domain and true when upgrading a domain.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced cluster parameters>.
+--
+-- 'advancedSecurityOptions', 'updateDomainConfig_advancedSecurityOptions' - Options for fine-grained access control.
+--
+-- 'cognitoOptions', 'updateDomainConfig_cognitoOptions' - Key-value pairs to configure Amazon Cognito authentication for
+-- OpenSearch Dashboards.
+--
+-- 'encryptionAtRestOptions', 'updateDomainConfig_encryptionAtRestOptions' - Encryption at rest options for the domain.
 --
 -- 'dryRun', 'updateDomainConfig_dryRun' - This flag, when set to True, specifies whether the @UpdateDomain@
--- request should return the results of validation checks (DryRunResults)
--- without actually applying the change.
+-- request should return the results of validation check without actually
+-- applying the change.
 --
--- 'eBSOptions', 'updateDomainConfig_eBSOptions' - Specify the type and size of the EBS volume to use.
+-- 'eBSOptions', 'updateDomainConfig_eBSOptions' - The type and size of the EBS volume to attach to instances in the
+-- domain.
 --
--- 'accessPolicies', 'updateDomainConfig_accessPolicies' - IAM access policy as a JSON-formatted string.
+-- 'accessPolicies', 'updateDomainConfig_accessPolicies' - Identity and Access Management (IAM) access policy as a JSON-formatted
+-- string.
 --
--- 'vPCOptions', 'updateDomainConfig_vPCOptions' - Options to specify the subnets and security groups for the VPC endpoint.
+-- 'vPCOptions', 'updateDomainConfig_vPCOptions' - Options to specify the subnets and security groups for a VPC endpoint.
 -- For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>
--- .
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
 --
--- 'autoTuneOptions', 'updateDomainConfig_autoTuneOptions' - Specifies Auto-Tune options.
+-- 'autoTuneOptions', 'updateDomainConfig_autoTuneOptions' - Options for Auto-Tune.
 --
--- 'domainEndpointOptions', 'updateDomainConfig_domainEndpointOptions' - Options to specify configuration that will be applied to the domain
--- endpoint.
+-- 'domainEndpointOptions', 'updateDomainConfig_domainEndpointOptions' - Additional options for the domain endpoint, such as whether to require
+-- HTTPS for all traffic.
 --
 -- 'snapshotOptions', 'updateDomainConfig_snapshotOptions' - Option to set the time, in UTC format, for the daily automated snapshot.
 -- Default value is @0@ hours.
 --
--- 'logPublishingOptions', 'updateDomainConfig_logPublishingOptions' - Map of @LogType@ and @LogPublishingOption@, each containing options to
--- publish a given type of OpenSearch log.
+-- 'logPublishingOptions', 'updateDomainConfig_logPublishingOptions' - Options to publish OpenSearch lots to Amazon CloudWatch Logs.
 --
--- 'domainName', 'updateDomainConfig_domainName' - The name of the domain you\'re updating.
+-- 'domainName', 'updateDomainConfig_domainName' - The name of the domain that you\'re updating.
 newUpdateDomainConfig ::
   -- | 'domainName'
   Prelude.Text ->
@@ -189,63 +234,87 @@ newUpdateDomainConfig pDomainName_ =
       domainName = pDomainName_
     }
 
--- | Specifies node-to-node encryption options.
+-- | Node-To-Node Encryption options for the domain.
 updateDomainConfig_nodeToNodeEncryptionOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe NodeToNodeEncryptionOptions)
 updateDomainConfig_nodeToNodeEncryptionOptions = Lens.lens (\UpdateDomainConfig' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@UpdateDomainConfig' {} a -> s {nodeToNodeEncryptionOptions = a} :: UpdateDomainConfig)
 
--- | The type and number of instances to instantiate for the domain cluster.
+-- | Changes that you want to make to the cluster configuration, such as the
+-- instance type and number of EC2 instances.
 updateDomainConfig_clusterConfig :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe ClusterConfig)
 updateDomainConfig_clusterConfig = Lens.lens (\UpdateDomainConfig' {clusterConfig} -> clusterConfig) (\s@UpdateDomainConfig' {} a -> s {clusterConfig = a} :: UpdateDomainConfig)
 
--- | Modifies the advanced option to allow references to indices in an HTTP
--- request body. Must be @false@ when configuring access to individual
--- sub-resources. By default, the value is @true@. See
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced options>
--- for more information.
+-- | Key-value pairs to specify advanced configuration options. The following
+-- key-value pairs are supported:
+--
+-- -   @\"rest.action.multi.allow_explicit_index\": \"true\" | \"false\"@ -
+--     Note the use of a string rather than a boolean. Specifies whether
+--     explicit references to indexes are allowed inside the body of HTTP
+--     requests. If you want to configure access policies for domain
+--     sub-resources, such as specific indexes and domain APIs, you must
+--     disable this property. Default is true.
+--
+-- -   @\"indices.fielddata.cache.size\": \"80\" @ - Note the use of a
+--     string rather than a boolean. Specifies the percentage of heap space
+--     allocated to field data. Default is unbounded.
+--
+-- -   @\"indices.query.bool.max_clause_count\": \"1024\"@ - Note the use
+--     of a string rather than a boolean. Specifies the maximum number of
+--     clauses allowed in a Lucene boolean query. Default is 1,024. Queries
+--     with more than the permitted number of clauses result in a
+--     @TooManyClauses@ error.
+--
+-- -   @\"override_main_response_version\": \"true\" | \"false\"@ - Note
+--     the use of a string rather than a boolean. Specifies whether the
+--     domain reports its version as 7.10 to allow Elasticsearch OSS
+--     clients and plugins to continue working with it. Default is false
+--     when creating a domain and true when upgrading a domain.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced cluster parameters>.
 updateDomainConfig_advancedOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateDomainConfig_advancedOptions = Lens.lens (\UpdateDomainConfig' {advancedOptions} -> advancedOptions) (\s@UpdateDomainConfig' {} a -> s {advancedOptions = a} :: UpdateDomainConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies advanced security options.
+-- | Options for fine-grained access control.
 updateDomainConfig_advancedSecurityOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe AdvancedSecurityOptionsInput)
 updateDomainConfig_advancedSecurityOptions = Lens.lens (\UpdateDomainConfig' {advancedSecurityOptions} -> advancedSecurityOptions) (\s@UpdateDomainConfig' {} a -> s {advancedSecurityOptions = a} :: UpdateDomainConfig)
 
--- | Options to specify the Cognito user and identity pools for OpenSearch
--- Dashboards authentication. For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
+-- | Key-value pairs to configure Amazon Cognito authentication for
+-- OpenSearch Dashboards.
 updateDomainConfig_cognitoOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe CognitoOptions)
 updateDomainConfig_cognitoOptions = Lens.lens (\UpdateDomainConfig' {cognitoOptions} -> cognitoOptions) (\s@UpdateDomainConfig' {} a -> s {cognitoOptions = a} :: UpdateDomainConfig)
 
--- | Specifies encryption of data at rest options.
+-- | Encryption at rest options for the domain.
 updateDomainConfig_encryptionAtRestOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe EncryptionAtRestOptions)
 updateDomainConfig_encryptionAtRestOptions = Lens.lens (\UpdateDomainConfig' {encryptionAtRestOptions} -> encryptionAtRestOptions) (\s@UpdateDomainConfig' {} a -> s {encryptionAtRestOptions = a} :: UpdateDomainConfig)
 
 -- | This flag, when set to True, specifies whether the @UpdateDomain@
--- request should return the results of validation checks (DryRunResults)
--- without actually applying the change.
+-- request should return the results of validation check without actually
+-- applying the change.
 updateDomainConfig_dryRun :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe Prelude.Bool)
 updateDomainConfig_dryRun = Lens.lens (\UpdateDomainConfig' {dryRun} -> dryRun) (\s@UpdateDomainConfig' {} a -> s {dryRun = a} :: UpdateDomainConfig)
 
--- | Specify the type and size of the EBS volume to use.
+-- | The type and size of the EBS volume to attach to instances in the
+-- domain.
 updateDomainConfig_eBSOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe EBSOptions)
 updateDomainConfig_eBSOptions = Lens.lens (\UpdateDomainConfig' {eBSOptions} -> eBSOptions) (\s@UpdateDomainConfig' {} a -> s {eBSOptions = a} :: UpdateDomainConfig)
 
--- | IAM access policy as a JSON-formatted string.
+-- | Identity and Access Management (IAM) access policy as a JSON-formatted
+-- string.
 updateDomainConfig_accessPolicies :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe Prelude.Text)
 updateDomainConfig_accessPolicies = Lens.lens (\UpdateDomainConfig' {accessPolicies} -> accessPolicies) (\s@UpdateDomainConfig' {} a -> s {accessPolicies = a} :: UpdateDomainConfig)
 
--- | Options to specify the subnets and security groups for the VPC endpoint.
+-- | Options to specify the subnets and security groups for a VPC endpoint.
 -- For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>
--- .
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
 updateDomainConfig_vPCOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe VPCOptions)
 updateDomainConfig_vPCOptions = Lens.lens (\UpdateDomainConfig' {vPCOptions} -> vPCOptions) (\s@UpdateDomainConfig' {} a -> s {vPCOptions = a} :: UpdateDomainConfig)
 
--- | Specifies Auto-Tune options.
+-- | Options for Auto-Tune.
 updateDomainConfig_autoTuneOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe AutoTuneOptions)
 updateDomainConfig_autoTuneOptions = Lens.lens (\UpdateDomainConfig' {autoTuneOptions} -> autoTuneOptions) (\s@UpdateDomainConfig' {} a -> s {autoTuneOptions = a} :: UpdateDomainConfig)
 
--- | Options to specify configuration that will be applied to the domain
--- endpoint.
+-- | Additional options for the domain endpoint, such as whether to require
+-- HTTPS for all traffic.
 updateDomainConfig_domainEndpointOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe DomainEndpointOptions)
 updateDomainConfig_domainEndpointOptions = Lens.lens (\UpdateDomainConfig' {domainEndpointOptions} -> domainEndpointOptions) (\s@UpdateDomainConfig' {} a -> s {domainEndpointOptions = a} :: UpdateDomainConfig)
 
@@ -254,12 +323,11 @@ updateDomainConfig_domainEndpointOptions = Lens.lens (\UpdateDomainConfig' {doma
 updateDomainConfig_snapshotOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe SnapshotOptions)
 updateDomainConfig_snapshotOptions = Lens.lens (\UpdateDomainConfig' {snapshotOptions} -> snapshotOptions) (\s@UpdateDomainConfig' {} a -> s {snapshotOptions = a} :: UpdateDomainConfig)
 
--- | Map of @LogType@ and @LogPublishingOption@, each containing options to
--- publish a given type of OpenSearch log.
+-- | Options to publish OpenSearch lots to Amazon CloudWatch Logs.
 updateDomainConfig_logPublishingOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
 updateDomainConfig_logPublishingOptions = Lens.lens (\UpdateDomainConfig' {logPublishingOptions} -> logPublishingOptions) (\s@UpdateDomainConfig' {} a -> s {logPublishingOptions = a} :: UpdateDomainConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the domain you\'re updating.
+-- | The name of the domain that you\'re updating.
 updateDomainConfig_domainName :: Lens.Lens' UpdateDomainConfig Prelude.Text
 updateDomainConfig_domainName = Lens.lens (\UpdateDomainConfig' {domainName} -> domainName) (\s@UpdateDomainConfig' {} a -> s {domainName = a} :: UpdateDomainConfig)
 
@@ -267,8 +335,8 @@ instance Core.AWSRequest UpdateDomainConfig where
   type
     AWSResponse UpdateDomainConfig =
       UpdateDomainConfigResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -360,12 +428,12 @@ instance Core.ToPath UpdateDomainConfig where
 instance Core.ToQuery UpdateDomainConfig where
   toQuery = Prelude.const Prelude.mempty
 
--- | The result of an @UpdateDomain@ request. Contains the status of the
+-- | The results of an @UpdateDomain@ request. Contains the status of the
 -- domain being updated.
 --
 -- /See:/ 'newUpdateDomainConfigResponse' smart constructor.
 data UpdateDomainConfigResponse = UpdateDomainConfigResponse'
-  { -- | Contains result of DryRun.
+  { -- | Results of a dry run performed in an update domain request.
     dryRunResults :: Prelude.Maybe DryRunResults,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -382,7 +450,7 @@ data UpdateDomainConfigResponse = UpdateDomainConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dryRunResults', 'updateDomainConfigResponse_dryRunResults' - Contains result of DryRun.
+-- 'dryRunResults', 'updateDomainConfigResponse_dryRunResults' - Results of a dry run performed in an update domain request.
 --
 -- 'httpStatus', 'updateDomainConfigResponse_httpStatus' - The response's http status code.
 --
@@ -403,7 +471,7 @@ newUpdateDomainConfigResponse
         domainConfig = pDomainConfig_
       }
 
--- | Contains result of DryRun.
+-- | Results of a dry run performed in an update domain request.
 updateDomainConfigResponse_dryRunResults :: Lens.Lens' UpdateDomainConfigResponse (Prelude.Maybe DryRunResults)
 updateDomainConfigResponse_dryRunResults = Lens.lens (\UpdateDomainConfigResponse' {dryRunResults} -> dryRunResults) (\s@UpdateDomainConfigResponse' {} a -> s {dryRunResults = a} :: UpdateDomainConfigResponse)
 

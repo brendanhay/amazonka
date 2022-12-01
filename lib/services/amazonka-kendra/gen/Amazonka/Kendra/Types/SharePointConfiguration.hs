@@ -20,13 +20,13 @@
 module Amazonka.Kendra.Types.SharePointConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import Amazonka.Kendra.Types.DataSourceVpcConfiguration
 import Amazonka.Kendra.Types.ProxyConfiguration
 import Amazonka.Kendra.Types.S3Path
 import Amazonka.Kendra.Types.SharePointOnlineAuthenticationType
 import Amazonka.Kendra.Types.SharePointVersion
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information to connect to Microsoft

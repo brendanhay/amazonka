@@ -20,7 +20,7 @@
 module Amazonka.SQS.Types.MessageSystemAttributeValue where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user-specified message system attribute value. For string data

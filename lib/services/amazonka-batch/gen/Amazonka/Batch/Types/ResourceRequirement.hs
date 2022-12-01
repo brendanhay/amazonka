@@ -21,7 +21,7 @@ module Amazonka.Batch.Types.ResourceRequirement where
 
 import Amazonka.Batch.Types.ResourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type and amount of a resource to assign to a container. The
@@ -91,13 +91,28 @@ data ResourceRequirement = ResourceRequirement'
     --         @VCPU@ = 1 or 2
     --
     --     [value = 8192]
-    --         @VCPU@ = 1, 2, or 4
+    --         @VCPU@ = 1, 2, 4, or 8
     --
-    --     [value = 9216, 10240, 11264, 12288, 13312, 14336, 15360, or 16384]
+    --     [value = 9216, 10240, 11264, 12288, 13312, 14336, or 15360]
     --         @VCPU@ = 2 or 4
     --
-    --     [value = 17408, 18432, 19456, 20480, 21504, 22528, 23552, 24576, 25600, 26624, 27648, 28672, 29696, or 30720]
+    --     [value = 16384]
+    --         @VCPU@ = 2, 4, or 8
+    --
+    --     [value = 17408, 18432, 19456, 21504, 22528, 23552, 25600, 26624, 27648, 29696, or 30720]
     --         @VCPU@ = 4
+    --
+    --     [value = 20480, 24576, or 28672]
+    --         @VCPU@ = 4 or 8
+    --
+    --     [value = 36864, 45056, 53248, or 61440]
+    --         @VCPU@ = 8
+    --
+    --     [value = 32768, 40960, 49152, or 57344]
+    --         @VCPU@ = 8 or 16
+    --
+    --     [value = 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880]
+    --         @VCPU@ = 16
     --
     -- [type=\"VCPU\"]
     --     The number of vCPUs reserved for the container. This parameter maps
@@ -111,10 +126,15 @@ data ResourceRequirement = ResourceRequirement'
     --     specify at least one vCPU. This is required but can be specified in
     --     several places; it must be specified for each node at least once.
     --
+    --     The default for the Fargate On-Demand vCPU resource count quota is 6
+    --     vCPUs. For more information about Fargate quotas, see
+    --     <https://docs.aws.amazon.com/general/latest/gr/ecs-service.html#service-quotas-fargate Fargate quotas>
+    --     in the /Amazon Web Services General Reference/.
+    --
     --     For jobs that are running on Fargate resources, then @value@ must
     --     match one of the supported values and the @MEMORY@ values must be
     --     one of the values supported for that @VCPU@ value. The supported
-    --     values are 0.25, 0.5, 1, 2, and 4
+    --     values are 0.25, 0.5, 1, 2, 4, 8, and 16
     --
     --     [value = 0.25]
     --         @MEMORY@ = 512, 1024, or 2048
@@ -133,6 +153,14 @@ data ResourceRequirement = ResourceRequirement'
     --         @MEMORY@ = 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360,
     --         16384, 17408, 18432, 19456, 20480, 21504, 22528, 23552, 24576,
     --         25600, 26624, 27648, 28672, 29696, or 30720
+    --
+    --     [value = 8]
+    --         @MEMORY@ = 16384, 20480, 24576, 28672, 32768, 36864, 40960,
+    --         45056, 49152, 53248, 57344, or 61440
+    --
+    --     [value = 16]
+    --         @MEMORY@ = 32768, 40960, 49152, 57344, 65536, 73728, 81920,
+    --         90112, 98304, 106496, 114688, or 122880
     value :: Prelude.Text,
     -- | The type of resource to assign to a container. The supported resources
     -- include @GPU@, @MEMORY@, and @VCPU@.
@@ -210,13 +238,28 @@ data ResourceRequirement = ResourceRequirement'
 --         @VCPU@ = 1 or 2
 --
 --     [value = 8192]
---         @VCPU@ = 1, 2, or 4
+--         @VCPU@ = 1, 2, 4, or 8
 --
---     [value = 9216, 10240, 11264, 12288, 13312, 14336, 15360, or 16384]
+--     [value = 9216, 10240, 11264, 12288, 13312, 14336, or 15360]
 --         @VCPU@ = 2 or 4
 --
---     [value = 17408, 18432, 19456, 20480, 21504, 22528, 23552, 24576, 25600, 26624, 27648, 28672, 29696, or 30720]
+--     [value = 16384]
+--         @VCPU@ = 2, 4, or 8
+--
+--     [value = 17408, 18432, 19456, 21504, 22528, 23552, 25600, 26624, 27648, 29696, or 30720]
 --         @VCPU@ = 4
+--
+--     [value = 20480, 24576, or 28672]
+--         @VCPU@ = 4 or 8
+--
+--     [value = 36864, 45056, 53248, or 61440]
+--         @VCPU@ = 8
+--
+--     [value = 32768, 40960, 49152, or 57344]
+--         @VCPU@ = 8 or 16
+--
+--     [value = 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880]
+--         @VCPU@ = 16
 --
 -- [type=\"VCPU\"]
 --     The number of vCPUs reserved for the container. This parameter maps
@@ -230,10 +273,15 @@ data ResourceRequirement = ResourceRequirement'
 --     specify at least one vCPU. This is required but can be specified in
 --     several places; it must be specified for each node at least once.
 --
+--     The default for the Fargate On-Demand vCPU resource count quota is 6
+--     vCPUs. For more information about Fargate quotas, see
+--     <https://docs.aws.amazon.com/general/latest/gr/ecs-service.html#service-quotas-fargate Fargate quotas>
+--     in the /Amazon Web Services General Reference/.
+--
 --     For jobs that are running on Fargate resources, then @value@ must
 --     match one of the supported values and the @MEMORY@ values must be
 --     one of the values supported for that @VCPU@ value. The supported
---     values are 0.25, 0.5, 1, 2, and 4
+--     values are 0.25, 0.5, 1, 2, 4, 8, and 16
 --
 --     [value = 0.25]
 --         @MEMORY@ = 512, 1024, or 2048
@@ -252,6 +300,14 @@ data ResourceRequirement = ResourceRequirement'
 --         @MEMORY@ = 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360,
 --         16384, 17408, 18432, 19456, 20480, 21504, 22528, 23552, 24576,
 --         25600, 26624, 27648, 28672, 29696, or 30720
+--
+--     [value = 8]
+--         @MEMORY@ = 16384, 20480, 24576, 28672, 32768, 36864, 40960,
+--         45056, 49152, 53248, 57344, or 61440
+--
+--     [value = 16]
+--         @MEMORY@ = 32768, 40960, 49152, 57344, 65536, 73728, 81920,
+--         90112, 98304, 106496, 114688, or 122880
 --
 -- 'type'', 'resourceRequirement_type' - The type of resource to assign to a container. The supported resources
 -- include @GPU@, @MEMORY@, and @VCPU@.
@@ -329,13 +385,28 @@ newResourceRequirement pValue_ pType_ =
 --         @VCPU@ = 1 or 2
 --
 --     [value = 8192]
---         @VCPU@ = 1, 2, or 4
+--         @VCPU@ = 1, 2, 4, or 8
 --
---     [value = 9216, 10240, 11264, 12288, 13312, 14336, 15360, or 16384]
+--     [value = 9216, 10240, 11264, 12288, 13312, 14336, or 15360]
 --         @VCPU@ = 2 or 4
 --
---     [value = 17408, 18432, 19456, 20480, 21504, 22528, 23552, 24576, 25600, 26624, 27648, 28672, 29696, or 30720]
+--     [value = 16384]
+--         @VCPU@ = 2, 4, or 8
+--
+--     [value = 17408, 18432, 19456, 21504, 22528, 23552, 25600, 26624, 27648, 29696, or 30720]
 --         @VCPU@ = 4
+--
+--     [value = 20480, 24576, or 28672]
+--         @VCPU@ = 4 or 8
+--
+--     [value = 36864, 45056, 53248, or 61440]
+--         @VCPU@ = 8
+--
+--     [value = 32768, 40960, 49152, or 57344]
+--         @VCPU@ = 8 or 16
+--
+--     [value = 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880]
+--         @VCPU@ = 16
 --
 -- [type=\"VCPU\"]
 --     The number of vCPUs reserved for the container. This parameter maps
@@ -349,10 +420,15 @@ newResourceRequirement pValue_ pType_ =
 --     specify at least one vCPU. This is required but can be specified in
 --     several places; it must be specified for each node at least once.
 --
+--     The default for the Fargate On-Demand vCPU resource count quota is 6
+--     vCPUs. For more information about Fargate quotas, see
+--     <https://docs.aws.amazon.com/general/latest/gr/ecs-service.html#service-quotas-fargate Fargate quotas>
+--     in the /Amazon Web Services General Reference/.
+--
 --     For jobs that are running on Fargate resources, then @value@ must
 --     match one of the supported values and the @MEMORY@ values must be
 --     one of the values supported for that @VCPU@ value. The supported
---     values are 0.25, 0.5, 1, 2, and 4
+--     values are 0.25, 0.5, 1, 2, 4, 8, and 16
 --
 --     [value = 0.25]
 --         @MEMORY@ = 512, 1024, or 2048
@@ -371,6 +447,14 @@ newResourceRequirement pValue_ pType_ =
 --         @MEMORY@ = 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360,
 --         16384, 17408, 18432, 19456, 20480, 21504, 22528, 23552, 24576,
 --         25600, 26624, 27648, 28672, 29696, or 30720
+--
+--     [value = 8]
+--         @MEMORY@ = 16384, 20480, 24576, 28672, 32768, 36864, 40960,
+--         45056, 49152, 53248, 57344, or 61440
+--
+--     [value = 16]
+--         @MEMORY@ = 32768, 40960, 49152, 57344, 65536, 73728, 81920,
+--         90112, 98304, 106496, 114688, or 122880
 resourceRequirement_value :: Lens.Lens' ResourceRequirement Prelude.Text
 resourceRequirement_value = Lens.lens (\ResourceRequirement' {value} -> value) (\s@ResourceRequirement' {} a -> s {value = a} :: ResourceRequirement)
 

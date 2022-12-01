@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeadersConfig where
 
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeader
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of HTTP response header names and their values. CloudFront

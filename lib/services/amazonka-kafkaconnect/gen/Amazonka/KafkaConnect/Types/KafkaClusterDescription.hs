@@ -20,8 +20,8 @@
 module Amazonka.KafkaConnect.Types.KafkaClusterDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of how to connect to the Apache Kafka cluster.

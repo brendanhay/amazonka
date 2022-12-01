@@ -20,7 +20,7 @@
 module Amazonka.GroundStation.Types.DataflowEndpointListItem where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Item in a list of @DataflowEndpoint@ groups.

@@ -20,9 +20,9 @@
 module Amazonka.Kendra.Types.AdditionalResultAttribute where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.AdditionalResultAttributeValue
 import Amazonka.Kendra.Types.AdditionalResultAttributeValueType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attribute returned from an index query.

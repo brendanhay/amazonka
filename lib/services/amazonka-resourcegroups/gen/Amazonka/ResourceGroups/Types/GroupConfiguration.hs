@@ -20,7 +20,7 @@
 module Amazonka.ResourceGroups.Types.GroupConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceGroups.Types.GroupConfigurationItem
 import Amazonka.ResourceGroups.Types.GroupConfigurationStatus

@@ -20,13 +20,13 @@
 module Amazonka.ElasticBeanstalk.Types.EnvironmentDescription where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticBeanstalk.Types.EnvironmentHealth
 import Amazonka.ElasticBeanstalk.Types.EnvironmentHealthStatus
 import Amazonka.ElasticBeanstalk.Types.EnvironmentLink
 import Amazonka.ElasticBeanstalk.Types.EnvironmentResourcesDescription
 import Amazonka.ElasticBeanstalk.Types.EnvironmentStatus
 import Amazonka.ElasticBeanstalk.Types.EnvironmentTier
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the properties of an environment.

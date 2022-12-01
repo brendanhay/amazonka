@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsApiGatewayEndpointConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the endpoints for the API.

@@ -20,7 +20,7 @@
 module Amazonka.ComprehendMedical.Types.ICD10CMConcept where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The ICD-10-CM concepts that the entity could refer to, along with a

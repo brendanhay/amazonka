@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.VpnTunnelOptionsSpecification where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IKEVersionsRequestListValue
 import Amazonka.EC2.Types.Phase1DHGroupNumbersRequestListValue
@@ -29,7 +30,6 @@ import Amazonka.EC2.Types.Phase2DHGroupNumbersRequestListValue
 import Amazonka.EC2.Types.Phase2EncryptionAlgorithmsRequestListValue
 import Amazonka.EC2.Types.Phase2IntegrityAlgorithmsRequestListValue
 import Amazonka.EC2.Types.VpnTunnelLogOptionsSpecification
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The tunnel options for a single VPN tunnel.

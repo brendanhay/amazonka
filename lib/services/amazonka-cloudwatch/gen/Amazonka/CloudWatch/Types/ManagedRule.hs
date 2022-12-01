@@ -21,7 +21,7 @@ module Amazonka.CloudWatch.Types.ManagedRule where
 
 import Amazonka.CloudWatch.Types.Tag
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the information that\'s required to enable a managed

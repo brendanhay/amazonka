@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.AlgorithmSpecification where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MetricDefinition
 import Amazonka.SageMaker.Types.TrainingInputMode
@@ -34,7 +34,14 @@ import Amazonka.SageMaker.Types.TrainingInputMode
 --
 -- /See:/ 'newAlgorithmSpecification' smart constructor.
 data AlgorithmSpecification = AlgorithmSpecification'
-  { -- | The name of the algorithm resource to use for the training job. This
+  { -- | The
+    -- <https://docs.docker.com/engine/reference/builder/ entrypoint script for a Docker container>
+    -- used to run a training job. This script takes precedence over the
+    -- default train processing instructions. See
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html How Amazon SageMaker Runs Your Training Image>
+    -- for more information.
+    containerEntrypoint :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The name of the algorithm resource to use for the training job. This
     -- must be an algorithm resource that you created or subscribe to on Amazon
     -- Web Services Marketplace.
     --
@@ -55,6 +62,10 @@ data AlgorithmSpecification = AlgorithmSpecification'
     -- name and regular expressions used to parse algorithm logs. SageMaker
     -- publishes each metric to Amazon CloudWatch.
     metricDefinitions :: Prelude.Maybe [MetricDefinition],
+    -- | The arguments for a container used to run a training job. See
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html How Amazon SageMaker Runs Your Training Image>
+    -- for additional information.
+    containerArguments :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The registry path of the Docker image that contains the training
     -- algorithm. For information about docker registry paths for SageMaker
     -- built-in algorithms, see
@@ -101,6 +112,13 @@ data AlgorithmSpecification = AlgorithmSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'containerEntrypoint', 'algorithmSpecification_containerEntrypoint' - The
+-- <https://docs.docker.com/engine/reference/builder/ entrypoint script for a Docker container>
+-- used to run a training job. This script takes precedence over the
+-- default train processing instructions. See
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html How Amazon SageMaker Runs Your Training Image>
+-- for more information.
+--
 -- 'algorithmName', 'algorithmSpecification_algorithmName' - The name of the algorithm resource to use for the training job. This
 -- must be an algorithm resource that you created or subscribe to on Amazon
 -- Web Services Marketplace.
@@ -121,6 +139,10 @@ data AlgorithmSpecification = AlgorithmSpecification'
 -- 'metricDefinitions', 'algorithmSpecification_metricDefinitions' - A list of metric definition objects. Each object specifies the metric
 -- name and regular expressions used to parse algorithm logs. SageMaker
 -- publishes each metric to Amazon CloudWatch.
+--
+-- 'containerArguments', 'algorithmSpecification_containerArguments' - The arguments for a container used to run a training job. See
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html How Amazon SageMaker Runs Your Training Image>
+-- for additional information.
 --
 -- 'trainingImage', 'algorithmSpecification_trainingImage' - The registry path of the Docker image that contains the training
 -- algorithm. For information about docker registry paths for SageMaker
@@ -163,13 +185,24 @@ newAlgorithmSpecification ::
   AlgorithmSpecification
 newAlgorithmSpecification pTrainingInputMode_ =
   AlgorithmSpecification'
-    { algorithmName =
+    { containerEntrypoint =
         Prelude.Nothing,
+      algorithmName = Prelude.Nothing,
       metricDefinitions = Prelude.Nothing,
+      containerArguments = Prelude.Nothing,
       trainingImage = Prelude.Nothing,
       enableSageMakerMetricsTimeSeries = Prelude.Nothing,
       trainingInputMode = pTrainingInputMode_
     }
+
+-- | The
+-- <https://docs.docker.com/engine/reference/builder/ entrypoint script for a Docker container>
+-- used to run a training job. This script takes precedence over the
+-- default train processing instructions. See
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html How Amazon SageMaker Runs Your Training Image>
+-- for more information.
+algorithmSpecification_containerEntrypoint :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+algorithmSpecification_containerEntrypoint = Lens.lens (\AlgorithmSpecification' {containerEntrypoint} -> containerEntrypoint) (\s@AlgorithmSpecification' {} a -> s {containerEntrypoint = a} :: AlgorithmSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the algorithm resource to use for the training job. This
 -- must be an algorithm resource that you created or subscribe to on Amazon
@@ -195,6 +228,12 @@ algorithmSpecification_algorithmName = Lens.lens (\AlgorithmSpecification' {algo
 -- publishes each metric to Amazon CloudWatch.
 algorithmSpecification_metricDefinitions :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe [MetricDefinition])
 algorithmSpecification_metricDefinitions = Lens.lens (\AlgorithmSpecification' {metricDefinitions} -> metricDefinitions) (\s@AlgorithmSpecification' {} a -> s {metricDefinitions = a} :: AlgorithmSpecification) Prelude.. Lens.mapping Lens.coerced
+
+-- | The arguments for a container used to run a training job. See
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html How Amazon SageMaker Runs Your Training Image>
+-- for additional information.
+algorithmSpecification_containerArguments :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+algorithmSpecification_containerArguments = Lens.lens (\AlgorithmSpecification' {containerArguments} -> containerArguments) (\s@AlgorithmSpecification' {} a -> s {containerArguments = a} :: AlgorithmSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | The registry path of the Docker image that contains the training
 -- algorithm. For information about docker registry paths for SageMaker
@@ -244,10 +283,12 @@ instance Core.FromJSON AlgorithmSpecification where
       "AlgorithmSpecification"
       ( \x ->
           AlgorithmSpecification'
-            Prelude.<$> (x Core..:? "AlgorithmName")
+            Prelude.<$> (x Core..:? "ContainerEntrypoint")
+            Prelude.<*> (x Core..:? "AlgorithmName")
             Prelude.<*> ( x Core..:? "MetricDefinitions"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "ContainerArguments")
             Prelude.<*> (x Core..:? "TrainingImage")
             Prelude.<*> (x Core..:? "EnableSageMakerMetricsTimeSeries")
             Prelude.<*> (x Core..: "TrainingInputMode")
@@ -255,16 +296,20 @@ instance Core.FromJSON AlgorithmSpecification where
 
 instance Prelude.Hashable AlgorithmSpecification where
   hashWithSalt _salt AlgorithmSpecification' {..} =
-    _salt `Prelude.hashWithSalt` algorithmName
+    _salt `Prelude.hashWithSalt` containerEntrypoint
+      `Prelude.hashWithSalt` algorithmName
       `Prelude.hashWithSalt` metricDefinitions
+      `Prelude.hashWithSalt` containerArguments
       `Prelude.hashWithSalt` trainingImage
       `Prelude.hashWithSalt` enableSageMakerMetricsTimeSeries
       `Prelude.hashWithSalt` trainingInputMode
 
 instance Prelude.NFData AlgorithmSpecification where
   rnf AlgorithmSpecification' {..} =
-    Prelude.rnf algorithmName
+    Prelude.rnf containerEntrypoint
+      `Prelude.seq` Prelude.rnf algorithmName
       `Prelude.seq` Prelude.rnf metricDefinitions
+      `Prelude.seq` Prelude.rnf containerArguments
       `Prelude.seq` Prelude.rnf trainingImage
       `Prelude.seq` Prelude.rnf enableSageMakerMetricsTimeSeries
       `Prelude.seq` Prelude.rnf trainingInputMode
@@ -273,9 +318,13 @@ instance Core.ToJSON AlgorithmSpecification where
   toJSON AlgorithmSpecification' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AlgorithmName" Core..=) Prelude.<$> algorithmName,
+          [ ("ContainerEntrypoint" Core..=)
+              Prelude.<$> containerEntrypoint,
+            ("AlgorithmName" Core..=) Prelude.<$> algorithmName,
             ("MetricDefinitions" Core..=)
               Prelude.<$> metricDefinitions,
+            ("ContainerArguments" Core..=)
+              Prelude.<$> containerArguments,
             ("TrainingImage" Core..=) Prelude.<$> trainingImage,
             ("EnableSageMakerMetricsTimeSeries" Core..=)
               Prelude.<$> enableSageMakerMetricsTimeSeries,

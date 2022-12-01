@@ -20,7 +20,7 @@
 module Amazonka.DirectoryService.Types.LogSubscription where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a log subscription, which tracks real-time data from a chosen

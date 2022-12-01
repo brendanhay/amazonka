@@ -21,7 +21,7 @@ module Amazonka.AppFlow.Types.OAuth2CustomParameter where
 
 import Amazonka.AppFlow.Types.OAuth2CustomPropType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Custom parameter required for OAuth 2.0 authentication.

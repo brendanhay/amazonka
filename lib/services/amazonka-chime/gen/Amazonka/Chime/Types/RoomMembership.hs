@@ -22,7 +22,7 @@ module Amazonka.Chime.Types.RoomMembership where
 import Amazonka.Chime.Types.Member
 import Amazonka.Chime.Types.RoomMembershipRole
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The room membership details.

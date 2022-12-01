@@ -20,11 +20,11 @@
 module Amazonka.EMR.Types.InstanceFleet where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types.InstanceFleetProvisioningSpecifications
 import Amazonka.EMR.Types.InstanceFleetStatus
 import Amazonka.EMR.Types.InstanceFleetType
 import Amazonka.EMR.Types.InstanceTypeSpecification
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance fleet, which is a group of EC2 instances that host

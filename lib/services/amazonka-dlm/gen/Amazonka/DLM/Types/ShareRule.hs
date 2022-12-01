@@ -20,8 +20,8 @@
 module Amazonka.DLM.Types.ShareRule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.RetentionIntervalUnitValues
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot policies only]__ Specifies a rule for sharing snapshots

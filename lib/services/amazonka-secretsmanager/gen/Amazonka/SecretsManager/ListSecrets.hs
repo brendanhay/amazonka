@@ -71,7 +71,7 @@ module Amazonka.SecretsManager.ListSecrets
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,7 +79,7 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newListSecrets' smart constructor.
 data ListSecrets = ListSecrets'
-  { -- | Lists secrets in the requested order.
+  { -- | Secrets are listed by @CreatedDate@.
     sortOrder :: Prelude.Maybe SortOrderType,
     -- | A token that indicates where the output should continue from, if a
     -- previous call did not show all results. To get the next results, call
@@ -104,7 +104,7 @@ data ListSecrets = ListSecrets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listSecrets_sortOrder' - Lists secrets in the requested order.
+-- 'sortOrder', 'listSecrets_sortOrder' - Secrets are listed by @CreatedDate@.
 --
 -- 'nextToken', 'listSecrets_nextToken' - A token that indicates where the output should continue from, if a
 -- previous call did not show all results. To get the next results, call
@@ -127,7 +127,7 @@ newListSecrets =
       maxResults = Prelude.Nothing
     }
 
--- | Lists secrets in the requested order.
+-- | Secrets are listed by @CreatedDate@.
 listSecrets_sortOrder :: Lens.Lens' ListSecrets (Prelude.Maybe SortOrderType)
 listSecrets_sortOrder = Lens.lens (\ListSecrets' {sortOrder} -> sortOrder) (\s@ListSecrets' {} a -> s {sortOrder = a} :: ListSecrets)
 
@@ -170,8 +170,8 @@ instance Core.AWSPager ListSecrets where
 
 instance Core.AWSRequest ListSecrets where
   type AWSResponse ListSecrets = ListSecretsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

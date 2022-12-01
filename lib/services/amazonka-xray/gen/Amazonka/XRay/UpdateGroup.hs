@@ -43,7 +43,7 @@ module Amazonka.XRay.UpdateGroup
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +56,7 @@ data UpdateGroup = UpdateGroup'
     -- -   The InsightsEnabled boolean can be set to true to enable insights
     --     for the group or false to disable insights for the group.
     --
-    -- -   The NotifcationsEnabled boolean can be set to true to enable
+    -- -   The NotificationsEnabled boolean can be set to true to enable
     --     insights notifications for the group. Notifications can only be
     --     enabled on a group with InsightsEnabled set to true.
     insightsConfiguration :: Prelude.Maybe InsightsConfiguration,
@@ -83,7 +83,7 @@ data UpdateGroup = UpdateGroup'
 -- -   The InsightsEnabled boolean can be set to true to enable insights
 --     for the group or false to disable insights for the group.
 --
--- -   The NotifcationsEnabled boolean can be set to true to enable
+-- -   The NotificationsEnabled boolean can be set to true to enable
 --     insights notifications for the group. Notifications can only be
 --     enabled on a group with InsightsEnabled set to true.
 --
@@ -109,7 +109,7 @@ newUpdateGroup =
 -- -   The InsightsEnabled boolean can be set to true to enable insights
 --     for the group or false to disable insights for the group.
 --
--- -   The NotifcationsEnabled boolean can be set to true to enable
+-- -   The NotificationsEnabled boolean can be set to true to enable
 --     insights notifications for the group. Notifications can only be
 --     enabled on a group with InsightsEnabled set to true.
 updateGroup_insightsConfiguration :: Lens.Lens' UpdateGroup (Prelude.Maybe InsightsConfiguration)
@@ -130,8 +130,8 @@ updateGroup_groupARN = Lens.lens (\UpdateGroup' {groupARN} -> groupARN) (\s@Upda
 
 instance Core.AWSRequest UpdateGroup where
   type AWSResponse UpdateGroup = UpdateGroupResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

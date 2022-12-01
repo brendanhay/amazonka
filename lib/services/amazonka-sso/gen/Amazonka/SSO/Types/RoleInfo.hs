@@ -20,7 +20,7 @@
 module Amazonka.SSO.Types.RoleInfo where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the role that is assigned to the user.

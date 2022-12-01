@@ -20,12 +20,12 @@
 module Amazonka.ElasticTranscoder.Types.JobOutput where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types.Captions
 import Amazonka.ElasticTranscoder.Types.Clip
 import Amazonka.ElasticTranscoder.Types.Encryption
 import Amazonka.ElasticTranscoder.Types.JobAlbumArt
 import Amazonka.ElasticTranscoder.Types.JobWatermark
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Outputs recommended instead.

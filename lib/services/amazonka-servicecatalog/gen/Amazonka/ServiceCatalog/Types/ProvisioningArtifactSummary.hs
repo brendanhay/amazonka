@@ -20,7 +20,7 @@
 module Amazonka.ServiceCatalog.Types.ProvisioningArtifactSummary where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a provisioning artifact (also known as a

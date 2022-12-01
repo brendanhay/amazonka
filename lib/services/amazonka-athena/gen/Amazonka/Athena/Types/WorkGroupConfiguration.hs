@@ -22,7 +22,7 @@ module Amazonka.Athena.Types.WorkGroupConfiguration where
 import Amazonka.Athena.Types.EngineVersion
 import Amazonka.Athena.Types.ResultConfiguration
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of the workgroup, which includes the location in

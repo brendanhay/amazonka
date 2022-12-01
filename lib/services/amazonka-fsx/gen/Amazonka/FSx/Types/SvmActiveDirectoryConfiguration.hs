@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.SvmActiveDirectoryConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.SelfManagedActiveDirectoryAttributes
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of the Microsoft Active Directory (AD)

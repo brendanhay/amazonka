@@ -20,7 +20,7 @@
 module Amazonka.GameLift.Types.PlacedPlayerSession where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a player session that was created as part of a

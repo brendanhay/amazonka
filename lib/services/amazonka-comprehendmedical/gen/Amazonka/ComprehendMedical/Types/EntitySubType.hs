@@ -23,6 +23,9 @@ module Amazonka.ComprehendMedical.Types.EntitySubType
         EntitySubType_ACUITY,
         EntitySubType_ADDRESS,
         EntitySubType_AGE,
+        EntitySubType_ALCOHOL_CONSUMPTION,
+        EntitySubType_ALLERGIES,
+        EntitySubType_AMOUNT,
         EntitySubType_BRAND_NAME,
         EntitySubType_CONTACT_POINT,
         EntitySubType_DATE,
@@ -33,6 +36,7 @@ module Amazonka.ComprehendMedical.Types.EntitySubType
         EntitySubType_EMAIL,
         EntitySubType_FORM,
         EntitySubType_FREQUENCY,
+        EntitySubType_GENDER,
         EntitySubType_GENERIC_NAME,
         EntitySubType_ID,
         EntitySubType_IDENTIFIER,
@@ -42,7 +46,9 @@ module Amazonka.ComprehendMedical.Types.EntitySubType
         EntitySubType_PROFESSION,
         EntitySubType_QUALITY,
         EntitySubType_QUANTITY,
+        EntitySubType_RACE_ETHNICITY,
         EntitySubType_RATE,
+        EntitySubType_REC_DRUG_USE,
         EntitySubType_ROUTE_OR_MODE,
         EntitySubType_STRENGTH,
         EntitySubType_SYSTEM_ORGAN_SITE,
@@ -56,6 +62,7 @@ module Amazonka.ComprehendMedical.Types.EntitySubType
         EntitySubType_TIME_TO_PROCEDURE_NAME,
         EntitySubType_TIME_TO_TEST_NAME,
         EntitySubType_TIME_TO_TREATMENT_NAME,
+        EntitySubType_TOBACCO_USE,
         EntitySubType_TREATMENT_NAME,
         EntitySubType_URL
       ),
@@ -102,6 +109,15 @@ pattern EntitySubType_ADDRESS = EntitySubType' "ADDRESS"
 pattern EntitySubType_AGE :: EntitySubType
 pattern EntitySubType_AGE = EntitySubType' "AGE"
 
+pattern EntitySubType_ALCOHOL_CONSUMPTION :: EntitySubType
+pattern EntitySubType_ALCOHOL_CONSUMPTION = EntitySubType' "ALCOHOL_CONSUMPTION"
+
+pattern EntitySubType_ALLERGIES :: EntitySubType
+pattern EntitySubType_ALLERGIES = EntitySubType' "ALLERGIES"
+
+pattern EntitySubType_AMOUNT :: EntitySubType
+pattern EntitySubType_AMOUNT = EntitySubType' "AMOUNT"
+
 pattern EntitySubType_BRAND_NAME :: EntitySubType
 pattern EntitySubType_BRAND_NAME = EntitySubType' "BRAND_NAME"
 
@@ -132,6 +148,9 @@ pattern EntitySubType_FORM = EntitySubType' "FORM"
 pattern EntitySubType_FREQUENCY :: EntitySubType
 pattern EntitySubType_FREQUENCY = EntitySubType' "FREQUENCY"
 
+pattern EntitySubType_GENDER :: EntitySubType
+pattern EntitySubType_GENDER = EntitySubType' "GENDER"
+
 pattern EntitySubType_GENERIC_NAME :: EntitySubType
 pattern EntitySubType_GENERIC_NAME = EntitySubType' "GENERIC_NAME"
 
@@ -159,8 +178,14 @@ pattern EntitySubType_QUALITY = EntitySubType' "QUALITY"
 pattern EntitySubType_QUANTITY :: EntitySubType
 pattern EntitySubType_QUANTITY = EntitySubType' "QUANTITY"
 
+pattern EntitySubType_RACE_ETHNICITY :: EntitySubType
+pattern EntitySubType_RACE_ETHNICITY = EntitySubType' "RACE_ETHNICITY"
+
 pattern EntitySubType_RATE :: EntitySubType
 pattern EntitySubType_RATE = EntitySubType' "RATE"
+
+pattern EntitySubType_REC_DRUG_USE :: EntitySubType
+pattern EntitySubType_REC_DRUG_USE = EntitySubType' "REC_DRUG_USE"
 
 pattern EntitySubType_ROUTE_OR_MODE :: EntitySubType
 pattern EntitySubType_ROUTE_OR_MODE = EntitySubType' "ROUTE_OR_MODE"
@@ -201,6 +226,9 @@ pattern EntitySubType_TIME_TO_TEST_NAME = EntitySubType' "TIME_TO_TEST_NAME"
 pattern EntitySubType_TIME_TO_TREATMENT_NAME :: EntitySubType
 pattern EntitySubType_TIME_TO_TREATMENT_NAME = EntitySubType' "TIME_TO_TREATMENT_NAME"
 
+pattern EntitySubType_TOBACCO_USE :: EntitySubType
+pattern EntitySubType_TOBACCO_USE = EntitySubType' "TOBACCO_USE"
+
 pattern EntitySubType_TREATMENT_NAME :: EntitySubType
 pattern EntitySubType_TREATMENT_NAME = EntitySubType' "TREATMENT_NAME"
 
@@ -211,6 +239,9 @@ pattern EntitySubType_URL = EntitySubType' "URL"
   EntitySubType_ACUITY,
   EntitySubType_ADDRESS,
   EntitySubType_AGE,
+  EntitySubType_ALCOHOL_CONSUMPTION,
+  EntitySubType_ALLERGIES,
+  EntitySubType_AMOUNT,
   EntitySubType_BRAND_NAME,
   EntitySubType_CONTACT_POINT,
   EntitySubType_DATE,
@@ -221,6 +252,7 @@ pattern EntitySubType_URL = EntitySubType' "URL"
   EntitySubType_EMAIL,
   EntitySubType_FORM,
   EntitySubType_FREQUENCY,
+  EntitySubType_GENDER,
   EntitySubType_GENERIC_NAME,
   EntitySubType_ID,
   EntitySubType_IDENTIFIER,
@@ -230,7 +262,9 @@ pattern EntitySubType_URL = EntitySubType' "URL"
   EntitySubType_PROFESSION,
   EntitySubType_QUALITY,
   EntitySubType_QUANTITY,
+  EntitySubType_RACE_ETHNICITY,
   EntitySubType_RATE,
+  EntitySubType_REC_DRUG_USE,
   EntitySubType_ROUTE_OR_MODE,
   EntitySubType_STRENGTH,
   EntitySubType_SYSTEM_ORGAN_SITE,
@@ -244,6 +278,7 @@ pattern EntitySubType_URL = EntitySubType' "URL"
   EntitySubType_TIME_TO_PROCEDURE_NAME,
   EntitySubType_TIME_TO_TEST_NAME,
   EntitySubType_TIME_TO_TREATMENT_NAME,
+  EntitySubType_TOBACCO_USE,
   EntitySubType_TREATMENT_NAME,
   EntitySubType_URL,
   EntitySubType'

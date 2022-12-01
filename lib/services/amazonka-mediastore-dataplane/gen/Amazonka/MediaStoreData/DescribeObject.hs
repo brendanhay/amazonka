@@ -44,7 +44,7 @@ module Amazonka.MediaStoreData.DescribeObject
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaStoreData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,8 +84,8 @@ instance Core.AWSRequest DescribeObject where
   type
     AWSResponse DescribeObject =
       DescribeObjectResponse
-  service _ = defaultService
-  request srv = Request.head' srv
+  request overrides =
+    Request.head' (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

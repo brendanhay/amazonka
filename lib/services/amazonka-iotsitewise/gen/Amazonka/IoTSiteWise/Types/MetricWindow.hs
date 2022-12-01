@@ -20,8 +20,8 @@
 module Amazonka.IoTSiteWise.Types.MetricWindow where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.TumblingWindow
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a time interval window used for data aggregate computations

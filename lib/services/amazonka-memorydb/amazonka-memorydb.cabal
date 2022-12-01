@@ -86,6 +86,7 @@ library
     Amazonka.MemoryDb.Types.Cluster
     Amazonka.MemoryDb.Types.ClusterConfiguration
     Amazonka.MemoryDb.Types.ClusterPendingUpdates
+    Amazonka.MemoryDb.Types.DataTieringStatus
     Amazonka.MemoryDb.Types.Endpoint
     Amazonka.MemoryDb.Types.EngineVersionInfo
     Amazonka.MemoryDb.Types.Event

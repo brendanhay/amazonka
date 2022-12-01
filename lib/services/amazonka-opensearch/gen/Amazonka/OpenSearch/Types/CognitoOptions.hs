@@ -20,23 +20,26 @@
 module Amazonka.OpenSearch.Types.CognitoOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Options to specify the Cognito user and identity pools for OpenSearch
--- Dashboards authentication. For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
+-- | Container for the parameters required to enable Cognito authentication
+-- for an OpenSearch Service domain. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
 --
 -- /See:/ 'newCognitoOptions' smart constructor.
 data CognitoOptions = CognitoOptions'
-  { -- | The role ARN that provides OpenSearch permissions for accessing Cognito
-    -- resources.
+  { -- | The @AmazonOpenSearchServiceCognitoAccess@ role that allows OpenSearch
+    -- Service to configure your user pool and identity pool.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The option to enable Cognito for OpenSearch Dashboards authentication.
+    -- | Whether to enable or disable Amazon Cognito authentication for
+    -- OpenSearch Dashboards.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The Cognito identity pool ID for OpenSearch Dashboards authentication.
+    -- | The Amazon Cognito identity pool ID that you want OpenSearch Service to
+    -- use for OpenSearch Dashboards authentication.
     identityPoolId :: Prelude.Maybe Prelude.Text,
-    -- | The Cognito user pool ID for OpenSearch Dashboards authentication.
+    -- | The Amazon Cognito user pool ID that you want OpenSearch Service to use
+    -- for OpenSearch Dashboards authentication.
     userPoolId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,14 +52,17 @@ data CognitoOptions = CognitoOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'cognitoOptions_roleArn' - The role ARN that provides OpenSearch permissions for accessing Cognito
--- resources.
+-- 'roleArn', 'cognitoOptions_roleArn' - The @AmazonOpenSearchServiceCognitoAccess@ role that allows OpenSearch
+-- Service to configure your user pool and identity pool.
 --
--- 'enabled', 'cognitoOptions_enabled' - The option to enable Cognito for OpenSearch Dashboards authentication.
+-- 'enabled', 'cognitoOptions_enabled' - Whether to enable or disable Amazon Cognito authentication for
+-- OpenSearch Dashboards.
 --
--- 'identityPoolId', 'cognitoOptions_identityPoolId' - The Cognito identity pool ID for OpenSearch Dashboards authentication.
+-- 'identityPoolId', 'cognitoOptions_identityPoolId' - The Amazon Cognito identity pool ID that you want OpenSearch Service to
+-- use for OpenSearch Dashboards authentication.
 --
--- 'userPoolId', 'cognitoOptions_userPoolId' - The Cognito user pool ID for OpenSearch Dashboards authentication.
+-- 'userPoolId', 'cognitoOptions_userPoolId' - The Amazon Cognito user pool ID that you want OpenSearch Service to use
+-- for OpenSearch Dashboards authentication.
 newCognitoOptions ::
   CognitoOptions
 newCognitoOptions =
@@ -67,20 +73,23 @@ newCognitoOptions =
       userPoolId = Prelude.Nothing
     }
 
--- | The role ARN that provides OpenSearch permissions for accessing Cognito
--- resources.
+-- | The @AmazonOpenSearchServiceCognitoAccess@ role that allows OpenSearch
+-- Service to configure your user pool and identity pool.
 cognitoOptions_roleArn :: Lens.Lens' CognitoOptions (Prelude.Maybe Prelude.Text)
 cognitoOptions_roleArn = Lens.lens (\CognitoOptions' {roleArn} -> roleArn) (\s@CognitoOptions' {} a -> s {roleArn = a} :: CognitoOptions)
 
--- | The option to enable Cognito for OpenSearch Dashboards authentication.
+-- | Whether to enable or disable Amazon Cognito authentication for
+-- OpenSearch Dashboards.
 cognitoOptions_enabled :: Lens.Lens' CognitoOptions (Prelude.Maybe Prelude.Bool)
 cognitoOptions_enabled = Lens.lens (\CognitoOptions' {enabled} -> enabled) (\s@CognitoOptions' {} a -> s {enabled = a} :: CognitoOptions)
 
--- | The Cognito identity pool ID for OpenSearch Dashboards authentication.
+-- | The Amazon Cognito identity pool ID that you want OpenSearch Service to
+-- use for OpenSearch Dashboards authentication.
 cognitoOptions_identityPoolId :: Lens.Lens' CognitoOptions (Prelude.Maybe Prelude.Text)
 cognitoOptions_identityPoolId = Lens.lens (\CognitoOptions' {identityPoolId} -> identityPoolId) (\s@CognitoOptions' {} a -> s {identityPoolId = a} :: CognitoOptions)
 
--- | The Cognito user pool ID for OpenSearch Dashboards authentication.
+-- | The Amazon Cognito user pool ID that you want OpenSearch Service to use
+-- for OpenSearch Dashboards authentication.
 cognitoOptions_userPoolId :: Lens.Lens' CognitoOptions (Prelude.Maybe Prelude.Text)
 cognitoOptions_userPoolId = Lens.lens (\CognitoOptions' {userPoolId} -> userPoolId) (\s@CognitoOptions' {} a -> s {userPoolId = a} :: CognitoOptions)
 

@@ -20,7 +20,7 @@
 module Amazonka.AuditManager.Types.AWSAccount where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The wrapper of Amazon Web Services account details, such as account ID

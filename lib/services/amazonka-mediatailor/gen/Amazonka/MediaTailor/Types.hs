@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -65,6 +66,7 @@ module Amazonka.MediaTailor.Types
     adBreak_offsetMillis,
     adBreak_spliceInsertMessage,
     adBreak_slate,
+    adBreak_timeSignalMessage,
 
     -- * AdMarkerPassthrough
     AdMarkerPassthrough (..),
@@ -297,6 +299,18 @@ module Amazonka.MediaTailor.Types
     segmentDeliveryConfiguration_baseUrl,
     segmentDeliveryConfiguration_name,
 
+    -- * SegmentationDescriptor
+    SegmentationDescriptor (..),
+    newSegmentationDescriptor,
+    segmentationDescriptor_subSegmentsExpected,
+    segmentationDescriptor_segmentationTypeId,
+    segmentationDescriptor_segmentationUpidType,
+    segmentationDescriptor_segmentNum,
+    segmentationDescriptor_segmentationUpid,
+    segmentationDescriptor_subSegmentNum,
+    segmentationDescriptor_segmentsExpected,
+    segmentationDescriptor_segmentationEventId,
+
     -- * SlateSource
     SlateSource (..),
     newSlateSource,
@@ -324,6 +338,11 @@ module Amazonka.MediaTailor.Types
     spliceInsertMessage_availNum,
     spliceInsertMessage_uniqueProgramId,
 
+    -- * TimeSignalMessage
+    TimeSignalMessage (..),
+    newTimeSignalMessage,
+    timeSignalMessage_segmentationDescriptors,
+
     -- * Transition
     Transition (..),
     newTransition,
@@ -347,7 +366,7 @@ module Amazonka.MediaTailor.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaTailor.Types.AccessConfiguration
 import Amazonka.MediaTailor.Types.AccessType
 import Amazonka.MediaTailor.Types.AdBreak
@@ -389,10 +408,12 @@ import Amazonka.MediaTailor.Types.ScheduleEntry
 import Amazonka.MediaTailor.Types.ScheduleEntryType
 import Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration
 import Amazonka.MediaTailor.Types.SegmentDeliveryConfiguration
+import Amazonka.MediaTailor.Types.SegmentationDescriptor
 import Amazonka.MediaTailor.Types.SlateSource
 import Amazonka.MediaTailor.Types.SourceLocation
 import Amazonka.MediaTailor.Types.SpliceInsertMessage
 import Amazonka.MediaTailor.Types.Tier
+import Amazonka.MediaTailor.Types.TimeSignalMessage
 import Amazonka.MediaTailor.Types.Transition
 import Amazonka.MediaTailor.Types.Type
 import Amazonka.MediaTailor.Types.VodSource
@@ -403,28 +424,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "MediaTailor",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "api.mediatailor",
-      Core._serviceSigningName = "mediatailor",
-      Core._serviceVersion = "2018-04-23",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "MediaTailor",
-      Core._serviceRetry = retry
+    { Core.abbrev = "MediaTailor",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "api.mediatailor",
+      Core.signingName = "mediatailor",
+      Core.version = "2018-04-23",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "MediaTailor",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

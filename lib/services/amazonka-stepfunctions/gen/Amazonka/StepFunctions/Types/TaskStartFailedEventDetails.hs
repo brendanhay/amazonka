@@ -20,7 +20,7 @@
 module Amazonka.StepFunctions.Types.TaskStartFailedEventDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about a task that failed to start during an execution.
@@ -31,9 +31,9 @@ data TaskStartFailedEventDetails = TaskStartFailedEventDetails'
     error :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A more detailed explanation of the cause of the failure.
     cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The action of the resource called by a task state.
-    resourceType :: Prelude.Text,
     -- | The service name of the resource in a task state.
+    resourceType :: Prelude.Text,
+    -- | The action of the resource called by a task state.
     resource :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -50,9 +50,9 @@ data TaskStartFailedEventDetails = TaskStartFailedEventDetails'
 --
 -- 'cause', 'taskStartFailedEventDetails_cause' - A more detailed explanation of the cause of the failure.
 --
--- 'resourceType', 'taskStartFailedEventDetails_resourceType' - The action of the resource called by a task state.
+-- 'resourceType', 'taskStartFailedEventDetails_resourceType' - The service name of the resource in a task state.
 --
--- 'resource', 'taskStartFailedEventDetails_resource' - The service name of the resource in a task state.
+-- 'resource', 'taskStartFailedEventDetails_resource' - The action of the resource called by a task state.
 newTaskStartFailedEventDetails ::
   -- | 'resourceType'
   Prelude.Text ->
@@ -78,11 +78,11 @@ taskStartFailedEventDetails_error = Lens.lens (\TaskStartFailedEventDetails' {er
 taskStartFailedEventDetails_cause :: Lens.Lens' TaskStartFailedEventDetails (Prelude.Maybe Prelude.Text)
 taskStartFailedEventDetails_cause = Lens.lens (\TaskStartFailedEventDetails' {cause} -> cause) (\s@TaskStartFailedEventDetails' {} a -> s {cause = a} :: TaskStartFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
--- | The action of the resource called by a task state.
+-- | The service name of the resource in a task state.
 taskStartFailedEventDetails_resourceType :: Lens.Lens' TaskStartFailedEventDetails Prelude.Text
 taskStartFailedEventDetails_resourceType = Lens.lens (\TaskStartFailedEventDetails' {resourceType} -> resourceType) (\s@TaskStartFailedEventDetails' {} a -> s {resourceType = a} :: TaskStartFailedEventDetails)
 
--- | The service name of the resource in a task state.
+-- | The action of the resource called by a task state.
 taskStartFailedEventDetails_resource :: Lens.Lens' TaskStartFailedEventDetails Prelude.Text
 taskStartFailedEventDetails_resource = Lens.lens (\TaskStartFailedEventDetails' {resource} -> resource) (\s@TaskStartFailedEventDetails' {} a -> s {resource = a} :: TaskStartFailedEventDetails)
 

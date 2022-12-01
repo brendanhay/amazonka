@@ -20,7 +20,7 @@
 module Amazonka.LexModels.Types.Slot where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexModels.Types.ObfuscationSetting
 import Amazonka.LexModels.Types.Prompt
 import Amazonka.LexModels.Types.SlotConstraint

@@ -20,12 +20,12 @@
 module Amazonka.ELBV2.Types.LoadBalancer where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types.AvailabilityZone
 import Amazonka.ELBV2.Types.IpAddressType
 import Amazonka.ELBV2.Types.LoadBalancerSchemeEnum
 import Amazonka.ELBV2.Types.LoadBalancerState
 import Amazonka.ELBV2.Types.LoadBalancerTypeEnum
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a load balancer.

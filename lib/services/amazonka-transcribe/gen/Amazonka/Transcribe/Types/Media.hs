@@ -20,7 +20,7 @@
 module Amazonka.Transcribe.Types.Media where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the Amazon S3 location of the media file you want to use in

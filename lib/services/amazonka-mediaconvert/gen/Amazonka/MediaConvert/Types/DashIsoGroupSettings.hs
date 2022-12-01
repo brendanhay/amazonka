@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.DashIsoGroupSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.DashAdditionalManifest
 import Amazonka.MediaConvert.Types.DashIsoEncryptionSettings
 import Amazonka.MediaConvert.Types.DashIsoGroupAudioChannelConfigSchemeIdUri

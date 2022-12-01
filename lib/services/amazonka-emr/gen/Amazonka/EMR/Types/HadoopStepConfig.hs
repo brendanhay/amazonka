@@ -20,7 +20,7 @@
 module Amazonka.EMR.Types.HadoopStepConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A cluster step consisting of a JAR file whose main function will be

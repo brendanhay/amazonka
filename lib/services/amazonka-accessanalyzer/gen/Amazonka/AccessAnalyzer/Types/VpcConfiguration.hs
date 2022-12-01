@@ -20,7 +20,7 @@
 module Amazonka.AccessAnalyzer.Types.VpcConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The proposed virtual private cloud (VPC) configuration for the Amazon S3

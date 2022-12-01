@@ -20,7 +20,7 @@
 module Amazonka.Glue.Types.JobBookmarkEntry where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a point that a job can resume processing.

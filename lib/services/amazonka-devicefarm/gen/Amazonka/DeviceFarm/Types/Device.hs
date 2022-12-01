@@ -20,13 +20,13 @@
 module Amazonka.DeviceFarm.Types.Device where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DeviceFarm.Types.CPU
 import Amazonka.DeviceFarm.Types.DeviceAvailability
 import Amazonka.DeviceFarm.Types.DeviceFormFactor
 import Amazonka.DeviceFarm.Types.DeviceInstance
 import Amazonka.DeviceFarm.Types.DevicePlatform
 import Amazonka.DeviceFarm.Types.Resolution
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a device type that an app is tested against.

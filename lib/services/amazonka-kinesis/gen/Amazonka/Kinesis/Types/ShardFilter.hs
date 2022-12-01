@@ -20,8 +20,8 @@
 module Amazonka.Kinesis.Types.ShardFilter where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kinesis.Types.ShardFilterType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The request parameter used to filter out the response of the

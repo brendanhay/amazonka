@@ -22,7 +22,7 @@ module Amazonka.AutoScaling.Types.InstanceRefreshProgressDetails where
 import Amazonka.AutoScaling.Types.InstanceRefreshLivePoolProgress
 import Amazonka.AutoScaling.Types.InstanceRefreshWarmPoolProgress
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reports the progress of an instance refresh on an Auto Scaling group

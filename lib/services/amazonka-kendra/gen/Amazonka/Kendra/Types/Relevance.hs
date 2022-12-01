@@ -20,8 +20,8 @@
 module Amazonka.Kendra.Types.Relevance where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.Order
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information for tuning the relevance of a field in a search.

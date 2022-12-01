@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.InstanceRequirements where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AcceleratorCount
 import Amazonka.EC2.Types.AcceleratorManufacturer
@@ -35,10 +36,10 @@ import Amazonka.EC2.Types.LocalStorage
 import Amazonka.EC2.Types.LocalStorageType
 import Amazonka.EC2.Types.MemoryGiBPerVCpu
 import Amazonka.EC2.Types.MemoryMiB
+import Amazonka.EC2.Types.NetworkBandwidthGbps
 import Amazonka.EC2.Types.NetworkInterfaceCount
 import Amazonka.EC2.Types.TotalLocalStorageGB
 import Amazonka.EC2.Types.VCpuCountRange
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The attributes for the instance types. When you specify instance
@@ -49,6 +50,17 @@ import qualified Amazonka.Prelude as Prelude
 -- satisfy all of the specified attributes. If you specify multiple values
 -- for an attribute, you get instance types that satisfy any of the
 -- specified values.
+--
+-- To limit the list of instance types from which Amazon EC2 can identify
+-- matching instance types, you can use one of the following parameters,
+-- but not both in the same request:
+--
+-- -   @AllowedInstanceTypes@ - The instance types to include in the list.
+--     All other instance types are ignored, even if they match your
+--     specified attributes.
+--
+-- -   @ExcludedInstanceTypes@ - The instance types to exclude from the
+--     list, even if they match your specified attributes.
 --
 -- You must specify @VCpuCount@ and @MemoryMiB@. All other attributes are
 -- optional. Any unspecified optional attribute is set to its default.
@@ -162,6 +174,24 @@ data InstanceRequirements = InstanceRequirements'
     --
     -- Default: @20@
     onDemandMaxPricePercentageOverLowestPrice :: Prelude.Maybe Prelude.Int,
+    -- | The instance types to apply your specified attributes against. All other
+    -- instance types are ignored, even if they match your specified
+    -- attributes.
+    --
+    -- You can use strings with one or more wild cards, represented by an
+    -- asterisk (@*@), to allow an instance type, size, or generation. The
+    -- following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@, @r*@, @*3*@.
+    --
+    -- For example, if you specify @c5*@,Amazon EC2 will allow the entire C5
+    -- instance family, which includes all C5a and C5n instance types. If you
+    -- specify @m5a.*@, Amazon EC2 will allow all the M5a instance types, but
+    -- not the M5n instance types.
+    --
+    -- If you specify @AllowedInstanceTypes@, you can\'t specify
+    -- @ExcludedInstanceTypes@.
+    --
+    -- Default: All instance types
+    allowedInstanceTypes :: Prelude.Maybe [Prelude.Text],
     -- | The accelerators that must be on the instance type.
     --
     -- -   For instance types with NVIDIA A100 GPUs, specify @a100@.
@@ -186,6 +216,11 @@ data InstanceRequirements = InstanceRequirements'
     --
     -- Default: Any accelerator
     acceleratorNames :: Prelude.Maybe [AcceleratorName],
+    -- | The minimum and maximum amount of network bandwidth, in gigabits per
+    -- second (Gbps).
+    --
+    -- Default: No minimum or maximum limits
+    networkBandwidthGbps :: Prelude.Maybe NetworkBandwidthGbps,
     -- | Indicates whether instance types must have accelerators by specific
     -- manufacturers.
     --
@@ -210,6 +245,9 @@ data InstanceRequirements = InstanceRequirements'
     -- instance family, which includes all C5a and C5n instance types. If you
     -- specify @m5a.*@, Amazon EC2 will exclude all the M5a instance types, but
     -- not the M5n instance types.
+    --
+    -- If you specify @ExcludedInstanceTypes@, you can\'t specify
+    -- @AllowedInstanceTypes@.
     --
     -- Default: No excluded instance types
     excludedInstanceTypes :: Prelude.Maybe [Prelude.Text],
@@ -399,6 +437,24 @@ data InstanceRequirements = InstanceRequirements'
 --
 -- Default: @20@
 --
+-- 'allowedInstanceTypes', 'instanceRequirements_allowedInstanceTypes' - The instance types to apply your specified attributes against. All other
+-- instance types are ignored, even if they match your specified
+-- attributes.
+--
+-- You can use strings with one or more wild cards, represented by an
+-- asterisk (@*@), to allow an instance type, size, or generation. The
+-- following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@, @r*@, @*3*@.
+--
+-- For example, if you specify @c5*@,Amazon EC2 will allow the entire C5
+-- instance family, which includes all C5a and C5n instance types. If you
+-- specify @m5a.*@, Amazon EC2 will allow all the M5a instance types, but
+-- not the M5n instance types.
+--
+-- If you specify @AllowedInstanceTypes@, you can\'t specify
+-- @ExcludedInstanceTypes@.
+--
+-- Default: All instance types
+--
 -- 'acceleratorNames', 'instanceRequirements_acceleratorNames' - The accelerators that must be on the instance type.
 --
 -- -   For instance types with NVIDIA A100 GPUs, specify @a100@.
@@ -422,6 +478,11 @@ data InstanceRequirements = InstanceRequirements'
 -- -   For instance types with NVIDIA GRID K520 GPUs, specify @k520@.
 --
 -- Default: Any accelerator
+--
+-- 'networkBandwidthGbps', 'instanceRequirements_networkBandwidthGbps' - The minimum and maximum amount of network bandwidth, in gigabits per
+-- second (Gbps).
+--
+-- Default: No minimum or maximum limits
 --
 -- 'acceleratorManufacturers', 'instanceRequirements_acceleratorManufacturers' - Indicates whether instance types must have accelerators by specific
 -- manufacturers.
@@ -447,6 +508,9 @@ data InstanceRequirements = InstanceRequirements'
 -- instance family, which includes all C5a and C5n instance types. If you
 -- specify @m5a.*@, Amazon EC2 will exclude all the M5a instance types, but
 -- not the M5n instance types.
+--
+-- If you specify @ExcludedInstanceTypes@, you can\'t specify
+-- @AllowedInstanceTypes@.
 --
 -- Default: No excluded instance types
 --
@@ -539,7 +603,9 @@ newInstanceRequirements =
       localStorageTypes = Prelude.Nothing,
       onDemandMaxPricePercentageOverLowestPrice =
         Prelude.Nothing,
+      allowedInstanceTypes = Prelude.Nothing,
       acceleratorNames = Prelude.Nothing,
+      networkBandwidthGbps = Prelude.Nothing,
       acceleratorManufacturers = Prelude.Nothing,
       excludedInstanceTypes = Prelude.Nothing,
       networkInterfaceCount = Prelude.Nothing,
@@ -670,6 +736,26 @@ instanceRequirements_localStorageTypes = Lens.lens (\InstanceRequirements' {loca
 instanceRequirements_onDemandMaxPricePercentageOverLowestPrice :: Lens.Lens' InstanceRequirements (Prelude.Maybe Prelude.Int)
 instanceRequirements_onDemandMaxPricePercentageOverLowestPrice = Lens.lens (\InstanceRequirements' {onDemandMaxPricePercentageOverLowestPrice} -> onDemandMaxPricePercentageOverLowestPrice) (\s@InstanceRequirements' {} a -> s {onDemandMaxPricePercentageOverLowestPrice = a} :: InstanceRequirements)
 
+-- | The instance types to apply your specified attributes against. All other
+-- instance types are ignored, even if they match your specified
+-- attributes.
+--
+-- You can use strings with one or more wild cards, represented by an
+-- asterisk (@*@), to allow an instance type, size, or generation. The
+-- following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@, @r*@, @*3*@.
+--
+-- For example, if you specify @c5*@,Amazon EC2 will allow the entire C5
+-- instance family, which includes all C5a and C5n instance types. If you
+-- specify @m5a.*@, Amazon EC2 will allow all the M5a instance types, but
+-- not the M5n instance types.
+--
+-- If you specify @AllowedInstanceTypes@, you can\'t specify
+-- @ExcludedInstanceTypes@.
+--
+-- Default: All instance types
+instanceRequirements_allowedInstanceTypes :: Lens.Lens' InstanceRequirements (Prelude.Maybe [Prelude.Text])
+instanceRequirements_allowedInstanceTypes = Lens.lens (\InstanceRequirements' {allowedInstanceTypes} -> allowedInstanceTypes) (\s@InstanceRequirements' {} a -> s {allowedInstanceTypes = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
+
 -- | The accelerators that must be on the instance type.
 --
 -- -   For instance types with NVIDIA A100 GPUs, specify @a100@.
@@ -695,6 +781,13 @@ instanceRequirements_onDemandMaxPricePercentageOverLowestPrice = Lens.lens (\Ins
 -- Default: Any accelerator
 instanceRequirements_acceleratorNames :: Lens.Lens' InstanceRequirements (Prelude.Maybe [AcceleratorName])
 instanceRequirements_acceleratorNames = Lens.lens (\InstanceRequirements' {acceleratorNames} -> acceleratorNames) (\s@InstanceRequirements' {} a -> s {acceleratorNames = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
+
+-- | The minimum and maximum amount of network bandwidth, in gigabits per
+-- second (Gbps).
+--
+-- Default: No minimum or maximum limits
+instanceRequirements_networkBandwidthGbps :: Lens.Lens' InstanceRequirements (Prelude.Maybe NetworkBandwidthGbps)
+instanceRequirements_networkBandwidthGbps = Lens.lens (\InstanceRequirements' {networkBandwidthGbps} -> networkBandwidthGbps) (\s@InstanceRequirements' {} a -> s {networkBandwidthGbps = a} :: InstanceRequirements)
 
 -- | Indicates whether instance types must have accelerators by specific
 -- manufacturers.
@@ -722,6 +815,9 @@ instanceRequirements_acceleratorManufacturers = Lens.lens (\InstanceRequirements
 -- instance family, which includes all C5a and C5n instance types. If you
 -- specify @m5a.*@, Amazon EC2 will exclude all the M5a instance types, but
 -- not the M5n instance types.
+--
+-- If you specify @ExcludedInstanceTypes@, you can\'t specify
+-- @AllowedInstanceTypes@.
 --
 -- Default: No excluded instance types
 instanceRequirements_excludedInstanceTypes :: Lens.Lens' InstanceRequirements (Prelude.Maybe [Prelude.Text])
@@ -844,10 +940,15 @@ instance Core.FromXML InstanceRequirements where
       Prelude.<*> ( x
                       Core..@? "onDemandMaxPricePercentageOverLowestPrice"
                   )
+      Prelude.<*> ( x Core..@? "allowedInstanceTypeSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
       Prelude.<*> ( x Core..@? "acceleratorNameSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "networkBandwidthGbps")
       Prelude.<*> ( x Core..@? "acceleratorManufacturerSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
@@ -880,7 +981,9 @@ instance Prelude.Hashable InstanceRequirements where
       `Prelude.hashWithSalt` totalLocalStorageGB
       `Prelude.hashWithSalt` localStorageTypes
       `Prelude.hashWithSalt` onDemandMaxPricePercentageOverLowestPrice
+      `Prelude.hashWithSalt` allowedInstanceTypes
       `Prelude.hashWithSalt` acceleratorNames
+      `Prelude.hashWithSalt` networkBandwidthGbps
       `Prelude.hashWithSalt` acceleratorManufacturers
       `Prelude.hashWithSalt` excludedInstanceTypes
       `Prelude.hashWithSalt` networkInterfaceCount
@@ -904,7 +1007,9 @@ instance Prelude.NFData InstanceRequirements where
       `Prelude.seq` Prelude.rnf totalLocalStorageGB
       `Prelude.seq` Prelude.rnf localStorageTypes
       `Prelude.seq` Prelude.rnf onDemandMaxPricePercentageOverLowestPrice
+      `Prelude.seq` Prelude.rnf allowedInstanceTypes
       `Prelude.seq` Prelude.rnf acceleratorNames
+      `Prelude.seq` Prelude.rnf networkBandwidthGbps
       `Prelude.seq` Prelude.rnf acceleratorManufacturers
       `Prelude.seq` Prelude.rnf excludedInstanceTypes
       `Prelude.seq` Prelude.rnf networkInterfaceCount
@@ -942,9 +1047,14 @@ instance Core.ToQuery InstanceRequirements where
         "OnDemandMaxPricePercentageOverLowestPrice"
           Core.=: onDemandMaxPricePercentageOverLowestPrice,
         Core.toQuery
+          ( Core.toQueryList "AllowedInstanceTypeSet"
+              Prelude.<$> allowedInstanceTypes
+          ),
+        Core.toQuery
           ( Core.toQueryList "AcceleratorNameSet"
               Prelude.<$> acceleratorNames
           ),
+        "NetworkBandwidthGbps" Core.=: networkBandwidthGbps,
         Core.toQuery
           ( Core.toQueryList "AcceleratorManufacturerSet"
               Prelude.<$> acceleratorManufacturers

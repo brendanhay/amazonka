@@ -22,7 +22,7 @@ module Amazonka.CloudHSMV2.Types.Backup where
 import Amazonka.CloudHSMV2.Types.BackupState
 import Amazonka.CloudHSMV2.Types.Tag
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a backup of an AWS CloudHSM cluster. All

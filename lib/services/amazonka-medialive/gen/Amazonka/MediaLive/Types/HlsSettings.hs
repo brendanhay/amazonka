@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.HlsSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.Types.AudioOnlyHlsSettings
 import Amazonka.MediaLive.Types.Fmp4HlsSettings
 import Amazonka.MediaLive.Types.FrameCaptureHlsSettings

@@ -49,14 +49,15 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPricingRules' smart constructor.
 data ListPricingRules = ListPricingRules'
-  { -- | The pagination token used on subsequent call to get pricing rules.
+  { -- | The pagination token that\'s used on subsequent call to get pricing
+    -- rules.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The preferred billing period to get the pricing plan.
     billingPeriod :: Prelude.Maybe Prelude.Text,
@@ -76,7 +77,8 @@ data ListPricingRules = ListPricingRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPricingRules_nextToken' - The pagination token used on subsequent call to get pricing rules.
+-- 'nextToken', 'listPricingRules_nextToken' - The pagination token that\'s used on subsequent call to get pricing
+-- rules.
 --
 -- 'billingPeriod', 'listPricingRules_billingPeriod' - The preferred billing period to get the pricing plan.
 --
@@ -94,7 +96,8 @@ newListPricingRules =
       maxResults = Prelude.Nothing
     }
 
--- | The pagination token used on subsequent call to get pricing rules.
+-- | The pagination token that\'s used on subsequent call to get pricing
+-- rules.
 listPricingRules_nextToken :: Lens.Lens' ListPricingRules (Prelude.Maybe Prelude.Text)
 listPricingRules_nextToken = Lens.lens (\ListPricingRules' {nextToken} -> nextToken) (\s@ListPricingRules' {} a -> s {nextToken = a} :: ListPricingRules)
 
@@ -137,8 +140,8 @@ instance Core.AWSRequest ListPricingRules where
   type
     AWSResponse ListPricingRules =
       ListPricingRulesResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -193,7 +196,8 @@ instance Core.ToQuery ListPricingRules where
 
 -- | /See:/ 'newListPricingRulesResponse' smart constructor.
 data ListPricingRulesResponse = ListPricingRulesResponse'
-  { -- | The pagination token used on subsequent calls to get pricing rules.
+  { -- | The pagination token that\'s used on subsequent calls to get pricing
+    -- rules.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list containing the described pricing rules.
     pricingRules :: Prelude.Maybe [PricingRuleListElement],
@@ -212,7 +216,8 @@ data ListPricingRulesResponse = ListPricingRulesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPricingRulesResponse_nextToken' - The pagination token used on subsequent calls to get pricing rules.
+-- 'nextToken', 'listPricingRulesResponse_nextToken' - The pagination token that\'s used on subsequent calls to get pricing
+-- rules.
 --
 -- 'pricingRules', 'listPricingRulesResponse_pricingRules' - A list containing the described pricing rules.
 --
@@ -232,7 +237,8 @@ newListPricingRulesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The pagination token used on subsequent calls to get pricing rules.
+-- | The pagination token that\'s used on subsequent calls to get pricing
+-- rules.
 listPricingRulesResponse_nextToken :: Lens.Lens' ListPricingRulesResponse (Prelude.Maybe Prelude.Text)
 listPricingRulesResponse_nextToken = Lens.lens (\ListPricingRulesResponse' {nextToken} -> nextToken) (\s@ListPricingRulesResponse' {} a -> s {nextToken = a} :: ListPricingRulesResponse)
 

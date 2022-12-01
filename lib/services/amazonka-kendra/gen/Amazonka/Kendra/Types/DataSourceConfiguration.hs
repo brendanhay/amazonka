@@ -20,6 +20,7 @@
 module Amazonka.Kendra.Types.DataSourceConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.AlfrescoConfiguration
 import Amazonka.Kendra.Types.BoxConfiguration
 import Amazonka.Kendra.Types.ConfluenceConfiguration
@@ -38,7 +39,6 @@ import Amazonka.Kendra.Types.SlackConfiguration
 import Amazonka.Kendra.Types.TemplateConfiguration
 import Amazonka.Kendra.Types.WebCrawlerConfiguration
 import Amazonka.Kendra.Types.WorkDocsConfiguration
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information for an Amazon Kendra data source.

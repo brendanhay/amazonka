@@ -25,7 +25,7 @@ import Amazonka.AppMesh.Types.HttpQueryParameter
 import Amazonka.AppMesh.Types.HttpRouteHeader
 import Amazonka.AppMesh.Types.HttpScheme
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the requirements for a route to match HTTP

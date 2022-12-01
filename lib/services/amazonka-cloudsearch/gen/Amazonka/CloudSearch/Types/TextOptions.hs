@@ -20,7 +20,7 @@
 module Amazonka.CloudSearch.Types.TextOptions where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for text field. Present if @IndexFieldType@ specifies the field

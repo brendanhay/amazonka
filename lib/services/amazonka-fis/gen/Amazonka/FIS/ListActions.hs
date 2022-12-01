@@ -42,8 +42,8 @@ module Amazonka.FIS.ListActions
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FIS.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,8 +92,8 @@ listActions_maxResults = Lens.lens (\ListActions' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest ListActions where
   type AWSResponse ListActions = ListActionsResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

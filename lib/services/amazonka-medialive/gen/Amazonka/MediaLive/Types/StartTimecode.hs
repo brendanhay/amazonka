@@ -20,7 +20,7 @@
 module Amazonka.MediaLive.Types.StartTimecode where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings to identify the start of the clip.

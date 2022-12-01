@@ -20,36 +20,37 @@
 module Amazonka.OpenSearch.Types.DomainPackageDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpenSearch.Types.DomainPackageStatus
 import Amazonka.OpenSearch.Types.ErrorDetails
 import Amazonka.OpenSearch.Types.PackageType
 import qualified Amazonka.Prelude as Prelude
 
--- | Information on a package associated with a domain.
+-- | Information about a package that is associated with a domain. For more
+-- information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html Custom packages for Amazon OpenSearch Service>.
 --
 -- /See:/ 'newDomainPackageDetails' smart constructor.
 data DomainPackageDetails = DomainPackageDetails'
-  { -- | The relative path on Amazon OpenSearch Service nodes, which can be used
-    -- as synonym_path when the package is a synonym file.
+  { -- | Denotes the location of the package on the OpenSearch Service cluster
+    -- nodes. It\'s the same as @synonym_path@ for dictionary files.
     referencePath :: Prelude.Maybe Prelude.Text,
     -- | User-specified name of the package.
     packageName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the domain you\'ve associated a package with.
+    -- | Name of the domain that the package is associated with.
     domainName :: Prelude.Maybe Prelude.Text,
     -- | Additional information if the package is in an error state. Null
     -- otherwise.
     errorDetails :: Prelude.Maybe ErrorDetails,
-    -- | State of the association. Values are ASSOCIATING, ASSOCIATION_FAILED,
-    -- ACTIVE, DISSOCIATING, and DISSOCIATION_FAILED.
+    -- | State of the association.
     domainPackageStatus :: Prelude.Maybe DomainPackageStatus,
-    -- | The internal ID of the package.
+    -- | Internal ID of the package.
     packageID :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp of the most recent update to the package association
-    -- status.
+    -- | Timestamp of the most recent update to the package association status.
     lastUpdated :: Prelude.Maybe Core.POSIX,
+    -- | The current version of the package.
     packageVersion :: Prelude.Maybe Prelude.Text,
-    -- | Currently supports only TXT-DICTIONARY.
+    -- | The type of package.
     packageType :: Prelude.Maybe PackageType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,27 +63,25 @@ data DomainPackageDetails = DomainPackageDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'referencePath', 'domainPackageDetails_referencePath' - The relative path on Amazon OpenSearch Service nodes, which can be used
--- as synonym_path when the package is a synonym file.
+-- 'referencePath', 'domainPackageDetails_referencePath' - Denotes the location of the package on the OpenSearch Service cluster
+-- nodes. It\'s the same as @synonym_path@ for dictionary files.
 --
 -- 'packageName', 'domainPackageDetails_packageName' - User-specified name of the package.
 --
--- 'domainName', 'domainPackageDetails_domainName' - The name of the domain you\'ve associated a package with.
+-- 'domainName', 'domainPackageDetails_domainName' - Name of the domain that the package is associated with.
 --
 -- 'errorDetails', 'domainPackageDetails_errorDetails' - Additional information if the package is in an error state. Null
 -- otherwise.
 --
--- 'domainPackageStatus', 'domainPackageDetails_domainPackageStatus' - State of the association. Values are ASSOCIATING, ASSOCIATION_FAILED,
--- ACTIVE, DISSOCIATING, and DISSOCIATION_FAILED.
+-- 'domainPackageStatus', 'domainPackageDetails_domainPackageStatus' - State of the association.
 --
--- 'packageID', 'domainPackageDetails_packageID' - The internal ID of the package.
+-- 'packageID', 'domainPackageDetails_packageID' - Internal ID of the package.
 --
--- 'lastUpdated', 'domainPackageDetails_lastUpdated' - The timestamp of the most recent update to the package association
--- status.
+-- 'lastUpdated', 'domainPackageDetails_lastUpdated' - Timestamp of the most recent update to the package association status.
 --
--- 'packageVersion', 'domainPackageDetails_packageVersion' - Undocumented member.
+-- 'packageVersion', 'domainPackageDetails_packageVersion' - The current version of the package.
 --
--- 'packageType', 'domainPackageDetails_packageType' - Currently supports only TXT-DICTIONARY.
+-- 'packageType', 'domainPackageDetails_packageType' - The type of package.
 newDomainPackageDetails ::
   DomainPackageDetails
 newDomainPackageDetails =
@@ -99,8 +98,8 @@ newDomainPackageDetails =
       packageType = Prelude.Nothing
     }
 
--- | The relative path on Amazon OpenSearch Service nodes, which can be used
--- as synonym_path when the package is a synonym file.
+-- | Denotes the location of the package on the OpenSearch Service cluster
+-- nodes. It\'s the same as @synonym_path@ for dictionary files.
 domainPackageDetails_referencePath :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_referencePath = Lens.lens (\DomainPackageDetails' {referencePath} -> referencePath) (\s@DomainPackageDetails' {} a -> s {referencePath = a} :: DomainPackageDetails)
 
@@ -108,7 +107,7 @@ domainPackageDetails_referencePath = Lens.lens (\DomainPackageDetails' {referenc
 domainPackageDetails_packageName :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_packageName = Lens.lens (\DomainPackageDetails' {packageName} -> packageName) (\s@DomainPackageDetails' {} a -> s {packageName = a} :: DomainPackageDetails)
 
--- | The name of the domain you\'ve associated a package with.
+-- | Name of the domain that the package is associated with.
 domainPackageDetails_domainName :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_domainName = Lens.lens (\DomainPackageDetails' {domainName} -> domainName) (\s@DomainPackageDetails' {} a -> s {domainName = a} :: DomainPackageDetails)
 
@@ -117,25 +116,23 @@ domainPackageDetails_domainName = Lens.lens (\DomainPackageDetails' {domainName}
 domainPackageDetails_errorDetails :: Lens.Lens' DomainPackageDetails (Prelude.Maybe ErrorDetails)
 domainPackageDetails_errorDetails = Lens.lens (\DomainPackageDetails' {errorDetails} -> errorDetails) (\s@DomainPackageDetails' {} a -> s {errorDetails = a} :: DomainPackageDetails)
 
--- | State of the association. Values are ASSOCIATING, ASSOCIATION_FAILED,
--- ACTIVE, DISSOCIATING, and DISSOCIATION_FAILED.
+-- | State of the association.
 domainPackageDetails_domainPackageStatus :: Lens.Lens' DomainPackageDetails (Prelude.Maybe DomainPackageStatus)
 domainPackageDetails_domainPackageStatus = Lens.lens (\DomainPackageDetails' {domainPackageStatus} -> domainPackageStatus) (\s@DomainPackageDetails' {} a -> s {domainPackageStatus = a} :: DomainPackageDetails)
 
--- | The internal ID of the package.
+-- | Internal ID of the package.
 domainPackageDetails_packageID :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_packageID = Lens.lens (\DomainPackageDetails' {packageID} -> packageID) (\s@DomainPackageDetails' {} a -> s {packageID = a} :: DomainPackageDetails)
 
--- | The timestamp of the most recent update to the package association
--- status.
+-- | Timestamp of the most recent update to the package association status.
 domainPackageDetails_lastUpdated :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.UTCTime)
 domainPackageDetails_lastUpdated = Lens.lens (\DomainPackageDetails' {lastUpdated} -> lastUpdated) (\s@DomainPackageDetails' {} a -> s {lastUpdated = a} :: DomainPackageDetails) Prelude.. Lens.mapping Core._Time
 
--- | Undocumented member.
+-- | The current version of the package.
 domainPackageDetails_packageVersion :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_packageVersion = Lens.lens (\DomainPackageDetails' {packageVersion} -> packageVersion) (\s@DomainPackageDetails' {} a -> s {packageVersion = a} :: DomainPackageDetails)
 
--- | Currently supports only TXT-DICTIONARY.
+-- | The type of package.
 domainPackageDetails_packageType :: Lens.Lens' DomainPackageDetails (Prelude.Maybe PackageType)
 domainPackageDetails_packageType = Lens.lens (\DomainPackageDetails' {packageType} -> packageType) (\s@DomainPackageDetails' {} a -> s {packageType = a} :: DomainPackageDetails)
 

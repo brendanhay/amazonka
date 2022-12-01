@@ -49,7 +49,7 @@ module Amazonka.OpsWorks.DescribeApps
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,8 +102,8 @@ describeApps_appIds = Lens.lens (\DescribeApps' {appIds} -> appIds) (\s@Describe
 
 instance Core.AWSRequest DescribeApps where
   type AWSResponse DescribeApps = DescribeAppsResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

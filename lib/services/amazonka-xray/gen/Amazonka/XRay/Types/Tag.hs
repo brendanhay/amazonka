@@ -20,7 +20,7 @@
 module Amazonka.XRay.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A map that contains tag keys and tag values to attach to an Amazon Web

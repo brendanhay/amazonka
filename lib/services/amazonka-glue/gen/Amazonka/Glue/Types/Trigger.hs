@@ -20,12 +20,12 @@
 module Amazonka.Glue.Types.Trigger where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.Action
 import Amazonka.Glue.Types.EventBatchingCondition
 import Amazonka.Glue.Types.Predicate
 import Amazonka.Glue.Types.TriggerState
 import Amazonka.Glue.Types.TriggerType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a specific trigger.

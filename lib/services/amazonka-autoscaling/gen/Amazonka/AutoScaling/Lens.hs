@@ -638,7 +638,9 @@ module Amazonka.AutoScaling.Lens
     instanceRequirements_totalLocalStorageGB,
     instanceRequirements_localStorageTypes,
     instanceRequirements_onDemandMaxPricePercentageOverLowestPrice,
+    instanceRequirements_allowedInstanceTypes,
     instanceRequirements_acceleratorNames,
+    instanceRequirements_networkBandwidthGbps,
     instanceRequirements_acceleratorManufacturers,
     instanceRequirements_excludedInstanceTypes,
     instanceRequirements_networkInterfaceCount,
@@ -771,6 +773,10 @@ module Amazonka.AutoScaling.Lens
     -- ** MixedInstancesPolicy
     mixedInstancesPolicy_instancesDistribution,
     mixedInstancesPolicy_launchTemplate,
+
+    -- ** NetworkBandwidthGbpsRequest
+    networkBandwidthGbpsRequest_max,
+    networkBandwidthGbpsRequest_min,
 
     -- ** NetworkInterfaceCountRequest
     networkInterfaceCountRequest_max,
@@ -1027,6 +1033,7 @@ import Amazonka.AutoScaling.Types.MetricDimension
 import Amazonka.AutoScaling.Types.MetricGranularityType
 import Amazonka.AutoScaling.Types.MetricStat
 import Amazonka.AutoScaling.Types.MixedInstancesPolicy
+import Amazonka.AutoScaling.Types.NetworkBandwidthGbpsRequest
 import Amazonka.AutoScaling.Types.NetworkInterfaceCountRequest
 import Amazonka.AutoScaling.Types.NotificationConfiguration
 import Amazonka.AutoScaling.Types.PredefinedMetricSpecification

@@ -20,8 +20,8 @@
 module Amazonka.ECS.Types.ManagedAgentStateChange where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ECS.Types.ManagedAgentName
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a change in state for a managed agent.

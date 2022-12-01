@@ -39,8 +39,8 @@ module Amazonka.IoTEvents.DeleteInput
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -74,8 +74,8 @@ deleteInput_inputName = Lens.lens (\DeleteInput' {inputName} -> inputName) (\s@D
 
 instance Core.AWSRequest DeleteInput where
   type AWSResponse DeleteInput = DeleteInputResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveEmpty
       ( \s h x ->

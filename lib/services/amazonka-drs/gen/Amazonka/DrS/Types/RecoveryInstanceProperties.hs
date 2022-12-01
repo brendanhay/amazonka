@@ -20,12 +20,12 @@
 module Amazonka.DrS.Types.RecoveryInstanceProperties where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.CPU
 import Amazonka.DrS.Types.IdentificationHints
 import Amazonka.DrS.Types.NetworkInterface
 import Amazonka.DrS.Types.OS
 import Amazonka.DrS.Types.RecoveryInstanceDisk
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Properties of the Recovery Instance machine.

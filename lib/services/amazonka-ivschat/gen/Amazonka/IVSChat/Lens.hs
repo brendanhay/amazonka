@@ -25,13 +25,29 @@ module Amazonka.IVSChat.Lens
     createChatTokenResponse_token,
     createChatTokenResponse_httpStatus,
 
+    -- ** CreateLoggingConfiguration
+    createLoggingConfiguration_tags,
+    createLoggingConfiguration_name,
+    createLoggingConfiguration_destinationConfiguration,
+    createLoggingConfigurationResponse_tags,
+    createLoggingConfigurationResponse_name,
+    createLoggingConfigurationResponse_arn,
+    createLoggingConfigurationResponse_state,
+    createLoggingConfigurationResponse_id,
+    createLoggingConfigurationResponse_updateTime,
+    createLoggingConfigurationResponse_createTime,
+    createLoggingConfigurationResponse_destinationConfiguration,
+    createLoggingConfigurationResponse_httpStatus,
+
     -- ** CreateRoom
     createRoom_tags,
+    createRoom_loggingConfigurationIdentifiers,
     createRoom_name,
     createRoom_messageReviewHandler,
     createRoom_maximumMessageRatePerSecond,
     createRoom_maximumMessageLength,
     createRoomResponse_tags,
+    createRoomResponse_loggingConfigurationIdentifiers,
     createRoomResponse_name,
     createRoomResponse_messageReviewHandler,
     createRoomResponse_arn,
@@ -41,6 +57,9 @@ module Amazonka.IVSChat.Lens
     createRoomResponse_updateTime,
     createRoomResponse_createTime,
     createRoomResponse_httpStatus,
+
+    -- ** DeleteLoggingConfiguration
+    deleteLoggingConfiguration_identifier,
 
     -- ** DeleteMessage
     deleteMessage_reason,
@@ -58,9 +77,22 @@ module Amazonka.IVSChat.Lens
     disconnectUser_userId,
     disconnectUserResponse_httpStatus,
 
+    -- ** GetLoggingConfiguration
+    getLoggingConfiguration_identifier,
+    getLoggingConfigurationResponse_tags,
+    getLoggingConfigurationResponse_name,
+    getLoggingConfigurationResponse_arn,
+    getLoggingConfigurationResponse_state,
+    getLoggingConfigurationResponse_id,
+    getLoggingConfigurationResponse_updateTime,
+    getLoggingConfigurationResponse_createTime,
+    getLoggingConfigurationResponse_destinationConfiguration,
+    getLoggingConfigurationResponse_httpStatus,
+
     -- ** GetRoom
     getRoom_identifier,
     getRoomResponse_tags,
+    getRoomResponse_loggingConfigurationIdentifiers,
     getRoomResponse_name,
     getRoomResponse_messageReviewHandler,
     getRoomResponse_arn,
@@ -71,9 +103,17 @@ module Amazonka.IVSChat.Lens
     getRoomResponse_createTime,
     getRoomResponse_httpStatus,
 
+    -- ** ListLoggingConfigurations
+    listLoggingConfigurations_nextToken,
+    listLoggingConfigurations_maxResults,
+    listLoggingConfigurationsResponse_nextToken,
+    listLoggingConfigurationsResponse_httpStatus,
+    listLoggingConfigurationsResponse_loggingConfigurations,
+
     -- ** ListRooms
     listRooms_name,
     listRooms_nextToken,
+    listRooms_loggingConfigurationIdentifier,
     listRooms_messageReviewHandlerUri,
     listRooms_maxResults,
     listRoomsResponse_nextToken,
@@ -102,13 +142,29 @@ module Amazonka.IVSChat.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
+    -- ** UpdateLoggingConfiguration
+    updateLoggingConfiguration_name,
+    updateLoggingConfiguration_destinationConfiguration,
+    updateLoggingConfiguration_identifier,
+    updateLoggingConfigurationResponse_tags,
+    updateLoggingConfigurationResponse_name,
+    updateLoggingConfigurationResponse_arn,
+    updateLoggingConfigurationResponse_state,
+    updateLoggingConfigurationResponse_id,
+    updateLoggingConfigurationResponse_updateTime,
+    updateLoggingConfigurationResponse_createTime,
+    updateLoggingConfigurationResponse_destinationConfiguration,
+    updateLoggingConfigurationResponse_httpStatus,
+
     -- ** UpdateRoom
+    updateRoom_loggingConfigurationIdentifiers,
     updateRoom_name,
     updateRoom_messageReviewHandler,
     updateRoom_maximumMessageRatePerSecond,
     updateRoom_maximumMessageLength,
     updateRoom_identifier,
     updateRoomResponse_tags,
+    updateRoomResponse_loggingConfigurationIdentifiers,
     updateRoomResponse_name,
     updateRoomResponse_messageReviewHandler,
     updateRoomResponse_arn,
@@ -121,32 +177,67 @@ module Amazonka.IVSChat.Lens
 
     -- * Types
 
+    -- ** CloudWatchLogsDestinationConfiguration
+    cloudWatchLogsDestinationConfiguration_logGroupName,
+
+    -- ** DestinationConfiguration
+    destinationConfiguration_cloudWatchLogs,
+    destinationConfiguration_firehose,
+    destinationConfiguration_s3,
+
+    -- ** FirehoseDestinationConfiguration
+    firehoseDestinationConfiguration_deliveryStreamName,
+
+    -- ** LoggingConfigurationSummary
+    loggingConfigurationSummary_tags,
+    loggingConfigurationSummary_name,
+    loggingConfigurationSummary_arn,
+    loggingConfigurationSummary_state,
+    loggingConfigurationSummary_id,
+    loggingConfigurationSummary_updateTime,
+    loggingConfigurationSummary_createTime,
+    loggingConfigurationSummary_destinationConfiguration,
+
     -- ** MessageReviewHandler
     messageReviewHandler_uri,
     messageReviewHandler_fallbackResult,
 
     -- ** RoomSummary
     roomSummary_tags,
+    roomSummary_loggingConfigurationIdentifiers,
     roomSummary_name,
     roomSummary_messageReviewHandler,
     roomSummary_arn,
     roomSummary_id,
     roomSummary_updateTime,
     roomSummary_createTime,
+
+    -- ** S3DestinationConfiguration
+    s3DestinationConfiguration_bucketName,
   )
 where
 
 import Amazonka.IVSChat.CreateChatToken
+import Amazonka.IVSChat.CreateLoggingConfiguration
 import Amazonka.IVSChat.CreateRoom
+import Amazonka.IVSChat.DeleteLoggingConfiguration
 import Amazonka.IVSChat.DeleteMessage
 import Amazonka.IVSChat.DeleteRoom
 import Amazonka.IVSChat.DisconnectUser
+import Amazonka.IVSChat.GetLoggingConfiguration
 import Amazonka.IVSChat.GetRoom
+import Amazonka.IVSChat.ListLoggingConfigurations
 import Amazonka.IVSChat.ListRooms
 import Amazonka.IVSChat.ListTagsForResource
 import Amazonka.IVSChat.SendEvent
 import Amazonka.IVSChat.TagResource
+import Amazonka.IVSChat.Types.CloudWatchLogsDestinationConfiguration
+import Amazonka.IVSChat.Types.DestinationConfiguration
+import Amazonka.IVSChat.Types.FirehoseDestinationConfiguration
+import Amazonka.IVSChat.Types.LoggingConfigurationSummary
 import Amazonka.IVSChat.Types.MessageReviewHandler
 import Amazonka.IVSChat.Types.RoomSummary
+import Amazonka.IVSChat.Types.S3DestinationConfiguration
 import Amazonka.IVSChat.UntagResource
+import Amazonka.IVSChat.UpdateLoggingConfiguration
 import Amazonka.IVSChat.UpdateRoom

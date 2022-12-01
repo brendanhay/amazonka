@@ -21,7 +21,7 @@ module Amazonka.AppSync.Types.HttpDataSourceConfig where
 
 import Amazonka.AppSync.Types.AuthorizationConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an HTTP data source configuration.

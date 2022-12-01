@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.IpamPool where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AddressFamily
 import Amazonka.EC2.Types.IpamPoolAwsService
@@ -27,7 +28,6 @@ import Amazonka.EC2.Types.IpamPoolState
 import Amazonka.EC2.Types.IpamResourceTag
 import Amazonka.EC2.Types.IpamScopeType
 import Amazonka.EC2.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools

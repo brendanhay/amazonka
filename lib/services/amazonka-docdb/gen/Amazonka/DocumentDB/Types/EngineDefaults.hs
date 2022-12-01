@@ -20,8 +20,8 @@
 module Amazonka.DocumentDB.Types.EngineDefaults where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DocumentDB.Types.Parameter
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the result of a successful invocation of the

@@ -20,7 +20,7 @@
 module Amazonka.Kafka.Types.NodeExporter where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether you want to turn on or turn off the Node Exporter.

@@ -20,10 +20,10 @@
 module Amazonka.DMS.Types.ReplicationInstance where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.ReplicationPendingModifiedValues
 import Amazonka.DMS.Types.ReplicationSubnetGroup
 import Amazonka.DMS.Types.VpcSecurityGroupMembership
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines a replication instance.
@@ -51,6 +51,8 @@ data ReplicationInstance = ReplicationInstance'
     -- | Boolean value indicating if minor version upgrades will be automatically
     -- applied to the instance.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | One or more IPv6 addresses for the replication instance.
+    replicationInstanceIpv6Addresses :: Prelude.Maybe [Prelude.Text],
     -- | One or more public IP addresses for the replication instance.
     replicationInstancePublicIpAddresses :: Prelude.Maybe [Prelude.Text],
     -- | One or more private IP addresses for the replication instance.
@@ -139,6 +141,10 @@ data ReplicationInstance = ReplicationInstance'
     -- When modifying a major engine version of an instance, also set
     -- @AllowMajorVersionUpgrade@ to @true@.
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The type of IP address protocol used by a replication instance, such as
+    -- IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+    -- IPv6 only is not yet supported.
+    networkType :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the replication instance is a Multi-AZ deployment. You
     -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
     -- set to @true@.
@@ -176,6 +182,8 @@ data ReplicationInstance = ReplicationInstance'
 --
 -- 'autoMinorVersionUpgrade', 'replicationInstance_autoMinorVersionUpgrade' - Boolean value indicating if minor version upgrades will be automatically
 -- applied to the instance.
+--
+-- 'replicationInstanceIpv6Addresses', 'replicationInstance_replicationInstanceIpv6Addresses' - One or more IPv6 addresses for the replication instance.
 --
 -- 'replicationInstancePublicIpAddresses', 'replicationInstance_replicationInstancePublicIpAddresses' - One or more public IP addresses for the replication instance.
 --
@@ -265,6 +273,10 @@ data ReplicationInstance = ReplicationInstance'
 -- When modifying a major engine version of an instance, also set
 -- @AllowMajorVersionUpgrade@ to @true@.
 --
+-- 'networkType', 'replicationInstance_networkType' - The type of IP address protocol used by a replication instance, such as
+-- IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+-- IPv6 only is not yet supported.
+--
 -- 'multiAZ', 'replicationInstance_multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You
 -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
 -- set to @true@.
@@ -279,6 +291,7 @@ newReplicationInstance =
       replicationInstanceArn = Prelude.Nothing,
       secondaryAvailabilityZone = Prelude.Nothing,
       autoMinorVersionUpgrade = Prelude.Nothing,
+      replicationInstanceIpv6Addresses = Prelude.Nothing,
       replicationInstancePublicIpAddresses =
         Prelude.Nothing,
       replicationInstancePrivateIpAddresses =
@@ -299,6 +312,7 @@ newReplicationInstance =
       replicationInstanceStatus = Prelude.Nothing,
       replicationInstanceClass = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      networkType = Prelude.Nothing,
       multiAZ = Prelude.Nothing,
       vpcSecurityGroups = Prelude.Nothing
     }
@@ -331,6 +345,10 @@ replicationInstance_secondaryAvailabilityZone = Lens.lens (\ReplicationInstance'
 -- applied to the instance.
 replicationInstance_autoMinorVersionUpgrade :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Bool)
 replicationInstance_autoMinorVersionUpgrade = Lens.lens (\ReplicationInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ReplicationInstance' {} a -> s {autoMinorVersionUpgrade = a} :: ReplicationInstance)
+
+-- | One or more IPv6 addresses for the replication instance.
+replicationInstance_replicationInstanceIpv6Addresses :: Lens.Lens' ReplicationInstance (Prelude.Maybe [Prelude.Text])
+replicationInstance_replicationInstanceIpv6Addresses = Lens.lens (\ReplicationInstance' {replicationInstanceIpv6Addresses} -> replicationInstanceIpv6Addresses) (\s@ReplicationInstance' {} a -> s {replicationInstanceIpv6Addresses = a} :: ReplicationInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more public IP addresses for the replication instance.
 replicationInstance_replicationInstancePublicIpAddresses :: Lens.Lens' ReplicationInstance (Prelude.Maybe [Prelude.Text])
@@ -454,6 +472,12 @@ replicationInstance_replicationInstanceClass = Lens.lens (\ReplicationInstance' 
 replicationInstance_engineVersion :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Text)
 replicationInstance_engineVersion = Lens.lens (\ReplicationInstance' {engineVersion} -> engineVersion) (\s@ReplicationInstance' {} a -> s {engineVersion = a} :: ReplicationInstance)
 
+-- | The type of IP address protocol used by a replication instance, such as
+-- IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+-- IPv6 only is not yet supported.
+replicationInstance_networkType :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Text)
+replicationInstance_networkType = Lens.lens (\ReplicationInstance' {networkType} -> networkType) (\s@ReplicationInstance' {} a -> s {networkType = a} :: ReplicationInstance)
+
 -- | Specifies whether the replication instance is a Multi-AZ deployment. You
 -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
 -- set to @true@.
@@ -474,6 +498,9 @@ instance Core.FromJSON ReplicationInstance where
             Prelude.<*> (x Core..:? "ReplicationInstanceArn")
             Prelude.<*> (x Core..:? "SecondaryAvailabilityZone")
             Prelude.<*> (x Core..:? "AutoMinorVersionUpgrade")
+            Prelude.<*> ( x Core..:? "ReplicationInstanceIpv6Addresses"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> ( x Core..:? "ReplicationInstancePublicIpAddresses"
                             Core..!= Prelude.mempty
                         )
@@ -495,6 +522,7 @@ instance Core.FromJSON ReplicationInstance where
             Prelude.<*> (x Core..:? "ReplicationInstanceStatus")
             Prelude.<*> (x Core..:? "ReplicationInstanceClass")
             Prelude.<*> (x Core..:? "EngineVersion")
+            Prelude.<*> (x Core..:? "NetworkType")
             Prelude.<*> (x Core..:? "MultiAZ")
             Prelude.<*> ( x Core..:? "VpcSecurityGroups"
                             Core..!= Prelude.mempty
@@ -508,6 +536,7 @@ instance Prelude.Hashable ReplicationInstance where
       `Prelude.hashWithSalt` replicationInstanceArn
       `Prelude.hashWithSalt` secondaryAvailabilityZone
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` replicationInstanceIpv6Addresses
       `Prelude.hashWithSalt` replicationInstancePublicIpAddresses
       `Prelude.hashWithSalt` replicationInstancePrivateIpAddresses
       `Prelude.hashWithSalt` instanceCreateTime
@@ -525,6 +554,7 @@ instance Prelude.Hashable ReplicationInstance where
       `Prelude.hashWithSalt` replicationInstanceStatus
       `Prelude.hashWithSalt` replicationInstanceClass
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` networkType
       `Prelude.hashWithSalt` multiAZ
       `Prelude.hashWithSalt` vpcSecurityGroups
 
@@ -534,6 +564,7 @@ instance Prelude.NFData ReplicationInstance where
       `Prelude.seq` Prelude.rnf replicationInstanceArn
       `Prelude.seq` Prelude.rnf secondaryAvailabilityZone
       `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf replicationInstanceIpv6Addresses
       `Prelude.seq` Prelude.rnf replicationInstancePublicIpAddresses
       `Prelude.seq` Prelude.rnf replicationInstancePrivateIpAddresses
       `Prelude.seq` Prelude.rnf instanceCreateTime
@@ -541,18 +572,22 @@ instance Prelude.NFData ReplicationInstance where
       `Prelude.seq` Prelude.rnf publiclyAccessible
       `Prelude.seq` Prelude.rnf replicationInstancePrivateIpAddress
       `Prelude.seq` Prelude.rnf freeUntil
-      `Prelude.seq` Prelude.rnf replicationInstancePublicIpAddress
+      `Prelude.seq` Prelude.rnf
+        replicationInstancePublicIpAddress
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf allocatedStorage
       `Prelude.seq` Prelude.rnf pendingModifiedValues
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf
+        preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf dnsNameServers
-      `Prelude.seq` Prelude.rnf replicationSubnetGroup
+      `Prelude.seq` Prelude.rnf
+        replicationSubnetGroup
       `Prelude.seq` Prelude.rnf
         replicationInstanceStatus
       `Prelude.seq` Prelude.rnf
         replicationInstanceClass
       `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf networkType
       `Prelude.seq` Prelude.rnf multiAZ
       `Prelude.seq` Prelude.rnf
         vpcSecurityGroups

@@ -20,8 +20,8 @@
 module Amazonka.FSx.Types.DeleteVolumeOpenZFSConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.DeleteOpenZFSVolumeOption
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A value that specifies whether to delete all child volumes and

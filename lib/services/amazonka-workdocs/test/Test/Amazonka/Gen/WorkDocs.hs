@@ -66,6 +66,9 @@ import Test.Tasty
 --         , requestDeleteDocument $
 --             newDeleteDocument
 --
+--         , requestDeleteDocumentVersion $
+--             newDeleteDocumentVersion
+--
 --         , requestDeleteFolder $
 --             newDeleteFolder
 --
@@ -138,6 +141,9 @@ import Test.Tasty
 --         , requestRemoveResourcePermission $
 --             newRemoveResourcePermission
 --
+--         , requestRestoreDocumentVersions $
+--             newRestoreDocumentVersions
+--
 --         , requestUpdateDocument $
 --             newUpdateDocument
 --
@@ -191,6 +197,9 @@ import Test.Tasty
 --
 --         , responseDeleteDocument $
 --             newDeleteDocumentResponse
+--
+--         , responseDeleteDocumentVersion $
+--             newDeleteDocumentVersionResponse
 --
 --         , responseDeleteFolder $
 --             newDeleteFolderResponse
@@ -263,6 +272,9 @@ import Test.Tasty
 --
 --         , responseRemoveResourcePermission $
 --             newRemoveResourcePermissionResponse
+--
+--         , responseRestoreDocumentVersions $
+--             newRestoreDocumentVersionsResponse
 --
 --         , responseUpdateDocument $
 --             newUpdateDocumentResponse
@@ -358,6 +370,12 @@ requestDeleteDocument =
   req
     "DeleteDocument"
     "fixture/DeleteDocument.yaml"
+
+requestDeleteDocumentVersion :: DeleteDocumentVersion -> TestTree
+requestDeleteDocumentVersion =
+  req
+    "DeleteDocumentVersion"
+    "fixture/DeleteDocumentVersion.yaml"
 
 requestDeleteFolder :: DeleteFolder -> TestTree
 requestDeleteFolder =
@@ -503,6 +521,12 @@ requestRemoveResourcePermission =
     "RemoveResourcePermission"
     "fixture/RemoveResourcePermission.yaml"
 
+requestRestoreDocumentVersions :: RestoreDocumentVersions -> TestTree
+requestRestoreDocumentVersions =
+  req
+    "RestoreDocumentVersions"
+    "fixture/RestoreDocumentVersions.yaml"
+
 requestUpdateDocument :: UpdateDocument -> TestTree
 requestUpdateDocument =
   req
@@ -632,6 +656,14 @@ responseDeleteDocument =
     "fixture/DeleteDocumentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDocument)
+
+responseDeleteDocumentVersion :: DeleteDocumentVersionResponse -> TestTree
+responseDeleteDocumentVersion =
+  res
+    "DeleteDocumentVersionResponse"
+    "fixture/DeleteDocumentVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDocumentVersion)
 
 responseDeleteFolder :: DeleteFolderResponse -> TestTree
 responseDeleteFolder =
@@ -824,6 +856,14 @@ responseRemoveResourcePermission =
     "fixture/RemoveResourcePermissionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RemoveResourcePermission)
+
+responseRestoreDocumentVersions :: RestoreDocumentVersionsResponse -> TestTree
+responseRestoreDocumentVersions =
+  res
+    "RestoreDocumentVersionsResponse"
+    "fixture/RestoreDocumentVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RestoreDocumentVersions)
 
 responseUpdateDocument :: UpdateDocumentResponse -> TestTree
 responseUpdateDocument =

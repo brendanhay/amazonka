@@ -373,7 +373,9 @@ module Amazonka.CustomerProfiles.Lens
     putProfileObjectTypeResponse_description,
 
     -- ** SearchProfiles
+    searchProfiles_logicalOperator,
     searchProfiles_nextToken,
+    searchProfiles_additionalSearchKeys,
     searchProfiles_maxResults,
     searchProfiles_domainName,
     searchProfiles_keyName,
@@ -437,6 +439,10 @@ module Amazonka.CustomerProfiles.Lens
     updateProfileResponse_profileId,
 
     -- * Types
+
+    -- ** AdditionalSearchKey
+    additionalSearchKey_keyName,
+    additionalSearchKey_values,
 
     -- ** Address
     address_address2,
@@ -540,6 +546,10 @@ module Amazonka.CustomerProfiles.Lens
     flowDefinition_sourceFlowConfig,
     flowDefinition_tasks,
     flowDefinition_triggerConfig,
+
+    -- ** FoundByKeyValue
+    foundByKeyValue_keyName,
+    foundByKeyValue_values,
 
     -- ** IdentityResolutionJob
     identityResolutionJob_exportingLocation,
@@ -657,6 +667,7 @@ module Amazonka.CustomerProfiles.Lens
     profile_address,
     profile_partyType,
     profile_gender,
+    profile_foundByItems,
     profile_mobilePhoneNumber,
     profile_middleName,
     profile_attributes,
@@ -782,6 +793,7 @@ import Amazonka.CustomerProfiles.PutProfileObject
 import Amazonka.CustomerProfiles.PutProfileObjectType
 import Amazonka.CustomerProfiles.SearchProfiles
 import Amazonka.CustomerProfiles.TagResource
+import Amazonka.CustomerProfiles.Types.AdditionalSearchKey
 import Amazonka.CustomerProfiles.Types.Address
 import Amazonka.CustomerProfiles.Types.AppflowIntegration
 import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowAttributes
@@ -797,6 +809,7 @@ import Amazonka.CustomerProfiles.Types.ExportingConfig
 import Amazonka.CustomerProfiles.Types.ExportingLocation
 import Amazonka.CustomerProfiles.Types.FieldSourceProfileIds
 import Amazonka.CustomerProfiles.Types.FlowDefinition
+import Amazonka.CustomerProfiles.Types.FoundByKeyValue
 import Amazonka.CustomerProfiles.Types.IdentityResolutionJob
 import Amazonka.CustomerProfiles.Types.IncrementalPullConfig
 import Amazonka.CustomerProfiles.Types.IntegrationConfig

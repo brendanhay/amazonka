@@ -20,8 +20,8 @@
 module Amazonka.FMS.Types.ThirdPartyFirewallPolicy where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.FirewallDeploymentModel
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures the deployment model for the third-party firewall.

@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.AudioCodecSettings where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.AacSettings
 import Amazonka.MediaConvert.Types.Ac3Settings
 import Amazonka.MediaConvert.Types.AiffSettings

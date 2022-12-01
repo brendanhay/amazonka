@@ -20,7 +20,7 @@
 module Amazonka.Rekognition.Types.ContentModerationDetection where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.ModerationLabel
 
@@ -30,7 +30,9 @@ import Amazonka.Rekognition.Types.ModerationLabel
 -- /See:/ 'newContentModerationDetection' smart constructor.
 data ContentModerationDetection = ContentModerationDetection'
   { -- | Time, in milliseconds from the beginning of the video, that the content
-    -- moderation label was detected.
+    -- moderation label was detected. Note that @Timestamp@ is not guaranteed
+    -- to be accurate to the individual frame where the moderated content first
+    -- appears.
     timestamp :: Prelude.Maybe Prelude.Integer,
     -- | The content moderation label detected by in the stored video.
     moderationLabel :: Prelude.Maybe ModerationLabel
@@ -46,7 +48,9 @@ data ContentModerationDetection = ContentModerationDetection'
 -- for backwards compatibility:
 --
 -- 'timestamp', 'contentModerationDetection_timestamp' - Time, in milliseconds from the beginning of the video, that the content
--- moderation label was detected.
+-- moderation label was detected. Note that @Timestamp@ is not guaranteed
+-- to be accurate to the individual frame where the moderated content first
+-- appears.
 --
 -- 'moderationLabel', 'contentModerationDetection_moderationLabel' - The content moderation label detected by in the stored video.
 newContentModerationDetection ::
@@ -59,7 +63,9 @@ newContentModerationDetection =
     }
 
 -- | Time, in milliseconds from the beginning of the video, that the content
--- moderation label was detected.
+-- moderation label was detected. Note that @Timestamp@ is not guaranteed
+-- to be accurate to the individual frame where the moderated content first
+-- appears.
 contentModerationDetection_timestamp :: Lens.Lens' ContentModerationDetection (Prelude.Maybe Prelude.Integer)
 contentModerationDetection_timestamp = Lens.lens (\ContentModerationDetection' {timestamp} -> timestamp) (\s@ContentModerationDetection' {} a -> s {timestamp = a} :: ContentModerationDetection)
 

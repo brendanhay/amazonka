@@ -43,6 +43,7 @@ module Amazonka.Rum.CreateAppMonitor
     createAppMonitor_tags,
     createAppMonitor_appMonitorConfiguration,
     createAppMonitor_cwLogEnabled,
+    createAppMonitor_customEvents,
     createAppMonitor_domain,
     createAppMonitor_name,
 
@@ -57,7 +58,7 @@ module Amazonka.Rum.CreateAppMonitor
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -74,7 +75,10 @@ data CreateAppMonitor = CreateAppMonitor'
     -- Tags don\'t have any semantic meaning to Amazon Web Services and are
     -- interpreted strictly as strings of characters.
     --
-    -- >  <p>You can associate as many as 50 tags with an app monitor.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+    -- You can associate as many as 50 tags with an app monitor.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A structure that contains much of the configuration data for the app
     -- monitor. If you are using Amazon Cognito for authorization, you must
@@ -95,6 +99,13 @@ data CreateAppMonitor = CreateAppMonitor'
     --
     -- If you omit this parameter, the default is @false@.
     cwLogEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether this app monitor allows the web client to define and
+    -- send custom events. If you omit this parameter, custom events are
+    -- @DISABLED@.
+    --
+    -- For more information about custom events, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+    customEvents :: Prelude.Maybe CustomEvents,
     -- | The top-level internet domain name for which your application has
     -- administrative authority.
     domain :: Prelude.Text,
@@ -120,7 +131,10 @@ data CreateAppMonitor = CreateAppMonitor'
 -- Tags don\'t have any semantic meaning to Amazon Web Services and are
 -- interpreted strictly as strings of characters.
 --
--- >  <p>You can associate as many as 50 tags with an app monitor.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+-- You can associate as many as 50 tags with an app monitor.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 --
 -- 'appMonitorConfiguration', 'createAppMonitor_appMonitorConfiguration' - A structure that contains much of the configuration data for the app
 -- monitor. If you are using Amazon Cognito for authorization, you must
@@ -141,6 +155,13 @@ data CreateAppMonitor = CreateAppMonitor'
 --
 -- If you omit this parameter, the default is @false@.
 --
+-- 'customEvents', 'createAppMonitor_customEvents' - Specifies whether this app monitor allows the web client to define and
+-- send custom events. If you omit this parameter, custom events are
+-- @DISABLED@.
+--
+-- For more information about custom events, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+--
 -- 'domain', 'createAppMonitor_domain' - The top-level internet domain name for which your application has
 -- administrative authority.
 --
@@ -156,6 +177,7 @@ newCreateAppMonitor pDomain_ pName_ =
     { tags = Prelude.Nothing,
       appMonitorConfiguration = Prelude.Nothing,
       cwLogEnabled = Prelude.Nothing,
+      customEvents = Prelude.Nothing,
       domain = pDomain_,
       name = pName_
     }
@@ -169,7 +191,10 @@ newCreateAppMonitor pDomain_ pName_ =
 -- Tags don\'t have any semantic meaning to Amazon Web Services and are
 -- interpreted strictly as strings of characters.
 --
--- >  <p>You can associate as many as 50 tags with an app monitor.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+-- You can associate as many as 50 tags with an app monitor.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 createAppMonitor_tags :: Lens.Lens' CreateAppMonitor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createAppMonitor_tags = Lens.lens (\CreateAppMonitor' {tags} -> tags) (\s@CreateAppMonitor' {} a -> s {tags = a} :: CreateAppMonitor) Prelude.. Lens.mapping Lens.coerced
 
@@ -196,6 +221,15 @@ createAppMonitor_appMonitorConfiguration = Lens.lens (\CreateAppMonitor' {appMon
 createAppMonitor_cwLogEnabled :: Lens.Lens' CreateAppMonitor (Prelude.Maybe Prelude.Bool)
 createAppMonitor_cwLogEnabled = Lens.lens (\CreateAppMonitor' {cwLogEnabled} -> cwLogEnabled) (\s@CreateAppMonitor' {} a -> s {cwLogEnabled = a} :: CreateAppMonitor)
 
+-- | Specifies whether this app monitor allows the web client to define and
+-- send custom events. If you omit this parameter, custom events are
+-- @DISABLED@.
+--
+-- For more information about custom events, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+createAppMonitor_customEvents :: Lens.Lens' CreateAppMonitor (Prelude.Maybe CustomEvents)
+createAppMonitor_customEvents = Lens.lens (\CreateAppMonitor' {customEvents} -> customEvents) (\s@CreateAppMonitor' {} a -> s {customEvents = a} :: CreateAppMonitor)
+
 -- | The top-level internet domain name for which your application has
 -- administrative authority.
 createAppMonitor_domain :: Lens.Lens' CreateAppMonitor Prelude.Text
@@ -209,8 +243,8 @@ instance Core.AWSRequest CreateAppMonitor where
   type
     AWSResponse CreateAppMonitor =
       CreateAppMonitorResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -224,6 +258,7 @@ instance Prelude.Hashable CreateAppMonitor where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appMonitorConfiguration
       `Prelude.hashWithSalt` cwLogEnabled
+      `Prelude.hashWithSalt` customEvents
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` name
 
@@ -232,6 +267,7 @@ instance Prelude.NFData CreateAppMonitor where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf appMonitorConfiguration
       `Prelude.seq` Prelude.rnf cwLogEnabled
+      `Prelude.seq` Prelude.rnf customEvents
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf name
 
@@ -254,6 +290,7 @@ instance Core.ToJSON CreateAppMonitor where
             ("AppMonitorConfiguration" Core..=)
               Prelude.<$> appMonitorConfiguration,
             ("CwLogEnabled" Core..=) Prelude.<$> cwLogEnabled,
+            ("CustomEvents" Core..=) Prelude.<$> customEvents,
             Prelude.Just ("Domain" Core..= domain),
             Prelude.Just ("Name" Core..= name)
           ]

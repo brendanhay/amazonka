@@ -20,7 +20,7 @@
 module Amazonka.RDS.Types.DBEngineVersion where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.CharacterSet
 import Amazonka.RDS.Types.Tag
@@ -74,6 +74,14 @@ data DBEngineVersion = DBEngineVersion'
     defaultCharacterSet :: Prelude.Maybe CharacterSet,
     -- | The status of the DB engine version, either @available@ or @deprecated@.
     status :: Prelude.Maybe Prelude.Text,
+    -- | JSON string that lists the installation files and parameters that RDS
+    -- Custom uses to create a custom engine version (CEV). RDS Custom applies
+    -- the patches in the order in which they\'re listed in the manifest. You
+    -- can set the Oracle home, Oracle base, and UNIX\/Linux user and group
+    -- using the installation parameters. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.preparing.html#custom-cev.preparing.manifest.fields JSON fields in the CEV manifest>
+    -- in the /Amazon RDS User Guide/.
+    customDBEngineVersionManifest :: Prelude.Maybe Prelude.Text,
     -- | The major engine version of the CEV.
     majorEngineVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket that contains your database
@@ -166,6 +174,14 @@ data DBEngineVersion = DBEngineVersion'
 --
 -- 'status', 'dbEngineVersion_status' - The status of the DB engine version, either @available@ or @deprecated@.
 --
+-- 'customDBEngineVersionManifest', 'dbEngineVersion_customDBEngineVersionManifest' - JSON string that lists the installation files and parameters that RDS
+-- Custom uses to create a custom engine version (CEV). RDS Custom applies
+-- the patches in the order in which they\'re listed in the manifest. You
+-- can set the Oracle home, Oracle base, and UNIX\/Linux user and group
+-- using the installation parameters. For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.preparing.html#custom-cev.preparing.manifest.fields JSON fields in the CEV manifest>
+-- in the /Amazon RDS User Guide/.
+--
 -- 'majorEngineVersion', 'dbEngineVersion_majorEngineVersion' - The major engine version of the CEV.
 --
 -- 'databaseInstallationFilesS3BucketName', 'dbEngineVersion_databaseInstallationFilesS3BucketName' - The name of the Amazon S3 bucket that contains your database
@@ -219,6 +235,7 @@ newDBEngineVersion =
       supportedEngineModes = Prelude.Nothing,
       defaultCharacterSet = Prelude.Nothing,
       status = Prelude.Nothing,
+      customDBEngineVersionManifest = Prelude.Nothing,
       majorEngineVersion = Prelude.Nothing,
       databaseInstallationFilesS3BucketName =
         Prelude.Nothing,
@@ -301,6 +318,16 @@ dbEngineVersion_defaultCharacterSet = Lens.lens (\DBEngineVersion' {defaultChara
 -- | The status of the DB engine version, either @available@ or @deprecated@.
 dbEngineVersion_status :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
 dbEngineVersion_status = Lens.lens (\DBEngineVersion' {status} -> status) (\s@DBEngineVersion' {} a -> s {status = a} :: DBEngineVersion)
+
+-- | JSON string that lists the installation files and parameters that RDS
+-- Custom uses to create a custom engine version (CEV). RDS Custom applies
+-- the patches in the order in which they\'re listed in the manifest. You
+-- can set the Oracle home, Oracle base, and UNIX\/Linux user and group
+-- using the installation parameters. For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.preparing.html#custom-cev.preparing.manifest.fields JSON fields in the CEV manifest>
+-- in the /Amazon RDS User Guide/.
+dbEngineVersion_customDBEngineVersionManifest :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
+dbEngineVersion_customDBEngineVersionManifest = Lens.lens (\DBEngineVersion' {customDBEngineVersionManifest} -> customDBEngineVersionManifest) (\s@DBEngineVersion' {} a -> s {customDBEngineVersionManifest = a} :: DBEngineVersion)
 
 -- | The major engine version of the CEV.
 dbEngineVersion_majorEngineVersion :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
@@ -401,6 +428,7 @@ instance Core.FromXML DBEngineVersion where
                   )
       Prelude.<*> (x Core..@? "DefaultCharacterSet")
       Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "CustomDBEngineVersionManifest")
       Prelude.<*> (x Core..@? "MajorEngineVersion")
       Prelude.<*> (x Core..@? "DatabaseInstallationFilesS3BucketName")
       Prelude.<*> (x Core..@? "DBEngineVersionDescription")
@@ -436,6 +464,7 @@ instance Prelude.Hashable DBEngineVersion where
       `Prelude.hashWithSalt` supportedEngineModes
       `Prelude.hashWithSalt` defaultCharacterSet
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` customDBEngineVersionManifest
       `Prelude.hashWithSalt` majorEngineVersion
       `Prelude.hashWithSalt` databaseInstallationFilesS3BucketName
       `Prelude.hashWithSalt` dbEngineVersionDescription
@@ -465,6 +494,7 @@ instance Prelude.NFData DBEngineVersion where
       `Prelude.seq` Prelude.rnf supportedEngineModes
       `Prelude.seq` Prelude.rnf defaultCharacterSet
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf customDBEngineVersionManifest
       `Prelude.seq` Prelude.rnf majorEngineVersion
       `Prelude.seq` Prelude.rnf
         databaseInstallationFilesS3BucketName

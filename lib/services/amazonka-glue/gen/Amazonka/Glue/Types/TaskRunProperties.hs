@@ -20,12 +20,12 @@
 module Amazonka.Glue.Types.TaskRunProperties where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.ExportLabelsTaskRunProperties
 import Amazonka.Glue.Types.FindMatchesTaskRunProperties
 import Amazonka.Glue.Types.ImportLabelsTaskRunProperties
 import Amazonka.Glue.Types.LabelingSetGenerationTaskRunProperties
 import Amazonka.Glue.Types.TaskType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration properties for the task run.

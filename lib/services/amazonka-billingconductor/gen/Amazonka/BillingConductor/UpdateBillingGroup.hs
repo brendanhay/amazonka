@@ -53,7 +53,7 @@ where
 
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,8 +136,8 @@ instance Core.AWSRequest UpdateBillingGroup where
   type
     AWSResponse UpdateBillingGroup =
       UpdateBillingGroupResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -219,7 +219,7 @@ data UpdateBillingGroupResponse = UpdateBillingGroupResponse'
     -- | The Amazon Resource Name (ARN) of the pricing plan to compute Amazon Web
     -- Services charges for the billing group.
     pricingPlanArn :: Prelude.Maybe Prelude.Text,
-    -- | The most recent time the billing group was modified.
+    -- | The most recent time when the billing group was modified.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
     -- | The account ID that serves as the main account in a billing group.
     primaryAccountId :: Prelude.Maybe Prelude.Text,
@@ -253,7 +253,7 @@ data UpdateBillingGroupResponse = UpdateBillingGroupResponse'
 -- 'pricingPlanArn', 'updateBillingGroupResponse_pricingPlanArn' - The Amazon Resource Name (ARN) of the pricing plan to compute Amazon Web
 -- Services charges for the billing group.
 --
--- 'lastModifiedTime', 'updateBillingGroupResponse_lastModifiedTime' - The most recent time the billing group was modified.
+-- 'lastModifiedTime', 'updateBillingGroupResponse_lastModifiedTime' - The most recent time when the billing group was modified.
 --
 -- 'primaryAccountId', 'updateBillingGroupResponse_primaryAccountId' - The account ID that serves as the main account in a billing group.
 --
@@ -307,7 +307,7 @@ updateBillingGroupResponse_description = Lens.lens (\UpdateBillingGroupResponse'
 updateBillingGroupResponse_pricingPlanArn :: Lens.Lens' UpdateBillingGroupResponse (Prelude.Maybe Prelude.Text)
 updateBillingGroupResponse_pricingPlanArn = Lens.lens (\UpdateBillingGroupResponse' {pricingPlanArn} -> pricingPlanArn) (\s@UpdateBillingGroupResponse' {} a -> s {pricingPlanArn = a} :: UpdateBillingGroupResponse)
 
--- | The most recent time the billing group was modified.
+-- | The most recent time when the billing group was modified.
 updateBillingGroupResponse_lastModifiedTime :: Lens.Lens' UpdateBillingGroupResponse (Prelude.Maybe Prelude.Integer)
 updateBillingGroupResponse_lastModifiedTime = Lens.lens (\UpdateBillingGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateBillingGroupResponse' {} a -> s {lastModifiedTime = a} :: UpdateBillingGroupResponse)
 

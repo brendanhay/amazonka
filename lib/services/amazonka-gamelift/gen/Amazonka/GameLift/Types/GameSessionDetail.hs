@@ -20,9 +20,9 @@
 module Amazonka.GameLift.Types.GameSessionDetail where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.GameSession
 import Amazonka.GameLift.Types.ProtectionPolicy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A game session\'s properties plus the protection policy currently in

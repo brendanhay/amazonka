@@ -26,7 +26,7 @@ import Amazonka.AppStream.Types.StorageConnector
 import Amazonka.AppStream.Types.StreamingExperienceSettings
 import Amazonka.AppStream.Types.UserSetting
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a stack.

@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -46,6 +47,9 @@ module Amazonka.ServiceCatalog.Types
 
     -- * EvaluationType
     EvaluationType (..),
+
+    -- * LastSyncStatus
+    LastSyncStatus (..),
 
     -- * OrganizationNodeType
     OrganizationNodeType (..),
@@ -122,6 +126,9 @@ module Amazonka.ServiceCatalog.Types
     -- * SortOrder
     SortOrder (..),
 
+    -- * SourceType
+    SourceType (..),
+
     -- * StackInstanceStatus
     StackInstanceStatus (..),
 
@@ -143,6 +150,14 @@ module Amazonka.ServiceCatalog.Types
     CloudWatchDashboard (..),
     newCloudWatchDashboard,
     cloudWatchDashboard_name,
+
+    -- * CodeStarParameters
+    CodeStarParameters (..),
+    newCodeStarParameters,
+    codeStarParameters_connectionArn,
+    codeStarParameters_repository,
+    codeStarParameters_branch,
+    codeStarParameters_artifactPath,
 
     -- * ConstraintDetail
     ConstraintDetail (..),
@@ -175,6 +190,15 @@ module Amazonka.ServiceCatalog.Types
     failedServiceActionAssociation_serviceActionId,
     failedServiceActionAssociation_errorCode,
     failedServiceActionAssociation_provisioningArtifactId,
+
+    -- * LastSync
+    LastSync (..),
+    newLastSync,
+    lastSync_lastSyncTime,
+    lastSync_lastSuccessfulSyncTime,
+    lastSync_lastSuccessfulSyncProvisioningArtifactId,
+    lastSync_lastSyncStatus,
+    lastSync_lastSyncStatusMessage,
 
     -- * LaunchPath
     LaunchPath (..),
@@ -236,6 +260,7 @@ module Amazonka.ServiceCatalog.Types
     portfolioShareDetail_principalId,
     portfolioShareDetail_type,
     portfolioShareDetail_accepted,
+    portfolioShareDetail_sharePrincipals,
     portfolioShareDetail_shareTagOptions,
 
     -- * Principal
@@ -257,6 +282,7 @@ module Amazonka.ServiceCatalog.Types
     productViewDetail_status,
     productViewDetail_productViewSummary,
     productViewDetail_productARN,
+    productViewDetail_sourceConnection,
 
     -- * ProductViewSummary
     ProductViewSummary (..),
@@ -362,6 +388,7 @@ module Amazonka.ServiceCatalog.Types
     provisioningArtifactDetail_id,
     provisioningArtifactDetail_description,
     provisioningArtifactDetail_guidance,
+    provisioningArtifactDetail_sourceRevision,
 
     -- * ProvisioningArtifactOutput
     ProvisioningArtifactOutput (..),
@@ -391,8 +418,8 @@ module Amazonka.ServiceCatalog.Types
     provisioningArtifactProperties_name,
     provisioningArtifactProperties_type,
     provisioningArtifactProperties_disableTemplateValidation,
-    provisioningArtifactProperties_description,
     provisioningArtifactProperties_info,
+    provisioningArtifactProperties_description,
 
     -- * ProvisioningArtifactSummary
     ProvisioningArtifactSummary (..),
@@ -530,6 +557,24 @@ module Amazonka.ServiceCatalog.Types
     shareError_accounts,
     shareError_error,
 
+    -- * SourceConnection
+    SourceConnection (..),
+    newSourceConnection,
+    sourceConnection_type,
+    sourceConnection_connectionParameters,
+
+    -- * SourceConnectionDetail
+    SourceConnectionDetail (..),
+    newSourceConnectionDetail,
+    sourceConnectionDetail_lastSync,
+    sourceConnectionDetail_type,
+    sourceConnectionDetail_connectionParameters,
+
+    -- * SourceConnectionParameters
+    SourceConnectionParameters (..),
+    newSourceConnectionParameters,
+    sourceConnectionParameters_codeStar,
+
     -- * StackInstance
     StackInstance (..),
     newStackInstance,
@@ -585,7 +630,7 @@ module Amazonka.ServiceCatalog.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.AccessLevelFilter
 import Amazonka.ServiceCatalog.Types.AccessLevelFilterKey
@@ -593,6 +638,7 @@ import Amazonka.ServiceCatalog.Types.AccessStatus
 import Amazonka.ServiceCatalog.Types.BudgetDetail
 import Amazonka.ServiceCatalog.Types.ChangeAction
 import Amazonka.ServiceCatalog.Types.CloudWatchDashboard
+import Amazonka.ServiceCatalog.Types.CodeStarParameters
 import Amazonka.ServiceCatalog.Types.ConstraintDetail
 import Amazonka.ServiceCatalog.Types.ConstraintSummary
 import Amazonka.ServiceCatalog.Types.CopyOption
@@ -601,6 +647,8 @@ import Amazonka.ServiceCatalog.Types.DescribePortfolioShareType
 import Amazonka.ServiceCatalog.Types.EvaluationType
 import Amazonka.ServiceCatalog.Types.ExecutionParameter
 import Amazonka.ServiceCatalog.Types.FailedServiceActionAssociation
+import Amazonka.ServiceCatalog.Types.LastSync
+import Amazonka.ServiceCatalog.Types.LastSyncStatus
 import Amazonka.ServiceCatalog.Types.LaunchPath
 import Amazonka.ServiceCatalog.Types.LaunchPathSummary
 import Amazonka.ServiceCatalog.Types.ListRecordHistorySearchFilter
@@ -665,6 +713,10 @@ import Amazonka.ServiceCatalog.Types.ShareDetails
 import Amazonka.ServiceCatalog.Types.ShareError
 import Amazonka.ServiceCatalog.Types.ShareStatus
 import Amazonka.ServiceCatalog.Types.SortOrder
+import Amazonka.ServiceCatalog.Types.SourceConnection
+import Amazonka.ServiceCatalog.Types.SourceConnectionDetail
+import Amazonka.ServiceCatalog.Types.SourceConnectionParameters
+import Amazonka.ServiceCatalog.Types.SourceType
 import Amazonka.ServiceCatalog.Types.StackInstance
 import Amazonka.ServiceCatalog.Types.StackInstanceStatus
 import Amazonka.ServiceCatalog.Types.StackSetOperationType
@@ -680,29 +732,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev =
-        "ServiceCatalog",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "servicecatalog",
-      Core._serviceSigningName = "servicecatalog",
-      Core._serviceVersion = "2015-12-10",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "ServiceCatalog",
-      Core._serviceRetry = retry
+    { Core.abbrev = "ServiceCatalog",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "servicecatalog",
+      Core.signingName = "servicecatalog",
+      Core.version = "2015-12-10",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "ServiceCatalog",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

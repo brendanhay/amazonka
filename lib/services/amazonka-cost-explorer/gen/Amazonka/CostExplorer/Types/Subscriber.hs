@@ -20,9 +20,9 @@
 module Amazonka.CostExplorer.Types.Subscriber where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.SubscriberStatus
 import Amazonka.CostExplorer.Types.SubscriberType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The recipient of @AnomalySubscription@ notifications.

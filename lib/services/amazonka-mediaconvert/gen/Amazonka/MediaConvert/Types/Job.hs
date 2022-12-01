@@ -20,7 +20,7 @@
 module Amazonka.MediaConvert.Types.Job where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaConvert.Types.AccelerationSettings
 import Amazonka.MediaConvert.Types.AccelerationStatus
 import Amazonka.MediaConvert.Types.BillingTagsSource

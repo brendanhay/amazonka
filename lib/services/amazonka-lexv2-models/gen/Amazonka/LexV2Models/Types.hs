@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -87,6 +88,9 @@ module Amazonka.LexV2Models.Types
 
     -- * Effect
     Effect (..),
+
+    -- * ErrorCode
+    ErrorCode (..),
 
     -- * ExportFilterName
     ExportFilterName (..),
@@ -479,6 +483,11 @@ module Amazonka.LexV2Models.Types
     newCustomPayload,
     customPayload_value,
 
+    -- * CustomVocabularyEntryId
+    CustomVocabularyEntryId (..),
+    newCustomVocabularyEntryId,
+    customVocabularyEntryId_itemId,
+
     -- * CustomVocabularyExportSpecification
     CustomVocabularyExportSpecification (..),
     newCustomVocabularyExportSpecification,
@@ -492,6 +501,14 @@ module Amazonka.LexV2Models.Types
     customVocabularyImportSpecification_botId,
     customVocabularyImportSpecification_botVersion,
     customVocabularyImportSpecification_localeId,
+
+    -- * CustomVocabularyItem
+    CustomVocabularyItem (..),
+    newCustomVocabularyItem,
+    customVocabularyItem_displayAs,
+    customVocabularyItem_weight,
+    customVocabularyItem_itemId,
+    customVocabularyItem_phrase,
 
     -- * DTMFSpecification
     DTMFSpecification (..),
@@ -592,6 +609,13 @@ module Amazonka.LexV2Models.Types
     ExternalSourceSetting (..),
     newExternalSourceSetting,
     externalSourceSetting_grammarSlotTypeSetting,
+
+    -- * FailedCustomVocabularyItem
+    FailedCustomVocabularyItem (..),
+    newFailedCustomVocabularyItem,
+    failedCustomVocabularyItem_errorMessage,
+    failedCustomVocabularyItem_errorCode,
+    failedCustomVocabularyItem_itemId,
 
     -- * FulfillmentCodeHookSettings
     FulfillmentCodeHookSettings (..),
@@ -784,6 +808,13 @@ module Amazonka.LexV2Models.Types
     MultipleValuesSetting (..),
     newMultipleValuesSetting,
     multipleValuesSetting_allowMultipleValues,
+
+    -- * NewCustomVocabularyItem
+    NewCustomVocabularyItem (..),
+    newNewCustomVocabularyItem,
+    newCustomVocabularyItem_displayAs,
+    newCustomVocabularyItem_weight,
+    newCustomVocabularyItem_phrase,
 
     -- * ObfuscationSetting
     ObfuscationSetting (..),
@@ -1113,7 +1144,7 @@ module Amazonka.LexV2Models.Types
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types.AdvancedRecognitionSetting
 import Amazonka.LexV2Models.Types.AggregatedUtterancesFilter
 import Amazonka.LexV2Models.Types.AggregatedUtterancesFilterName
@@ -1176,8 +1207,10 @@ import Amazonka.LexV2Models.Types.ConditionalBranch
 import Amazonka.LexV2Models.Types.ConditionalSpecification
 import Amazonka.LexV2Models.Types.ConversationLogSettings
 import Amazonka.LexV2Models.Types.CustomPayload
+import Amazonka.LexV2Models.Types.CustomVocabularyEntryId
 import Amazonka.LexV2Models.Types.CustomVocabularyExportSpecification
 import Amazonka.LexV2Models.Types.CustomVocabularyImportSpecification
+import Amazonka.LexV2Models.Types.CustomVocabularyItem
 import Amazonka.LexV2Models.Types.CustomVocabularyStatus
 import Amazonka.LexV2Models.Types.DTMFSpecification
 import Amazonka.LexV2Models.Types.DataPrivacy
@@ -1191,6 +1224,7 @@ import Amazonka.LexV2Models.Types.DialogState
 import Amazonka.LexV2Models.Types.Effect
 import Amazonka.LexV2Models.Types.ElicitationCodeHookInvocationSetting
 import Amazonka.LexV2Models.Types.EncryptionSetting
+import Amazonka.LexV2Models.Types.ErrorCode
 import Amazonka.LexV2Models.Types.ExportFilter
 import Amazonka.LexV2Models.Types.ExportFilterName
 import Amazonka.LexV2Models.Types.ExportFilterOperator
@@ -1200,6 +1234,7 @@ import Amazonka.LexV2Models.Types.ExportSortBy
 import Amazonka.LexV2Models.Types.ExportStatus
 import Amazonka.LexV2Models.Types.ExportSummary
 import Amazonka.LexV2Models.Types.ExternalSourceSetting
+import Amazonka.LexV2Models.Types.FailedCustomVocabularyItem
 import Amazonka.LexV2Models.Types.FulfillmentCodeHookSettings
 import Amazonka.LexV2Models.Types.FulfillmentStartResponseSpecification
 import Amazonka.LexV2Models.Types.FulfillmentUpdateResponseSpecification
@@ -1237,6 +1272,7 @@ import Amazonka.LexV2Models.Types.Message
 import Amazonka.LexV2Models.Types.MessageGroup
 import Amazonka.LexV2Models.Types.MessageSelectionStrategy
 import Amazonka.LexV2Models.Types.MultipleValuesSetting
+import Amazonka.LexV2Models.Types.NewCustomVocabularyItem
 import Amazonka.LexV2Models.Types.ObfuscationSetting
 import Amazonka.LexV2Models.Types.ObfuscationSettingType
 import Amazonka.LexV2Models.Types.OutputContext
@@ -1309,28 +1345,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "LexV2Models",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "models-v2-lex",
-      Core._serviceSigningName = "lex",
-      Core._serviceVersion = "2020-08-07",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError =
-        Core.parseJSONError "LexV2Models",
-      Core._serviceRetry = retry
+    { Core.abbrev = "LexV2Models",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "models-v2-lex",
+      Core.signingName = "lex",
+      Core.version = "2020-08-07",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "LexV2Models",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

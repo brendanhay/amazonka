@@ -20,8 +20,8 @@
 module Amazonka.IoTEvents.Types.NotificationTargetActions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTEvents.Types.LambdaAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an AWS Lambda function to manage alarm notifications. You can

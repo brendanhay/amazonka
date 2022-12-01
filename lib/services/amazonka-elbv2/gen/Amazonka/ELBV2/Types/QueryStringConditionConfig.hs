@@ -20,8 +20,8 @@
 module Amazonka.ELBV2.Types.QueryStringConditionConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ELBV2.Types.QueryStringKeyValuePair
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a query string condition.
@@ -34,8 +34,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueryStringConditionConfig' smart constructor.
 data QueryStringConditionConfig = QueryStringConditionConfig'
-  { -- | One or more key\/value pairs or values to find in the query string. The
-    -- maximum size of each string is 128 characters. The comparison is case
+  { -- | The key\/value pairs or values to find in the query string. The maximum
+    -- size of each string is 128 characters. The comparison is case
     -- insensitive. The following wildcard characters are supported: * (matches
     -- 0 or more characters) and ? (matches exactly 1 character). To search for
     -- a literal \'*\' or \'?\' character in a query string, you must escape
@@ -55,8 +55,8 @@ data QueryStringConditionConfig = QueryStringConditionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'queryStringConditionConfig_values' - One or more key\/value pairs or values to find in the query string. The
--- maximum size of each string is 128 characters. The comparison is case
+-- 'values', 'queryStringConditionConfig_values' - The key\/value pairs or values to find in the query string. The maximum
+-- size of each string is 128 characters. The comparison is case
 -- insensitive. The following wildcard characters are supported: * (matches
 -- 0 or more characters) and ? (matches exactly 1 character). To search for
 -- a literal \'*\' or \'?\' character in a query string, you must escape
@@ -72,8 +72,8 @@ newQueryStringConditionConfig =
         Prelude.Nothing
     }
 
--- | One or more key\/value pairs or values to find in the query string. The
--- maximum size of each string is 128 characters. The comparison is case
+-- | The key\/value pairs or values to find in the query string. The maximum
+-- size of each string is 128 characters. The comparison is case
 -- insensitive. The following wildcard characters are supported: * (matches
 -- 0 or more characters) and ? (matches exactly 1 character). To search for
 -- a literal \'*\' or \'?\' character in a query string, you must escape

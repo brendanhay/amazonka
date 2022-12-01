@@ -36,7 +36,7 @@ module Amazonka.Route53RecoveryReadiness.DeleteResourceSet
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -76,8 +76,8 @@ instance Core.AWSRequest DeleteResourceSet where
   type
     AWSResponse DeleteResourceSet =
       DeleteResourceSetResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteResourceSetResponse'
 

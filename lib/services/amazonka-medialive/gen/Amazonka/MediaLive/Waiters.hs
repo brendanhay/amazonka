@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,7 +17,7 @@
 module Amazonka.MediaLive.Waiters where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MediaLive.DescribeChannel
 import Amazonka.MediaLive.DescribeInput
 import Amazonka.MediaLive.DescribeMultiplex
@@ -28,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 newChannelDeleted :: Core.Wait DescribeChannel
 newChannelDeleted =
   Core.Wait
-    { Core._waitName = "ChannelDeleted",
-      Core._waitAttempts = 84,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ChannelDeleted",
+      Core.attempts = 84,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "DELETED"
             Core.AcceptSuccess
@@ -52,10 +53,10 @@ newChannelDeleted =
 newMultiplexDeleted :: Core.Wait DescribeMultiplex
 newMultiplexDeleted =
   Core.Wait
-    { Core._waitName = "MultiplexDeleted",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "MultiplexDeleted",
+      Core.attempts = 20,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "DELETED"
             Core.AcceptSuccess
@@ -76,10 +77,10 @@ newMultiplexDeleted =
 newChannelCreated :: Core.Wait DescribeChannel
 newChannelCreated =
   Core.Wait
-    { Core._waitName = "ChannelCreated",
-      Core._waitAttempts = 5,
-      Core._waitDelay = 3,
-      Core._waitAcceptors =
+    { Core.name = "ChannelCreated",
+      Core.attempts = 5,
+      Core.delay = 3,
+      Core.acceptors =
         [ Core.matchAll
             "IDLE"
             Core.AcceptSuccess
@@ -106,10 +107,10 @@ newChannelCreated =
 newInputDeleted :: Core.Wait DescribeInput
 newInputDeleted =
   Core.Wait
-    { Core._waitName = "InputDeleted",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "InputDeleted",
+      Core.attempts = 20,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "DELETED"
             Core.AcceptSuccess
@@ -130,10 +131,10 @@ newInputDeleted =
 newInputDetached :: Core.Wait DescribeInput
 newInputDetached =
   Core.Wait
-    { Core._waitName = "InputDetached",
-      Core._waitAttempts = 84,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "InputDetached",
+      Core.attempts = 84,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "DETACHED"
             Core.AcceptSuccess
@@ -160,10 +161,10 @@ newInputDetached =
 newMultiplexStopped :: Core.Wait DescribeMultiplex
 newMultiplexStopped =
   Core.Wait
-    { Core._waitName = "MultiplexStopped",
-      Core._waitAttempts = 28,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "MultiplexStopped",
+      Core.attempts = 28,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "IDLE"
             Core.AcceptSuccess
@@ -184,10 +185,10 @@ newMultiplexStopped =
 newChannelRunning :: Core.Wait DescribeChannel
 newChannelRunning =
   Core.Wait
-    { Core._waitName = "ChannelRunning",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ChannelRunning",
+      Core.attempts = 120,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "RUNNING"
             Core.AcceptSuccess
@@ -208,10 +209,10 @@ newChannelRunning =
 newMultiplexRunning :: Core.Wait DescribeMultiplex
 newMultiplexRunning =
   Core.Wait
-    { Core._waitName = "MultiplexRunning",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "MultiplexRunning",
+      Core.attempts = 120,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "RUNNING"
             Core.AcceptSuccess
@@ -232,10 +233,10 @@ newMultiplexRunning =
 newMultiplexCreated :: Core.Wait DescribeMultiplex
 newMultiplexCreated =
   Core.Wait
-    { Core._waitName = "MultiplexCreated",
-      Core._waitAttempts = 5,
-      Core._waitDelay = 3,
-      Core._waitAcceptors =
+    { Core.name = "MultiplexCreated",
+      Core.attempts = 5,
+      Core.delay = 3,
+      Core.acceptors =
         [ Core.matchAll
             "IDLE"
             Core.AcceptSuccess
@@ -262,10 +263,10 @@ newMultiplexCreated =
 newChannelStopped :: Core.Wait DescribeChannel
 newChannelStopped =
   Core.Wait
-    { Core._waitName = "ChannelStopped",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "ChannelStopped",
+      Core.attempts = 60,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "IDLE"
             Core.AcceptSuccess
@@ -286,10 +287,10 @@ newChannelStopped =
 newInputAttached :: Core.Wait DescribeInput
 newInputAttached =
   Core.Wait
-    { Core._waitName = "InputAttached",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
+    { Core.name = "InputAttached",
+      Core.attempts = 20,
+      Core.delay = 5,
+      Core.acceptors =
         [ Core.matchAll
             "ATTACHED"
             Core.AcceptSuccess

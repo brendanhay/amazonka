@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateConfigurationSet $
+--         [ requestBatchGetMetricData $
+--             newBatchGetMetricData
+--
+--         , requestCreateConfigurationSet $
 --             newCreateConfigurationSet
 --
 --         , requestCreateConfigurationSetEventDestination $
@@ -177,6 +180,9 @@ import Test.Tasty
 --         , requestListImportJobs $
 --             newListImportJobs
 --
+--         , requestListRecommendations $
+--             newListRecommendations
+--
 --         , requestListSuppressedDestinations $
 --             newListSuppressedDestinations
 --
@@ -195,6 +201,9 @@ import Test.Tasty
 --         , requestPutAccountSuppressionAttributes $
 --             newPutAccountSuppressionAttributes
 --
+--         , requestPutAccountVdmAttributes $
+--             newPutAccountVdmAttributes
+--
 --         , requestPutConfigurationSetDeliveryOptions $
 --             newPutConfigurationSetDeliveryOptions
 --
@@ -209,6 +218,9 @@ import Test.Tasty
 --
 --         , requestPutConfigurationSetTrackingOptions $
 --             newPutConfigurationSetTrackingOptions
+--
+--         , requestPutConfigurationSetVdmOptions $
+--             newPutConfigurationSetVdmOptions
 --
 --         , requestPutDedicatedIpInPool $
 --             newPutDedicatedIpInPool
@@ -276,7 +288,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateConfigurationSet $
+--         [ responseBatchGetMetricData $
+--             newBatchGetMetricDataResponse
+--
+--         , responseCreateConfigurationSet $
 --             newCreateConfigurationSetResponse
 --
 --         , responseCreateConfigurationSetEventDestination $
@@ -426,6 +441,9 @@ import Test.Tasty
 --         , responseListImportJobs $
 --             newListImportJobsResponse
 --
+--         , responseListRecommendations $
+--             newListRecommendationsResponse
+--
 --         , responseListSuppressedDestinations $
 --             newListSuppressedDestinationsResponse
 --
@@ -444,6 +462,9 @@ import Test.Tasty
 --         , responsePutAccountSuppressionAttributes $
 --             newPutAccountSuppressionAttributesResponse
 --
+--         , responsePutAccountVdmAttributes $
+--             newPutAccountVdmAttributesResponse
+--
 --         , responsePutConfigurationSetDeliveryOptions $
 --             newPutConfigurationSetDeliveryOptionsResponse
 --
@@ -458,6 +479,9 @@ import Test.Tasty
 --
 --         , responsePutConfigurationSetTrackingOptions $
 --             newPutConfigurationSetTrackingOptionsResponse
+--
+--         , responsePutConfigurationSetVdmOptions $
+--             newPutConfigurationSetVdmOptionsResponse
 --
 --         , responsePutDedicatedIpInPool $
 --             newPutDedicatedIpInPoolResponse
@@ -526,6 +550,12 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestBatchGetMetricData :: BatchGetMetricData -> TestTree
+requestBatchGetMetricData =
+  req
+    "BatchGetMetricData"
+    "fixture/BatchGetMetricData.yaml"
 
 requestCreateConfigurationSet :: CreateConfigurationSet -> TestTree
 requestCreateConfigurationSet =
@@ -827,6 +857,12 @@ requestListImportJobs =
     "ListImportJobs"
     "fixture/ListImportJobs.yaml"
 
+requestListRecommendations :: ListRecommendations -> TestTree
+requestListRecommendations =
+  req
+    "ListRecommendations"
+    "fixture/ListRecommendations.yaml"
+
 requestListSuppressedDestinations :: ListSuppressedDestinations -> TestTree
 requestListSuppressedDestinations =
   req
@@ -863,6 +899,12 @@ requestPutAccountSuppressionAttributes =
     "PutAccountSuppressionAttributes"
     "fixture/PutAccountSuppressionAttributes.yaml"
 
+requestPutAccountVdmAttributes :: PutAccountVdmAttributes -> TestTree
+requestPutAccountVdmAttributes =
+  req
+    "PutAccountVdmAttributes"
+    "fixture/PutAccountVdmAttributes.yaml"
+
 requestPutConfigurationSetDeliveryOptions :: PutConfigurationSetDeliveryOptions -> TestTree
 requestPutConfigurationSetDeliveryOptions =
   req
@@ -892,6 +934,12 @@ requestPutConfigurationSetTrackingOptions =
   req
     "PutConfigurationSetTrackingOptions"
     "fixture/PutConfigurationSetTrackingOptions.yaml"
+
+requestPutConfigurationSetVdmOptions :: PutConfigurationSetVdmOptions -> TestTree
+requestPutConfigurationSetVdmOptions =
+  req
+    "PutConfigurationSetVdmOptions"
+    "fixture/PutConfigurationSetVdmOptions.yaml"
 
 requestPutDedicatedIpInPool :: PutDedicatedIpInPool -> TestTree
 requestPutDedicatedIpInPool =
@@ -1020,6 +1068,14 @@ requestUpdateEmailTemplate =
     "fixture/UpdateEmailTemplate.yaml"
 
 -- Responses
+
+responseBatchGetMetricData :: BatchGetMetricDataResponse -> TestTree
+responseBatchGetMetricData =
+  res
+    "BatchGetMetricDataResponse"
+    "fixture/BatchGetMetricDataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetMetricData)
 
 responseCreateConfigurationSet :: CreateConfigurationSetResponse -> TestTree
 responseCreateConfigurationSet =
@@ -1421,6 +1477,14 @@ responseListImportJobs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListImportJobs)
 
+responseListRecommendations :: ListRecommendationsResponse -> TestTree
+responseListRecommendations =
+  res
+    "ListRecommendationsResponse"
+    "fixture/ListRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRecommendations)
+
 responseListSuppressedDestinations :: ListSuppressedDestinationsResponse -> TestTree
 responseListSuppressedDestinations =
   res
@@ -1469,6 +1533,14 @@ responsePutAccountSuppressionAttributes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutAccountSuppressionAttributes)
 
+responsePutAccountVdmAttributes :: PutAccountVdmAttributesResponse -> TestTree
+responsePutAccountVdmAttributes =
+  res
+    "PutAccountVdmAttributesResponse"
+    "fixture/PutAccountVdmAttributesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAccountVdmAttributes)
+
 responsePutConfigurationSetDeliveryOptions :: PutConfigurationSetDeliveryOptionsResponse -> TestTree
 responsePutConfigurationSetDeliveryOptions =
   res
@@ -1508,6 +1580,14 @@ responsePutConfigurationSetTrackingOptions =
     "fixture/PutConfigurationSetTrackingOptionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutConfigurationSetTrackingOptions)
+
+responsePutConfigurationSetVdmOptions :: PutConfigurationSetVdmOptionsResponse -> TestTree
+responsePutConfigurationSetVdmOptions =
+  res
+    "PutConfigurationSetVdmOptionsResponse"
+    "fixture/PutConfigurationSetVdmOptionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutConfigurationSetVdmOptions)
 
 responsePutDedicatedIpInPool :: PutDedicatedIpInPoolResponse -> TestTree
 responsePutDedicatedIpInPool =

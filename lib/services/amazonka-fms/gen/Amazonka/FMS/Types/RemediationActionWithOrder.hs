@@ -20,8 +20,8 @@
 module Amazonka.FMS.Types.RemediationActionWithOrder where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.RemediationAction
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An ordered list of actions you can take to remediate a violation.

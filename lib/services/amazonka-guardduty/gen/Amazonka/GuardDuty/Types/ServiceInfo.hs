@@ -20,11 +20,11 @@
 module Amazonka.GuardDuty.Types.ServiceInfo where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GuardDuty.Types.Action
 import Amazonka.GuardDuty.Types.EbsVolumeScanDetails
 import Amazonka.GuardDuty.Types.Evidence
 import Amazonka.GuardDuty.Types.ServiceAdditionalInfo
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains additional information about the generated finding.

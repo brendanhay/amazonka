@@ -20,10 +20,10 @@
 module Amazonka.CostExplorer.Types.ResultByTime where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.DateInterval
 import Amazonka.CostExplorer.Types.Group
 import Amazonka.CostExplorer.Types.MetricValue
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The result that\'s associated with a time period.

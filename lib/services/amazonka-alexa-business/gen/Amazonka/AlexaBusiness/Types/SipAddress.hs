@@ -21,7 +21,7 @@ module Amazonka.AlexaBusiness.Types.SipAddress where
 
 import Amazonka.AlexaBusiness.Types.SipType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SIP address for the contact containing the URI and SIP address type.

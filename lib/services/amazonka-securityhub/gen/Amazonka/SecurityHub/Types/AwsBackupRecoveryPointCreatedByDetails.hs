@@ -20,7 +20,7 @@
 module Amazonka.SecurityHub.Types.AwsBackupRecoveryPointCreatedByDetails where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the backup plan and rule that Backup used to

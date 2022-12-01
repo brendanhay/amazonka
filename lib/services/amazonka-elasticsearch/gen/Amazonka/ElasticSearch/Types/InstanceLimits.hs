@@ -20,8 +20,8 @@
 module Amazonka.ElasticSearch.Types.InstanceLimits where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.InstanceCountLimits
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | InstanceLimits represents the list of instance related attributes that

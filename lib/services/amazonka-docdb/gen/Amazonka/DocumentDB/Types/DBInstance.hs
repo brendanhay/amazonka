@@ -20,12 +20,12 @@
 module Amazonka.DocumentDB.Types.DBInstance where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DocumentDB.Types.DBInstanceStatusInfo
 import Amazonka.DocumentDB.Types.DBSubnetGroup
 import Amazonka.DocumentDB.Types.Endpoint
 import Amazonka.DocumentDB.Types.PendingModifiedValues
 import Amazonka.DocumentDB.Types.VpcSecurityGroupMembership
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about an instance.

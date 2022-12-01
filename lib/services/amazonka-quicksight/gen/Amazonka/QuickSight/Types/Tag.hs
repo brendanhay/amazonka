@@ -20,7 +20,7 @@
 module Amazonka.QuickSight.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The key or keys of the key-value pairs for the resource tag or tags

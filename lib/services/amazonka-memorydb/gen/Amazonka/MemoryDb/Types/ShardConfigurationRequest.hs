@@ -20,7 +20,7 @@
 module Amazonka.MemoryDb.Types.ShardConfigurationRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A request to configure the sharding properties of a cluster

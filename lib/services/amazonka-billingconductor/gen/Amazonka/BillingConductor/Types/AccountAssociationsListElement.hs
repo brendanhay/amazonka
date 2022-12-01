@@ -20,16 +20,10 @@
 module Amazonka.BillingConductor.Types.AccountAssociationsListElement where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | /__Amazon Web Services Billing Conductor is in beta release and is
--- subject to change. Your use of Amazon Web Services Billing Conductor is
--- subject to the Beta Service Participation terms of the
--- <https://aws.amazon.com/service-terms/ Amazon Web Services Service Terms>
--- (Section 1.10).__/
---
--- A representation of a linked account.
+-- | A representation of a linked account.
 --
 -- /See:/ 'newAccountAssociationsListElement' smart constructor.
 data AccountAssociationsListElement = AccountAssociationsListElement'

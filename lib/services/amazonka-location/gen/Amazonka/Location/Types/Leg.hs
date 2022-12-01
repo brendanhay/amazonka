@@ -20,7 +20,7 @@
 module Amazonka.Location.Types.Leg where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Location.Types.LegGeometry
 import Amazonka.Location.Types.Step
 import qualified Amazonka.Prelude as Prelude

@@ -20,7 +20,7 @@
 module Amazonka.SESV2.Types.ContactList where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list that contains contacts that have subscribed to a particular topic

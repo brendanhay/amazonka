@@ -44,7 +44,7 @@ module Amazonka.LicenseManager.ListTokens
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,8 +112,8 @@ listTokens_maxResults = Lens.lens (\ListTokens' {maxResults} -> maxResults) (\s@
 
 instance Core.AWSRequest ListTokens where
   type AWSResponse ListTokens = ListTokensResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

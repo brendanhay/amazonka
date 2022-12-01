@@ -21,7 +21,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicy where
 
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyConfig
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A response headers policy.

@@ -20,7 +20,7 @@
 module Amazonka.LookoutVision.Types.GreengrassConfiguration where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LookoutVision.Types.S3Location
 import Amazonka.LookoutVision.Types.Tag
 import Amazonka.LookoutVision.Types.TargetDevice

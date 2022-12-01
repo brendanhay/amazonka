@@ -20,12 +20,12 @@
 module Amazonka.FSx.Types.FileCacheCreating where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FSx.Types.FileCacheFailureDetails
 import Amazonka.FSx.Types.FileCacheLifecycle
 import Amazonka.FSx.Types.FileCacheLustreConfiguration
 import Amazonka.FSx.Types.FileCacheType
 import Amazonka.FSx.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The response object for the Amazon File Cache resource being created in

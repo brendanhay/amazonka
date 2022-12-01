@@ -20,7 +20,7 @@
 module Amazonka.DMS.Types.Certificate where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SSL certificate that can be used to encrypt connections between the

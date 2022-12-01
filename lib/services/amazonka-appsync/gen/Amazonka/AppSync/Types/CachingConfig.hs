@@ -20,7 +20,7 @@
 module Amazonka.AppSync.Types.CachingConfig where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The caching configuration for a resolver that has caching activated.

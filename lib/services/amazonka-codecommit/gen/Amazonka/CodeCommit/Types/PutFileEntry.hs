@@ -22,7 +22,7 @@ module Amazonka.CodeCommit.Types.PutFileEntry where
 import Amazonka.CodeCommit.Types.FileModeTypeEnum
 import Amazonka.CodeCommit.Types.SourceFileSpecifier
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a file added or updated as part of a commit.

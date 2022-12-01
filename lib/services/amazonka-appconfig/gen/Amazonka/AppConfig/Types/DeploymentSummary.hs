@@ -22,7 +22,7 @@ module Amazonka.AppConfig.Types.DeploymentSummary where
 import Amazonka.AppConfig.Types.DeploymentState
 import Amazonka.AppConfig.Types.GrowthType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the deployment.

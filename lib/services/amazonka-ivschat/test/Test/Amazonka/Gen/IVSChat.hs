@@ -30,8 +30,14 @@ import Test.Tasty
 --         [ requestCreateChatToken $
 --             newCreateChatToken
 --
+--         , requestCreateLoggingConfiguration $
+--             newCreateLoggingConfiguration
+--
 --         , requestCreateRoom $
 --             newCreateRoom
+--
+--         , requestDeleteLoggingConfiguration $
+--             newDeleteLoggingConfiguration
 --
 --         , requestDeleteMessage $
 --             newDeleteMessage
@@ -42,8 +48,14 @@ import Test.Tasty
 --         , requestDisconnectUser $
 --             newDisconnectUser
 --
+--         , requestGetLoggingConfiguration $
+--             newGetLoggingConfiguration
+--
 --         , requestGetRoom $
 --             newGetRoom
+--
+--         , requestListLoggingConfigurations $
+--             newListLoggingConfigurations
 --
 --         , requestListRooms $
 --             newListRooms
@@ -60,6 +72,9 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
+--         , requestUpdateLoggingConfiguration $
+--             newUpdateLoggingConfiguration
+--
 --         , requestUpdateRoom $
 --             newUpdateRoom
 --
@@ -69,8 +84,14 @@ import Test.Tasty
 --         [ responseCreateChatToken $
 --             newCreateChatTokenResponse
 --
+--         , responseCreateLoggingConfiguration $
+--             newCreateLoggingConfigurationResponse
+--
 --         , responseCreateRoom $
 --             newCreateRoomResponse
+--
+--         , responseDeleteLoggingConfiguration $
+--             newDeleteLoggingConfigurationResponse
 --
 --         , responseDeleteMessage $
 --             newDeleteMessageResponse
@@ -81,8 +102,14 @@ import Test.Tasty
 --         , responseDisconnectUser $
 --             newDisconnectUserResponse
 --
+--         , responseGetLoggingConfiguration $
+--             newGetLoggingConfigurationResponse
+--
 --         , responseGetRoom $
 --             newGetRoomResponse
+--
+--         , responseListLoggingConfigurations $
+--             newListLoggingConfigurationsResponse
 --
 --         , responseListRooms $
 --             newListRoomsResponse
@@ -99,6 +126,9 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
+--         , responseUpdateLoggingConfiguration $
+--             newUpdateLoggingConfigurationResponse
+--
 --         , responseUpdateRoom $
 --             newUpdateRoomResponse
 --
@@ -113,11 +143,23 @@ requestCreateChatToken =
     "CreateChatToken"
     "fixture/CreateChatToken.yaml"
 
+requestCreateLoggingConfiguration :: CreateLoggingConfiguration -> TestTree
+requestCreateLoggingConfiguration =
+  req
+    "CreateLoggingConfiguration"
+    "fixture/CreateLoggingConfiguration.yaml"
+
 requestCreateRoom :: CreateRoom -> TestTree
 requestCreateRoom =
   req
     "CreateRoom"
     "fixture/CreateRoom.yaml"
+
+requestDeleteLoggingConfiguration :: DeleteLoggingConfiguration -> TestTree
+requestDeleteLoggingConfiguration =
+  req
+    "DeleteLoggingConfiguration"
+    "fixture/DeleteLoggingConfiguration.yaml"
 
 requestDeleteMessage :: DeleteMessage -> TestTree
 requestDeleteMessage =
@@ -137,11 +179,23 @@ requestDisconnectUser =
     "DisconnectUser"
     "fixture/DisconnectUser.yaml"
 
+requestGetLoggingConfiguration :: GetLoggingConfiguration -> TestTree
+requestGetLoggingConfiguration =
+  req
+    "GetLoggingConfiguration"
+    "fixture/GetLoggingConfiguration.yaml"
+
 requestGetRoom :: GetRoom -> TestTree
 requestGetRoom =
   req
     "GetRoom"
     "fixture/GetRoom.yaml"
+
+requestListLoggingConfigurations :: ListLoggingConfigurations -> TestTree
+requestListLoggingConfigurations =
+  req
+    "ListLoggingConfigurations"
+    "fixture/ListLoggingConfigurations.yaml"
 
 requestListRooms :: ListRooms -> TestTree
 requestListRooms =
@@ -173,6 +227,12 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
+requestUpdateLoggingConfiguration :: UpdateLoggingConfiguration -> TestTree
+requestUpdateLoggingConfiguration =
+  req
+    "UpdateLoggingConfiguration"
+    "fixture/UpdateLoggingConfiguration.yaml"
+
 requestUpdateRoom :: UpdateRoom -> TestTree
 requestUpdateRoom =
   req
@@ -189,6 +249,14 @@ responseCreateChatToken =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateChatToken)
 
+responseCreateLoggingConfiguration :: CreateLoggingConfigurationResponse -> TestTree
+responseCreateLoggingConfiguration =
+  res
+    "CreateLoggingConfigurationResponse"
+    "fixture/CreateLoggingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLoggingConfiguration)
+
 responseCreateRoom :: CreateRoomResponse -> TestTree
 responseCreateRoom =
   res
@@ -196,6 +264,14 @@ responseCreateRoom =
     "fixture/CreateRoomResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateRoom)
+
+responseDeleteLoggingConfiguration :: DeleteLoggingConfigurationResponse -> TestTree
+responseDeleteLoggingConfiguration =
+  res
+    "DeleteLoggingConfigurationResponse"
+    "fixture/DeleteLoggingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLoggingConfiguration)
 
 responseDeleteMessage :: DeleteMessageResponse -> TestTree
 responseDeleteMessage =
@@ -221,6 +297,14 @@ responseDisconnectUser =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisconnectUser)
 
+responseGetLoggingConfiguration :: GetLoggingConfigurationResponse -> TestTree
+responseGetLoggingConfiguration =
+  res
+    "GetLoggingConfigurationResponse"
+    "fixture/GetLoggingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLoggingConfiguration)
+
 responseGetRoom :: GetRoomResponse -> TestTree
 responseGetRoom =
   res
@@ -228,6 +312,14 @@ responseGetRoom =
     "fixture/GetRoomResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetRoom)
+
+responseListLoggingConfigurations :: ListLoggingConfigurationsResponse -> TestTree
+responseListLoggingConfigurations =
+  res
+    "ListLoggingConfigurationsResponse"
+    "fixture/ListLoggingConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLoggingConfigurations)
 
 responseListRooms :: ListRoomsResponse -> TestTree
 responseListRooms =
@@ -268,6 +360,14 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateLoggingConfiguration :: UpdateLoggingConfigurationResponse -> TestTree
+responseUpdateLoggingConfiguration =
+  res
+    "UpdateLoggingConfigurationResponse"
+    "fixture/UpdateLoggingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLoggingConfiguration)
 
 responseUpdateRoom :: UpdateRoomResponse -> TestTree
 responseUpdateRoom =

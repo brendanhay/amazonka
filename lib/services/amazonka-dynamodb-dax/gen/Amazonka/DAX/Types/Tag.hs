@@ -20,7 +20,7 @@
 module Amazonka.DAX.Types.Tag where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of a tag. Every tag is a key-value pair. You can add up to

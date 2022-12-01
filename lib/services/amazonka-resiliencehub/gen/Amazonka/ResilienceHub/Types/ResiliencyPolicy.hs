@@ -20,7 +20,7 @@
 module Amazonka.ResilienceHub.Types.ResiliencyPolicy where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.DataLocationConstraint
 import Amazonka.ResilienceHub.Types.DisruptionType

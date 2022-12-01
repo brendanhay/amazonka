@@ -19,8 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.ConnectCases.Types.TemplateSummary where
 
+import Amazonka.ConnectCases.Types.TemplateStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Template summary information.
@@ -29,6 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 data TemplateSummary = TemplateSummary'
   { -- | The template name.
     name :: Prelude.Text,
+    -- | The status of the template.
+    status :: TemplateStatus,
     -- | The Amazon Resource Name (ARN) of the template.
     templateArn :: Prelude.Text,
     -- | The unique identifier for the template.
@@ -46,27 +49,40 @@ data TemplateSummary = TemplateSummary'
 --
 -- 'name', 'templateSummary_name' - The template name.
 --
+-- 'status', 'templateSummary_status' - The status of the template.
+--
 -- 'templateArn', 'templateSummary_templateArn' - The Amazon Resource Name (ARN) of the template.
 --
 -- 'templateId', 'templateSummary_templateId' - The unique identifier for the template.
 newTemplateSummary ::
   -- | 'name'
   Prelude.Text ->
+  -- | 'status'
+  TemplateStatus ->
   -- | 'templateArn'
   Prelude.Text ->
   -- | 'templateId'
   Prelude.Text ->
   TemplateSummary
-newTemplateSummary pName_ pTemplateArn_ pTemplateId_ =
-  TemplateSummary'
-    { name = pName_,
-      templateArn = pTemplateArn_,
-      templateId = pTemplateId_
-    }
+newTemplateSummary
+  pName_
+  pStatus_
+  pTemplateArn_
+  pTemplateId_ =
+    TemplateSummary'
+      { name = pName_,
+        status = pStatus_,
+        templateArn = pTemplateArn_,
+        templateId = pTemplateId_
+      }
 
 -- | The template name.
 templateSummary_name :: Lens.Lens' TemplateSummary Prelude.Text
 templateSummary_name = Lens.lens (\TemplateSummary' {name} -> name) (\s@TemplateSummary' {} a -> s {name = a} :: TemplateSummary)
+
+-- | The status of the template.
+templateSummary_status :: Lens.Lens' TemplateSummary TemplateStatus
+templateSummary_status = Lens.lens (\TemplateSummary' {status} -> status) (\s@TemplateSummary' {} a -> s {status = a} :: TemplateSummary)
 
 -- | The Amazon Resource Name (ARN) of the template.
 templateSummary_templateArn :: Lens.Lens' TemplateSummary Prelude.Text
@@ -83,6 +99,7 @@ instance Core.FromJSON TemplateSummary where
       ( \x ->
           TemplateSummary'
             Prelude.<$> (x Core..: "name")
+            Prelude.<*> (x Core..: "status")
             Prelude.<*> (x Core..: "templateArn")
             Prelude.<*> (x Core..: "templateId")
       )
@@ -90,11 +107,13 @@ instance Core.FromJSON TemplateSummary where
 instance Prelude.Hashable TemplateSummary where
   hashWithSalt _salt TemplateSummary' {..} =
     _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` templateArn
       `Prelude.hashWithSalt` templateId
 
 instance Prelude.NFData TemplateSummary where
   rnf TemplateSummary' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf templateArn
       `Prelude.seq` Prelude.rnf templateId

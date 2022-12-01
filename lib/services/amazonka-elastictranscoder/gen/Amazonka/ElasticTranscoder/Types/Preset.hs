@@ -20,10 +20,10 @@
 module Amazonka.ElasticTranscoder.Types.Preset where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticTranscoder.Types.AudioParameters
 import Amazonka.ElasticTranscoder.Types.Thumbnails
 import Amazonka.ElasticTranscoder.Types.VideoParameters
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Presets are templates that contain most of the settings for transcoding

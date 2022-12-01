@@ -20,7 +20,7 @@
 module Amazonka.Pinpoint.Types.InAppTemplateResponse where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Pinpoint.Types.InAppMessageContent
 import Amazonka.Pinpoint.Types.Layout
 import Amazonka.Pinpoint.Types.TemplateType

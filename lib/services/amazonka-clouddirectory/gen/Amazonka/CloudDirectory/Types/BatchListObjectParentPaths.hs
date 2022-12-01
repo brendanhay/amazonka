@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchListObjectParentPaths where
 
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Retrieves all available parent paths for any object type such as node,

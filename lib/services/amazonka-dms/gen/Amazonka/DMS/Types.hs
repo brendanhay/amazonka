@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -658,6 +659,7 @@ module Amazonka.DMS.Types
     replicationInstance_replicationInstanceArn,
     replicationInstance_secondaryAvailabilityZone,
     replicationInstance_autoMinorVersionUpgrade,
+    replicationInstance_replicationInstanceIpv6Addresses,
     replicationInstance_replicationInstancePublicIpAddresses,
     replicationInstance_replicationInstancePrivateIpAddresses,
     replicationInstance_instanceCreateTime,
@@ -675,6 +677,7 @@ module Amazonka.DMS.Types
     replicationInstance_replicationInstanceStatus,
     replicationInstance_replicationInstanceClass,
     replicationInstance_engineVersion,
+    replicationInstance_networkType,
     replicationInstance_multiAZ,
     replicationInstance_vpcSecurityGroups,
 
@@ -691,6 +694,7 @@ module Amazonka.DMS.Types
     replicationPendingModifiedValues_allocatedStorage,
     replicationPendingModifiedValues_replicationInstanceClass,
     replicationPendingModifiedValues_engineVersion,
+    replicationPendingModifiedValues_networkType,
     replicationPendingModifiedValues_multiAZ,
 
     -- * ReplicationSubnetGroup
@@ -701,6 +705,7 @@ module Amazonka.DMS.Types
     replicationSubnetGroup_replicationSubnetGroupDescription,
     replicationSubnetGroup_vpcId,
     replicationSubnetGroup_replicationSubnetGroupIdentifier,
+    replicationSubnetGroup_supportedNetworkTypes,
 
     -- * ReplicationTask
     ReplicationTask (..),
@@ -897,15 +902,19 @@ module Amazonka.DMS.Types
     tableStatistics_tableState,
     tableStatistics_fullLoadEndTime,
     tableStatistics_fullLoadStartTime,
+    tableStatistics_appliedInserts,
     tableStatistics_fullLoadReloaded,
     tableStatistics_fullLoadErrorRows,
     tableStatistics_schemaName,
     tableStatistics_validationSuspendedRecords,
     tableStatistics_validationFailedRecords,
+    tableStatistics_appliedDeletes,
     tableStatistics_validationState,
+    tableStatistics_appliedUpdates,
     tableStatistics_fullLoadRows,
     tableStatistics_validationStateDetails,
     tableStatistics_lastUpdateTime,
+    tableStatistics_appliedDdls,
     tableStatistics_inserts,
     tableStatistics_validationPendingRecords,
     tableStatistics_deletes,
@@ -933,6 +942,7 @@ module Amazonka.DMS.Types
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.AccountQuota
 import Amazonka.DMS.Types.AuthMechanismValue
 import Amazonka.DMS.Types.AuthTypeValue
@@ -1023,7 +1033,6 @@ import Amazonka.DMS.Types.Tag
 import Amazonka.DMS.Types.TargetDbType
 import Amazonka.DMS.Types.VersionStatus
 import Amazonka.DMS.Types.VpcSecurityGroupMembership
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -1031,27 +1040,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "DMS",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "dms",
-      Core._serviceSigningName = "dms",
-      Core._serviceVersion = "2016-01-01",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "DMS",
-      Core._serviceRetry = retry
+    { Core.abbrev = "DMS",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "dms",
+      Core.signingName = "dms",
+      Core.version = "2016-01-01",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "DMS",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

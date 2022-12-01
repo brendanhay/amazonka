@@ -20,10 +20,10 @@
 module Amazonka.Glue.Types.EncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.CloudWatchEncryption
 import Amazonka.Glue.Types.JobBookmarksEncryption
 import Amazonka.Glue.Types.S3Encryption
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an encryption configuration.

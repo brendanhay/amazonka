@@ -20,9 +20,9 @@
 module Amazonka.Lambda.Types.FunctionUrlConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types.Cors
 import Amazonka.Lambda.Types.FunctionUrlAuthType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a Lambda function URL.

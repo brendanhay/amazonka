@@ -49,12 +49,13 @@ module Amazonka.SESV2.GetConfigurationSet
     getConfigurationSetResponse_trackingOptions,
     getConfigurationSetResponse_suppressionOptions,
     getConfigurationSetResponse_sendingOptions,
+    getConfigurationSetResponse_vdmOptions,
     getConfigurationSetResponse_httpStatus,
   )
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,8 +97,8 @@ instance Core.AWSRequest GetConfigurationSet where
   type
     AWSResponse GetConfigurationSet =
       GetConfigurationSetResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +110,7 @@ instance Core.AWSRequest GetConfigurationSet where
             Prelude.<*> (x Core..?> "TrackingOptions")
             Prelude.<*> (x Core..?> "SuppressionOptions")
             Prelude.<*> (x Core..?> "SendingOptions")
+            Prelude.<*> (x Core..?> "VdmOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,6 +167,9 @@ data GetConfigurationSetResponse = GetConfigurationSetResponse'
     -- | An object that defines whether or not Amazon SES can send email that you
     -- send using the configuration set.
     sendingOptions :: Prelude.Maybe SendingOptions,
+    -- | An object that contains information about the VDM preferences for your
+    -- configuration set.
+    vdmOptions :: Prelude.Maybe VdmOptions,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,6 +203,9 @@ data GetConfigurationSetResponse = GetConfigurationSetResponse'
 -- 'sendingOptions', 'getConfigurationSetResponse_sendingOptions' - An object that defines whether or not Amazon SES can send email that you
 -- send using the configuration set.
 --
+-- 'vdmOptions', 'getConfigurationSetResponse_vdmOptions' - An object that contains information about the VDM preferences for your
+-- configuration set.
+--
 -- 'httpStatus', 'getConfigurationSetResponse_httpStatus' - The response's http status code.
 newGetConfigurationSetResponse ::
   -- | 'httpStatus'
@@ -213,6 +221,7 @@ newGetConfigurationSetResponse pHttpStatus_ =
       trackingOptions = Prelude.Nothing,
       suppressionOptions = Prelude.Nothing,
       sendingOptions = Prelude.Nothing,
+      vdmOptions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -250,6 +259,11 @@ getConfigurationSetResponse_suppressionOptions = Lens.lens (\GetConfigurationSet
 getConfigurationSetResponse_sendingOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe SendingOptions)
 getConfigurationSetResponse_sendingOptions = Lens.lens (\GetConfigurationSetResponse' {sendingOptions} -> sendingOptions) (\s@GetConfigurationSetResponse' {} a -> s {sendingOptions = a} :: GetConfigurationSetResponse)
 
+-- | An object that contains information about the VDM preferences for your
+-- configuration set.
+getConfigurationSetResponse_vdmOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe VdmOptions)
+getConfigurationSetResponse_vdmOptions = Lens.lens (\GetConfigurationSetResponse' {vdmOptions} -> vdmOptions) (\s@GetConfigurationSetResponse' {} a -> s {vdmOptions = a} :: GetConfigurationSetResponse)
+
 -- | The response's http status code.
 getConfigurationSetResponse_httpStatus :: Lens.Lens' GetConfigurationSetResponse Prelude.Int
 getConfigurationSetResponse_httpStatus = Lens.lens (\GetConfigurationSetResponse' {httpStatus} -> httpStatus) (\s@GetConfigurationSetResponse' {} a -> s {httpStatus = a} :: GetConfigurationSetResponse)
@@ -263,4 +277,5 @@ instance Prelude.NFData GetConfigurationSetResponse where
       `Prelude.seq` Prelude.rnf trackingOptions
       `Prelude.seq` Prelude.rnf suppressionOptions
       `Prelude.seq` Prelude.rnf sendingOptions
+      `Prelude.seq` Prelude.rnf vdmOptions
       `Prelude.seq` Prelude.rnf httpStatus

@@ -45,6 +45,7 @@ module Amazonka.MemoryDb.CreateCluster
     createCluster_snsTopicArn,
     createCluster_kmsKeyId,
     createCluster_numShards,
+    createCluster_dataTiering,
     createCluster_engineVersion,
     createCluster_clusterName,
     createCluster_nodeType,
@@ -61,7 +62,7 @@ module Amazonka.MemoryDb.CreateCluster
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,8 +104,26 @@ data CreateCluster = CreateCluster'
     snapshotArns :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the weekly time range during which maintenance on the cluster
     -- is performed. It is specified as a range in the format
-    -- @ddd:hh24:mi-ddd:hh24:mi@ (24H Clock UTC). The minimum maintenance
-    -- window is a 60 minute period.
+    -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+    -- is a 60 minute period.
+    --
+    -- Valid values for @ddd@ are:
+    --
+    -- -   @sun@
+    --
+    -- -   @mon@
+    --
+    -- -   @tue@
+    --
+    -- -   @wed@
+    --
+    -- -   @thu@
+    --
+    -- -   @fri@
+    --
+    -- -   @sat@
+    --
+    -- Example: @sun:23:00-mon:01:30@
     maintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The daily time range (in UTC) during which MemoryDB begins taking a
     -- daily snapshot of your shard.
@@ -126,6 +145,11 @@ data CreateCluster = CreateCluster'
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The number of shards the cluster will contain. The default value is 1.
     numShards :: Prelude.Maybe Prelude.Int,
+    -- | Enables data tiering. Data tiering is only supported for clusters using
+    -- the r6gd node type. This parameter must be set when using r6gd nodes.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html Data tiering>.
+    dataTiering :: Prelude.Maybe Prelude.Bool,
     -- | The version number of the Redis engine to be used for the cluster.
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster. This value must be unique as it also serves as
@@ -180,8 +204,26 @@ data CreateCluster = CreateCluster'
 --
 -- 'maintenanceWindow', 'createCluster_maintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
 -- is performed. It is specified as a range in the format
--- @ddd:hh24:mi-ddd:hh24:mi@ (24H Clock UTC). The minimum maintenance
--- window is a 60 minute period.
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+-- is a 60 minute period.
+--
+-- Valid values for @ddd@ are:
+--
+-- -   @sun@
+--
+-- -   @mon@
+--
+-- -   @tue@
+--
+-- -   @wed@
+--
+-- -   @thu@
+--
+-- -   @fri@
+--
+-- -   @sat@
+--
+-- Example: @sun:23:00-mon:01:30@
 --
 -- 'snapshotWindow', 'createCluster_snapshotWindow' - The daily time range (in UTC) during which MemoryDB begins taking a
 -- daily snapshot of your shard.
@@ -202,6 +244,11 @@ data CreateCluster = CreateCluster'
 -- 'kmsKeyId', 'createCluster_kmsKeyId' - The ID of the KMS key used to encrypt the cluster.
 --
 -- 'numShards', 'createCluster_numShards' - The number of shards the cluster will contain. The default value is 1.
+--
+-- 'dataTiering', 'createCluster_dataTiering' - Enables data tiering. Data tiering is only supported for clusters using
+-- the r6gd node type. This parameter must be set when using r6gd nodes.
+-- For more information, see
+-- <https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html Data tiering>.
 --
 -- 'engineVersion', 'createCluster_engineVersion' - The version number of the Redis engine to be used for the cluster.
 --
@@ -238,6 +285,7 @@ newCreateCluster pClusterName_ pNodeType_ pACLName_ =
       snsTopicArn = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       numShards = Prelude.Nothing,
+      dataTiering = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       clusterName = pClusterName_,
       nodeType = pNodeType_,
@@ -300,8 +348,26 @@ createCluster_snapshotArns = Lens.lens (\CreateCluster' {snapshotArns} -> snapsh
 
 -- | Specifies the weekly time range during which maintenance on the cluster
 -- is performed. It is specified as a range in the format
--- @ddd:hh24:mi-ddd:hh24:mi@ (24H Clock UTC). The minimum maintenance
--- window is a 60 minute period.
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+-- is a 60 minute period.
+--
+-- Valid values for @ddd@ are:
+--
+-- -   @sun@
+--
+-- -   @mon@
+--
+-- -   @tue@
+--
+-- -   @wed@
+--
+-- -   @thu@
+--
+-- -   @fri@
+--
+-- -   @sat@
+--
+-- Example: @sun:23:00-mon:01:30@
 createCluster_maintenanceWindow :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_maintenanceWindow = Lens.lens (\CreateCluster' {maintenanceWindow} -> maintenanceWindow) (\s@CreateCluster' {} a -> s {maintenanceWindow = a} :: CreateCluster)
 
@@ -335,6 +401,13 @@ createCluster_kmsKeyId = Lens.lens (\CreateCluster' {kmsKeyId} -> kmsKeyId) (\s@
 createCluster_numShards :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
 createCluster_numShards = Lens.lens (\CreateCluster' {numShards} -> numShards) (\s@CreateCluster' {} a -> s {numShards = a} :: CreateCluster)
 
+-- | Enables data tiering. Data tiering is only supported for clusters using
+-- the r6gd node type. This parameter must be set when using r6gd nodes.
+-- For more information, see
+-- <https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html Data tiering>.
+createCluster_dataTiering :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
+createCluster_dataTiering = Lens.lens (\CreateCluster' {dataTiering} -> dataTiering) (\s@CreateCluster' {} a -> s {dataTiering = a} :: CreateCluster)
+
 -- | The version number of the Redis engine to be used for the cluster.
 createCluster_engineVersion :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_engineVersion = Lens.lens (\CreateCluster' {engineVersion} -> engineVersion) (\s@CreateCluster' {} a -> s {engineVersion = a} :: CreateCluster)
@@ -356,8 +429,8 @@ instance Core.AWSRequest CreateCluster where
   type
     AWSResponse CreateCluster =
       CreateClusterResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -385,6 +458,7 @@ instance Prelude.Hashable CreateCluster where
       `Prelude.hashWithSalt` snsTopicArn
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` numShards
+      `Prelude.hashWithSalt` dataTiering
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` nodeType
@@ -409,6 +483,7 @@ instance Prelude.NFData CreateCluster where
       `Prelude.seq` Prelude.rnf snsTopicArn
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf numShards
+      `Prelude.seq` Prelude.rnf dataTiering
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf nodeType
@@ -458,6 +533,7 @@ instance Core.ToJSON CreateCluster where
             ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("NumShards" Core..=) Prelude.<$> numShards,
+            ("DataTiering" Core..=) Prelude.<$> dataTiering,
             ("EngineVersion" Core..=) Prelude.<$> engineVersion,
             Prelude.Just ("ClusterName" Core..= clusterName),
             Prelude.Just ("NodeType" Core..= nodeType),

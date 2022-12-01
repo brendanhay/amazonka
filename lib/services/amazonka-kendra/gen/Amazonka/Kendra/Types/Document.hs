@@ -20,12 +20,12 @@
 module Amazonka.Kendra.Types.Document where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Kendra.Types.ContentType
 import Amazonka.Kendra.Types.DocumentAttribute
 import Amazonka.Kendra.Types.HierarchicalPrincipal
 import Amazonka.Kendra.Types.Principal
 import Amazonka.Kendra.Types.S3Path
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A document in an index.

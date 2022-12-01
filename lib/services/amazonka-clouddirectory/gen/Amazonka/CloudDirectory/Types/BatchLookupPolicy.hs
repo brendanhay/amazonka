@@ -21,7 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchLookupPolicy where
 
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lists all policies from the root of the Directory to the object

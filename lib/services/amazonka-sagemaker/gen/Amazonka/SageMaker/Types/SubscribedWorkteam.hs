@@ -20,7 +20,7 @@
 module Amazonka.SageMaker.Types.SubscribedWorkteam where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a work team of a vendor that does the a labelling job.

@@ -20,11 +20,11 @@
 module Amazonka.FraudDetector.Types.ExternalModel where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FraudDetector.Types.ModelEndpointStatus
 import Amazonka.FraudDetector.Types.ModelInputConfiguration
 import Amazonka.FraudDetector.Types.ModelOutputConfiguration
 import Amazonka.FraudDetector.Types.ModelSource
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon SageMaker model.

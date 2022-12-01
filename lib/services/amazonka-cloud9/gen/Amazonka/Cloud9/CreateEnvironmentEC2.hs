@@ -53,7 +53,7 @@ where
 
 import Amazonka.Cloud9.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,10 +99,13 @@ data CreateEnvironmentEC2 = CreateEnvironmentEC2'
     -- the EC2 instance. To choose an AMI for the instance, you must specify a
     -- valid AMI alias or a valid Amazon EC2 Systems Manager (SSM) path.
     --
-    -- The default AMI is used if the parameter isn\'t explicitly assigned a
-    -- value in the request. Because Amazon Linux AMI has ended standard
-    -- support as of December 31, 2020, we recommend you choose Amazon Linux 2,
-    -- which includes long term support through 2023.
+    -- The default Amazon Linux AMI is currently used if the parameter isn\'t
+    -- explicitly assigned a value in the request.
+    --
+    -- In the future the parameter for Amazon Linux will no longer be available
+    -- when you specify an AMI for your instance. Amazon Linux 2 will then
+    -- become the default AMI, which is used to launch your instance if no
+    -- parameter is explicitly defined.
     --
     -- __AMI aliases__
     --
@@ -181,10 +184,13 @@ data CreateEnvironmentEC2 = CreateEnvironmentEC2'
 -- the EC2 instance. To choose an AMI for the instance, you must specify a
 -- valid AMI alias or a valid Amazon EC2 Systems Manager (SSM) path.
 --
--- The default AMI is used if the parameter isn\'t explicitly assigned a
--- value in the request. Because Amazon Linux AMI has ended standard
--- support as of December 31, 2020, we recommend you choose Amazon Linux 2,
--- which includes long term support through 2023.
+-- The default Amazon Linux AMI is currently used if the parameter isn\'t
+-- explicitly assigned a value in the request.
+--
+-- In the future the parameter for Amazon Linux will no longer be available
+-- when you specify an AMI for your instance. Amazon Linux 2 will then
+-- become the default AMI, which is used to launch your instance if no
+-- parameter is explicitly defined.
 --
 -- __AMI aliases__
 --
@@ -289,10 +295,13 @@ createEnvironmentEC2_ownerArn = Lens.lens (\CreateEnvironmentEC2' {ownerArn} -> 
 -- the EC2 instance. To choose an AMI for the instance, you must specify a
 -- valid AMI alias or a valid Amazon EC2 Systems Manager (SSM) path.
 --
--- The default AMI is used if the parameter isn\'t explicitly assigned a
--- value in the request. Because Amazon Linux AMI has ended standard
--- support as of December 31, 2020, we recommend you choose Amazon Linux 2,
--- which includes long term support through 2023.
+-- The default Amazon Linux AMI is currently used if the parameter isn\'t
+-- explicitly assigned a value in the request.
+--
+-- In the future the parameter for Amazon Linux will no longer be available
+-- when you specify an AMI for your instance. Amazon Linux 2 will then
+-- become the default AMI, which is used to launch your instance if no
+-- parameter is explicitly defined.
 --
 -- __AMI aliases__
 --
@@ -331,8 +340,8 @@ instance Core.AWSRequest CreateEnvironmentEC2 where
   type
     AWSResponse CreateEnvironmentEC2 =
       CreateEnvironmentEC2Response
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

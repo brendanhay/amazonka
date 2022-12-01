@@ -20,9 +20,9 @@
 module Amazonka.Inspector.Types.AssetAttributes where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Inspector.Types.NetworkInterface
 import Amazonka.Inspector.Types.Tag
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of attributes of the host from which the finding is

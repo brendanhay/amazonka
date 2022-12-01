@@ -99,8 +99,8 @@ module Amazonka.EMR.RunJobFlow
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EMR.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -749,8 +749,8 @@ runJobFlow_instances = Lens.lens (\RunJobFlow' {instances} -> instances) (\s@Run
 
 instance Core.AWSRequest RunJobFlow where
   type AWSResponse RunJobFlow = RunJobFlowResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

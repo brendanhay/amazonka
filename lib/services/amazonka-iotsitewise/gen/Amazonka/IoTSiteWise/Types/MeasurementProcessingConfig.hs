@@ -20,8 +20,8 @@
 module Amazonka.IoTSiteWise.Types.MeasurementProcessingConfig where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTSiteWise.Types.ForwardingConfig
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The processing configuration for the given measurement property. You can

@@ -21,7 +21,7 @@ module Amazonka.AppMesh.Types.VirtualRouterListener where
 
 import Amazonka.AppMesh.Types.PortMapping
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a virtual router listener.

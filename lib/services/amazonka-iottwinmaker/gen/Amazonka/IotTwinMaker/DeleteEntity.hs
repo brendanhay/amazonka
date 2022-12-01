@@ -28,8 +28,8 @@ module Amazonka.IotTwinMaker.DeleteEntity
 
     -- * Request Lenses
     deleteEntity_isRecursive,
-    deleteEntity_entityId,
     deleteEntity_workspaceId,
+    deleteEntity_entityId,
 
     -- * Destructuring the Response
     DeleteEntityResponse (..),
@@ -42,8 +42,8 @@ module Amazonka.IotTwinMaker.DeleteEntity
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IotTwinMaker.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -53,10 +53,10 @@ data DeleteEntity = DeleteEntity'
   { -- | A Boolean value that specifies whether the operation deletes child
     -- entities.
     isRecursive :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the entity to delete.
-    entityId :: Prelude.Text,
     -- | The ID of the workspace that contains the entity to delete.
-    workspaceId :: Prelude.Text
+    workspaceId :: Prelude.Text,
+    -- | The ID of the entity to delete.
+    entityId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,20 +71,20 @@ data DeleteEntity = DeleteEntity'
 -- 'isRecursive', 'deleteEntity_isRecursive' - A Boolean value that specifies whether the operation deletes child
 -- entities.
 --
--- 'entityId', 'deleteEntity_entityId' - The ID of the entity to delete.
---
 -- 'workspaceId', 'deleteEntity_workspaceId' - The ID of the workspace that contains the entity to delete.
+--
+-- 'entityId', 'deleteEntity_entityId' - The ID of the entity to delete.
 newDeleteEntity ::
-  -- | 'entityId'
-  Prelude.Text ->
   -- | 'workspaceId'
   Prelude.Text ->
+  -- | 'entityId'
+  Prelude.Text ->
   DeleteEntity
-newDeleteEntity pEntityId_ pWorkspaceId_ =
+newDeleteEntity pWorkspaceId_ pEntityId_ =
   DeleteEntity'
     { isRecursive = Prelude.Nothing,
-      entityId = pEntityId_,
-      workspaceId = pWorkspaceId_
+      workspaceId = pWorkspaceId_,
+      entityId = pEntityId_
     }
 
 -- | A Boolean value that specifies whether the operation deletes child
@@ -92,18 +92,18 @@ newDeleteEntity pEntityId_ pWorkspaceId_ =
 deleteEntity_isRecursive :: Lens.Lens' DeleteEntity (Prelude.Maybe Prelude.Bool)
 deleteEntity_isRecursive = Lens.lens (\DeleteEntity' {isRecursive} -> isRecursive) (\s@DeleteEntity' {} a -> s {isRecursive = a} :: DeleteEntity)
 
--- | The ID of the entity to delete.
-deleteEntity_entityId :: Lens.Lens' DeleteEntity Prelude.Text
-deleteEntity_entityId = Lens.lens (\DeleteEntity' {entityId} -> entityId) (\s@DeleteEntity' {} a -> s {entityId = a} :: DeleteEntity)
-
 -- | The ID of the workspace that contains the entity to delete.
 deleteEntity_workspaceId :: Lens.Lens' DeleteEntity Prelude.Text
 deleteEntity_workspaceId = Lens.lens (\DeleteEntity' {workspaceId} -> workspaceId) (\s@DeleteEntity' {} a -> s {workspaceId = a} :: DeleteEntity)
 
+-- | The ID of the entity to delete.
+deleteEntity_entityId :: Lens.Lens' DeleteEntity Prelude.Text
+deleteEntity_entityId = Lens.lens (\DeleteEntity' {entityId} -> entityId) (\s@DeleteEntity' {} a -> s {entityId = a} :: DeleteEntity)
+
 instance Core.AWSRequest DeleteEntity where
   type AWSResponse DeleteEntity = DeleteEntityResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,14 +115,14 @@ instance Core.AWSRequest DeleteEntity where
 instance Prelude.Hashable DeleteEntity where
   hashWithSalt _salt DeleteEntity' {..} =
     _salt `Prelude.hashWithSalt` isRecursive
-      `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` entityId
 
 instance Prelude.NFData DeleteEntity where
   rnf DeleteEntity' {..} =
     Prelude.rnf isRecursive
-      `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf entityId
 
 instance Core.ToHeaders DeleteEntity where
   toHeaders =

@@ -20,9 +20,9 @@
 module Amazonka.DataBrew.Types.Threshold where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DataBrew.Types.ThresholdType
 import Amazonka.DataBrew.Types.ThresholdUnit
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The threshold used with a non-aggregate check expression. The

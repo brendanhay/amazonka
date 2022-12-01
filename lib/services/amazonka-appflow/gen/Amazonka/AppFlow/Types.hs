@@ -1,3 +1,4 @@
+{-# LANGUAGE DisambiguateRecordFields #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -36,6 +37,9 @@ module Amazonka.AppFlow.Types
 
     -- * AuthenticationType
     AuthenticationType (..),
+
+    -- * CatalogType
+    CatalogType (..),
 
     -- * ConnectionMode
     ConnectionMode (..),
@@ -87,6 +91,9 @@ module Amazonka.AppFlow.Types
 
     -- * Operators
     Operators (..),
+
+    -- * PathPrefix
+    PathPrefix (..),
 
     -- * PrefixFormat
     PrefixFormat (..),
@@ -149,6 +156,7 @@ module Amazonka.AppFlow.Types
     AggregationConfig (..),
     newAggregationConfig,
     aggregationConfig_aggregationType,
+    aggregationConfig_targetFileSize,
 
     -- * AmplitudeConnectorProfileCredentials
     AmplitudeConnectorProfileCredentials (..),
@@ -336,8 +344,8 @@ module Amazonka.AppFlow.Types
     -- * ConnectorProfileConfig
     ConnectorProfileConfig (..),
     newConnectorProfileConfig,
-    connectorProfileConfig_connectorProfileProperties,
     connectorProfileConfig_connectorProfileCredentials,
+    connectorProfileConfig_connectorProfileProperties,
 
     -- * ConnectorProfileCredentials
     ConnectorProfileCredentials (..),
@@ -559,6 +567,7 @@ module Amazonka.AppFlow.Types
     ExecutionRecord (..),
     newExecutionRecord,
     executionRecord_lastUpdatedAt,
+    executionRecord_metadataCatalogDetails,
     executionRecord_dataPullStartTime,
     executionRecord_executionId,
     executionRecord_startedAt,
@@ -603,6 +612,13 @@ module Amazonka.AppFlow.Types
     flowDefinition_flowArn,
     flowDefinition_createdAt,
     flowDefinition_lastUpdatedBy,
+
+    -- * GlueDataCatalogConfig
+    GlueDataCatalogConfig (..),
+    newGlueDataCatalogConfig,
+    glueDataCatalogConfig_roleArn,
+    glueDataCatalogConfig_databaseName,
+    glueDataCatalogConfig_tablePrefix,
 
     -- * GoogleAnalyticsConnectorProfileCredentials
     GoogleAnalyticsConnectorProfileCredentials (..),
@@ -713,6 +729,19 @@ module Amazonka.AppFlow.Types
     newMarketoSourceProperties,
     marketoSourceProperties_object,
 
+    -- * MetadataCatalogConfig
+    MetadataCatalogConfig (..),
+    newMetadataCatalogConfig,
+    metadataCatalogConfig_glueDataCatalog,
+
+    -- * MetadataCatalogDetail
+    MetadataCatalogDetail (..),
+    newMetadataCatalogDetail,
+    metadataCatalogDetail_tableName,
+    metadataCatalogDetail_tableRegistrationOutput,
+    metadataCatalogDetail_partitionRegistrationOutput,
+    metadataCatalogDetail_catalogType,
+
     -- * OAuth2Credentials
     OAuth2Credentials (..),
     newOAuth2Credentials,
@@ -770,6 +799,7 @@ module Amazonka.AppFlow.Types
     newPrefixConfig,
     prefixConfig_prefixType,
     prefixConfig_prefixFormat,
+    prefixConfig_pathPrefixHierarchy,
 
     -- * PrivateConnectionProvisioningState
     PrivateConnectionProvisioningState (..),
@@ -787,14 +817,19 @@ module Amazonka.AppFlow.Types
     -- * RedshiftConnectorProfileCredentials
     RedshiftConnectorProfileCredentials (..),
     newRedshiftConnectorProfileCredentials,
-    redshiftConnectorProfileCredentials_username,
     redshiftConnectorProfileCredentials_password,
+    redshiftConnectorProfileCredentials_username,
 
     -- * RedshiftConnectorProfileProperties
     RedshiftConnectorProfileProperties (..),
     newRedshiftConnectorProfileProperties,
-    redshiftConnectorProfileProperties_bucketPrefix,
+    redshiftConnectorProfileProperties_clusterIdentifier,
+    redshiftConnectorProfileProperties_isRedshiftServerless,
     redshiftConnectorProfileProperties_databaseUrl,
+    redshiftConnectorProfileProperties_databaseName,
+    redshiftConnectorProfileProperties_workgroupName,
+    redshiftConnectorProfileProperties_bucketPrefix,
+    redshiftConnectorProfileProperties_dataApiRoleArn,
     redshiftConnectorProfileProperties_bucketName,
     redshiftConnectorProfileProperties_roleArn,
 
@@ -809,6 +844,13 @@ module Amazonka.AppFlow.Types
     -- * RedshiftMetadata
     RedshiftMetadata (..),
     newRedshiftMetadata,
+
+    -- * RegistrationOutput
+    RegistrationOutput (..),
+    newRegistrationOutput,
+    registrationOutput_message,
+    registrationOutput_status,
+    registrationOutput_result,
 
     -- * S3DestinationProperties
     S3DestinationProperties (..),
@@ -1188,6 +1230,7 @@ import Amazonka.AppFlow.Types.AuthParameter
 import Amazonka.AppFlow.Types.AuthenticationConfig
 import Amazonka.AppFlow.Types.AuthenticationType
 import Amazonka.AppFlow.Types.BasicAuthCredentials
+import Amazonka.AppFlow.Types.CatalogType
 import Amazonka.AppFlow.Types.ConnectionMode
 import Amazonka.AppFlow.Types.ConnectorConfiguration
 import Amazonka.AppFlow.Types.ConnectorDetail
@@ -1238,6 +1281,7 @@ import Amazonka.AppFlow.Types.FieldTypeDetails
 import Amazonka.AppFlow.Types.FileType
 import Amazonka.AppFlow.Types.FlowDefinition
 import Amazonka.AppFlow.Types.FlowStatus
+import Amazonka.AppFlow.Types.GlueDataCatalogConfig
 import Amazonka.AppFlow.Types.GoogleAnalyticsConnectorOperator
 import Amazonka.AppFlow.Types.GoogleAnalyticsConnectorProfileCredentials
 import Amazonka.AppFlow.Types.GoogleAnalyticsConnectorProfileProperties
@@ -1261,6 +1305,8 @@ import Amazonka.AppFlow.Types.MarketoConnectorProfileProperties
 import Amazonka.AppFlow.Types.MarketoDestinationProperties
 import Amazonka.AppFlow.Types.MarketoMetadata
 import Amazonka.AppFlow.Types.MarketoSourceProperties
+import Amazonka.AppFlow.Types.MetadataCatalogConfig
+import Amazonka.AppFlow.Types.MetadataCatalogDetail
 import Amazonka.AppFlow.Types.OAuth2Credentials
 import Amazonka.AppFlow.Types.OAuth2CustomParameter
 import Amazonka.AppFlow.Types.OAuth2CustomPropType
@@ -1272,6 +1318,7 @@ import Amazonka.AppFlow.Types.OAuthProperties
 import Amazonka.AppFlow.Types.Operator
 import Amazonka.AppFlow.Types.OperatorPropertiesKeys
 import Amazonka.AppFlow.Types.Operators
+import Amazonka.AppFlow.Types.PathPrefix
 import Amazonka.AppFlow.Types.PrefixConfig
 import Amazonka.AppFlow.Types.PrefixFormat
 import Amazonka.AppFlow.Types.PrefixType
@@ -1283,6 +1330,7 @@ import Amazonka.AppFlow.Types.RedshiftConnectorProfileCredentials
 import Amazonka.AppFlow.Types.RedshiftConnectorProfileProperties
 import Amazonka.AppFlow.Types.RedshiftDestinationProperties
 import Amazonka.AppFlow.Types.RedshiftMetadata
+import Amazonka.AppFlow.Types.RegistrationOutput
 import Amazonka.AppFlow.Types.S3ConnectorOperator
 import Amazonka.AppFlow.Types.S3DestinationProperties
 import Amazonka.AppFlow.Types.S3InputFileType
@@ -1355,7 +1403,7 @@ import Amazonka.AppFlow.Types.ZendeskDestinationProperties
 import Amazonka.AppFlow.Types.ZendeskMetadata
 import Amazonka.AppFlow.Types.ZendeskSourceProperties
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -1363,27 +1411,25 @@ import qualified Amazonka.Sign.V4 as Sign
 defaultService :: Core.Service
 defaultService =
   Core.Service
-    { Core._serviceAbbrev = "AppFlow",
-      Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "appflow",
-      Core._serviceSigningName = "appflow",
-      Core._serviceVersion = "2020-08-23",
-      Core._serviceS3AddressingStyle =
-        Core.S3AddressingStyleAuto,
-      Core._serviceEndpoint =
-        Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Prelude.Just 70,
-      Core._serviceCheck = Core.statusSuccess,
-      Core._serviceError = Core.parseJSONError "AppFlow",
-      Core._serviceRetry = retry
+    { Core.abbrev = "AppFlow",
+      Core.signer = Sign.v4,
+      Core.endpointPrefix = "appflow",
+      Core.signingName = "appflow",
+      Core.version = "2020-08-23",
+      Core.s3AddressingStyle = Core.S3AddressingStyleAuto,
+      Core.endpoint = Core.defaultEndpoint defaultService,
+      Core.timeout = Prelude.Just 70,
+      Core.check = Core.statusSuccess,
+      Core.error = Core.parseJSONError "AppFlow",
+      Core.retry = retry
     }
   where
     retry =
       Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
+        { Core.base = 5.0e-2,
+          Core.growth = 2,
+          Core.attempts = 5,
+          Core.check = check
         }
     check e
       | Lens.has (Core.hasStatus 429) e =

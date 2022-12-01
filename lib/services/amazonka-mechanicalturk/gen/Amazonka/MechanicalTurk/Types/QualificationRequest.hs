@@ -20,7 +20,7 @@
 module Amazonka.MechanicalTurk.Types.QualificationRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The QualificationRequest data structure represents a request a Worker

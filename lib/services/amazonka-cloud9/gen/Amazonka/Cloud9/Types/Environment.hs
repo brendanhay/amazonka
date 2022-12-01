@@ -24,7 +24,7 @@ import Amazonka.Cloud9.Types.EnvironmentLifecycle
 import Amazonka.Cloud9.Types.EnvironmentType
 import Amazonka.Cloud9.Types.ManagedCredentialsStatus
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Cloud9 development environment.

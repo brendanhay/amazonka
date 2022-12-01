@@ -22,7 +22,7 @@ module Amazonka.AppMesh.Types.ClientPolicyTls where
 import Amazonka.AppMesh.Types.ClientTlsCertificate
 import Amazonka.AppMesh.Types.TlsValidationContext
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A reference to an object that represents a Transport Layer Security

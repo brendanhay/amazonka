@@ -20,8 +20,8 @@
 module Amazonka.FMS.Types.StatefulEngineOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.RuleOrder
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration settings for the handling of the stateful rule groups in a

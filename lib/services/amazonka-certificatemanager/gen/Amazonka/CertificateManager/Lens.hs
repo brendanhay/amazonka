@@ -85,6 +85,7 @@ module Amazonka.CertificateManager.Lens
     requestCertificate_domainValidationOptions,
     requestCertificate_certificateAuthorityArn,
     requestCertificate_idempotencyToken,
+    requestCertificate_keyAlgorithm,
     requestCertificate_options,
     requestCertificate_validationMethod,
     requestCertificate_subjectAlternativeNames,

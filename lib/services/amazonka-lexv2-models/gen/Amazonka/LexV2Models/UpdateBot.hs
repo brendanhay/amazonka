@@ -53,7 +53,7 @@ module Amazonka.LexV2Models.UpdateBot
 where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -187,8 +187,8 @@ updateBot_idleSessionTTLInSeconds = Lens.lens (\UpdateBot' {idleSessionTTLInSeco
 
 instance Core.AWSRequest UpdateBot where
   type AWSResponse UpdateBot = UpdateBotResponse
-  service _ = defaultService
-  request srv = Request.putJSON srv
+  request overrides =
+    Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->

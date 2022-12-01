@@ -21,7 +21,7 @@ module Amazonka.Backup.Types.ReportJob where
 
 import Amazonka.Backup.Types.ReportDestination
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about a report job. A report job compiles

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an API key for a workspace.
+-- Deletes a Grafana API key for the workspace.
 module Amazonka.Grafana.DeleteWorkspaceApiKey
   ( -- * Creating a Request
     DeleteWorkspaceApiKey (..),
@@ -42,8 +42,8 @@ module Amazonka.Grafana.DeleteWorkspaceApiKey
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Grafana.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,8 +92,8 @@ instance Core.AWSRequest DeleteWorkspaceApiKey where
   type
     AWSResponse DeleteWorkspaceApiKey =
       DeleteWorkspaceApiKeyResponse
-  service _ = defaultService
-  request srv = Request.delete srv
+  request overrides =
+    Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,7 +140,7 @@ instance Core.ToQuery DeleteWorkspaceApiKey where
 data DeleteWorkspaceApiKeyResponse = DeleteWorkspaceApiKeyResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The name of the API key that was deleted.
+    -- | The name of the key that was deleted.
     keyName :: Prelude.Text,
     -- | The ID of the workspace where the key was deleted.
     workspaceId :: Prelude.Text
@@ -157,7 +157,7 @@ data DeleteWorkspaceApiKeyResponse = DeleteWorkspaceApiKeyResponse'
 --
 -- 'httpStatus', 'deleteWorkspaceApiKeyResponse_httpStatus' - The response's http status code.
 --
--- 'keyName', 'deleteWorkspaceApiKeyResponse_keyName' - The name of the API key that was deleted.
+-- 'keyName', 'deleteWorkspaceApiKeyResponse_keyName' - The name of the key that was deleted.
 --
 -- 'workspaceId', 'deleteWorkspaceApiKeyResponse_workspaceId' - The ID of the workspace where the key was deleted.
 newDeleteWorkspaceApiKeyResponse ::
@@ -183,7 +183,7 @@ newDeleteWorkspaceApiKeyResponse
 deleteWorkspaceApiKeyResponse_httpStatus :: Lens.Lens' DeleteWorkspaceApiKeyResponse Prelude.Int
 deleteWorkspaceApiKeyResponse_httpStatus = Lens.lens (\DeleteWorkspaceApiKeyResponse' {httpStatus} -> httpStatus) (\s@DeleteWorkspaceApiKeyResponse' {} a -> s {httpStatus = a} :: DeleteWorkspaceApiKeyResponse)
 
--- | The name of the API key that was deleted.
+-- | The name of the key that was deleted.
 deleteWorkspaceApiKeyResponse_keyName :: Lens.Lens' DeleteWorkspaceApiKeyResponse Prelude.Text
 deleteWorkspaceApiKeyResponse_keyName = Lens.lens (\DeleteWorkspaceApiKeyResponse' {keyName} -> keyName) (\s@DeleteWorkspaceApiKeyResponse' {} a -> s {keyName = a} :: DeleteWorkspaceApiKeyResponse)
 

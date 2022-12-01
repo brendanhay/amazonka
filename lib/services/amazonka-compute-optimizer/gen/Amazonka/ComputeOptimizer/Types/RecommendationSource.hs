@@ -21,7 +21,7 @@ module Amazonka.ComputeOptimizer.Types.RecommendationSource where
 
 import Amazonka.ComputeOptimizer.Types.RecommendationSourceType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the source of a recommendation, such as an Amazon EC2 instance

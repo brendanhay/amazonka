@@ -20,8 +20,8 @@
 module Amazonka.DrS.Types.RecoveryInstanceDataReplicationError where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.FailbackReplicationError
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Error in data replication.

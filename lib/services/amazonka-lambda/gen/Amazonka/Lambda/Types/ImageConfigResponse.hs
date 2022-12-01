@@ -20,9 +20,9 @@
 module Amazonka.Lambda.Types.ImageConfigResponse where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Lambda.Types.ImageConfig
 import Amazonka.Lambda.Types.ImageConfigError
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Response to GetFunctionConfiguration request.

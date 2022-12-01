@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.ReservedInstances where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CurrencyCodeValues
 import Amazonka.EC2.Types.InstanceType
@@ -31,7 +32,6 @@ import Amazonka.EC2.Types.ReservedInstanceState
 import Amazonka.EC2.Types.Scope
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.Tenancy
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Reserved Instance.

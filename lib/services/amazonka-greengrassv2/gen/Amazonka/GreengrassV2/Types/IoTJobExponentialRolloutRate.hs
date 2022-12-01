@@ -20,8 +20,8 @@
 module Amazonka.GreengrassV2.Types.IoTJobExponentialRolloutRate where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GreengrassV2.Types.IoTJobRateIncreaseCriteria
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an exponential rollout rate for a

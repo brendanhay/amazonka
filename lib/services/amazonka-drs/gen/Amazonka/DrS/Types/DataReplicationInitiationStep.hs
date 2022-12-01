@@ -20,9 +20,9 @@
 module Amazonka.DrS.Types.DataReplicationInitiationStep where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DrS.Types.DataReplicationInitiationStepName
 import Amazonka.DrS.Types.DataReplicationInitiationStepStatus
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Data replication initiation step.

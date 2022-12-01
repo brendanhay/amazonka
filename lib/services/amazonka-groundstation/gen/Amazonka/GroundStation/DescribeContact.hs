@@ -53,8 +53,8 @@ module Amazonka.GroundStation.DescribeContact
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GroundStation.Types
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,8 +92,8 @@ instance Core.AWSRequest DescribeContact where
   type
     AWSResponse DescribeContact =
       DescribeContactResponse
-  service _ = defaultService
-  request srv = Request.get srv
+  request overrides =
+    Request.get (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,7 +161,7 @@ data DescribeContactResponse = DescribeContactResponse'
     satelliteArn :: Prelude.Maybe Prelude.Text,
     -- | Status of a contact.
     contactStatus :: Prelude.Maybe ContactStatus,
-    -- | End time of a contact.
+    -- | End time of a contact in UTC.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | Region of a contact.
     region :: Prelude.Maybe Prelude.Text,
@@ -170,7 +170,7 @@ data DescribeContactResponse = DescribeContactResponse'
     prePassStartTime :: Prelude.Maybe Core.POSIX,
     -- | Ground station for a contact.
     groundStation :: Prelude.Maybe Prelude.Text,
-    -- | Start time of a contact.
+    -- | Start time of a contact in UTC.
     startTime :: Prelude.Maybe Core.POSIX,
     -- | Maximum elevation angle of a contact.
     maximumElevation :: Prelude.Maybe Elevation,
@@ -204,7 +204,7 @@ data DescribeContactResponse = DescribeContactResponse'
 --
 -- 'contactStatus', 'describeContactResponse_contactStatus' - Status of a contact.
 --
--- 'endTime', 'describeContactResponse_endTime' - End time of a contact.
+-- 'endTime', 'describeContactResponse_endTime' - End time of a contact in UTC.
 --
 -- 'region', 'describeContactResponse_region' - Region of a contact.
 --
@@ -213,7 +213,7 @@ data DescribeContactResponse = DescribeContactResponse'
 --
 -- 'groundStation', 'describeContactResponse_groundStation' - Ground station for a contact.
 --
--- 'startTime', 'describeContactResponse_startTime' - Start time of a contact.
+-- 'startTime', 'describeContactResponse_startTime' - Start time of a contact in UTC.
 --
 -- 'maximumElevation', 'describeContactResponse_maximumElevation' - Maximum elevation angle of a contact.
 --
@@ -274,7 +274,7 @@ describeContactResponse_satelliteArn = Lens.lens (\DescribeContactResponse' {sat
 describeContactResponse_contactStatus :: Lens.Lens' DescribeContactResponse (Prelude.Maybe ContactStatus)
 describeContactResponse_contactStatus = Lens.lens (\DescribeContactResponse' {contactStatus} -> contactStatus) (\s@DescribeContactResponse' {} a -> s {contactStatus = a} :: DescribeContactResponse)
 
--- | End time of a contact.
+-- | End time of a contact in UTC.
 describeContactResponse_endTime :: Lens.Lens' DescribeContactResponse (Prelude.Maybe Prelude.UTCTime)
 describeContactResponse_endTime = Lens.lens (\DescribeContactResponse' {endTime} -> endTime) (\s@DescribeContactResponse' {} a -> s {endTime = a} :: DescribeContactResponse) Prelude.. Lens.mapping Core._Time
 
@@ -291,7 +291,7 @@ describeContactResponse_prePassStartTime = Lens.lens (\DescribeContactResponse' 
 describeContactResponse_groundStation :: Lens.Lens' DescribeContactResponse (Prelude.Maybe Prelude.Text)
 describeContactResponse_groundStation = Lens.lens (\DescribeContactResponse' {groundStation} -> groundStation) (\s@DescribeContactResponse' {} a -> s {groundStation = a} :: DescribeContactResponse)
 
--- | Start time of a contact.
+-- | Start time of a contact in UTC.
 describeContactResponse_startTime :: Lens.Lens' DescribeContactResponse (Prelude.Maybe Prelude.UTCTime)
 describeContactResponse_startTime = Lens.lens (\DescribeContactResponse' {startTime} -> startTime) (\s@DescribeContactResponse' {} a -> s {startTime = a} :: DescribeContactResponse) Prelude.. Lens.mapping Core._Time
 

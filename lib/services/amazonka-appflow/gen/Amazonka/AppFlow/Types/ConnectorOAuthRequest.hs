@@ -20,7 +20,7 @@
 module Amazonka.AppFlow.Types.ConnectorOAuthRequest where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used by select connectors for which the OAuth workflow is supported,

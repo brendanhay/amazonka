@@ -20,9 +20,9 @@
 module Amazonka.Firehose.Types.ParquetSerDe where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Firehose.Types.ParquetCompression
 import Amazonka.Firehose.Types.ParquetWriterVersion
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A serializer to use for converting data to the Parquet format before

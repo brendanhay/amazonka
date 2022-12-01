@@ -22,7 +22,7 @@ module Amazonka.Budgets.Types.BudgetedAndActualAmounts where
 import Amazonka.Budgets.Types.Spend
 import Amazonka.Budgets.Types.TimePeriod
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of cost or usage that you created the budget for, compared to

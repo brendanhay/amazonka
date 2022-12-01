@@ -59,6 +59,12 @@ module Amazonka.GroundStation
     DataflowEndpointGroupIdResponse (DataflowEndpointGroupIdResponse'),
     newDataflowEndpointGroupIdResponse,
 
+    -- ** CreateEphemeris
+    CreateEphemeris (CreateEphemeris'),
+    newCreateEphemeris,
+    EphemerisIdResponse (EphemerisIdResponse'),
+    newEphemerisIdResponse,
+
     -- ** CreateMissionProfile
     CreateMissionProfile (CreateMissionProfile'),
     newCreateMissionProfile,
@@ -77,6 +83,12 @@ module Amazonka.GroundStation
     DataflowEndpointGroupIdResponse (DataflowEndpointGroupIdResponse'),
     newDataflowEndpointGroupIdResponse,
 
+    -- ** DeleteEphemeris
+    DeleteEphemeris (DeleteEphemeris'),
+    newDeleteEphemeris,
+    EphemerisIdResponse (EphemerisIdResponse'),
+    newEphemerisIdResponse,
+
     -- ** DeleteMissionProfile
     DeleteMissionProfile (DeleteMissionProfile'),
     newDeleteMissionProfile,
@@ -88,6 +100,12 @@ module Amazonka.GroundStation
     newDescribeContact,
     DescribeContactResponse (DescribeContactResponse'),
     newDescribeContactResponse,
+
+    -- ** DescribeEphemeris
+    DescribeEphemeris (DescribeEphemeris'),
+    newDescribeEphemeris,
+    DescribeEphemerisResponse (DescribeEphemerisResponse'),
+    newDescribeEphemerisResponse,
 
     -- ** GetConfig
     GetConfig (GetConfig'),
@@ -137,6 +155,12 @@ module Amazonka.GroundStation
     ListDataflowEndpointGroupsResponse (ListDataflowEndpointGroupsResponse'),
     newListDataflowEndpointGroupsResponse,
 
+    -- ** ListEphemerides (Paginated)
+    ListEphemerides (ListEphemerides'),
+    newListEphemerides,
+    ListEphemeridesResponse (ListEphemeridesResponse'),
+    newListEphemeridesResponse,
+
     -- ** ListGroundStations (Paginated)
     ListGroundStations (ListGroundStations'),
     newListGroundStations,
@@ -185,6 +209,12 @@ module Amazonka.GroundStation
     ConfigIdResponse (ConfigIdResponse'),
     newConfigIdResponse,
 
+    -- ** UpdateEphemeris
+    UpdateEphemeris (UpdateEphemeris'),
+    newUpdateEphemeris,
+    EphemerisIdResponse (EphemerisIdResponse'),
+    newEphemerisIdResponse,
+
     -- ** UpdateMissionProfile
     UpdateMissionProfile (UpdateMissionProfile'),
     newUpdateMissionProfile,
@@ -213,6 +243,15 @@ module Amazonka.GroundStation
 
     -- ** EndpointStatus
     EndpointStatus (..),
+
+    -- ** EphemerisInvalidReason
+    EphemerisInvalidReason (..),
+
+    -- ** EphemerisSource
+    EphemerisSource (..),
+
+    -- ** EphemerisStatus
+    EphemerisStatus (..),
 
     -- ** FrequencyUnits
     FrequencyUnits (..),
@@ -304,6 +343,30 @@ module Amazonka.GroundStation
     EndpointDetails (EndpointDetails'),
     newEndpointDetails,
 
+    -- ** EphemerisData
+    EphemerisData (EphemerisData'),
+    newEphemerisData,
+
+    -- ** EphemerisDescription
+    EphemerisDescription (EphemerisDescription'),
+    newEphemerisDescription,
+
+    -- ** EphemerisIdResponse
+    EphemerisIdResponse (EphemerisIdResponse'),
+    newEphemerisIdResponse,
+
+    -- ** EphemerisItem
+    EphemerisItem (EphemerisItem'),
+    newEphemerisItem,
+
+    -- ** EphemerisMetaData
+    EphemerisMetaData (EphemerisMetaData'),
+    newEphemerisMetaData,
+
+    -- ** EphemerisTypeDescription
+    EphemerisTypeDescription (EphemerisTypeDescription'),
+    newEphemerisTypeDescription,
+
     -- ** Frequency
     Frequency (Frequency'),
     newFrequency,
@@ -323,6 +386,14 @@ module Amazonka.GroundStation
     -- ** MissionProfileListItem
     MissionProfileListItem (MissionProfileListItem'),
     newMissionProfileListItem,
+
+    -- ** OEMEphemeris
+    OEMEphemeris (OEMEphemeris'),
+    newOEMEphemeris,
+
+    -- ** S3Object
+    S3Object (S3Object'),
+    newS3Object,
 
     -- ** S3RecordingConfig
     S3RecordingConfig (S3RecordingConfig'),
@@ -352,6 +423,18 @@ module Amazonka.GroundStation
     SpectrumConfig (SpectrumConfig'),
     newSpectrumConfig,
 
+    -- ** TLEData
+    TLEData (TLEData'),
+    newTLEData,
+
+    -- ** TLEEphemeris
+    TLEEphemeris (TLEEphemeris'),
+    newTLEEphemeris,
+
+    -- ** TimeRange
+    TimeRange (TimeRange'),
+    newTimeRange,
+
     -- ** TrackingConfig
     TrackingConfig (TrackingConfig'),
     newTrackingConfig,
@@ -369,11 +452,14 @@ where
 import Amazonka.GroundStation.CancelContact
 import Amazonka.GroundStation.CreateConfig
 import Amazonka.GroundStation.CreateDataflowEndpointGroup
+import Amazonka.GroundStation.CreateEphemeris
 import Amazonka.GroundStation.CreateMissionProfile
 import Amazonka.GroundStation.DeleteConfig
 import Amazonka.GroundStation.DeleteDataflowEndpointGroup
+import Amazonka.GroundStation.DeleteEphemeris
 import Amazonka.GroundStation.DeleteMissionProfile
 import Amazonka.GroundStation.DescribeContact
+import Amazonka.GroundStation.DescribeEphemeris
 import Amazonka.GroundStation.GetConfig
 import Amazonka.GroundStation.GetDataflowEndpointGroup
 import Amazonka.GroundStation.GetMinuteUsage
@@ -383,6 +469,7 @@ import Amazonka.GroundStation.Lens
 import Amazonka.GroundStation.ListConfigs
 import Amazonka.GroundStation.ListContacts
 import Amazonka.GroundStation.ListDataflowEndpointGroups
+import Amazonka.GroundStation.ListEphemerides
 import Amazonka.GroundStation.ListGroundStations
 import Amazonka.GroundStation.ListMissionProfiles
 import Amazonka.GroundStation.ListSatellites
@@ -392,6 +479,7 @@ import Amazonka.GroundStation.TagResource
 import Amazonka.GroundStation.Types
 import Amazonka.GroundStation.UntagResource
 import Amazonka.GroundStation.UpdateConfig
+import Amazonka.GroundStation.UpdateEphemeris
 import Amazonka.GroundStation.UpdateMissionProfile
 import Amazonka.GroundStation.Waiters
 

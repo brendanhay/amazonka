@@ -20,8 +20,8 @@
 module Amazonka.ElasticSearch.Types.EBSOptions where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.ElasticSearch.Types.VolumeType
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options to enable, disable, and specify the properties of EBS storage

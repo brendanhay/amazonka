@@ -101,6 +101,7 @@ module Amazonka.ServiceCatalog.Lens
     -- ** CreatePortfolioShare
     createPortfolioShare_accountId,
     createPortfolioShare_organizationNode,
+    createPortfolioShare_sharePrincipals,
     createPortfolioShare_acceptLanguage,
     createPortfolioShare_shareTagOptions,
     createPortfolioShare_portfolioId,
@@ -113,12 +114,13 @@ module Amazonka.ServiceCatalog.Lens
     createProduct_supportEmail,
     createProduct_supportUrl,
     createProduct_description,
+    createProduct_provisioningArtifactParameters,
     createProduct_distributor,
+    createProduct_sourceConnection,
     createProduct_acceptLanguage,
     createProduct_name,
     createProduct_owner,
     createProduct_productType,
-    createProduct_provisioningArtifactParameters,
     createProduct_idempotencyToken,
     createProductResponse_tags,
     createProductResponse_productViewDetail,
@@ -370,6 +372,7 @@ module Amazonka.ServiceCatalog.Lens
     disassociateBudgetFromResourceResponse_httpStatus,
 
     -- ** DisassociatePrincipalFromPortfolio
+    disassociatePrincipalFromPortfolio_principalType,
     disassociatePrincipalFromPortfolio_acceptLanguage,
     disassociatePrincipalFromPortfolio_portfolioId,
     disassociatePrincipalFromPortfolio_principalARN,
@@ -705,6 +708,7 @@ module Amazonka.ServiceCatalog.Lens
     -- ** UpdatePortfolioShare
     updatePortfolioShare_accountId,
     updatePortfolioShare_organizationNode,
+    updatePortfolioShare_sharePrincipals,
     updatePortfolioShare_acceptLanguage,
     updatePortfolioShare_shareTagOptions,
     updatePortfolioShare_portfolioId,
@@ -722,6 +726,7 @@ module Amazonka.ServiceCatalog.Lens
     updateProduct_owner,
     updateProduct_description,
     updateProduct_distributor,
+    updateProduct_sourceConnection,
     updateProduct_acceptLanguage,
     updateProduct_id,
     updateProductResponse_tags,
@@ -797,6 +802,12 @@ module Amazonka.ServiceCatalog.Lens
     -- ** CloudWatchDashboard
     cloudWatchDashboard_name,
 
+    -- ** CodeStarParameters
+    codeStarParameters_connectionArn,
+    codeStarParameters_repository,
+    codeStarParameters_branch,
+    codeStarParameters_artifactPath,
+
     -- ** ConstraintDetail
     constraintDetail_portfolioId,
     constraintDetail_constraintId,
@@ -820,6 +831,13 @@ module Amazonka.ServiceCatalog.Lens
     failedServiceActionAssociation_serviceActionId,
     failedServiceActionAssociation_errorCode,
     failedServiceActionAssociation_provisioningArtifactId,
+
+    -- ** LastSync
+    lastSync_lastSyncTime,
+    lastSync_lastSuccessfulSyncTime,
+    lastSync_lastSuccessfulSyncProvisioningArtifactId,
+    lastSync_lastSyncStatus,
+    lastSync_lastSyncStatusMessage,
 
     -- ** LaunchPath
     launchPath_name,
@@ -865,6 +883,7 @@ module Amazonka.ServiceCatalog.Lens
     portfolioShareDetail_principalId,
     portfolioShareDetail_type,
     portfolioShareDetail_accepted,
+    portfolioShareDetail_sharePrincipals,
     portfolioShareDetail_shareTagOptions,
 
     -- ** Principal
@@ -880,6 +899,7 @@ module Amazonka.ServiceCatalog.Lens
     productViewDetail_status,
     productViewDetail_productViewSummary,
     productViewDetail_productARN,
+    productViewDetail_sourceConnection,
 
     -- ** ProductViewSummary
     productViewSummary_supportDescription,
@@ -971,6 +991,7 @@ module Amazonka.ServiceCatalog.Lens
     provisioningArtifactDetail_id,
     provisioningArtifactDetail_description,
     provisioningArtifactDetail_guidance,
+    provisioningArtifactDetail_sourceRevision,
 
     -- ** ProvisioningArtifactOutput
     provisioningArtifactOutput_key,
@@ -992,8 +1013,8 @@ module Amazonka.ServiceCatalog.Lens
     provisioningArtifactProperties_name,
     provisioningArtifactProperties_type,
     provisioningArtifactProperties_disableTemplateValidation,
-    provisioningArtifactProperties_description,
     provisioningArtifactProperties_info,
+    provisioningArtifactProperties_description,
 
     -- ** ProvisioningArtifactSummary
     provisioningArtifactSummary_name,
@@ -1096,6 +1117,18 @@ module Amazonka.ServiceCatalog.Lens
     shareError_message,
     shareError_accounts,
     shareError_error,
+
+    -- ** SourceConnection
+    sourceConnection_type,
+    sourceConnection_connectionParameters,
+
+    -- ** SourceConnectionDetail
+    sourceConnectionDetail_lastSync,
+    sourceConnectionDetail_type,
+    sourceConnectionDetail_connectionParameters,
+
+    -- ** SourceConnectionParameters
+    sourceConnectionParameters_codeStar,
 
     -- ** StackInstance
     stackInstance_stackInstanceStatus,
@@ -1218,10 +1251,12 @@ import Amazonka.ServiceCatalog.TerminateProvisionedProduct
 import Amazonka.ServiceCatalog.Types.AccessLevelFilter
 import Amazonka.ServiceCatalog.Types.BudgetDetail
 import Amazonka.ServiceCatalog.Types.CloudWatchDashboard
+import Amazonka.ServiceCatalog.Types.CodeStarParameters
 import Amazonka.ServiceCatalog.Types.ConstraintDetail
 import Amazonka.ServiceCatalog.Types.ConstraintSummary
 import Amazonka.ServiceCatalog.Types.ExecutionParameter
 import Amazonka.ServiceCatalog.Types.FailedServiceActionAssociation
+import Amazonka.ServiceCatalog.Types.LastSync
 import Amazonka.ServiceCatalog.Types.LaunchPath
 import Amazonka.ServiceCatalog.Types.LaunchPathSummary
 import Amazonka.ServiceCatalog.Types.ListRecordHistorySearchFilter
@@ -1261,6 +1296,9 @@ import Amazonka.ServiceCatalog.Types.ServiceActionDetail
 import Amazonka.ServiceCatalog.Types.ServiceActionSummary
 import Amazonka.ServiceCatalog.Types.ShareDetails
 import Amazonka.ServiceCatalog.Types.ShareError
+import Amazonka.ServiceCatalog.Types.SourceConnection
+import Amazonka.ServiceCatalog.Types.SourceConnectionDetail
+import Amazonka.ServiceCatalog.Types.SourceConnectionParameters
 import Amazonka.ServiceCatalog.Types.StackInstance
 import Amazonka.ServiceCatalog.Types.Tag
 import Amazonka.ServiceCatalog.Types.TagOptionDetail

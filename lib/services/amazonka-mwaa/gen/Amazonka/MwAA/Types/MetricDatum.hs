@@ -20,7 +20,7 @@
 module Amazonka.MwAA.Types.MetricDatum where
 
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.MwAA.Types.Dimension
 import Amazonka.MwAA.Types.StatisticSet
 import Amazonka.MwAA.Types.Unit

@@ -45,6 +45,7 @@ module Amazonka.CloudWatchLogs.PutDestination
     newPutDestination,
 
     -- * Request Lenses
+    putDestination_tags,
     putDestination_destinationName,
     putDestination_targetArn,
     putDestination_roleArn,
@@ -61,14 +62,19 @@ where
 
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutDestination' smart constructor.
 data PutDestination = PutDestination'
-  { -- | A name for the destination.
+  { -- | An optional list of key-value pairs to associate with the resource.
+    --
+    -- For more information about tagging, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A name for the destination.
     destinationName :: Prelude.Text,
     -- | The ARN of an Amazon Kinesis stream to which to deliver matching log
     -- events.
@@ -86,6 +92,11 @@ data PutDestination = PutDestination'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'putDestination_tags' - An optional list of key-value pairs to associate with the resource.
+--
+-- For more information about tagging, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
 --
 -- 'destinationName', 'putDestination_destinationName' - A name for the destination.
 --
@@ -107,11 +118,18 @@ newPutDestination
   pTargetArn_
   pRoleArn_ =
     PutDestination'
-      { destinationName =
-          pDestinationName_,
+      { tags = Prelude.Nothing,
+        destinationName = pDestinationName_,
         targetArn = pTargetArn_,
         roleArn = pRoleArn_
       }
+
+-- | An optional list of key-value pairs to associate with the resource.
+--
+-- For more information about tagging, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+putDestination_tags :: Lens.Lens' PutDestination (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putDestination_tags = Lens.lens (\PutDestination' {tags} -> tags) (\s@PutDestination' {} a -> s {tags = a} :: PutDestination) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the destination.
 putDestination_destinationName :: Lens.Lens' PutDestination Prelude.Text
@@ -131,8 +149,8 @@ instance Core.AWSRequest PutDestination where
   type
     AWSResponse PutDestination =
       PutDestinationResponse
-  service _ = defaultService
-  request srv = Request.postJSON srv
+  request overrides =
+    Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,13 +161,15 @@ instance Core.AWSRequest PutDestination where
 
 instance Prelude.Hashable PutDestination where
   hashWithSalt _salt PutDestination' {..} =
-    _salt `Prelude.hashWithSalt` destinationName
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` targetArn
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData PutDestination where
   rnf PutDestination' {..} =
-    Prelude.rnf destinationName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf destinationName
       `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf roleArn
 
@@ -172,7 +192,8 @@ instance Core.ToJSON PutDestination where
   toJSON PutDestination' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
               ("destinationName" Core..= destinationName),
             Prelude.Just ("targetArn" Core..= targetArn),
             Prelude.Just ("roleArn" Core..= roleArn)

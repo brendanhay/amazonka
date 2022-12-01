@@ -23,7 +23,7 @@ import Amazonka.CloudFront.Types.CertificateSource
 import Amazonka.CloudFront.Types.MinimumProtocolVersion
 import Amazonka.CloudFront.Types.SSLSupportMethod
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that determines the distribution’s SSL\/TLS configuration

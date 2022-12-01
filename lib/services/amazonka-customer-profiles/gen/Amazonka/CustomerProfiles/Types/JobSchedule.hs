@@ -20,8 +20,8 @@
 module Amazonka.CustomerProfiles.Types.JobSchedule where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.JobScheduleDayOfTheWeek
-import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The day and time when do you want to start the Identity Resolution Job

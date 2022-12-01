@@ -21,7 +21,7 @@ module Amazonka.AutoScalingPlans.Types.PredefinedLoadMetricSpecification where
 
 import Amazonka.AutoScalingPlans.Types.LoadMetricType
 import qualified Amazonka.Core as Core
-import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a predefined metric that can be used for predictive scaling.

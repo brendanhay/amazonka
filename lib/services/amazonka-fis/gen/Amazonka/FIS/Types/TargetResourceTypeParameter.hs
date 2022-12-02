@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.TargetResourceTypeParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the parameters for a resource type. Use parameters to
@@ -63,14 +64,14 @@ targetResourceTypeParameter_required = Lens.lens (\TargetResourceTypeParameter' 
 targetResourceTypeParameter_description :: Lens.Lens' TargetResourceTypeParameter (Prelude.Maybe Prelude.Text)
 targetResourceTypeParameter_description = Lens.lens (\TargetResourceTypeParameter' {description} -> description) (\s@TargetResourceTypeParameter' {} a -> s {description = a} :: TargetResourceTypeParameter)
 
-instance Core.FromJSON TargetResourceTypeParameter where
+instance Data.FromJSON TargetResourceTypeParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetResourceTypeParameter"
       ( \x ->
           TargetResourceTypeParameter'
-            Prelude.<$> (x Core..:? "required")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<$> (x Data..:? "required")
+            Prelude.<*> (x Data..:? "description")
       )
 
 instance Prelude.Hashable TargetResourceTypeParameter where

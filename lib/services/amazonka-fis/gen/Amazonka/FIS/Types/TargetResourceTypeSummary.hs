@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.TargetResourceTypeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a resource type.
@@ -62,14 +63,14 @@ targetResourceTypeSummary_resourceType = Lens.lens (\TargetResourceTypeSummary' 
 targetResourceTypeSummary_description :: Lens.Lens' TargetResourceTypeSummary (Prelude.Maybe Prelude.Text)
 targetResourceTypeSummary_description = Lens.lens (\TargetResourceTypeSummary' {description} -> description) (\s@TargetResourceTypeSummary' {} a -> s {description = a} :: TargetResourceTypeSummary)
 
-instance Core.FromJSON TargetResourceTypeSummary where
+instance Data.FromJSON TargetResourceTypeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetResourceTypeSummary"
       ( \x ->
           TargetResourceTypeSummary'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "description")
       )
 
 instance Prelude.Hashable TargetResourceTypeSummary where

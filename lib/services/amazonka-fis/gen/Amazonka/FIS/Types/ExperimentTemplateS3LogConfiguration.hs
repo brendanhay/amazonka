@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentTemplateS3LogConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for experiment logging to Amazon S3.
@@ -63,16 +64,16 @@ experimentTemplateS3LogConfiguration_prefix :: Lens.Lens' ExperimentTemplateS3Lo
 experimentTemplateS3LogConfiguration_prefix = Lens.lens (\ExperimentTemplateS3LogConfiguration' {prefix} -> prefix) (\s@ExperimentTemplateS3LogConfiguration' {} a -> s {prefix = a} :: ExperimentTemplateS3LogConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ExperimentTemplateS3LogConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentTemplateS3LogConfiguration"
       ( \x ->
           ExperimentTemplateS3LogConfiguration'
-            Prelude.<$> (x Core..:? "bucketName")
-            Prelude.<*> (x Core..:? "prefix")
+            Prelude.<$> (x Data..:? "bucketName")
+            Prelude.<*> (x Data..:? "prefix")
       )
 
 instance

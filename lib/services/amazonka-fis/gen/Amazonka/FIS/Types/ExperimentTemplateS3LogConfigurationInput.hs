@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentTemplateS3LogConfigurationInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration for experiment logging to Amazon S3.
@@ -84,13 +85,13 @@ instance
       `Prelude.seq` Prelude.rnf bucketName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ExperimentTemplateS3LogConfigurationInput
   where
   toJSON ExperimentTemplateS3LogConfigurationInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("prefix" Core..=) Prelude.<$> prefix,
-            Prelude.Just ("bucketName" Core..= bucketName)
+          [ ("prefix" Data..=) Prelude.<$> prefix,
+            Prelude.Just ("bucketName" Data..= bucketName)
           ]
       )

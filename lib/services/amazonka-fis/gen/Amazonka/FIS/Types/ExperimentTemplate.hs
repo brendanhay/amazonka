@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types.ExperimentTemplateAction
 import Amazonka.FIS.Types.ExperimentTemplateLogConfiguration
 import Amazonka.FIS.Types.ExperimentTemplateStopCondition
@@ -46,9 +47,9 @@ data ExperimentTemplate = ExperimentTemplate'
     -- | The ID of the experiment template.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time the experiment template was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time the experiment template was last updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The actions for the experiment.
     actions :: Prelude.Maybe (Prelude.HashMap Prelude.Text ExperimentTemplateAction)
   }
@@ -127,32 +128,32 @@ experimentTemplate_id = Lens.lens (\ExperimentTemplate' {id} -> id) (\s@Experime
 
 -- | The time the experiment template was created.
 experimentTemplate_creationTime :: Lens.Lens' ExperimentTemplate (Prelude.Maybe Prelude.UTCTime)
-experimentTemplate_creationTime = Lens.lens (\ExperimentTemplate' {creationTime} -> creationTime) (\s@ExperimentTemplate' {} a -> s {creationTime = a} :: ExperimentTemplate) Prelude.. Lens.mapping Core._Time
+experimentTemplate_creationTime = Lens.lens (\ExperimentTemplate' {creationTime} -> creationTime) (\s@ExperimentTemplate' {} a -> s {creationTime = a} :: ExperimentTemplate) Prelude.. Lens.mapping Data._Time
 
 -- | The time the experiment template was last updated.
 experimentTemplate_lastUpdateTime :: Lens.Lens' ExperimentTemplate (Prelude.Maybe Prelude.UTCTime)
-experimentTemplate_lastUpdateTime = Lens.lens (\ExperimentTemplate' {lastUpdateTime} -> lastUpdateTime) (\s@ExperimentTemplate' {} a -> s {lastUpdateTime = a} :: ExperimentTemplate) Prelude.. Lens.mapping Core._Time
+experimentTemplate_lastUpdateTime = Lens.lens (\ExperimentTemplate' {lastUpdateTime} -> lastUpdateTime) (\s@ExperimentTemplate' {} a -> s {lastUpdateTime = a} :: ExperimentTemplate) Prelude.. Lens.mapping Data._Time
 
 -- | The actions for the experiment.
 experimentTemplate_actions :: Lens.Lens' ExperimentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text ExperimentTemplateAction))
 experimentTemplate_actions = Lens.lens (\ExperimentTemplate' {actions} -> actions) (\s@ExperimentTemplate' {} a -> s {actions = a} :: ExperimentTemplate) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ExperimentTemplate where
+instance Data.FromJSON ExperimentTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentTemplate"
       ( \x ->
           ExperimentTemplate'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "stopConditions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "logConfiguration")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
-            Prelude.<*> (x Core..:? "actions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "stopConditions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "logConfiguration")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "actions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ExperimentTemplate where

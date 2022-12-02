@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.Experiment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types.ExperimentAction
 import Amazonka.FIS.Types.ExperimentLogConfiguration
 import Amazonka.FIS.Types.ExperimentState
@@ -46,15 +47,15 @@ data Experiment = Experiment'
     -- | The targets for the experiment.
     targets :: Prelude.Maybe (Prelude.HashMap Prelude.Text ExperimentTarget),
     -- | The time that the experiment ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the experiment.
     id :: Prelude.Maybe Prelude.Text,
     -- | The ID of the experiment template.
     experimentTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The time that the experiment was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time that the experiment started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The actions for the experiment.
     actions :: Prelude.Maybe (Prelude.HashMap Prelude.Text ExperimentAction)
   }
@@ -137,7 +138,7 @@ experiment_targets = Lens.lens (\Experiment' {targets} -> targets) (\s@Experimen
 
 -- | The time that the experiment ended.
 experiment_endTime :: Lens.Lens' Experiment (Prelude.Maybe Prelude.UTCTime)
-experiment_endTime = Lens.lens (\Experiment' {endTime} -> endTime) (\s@Experiment' {} a -> s {endTime = a} :: Experiment) Prelude.. Lens.mapping Core._Time
+experiment_endTime = Lens.lens (\Experiment' {endTime} -> endTime) (\s@Experiment' {} a -> s {endTime = a} :: Experiment) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the experiment.
 experiment_id :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
@@ -149,34 +150,34 @@ experiment_experimentTemplateId = Lens.lens (\Experiment' {experimentTemplateId}
 
 -- | The time that the experiment was created.
 experiment_creationTime :: Lens.Lens' Experiment (Prelude.Maybe Prelude.UTCTime)
-experiment_creationTime = Lens.lens (\Experiment' {creationTime} -> creationTime) (\s@Experiment' {} a -> s {creationTime = a} :: Experiment) Prelude.. Lens.mapping Core._Time
+experiment_creationTime = Lens.lens (\Experiment' {creationTime} -> creationTime) (\s@Experiment' {} a -> s {creationTime = a} :: Experiment) Prelude.. Lens.mapping Data._Time
 
 -- | The time that the experiment started.
 experiment_startTime :: Lens.Lens' Experiment (Prelude.Maybe Prelude.UTCTime)
-experiment_startTime = Lens.lens (\Experiment' {startTime} -> startTime) (\s@Experiment' {} a -> s {startTime = a} :: Experiment) Prelude.. Lens.mapping Core._Time
+experiment_startTime = Lens.lens (\Experiment' {startTime} -> startTime) (\s@Experiment' {} a -> s {startTime = a} :: Experiment) Prelude.. Lens.mapping Data._Time
 
 -- | The actions for the experiment.
 experiment_actions :: Lens.Lens' Experiment (Prelude.Maybe (Prelude.HashMap Prelude.Text ExperimentAction))
 experiment_actions = Lens.lens (\Experiment' {actions} -> actions) (\s@Experiment' {} a -> s {actions = a} :: Experiment) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Experiment where
+instance Data.FromJSON Experiment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Experiment"
       ( \x ->
           Experiment'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "stopConditions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "logConfiguration")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "experimentTemplateId")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "actions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "stopConditions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "logConfiguration")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "experimentTemplateId")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "actions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Experiment where

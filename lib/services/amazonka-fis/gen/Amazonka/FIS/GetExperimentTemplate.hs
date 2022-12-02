@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetExperimentTemplate where
     Response.receiveJSON
       ( \s h x ->
           GetExperimentTemplateResponse'
-            Prelude.<$> (x Core..?> "experimentTemplate")
+            Prelude.<$> (x Data..?> "experimentTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,23 +95,23 @@ instance Prelude.Hashable GetExperimentTemplate where
 instance Prelude.NFData GetExperimentTemplate where
   rnf GetExperimentTemplate' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetExperimentTemplate where
+instance Data.ToHeaders GetExperimentTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetExperimentTemplate where
+instance Data.ToPath GetExperimentTemplate where
   toPath GetExperimentTemplate' {..} =
     Prelude.mconcat
-      ["/experimentTemplates/", Core.toBS id]
+      ["/experimentTemplates/", Data.toBS id]
 
-instance Core.ToQuery GetExperimentTemplate where
+instance Data.ToQuery GetExperimentTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetExperimentTemplateResponse' smart constructor.

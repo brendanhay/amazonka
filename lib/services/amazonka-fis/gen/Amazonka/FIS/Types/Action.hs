@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types.ActionParameter
 import Amazonka.FIS.Types.ActionTarget
 import qualified Amazonka.Prelude as Prelude
@@ -92,17 +93,17 @@ action_id = Lens.lens (\Action' {id} -> id) (\s@Action' {} a -> s {id = a} :: Ac
 action_parameters :: Lens.Lens' Action (Prelude.Maybe (Prelude.HashMap Prelude.Text ActionParameter))
 action_parameters = Lens.lens (\Action' {parameters} -> parameters) (\s@Action' {} a -> s {parameters = a} :: Action) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Action where
+instance Data.FromJSON Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Action where

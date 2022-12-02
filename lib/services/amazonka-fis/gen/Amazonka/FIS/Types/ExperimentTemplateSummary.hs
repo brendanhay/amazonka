@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentTemplateSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of an experiment template.
@@ -34,9 +35,9 @@ data ExperimentTemplateSummary = ExperimentTemplateSummary'
     -- | The ID of the experiment template.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time that the experiment template was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time that the experiment template was last updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,23 +83,23 @@ experimentTemplateSummary_id = Lens.lens (\ExperimentTemplateSummary' {id} -> id
 
 -- | The time that the experiment template was created.
 experimentTemplateSummary_creationTime :: Lens.Lens' ExperimentTemplateSummary (Prelude.Maybe Prelude.UTCTime)
-experimentTemplateSummary_creationTime = Lens.lens (\ExperimentTemplateSummary' {creationTime} -> creationTime) (\s@ExperimentTemplateSummary' {} a -> s {creationTime = a} :: ExperimentTemplateSummary) Prelude.. Lens.mapping Core._Time
+experimentTemplateSummary_creationTime = Lens.lens (\ExperimentTemplateSummary' {creationTime} -> creationTime) (\s@ExperimentTemplateSummary' {} a -> s {creationTime = a} :: ExperimentTemplateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time that the experiment template was last updated.
 experimentTemplateSummary_lastUpdateTime :: Lens.Lens' ExperimentTemplateSummary (Prelude.Maybe Prelude.UTCTime)
-experimentTemplateSummary_lastUpdateTime = Lens.lens (\ExperimentTemplateSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ExperimentTemplateSummary' {} a -> s {lastUpdateTime = a} :: ExperimentTemplateSummary) Prelude.. Lens.mapping Core._Time
+experimentTemplateSummary_lastUpdateTime = Lens.lens (\ExperimentTemplateSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ExperimentTemplateSummary' {} a -> s {lastUpdateTime = a} :: ExperimentTemplateSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ExperimentTemplateSummary where
+instance Data.FromJSON ExperimentTemplateSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentTemplateSummary"
       ( \x ->
           ExperimentTemplateSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
       )
 
 instance Prelude.Hashable ExperimentTemplateSummary where

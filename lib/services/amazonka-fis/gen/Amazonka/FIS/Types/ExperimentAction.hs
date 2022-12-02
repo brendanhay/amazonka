@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types.ExperimentActionState
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,11 +38,11 @@ data ExperimentAction = ExperimentAction'
     -- | The description for the action.
     description :: Prelude.Maybe Prelude.Text,
     -- | The time that the action ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the action.
     actionId :: Prelude.Maybe Prelude.Text,
     -- | The time that the action started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The parameters for the action.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
@@ -102,7 +103,7 @@ experimentAction_description = Lens.lens (\ExperimentAction' {description} -> de
 
 -- | The time that the action ended.
 experimentAction_endTime :: Lens.Lens' ExperimentAction (Prelude.Maybe Prelude.UTCTime)
-experimentAction_endTime = Lens.lens (\ExperimentAction' {endTime} -> endTime) (\s@ExperimentAction' {} a -> s {endTime = a} :: ExperimentAction) Prelude.. Lens.mapping Core._Time
+experimentAction_endTime = Lens.lens (\ExperimentAction' {endTime} -> endTime) (\s@ExperimentAction' {} a -> s {endTime = a} :: ExperimentAction) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the action.
 experimentAction_actionId :: Lens.Lens' ExperimentAction (Prelude.Maybe Prelude.Text)
@@ -110,26 +111,26 @@ experimentAction_actionId = Lens.lens (\ExperimentAction' {actionId} -> actionId
 
 -- | The time that the action started.
 experimentAction_startTime :: Lens.Lens' ExperimentAction (Prelude.Maybe Prelude.UTCTime)
-experimentAction_startTime = Lens.lens (\ExperimentAction' {startTime} -> startTime) (\s@ExperimentAction' {} a -> s {startTime = a} :: ExperimentAction) Prelude.. Lens.mapping Core._Time
+experimentAction_startTime = Lens.lens (\ExperimentAction' {startTime} -> startTime) (\s@ExperimentAction' {} a -> s {startTime = a} :: ExperimentAction) Prelude.. Lens.mapping Data._Time
 
 -- | The parameters for the action.
 experimentAction_parameters :: Lens.Lens' ExperimentAction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 experimentAction_parameters = Lens.lens (\ExperimentAction' {parameters} -> parameters) (\s@ExperimentAction' {} a -> s {parameters = a} :: ExperimentAction) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ExperimentAction where
+instance Data.FromJSON ExperimentAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentAction"
       ( \x ->
           ExperimentAction'
-            Prelude.<$> (x Core..:? "startAfter" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "actionId")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "startAfter" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "actionId")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ExperimentAction where

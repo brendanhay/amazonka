@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentActionState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types.ExperimentActionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ experimentActionState_status = Lens.lens (\ExperimentActionState' {status} -> st
 experimentActionState_reason :: Lens.Lens' ExperimentActionState (Prelude.Maybe Prelude.Text)
 experimentActionState_reason = Lens.lens (\ExperimentActionState' {reason} -> reason) (\s@ExperimentActionState' {} a -> s {reason = a} :: ExperimentActionState)
 
-instance Core.FromJSON ExperimentActionState where
+instance Data.FromJSON ExperimentActionState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentActionState"
       ( \x ->
           ExperimentActionState'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "reason")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "reason")
       )
 
 instance Prelude.Hashable ExperimentActionState where

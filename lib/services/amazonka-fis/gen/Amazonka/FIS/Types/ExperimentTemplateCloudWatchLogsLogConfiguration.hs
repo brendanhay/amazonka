@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentTemplateCloudWatchLogsLogConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for experiment logging to Amazon CloudWatch
@@ -58,15 +59,15 @@ experimentTemplateCloudWatchLogsLogConfiguration_logGroupArn :: Lens.Lens' Exper
 experimentTemplateCloudWatchLogsLogConfiguration_logGroupArn = Lens.lens (\ExperimentTemplateCloudWatchLogsLogConfiguration' {logGroupArn} -> logGroupArn) (\s@ExperimentTemplateCloudWatchLogsLogConfiguration' {} a -> s {logGroupArn = a} :: ExperimentTemplateCloudWatchLogsLogConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ExperimentTemplateCloudWatchLogsLogConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentTemplateCloudWatchLogsLogConfiguration"
       ( \x ->
           ExperimentTemplateCloudWatchLogsLogConfiguration'
-            Prelude.<$> (x Core..:? "logGroupArn")
+            Prelude.<$> (x Data..:? "logGroupArn")
       )
 
 instance

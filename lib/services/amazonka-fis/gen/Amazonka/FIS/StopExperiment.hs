@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,7 +83,7 @@ instance Core.AWSRequest StopExperiment where
     Response.receiveJSON
       ( \s h x ->
           StopExperimentResponse'
-            Prelude.<$> (x Core..?> "experiment")
+            Prelude.<$> (x Data..?> "experiment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -93,22 +94,22 @@ instance Prelude.Hashable StopExperiment where
 instance Prelude.NFData StopExperiment where
   rnf StopExperiment' {..} = Prelude.rnf id
 
-instance Core.ToHeaders StopExperiment where
+instance Data.ToHeaders StopExperiment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath StopExperiment where
+instance Data.ToPath StopExperiment where
   toPath StopExperiment' {..} =
-    Prelude.mconcat ["/experiments/", Core.toBS id]
+    Prelude.mconcat ["/experiments/", Data.toBS id]
 
-instance Core.ToQuery StopExperiment where
+instance Data.ToQuery StopExperiment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopExperimentResponse' smart constructor.

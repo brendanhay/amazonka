@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -166,8 +167,8 @@ instance Core.AWSRequest GetAppMonitorData where
     Response.receiveJSON
       ( \s h x ->
           GetAppMonitorDataResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Events" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Events" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,34 +188,34 @@ instance Prelude.NFData GetAppMonitorData where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf timeRange
 
-instance Core.ToHeaders GetAppMonitorData where
+instance Data.ToHeaders GetAppMonitorData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAppMonitorData where
+instance Data.ToJSON GetAppMonitorData where
   toJSON GetAppMonitorData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("TimeRange" Core..= timeRange)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("TimeRange" Data..= timeRange)
           ]
       )
 
-instance Core.ToPath GetAppMonitorData where
+instance Data.ToPath GetAppMonitorData where
   toPath GetAppMonitorData' {..} =
     Prelude.mconcat
-      ["/appmonitor/", Core.toBS name, "/data"]
+      ["/appmonitor/", Data.toBS name, "/data"]
 
-instance Core.ToQuery GetAppMonitorData where
+instance Data.ToQuery GetAppMonitorData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAppMonitorDataResponse' smart constructor.

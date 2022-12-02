@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,8 +154,8 @@ instance Core.AWSRequest ListRumMetricsDestinations where
     Response.receiveJSON
       ( \s h x ->
           ListRumMetricsDestinationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Destinations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Destinations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,30 +171,30 @@ instance Prelude.NFData ListRumMetricsDestinations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf appMonitorName
 
-instance Core.ToHeaders ListRumMetricsDestinations where
+instance Data.ToHeaders ListRumMetricsDestinations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRumMetricsDestinations where
+instance Data.ToPath ListRumMetricsDestinations where
   toPath ListRumMetricsDestinations' {..} =
     Prelude.mconcat
       [ "/rummetrics/",
-        Core.toBS appMonitorName,
+        Data.toBS appMonitorName,
         "/metricsdestination"
       ]
 
-instance Core.ToQuery ListRumMetricsDestinations where
+instance Data.ToQuery ListRumMetricsDestinations where
   toQuery ListRumMetricsDestinations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListRumMetricsDestinationsResponse' smart constructor.

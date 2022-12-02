@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -184,11 +185,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchCreateRumMetricDefinitionsResponse'
-            Prelude.<$> ( x Core..?> "MetricDefinitions"
+            Prelude.<$> ( x Data..?> "MetricDefinitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
       )
 
 instance
@@ -214,40 +215,40 @@ instance
       `Prelude.seq` Prelude.rnf metricDefinitions
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchCreateRumMetricDefinitions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchCreateRumMetricDefinitions where
+instance Data.ToJSON BatchCreateRumMetricDefinitions where
   toJSON BatchCreateRumMetricDefinitions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DestinationArn" Core..=)
+          [ ("DestinationArn" Data..=)
               Prelude.<$> destinationArn,
-            Prelude.Just ("Destination" Core..= destination),
+            Prelude.Just ("Destination" Data..= destination),
             Prelude.Just
-              ("MetricDefinitions" Core..= metricDefinitions)
+              ("MetricDefinitions" Data..= metricDefinitions)
           ]
       )
 
-instance Core.ToPath BatchCreateRumMetricDefinitions where
+instance Data.ToPath BatchCreateRumMetricDefinitions where
   toPath BatchCreateRumMetricDefinitions' {..} =
     Prelude.mconcat
       [ "/rummetrics/",
-        Core.toBS appMonitorName,
+        Data.toBS appMonitorName,
         "/metrics"
       ]
 
-instance Core.ToQuery BatchCreateRumMetricDefinitions where
+instance Data.ToQuery BatchCreateRumMetricDefinitions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchCreateRumMetricDefinitionsResponse' smart constructor.

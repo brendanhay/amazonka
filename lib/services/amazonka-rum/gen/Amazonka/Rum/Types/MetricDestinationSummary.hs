@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.MetricDestinationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rum.Types.MetricDestination
 
@@ -82,15 +83,15 @@ metricDestinationSummary_iamRoleArn = Lens.lens (\MetricDestinationSummary' {iam
 metricDestinationSummary_destinationArn :: Lens.Lens' MetricDestinationSummary (Prelude.Maybe Prelude.Text)
 metricDestinationSummary_destinationArn = Lens.lens (\MetricDestinationSummary' {destinationArn} -> destinationArn) (\s@MetricDestinationSummary' {} a -> s {destinationArn = a} :: MetricDestinationSummary)
 
-instance Core.FromJSON MetricDestinationSummary where
+instance Data.FromJSON MetricDestinationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDestinationSummary"
       ( \x ->
           MetricDestinationSummary'
-            Prelude.<$> (x Core..:? "Destination")
-            Prelude.<*> (x Core..:? "IamRoleArn")
-            Prelude.<*> (x Core..:? "DestinationArn")
+            Prelude.<$> (x Data..:? "Destination")
+            Prelude.<*> (x Data..:? "IamRoleArn")
+            Prelude.<*> (x Data..:? "DestinationArn")
       )
 
 instance Prelude.Hashable MetricDestinationSummary where

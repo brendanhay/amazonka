@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.MetricDefinitionRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this structure to define one extended metric that RUM will send to
@@ -346,17 +347,17 @@ metricDefinitionRequest_dimensionKeys = Lens.lens (\MetricDefinitionRequest' {di
 metricDefinitionRequest_name :: Lens.Lens' MetricDefinitionRequest Prelude.Text
 metricDefinitionRequest_name = Lens.lens (\MetricDefinitionRequest' {name} -> name) (\s@MetricDefinitionRequest' {} a -> s {name = a} :: MetricDefinitionRequest)
 
-instance Core.FromJSON MetricDefinitionRequest where
+instance Data.FromJSON MetricDefinitionRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDefinitionRequest"
       ( \x ->
           MetricDefinitionRequest'
-            Prelude.<$> (x Core..:? "ValueKey")
-            Prelude.<*> (x Core..:? "UnitLabel")
-            Prelude.<*> (x Core..:? "EventPattern")
-            Prelude.<*> (x Core..:? "DimensionKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "ValueKey")
+            Prelude.<*> (x Data..:? "UnitLabel")
+            Prelude.<*> (x Data..:? "EventPattern")
+            Prelude.<*> (x Data..:? "DimensionKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable MetricDefinitionRequest where
@@ -375,14 +376,14 @@ instance Prelude.NFData MetricDefinitionRequest where
       `Prelude.seq` Prelude.rnf dimensionKeys
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON MetricDefinitionRequest where
+instance Data.ToJSON MetricDefinitionRequest where
   toJSON MetricDefinitionRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ValueKey" Core..=) Prelude.<$> valueKey,
-            ("UnitLabel" Core..=) Prelude.<$> unitLabel,
-            ("EventPattern" Core..=) Prelude.<$> eventPattern,
-            ("DimensionKeys" Core..=) Prelude.<$> dimensionKeys,
-            Prelude.Just ("Name" Core..= name)
+          [ ("ValueKey" Data..=) Prelude.<$> valueKey,
+            ("UnitLabel" Data..=) Prelude.<$> unitLabel,
+            ("EventPattern" Data..=) Prelude.<$> eventPattern,
+            ("DimensionKeys" Data..=) Prelude.<$> dimensionKeys,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

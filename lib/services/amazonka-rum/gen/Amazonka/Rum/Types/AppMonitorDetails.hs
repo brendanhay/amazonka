@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.AppMonitorDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains information about the RUM app monitor.
@@ -82,12 +83,12 @@ instance Prelude.NFData AppMonitorDetails where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON AppMonitorDetails where
+instance Data.ToJSON AppMonitorDetails where
   toJSON AppMonitorDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("id" Core..=) Prelude.<$> id,
-            ("version" Core..=) Prelude.<$> version
+          [ ("name" Data..=) Prelude.<$> name,
+            ("id" Data..=) Prelude.<$> id,
+            ("version" Data..=) Prelude.<$> version
           ]
       )

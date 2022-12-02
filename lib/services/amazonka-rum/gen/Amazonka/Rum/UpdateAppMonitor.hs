@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -203,34 +204,34 @@ instance Prelude.NFData UpdateAppMonitor where
       `Prelude.seq` Prelude.rnf customEvents
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateAppMonitor where
+instance Data.ToHeaders UpdateAppMonitor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAppMonitor where
+instance Data.ToJSON UpdateAppMonitor where
   toJSON UpdateAppMonitor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Domain" Core..=) Prelude.<$> domain,
-            ("AppMonitorConfiguration" Core..=)
+          [ ("Domain" Data..=) Prelude.<$> domain,
+            ("AppMonitorConfiguration" Data..=)
               Prelude.<$> appMonitorConfiguration,
-            ("CwLogEnabled" Core..=) Prelude.<$> cwLogEnabled,
-            ("CustomEvents" Core..=) Prelude.<$> customEvents
+            ("CwLogEnabled" Data..=) Prelude.<$> cwLogEnabled,
+            ("CustomEvents" Data..=) Prelude.<$> customEvents
           ]
       )
 
-instance Core.ToPath UpdateAppMonitor where
+instance Data.ToPath UpdateAppMonitor where
   toPath UpdateAppMonitor' {..} =
-    Prelude.mconcat ["/appmonitor/", Core.toBS name]
+    Prelude.mconcat ["/appmonitor/", Data.toBS name]
 
-instance Core.ToQuery UpdateAppMonitor where
+instance Data.ToQuery UpdateAppMonitor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAppMonitorResponse' smart constructor.

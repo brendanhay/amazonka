@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.CwLog where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the information about whether the app monitor
@@ -66,14 +67,14 @@ cwLog_cwLogGroup = Lens.lens (\CwLog' {cwLogGroup} -> cwLogGroup) (\s@CwLog' {} 
 cwLog_cwLogEnabled :: Lens.Lens' CwLog (Prelude.Maybe Prelude.Bool)
 cwLog_cwLogEnabled = Lens.lens (\CwLog' {cwLogEnabled} -> cwLogEnabled) (\s@CwLog' {} a -> s {cwLogEnabled = a} :: CwLog)
 
-instance Core.FromJSON CwLog where
+instance Data.FromJSON CwLog where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CwLog"
       ( \x ->
           CwLog'
-            Prelude.<$> (x Core..:? "CwLogGroup")
-            Prelude.<*> (x Core..:? "CwLogEnabled")
+            Prelude.<$> (x Data..:? "CwLogGroup")
+            Prelude.<*> (x Data..:? "CwLogEnabled")
       )
 
 instance Prelude.Hashable CwLog where

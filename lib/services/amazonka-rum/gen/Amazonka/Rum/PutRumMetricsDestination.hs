@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -174,37 +175,37 @@ instance Prelude.NFData PutRumMetricsDestination where
       `Prelude.seq` Prelude.rnf appMonitorName
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToHeaders PutRumMetricsDestination where
+instance Data.ToHeaders PutRumMetricsDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRumMetricsDestination where
+instance Data.ToJSON PutRumMetricsDestination where
   toJSON PutRumMetricsDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
-            ("DestinationArn" Core..=)
+          [ ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn,
+            ("DestinationArn" Data..=)
               Prelude.<$> destinationArn,
-            Prelude.Just ("Destination" Core..= destination)
+            Prelude.Just ("Destination" Data..= destination)
           ]
       )
 
-instance Core.ToPath PutRumMetricsDestination where
+instance Data.ToPath PutRumMetricsDestination where
   toPath PutRumMetricsDestination' {..} =
     Prelude.mconcat
       [ "/rummetrics/",
-        Core.toBS appMonitorName,
+        Data.toBS appMonitorName,
         "/metricsdestination"
       ]
 
-instance Core.ToQuery PutRumMetricsDestination where
+instance Data.ToQuery PutRumMetricsDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRumMetricsDestinationResponse' smart constructor.

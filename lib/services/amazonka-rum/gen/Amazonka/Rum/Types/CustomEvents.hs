@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.CustomEvents where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rum.Types.CustomEventsStatus
 
@@ -55,12 +56,12 @@ newCustomEvents =
 customEvents_status :: Lens.Lens' CustomEvents (Prelude.Maybe CustomEventsStatus)
 customEvents_status = Lens.lens (\CustomEvents' {status} -> status) (\s@CustomEvents' {} a -> s {status = a} :: CustomEvents)
 
-instance Core.FromJSON CustomEvents where
+instance Data.FromJSON CustomEvents where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomEvents"
       ( \x ->
-          CustomEvents' Prelude.<$> (x Core..:? "Status")
+          CustomEvents' Prelude.<$> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable CustomEvents where
@@ -70,9 +71,9 @@ instance Prelude.Hashable CustomEvents where
 instance Prelude.NFData CustomEvents where
   rnf CustomEvents' {..} = Prelude.rnf status
 
-instance Core.ToJSON CustomEvents where
+instance Data.ToJSON CustomEvents where
   toJSON CustomEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Status" Core..=) Prelude.<$> status]
+          [("Status" Data..=) Prelude.<$> status]
       )

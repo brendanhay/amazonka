@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.BatchCreateRumMetricDefinitionsError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rum.Types.MetricDefinitionRequest
 
@@ -84,17 +85,17 @@ batchCreateRumMetricDefinitionsError_metricDefinition :: Lens.Lens' BatchCreateR
 batchCreateRumMetricDefinitionsError_metricDefinition = Lens.lens (\BatchCreateRumMetricDefinitionsError' {metricDefinition} -> metricDefinition) (\s@BatchCreateRumMetricDefinitionsError' {} a -> s {metricDefinition = a} :: BatchCreateRumMetricDefinitionsError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchCreateRumMetricDefinitionsError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchCreateRumMetricDefinitionsError"
       ( \x ->
           BatchCreateRumMetricDefinitionsError'
-            Prelude.<$> (x Core..: "ErrorCode")
-            Prelude.<*> (x Core..: "ErrorMessage")
-            Prelude.<*> (x Core..: "MetricDefinition")
+            Prelude.<$> (x Data..: "ErrorCode")
+            Prelude.<*> (x Data..: "ErrorMessage")
+            Prelude.<*> (x Data..: "MetricDefinition")
       )
 
 instance

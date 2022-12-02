@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.AppMonitorSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rum.Types.StateEnum
 
@@ -93,17 +94,17 @@ appMonitorSummary_id = Lens.lens (\AppMonitorSummary' {id} -> id) (\s@AppMonitor
 appMonitorSummary_lastModified :: Lens.Lens' AppMonitorSummary (Prelude.Maybe Prelude.Text)
 appMonitorSummary_lastModified = Lens.lens (\AppMonitorSummary' {lastModified} -> lastModified) (\s@AppMonitorSummary' {} a -> s {lastModified = a} :: AppMonitorSummary)
 
-instance Core.FromJSON AppMonitorSummary where
+instance Data.FromJSON AppMonitorSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppMonitorSummary"
       ( \x ->
           AppMonitorSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Created")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "LastModified")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Created")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "LastModified")
       )
 
 instance Prelude.Hashable AppMonitorSummary where

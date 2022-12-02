@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -186,40 +187,40 @@ instance Prelude.NFData UpdateRumMetricDefinition where
       `Prelude.seq` Prelude.rnf metricDefinition
       `Prelude.seq` Prelude.rnf metricDefinitionId
 
-instance Core.ToHeaders UpdateRumMetricDefinition where
+instance Data.ToHeaders UpdateRumMetricDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRumMetricDefinition where
+instance Data.ToJSON UpdateRumMetricDefinition where
   toJSON UpdateRumMetricDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DestinationArn" Core..=)
+          [ ("DestinationArn" Data..=)
               Prelude.<$> destinationArn,
-            Prelude.Just ("Destination" Core..= destination),
+            Prelude.Just ("Destination" Data..= destination),
             Prelude.Just
-              ("MetricDefinition" Core..= metricDefinition),
+              ("MetricDefinition" Data..= metricDefinition),
             Prelude.Just
-              ("MetricDefinitionId" Core..= metricDefinitionId)
+              ("MetricDefinitionId" Data..= metricDefinitionId)
           ]
       )
 
-instance Core.ToPath UpdateRumMetricDefinition where
+instance Data.ToPath UpdateRumMetricDefinition where
   toPath UpdateRumMetricDefinition' {..} =
     Prelude.mconcat
       [ "/rummetrics/",
-        Core.toBS appMonitorName,
+        Data.toBS appMonitorName,
         "/metrics"
       ]
 
-instance Core.ToQuery UpdateRumMetricDefinition where
+instance Data.ToQuery UpdateRumMetricDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRumMetricDefinitionResponse' smart constructor.

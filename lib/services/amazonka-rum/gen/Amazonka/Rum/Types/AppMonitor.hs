@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.AppMonitor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rum.Types.AppMonitorConfiguration
 import Amazonka.Rum.Types.CustomEvents
@@ -167,22 +168,22 @@ appMonitor_lastModified = Lens.lens (\AppMonitor' {lastModified} -> lastModified
 appMonitor_customEvents :: Lens.Lens' AppMonitor (Prelude.Maybe CustomEvents)
 appMonitor_customEvents = Lens.lens (\AppMonitor' {customEvents} -> customEvents) (\s@AppMonitor' {} a -> s {customEvents = a} :: AppMonitor)
 
-instance Core.FromJSON AppMonitor where
+instance Data.FromJSON AppMonitor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppMonitor"
       ( \x ->
           AppMonitor'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DataStorage")
-            Prelude.<*> (x Core..:? "Created")
-            Prelude.<*> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "AppMonitorConfiguration")
-            Prelude.<*> (x Core..:? "LastModified")
-            Prelude.<*> (x Core..:? "CustomEvents")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "DataStorage")
+            Prelude.<*> (x Data..:? "Created")
+            Prelude.<*> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "AppMonitorConfiguration")
+            Prelude.<*> (x Data..:? "LastModified")
+            Prelude.<*> (x Data..:? "CustomEvents")
       )
 
 instance Prelude.Hashable AppMonitor where

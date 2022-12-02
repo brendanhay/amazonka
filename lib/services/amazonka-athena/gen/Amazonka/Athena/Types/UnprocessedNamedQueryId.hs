@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.UnprocessedNamedQueryId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a named query ID that could not be processed.
@@ -77,15 +78,15 @@ unprocessedNamedQueryId_errorCode = Lens.lens (\UnprocessedNamedQueryId' {errorC
 unprocessedNamedQueryId_namedQueryId :: Lens.Lens' UnprocessedNamedQueryId (Prelude.Maybe Prelude.Text)
 unprocessedNamedQueryId_namedQueryId = Lens.lens (\UnprocessedNamedQueryId' {namedQueryId} -> namedQueryId) (\s@UnprocessedNamedQueryId' {} a -> s {namedQueryId = a} :: UnprocessedNamedQueryId)
 
-instance Core.FromJSON UnprocessedNamedQueryId where
+instance Data.FromJSON UnprocessedNamedQueryId where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnprocessedNamedQueryId"
       ( \x ->
           UnprocessedNamedQueryId'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "NamedQueryId")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "NamedQueryId")
       )
 
 instance Prelude.Hashable UnprocessedNamedQueryId where

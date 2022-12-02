@@ -49,6 +49,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,10 +103,10 @@ instance Core.AWSRequest BatchGetPreparedStatement where
     Response.receiveJSON
       ( \s h x ->
           BatchGetPreparedStatementResponse'
-            Prelude.<$> ( x Core..?> "PreparedStatements"
+            Prelude.<$> ( x Data..?> "PreparedStatements"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "UnprocessedPreparedStatementNames"
+            Prelude.<*> ( x Data..?> "UnprocessedPreparedStatementNames"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -121,37 +122,37 @@ instance Prelude.NFData BatchGetPreparedStatement where
     Prelude.rnf preparedStatementNames
       `Prelude.seq` Prelude.rnf workGroup
 
-instance Core.ToHeaders BatchGetPreparedStatement where
+instance Data.ToHeaders BatchGetPreparedStatement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.BatchGetPreparedStatement" ::
+              Data.=# ( "AmazonAthena.BatchGetPreparedStatement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetPreparedStatement where
+instance Data.ToJSON BatchGetPreparedStatement where
   toJSON BatchGetPreparedStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "PreparedStatementNames"
-                  Core..= preparedStatementNames
+                  Data..= preparedStatementNames
               ),
-            Prelude.Just ("WorkGroup" Core..= workGroup)
+            Prelude.Just ("WorkGroup" Data..= workGroup)
           ]
       )
 
-instance Core.ToPath BatchGetPreparedStatement where
+instance Data.ToPath BatchGetPreparedStatement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetPreparedStatement where
+instance Data.ToQuery BatchGetPreparedStatement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetPreparedStatementResponse' smart constructor.

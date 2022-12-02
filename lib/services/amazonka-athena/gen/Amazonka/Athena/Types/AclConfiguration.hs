@@ -22,6 +22,7 @@ module Amazonka.Athena.Types.AclConfiguration where
 import Amazonka.Athena.Types.S3AclOption
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates that an Amazon S3 canned ACL should be set to control
@@ -79,13 +80,13 @@ newAclConfiguration pS3AclOption_ =
 aclConfiguration_s3AclOption :: Lens.Lens' AclConfiguration S3AclOption
 aclConfiguration_s3AclOption = Lens.lens (\AclConfiguration' {s3AclOption} -> s3AclOption) (\s@AclConfiguration' {} a -> s {s3AclOption = a} :: AclConfiguration)
 
-instance Core.FromJSON AclConfiguration where
+instance Data.FromJSON AclConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AclConfiguration"
       ( \x ->
           AclConfiguration'
-            Prelude.<$> (x Core..: "S3AclOption")
+            Prelude.<$> (x Data..: "S3AclOption")
       )
 
 instance Prelude.Hashable AclConfiguration where
@@ -95,9 +96,9 @@ instance Prelude.Hashable AclConfiguration where
 instance Prelude.NFData AclConfiguration where
   rnf AclConfiguration' {..} = Prelude.rnf s3AclOption
 
-instance Core.ToJSON AclConfiguration where
+instance Data.ToJSON AclConfiguration where
   toJSON AclConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("S3AclOption" Core..= s3AclOption)]
+          [Prelude.Just ("S3AclOption" Data..= s3AclOption)]
       )

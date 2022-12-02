@@ -44,6 +44,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,36 +153,36 @@ instance Prelude.NFData CreateWorkGroup where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateWorkGroup where
+instance Data.ToHeaders CreateWorkGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.CreateWorkGroup" ::
+              Data.=# ( "AmazonAthena.CreateWorkGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkGroup where
+instance Data.ToJSON CreateWorkGroup where
   toJSON CreateWorkGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Configuration" Core..=) Prelude.<$> configuration,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Configuration" Data..=) Prelude.<$> configuration,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateWorkGroup where
+instance Data.ToPath CreateWorkGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateWorkGroup where
+instance Data.ToQuery CreateWorkGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkGroupResponse' smart constructor.

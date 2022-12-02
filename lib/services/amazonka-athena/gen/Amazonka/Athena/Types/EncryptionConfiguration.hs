@@ -22,6 +22,7 @@ module Amazonka.Athena.Types.EncryptionConfiguration where
 import Amazonka.Athena.Types.EncryptionOption
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If query results are encrypted in Amazon S3, indicates the encryption
@@ -89,14 +90,14 @@ encryptionConfiguration_kmsKey = Lens.lens (\EncryptionConfiguration' {kmsKey} -
 encryptionConfiguration_encryptionOption :: Lens.Lens' EncryptionConfiguration EncryptionOption
 encryptionConfiguration_encryptionOption = Lens.lens (\EncryptionConfiguration' {encryptionOption} -> encryptionOption) (\s@EncryptionConfiguration' {} a -> s {encryptionOption = a} :: EncryptionConfiguration)
 
-instance Core.FromJSON EncryptionConfiguration where
+instance Data.FromJSON EncryptionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionConfiguration"
       ( \x ->
           EncryptionConfiguration'
-            Prelude.<$> (x Core..:? "KmsKey")
-            Prelude.<*> (x Core..: "EncryptionOption")
+            Prelude.<$> (x Data..:? "KmsKey")
+            Prelude.<*> (x Data..: "EncryptionOption")
       )
 
 instance Prelude.Hashable EncryptionConfiguration where
@@ -109,12 +110,12 @@ instance Prelude.NFData EncryptionConfiguration where
     Prelude.rnf kmsKey
       `Prelude.seq` Prelude.rnf encryptionOption
 
-instance Core.ToJSON EncryptionConfiguration where
+instance Data.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKey" Core..=) Prelude.<$> kmsKey,
+          [ ("KmsKey" Data..=) Prelude.<$> kmsKey,
             Prelude.Just
-              ("EncryptionOption" Core..= encryptionOption)
+              ("EncryptionOption" Data..= encryptionOption)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.QueryExecutionContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The database and data catalog context in which the query execution
@@ -65,14 +66,14 @@ queryExecutionContext_catalog = Lens.lens (\QueryExecutionContext' {catalog} -> 
 queryExecutionContext_database :: Lens.Lens' QueryExecutionContext (Prelude.Maybe Prelude.Text)
 queryExecutionContext_database = Lens.lens (\QueryExecutionContext' {database} -> database) (\s@QueryExecutionContext' {} a -> s {database = a} :: QueryExecutionContext)
 
-instance Core.FromJSON QueryExecutionContext where
+instance Data.FromJSON QueryExecutionContext where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryExecutionContext"
       ( \x ->
           QueryExecutionContext'
-            Prelude.<$> (x Core..:? "Catalog")
-            Prelude.<*> (x Core..:? "Database")
+            Prelude.<$> (x Data..:? "Catalog")
+            Prelude.<*> (x Data..:? "Database")
       )
 
 instance Prelude.Hashable QueryExecutionContext where
@@ -85,11 +86,11 @@ instance Prelude.NFData QueryExecutionContext where
     Prelude.rnf catalog
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToJSON QueryExecutionContext where
+instance Data.ToJSON QueryExecutionContext where
   toJSON QueryExecutionContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Catalog" Core..=) Prelude.<$> catalog,
-            ("Database" Core..=) Prelude.<$> database
+          [ ("Catalog" Data..=) Prelude.<$> catalog,
+            ("Database" Data..=) Prelude.<$> database
           ]
       )

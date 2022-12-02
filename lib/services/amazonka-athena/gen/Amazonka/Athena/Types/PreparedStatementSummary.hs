@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.PreparedStatementSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name and last modified time of the prepared statement.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPreparedStatementSummary' smart constructor.
 data PreparedStatementSummary = PreparedStatementSummary'
   { -- | The last modified time of the prepared statement.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the prepared statement.
     statementName :: Prelude.Maybe Prelude.Text
   }
@@ -56,20 +57,20 @@ newPreparedStatementSummary =
 
 -- | The last modified time of the prepared statement.
 preparedStatementSummary_lastModifiedTime :: Lens.Lens' PreparedStatementSummary (Prelude.Maybe Prelude.UTCTime)
-preparedStatementSummary_lastModifiedTime = Lens.lens (\PreparedStatementSummary' {lastModifiedTime} -> lastModifiedTime) (\s@PreparedStatementSummary' {} a -> s {lastModifiedTime = a} :: PreparedStatementSummary) Prelude.. Lens.mapping Core._Time
+preparedStatementSummary_lastModifiedTime = Lens.lens (\PreparedStatementSummary' {lastModifiedTime} -> lastModifiedTime) (\s@PreparedStatementSummary' {} a -> s {lastModifiedTime = a} :: PreparedStatementSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the prepared statement.
 preparedStatementSummary_statementName :: Lens.Lens' PreparedStatementSummary (Prelude.Maybe Prelude.Text)
 preparedStatementSummary_statementName = Lens.lens (\PreparedStatementSummary' {statementName} -> statementName) (\s@PreparedStatementSummary' {} a -> s {statementName = a} :: PreparedStatementSummary)
 
-instance Core.FromJSON PreparedStatementSummary where
+instance Data.FromJSON PreparedStatementSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PreparedStatementSummary"
       ( \x ->
           PreparedStatementSummary'
-            Prelude.<$> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "StatementName")
+            Prelude.<$> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "StatementName")
       )
 
 instance Prelude.Hashable PreparedStatementSummary where

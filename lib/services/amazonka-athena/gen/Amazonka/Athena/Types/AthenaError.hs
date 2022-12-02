@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.AthenaError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an Athena query error. The @AthenaError@
@@ -114,16 +115,16 @@ athenaError_errorMessage = Lens.lens (\AthenaError' {errorMessage} -> errorMessa
 athenaError_errorType :: Lens.Lens' AthenaError (Prelude.Maybe Prelude.Natural)
 athenaError_errorType = Lens.lens (\AthenaError' {errorType} -> errorType) (\s@AthenaError' {} a -> s {errorType = a} :: AthenaError)
 
-instance Core.FromJSON AthenaError where
+instance Data.FromJSON AthenaError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AthenaError"
       ( \x ->
           AthenaError'
-            Prelude.<$> (x Core..:? "Retryable")
-            Prelude.<*> (x Core..:? "ErrorCategory")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorType")
+            Prelude.<$> (x Data..:? "Retryable")
+            Prelude.<*> (x Data..:? "ErrorCategory")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorType")
       )
 
 instance Prelude.Hashable AthenaError where

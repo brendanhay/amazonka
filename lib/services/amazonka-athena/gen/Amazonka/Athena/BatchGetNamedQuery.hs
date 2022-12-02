@@ -52,6 +52,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,8 +99,8 @@ instance Core.AWSRequest BatchGetNamedQuery where
     Response.receiveJSON
       ( \s h x ->
           BatchGetNamedQueryResponse'
-            Prelude.<$> (x Core..?> "NamedQueries" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "UnprocessedNamedQueryIds"
+            Prelude.<$> (x Data..?> "NamedQueries" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "UnprocessedNamedQueryIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -113,34 +114,34 @@ instance Prelude.NFData BatchGetNamedQuery where
   rnf BatchGetNamedQuery' {..} =
     Prelude.rnf namedQueryIds
 
-instance Core.ToHeaders BatchGetNamedQuery where
+instance Data.ToHeaders BatchGetNamedQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.BatchGetNamedQuery" ::
+              Data.=# ( "AmazonAthena.BatchGetNamedQuery" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetNamedQuery where
+instance Data.ToJSON BatchGetNamedQuery where
   toJSON BatchGetNamedQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("NamedQueryIds" Core..= namedQueryIds)
+              ("NamedQueryIds" Data..= namedQueryIds)
           ]
       )
 
-instance Core.ToPath BatchGetNamedQuery where
+instance Data.ToPath BatchGetNamedQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetNamedQuery where
+instance Data.ToQuery BatchGetNamedQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetNamedQueryResponse' smart constructor.

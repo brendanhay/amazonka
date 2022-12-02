@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.UnprocessedQueryExecutionId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a query execution that failed to process.
@@ -77,15 +78,15 @@ unprocessedQueryExecutionId_errorMessage = Lens.lens (\UnprocessedQueryExecution
 unprocessedQueryExecutionId_errorCode :: Lens.Lens' UnprocessedQueryExecutionId (Prelude.Maybe Prelude.Text)
 unprocessedQueryExecutionId_errorCode = Lens.lens (\UnprocessedQueryExecutionId' {errorCode} -> errorCode) (\s@UnprocessedQueryExecutionId' {} a -> s {errorCode = a} :: UnprocessedQueryExecutionId)
 
-instance Core.FromJSON UnprocessedQueryExecutionId where
+instance Data.FromJSON UnprocessedQueryExecutionId where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnprocessedQueryExecutionId"
       ( \x ->
           UnprocessedQueryExecutionId'
-            Prelude.<$> (x Core..:? "QueryExecutionId")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "QueryExecutionId")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable UnprocessedQueryExecutionId where

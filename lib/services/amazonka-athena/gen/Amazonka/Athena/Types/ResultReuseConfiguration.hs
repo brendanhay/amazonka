@@ -22,6 +22,7 @@ module Amazonka.Athena.Types.ResultReuseConfiguration where
 import Amazonka.Athena.Types.ResultReuseByAgeConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the query result reuse behavior for the query.
@@ -57,13 +58,13 @@ newResultReuseConfiguration =
 resultReuseConfiguration_resultReuseByAgeConfiguration :: Lens.Lens' ResultReuseConfiguration (Prelude.Maybe ResultReuseByAgeConfiguration)
 resultReuseConfiguration_resultReuseByAgeConfiguration = Lens.lens (\ResultReuseConfiguration' {resultReuseByAgeConfiguration} -> resultReuseByAgeConfiguration) (\s@ResultReuseConfiguration' {} a -> s {resultReuseByAgeConfiguration = a} :: ResultReuseConfiguration)
 
-instance Core.FromJSON ResultReuseConfiguration where
+instance Data.FromJSON ResultReuseConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResultReuseConfiguration"
       ( \x ->
           ResultReuseConfiguration'
-            Prelude.<$> (x Core..:? "ResultReuseByAgeConfiguration")
+            Prelude.<$> (x Data..:? "ResultReuseByAgeConfiguration")
       )
 
 instance Prelude.Hashable ResultReuseConfiguration where
@@ -75,11 +76,11 @@ instance Prelude.NFData ResultReuseConfiguration where
   rnf ResultReuseConfiguration' {..} =
     Prelude.rnf resultReuseByAgeConfiguration
 
-instance Core.ToJSON ResultReuseConfiguration where
+instance Data.ToJSON ResultReuseConfiguration where
   toJSON ResultReuseConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResultReuseByAgeConfiguration" Core..=)
+          [ ("ResultReuseByAgeConfiguration" Data..=)
               Prelude.<$> resultReuseByAgeConfiguration
           ]
       )

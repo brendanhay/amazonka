@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.Database where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata information for a database in a data catalog.
@@ -72,15 +73,15 @@ database_parameters = Lens.lens (\Database' {parameters} -> parameters) (\s@Data
 database_name :: Lens.Lens' Database Prelude.Text
 database_name = Lens.lens (\Database' {name} -> name) (\s@Database' {} a -> s {name = a} :: Database)
 
-instance Core.FromJSON Database where
+instance Data.FromJSON Database where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Database"
       ( \x ->
           Database'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Database where

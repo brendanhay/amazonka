@@ -24,6 +24,7 @@ import Amazonka.Athena.Types.QueryRuntimeStatisticsTimeline
 import Amazonka.Athena.Types.QueryStage
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The query execution timeline, statistics on input and output rows and
@@ -79,15 +80,15 @@ queryRuntimeStatistics_timeline = Lens.lens (\QueryRuntimeStatistics' {timeline}
 queryRuntimeStatistics_outputStage :: Lens.Lens' QueryRuntimeStatistics (Prelude.Maybe QueryStage)
 queryRuntimeStatistics_outputStage = Lens.lens (\QueryRuntimeStatistics' {outputStage} -> outputStage) (\s@QueryRuntimeStatistics' {} a -> s {outputStage = a} :: QueryRuntimeStatistics)
 
-instance Core.FromJSON QueryRuntimeStatistics where
+instance Data.FromJSON QueryRuntimeStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryRuntimeStatistics"
       ( \x ->
           QueryRuntimeStatistics'
-            Prelude.<$> (x Core..:? "Rows")
-            Prelude.<*> (x Core..:? "Timeline")
-            Prelude.<*> (x Core..:? "OutputStage")
+            Prelude.<$> (x Data..:? "Rows")
+            Prelude.<*> (x Data..:? "Timeline")
+            Prelude.<*> (x Data..:? "OutputStage")
       )
 
 instance Prelude.Hashable QueryRuntimeStatistics where

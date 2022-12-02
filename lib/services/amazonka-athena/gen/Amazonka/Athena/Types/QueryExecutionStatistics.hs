@@ -22,6 +22,7 @@ module Amazonka.Athena.Types.QueryExecutionStatistics where
 import Amazonka.Athena.Types.ResultReuseInformation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of data scanned during the query execution and the amount of
@@ -160,20 +161,20 @@ queryExecutionStatistics_engineExecutionTimeInMillis = Lens.lens (\QueryExecutio
 queryExecutionStatistics_queryPlanningTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Prelude.Maybe Prelude.Integer)
 queryExecutionStatistics_queryPlanningTimeInMillis = Lens.lens (\QueryExecutionStatistics' {queryPlanningTimeInMillis} -> queryPlanningTimeInMillis) (\s@QueryExecutionStatistics' {} a -> s {queryPlanningTimeInMillis = a} :: QueryExecutionStatistics)
 
-instance Core.FromJSON QueryExecutionStatistics where
+instance Data.FromJSON QueryExecutionStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryExecutionStatistics"
       ( \x ->
           QueryExecutionStatistics'
-            Prelude.<$> (x Core..:? "DataScannedInBytes")
-            Prelude.<*> (x Core..:? "QueryQueueTimeInMillis")
-            Prelude.<*> (x Core..:? "ResultReuseInformation")
-            Prelude.<*> (x Core..:? "ServiceProcessingTimeInMillis")
-            Prelude.<*> (x Core..:? "DataManifestLocation")
-            Prelude.<*> (x Core..:? "TotalExecutionTimeInMillis")
-            Prelude.<*> (x Core..:? "EngineExecutionTimeInMillis")
-            Prelude.<*> (x Core..:? "QueryPlanningTimeInMillis")
+            Prelude.<$> (x Data..:? "DataScannedInBytes")
+            Prelude.<*> (x Data..:? "QueryQueueTimeInMillis")
+            Prelude.<*> (x Data..:? "ResultReuseInformation")
+            Prelude.<*> (x Data..:? "ServiceProcessingTimeInMillis")
+            Prelude.<*> (x Data..:? "DataManifestLocation")
+            Prelude.<*> (x Data..:? "TotalExecutionTimeInMillis")
+            Prelude.<*> (x Data..:? "EngineExecutionTimeInMillis")
+            Prelude.<*> (x Data..:? "QueryPlanningTimeInMillis")
       )
 
 instance Prelude.Hashable QueryExecutionStatistics where

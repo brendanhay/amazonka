@@ -28,6 +28,7 @@ import Amazonka.Athena.Types.ResultReuseConfiguration
 import Amazonka.Athena.Types.StatementType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a single instance of a query execution.
@@ -189,23 +190,23 @@ queryExecution_executionParameters = Lens.lens (\QueryExecution' {executionParam
 queryExecution_engineVersion :: Lens.Lens' QueryExecution (Prelude.Maybe EngineVersion)
 queryExecution_engineVersion = Lens.lens (\QueryExecution' {engineVersion} -> engineVersion) (\s@QueryExecution' {} a -> s {engineVersion = a} :: QueryExecution)
 
-instance Core.FromJSON QueryExecution where
+instance Data.FromJSON QueryExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryExecution"
       ( \x ->
           QueryExecution'
-            Prelude.<$> (x Core..:? "ResultReuseConfiguration")
-            Prelude.<*> (x Core..:? "QueryExecutionId")
-            Prelude.<*> (x Core..:? "Statistics")
-            Prelude.<*> (x Core..:? "StatementType")
-            Prelude.<*> (x Core..:? "WorkGroup")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ResultConfiguration")
-            Prelude.<*> (x Core..:? "Query")
-            Prelude.<*> (x Core..:? "QueryExecutionContext")
-            Prelude.<*> (x Core..:? "ExecutionParameters")
-            Prelude.<*> (x Core..:? "EngineVersion")
+            Prelude.<$> (x Data..:? "ResultReuseConfiguration")
+            Prelude.<*> (x Data..:? "QueryExecutionId")
+            Prelude.<*> (x Data..:? "Statistics")
+            Prelude.<*> (x Data..:? "StatementType")
+            Prelude.<*> (x Data..:? "WorkGroup")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ResultConfiguration")
+            Prelude.<*> (x Data..:? "Query")
+            Prelude.<*> (x Data..:? "QueryExecutionContext")
+            Prelude.<*> (x Data..:? "ExecutionParameters")
+            Prelude.<*> (x Data..:? "EngineVersion")
       )
 
 instance Prelude.Hashable QueryExecution where

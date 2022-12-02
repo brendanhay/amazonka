@@ -23,6 +23,7 @@ import Amazonka.Athena.Types.EngineVersion
 import Amazonka.Athena.Types.ResultConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of the workgroup, which includes the location in
@@ -174,18 +175,18 @@ workGroupConfiguration_requesterPaysEnabled = Lens.lens (\WorkGroupConfiguration
 workGroupConfiguration_engineVersion :: Lens.Lens' WorkGroupConfiguration (Prelude.Maybe EngineVersion)
 workGroupConfiguration_engineVersion = Lens.lens (\WorkGroupConfiguration' {engineVersion} -> engineVersion) (\s@WorkGroupConfiguration' {} a -> s {engineVersion = a} :: WorkGroupConfiguration)
 
-instance Core.FromJSON WorkGroupConfiguration where
+instance Data.FromJSON WorkGroupConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkGroupConfiguration"
       ( \x ->
           WorkGroupConfiguration'
-            Prelude.<$> (x Core..:? "PublishCloudWatchMetricsEnabled")
-            Prelude.<*> (x Core..:? "EnforceWorkGroupConfiguration")
-            Prelude.<*> (x Core..:? "ResultConfiguration")
-            Prelude.<*> (x Core..:? "BytesScannedCutoffPerQuery")
-            Prelude.<*> (x Core..:? "RequesterPaysEnabled")
-            Prelude.<*> (x Core..:? "EngineVersion")
+            Prelude.<$> (x Data..:? "PublishCloudWatchMetricsEnabled")
+            Prelude.<*> (x Data..:? "EnforceWorkGroupConfiguration")
+            Prelude.<*> (x Data..:? "ResultConfiguration")
+            Prelude.<*> (x Data..:? "BytesScannedCutoffPerQuery")
+            Prelude.<*> (x Data..:? "RequesterPaysEnabled")
+            Prelude.<*> (x Data..:? "EngineVersion")
       )
 
 instance Prelude.Hashable WorkGroupConfiguration where
@@ -207,20 +208,20 @@ instance Prelude.NFData WorkGroupConfiguration where
       `Prelude.seq` Prelude.rnf requesterPaysEnabled
       `Prelude.seq` Prelude.rnf engineVersion
 
-instance Core.ToJSON WorkGroupConfiguration where
+instance Data.ToJSON WorkGroupConfiguration where
   toJSON WorkGroupConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PublishCloudWatchMetricsEnabled" Core..=)
+          [ ("PublishCloudWatchMetricsEnabled" Data..=)
               Prelude.<$> publishCloudWatchMetricsEnabled,
-            ("EnforceWorkGroupConfiguration" Core..=)
+            ("EnforceWorkGroupConfiguration" Data..=)
               Prelude.<$> enforceWorkGroupConfiguration,
-            ("ResultConfiguration" Core..=)
+            ("ResultConfiguration" Data..=)
               Prelude.<$> resultConfiguration,
-            ("BytesScannedCutoffPerQuery" Core..=)
+            ("BytesScannedCutoffPerQuery" Data..=)
               Prelude.<$> bytesScannedCutoffPerQuery,
-            ("RequesterPaysEnabled" Core..=)
+            ("RequesterPaysEnabled" Data..=)
               Prelude.<$> requesterPaysEnabled,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion
           ]
       )

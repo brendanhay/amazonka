@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.ResultReuseByAgeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies whether previous query results are reused, and if so, their
@@ -71,14 +72,14 @@ resultReuseByAgeConfiguration_maxAgeInMinutes = Lens.lens (\ResultReuseByAgeConf
 resultReuseByAgeConfiguration_enabled :: Lens.Lens' ResultReuseByAgeConfiguration Prelude.Bool
 resultReuseByAgeConfiguration_enabled = Lens.lens (\ResultReuseByAgeConfiguration' {enabled} -> enabled) (\s@ResultReuseByAgeConfiguration' {} a -> s {enabled = a} :: ResultReuseByAgeConfiguration)
 
-instance Core.FromJSON ResultReuseByAgeConfiguration where
+instance Data.FromJSON ResultReuseByAgeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResultReuseByAgeConfiguration"
       ( \x ->
           ResultReuseByAgeConfiguration'
-            Prelude.<$> (x Core..:? "MaxAgeInMinutes")
-            Prelude.<*> (x Core..: "Enabled")
+            Prelude.<$> (x Data..:? "MaxAgeInMinutes")
+            Prelude.<*> (x Data..: "Enabled")
       )
 
 instance
@@ -94,12 +95,12 @@ instance Prelude.NFData ResultReuseByAgeConfiguration where
     Prelude.rnf maxAgeInMinutes
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON ResultReuseByAgeConfiguration where
+instance Data.ToJSON ResultReuseByAgeConfiguration where
   toJSON ResultReuseByAgeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxAgeInMinutes" Core..=)
+          [ ("MaxAgeInMinutes" Data..=)
               Prelude.<$> maxAgeInMinutes,
-            Prelude.Just ("Enabled" Core..= enabled)
+            Prelude.Just ("Enabled" Data..= enabled)
           ]
       )

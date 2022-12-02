@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.QueryRuntimeStatisticsTimeline where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Timeline statistics such as query queue time, planning time, execution
@@ -111,17 +112,17 @@ queryRuntimeStatisticsTimeline_engineExecutionTimeInMillis = Lens.lens (\QueryRu
 queryRuntimeStatisticsTimeline_queryPlanningTimeInMillis :: Lens.Lens' QueryRuntimeStatisticsTimeline (Prelude.Maybe Prelude.Integer)
 queryRuntimeStatisticsTimeline_queryPlanningTimeInMillis = Lens.lens (\QueryRuntimeStatisticsTimeline' {queryPlanningTimeInMillis} -> queryPlanningTimeInMillis) (\s@QueryRuntimeStatisticsTimeline' {} a -> s {queryPlanningTimeInMillis = a} :: QueryRuntimeStatisticsTimeline)
 
-instance Core.FromJSON QueryRuntimeStatisticsTimeline where
+instance Data.FromJSON QueryRuntimeStatisticsTimeline where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryRuntimeStatisticsTimeline"
       ( \x ->
           QueryRuntimeStatisticsTimeline'
-            Prelude.<$> (x Core..:? "QueryQueueTimeInMillis")
-            Prelude.<*> (x Core..:? "ServiceProcessingTimeInMillis")
-            Prelude.<*> (x Core..:? "TotalExecutionTimeInMillis")
-            Prelude.<*> (x Core..:? "EngineExecutionTimeInMillis")
-            Prelude.<*> (x Core..:? "QueryPlanningTimeInMillis")
+            Prelude.<$> (x Data..:? "QueryQueueTimeInMillis")
+            Prelude.<*> (x Data..:? "ServiceProcessingTimeInMillis")
+            Prelude.<*> (x Data..:? "TotalExecutionTimeInMillis")
+            Prelude.<*> (x Data..:? "EngineExecutionTimeInMillis")
+            Prelude.<*> (x Data..:? "QueryPlanningTimeInMillis")
       )
 
 instance

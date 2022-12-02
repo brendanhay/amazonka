@@ -45,6 +45,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,36 +140,36 @@ instance Prelude.NFData UpdateNamedQuery where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf queryString
 
-instance Core.ToHeaders UpdateNamedQuery where
+instance Data.ToHeaders UpdateNamedQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.UpdateNamedQuery" ::
+              Data.=# ( "AmazonAthena.UpdateNamedQuery" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNamedQuery where
+instance Data.ToJSON UpdateNamedQuery where
   toJSON UpdateNamedQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("NamedQueryId" Core..= namedQueryId),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("QueryString" Core..= queryString)
+          [ ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("NamedQueryId" Data..= namedQueryId),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("QueryString" Data..= queryString)
           ]
       )
 
-instance Core.ToPath UpdateNamedQuery where
+instance Data.ToPath UpdateNamedQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateNamedQuery where
+instance Data.ToQuery UpdateNamedQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNamedQueryResponse' smart constructor.

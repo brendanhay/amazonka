@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.QueryRuntimeStatisticsRows where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Statistics such as input rows and bytes read by the query, rows and
@@ -81,16 +82,16 @@ queryRuntimeStatisticsRows_inputRows = Lens.lens (\QueryRuntimeStatisticsRows' {
 queryRuntimeStatisticsRows_outputRows :: Lens.Lens' QueryRuntimeStatisticsRows (Prelude.Maybe Prelude.Integer)
 queryRuntimeStatisticsRows_outputRows = Lens.lens (\QueryRuntimeStatisticsRows' {outputRows} -> outputRows) (\s@QueryRuntimeStatisticsRows' {} a -> s {outputRows = a} :: QueryRuntimeStatisticsRows)
 
-instance Core.FromJSON QueryRuntimeStatisticsRows where
+instance Data.FromJSON QueryRuntimeStatisticsRows where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryRuntimeStatisticsRows"
       ( \x ->
           QueryRuntimeStatisticsRows'
-            Prelude.<$> (x Core..:? "InputBytes")
-            Prelude.<*> (x Core..:? "OutputBytes")
-            Prelude.<*> (x Core..:? "InputRows")
-            Prelude.<*> (x Core..:? "OutputRows")
+            Prelude.<$> (x Data..:? "InputBytes")
+            Prelude.<*> (x Data..:? "OutputBytes")
+            Prelude.<*> (x Data..:? "InputRows")
+            Prelude.<*> (x Data..:? "OutputRows")
       )
 
 instance Prelude.Hashable QueryRuntimeStatisticsRows where

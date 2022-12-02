@@ -44,6 +44,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,37 +140,37 @@ instance Prelude.NFData CreatePreparedStatement where
       `Prelude.seq` Prelude.rnf workGroup
       `Prelude.seq` Prelude.rnf queryStatement
 
-instance Core.ToHeaders CreatePreparedStatement where
+instance Data.ToHeaders CreatePreparedStatement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.CreatePreparedStatement" ::
+              Data.=# ( "AmazonAthena.CreatePreparedStatement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePreparedStatement where
+instance Data.ToJSON CreatePreparedStatement where
   toJSON CreatePreparedStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("StatementName" Core..= statementName),
-            Prelude.Just ("WorkGroup" Core..= workGroup),
+          [ ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("StatementName" Data..= statementName),
+            Prelude.Just ("WorkGroup" Data..= workGroup),
             Prelude.Just
-              ("QueryStatement" Core..= queryStatement)
+              ("QueryStatement" Data..= queryStatement)
           ]
       )
 
-instance Core.ToPath CreatePreparedStatement where
+instance Data.ToPath CreatePreparedStatement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePreparedStatement where
+instance Data.ToQuery CreatePreparedStatement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePreparedStatementResponse' smart constructor.

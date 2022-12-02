@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.EngineVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Athena engine version for running queries.
@@ -86,14 +87,14 @@ engineVersion_selectedEngineVersion = Lens.lens (\EngineVersion' {selectedEngine
 engineVersion_effectiveEngineVersion :: Lens.Lens' EngineVersion (Prelude.Maybe Prelude.Text)
 engineVersion_effectiveEngineVersion = Lens.lens (\EngineVersion' {effectiveEngineVersion} -> effectiveEngineVersion) (\s@EngineVersion' {} a -> s {effectiveEngineVersion = a} :: EngineVersion)
 
-instance Core.FromJSON EngineVersion where
+instance Data.FromJSON EngineVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EngineVersion"
       ( \x ->
           EngineVersion'
-            Prelude.<$> (x Core..:? "SelectedEngineVersion")
-            Prelude.<*> (x Core..:? "EffectiveEngineVersion")
+            Prelude.<$> (x Data..:? "SelectedEngineVersion")
+            Prelude.<*> (x Data..:? "EffectiveEngineVersion")
       )
 
 instance Prelude.Hashable EngineVersion where
@@ -106,13 +107,13 @@ instance Prelude.NFData EngineVersion where
     Prelude.rnf selectedEngineVersion
       `Prelude.seq` Prelude.rnf effectiveEngineVersion
 
-instance Core.ToJSON EngineVersion where
+instance Data.ToJSON EngineVersion where
   toJSON EngineVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SelectedEngineVersion" Core..=)
+          [ ("SelectedEngineVersion" Data..=)
               Prelude.<$> selectedEngineVersion,
-            ("EffectiveEngineVersion" Core..=)
+            ("EffectiveEngineVersion" Data..=)
               Prelude.<$> effectiveEngineVersion
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.Athena.Types.DataCatalogSummary where
 import Amazonka.Athena.Types.DataCatalogType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary information for the data catalog, which includes its name
@@ -72,14 +73,14 @@ dataCatalogSummary_type = Lens.lens (\DataCatalogSummary' {type'} -> type') (\s@
 dataCatalogSummary_catalogName :: Lens.Lens' DataCatalogSummary (Prelude.Maybe Prelude.Text)
 dataCatalogSummary_catalogName = Lens.lens (\DataCatalogSummary' {catalogName} -> catalogName) (\s@DataCatalogSummary' {} a -> s {catalogName = a} :: DataCatalogSummary)
 
-instance Core.FromJSON DataCatalogSummary where
+instance Data.FromJSON DataCatalogSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataCatalogSummary"
       ( \x ->
           DataCatalogSummary'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "CatalogName")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "CatalogName")
       )
 
 instance Prelude.Hashable DataCatalogSummary where

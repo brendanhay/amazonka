@@ -43,6 +43,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,35 +113,35 @@ instance Prelude.NFData DeleteWorkGroup where
     Prelude.rnf recursiveDeleteOption
       `Prelude.seq` Prelude.rnf workGroup
 
-instance Core.ToHeaders DeleteWorkGroup where
+instance Data.ToHeaders DeleteWorkGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.DeleteWorkGroup" ::
+              Data.=# ( "AmazonAthena.DeleteWorkGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteWorkGroup where
+instance Data.ToJSON DeleteWorkGroup where
   toJSON DeleteWorkGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RecursiveDeleteOption" Core..=)
+          [ ("RecursiveDeleteOption" Data..=)
               Prelude.<$> recursiveDeleteOption,
-            Prelude.Just ("WorkGroup" Core..= workGroup)
+            Prelude.Just ("WorkGroup" Data..= workGroup)
           ]
       )
 
-instance Core.ToPath DeleteWorkGroup where
+instance Data.ToPath DeleteWorkGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteWorkGroup where
+instance Data.ToQuery DeleteWorkGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWorkGroupResponse' smart constructor.

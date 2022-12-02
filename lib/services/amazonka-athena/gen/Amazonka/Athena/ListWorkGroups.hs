@@ -44,6 +44,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,8 +104,8 @@ instance Core.AWSRequest ListWorkGroups where
     Response.receiveJSON
       ( \s h x ->
           ListWorkGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "WorkGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "WorkGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,34 +119,34 @@ instance Prelude.NFData ListWorkGroups where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListWorkGroups where
+instance Data.ToHeaders ListWorkGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.ListWorkGroups" ::
+              Data.=# ( "AmazonAthena.ListWorkGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListWorkGroups where
+instance Data.ToJSON ListWorkGroups where
   toJSON ListWorkGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListWorkGroups where
+instance Data.ToPath ListWorkGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListWorkGroups where
+instance Data.ToQuery ListWorkGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListWorkGroupsResponse' smart constructor.

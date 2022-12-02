@@ -21,6 +21,7 @@ module Amazonka.ComprehendMedical.Types.OutputDataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The output properties for a detection job.
@@ -81,14 +82,14 @@ outputDataConfig_s3Key = Lens.lens (\OutputDataConfig' {s3Key} -> s3Key) (\s@Out
 outputDataConfig_s3Bucket :: Lens.Lens' OutputDataConfig Prelude.Text
 outputDataConfig_s3Bucket = Lens.lens (\OutputDataConfig' {s3Bucket} -> s3Bucket) (\s@OutputDataConfig' {} a -> s {s3Bucket = a} :: OutputDataConfig)
 
-instance Core.FromJSON OutputDataConfig where
+instance Data.FromJSON OutputDataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputDataConfig"
       ( \x ->
           OutputDataConfig'
-            Prelude.<$> (x Core..:? "S3Key")
-            Prelude.<*> (x Core..: "S3Bucket")
+            Prelude.<$> (x Data..:? "S3Key")
+            Prelude.<*> (x Data..: "S3Bucket")
       )
 
 instance Prelude.Hashable OutputDataConfig where
@@ -101,11 +102,11 @@ instance Prelude.NFData OutputDataConfig where
     Prelude.rnf s3Key
       `Prelude.seq` Prelude.rnf s3Bucket
 
-instance Core.ToJSON OutputDataConfig where
+instance Data.ToJSON OutputDataConfig where
   toJSON OutputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Key" Core..=) Prelude.<$> s3Key,
-            Prelude.Just ("S3Bucket" Core..= s3Bucket)
+          [ ("S3Key" Data..=) Prelude.<$> s3Key,
+            Prelude.Just ("S3Bucket" Data..= s3Bucket)
           ]
       )

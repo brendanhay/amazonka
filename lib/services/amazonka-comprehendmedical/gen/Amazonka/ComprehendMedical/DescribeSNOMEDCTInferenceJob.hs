@@ -43,6 +43,7 @@ where
 import Amazonka.ComprehendMedical.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,7 +91,7 @@ instance Core.AWSRequest DescribeSNOMEDCTInferenceJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeSNOMEDCTInferenceJobResponse'
-            Prelude.<$> (x Core..?> "ComprehendMedicalAsyncJobProperties")
+            Prelude.<$> (x Data..?> "ComprehendMedicalAsyncJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,32 +106,32 @@ instance Prelude.NFData DescribeSNOMEDCTInferenceJob where
   rnf DescribeSNOMEDCTInferenceJob' {..} =
     Prelude.rnf jobId
 
-instance Core.ToHeaders DescribeSNOMEDCTInferenceJob where
+instance Data.ToHeaders DescribeSNOMEDCTInferenceJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComprehendMedical_20181030.DescribeSNOMEDCTInferenceJob" ::
+              Data.=# ( "ComprehendMedical_20181030.DescribeSNOMEDCTInferenceJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSNOMEDCTInferenceJob where
+instance Data.ToJSON DescribeSNOMEDCTInferenceJob where
   toJSON DescribeSNOMEDCTInferenceJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
-instance Core.ToPath DescribeSNOMEDCTInferenceJob where
+instance Data.ToPath DescribeSNOMEDCTInferenceJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSNOMEDCTInferenceJob where
+instance Data.ToQuery DescribeSNOMEDCTInferenceJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSNOMEDCTInferenceJobResponse' smart constructor.

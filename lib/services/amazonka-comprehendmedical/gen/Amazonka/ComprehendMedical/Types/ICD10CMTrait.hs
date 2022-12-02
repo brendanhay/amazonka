@@ -22,6 +22,7 @@ module Amazonka.ComprehendMedical.Types.ICD10CMTrait where
 import Amazonka.ComprehendMedical.Types.ICD10CMTraitName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contextual information for the entity. The traits recognized by
@@ -66,13 +67,13 @@ iCD10CMTrait_name = Lens.lens (\ICD10CMTrait' {name} -> name) (\s@ICD10CMTrait' 
 iCD10CMTrait_score :: Lens.Lens' ICD10CMTrait (Prelude.Maybe Prelude.Double)
 iCD10CMTrait_score = Lens.lens (\ICD10CMTrait' {score} -> score) (\s@ICD10CMTrait' {} a -> s {score = a} :: ICD10CMTrait)
 
-instance Core.FromJSON ICD10CMTrait where
+instance Data.FromJSON ICD10CMTrait where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ICD10CMTrait"
       ( \x ->
           ICD10CMTrait'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Score")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable ICD10CMTrait where

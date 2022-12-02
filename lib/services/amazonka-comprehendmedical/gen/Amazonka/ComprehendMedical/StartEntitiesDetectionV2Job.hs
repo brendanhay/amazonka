@@ -50,6 +50,7 @@ where
 import Amazonka.ComprehendMedical.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -179,7 +180,7 @@ instance Core.AWSRequest StartEntitiesDetectionV2Job where
     Response.receiveJSON
       ( \s h x ->
           StartEntitiesDetectionV2JobResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,43 +204,43 @@ instance Prelude.NFData StartEntitiesDetectionV2Job where
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToHeaders StartEntitiesDetectionV2Job where
+instance Data.ToHeaders StartEntitiesDetectionV2Job where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComprehendMedical_20181030.StartEntitiesDetectionV2Job" ::
+              Data.=# ( "ComprehendMedical_20181030.StartEntitiesDetectionV2Job" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartEntitiesDetectionV2Job where
+instance Data.ToJSON StartEntitiesDetectionV2Job where
   toJSON StartEntitiesDetectionV2Job' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("KMSKey" Core..=) Prelude.<$> kmsKey,
+            ("JobName" Data..=) Prelude.<$> jobName,
+            ("KMSKey" Data..=) Prelude.<$> kmsKey,
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
+              ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
-              ("OutputDataConfig" Core..= outputDataConfig),
+              ("OutputDataConfig" Data..= outputDataConfig),
             Prelude.Just
-              ("DataAccessRoleArn" Core..= dataAccessRoleArn),
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+              ("DataAccessRoleArn" Data..= dataAccessRoleArn),
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )
 
-instance Core.ToPath StartEntitiesDetectionV2Job where
+instance Data.ToPath StartEntitiesDetectionV2Job where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartEntitiesDetectionV2Job where
+instance Data.ToQuery StartEntitiesDetectionV2Job where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartEntitiesDetectionV2JobResponse' smart constructor.

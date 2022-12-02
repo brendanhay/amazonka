@@ -43,6 +43,7 @@ where
 import Amazonka.ComprehendMedical.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEntitiesDetectionV2JobResponse'
-            Prelude.<$> (x Core..?> "ComprehendMedicalAsyncJobProperties")
+            Prelude.<$> (x Data..?> "ComprehendMedicalAsyncJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,34 +115,34 @@ instance
     Prelude.rnf jobId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeEntitiesDetectionV2Job
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComprehendMedical_20181030.DescribeEntitiesDetectionV2Job" ::
+              Data.=# ( "ComprehendMedical_20181030.DescribeEntitiesDetectionV2Job" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEntitiesDetectionV2Job where
+instance Data.ToJSON DescribeEntitiesDetectionV2Job where
   toJSON DescribeEntitiesDetectionV2Job' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
-instance Core.ToPath DescribeEntitiesDetectionV2Job where
+instance Data.ToPath DescribeEntitiesDetectionV2Job where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEntitiesDetectionV2Job where
+instance Data.ToQuery DescribeEntitiesDetectionV2Job where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEntitiesDetectionV2JobResponse' smart constructor.

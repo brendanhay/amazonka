@@ -42,6 +42,7 @@ where
 import Amazonka.ComprehendMedical.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest StopRxNormInferenceJob where
     Response.receiveJSON
       ( \s h x ->
           StopRxNormInferenceJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable StopRxNormInferenceJob where
 instance Prelude.NFData StopRxNormInferenceJob where
   rnf StopRxNormInferenceJob' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders StopRxNormInferenceJob where
+instance Data.ToHeaders StopRxNormInferenceJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComprehendMedical_20181030.StopRxNormInferenceJob" ::
+              Data.=# ( "ComprehendMedical_20181030.StopRxNormInferenceJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopRxNormInferenceJob where
+instance Data.ToJSON StopRxNormInferenceJob where
   toJSON StopRxNormInferenceJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
-instance Core.ToPath StopRxNormInferenceJob where
+instance Data.ToPath StopRxNormInferenceJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopRxNormInferenceJob where
+instance Data.ToQuery StopRxNormInferenceJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopRxNormInferenceJobResponse' smart constructor.

@@ -26,6 +26,7 @@ import Amazonka.ComprehendMedical.Types.SNOMEDCTEntityType
 import Amazonka.ComprehendMedical.Types.SNOMEDCTTrait
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The collection of medical entities extracted from the input text and
@@ -175,23 +176,23 @@ sNOMEDCTEntity_text = Lens.lens (\SNOMEDCTEntity' {text} -> text) (\s@SNOMEDCTEn
 sNOMEDCTEntity_sNOMEDCTConcepts :: Lens.Lens' SNOMEDCTEntity (Prelude.Maybe [SNOMEDCTConcept])
 sNOMEDCTEntity_sNOMEDCTConcepts = Lens.lens (\SNOMEDCTEntity' {sNOMEDCTConcepts} -> sNOMEDCTConcepts) (\s@SNOMEDCTEntity' {} a -> s {sNOMEDCTConcepts = a} :: SNOMEDCTEntity) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SNOMEDCTEntity where
+instance Data.FromJSON SNOMEDCTEntity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SNOMEDCTEntity"
       ( \x ->
           SNOMEDCTEntity'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Traits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "Category")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Text")
-            Prelude.<*> ( x Core..:? "SNOMEDCTConcepts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Text")
+            Prelude.<*> ( x Data..:? "SNOMEDCTConcepts"
+                            Data..!= Prelude.mempty
                         )
       )
 

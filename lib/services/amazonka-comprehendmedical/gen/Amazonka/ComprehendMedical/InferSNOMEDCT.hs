@@ -48,6 +48,7 @@ where
 import Amazonka.ComprehendMedical.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,12 +93,12 @@ instance Core.AWSRequest InferSNOMEDCT where
     Response.receiveJSON
       ( \s h x ->
           InferSNOMEDCTResponse'
-            Prelude.<$> (x Core..?> "PaginationToken")
-            Prelude.<*> (x Core..?> "SNOMEDCTDetails")
-            Prelude.<*> (x Core..?> "ModelVersion")
-            Prelude.<*> (x Core..?> "Characters")
+            Prelude.<$> (x Data..?> "PaginationToken")
+            Prelude.<*> (x Data..?> "SNOMEDCTDetails")
+            Prelude.<*> (x Data..?> "ModelVersion")
+            Prelude.<*> (x Data..?> "Characters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Entities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Entities" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable InferSNOMEDCT where
@@ -107,32 +108,32 @@ instance Prelude.Hashable InferSNOMEDCT where
 instance Prelude.NFData InferSNOMEDCT where
   rnf InferSNOMEDCT' {..} = Prelude.rnf text
 
-instance Core.ToHeaders InferSNOMEDCT where
+instance Data.ToHeaders InferSNOMEDCT where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComprehendMedical_20181030.InferSNOMEDCT" ::
+              Data.=# ( "ComprehendMedical_20181030.InferSNOMEDCT" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON InferSNOMEDCT where
+instance Data.ToJSON InferSNOMEDCT where
   toJSON InferSNOMEDCT' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Text" Core..= text)]
+          [Prelude.Just ("Text" Data..= text)]
       )
 
-instance Core.ToPath InferSNOMEDCT where
+instance Data.ToPath InferSNOMEDCT where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery InferSNOMEDCT where
+instance Data.ToQuery InferSNOMEDCT where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInferSNOMEDCTResponse' smart constructor.

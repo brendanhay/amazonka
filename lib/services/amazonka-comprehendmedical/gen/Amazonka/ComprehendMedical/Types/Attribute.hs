@@ -25,6 +25,7 @@ import Amazonka.ComprehendMedical.Types.RelationshipType
 import Amazonka.ComprehendMedical.Types.Trait
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An extracted segment of the text that is an attribute of an entity, or
@@ -164,22 +165,22 @@ attribute_category = Lens.lens (\Attribute' {category} -> category) (\s@Attribut
 attribute_text :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_text = Lens.lens (\Attribute' {text} -> text) (\s@Attribute' {} a -> s {text = a} :: Attribute)
 
-instance Core.FromJSON Attribute where
+instance Data.FromJSON Attribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Attribute"
       ( \x ->
           Attribute'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "RelationshipScore")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Traits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "RelationshipType")
-            Prelude.<*> (x Core..:? "Category")
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "RelationshipScore")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "RelationshipType")
+            Prelude.<*> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable Attribute where

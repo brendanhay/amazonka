@@ -25,6 +25,7 @@ import Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType
 import Amazonka.ComprehendMedical.Types.ICD10CMTrait
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detected attributes that relate to an entity. This includes an
@@ -170,22 +171,22 @@ iCD10CMAttribute_category = Lens.lens (\ICD10CMAttribute' {category} -> category
 iCD10CMAttribute_text :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe Prelude.Text)
 iCD10CMAttribute_text = Lens.lens (\ICD10CMAttribute' {text} -> text) (\s@ICD10CMAttribute' {} a -> s {text = a} :: ICD10CMAttribute)
 
-instance Core.FromJSON ICD10CMAttribute where
+instance Data.FromJSON ICD10CMAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ICD10CMAttribute"
       ( \x ->
           ICD10CMAttribute'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "RelationshipScore")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Traits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "RelationshipType")
-            Prelude.<*> (x Core..:? "Category")
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "RelationshipScore")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "RelationshipType")
+            Prelude.<*> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable ICD10CMAttribute where

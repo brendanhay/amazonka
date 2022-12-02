@@ -21,6 +21,7 @@ module Amazonka.ComprehendMedical.Types.ICD10CMConcept where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The ICD-10-CM concepts that the entity could refer to, along with a
@@ -77,15 +78,15 @@ iCD10CMConcept_score = Lens.lens (\ICD10CMConcept' {score} -> score) (\s@ICD10CM
 iCD10CMConcept_description :: Lens.Lens' ICD10CMConcept (Prelude.Maybe Prelude.Text)
 iCD10CMConcept_description = Lens.lens (\ICD10CMConcept' {description} -> description) (\s@ICD10CMConcept' {} a -> s {description = a} :: ICD10CMConcept)
 
-instance Core.FromJSON ICD10CMConcept where
+instance Data.FromJSON ICD10CMConcept where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ICD10CMConcept"
       ( \x ->
           ICD10CMConcept'
-            Prelude.<$> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable ICD10CMConcept where

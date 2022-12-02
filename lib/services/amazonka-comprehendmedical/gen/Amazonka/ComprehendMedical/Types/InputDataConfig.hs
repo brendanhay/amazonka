@@ -21,6 +21,7 @@ module Amazonka.ComprehendMedical.Types.InputDataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input properties for an entities detection job. This includes the
@@ -76,14 +77,14 @@ inputDataConfig_s3Key = Lens.lens (\InputDataConfig' {s3Key} -> s3Key) (\s@Input
 inputDataConfig_s3Bucket :: Lens.Lens' InputDataConfig Prelude.Text
 inputDataConfig_s3Bucket = Lens.lens (\InputDataConfig' {s3Bucket} -> s3Bucket) (\s@InputDataConfig' {} a -> s {s3Bucket = a} :: InputDataConfig)
 
-instance Core.FromJSON InputDataConfig where
+instance Data.FromJSON InputDataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDataConfig"
       ( \x ->
           InputDataConfig'
-            Prelude.<$> (x Core..:? "S3Key")
-            Prelude.<*> (x Core..: "S3Bucket")
+            Prelude.<$> (x Data..:? "S3Key")
+            Prelude.<*> (x Data..: "S3Bucket")
       )
 
 instance Prelude.Hashable InputDataConfig where
@@ -96,11 +97,11 @@ instance Prelude.NFData InputDataConfig where
     Prelude.rnf s3Key
       `Prelude.seq` Prelude.rnf s3Bucket
 
-instance Core.ToJSON InputDataConfig where
+instance Data.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Key" Core..=) Prelude.<$> s3Key,
-            Prelude.Just ("S3Bucket" Core..= s3Bucket)
+          [ ("S3Key" Data..=) Prelude.<$> s3Key,
+            Prelude.Just ("S3Bucket" Data..= s3Bucket)
           ]
       )

@@ -26,6 +26,7 @@ import Amazonka.ComprehendMedical.Types.SNOMEDCTRelationshipType
 import Amazonka.ComprehendMedical.Types.SNOMEDCTTrait
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The extracted attributes that relate to an entity. An extracted segment
@@ -185,24 +186,24 @@ sNOMEDCTAttribute_text = Lens.lens (\SNOMEDCTAttribute' {text} -> text) (\s@SNOM
 sNOMEDCTAttribute_sNOMEDCTConcepts :: Lens.Lens' SNOMEDCTAttribute (Prelude.Maybe [SNOMEDCTConcept])
 sNOMEDCTAttribute_sNOMEDCTConcepts = Lens.lens (\SNOMEDCTAttribute' {sNOMEDCTConcepts} -> sNOMEDCTConcepts) (\s@SNOMEDCTAttribute' {} a -> s {sNOMEDCTConcepts = a} :: SNOMEDCTAttribute) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SNOMEDCTAttribute where
+instance Data.FromJSON SNOMEDCTAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SNOMEDCTAttribute"
       ( \x ->
           SNOMEDCTAttribute'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "RelationshipScore")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Traits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "RelationshipType")
-            Prelude.<*> (x Core..:? "Category")
-            Prelude.<*> (x Core..:? "Text")
-            Prelude.<*> ( x Core..:? "SNOMEDCTConcepts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "RelationshipScore")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "RelationshipType")
+            Prelude.<*> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "Text")
+            Prelude.<*> ( x Data..:? "SNOMEDCTConcepts"
+                            Data..!= Prelude.mempty
                         )
       )
 

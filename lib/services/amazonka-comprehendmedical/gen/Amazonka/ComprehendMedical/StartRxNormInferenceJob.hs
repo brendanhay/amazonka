@@ -50,6 +50,7 @@ where
 import Amazonka.ComprehendMedical.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -176,7 +177,7 @@ instance Core.AWSRequest StartRxNormInferenceJob where
     Response.receiveJSON
       ( \s h x ->
           StartRxNormInferenceJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,43 +201,43 @@ instance Prelude.NFData StartRxNormInferenceJob where
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToHeaders StartRxNormInferenceJob where
+instance Data.ToHeaders StartRxNormInferenceJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComprehendMedical_20181030.StartRxNormInferenceJob" ::
+              Data.=# ( "ComprehendMedical_20181030.StartRxNormInferenceJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartRxNormInferenceJob where
+instance Data.ToJSON StartRxNormInferenceJob where
   toJSON StartRxNormInferenceJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("KMSKey" Core..=) Prelude.<$> kmsKey,
+            ("JobName" Data..=) Prelude.<$> jobName,
+            ("KMSKey" Data..=) Prelude.<$> kmsKey,
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
+              ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
-              ("OutputDataConfig" Core..= outputDataConfig),
+              ("OutputDataConfig" Data..= outputDataConfig),
             Prelude.Just
-              ("DataAccessRoleArn" Core..= dataAccessRoleArn),
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+              ("DataAccessRoleArn" Data..= dataAccessRoleArn),
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )
 
-instance Core.ToPath StartRxNormInferenceJob where
+instance Data.ToPath StartRxNormInferenceJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartRxNormInferenceJob where
+instance Data.ToQuery StartRxNormInferenceJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartRxNormInferenceJobResponse' smart constructor.

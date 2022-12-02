@@ -21,6 +21,7 @@ module Amazonka.ComprehendMedical.Types.SNOMEDCTDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information about the revision of the SNOMED-CT ontology in the
@@ -78,15 +79,15 @@ sNOMEDCTDetails_versionDate = Lens.lens (\SNOMEDCTDetails' {versionDate} -> vers
 sNOMEDCTDetails_language :: Lens.Lens' SNOMEDCTDetails (Prelude.Maybe Prelude.Text)
 sNOMEDCTDetails_language = Lens.lens (\SNOMEDCTDetails' {language} -> language) (\s@SNOMEDCTDetails' {} a -> s {language = a} :: SNOMEDCTDetails)
 
-instance Core.FromJSON SNOMEDCTDetails where
+instance Data.FromJSON SNOMEDCTDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SNOMEDCTDetails"
       ( \x ->
           SNOMEDCTDetails'
-            Prelude.<$> (x Core..:? "Edition")
-            Prelude.<*> (x Core..:? "VersionDate")
-            Prelude.<*> (x Core..:? "Language")
+            Prelude.<$> (x Data..:? "Edition")
+            Prelude.<*> (x Data..:? "VersionDate")
+            Prelude.<*> (x Data..:? "Language")
       )
 
 instance Prelude.Hashable SNOMEDCTDetails where

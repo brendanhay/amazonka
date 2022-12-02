@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.StorageVirtualMachineFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.StorageVirtualMachineFilterName
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,11 +78,11 @@ instance Prelude.NFData StorageVirtualMachineFilter where
   rnf StorageVirtualMachineFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON StorageVirtualMachineFilter where
+instance Data.ToJSON StorageVirtualMachineFilter where
   toJSON StorageVirtualMachineFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

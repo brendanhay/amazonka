@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.LustreLogConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.LustreAccessAuditLogLevel
 import qualified Amazonka.Prelude as Prelude
 
@@ -112,14 +113,14 @@ lustreLogConfiguration_destination = Lens.lens (\LustreLogConfiguration' {destin
 lustreLogConfiguration_level :: Lens.Lens' LustreLogConfiguration LustreAccessAuditLogLevel
 lustreLogConfiguration_level = Lens.lens (\LustreLogConfiguration' {level} -> level) (\s@LustreLogConfiguration' {} a -> s {level = a} :: LustreLogConfiguration)
 
-instance Core.FromJSON LustreLogConfiguration where
+instance Data.FromJSON LustreLogConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LustreLogConfiguration"
       ( \x ->
           LustreLogConfiguration'
-            Prelude.<$> (x Core..:? "Destination")
-            Prelude.<*> (x Core..: "Level")
+            Prelude.<$> (x Data..:? "Destination")
+            Prelude.<*> (x Data..: "Level")
       )
 
 instance Prelude.Hashable LustreLogConfiguration where

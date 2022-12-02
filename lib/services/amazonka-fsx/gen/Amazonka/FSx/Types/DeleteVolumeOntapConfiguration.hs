@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DeleteVolumeOntapConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,13 +85,13 @@ instance
     Prelude.rnf skipFinalBackup
       `Prelude.seq` Prelude.rnf finalBackupTags
 
-instance Core.ToJSON DeleteVolumeOntapConfiguration where
+instance Data.ToJSON DeleteVolumeOntapConfiguration where
   toJSON DeleteVolumeOntapConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SkipFinalBackup" Core..=)
+          [ ("SkipFinalBackup" Data..=)
               Prelude.<$> skipFinalBackup,
-            ("FinalBackupTags" Core..=)
+            ("FinalBackupTags" Data..=)
               Prelude.<$> finalBackupTags
           ]
       )

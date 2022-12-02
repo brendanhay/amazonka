@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -220,7 +221,7 @@ instance Core.AWSRequest CreateDataRepositoryTask where
     Response.receiveJSON
       ( \s h x ->
           CreateDataRepositoryTaskResponse'
-            Prelude.<$> (x Core..?> "DataRepositoryTask")
+            Prelude.<$> (x Data..?> "DataRepositoryTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -244,41 +245,41 @@ instance Prelude.NFData CreateDataRepositoryTask where
       `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf report
 
-instance Core.ToHeaders CreateDataRepositoryTask where
+instance Data.ToHeaders CreateDataRepositoryTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.CreateDataRepositoryTask" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.CreateDataRepositoryTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataRepositoryTask where
+instance Data.ToJSON CreateDataRepositoryTask where
   toJSON CreateDataRepositoryTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("CapacityToRelease" Core..=)
+            ("CapacityToRelease" Data..=)
               Prelude.<$> capacityToRelease,
-            ("Paths" Core..=) Prelude.<$> paths,
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("FileSystemId" Core..= fileSystemId),
-            Prelude.Just ("Report" Core..= report)
+            ("Paths" Data..=) Prelude.<$> paths,
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("FileSystemId" Data..= fileSystemId),
+            Prelude.Just ("Report" Data..= report)
           ]
       )
 
-instance Core.ToPath CreateDataRepositoryTask where
+instance Data.ToPath CreateDataRepositoryTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDataRepositoryTask where
+instance Data.ToQuery CreateDataRepositoryTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDataRepositoryTaskResponse' smart constructor.

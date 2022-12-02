@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DataRepositoryTaskFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.DataRepositoryTaskFilterName
 import qualified Amazonka.Prelude as Prelude
 
@@ -102,11 +103,11 @@ instance Prelude.NFData DataRepositoryTaskFilter where
   rnf DataRepositoryTaskFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON DataRepositoryTaskFilter where
+instance Data.ToJSON DataRepositoryTaskFilter where
   toJSON DataRepositoryTaskFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

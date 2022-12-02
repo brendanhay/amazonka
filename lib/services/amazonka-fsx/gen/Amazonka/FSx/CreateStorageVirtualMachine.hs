@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -79,7 +80,7 @@ data CreateStorageVirtualMachine = CreateStorageVirtualMachine'
     -- | The password to use when managing the SVM using the NetApp ONTAP CLI or
     -- REST API. If you do not specify a password, you can still use the file
     -- system\'s @fsxadmin@ user to manage the SVM.
-    svmAdminPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    svmAdminPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     fileSystemId :: Prelude.Text,
     -- | The name of the SVM.
     name :: Prelude.Text
@@ -177,7 +178,7 @@ createStorageVirtualMachine_rootVolumeSecurityStyle = Lens.lens (\CreateStorageV
 -- REST API. If you do not specify a password, you can still use the file
 -- system\'s @fsxadmin@ user to manage the SVM.
 createStorageVirtualMachine_svmAdminPassword :: Lens.Lens' CreateStorageVirtualMachine (Prelude.Maybe Prelude.Text)
-createStorageVirtualMachine_svmAdminPassword = Lens.lens (\CreateStorageVirtualMachine' {svmAdminPassword} -> svmAdminPassword) (\s@CreateStorageVirtualMachine' {} a -> s {svmAdminPassword = a} :: CreateStorageVirtualMachine) Prelude.. Lens.mapping Core._Sensitive
+createStorageVirtualMachine_svmAdminPassword = Lens.lens (\CreateStorageVirtualMachine' {svmAdminPassword} -> svmAdminPassword) (\s@CreateStorageVirtualMachine' {} a -> s {svmAdminPassword = a} :: CreateStorageVirtualMachine) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Undocumented member.
 createStorageVirtualMachine_fileSystemId :: Lens.Lens' CreateStorageVirtualMachine Prelude.Text
@@ -197,7 +198,7 @@ instance Core.AWSRequest CreateStorageVirtualMachine where
     Response.receiveJSON
       ( \s h x ->
           CreateStorageVirtualMachineResponse'
-            Prelude.<$> (x Core..?> "StorageVirtualMachine")
+            Prelude.<$> (x Data..?> "StorageVirtualMachine")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -221,43 +222,43 @@ instance Prelude.NFData CreateStorageVirtualMachine where
       `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateStorageVirtualMachine where
+instance Data.ToHeaders CreateStorageVirtualMachine where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.CreateStorageVirtualMachine" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.CreateStorageVirtualMachine" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStorageVirtualMachine where
+instance Data.ToJSON CreateStorageVirtualMachine where
   toJSON CreateStorageVirtualMachine' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ActiveDirectoryConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ActiveDirectoryConfiguration" Data..=)
               Prelude.<$> activeDirectoryConfiguration,
-            ("ClientRequestToken" Core..=)
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("RootVolumeSecurityStyle" Core..=)
+            ("RootVolumeSecurityStyle" Data..=)
               Prelude.<$> rootVolumeSecurityStyle,
-            ("SvmAdminPassword" Core..=)
+            ("SvmAdminPassword" Data..=)
               Prelude.<$> svmAdminPassword,
-            Prelude.Just ("FileSystemId" Core..= fileSystemId),
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("FileSystemId" Data..= fileSystemId),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateStorageVirtualMachine where
+instance Data.ToPath CreateStorageVirtualMachine where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStorageVirtualMachine where
+instance Data.ToQuery CreateStorageVirtualMachine where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStorageVirtualMachineResponse' smart constructor.

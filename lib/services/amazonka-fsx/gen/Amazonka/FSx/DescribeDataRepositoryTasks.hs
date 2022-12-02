@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,8 +137,8 @@ instance Core.AWSRequest DescribeDataRepositoryTasks where
     Response.receiveJSON
       ( \s h x ->
           DescribeDataRepositoryTasksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DataRepositoryTasks"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DataRepositoryTasks"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -157,36 +158,36 @@ instance Prelude.NFData DescribeDataRepositoryTasks where
       `Prelude.seq` Prelude.rnf taskIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeDataRepositoryTasks where
+instance Data.ToHeaders DescribeDataRepositoryTasks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.DescribeDataRepositoryTasks" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.DescribeDataRepositoryTasks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDataRepositoryTasks where
+instance Data.ToJSON DescribeDataRepositoryTasks where
   toJSON DescribeDataRepositoryTasks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("TaskIds" Core..=) Prelude.<$> taskIds,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("TaskIds" Data..=) Prelude.<$> taskIds,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeDataRepositoryTasks where
+instance Data.ToPath DescribeDataRepositoryTasks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDataRepositoryTasks where
+instance Data.ToQuery DescribeDataRepositoryTasks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDataRepositoryTasksResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.UpdateOntapVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.SecurityStyle
 import Amazonka.FSx.Types.TieringPolicy
 import qualified Amazonka.Prelude as Prelude
@@ -129,16 +130,16 @@ instance
       `Prelude.seq` Prelude.rnf junctionPath
       `Prelude.seq` Prelude.rnf sizeInMegabytes
 
-instance Core.ToJSON UpdateOntapVolumeConfiguration where
+instance Data.ToJSON UpdateOntapVolumeConfiguration where
   toJSON UpdateOntapVolumeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StorageEfficiencyEnabled" Core..=)
+          [ ("StorageEfficiencyEnabled" Data..=)
               Prelude.<$> storageEfficiencyEnabled,
-            ("TieringPolicy" Core..=) Prelude.<$> tieringPolicy,
-            ("SecurityStyle" Core..=) Prelude.<$> securityStyle,
-            ("JunctionPath" Core..=) Prelude.<$> junctionPath,
-            ("SizeInMegabytes" Core..=)
+            ("TieringPolicy" Data..=) Prelude.<$> tieringPolicy,
+            ("SecurityStyle" Data..=) Prelude.<$> securityStyle,
+            ("JunctionPath" Data..=) Prelude.<$> junctionPath,
+            ("SizeInMegabytes" Data..=)
               Prelude.<$> sizeInMegabytes
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.FileCacheLustreMetadataConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for a Lustre MDT (Metadata Target) storage volume. The
@@ -62,15 +63,15 @@ fileCacheLustreMetadataConfiguration_storageCapacity :: Lens.Lens' FileCacheLust
 fileCacheLustreMetadataConfiguration_storageCapacity = Lens.lens (\FileCacheLustreMetadataConfiguration' {storageCapacity} -> storageCapacity) (\s@FileCacheLustreMetadataConfiguration' {} a -> s {storageCapacity = a} :: FileCacheLustreMetadataConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FileCacheLustreMetadataConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileCacheLustreMetadataConfiguration"
       ( \x ->
           FileCacheLustreMetadataConfiguration'
-            Prelude.<$> (x Core..: "StorageCapacity")
+            Prelude.<$> (x Data..: "StorageCapacity")
       )
 
 instance
@@ -90,13 +91,13 @@ instance
     Prelude.rnf storageCapacity
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     FileCacheLustreMetadataConfiguration
   where
   toJSON FileCacheLustreMetadataConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("StorageCapacity" Core..= storageCapacity)
+              ("StorageCapacity" Data..= storageCapacity)
           ]
       )

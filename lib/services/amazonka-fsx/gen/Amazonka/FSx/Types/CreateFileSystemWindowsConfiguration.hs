@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.CreateFileSystemWindowsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.SelfManagedActiveDirectoryConfiguration
 import Amazonka.FSx.Types.WindowsAuditLogCreateConfiguration
 import Amazonka.FSx.Types.WindowsDeploymentType
@@ -405,32 +406,32 @@ instance
       `Prelude.seq` Prelude.rnf throughputCapacity
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateFileSystemWindowsConfiguration
   where
   toJSON CreateFileSystemWindowsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CopyTagsToBackups" Core..=)
+          [ ("CopyTagsToBackups" Data..=)
               Prelude.<$> copyTagsToBackups,
-            ("WeeklyMaintenanceStartTime" Core..=)
+            ("WeeklyMaintenanceStartTime" Data..=)
               Prelude.<$> weeklyMaintenanceStartTime,
-            ("AutomaticBackupRetentionDays" Core..=)
+            ("AutomaticBackupRetentionDays" Data..=)
               Prelude.<$> automaticBackupRetentionDays,
-            ("ActiveDirectoryId" Core..=)
+            ("ActiveDirectoryId" Data..=)
               Prelude.<$> activeDirectoryId,
-            ("Aliases" Core..=) Prelude.<$> aliases,
-            ("DeploymentType" Core..=)
+            ("Aliases" Data..=) Prelude.<$> aliases,
+            ("DeploymentType" Data..=)
               Prelude.<$> deploymentType,
-            ("DailyAutomaticBackupStartTime" Core..=)
+            ("DailyAutomaticBackupStartTime" Data..=)
               Prelude.<$> dailyAutomaticBackupStartTime,
-            ("SelfManagedActiveDirectoryConfiguration" Core..=)
+            ("SelfManagedActiveDirectoryConfiguration" Data..=)
               Prelude.<$> selfManagedActiveDirectoryConfiguration,
-            ("AuditLogConfiguration" Core..=)
+            ("AuditLogConfiguration" Data..=)
               Prelude.<$> auditLogConfiguration,
-            ("PreferredSubnetId" Core..=)
+            ("PreferredSubnetId" Data..=)
               Prelude.<$> preferredSubnetId,
             Prelude.Just
-              ("ThroughputCapacity" Core..= throughputCapacity)
+              ("ThroughputCapacity" Data..= throughputCapacity)
           ]
       )

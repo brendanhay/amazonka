@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.CreateOpenZFSVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.CreateOpenZFSOriginSnapshotConfiguration
 import Amazonka.FSx.Types.OpenZFSDataCompressionType
 import Amazonka.FSx.Types.OpenZFSNfsExport
@@ -341,26 +342,26 @@ instance
       `Prelude.seq` Prelude.rnf userAndGroupQuotas
       `Prelude.seq` Prelude.rnf parentVolumeId
 
-instance Core.ToJSON CreateOpenZFSVolumeConfiguration where
+instance Data.ToJSON CreateOpenZFSVolumeConfiguration where
   toJSON CreateOpenZFSVolumeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OriginSnapshot" Core..=)
+          [ ("OriginSnapshot" Data..=)
               Prelude.<$> originSnapshot,
-            ("RecordSizeKiB" Core..=) Prelude.<$> recordSizeKiB,
-            ("StorageCapacityReservationGiB" Core..=)
+            ("RecordSizeKiB" Data..=) Prelude.<$> recordSizeKiB,
+            ("StorageCapacityReservationGiB" Data..=)
               Prelude.<$> storageCapacityReservationGiB,
-            ("StorageCapacityQuotaGiB" Core..=)
+            ("StorageCapacityQuotaGiB" Data..=)
               Prelude.<$> storageCapacityQuotaGiB,
-            ("ReadOnly" Core..=) Prelude.<$> readOnly,
-            ("NfsExports" Core..=) Prelude.<$> nfsExports,
-            ("CopyTagsToSnapshots" Core..=)
+            ("ReadOnly" Data..=) Prelude.<$> readOnly,
+            ("NfsExports" Data..=) Prelude.<$> nfsExports,
+            ("CopyTagsToSnapshots" Data..=)
               Prelude.<$> copyTagsToSnapshots,
-            ("DataCompressionType" Core..=)
+            ("DataCompressionType" Data..=)
               Prelude.<$> dataCompressionType,
-            ("UserAndGroupQuotas" Core..=)
+            ("UserAndGroupQuotas" Data..=)
               Prelude.<$> userAndGroupQuotas,
             Prelude.Just
-              ("ParentVolumeId" Core..= parentVolumeId)
+              ("ParentVolumeId" Data..= parentVolumeId)
           ]
       )

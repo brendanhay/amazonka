@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.FileSystemEndpoints where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.FileSystemEndpoint
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,14 +72,14 @@ fileSystemEndpoints_intercluster = Lens.lens (\FileSystemEndpoints' {intercluste
 fileSystemEndpoints_management :: Lens.Lens' FileSystemEndpoints (Prelude.Maybe FileSystemEndpoint)
 fileSystemEndpoints_management = Lens.lens (\FileSystemEndpoints' {management} -> management) (\s@FileSystemEndpoints' {} a -> s {management = a} :: FileSystemEndpoints)
 
-instance Core.FromJSON FileSystemEndpoints where
+instance Data.FromJSON FileSystemEndpoints where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSystemEndpoints"
       ( \x ->
           FileSystemEndpoints'
-            Prelude.<$> (x Core..:? "Intercluster")
-            Prelude.<*> (x Core..:? "Management")
+            Prelude.<$> (x Data..:? "Intercluster")
+            Prelude.<*> (x Data..:? "Management")
       )
 
 instance Prelude.Hashable FileSystemEndpoints where

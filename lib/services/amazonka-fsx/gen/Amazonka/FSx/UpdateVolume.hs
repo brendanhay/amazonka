@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,7 +136,7 @@ instance Core.AWSRequest UpdateVolume where
     Response.receiveJSON
       ( \s h x ->
           UpdateVolumeResponse'
-            Prelude.<$> (x Core..?> "Volume")
+            Prelude.<$> (x Data..?> "Volume")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,40 +156,40 @@ instance Prelude.NFData UpdateVolume where
       `Prelude.seq` Prelude.rnf ontapConfiguration
       `Prelude.seq` Prelude.rnf volumeId
 
-instance Core.ToHeaders UpdateVolume where
+instance Data.ToHeaders UpdateVolume where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.UpdateVolume" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.UpdateVolume" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVolume where
+instance Data.ToJSON UpdateVolume where
   toJSON UpdateVolume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("ClientRequestToken" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("OpenZFSConfiguration" Core..=)
+            ("OpenZFSConfiguration" Data..=)
               Prelude.<$> openZFSConfiguration,
-            ("OntapConfiguration" Core..=)
+            ("OntapConfiguration" Data..=)
               Prelude.<$> ontapConfiguration,
-            Prelude.Just ("VolumeId" Core..= volumeId)
+            Prelude.Just ("VolumeId" Data..= volumeId)
           ]
       )
 
-instance Core.ToPath UpdateVolume where
+instance Data.ToPath UpdateVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateVolume where
+instance Data.ToQuery UpdateVolume where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVolumeResponse' smart constructor.

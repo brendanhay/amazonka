@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,8 +146,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDataRepositoryAssociationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "Associations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "Associations" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,46 +174,46 @@ instance
       `Prelude.seq` Prelude.rnf associationIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeDataRepositoryAssociations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.DescribeDataRepositoryAssociations" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.DescribeDataRepositoryAssociations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeDataRepositoryAssociations
   where
   toJSON DescribeDataRepositoryAssociations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("AssociationIds" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("AssociationIds" Data..=)
               Prelude.<$> associationIds
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeDataRepositoryAssociations
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeDataRepositoryAssociations
   where
   toQuery = Prelude.const Prelude.mempty

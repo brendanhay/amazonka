@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,8 +142,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeStorageVirtualMachinesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "StorageVirtualMachines"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "StorageVirtualMachines"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -171,39 +172,39 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeStorageVirtualMachines
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.DescribeStorageVirtualMachines" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.DescribeStorageVirtualMachines" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeStorageVirtualMachines where
+instance Data.ToJSON DescribeStorageVirtualMachines where
   toJSON DescribeStorageVirtualMachines' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("StorageVirtualMachineIds" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("StorageVirtualMachineIds" Data..=)
               Prelude.<$> storageVirtualMachineIds,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeStorageVirtualMachines where
+instance Data.ToPath DescribeStorageVirtualMachines where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStorageVirtualMachines where
+instance Data.ToQuery DescribeStorageVirtualMachines where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeStorageVirtualMachinesResponse' smart constructor.

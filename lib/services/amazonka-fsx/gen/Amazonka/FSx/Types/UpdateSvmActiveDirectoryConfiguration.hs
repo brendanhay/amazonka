@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.UpdateSvmActiveDirectoryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.SelfManagedActiveDirectoryConfigurationUpdates
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,13 +74,13 @@ instance
     Prelude.rnf selfManagedActiveDirectoryConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateSvmActiveDirectoryConfiguration
   where
   toJSON UpdateSvmActiveDirectoryConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SelfManagedActiveDirectoryConfiguration" Core..=)
+          [ ("SelfManagedActiveDirectoryConfiguration" Data..=)
               Prelude.<$> selfManagedActiveDirectoryConfiguration
           ]
       )

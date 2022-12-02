@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.SelfManagedActiveDirectoryConfigurationUpdates where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that Amazon FSx uses to join the Windows File Server
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data SelfManagedActiveDirectoryConfigurationUpdates = SelfManagedActiveDirectoryConfigurationUpdates'
   { -- | The password for the service account on your self-managed AD domain that
     -- Amazon FSx will use to join to your AD domain.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of up to three IP addresses of DNS servers or domain controllers
     -- in the self-managed AD directory.
     dnsIps :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -73,7 +74,7 @@ newSelfManagedActiveDirectoryConfigurationUpdates =
 -- | The password for the service account on your self-managed AD domain that
 -- Amazon FSx will use to join to your AD domain.
 selfManagedActiveDirectoryConfigurationUpdates_password :: Lens.Lens' SelfManagedActiveDirectoryConfigurationUpdates (Prelude.Maybe Prelude.Text)
-selfManagedActiveDirectoryConfigurationUpdates_password = Lens.lens (\SelfManagedActiveDirectoryConfigurationUpdates' {password} -> password) (\s@SelfManagedActiveDirectoryConfigurationUpdates' {} a -> s {password = a} :: SelfManagedActiveDirectoryConfigurationUpdates) Prelude.. Lens.mapping Core._Sensitive
+selfManagedActiveDirectoryConfigurationUpdates_password = Lens.lens (\SelfManagedActiveDirectoryConfigurationUpdates' {password} -> password) (\s@SelfManagedActiveDirectoryConfigurationUpdates' {} a -> s {password = a} :: SelfManagedActiveDirectoryConfigurationUpdates) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A list of up to three IP addresses of DNS servers or domain controllers
 -- in the self-managed AD directory.
@@ -109,15 +110,15 @@ instance
         `Prelude.seq` Prelude.rnf userName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SelfManagedActiveDirectoryConfigurationUpdates
   where
   toJSON
     SelfManagedActiveDirectoryConfigurationUpdates' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Password" Core..=) Prelude.<$> password,
-              ("DnsIps" Core..=) Prelude.<$> dnsIps,
-              ("UserName" Core..=) Prelude.<$> userName
+            [ ("Password" Data..=) Prelude.<$> password,
+              ("DnsIps" Data..=) Prelude.<$> dnsIps,
+              ("UserName" Data..=) Prelude.<$> userName
             ]
         )

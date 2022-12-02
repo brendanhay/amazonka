@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.FSx.Types.Snapshot where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data Snapshot
@@ -24,7 +24,7 @@ instance Prelude.Show Snapshot
 
 instance Prelude.Generic Snapshot
 
-instance Core.FromJSON Snapshot
+instance Data.FromJSON Snapshot
 
 instance Prelude.NFData Snapshot
 

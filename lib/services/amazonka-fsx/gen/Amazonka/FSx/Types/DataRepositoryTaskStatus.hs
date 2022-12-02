@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DataRepositoryTaskStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the task status showing a running total of the total number of
@@ -35,7 +36,7 @@ data DataRepositoryTaskStatus = DataRepositoryTaskStatus'
     -- | A running total of the number of files that the task failed to process.
     failedCount :: Prelude.Maybe Prelude.Integer,
     -- | The time at which the task status was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The total amount of data, in GiB, released by an Amazon File Cache
     -- AUTO_RELEASE_DATA task that automatically releases files from the cache.
     releasedCapacity :: Prelude.Maybe Prelude.Integer,
@@ -92,7 +93,7 @@ dataRepositoryTaskStatus_failedCount = Lens.lens (\DataRepositoryTaskStatus' {fa
 
 -- | The time at which the task status was last updated.
 dataRepositoryTaskStatus_lastUpdatedTime :: Lens.Lens' DataRepositoryTaskStatus (Prelude.Maybe Prelude.UTCTime)
-dataRepositoryTaskStatus_lastUpdatedTime = Lens.lens (\DataRepositoryTaskStatus' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataRepositoryTaskStatus' {} a -> s {lastUpdatedTime = a} :: DataRepositoryTaskStatus) Prelude.. Lens.mapping Core._Time
+dataRepositoryTaskStatus_lastUpdatedTime = Lens.lens (\DataRepositoryTaskStatus' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataRepositoryTaskStatus' {} a -> s {lastUpdatedTime = a} :: DataRepositoryTaskStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The total amount of data, in GiB, released by an Amazon File Cache
 -- AUTO_RELEASE_DATA task that automatically releases files from the cache.
@@ -106,17 +107,17 @@ dataRepositoryTaskStatus_releasedCapacity = Lens.lens (\DataRepositoryTaskStatus
 dataRepositoryTaskStatus_totalCount :: Lens.Lens' DataRepositoryTaskStatus (Prelude.Maybe Prelude.Integer)
 dataRepositoryTaskStatus_totalCount = Lens.lens (\DataRepositoryTaskStatus' {totalCount} -> totalCount) (\s@DataRepositoryTaskStatus' {} a -> s {totalCount = a} :: DataRepositoryTaskStatus)
 
-instance Core.FromJSON DataRepositoryTaskStatus where
+instance Data.FromJSON DataRepositoryTaskStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataRepositoryTaskStatus"
       ( \x ->
           DataRepositoryTaskStatus'
-            Prelude.<$> (x Core..:? "SucceededCount")
-            Prelude.<*> (x Core..:? "FailedCount")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "ReleasedCapacity")
-            Prelude.<*> (x Core..:? "TotalCount")
+            Prelude.<$> (x Data..:? "SucceededCount")
+            Prelude.<*> (x Data..:? "FailedCount")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "ReleasedCapacity")
+            Prelude.<*> (x Data..:? "TotalCount")
       )
 
 instance Prelude.Hashable DataRepositoryTaskStatus where

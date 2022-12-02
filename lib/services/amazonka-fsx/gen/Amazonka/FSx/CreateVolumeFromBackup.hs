@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,7 +126,7 @@ instance Core.AWSRequest CreateVolumeFromBackup where
     Response.receiveJSON
       ( \s h x ->
           CreateVolumeFromBackupResponse'
-            Prelude.<$> (x Core..?> "Volume")
+            Prelude.<$> (x Data..?> "Volume")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,39 +146,39 @@ instance Prelude.NFData CreateVolumeFromBackup where
       `Prelude.seq` Prelude.rnf backupId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateVolumeFromBackup where
+instance Data.ToHeaders CreateVolumeFromBackup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.CreateVolumeFromBackup" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.CreateVolumeFromBackup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVolumeFromBackup where
+instance Data.ToJSON CreateVolumeFromBackup where
   toJSON CreateVolumeFromBackup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("OntapConfiguration" Core..=)
+            ("OntapConfiguration" Data..=)
               Prelude.<$> ontapConfiguration,
-            Prelude.Just ("BackupId" Core..= backupId),
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("BackupId" Data..= backupId),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateVolumeFromBackup where
+instance Data.ToPath CreateVolumeFromBackup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVolumeFromBackup where
+instance Data.ToQuery CreateVolumeFromBackup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVolumeFromBackupResponse' smart constructor.

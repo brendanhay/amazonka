@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DeleteVolumeOntapResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ deleteVolumeOntapResponse_finalBackupTags = Lens.lens (\DeleteVolumeOntapRespons
 deleteVolumeOntapResponse_finalBackupId :: Lens.Lens' DeleteVolumeOntapResponse (Prelude.Maybe Prelude.Text)
 deleteVolumeOntapResponse_finalBackupId = Lens.lens (\DeleteVolumeOntapResponse' {finalBackupId} -> finalBackupId) (\s@DeleteVolumeOntapResponse' {} a -> s {finalBackupId = a} :: DeleteVolumeOntapResponse)
 
-instance Core.FromJSON DeleteVolumeOntapResponse where
+instance Data.FromJSON DeleteVolumeOntapResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeleteVolumeOntapResponse"
       ( \x ->
           DeleteVolumeOntapResponse'
-            Prelude.<$> (x Core..:? "FinalBackupTags")
-            Prelude.<*> (x Core..:? "FinalBackupId")
+            Prelude.<$> (x Data..:? "FinalBackupTags")
+            Prelude.<*> (x Data..:? "FinalBackupId")
       )
 
 instance Prelude.Hashable DeleteVolumeOntapResponse where

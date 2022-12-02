@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.SvmEndpoints where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.SvmEndpoint
 import qualified Amazonka.Prelude as Prelude
 
@@ -91,16 +92,16 @@ svmEndpoints_nfs = Lens.lens (\SvmEndpoints' {nfs} -> nfs) (\s@SvmEndpoints' {} 
 svmEndpoints_management :: Lens.Lens' SvmEndpoints (Prelude.Maybe SvmEndpoint)
 svmEndpoints_management = Lens.lens (\SvmEndpoints' {management} -> management) (\s@SvmEndpoints' {} a -> s {management = a} :: SvmEndpoints)
 
-instance Core.FromJSON SvmEndpoints where
+instance Data.FromJSON SvmEndpoints where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SvmEndpoints"
       ( \x ->
           SvmEndpoints'
-            Prelude.<$> (x Core..:? "Smb")
-            Prelude.<*> (x Core..:? "Iscsi")
-            Prelude.<*> (x Core..:? "Nfs")
-            Prelude.<*> (x Core..:? "Management")
+            Prelude.<$> (x Data..:? "Smb")
+            Prelude.<*> (x Data..:? "Iscsi")
+            Prelude.<*> (x Data..:? "Nfs")
+            Prelude.<*> (x Data..:? "Management")
       )
 
 instance Prelude.Hashable SvmEndpoints where

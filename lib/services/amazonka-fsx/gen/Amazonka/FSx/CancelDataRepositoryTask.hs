@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,8 +96,8 @@ instance Core.AWSRequest CancelDataRepositoryTask where
     Response.receiveJSON
       ( \s h x ->
           CancelDataRepositoryTaskResponse'
-            Prelude.<$> (x Core..?> "Lifecycle")
-            Prelude.<*> (x Core..?> "TaskId")
+            Prelude.<$> (x Data..?> "Lifecycle")
+            Prelude.<*> (x Data..?> "TaskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,32 +109,32 @@ instance Prelude.NFData CancelDataRepositoryTask where
   rnf CancelDataRepositoryTask' {..} =
     Prelude.rnf taskId
 
-instance Core.ToHeaders CancelDataRepositoryTask where
+instance Data.ToHeaders CancelDataRepositoryTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.CancelDataRepositoryTask" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.CancelDataRepositoryTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelDataRepositoryTask where
+instance Data.ToJSON CancelDataRepositoryTask where
   toJSON CancelDataRepositoryTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TaskId" Core..= taskId)]
+          [Prelude.Just ("TaskId" Data..= taskId)]
       )
 
-instance Core.ToPath CancelDataRepositoryTask where
+instance Data.ToPath CancelDataRepositoryTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelDataRepositoryTask where
+instance Data.ToQuery CancelDataRepositoryTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelDataRepositoryTaskResponse' smart constructor.

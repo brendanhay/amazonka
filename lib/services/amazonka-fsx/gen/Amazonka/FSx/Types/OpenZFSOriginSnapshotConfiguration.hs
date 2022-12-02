@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.OpenZFSOriginSnapshotConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.OpenZFSCopyStrategy
 import qualified Amazonka.Prelude as Prelude
 
@@ -88,16 +89,16 @@ openZFSOriginSnapshotConfiguration_snapshotARN :: Lens.Lens' OpenZFSOriginSnapsh
 openZFSOriginSnapshotConfiguration_snapshotARN = Lens.lens (\OpenZFSOriginSnapshotConfiguration' {snapshotARN} -> snapshotARN) (\s@OpenZFSOriginSnapshotConfiguration' {} a -> s {snapshotARN = a} :: OpenZFSOriginSnapshotConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     OpenZFSOriginSnapshotConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpenZFSOriginSnapshotConfiguration"
       ( \x ->
           OpenZFSOriginSnapshotConfiguration'
-            Prelude.<$> (x Core..:? "CopyStrategy")
-            Prelude.<*> (x Core..:? "SnapshotARN")
+            Prelude.<$> (x Data..:? "CopyStrategy")
+            Prelude.<*> (x Data..:? "SnapshotARN")
       )
 
 instance

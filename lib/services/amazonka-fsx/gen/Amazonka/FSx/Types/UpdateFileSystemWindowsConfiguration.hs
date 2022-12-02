@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.UpdateFileSystemWindowsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.SelfManagedActiveDirectoryConfigurationUpdates
 import Amazonka.FSx.Types.WindowsAuditLogCreateConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -182,23 +183,23 @@ instance
       `Prelude.seq` Prelude.rnf auditLogConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateFileSystemWindowsConfiguration
   where
   toJSON UpdateFileSystemWindowsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WeeklyMaintenanceStartTime" Core..=)
+          [ ("WeeklyMaintenanceStartTime" Data..=)
               Prelude.<$> weeklyMaintenanceStartTime,
-            ("ThroughputCapacity" Core..=)
+            ("ThroughputCapacity" Data..=)
               Prelude.<$> throughputCapacity,
-            ("AutomaticBackupRetentionDays" Core..=)
+            ("AutomaticBackupRetentionDays" Data..=)
               Prelude.<$> automaticBackupRetentionDays,
-            ("DailyAutomaticBackupStartTime" Core..=)
+            ("DailyAutomaticBackupStartTime" Data..=)
               Prelude.<$> dailyAutomaticBackupStartTime,
-            ("SelfManagedActiveDirectoryConfiguration" Core..=)
+            ("SelfManagedActiveDirectoryConfiguration" Data..=)
               Prelude.<$> selfManagedActiveDirectoryConfiguration,
-            ("AuditLogConfiguration" Core..=)
+            ("AuditLogConfiguration" Data..=)
               Prelude.<$> auditLogConfiguration
           ]
       )

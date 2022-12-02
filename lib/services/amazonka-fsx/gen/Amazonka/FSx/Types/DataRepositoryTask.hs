@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DataRepositoryTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.CompletionReport
 import Amazonka.FSx.Types.DataRepositoryTaskFailureDetails
 import Amazonka.FSx.Types.DataRepositoryTaskLifecycle
@@ -47,7 +48,7 @@ data DataRepositoryTask = DataRepositoryTask'
     status :: Prelude.Maybe DataRepositoryTaskStatus,
     -- | The time the system completed processing the task, populated after the
     -- task is complete.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The system-generated, unique ID of the cache.
     fileCacheId :: Prelude.Maybe Prelude.Text,
     -- | Failure message describing why the task failed, it is populated only
@@ -63,7 +64,7 @@ data DataRepositoryTask = DataRepositoryTask'
     paths :: Prelude.Maybe [Prelude.Text],
     resourceARN :: Prelude.Maybe Prelude.Text,
     -- | The time the system began processing the task.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The system-generated, unique 17-digit ID of the data repository task.
     taskId :: Prelude.Text,
     -- | The lifecycle status of the data repository task, as follows:
@@ -101,7 +102,7 @@ data DataRepositoryTask = DataRepositoryTask'
     -- -   @AUTO_RELEASE_DATA@ tasks automatically release files from an Amazon
     --     File Cache resource.
     type' :: DataRepositoryTaskType,
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -212,7 +213,7 @@ newDataRepositoryTask
         taskId = pTaskId_,
         lifecycle = pLifecycle_,
         type' = pType_,
-        creationTime = Core._Time Lens.# pCreationTime_
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | Undocumented member.
@@ -236,7 +237,7 @@ dataRepositoryTask_status = Lens.lens (\DataRepositoryTask' {status} -> status) 
 -- | The time the system completed processing the task, populated after the
 -- task is complete.
 dataRepositoryTask_endTime :: Lens.Lens' DataRepositoryTask (Prelude.Maybe Prelude.UTCTime)
-dataRepositoryTask_endTime = Lens.lens (\DataRepositoryTask' {endTime} -> endTime) (\s@DataRepositoryTask' {} a -> s {endTime = a} :: DataRepositoryTask) Prelude.. Lens.mapping Core._Time
+dataRepositoryTask_endTime = Lens.lens (\DataRepositoryTask' {endTime} -> endTime) (\s@DataRepositoryTask' {} a -> s {endTime = a} :: DataRepositoryTask) Prelude.. Lens.mapping Data._Time
 
 -- | The system-generated, unique ID of the cache.
 dataRepositoryTask_fileCacheId :: Lens.Lens' DataRepositoryTask (Prelude.Maybe Prelude.Text)
@@ -266,7 +267,7 @@ dataRepositoryTask_resourceARN = Lens.lens (\DataRepositoryTask' {resourceARN} -
 
 -- | The time the system began processing the task.
 dataRepositoryTask_startTime :: Lens.Lens' DataRepositoryTask (Prelude.Maybe Prelude.UTCTime)
-dataRepositoryTask_startTime = Lens.lens (\DataRepositoryTask' {startTime} -> startTime) (\s@DataRepositoryTask' {} a -> s {startTime = a} :: DataRepositoryTask) Prelude.. Lens.mapping Core._Time
+dataRepositoryTask_startTime = Lens.lens (\DataRepositoryTask' {startTime} -> startTime) (\s@DataRepositoryTask' {} a -> s {startTime = a} :: DataRepositoryTask) Prelude.. Lens.mapping Data._Time
 
 -- | The system-generated, unique 17-digit ID of the data repository task.
 dataRepositoryTask_taskId :: Lens.Lens' DataRepositoryTask Prelude.Text
@@ -313,29 +314,29 @@ dataRepositoryTask_type = Lens.lens (\DataRepositoryTask' {type'} -> type') (\s@
 
 -- | Undocumented member.
 dataRepositoryTask_creationTime :: Lens.Lens' DataRepositoryTask Prelude.UTCTime
-dataRepositoryTask_creationTime = Lens.lens (\DataRepositoryTask' {creationTime} -> creationTime) (\s@DataRepositoryTask' {} a -> s {creationTime = a} :: DataRepositoryTask) Prelude.. Core._Time
+dataRepositoryTask_creationTime = Lens.lens (\DataRepositoryTask' {creationTime} -> creationTime) (\s@DataRepositoryTask' {} a -> s {creationTime = a} :: DataRepositoryTask) Prelude.. Data._Time
 
-instance Core.FromJSON DataRepositoryTask where
+instance Data.FromJSON DataRepositoryTask where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataRepositoryTask"
       ( \x ->
           DataRepositoryTask'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "CapacityToRelease")
-            Prelude.<*> (x Core..:? "FileSystemId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "FileCacheId")
-            Prelude.<*> (x Core..:? "FailureDetails")
-            Prelude.<*> (x Core..:? "Report")
-            Prelude.<*> (x Core..:? "Paths" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceARN")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..: "TaskId")
-            Prelude.<*> (x Core..: "Lifecycle")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "CapacityToRelease")
+            Prelude.<*> (x Data..:? "FileSystemId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "FileCacheId")
+            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "Report")
+            Prelude.<*> (x Data..:? "Paths" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..: "TaskId")
+            Prelude.<*> (x Data..: "Lifecycle")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "CreationTime")
       )
 
 instance Prelude.Hashable DataRepositoryTask where

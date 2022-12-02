@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.OpenZFSVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.OpenZFSDataCompressionType
 import Amazonka.FSx.Types.OpenZFSNfsExport
 import Amazonka.FSx.Types.OpenZFSOriginSnapshotConfiguration
@@ -237,25 +238,25 @@ openZFSVolumeConfiguration_userAndGroupQuotas = Lens.lens (\OpenZFSVolumeConfigu
 openZFSVolumeConfiguration_volumePath :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Text)
 openZFSVolumeConfiguration_volumePath = Lens.lens (\OpenZFSVolumeConfiguration' {volumePath} -> volumePath) (\s@OpenZFSVolumeConfiguration' {} a -> s {volumePath = a} :: OpenZFSVolumeConfiguration)
 
-instance Core.FromJSON OpenZFSVolumeConfiguration where
+instance Data.FromJSON OpenZFSVolumeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpenZFSVolumeConfiguration"
       ( \x ->
           OpenZFSVolumeConfiguration'
-            Prelude.<$> (x Core..:? "OriginSnapshot")
-            Prelude.<*> (x Core..:? "RecordSizeKiB")
-            Prelude.<*> (x Core..:? "StorageCapacityReservationGiB")
-            Prelude.<*> (x Core..:? "ParentVolumeId")
-            Prelude.<*> (x Core..:? "StorageCapacityQuotaGiB")
-            Prelude.<*> (x Core..:? "ReadOnly")
-            Prelude.<*> (x Core..:? "NfsExports" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CopyTagsToSnapshots")
-            Prelude.<*> (x Core..:? "DataCompressionType")
-            Prelude.<*> ( x Core..:? "UserAndGroupQuotas"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "OriginSnapshot")
+            Prelude.<*> (x Data..:? "RecordSizeKiB")
+            Prelude.<*> (x Data..:? "StorageCapacityReservationGiB")
+            Prelude.<*> (x Data..:? "ParentVolumeId")
+            Prelude.<*> (x Data..:? "StorageCapacityQuotaGiB")
+            Prelude.<*> (x Data..:? "ReadOnly")
+            Prelude.<*> (x Data..:? "NfsExports" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CopyTagsToSnapshots")
+            Prelude.<*> (x Data..:? "DataCompressionType")
+            Prelude.<*> ( x Data..:? "UserAndGroupQuotas"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "VolumePath")
+            Prelude.<*> (x Data..:? "VolumePath")
       )
 
 instance Prelude.Hashable OpenZFSVolumeConfiguration where

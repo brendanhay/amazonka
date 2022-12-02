@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.OpenZFSFileSystemConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.DiskIopsConfiguration
 import Amazonka.FSx.Types.OpenZFSDeploymentType
 import qualified Amazonka.Prelude as Prelude
@@ -174,21 +175,21 @@ openZFSFileSystemConfiguration_dailyAutomaticBackupStartTime = Lens.lens (\OpenZ
 openZFSFileSystemConfiguration_copyTagsToVolumes :: Lens.Lens' OpenZFSFileSystemConfiguration (Prelude.Maybe Prelude.Bool)
 openZFSFileSystemConfiguration_copyTagsToVolumes = Lens.lens (\OpenZFSFileSystemConfiguration' {copyTagsToVolumes} -> copyTagsToVolumes) (\s@OpenZFSFileSystemConfiguration' {} a -> s {copyTagsToVolumes = a} :: OpenZFSFileSystemConfiguration)
 
-instance Core.FromJSON OpenZFSFileSystemConfiguration where
+instance Data.FromJSON OpenZFSFileSystemConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpenZFSFileSystemConfiguration"
       ( \x ->
           OpenZFSFileSystemConfiguration'
-            Prelude.<$> (x Core..:? "CopyTagsToBackups")
-            Prelude.<*> (x Core..:? "WeeklyMaintenanceStartTime")
-            Prelude.<*> (x Core..:? "ThroughputCapacity")
-            Prelude.<*> (x Core..:? "AutomaticBackupRetentionDays")
-            Prelude.<*> (x Core..:? "DeploymentType")
-            Prelude.<*> (x Core..:? "RootVolumeId")
-            Prelude.<*> (x Core..:? "DiskIopsConfiguration")
-            Prelude.<*> (x Core..:? "DailyAutomaticBackupStartTime")
-            Prelude.<*> (x Core..:? "CopyTagsToVolumes")
+            Prelude.<$> (x Data..:? "CopyTagsToBackups")
+            Prelude.<*> (x Data..:? "WeeklyMaintenanceStartTime")
+            Prelude.<*> (x Data..:? "ThroughputCapacity")
+            Prelude.<*> (x Data..:? "AutomaticBackupRetentionDays")
+            Prelude.<*> (x Data..:? "DeploymentType")
+            Prelude.<*> (x Data..:? "RootVolumeId")
+            Prelude.<*> (x Data..:? "DiskIopsConfiguration")
+            Prelude.<*> (x Data..:? "DailyAutomaticBackupStartTime")
+            Prelude.<*> (x Data..:? "CopyTagsToVolumes")
       )
 
 instance

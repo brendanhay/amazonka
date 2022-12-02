@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.AutoImportPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.EventType
 import qualified Amazonka.Prelude as Prelude
 
@@ -99,13 +100,13 @@ newAutoImportPolicy =
 autoImportPolicy_events :: Lens.Lens' AutoImportPolicy (Prelude.Maybe [EventType])
 autoImportPolicy_events = Lens.lens (\AutoImportPolicy' {events} -> events) (\s@AutoImportPolicy' {} a -> s {events = a} :: AutoImportPolicy) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AutoImportPolicy where
+instance Data.FromJSON AutoImportPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoImportPolicy"
       ( \x ->
           AutoImportPolicy'
-            Prelude.<$> (x Core..:? "Events" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Events" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AutoImportPolicy where
@@ -115,9 +116,9 @@ instance Prelude.Hashable AutoImportPolicy where
 instance Prelude.NFData AutoImportPolicy where
   rnf AutoImportPolicy' {..} = Prelude.rnf events
 
-instance Core.ToJSON AutoImportPolicy where
+instance Data.ToJSON AutoImportPolicy where
   toJSON AutoImportPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Events" Core..=) Prelude.<$> events]
+          [("Events" Data..=) Prelude.<$> events]
       )

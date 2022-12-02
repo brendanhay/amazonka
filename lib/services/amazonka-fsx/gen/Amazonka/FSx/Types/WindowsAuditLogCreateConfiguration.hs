@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.WindowsAuditLogCreateConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.WindowsAccessAuditLogLevel
 import qualified Amazonka.Prelude as Prelude
 
@@ -246,21 +247,21 @@ instance
       `Prelude.seq` Prelude.rnf fileShareAccessAuditLogLevel
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     WindowsAuditLogCreateConfiguration
   where
   toJSON WindowsAuditLogCreateConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AuditLogDestination" Core..=)
+          [ ("AuditLogDestination" Data..=)
               Prelude.<$> auditLogDestination,
             Prelude.Just
               ( "FileAccessAuditLogLevel"
-                  Core..= fileAccessAuditLogLevel
+                  Data..= fileAccessAuditLogLevel
               ),
             Prelude.Just
               ( "FileShareAccessAuditLogLevel"
-                  Core..= fileShareAccessAuditLogLevel
+                  Data..= fileShareAccessAuditLogLevel
               )
           ]
       )

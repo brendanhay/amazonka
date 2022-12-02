@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.Alias where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.AliasLifecycle
 import qualified Amazonka.Prelude as Prelude
 
@@ -157,14 +158,14 @@ alias_name = Lens.lens (\Alias' {name} -> name) (\s@Alias' {} a -> s {name = a} 
 alias_lifecycle :: Lens.Lens' Alias (Prelude.Maybe AliasLifecycle)
 alias_lifecycle = Lens.lens (\Alias' {lifecycle} -> lifecycle) (\s@Alias' {} a -> s {lifecycle = a} :: Alias)
 
-instance Core.FromJSON Alias where
+instance Data.FromJSON Alias where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Alias"
       ( \x ->
           Alias'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Lifecycle")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Lifecycle")
       )
 
 instance Prelude.Hashable Alias where

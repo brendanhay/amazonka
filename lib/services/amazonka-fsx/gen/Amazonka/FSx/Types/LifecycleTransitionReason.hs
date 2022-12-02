@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.LifecycleTransitionReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes why a resource lifecycle state changed.
@@ -52,13 +53,13 @@ newLifecycleTransitionReason =
 lifecycleTransitionReason_message :: Lens.Lens' LifecycleTransitionReason (Prelude.Maybe Prelude.Text)
 lifecycleTransitionReason_message = Lens.lens (\LifecycleTransitionReason' {message} -> message) (\s@LifecycleTransitionReason' {} a -> s {message = a} :: LifecycleTransitionReason)
 
-instance Core.FromJSON LifecycleTransitionReason where
+instance Data.FromJSON LifecycleTransitionReason where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifecycleTransitionReason"
       ( \x ->
           LifecycleTransitionReason'
-            Prelude.<$> (x Core..:? "Message")
+            Prelude.<$> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable LifecycleTransitionReason where

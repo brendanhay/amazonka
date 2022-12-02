@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,7 +157,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateDataRepositoryAssociationResponse'
-            Prelude.<$> (x Core..?> "Association")
+            Prelude.<$> (x Data..?> "Association")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,41 +184,41 @@ instance
       `Prelude.seq` Prelude.rnf associationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateDataRepositoryAssociation
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.UpdateDataRepositoryAssociation" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.UpdateDataRepositoryAssociation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDataRepositoryAssociation where
+instance Data.ToJSON UpdateDataRepositoryAssociation where
   toJSON UpdateDataRepositoryAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("S3" Core..=) Prelude.<$> s3,
-            ("ImportedFileChunkSize" Core..=)
+            ("S3" Data..=) Prelude.<$> s3,
+            ("ImportedFileChunkSize" Data..=)
               Prelude.<$> importedFileChunkSize,
             Prelude.Just
-              ("AssociationId" Core..= associationId)
+              ("AssociationId" Data..= associationId)
           ]
       )
 
-instance Core.ToPath UpdateDataRepositoryAssociation where
+instance Data.ToPath UpdateDataRepositoryAssociation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDataRepositoryAssociation where
+instance Data.ToQuery UpdateDataRepositoryAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDataRepositoryAssociationResponse' smart constructor.

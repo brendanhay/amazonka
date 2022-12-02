@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.LustreRootSquashConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for Lustre root squash used to restrict root-level
@@ -133,14 +134,14 @@ lustreRootSquashConfiguration_rootSquash = Lens.lens (\LustreRootSquashConfigura
 lustreRootSquashConfiguration_noSquashNids :: Lens.Lens' LustreRootSquashConfiguration (Prelude.Maybe [Prelude.Text])
 lustreRootSquashConfiguration_noSquashNids = Lens.lens (\LustreRootSquashConfiguration' {noSquashNids} -> noSquashNids) (\s@LustreRootSquashConfiguration' {} a -> s {noSquashNids = a} :: LustreRootSquashConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LustreRootSquashConfiguration where
+instance Data.FromJSON LustreRootSquashConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LustreRootSquashConfiguration"
       ( \x ->
           LustreRootSquashConfiguration'
-            Prelude.<$> (x Core..:? "RootSquash")
-            Prelude.<*> (x Core..:? "NoSquashNids" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "RootSquash")
+            Prelude.<*> (x Data..:? "NoSquashNids" Data..!= Prelude.mempty)
       )
 
 instance
@@ -156,11 +157,11 @@ instance Prelude.NFData LustreRootSquashConfiguration where
     Prelude.rnf rootSquash
       `Prelude.seq` Prelude.rnf noSquashNids
 
-instance Core.ToJSON LustreRootSquashConfiguration where
+instance Data.ToJSON LustreRootSquashConfiguration where
   toJSON LustreRootSquashConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RootSquash" Core..=) Prelude.<$> rootSquash,
-            ("NoSquashNids" Core..=) Prelude.<$> noSquashNids
+          [ ("RootSquash" Data..=) Prelude.<$> rootSquash,
+            ("NoSquashNids" Data..=) Prelude.<$> noSquashNids
           ]
       )

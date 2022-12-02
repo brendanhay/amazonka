@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.OpenZFSUserOrGroupQuota where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.OpenZFSQuotaType
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,15 +83,15 @@ openZFSUserOrGroupQuota_id = Lens.lens (\OpenZFSUserOrGroupQuota' {id} -> id) (\
 openZFSUserOrGroupQuota_storageCapacityQuotaGiB :: Lens.Lens' OpenZFSUserOrGroupQuota Prelude.Natural
 openZFSUserOrGroupQuota_storageCapacityQuotaGiB = Lens.lens (\OpenZFSUserOrGroupQuota' {storageCapacityQuotaGiB} -> storageCapacityQuotaGiB) (\s@OpenZFSUserOrGroupQuota' {} a -> s {storageCapacityQuotaGiB = a} :: OpenZFSUserOrGroupQuota)
 
-instance Core.FromJSON OpenZFSUserOrGroupQuota where
+instance Data.FromJSON OpenZFSUserOrGroupQuota where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpenZFSUserOrGroupQuota"
       ( \x ->
           OpenZFSUserOrGroupQuota'
-            Prelude.<$> (x Core..: "Type")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "StorageCapacityQuotaGiB")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "StorageCapacityQuotaGiB")
       )
 
 instance Prelude.Hashable OpenZFSUserOrGroupQuota where
@@ -105,15 +106,15 @@ instance Prelude.NFData OpenZFSUserOrGroupQuota where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf storageCapacityQuotaGiB
 
-instance Core.ToJSON OpenZFSUserOrGroupQuota where
+instance Data.ToJSON OpenZFSUserOrGroupQuota where
   toJSON OpenZFSUserOrGroupQuota' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Id" Core..= id),
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Id" Data..= id),
             Prelude.Just
               ( "StorageCapacityQuotaGiB"
-                  Core..= storageCapacityQuotaGiB
+                  Data..= storageCapacityQuotaGiB
               )
           ]
       )

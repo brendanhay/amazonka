@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.CreateOpenZFSOriginSnapshotConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.OpenZFSCopyStrategy
 import qualified Amazonka.Prelude as Prelude
 
@@ -112,13 +113,13 @@ instance
       `Prelude.seq` Prelude.rnf copyStrategy
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateOpenZFSOriginSnapshotConfiguration
   where
   toJSON CreateOpenZFSOriginSnapshotConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SnapshotARN" Core..= snapshotARN),
-            Prelude.Just ("CopyStrategy" Core..= copyStrategy)
+          [ Prelude.Just ("SnapshotARN" Data..= snapshotARN),
+            Prelude.Just ("CopyStrategy" Data..= copyStrategy)
           ]
       )

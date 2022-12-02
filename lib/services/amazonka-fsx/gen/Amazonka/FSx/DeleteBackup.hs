@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,8 +110,8 @@ instance Core.AWSRequest DeleteBackup where
     Response.receiveJSON
       ( \s h x ->
           DeleteBackupResponse'
-            Prelude.<$> (x Core..?> "BackupId")
-            Prelude.<*> (x Core..?> "Lifecycle")
+            Prelude.<$> (x Data..?> "BackupId")
+            Prelude.<*> (x Data..?> "Lifecycle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,35 +125,35 @@ instance Prelude.NFData DeleteBackup where
     Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf backupId
 
-instance Core.ToHeaders DeleteBackup where
+instance Data.ToHeaders DeleteBackup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.DeleteBackup" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.DeleteBackup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBackup where
+instance Data.ToJSON DeleteBackup where
   toJSON DeleteBackup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("BackupId" Core..= backupId)
+            Prelude.Just ("BackupId" Data..= backupId)
           ]
       )
 
-instance Core.ToPath DeleteBackup where
+instance Data.ToPath DeleteBackup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteBackup where
+instance Data.ToQuery DeleteBackup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response object for the @DeleteBackup@ operation.

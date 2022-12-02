@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.CreateFileCacheLustreConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.FileCacheLustreDeploymentType
 import Amazonka.FSx.Types.FileCacheLustreMetadataConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -122,23 +123,23 @@ instance
       `Prelude.seq` Prelude.rnf metadataConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateFileCacheLustreConfiguration
   where
   toJSON CreateFileCacheLustreConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WeeklyMaintenanceStartTime" Core..=)
+          [ ("WeeklyMaintenanceStartTime" Data..=)
               Prelude.<$> weeklyMaintenanceStartTime,
             Prelude.Just
               ( "PerUnitStorageThroughput"
-                  Core..= perUnitStorageThroughput
+                  Data..= perUnitStorageThroughput
               ),
             Prelude.Just
-              ("DeploymentType" Core..= deploymentType),
+              ("DeploymentType" Data..= deploymentType),
             Prelude.Just
               ( "MetadataConfiguration"
-                  Core..= metadataConfiguration
+                  Data..= metadataConfiguration
               )
           ]
       )

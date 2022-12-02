@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance Core.AWSRequest UpdateSnapshot where
     Response.receiveJSON
       ( \s h x ->
           UpdateSnapshotResponse'
-            Prelude.<$> (x Core..?> "Snapshot")
+            Prelude.<$> (x Data..?> "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,36 +127,36 @@ instance Prelude.NFData UpdateSnapshot where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders UpdateSnapshot where
+instance Data.ToHeaders UpdateSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.UpdateSnapshot" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.UpdateSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSnapshot where
+instance Data.ToJSON UpdateSnapshot where
   toJSON UpdateSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("SnapshotId" Core..= snapshotId)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("SnapshotId" Data..= snapshotId)
           ]
       )
 
-instance Core.ToPath UpdateSnapshot where
+instance Data.ToPath UpdateSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSnapshot where
+instance Data.ToQuery UpdateSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSnapshotResponse' smart constructor.

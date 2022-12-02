@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.TieringPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.TieringPolicyName
 import qualified Amazonka.Prelude as Prelude
 
@@ -130,14 +131,14 @@ tieringPolicy_name = Lens.lens (\TieringPolicy' {name} -> name) (\s@TieringPolic
 tieringPolicy_coolingPeriod :: Lens.Lens' TieringPolicy (Prelude.Maybe Prelude.Natural)
 tieringPolicy_coolingPeriod = Lens.lens (\TieringPolicy' {coolingPeriod} -> coolingPeriod) (\s@TieringPolicy' {} a -> s {coolingPeriod = a} :: TieringPolicy)
 
-instance Core.FromJSON TieringPolicy where
+instance Data.FromJSON TieringPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TieringPolicy"
       ( \x ->
           TieringPolicy'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CoolingPeriod")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CoolingPeriod")
       )
 
 instance Prelude.Hashable TieringPolicy where
@@ -150,11 +151,11 @@ instance Prelude.NFData TieringPolicy where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf coolingPeriod
 
-instance Core.ToJSON TieringPolicy where
+instance Data.ToJSON TieringPolicy where
   toJSON TieringPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("CoolingPeriod" Core..=) Prelude.<$> coolingPeriod
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("CoolingPeriod" Data..=) Prelude.<$> coolingPeriod
           ]
       )

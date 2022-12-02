@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance Core.AWSRequest CreateVolume where
     Response.receiveJSON
       ( \s h x ->
           CreateVolumeResponse'
-            Prelude.<$> (x Core..?> "Volume")
+            Prelude.<$> (x Data..?> "Volume")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,41 +159,41 @@ instance Prelude.NFData CreateVolume where
       `Prelude.seq` Prelude.rnf volumeType
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateVolume where
+instance Data.ToHeaders CreateVolume where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.CreateVolume" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.CreateVolume" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVolume where
+instance Data.ToJSON CreateVolume where
   toJSON CreateVolume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("OpenZFSConfiguration" Core..=)
+            ("OpenZFSConfiguration" Data..=)
               Prelude.<$> openZFSConfiguration,
-            ("OntapConfiguration" Core..=)
+            ("OntapConfiguration" Data..=)
               Prelude.<$> ontapConfiguration,
-            Prelude.Just ("VolumeType" Core..= volumeType),
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("VolumeType" Data..= volumeType),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateVolume where
+instance Data.ToPath CreateVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVolume where
+instance Data.ToQuery CreateVolume where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVolumeResponse' smart constructor.

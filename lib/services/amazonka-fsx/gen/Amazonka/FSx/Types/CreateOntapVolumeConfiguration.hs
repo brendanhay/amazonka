@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.CreateOntapVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.SecurityStyle
 import Amazonka.FSx.Types.TieringPolicy
 import qualified Amazonka.Prelude as Prelude
@@ -205,22 +206,22 @@ instance
       `Prelude.seq` Prelude.rnf storageEfficiencyEnabled
       `Prelude.seq` Prelude.rnf storageVirtualMachineId
 
-instance Core.ToJSON CreateOntapVolumeConfiguration where
+instance Data.ToJSON CreateOntapVolumeConfiguration where
   toJSON CreateOntapVolumeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TieringPolicy" Core..=) Prelude.<$> tieringPolicy,
-            ("SecurityStyle" Core..=) Prelude.<$> securityStyle,
-            Prelude.Just ("JunctionPath" Core..= junctionPath),
+          [ ("TieringPolicy" Data..=) Prelude.<$> tieringPolicy,
+            ("SecurityStyle" Data..=) Prelude.<$> securityStyle,
+            Prelude.Just ("JunctionPath" Data..= junctionPath),
             Prelude.Just
-              ("SizeInMegabytes" Core..= sizeInMegabytes),
+              ("SizeInMegabytes" Data..= sizeInMegabytes),
             Prelude.Just
               ( "StorageEfficiencyEnabled"
-                  Core..= storageEfficiencyEnabled
+                  Data..= storageEfficiencyEnabled
               ),
             Prelude.Just
               ( "StorageVirtualMachineId"
-                  Core..= storageVirtualMachineId
+                  Data..= storageVirtualMachineId
               )
           ]
       )

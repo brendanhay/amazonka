@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.Snapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import {-# SOURCE #-} Amazonka.FSx.Types.AdministrativeAction
 import Amazonka.FSx.Types.LifecycleTransitionReason
 import Amazonka.FSx.Types.SnapshotLifecycle
@@ -50,7 +51,7 @@ data Snapshot = Snapshot'
     administrativeActions :: Prelude.Maybe [AdministrativeAction],
     -- | The ID of the snapshot.
     snapshotId :: Prelude.Maybe Prelude.Text,
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the volume that the snapshot is of.
     volumeId :: Prelude.Maybe Prelude.Text,
     resourceARN :: Prelude.Maybe Prelude.Text,
@@ -140,7 +141,7 @@ snapshot_snapshotId = Lens.lens (\Snapshot' {snapshotId} -> snapshotId) (\s@Snap
 
 -- | Undocumented member.
 snapshot_creationTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_creationTime = Lens.lens (\Snapshot' {creationTime} -> creationTime) (\s@Snapshot' {} a -> s {creationTime = a} :: Snapshot) Prelude.. Lens.mapping Core._Time
+snapshot_creationTime = Lens.lens (\Snapshot' {creationTime} -> creationTime) (\s@Snapshot' {} a -> s {creationTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the volume that the snapshot is of.
 snapshot_volumeId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
@@ -154,23 +155,23 @@ snapshot_resourceARN = Lens.lens (\Snapshot' {resourceARN} -> resourceARN) (\s@S
 snapshot_lifecycleTransitionReason :: Lens.Lens' Snapshot (Prelude.Maybe LifecycleTransitionReason)
 snapshot_lifecycleTransitionReason = Lens.lens (\Snapshot' {lifecycleTransitionReason} -> lifecycleTransitionReason) (\s@Snapshot' {} a -> s {lifecycleTransitionReason = a} :: Snapshot)
 
-instance Core.FromJSON Snapshot where
+instance Data.FromJSON Snapshot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Snapshot"
       ( \x ->
           Snapshot'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Lifecycle")
-            Prelude.<*> ( x Core..:? "AdministrativeActions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Lifecycle")
+            Prelude.<*> ( x Data..:? "AdministrativeActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SnapshotId")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "VolumeId")
-            Prelude.<*> (x Core..:? "ResourceARN")
-            Prelude.<*> (x Core..:? "LifecycleTransitionReason")
+            Prelude.<*> (x Data..:? "SnapshotId")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "VolumeId")
+            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "LifecycleTransitionReason")
       )
 
 instance Prelude.Hashable Snapshot where

@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.FileCacheCreating where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.FileCacheFailureDetails
 import Amazonka.FSx.Types.FileCacheLifecycle
 import Amazonka.FSx.Types.FileCacheLustreConfiguration
@@ -74,7 +75,7 @@ data FileCacheCreating = FileCacheCreating'
     -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html Encrypt>
     -- in the /Key Management Service API Reference/.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     resourceARN :: Prelude.Maybe Prelude.Text,
     -- | The Domain Name System (DNS) name for the cache.
     dNSName :: Prelude.Maybe Prelude.Text,
@@ -242,7 +243,7 @@ fileCacheCreating_kmsKeyId = Lens.lens (\FileCacheCreating' {kmsKeyId} -> kmsKey
 
 -- | Undocumented member.
 fileCacheCreating_creationTime :: Lens.Lens' FileCacheCreating (Prelude.Maybe Prelude.UTCTime)
-fileCacheCreating_creationTime = Lens.lens (\FileCacheCreating' {creationTime} -> creationTime) (\s@FileCacheCreating' {} a -> s {creationTime = a} :: FileCacheCreating) Prelude.. Lens.mapping Core._Time
+fileCacheCreating_creationTime = Lens.lens (\FileCacheCreating' {creationTime} -> creationTime) (\s@FileCacheCreating' {} a -> s {creationTime = a} :: FileCacheCreating) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 fileCacheCreating_resourceARN :: Lens.Lens' FileCacheCreating (Prelude.Maybe Prelude.Text)
@@ -268,34 +269,34 @@ fileCacheCreating_subnetIds = Lens.lens (\FileCacheCreating' {subnetIds} -> subn
 fileCacheCreating_lustreConfiguration :: Lens.Lens' FileCacheCreating (Prelude.Maybe FileCacheLustreConfiguration)
 fileCacheCreating_lustreConfiguration = Lens.lens (\FileCacheCreating' {lustreConfiguration} -> lustreConfiguration) (\s@FileCacheCreating' {} a -> s {lustreConfiguration = a} :: FileCacheCreating)
 
-instance Core.FromJSON FileCacheCreating where
+instance Data.FromJSON FileCacheCreating where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileCacheCreating"
       ( \x ->
           FileCacheCreating'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "Lifecycle")
-            Prelude.<*> (x Core..:? "CopyTagsToDataRepositoryAssociations")
-            Prelude.<*> ( x Core..:? "DataRepositoryAssociationIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "Lifecycle")
+            Prelude.<*> (x Data..:? "CopyTagsToDataRepositoryAssociations")
+            Prelude.<*> ( x Data..:? "DataRepositoryAssociationIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StorageCapacity")
-            Prelude.<*> (x Core..:? "FileCacheId")
-            Prelude.<*> (x Core..:? "FailureDetails")
-            Prelude.<*> (x Core..:? "FileCacheTypeVersion")
-            Prelude.<*> (x Core..:? "FileCacheType")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ResourceARN")
-            Prelude.<*> (x Core..:? "DNSName")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> ( x Core..:? "NetworkInterfaceIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "StorageCapacity")
+            Prelude.<*> (x Data..:? "FileCacheId")
+            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "FileCacheTypeVersion")
+            Prelude.<*> (x Data..:? "FileCacheType")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "DNSName")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> ( x Data..:? "NetworkInterfaceIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LustreConfiguration")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LustreConfiguration")
       )
 
 instance Prelude.Hashable FileCacheCreating where

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,8 +102,8 @@ instance Core.AWSRequest DeleteSnapshot where
     Response.receiveJSON
       ( \s h x ->
           DeleteSnapshotResponse'
-            Prelude.<$> (x Core..?> "Lifecycle")
-            Prelude.<*> (x Core..?> "SnapshotId")
+            Prelude.<$> (x Data..?> "Lifecycle")
+            Prelude.<*> (x Data..?> "SnapshotId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,35 +117,35 @@ instance Prelude.NFData DeleteSnapshot where
     Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders DeleteSnapshot where
+instance Data.ToHeaders DeleteSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.DeleteSnapshot" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.DeleteSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSnapshot where
+instance Data.ToJSON DeleteSnapshot where
   toJSON DeleteSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("SnapshotId" Core..= snapshotId)
+            Prelude.Just ("SnapshotId" Data..= snapshotId)
           ]
       )
 
-instance Core.ToPath DeleteSnapshot where
+instance Data.ToPath DeleteSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSnapshot where
+instance Data.ToQuery DeleteSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSnapshotResponse' smart constructor.

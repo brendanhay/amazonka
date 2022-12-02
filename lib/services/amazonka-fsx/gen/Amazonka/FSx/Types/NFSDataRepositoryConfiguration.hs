@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.NFSDataRepositoryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.AutoExportPolicy
 import Amazonka.FSx.Types.NfsVersion
 import qualified Amazonka.Prelude as Prelude
@@ -94,15 +95,15 @@ nFSDataRepositoryConfiguration_dnsIps = Lens.lens (\NFSDataRepositoryConfigurati
 nFSDataRepositoryConfiguration_version :: Lens.Lens' NFSDataRepositoryConfiguration NfsVersion
 nFSDataRepositoryConfiguration_version = Lens.lens (\NFSDataRepositoryConfiguration' {version} -> version) (\s@NFSDataRepositoryConfiguration' {} a -> s {version = a} :: NFSDataRepositoryConfiguration)
 
-instance Core.FromJSON NFSDataRepositoryConfiguration where
+instance Data.FromJSON NFSDataRepositoryConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NFSDataRepositoryConfiguration"
       ( \x ->
           NFSDataRepositoryConfiguration'
-            Prelude.<$> (x Core..:? "AutoExportPolicy")
-            Prelude.<*> (x Core..:? "DnsIps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Version")
+            Prelude.<$> (x Data..:? "AutoExportPolicy")
+            Prelude.<*> (x Data..:? "DnsIps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Version")
       )
 
 instance

@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -202,7 +203,7 @@ instance Core.AWSRequest CopyBackup where
     Response.receiveJSON
       ( \s h x ->
           CopyBackupResponse'
-            Prelude.<$> (x Core..?> "Backup")
+            Prelude.<$> (x Data..?> "Backup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -224,40 +225,40 @@ instance Prelude.NFData CopyBackup where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf sourceBackupId
 
-instance Core.ToHeaders CopyBackup where
+instance Data.ToHeaders CopyBackup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.CopyBackup" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.CopyBackup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CopyBackup where
+instance Data.ToJSON CopyBackup where
   toJSON CopyBackup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SourceRegion" Core..=) Prelude.<$> sourceRegion,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SourceRegion" Data..=) Prelude.<$> sourceRegion,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("CopyTags" Core..=) Prelude.<$> copyTags,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("CopyTags" Data..=) Prelude.<$> copyTags,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             Prelude.Just
-              ("SourceBackupId" Core..= sourceBackupId)
+              ("SourceBackupId" Data..= sourceBackupId)
           ]
       )
 
-instance Core.ToPath CopyBackup where
+instance Data.ToPath CopyBackup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopyBackup where
+instance Data.ToQuery CopyBackup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCopyBackupResponse' smart constructor.

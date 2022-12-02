@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.UpdateFileSystemOntapConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.DiskIopsConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,7 +37,7 @@ data UpdateFileSystemOntapConfiguration = UpdateFileSystemOntapConfiguration'
     throughputCapacity :: Prelude.Maybe Prelude.Natural,
     automaticBackupRetentionDays :: Prelude.Maybe Prelude.Natural,
     -- | The ONTAP administrative password for the @fsxadmin@ user.
-    fsxAdminPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    fsxAdminPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The SSD IOPS (input\/output operations per second) configuration for an
     -- Amazon FSx for NetApp ONTAP file system. The default is 3 IOPS per GB of
     -- storage capacity, but you can provision additional IOPS per GB of
@@ -105,7 +106,7 @@ updateFileSystemOntapConfiguration_automaticBackupRetentionDays = Lens.lens (\Up
 
 -- | The ONTAP administrative password for the @fsxadmin@ user.
 updateFileSystemOntapConfiguration_fsxAdminPassword :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Text)
-updateFileSystemOntapConfiguration_fsxAdminPassword = Lens.lens (\UpdateFileSystemOntapConfiguration' {fsxAdminPassword} -> fsxAdminPassword) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {fsxAdminPassword = a} :: UpdateFileSystemOntapConfiguration) Prelude.. Lens.mapping Core._Sensitive
+updateFileSystemOntapConfiguration_fsxAdminPassword = Lens.lens (\UpdateFileSystemOntapConfiguration' {fsxAdminPassword} -> fsxAdminPassword) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {fsxAdminPassword = a} :: UpdateFileSystemOntapConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The SSD IOPS (input\/output operations per second) configuration for an
 -- Amazon FSx for NetApp ONTAP file system. The default is 3 IOPS per GB of
@@ -148,23 +149,23 @@ instance
       `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateFileSystemOntapConfiguration
   where
   toJSON UpdateFileSystemOntapConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WeeklyMaintenanceStartTime" Core..=)
+          [ ("WeeklyMaintenanceStartTime" Data..=)
               Prelude.<$> weeklyMaintenanceStartTime,
-            ("ThroughputCapacity" Core..=)
+            ("ThroughputCapacity" Data..=)
               Prelude.<$> throughputCapacity,
-            ("AutomaticBackupRetentionDays" Core..=)
+            ("AutomaticBackupRetentionDays" Data..=)
               Prelude.<$> automaticBackupRetentionDays,
-            ("FsxAdminPassword" Core..=)
+            ("FsxAdminPassword" Data..=)
               Prelude.<$> fsxAdminPassword,
-            ("DiskIopsConfiguration" Core..=)
+            ("DiskIopsConfiguration" Data..=)
               Prelude.<$> diskIopsConfiguration,
-            ("DailyAutomaticBackupStartTime" Core..=)
+            ("DailyAutomaticBackupStartTime" Data..=)
               Prelude.<$> dailyAutomaticBackupStartTime
           ]
       )

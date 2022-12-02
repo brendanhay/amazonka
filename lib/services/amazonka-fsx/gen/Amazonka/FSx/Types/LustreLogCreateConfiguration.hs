@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.LustreLogCreateConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.LustreAccessAuditLogLevel
 import qualified Amazonka.Prelude as Prelude
 
@@ -174,11 +175,11 @@ instance Prelude.NFData LustreLogCreateConfiguration where
     Prelude.rnf destination
       `Prelude.seq` Prelude.rnf level
 
-instance Core.ToJSON LustreLogCreateConfiguration where
+instance Data.ToJSON LustreLogCreateConfiguration where
   toJSON LustreLogCreateConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Destination" Core..=) Prelude.<$> destination,
-            Prelude.Just ("Level" Core..= level)
+          [ ("Destination" Data..=) Prelude.<$> destination,
+            Prelude.Just ("Level" Data..= level)
           ]
       )

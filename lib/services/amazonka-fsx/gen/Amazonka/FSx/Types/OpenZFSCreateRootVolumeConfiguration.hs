@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.OpenZFSCreateRootVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.OpenZFSDataCompressionType
 import Amazonka.FSx.Types.OpenZFSNfsExport
 import Amazonka.FSx.Types.OpenZFSUserOrGroupQuota
@@ -212,20 +213,20 @@ instance
       `Prelude.seq` Prelude.rnf userAndGroupQuotas
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     OpenZFSCreateRootVolumeConfiguration
   where
   toJSON OpenZFSCreateRootVolumeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RecordSizeKiB" Core..=) Prelude.<$> recordSizeKiB,
-            ("ReadOnly" Core..=) Prelude.<$> readOnly,
-            ("NfsExports" Core..=) Prelude.<$> nfsExports,
-            ("CopyTagsToSnapshots" Core..=)
+          [ ("RecordSizeKiB" Data..=) Prelude.<$> recordSizeKiB,
+            ("ReadOnly" Data..=) Prelude.<$> readOnly,
+            ("NfsExports" Data..=) Prelude.<$> nfsExports,
+            ("CopyTagsToSnapshots" Data..=)
               Prelude.<$> copyTagsToSnapshots,
-            ("DataCompressionType" Core..=)
+            ("DataCompressionType" Data..=)
               Prelude.<$> dataCompressionType,
-            ("UserAndGroupQuotas" Core..=)
+            ("UserAndGroupQuotas" Data..=)
               Prelude.<$> userAndGroupQuotas
           ]
       )

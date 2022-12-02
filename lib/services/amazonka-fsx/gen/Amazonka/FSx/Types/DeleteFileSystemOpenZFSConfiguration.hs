@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DeleteFileSystemOpenZFSConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.DeleteFileSystemOpenZFSOption
 import Amazonka.FSx.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -116,16 +117,16 @@ instance
       `Prelude.seq` Prelude.rnf finalBackupTags
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteFileSystemOpenZFSConfiguration
   where
   toJSON DeleteFileSystemOpenZFSConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SkipFinalBackup" Core..=)
+          [ ("SkipFinalBackup" Data..=)
               Prelude.<$> skipFinalBackup,
-            ("Options" Core..=) Prelude.<$> options,
-            ("FinalBackupTags" Core..=)
+            ("Options" Data..=) Prelude.<$> options,
+            ("FinalBackupTags" Data..=)
               Prelude.<$> finalBackupTags
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DataRepositoryFailureDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides detailed information about the data respository if its
@@ -53,13 +54,13 @@ newDataRepositoryFailureDetails =
 dataRepositoryFailureDetails_message :: Lens.Lens' DataRepositoryFailureDetails (Prelude.Maybe Prelude.Text)
 dataRepositoryFailureDetails_message = Lens.lens (\DataRepositoryFailureDetails' {message} -> message) (\s@DataRepositoryFailureDetails' {} a -> s {message = a} :: DataRepositoryFailureDetails)
 
-instance Core.FromJSON DataRepositoryFailureDetails where
+instance Data.FromJSON DataRepositoryFailureDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataRepositoryFailureDetails"
       ( \x ->
           DataRepositoryFailureDetails'
-            Prelude.<$> (x Core..:? "Message")
+            Prelude.<$> (x Data..:? "Message")
       )
 
 instance

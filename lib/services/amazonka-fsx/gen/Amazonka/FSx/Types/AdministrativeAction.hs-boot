@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.FSx.Types.AdministrativeAction where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data AdministrativeAction
@@ -24,7 +24,7 @@ instance Prelude.Show AdministrativeAction
 
 instance Prelude.Generic AdministrativeAction
 
-instance Core.FromJSON AdministrativeAction
+instance Data.FromJSON AdministrativeAction
 
 instance Prelude.NFData AdministrativeAction
 

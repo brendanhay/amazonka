@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.FileCacheDataRepositoryAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.FileCacheNFSConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -243,17 +244,17 @@ instance
       `Prelude.seq` Prelude.rnf dataRepositoryPath
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     FileCacheDataRepositoryAssociation
   where
   toJSON FileCacheDataRepositoryAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataRepositorySubdirectories" Core..=)
+          [ ("DataRepositorySubdirectories" Data..=)
               Prelude.<$> dataRepositorySubdirectories,
-            ("NFS" Core..=) Prelude.<$> nfs,
-            Prelude.Just ("FileCachePath" Core..= fileCachePath),
+            ("NFS" Data..=) Prelude.<$> nfs,
+            Prelude.Just ("FileCachePath" Data..= fileCachePath),
             Prelude.Just
-              ("DataRepositoryPath" Core..= dataRepositoryPath)
+              ("DataRepositoryPath" Data..= dataRepositoryPath)
           ]
       )

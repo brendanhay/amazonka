@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.SvmEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon FSx for NetApp ONTAP storage virtual machine (SVM) has four
@@ -63,14 +64,14 @@ svmEndpoint_dNSName = Lens.lens (\SvmEndpoint' {dNSName} -> dNSName) (\s@SvmEndp
 svmEndpoint_ipAddresses :: Lens.Lens' SvmEndpoint (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 svmEndpoint_ipAddresses = Lens.lens (\SvmEndpoint' {ipAddresses} -> ipAddresses) (\s@SvmEndpoint' {} a -> s {ipAddresses = a} :: SvmEndpoint) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SvmEndpoint where
+instance Data.FromJSON SvmEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SvmEndpoint"
       ( \x ->
           SvmEndpoint'
-            Prelude.<$> (x Core..:? "DNSName")
-            Prelude.<*> (x Core..:? "IpAddresses")
+            Prelude.<$> (x Data..:? "DNSName")
+            Prelude.<*> (x Data..:? "IpAddresses")
       )
 
 instance Prelude.Hashable SvmEndpoint where

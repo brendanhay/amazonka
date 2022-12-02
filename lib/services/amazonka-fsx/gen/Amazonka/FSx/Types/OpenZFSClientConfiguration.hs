@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.OpenZFSClientConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies who can mount an OpenZFS file system and the options available
@@ -108,14 +109,14 @@ openZFSClientConfiguration_clients = Lens.lens (\OpenZFSClientConfiguration' {cl
 openZFSClientConfiguration_options :: Lens.Lens' OpenZFSClientConfiguration (Prelude.NonEmpty Prelude.Text)
 openZFSClientConfiguration_options = Lens.lens (\OpenZFSClientConfiguration' {options} -> options) (\s@OpenZFSClientConfiguration' {} a -> s {options = a} :: OpenZFSClientConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON OpenZFSClientConfiguration where
+instance Data.FromJSON OpenZFSClientConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpenZFSClientConfiguration"
       ( \x ->
           OpenZFSClientConfiguration'
-            Prelude.<$> (x Core..: "Clients")
-            Prelude.<*> (x Core..: "Options")
+            Prelude.<$> (x Data..: "Clients")
+            Prelude.<*> (x Data..: "Options")
       )
 
 instance Prelude.Hashable OpenZFSClientConfiguration where
@@ -128,11 +129,11 @@ instance Prelude.NFData OpenZFSClientConfiguration where
     Prelude.rnf clients
       `Prelude.seq` Prelude.rnf options
 
-instance Core.ToJSON OpenZFSClientConfiguration where
+instance Data.ToJSON OpenZFSClientConfiguration where
   toJSON OpenZFSClientConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Clients" Core..= clients),
-            Prelude.Just ("Options" Core..= options)
+          [ Prelude.Just ("Clients" Data..= clients),
+            Prelude.Just ("Options" Data..= options)
           ]
       )

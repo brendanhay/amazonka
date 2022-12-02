@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.FileSystemEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon FSx for NetApp ONTAP file system has two endpoints that are
@@ -63,14 +64,14 @@ fileSystemEndpoint_dNSName = Lens.lens (\FileSystemEndpoint' {dNSName} -> dNSNam
 fileSystemEndpoint_ipAddresses :: Lens.Lens' FileSystemEndpoint (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 fileSystemEndpoint_ipAddresses = Lens.lens (\FileSystemEndpoint' {ipAddresses} -> ipAddresses) (\s@FileSystemEndpoint' {} a -> s {ipAddresses = a} :: FileSystemEndpoint) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON FileSystemEndpoint where
+instance Data.FromJSON FileSystemEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSystemEndpoint"
       ( \x ->
           FileSystemEndpoint'
-            Prelude.<$> (x Core..:? "DNSName")
-            Prelude.<*> (x Core..:? "IpAddresses")
+            Prelude.<$> (x Data..:? "DNSName")
+            Prelude.<*> (x Data..:? "IpAddresses")
       )
 
 instance Prelude.Hashable FileSystemEndpoint where

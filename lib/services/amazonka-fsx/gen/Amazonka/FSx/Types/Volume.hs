@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.Volume where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import {-# SOURCE #-} Amazonka.FSx.Types.AdministrativeAction
 import Amazonka.FSx.Types.LifecycleTransitionReason
 import Amazonka.FSx.Types.OntapVolumeConfiguration
@@ -64,7 +65,7 @@ data Volume = Volume'
     volumeType :: Prelude.Maybe VolumeType,
     fileSystemId :: Prelude.Maybe Prelude.Text,
     ontapConfiguration :: Prelude.Maybe OntapVolumeConfiguration,
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The system-generated, unique ID of the volume.
     volumeId :: Prelude.Maybe Prelude.Text,
     resourceARN :: Prelude.Maybe Prelude.Text,
@@ -188,7 +189,7 @@ volume_ontapConfiguration = Lens.lens (\Volume' {ontapConfiguration} -> ontapCon
 
 -- | Undocumented member.
 volume_creationTime :: Lens.Lens' Volume (Prelude.Maybe Prelude.UTCTime)
-volume_creationTime = Lens.lens (\Volume' {creationTime} -> creationTime) (\s@Volume' {} a -> s {creationTime = a} :: Volume) Prelude.. Lens.mapping Core._Time
+volume_creationTime = Lens.lens (\Volume' {creationTime} -> creationTime) (\s@Volume' {} a -> s {creationTime = a} :: Volume) Prelude.. Lens.mapping Data._Time
 
 -- | The system-generated, unique ID of the volume.
 volume_volumeId :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
@@ -202,26 +203,26 @@ volume_resourceARN = Lens.lens (\Volume' {resourceARN} -> resourceARN) (\s@Volum
 volume_lifecycleTransitionReason :: Lens.Lens' Volume (Prelude.Maybe LifecycleTransitionReason)
 volume_lifecycleTransitionReason = Lens.lens (\Volume' {lifecycleTransitionReason} -> lifecycleTransitionReason) (\s@Volume' {} a -> s {lifecycleTransitionReason = a} :: Volume)
 
-instance Core.FromJSON Volume where
+instance Data.FromJSON Volume where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Volume"
       ( \x ->
           Volume'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Lifecycle")
-            Prelude.<*> ( x Core..:? "AdministrativeActions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Lifecycle")
+            Prelude.<*> ( x Data..:? "AdministrativeActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "OpenZFSConfiguration")
-            Prelude.<*> (x Core..:? "VolumeType")
-            Prelude.<*> (x Core..:? "FileSystemId")
-            Prelude.<*> (x Core..:? "OntapConfiguration")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "VolumeId")
-            Prelude.<*> (x Core..:? "ResourceARN")
-            Prelude.<*> (x Core..:? "LifecycleTransitionReason")
+            Prelude.<*> (x Data..:? "OpenZFSConfiguration")
+            Prelude.<*> (x Data..:? "VolumeType")
+            Prelude.<*> (x Data..:? "FileSystemId")
+            Prelude.<*> (x Data..:? "OntapConfiguration")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "VolumeId")
+            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "LifecycleTransitionReason")
       )
 
 instance Prelude.Hashable Volume where

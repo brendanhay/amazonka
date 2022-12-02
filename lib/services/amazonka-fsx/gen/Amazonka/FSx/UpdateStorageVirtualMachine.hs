@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -56,7 +57,7 @@ data UpdateStorageVirtualMachine = UpdateStorageVirtualMachine'
     activeDirectoryConfiguration :: Prelude.Maybe UpdateSvmActiveDirectoryConfiguration,
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Enter a new SvmAdminPassword if you are updating it.
-    svmAdminPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    svmAdminPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the SVM that you want to update, in the format
     -- @svm-0123456789abcdef0@.
     storageVirtualMachineId :: Prelude.Text
@@ -106,7 +107,7 @@ updateStorageVirtualMachine_clientRequestToken = Lens.lens (\UpdateStorageVirtua
 
 -- | Enter a new SvmAdminPassword if you are updating it.
 updateStorageVirtualMachine_svmAdminPassword :: Lens.Lens' UpdateStorageVirtualMachine (Prelude.Maybe Prelude.Text)
-updateStorageVirtualMachine_svmAdminPassword = Lens.lens (\UpdateStorageVirtualMachine' {svmAdminPassword} -> svmAdminPassword) (\s@UpdateStorageVirtualMachine' {} a -> s {svmAdminPassword = a} :: UpdateStorageVirtualMachine) Prelude.. Lens.mapping Core._Sensitive
+updateStorageVirtualMachine_svmAdminPassword = Lens.lens (\UpdateStorageVirtualMachine' {svmAdminPassword} -> svmAdminPassword) (\s@UpdateStorageVirtualMachine' {} a -> s {svmAdminPassword = a} :: UpdateStorageVirtualMachine) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the SVM that you want to update, in the format
 -- @svm-0123456789abcdef0@.
@@ -123,7 +124,7 @@ instance Core.AWSRequest UpdateStorageVirtualMachine where
     Response.receiveJSON
       ( \s h x ->
           UpdateStorageVirtualMachineResponse'
-            Prelude.<$> (x Core..?> "StorageVirtualMachine")
+            Prelude.<$> (x Data..?> "StorageVirtualMachine")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,42 +143,42 @@ instance Prelude.NFData UpdateStorageVirtualMachine where
       `Prelude.seq` Prelude.rnf svmAdminPassword
       `Prelude.seq` Prelude.rnf storageVirtualMachineId
 
-instance Core.ToHeaders UpdateStorageVirtualMachine where
+instance Data.ToHeaders UpdateStorageVirtualMachine where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.UpdateStorageVirtualMachine" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.UpdateStorageVirtualMachine" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateStorageVirtualMachine where
+instance Data.ToJSON UpdateStorageVirtualMachine where
   toJSON UpdateStorageVirtualMachine' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ActiveDirectoryConfiguration" Core..=)
+          [ ("ActiveDirectoryConfiguration" Data..=)
               Prelude.<$> activeDirectoryConfiguration,
-            ("ClientRequestToken" Core..=)
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("SvmAdminPassword" Core..=)
+            ("SvmAdminPassword" Data..=)
               Prelude.<$> svmAdminPassword,
             Prelude.Just
               ( "StorageVirtualMachineId"
-                  Core..= storageVirtualMachineId
+                  Data..= storageVirtualMachineId
               )
           ]
       )
 
-instance Core.ToPath UpdateStorageVirtualMachine where
+instance Data.ToPath UpdateStorageVirtualMachine where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateStorageVirtualMachine where
+instance Data.ToQuery UpdateStorageVirtualMachine where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStorageVirtualMachineResponse' smart constructor.

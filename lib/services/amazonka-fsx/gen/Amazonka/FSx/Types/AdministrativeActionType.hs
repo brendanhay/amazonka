@@ -32,6 +32,7 @@ module Amazonka.FSx.Types.AdministrativeActionType
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the type of administrative action, as follows:
@@ -83,7 +84,7 @@ import qualified Amazonka.Prelude as Prelude
 --     (NFS) V3 locks on an Amazon FSx for OpenZFS file system.
 newtype AdministrativeActionType = AdministrativeActionType'
   { fromAdministrativeActionType ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -95,18 +96,18 @@ newtype AdministrativeActionType = AdministrativeActionType'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern AdministrativeActionType_FILE_SYSTEM_ALIAS_ASSOCIATION :: AdministrativeActionType

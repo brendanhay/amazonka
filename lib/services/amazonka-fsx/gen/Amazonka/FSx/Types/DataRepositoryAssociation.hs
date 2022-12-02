@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DataRepositoryAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.DataRepositoryFailureDetails
 import Amazonka.FSx.Types.DataRepositoryLifecycle
 import Amazonka.FSx.Types.NFSDataRepositoryConfiguration
@@ -166,7 +167,7 @@ data DataRepositoryAssociation = DataRepositoryAssociation'
     -- | The globally unique ID of the Amazon File Cache resource.
     fileCacheId :: Prelude.Maybe Prelude.Text,
     failureDetails :: Prelude.Maybe DataRepositoryFailureDetails,
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     resourceARN :: Prelude.Maybe Prelude.Text,
     -- | The system-generated, unique ID of the data repository association.
     associationId :: Prelude.Maybe Prelude.Text
@@ -482,7 +483,7 @@ dataRepositoryAssociation_failureDetails = Lens.lens (\DataRepositoryAssociation
 
 -- | Undocumented member.
 dataRepositoryAssociation_creationTime :: Lens.Lens' DataRepositoryAssociation (Prelude.Maybe Prelude.UTCTime)
-dataRepositoryAssociation_creationTime = Lens.lens (\DataRepositoryAssociation' {creationTime} -> creationTime) (\s@DataRepositoryAssociation' {} a -> s {creationTime = a} :: DataRepositoryAssociation) Prelude.. Lens.mapping Core._Time
+dataRepositoryAssociation_creationTime = Lens.lens (\DataRepositoryAssociation' {creationTime} -> creationTime) (\s@DataRepositoryAssociation' {} a -> s {creationTime = a} :: DataRepositoryAssociation) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 dataRepositoryAssociation_resourceARN :: Lens.Lens' DataRepositoryAssociation (Prelude.Maybe Prelude.Text)
@@ -492,30 +493,30 @@ dataRepositoryAssociation_resourceARN = Lens.lens (\DataRepositoryAssociation' {
 dataRepositoryAssociation_associationId :: Lens.Lens' DataRepositoryAssociation (Prelude.Maybe Prelude.Text)
 dataRepositoryAssociation_associationId = Lens.lens (\DataRepositoryAssociation' {associationId} -> associationId) (\s@DataRepositoryAssociation' {} a -> s {associationId = a} :: DataRepositoryAssociation)
 
-instance Core.FromJSON DataRepositoryAssociation where
+instance Data.FromJSON DataRepositoryAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataRepositoryAssociation"
       ( \x ->
           DataRepositoryAssociation'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> ( x Core..:? "DataRepositorySubdirectories"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> ( x Data..:? "DataRepositorySubdirectories"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Lifecycle")
-            Prelude.<*> (x Core..:? "S3")
-            Prelude.<*> (x Core..:? "ImportedFileChunkSize")
-            Prelude.<*> (x Core..:? "FileSystemPath")
-            Prelude.<*> (x Core..:? "BatchImportMetaDataOnCreate")
-            Prelude.<*> (x Core..:? "DataRepositoryPath")
-            Prelude.<*> (x Core..:? "FileCachePath")
-            Prelude.<*> (x Core..:? "NFS")
-            Prelude.<*> (x Core..:? "FileSystemId")
-            Prelude.<*> (x Core..:? "FileCacheId")
-            Prelude.<*> (x Core..:? "FailureDetails")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ResourceARN")
-            Prelude.<*> (x Core..:? "AssociationId")
+            Prelude.<*> (x Data..:? "Lifecycle")
+            Prelude.<*> (x Data..:? "S3")
+            Prelude.<*> (x Data..:? "ImportedFileChunkSize")
+            Prelude.<*> (x Data..:? "FileSystemPath")
+            Prelude.<*> (x Data..:? "BatchImportMetaDataOnCreate")
+            Prelude.<*> (x Data..:? "DataRepositoryPath")
+            Prelude.<*> (x Data..:? "FileCachePath")
+            Prelude.<*> (x Data..:? "NFS")
+            Prelude.<*> (x Data..:? "FileSystemId")
+            Prelude.<*> (x Data..:? "FileCacheId")
+            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "AssociationId")
       )
 
 instance Prelude.Hashable DataRepositoryAssociation where

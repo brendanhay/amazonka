@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.CreateFileSystemOpenZFSConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.DiskIopsConfiguration
 import Amazonka.FSx.Types.OpenZFSCreateRootVolumeConfiguration
 import Amazonka.FSx.Types.OpenZFSDeploymentType
@@ -230,29 +231,29 @@ instance
       `Prelude.seq` Prelude.rnf throughputCapacity
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateFileSystemOpenZFSConfiguration
   where
   toJSON CreateFileSystemOpenZFSConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CopyTagsToBackups" Core..=)
+          [ ("CopyTagsToBackups" Data..=)
               Prelude.<$> copyTagsToBackups,
-            ("WeeklyMaintenanceStartTime" Core..=)
+            ("WeeklyMaintenanceStartTime" Data..=)
               Prelude.<$> weeklyMaintenanceStartTime,
-            ("AutomaticBackupRetentionDays" Core..=)
+            ("AutomaticBackupRetentionDays" Data..=)
               Prelude.<$> automaticBackupRetentionDays,
-            ("DiskIopsConfiguration" Core..=)
+            ("DiskIopsConfiguration" Data..=)
               Prelude.<$> diskIopsConfiguration,
-            ("DailyAutomaticBackupStartTime" Core..=)
+            ("DailyAutomaticBackupStartTime" Data..=)
               Prelude.<$> dailyAutomaticBackupStartTime,
-            ("CopyTagsToVolumes" Core..=)
+            ("CopyTagsToVolumes" Data..=)
               Prelude.<$> copyTagsToVolumes,
-            ("RootVolumeConfiguration" Core..=)
+            ("RootVolumeConfiguration" Data..=)
               Prelude.<$> rootVolumeConfiguration,
             Prelude.Just
-              ("DeploymentType" Core..= deploymentType),
+              ("DeploymentType" Data..= deploymentType),
             Prelude.Just
-              ("ThroughputCapacity" Core..= throughputCapacity)
+              ("ThroughputCapacity" Data..= throughputCapacity)
           ]
       )

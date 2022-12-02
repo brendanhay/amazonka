@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,9 +148,9 @@ instance Core.AWSRequest UpdateLoggingConfiguration where
     Response.receiveJSON
       ( \s h x ->
           UpdateLoggingConfigurationResponse'
-            Prelude.<$> (x Core..?> "FirewallArn")
-            Prelude.<*> (x Core..?> "FirewallName")
-            Prelude.<*> (x Core..?> "LoggingConfiguration")
+            Prelude.<$> (x Data..?> "FirewallArn")
+            Prelude.<*> (x Data..?> "FirewallName")
+            Prelude.<*> (x Data..?> "LoggingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,36 +166,36 @@ instance Prelude.NFData UpdateLoggingConfiguration where
       `Prelude.seq` Prelude.rnf firewallName
       `Prelude.seq` Prelude.rnf loggingConfiguration
 
-instance Core.ToHeaders UpdateLoggingConfiguration where
+instance Data.ToHeaders UpdateLoggingConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.UpdateLoggingConfiguration" ::
+              Data.=# ( "NetworkFirewall_20201112.UpdateLoggingConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLoggingConfiguration where
+instance Data.ToJSON UpdateLoggingConfiguration where
   toJSON UpdateLoggingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FirewallArn" Core..=) Prelude.<$> firewallArn,
-            ("FirewallName" Core..=) Prelude.<$> firewallName,
-            ("LoggingConfiguration" Core..=)
+          [ ("FirewallArn" Data..=) Prelude.<$> firewallArn,
+            ("FirewallName" Data..=) Prelude.<$> firewallName,
+            ("LoggingConfiguration" Data..=)
               Prelude.<$> loggingConfiguration
           ]
       )
 
-instance Core.ToPath UpdateLoggingConfiguration where
+instance Data.ToPath UpdateLoggingConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateLoggingConfiguration where
+instance Data.ToQuery UpdateLoggingConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLoggingConfigurationResponse' smart constructor.

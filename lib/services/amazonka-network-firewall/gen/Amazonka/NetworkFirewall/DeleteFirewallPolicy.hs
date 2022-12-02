@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance Core.AWSRequest DeleteFirewallPolicy where
       ( \s h x ->
           DeleteFirewallPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "FirewallPolicyResponse")
+            Prelude.<*> (x Data..:> "FirewallPolicyResponse")
       )
 
 instance Prelude.Hashable DeleteFirewallPolicy where
@@ -123,36 +124,36 @@ instance Prelude.NFData DeleteFirewallPolicy where
     Prelude.rnf firewallPolicyName
       `Prelude.seq` Prelude.rnf firewallPolicyArn
 
-instance Core.ToHeaders DeleteFirewallPolicy where
+instance Data.ToHeaders DeleteFirewallPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.DeleteFirewallPolicy" ::
+              Data.=# ( "NetworkFirewall_20201112.DeleteFirewallPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteFirewallPolicy where
+instance Data.ToJSON DeleteFirewallPolicy where
   toJSON DeleteFirewallPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FirewallPolicyName" Core..=)
+          [ ("FirewallPolicyName" Data..=)
               Prelude.<$> firewallPolicyName,
-            ("FirewallPolicyArn" Core..=)
+            ("FirewallPolicyArn" Data..=)
               Prelude.<$> firewallPolicyArn
           ]
       )
 
-instance Core.ToPath DeleteFirewallPolicy where
+instance Data.ToPath DeleteFirewallPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteFirewallPolicy where
+instance Data.ToQuery DeleteFirewallPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFirewallPolicyResponse' smart constructor.

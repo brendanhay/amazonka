@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,14 +147,14 @@ instance Core.AWSRequest DescribeRuleGroupMetadata where
     Response.receiveJSON
       ( \s h x ->
           DescribeRuleGroupMetadataResponse'
-            Prelude.<$> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "StatefulRuleOptions")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "Capacity")
+            Prelude.<$> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "StatefulRuleOptions")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "Capacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "RuleGroupArn")
-            Prelude.<*> (x Core..:> "RuleGroupName")
+            Prelude.<*> (x Data..:> "RuleGroupArn")
+            Prelude.<*> (x Data..:> "RuleGroupName")
       )
 
 instance Prelude.Hashable DescribeRuleGroupMetadata where
@@ -168,35 +169,35 @@ instance Prelude.NFData DescribeRuleGroupMetadata where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf ruleGroupArn
 
-instance Core.ToHeaders DescribeRuleGroupMetadata where
+instance Data.ToHeaders DescribeRuleGroupMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.DescribeRuleGroupMetadata" ::
+              Data.=# ( "NetworkFirewall_20201112.DescribeRuleGroupMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRuleGroupMetadata where
+instance Data.ToJSON DescribeRuleGroupMetadata where
   toJSON DescribeRuleGroupMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RuleGroupName" Core..=) Prelude.<$> ruleGroupName,
-            ("Type" Core..=) Prelude.<$> type',
-            ("RuleGroupArn" Core..=) Prelude.<$> ruleGroupArn
+          [ ("RuleGroupName" Data..=) Prelude.<$> ruleGroupName,
+            ("Type" Data..=) Prelude.<$> type',
+            ("RuleGroupArn" Data..=) Prelude.<$> ruleGroupArn
           ]
       )
 
-instance Core.ToPath DescribeRuleGroupMetadata where
+instance Data.ToPath DescribeRuleGroupMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRuleGroupMetadata where
+instance Data.ToQuery DescribeRuleGroupMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRuleGroupMetadataResponse' smart constructor.
@@ -212,7 +213,7 @@ data DescribeRuleGroupMetadataResponse = DescribeRuleGroupMetadataResponse'
     -- | Returns the metadata objects for the specified rule group.
     description :: Prelude.Maybe Prelude.Text,
     -- | The last time that the rule group was changed.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum operating resources that this rule group can use. Rule group
     -- capacity is fixed at creation. When you update a rule group, you are
     -- limited to this capacity. When you reference a rule group from a
@@ -323,7 +324,7 @@ describeRuleGroupMetadataResponse_description = Lens.lens (\DescribeRuleGroupMet
 
 -- | The last time that the rule group was changed.
 describeRuleGroupMetadataResponse_lastModifiedTime :: Lens.Lens' DescribeRuleGroupMetadataResponse (Prelude.Maybe Prelude.UTCTime)
-describeRuleGroupMetadataResponse_lastModifiedTime = Lens.lens (\DescribeRuleGroupMetadataResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeRuleGroupMetadataResponse' {} a -> s {lastModifiedTime = a} :: DescribeRuleGroupMetadataResponse) Prelude.. Lens.mapping Core._Time
+describeRuleGroupMetadataResponse_lastModifiedTime = Lens.lens (\DescribeRuleGroupMetadataResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeRuleGroupMetadataResponse' {} a -> s {lastModifiedTime = a} :: DescribeRuleGroupMetadataResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum operating resources that this rule group can use. Rule group
 -- capacity is fixed at creation. When you update a rule group, you are

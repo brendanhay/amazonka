@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.RulesSourceList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.GeneratedRulesType
 import Amazonka.NetworkFirewall.Types.TargetType
 import qualified Amazonka.Prelude as Prelude
@@ -119,15 +120,15 @@ rulesSourceList_targetTypes = Lens.lens (\RulesSourceList' {targetTypes} -> targ
 rulesSourceList_generatedRulesType :: Lens.Lens' RulesSourceList GeneratedRulesType
 rulesSourceList_generatedRulesType = Lens.lens (\RulesSourceList' {generatedRulesType} -> generatedRulesType) (\s@RulesSourceList' {} a -> s {generatedRulesType = a} :: RulesSourceList)
 
-instance Core.FromJSON RulesSourceList where
+instance Data.FromJSON RulesSourceList where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RulesSourceList"
       ( \x ->
           RulesSourceList'
-            Prelude.<$> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TargetTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "GeneratedRulesType")
+            Prelude.<$> (x Data..:? "Targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TargetTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "GeneratedRulesType")
       )
 
 instance Prelude.Hashable RulesSourceList where
@@ -142,13 +143,13 @@ instance Prelude.NFData RulesSourceList where
       `Prelude.seq` Prelude.rnf targetTypes
       `Prelude.seq` Prelude.rnf generatedRulesType
 
-instance Core.ToJSON RulesSourceList where
+instance Data.ToJSON RulesSourceList where
   toJSON RulesSourceList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Targets" Core..= targets),
-            Prelude.Just ("TargetTypes" Core..= targetTypes),
+          [ Prelude.Just ("Targets" Data..= targets),
+            Prelude.Just ("TargetTypes" Data..= targetTypes),
             Prelude.Just
-              ("GeneratedRulesType" Core..= generatedRulesType)
+              ("GeneratedRulesType" Data..= generatedRulesType)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.IPSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of IP addresses and address ranges, in CIDR notation. This is
@@ -50,13 +51,13 @@ newIPSet = IPSet' {definition = Prelude.mempty}
 iPSet_definition :: Lens.Lens' IPSet [Prelude.Text]
 iPSet_definition = Lens.lens (\IPSet' {definition} -> definition) (\s@IPSet' {} a -> s {definition = a} :: IPSet) Prelude.. Lens.coerced
 
-instance Core.FromJSON IPSet where
+instance Data.FromJSON IPSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IPSet"
       ( \x ->
           IPSet'
-            Prelude.<$> (x Core..:? "Definition" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Definition" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable IPSet where
@@ -66,9 +67,9 @@ instance Prelude.Hashable IPSet where
 instance Prelude.NFData IPSet where
   rnf IPSet' {..} = Prelude.rnf definition
 
-instance Core.ToJSON IPSet where
+instance Data.ToJSON IPSet where
   toJSON IPSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Definition" Core..= definition)]
+          [Prelude.Just ("Definition" Data..= definition)]
       )

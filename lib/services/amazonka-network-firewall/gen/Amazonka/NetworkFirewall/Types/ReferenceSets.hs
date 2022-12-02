@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.ReferenceSets where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.IPSetReference
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,14 +52,14 @@ newReferenceSets =
 referenceSets_iPSetReferences :: Lens.Lens' ReferenceSets (Prelude.Maybe (Prelude.HashMap Prelude.Text IPSetReference))
 referenceSets_iPSetReferences = Lens.lens (\ReferenceSets' {iPSetReferences} -> iPSetReferences) (\s@ReferenceSets' {} a -> s {iPSetReferences = a} :: ReferenceSets) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ReferenceSets where
+instance Data.FromJSON ReferenceSets where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReferenceSets"
       ( \x ->
           ReferenceSets'
-            Prelude.<$> ( x Core..:? "IPSetReferences"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "IPSetReferences"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -69,11 +70,11 @@ instance Prelude.Hashable ReferenceSets where
 instance Prelude.NFData ReferenceSets where
   rnf ReferenceSets' {..} = Prelude.rnf iPSetReferences
 
-instance Core.ToJSON ReferenceSets where
+instance Data.ToJSON ReferenceSets where
   toJSON ReferenceSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IPSetReferences" Core..=)
+          [ ("IPSetReferences" Data..=)
               Prelude.<$> iPSetReferences
           ]
       )

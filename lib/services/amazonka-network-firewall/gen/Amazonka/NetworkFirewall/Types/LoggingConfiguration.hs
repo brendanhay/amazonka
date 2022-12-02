@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.LoggingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.LogDestinationConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,14 +58,14 @@ newLoggingConfiguration =
 loggingConfiguration_logDestinationConfigs :: Lens.Lens' LoggingConfiguration [LogDestinationConfig]
 loggingConfiguration_logDestinationConfigs = Lens.lens (\LoggingConfiguration' {logDestinationConfigs} -> logDestinationConfigs) (\s@LoggingConfiguration' {} a -> s {logDestinationConfigs = a} :: LoggingConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON LoggingConfiguration where
+instance Data.FromJSON LoggingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            Prelude.<$> ( x Core..:? "LogDestinationConfigs"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "LogDestinationConfigs"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -76,13 +77,13 @@ instance Prelude.NFData LoggingConfiguration where
   rnf LoggingConfiguration' {..} =
     Prelude.rnf logDestinationConfigs
 
-instance Core.ToJSON LoggingConfiguration where
+instance Data.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "LogDestinationConfigs"
-                  Core..= logDestinationConfigs
+                  Data..= logDestinationConfigs
               )
           ]
       )

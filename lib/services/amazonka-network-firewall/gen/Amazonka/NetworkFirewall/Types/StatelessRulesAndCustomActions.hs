@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.StatelessRulesAndCustomActions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.CustomAction
 import Amazonka.NetworkFirewall.Types.StatelessRule
 import qualified Amazonka.Prelude as Prelude
@@ -77,15 +78,15 @@ statelessRulesAndCustomActions_customActions = Lens.lens (\StatelessRulesAndCust
 statelessRulesAndCustomActions_statelessRules :: Lens.Lens' StatelessRulesAndCustomActions [StatelessRule]
 statelessRulesAndCustomActions_statelessRules = Lens.lens (\StatelessRulesAndCustomActions' {statelessRules} -> statelessRules) (\s@StatelessRulesAndCustomActions' {} a -> s {statelessRules = a} :: StatelessRulesAndCustomActions) Prelude.. Lens.coerced
 
-instance Core.FromJSON StatelessRulesAndCustomActions where
+instance Data.FromJSON StatelessRulesAndCustomActions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatelessRulesAndCustomActions"
       ( \x ->
           StatelessRulesAndCustomActions'
-            Prelude.<$> (x Core..:? "CustomActions" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "StatelessRules"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "CustomActions" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "StatelessRules"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -107,12 +108,12 @@ instance
     Prelude.rnf customActions
       `Prelude.seq` Prelude.rnf statelessRules
 
-instance Core.ToJSON StatelessRulesAndCustomActions where
+instance Data.ToJSON StatelessRulesAndCustomActions where
   toJSON StatelessRulesAndCustomActions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomActions" Core..=) Prelude.<$> customActions,
+          [ ("CustomActions" Data..=) Prelude.<$> customActions,
             Prelude.Just
-              ("StatelessRules" Core..= statelessRules)
+              ("StatelessRules" Data..= statelessRules)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.SyncState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.Attachment
 import Amazonka.NetworkFirewall.Types.PerObjectStatus
 import qualified Amazonka.Prelude as Prelude
@@ -101,14 +102,14 @@ syncState_attachment = Lens.lens (\SyncState' {attachment} -> attachment) (\s@Sy
 syncState_config :: Lens.Lens' SyncState (Prelude.Maybe (Prelude.HashMap Prelude.Text PerObjectStatus))
 syncState_config = Lens.lens (\SyncState' {config} -> config) (\s@SyncState' {} a -> s {config = a} :: SyncState) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SyncState where
+instance Data.FromJSON SyncState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SyncState"
       ( \x ->
           SyncState'
-            Prelude.<$> (x Core..:? "Attachment")
-            Prelude.<*> (x Core..:? "Config" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Attachment")
+            Prelude.<*> (x Data..:? "Config" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SyncState where

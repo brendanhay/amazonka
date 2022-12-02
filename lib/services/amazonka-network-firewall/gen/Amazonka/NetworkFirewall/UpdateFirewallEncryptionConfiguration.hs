@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,10 +174,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateFirewallEncryptionConfigurationResponse'
-            Prelude.<$> (x Core..?> "UpdateToken")
-              Prelude.<*> (x Core..?> "FirewallArn")
-              Prelude.<*> (x Core..?> "EncryptionConfiguration")
-              Prelude.<*> (x Core..?> "FirewallName")
+            Prelude.<$> (x Data..?> "UpdateToken")
+              Prelude.<*> (x Data..?> "FirewallArn")
+              Prelude.<*> (x Data..?> "EncryptionConfiguration")
+              Prelude.<*> (x Data..?> "FirewallName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,46 +204,46 @@ instance
       `Prelude.seq` Prelude.rnf firewallName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateFirewallEncryptionConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.UpdateFirewallEncryptionConfiguration" ::
+              Data.=# ( "NetworkFirewall_20201112.UpdateFirewallEncryptionConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateFirewallEncryptionConfiguration
   where
   toJSON UpdateFirewallEncryptionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpdateToken" Core..=) Prelude.<$> updateToken,
-            ("FirewallArn" Core..=) Prelude.<$> firewallArn,
-            ("EncryptionConfiguration" Core..=)
+          [ ("UpdateToken" Data..=) Prelude.<$> updateToken,
+            ("FirewallArn" Data..=) Prelude.<$> firewallArn,
+            ("EncryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration,
-            ("FirewallName" Core..=) Prelude.<$> firewallName
+            ("FirewallName" Data..=) Prelude.<$> firewallName
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateFirewallEncryptionConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateFirewallEncryptionConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

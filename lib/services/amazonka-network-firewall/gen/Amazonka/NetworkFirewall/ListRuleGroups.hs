@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -185,8 +186,8 @@ instance Core.AWSRequest ListRuleGroups where
     Response.receiveJSON
       ( \s h x ->
           ListRuleGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RuleGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RuleGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,37 +207,37 @@ instance Prelude.NFData ListRuleGroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf scope
 
-instance Core.ToHeaders ListRuleGroups where
+instance Data.ToHeaders ListRuleGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.ListRuleGroups" ::
+              Data.=# ( "NetworkFirewall_20201112.ListRuleGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRuleGroups where
+instance Data.ToJSON ListRuleGroups where
   toJSON ListRuleGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Type" Core..=) Prelude.<$> type',
-            ("ManagedType" Core..=) Prelude.<$> managedType,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Scope" Core..=) Prelude.<$> scope
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Type" Data..=) Prelude.<$> type',
+            ("ManagedType" Data..=) Prelude.<$> managedType,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("Scope" Data..=) Prelude.<$> scope
           ]
       )
 
-instance Core.ToPath ListRuleGroups where
+instance Data.ToPath ListRuleGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRuleGroups where
+instance Data.ToQuery ListRuleGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRuleGroupsResponse' smart constructor.

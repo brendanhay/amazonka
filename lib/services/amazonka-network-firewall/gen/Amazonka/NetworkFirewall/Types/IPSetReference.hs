@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.IPSetReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures one or more IP set references for a Suricata-compatible rule
@@ -67,13 +68,13 @@ newIPSetReference =
 iPSetReference_referenceArn :: Lens.Lens' IPSetReference (Prelude.Maybe Prelude.Text)
 iPSetReference_referenceArn = Lens.lens (\IPSetReference' {referenceArn} -> referenceArn) (\s@IPSetReference' {} a -> s {referenceArn = a} :: IPSetReference)
 
-instance Core.FromJSON IPSetReference where
+instance Data.FromJSON IPSetReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IPSetReference"
       ( \x ->
           IPSetReference'
-            Prelude.<$> (x Core..:? "ReferenceArn")
+            Prelude.<$> (x Data..:? "ReferenceArn")
       )
 
 instance Prelude.Hashable IPSetReference where
@@ -83,9 +84,9 @@ instance Prelude.Hashable IPSetReference where
 instance Prelude.NFData IPSetReference where
   rnf IPSetReference' {..} = Prelude.rnf referenceArn
 
-instance Core.ToJSON IPSetReference where
+instance Data.ToJSON IPSetReference where
   toJSON IPSetReference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("ReferenceArn" Core..=) Prelude.<$> referenceArn]
+          [("ReferenceArn" Data..=) Prelude.<$> referenceArn]
       )

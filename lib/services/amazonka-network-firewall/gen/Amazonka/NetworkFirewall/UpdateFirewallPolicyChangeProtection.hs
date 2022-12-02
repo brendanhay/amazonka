@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -202,10 +203,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateFirewallPolicyChangeProtectionResponse'
-            Prelude.<$> (x Core..?> "UpdateToken")
-              Prelude.<*> (x Core..?> "FirewallPolicyChangeProtection")
-              Prelude.<*> (x Core..?> "FirewallArn")
-              Prelude.<*> (x Core..?> "FirewallName")
+            Prelude.<$> (x Data..?> "UpdateToken")
+              Prelude.<*> (x Data..?> "FirewallPolicyChangeProtection")
+              Prelude.<*> (x Data..?> "FirewallArn")
+              Prelude.<*> (x Data..?> "FirewallName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,48 +233,48 @@ instance
       `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateFirewallPolicyChangeProtection
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.UpdateFirewallPolicyChangeProtection" ::
+              Data.=# ( "NetworkFirewall_20201112.UpdateFirewallPolicyChangeProtection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateFirewallPolicyChangeProtection
   where
   toJSON UpdateFirewallPolicyChangeProtection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpdateToken" Core..=) Prelude.<$> updateToken,
-            ("FirewallArn" Core..=) Prelude.<$> firewallArn,
-            ("FirewallName" Core..=) Prelude.<$> firewallName,
+          [ ("UpdateToken" Data..=) Prelude.<$> updateToken,
+            ("FirewallArn" Data..=) Prelude.<$> firewallArn,
+            ("FirewallName" Data..=) Prelude.<$> firewallName,
             Prelude.Just
               ( "FirewallPolicyChangeProtection"
-                  Core..= firewallPolicyChangeProtection
+                  Data..= firewallPolicyChangeProtection
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateFirewallPolicyChangeProtection
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateFirewallPolicyChangeProtection
   where
   toQuery = Prelude.const Prelude.mempty

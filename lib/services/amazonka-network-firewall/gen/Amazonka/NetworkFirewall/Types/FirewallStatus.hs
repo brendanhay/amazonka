@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.FirewallStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.CapacityUsageSummary
 import Amazonka.NetworkFirewall.Types.ConfigurationSyncState
 import Amazonka.NetworkFirewall.Types.FirewallStatusValue
@@ -161,16 +162,16 @@ firewallStatus_status = Lens.lens (\FirewallStatus' {status} -> status) (\s@Fire
 firewallStatus_configurationSyncStateSummary :: Lens.Lens' FirewallStatus ConfigurationSyncState
 firewallStatus_configurationSyncStateSummary = Lens.lens (\FirewallStatus' {configurationSyncStateSummary} -> configurationSyncStateSummary) (\s@FirewallStatus' {} a -> s {configurationSyncStateSummary = a} :: FirewallStatus)
 
-instance Core.FromJSON FirewallStatus where
+instance Data.FromJSON FirewallStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallStatus"
       ( \x ->
           FirewallStatus'
-            Prelude.<$> (x Core..:? "SyncStates" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CapacityUsageSummary")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "ConfigurationSyncStateSummary")
+            Prelude.<$> (x Data..:? "SyncStates" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CapacityUsageSummary")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "ConfigurationSyncStateSummary")
       )
 
 instance Prelude.Hashable FirewallStatus where

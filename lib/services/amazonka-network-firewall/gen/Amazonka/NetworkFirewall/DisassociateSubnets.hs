@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -181,10 +182,10 @@ instance Core.AWSRequest DisassociateSubnets where
     Response.receiveJSON
       ( \s h x ->
           DisassociateSubnetsResponse'
-            Prelude.<$> (x Core..?> "UpdateToken")
-            Prelude.<*> (x Core..?> "FirewallArn")
-            Prelude.<*> (x Core..?> "SubnetMappings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "FirewallName")
+            Prelude.<$> (x Data..?> "UpdateToken")
+            Prelude.<*> (x Data..?> "FirewallArn")
+            Prelude.<*> (x Data..?> "SubnetMappings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "FirewallName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,36 +203,36 @@ instance Prelude.NFData DisassociateSubnets where
       `Prelude.seq` Prelude.rnf firewallName
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToHeaders DisassociateSubnets where
+instance Data.ToHeaders DisassociateSubnets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.DisassociateSubnets" ::
+              Data.=# ( "NetworkFirewall_20201112.DisassociateSubnets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateSubnets where
+instance Data.ToJSON DisassociateSubnets where
   toJSON DisassociateSubnets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpdateToken" Core..=) Prelude.<$> updateToken,
-            ("FirewallArn" Core..=) Prelude.<$> firewallArn,
-            ("FirewallName" Core..=) Prelude.<$> firewallName,
-            Prelude.Just ("SubnetIds" Core..= subnetIds)
+          [ ("UpdateToken" Data..=) Prelude.<$> updateToken,
+            ("FirewallArn" Data..=) Prelude.<$> firewallArn,
+            ("FirewallName" Data..=) Prelude.<$> firewallName,
+            Prelude.Just ("SubnetIds" Data..= subnetIds)
           ]
       )
 
-instance Core.ToPath DisassociateSubnets where
+instance Data.ToPath DisassociateSubnets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateSubnets where
+instance Data.ToQuery DisassociateSubnets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateSubnetsResponse' smart constructor.

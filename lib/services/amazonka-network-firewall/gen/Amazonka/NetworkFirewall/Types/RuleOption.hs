@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.RuleOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional settings for a stateful rule. This is part of the
@@ -62,14 +63,14 @@ ruleOption_settings = Lens.lens (\RuleOption' {settings} -> settings) (\s@RuleOp
 ruleOption_keyword :: Lens.Lens' RuleOption Prelude.Text
 ruleOption_keyword = Lens.lens (\RuleOption' {keyword} -> keyword) (\s@RuleOption' {} a -> s {keyword = a} :: RuleOption)
 
-instance Core.FromJSON RuleOption where
+instance Data.FromJSON RuleOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleOption"
       ( \x ->
           RuleOption'
-            Prelude.<$> (x Core..:? "Settings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Keyword")
+            Prelude.<$> (x Data..:? "Settings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Keyword")
       )
 
 instance Prelude.Hashable RuleOption where
@@ -82,11 +83,11 @@ instance Prelude.NFData RuleOption where
     Prelude.rnf settings
       `Prelude.seq` Prelude.rnf keyword
 
-instance Core.ToJSON RuleOption where
+instance Data.ToJSON RuleOption where
   toJSON RuleOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Settings" Core..=) Prelude.<$> settings,
-            Prelude.Just ("Keyword" Core..= keyword)
+          [ ("Settings" Data..=) Prelude.<$> settings,
+            Prelude.Just ("Keyword" Data..= keyword)
           ]
       )

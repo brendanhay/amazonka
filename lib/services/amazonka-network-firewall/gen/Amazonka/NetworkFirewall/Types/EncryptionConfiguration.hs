@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.EncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.EncryptionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,13 +94,13 @@ encryptionConfiguration_keyId = Lens.lens (\EncryptionConfiguration' {keyId} -> 
 encryptionConfiguration_type :: Lens.Lens' EncryptionConfiguration EncryptionType
 encryptionConfiguration_type = Lens.lens (\EncryptionConfiguration' {type'} -> type') (\s@EncryptionConfiguration' {} a -> s {type' = a} :: EncryptionConfiguration)
 
-instance Core.FromJSON EncryptionConfiguration where
+instance Data.FromJSON EncryptionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionConfiguration"
       ( \x ->
           EncryptionConfiguration'
-            Prelude.<$> (x Core..:? "KeyId") Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "KeyId") Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable EncryptionConfiguration where
@@ -111,11 +112,11 @@ instance Prelude.NFData EncryptionConfiguration where
   rnf EncryptionConfiguration' {..} =
     Prelude.rnf keyId `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON EncryptionConfiguration where
+instance Data.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KeyId" Core..=) Prelude.<$> keyId,
-            Prelude.Just ("Type" Core..= type')
+          [ ("KeyId" Data..=) Prelude.<$> keyId,
+            Prelude.Just ("Type" Data..= type')
           ]
       )

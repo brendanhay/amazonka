@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,10 +136,10 @@ instance Core.AWSRequest DescribeRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeRuleGroupResponse'
-            Prelude.<$> (x Core..?> "RuleGroup")
+            Prelude.<$> (x Data..?> "RuleGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "UpdateToken")
-            Prelude.<*> (x Core..:> "RuleGroupResponse")
+            Prelude.<*> (x Data..:> "UpdateToken")
+            Prelude.<*> (x Data..:> "RuleGroupResponse")
       )
 
 instance Prelude.Hashable DescribeRuleGroup where
@@ -153,35 +154,35 @@ instance Prelude.NFData DescribeRuleGroup where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf ruleGroupArn
 
-instance Core.ToHeaders DescribeRuleGroup where
+instance Data.ToHeaders DescribeRuleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.DescribeRuleGroup" ::
+              Data.=# ( "NetworkFirewall_20201112.DescribeRuleGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRuleGroup where
+instance Data.ToJSON DescribeRuleGroup where
   toJSON DescribeRuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RuleGroupName" Core..=) Prelude.<$> ruleGroupName,
-            ("Type" Core..=) Prelude.<$> type',
-            ("RuleGroupArn" Core..=) Prelude.<$> ruleGroupArn
+          [ ("RuleGroupName" Data..=) Prelude.<$> ruleGroupName,
+            ("Type" Data..=) Prelude.<$> type',
+            ("RuleGroupArn" Data..=) Prelude.<$> ruleGroupArn
           ]
       )
 
-instance Core.ToPath DescribeRuleGroup where
+instance Data.ToPath DescribeRuleGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRuleGroup where
+instance Data.ToQuery DescribeRuleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRuleGroupResponse' smart constructor.

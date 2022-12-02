@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.StatefulEngineOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.RuleOrder
 import Amazonka.NetworkFirewall.Types.StreamExceptionPolicy
 import qualified Amazonka.Prelude as Prelude
@@ -128,14 +129,14 @@ statefulEngineOptions_streamExceptionPolicy = Lens.lens (\StatefulEngineOptions'
 statefulEngineOptions_ruleOrder :: Lens.Lens' StatefulEngineOptions (Prelude.Maybe RuleOrder)
 statefulEngineOptions_ruleOrder = Lens.lens (\StatefulEngineOptions' {ruleOrder} -> ruleOrder) (\s@StatefulEngineOptions' {} a -> s {ruleOrder = a} :: StatefulEngineOptions)
 
-instance Core.FromJSON StatefulEngineOptions where
+instance Data.FromJSON StatefulEngineOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatefulEngineOptions"
       ( \x ->
           StatefulEngineOptions'
-            Prelude.<$> (x Core..:? "StreamExceptionPolicy")
-            Prelude.<*> (x Core..:? "RuleOrder")
+            Prelude.<$> (x Data..:? "StreamExceptionPolicy")
+            Prelude.<*> (x Data..:? "RuleOrder")
       )
 
 instance Prelude.Hashable StatefulEngineOptions where
@@ -148,12 +149,12 @@ instance Prelude.NFData StatefulEngineOptions where
     Prelude.rnf streamExceptionPolicy
       `Prelude.seq` Prelude.rnf ruleOrder
 
-instance Core.ToJSON StatefulEngineOptions where
+instance Data.ToJSON StatefulEngineOptions where
   toJSON StatefulEngineOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StreamExceptionPolicy" Core..=)
+          [ ("StreamExceptionPolicy" Data..=)
               Prelude.<$> streamExceptionPolicy,
-            ("RuleOrder" Core..=) Prelude.<$> ruleOrder
+            ("RuleOrder" Data..=) Prelude.<$> ruleOrder
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.PerObjectStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.PerObjectSyncStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,14 +74,14 @@ perObjectStatus_updateToken = Lens.lens (\PerObjectStatus' {updateToken} -> upda
 perObjectStatus_syncStatus :: Lens.Lens' PerObjectStatus (Prelude.Maybe PerObjectSyncStatus)
 perObjectStatus_syncStatus = Lens.lens (\PerObjectStatus' {syncStatus} -> syncStatus) (\s@PerObjectStatus' {} a -> s {syncStatus = a} :: PerObjectStatus)
 
-instance Core.FromJSON PerObjectStatus where
+instance Data.FromJSON PerObjectStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PerObjectStatus"
       ( \x ->
           PerObjectStatus'
-            Prelude.<$> (x Core..:? "UpdateToken")
-            Prelude.<*> (x Core..:? "SyncStatus")
+            Prelude.<$> (x Data..:? "UpdateToken")
+            Prelude.<*> (x Data..:? "SyncStatus")
       )
 
 instance Prelude.Hashable PerObjectStatus where

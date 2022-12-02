@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -264,8 +265,8 @@ instance Core.AWSRequest CreateFirewall where
     Response.receiveJSON
       ( \s h x ->
           CreateFirewallResponse'
-            Prelude.<$> (x Core..?> "Firewall")
-            Prelude.<*> (x Core..?> "FirewallStatus")
+            Prelude.<$> (x Data..?> "Firewall")
+            Prelude.<*> (x Data..?> "FirewallStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -295,48 +296,48 @@ instance Prelude.NFData CreateFirewall where
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf subnetMappings
 
-instance Core.ToHeaders CreateFirewall where
+instance Data.ToHeaders CreateFirewall where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.CreateFirewall" ::
+              Data.=# ( "NetworkFirewall_20201112.CreateFirewall" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFirewall where
+instance Data.ToJSON CreateFirewall where
   toJSON CreateFirewall' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DeleteProtection" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DeleteProtection" Data..=)
               Prelude.<$> deleteProtection,
-            ("SubnetChangeProtection" Core..=)
+            ("SubnetChangeProtection" Data..=)
               Prelude.<$> subnetChangeProtection,
-            ("Description" Core..=) Prelude.<$> description,
-            ("FirewallPolicyChangeProtection" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("FirewallPolicyChangeProtection" Data..=)
               Prelude.<$> firewallPolicyChangeProtection,
-            ("EncryptionConfiguration" Core..=)
+            ("EncryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration,
-            Prelude.Just ("FirewallName" Core..= firewallName),
+            Prelude.Just ("FirewallName" Data..= firewallName),
             Prelude.Just
-              ("FirewallPolicyArn" Core..= firewallPolicyArn),
-            Prelude.Just ("VpcId" Core..= vpcId),
+              ("FirewallPolicyArn" Data..= firewallPolicyArn),
+            Prelude.Just ("VpcId" Data..= vpcId),
             Prelude.Just
-              ("SubnetMappings" Core..= subnetMappings)
+              ("SubnetMappings" Data..= subnetMappings)
           ]
       )
 
-instance Core.ToPath CreateFirewall where
+instance Data.ToPath CreateFirewall where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFirewall where
+instance Data.ToQuery CreateFirewall where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFirewallResponse' smart constructor.

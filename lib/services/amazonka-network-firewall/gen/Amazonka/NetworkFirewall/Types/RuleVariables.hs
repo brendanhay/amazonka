@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.RuleVariables where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.IPSet
 import Amazonka.NetworkFirewall.Types.PortSet
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ ruleVariables_iPSets = Lens.lens (\RuleVariables' {iPSets} -> iPSets) (\s@RuleVa
 ruleVariables_portSets :: Lens.Lens' RuleVariables (Prelude.Maybe (Prelude.HashMap Prelude.Text PortSet))
 ruleVariables_portSets = Lens.lens (\RuleVariables' {portSets} -> portSets) (\s@RuleVariables' {} a -> s {portSets = a} :: RuleVariables) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RuleVariables where
+instance Data.FromJSON RuleVariables where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleVariables"
       ( \x ->
           RuleVariables'
-            Prelude.<$> (x Core..:? "IPSets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PortSets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "IPSets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PortSets" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RuleVariables where
@@ -84,11 +85,11 @@ instance Prelude.NFData RuleVariables where
     Prelude.rnf iPSets
       `Prelude.seq` Prelude.rnf portSets
 
-instance Core.ToJSON RuleVariables where
+instance Data.ToJSON RuleVariables where
   toJSON RuleVariables' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IPSets" Core..=) Prelude.<$> iPSets,
-            ("PortSets" Core..=) Prelude.<$> portSets
+          [ ("IPSets" Data..=) Prelude.<$> iPSets,
+            ("PortSets" Data..=) Prelude.<$> portSets
           ]
       )

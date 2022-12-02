@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.MatchAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.Address
 import Amazonka.NetworkFirewall.Types.PortRange
 import Amazonka.NetworkFirewall.Types.TCPFlagField
@@ -149,20 +150,20 @@ matchAttributes_sourcePorts = Lens.lens (\MatchAttributes' {sourcePorts} -> sour
 matchAttributes_destinations :: Lens.Lens' MatchAttributes (Prelude.Maybe [Address])
 matchAttributes_destinations = Lens.lens (\MatchAttributes' {destinations} -> destinations) (\s@MatchAttributes' {} a -> s {destinations = a} :: MatchAttributes) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON MatchAttributes where
+instance Data.FromJSON MatchAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MatchAttributes"
       ( \x ->
           MatchAttributes'
-            Prelude.<$> ( x Core..:? "DestinationPorts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "DestinationPorts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Sources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TCPFlags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Protocols" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SourcePorts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Destinations" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Sources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TCPFlags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Protocols" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SourcePorts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Destinations" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable MatchAttributes where
@@ -183,16 +184,16 @@ instance Prelude.NFData MatchAttributes where
       `Prelude.seq` Prelude.rnf sourcePorts
       `Prelude.seq` Prelude.rnf destinations
 
-instance Core.ToJSON MatchAttributes where
+instance Data.ToJSON MatchAttributes where
   toJSON MatchAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DestinationPorts" Core..=)
+          [ ("DestinationPorts" Data..=)
               Prelude.<$> destinationPorts,
-            ("Sources" Core..=) Prelude.<$> sources,
-            ("TCPFlags" Core..=) Prelude.<$> tCPFlags,
-            ("Protocols" Core..=) Prelude.<$> protocols,
-            ("SourcePorts" Core..=) Prelude.<$> sourcePorts,
-            ("Destinations" Core..=) Prelude.<$> destinations
+            ("Sources" Data..=) Prelude.<$> sources,
+            ("TCPFlags" Data..=) Prelude.<$> tCPFlags,
+            ("Protocols" Data..=) Prelude.<$> protocols,
+            ("SourcePorts" Data..=) Prelude.<$> sourcePorts,
+            ("Destinations" Data..=) Prelude.<$> destinations
           ]
       )

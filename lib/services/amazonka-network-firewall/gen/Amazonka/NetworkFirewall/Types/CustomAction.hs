@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.CustomAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.ActionDefinition
 import qualified Amazonka.Prelude as Prelude
 
@@ -88,14 +89,14 @@ customAction_actionName = Lens.lens (\CustomAction' {actionName} -> actionName) 
 customAction_actionDefinition :: Lens.Lens' CustomAction ActionDefinition
 customAction_actionDefinition = Lens.lens (\CustomAction' {actionDefinition} -> actionDefinition) (\s@CustomAction' {} a -> s {actionDefinition = a} :: CustomAction)
 
-instance Core.FromJSON CustomAction where
+instance Data.FromJSON CustomAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomAction"
       ( \x ->
           CustomAction'
-            Prelude.<$> (x Core..: "ActionName")
-            Prelude.<*> (x Core..: "ActionDefinition")
+            Prelude.<$> (x Data..: "ActionName")
+            Prelude.<*> (x Data..: "ActionDefinition")
       )
 
 instance Prelude.Hashable CustomAction where
@@ -108,12 +109,12 @@ instance Prelude.NFData CustomAction where
     Prelude.rnf actionName
       `Prelude.seq` Prelude.rnf actionDefinition
 
-instance Core.ToJSON CustomAction where
+instance Data.ToJSON CustomAction where
   toJSON CustomAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ActionName" Core..= actionName),
+          [ Prelude.Just ("ActionName" Data..= actionName),
             Prelude.Just
-              ("ActionDefinition" Core..= actionDefinition)
+              ("ActionDefinition" Data..= actionDefinition)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.StatefulRuleOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.RuleOrder
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,13 +71,13 @@ newStatefulRuleOptions =
 statefulRuleOptions_ruleOrder :: Lens.Lens' StatefulRuleOptions (Prelude.Maybe RuleOrder)
 statefulRuleOptions_ruleOrder = Lens.lens (\StatefulRuleOptions' {ruleOrder} -> ruleOrder) (\s@StatefulRuleOptions' {} a -> s {ruleOrder = a} :: StatefulRuleOptions)
 
-instance Core.FromJSON StatefulRuleOptions where
+instance Data.FromJSON StatefulRuleOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatefulRuleOptions"
       ( \x ->
           StatefulRuleOptions'
-            Prelude.<$> (x Core..:? "RuleOrder")
+            Prelude.<$> (x Data..:? "RuleOrder")
       )
 
 instance Prelude.Hashable StatefulRuleOptions where
@@ -86,9 +87,9 @@ instance Prelude.Hashable StatefulRuleOptions where
 instance Prelude.NFData StatefulRuleOptions where
   rnf StatefulRuleOptions' {..} = Prelude.rnf ruleOrder
 
-instance Core.ToJSON StatefulRuleOptions where
+instance Data.ToJSON StatefulRuleOptions where
   toJSON StatefulRuleOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("RuleOrder" Core..=) Prelude.<$> ruleOrder]
+          [("RuleOrder" Data..=) Prelude.<$> ruleOrder]
       )

@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.StatefulRuleGroupOverride
 import qualified Amazonka.Prelude as Prelude
 
@@ -111,15 +112,15 @@ statefulRuleGroupReference_priority = Lens.lens (\StatefulRuleGroupReference' {p
 statefulRuleGroupReference_resourceArn :: Lens.Lens' StatefulRuleGroupReference Prelude.Text
 statefulRuleGroupReference_resourceArn = Lens.lens (\StatefulRuleGroupReference' {resourceArn} -> resourceArn) (\s@StatefulRuleGroupReference' {} a -> s {resourceArn = a} :: StatefulRuleGroupReference)
 
-instance Core.FromJSON StatefulRuleGroupReference where
+instance Data.FromJSON StatefulRuleGroupReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatefulRuleGroupReference"
       ( \x ->
           StatefulRuleGroupReference'
-            Prelude.<$> (x Core..:? "Override")
-            Prelude.<*> (x Core..:? "Priority")
-            Prelude.<*> (x Core..: "ResourceArn")
+            Prelude.<$> (x Data..:? "Override")
+            Prelude.<*> (x Data..:? "Priority")
+            Prelude.<*> (x Data..: "ResourceArn")
       )
 
 instance Prelude.Hashable StatefulRuleGroupReference where
@@ -134,12 +135,12 @@ instance Prelude.NFData StatefulRuleGroupReference where
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToJSON StatefulRuleGroupReference where
+instance Data.ToJSON StatefulRuleGroupReference where
   toJSON StatefulRuleGroupReference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Override" Core..=) Prelude.<$> override,
-            ("Priority" Core..=) Prelude.<$> priority,
-            Prelude.Just ("ResourceArn" Core..= resourceArn)
+          [ ("Override" Data..=) Prelude.<$> override,
+            ("Priority" Data..=) Prelude.<$> priority,
+            Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )

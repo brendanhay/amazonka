@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -327,8 +328,8 @@ instance Core.AWSRequest UpdateRuleGroup where
       ( \s h x ->
           UpdateRuleGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "UpdateToken")
-            Prelude.<*> (x Core..:> "RuleGroupResponse")
+            Prelude.<*> (x Data..:> "UpdateToken")
+            Prelude.<*> (x Data..:> "RuleGroupResponse")
       )
 
 instance Prelude.Hashable UpdateRuleGroup where
@@ -357,44 +358,44 @@ instance Prelude.NFData UpdateRuleGroup where
       `Prelude.seq` Prelude.rnf ruleGroupArn
       `Prelude.seq` Prelude.rnf updateToken
 
-instance Core.ToHeaders UpdateRuleGroup where
+instance Data.ToHeaders UpdateRuleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.UpdateRuleGroup" ::
+              Data.=# ( "NetworkFirewall_20201112.UpdateRuleGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRuleGroup where
+instance Data.ToJSON UpdateRuleGroup where
   toJSON UpdateRuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RuleGroupName" Core..=) Prelude.<$> ruleGroupName,
-            ("RuleGroup" Core..=) Prelude.<$> ruleGroup,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Rules" Core..=) Prelude.<$> rules,
-            ("Description" Core..=) Prelude.<$> description,
-            ("DryRun" Core..=) Prelude.<$> dryRun,
-            ("SourceMetadata" Core..=)
+          [ ("RuleGroupName" Data..=) Prelude.<$> ruleGroupName,
+            ("RuleGroup" Data..=) Prelude.<$> ruleGroup,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Rules" Data..=) Prelude.<$> rules,
+            ("Description" Data..=) Prelude.<$> description,
+            ("DryRun" Data..=) Prelude.<$> dryRun,
+            ("SourceMetadata" Data..=)
               Prelude.<$> sourceMetadata,
-            ("EncryptionConfiguration" Core..=)
+            ("EncryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration,
-            ("RuleGroupArn" Core..=) Prelude.<$> ruleGroupArn,
-            Prelude.Just ("UpdateToken" Core..= updateToken)
+            ("RuleGroupArn" Data..=) Prelude.<$> ruleGroupArn,
+            Prelude.Just ("UpdateToken" Data..= updateToken)
           ]
       )
 
-instance Core.ToPath UpdateRuleGroup where
+instance Data.ToPath UpdateRuleGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRuleGroup where
+instance Data.ToQuery UpdateRuleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRuleGroupResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.StatefulRuleGroupOverride where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.OverrideAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,13 +59,13 @@ newStatefulRuleGroupOverride =
 statefulRuleGroupOverride_action :: Lens.Lens' StatefulRuleGroupOverride (Prelude.Maybe OverrideAction)
 statefulRuleGroupOverride_action = Lens.lens (\StatefulRuleGroupOverride' {action} -> action) (\s@StatefulRuleGroupOverride' {} a -> s {action = a} :: StatefulRuleGroupOverride)
 
-instance Core.FromJSON StatefulRuleGroupOverride where
+instance Data.FromJSON StatefulRuleGroupOverride where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatefulRuleGroupOverride"
       ( \x ->
           StatefulRuleGroupOverride'
-            Prelude.<$> (x Core..:? "Action")
+            Prelude.<$> (x Data..:? "Action")
       )
 
 instance Prelude.Hashable StatefulRuleGroupOverride where
@@ -75,9 +76,9 @@ instance Prelude.NFData StatefulRuleGroupOverride where
   rnf StatefulRuleGroupOverride' {..} =
     Prelude.rnf action
 
-instance Core.ToJSON StatefulRuleGroupOverride where
+instance Data.ToJSON StatefulRuleGroupOverride where
   toJSON StatefulRuleGroupOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Action" Core..=) Prelude.<$> action]
+          [("Action" Data..=) Prelude.<$> action]
       )

@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.SubnetMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The ID for a subnet that you want to associate with the firewall. This
@@ -55,12 +56,12 @@ newSubnetMapping pSubnetId_ =
 subnetMapping_subnetId :: Lens.Lens' SubnetMapping Prelude.Text
 subnetMapping_subnetId = Lens.lens (\SubnetMapping' {subnetId} -> subnetId) (\s@SubnetMapping' {} a -> s {subnetId = a} :: SubnetMapping)
 
-instance Core.FromJSON SubnetMapping where
+instance Data.FromJSON SubnetMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubnetMapping"
       ( \x ->
-          SubnetMapping' Prelude.<$> (x Core..: "SubnetId")
+          SubnetMapping' Prelude.<$> (x Data..: "SubnetId")
       )
 
 instance Prelude.Hashable SubnetMapping where
@@ -70,9 +71,9 @@ instance Prelude.Hashable SubnetMapping where
 instance Prelude.NFData SubnetMapping where
   rnf SubnetMapping' {..} = Prelude.rnf subnetId
 
-instance Core.ToJSON SubnetMapping where
+instance Data.ToJSON SubnetMapping where
   toJSON SubnetMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SubnetId" Core..= subnetId)]
+          [Prelude.Just ("SubnetId" Data..= subnetId)]
       )

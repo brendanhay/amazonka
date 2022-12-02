@@ -23,6 +23,7 @@ import Amazonka.Braket.Types.ContainerImage
 import Amazonka.Braket.Types.ScriptModeConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the Amazon Braket job to be created. Specifies the container
@@ -66,14 +67,14 @@ algorithmSpecification_containerImage = Lens.lens (\AlgorithmSpecification' {con
 algorithmSpecification_scriptModeConfig :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe ScriptModeConfig)
 algorithmSpecification_scriptModeConfig = Lens.lens (\AlgorithmSpecification' {scriptModeConfig} -> scriptModeConfig) (\s@AlgorithmSpecification' {} a -> s {scriptModeConfig = a} :: AlgorithmSpecification)
 
-instance Core.FromJSON AlgorithmSpecification where
+instance Data.FromJSON AlgorithmSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlgorithmSpecification"
       ( \x ->
           AlgorithmSpecification'
-            Prelude.<$> (x Core..:? "containerImage")
-            Prelude.<*> (x Core..:? "scriptModeConfig")
+            Prelude.<$> (x Data..:? "containerImage")
+            Prelude.<*> (x Data..:? "scriptModeConfig")
       )
 
 instance Prelude.Hashable AlgorithmSpecification where
@@ -86,13 +87,13 @@ instance Prelude.NFData AlgorithmSpecification where
     Prelude.rnf containerImage
       `Prelude.seq` Prelude.rnf scriptModeConfig
 
-instance Core.ToJSON AlgorithmSpecification where
+instance Data.ToJSON AlgorithmSpecification where
   toJSON AlgorithmSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("containerImage" Core..=)
+          [ ("containerImage" Data..=)
               Prelude.<$> containerImage,
-            ("scriptModeConfig" Core..=)
+            ("scriptModeConfig" Data..=)
               Prelude.<$> scriptModeConfig
           ]
       )

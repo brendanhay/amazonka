@@ -22,6 +22,7 @@ module Amazonka.Braket.Types.InstanceConfig where
 import Amazonka.Braket.Types.InstanceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures the resource instances to use while running the Amazon Braket
@@ -82,15 +83,15 @@ instanceConfig_instanceType = Lens.lens (\InstanceConfig' {instanceType} -> inst
 instanceConfig_volumeSizeInGb :: Lens.Lens' InstanceConfig Prelude.Natural
 instanceConfig_volumeSizeInGb = Lens.lens (\InstanceConfig' {volumeSizeInGb} -> volumeSizeInGb) (\s@InstanceConfig' {} a -> s {volumeSizeInGb = a} :: InstanceConfig)
 
-instance Core.FromJSON InstanceConfig where
+instance Data.FromJSON InstanceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceConfig"
       ( \x ->
           InstanceConfig'
-            Prelude.<$> (x Core..:? "instanceCount")
-            Prelude.<*> (x Core..: "instanceType")
-            Prelude.<*> (x Core..: "volumeSizeInGb")
+            Prelude.<$> (x Data..:? "instanceCount")
+            Prelude.<*> (x Data..: "instanceType")
+            Prelude.<*> (x Data..: "volumeSizeInGb")
       )
 
 instance Prelude.Hashable InstanceConfig where
@@ -105,13 +106,13 @@ instance Prelude.NFData InstanceConfig where
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf volumeSizeInGb
 
-instance Core.ToJSON InstanceConfig where
+instance Data.ToJSON InstanceConfig where
   toJSON InstanceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("instanceCount" Core..=) Prelude.<$> instanceCount,
-            Prelude.Just ("instanceType" Core..= instanceType),
+          [ ("instanceCount" Data..=) Prelude.<$> instanceCount,
+            Prelude.Just ("instanceType" Data..= instanceType),
             Prelude.Just
-              ("volumeSizeInGb" Core..= volumeSizeInGb)
+              ("volumeSizeInGb" Data..= volumeSizeInGb)
           ]
       )

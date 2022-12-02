@@ -44,6 +44,7 @@ where
 import Amazonka.Braket.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,8 +100,8 @@ instance Core.AWSRequest CancelQuantumTask where
       ( \s h x ->
           CancelQuantumTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "cancellationStatus")
-            Prelude.<*> (x Core..:> "quantumTaskArn")
+            Prelude.<*> (x Data..:> "cancellationStatus")
+            Prelude.<*> (x Data..:> "quantumTaskArn")
       )
 
 instance Prelude.Hashable CancelQuantumTask where
@@ -113,33 +114,33 @@ instance Prelude.NFData CancelQuantumTask where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf quantumTaskArn
 
-instance Core.ToHeaders CancelQuantumTask where
+instance Data.ToHeaders CancelQuantumTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelQuantumTask where
+instance Data.ToJSON CancelQuantumTask where
   toJSON CancelQuantumTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("clientToken" Core..= clientToken)]
+          [Prelude.Just ("clientToken" Data..= clientToken)]
       )
 
-instance Core.ToPath CancelQuantumTask where
+instance Data.ToPath CancelQuantumTask where
   toPath CancelQuantumTask' {..} =
     Prelude.mconcat
       [ "/quantum-task/",
-        Core.toBS quantumTaskArn,
+        Data.toBS quantumTaskArn,
         "/cancel"
       ]
 
-instance Core.ToQuery CancelQuantumTask where
+instance Data.ToQuery CancelQuantumTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelQuantumTaskResponse' smart constructor.

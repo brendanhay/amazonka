@@ -21,6 +21,7 @@ module Amazonka.Braket.Types.S3DataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the data stored in Amazon S3 used by the Amazon Braket
@@ -56,12 +57,12 @@ newS3DataSource pS3Uri_ =
 s3DataSource_s3Uri :: Lens.Lens' S3DataSource Prelude.Text
 s3DataSource_s3Uri = Lens.lens (\S3DataSource' {s3Uri} -> s3Uri) (\s@S3DataSource' {} a -> s {s3Uri = a} :: S3DataSource)
 
-instance Core.FromJSON S3DataSource where
+instance Data.FromJSON S3DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3DataSource"
       ( \x ->
-          S3DataSource' Prelude.<$> (x Core..: "s3Uri")
+          S3DataSource' Prelude.<$> (x Data..: "s3Uri")
       )
 
 instance Prelude.Hashable S3DataSource where
@@ -71,9 +72,9 @@ instance Prelude.Hashable S3DataSource where
 instance Prelude.NFData S3DataSource where
   rnf S3DataSource' {..} = Prelude.rnf s3Uri
 
-instance Core.ToJSON S3DataSource where
+instance Data.ToJSON S3DataSource where
   toJSON S3DataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("s3Uri" Core..= s3Uri)]
+          [Prelude.Just ("s3Uri" Data..= s3Uri)]
       )

@@ -22,6 +22,7 @@ module Amazonka.Braket.Types.ScriptModeConfig where
 import Amazonka.Braket.Types.CompressionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the Python scripts used for entry and by an
@@ -86,15 +87,15 @@ scriptModeConfig_entryPoint = Lens.lens (\ScriptModeConfig' {entryPoint} -> entr
 scriptModeConfig_s3Uri :: Lens.Lens' ScriptModeConfig Prelude.Text
 scriptModeConfig_s3Uri = Lens.lens (\ScriptModeConfig' {s3Uri} -> s3Uri) (\s@ScriptModeConfig' {} a -> s {s3Uri = a} :: ScriptModeConfig)
 
-instance Core.FromJSON ScriptModeConfig where
+instance Data.FromJSON ScriptModeConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScriptModeConfig"
       ( \x ->
           ScriptModeConfig'
-            Prelude.<$> (x Core..:? "compressionType")
-            Prelude.<*> (x Core..: "entryPoint")
-            Prelude.<*> (x Core..: "s3Uri")
+            Prelude.<$> (x Data..:? "compressionType")
+            Prelude.<*> (x Data..: "entryPoint")
+            Prelude.<*> (x Data..: "s3Uri")
       )
 
 instance Prelude.Hashable ScriptModeConfig where
@@ -109,13 +110,13 @@ instance Prelude.NFData ScriptModeConfig where
       `Prelude.seq` Prelude.rnf entryPoint
       `Prelude.seq` Prelude.rnf s3Uri
 
-instance Core.ToJSON ScriptModeConfig where
+instance Data.ToJSON ScriptModeConfig where
   toJSON ScriptModeConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("compressionType" Core..=)
+          [ ("compressionType" Data..=)
               Prelude.<$> compressionType,
-            Prelude.Just ("entryPoint" Core..= entryPoint),
-            Prelude.Just ("s3Uri" Core..= s3Uri)
+            Prelude.Just ("entryPoint" Data..= entryPoint),
+            Prelude.Just ("s3Uri" Data..= s3Uri)
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.Braket.Types.QuantumTaskSummary where
 import Amazonka.Braket.Types.QuantumTaskStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Includes information about a quantum task.
@@ -31,9 +32,9 @@ data QuantumTaskSummary = QuantumTaskSummary'
   { -- | Displays the key, value pairs of tags associated with this quantum task.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time at which the task finished.
-    endedAt :: Prelude.Maybe Core.POSIX,
+    endedAt :: Prelude.Maybe Data.POSIX,
     -- | The time at which the task was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The ARN of the device the task ran on.
     deviceArn :: Prelude.Text,
     -- | The S3 bucket where the task result file is stored..
@@ -101,7 +102,7 @@ newQuantumTaskSummary
     QuantumTaskSummary'
       { tags = Prelude.Nothing,
         endedAt = Prelude.Nothing,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         deviceArn = pDeviceArn_,
         outputS3Bucket = pOutputS3Bucket_,
         outputS3Directory = pOutputS3Directory_,
@@ -116,11 +117,11 @@ quantumTaskSummary_tags = Lens.lens (\QuantumTaskSummary' {tags} -> tags) (\s@Qu
 
 -- | The time at which the task finished.
 quantumTaskSummary_endedAt :: Lens.Lens' QuantumTaskSummary (Prelude.Maybe Prelude.UTCTime)
-quantumTaskSummary_endedAt = Lens.lens (\QuantumTaskSummary' {endedAt} -> endedAt) (\s@QuantumTaskSummary' {} a -> s {endedAt = a} :: QuantumTaskSummary) Prelude.. Lens.mapping Core._Time
+quantumTaskSummary_endedAt = Lens.lens (\QuantumTaskSummary' {endedAt} -> endedAt) (\s@QuantumTaskSummary' {} a -> s {endedAt = a} :: QuantumTaskSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the task was created.
 quantumTaskSummary_createdAt :: Lens.Lens' QuantumTaskSummary Prelude.UTCTime
-quantumTaskSummary_createdAt = Lens.lens (\QuantumTaskSummary' {createdAt} -> createdAt) (\s@QuantumTaskSummary' {} a -> s {createdAt = a} :: QuantumTaskSummary) Prelude.. Core._Time
+quantumTaskSummary_createdAt = Lens.lens (\QuantumTaskSummary' {createdAt} -> createdAt) (\s@QuantumTaskSummary' {} a -> s {createdAt = a} :: QuantumTaskSummary) Prelude.. Data._Time
 
 -- | The ARN of the device the task ran on.
 quantumTaskSummary_deviceArn :: Lens.Lens' QuantumTaskSummary Prelude.Text
@@ -146,21 +147,21 @@ quantumTaskSummary_shots = Lens.lens (\QuantumTaskSummary' {shots} -> shots) (\s
 quantumTaskSummary_status :: Lens.Lens' QuantumTaskSummary QuantumTaskStatus
 quantumTaskSummary_status = Lens.lens (\QuantumTaskSummary' {status} -> status) (\s@QuantumTaskSummary' {} a -> s {status = a} :: QuantumTaskSummary)
 
-instance Core.FromJSON QuantumTaskSummary where
+instance Data.FromJSON QuantumTaskSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QuantumTaskSummary"
       ( \x ->
           QuantumTaskSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "endedAt")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "deviceArn")
-            Prelude.<*> (x Core..: "outputS3Bucket")
-            Prelude.<*> (x Core..: "outputS3Directory")
-            Prelude.<*> (x Core..: "quantumTaskArn")
-            Prelude.<*> (x Core..: "shots")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "endedAt")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "deviceArn")
+            Prelude.<*> (x Data..: "outputS3Bucket")
+            Prelude.<*> (x Data..: "outputS3Directory")
+            Prelude.<*> (x Data..: "quantumTaskArn")
+            Prelude.<*> (x Data..: "shots")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable QuantumTaskSummary where

@@ -21,6 +21,7 @@ module Amazonka.Pi.Types.DimensionGroupDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pi.Types.DimensionDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ dimensionGroupDetail_dimensions = Lens.lens (\DimensionGroupDetail' {dimensions}
 dimensionGroupDetail_group :: Lens.Lens' DimensionGroupDetail (Prelude.Maybe Prelude.Text)
 dimensionGroupDetail_group = Lens.lens (\DimensionGroupDetail' {group'} -> group') (\s@DimensionGroupDetail' {} a -> s {group' = a} :: DimensionGroupDetail)
 
-instance Core.FromJSON DimensionGroupDetail where
+instance Data.FromJSON DimensionGroupDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DimensionGroupDetail"
       ( \x ->
           DimensionGroupDetail'
-            Prelude.<$> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Group")
+            Prelude.<$> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Group")
       )
 
 instance Prelude.Hashable DimensionGroupDetail where

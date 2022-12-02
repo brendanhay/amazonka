@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pi.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,13 +130,13 @@ data DescribeDimensionKeys = DescribeDimensionKeys'
     -- greater than @StartTime@ are returned.
     --
     -- The value for @StartTime@ must be earlier than the value for @EndTime@.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The date and time specifying the end of the requested time series data.
     -- The value specified is /exclusive/, which means that data points less
     -- than (but not equal to) @EndTime@ are returned.
     --
     -- The value for @EndTime@ must be later than the value for @StartTime@.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The name of a Performance Insights metric to be measured.
     --
     -- Valid values for @Metric@ are:
@@ -293,8 +294,8 @@ newDescribeDimensionKeys
         partitionBy = Prelude.Nothing,
         serviceType = pServiceType_,
         identifier = pIdentifier_,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_,
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         metric = pMetric_,
         groupBy = pGroupBy_
       }
@@ -378,7 +379,7 @@ describeDimensionKeys_identifier = Lens.lens (\DescribeDimensionKeys' {identifie
 --
 -- The value for @StartTime@ must be earlier than the value for @EndTime@.
 describeDimensionKeys_startTime :: Lens.Lens' DescribeDimensionKeys Prelude.UTCTime
-describeDimensionKeys_startTime = Lens.lens (\DescribeDimensionKeys' {startTime} -> startTime) (\s@DescribeDimensionKeys' {} a -> s {startTime = a} :: DescribeDimensionKeys) Prelude.. Core._Time
+describeDimensionKeys_startTime = Lens.lens (\DescribeDimensionKeys' {startTime} -> startTime) (\s@DescribeDimensionKeys' {} a -> s {startTime = a} :: DescribeDimensionKeys) Prelude.. Data._Time
 
 -- | The date and time specifying the end of the requested time series data.
 -- The value specified is /exclusive/, which means that data points less
@@ -386,7 +387,7 @@ describeDimensionKeys_startTime = Lens.lens (\DescribeDimensionKeys' {startTime}
 --
 -- The value for @EndTime@ must be later than the value for @StartTime@.
 describeDimensionKeys_endTime :: Lens.Lens' DescribeDimensionKeys Prelude.UTCTime
-describeDimensionKeys_endTime = Lens.lens (\DescribeDimensionKeys' {endTime} -> endTime) (\s@DescribeDimensionKeys' {} a -> s {endTime = a} :: DescribeDimensionKeys) Prelude.. Core._Time
+describeDimensionKeys_endTime = Lens.lens (\DescribeDimensionKeys' {endTime} -> endTime) (\s@DescribeDimensionKeys' {} a -> s {endTime = a} :: DescribeDimensionKeys) Prelude.. Data._Time
 
 -- | The name of a Performance Insights metric to be measured.
 --
@@ -426,11 +427,11 @@ instance Core.AWSRequest DescribeDimensionKeys where
     Response.receiveJSON
       ( \s h x ->
           DescribeDimensionKeysResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "AlignedEndTime")
-            Prelude.<*> (x Core..?> "PartitionKeys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "AlignedStartTime")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "AlignedEndTime")
+            Prelude.<*> (x Data..?> "PartitionKeys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Keys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "AlignedStartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -464,46 +465,46 @@ instance Prelude.NFData DescribeDimensionKeys where
       `Prelude.seq` Prelude.rnf metric
       `Prelude.seq` Prelude.rnf groupBy
 
-instance Core.ToHeaders DescribeDimensionKeys where
+instance Data.ToHeaders DescribeDimensionKeys where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PerformanceInsightsv20180227.DescribeDimensionKeys" ::
+              Data.=# ( "PerformanceInsightsv20180227.DescribeDimensionKeys" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDimensionKeys where
+instance Data.ToJSON DescribeDimensionKeys where
   toJSON DescribeDimensionKeys' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("AdditionalMetrics" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("AdditionalMetrics" Data..=)
               Prelude.<$> additionalMetrics,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("PeriodInSeconds" Core..=)
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("PeriodInSeconds" Data..=)
               Prelude.<$> periodInSeconds,
-            ("PartitionBy" Core..=) Prelude.<$> partitionBy,
-            Prelude.Just ("ServiceType" Core..= serviceType),
-            Prelude.Just ("Identifier" Core..= identifier),
-            Prelude.Just ("StartTime" Core..= startTime),
-            Prelude.Just ("EndTime" Core..= endTime),
-            Prelude.Just ("Metric" Core..= metric),
-            Prelude.Just ("GroupBy" Core..= groupBy)
+            ("PartitionBy" Data..=) Prelude.<$> partitionBy,
+            Prelude.Just ("ServiceType" Data..= serviceType),
+            Prelude.Just ("Identifier" Data..= identifier),
+            Prelude.Just ("StartTime" Data..= startTime),
+            Prelude.Just ("EndTime" Data..= endTime),
+            Prelude.Just ("Metric" Data..= metric),
+            Prelude.Just ("GroupBy" Data..= groupBy)
           ]
       )
 
-instance Core.ToPath DescribeDimensionKeys where
+instance Data.ToPath DescribeDimensionKeys where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDimensionKeys where
+instance Data.ToQuery DescribeDimensionKeys where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDimensionKeysResponse' smart constructor.
@@ -517,7 +518,7 @@ data DescribeDimensionKeysResponse = DescribeDimensionKeysResponse'
     -- granular boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@
     -- will be greater than or equal to the value of the user-specified
     -- @Endtime@.
-    alignedEndTime :: Prelude.Maybe Core.POSIX,
+    alignedEndTime :: Prelude.Maybe Data.POSIX,
     -- | If @PartitionBy@ was present in the request, @PartitionKeys@ contains
     -- the breakdown of dimension keys by the specified partitions.
     partitionKeys :: Prelude.Maybe [ResponsePartitionKey],
@@ -527,7 +528,7 @@ data DescribeDimensionKeysResponse = DescribeDimensionKeysResponse'
     -- granular boundary (as specified by @PeriodInSeconds@).
     -- @AlignedStartTime@ will be less than or equal to the value of the
     -- user-specified @StartTime@.
-    alignedStartTime :: Prelude.Maybe Core.POSIX,
+    alignedStartTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -589,7 +590,7 @@ describeDimensionKeysResponse_nextToken = Lens.lens (\DescribeDimensionKeysRespo
 -- will be greater than or equal to the value of the user-specified
 -- @Endtime@.
 describeDimensionKeysResponse_alignedEndTime :: Lens.Lens' DescribeDimensionKeysResponse (Prelude.Maybe Prelude.UTCTime)
-describeDimensionKeysResponse_alignedEndTime = Lens.lens (\DescribeDimensionKeysResponse' {alignedEndTime} -> alignedEndTime) (\s@DescribeDimensionKeysResponse' {} a -> s {alignedEndTime = a} :: DescribeDimensionKeysResponse) Prelude.. Lens.mapping Core._Time
+describeDimensionKeysResponse_alignedEndTime = Lens.lens (\DescribeDimensionKeysResponse' {alignedEndTime} -> alignedEndTime) (\s@DescribeDimensionKeysResponse' {} a -> s {alignedEndTime = a} :: DescribeDimensionKeysResponse) Prelude.. Lens.mapping Data._Time
 
 -- | If @PartitionBy@ was present in the request, @PartitionKeys@ contains
 -- the breakdown of dimension keys by the specified partitions.
@@ -605,7 +606,7 @@ describeDimensionKeysResponse_keys = Lens.lens (\DescribeDimensionKeysResponse' 
 -- @AlignedStartTime@ will be less than or equal to the value of the
 -- user-specified @StartTime@.
 describeDimensionKeysResponse_alignedStartTime :: Lens.Lens' DescribeDimensionKeysResponse (Prelude.Maybe Prelude.UTCTime)
-describeDimensionKeysResponse_alignedStartTime = Lens.lens (\DescribeDimensionKeysResponse' {alignedStartTime} -> alignedStartTime) (\s@DescribeDimensionKeysResponse' {} a -> s {alignedStartTime = a} :: DescribeDimensionKeysResponse) Prelude.. Lens.mapping Core._Time
+describeDimensionKeysResponse_alignedStartTime = Lens.lens (\DescribeDimensionKeysResponse' {alignedStartTime} -> alignedStartTime) (\s@DescribeDimensionKeysResponse' {} a -> s {alignedStartTime = a} :: DescribeDimensionKeysResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeDimensionKeysResponse_httpStatus :: Lens.Lens' DescribeDimensionKeysResponse Prelude.Int

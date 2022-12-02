@@ -21,6 +21,7 @@ module Amazonka.Pi.Types.ResponseResourceMetricKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object describing a Performance Insights metric and one or more
@@ -125,14 +126,14 @@ responseResourceMetricKey_dimensions = Lens.lens (\ResponseResourceMetricKey' {d
 responseResourceMetricKey_metric :: Lens.Lens' ResponseResourceMetricKey Prelude.Text
 responseResourceMetricKey_metric = Lens.lens (\ResponseResourceMetricKey' {metric} -> metric) (\s@ResponseResourceMetricKey' {} a -> s {metric = a} :: ResponseResourceMetricKey)
 
-instance Core.FromJSON ResponseResourceMetricKey where
+instance Data.FromJSON ResponseResourceMetricKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResponseResourceMetricKey"
       ( \x ->
           ResponseResourceMetricKey'
-            Prelude.<$> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Metric")
+            Prelude.<$> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Metric")
       )
 
 instance Prelude.Hashable ResponseResourceMetricKey where

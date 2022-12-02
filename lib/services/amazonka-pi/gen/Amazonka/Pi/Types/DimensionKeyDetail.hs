@@ -21,6 +21,7 @@ module Amazonka.Pi.Types.DimensionKeyDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pi.Types.DetailStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -137,15 +138,15 @@ dimensionKeyDetail_dimension = Lens.lens (\DimensionKeyDetail' {dimension} -> di
 dimensionKeyDetail_value :: Lens.Lens' DimensionKeyDetail (Prelude.Maybe Prelude.Text)
 dimensionKeyDetail_value = Lens.lens (\DimensionKeyDetail' {value} -> value) (\s@DimensionKeyDetail' {} a -> s {value = a} :: DimensionKeyDetail)
 
-instance Core.FromJSON DimensionKeyDetail where
+instance Data.FromJSON DimensionKeyDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DimensionKeyDetail"
       ( \x ->
           DimensionKeyDetail'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Dimension")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Dimension")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable DimensionKeyDetail where

@@ -21,6 +21,7 @@ module Amazonka.Pi.Types.DimensionDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information about a dimension.
@@ -50,13 +51,13 @@ newDimensionDetail =
 dimensionDetail_identifier :: Lens.Lens' DimensionDetail (Prelude.Maybe Prelude.Text)
 dimensionDetail_identifier = Lens.lens (\DimensionDetail' {identifier} -> identifier) (\s@DimensionDetail' {} a -> s {identifier = a} :: DimensionDetail)
 
-instance Core.FromJSON DimensionDetail where
+instance Data.FromJSON DimensionDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DimensionDetail"
       ( \x ->
           DimensionDetail'
-            Prelude.<$> (x Core..:? "Identifier")
+            Prelude.<$> (x Data..:? "Identifier")
       )
 
 instance Prelude.Hashable DimensionDetail where

@@ -21,6 +21,7 @@ module Amazonka.Pi.Types.DimensionKeyDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that includes the requested dimension key values and
@@ -86,18 +87,18 @@ dimensionKeyDescription_dimensions = Lens.lens (\DimensionKeyDescription' {dimen
 dimensionKeyDescription_partitions :: Lens.Lens' DimensionKeyDescription (Prelude.Maybe [Prelude.Double])
 dimensionKeyDescription_partitions = Lens.lens (\DimensionKeyDescription' {partitions} -> partitions) (\s@DimensionKeyDescription' {} a -> s {partitions = a} :: DimensionKeyDescription) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DimensionKeyDescription where
+instance Data.FromJSON DimensionKeyDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DimensionKeyDescription"
       ( \x ->
           DimensionKeyDescription'
-            Prelude.<$> (x Core..:? "Total")
-            Prelude.<*> ( x Core..:? "AdditionalMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Total")
+            Prelude.<*> ( x Data..:? "AdditionalMetrics"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Partitions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Partitions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DimensionKeyDescription where

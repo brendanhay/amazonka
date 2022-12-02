@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pi.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,13 +119,13 @@ data GetResourceMetrics = GetResourceMetrics'
     -- than @StartTime@.
     --
     -- The value for @StartTime@ must be earlier than the value for @EndTime@.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The date and time specifying the end of the requested time series query
     -- range. The value specified is /exclusive/. Thus, the command returns
     -- data points less than (but not equal to) @EndTime@.
     --
     -- The value for @EndTime@ must be later than the value for @StartTime@.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -221,8 +222,8 @@ newGetResourceMetrics
         serviceType = pServiceType_,
         identifier = pIdentifier_,
         metricQueries = Lens.coerced Lens.# pMetricQueries_,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_
       }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -292,7 +293,7 @@ getResourceMetrics_metricQueries = Lens.lens (\GetResourceMetrics' {metricQuerie
 --
 -- The value for @StartTime@ must be earlier than the value for @EndTime@.
 getResourceMetrics_startTime :: Lens.Lens' GetResourceMetrics Prelude.UTCTime
-getResourceMetrics_startTime = Lens.lens (\GetResourceMetrics' {startTime} -> startTime) (\s@GetResourceMetrics' {} a -> s {startTime = a} :: GetResourceMetrics) Prelude.. Core._Time
+getResourceMetrics_startTime = Lens.lens (\GetResourceMetrics' {startTime} -> startTime) (\s@GetResourceMetrics' {} a -> s {startTime = a} :: GetResourceMetrics) Prelude.. Data._Time
 
 -- | The date and time specifying the end of the requested time series query
 -- range. The value specified is /exclusive/. Thus, the command returns
@@ -300,7 +301,7 @@ getResourceMetrics_startTime = Lens.lens (\GetResourceMetrics' {startTime} -> st
 --
 -- The value for @EndTime@ must be later than the value for @StartTime@.
 getResourceMetrics_endTime :: Lens.Lens' GetResourceMetrics Prelude.UTCTime
-getResourceMetrics_endTime = Lens.lens (\GetResourceMetrics' {endTime} -> endTime) (\s@GetResourceMetrics' {} a -> s {endTime = a} :: GetResourceMetrics) Prelude.. Core._Time
+getResourceMetrics_endTime = Lens.lens (\GetResourceMetrics' {endTime} -> endTime) (\s@GetResourceMetrics' {} a -> s {endTime = a} :: GetResourceMetrics) Prelude.. Data._Time
 
 instance Core.AWSRequest GetResourceMetrics where
   type
@@ -312,11 +313,11 @@ instance Core.AWSRequest GetResourceMetrics where
     Response.receiveJSON
       ( \s h x ->
           GetResourceMetricsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "AlignedEndTime")
-            Prelude.<*> (x Core..?> "Identifier")
-            Prelude.<*> (x Core..?> "MetricList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "AlignedStartTime")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "AlignedEndTime")
+            Prelude.<*> (x Data..?> "Identifier")
+            Prelude.<*> (x Data..?> "MetricList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "AlignedStartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -342,41 +343,41 @@ instance Prelude.NFData GetResourceMetrics where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToHeaders GetResourceMetrics where
+instance Data.ToHeaders GetResourceMetrics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PerformanceInsightsv20180227.GetResourceMetrics" ::
+              Data.=# ( "PerformanceInsightsv20180227.GetResourceMetrics" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResourceMetrics where
+instance Data.ToJSON GetResourceMetrics where
   toJSON GetResourceMetrics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("PeriodInSeconds" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("PeriodInSeconds" Data..=)
               Prelude.<$> periodInSeconds,
-            Prelude.Just ("ServiceType" Core..= serviceType),
-            Prelude.Just ("Identifier" Core..= identifier),
-            Prelude.Just ("MetricQueries" Core..= metricQueries),
-            Prelude.Just ("StartTime" Core..= startTime),
-            Prelude.Just ("EndTime" Core..= endTime)
+            Prelude.Just ("ServiceType" Data..= serviceType),
+            Prelude.Just ("Identifier" Data..= identifier),
+            Prelude.Just ("MetricQueries" Data..= metricQueries),
+            Prelude.Just ("StartTime" Data..= startTime),
+            Prelude.Just ("EndTime" Data..= endTime)
           ]
       )
 
-instance Core.ToPath GetResourceMetrics where
+instance Data.ToPath GetResourceMetrics where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetResourceMetrics where
+instance Data.ToQuery GetResourceMetrics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourceMetricsResponse' smart constructor.
@@ -388,7 +389,7 @@ data GetResourceMetricsResponse = GetResourceMetricsResponse'
     -- | The end time for the returned metrics, after alignment to a granular
     -- boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@ will be
     -- greater than or equal to the value of the user-specified @Endtime@.
-    alignedEndTime :: Prelude.Maybe Core.POSIX,
+    alignedEndTime :: Prelude.Maybe Data.POSIX,
     -- | An immutable identifier for a data source that is unique for an Amazon
     -- Web Services Region. Performance Insights gathers metrics from this data
     -- source. In the console, the identifier is shown as /ResourceID/. When
@@ -401,7 +402,7 @@ data GetResourceMetricsResponse = GetResourceMetricsResponse'
     -- | The start time for the returned metrics, after alignment to a granular
     -- boundary (as specified by @PeriodInSeconds@). @AlignedStartTime@ will be
     -- less than or equal to the value of the user-specified @StartTime@.
-    alignedStartTime :: Prelude.Maybe Core.POSIX,
+    alignedStartTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -462,7 +463,7 @@ getResourceMetricsResponse_nextToken = Lens.lens (\GetResourceMetricsResponse' {
 -- boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@ will be
 -- greater than or equal to the value of the user-specified @Endtime@.
 getResourceMetricsResponse_alignedEndTime :: Lens.Lens' GetResourceMetricsResponse (Prelude.Maybe Prelude.UTCTime)
-getResourceMetricsResponse_alignedEndTime = Lens.lens (\GetResourceMetricsResponse' {alignedEndTime} -> alignedEndTime) (\s@GetResourceMetricsResponse' {} a -> s {alignedEndTime = a} :: GetResourceMetricsResponse) Prelude.. Lens.mapping Core._Time
+getResourceMetricsResponse_alignedEndTime = Lens.lens (\GetResourceMetricsResponse' {alignedEndTime} -> alignedEndTime) (\s@GetResourceMetricsResponse' {} a -> s {alignedEndTime = a} :: GetResourceMetricsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An immutable identifier for a data source that is unique for an Amazon
 -- Web Services Region. Performance Insights gathers metrics from this data
@@ -481,7 +482,7 @@ getResourceMetricsResponse_metricList = Lens.lens (\GetResourceMetricsResponse' 
 -- boundary (as specified by @PeriodInSeconds@). @AlignedStartTime@ will be
 -- less than or equal to the value of the user-specified @StartTime@.
 getResourceMetricsResponse_alignedStartTime :: Lens.Lens' GetResourceMetricsResponse (Prelude.Maybe Prelude.UTCTime)
-getResourceMetricsResponse_alignedStartTime = Lens.lens (\GetResourceMetricsResponse' {alignedStartTime} -> alignedStartTime) (\s@GetResourceMetricsResponse' {} a -> s {alignedStartTime = a} :: GetResourceMetricsResponse) Prelude.. Lens.mapping Core._Time
+getResourceMetricsResponse_alignedStartTime = Lens.lens (\GetResourceMetricsResponse' {alignedStartTime} -> alignedStartTime) (\s@GetResourceMetricsResponse' {} a -> s {alignedStartTime = a} :: GetResourceMetricsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getResourceMetricsResponse_httpStatus :: Lens.Lens' GetResourceMetricsResponse Prelude.Int

@@ -21,6 +21,7 @@ module Amazonka.Pi.Types.DimensionGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A logical grouping of Performance Insights metrics for a related subject
@@ -566,12 +567,12 @@ instance Prelude.NFData DimensionGroup where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf group'
 
-instance Core.ToJSON DimensionGroup where
+instance Data.ToJSON DimensionGroup where
   toJSON DimensionGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Dimensions" Core..=) Prelude.<$> dimensions,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("Group" Core..= group')
+          [ ("Dimensions" Data..=) Prelude.<$> dimensions,
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("Group" Data..= group')
           ]
       )

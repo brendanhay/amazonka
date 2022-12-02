@@ -21,6 +21,7 @@ module Amazonka.Pi.Types.ResponsePartitionKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If @PartitionBy@ was specified in a @DescribeDimensionKeys@ request, the
@@ -52,13 +53,13 @@ newResponsePartitionKey =
 responsePartitionKey_dimensions :: Lens.Lens' ResponsePartitionKey (Prelude.HashMap Prelude.Text Prelude.Text)
 responsePartitionKey_dimensions = Lens.lens (\ResponsePartitionKey' {dimensions} -> dimensions) (\s@ResponsePartitionKey' {} a -> s {dimensions = a} :: ResponsePartitionKey) Prelude.. Lens.coerced
 
-instance Core.FromJSON ResponsePartitionKey where
+instance Data.FromJSON ResponsePartitionKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResponsePartitionKey"
       ( \x ->
           ResponsePartitionKey'
-            Prelude.<$> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResponsePartitionKey where

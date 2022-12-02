@@ -42,6 +42,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetAssessmentFramework where
     Response.receiveJSON
       ( \s h x ->
           GetAssessmentFrameworkResponse'
-            Prelude.<$> (x Core..?> "framework")
+            Prelude.<$> (x Data..?> "framework")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,23 +99,23 @@ instance Prelude.NFData GetAssessmentFramework where
   rnf GetAssessmentFramework' {..} =
     Prelude.rnf frameworkId
 
-instance Core.ToHeaders GetAssessmentFramework where
+instance Data.ToHeaders GetAssessmentFramework where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAssessmentFramework where
+instance Data.ToPath GetAssessmentFramework where
   toPath GetAssessmentFramework' {..} =
     Prelude.mconcat
-      ["/assessmentFrameworks/", Core.toBS frameworkId]
+      ["/assessmentFrameworks/", Data.toBS frameworkId]
 
-instance Core.ToQuery GetAssessmentFramework where
+instance Data.ToQuery GetAssessmentFramework where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAssessmentFrameworkResponse' smart constructor.

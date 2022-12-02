@@ -76,6 +76,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest DeregisterAccount where
     Response.receiveJSON
       ( \s h x ->
           DeregisterAccountResponse'
-            Prelude.<$> (x Core..?> "status")
+            Prelude.<$> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,24 +116,24 @@ instance Prelude.Hashable DeregisterAccount where
 instance Prelude.NFData DeregisterAccount where
   rnf _ = ()
 
-instance Core.ToHeaders DeregisterAccount where
+instance Data.ToHeaders DeregisterAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterAccount where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DeregisterAccount where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DeregisterAccount where
+instance Data.ToPath DeregisterAccount where
   toPath = Prelude.const "/account/deregisterAccount"
 
-instance Core.ToQuery DeregisterAccount where
+instance Data.ToQuery DeregisterAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterAccountResponse' smart constructor.

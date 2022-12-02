@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.FrameworkMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata of a framework, such as the name, ID, or description.
@@ -82,16 +83,16 @@ frameworkMetadata_logo = Lens.lens (\FrameworkMetadata' {logo} -> logo) (\s@Fram
 frameworkMetadata_complianceType :: Lens.Lens' FrameworkMetadata (Prelude.Maybe Prelude.Text)
 frameworkMetadata_complianceType = Lens.lens (\FrameworkMetadata' {complianceType} -> complianceType) (\s@FrameworkMetadata' {} a -> s {complianceType = a} :: FrameworkMetadata)
 
-instance Core.FromJSON FrameworkMetadata where
+instance Data.FromJSON FrameworkMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FrameworkMetadata"
       ( \x ->
           FrameworkMetadata'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "logo")
-            Prelude.<*> (x Core..:? "complianceType")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "logo")
+            Prelude.<*> (x Data..:? "complianceType")
       )
 
 instance Prelude.Hashable FrameworkMetadata where

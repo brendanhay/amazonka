@@ -45,6 +45,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,7 +124,7 @@ instance Core.AWSRequest GetEvidence where
     Response.receiveJSON
       ( \s h x ->
           GetEvidenceResponse'
-            Prelude.<$> (x Core..?> "evidence")
+            Prelude.<$> (x Data..?> "evidence")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,31 +142,31 @@ instance Prelude.NFData GetEvidence where
       `Prelude.seq` Prelude.rnf evidenceFolderId
       `Prelude.seq` Prelude.rnf evidenceId
 
-instance Core.ToHeaders GetEvidence where
+instance Data.ToHeaders GetEvidence where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetEvidence where
+instance Data.ToPath GetEvidence where
   toPath GetEvidence' {..} =
     Prelude.mconcat
       [ "/assessments/",
-        Core.toBS assessmentId,
+        Data.toBS assessmentId,
         "/controlSets/",
-        Core.toBS controlSetId,
+        Data.toBS controlSetId,
         "/evidenceFolders/",
-        Core.toBS evidenceFolderId,
+        Data.toBS evidenceFolderId,
         "/evidence/",
-        Core.toBS evidenceId
+        Data.toBS evidenceId
       ]
 
-instance Core.ToQuery GetEvidence where
+instance Data.ToQuery GetEvidence where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEvidenceResponse' smart constructor.

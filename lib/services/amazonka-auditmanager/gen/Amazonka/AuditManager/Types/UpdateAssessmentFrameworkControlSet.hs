@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.UpdateAssessmentFrameworkControlSet where
 import Amazonka.AuditManager.Types.CreateAssessmentFrameworkControl
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @controlSet@ entity that represents a collection of controls in Audit
@@ -101,14 +102,14 @@ instance
       `Prelude.seq` Prelude.rnf controls
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateAssessmentFrameworkControlSet
   where
   toJSON UpdateAssessmentFrameworkControlSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("id" Core..=) Prelude.<$> id,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("controls" Core..= controls)
+          [ ("id" Data..=) Prelude.<$> id,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("controls" Data..= controls)
           ]
       )

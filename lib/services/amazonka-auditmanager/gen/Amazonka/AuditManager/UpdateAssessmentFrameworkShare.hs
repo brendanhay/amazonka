@@ -44,6 +44,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,7 +120,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateAssessmentFrameworkShareResponse'
-            Prelude.<$> (x Core..?> "assessmentFrameworkShareRequest")
+            Prelude.<$> (x Data..?> "assessmentFrameworkShareRequest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,36 +145,36 @@ instance
       `Prelude.seq` Prelude.rnf action
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateAssessmentFrameworkShare
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAssessmentFrameworkShare where
+instance Data.ToJSON UpdateAssessmentFrameworkShare where
   toJSON UpdateAssessmentFrameworkShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("requestType" Core..= requestType),
-            Prelude.Just ("action" Core..= action)
+          [ Prelude.Just ("requestType" Data..= requestType),
+            Prelude.Just ("action" Data..= action)
           ]
       )
 
-instance Core.ToPath UpdateAssessmentFrameworkShare where
+instance Data.ToPath UpdateAssessmentFrameworkShare where
   toPath UpdateAssessmentFrameworkShare' {..} =
     Prelude.mconcat
       [ "/assessmentFrameworkShareRequests/",
-        Core.toBS requestId
+        Data.toBS requestId
       ]
 
-instance Core.ToQuery UpdateAssessmentFrameworkShare where
+instance Data.ToQuery UpdateAssessmentFrameworkShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAssessmentFrameworkShareResponse' smart constructor.

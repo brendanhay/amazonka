@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.ControlSet where
 import Amazonka.AuditManager.Types.Control
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of controls in Audit Manager.
@@ -74,15 +75,15 @@ controlSet_id = Lens.lens (\ControlSet' {id} -> id) (\s@ControlSet' {} a -> s {i
 controlSet_controls :: Lens.Lens' ControlSet (Prelude.Maybe (Prelude.NonEmpty Control))
 controlSet_controls = Lens.lens (\ControlSet' {controls} -> controls) (\s@ControlSet' {} a -> s {controls = a} :: ControlSet) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ControlSet where
+instance Data.FromJSON ControlSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ControlSet"
       ( \x ->
           ControlSet'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "controls")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "controls")
       )
 
 instance Prelude.Hashable ControlSet where

@@ -41,6 +41,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,22 +93,22 @@ instance Prelude.Hashable DeleteControl where
 instance Prelude.NFData DeleteControl where
   rnf DeleteControl' {..} = Prelude.rnf controlId
 
-instance Core.ToHeaders DeleteControl where
+instance Data.ToHeaders DeleteControl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteControl where
+instance Data.ToPath DeleteControl where
   toPath DeleteControl' {..} =
-    Prelude.mconcat ["/controls/", Core.toBS controlId]
+    Prelude.mconcat ["/controls/", Data.toBS controlId]
 
-instance Core.ToQuery DeleteControl where
+instance Data.ToQuery DeleteControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteControlResponse' smart constructor.

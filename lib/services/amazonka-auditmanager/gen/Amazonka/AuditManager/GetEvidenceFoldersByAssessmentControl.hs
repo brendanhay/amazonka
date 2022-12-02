@@ -48,6 +48,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,10 +143,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetEvidenceFoldersByAssessmentControlResponse'
-            Prelude.<$> ( x Core..?> "evidenceFolders"
+            Prelude.<$> ( x Data..?> "evidenceFolders"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Core..?> "nextToken")
+              Prelude.<*> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,41 +175,41 @@ instance
       `Prelude.seq` Prelude.rnf controlId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetEvidenceFoldersByAssessmentControl
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetEvidenceFoldersByAssessmentControl
   where
   toPath GetEvidenceFoldersByAssessmentControl' {..} =
     Prelude.mconcat
       [ "/assessments/",
-        Core.toBS assessmentId,
+        Data.toBS assessmentId,
         "/evidenceFolders-by-assessment-control/",
-        Core.toBS controlSetId,
+        Data.toBS controlSetId,
         "/",
-        Core.toBS controlId
+        Data.toBS controlId
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetEvidenceFoldersByAssessmentControl
   where
   toQuery GetEvidenceFoldersByAssessmentControl' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetEvidenceFoldersByAssessmentControlResponse' smart constructor.

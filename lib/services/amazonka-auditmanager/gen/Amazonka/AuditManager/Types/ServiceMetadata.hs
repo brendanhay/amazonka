@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.ServiceMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata that\'s associated with the Amazon Web Service.
@@ -82,16 +83,16 @@ serviceMetadata_description = Lens.lens (\ServiceMetadata' {description} -> desc
 serviceMetadata_category :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
 serviceMetadata_category = Lens.lens (\ServiceMetadata' {category} -> category) (\s@ServiceMetadata' {} a -> s {category = a} :: ServiceMetadata)
 
-instance Core.FromJSON ServiceMetadata where
+instance Data.FromJSON ServiceMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceMetadata"
       ( \x ->
           ServiceMetadata'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "displayName")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "category")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "displayName")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "category")
       )
 
 instance Prelude.Hashable ServiceMetadata where

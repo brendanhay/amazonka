@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.InsightsByAssessment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the latest analytics data for a specific active assessment.
@@ -57,7 +58,7 @@ data InsightsByAssessment = InsightsByAssessment'
     -- ruling.
     compliantEvidenceCount :: Prelude.Maybe Prelude.Int,
     -- | The time when the assessment insights were last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The amount of evidence without a compliance check ruling. Evidence is
     -- inconclusive if the associated control uses Security Hub or Config as a
     -- data source and you didn\'t enable those services. This is also the case
@@ -138,7 +139,7 @@ insightsByAssessment_compliantEvidenceCount = Lens.lens (\InsightsByAssessment' 
 
 -- | The time when the assessment insights were last updated.
 insightsByAssessment_lastUpdated :: Lens.Lens' InsightsByAssessment (Prelude.Maybe Prelude.UTCTime)
-insightsByAssessment_lastUpdated = Lens.lens (\InsightsByAssessment' {lastUpdated} -> lastUpdated) (\s@InsightsByAssessment' {} a -> s {lastUpdated = a} :: InsightsByAssessment) Prelude.. Lens.mapping Core._Time
+insightsByAssessment_lastUpdated = Lens.lens (\InsightsByAssessment' {lastUpdated} -> lastUpdated) (\s@InsightsByAssessment' {} a -> s {lastUpdated = a} :: InsightsByAssessment) Prelude.. Lens.mapping Data._Time
 
 -- | The amount of evidence without a compliance check ruling. Evidence is
 -- inconclusive if the associated control uses Security Hub or Config as a
@@ -163,19 +164,19 @@ insightsByAssessment_noncompliantEvidenceCount = Lens.lens (\InsightsByAssessmen
 insightsByAssessment_assessmentControlsCountByNoncompliantEvidence :: Lens.Lens' InsightsByAssessment (Prelude.Maybe Prelude.Int)
 insightsByAssessment_assessmentControlsCountByNoncompliantEvidence = Lens.lens (\InsightsByAssessment' {assessmentControlsCountByNoncompliantEvidence} -> assessmentControlsCountByNoncompliantEvidence) (\s@InsightsByAssessment' {} a -> s {assessmentControlsCountByNoncompliantEvidence = a} :: InsightsByAssessment)
 
-instance Core.FromJSON InsightsByAssessment where
+instance Data.FromJSON InsightsByAssessment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InsightsByAssessment"
       ( \x ->
           InsightsByAssessment'
-            Prelude.<$> (x Core..:? "totalAssessmentControlsCount")
-            Prelude.<*> (x Core..:? "compliantEvidenceCount")
-            Prelude.<*> (x Core..:? "lastUpdated")
-            Prelude.<*> (x Core..:? "inconclusiveEvidenceCount")
-            Prelude.<*> (x Core..:? "noncompliantEvidenceCount")
+            Prelude.<$> (x Data..:? "totalAssessmentControlsCount")
+            Prelude.<*> (x Data..:? "compliantEvidenceCount")
+            Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "inconclusiveEvidenceCount")
+            Prelude.<*> (x Data..:? "noncompliantEvidenceCount")
             Prelude.<*> ( x
-                            Core..:? "assessmentControlsCountByNoncompliantEvidence"
+                            Data..:? "assessmentControlsCountByNoncompliantEvidence"
                         )
       )
 

@@ -43,6 +43,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,46 +128,46 @@ instance
       `Prelude.seq` Prelude.rnf evidenceFolderId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateAssessmentReportEvidenceFolder
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DisassociateAssessmentReportEvidenceFolder
   where
   toJSON
     DisassociateAssessmentReportEvidenceFolder' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
             [ Prelude.Just
-                ("evidenceFolderId" Core..= evidenceFolderId)
+                ("evidenceFolderId" Data..= evidenceFolderId)
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateAssessmentReportEvidenceFolder
   where
   toPath
     DisassociateAssessmentReportEvidenceFolder' {..} =
       Prelude.mconcat
         [ "/assessments/",
-          Core.toBS assessmentId,
+          Data.toBS assessmentId,
           "/disassociateFromAssessmentReport"
         ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateAssessmentReportEvidenceFolder
   where
   toQuery = Prelude.const Prelude.mempty

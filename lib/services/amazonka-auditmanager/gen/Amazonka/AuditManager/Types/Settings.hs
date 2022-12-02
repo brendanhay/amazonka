@@ -24,6 +24,7 @@ import Amazonka.AuditManager.Types.EvidenceFinderEnablement
 import Amazonka.AuditManager.Types.Role
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings object that holds all supported Audit Manager settings.
@@ -101,20 +102,20 @@ settings_evidenceFinderEnablement = Lens.lens (\Settings' {evidenceFinderEnablem
 settings_defaultAssessmentReportsDestination :: Lens.Lens' Settings (Prelude.Maybe AssessmentReportsDestination)
 settings_defaultAssessmentReportsDestination = Lens.lens (\Settings' {defaultAssessmentReportsDestination} -> defaultAssessmentReportsDestination) (\s@Settings' {} a -> s {defaultAssessmentReportsDestination = a} :: Settings)
 
-instance Core.FromJSON Settings where
+instance Data.FromJSON Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Settings"
       ( \x ->
           Settings'
-            Prelude.<$> ( x Core..:? "defaultProcessOwners"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "defaultProcessOwners"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "snsTopic")
-            Prelude.<*> (x Core..:? "isAwsOrgEnabled")
-            Prelude.<*> (x Core..:? "kmsKey")
-            Prelude.<*> (x Core..:? "evidenceFinderEnablement")
-            Prelude.<*> (x Core..:? "defaultAssessmentReportsDestination")
+            Prelude.<*> (x Data..:? "snsTopic")
+            Prelude.<*> (x Data..:? "isAwsOrgEnabled")
+            Prelude.<*> (x Data..:? "kmsKey")
+            Prelude.<*> (x Data..:? "evidenceFinderEnablement")
+            Prelude.<*> (x Data..:? "defaultAssessmentReportsDestination")
       )
 
 instance Prelude.Hashable Settings where

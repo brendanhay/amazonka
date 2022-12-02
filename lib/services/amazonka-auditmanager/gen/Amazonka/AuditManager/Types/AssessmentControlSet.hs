@@ -25,6 +25,7 @@ import Amazonka.AuditManager.Types.Delegation
 import Amazonka.AuditManager.Types.Role
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a set of controls in an Audit Manager assessment.
@@ -129,20 +130,20 @@ assessmentControlSet_manualEvidenceCount = Lens.lens (\AssessmentControlSet' {ma
 assessmentControlSet_roles :: Lens.Lens' AssessmentControlSet (Prelude.Maybe [Role])
 assessmentControlSet_roles = Lens.lens (\AssessmentControlSet' {roles} -> roles) (\s@AssessmentControlSet' {} a -> s {roles = a} :: AssessmentControlSet) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AssessmentControlSet where
+instance Data.FromJSON AssessmentControlSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentControlSet"
       ( \x ->
           AssessmentControlSet'
-            Prelude.<$> (x Core..:? "systemEvidenceCount")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "controls" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "delegations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "manualEvidenceCount")
-            Prelude.<*> (x Core..:? "roles" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "systemEvidenceCount")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "controls" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "delegations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "manualEvidenceCount")
+            Prelude.<*> (x Data..:? "roles" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AssessmentControlSet where

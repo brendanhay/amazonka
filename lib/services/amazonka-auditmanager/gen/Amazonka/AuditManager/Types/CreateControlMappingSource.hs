@@ -25,6 +25,7 @@ import Amazonka.AuditManager.Types.SourceSetUpOption
 import Amazonka.AuditManager.Types.SourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The control mapping fields that represent the source for evidence
@@ -138,20 +139,20 @@ instance Prelude.NFData CreateControlMappingSource where
       `Prelude.seq` Prelude.rnf troubleshootingText
       `Prelude.seq` Prelude.rnf sourceType
 
-instance Core.ToJSON CreateControlMappingSource where
+instance Data.ToJSON CreateControlMappingSource where
   toJSON CreateControlMappingSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sourceFrequency" Core..=)
+          [ ("sourceFrequency" Data..=)
               Prelude.<$> sourceFrequency,
-            ("sourceDescription" Core..=)
+            ("sourceDescription" Data..=)
               Prelude.<$> sourceDescription,
-            ("sourceKeyword" Core..=) Prelude.<$> sourceKeyword,
-            ("sourceName" Core..=) Prelude.<$> sourceName,
-            ("sourceSetUpOption" Core..=)
+            ("sourceKeyword" Data..=) Prelude.<$> sourceKeyword,
+            ("sourceName" Data..=) Prelude.<$> sourceName,
+            ("sourceSetUpOption" Data..=)
               Prelude.<$> sourceSetUpOption,
-            ("troubleshootingText" Core..=)
+            ("troubleshootingText" Data..=)
               Prelude.<$> troubleshootingText,
-            ("sourceType" Core..=) Prelude.<$> sourceType
+            ("sourceType" Data..=) Prelude.<$> sourceType
           ]
       )

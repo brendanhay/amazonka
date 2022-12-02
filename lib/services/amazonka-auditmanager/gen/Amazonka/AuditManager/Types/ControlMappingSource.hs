@@ -25,6 +25,7 @@ import Amazonka.AuditManager.Types.SourceSetUpOption
 import Amazonka.AuditManager.Types.SourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data source that determines where Audit Manager collects evidence
@@ -123,20 +124,20 @@ controlMappingSource_troubleshootingText = Lens.lens (\ControlMappingSource' {tr
 controlMappingSource_sourceType :: Lens.Lens' ControlMappingSource (Prelude.Maybe SourceType)
 controlMappingSource_sourceType = Lens.lens (\ControlMappingSource' {sourceType} -> sourceType) (\s@ControlMappingSource' {} a -> s {sourceType = a} :: ControlMappingSource)
 
-instance Core.FromJSON ControlMappingSource where
+instance Data.FromJSON ControlMappingSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ControlMappingSource"
       ( \x ->
           ControlMappingSource'
-            Prelude.<$> (x Core..:? "sourceFrequency")
-            Prelude.<*> (x Core..:? "sourceDescription")
-            Prelude.<*> (x Core..:? "sourceKeyword")
-            Prelude.<*> (x Core..:? "sourceName")
-            Prelude.<*> (x Core..:? "sourceId")
-            Prelude.<*> (x Core..:? "sourceSetUpOption")
-            Prelude.<*> (x Core..:? "troubleshootingText")
-            Prelude.<*> (x Core..:? "sourceType")
+            Prelude.<$> (x Data..:? "sourceFrequency")
+            Prelude.<*> (x Data..:? "sourceDescription")
+            Prelude.<*> (x Data..:? "sourceKeyword")
+            Prelude.<*> (x Data..:? "sourceName")
+            Prelude.<*> (x Data..:? "sourceId")
+            Prelude.<*> (x Data..:? "sourceSetUpOption")
+            Prelude.<*> (x Data..:? "troubleshootingText")
+            Prelude.<*> (x Data..:? "sourceType")
       )
 
 instance Prelude.Hashable ControlMappingSource where
@@ -161,21 +162,21 @@ instance Prelude.NFData ControlMappingSource where
       `Prelude.seq` Prelude.rnf troubleshootingText
       `Prelude.seq` Prelude.rnf sourceType
 
-instance Core.ToJSON ControlMappingSource where
+instance Data.ToJSON ControlMappingSource where
   toJSON ControlMappingSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sourceFrequency" Core..=)
+          [ ("sourceFrequency" Data..=)
               Prelude.<$> sourceFrequency,
-            ("sourceDescription" Core..=)
+            ("sourceDescription" Data..=)
               Prelude.<$> sourceDescription,
-            ("sourceKeyword" Core..=) Prelude.<$> sourceKeyword,
-            ("sourceName" Core..=) Prelude.<$> sourceName,
-            ("sourceId" Core..=) Prelude.<$> sourceId,
-            ("sourceSetUpOption" Core..=)
+            ("sourceKeyword" Data..=) Prelude.<$> sourceKeyword,
+            ("sourceName" Data..=) Prelude.<$> sourceName,
+            ("sourceId" Data..=) Prelude.<$> sourceId,
+            ("sourceSetUpOption" Data..=)
               Prelude.<$> sourceSetUpOption,
-            ("troubleshootingText" Core..=)
+            ("troubleshootingText" Data..=)
               Prelude.<$> troubleshootingText,
-            ("sourceType" Core..=) Prelude.<$> sourceType
+            ("sourceType" Data..=) Prelude.<$> sourceType
           ]
       )

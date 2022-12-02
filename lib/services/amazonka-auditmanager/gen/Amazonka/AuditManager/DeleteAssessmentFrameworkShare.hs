@@ -42,6 +42,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,29 +128,29 @@ instance
       `Prelude.seq` Prelude.rnf requestType
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteAssessmentFrameworkShare
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAssessmentFrameworkShare where
+instance Data.ToPath DeleteAssessmentFrameworkShare where
   toPath DeleteAssessmentFrameworkShare' {..} =
     Prelude.mconcat
       [ "/assessmentFrameworkShareRequests/",
-        Core.toBS requestId
+        Data.toBS requestId
       ]
 
-instance Core.ToQuery DeleteAssessmentFrameworkShare where
+instance Data.ToQuery DeleteAssessmentFrameworkShare where
   toQuery DeleteAssessmentFrameworkShare' {..} =
-    Prelude.mconcat ["requestType" Core.=: requestType]
+    Prelude.mconcat ["requestType" Data.=: requestType]
 
 -- | /See:/ 'newDeleteAssessmentFrameworkShareResponse' smart constructor.
 data DeleteAssessmentFrameworkShareResponse = DeleteAssessmentFrameworkShareResponse'

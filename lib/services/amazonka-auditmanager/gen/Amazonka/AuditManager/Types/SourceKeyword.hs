@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.SourceKeyword where
 import Amazonka.AuditManager.Types.KeywordInputType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The keyword to search for in CloudTrail logs, Config rules, Security Hub
@@ -204,14 +205,14 @@ sourceKeyword_keywordValue = Lens.lens (\SourceKeyword' {keywordValue} -> keywor
 sourceKeyword_keywordInputType :: Lens.Lens' SourceKeyword (Prelude.Maybe KeywordInputType)
 sourceKeyword_keywordInputType = Lens.lens (\SourceKeyword' {keywordInputType} -> keywordInputType) (\s@SourceKeyword' {} a -> s {keywordInputType = a} :: SourceKeyword)
 
-instance Core.FromJSON SourceKeyword where
+instance Data.FromJSON SourceKeyword where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceKeyword"
       ( \x ->
           SourceKeyword'
-            Prelude.<$> (x Core..:? "keywordValue")
-            Prelude.<*> (x Core..:? "keywordInputType")
+            Prelude.<$> (x Data..:? "keywordValue")
+            Prelude.<*> (x Data..:? "keywordInputType")
       )
 
 instance Prelude.Hashable SourceKeyword where
@@ -224,12 +225,12 @@ instance Prelude.NFData SourceKeyword where
     Prelude.rnf keywordValue
       `Prelude.seq` Prelude.rnf keywordInputType
 
-instance Core.ToJSON SourceKeyword where
+instance Data.ToJSON SourceKeyword where
   toJSON SourceKeyword' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keywordValue" Core..=) Prelude.<$> keywordValue,
-            ("keywordInputType" Core..=)
+          [ ("keywordValue" Data..=) Prelude.<$> keywordValue,
+            ("keywordInputType" Data..=)
               Prelude.<$> keywordInputType
           ]
       )

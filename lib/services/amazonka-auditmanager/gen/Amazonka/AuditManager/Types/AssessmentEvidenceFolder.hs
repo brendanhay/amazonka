@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.AssessmentEvidenceFolder where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The folder where Audit Manager stores evidence for an assessment.
@@ -43,7 +44,7 @@ data AssessmentEvidenceFolder = AssessmentEvidenceFolder'
     -- | The amount of evidence that\'s included in the evidence folder.
     evidenceResourcesIncludedCount :: Prelude.Maybe Prelude.Int,
     -- | The date when the first evidence was added to the evidence folder.
-    date :: Prelude.Maybe Core.POSIX,
+    date :: Prelude.Maybe Data.POSIX,
     -- | The total number of Amazon Web Services resources that were assessed to
     -- generate the evidence.
     evidenceAwsServiceSourceCount :: Prelude.Maybe Prelude.Int,
@@ -182,7 +183,7 @@ assessmentEvidenceFolder_evidenceResourcesIncludedCount = Lens.lens (\Assessment
 
 -- | The date when the first evidence was added to the evidence folder.
 assessmentEvidenceFolder_date :: Lens.Lens' AssessmentEvidenceFolder (Prelude.Maybe Prelude.UTCTime)
-assessmentEvidenceFolder_date = Lens.lens (\AssessmentEvidenceFolder' {date} -> date) (\s@AssessmentEvidenceFolder' {} a -> s {date = a} :: AssessmentEvidenceFolder) Prelude.. Lens.mapping Core._Time
+assessmentEvidenceFolder_date = Lens.lens (\AssessmentEvidenceFolder' {date} -> date) (\s@AssessmentEvidenceFolder' {} a -> s {date = a} :: AssessmentEvidenceFolder) Prelude.. Lens.mapping Data._Time
 
 -- | The total number of Amazon Web Services resources that were assessed to
 -- generate the evidence.
@@ -230,32 +231,32 @@ assessmentEvidenceFolder_controlName = Lens.lens (\AssessmentEvidenceFolder' {co
 assessmentEvidenceFolder_evidenceByTypeConfigurationDataCount :: Lens.Lens' AssessmentEvidenceFolder (Prelude.Maybe Prelude.Int)
 assessmentEvidenceFolder_evidenceByTypeConfigurationDataCount = Lens.lens (\AssessmentEvidenceFolder' {evidenceByTypeConfigurationDataCount} -> evidenceByTypeConfigurationDataCount) (\s@AssessmentEvidenceFolder' {} a -> s {evidenceByTypeConfigurationDataCount = a} :: AssessmentEvidenceFolder)
 
-instance Core.FromJSON AssessmentEvidenceFolder where
+instance Data.FromJSON AssessmentEvidenceFolder where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentEvidenceFolder"
       ( \x ->
           AssessmentEvidenceFolder'
-            Prelude.<$> (x Core..:? "controlId")
-            Prelude.<*> (x Core..:? "author")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Data..:? "controlId")
+            Prelude.<*> (x Data..:? "author")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> ( x
-                            Core..:? "evidenceByTypeComplianceCheckIssuesCount"
+                            Data..:? "evidenceByTypeComplianceCheckIssuesCount"
                         )
-            Prelude.<*> (x Core..:? "totalEvidence")
-            Prelude.<*> (x Core..:? "assessmentId")
-            Prelude.<*> (x Core..:? "evidenceResourcesIncludedCount")
-            Prelude.<*> (x Core..:? "date")
-            Prelude.<*> (x Core..:? "evidenceAwsServiceSourceCount")
-            Prelude.<*> (x Core..:? "evidenceByTypeManualCount")
-            Prelude.<*> (x Core..:? "evidenceByTypeUserActivityCount")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "assessmentReportSelectionCount")
-            Prelude.<*> (x Core..:? "controlSetId")
-            Prelude.<*> (x Core..:? "evidenceByTypeComplianceCheckCount")
-            Prelude.<*> (x Core..:? "dataSource")
-            Prelude.<*> (x Core..:? "controlName")
-            Prelude.<*> (x Core..:? "evidenceByTypeConfigurationDataCount")
+            Prelude.<*> (x Data..:? "totalEvidence")
+            Prelude.<*> (x Data..:? "assessmentId")
+            Prelude.<*> (x Data..:? "evidenceResourcesIncludedCount")
+            Prelude.<*> (x Data..:? "date")
+            Prelude.<*> (x Data..:? "evidenceAwsServiceSourceCount")
+            Prelude.<*> (x Data..:? "evidenceByTypeManualCount")
+            Prelude.<*> (x Data..:? "evidenceByTypeUserActivityCount")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "assessmentReportSelectionCount")
+            Prelude.<*> (x Data..:? "controlSetId")
+            Prelude.<*> (x Data..:? "evidenceByTypeComplianceCheckCount")
+            Prelude.<*> (x Data..:? "dataSource")
+            Prelude.<*> (x Data..:? "controlName")
+            Prelude.<*> (x Data..:? "evidenceByTypeConfigurationDataCount")
       )
 
 instance Prelude.Hashable AssessmentEvidenceFolder where

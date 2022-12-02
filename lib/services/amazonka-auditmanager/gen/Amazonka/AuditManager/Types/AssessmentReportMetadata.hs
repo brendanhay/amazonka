@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.AssessmentReportMetadata where
 import Amazonka.AuditManager.Types.AssessmentReportStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata objects that are associated with the specified assessment
@@ -44,7 +45,7 @@ data AssessmentReportMetadata = AssessmentReportMetadata'
     -- | The unique identifier for the assessment report.
     id :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the assessment report was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,22 +116,22 @@ assessmentReportMetadata_id = Lens.lens (\AssessmentReportMetadata' {id} -> id) 
 
 -- | Specifies when the assessment report was created.
 assessmentReportMetadata_creationTime :: Lens.Lens' AssessmentReportMetadata (Prelude.Maybe Prelude.UTCTime)
-assessmentReportMetadata_creationTime = Lens.lens (\AssessmentReportMetadata' {creationTime} -> creationTime) (\s@AssessmentReportMetadata' {} a -> s {creationTime = a} :: AssessmentReportMetadata) Prelude.. Lens.mapping Core._Time
+assessmentReportMetadata_creationTime = Lens.lens (\AssessmentReportMetadata' {creationTime} -> creationTime) (\s@AssessmentReportMetadata' {} a -> s {creationTime = a} :: AssessmentReportMetadata) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AssessmentReportMetadata where
+instance Data.FromJSON AssessmentReportMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentReportMetadata"
       ( \x ->
           AssessmentReportMetadata'
-            Prelude.<$> (x Core..:? "author")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "assessmentId")
-            Prelude.<*> (x Core..:? "assessmentName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<$> (x Data..:? "author")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "assessmentId")
+            Prelude.<*> (x Data..:? "assessmentName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable AssessmentReportMetadata where

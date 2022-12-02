@@ -68,6 +68,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -155,7 +156,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchImportEvidenceToAssessmentControlResponse'
-            Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,48 +183,48 @@ instance
       `Prelude.seq` Prelude.rnf manualEvidence
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchImportEvidenceToAssessmentControl
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BatchImportEvidenceToAssessmentControl
   where
   toJSON BatchImportEvidenceToAssessmentControl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("manualEvidence" Core..= manualEvidence)
+              ("manualEvidence" Data..= manualEvidence)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     BatchImportEvidenceToAssessmentControl
   where
   toPath BatchImportEvidenceToAssessmentControl' {..} =
     Prelude.mconcat
       [ "/assessments/",
-        Core.toBS assessmentId,
+        Data.toBS assessmentId,
         "/controlSets/",
-        Core.toBS controlSetId,
+        Data.toBS controlSetId,
         "/controls/",
-        Core.toBS controlId,
+        Data.toBS controlId,
         "/evidence"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     BatchImportEvidenceToAssessmentControl
   where
   toQuery = Prelude.const Prelude.mempty

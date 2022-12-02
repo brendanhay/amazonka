@@ -48,6 +48,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -148,7 +149,7 @@ instance Core.AWSRequest CreateControl where
     Response.receiveJSON
       ( \s h x ->
           CreateControlResponse'
-            Prelude.<$> (x Core..?> "control")
+            Prelude.<$> (x Data..?> "control")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,41 +173,41 @@ instance Prelude.NFData CreateControl where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf controlMappingSources
 
-instance Core.ToHeaders CreateControl where
+instance Data.ToHeaders CreateControl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateControl where
+instance Data.ToJSON CreateControl where
   toJSON CreateControl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("actionPlanInstructions" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("actionPlanInstructions" Data..=)
               Prelude.<$> actionPlanInstructions,
-            ("description" Core..=) Prelude.<$> description,
-            ("actionPlanTitle" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("actionPlanTitle" Data..=)
               Prelude.<$> actionPlanTitle,
-            ("testingInformation" Core..=)
+            ("testingInformation" Data..=)
               Prelude.<$> testingInformation,
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
               ( "controlMappingSources"
-                  Core..= controlMappingSources
+                  Data..= controlMappingSources
               )
           ]
       )
 
-instance Core.ToPath CreateControl where
+instance Data.ToPath CreateControl where
   toPath = Prelude.const "/controls"
 
-instance Core.ToQuery CreateControl where
+instance Data.ToQuery CreateControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateControlResponse' smart constructor.

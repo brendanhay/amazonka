@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError w
 import Amazonka.AuditManager.Types.ManualEvidence
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An error entity for the @BatchImportEvidenceToAssessmentControl@ API.
@@ -82,17 +83,17 @@ batchImportEvidenceToAssessmentControlError_manualEvidence :: Lens.Lens' BatchIm
 batchImportEvidenceToAssessmentControlError_manualEvidence = Lens.lens (\BatchImportEvidenceToAssessmentControlError' {manualEvidence} -> manualEvidence) (\s@BatchImportEvidenceToAssessmentControlError' {} a -> s {manualEvidence = a} :: BatchImportEvidenceToAssessmentControlError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchImportEvidenceToAssessmentControlError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchImportEvidenceToAssessmentControlError"
       ( \x ->
           BatchImportEvidenceToAssessmentControlError'
-            Prelude.<$> (x Core..:? "errorMessage")
-              Prelude.<*> (x Core..:? "errorCode")
-              Prelude.<*> (x Core..:? "manualEvidence")
+            Prelude.<$> (x Data..:? "errorMessage")
+              Prelude.<*> (x Data..:? "errorCode")
+              Prelude.<*> (x Data..:? "manualEvidence")
       )
 
 instance

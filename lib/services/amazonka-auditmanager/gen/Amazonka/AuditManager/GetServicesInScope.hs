@@ -44,6 +44,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,7 +73,7 @@ instance Core.AWSRequest GetServicesInScope where
     Response.receiveJSON
       ( \s h x ->
           GetServicesInScopeResponse'
-            Prelude.<$> ( x Core..?> "serviceMetadata"
+            Prelude.<$> ( x Data..?> "serviceMetadata"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -85,21 +86,21 @@ instance Prelude.Hashable GetServicesInScope where
 instance Prelude.NFData GetServicesInScope where
   rnf _ = ()
 
-instance Core.ToHeaders GetServicesInScope where
+instance Data.ToHeaders GetServicesInScope where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetServicesInScope where
+instance Data.ToPath GetServicesInScope where
   toPath = Prelude.const "/services"
 
-instance Core.ToQuery GetServicesInScope where
+instance Data.ToQuery GetServicesInScope where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetServicesInScopeResponse' smart constructor.

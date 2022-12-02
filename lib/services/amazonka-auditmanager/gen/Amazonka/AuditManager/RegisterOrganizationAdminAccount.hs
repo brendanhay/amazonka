@@ -44,6 +44,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,8 +92,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           RegisterOrganizationAdminAccountResponse'
-            Prelude.<$> (x Core..?> "adminAccountId")
-            Prelude.<*> (x Core..?> "organizationId")
+            Prelude.<$> (x Data..?> "adminAccountId")
+            Prelude.<*> (x Data..?> "organizationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,35 +114,35 @@ instance
     Prelude.rnf adminAccountId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RegisterOrganizationAdminAccount
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterOrganizationAdminAccount where
+instance Data.ToJSON RegisterOrganizationAdminAccount where
   toJSON RegisterOrganizationAdminAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("adminAccountId" Core..= adminAccountId)
+              ("adminAccountId" Data..= adminAccountId)
           ]
       )
 
-instance Core.ToPath RegisterOrganizationAdminAccount where
+instance Data.ToPath RegisterOrganizationAdminAccount where
   toPath =
     Prelude.const
       "/account/registerOrganizationAdminAccount"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     RegisterOrganizationAdminAccount
   where
   toQuery = Prelude.const Prelude.mempty

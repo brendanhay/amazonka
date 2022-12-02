@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.ControlComment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A comment that\'s posted by a user on a control. This includes the
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newControlComment' smart constructor.
 data ControlComment = ControlComment'
   { -- | The time when the comment was posted.
-    postedDate :: Prelude.Maybe Core.POSIX,
+    postedDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the user who authored the comment.
     authorName :: Prelude.Maybe Prelude.Text,
     -- | The body text of a control comment.
@@ -61,7 +62,7 @@ newControlComment =
 
 -- | The time when the comment was posted.
 controlComment_postedDate :: Lens.Lens' ControlComment (Prelude.Maybe Prelude.UTCTime)
-controlComment_postedDate = Lens.lens (\ControlComment' {postedDate} -> postedDate) (\s@ControlComment' {} a -> s {postedDate = a} :: ControlComment) Prelude.. Lens.mapping Core._Time
+controlComment_postedDate = Lens.lens (\ControlComment' {postedDate} -> postedDate) (\s@ControlComment' {} a -> s {postedDate = a} :: ControlComment) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the user who authored the comment.
 controlComment_authorName :: Lens.Lens' ControlComment (Prelude.Maybe Prelude.Text)
@@ -71,15 +72,15 @@ controlComment_authorName = Lens.lens (\ControlComment' {authorName} -> authorNa
 controlComment_commentBody :: Lens.Lens' ControlComment (Prelude.Maybe Prelude.Text)
 controlComment_commentBody = Lens.lens (\ControlComment' {commentBody} -> commentBody) (\s@ControlComment' {} a -> s {commentBody = a} :: ControlComment)
 
-instance Core.FromJSON ControlComment where
+instance Data.FromJSON ControlComment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ControlComment"
       ( \x ->
           ControlComment'
-            Prelude.<$> (x Core..:? "postedDate")
-            Prelude.<*> (x Core..:? "authorName")
-            Prelude.<*> (x Core..:? "commentBody")
+            Prelude.<$> (x Data..:? "postedDate")
+            Prelude.<*> (x Data..:? "authorName")
+            Prelude.<*> (x Data..:? "commentBody")
       )
 
 instance Prelude.Hashable ControlComment where

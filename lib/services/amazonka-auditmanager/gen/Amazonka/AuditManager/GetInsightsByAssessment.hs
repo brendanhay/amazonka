@@ -42,6 +42,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetInsightsByAssessment where
     Response.receiveJSON
       ( \s h x ->
           GetInsightsByAssessmentResponse'
-            Prelude.<$> (x Core..?> "insights")
+            Prelude.<$> (x Data..?> "insights")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,23 +99,23 @@ instance Prelude.NFData GetInsightsByAssessment where
   rnf GetInsightsByAssessment' {..} =
     Prelude.rnf assessmentId
 
-instance Core.ToHeaders GetInsightsByAssessment where
+instance Data.ToHeaders GetInsightsByAssessment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetInsightsByAssessment where
+instance Data.ToPath GetInsightsByAssessment where
   toPath GetInsightsByAssessment' {..} =
     Prelude.mconcat
-      ["/insights/assessments/", Core.toBS assessmentId]
+      ["/insights/assessments/", Data.toBS assessmentId]
 
-instance Core.ToQuery GetInsightsByAssessment where
+instance Data.ToQuery GetInsightsByAssessment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInsightsByAssessmentResponse' smart constructor.

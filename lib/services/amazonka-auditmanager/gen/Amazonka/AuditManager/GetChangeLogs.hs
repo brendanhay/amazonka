@@ -47,6 +47,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,8 +130,8 @@ instance Core.AWSRequest GetChangeLogs where
     Response.receiveJSON
       ( \s h x ->
           GetChangeLogsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "changeLogs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "changeLogs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,32 +151,32 @@ instance Prelude.NFData GetChangeLogs where
       `Prelude.seq` Prelude.rnf controlSetId
       `Prelude.seq` Prelude.rnf assessmentId
 
-instance Core.ToHeaders GetChangeLogs where
+instance Data.ToHeaders GetChangeLogs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetChangeLogs where
+instance Data.ToPath GetChangeLogs where
   toPath GetChangeLogs' {..} =
     Prelude.mconcat
       [ "/assessments/",
-        Core.toBS assessmentId,
+        Data.toBS assessmentId,
         "/changelogs"
       ]
 
-instance Core.ToQuery GetChangeLogs where
+instance Data.ToQuery GetChangeLogs where
   toQuery GetChangeLogs' {..} =
     Prelude.mconcat
-      [ "controlId" Core.=: controlId,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "controlSetId" Core.=: controlSetId
+      [ "controlId" Data.=: controlId,
+        "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "controlSetId" Data.=: controlSetId
       ]
 
 -- | /See:/ 'newGetChangeLogsResponse' smart constructor.

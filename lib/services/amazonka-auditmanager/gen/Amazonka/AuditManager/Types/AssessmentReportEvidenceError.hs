@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.AssessmentReportEvidenceError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An error entity for assessment report evidence errors. This is used to
@@ -72,15 +73,15 @@ assessmentReportEvidenceError_evidenceId = Lens.lens (\AssessmentReportEvidenceE
 assessmentReportEvidenceError_errorCode :: Lens.Lens' AssessmentReportEvidenceError (Prelude.Maybe Prelude.Text)
 assessmentReportEvidenceError_errorCode = Lens.lens (\AssessmentReportEvidenceError' {errorCode} -> errorCode) (\s@AssessmentReportEvidenceError' {} a -> s {errorCode = a} :: AssessmentReportEvidenceError)
 
-instance Core.FromJSON AssessmentReportEvidenceError where
+instance Data.FromJSON AssessmentReportEvidenceError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentReportEvidenceError"
       ( \x ->
           AssessmentReportEvidenceError'
-            Prelude.<$> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "evidenceId")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "evidenceId")
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance

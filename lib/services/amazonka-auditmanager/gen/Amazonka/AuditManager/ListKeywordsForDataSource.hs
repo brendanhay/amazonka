@@ -46,6 +46,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,8 +112,8 @@ instance Core.AWSRequest ListKeywordsForDataSource where
     Response.receiveJSON
       ( \s h x ->
           ListKeywordsForDataSourceResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "keywords" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "keywords" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,26 +129,26 @@ instance Prelude.NFData ListKeywordsForDataSource where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf source
 
-instance Core.ToHeaders ListKeywordsForDataSource where
+instance Data.ToHeaders ListKeywordsForDataSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListKeywordsForDataSource where
+instance Data.ToPath ListKeywordsForDataSource where
   toPath = Prelude.const "/dataSourceKeywords"
 
-instance Core.ToQuery ListKeywordsForDataSource where
+instance Data.ToQuery ListKeywordsForDataSource where
   toQuery ListKeywordsForDataSource' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "source" Core.=: source
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "source" Data.=: source
       ]
 
 -- | /See:/ 'newListKeywordsForDataSourceResponse' smart constructor.

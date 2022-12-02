@@ -105,6 +105,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,33 +171,33 @@ instance
     Prelude.rnf adminAccountId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeregisterOrganizationAdminAccount
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeregisterOrganizationAdminAccount
   where
   toJSON DeregisterOrganizationAdminAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("adminAccountId" Core..=)
+          [ ("adminAccountId" Data..=)
               Prelude.<$> adminAccountId
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeregisterOrganizationAdminAccount
   where
   toPath =
@@ -204,7 +205,7 @@ instance
       "/account/deregisterOrganizationAdminAccount"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeregisterOrganizationAdminAccount
   where
   toQuery = Prelude.const Prelude.mempty

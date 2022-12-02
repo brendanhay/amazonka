@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A system asset that\'s evaluated in an Audit Manager assessment.
@@ -118,15 +119,15 @@ resource_complianceCheck = Lens.lens (\Resource' {complianceCheck} -> compliance
 resource_value :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_value = Lens.lens (\Resource' {value} -> value) (\s@Resource' {} a -> s {value = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "complianceCheck")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "complianceCheck")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Resource where

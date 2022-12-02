@@ -23,6 +23,7 @@ import Amazonka.AuditManager.Types.ControlSet
 import Amazonka.AuditManager.Types.FrameworkType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The file that\'s used to structure and automate Audit Manager
@@ -37,7 +38,7 @@ data Framework = Framework'
     -- | The framework type, such as a custom framework or a standard framework.
     type' :: Prelude.Maybe FrameworkType,
     -- | Specifies when the framework was most recently updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the framework.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The description of the framework.
@@ -54,7 +55,7 @@ data Framework = Framework'
     -- | The IAM user or role that created the framework.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the framework was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The IAM user or role that most recently updated the framework.
     lastUpdatedBy :: Prelude.Maybe Prelude.Text,
     -- | The sources that Audit Manager collects evidence from for the control.
@@ -132,7 +133,7 @@ framework_type = Lens.lens (\Framework' {type'} -> type') (\s@Framework' {} a ->
 
 -- | Specifies when the framework was most recently updated.
 framework_lastUpdatedAt :: Lens.Lens' Framework (Prelude.Maybe Prelude.UTCTime)
-framework_lastUpdatedAt = Lens.lens (\Framework' {lastUpdatedAt} -> lastUpdatedAt) (\s@Framework' {} a -> s {lastUpdatedAt = a} :: Framework) Prelude.. Lens.mapping Core._Time
+framework_lastUpdatedAt = Lens.lens (\Framework' {lastUpdatedAt} -> lastUpdatedAt) (\s@Framework' {} a -> s {lastUpdatedAt = a} :: Framework) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the framework.
 framework_arn :: Lens.Lens' Framework (Prelude.Maybe Prelude.Text)
@@ -165,7 +166,7 @@ framework_createdBy = Lens.lens (\Framework' {createdBy} -> createdBy) (\s@Frame
 
 -- | Specifies when the framework was created.
 framework_createdAt :: Lens.Lens' Framework (Prelude.Maybe Prelude.UTCTime)
-framework_createdAt = Lens.lens (\Framework' {createdAt} -> createdAt) (\s@Framework' {} a -> s {createdAt = a} :: Framework) Prelude.. Lens.mapping Core._Time
+framework_createdAt = Lens.lens (\Framework' {createdAt} -> createdAt) (\s@Framework' {} a -> s {createdAt = a} :: Framework) Prelude.. Lens.mapping Data._Time
 
 -- | The IAM user or role that most recently updated the framework.
 framework_lastUpdatedBy :: Lens.Lens' Framework (Prelude.Maybe Prelude.Text)
@@ -175,26 +176,26 @@ framework_lastUpdatedBy = Lens.lens (\Framework' {lastUpdatedBy} -> lastUpdatedB
 framework_controlSources :: Lens.Lens' Framework (Prelude.Maybe Prelude.Text)
 framework_controlSources = Lens.lens (\Framework' {controlSources} -> controlSources) (\s@Framework' {} a -> s {controlSources = a} :: Framework)
 
-instance Core.FromJSON Framework where
+instance Data.FromJSON Framework where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Framework"
       ( \x ->
           Framework'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "logo")
-            Prelude.<*> (x Core..:? "controlSets")
-            Prelude.<*> (x Core..:? "complianceType")
-            Prelude.<*> (x Core..:? "createdBy")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "lastUpdatedBy")
-            Prelude.<*> (x Core..:? "controlSources")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "logo")
+            Prelude.<*> (x Data..:? "controlSets")
+            Prelude.<*> (x Data..:? "complianceType")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "lastUpdatedBy")
+            Prelude.<*> (x Data..:? "controlSources")
       )
 
 instance Prelude.Hashable Framework where

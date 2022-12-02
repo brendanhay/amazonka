@@ -23,6 +23,7 @@ import Amazonka.AuditManager.Types.ControlMappingSource
 import Amazonka.AuditManager.Types.ControlType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A control in Audit Manager.
@@ -36,7 +37,7 @@ data Control = Control'
     -- | The type of control, such as a custom control or a standard control.
     type' :: Prelude.Maybe ControlType,
     -- | Specifies when the control was most recently updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The recommended actions to carry out if the control isn\'t fulfilled.
     actionPlanInstructions :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the control.
@@ -52,7 +53,7 @@ data Control = Control'
     -- | The IAM user or role that created the control.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the control was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The IAM user or role that most recently updated the control.
     lastUpdatedBy :: Prelude.Maybe Prelude.Text,
     -- | The data source types that determine where Audit Manager collects
@@ -138,7 +139,7 @@ control_type = Lens.lens (\Control' {type'} -> type') (\s@Control' {} a -> s {ty
 
 -- | Specifies when the control was most recently updated.
 control_lastUpdatedAt :: Lens.Lens' Control (Prelude.Maybe Prelude.UTCTime)
-control_lastUpdatedAt = Lens.lens (\Control' {lastUpdatedAt} -> lastUpdatedAt) (\s@Control' {} a -> s {lastUpdatedAt = a} :: Control) Prelude.. Lens.mapping Core._Time
+control_lastUpdatedAt = Lens.lens (\Control' {lastUpdatedAt} -> lastUpdatedAt) (\s@Control' {} a -> s {lastUpdatedAt = a} :: Control) Prelude.. Lens.mapping Data._Time
 
 -- | The recommended actions to carry out if the control isn\'t fulfilled.
 control_actionPlanInstructions :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
@@ -170,7 +171,7 @@ control_createdBy = Lens.lens (\Control' {createdBy} -> createdBy) (\s@Control' 
 
 -- | Specifies when the control was created.
 control_createdAt :: Lens.Lens' Control (Prelude.Maybe Prelude.UTCTime)
-control_createdAt = Lens.lens (\Control' {createdAt} -> createdAt) (\s@Control' {} a -> s {createdAt = a} :: Control) Prelude.. Lens.mapping Core._Time
+control_createdAt = Lens.lens (\Control' {createdAt} -> createdAt) (\s@Control' {} a -> s {createdAt = a} :: Control) Prelude.. Lens.mapping Data._Time
 
 -- | The IAM user or role that most recently updated the control.
 control_lastUpdatedBy :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
@@ -186,27 +187,27 @@ control_controlSources = Lens.lens (\Control' {controlSources} -> controlSources
 control_testingInformation :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_testingInformation = Lens.lens (\Control' {testingInformation} -> testingInformation) (\s@Control' {} a -> s {testingInformation = a} :: Control)
 
-instance Core.FromJSON Control where
+instance Data.FromJSON Control where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Control"
       ( \x ->
           Control'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "actionPlanInstructions")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "actionPlanTitle")
-            Prelude.<*> (x Core..:? "controlMappingSources")
-            Prelude.<*> (x Core..:? "createdBy")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "lastUpdatedBy")
-            Prelude.<*> (x Core..:? "controlSources")
-            Prelude.<*> (x Core..:? "testingInformation")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "actionPlanInstructions")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "actionPlanTitle")
+            Prelude.<*> (x Data..:? "controlMappingSources")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "lastUpdatedBy")
+            Prelude.<*> (x Data..:? "controlSources")
+            Prelude.<*> (x Data..:? "testingInformation")
       )
 
 instance Prelude.Hashable Control where

@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.AWSService where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon Web Service such as Amazon S3 or CloudTrail.
@@ -50,12 +51,12 @@ newAWSService =
 aWSService_serviceName :: Lens.Lens' AWSService (Prelude.Maybe Prelude.Text)
 aWSService_serviceName = Lens.lens (\AWSService' {serviceName} -> serviceName) (\s@AWSService' {} a -> s {serviceName = a} :: AWSService)
 
-instance Core.FromJSON AWSService where
+instance Data.FromJSON AWSService where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AWSService"
       ( \x ->
-          AWSService' Prelude.<$> (x Core..:? "serviceName")
+          AWSService' Prelude.<$> (x Data..:? "serviceName")
       )
 
 instance Prelude.Hashable AWSService where
@@ -65,9 +66,9 @@ instance Prelude.Hashable AWSService where
 instance Prelude.NFData AWSService where
   rnf AWSService' {..} = Prelude.rnf serviceName
 
-instance Core.ToJSON AWSService where
+instance Data.ToJSON AWSService where
   toJSON AWSService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("serviceName" Core..=) Prelude.<$> serviceName]
+          [("serviceName" Data..=) Prelude.<$> serviceName]
       )

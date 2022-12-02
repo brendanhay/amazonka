@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.AWSAccount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The wrapper of Amazon Web Services account details, such as account ID
@@ -74,15 +75,15 @@ aWSAccount_id = Lens.lens (\AWSAccount' {id} -> id) (\s@AWSAccount' {} a -> s {i
 aWSAccount_emailAddress :: Lens.Lens' AWSAccount (Prelude.Maybe Prelude.Text)
 aWSAccount_emailAddress = Lens.lens (\AWSAccount' {emailAddress} -> emailAddress) (\s@AWSAccount' {} a -> s {emailAddress = a} :: AWSAccount)
 
-instance Core.FromJSON AWSAccount where
+instance Data.FromJSON AWSAccount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AWSAccount"
       ( \x ->
           AWSAccount'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "emailAddress")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "emailAddress")
       )
 
 instance Prelude.Hashable AWSAccount where
@@ -97,12 +98,12 @@ instance Prelude.NFData AWSAccount where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf emailAddress
 
-instance Core.ToJSON AWSAccount where
+instance Data.ToJSON AWSAccount where
   toJSON AWSAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("id" Core..=) Prelude.<$> id,
-            ("emailAddress" Core..=) Prelude.<$> emailAddress
+          [ ("name" Data..=) Prelude.<$> name,
+            ("id" Data..=) Prelude.<$> id,
+            ("emailAddress" Data..=) Prelude.<$> emailAddress
           ]
       )

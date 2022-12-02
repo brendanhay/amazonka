@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.CreateAssessmentFrameworkControl where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The control entity attributes that uniquely identify an existing control
@@ -69,7 +70,7 @@ instance
   rnf CreateAssessmentFrameworkControl' {..} =
     Prelude.rnf id
 
-instance Core.ToJSON CreateAssessmentFrameworkControl where
+instance Data.ToJSON CreateAssessmentFrameworkControl where
   toJSON CreateAssessmentFrameworkControl' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("id" Data..= id)])

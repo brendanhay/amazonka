@@ -23,6 +23,7 @@ import Amazonka.AuditManager.Types.AssessmentControlSet
 import Amazonka.AuditManager.Types.FrameworkMetadata
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The file used to structure and automate Audit Manager assessments for a
@@ -81,16 +82,16 @@ assessmentFramework_id = Lens.lens (\AssessmentFramework' {id} -> id) (\s@Assess
 assessmentFramework_controlSets :: Lens.Lens' AssessmentFramework (Prelude.Maybe [AssessmentControlSet])
 assessmentFramework_controlSets = Lens.lens (\AssessmentFramework' {controlSets} -> controlSets) (\s@AssessmentFramework' {} a -> s {controlSets = a} :: AssessmentFramework) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AssessmentFramework where
+instance Data.FromJSON AssessmentFramework where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentFramework"
       ( \x ->
           AssessmentFramework'
-            Prelude.<$> (x Core..:? "metadata")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "controlSets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "metadata")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "controlSets" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AssessmentFramework where

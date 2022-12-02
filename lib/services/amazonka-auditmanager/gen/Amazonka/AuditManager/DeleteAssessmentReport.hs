@@ -67,6 +67,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,27 +138,27 @@ instance Prelude.NFData DeleteAssessmentReport where
     Prelude.rnf assessmentId
       `Prelude.seq` Prelude.rnf assessmentReportId
 
-instance Core.ToHeaders DeleteAssessmentReport where
+instance Data.ToHeaders DeleteAssessmentReport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAssessmentReport where
+instance Data.ToPath DeleteAssessmentReport where
   toPath DeleteAssessmentReport' {..} =
     Prelude.mconcat
       [ "/assessments/",
-        Core.toBS assessmentId,
+        Data.toBS assessmentId,
         "/reports/",
-        Core.toBS assessmentReportId
+        Data.toBS assessmentReportId
       ]
 
-instance Core.ToQuery DeleteAssessmentReport where
+instance Data.ToQuery DeleteAssessmentReport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAssessmentReportResponse' smart constructor.

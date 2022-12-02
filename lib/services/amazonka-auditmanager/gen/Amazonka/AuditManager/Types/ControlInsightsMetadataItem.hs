@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.ControlInsightsMetadataItem where
 import Amazonka.AuditManager.Types.EvidenceInsights
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the latest analytics data for a specific control.
@@ -40,7 +41,7 @@ data ControlInsightsMetadataItem = ControlInsightsMetadataItem'
     -- | The unique identifier for the control.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time when the control insights were last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX
+    lastUpdated :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,18 +87,18 @@ controlInsightsMetadataItem_id = Lens.lens (\ControlInsightsMetadataItem' {id} -
 
 -- | The time when the control insights were last updated.
 controlInsightsMetadataItem_lastUpdated :: Lens.Lens' ControlInsightsMetadataItem (Prelude.Maybe Prelude.UTCTime)
-controlInsightsMetadataItem_lastUpdated = Lens.lens (\ControlInsightsMetadataItem' {lastUpdated} -> lastUpdated) (\s@ControlInsightsMetadataItem' {} a -> s {lastUpdated = a} :: ControlInsightsMetadataItem) Prelude.. Lens.mapping Core._Time
+controlInsightsMetadataItem_lastUpdated = Lens.lens (\ControlInsightsMetadataItem' {lastUpdated} -> lastUpdated) (\s@ControlInsightsMetadataItem' {} a -> s {lastUpdated = a} :: ControlInsightsMetadataItem) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ControlInsightsMetadataItem where
+instance Data.FromJSON ControlInsightsMetadataItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ControlInsightsMetadataItem"
       ( \x ->
           ControlInsightsMetadataItem'
-            Prelude.<$> (x Core..:? "evidenceInsights")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "lastUpdated")
+            Prelude.<$> (x Data..:? "evidenceInsights")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "lastUpdated")
       )
 
 instance Prelude.Hashable ControlInsightsMetadataItem where

@@ -46,6 +46,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,7 +137,7 @@ instance Core.AWSRequest UpdateAssessmentFramework where
     Response.receiveJSON
       ( \s h x ->
           UpdateAssessmentFrameworkResponse'
-            Prelude.<$> (x Core..?> "framework")
+            Prelude.<$> (x Data..?> "framework")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,35 +157,35 @@ instance Prelude.NFData UpdateAssessmentFramework where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf controlSets
 
-instance Core.ToHeaders UpdateAssessmentFramework where
+instance Data.ToHeaders UpdateAssessmentFramework where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAssessmentFramework where
+instance Data.ToJSON UpdateAssessmentFramework where
   toJSON UpdateAssessmentFramework' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("complianceType" Core..=)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("complianceType" Data..=)
               Prelude.<$> complianceType,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("controlSets" Core..= controlSets)
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("controlSets" Data..= controlSets)
           ]
       )
 
-instance Core.ToPath UpdateAssessmentFramework where
+instance Data.ToPath UpdateAssessmentFramework where
   toPath UpdateAssessmentFramework' {..} =
     Prelude.mconcat
-      ["/assessmentFrameworks/", Core.toBS frameworkId]
+      ["/assessmentFrameworks/", Data.toBS frameworkId]
 
-instance Core.ToQuery UpdateAssessmentFramework where
+instance Data.ToQuery UpdateAssessmentFramework where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAssessmentFrameworkResponse' smart constructor.

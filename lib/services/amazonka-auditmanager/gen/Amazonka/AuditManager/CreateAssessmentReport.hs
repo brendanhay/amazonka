@@ -45,6 +45,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -172,7 +173,7 @@ instance Core.AWSRequest CreateAssessmentReport where
     Response.receiveJSON
       ( \s h x ->
           CreateAssessmentReportResponse'
-            Prelude.<$> (x Core..?> "assessmentReport")
+            Prelude.<$> (x Data..?> "assessmentReport")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,34 +191,34 @@ instance Prelude.NFData CreateAssessmentReport where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf assessmentId
 
-instance Core.ToHeaders CreateAssessmentReport where
+instance Data.ToHeaders CreateAssessmentReport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAssessmentReport where
+instance Data.ToJSON CreateAssessmentReport where
   toJSON CreateAssessmentReport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("queryStatement" Core..=)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("queryStatement" Data..=)
               Prelude.<$> queryStatement,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateAssessmentReport where
+instance Data.ToPath CreateAssessmentReport where
   toPath CreateAssessmentReport' {..} =
     Prelude.mconcat
-      ["/assessments/", Core.toBS assessmentId, "/reports"]
+      ["/assessments/", Data.toBS assessmentId, "/reports"]
 
-instance Core.ToQuery CreateAssessmentReport where
+instance Data.ToQuery CreateAssessmentReport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAssessmentReportResponse' smart constructor.

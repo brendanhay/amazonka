@@ -46,6 +46,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,7 +174,7 @@ instance Core.AWSRequest UpdateSettings where
     Response.receiveJSON
       ( \s h x ->
           UpdateSettingsResponse'
-            Prelude.<$> (x Core..?> "settings")
+            Prelude.<$> (x Data..?> "settings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,36 +194,36 @@ instance Prelude.NFData UpdateSettings where
       `Prelude.seq` Prelude.rnf defaultAssessmentReportsDestination
       `Prelude.seq` Prelude.rnf evidenceFinderEnabled
 
-instance Core.ToHeaders UpdateSettings where
+instance Data.ToHeaders UpdateSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSettings where
+instance Data.ToJSON UpdateSettings where
   toJSON UpdateSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("defaultProcessOwners" Core..=)
+          [ ("defaultProcessOwners" Data..=)
               Prelude.<$> defaultProcessOwners,
-            ("snsTopic" Core..=) Prelude.<$> snsTopic,
-            ("kmsKey" Core..=) Prelude.<$> kmsKey,
-            ("defaultAssessmentReportsDestination" Core..=)
+            ("snsTopic" Data..=) Prelude.<$> snsTopic,
+            ("kmsKey" Data..=) Prelude.<$> kmsKey,
+            ("defaultAssessmentReportsDestination" Data..=)
               Prelude.<$> defaultAssessmentReportsDestination,
-            ("evidenceFinderEnabled" Core..=)
+            ("evidenceFinderEnabled" Data..=)
               Prelude.<$> evidenceFinderEnabled
           ]
       )
 
-instance Core.ToPath UpdateSettings where
+instance Data.ToPath UpdateSettings where
   toPath = Prelude.const "/settings"
 
-instance Core.ToQuery UpdateSettings where
+instance Data.ToQuery UpdateSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSettingsResponse' smart constructor.

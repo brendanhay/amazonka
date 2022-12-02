@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.AssessmentFrameworkShareRequest where
 import Amazonka.AuditManager.Types.ShareRequestStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a share request for a custom framework in Audit Manager.
@@ -34,7 +35,7 @@ data AssessmentFrameworkShareRequest = AssessmentFrameworkShareRequest'
     -- | The Amazon Web Services account of the recipient.
     destinationAccount :: Prelude.Maybe Prelude.Text,
     -- | The time when the share request expires.
-    expirationTime :: Prelude.Maybe Core.POSIX,
+    expirationTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the shared custom framework.
     frameworkDescription :: Prelude.Maybe Prelude.Text,
     -- | The status of the share request.
@@ -46,11 +47,11 @@ data AssessmentFrameworkShareRequest = AssessmentFrameworkShareRequest'
     -- | The unique identifier for the shared custom framework.
     frameworkId :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the share request was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | An optional comment from the sender about the share request.
     comment :: Prelude.Maybe Prelude.Text,
     -- | The time when the share request was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services Region of the recipient.
     destinationRegion :: Prelude.Maybe Prelude.Text,
     -- | The compliance type that the shared custom framework supports, such as
@@ -137,7 +138,7 @@ assessmentFrameworkShareRequest_destinationAccount = Lens.lens (\AssessmentFrame
 
 -- | The time when the share request expires.
 assessmentFrameworkShareRequest_expirationTime :: Lens.Lens' AssessmentFrameworkShareRequest (Prelude.Maybe Prelude.UTCTime)
-assessmentFrameworkShareRequest_expirationTime = Lens.lens (\AssessmentFrameworkShareRequest' {expirationTime} -> expirationTime) (\s@AssessmentFrameworkShareRequest' {} a -> s {expirationTime = a} :: AssessmentFrameworkShareRequest) Prelude.. Lens.mapping Core._Time
+assessmentFrameworkShareRequest_expirationTime = Lens.lens (\AssessmentFrameworkShareRequest' {expirationTime} -> expirationTime) (\s@AssessmentFrameworkShareRequest' {} a -> s {expirationTime = a} :: AssessmentFrameworkShareRequest) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the shared custom framework.
 assessmentFrameworkShareRequest_frameworkDescription :: Lens.Lens' AssessmentFrameworkShareRequest (Prelude.Maybe Prelude.Text)
@@ -161,7 +162,7 @@ assessmentFrameworkShareRequest_frameworkId = Lens.lens (\AssessmentFrameworkSha
 
 -- | Specifies when the share request was last updated.
 assessmentFrameworkShareRequest_lastUpdated :: Lens.Lens' AssessmentFrameworkShareRequest (Prelude.Maybe Prelude.UTCTime)
-assessmentFrameworkShareRequest_lastUpdated = Lens.lens (\AssessmentFrameworkShareRequest' {lastUpdated} -> lastUpdated) (\s@AssessmentFrameworkShareRequest' {} a -> s {lastUpdated = a} :: AssessmentFrameworkShareRequest) Prelude.. Lens.mapping Core._Time
+assessmentFrameworkShareRequest_lastUpdated = Lens.lens (\AssessmentFrameworkShareRequest' {lastUpdated} -> lastUpdated) (\s@AssessmentFrameworkShareRequest' {} a -> s {lastUpdated = a} :: AssessmentFrameworkShareRequest) Prelude.. Lens.mapping Data._Time
 
 -- | An optional comment from the sender about the share request.
 assessmentFrameworkShareRequest_comment :: Lens.Lens' AssessmentFrameworkShareRequest (Prelude.Maybe Prelude.Text)
@@ -169,7 +170,7 @@ assessmentFrameworkShareRequest_comment = Lens.lens (\AssessmentFrameworkShareRe
 
 -- | The time when the share request was created.
 assessmentFrameworkShareRequest_creationTime :: Lens.Lens' AssessmentFrameworkShareRequest (Prelude.Maybe Prelude.UTCTime)
-assessmentFrameworkShareRequest_creationTime = Lens.lens (\AssessmentFrameworkShareRequest' {creationTime} -> creationTime) (\s@AssessmentFrameworkShareRequest' {} a -> s {creationTime = a} :: AssessmentFrameworkShareRequest) Prelude.. Lens.mapping Core._Time
+assessmentFrameworkShareRequest_creationTime = Lens.lens (\AssessmentFrameworkShareRequest' {creationTime} -> creationTime) (\s@AssessmentFrameworkShareRequest' {} a -> s {creationTime = a} :: AssessmentFrameworkShareRequest) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services Region of the recipient.
 assessmentFrameworkShareRequest_destinationRegion :: Lens.Lens' AssessmentFrameworkShareRequest (Prelude.Maybe Prelude.Text)
@@ -190,29 +191,29 @@ assessmentFrameworkShareRequest_sourceAccount :: Lens.Lens' AssessmentFrameworkS
 assessmentFrameworkShareRequest_sourceAccount = Lens.lens (\AssessmentFrameworkShareRequest' {sourceAccount} -> sourceAccount) (\s@AssessmentFrameworkShareRequest' {} a -> s {sourceAccount = a} :: AssessmentFrameworkShareRequest)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AssessmentFrameworkShareRequest
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentFrameworkShareRequest"
       ( \x ->
           AssessmentFrameworkShareRequest'
-            Prelude.<$> (x Core..:? "customControlsCount")
-            Prelude.<*> (x Core..:? "destinationAccount")
-            Prelude.<*> (x Core..:? "expirationTime")
-            Prelude.<*> (x Core..:? "frameworkDescription")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "frameworkName")
-            Prelude.<*> (x Core..:? "frameworkId")
-            Prelude.<*> (x Core..:? "lastUpdated")
-            Prelude.<*> (x Core..:? "comment")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "destinationRegion")
-            Prelude.<*> (x Core..:? "complianceType")
-            Prelude.<*> (x Core..:? "standardControlsCount")
-            Prelude.<*> (x Core..:? "sourceAccount")
+            Prelude.<$> (x Data..:? "customControlsCount")
+            Prelude.<*> (x Data..:? "destinationAccount")
+            Prelude.<*> (x Data..:? "expirationTime")
+            Prelude.<*> (x Data..:? "frameworkDescription")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "frameworkName")
+            Prelude.<*> (x Data..:? "frameworkId")
+            Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "comment")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "destinationRegion")
+            Prelude.<*> (x Data..:? "complianceType")
+            Prelude.<*> (x Data..:? "standardControlsCount")
+            Prelude.<*> (x Data..:? "sourceAccount")
       )
 
 instance

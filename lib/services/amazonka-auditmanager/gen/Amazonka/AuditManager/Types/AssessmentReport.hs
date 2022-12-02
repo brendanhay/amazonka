@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.AssessmentReport where
 import Amazonka.AuditManager.Types.AssessmentReportStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A finalized document that\'s generated from an Audit Manager assessment.
@@ -49,7 +50,7 @@ data AssessmentReport = AssessmentReport'
     -- | The unique identifier for the assessment report.
     id :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the assessment report was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -127,23 +128,23 @@ assessmentReport_id = Lens.lens (\AssessmentReport' {id} -> id) (\s@AssessmentRe
 
 -- | Specifies when the assessment report was created.
 assessmentReport_creationTime :: Lens.Lens' AssessmentReport (Prelude.Maybe Prelude.UTCTime)
-assessmentReport_creationTime = Lens.lens (\AssessmentReport' {creationTime} -> creationTime) (\s@AssessmentReport' {} a -> s {creationTime = a} :: AssessmentReport) Prelude.. Lens.mapping Core._Time
+assessmentReport_creationTime = Lens.lens (\AssessmentReport' {creationTime} -> creationTime) (\s@AssessmentReport' {} a -> s {creationTime = a} :: AssessmentReport) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AssessmentReport where
+instance Data.FromJSON AssessmentReport where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentReport"
       ( \x ->
           AssessmentReport'
-            Prelude.<$> (x Core..:? "awsAccountId")
-            Prelude.<*> (x Core..:? "author")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "assessmentId")
-            Prelude.<*> (x Core..:? "assessmentName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<$> (x Data..:? "awsAccountId")
+            Prelude.<*> (x Data..:? "author")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "assessmentId")
+            Prelude.<*> (x Data..:? "assessmentName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable AssessmentReport where

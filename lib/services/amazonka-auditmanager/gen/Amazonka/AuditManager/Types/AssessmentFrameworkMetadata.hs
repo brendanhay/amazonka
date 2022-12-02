@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.AssessmentFrameworkMetadata where
 import Amazonka.AuditManager.Types.FrameworkType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata that\'s associated with a standard framework or a custom
@@ -36,7 +37,7 @@ data AssessmentFrameworkMetadata = AssessmentFrameworkMetadata'
     -- | The framework type, such as a standard framework or a custom framework.
     type' :: Prelude.Maybe FrameworkType,
     -- | Specifies when the framework was most recently updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the framework.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The description of the framework.
@@ -51,7 +52,7 @@ data AssessmentFrameworkMetadata = AssessmentFrameworkMetadata'
     -- or HIPAA.
     complianceType :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the framework was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -117,7 +118,7 @@ assessmentFrameworkMetadata_type = Lens.lens (\AssessmentFrameworkMetadata' {typ
 
 -- | Specifies when the framework was most recently updated.
 assessmentFrameworkMetadata_lastUpdatedAt :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.UTCTime)
-assessmentFrameworkMetadata_lastUpdatedAt = Lens.lens (\AssessmentFrameworkMetadata' {lastUpdatedAt} -> lastUpdatedAt) (\s@AssessmentFrameworkMetadata' {} a -> s {lastUpdatedAt = a} :: AssessmentFrameworkMetadata) Prelude.. Lens.mapping Core._Time
+assessmentFrameworkMetadata_lastUpdatedAt = Lens.lens (\AssessmentFrameworkMetadata' {lastUpdatedAt} -> lastUpdatedAt) (\s@AssessmentFrameworkMetadata' {} a -> s {lastUpdatedAt = a} :: AssessmentFrameworkMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the framework.
 assessmentFrameworkMetadata_arn :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.Text)
@@ -146,25 +147,25 @@ assessmentFrameworkMetadata_complianceType = Lens.lens (\AssessmentFrameworkMeta
 
 -- | Specifies when the framework was created.
 assessmentFrameworkMetadata_createdAt :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.UTCTime)
-assessmentFrameworkMetadata_createdAt = Lens.lens (\AssessmentFrameworkMetadata' {createdAt} -> createdAt) (\s@AssessmentFrameworkMetadata' {} a -> s {createdAt = a} :: AssessmentFrameworkMetadata) Prelude.. Lens.mapping Core._Time
+assessmentFrameworkMetadata_createdAt = Lens.lens (\AssessmentFrameworkMetadata' {createdAt} -> createdAt) (\s@AssessmentFrameworkMetadata' {} a -> s {createdAt = a} :: AssessmentFrameworkMetadata) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AssessmentFrameworkMetadata where
+instance Data.FromJSON AssessmentFrameworkMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentFrameworkMetadata"
       ( \x ->
           AssessmentFrameworkMetadata'
-            Prelude.<$> (x Core..:? "controlSetsCount")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "logo")
-            Prelude.<*> (x Core..:? "controlsCount")
-            Prelude.<*> (x Core..:? "complianceType")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "controlSetsCount")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "logo")
+            Prelude.<*> (x Data..:? "controlsCount")
+            Prelude.<*> (x Data..:? "complianceType")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable AssessmentFrameworkMetadata where

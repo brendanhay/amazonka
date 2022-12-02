@@ -24,6 +24,7 @@ import Amazonka.AuditManager.Types.ControlResponse
 import Amazonka.AuditManager.Types.ControlStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The control entity that represents a standard control or a custom
@@ -128,22 +129,22 @@ assessmentControl_comments = Lens.lens (\AssessmentControl' {comments} -> commen
 assessmentControl_evidenceSources :: Lens.Lens' AssessmentControl (Prelude.Maybe [Prelude.Text])
 assessmentControl_evidenceSources = Lens.lens (\AssessmentControl' {evidenceSources} -> evidenceSources) (\s@AssessmentControl' {} a -> s {evidenceSources = a} :: AssessmentControl) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AssessmentControl where
+instance Data.FromJSON AssessmentControl where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentControl"
       ( \x ->
           AssessmentControl'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "evidenceCount")
-            Prelude.<*> (x Core..:? "response")
-            Prelude.<*> (x Core..:? "assessmentReportEvidenceCount")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "comments" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "evidenceSources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "evidenceCount")
+            Prelude.<*> (x Data..:? "response")
+            Prelude.<*> (x Data..:? "assessmentReportEvidenceCount")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "comments" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "evidenceSources"
+                            Data..!= Prelude.mempty
                         )
       )
 

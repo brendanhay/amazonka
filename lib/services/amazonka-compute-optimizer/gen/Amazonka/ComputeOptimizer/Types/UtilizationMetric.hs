@@ -23,6 +23,7 @@ import Amazonka.ComputeOptimizer.Types.MetricName
 import Amazonka.ComputeOptimizer.Types.MetricStatistic
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a utilization metric of a resource, such as an Amazon EC2
@@ -395,15 +396,15 @@ utilizationMetric_statistic = Lens.lens (\UtilizationMetric' {statistic} -> stat
 utilizationMetric_value :: Lens.Lens' UtilizationMetric (Prelude.Maybe Prelude.Double)
 utilizationMetric_value = Lens.lens (\UtilizationMetric' {value} -> value) (\s@UtilizationMetric' {} a -> s {value = a} :: UtilizationMetric)
 
-instance Core.FromJSON UtilizationMetric where
+instance Data.FromJSON UtilizationMetric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UtilizationMetric"
       ( \x ->
           UtilizationMetric'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "statistic")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "statistic")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable UtilizationMetric where

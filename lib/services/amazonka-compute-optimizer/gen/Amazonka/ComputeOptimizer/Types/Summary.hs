@@ -23,6 +23,7 @@ import Amazonka.ComputeOptimizer.Types.Finding
 import Amazonka.ComputeOptimizer.Types.ReasonCodeSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of a recommendation.
@@ -72,17 +73,17 @@ summary_reasonCodeSummaries = Lens.lens (\Summary' {reasonCodeSummaries} -> reas
 summary_value :: Lens.Lens' Summary (Prelude.Maybe Prelude.Double)
 summary_value = Lens.lens (\Summary' {value} -> value) (\s@Summary' {} a -> s {value = a} :: Summary)
 
-instance Core.FromJSON Summary where
+instance Data.FromJSON Summary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Summary"
       ( \x ->
           Summary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> ( x Core..:? "reasonCodeSummaries"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> ( x Data..:? "reasonCodeSummaries"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Summary where

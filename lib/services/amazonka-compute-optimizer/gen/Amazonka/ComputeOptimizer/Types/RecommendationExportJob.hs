@@ -24,6 +24,7 @@ import Amazonka.ComputeOptimizer.Types.JobStatus
 import Amazonka.ComputeOptimizer.Types.ResourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a recommendation export job.
@@ -40,7 +41,7 @@ data RecommendationExportJob = RecommendationExportJob'
   { -- | An object that describes the destination of the export file.
     destination :: Prelude.Maybe ExportDestination,
     -- | The timestamp of when the export job was last updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The resource type of the exported recommendations.
     resourceType :: Prelude.Maybe ResourceType,
     -- | The identification number of the export job.
@@ -48,7 +49,7 @@ data RecommendationExportJob = RecommendationExportJob'
     -- | The status of the export job.
     status :: Prelude.Maybe JobStatus,
     -- | The timestamp of when the export job was created.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The reason for an export job failure.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -95,7 +96,7 @@ recommendationExportJob_destination = Lens.lens (\RecommendationExportJob' {dest
 
 -- | The timestamp of when the export job was last updated.
 recommendationExportJob_lastUpdatedTimestamp :: Lens.Lens' RecommendationExportJob (Prelude.Maybe Prelude.UTCTime)
-recommendationExportJob_lastUpdatedTimestamp = Lens.lens (\RecommendationExportJob' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@RecommendationExportJob' {} a -> s {lastUpdatedTimestamp = a} :: RecommendationExportJob) Prelude.. Lens.mapping Core._Time
+recommendationExportJob_lastUpdatedTimestamp = Lens.lens (\RecommendationExportJob' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@RecommendationExportJob' {} a -> s {lastUpdatedTimestamp = a} :: RecommendationExportJob) Prelude.. Lens.mapping Data._Time
 
 -- | The resource type of the exported recommendations.
 recommendationExportJob_resourceType :: Lens.Lens' RecommendationExportJob (Prelude.Maybe ResourceType)
@@ -111,25 +112,25 @@ recommendationExportJob_status = Lens.lens (\RecommendationExportJob' {status} -
 
 -- | The timestamp of when the export job was created.
 recommendationExportJob_creationTimestamp :: Lens.Lens' RecommendationExportJob (Prelude.Maybe Prelude.UTCTime)
-recommendationExportJob_creationTimestamp = Lens.lens (\RecommendationExportJob' {creationTimestamp} -> creationTimestamp) (\s@RecommendationExportJob' {} a -> s {creationTimestamp = a} :: RecommendationExportJob) Prelude.. Lens.mapping Core._Time
+recommendationExportJob_creationTimestamp = Lens.lens (\RecommendationExportJob' {creationTimestamp} -> creationTimestamp) (\s@RecommendationExportJob' {} a -> s {creationTimestamp = a} :: RecommendationExportJob) Prelude.. Lens.mapping Data._Time
 
 -- | The reason for an export job failure.
 recommendationExportJob_failureReason :: Lens.Lens' RecommendationExportJob (Prelude.Maybe Prelude.Text)
 recommendationExportJob_failureReason = Lens.lens (\RecommendationExportJob' {failureReason} -> failureReason) (\s@RecommendationExportJob' {} a -> s {failureReason = a} :: RecommendationExportJob)
 
-instance Core.FromJSON RecommendationExportJob where
+instance Data.FromJSON RecommendationExportJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationExportJob"
       ( \x ->
           RecommendationExportJob'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "lastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "creationTimestamp")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "lastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "creationTimestamp")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable RecommendationExportJob where

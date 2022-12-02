@@ -53,6 +53,7 @@ where
 import Amazonka.ComputeOptimizer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,9 +171,9 @@ instance Core.AWSRequest GetEBSVolumeRecommendations where
     Response.receiveJSON
       ( \s h x ->
           GetEBSVolumeRecommendationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "volumeRecommendations"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "volumeRecommendations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -194,37 +195,37 @@ instance Prelude.NFData GetEBSVolumeRecommendations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf volumeArns
 
-instance Core.ToHeaders GetEBSVolumeRecommendations where
+instance Data.ToHeaders GetEBSVolumeRecommendations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComputeOptimizerService.GetEBSVolumeRecommendations" ::
+              Data.=# ( "ComputeOptimizerService.GetEBSVolumeRecommendations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEBSVolumeRecommendations where
+instance Data.ToJSON GetEBSVolumeRecommendations where
   toJSON GetEBSVolumeRecommendations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accountIds" Core..=) Prelude.<$> accountIds,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("volumeArns" Core..=) Prelude.<$> volumeArns
+          [ ("accountIds" Data..=) Prelude.<$> accountIds,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("volumeArns" Data..=) Prelude.<$> volumeArns
           ]
       )
 
-instance Core.ToPath GetEBSVolumeRecommendations where
+instance Data.ToPath GetEBSVolumeRecommendations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEBSVolumeRecommendations where
+instance Data.ToQuery GetEBSVolumeRecommendations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEBSVolumeRecommendationsResponse' smart constructor.

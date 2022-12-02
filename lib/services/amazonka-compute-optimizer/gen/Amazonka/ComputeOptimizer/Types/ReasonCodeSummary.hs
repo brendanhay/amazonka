@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.ReasonCodeSummary where
 import Amazonka.ComputeOptimizer.Types.FindingReasonCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of a finding reason code.
@@ -62,13 +63,13 @@ reasonCodeSummary_name = Lens.lens (\ReasonCodeSummary' {name} -> name) (\s@Reas
 reasonCodeSummary_value :: Lens.Lens' ReasonCodeSummary (Prelude.Maybe Prelude.Double)
 reasonCodeSummary_value = Lens.lens (\ReasonCodeSummary' {value} -> value) (\s@ReasonCodeSummary' {} a -> s {value = a} :: ReasonCodeSummary)
 
-instance Core.FromJSON ReasonCodeSummary where
+instance Data.FromJSON ReasonCodeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReasonCodeSummary"
       ( \x ->
           ReasonCodeSummary'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ReasonCodeSummary where

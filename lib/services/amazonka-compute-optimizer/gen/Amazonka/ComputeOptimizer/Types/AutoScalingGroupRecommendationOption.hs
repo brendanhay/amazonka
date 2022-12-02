@@ -25,6 +25,7 @@ import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a recommendation option for an Auto Scaling group.
@@ -209,21 +210,21 @@ autoScalingGroupRecommendationOption_projectedUtilizationMetrics :: Lens.Lens' A
 autoScalingGroupRecommendationOption_projectedUtilizationMetrics = Lens.lens (\AutoScalingGroupRecommendationOption' {projectedUtilizationMetrics} -> projectedUtilizationMetrics) (\s@AutoScalingGroupRecommendationOption' {} a -> s {projectedUtilizationMetrics = a} :: AutoScalingGroupRecommendationOption) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AutoScalingGroupRecommendationOption
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingGroupRecommendationOption"
       ( \x ->
           AutoScalingGroupRecommendationOption'
-            Prelude.<$> (x Core..:? "performanceRisk")
-            Prelude.<*> (x Core..:? "migrationEffort")
-            Prelude.<*> (x Core..:? "configuration")
-            Prelude.<*> (x Core..:? "savingsOpportunity")
-            Prelude.<*> (x Core..:? "rank")
-            Prelude.<*> ( x Core..:? "projectedUtilizationMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "performanceRisk")
+            Prelude.<*> (x Data..:? "migrationEffort")
+            Prelude.<*> (x Data..:? "configuration")
+            Prelude.<*> (x Data..:? "savingsOpportunity")
+            Prelude.<*> (x Data..:? "rank")
+            Prelude.<*> ( x Data..:? "projectedUtilizationMetrics"
+                            Data..!= Prelude.mempty
                         )
       )
 

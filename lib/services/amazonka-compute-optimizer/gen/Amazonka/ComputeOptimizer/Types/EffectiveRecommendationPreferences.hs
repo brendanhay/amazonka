@@ -24,6 +24,7 @@ import Amazonka.ComputeOptimizer.Types.EnhancedInfrastructureMetrics
 import Amazonka.ComputeOptimizer.Types.InferredWorkloadTypesPreference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the effective recommendation preferences for a resource.
@@ -170,18 +171,18 @@ effectiveRecommendationPreferences_cpuVendorArchitectures :: Lens.Lens' Effectiv
 effectiveRecommendationPreferences_cpuVendorArchitectures = Lens.lens (\EffectiveRecommendationPreferences' {cpuVendorArchitectures} -> cpuVendorArchitectures) (\s@EffectiveRecommendationPreferences' {} a -> s {cpuVendorArchitectures = a} :: EffectiveRecommendationPreferences) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EffectiveRecommendationPreferences
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EffectiveRecommendationPreferences"
       ( \x ->
           EffectiveRecommendationPreferences'
-            Prelude.<$> (x Core..:? "inferredWorkloadTypes")
-            Prelude.<*> (x Core..:? "enhancedInfrastructureMetrics")
-            Prelude.<*> ( x Core..:? "cpuVendorArchitectures"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "inferredWorkloadTypes")
+            Prelude.<*> (x Data..:? "enhancedInfrastructureMetrics")
+            Prelude.<*> ( x Data..:? "cpuVendorArchitectures"
+                            Data..!= Prelude.mempty
                         )
       )
 

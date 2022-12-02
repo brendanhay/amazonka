@@ -50,6 +50,7 @@ where
 import Amazonka.ComputeOptimizer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -78,11 +79,11 @@ instance Core.AWSRequest GetEnrollmentStatus where
     Response.receiveJSON
       ( \s h x ->
           GetEnrollmentStatusResponse'
-            Prelude.<$> (x Core..?> "lastUpdatedTimestamp")
-            Prelude.<*> (x Core..?> "statusReason")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "numberOfMemberAccountsOptedIn")
-            Prelude.<*> (x Core..?> "memberAccountsEnrolled")
+            Prelude.<$> (x Data..?> "lastUpdatedTimestamp")
+            Prelude.<*> (x Data..?> "statusReason")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "numberOfMemberAccountsOptedIn")
+            Prelude.<*> (x Data..?> "memberAccountsEnrolled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -93,35 +94,35 @@ instance Prelude.Hashable GetEnrollmentStatus where
 instance Prelude.NFData GetEnrollmentStatus where
   rnf _ = ()
 
-instance Core.ToHeaders GetEnrollmentStatus where
+instance Data.ToHeaders GetEnrollmentStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComputeOptimizerService.GetEnrollmentStatus" ::
+              Data.=# ( "ComputeOptimizerService.GetEnrollmentStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEnrollmentStatus where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetEnrollmentStatus where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetEnrollmentStatus where
+instance Data.ToPath GetEnrollmentStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEnrollmentStatus where
+instance Data.ToQuery GetEnrollmentStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEnrollmentStatusResponse' smart constructor.
 data GetEnrollmentStatusResponse = GetEnrollmentStatusResponse'
   { -- | The Unix epoch timestamp, in seconds, of when the account enrollment
     -- status was last updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The reason for the enrollment status of the account.
     --
     -- For example, an account might show a status of @Pending@ because member
@@ -186,7 +187,7 @@ newGetEnrollmentStatusResponse pHttpStatus_ =
 -- | The Unix epoch timestamp, in seconds, of when the account enrollment
 -- status was last updated.
 getEnrollmentStatusResponse_lastUpdatedTimestamp :: Lens.Lens' GetEnrollmentStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getEnrollmentStatusResponse_lastUpdatedTimestamp = Lens.lens (\GetEnrollmentStatusResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetEnrollmentStatusResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetEnrollmentStatusResponse) Prelude.. Lens.mapping Core._Time
+getEnrollmentStatusResponse_lastUpdatedTimestamp = Lens.lens (\GetEnrollmentStatusResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetEnrollmentStatusResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetEnrollmentStatusResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The reason for the enrollment status of the account.
 --

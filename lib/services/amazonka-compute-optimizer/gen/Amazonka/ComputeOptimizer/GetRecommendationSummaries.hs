@@ -59,6 +59,7 @@ where
 import Amazonka.ComputeOptimizer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,10 +153,10 @@ instance Core.AWSRequest GetRecommendationSummaries where
     Response.receiveJSON
       ( \s h x ->
           GetRecommendationSummariesResponse'
-            Prelude.<$> ( x Core..?> "recommendationSummaries"
+            Prelude.<$> ( x Data..?> "recommendationSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,35 +172,35 @@ instance Prelude.NFData GetRecommendationSummaries where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders GetRecommendationSummaries where
+instance Data.ToHeaders GetRecommendationSummaries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComputeOptimizerService.GetRecommendationSummaries" ::
+              Data.=# ( "ComputeOptimizerService.GetRecommendationSummaries" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRecommendationSummaries where
+instance Data.ToJSON GetRecommendationSummaries where
   toJSON GetRecommendationSummaries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accountIds" Core..=) Prelude.<$> accountIds,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("accountIds" Data..=) Prelude.<$> accountIds,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath GetRecommendationSummaries where
+instance Data.ToPath GetRecommendationSummaries where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRecommendationSummaries where
+instance Data.ToQuery GetRecommendationSummaries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRecommendationSummariesResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.SavingsOpportunity where
 import Amazonka.ComputeOptimizer.Types.EstimatedMonthlySavings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the savings opportunity for recommendations of a given
@@ -90,14 +91,14 @@ savingsOpportunity_savingsOpportunityPercentage = Lens.lens (\SavingsOpportunity
 savingsOpportunity_estimatedMonthlySavings :: Lens.Lens' SavingsOpportunity (Prelude.Maybe EstimatedMonthlySavings)
 savingsOpportunity_estimatedMonthlySavings = Lens.lens (\SavingsOpportunity' {estimatedMonthlySavings} -> estimatedMonthlySavings) (\s@SavingsOpportunity' {} a -> s {estimatedMonthlySavings = a} :: SavingsOpportunity)
 
-instance Core.FromJSON SavingsOpportunity where
+instance Data.FromJSON SavingsOpportunity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsOpportunity"
       ( \x ->
           SavingsOpportunity'
-            Prelude.<$> (x Core..:? "savingsOpportunityPercentage")
-            Prelude.<*> (x Core..:? "estimatedMonthlySavings")
+            Prelude.<$> (x Data..:? "savingsOpportunityPercentage")
+            Prelude.<*> (x Data..:? "estimatedMonthlySavings")
       )
 
 instance Prelude.Hashable SavingsOpportunity where

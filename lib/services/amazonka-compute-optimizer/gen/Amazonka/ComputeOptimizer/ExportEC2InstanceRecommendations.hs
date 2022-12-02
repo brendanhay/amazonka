@@ -59,6 +59,7 @@ where
 import Amazonka.ComputeOptimizer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -301,8 +302,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ExportEC2InstanceRecommendationsResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "s3Destination")
+            Prelude.<$> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "s3Destination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -335,46 +336,46 @@ instance
       `Prelude.seq` Prelude.rnf s3DestinationConfig
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ExportEC2InstanceRecommendations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComputeOptimizerService.ExportEC2InstanceRecommendations" ::
+              Data.=# ( "ComputeOptimizerService.ExportEC2InstanceRecommendations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExportEC2InstanceRecommendations where
+instance Data.ToJSON ExportEC2InstanceRecommendations where
   toJSON ExportEC2InstanceRecommendations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accountIds" Core..=) Prelude.<$> accountIds,
-            ("recommendationPreferences" Core..=)
+          [ ("accountIds" Data..=) Prelude.<$> accountIds,
+            ("recommendationPreferences" Data..=)
               Prelude.<$> recommendationPreferences,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("includeMemberAccounts" Core..=)
+            ("filters" Data..=) Prelude.<$> filters,
+            ("includeMemberAccounts" Data..=)
               Prelude.<$> includeMemberAccounts,
-            ("fileFormat" Core..=) Prelude.<$> fileFormat,
-            ("fieldsToExport" Core..=)
+            ("fileFormat" Data..=) Prelude.<$> fileFormat,
+            ("fieldsToExport" Data..=)
               Prelude.<$> fieldsToExport,
             Prelude.Just
-              ("s3DestinationConfig" Core..= s3DestinationConfig)
+              ("s3DestinationConfig" Data..= s3DestinationConfig)
           ]
       )
 
-instance Core.ToPath ExportEC2InstanceRecommendations where
+instance Data.ToPath ExportEC2InstanceRecommendations where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ExportEC2InstanceRecommendations
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.ComputeOptimizer.Types.CurrentPerformanceRiskRatings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the performance risk ratings for a given resource type.
@@ -96,16 +97,16 @@ currentPerformanceRiskRatings_high = Lens.lens (\CurrentPerformanceRiskRatings' 
 currentPerformanceRiskRatings_medium :: Lens.Lens' CurrentPerformanceRiskRatings (Prelude.Maybe Prelude.Integer)
 currentPerformanceRiskRatings_medium = Lens.lens (\CurrentPerformanceRiskRatings' {medium} -> medium) (\s@CurrentPerformanceRiskRatings' {} a -> s {medium = a} :: CurrentPerformanceRiskRatings)
 
-instance Core.FromJSON CurrentPerformanceRiskRatings where
+instance Data.FromJSON CurrentPerformanceRiskRatings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CurrentPerformanceRiskRatings"
       ( \x ->
           CurrentPerformanceRiskRatings'
-            Prelude.<$> (x Core..:? "veryLow")
-            Prelude.<*> (x Core..:? "low")
-            Prelude.<*> (x Core..:? "high")
-            Prelude.<*> (x Core..:? "medium")
+            Prelude.<$> (x Data..:? "veryLow")
+            Prelude.<*> (x Data..:? "low")
+            Prelude.<*> (x Data..:? "high")
+            Prelude.<*> (x Data..:? "medium")
       )
 
 instance

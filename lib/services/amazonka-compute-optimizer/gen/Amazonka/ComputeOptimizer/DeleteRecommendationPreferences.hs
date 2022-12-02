@@ -48,6 +48,7 @@ where
 import Amazonka.ComputeOptimizer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -192,40 +193,40 @@ instance
       `Prelude.seq` Prelude.rnf recommendationPreferenceNames
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteRecommendationPreferences
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComputeOptimizerService.DeleteRecommendationPreferences" ::
+              Data.=# ( "ComputeOptimizerService.DeleteRecommendationPreferences" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRecommendationPreferences where
+instance Data.ToJSON DeleteRecommendationPreferences where
   toJSON DeleteRecommendationPreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("scope" Core..=) Prelude.<$> scope,
-            Prelude.Just ("resourceType" Core..= resourceType),
+          [ ("scope" Data..=) Prelude.<$> scope,
+            Prelude.Just ("resourceType" Data..= resourceType),
             Prelude.Just
               ( "recommendationPreferenceNames"
-                  Core..= recommendationPreferenceNames
+                  Data..= recommendationPreferenceNames
               )
           ]
       )
 
-instance Core.ToPath DeleteRecommendationPreferences where
+instance Data.ToPath DeleteRecommendationPreferences where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRecommendationPreferences where
+instance Data.ToQuery DeleteRecommendationPreferences where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRecommendationPreferencesResponse' smart constructor.

@@ -25,6 +25,7 @@ import Amazonka.ComputeOptimizer.Types.ResourceType
 import Amazonka.ComputeOptimizer.Types.Scope
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a recommendation preference.
@@ -155,18 +156,18 @@ recommendationPreferencesDetail_scope :: Lens.Lens' RecommendationPreferencesDet
 recommendationPreferencesDetail_scope = Lens.lens (\RecommendationPreferencesDetail' {scope} -> scope) (\s@RecommendationPreferencesDetail' {} a -> s {scope = a} :: RecommendationPreferencesDetail)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RecommendationPreferencesDetail
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationPreferencesDetail"
       ( \x ->
           RecommendationPreferencesDetail'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "inferredWorkloadTypes")
-            Prelude.<*> (x Core..:? "enhancedInfrastructureMetrics")
-            Prelude.<*> (x Core..:? "scope")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "inferredWorkloadTypes")
+            Prelude.<*> (x Data..:? "enhancedInfrastructureMetrics")
+            Prelude.<*> (x Data..:? "scope")
       )
 
 instance

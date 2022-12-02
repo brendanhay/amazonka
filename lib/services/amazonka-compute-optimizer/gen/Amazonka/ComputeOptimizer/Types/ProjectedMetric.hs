@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.ProjectedMetric where
 import Amazonka.ComputeOptimizer.Types.MetricName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a projected utilization metric of a recommendation option,
@@ -71,7 +72,7 @@ data ProjectedMetric = ProjectedMetric'
     --     <https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling Memory Utilization with the CloudWatch Agent>.
     name :: Prelude.Maybe MetricName,
     -- | The timestamps of the projected utilization metric.
-    timestamps :: Prelude.Maybe [Core.POSIX],
+    timestamps :: Prelude.Maybe [Data.POSIX],
     -- | The values of the projected utilization metrics.
     values :: Prelude.Maybe [Prelude.Double]
   }
@@ -163,15 +164,15 @@ projectedMetric_timestamps = Lens.lens (\ProjectedMetric' {timestamps} -> timest
 projectedMetric_values :: Lens.Lens' ProjectedMetric (Prelude.Maybe [Prelude.Double])
 projectedMetric_values = Lens.lens (\ProjectedMetric' {values} -> values) (\s@ProjectedMetric' {} a -> s {values = a} :: ProjectedMetric) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ProjectedMetric where
+instance Data.FromJSON ProjectedMetric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectedMetric"
       ( \x ->
           ProjectedMetric'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "timestamps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "timestamps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ProjectedMetric where

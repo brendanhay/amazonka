@@ -28,6 +28,7 @@ import Amazonka.ComputeOptimizer.Types.InferredWorkloadType
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Auto Scaling group recommendation.
@@ -71,7 +72,7 @@ data AutoScalingGroupRecommendation = AutoScalingGroupRecommendation'
     recommendationOptions :: Prelude.Maybe [AutoScalingGroupRecommendationOption],
     -- | The timestamp of when the Auto Scaling group recommendation was last
     -- generated.
-    lastRefreshTimestamp :: Prelude.Maybe Core.POSIX,
+    lastRefreshTimestamp :: Prelude.Maybe Data.POSIX,
     -- | An array of objects that describe the current configuration of the Auto
     -- Scaling group.
     currentConfiguration :: Prelude.Maybe AutoScalingGroupConfiguration,
@@ -246,7 +247,7 @@ autoScalingGroupRecommendation_recommendationOptions = Lens.lens (\AutoScalingGr
 -- | The timestamp of when the Auto Scaling group recommendation was last
 -- generated.
 autoScalingGroupRecommendation_lastRefreshTimestamp :: Lens.Lens' AutoScalingGroupRecommendation (Prelude.Maybe Prelude.UTCTime)
-autoScalingGroupRecommendation_lastRefreshTimestamp = Lens.lens (\AutoScalingGroupRecommendation' {lastRefreshTimestamp} -> lastRefreshTimestamp) (\s@AutoScalingGroupRecommendation' {} a -> s {lastRefreshTimestamp = a} :: AutoScalingGroupRecommendation) Prelude.. Lens.mapping Core._Time
+autoScalingGroupRecommendation_lastRefreshTimestamp = Lens.lens (\AutoScalingGroupRecommendation' {lastRefreshTimestamp} -> lastRefreshTimestamp) (\s@AutoScalingGroupRecommendation' {} a -> s {lastRefreshTimestamp = a} :: AutoScalingGroupRecommendation) Prelude.. Lens.mapping Data._Time
 
 -- | An array of objects that describe the current configuration of the Auto
 -- Scaling group.
@@ -292,30 +293,30 @@ autoScalingGroupRecommendation_utilizationMetrics = Lens.lens (\AutoScalingGroup
 autoScalingGroupRecommendation_finding :: Lens.Lens' AutoScalingGroupRecommendation (Prelude.Maybe Finding)
 autoScalingGroupRecommendation_finding = Lens.lens (\AutoScalingGroupRecommendation' {finding} -> finding) (\s@AutoScalingGroupRecommendation' {} a -> s {finding = a} :: AutoScalingGroupRecommendation)
 
-instance Core.FromJSON AutoScalingGroupRecommendation where
+instance Data.FromJSON AutoScalingGroupRecommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingGroupRecommendation"
       ( \x ->
           AutoScalingGroupRecommendation'
-            Prelude.<$> (x Core..:? "currentPerformanceRisk")
-            Prelude.<*> (x Core..:? "autoScalingGroupArn")
-            Prelude.<*> ( x Core..:? "inferredWorkloadTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "currentPerformanceRisk")
+            Prelude.<*> (x Data..:? "autoScalingGroupArn")
+            Prelude.<*> ( x Data..:? "inferredWorkloadTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "recommendationOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "recommendationOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lastRefreshTimestamp")
-            Prelude.<*> (x Core..:? "currentConfiguration")
-            Prelude.<*> (x Core..:? "lookBackPeriodInDays")
-            Prelude.<*> (x Core..:? "autoScalingGroupName")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "effectiveRecommendationPreferences")
-            Prelude.<*> ( x Core..:? "utilizationMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "lastRefreshTimestamp")
+            Prelude.<*> (x Data..:? "currentConfiguration")
+            Prelude.<*> (x Data..:? "lookBackPeriodInDays")
+            Prelude.<*> (x Data..:? "autoScalingGroupName")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "effectiveRecommendationPreferences")
+            Prelude.<*> ( x Data..:? "utilizationMetrics"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "finding")
+            Prelude.<*> (x Data..:? "finding")
       )
 
 instance

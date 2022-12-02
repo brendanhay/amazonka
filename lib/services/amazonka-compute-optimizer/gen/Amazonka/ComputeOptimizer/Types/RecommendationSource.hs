@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.RecommendationSource where
 import Amazonka.ComputeOptimizer.Types.RecommendationSourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the source of a recommendation, such as an Amazon EC2 instance
@@ -64,14 +65,14 @@ recommendationSource_recommendationSourceType = Lens.lens (\RecommendationSource
 recommendationSource_recommendationSourceArn :: Lens.Lens' RecommendationSource (Prelude.Maybe Prelude.Text)
 recommendationSource_recommendationSourceArn = Lens.lens (\RecommendationSource' {recommendationSourceArn} -> recommendationSourceArn) (\s@RecommendationSource' {} a -> s {recommendationSourceArn = a} :: RecommendationSource)
 
-instance Core.FromJSON RecommendationSource where
+instance Data.FromJSON RecommendationSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationSource"
       ( \x ->
           RecommendationSource'
-            Prelude.<$> (x Core..:? "recommendationSourceType")
-            Prelude.<*> (x Core..:? "recommendationSourceArn")
+            Prelude.<$> (x Data..:? "recommendationSourceType")
+            Prelude.<*> (x Data..:? "recommendationSourceArn")
       )
 
 instance Prelude.Hashable RecommendationSource where

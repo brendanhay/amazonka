@@ -49,6 +49,7 @@ where
 import Amazonka.ComputeOptimizer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -273,38 +274,38 @@ instance Prelude.NFData PutRecommendationPreferences where
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders PutRecommendationPreferences where
+instance Data.ToHeaders PutRecommendationPreferences where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComputeOptimizerService.PutRecommendationPreferences" ::
+              Data.=# ( "ComputeOptimizerService.PutRecommendationPreferences" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRecommendationPreferences where
+instance Data.ToJSON PutRecommendationPreferences where
   toJSON PutRecommendationPreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inferredWorkloadTypes" Core..=)
+          [ ("inferredWorkloadTypes" Data..=)
               Prelude.<$> inferredWorkloadTypes,
-            ("enhancedInfrastructureMetrics" Core..=)
+            ("enhancedInfrastructureMetrics" Data..=)
               Prelude.<$> enhancedInfrastructureMetrics,
-            ("scope" Core..=) Prelude.<$> scope,
-            Prelude.Just ("resourceType" Core..= resourceType)
+            ("scope" Data..=) Prelude.<$> scope,
+            Prelude.Just ("resourceType" Data..= resourceType)
           ]
       )
 
-instance Core.ToPath PutRecommendationPreferences where
+instance Data.ToPath PutRecommendationPreferences where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutRecommendationPreferences where
+instance Data.ToQuery PutRecommendationPreferences where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRecommendationPreferencesResponse' smart constructor.

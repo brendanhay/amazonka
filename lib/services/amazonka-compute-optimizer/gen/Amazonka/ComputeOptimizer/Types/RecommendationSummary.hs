@@ -25,6 +25,7 @@ import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.Summary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of a recommendation.
@@ -102,17 +103,17 @@ recommendationSummary_summaries = Lens.lens (\RecommendationSummary' {summaries}
 recommendationSummary_accountId :: Lens.Lens' RecommendationSummary (Prelude.Maybe Prelude.Text)
 recommendationSummary_accountId = Lens.lens (\RecommendationSummary' {accountId} -> accountId) (\s@RecommendationSummary' {} a -> s {accountId = a} :: RecommendationSummary)
 
-instance Core.FromJSON RecommendationSummary where
+instance Data.FromJSON RecommendationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationSummary"
       ( \x ->
           RecommendationSummary'
-            Prelude.<$> (x Core..:? "currentPerformanceRiskRatings")
-            Prelude.<*> (x Core..:? "savingsOpportunity")
-            Prelude.<*> (x Core..:? "recommendationResourceType")
-            Prelude.<*> (x Core..:? "summaries" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "accountId")
+            Prelude.<$> (x Data..:? "currentPerformanceRiskRatings")
+            Prelude.<*> (x Data..:? "savingsOpportunity")
+            Prelude.<*> (x Data..:? "recommendationResourceType")
+            Prelude.<*> (x Data..:? "summaries" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "accountId")
       )
 
 instance Prelude.Hashable RecommendationSummary where

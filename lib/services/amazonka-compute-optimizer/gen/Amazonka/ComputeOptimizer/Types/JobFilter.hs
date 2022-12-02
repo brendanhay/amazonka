@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.JobFilter where
 import Amazonka.ComputeOptimizer.Types.JobFilterName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a filter that returns a more specific list of recommendation
@@ -130,11 +131,11 @@ instance Prelude.NFData JobFilter where
   rnf JobFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON JobFilter where
+instance Data.ToJSON JobFilter where
   toJSON JobFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("values" Core..=) Prelude.<$> values
+          [ ("name" Data..=) Prelude.<$> name,
+            ("values" Data..=) Prelude.<$> values
           ]
       )

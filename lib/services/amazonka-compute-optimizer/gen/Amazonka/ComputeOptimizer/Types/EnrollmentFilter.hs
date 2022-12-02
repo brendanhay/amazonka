@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.EnrollmentFilter where
 import Amazonka.ComputeOptimizer.Types.EnrollmentFilterName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a filter that returns a more specific list of account
@@ -88,11 +89,11 @@ instance Prelude.NFData EnrollmentFilter where
   rnf EnrollmentFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON EnrollmentFilter where
+instance Data.ToJSON EnrollmentFilter where
   toJSON EnrollmentFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("values" Core..=) Prelude.<$> values
+          [ ("name" Data..=) Prelude.<$> name,
+            ("values" Data..=) Prelude.<$> values
           ]
       )

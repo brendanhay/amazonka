@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.EBSFilter where
 import Amazonka.ComputeOptimizer.Types.EBSFilterName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a filter that returns a more specific list of Amazon Elastic
@@ -94,11 +95,11 @@ instance Prelude.NFData EBSFilter where
   rnf EBSFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON EBSFilter where
+instance Data.ToJSON EBSFilter where
   toJSON EBSFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("values" Core..=) Prelude.<$> values
+          [ ("name" Data..=) Prelude.<$> name,
+            ("values" Data..=) Prelude.<$> values
           ]
       )

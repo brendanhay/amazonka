@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.SigningConfigurationOverrides where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Signer.Types.EncryptionAlgorithm
 import Amazonka.Signer.Types.HashAlgorithm
@@ -71,14 +72,14 @@ signingConfigurationOverrides_encryptionAlgorithm = Lens.lens (\SigningConfigura
 signingConfigurationOverrides_hashAlgorithm :: Lens.Lens' SigningConfigurationOverrides (Prelude.Maybe HashAlgorithm)
 signingConfigurationOverrides_hashAlgorithm = Lens.lens (\SigningConfigurationOverrides' {hashAlgorithm} -> hashAlgorithm) (\s@SigningConfigurationOverrides' {} a -> s {hashAlgorithm = a} :: SigningConfigurationOverrides)
 
-instance Core.FromJSON SigningConfigurationOverrides where
+instance Data.FromJSON SigningConfigurationOverrides where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SigningConfigurationOverrides"
       ( \x ->
           SigningConfigurationOverrides'
-            Prelude.<$> (x Core..:? "encryptionAlgorithm")
-            Prelude.<*> (x Core..:? "hashAlgorithm")
+            Prelude.<$> (x Data..:? "encryptionAlgorithm")
+            Prelude.<*> (x Data..:? "hashAlgorithm")
       )
 
 instance
@@ -94,12 +95,12 @@ instance Prelude.NFData SigningConfigurationOverrides where
     Prelude.rnf encryptionAlgorithm
       `Prelude.seq` Prelude.rnf hashAlgorithm
 
-instance Core.ToJSON SigningConfigurationOverrides where
+instance Data.ToJSON SigningConfigurationOverrides where
   toJSON SigningConfigurationOverrides' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionAlgorithm" Core..=)
+          [ ("encryptionAlgorithm" Data..=)
               Prelude.<$> encryptionAlgorithm,
-            ("hashAlgorithm" Core..=) Prelude.<$> hashAlgorithm
+            ("hashAlgorithm" Data..=) Prelude.<$> hashAlgorithm
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.SigningJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Signer.Types.SignedObject
 import Amazonka.Signer.Types.SigningMaterial
@@ -57,9 +58,9 @@ data SigningJob = SigningJob'
     -- | Indicates whether the signing job is revoked.
     isRevoked :: Prelude.Maybe Prelude.Bool,
     -- | The time when the signature of a signing job expires.
-    signatureExpiresAt :: Prelude.Maybe Core.POSIX,
+    signatureExpiresAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the signing job was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for a signing platform.
     platformId :: Prelude.Maybe Prelude.Text
   }
@@ -172,36 +173,36 @@ signingJob_isRevoked = Lens.lens (\SigningJob' {isRevoked} -> isRevoked) (\s@Sig
 
 -- | The time when the signature of a signing job expires.
 signingJob_signatureExpiresAt :: Lens.Lens' SigningJob (Prelude.Maybe Prelude.UTCTime)
-signingJob_signatureExpiresAt = Lens.lens (\SigningJob' {signatureExpiresAt} -> signatureExpiresAt) (\s@SigningJob' {} a -> s {signatureExpiresAt = a} :: SigningJob) Prelude.. Lens.mapping Core._Time
+signingJob_signatureExpiresAt = Lens.lens (\SigningJob' {signatureExpiresAt} -> signatureExpiresAt) (\s@SigningJob' {} a -> s {signatureExpiresAt = a} :: SigningJob) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the signing job was created.
 signingJob_createdAt :: Lens.Lens' SigningJob (Prelude.Maybe Prelude.UTCTime)
-signingJob_createdAt = Lens.lens (\SigningJob' {createdAt} -> createdAt) (\s@SigningJob' {} a -> s {createdAt = a} :: SigningJob) Prelude.. Lens.mapping Core._Time
+signingJob_createdAt = Lens.lens (\SigningJob' {createdAt} -> createdAt) (\s@SigningJob' {} a -> s {createdAt = a} :: SigningJob) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier for a signing platform.
 signingJob_platformId :: Lens.Lens' SigningJob (Prelude.Maybe Prelude.Text)
 signingJob_platformId = Lens.lens (\SigningJob' {platformId} -> platformId) (\s@SigningJob' {} a -> s {platformId = a} :: SigningJob)
 
-instance Core.FromJSON SigningJob where
+instance Data.FromJSON SigningJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SigningJob"
       ( \x ->
           SigningJob'
-            Prelude.<$> (x Core..:? "jobOwner")
-            Prelude.<*> (x Core..:? "jobInvoker")
-            Prelude.<*> (x Core..:? "profileName")
-            Prelude.<*> (x Core..:? "signedObject")
-            Prelude.<*> (x Core..:? "platformDisplayName")
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "profileVersion")
-            Prelude.<*> (x Core..:? "signingMaterial")
-            Prelude.<*> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "isRevoked")
-            Prelude.<*> (x Core..:? "signatureExpiresAt")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "platformId")
+            Prelude.<$> (x Data..:? "jobOwner")
+            Prelude.<*> (x Data..:? "jobInvoker")
+            Prelude.<*> (x Data..:? "profileName")
+            Prelude.<*> (x Data..:? "signedObject")
+            Prelude.<*> (x Data..:? "platformDisplayName")
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "profileVersion")
+            Prelude.<*> (x Data..:? "signingMaterial")
+            Prelude.<*> (x Data..:? "source")
+            Prelude.<*> (x Data..:? "isRevoked")
+            Prelude.<*> (x Data..:? "signatureExpiresAt")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "platformId")
       )
 
 instance Prelude.Hashable SigningJob where

@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.SigningConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Signer.Types.EncryptionAlgorithmOptions
 import Amazonka.Signer.Types.HashAlgorithmOptions
@@ -73,14 +74,14 @@ signingConfiguration_encryptionAlgorithmOptions = Lens.lens (\SigningConfigurati
 signingConfiguration_hashAlgorithmOptions :: Lens.Lens' SigningConfiguration HashAlgorithmOptions
 signingConfiguration_hashAlgorithmOptions = Lens.lens (\SigningConfiguration' {hashAlgorithmOptions} -> hashAlgorithmOptions) (\s@SigningConfiguration' {} a -> s {hashAlgorithmOptions = a} :: SigningConfiguration)
 
-instance Core.FromJSON SigningConfiguration where
+instance Data.FromJSON SigningConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SigningConfiguration"
       ( \x ->
           SigningConfiguration'
-            Prelude.<$> (x Core..: "encryptionAlgorithmOptions")
-            Prelude.<*> (x Core..: "hashAlgorithmOptions")
+            Prelude.<$> (x Data..: "encryptionAlgorithmOptions")
+            Prelude.<*> (x Data..: "hashAlgorithmOptions")
       )
 
 instance Prelude.Hashable SigningConfiguration where

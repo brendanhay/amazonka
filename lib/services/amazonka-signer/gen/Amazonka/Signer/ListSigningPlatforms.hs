@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,8 +164,8 @@ instance Core.AWSRequest ListSigningPlatforms where
     Response.receiveJSON
       ( \s h x ->
           ListSigningPlatformsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "platforms" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "platforms" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,28 +185,28 @@ instance Prelude.NFData ListSigningPlatforms where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf category
 
-instance Core.ToHeaders ListSigningPlatforms where
+instance Data.ToHeaders ListSigningPlatforms where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSigningPlatforms where
+instance Data.ToPath ListSigningPlatforms where
   toPath = Prelude.const "/signing-platforms"
 
-instance Core.ToQuery ListSigningPlatforms where
+instance Data.ToQuery ListSigningPlatforms where
   toQuery ListSigningPlatforms' {..} =
     Prelude.mconcat
-      [ "partner" Core.=: partner,
-        "nextToken" Core.=: nextToken,
-        "target" Core.=: target,
-        "maxResults" Core.=: maxResults,
-        "category" Core.=: category
+      [ "partner" Data.=: partner,
+        "nextToken" Data.=: nextToken,
+        "target" Data.=: target,
+        "maxResults" Data.=: maxResults,
+        "category" Data.=: category
       ]
 
 -- | /See:/ 'newListSigningPlatformsResponse' smart constructor.

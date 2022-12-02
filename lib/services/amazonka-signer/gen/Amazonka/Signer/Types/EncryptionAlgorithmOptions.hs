@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.EncryptionAlgorithmOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Signer.Types.EncryptionAlgorithm
 
@@ -69,14 +70,14 @@ encryptionAlgorithmOptions_allowedValues = Lens.lens (\EncryptionAlgorithmOption
 encryptionAlgorithmOptions_defaultValue :: Lens.Lens' EncryptionAlgorithmOptions EncryptionAlgorithm
 encryptionAlgorithmOptions_defaultValue = Lens.lens (\EncryptionAlgorithmOptions' {defaultValue} -> defaultValue) (\s@EncryptionAlgorithmOptions' {} a -> s {defaultValue = a} :: EncryptionAlgorithmOptions)
 
-instance Core.FromJSON EncryptionAlgorithmOptions where
+instance Data.FromJSON EncryptionAlgorithmOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionAlgorithmOptions"
       ( \x ->
           EncryptionAlgorithmOptions'
-            Prelude.<$> (x Core..:? "allowedValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "defaultValue")
+            Prelude.<$> (x Data..:? "allowedValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "defaultValue")
       )
 
 instance Prelude.Hashable EncryptionAlgorithmOptions where

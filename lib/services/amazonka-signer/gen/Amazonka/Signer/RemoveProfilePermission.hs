@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +119,7 @@ instance Core.AWSRequest RemoveProfilePermission where
     Response.receiveJSON
       ( \s h x ->
           RemoveProfilePermissionResponse'
-            Prelude.<$> (x Core..?> "revisionId")
+            Prelude.<$> (x Data..?> "revisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,29 +135,29 @@ instance Prelude.NFData RemoveProfilePermission where
       `Prelude.seq` Prelude.rnf profileName
       `Prelude.seq` Prelude.rnf statementId
 
-instance Core.ToHeaders RemoveProfilePermission where
+instance Data.ToHeaders RemoveProfilePermission where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath RemoveProfilePermission where
+instance Data.ToPath RemoveProfilePermission where
   toPath RemoveProfilePermission' {..} =
     Prelude.mconcat
       [ "/signing-profiles/",
-        Core.toBS profileName,
+        Data.toBS profileName,
         "/permissions/",
-        Core.toBS statementId
+        Data.toBS statementId
       ]
 
-instance Core.ToQuery RemoveProfilePermission where
+instance Data.ToQuery RemoveProfilePermission where
   toQuery RemoveProfilePermission' {..} =
-    Prelude.mconcat ["revisionId" Core.=: revisionId]
+    Prelude.mconcat ["revisionId" Data.=: revisionId]
 
 -- | /See:/ 'newRemoveProfilePermissionResponse' smart constructor.
 data RemoveProfilePermissionResponse = RemoveProfilePermissionResponse'

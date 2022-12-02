@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,7 +69,7 @@ import Amazonka.Signer.Types
 data ListSigningJobs = ListSigningJobs'
   { -- | Filters results to return only signing jobs with signatures expiring
     -- before a specified timestamp.
-    signatureExpiresBefore :: Prelude.Maybe Core.POSIX,
+    signatureExpiresBefore :: Prelude.Maybe Data.POSIX,
     -- | String for specifying the next set of paginated results to return. After
     -- you receive a response with truncated results, use this parameter in a
     -- subsequent request. Set it to the value of @nextToken@ from the response
@@ -91,7 +92,7 @@ data ListSigningJobs = ListSigningJobs'
     requestedBy :: Prelude.Maybe Prelude.Text,
     -- | Filters results to return only signing jobs with signatures expiring
     -- after a specified timestamp.
-    signatureExpiresAfter :: Prelude.Maybe Core.POSIX,
+    signatureExpiresAfter :: Prelude.Maybe Data.POSIX,
     -- | The ID of microcontroller platform that you specified for the
     -- distribution of your code image.
     platformId :: Prelude.Maybe Prelude.Text
@@ -153,7 +154,7 @@ newListSigningJobs =
 -- | Filters results to return only signing jobs with signatures expiring
 -- before a specified timestamp.
 listSigningJobs_signatureExpiresBefore :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.UTCTime)
-listSigningJobs_signatureExpiresBefore = Lens.lens (\ListSigningJobs' {signatureExpiresBefore} -> signatureExpiresBefore) (\s@ListSigningJobs' {} a -> s {signatureExpiresBefore = a} :: ListSigningJobs) Prelude.. Lens.mapping Core._Time
+listSigningJobs_signatureExpiresBefore = Lens.lens (\ListSigningJobs' {signatureExpiresBefore} -> signatureExpiresBefore) (\s@ListSigningJobs' {} a -> s {signatureExpiresBefore = a} :: ListSigningJobs) Prelude.. Lens.mapping Data._Time
 
 -- | String for specifying the next set of paginated results to return. After
 -- you receive a response with truncated results, use this parameter in a
@@ -190,7 +191,7 @@ listSigningJobs_requestedBy = Lens.lens (\ListSigningJobs' {requestedBy} -> requ
 -- | Filters results to return only signing jobs with signatures expiring
 -- after a specified timestamp.
 listSigningJobs_signatureExpiresAfter :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.UTCTime)
-listSigningJobs_signatureExpiresAfter = Lens.lens (\ListSigningJobs' {signatureExpiresAfter} -> signatureExpiresAfter) (\s@ListSigningJobs' {} a -> s {signatureExpiresAfter = a} :: ListSigningJobs) Prelude.. Lens.mapping Core._Time
+listSigningJobs_signatureExpiresAfter = Lens.lens (\ListSigningJobs' {signatureExpiresAfter} -> signatureExpiresAfter) (\s@ListSigningJobs' {} a -> s {signatureExpiresAfter = a} :: ListSigningJobs) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of microcontroller platform that you specified for the
 -- distribution of your code image.
@@ -228,8 +229,8 @@ instance Core.AWSRequest ListSigningJobs where
     Response.receiveJSON
       ( \s h x ->
           ListSigningJobsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "jobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "jobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -257,34 +258,34 @@ instance Prelude.NFData ListSigningJobs where
       `Prelude.seq` Prelude.rnf signatureExpiresAfter
       `Prelude.seq` Prelude.rnf platformId
 
-instance Core.ToHeaders ListSigningJobs where
+instance Data.ToHeaders ListSigningJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSigningJobs where
+instance Data.ToPath ListSigningJobs where
   toPath = Prelude.const "/signing-jobs"
 
-instance Core.ToQuery ListSigningJobs where
+instance Data.ToQuery ListSigningJobs where
   toQuery ListSigningJobs' {..} =
     Prelude.mconcat
       [ "signatureExpiresBefore"
-          Core.=: signatureExpiresBefore,
-        "nextToken" Core.=: nextToken,
-        "jobInvoker" Core.=: jobInvoker,
-        "status" Core.=: status,
-        "maxResults" Core.=: maxResults,
-        "isRevoked" Core.=: isRevoked,
-        "requestedBy" Core.=: requestedBy,
+          Data.=: signatureExpiresBefore,
+        "nextToken" Data.=: nextToken,
+        "jobInvoker" Data.=: jobInvoker,
+        "status" Data.=: status,
+        "maxResults" Data.=: maxResults,
+        "isRevoked" Data.=: isRevoked,
+        "requestedBy" Data.=: requestedBy,
         "signatureExpiresAfter"
-          Core.=: signatureExpiresAfter,
-        "platformId" Core.=: platformId
+          Data.=: signatureExpiresAfter,
+        "platformId" Data.=: platformId
       ]
 
 -- | /See:/ 'newListSigningJobsResponse' smart constructor.

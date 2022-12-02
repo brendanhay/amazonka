@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.Permission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A cross-account permission for a signing profile.
@@ -79,16 +80,16 @@ permission_profileVersion = Lens.lens (\Permission' {profileVersion} -> profileV
 permission_action :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
 permission_action = Lens.lens (\Permission' {action} -> action) (\s@Permission' {} a -> s {action = a} :: Permission)
 
-instance Core.FromJSON Permission where
+instance Data.FromJSON Permission where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Permission"
       ( \x ->
           Permission'
-            Prelude.<$> (x Core..:? "principal")
-            Prelude.<*> (x Core..:? "statementId")
-            Prelude.<*> (x Core..:? "profileVersion")
-            Prelude.<*> (x Core..:? "action")
+            Prelude.<$> (x Data..:? "principal")
+            Prelude.<*> (x Data..:? "statementId")
+            Prelude.<*> (x Data..:? "profileVersion")
+            Prelude.<*> (x Data..:? "action")
       )
 
 instance Prelude.Hashable Permission where

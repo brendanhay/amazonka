@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.S3Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name and prefix of the S3 bucket where code signing saves your
@@ -75,11 +76,11 @@ instance Prelude.NFData S3Destination where
     Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToJSON S3Destination where
+instance Data.ToJSON S3Destination where
   toJSON S3Destination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bucketName" Core..=) Prelude.<$> bucketName,
-            ("prefix" Core..=) Prelude.<$> prefix
+          [ ("bucketName" Data..=) Prelude.<$> bucketName,
+            ("prefix" Data..=) Prelude.<$> prefix
           ]
       )

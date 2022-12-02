@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.StreamSelection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.StreamOrder
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ streamSelection_minVideoBitsPerSecond = Lens.lens (\StreamSelection' {minVideoBi
 streamSelection_maxVideoBitsPerSecond :: Lens.Lens' StreamSelection (Prelude.Maybe Prelude.Int)
 streamSelection_maxVideoBitsPerSecond = Lens.lens (\StreamSelection' {maxVideoBitsPerSecond} -> maxVideoBitsPerSecond) (\s@StreamSelection' {} a -> s {maxVideoBitsPerSecond = a} :: StreamSelection)
 
-instance Core.FromJSON StreamSelection where
+instance Data.FromJSON StreamSelection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamSelection"
       ( \x ->
           StreamSelection'
-            Prelude.<$> (x Core..:? "streamOrder")
-            Prelude.<*> (x Core..:? "minVideoBitsPerSecond")
-            Prelude.<*> (x Core..:? "maxVideoBitsPerSecond")
+            Prelude.<$> (x Data..:? "streamOrder")
+            Prelude.<*> (x Data..:? "minVideoBitsPerSecond")
+            Prelude.<*> (x Data..:? "maxVideoBitsPerSecond")
       )
 
 instance Prelude.Hashable StreamSelection where
@@ -94,14 +95,14 @@ instance Prelude.NFData StreamSelection where
       `Prelude.seq` Prelude.rnf minVideoBitsPerSecond
       `Prelude.seq` Prelude.rnf maxVideoBitsPerSecond
 
-instance Core.ToJSON StreamSelection where
+instance Data.ToJSON StreamSelection where
   toJSON StreamSelection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("streamOrder" Core..=) Prelude.<$> streamOrder,
-            ("minVideoBitsPerSecond" Core..=)
+          [ ("streamOrder" Data..=) Prelude.<$> streamOrder,
+            ("minVideoBitsPerSecond" Data..=)
               Prelude.<$> minVideoBitsPerSecond,
-            ("maxVideoBitsPerSecond" Core..=)
+            ("maxVideoBitsPerSecond" Data..=)
               Prelude.<$> maxVideoBitsPerSecond
           ]
       )

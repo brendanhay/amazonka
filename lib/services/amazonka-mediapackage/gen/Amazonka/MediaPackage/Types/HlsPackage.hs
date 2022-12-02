@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.HlsPackage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.AdMarkers
 import Amazonka.MediaPackage.Types.AdTriggersElement
 import Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
@@ -217,24 +218,24 @@ hlsPackage_includeDvbSubtitles = Lens.lens (\HlsPackage' {includeDvbSubtitles} -
 hlsPackage_playlistType :: Lens.Lens' HlsPackage (Prelude.Maybe PlaylistType)
 hlsPackage_playlistType = Lens.lens (\HlsPackage' {playlistType} -> playlistType) (\s@HlsPackage' {} a -> s {playlistType = a} :: HlsPackage)
 
-instance Core.FromJSON HlsPackage where
+instance Data.FromJSON HlsPackage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsPackage"
       ( \x ->
           HlsPackage'
-            Prelude.<$> (x Core..:? "playlistWindowSeconds")
-            Prelude.<*> (x Core..:? "adsOnDeliveryRestrictions")
-            Prelude.<*> (x Core..:? "useAudioRenditionGroup")
-            Prelude.<*> (x Core..:? "streamSelection")
-            Prelude.<*> (x Core..:? "programDateTimeIntervalSeconds")
-            Prelude.<*> (x Core..:? "includeIframeOnlyStream")
-            Prelude.<*> (x Core..:? "adMarkers")
-            Prelude.<*> (x Core..:? "adTriggers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "segmentDurationSeconds")
-            Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "includeDvbSubtitles")
-            Prelude.<*> (x Core..:? "playlistType")
+            Prelude.<$> (x Data..:? "playlistWindowSeconds")
+            Prelude.<*> (x Data..:? "adsOnDeliveryRestrictions")
+            Prelude.<*> (x Data..:? "useAudioRenditionGroup")
+            Prelude.<*> (x Data..:? "streamSelection")
+            Prelude.<*> (x Data..:? "programDateTimeIntervalSeconds")
+            Prelude.<*> (x Data..:? "includeIframeOnlyStream")
+            Prelude.<*> (x Data..:? "adMarkers")
+            Prelude.<*> (x Data..:? "adTriggers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "segmentDurationSeconds")
+            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<*> (x Data..:? "includeDvbSubtitles")
+            Prelude.<*> (x Data..:? "playlistType")
       )
 
 instance Prelude.Hashable HlsPackage where
@@ -267,29 +268,29 @@ instance Prelude.NFData HlsPackage where
       `Prelude.seq` Prelude.rnf includeDvbSubtitles
       `Prelude.seq` Prelude.rnf playlistType
 
-instance Core.ToJSON HlsPackage where
+instance Data.ToJSON HlsPackage where
   toJSON HlsPackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("playlistWindowSeconds" Core..=)
+          [ ("playlistWindowSeconds" Data..=)
               Prelude.<$> playlistWindowSeconds,
-            ("adsOnDeliveryRestrictions" Core..=)
+            ("adsOnDeliveryRestrictions" Data..=)
               Prelude.<$> adsOnDeliveryRestrictions,
-            ("useAudioRenditionGroup" Core..=)
+            ("useAudioRenditionGroup" Data..=)
               Prelude.<$> useAudioRenditionGroup,
-            ("streamSelection" Core..=)
+            ("streamSelection" Data..=)
               Prelude.<$> streamSelection,
-            ("programDateTimeIntervalSeconds" Core..=)
+            ("programDateTimeIntervalSeconds" Data..=)
               Prelude.<$> programDateTimeIntervalSeconds,
-            ("includeIframeOnlyStream" Core..=)
+            ("includeIframeOnlyStream" Data..=)
               Prelude.<$> includeIframeOnlyStream,
-            ("adMarkers" Core..=) Prelude.<$> adMarkers,
-            ("adTriggers" Core..=) Prelude.<$> adTriggers,
-            ("segmentDurationSeconds" Core..=)
+            ("adMarkers" Data..=) Prelude.<$> adMarkers,
+            ("adTriggers" Data..=) Prelude.<$> adTriggers,
+            ("segmentDurationSeconds" Data..=)
               Prelude.<$> segmentDurationSeconds,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("includeDvbSubtitles" Core..=)
+            ("encryption" Data..=) Prelude.<$> encryption,
+            ("includeDvbSubtitles" Data..=)
               Prelude.<$> includeDvbSubtitles,
-            ("playlistType" Core..=) Prelude.<$> playlistType
+            ("playlistType" Data..=) Prelude.<$> playlistType
           ]
       )

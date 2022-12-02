@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -153,15 +154,15 @@ instance Core.AWSRequest CreateHarvestJob where
     Response.receiveJSON
       ( \s h x ->
           CreateHarvestJobResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "endTime")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "channelId")
-            Prelude.<*> (x Core..?> "s3Destination")
-            Prelude.<*> (x Core..?> "originEndpointId")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "startTime")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "endTime")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "channelId")
+            Prelude.<*> (x Data..?> "s3Destination")
+            Prelude.<*> (x Data..?> "originEndpointId")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "startTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,35 +182,35 @@ instance Prelude.NFData CreateHarvestJob where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders CreateHarvestJob where
+instance Data.ToHeaders CreateHarvestJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateHarvestJob where
+instance Data.ToJSON CreateHarvestJob where
   toJSON CreateHarvestJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("s3Destination" Core..= s3Destination),
-            Prelude.Just ("endTime" Core..= endTime),
+              ("s3Destination" Data..= s3Destination),
+            Prelude.Just ("endTime" Data..= endTime),
             Prelude.Just
-              ("originEndpointId" Core..= originEndpointId),
-            Prelude.Just ("startTime" Core..= startTime),
-            Prelude.Just ("id" Core..= id)
+              ("originEndpointId" Data..= originEndpointId),
+            Prelude.Just ("startTime" Data..= startTime),
+            Prelude.Just ("id" Data..= id)
           ]
       )
 
-instance Core.ToPath CreateHarvestJob where
+instance Data.ToPath CreateHarvestJob where
   toPath = Prelude.const "/harvest_jobs"
 
-instance Core.ToQuery CreateHarvestJob where
+instance Data.ToQuery CreateHarvestJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateHarvestJobResponse' smart constructor.

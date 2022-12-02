@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.EgressAccessLogs where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configure egress access logging.
@@ -50,13 +51,13 @@ newEgressAccessLogs =
 egressAccessLogs_logGroupName :: Lens.Lens' EgressAccessLogs (Prelude.Maybe Prelude.Text)
 egressAccessLogs_logGroupName = Lens.lens (\EgressAccessLogs' {logGroupName} -> logGroupName) (\s@EgressAccessLogs' {} a -> s {logGroupName = a} :: EgressAccessLogs)
 
-instance Core.FromJSON EgressAccessLogs where
+instance Data.FromJSON EgressAccessLogs where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EgressAccessLogs"
       ( \x ->
           EgressAccessLogs'
-            Prelude.<$> (x Core..:? "logGroupName")
+            Prelude.<$> (x Data..:? "logGroupName")
       )
 
 instance Prelude.Hashable EgressAccessLogs where
@@ -66,9 +67,9 @@ instance Prelude.Hashable EgressAccessLogs where
 instance Prelude.NFData EgressAccessLogs where
   rnf EgressAccessLogs' {..} = Prelude.rnf logGroupName
 
-instance Core.ToJSON EgressAccessLogs where
+instance Data.ToJSON EgressAccessLogs where
   toJSON EgressAccessLogs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("logGroupName" Core..=) Prelude.<$> logGroupName]
+          [("logGroupName" Data..=) Prelude.<$> logGroupName]
       )

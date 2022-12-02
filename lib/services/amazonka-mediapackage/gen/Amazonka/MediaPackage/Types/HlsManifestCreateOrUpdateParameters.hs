@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.AdMarkers
 import Amazonka.MediaPackage.Types.AdTriggersElement
 import Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
@@ -225,24 +226,24 @@ instance
       `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     HlsManifestCreateOrUpdateParameters
   where
   toJSON HlsManifestCreateOrUpdateParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("playlistWindowSeconds" Core..=)
+          [ ("playlistWindowSeconds" Data..=)
               Prelude.<$> playlistWindowSeconds,
-            ("adsOnDeliveryRestrictions" Core..=)
+            ("adsOnDeliveryRestrictions" Data..=)
               Prelude.<$> adsOnDeliveryRestrictions,
-            ("programDateTimeIntervalSeconds" Core..=)
+            ("programDateTimeIntervalSeconds" Data..=)
               Prelude.<$> programDateTimeIntervalSeconds,
-            ("includeIframeOnlyStream" Core..=)
+            ("includeIframeOnlyStream" Data..=)
               Prelude.<$> includeIframeOnlyStream,
-            ("adMarkers" Core..=) Prelude.<$> adMarkers,
-            ("adTriggers" Core..=) Prelude.<$> adTriggers,
-            ("manifestName" Core..=) Prelude.<$> manifestName,
-            ("playlistType" Core..=) Prelude.<$> playlistType,
-            Prelude.Just ("id" Core..= id)
+            ("adMarkers" Data..=) Prelude.<$> adMarkers,
+            ("adTriggers" Data..=) Prelude.<$> adTriggers,
+            ("manifestName" Data..=) Prelude.<$> manifestName,
+            ("playlistType" Data..=) Prelude.<$> playlistType,
+            Prelude.Just ("id" Data..= id)
           ]
       )

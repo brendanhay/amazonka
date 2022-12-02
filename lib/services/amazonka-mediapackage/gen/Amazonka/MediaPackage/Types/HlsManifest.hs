@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.HlsManifest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.AdMarkers
 import Amazonka.MediaPackage.Types.AdTriggersElement
 import Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
@@ -198,22 +199,22 @@ hlsManifest_playlistType = Lens.lens (\HlsManifest' {playlistType} -> playlistTy
 hlsManifest_id :: Lens.Lens' HlsManifest Prelude.Text
 hlsManifest_id = Lens.lens (\HlsManifest' {id} -> id) (\s@HlsManifest' {} a -> s {id = a} :: HlsManifest)
 
-instance Core.FromJSON HlsManifest where
+instance Data.FromJSON HlsManifest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsManifest"
       ( \x ->
           HlsManifest'
-            Prelude.<$> (x Core..:? "playlistWindowSeconds")
-            Prelude.<*> (x Core..:? "adsOnDeliveryRestrictions")
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "programDateTimeIntervalSeconds")
-            Prelude.<*> (x Core..:? "includeIframeOnlyStream")
-            Prelude.<*> (x Core..:? "adMarkers")
-            Prelude.<*> (x Core..:? "adTriggers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "manifestName")
-            Prelude.<*> (x Core..:? "playlistType")
-            Prelude.<*> (x Core..: "id")
+            Prelude.<$> (x Data..:? "playlistWindowSeconds")
+            Prelude.<*> (x Data..:? "adsOnDeliveryRestrictions")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "programDateTimeIntervalSeconds")
+            Prelude.<*> (x Data..:? "includeIframeOnlyStream")
+            Prelude.<*> (x Data..:? "adMarkers")
+            Prelude.<*> (x Data..:? "adTriggers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "manifestName")
+            Prelude.<*> (x Data..:? "playlistType")
+            Prelude.<*> (x Data..: "id")
       )
 
 instance Prelude.Hashable HlsManifest where

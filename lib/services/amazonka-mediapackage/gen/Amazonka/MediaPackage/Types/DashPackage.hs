@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.DashPackage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.AdTriggersElement
 import Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
 import Amazonka.MediaPackage.Types.DashEncryption
@@ -261,28 +262,28 @@ dashPackage_minBufferTimeSeconds = Lens.lens (\DashPackage' {minBufferTimeSecond
 dashPackage_utcTimingUri :: Lens.Lens' DashPackage (Prelude.Maybe Prelude.Text)
 dashPackage_utcTimingUri = Lens.lens (\DashPackage' {utcTimingUri} -> utcTimingUri) (\s@DashPackage' {} a -> s {utcTimingUri = a} :: DashPackage)
 
-instance Core.FromJSON DashPackage where
+instance Data.FromJSON DashPackage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashPackage"
       ( \x ->
           DashPackage'
-            Prelude.<$> (x Core..:? "profile")
-            Prelude.<*> (x Core..:? "adsOnDeliveryRestrictions")
-            Prelude.<*> (x Core..:? "segmentTemplateFormat")
-            Prelude.<*> (x Core..:? "streamSelection")
-            Prelude.<*> (x Core..:? "suggestedPresentationDelaySeconds")
-            Prelude.<*> (x Core..:? "includeIframeOnlyStream")
-            Prelude.<*> (x Core..:? "manifestWindowSeconds")
-            Prelude.<*> (x Core..:? "minUpdatePeriodSeconds")
-            Prelude.<*> (x Core..:? "adTriggers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "segmentDurationSeconds")
-            Prelude.<*> (x Core..:? "periodTriggers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "utcTiming")
-            Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "manifestLayout")
-            Prelude.<*> (x Core..:? "minBufferTimeSeconds")
-            Prelude.<*> (x Core..:? "utcTimingUri")
+            Prelude.<$> (x Data..:? "profile")
+            Prelude.<*> (x Data..:? "adsOnDeliveryRestrictions")
+            Prelude.<*> (x Data..:? "segmentTemplateFormat")
+            Prelude.<*> (x Data..:? "streamSelection")
+            Prelude.<*> (x Data..:? "suggestedPresentationDelaySeconds")
+            Prelude.<*> (x Data..:? "includeIframeOnlyStream")
+            Prelude.<*> (x Data..:? "manifestWindowSeconds")
+            Prelude.<*> (x Data..:? "minUpdatePeriodSeconds")
+            Prelude.<*> (x Data..:? "adTriggers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "segmentDurationSeconds")
+            Prelude.<*> (x Data..:? "periodTriggers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "utcTiming")
+            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<*> (x Data..:? "manifestLayout")
+            Prelude.<*> (x Data..:? "minBufferTimeSeconds")
+            Prelude.<*> (x Data..:? "utcTimingUri")
       )
 
 instance Prelude.Hashable DashPackage where
@@ -323,36 +324,36 @@ instance Prelude.NFData DashPackage where
       `Prelude.seq` Prelude.rnf minBufferTimeSeconds
       `Prelude.seq` Prelude.rnf utcTimingUri
 
-instance Core.ToJSON DashPackage where
+instance Data.ToJSON DashPackage where
   toJSON DashPackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("profile" Core..=) Prelude.<$> profile,
-            ("adsOnDeliveryRestrictions" Core..=)
+          [ ("profile" Data..=) Prelude.<$> profile,
+            ("adsOnDeliveryRestrictions" Data..=)
               Prelude.<$> adsOnDeliveryRestrictions,
-            ("segmentTemplateFormat" Core..=)
+            ("segmentTemplateFormat" Data..=)
               Prelude.<$> segmentTemplateFormat,
-            ("streamSelection" Core..=)
+            ("streamSelection" Data..=)
               Prelude.<$> streamSelection,
-            ("suggestedPresentationDelaySeconds" Core..=)
+            ("suggestedPresentationDelaySeconds" Data..=)
               Prelude.<$> suggestedPresentationDelaySeconds,
-            ("includeIframeOnlyStream" Core..=)
+            ("includeIframeOnlyStream" Data..=)
               Prelude.<$> includeIframeOnlyStream,
-            ("manifestWindowSeconds" Core..=)
+            ("manifestWindowSeconds" Data..=)
               Prelude.<$> manifestWindowSeconds,
-            ("minUpdatePeriodSeconds" Core..=)
+            ("minUpdatePeriodSeconds" Data..=)
               Prelude.<$> minUpdatePeriodSeconds,
-            ("adTriggers" Core..=) Prelude.<$> adTriggers,
-            ("segmentDurationSeconds" Core..=)
+            ("adTriggers" Data..=) Prelude.<$> adTriggers,
+            ("segmentDurationSeconds" Data..=)
               Prelude.<$> segmentDurationSeconds,
-            ("periodTriggers" Core..=)
+            ("periodTriggers" Data..=)
               Prelude.<$> periodTriggers,
-            ("utcTiming" Core..=) Prelude.<$> utcTiming,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("manifestLayout" Core..=)
+            ("utcTiming" Data..=) Prelude.<$> utcTiming,
+            ("encryption" Data..=) Prelude.<$> encryption,
+            ("manifestLayout" Data..=)
               Prelude.<$> manifestLayout,
-            ("minBufferTimeSeconds" Core..=)
+            ("minBufferTimeSeconds" Data..=)
               Prelude.<$> minBufferTimeSeconds,
-            ("utcTimingUri" Core..=) Prelude.<$> utcTimingUri
+            ("utcTimingUri" Data..=) Prelude.<$> utcTimingUri
           ]
       )

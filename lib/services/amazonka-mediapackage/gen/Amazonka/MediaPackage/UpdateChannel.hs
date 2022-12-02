@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,13 +104,13 @@ instance Core.AWSRequest UpdateChannel where
     Response.receiveJSON
       ( \s h x ->
           UpdateChannelResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ingressAccessLogs")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "egressAccessLogs")
-            Prelude.<*> (x Core..?> "hlsIngest")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ingressAccessLogs")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "egressAccessLogs")
+            Prelude.<*> (x Data..?> "hlsIngest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,29 +124,29 @@ instance Prelude.NFData UpdateChannel where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateChannel where
+instance Data.ToHeaders UpdateChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateChannel where
+instance Data.ToJSON UpdateChannel where
   toJSON UpdateChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("description" Core..=) Prelude.<$> description]
+          [("description" Data..=) Prelude.<$> description]
       )
 
-instance Core.ToPath UpdateChannel where
+instance Data.ToPath UpdateChannel where
   toPath UpdateChannel' {..} =
-    Prelude.mconcat ["/channels/", Core.toBS id]
+    Prelude.mconcat ["/channels/", Data.toBS id]
 
-instance Core.ToQuery UpdateChannel where
+instance Data.ToQuery UpdateChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateChannelResponse' smart constructor.

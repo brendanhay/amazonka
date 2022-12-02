@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,15 +92,15 @@ instance Core.AWSRequest DescribeHarvestJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeHarvestJobResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "endTime")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "channelId")
-            Prelude.<*> (x Core..?> "s3Destination")
-            Prelude.<*> (x Core..?> "originEndpointId")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "startTime")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "endTime")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "channelId")
+            Prelude.<*> (x Data..?> "s3Destination")
+            Prelude.<*> (x Data..?> "originEndpointId")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "startTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,22 +111,22 @@ instance Prelude.Hashable DescribeHarvestJob where
 instance Prelude.NFData DescribeHarvestJob where
   rnf DescribeHarvestJob' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DescribeHarvestJob where
+instance Data.ToHeaders DescribeHarvestJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeHarvestJob where
+instance Data.ToPath DescribeHarvestJob where
   toPath DescribeHarvestJob' {..} =
-    Prelude.mconcat ["/harvest_jobs/", Core.toBS id]
+    Prelude.mconcat ["/harvest_jobs/", Data.toBS id]
 
-instance Core.ToQuery DescribeHarvestJob where
+instance Data.ToQuery DescribeHarvestJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeHarvestJobResponse' smart constructor.

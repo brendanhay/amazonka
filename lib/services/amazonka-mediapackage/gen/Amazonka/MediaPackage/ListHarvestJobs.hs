@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,8 +145,8 @@ instance Core.AWSRequest ListHarvestJobs where
     Response.receiveJSON
       ( \s h x ->
           ListHarvestJobsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "harvestJobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "harvestJobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,27 +164,27 @@ instance Prelude.NFData ListHarvestJobs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf includeChannelId
 
-instance Core.ToHeaders ListHarvestJobs where
+instance Data.ToHeaders ListHarvestJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListHarvestJobs where
+instance Data.ToPath ListHarvestJobs where
   toPath = Prelude.const "/harvest_jobs"
 
-instance Core.ToQuery ListHarvestJobs where
+instance Data.ToQuery ListHarvestJobs where
   toQuery ListHarvestJobs' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "includeStatus" Core.=: includeStatus,
-        "maxResults" Core.=: maxResults,
-        "includeChannelId" Core.=: includeChannelId
+      [ "nextToken" Data.=: nextToken,
+        "includeStatus" Data.=: includeStatus,
+        "maxResults" Data.=: maxResults,
+        "includeChannelId" Data.=: includeChannelId
       ]
 
 -- | /See:/ 'newListHarvestJobsResponse' smart constructor.

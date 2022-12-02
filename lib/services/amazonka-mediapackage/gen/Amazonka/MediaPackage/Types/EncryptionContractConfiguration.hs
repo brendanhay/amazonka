@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.EncryptionContractConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.PresetSpeke20Audio
 import Amazonka.MediaPackage.Types.PresetSpeke20Video
 import qualified Amazonka.Prelude as Prelude
@@ -80,16 +81,16 @@ encryptionContractConfiguration_presetSpeke20Video :: Lens.Lens' EncryptionContr
 encryptionContractConfiguration_presetSpeke20Video = Lens.lens (\EncryptionContractConfiguration' {presetSpeke20Video} -> presetSpeke20Video) (\s@EncryptionContractConfiguration' {} a -> s {presetSpeke20Video = a} :: EncryptionContractConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EncryptionContractConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionContractConfiguration"
       ( \x ->
           EncryptionContractConfiguration'
-            Prelude.<$> (x Core..: "presetSpeke20Audio")
-            Prelude.<*> (x Core..: "presetSpeke20Video")
+            Prelude.<$> (x Data..: "presetSpeke20Audio")
+            Prelude.<*> (x Data..: "presetSpeke20Video")
       )
 
 instance
@@ -110,13 +111,13 @@ instance
     Prelude.rnf presetSpeke20Audio
       `Prelude.seq` Prelude.rnf presetSpeke20Video
 
-instance Core.ToJSON EncryptionContractConfiguration where
+instance Data.ToJSON EncryptionContractConfiguration where
   toJSON EncryptionContractConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("presetSpeke20Audio" Core..= presetSpeke20Audio),
+              ("presetSpeke20Audio" Data..= presetSpeke20Audio),
             Prelude.Just
-              ("presetSpeke20Video" Core..= presetSpeke20Video)
+              ("presetSpeke20Video" Data..= presetSpeke20Video)
           ]
       )

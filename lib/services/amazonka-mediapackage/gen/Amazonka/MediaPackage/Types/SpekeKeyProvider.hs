@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.SpekeKeyProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.EncryptionContractConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -113,18 +114,18 @@ spekeKeyProvider_url = Lens.lens (\SpekeKeyProvider' {url} -> url) (\s@SpekeKeyP
 spekeKeyProvider_roleArn :: Lens.Lens' SpekeKeyProvider Prelude.Text
 spekeKeyProvider_roleArn = Lens.lens (\SpekeKeyProvider' {roleArn} -> roleArn) (\s@SpekeKeyProvider' {} a -> s {roleArn = a} :: SpekeKeyProvider)
 
-instance Core.FromJSON SpekeKeyProvider where
+instance Data.FromJSON SpekeKeyProvider where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SpekeKeyProvider"
       ( \x ->
           SpekeKeyProvider'
-            Prelude.<$> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "encryptionContractConfiguration")
-            Prelude.<*> (x Core..: "resourceId")
-            Prelude.<*> (x Core..:? "systemIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "url")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Data..:? "certificateArn")
+            Prelude.<*> (x Data..:? "encryptionContractConfiguration")
+            Prelude.<*> (x Data..: "resourceId")
+            Prelude.<*> (x Data..:? "systemIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "url")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance Prelude.Hashable SpekeKeyProvider where
@@ -145,17 +146,17 @@ instance Prelude.NFData SpekeKeyProvider where
       `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON SpekeKeyProvider where
+instance Data.ToJSON SpekeKeyProvider where
   toJSON SpekeKeyProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("certificateArn" Core..=)
+          [ ("certificateArn" Data..=)
               Prelude.<$> certificateArn,
-            ("encryptionContractConfiguration" Core..=)
+            ("encryptionContractConfiguration" Data..=)
               Prelude.<$> encryptionContractConfiguration,
-            Prelude.Just ("resourceId" Core..= resourceId),
-            Prelude.Just ("systemIds" Core..= systemIds),
-            Prelude.Just ("url" Core..= url),
-            Prelude.Just ("roleArn" Core..= roleArn)
+            Prelude.Just ("resourceId" Data..= resourceId),
+            Prelude.Just ("systemIds" Data..= systemIds),
+            Prelude.Just ("url" Data..= url),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

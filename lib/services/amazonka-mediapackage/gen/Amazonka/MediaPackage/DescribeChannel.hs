@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,13 +89,13 @@ instance Core.AWSRequest DescribeChannel where
     Response.receiveJSON
       ( \s h x ->
           DescribeChannelResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ingressAccessLogs")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "egressAccessLogs")
-            Prelude.<*> (x Core..?> "hlsIngest")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ingressAccessLogs")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "egressAccessLogs")
+            Prelude.<*> (x Data..?> "hlsIngest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,22 +106,22 @@ instance Prelude.Hashable DescribeChannel where
 instance Prelude.NFData DescribeChannel where
   rnf DescribeChannel' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DescribeChannel where
+instance Data.ToHeaders DescribeChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeChannel where
+instance Data.ToPath DescribeChannel where
   toPath DescribeChannel' {..} =
-    Prelude.mconcat ["/channels/", Core.toBS id]
+    Prelude.mconcat ["/channels/", Data.toBS id]
 
-instance Core.ToQuery DescribeChannel where
+instance Data.ToQuery DescribeChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeChannelResponse' smart constructor.

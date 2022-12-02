@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,8 +132,8 @@ instance Core.AWSRequest ListOriginEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListOriginEndpointsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "originEndpoints"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "originEndpoints"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -150,26 +151,26 @@ instance Prelude.NFData ListOriginEndpoints where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf channelId
 
-instance Core.ToHeaders ListOriginEndpoints where
+instance Data.ToHeaders ListOriginEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListOriginEndpoints where
+instance Data.ToPath ListOriginEndpoints where
   toPath = Prelude.const "/origin_endpoints"
 
-instance Core.ToQuery ListOriginEndpoints where
+instance Data.ToQuery ListOriginEndpoints where
   toQuery ListOriginEndpoints' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "channelId" Core.=: channelId
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "channelId" Data.=: channelId
       ]
 
 -- | /See:/ 'newListOriginEndpointsResponse' smart constructor.

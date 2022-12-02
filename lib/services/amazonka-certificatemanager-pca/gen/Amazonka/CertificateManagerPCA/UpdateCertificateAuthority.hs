@@ -49,6 +49,7 @@ where
 import Amazonka.CertificateManagerPCA.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -155,39 +156,39 @@ instance Prelude.NFData UpdateCertificateAuthority where
       `Prelude.seq` Prelude.rnf revocationConfiguration
       `Prelude.seq` Prelude.rnf certificateAuthorityArn
 
-instance Core.ToHeaders UpdateCertificateAuthority where
+instance Data.ToHeaders UpdateCertificateAuthority where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ACMPrivateCA.UpdateCertificateAuthority" ::
+              Data.=# ( "ACMPrivateCA.UpdateCertificateAuthority" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCertificateAuthority where
+instance Data.ToJSON UpdateCertificateAuthority where
   toJSON UpdateCertificateAuthority' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("RevocationConfiguration" Core..=)
+          [ ("Status" Data..=) Prelude.<$> status,
+            ("RevocationConfiguration" Data..=)
               Prelude.<$> revocationConfiguration,
             Prelude.Just
               ( "CertificateAuthorityArn"
-                  Core..= certificateAuthorityArn
+                  Data..= certificateAuthorityArn
               )
           ]
       )
 
-instance Core.ToPath UpdateCertificateAuthority where
+instance Data.ToPath UpdateCertificateAuthority where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCertificateAuthority where
+instance Data.ToQuery UpdateCertificateAuthority where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCertificateAuthorityResponse' smart constructor.

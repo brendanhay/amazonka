@@ -21,6 +21,7 @@ module Amazonka.CertificateManagerPCA.Types.KeyUsage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines one or more purposes for which the key contained in the
@@ -125,21 +126,21 @@ keyUsage_decipherOnly = Lens.lens (\KeyUsage' {decipherOnly} -> decipherOnly) (\
 keyUsage_dataEncipherment :: Lens.Lens' KeyUsage (Prelude.Maybe Prelude.Bool)
 keyUsage_dataEncipherment = Lens.lens (\KeyUsage' {dataEncipherment} -> dataEncipherment) (\s@KeyUsage' {} a -> s {dataEncipherment = a} :: KeyUsage)
 
-instance Core.FromJSON KeyUsage where
+instance Data.FromJSON KeyUsage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeyUsage"
       ( \x ->
           KeyUsage'
-            Prelude.<$> (x Core..:? "DigitalSignature")
-            Prelude.<*> (x Core..:? "KeyEncipherment")
-            Prelude.<*> (x Core..:? "EncipherOnly")
-            Prelude.<*> (x Core..:? "NonRepudiation")
-            Prelude.<*> (x Core..:? "CRLSign")
-            Prelude.<*> (x Core..:? "KeyCertSign")
-            Prelude.<*> (x Core..:? "KeyAgreement")
-            Prelude.<*> (x Core..:? "DecipherOnly")
-            Prelude.<*> (x Core..:? "DataEncipherment")
+            Prelude.<$> (x Data..:? "DigitalSignature")
+            Prelude.<*> (x Data..:? "KeyEncipherment")
+            Prelude.<*> (x Data..:? "EncipherOnly")
+            Prelude.<*> (x Data..:? "NonRepudiation")
+            Prelude.<*> (x Data..:? "CRLSign")
+            Prelude.<*> (x Data..:? "KeyCertSign")
+            Prelude.<*> (x Data..:? "KeyAgreement")
+            Prelude.<*> (x Data..:? "DecipherOnly")
+            Prelude.<*> (x Data..:? "DataEncipherment")
       )
 
 instance Prelude.Hashable KeyUsage where
@@ -166,22 +167,22 @@ instance Prelude.NFData KeyUsage where
       `Prelude.seq` Prelude.rnf decipherOnly
       `Prelude.seq` Prelude.rnf dataEncipherment
 
-instance Core.ToJSON KeyUsage where
+instance Data.ToJSON KeyUsage where
   toJSON KeyUsage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DigitalSignature" Core..=)
+          [ ("DigitalSignature" Data..=)
               Prelude.<$> digitalSignature,
-            ("KeyEncipherment" Core..=)
+            ("KeyEncipherment" Data..=)
               Prelude.<$> keyEncipherment,
-            ("EncipherOnly" Core..=) Prelude.<$> encipherOnly,
-            ("NonRepudiation" Core..=)
+            ("EncipherOnly" Data..=) Prelude.<$> encipherOnly,
+            ("NonRepudiation" Data..=)
               Prelude.<$> nonRepudiation,
-            ("CRLSign" Core..=) Prelude.<$> cRLSign,
-            ("KeyCertSign" Core..=) Prelude.<$> keyCertSign,
-            ("KeyAgreement" Core..=) Prelude.<$> keyAgreement,
-            ("DecipherOnly" Core..=) Prelude.<$> decipherOnly,
-            ("DataEncipherment" Core..=)
+            ("CRLSign" Data..=) Prelude.<$> cRLSign,
+            ("KeyCertSign" Data..=) Prelude.<$> keyCertSign,
+            ("KeyAgreement" Data..=) Prelude.<$> keyAgreement,
+            ("DecipherOnly" Data..=) Prelude.<$> decipherOnly,
+            ("DataEncipherment" Data..=)
               Prelude.<$> dataEncipherment
           ]
       )

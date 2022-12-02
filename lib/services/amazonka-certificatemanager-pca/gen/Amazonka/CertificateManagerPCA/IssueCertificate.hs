@@ -57,6 +57,7 @@ where
 import Amazonka.CertificateManagerPCA.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,7 +137,7 @@ data IssueCertificate = IssueCertificate'
     --
     -- Note: A CSR must provide either a /subject name/ or a /subject
     -- alternative name/ or the request will be rejected.
-    csr :: Core.Base64,
+    csr :: Data.Base64,
     -- | The name of the algorithm that will be used to sign the certificate to
     -- be issued.
     --
@@ -303,7 +304,7 @@ newIssueCertificate
         validityNotBefore = Prelude.Nothing,
         templateArn = Prelude.Nothing,
         certificateAuthorityArn = pCertificateAuthorityArn_,
-        csr = Core._Base64 Lens.# pCsr_,
+        csr = Data._Base64 Lens.# pCsr_,
         signingAlgorithm = pSigningAlgorithm_,
         validity = pValidity_
       }
@@ -396,7 +397,7 @@ issueCertificate_certificateAuthorityArn = Lens.lens (\IssueCertificate' {certif
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 issueCertificate_csr :: Lens.Lens' IssueCertificate Prelude.ByteString
-issueCertificate_csr = Lens.lens (\IssueCertificate' {csr} -> csr) (\s@IssueCertificate' {} a -> s {csr = a} :: IssueCertificate) Prelude.. Core._Base64
+issueCertificate_csr = Lens.lens (\IssueCertificate' {csr} -> csr) (\s@IssueCertificate' {} a -> s {csr = a} :: IssueCertificate) Prelude.. Data._Base64
 
 -- | The name of the algorithm that will be used to sign the certificate to
 -- be issued.
@@ -440,7 +441,7 @@ instance Core.AWSRequest IssueCertificate where
     Response.receiveJSON
       ( \s h x ->
           IssueCertificateResponse'
-            Prelude.<$> (x Core..?> "CertificateArn")
+            Prelude.<$> (x Data..?> "CertificateArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -466,47 +467,47 @@ instance Prelude.NFData IssueCertificate where
       `Prelude.seq` Prelude.rnf signingAlgorithm
       `Prelude.seq` Prelude.rnf validity
 
-instance Core.ToHeaders IssueCertificate where
+instance Data.ToHeaders IssueCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ACMPrivateCA.IssueCertificate" ::
+              Data.=# ( "ACMPrivateCA.IssueCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON IssueCertificate where
+instance Data.ToJSON IssueCertificate where
   toJSON IssueCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IdempotencyToken" Core..=)
+          [ ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("ApiPassthrough" Core..=)
+            ("ApiPassthrough" Data..=)
               Prelude.<$> apiPassthrough,
-            ("ValidityNotBefore" Core..=)
+            ("ValidityNotBefore" Data..=)
               Prelude.<$> validityNotBefore,
-            ("TemplateArn" Core..=) Prelude.<$> templateArn,
+            ("TemplateArn" Data..=) Prelude.<$> templateArn,
             Prelude.Just
               ( "CertificateAuthorityArn"
-                  Core..= certificateAuthorityArn
+                  Data..= certificateAuthorityArn
               ),
-            Prelude.Just ("Csr" Core..= csr),
+            Prelude.Just ("Csr" Data..= csr),
             Prelude.Just
-              ("SigningAlgorithm" Core..= signingAlgorithm),
-            Prelude.Just ("Validity" Core..= validity)
+              ("SigningAlgorithm" Data..= signingAlgorithm),
+            Prelude.Just ("Validity" Data..= validity)
           ]
       )
 
-instance Core.ToPath IssueCertificate where
+instance Data.ToPath IssueCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery IssueCertificate where
+instance Data.ToQuery IssueCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newIssueCertificateResponse' smart constructor.

@@ -61,6 +61,7 @@ where
 import Amazonka.CertificateManagerPCA.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -190,40 +191,40 @@ instance Prelude.NFData RevokeCertificate where
       `Prelude.seq` Prelude.rnf certificateSerial
       `Prelude.seq` Prelude.rnf revocationReason
 
-instance Core.ToHeaders RevokeCertificate where
+instance Data.ToHeaders RevokeCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ACMPrivateCA.RevokeCertificate" ::
+              Data.=# ( "ACMPrivateCA.RevokeCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RevokeCertificate where
+instance Data.ToJSON RevokeCertificate where
   toJSON RevokeCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "CertificateAuthorityArn"
-                  Core..= certificateAuthorityArn
+                  Data..= certificateAuthorityArn
               ),
             Prelude.Just
-              ("CertificateSerial" Core..= certificateSerial),
+              ("CertificateSerial" Data..= certificateSerial),
             Prelude.Just
-              ("RevocationReason" Core..= revocationReason)
+              ("RevocationReason" Data..= revocationReason)
           ]
       )
 
-instance Core.ToPath RevokeCertificate where
+instance Data.ToPath RevokeCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RevokeCertificate where
+instance Data.ToQuery RevokeCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRevokeCertificateResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.CertificateManagerPCA.Types.CustomExtension where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the X.509 extension information for a certificate.
@@ -95,13 +96,13 @@ instance Prelude.NFData CustomExtension where
       `Prelude.seq` Prelude.rnf objectIdentifier
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON CustomExtension where
+instance Data.ToJSON CustomExtension where
   toJSON CustomExtension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Critical" Core..=) Prelude.<$> critical,
+          [ ("Critical" Data..=) Prelude.<$> critical,
             Prelude.Just
-              ("ObjectIdentifier" Core..= objectIdentifier),
-            Prelude.Just ("Value" Core..= value)
+              ("ObjectIdentifier" Data..= objectIdentifier),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.CertificateManagerPCA.Types.Qualifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a @PolicyInformation@ qualifier. ACM Private CA supports the
@@ -63,9 +64,9 @@ instance Prelude.Hashable Qualifier where
 instance Prelude.NFData Qualifier where
   rnf Qualifier' {..} = Prelude.rnf cpsUri
 
-instance Core.ToJSON Qualifier where
+instance Data.ToJSON Qualifier where
   toJSON Qualifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("CpsUri" Core..= cpsUri)]
+          [Prelude.Just ("CpsUri" Data..= cpsUri)]
       )

@@ -21,6 +21,7 @@ module Amazonka.CertificateManagerPCA.Types.CustomAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the X.500 relative distinguished name (RDN).
@@ -69,14 +70,14 @@ customAttribute_objectIdentifier = Lens.lens (\CustomAttribute' {objectIdentifie
 customAttribute_value :: Lens.Lens' CustomAttribute Prelude.Text
 customAttribute_value = Lens.lens (\CustomAttribute' {value} -> value) (\s@CustomAttribute' {} a -> s {value = a} :: CustomAttribute)
 
-instance Core.FromJSON CustomAttribute where
+instance Data.FromJSON CustomAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomAttribute"
       ( \x ->
           CustomAttribute'
-            Prelude.<$> (x Core..: "ObjectIdentifier")
-            Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "ObjectIdentifier")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable CustomAttribute where
@@ -89,12 +90,12 @@ instance Prelude.NFData CustomAttribute where
     Prelude.rnf objectIdentifier
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON CustomAttribute where
+instance Data.ToJSON CustomAttribute where
   toJSON CustomAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ObjectIdentifier" Core..= objectIdentifier),
-            Prelude.Just ("Value" Core..= value)
+              ("ObjectIdentifier" Data..= objectIdentifier),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

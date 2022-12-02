@@ -23,6 +23,7 @@ import Amazonka.CertificateManagerPCA.Types.CrlConfiguration
 import Amazonka.CertificateManagerPCA.Types.OcspConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Certificate revocation information used by the
@@ -92,14 +93,14 @@ revocationConfiguration_ocspConfiguration = Lens.lens (\RevocationConfiguration'
 revocationConfiguration_crlConfiguration :: Lens.Lens' RevocationConfiguration (Prelude.Maybe CrlConfiguration)
 revocationConfiguration_crlConfiguration = Lens.lens (\RevocationConfiguration' {crlConfiguration} -> crlConfiguration) (\s@RevocationConfiguration' {} a -> s {crlConfiguration = a} :: RevocationConfiguration)
 
-instance Core.FromJSON RevocationConfiguration where
+instance Data.FromJSON RevocationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RevocationConfiguration"
       ( \x ->
           RevocationConfiguration'
-            Prelude.<$> (x Core..:? "OcspConfiguration")
-            Prelude.<*> (x Core..:? "CrlConfiguration")
+            Prelude.<$> (x Data..:? "OcspConfiguration")
+            Prelude.<*> (x Data..:? "CrlConfiguration")
       )
 
 instance Prelude.Hashable RevocationConfiguration where
@@ -112,13 +113,13 @@ instance Prelude.NFData RevocationConfiguration where
     Prelude.rnf ocspConfiguration
       `Prelude.seq` Prelude.rnf crlConfiguration
 
-instance Core.ToJSON RevocationConfiguration where
+instance Data.ToJSON RevocationConfiguration where
   toJSON RevocationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OcspConfiguration" Core..=)
+          [ ("OcspConfiguration" Data..=)
               Prelude.<$> ocspConfiguration,
-            ("CrlConfiguration" Core..=)
+            ("CrlConfiguration" Data..=)
               Prelude.<$> crlConfiguration
           ]
       )

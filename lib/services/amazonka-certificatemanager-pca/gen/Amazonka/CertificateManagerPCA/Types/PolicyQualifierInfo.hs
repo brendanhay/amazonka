@@ -23,6 +23,7 @@ import Amazonka.CertificateManagerPCA.Types.PolicyQualifierId
 import Amazonka.CertificateManagerPCA.Types.Qualifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Modifies the @CertPolicyId@ of a @PolicyInformation@ object with a
@@ -85,12 +86,12 @@ instance Prelude.NFData PolicyQualifierInfo where
     Prelude.rnf policyQualifierId
       `Prelude.seq` Prelude.rnf qualifier
 
-instance Core.ToJSON PolicyQualifierInfo where
+instance Data.ToJSON PolicyQualifierInfo where
   toJSON PolicyQualifierInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PolicyQualifierId" Core..= policyQualifierId),
-            Prelude.Just ("Qualifier" Core..= qualifier)
+              ("PolicyQualifierId" Data..= policyQualifierId),
+            Prelude.Just ("Qualifier" Data..= qualifier)
           ]
       )

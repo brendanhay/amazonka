@@ -23,6 +23,7 @@ import Amazonka.CertificateManagerPCA.Types.ASN1Subject
 import Amazonka.CertificateManagerPCA.Types.Extensions
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains X.509 certificate information to be placed in an issued
@@ -79,11 +80,11 @@ instance Prelude.NFData ApiPassthrough where
     Prelude.rnf extensions
       `Prelude.seq` Prelude.rnf subject
 
-instance Core.ToJSON ApiPassthrough where
+instance Data.ToJSON ApiPassthrough where
   toJSON ApiPassthrough' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Extensions" Core..=) Prelude.<$> extensions,
-            ("Subject" Core..=) Prelude.<$> subject
+          [ ("Extensions" Data..=) Prelude.<$> extensions,
+            ("Subject" Data..=) Prelude.<$> subject
           ]
       )

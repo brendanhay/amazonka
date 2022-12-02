@@ -26,6 +26,7 @@ import Amazonka.CertificateManagerPCA.Types.KeyUsage
 import Amazonka.CertificateManagerPCA.Types.PolicyInformation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains X.509 extension information for a certificate.
@@ -153,18 +154,18 @@ instance Prelude.NFData Extensions where
       `Prelude.seq` Prelude.rnf customExtensions
       `Prelude.seq` Prelude.rnf subjectAlternativeNames
 
-instance Core.ToJSON Extensions where
+instance Data.ToJSON Extensions where
   toJSON Extensions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExtendedKeyUsage" Core..=)
+          [ ("ExtendedKeyUsage" Data..=)
               Prelude.<$> extendedKeyUsage,
-            ("KeyUsage" Core..=) Prelude.<$> keyUsage,
-            ("CertificatePolicies" Core..=)
+            ("KeyUsage" Data..=) Prelude.<$> keyUsage,
+            ("CertificatePolicies" Data..=)
               Prelude.<$> certificatePolicies,
-            ("CustomExtensions" Core..=)
+            ("CustomExtensions" Data..=)
               Prelude.<$> customExtensions,
-            ("SubjectAlternativeNames" Core..=)
+            ("SubjectAlternativeNames" Data..=)
               Prelude.<$> subjectAlternativeNames
           ]
       )

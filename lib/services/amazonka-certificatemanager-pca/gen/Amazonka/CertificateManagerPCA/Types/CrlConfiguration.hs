@@ -22,6 +22,7 @@ module Amazonka.CertificateManagerPCA.Types.CrlConfiguration where
 import Amazonka.CertificateManagerPCA.Types.S3ObjectAcl
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information for a certificate revocation list
@@ -261,17 +262,17 @@ crlConfiguration_expirationInDays = Lens.lens (\CrlConfiguration' {expirationInD
 crlConfiguration_enabled :: Lens.Lens' CrlConfiguration Prelude.Bool
 crlConfiguration_enabled = Lens.lens (\CrlConfiguration' {enabled} -> enabled) (\s@CrlConfiguration' {} a -> s {enabled = a} :: CrlConfiguration)
 
-instance Core.FromJSON CrlConfiguration where
+instance Data.FromJSON CrlConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CrlConfiguration"
       ( \x ->
           CrlConfiguration'
-            Prelude.<$> (x Core..:? "S3BucketName")
-            Prelude.<*> (x Core..:? "CustomCname")
-            Prelude.<*> (x Core..:? "S3ObjectAcl")
-            Prelude.<*> (x Core..:? "ExpirationInDays")
-            Prelude.<*> (x Core..: "Enabled")
+            Prelude.<$> (x Data..:? "S3BucketName")
+            Prelude.<*> (x Data..:? "CustomCname")
+            Prelude.<*> (x Data..:? "S3ObjectAcl")
+            Prelude.<*> (x Data..:? "ExpirationInDays")
+            Prelude.<*> (x Data..: "Enabled")
       )
 
 instance Prelude.Hashable CrlConfiguration where
@@ -290,15 +291,15 @@ instance Prelude.NFData CrlConfiguration where
       `Prelude.seq` Prelude.rnf expirationInDays
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON CrlConfiguration where
+instance Data.ToJSON CrlConfiguration where
   toJSON CrlConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3BucketName" Core..=) Prelude.<$> s3BucketName,
-            ("CustomCname" Core..=) Prelude.<$> customCname,
-            ("S3ObjectAcl" Core..=) Prelude.<$> s3ObjectAcl,
-            ("ExpirationInDays" Core..=)
+          [ ("S3BucketName" Data..=) Prelude.<$> s3BucketName,
+            ("CustomCname" Data..=) Prelude.<$> customCname,
+            ("S3ObjectAcl" Data..=) Prelude.<$> s3ObjectAcl,
+            ("ExpirationInDays" Data..=)
               Prelude.<$> expirationInDays,
-            Prelude.Just ("Enabled" Core..= enabled)
+            Prelude.Just ("Enabled" Data..= enabled)
           ]
       )

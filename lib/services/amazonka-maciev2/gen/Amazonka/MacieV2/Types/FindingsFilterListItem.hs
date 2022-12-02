@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.FindingsFilterListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.FindingsFilterAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,17 +99,17 @@ findingsFilterListItem_id = Lens.lens (\FindingsFilterListItem' {id} -> id) (\s@
 findingsFilterListItem_action :: Lens.Lens' FindingsFilterListItem (Prelude.Maybe FindingsFilterAction)
 findingsFilterListItem_action = Lens.lens (\FindingsFilterListItem' {action} -> action) (\s@FindingsFilterListItem' {} a -> s {action = a} :: FindingsFilterListItem)
 
-instance Core.FromJSON FindingsFilterListItem where
+instance Data.FromJSON FindingsFilterListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindingsFilterListItem"
       ( \x ->
           FindingsFilterListItem'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "action")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "action")
       )
 
 instance Prelude.Hashable FindingsFilterListItem where

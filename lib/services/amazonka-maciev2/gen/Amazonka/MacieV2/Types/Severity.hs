@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.Severity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.SeverityDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ severity_score = Lens.lens (\Severity' {score} -> score) (\s@Severity' {} a -> s
 severity_description :: Lens.Lens' Severity (Prelude.Maybe SeverityDescription)
 severity_description = Lens.lens (\Severity' {description} -> description) (\s@Severity' {} a -> s {description = a} :: Severity)
 
-instance Core.FromJSON Severity where
+instance Data.FromJSON Severity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Severity"
       ( \x ->
           Severity'
-            Prelude.<$> (x Core..:? "score")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<$> (x Data..:? "score")
+            Prelude.<*> (x Data..:? "description")
       )
 
 instance Prelude.Hashable Severity where

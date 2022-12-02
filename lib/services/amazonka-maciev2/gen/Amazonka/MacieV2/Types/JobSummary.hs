@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.JobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.JobStatus
 import Amazonka.MacieV2.Types.JobType
 import Amazonka.MacieV2.Types.LastRunErrorStatus
@@ -88,7 +89,7 @@ data JobSummary = JobSummary'
     lastRunErrorStatus :: Prelude.Maybe LastRunErrorStatus,
     -- | The date and time, in UTC and extended ISO 8601 format, when the job was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The schedule for running the job. Possible values are:
     --
     -- -   ONE_TIME - The job runs only once.
@@ -250,7 +251,7 @@ jobSummary_lastRunErrorStatus = Lens.lens (\JobSummary' {lastRunErrorStatus} -> 
 -- | The date and time, in UTC and extended ISO 8601 format, when the job was
 -- created.
 jobSummary_createdAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.UTCTime)
-jobSummary_createdAt = Lens.lens (\JobSummary' {createdAt} -> createdAt) (\s@JobSummary' {} a -> s {createdAt = a} :: JobSummary) Prelude.. Lens.mapping Core._Time
+jobSummary_createdAt = Lens.lens (\JobSummary' {createdAt} -> createdAt) (\s@JobSummary' {} a -> s {createdAt = a} :: JobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The schedule for running the job. Possible values are:
 --
@@ -260,23 +261,23 @@ jobSummary_createdAt = Lens.lens (\JobSummary' {createdAt} -> createdAt) (\s@Job
 jobSummary_jobType :: Lens.Lens' JobSummary (Prelude.Maybe JobType)
 jobSummary_jobType = Lens.lens (\JobSummary' {jobType} -> jobType) (\s@JobSummary' {} a -> s {jobType = a} :: JobSummary)
 
-instance Core.FromJSON JobSummary where
+instance Data.FromJSON JobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobSummary"
       ( \x ->
           JobSummary'
-            Prelude.<$> (x Core..:? "bucketCriteria")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "jobStatus")
-            Prelude.<*> (x Core..:? "userPausedDetails")
-            Prelude.<*> ( x Core..:? "bucketDefinitions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "bucketCriteria")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "jobStatus")
+            Prelude.<*> (x Data..:? "userPausedDetails")
+            Prelude.<*> ( x Data..:? "bucketDefinitions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "lastRunErrorStatus")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "jobType")
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "lastRunErrorStatus")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "jobType")
       )
 
 instance Prelude.Hashable JobSummary where

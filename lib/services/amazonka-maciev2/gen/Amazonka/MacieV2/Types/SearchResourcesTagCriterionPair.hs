@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.SearchResourcesTagCriterionPair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a tag key, a tag value, or a tag key and value (as a pair) to
@@ -82,11 +83,11 @@ instance
   rnf SearchResourcesTagCriterionPair' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON SearchResourcesTagCriterionPair where
+instance Data.ToJSON SearchResourcesTagCriterionPair where
   toJSON SearchResourcesTagCriterionPair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("value" Core..=) Prelude.<$> value
+          [ ("key" Data..=) Prelude.<$> key,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

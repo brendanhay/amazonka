@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,9 +169,9 @@ instance Core.AWSRequest GetUsageStatistics where
     Response.receiveJSON
       ( \s h x ->
           GetUsageStatisticsResponse'
-            Prelude.<$> (x Core..?> "records" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "timeRange")
+            Prelude.<$> (x Data..?> "records" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "timeRange")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,33 +191,33 @@ instance Prelude.NFData GetUsageStatistics where
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders GetUsageStatistics where
+instance Data.ToHeaders GetUsageStatistics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetUsageStatistics where
+instance Data.ToJSON GetUsageStatistics where
   toJSON GetUsageStatistics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("timeRange" Core..=) Prelude.<$> timeRange,
-            ("filterBy" Core..=) Prelude.<$> filterBy,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("timeRange" Data..=) Prelude.<$> timeRange,
+            ("filterBy" Data..=) Prelude.<$> filterBy,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath GetUsageStatistics where
+instance Data.ToPath GetUsageStatistics where
   toPath = Prelude.const "/usage/statistics"
 
-instance Core.ToQuery GetUsageStatistics where
+instance Data.ToQuery GetUsageStatistics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUsageStatisticsResponse' smart constructor.

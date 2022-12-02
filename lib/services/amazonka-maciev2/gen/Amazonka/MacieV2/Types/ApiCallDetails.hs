@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ApiCallDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an API operation that an entity invoked for
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data ApiCallDetails = ApiCallDetails'
   { -- | The most recent date and time, in UTC and extended ISO 8601 format, when
     -- the specified operation (api) was invoked and produced the finding.
-    lastSeen :: Prelude.Maybe Core.POSIX,
+    lastSeen :: Prelude.Maybe Data.POSIX,
     -- | The URL of the Amazon Web Service that provides the operation, for
     -- example: s3.amazonaws.com.
     apiServiceName :: Prelude.Maybe Prelude.Text,
@@ -39,7 +40,7 @@ data ApiCallDetails = ApiCallDetails'
     api :: Prelude.Maybe Prelude.Text,
     -- | The first date and time, in UTC and extended ISO 8601 format, when any
     -- operation was invoked and produced the finding.
-    firstSeen :: Prelude.Maybe Core.POSIX
+    firstSeen :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,7 +76,7 @@ newApiCallDetails =
 -- | The most recent date and time, in UTC and extended ISO 8601 format, when
 -- the specified operation (api) was invoked and produced the finding.
 apiCallDetails_lastSeen :: Lens.Lens' ApiCallDetails (Prelude.Maybe Prelude.UTCTime)
-apiCallDetails_lastSeen = Lens.lens (\ApiCallDetails' {lastSeen} -> lastSeen) (\s@ApiCallDetails' {} a -> s {lastSeen = a} :: ApiCallDetails) Prelude.. Lens.mapping Core._Time
+apiCallDetails_lastSeen = Lens.lens (\ApiCallDetails' {lastSeen} -> lastSeen) (\s@ApiCallDetails' {} a -> s {lastSeen = a} :: ApiCallDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The URL of the Amazon Web Service that provides the operation, for
 -- example: s3.amazonaws.com.
@@ -90,18 +91,18 @@ apiCallDetails_api = Lens.lens (\ApiCallDetails' {api} -> api) (\s@ApiCallDetail
 -- | The first date and time, in UTC and extended ISO 8601 format, when any
 -- operation was invoked and produced the finding.
 apiCallDetails_firstSeen :: Lens.Lens' ApiCallDetails (Prelude.Maybe Prelude.UTCTime)
-apiCallDetails_firstSeen = Lens.lens (\ApiCallDetails' {firstSeen} -> firstSeen) (\s@ApiCallDetails' {} a -> s {firstSeen = a} :: ApiCallDetails) Prelude.. Lens.mapping Core._Time
+apiCallDetails_firstSeen = Lens.lens (\ApiCallDetails' {firstSeen} -> firstSeen) (\s@ApiCallDetails' {} a -> s {firstSeen = a} :: ApiCallDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ApiCallDetails where
+instance Data.FromJSON ApiCallDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApiCallDetails"
       ( \x ->
           ApiCallDetails'
-            Prelude.<$> (x Core..:? "lastSeen")
-            Prelude.<*> (x Core..:? "apiServiceName")
-            Prelude.<*> (x Core..:? "api")
-            Prelude.<*> (x Core..:? "firstSeen")
+            Prelude.<$> (x Data..:? "lastSeen")
+            Prelude.<*> (x Data..:? "apiServiceName")
+            Prelude.<*> (x Data..:? "api")
+            Prelude.<*> (x Data..:? "firstSeen")
       )
 
 instance Prelude.Hashable ApiCallDetails where

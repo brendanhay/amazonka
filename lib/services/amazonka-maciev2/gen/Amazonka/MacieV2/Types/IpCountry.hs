@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.IpCountry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the country that an IP address originated
@@ -68,13 +69,13 @@ ipCountry_name = Lens.lens (\IpCountry' {name} -> name) (\s@IpCountry' {} a -> s
 ipCountry_code :: Lens.Lens' IpCountry (Prelude.Maybe Prelude.Text)
 ipCountry_code = Lens.lens (\IpCountry' {code} -> code) (\s@IpCountry' {} a -> s {code = a} :: IpCountry)
 
-instance Core.FromJSON IpCountry where
+instance Data.FromJSON IpCountry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IpCountry"
       ( \x ->
           IpCountry'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable IpCountry where

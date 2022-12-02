@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.S3Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an S3 bucket to store data classification results in, and the
@@ -87,15 +88,15 @@ s3Destination_bucketName = Lens.lens (\S3Destination' {bucketName} -> bucketName
 s3Destination_kmsKeyArn :: Lens.Lens' S3Destination Prelude.Text
 s3Destination_kmsKeyArn = Lens.lens (\S3Destination' {kmsKeyArn} -> kmsKeyArn) (\s@S3Destination' {} a -> s {kmsKeyArn = a} :: S3Destination)
 
-instance Core.FromJSON S3Destination where
+instance Data.FromJSON S3Destination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Destination"
       ( \x ->
           S3Destination'
-            Prelude.<$> (x Core..:? "keyPrefix")
-            Prelude.<*> (x Core..: "bucketName")
-            Prelude.<*> (x Core..: "kmsKeyArn")
+            Prelude.<$> (x Data..:? "keyPrefix")
+            Prelude.<*> (x Data..: "bucketName")
+            Prelude.<*> (x Data..: "kmsKeyArn")
       )
 
 instance Prelude.Hashable S3Destination where
@@ -110,12 +111,12 @@ instance Prelude.NFData S3Destination where
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf kmsKeyArn
 
-instance Core.ToJSON S3Destination where
+instance Data.ToJSON S3Destination where
   toJSON S3Destination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keyPrefix" Core..=) Prelude.<$> keyPrefix,
-            Prelude.Just ("bucketName" Core..= bucketName),
-            Prelude.Just ("kmsKeyArn" Core..= kmsKeyArn)
+          [ ("keyPrefix" Data..=) Prelude.<$> keyPrefix,
+            Prelude.Just ("bucketName" Data..= bucketName),
+            Prelude.Just ("kmsKeyArn" Data..= kmsKeyArn)
           ]
       )

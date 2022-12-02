@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.BucketCountBySharedAccessType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the number of S3 buckets that are or aren\'t
@@ -96,16 +97,16 @@ bucketCountBySharedAccessType_notShared = Lens.lens (\BucketCountBySharedAccessT
 bucketCountBySharedAccessType_internal :: Lens.Lens' BucketCountBySharedAccessType (Prelude.Maybe Prelude.Integer)
 bucketCountBySharedAccessType_internal = Lens.lens (\BucketCountBySharedAccessType' {internal} -> internal) (\s@BucketCountBySharedAccessType' {} a -> s {internal = a} :: BucketCountBySharedAccessType)
 
-instance Core.FromJSON BucketCountBySharedAccessType where
+instance Data.FromJSON BucketCountBySharedAccessType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BucketCountBySharedAccessType"
       ( \x ->
           BucketCountBySharedAccessType'
-            Prelude.<$> (x Core..:? "external")
-            Prelude.<*> (x Core..:? "unknown")
-            Prelude.<*> (x Core..:? "notShared")
-            Prelude.<*> (x Core..:? "internal")
+            Prelude.<$> (x Data..:? "external")
+            Prelude.<*> (x Data..:? "unknown")
+            Prelude.<*> (x Data..:? "notShared")
+            Prelude.<*> (x Data..:? "internal")
       )
 
 instance

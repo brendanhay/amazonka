@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.DefaultDetection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.Occurrences
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,15 +85,15 @@ defaultDetection_type = Lens.lens (\DefaultDetection' {type'} -> type') (\s@Defa
 defaultDetection_count :: Lens.Lens' DefaultDetection (Prelude.Maybe Prelude.Integer)
 defaultDetection_count = Lens.lens (\DefaultDetection' {count} -> count) (\s@DefaultDetection' {} a -> s {count = a} :: DefaultDetection)
 
-instance Core.FromJSON DefaultDetection where
+instance Data.FromJSON DefaultDetection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DefaultDetection"
       ( \x ->
           DefaultDetection'
-            Prelude.<$> (x Core..:? "occurrences")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "count")
+            Prelude.<$> (x Data..:? "occurrences")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "count")
       )
 
 instance Prelude.Hashable DefaultDetection where

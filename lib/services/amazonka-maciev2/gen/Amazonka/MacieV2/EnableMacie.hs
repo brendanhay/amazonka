@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,32 +129,32 @@ instance Prelude.NFData EnableMacie where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf findingPublishingFrequency
 
-instance Core.ToHeaders EnableMacie where
+instance Data.ToHeaders EnableMacie where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableMacie where
+instance Data.ToJSON EnableMacie where
   toJSON EnableMacie' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("status" Core..=) Prelude.<$> status,
-            ("findingPublishingFrequency" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("status" Data..=) Prelude.<$> status,
+            ("findingPublishingFrequency" Data..=)
               Prelude.<$> findingPublishingFrequency
           ]
       )
 
-instance Core.ToPath EnableMacie where
+instance Data.ToPath EnableMacie where
   toPath = Prelude.const "/macie"
 
-instance Core.ToQuery EnableMacie where
+instance Data.ToQuery EnableMacie where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableMacieResponse' smart constructor.

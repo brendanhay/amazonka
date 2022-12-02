@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.IpCity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the city that an IP address originated from.
@@ -49,11 +50,11 @@ newIpCity = IpCity' {name = Prelude.Nothing}
 ipCity_name :: Lens.Lens' IpCity (Prelude.Maybe Prelude.Text)
 ipCity_name = Lens.lens (\IpCity' {name} -> name) (\s@IpCity' {} a -> s {name = a} :: IpCity)
 
-instance Core.FromJSON IpCity where
+instance Data.FromJSON IpCity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IpCity"
-      (\x -> IpCity' Prelude.<$> (x Core..:? "name"))
+      (\x -> IpCity' Prelude.<$> (x Data..:? "name"))
 
 instance Prelude.Hashable IpCity where
   hashWithSalt _salt IpCity' {..} =

@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.CustomDetection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.Occurrences
 import qualified Amazonka.Prelude as Prelude
 
@@ -91,16 +92,16 @@ customDetection_arn = Lens.lens (\CustomDetection' {arn} -> arn) (\s@CustomDetec
 customDetection_count :: Lens.Lens' CustomDetection (Prelude.Maybe Prelude.Integer)
 customDetection_count = Lens.lens (\CustomDetection' {count} -> count) (\s@CustomDetection' {} a -> s {count = a} :: CustomDetection)
 
-instance Core.FromJSON CustomDetection where
+instance Data.FromJSON CustomDetection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomDetection"
       ( \x ->
           CustomDetection'
-            Prelude.<$> (x Core..:? "occurrences")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "count")
+            Prelude.<$> (x Data..:? "occurrences")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "count")
       )
 
 instance Prelude.Hashable CustomDetection where

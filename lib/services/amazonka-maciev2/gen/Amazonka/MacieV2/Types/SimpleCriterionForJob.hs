@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.SimpleCriterionForJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.JobComparator
 import Amazonka.MacieV2.Types.SimpleCriterionKeyForJob
 import qualified Amazonka.Prelude as Prelude
@@ -136,15 +137,15 @@ simpleCriterionForJob_comparator = Lens.lens (\SimpleCriterionForJob' {comparato
 simpleCriterionForJob_values :: Lens.Lens' SimpleCriterionForJob (Prelude.Maybe [Prelude.Text])
 simpleCriterionForJob_values = Lens.lens (\SimpleCriterionForJob' {values} -> values) (\s@SimpleCriterionForJob' {} a -> s {values = a} :: SimpleCriterionForJob) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SimpleCriterionForJob where
+instance Data.FromJSON SimpleCriterionForJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SimpleCriterionForJob"
       ( \x ->
           SimpleCriterionForJob'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "comparator")
-            Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "comparator")
+            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SimpleCriterionForJob where
@@ -159,12 +160,12 @@ instance Prelude.NFData SimpleCriterionForJob where
       `Prelude.seq` Prelude.rnf comparator
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON SimpleCriterionForJob where
+instance Data.ToJSON SimpleCriterionForJob where
   toJSON SimpleCriterionForJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("comparator" Core..=) Prelude.<$> comparator,
-            ("values" Core..=) Prelude.<$> values
+          [ ("key" Data..=) Prelude.<$> key,
+            ("comparator" Data..=) Prelude.<$> comparator,
+            ("values" Data..=) Prelude.<$> values
           ]
       )

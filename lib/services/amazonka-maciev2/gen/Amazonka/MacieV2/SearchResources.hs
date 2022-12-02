@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,8 +149,8 @@ instance Core.AWSRequest SearchResources where
     Response.receiveJSON
       ( \s h x ->
           SearchResourcesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "matchingResources"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "matchingResources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -169,34 +170,34 @@ instance Prelude.NFData SearchResources where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders SearchResources where
+instance Data.ToHeaders SearchResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchResources where
+instance Data.ToJSON SearchResources where
   toJSON SearchResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
-            ("bucketCriteria" Core..=)
+          [ ("sortCriteria" Data..=) Prelude.<$> sortCriteria,
+            ("bucketCriteria" Data..=)
               Prelude.<$> bucketCriteria,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath SearchResources where
+instance Data.ToPath SearchResources where
   toPath =
     Prelude.const "/datasources/search-resources"
 
-instance Core.ToQuery SearchResources where
+instance Data.ToQuery SearchResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchResourcesResponse' smart constructor.

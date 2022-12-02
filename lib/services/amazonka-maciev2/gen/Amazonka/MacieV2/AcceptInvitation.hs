@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,32 +133,32 @@ instance Prelude.NFData AcceptInvitation where
       `Prelude.seq` Prelude.rnf administratorAccountId
       `Prelude.seq` Prelude.rnf invitationId
 
-instance Core.ToHeaders AcceptInvitation where
+instance Data.ToHeaders AcceptInvitation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AcceptInvitation where
+instance Data.ToJSON AcceptInvitation where
   toJSON AcceptInvitation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("masterAccount" Core..=) Prelude.<$> masterAccount,
-            ("administratorAccountId" Core..=)
+          [ ("masterAccount" Data..=) Prelude.<$> masterAccount,
+            ("administratorAccountId" Data..=)
               Prelude.<$> administratorAccountId,
-            Prelude.Just ("invitationId" Core..= invitationId)
+            Prelude.Just ("invitationId" Data..= invitationId)
           ]
       )
 
-instance Core.ToPath AcceptInvitation where
+instance Data.ToPath AcceptInvitation where
   toPath = Prelude.const "/invitations/accept"
 
-instance Core.ToQuery AcceptInvitation where
+instance Data.ToQuery AcceptInvitation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAcceptInvitationResponse' smart constructor.

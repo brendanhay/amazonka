@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.JobDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.IsDefinedInJob
 import Amazonka.MacieV2.Types.IsMonitoredByJob
 import qualified Amazonka.Prelude as Prelude
@@ -62,7 +63,7 @@ data JobDetails = JobDetails'
     --
     -- This value is typically null if the value for the isDefinedInJob
     -- property is FALSE or UNKNOWN.
-    lastJobRunTime :: Prelude.Maybe Core.POSIX,
+    lastJobRunTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether any recurring jobs are configured to analyze data in
     -- the bucket. Possible values are:
     --
@@ -187,7 +188,7 @@ jobDetails_isDefinedInJob = Lens.lens (\JobDetails' {isDefinedInJob} -> isDefine
 -- This value is typically null if the value for the isDefinedInJob
 -- property is FALSE or UNKNOWN.
 jobDetails_lastJobRunTime :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.UTCTime)
-jobDetails_lastJobRunTime = Lens.lens (\JobDetails' {lastJobRunTime} -> lastJobRunTime) (\s@JobDetails' {} a -> s {lastJobRunTime = a} :: JobDetails) Prelude.. Lens.mapping Core._Time
+jobDetails_lastJobRunTime = Lens.lens (\JobDetails' {lastJobRunTime} -> lastJobRunTime) (\s@JobDetails' {} a -> s {lastJobRunTime = a} :: JobDetails) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether any recurring jobs are configured to analyze data in
 -- the bucket. Possible values are:
@@ -209,16 +210,16 @@ jobDetails_lastJobRunTime = Lens.lens (\JobDetails' {lastJobRunTime} -> lastJobR
 jobDetails_isMonitoredByJob :: Lens.Lens' JobDetails (Prelude.Maybe IsMonitoredByJob)
 jobDetails_isMonitoredByJob = Lens.lens (\JobDetails' {isMonitoredByJob} -> isMonitoredByJob) (\s@JobDetails' {} a -> s {isMonitoredByJob = a} :: JobDetails)
 
-instance Core.FromJSON JobDetails where
+instance Data.FromJSON JobDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobDetails"
       ( \x ->
           JobDetails'
-            Prelude.<$> (x Core..:? "lastJobId")
-            Prelude.<*> (x Core..:? "isDefinedInJob")
-            Prelude.<*> (x Core..:? "lastJobRunTime")
-            Prelude.<*> (x Core..:? "isMonitoredByJob")
+            Prelude.<$> (x Data..:? "lastJobId")
+            Prelude.<*> (x Data..:? "isDefinedInJob")
+            Prelude.<*> (x Data..:? "lastJobRunTime")
+            Prelude.<*> (x Data..:? "isMonitoredByJob")
       )
 
 instance Prelude.Hashable JobDetails where

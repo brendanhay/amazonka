@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,18 +98,18 @@ instance Core.AWSRequest GetCustomDataIdentifier where
     Response.receiveJSON
       ( \s h x ->
           GetCustomDataIdentifierResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "deleted")
-            Prelude.<*> (x Core..?> "regex")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "ignoreWords" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "keywords" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "severityLevels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "maximumMatchDistance")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "deleted")
+            Prelude.<*> (x Data..?> "regex")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "ignoreWords" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "keywords" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "severityLevels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "maximumMatchDistance")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,23 +120,23 @@ instance Prelude.Hashable GetCustomDataIdentifier where
 instance Prelude.NFData GetCustomDataIdentifier where
   rnf GetCustomDataIdentifier' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetCustomDataIdentifier where
+instance Data.ToHeaders GetCustomDataIdentifier where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCustomDataIdentifier where
+instance Data.ToPath GetCustomDataIdentifier where
   toPath GetCustomDataIdentifier' {..} =
     Prelude.mconcat
-      ["/custom-data-identifiers/", Core.toBS id]
+      ["/custom-data-identifiers/", Data.toBS id]
 
-instance Core.ToQuery GetCustomDataIdentifier where
+instance Data.ToQuery GetCustomDataIdentifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCustomDataIdentifierResponse' smart constructor.
@@ -182,7 +183,7 @@ data GetCustomDataIdentifierResponse = GetCustomDataIdentifierResponse'
     maximumMatchDistance :: Prelude.Maybe Prelude.Int,
     -- | The date and time, in UTC and extended ISO 8601 format, when the custom
     -- data identifier was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -327,7 +328,7 @@ getCustomDataIdentifierResponse_maximumMatchDistance = Lens.lens (\GetCustomData
 -- | The date and time, in UTC and extended ISO 8601 format, when the custom
 -- data identifier was created.
 getCustomDataIdentifierResponse_createdAt :: Lens.Lens' GetCustomDataIdentifierResponse (Prelude.Maybe Prelude.UTCTime)
-getCustomDataIdentifierResponse_createdAt = Lens.lens (\GetCustomDataIdentifierResponse' {createdAt} -> createdAt) (\s@GetCustomDataIdentifierResponse' {} a -> s {createdAt = a} :: GetCustomDataIdentifierResponse) Prelude.. Lens.mapping Core._Time
+getCustomDataIdentifierResponse_createdAt = Lens.lens (\GetCustomDataIdentifierResponse' {createdAt} -> createdAt) (\s@GetCustomDataIdentifierResponse' {} a -> s {createdAt = a} :: GetCustomDataIdentifierResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getCustomDataIdentifierResponse_httpStatus :: Lens.Lens' GetCustomDataIdentifierResponse Prelude.Int

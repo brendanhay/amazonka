@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.SessionContextAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the context in which temporary security
@@ -33,7 +34,7 @@ data SessionContextAttributes = SessionContextAttributes'
     mfaAuthenticated :: Prelude.Maybe Prelude.Bool,
     -- | The date and time, in UTC and ISO 8601 format, when the credentials were
     -- issued.
-    creationDate :: Prelude.Maybe Core.POSIX
+    creationDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,16 +68,16 @@ sessionContextAttributes_mfaAuthenticated = Lens.lens (\SessionContextAttributes
 -- | The date and time, in UTC and ISO 8601 format, when the credentials were
 -- issued.
 sessionContextAttributes_creationDate :: Lens.Lens' SessionContextAttributes (Prelude.Maybe Prelude.UTCTime)
-sessionContextAttributes_creationDate = Lens.lens (\SessionContextAttributes' {creationDate} -> creationDate) (\s@SessionContextAttributes' {} a -> s {creationDate = a} :: SessionContextAttributes) Prelude.. Lens.mapping Core._Time
+sessionContextAttributes_creationDate = Lens.lens (\SessionContextAttributes' {creationDate} -> creationDate) (\s@SessionContextAttributes' {} a -> s {creationDate = a} :: SessionContextAttributes) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SessionContextAttributes where
+instance Data.FromJSON SessionContextAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SessionContextAttributes"
       ( \x ->
           SessionContextAttributes'
-            Prelude.<$> (x Core..:? "mfaAuthenticated")
-            Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<$> (x Data..:? "mfaAuthenticated")
+            Prelude.<*> (x Data..:? "creationDate")
       )
 
 instance Prelude.Hashable SessionContextAttributes where

@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.AllowListCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.S3WordsList
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,14 +71,14 @@ allowListCriteria_regex = Lens.lens (\AllowListCriteria' {regex} -> regex) (\s@A
 allowListCriteria_s3WordsList :: Lens.Lens' AllowListCriteria (Prelude.Maybe S3WordsList)
 allowListCriteria_s3WordsList = Lens.lens (\AllowListCriteria' {s3WordsList} -> s3WordsList) (\s@AllowListCriteria' {} a -> s {s3WordsList = a} :: AllowListCriteria)
 
-instance Core.FromJSON AllowListCriteria where
+instance Data.FromJSON AllowListCriteria where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AllowListCriteria"
       ( \x ->
           AllowListCriteria'
-            Prelude.<$> (x Core..:? "regex")
-            Prelude.<*> (x Core..:? "s3WordsList")
+            Prelude.<$> (x Data..:? "regex")
+            Prelude.<*> (x Data..:? "s3WordsList")
       )
 
 instance Prelude.Hashable AllowListCriteria where
@@ -90,11 +91,11 @@ instance Prelude.NFData AllowListCriteria where
     Prelude.rnf regex
       `Prelude.seq` Prelude.rnf s3WordsList
 
-instance Core.ToJSON AllowListCriteria where
+instance Data.ToJSON AllowListCriteria where
   toJSON AllowListCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("regex" Core..=) Prelude.<$> regex,
-            ("s3WordsList" Core..=) Prelude.<$> s3WordsList
+          [ ("regex" Data..=) Prelude.<$> regex,
+            ("s3WordsList" Data..=) Prelude.<$> s3WordsList
           ]
       )

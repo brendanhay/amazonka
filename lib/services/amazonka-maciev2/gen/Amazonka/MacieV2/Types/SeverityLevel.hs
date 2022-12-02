@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.SeverityLevel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.DataIdentifierSeverity
 import qualified Amazonka.Prelude as Prelude
 
@@ -88,14 +89,14 @@ severityLevel_occurrencesThreshold = Lens.lens (\SeverityLevel' {occurrencesThre
 severityLevel_severity :: Lens.Lens' SeverityLevel DataIdentifierSeverity
 severityLevel_severity = Lens.lens (\SeverityLevel' {severity} -> severity) (\s@SeverityLevel' {} a -> s {severity = a} :: SeverityLevel)
 
-instance Core.FromJSON SeverityLevel where
+instance Data.FromJSON SeverityLevel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SeverityLevel"
       ( \x ->
           SeverityLevel'
-            Prelude.<$> (x Core..: "occurrencesThreshold")
-            Prelude.<*> (x Core..: "severity")
+            Prelude.<$> (x Data..: "occurrencesThreshold")
+            Prelude.<*> (x Data..: "severity")
       )
 
 instance Prelude.Hashable SeverityLevel where
@@ -108,14 +109,14 @@ instance Prelude.NFData SeverityLevel where
     Prelude.rnf occurrencesThreshold
       `Prelude.seq` Prelude.rnf severity
 
-instance Core.ToJSON SeverityLevel where
+instance Data.ToJSON SeverityLevel where
   toJSON SeverityLevel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "occurrencesThreshold"
-                  Core..= occurrencesThreshold
+                  Data..= occurrencesThreshold
               ),
-            Prelude.Just ("severity" Core..= severity)
+            Prelude.Just ("severity" Data..= severity)
           ]
       )

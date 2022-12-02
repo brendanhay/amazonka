@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.BucketPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the permissions settings of the bucket policy
@@ -69,14 +70,14 @@ bucketPolicy_allowsPublicReadAccess = Lens.lens (\BucketPolicy' {allowsPublicRea
 bucketPolicy_allowsPublicWriteAccess :: Lens.Lens' BucketPolicy (Prelude.Maybe Prelude.Bool)
 bucketPolicy_allowsPublicWriteAccess = Lens.lens (\BucketPolicy' {allowsPublicWriteAccess} -> allowsPublicWriteAccess) (\s@BucketPolicy' {} a -> s {allowsPublicWriteAccess = a} :: BucketPolicy)
 
-instance Core.FromJSON BucketPolicy where
+instance Data.FromJSON BucketPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BucketPolicy"
       ( \x ->
           BucketPolicy'
-            Prelude.<$> (x Core..:? "allowsPublicReadAccess")
-            Prelude.<*> (x Core..:? "allowsPublicWriteAccess")
+            Prelude.<$> (x Data..:? "allowsPublicReadAccess")
+            Prelude.<*> (x Data..:? "allowsPublicWriteAccess")
       )
 
 instance Prelude.Hashable BucketPolicy where

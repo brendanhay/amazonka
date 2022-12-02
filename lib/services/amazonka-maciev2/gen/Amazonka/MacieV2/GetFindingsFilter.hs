@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,14 +94,14 @@ instance Core.AWSRequest GetFindingsFilter where
     Response.receiveJSON
       ( \s h x ->
           GetFindingsFilterResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "findingCriteria")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "action")
-            Prelude.<*> (x Core..?> "position")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "findingCriteria")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "action")
+            Prelude.<*> (x Data..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,22 +112,22 @@ instance Prelude.Hashable GetFindingsFilter where
 instance Prelude.NFData GetFindingsFilter where
   rnf GetFindingsFilter' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetFindingsFilter where
+instance Data.ToHeaders GetFindingsFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetFindingsFilter where
+instance Data.ToPath GetFindingsFilter where
   toPath GetFindingsFilter' {..} =
-    Prelude.mconcat ["/findingsfilters/", Core.toBS id]
+    Prelude.mconcat ["/findingsfilters/", Data.toBS id]
 
-instance Core.ToQuery GetFindingsFilter where
+instance Data.ToQuery GetFindingsFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFindingsFilterResponse' smart constructor.

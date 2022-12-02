@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,7 +122,7 @@ instance Core.AWSRequest CreateInvitations where
     Response.receiveJSON
       ( \s h x ->
           CreateInvitationsResponse'
-            Prelude.<$> ( x Core..?> "unprocessedAccounts"
+            Prelude.<$> ( x Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -139,32 +140,32 @@ instance Prelude.NFData CreateInvitations where
       `Prelude.seq` Prelude.rnf disableEmailNotification
       `Prelude.seq` Prelude.rnf accountIds
 
-instance Core.ToHeaders CreateInvitations where
+instance Data.ToHeaders CreateInvitations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateInvitations where
+instance Data.ToJSON CreateInvitations where
   toJSON CreateInvitations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("message" Core..=) Prelude.<$> message,
-            ("disableEmailNotification" Core..=)
+          [ ("message" Data..=) Prelude.<$> message,
+            ("disableEmailNotification" Data..=)
               Prelude.<$> disableEmailNotification,
-            Prelude.Just ("accountIds" Core..= accountIds)
+            Prelude.Just ("accountIds" Data..= accountIds)
           ]
       )
 
-instance Core.ToPath CreateInvitations where
+instance Data.ToPath CreateInvitations where
   toPath = Prelude.const "/invitations"
 
-instance Core.ToQuery CreateInvitations where
+instance Data.ToQuery CreateInvitations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateInvitationsResponse' smart constructor.

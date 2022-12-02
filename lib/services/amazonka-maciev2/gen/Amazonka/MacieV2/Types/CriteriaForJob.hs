@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.CriteriaForJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.SimpleCriterionForJob
 import Amazonka.MacieV2.Types.TagCriterionForJob
 import qualified Amazonka.Prelude as Prelude
@@ -73,14 +74,14 @@ criteriaForJob_tagCriterion = Lens.lens (\CriteriaForJob' {tagCriterion} -> tagC
 criteriaForJob_simpleCriterion :: Lens.Lens' CriteriaForJob (Prelude.Maybe SimpleCriterionForJob)
 criteriaForJob_simpleCriterion = Lens.lens (\CriteriaForJob' {simpleCriterion} -> simpleCriterion) (\s@CriteriaForJob' {} a -> s {simpleCriterion = a} :: CriteriaForJob)
 
-instance Core.FromJSON CriteriaForJob where
+instance Data.FromJSON CriteriaForJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CriteriaForJob"
       ( \x ->
           CriteriaForJob'
-            Prelude.<$> (x Core..:? "tagCriterion")
-            Prelude.<*> (x Core..:? "simpleCriterion")
+            Prelude.<$> (x Data..:? "tagCriterion")
+            Prelude.<*> (x Data..:? "simpleCriterion")
       )
 
 instance Prelude.Hashable CriteriaForJob where
@@ -93,12 +94,12 @@ instance Prelude.NFData CriteriaForJob where
     Prelude.rnf tagCriterion
       `Prelude.seq` Prelude.rnf simpleCriterion
 
-instance Core.ToJSON CriteriaForJob where
+instance Data.ToJSON CriteriaForJob where
   toJSON CriteriaForJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tagCriterion" Core..=) Prelude.<$> tagCriterion,
-            ("simpleCriterion" Core..=)
+          [ ("tagCriterion" Data..=) Prelude.<$> tagCriterion,
+            ("simpleCriterion" Data..=)
               Prelude.<$> simpleCriterion
           ]
       )

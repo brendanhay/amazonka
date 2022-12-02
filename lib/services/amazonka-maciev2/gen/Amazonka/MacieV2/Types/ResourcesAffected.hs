@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ResourcesAffected where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.S3Bucket
 import Amazonka.MacieV2.Types.S3Object
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ resourcesAffected_s3Bucket = Lens.lens (\ResourcesAffected' {s3Bucket} -> s3Buck
 resourcesAffected_s3Object :: Lens.Lens' ResourcesAffected (Prelude.Maybe S3Object)
 resourcesAffected_s3Object = Lens.lens (\ResourcesAffected' {s3Object} -> s3Object) (\s@ResourcesAffected' {} a -> s {s3Object = a} :: ResourcesAffected)
 
-instance Core.FromJSON ResourcesAffected where
+instance Data.FromJSON ResourcesAffected where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourcesAffected"
       ( \x ->
           ResourcesAffected'
-            Prelude.<$> (x Core..:? "s3Bucket")
-            Prelude.<*> (x Core..:? "s3Object")
+            Prelude.<$> (x Data..:? "s3Bucket")
+            Prelude.<*> (x Data..:? "s3Object")
       )
 
 instance Prelude.Hashable ResourcesAffected where

@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.Scoping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.JobScopingBlock
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,14 +71,14 @@ scoping_excludes = Lens.lens (\Scoping' {excludes} -> excludes) (\s@Scoping' {} 
 scoping_includes :: Lens.Lens' Scoping (Prelude.Maybe JobScopingBlock)
 scoping_includes = Lens.lens (\Scoping' {includes} -> includes) (\s@Scoping' {} a -> s {includes = a} :: Scoping)
 
-instance Core.FromJSON Scoping where
+instance Data.FromJSON Scoping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scoping"
       ( \x ->
           Scoping'
-            Prelude.<$> (x Core..:? "excludes")
-            Prelude.<*> (x Core..:? "includes")
+            Prelude.<$> (x Data..:? "excludes")
+            Prelude.<*> (x Data..:? "includes")
       )
 
 instance Prelude.Hashable Scoping where
@@ -90,11 +91,11 @@ instance Prelude.NFData Scoping where
     Prelude.rnf excludes
       `Prelude.seq` Prelude.rnf includes
 
-instance Core.ToJSON Scoping where
+instance Data.ToJSON Scoping where
   toJSON Scoping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("excludes" Core..=) Prelude.<$> excludes,
-            ("includes" Core..=) Prelude.<$> includes
+          [ ("excludes" Data..=) Prelude.<$> excludes,
+            ("includes" Data..=) Prelude.<$> includes
           ]
       )

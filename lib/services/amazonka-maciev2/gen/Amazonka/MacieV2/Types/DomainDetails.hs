@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.DomainDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the domain name of the device that an entity
@@ -51,12 +52,12 @@ newDomainDetails =
 domainDetails_domainName :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
 domainDetails_domainName = Lens.lens (\DomainDetails' {domainName} -> domainName) (\s@DomainDetails' {} a -> s {domainName = a} :: DomainDetails)
 
-instance Core.FromJSON DomainDetails where
+instance Data.FromJSON DomainDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainDetails"
       ( \x ->
-          DomainDetails' Prelude.<$> (x Core..:? "domainName")
+          DomainDetails' Prelude.<$> (x Data..:? "domainName")
       )
 
 instance Prelude.Hashable DomainDetails where

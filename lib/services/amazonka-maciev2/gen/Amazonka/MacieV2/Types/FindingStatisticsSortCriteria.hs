@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.FindingStatisticsSortCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.FindingStatisticsSortAttributeName
 import Amazonka.MacieV2.Types.OrderBy
 import qualified Amazonka.Prelude as Prelude
@@ -93,11 +94,11 @@ instance Prelude.NFData FindingStatisticsSortCriteria where
     Prelude.rnf orderBy
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToJSON FindingStatisticsSortCriteria where
+instance Data.ToJSON FindingStatisticsSortCriteria where
   toJSON FindingStatisticsSortCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("orderBy" Core..=) Prelude.<$> orderBy,
-            ("attributeName" Core..=) Prelude.<$> attributeName
+          [ ("orderBy" Data..=) Prelude.<$> orderBy,
+            ("attributeName" Data..=) Prelude.<$> attributeName
           ]
       )

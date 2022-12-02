@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.AwsAccount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an Amazon Web Services account and entity
@@ -64,14 +65,14 @@ awsAccount_principalId = Lens.lens (\AwsAccount' {principalId} -> principalId) (
 awsAccount_accountId :: Lens.Lens' AwsAccount (Prelude.Maybe Prelude.Text)
 awsAccount_accountId = Lens.lens (\AwsAccount' {accountId} -> accountId) (\s@AwsAccount' {} a -> s {accountId = a} :: AwsAccount)
 
-instance Core.FromJSON AwsAccount where
+instance Data.FromJSON AwsAccount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsAccount"
       ( \x ->
           AwsAccount'
-            Prelude.<$> (x Core..:? "principalId")
-            Prelude.<*> (x Core..:? "accountId")
+            Prelude.<$> (x Data..:? "principalId")
+            Prelude.<*> (x Data..:? "accountId")
       )
 
 instance Prelude.Hashable AwsAccount where

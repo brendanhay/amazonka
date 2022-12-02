@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.BucketCountPolicyAllowsUnencryptedObjectUploads wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the number of S3 buckets whose bucket
@@ -108,17 +109,17 @@ bucketCountPolicyAllowsUnencryptedObjectUploads_unknown :: Lens.Lens' BucketCoun
 bucketCountPolicyAllowsUnencryptedObjectUploads_unknown = Lens.lens (\BucketCountPolicyAllowsUnencryptedObjectUploads' {unknown} -> unknown) (\s@BucketCountPolicyAllowsUnencryptedObjectUploads' {} a -> s {unknown = a} :: BucketCountPolicyAllowsUnencryptedObjectUploads)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BucketCountPolicyAllowsUnencryptedObjectUploads
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BucketCountPolicyAllowsUnencryptedObjectUploads"
       ( \x ->
           BucketCountPolicyAllowsUnencryptedObjectUploads'
-            Prelude.<$> (x Core..:? "deniesUnencryptedObjectUploads")
-              Prelude.<*> (x Core..:? "allowsUnencryptedObjectUploads")
-              Prelude.<*> (x Core..:? "unknown")
+            Prelude.<$> (x Data..:? "deniesUnencryptedObjectUploads")
+              Prelude.<*> (x Data..:? "allowsUnencryptedObjectUploads")
+              Prelude.<*> (x Data..:? "unknown")
       )
 
 instance

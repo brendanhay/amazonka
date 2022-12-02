@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.UserIdentity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.AssumedRole
 import Amazonka.MacieV2.Types.AwsAccount
 import Amazonka.MacieV2.Types.AwsService
@@ -144,19 +145,19 @@ userIdentity_assumedRole = Lens.lens (\UserIdentity' {assumedRole} -> assumedRol
 userIdentity_awsService :: Lens.Lens' UserIdentity (Prelude.Maybe AwsService)
 userIdentity_awsService = Lens.lens (\UserIdentity' {awsService} -> awsService) (\s@UserIdentity' {} a -> s {awsService = a} :: UserIdentity)
 
-instance Core.FromJSON UserIdentity where
+instance Data.FromJSON UserIdentity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserIdentity"
       ( \x ->
           UserIdentity'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "awsAccount")
-            Prelude.<*> (x Core..:? "federatedUser")
-            Prelude.<*> (x Core..:? "iamUser")
-            Prelude.<*> (x Core..:? "root")
-            Prelude.<*> (x Core..:? "assumedRole")
-            Prelude.<*> (x Core..:? "awsService")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "awsAccount")
+            Prelude.<*> (x Data..:? "federatedUser")
+            Prelude.<*> (x Data..:? "iamUser")
+            Prelude.<*> (x Data..:? "root")
+            Prelude.<*> (x Data..:? "assumedRole")
+            Prelude.<*> (x Data..:? "awsService")
       )
 
 instance Prelude.Hashable UserIdentity where

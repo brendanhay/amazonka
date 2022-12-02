@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ReplicationDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about settings that define whether one or more
@@ -88,16 +89,16 @@ replicationDetails_replicated = Lens.lens (\ReplicationDetails' {replicated} -> 
 replicationDetails_replicationAccounts :: Lens.Lens' ReplicationDetails (Prelude.Maybe [Prelude.Text])
 replicationDetails_replicationAccounts = Lens.lens (\ReplicationDetails' {replicationAccounts} -> replicationAccounts) (\s@ReplicationDetails' {} a -> s {replicationAccounts = a} :: ReplicationDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ReplicationDetails where
+instance Data.FromJSON ReplicationDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationDetails"
       ( \x ->
           ReplicationDetails'
-            Prelude.<$> (x Core..:? "replicatedExternally")
-            Prelude.<*> (x Core..:? "replicated")
-            Prelude.<*> ( x Core..:? "replicationAccounts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "replicatedExternally")
+            Prelude.<*> (x Data..:? "replicated")
+            Prelude.<*> ( x Data..:? "replicationAccounts"
+                            Data..!= Prelude.mempty
                         )
       )
 

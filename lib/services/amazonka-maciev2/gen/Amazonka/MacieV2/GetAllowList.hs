@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,15 +92,15 @@ instance Core.AWSRequest GetAllowList where
     Response.receiveJSON
       ( \s h x ->
           GetAllowListResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "criteria")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "updatedAt")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "criteria")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "updatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,22 +111,22 @@ instance Prelude.Hashable GetAllowList where
 instance Prelude.NFData GetAllowList where
   rnf GetAllowList' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetAllowList where
+instance Data.ToHeaders GetAllowList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAllowList where
+instance Data.ToPath GetAllowList where
   toPath GetAllowList' {..} =
-    Prelude.mconcat ["/allow-lists/", Core.toBS id]
+    Prelude.mconcat ["/allow-lists/", Data.toBS id]
 
-instance Core.ToQuery GetAllowList where
+instance Data.ToQuery GetAllowList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAllowListResponse' smart constructor.
@@ -151,10 +152,10 @@ data GetAllowListResponse = GetAllowListResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the allow
     -- list was created in Amazon Macie.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time, in UTC and extended ISO 8601 format, when the allow
     -- list\'s settings were most recently changed in Amazon Macie.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -248,12 +249,12 @@ getAllowListResponse_id = Lens.lens (\GetAllowListResponse' {id} -> id) (\s@GetA
 -- | The date and time, in UTC and extended ISO 8601 format, when the allow
 -- list was created in Amazon Macie.
 getAllowListResponse_createdAt :: Lens.Lens' GetAllowListResponse (Prelude.Maybe Prelude.UTCTime)
-getAllowListResponse_createdAt = Lens.lens (\GetAllowListResponse' {createdAt} -> createdAt) (\s@GetAllowListResponse' {} a -> s {createdAt = a} :: GetAllowListResponse) Prelude.. Lens.mapping Core._Time
+getAllowListResponse_createdAt = Lens.lens (\GetAllowListResponse' {createdAt} -> createdAt) (\s@GetAllowListResponse' {} a -> s {createdAt = a} :: GetAllowListResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time, in UTC and extended ISO 8601 format, when the allow
 -- list\'s settings were most recently changed in Amazon Macie.
 getAllowListResponse_updatedAt :: Lens.Lens' GetAllowListResponse (Prelude.Maybe Prelude.UTCTime)
-getAllowListResponse_updatedAt = Lens.lens (\GetAllowListResponse' {updatedAt} -> updatedAt) (\s@GetAllowListResponse' {} a -> s {updatedAt = a} :: GetAllowListResponse) Prelude.. Lens.mapping Core._Time
+getAllowListResponse_updatedAt = Lens.lens (\GetAllowListResponse' {updatedAt} -> updatedAt) (\s@GetAllowListResponse' {} a -> s {updatedAt = a} :: GetAllowListResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getAllowListResponse_httpStatus :: Lens.Lens' GetAllowListResponse Prelude.Int

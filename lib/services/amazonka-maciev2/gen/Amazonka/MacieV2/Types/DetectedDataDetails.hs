@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.DetectedDataDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies 1-10 occurrences of a specific type of sensitive data reported
@@ -56,12 +57,12 @@ newDetectedDataDetails pValue_ =
 detectedDataDetails_value :: Lens.Lens' DetectedDataDetails Prelude.Text
 detectedDataDetails_value = Lens.lens (\DetectedDataDetails' {value} -> value) (\s@DetectedDataDetails' {} a -> s {value = a} :: DetectedDataDetails)
 
-instance Core.FromJSON DetectedDataDetails where
+instance Data.FromJSON DetectedDataDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectedDataDetails"
       ( \x ->
-          DetectedDataDetails' Prelude.<$> (x Core..: "value")
+          DetectedDataDetails' Prelude.<$> (x Data..: "value")
       )
 
 instance Prelude.Hashable DetectedDataDetails where

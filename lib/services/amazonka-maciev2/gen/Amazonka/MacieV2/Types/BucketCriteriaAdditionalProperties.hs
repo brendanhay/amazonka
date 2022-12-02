@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.BucketCriteriaAdditionalProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the operator to use in a property-based condition that filters
@@ -149,18 +150,18 @@ instance
       `Prelude.seq` Prelude.rnf gt
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BucketCriteriaAdditionalProperties
   where
   toJSON BucketCriteriaAdditionalProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("neq" Core..=) Prelude.<$> neq,
-            ("lte" Core..=) Prelude.<$> lte,
-            ("lt" Core..=) Prelude.<$> lt,
-            ("gte" Core..=) Prelude.<$> gte,
-            ("prefix" Core..=) Prelude.<$> prefix,
-            ("eq" Core..=) Prelude.<$> eq,
-            ("gt" Core..=) Prelude.<$> gt
+          [ ("neq" Data..=) Prelude.<$> neq,
+            ("lte" Data..=) Prelude.<$> lte,
+            ("lt" Data..=) Prelude.<$> lt,
+            ("gte" Data..=) Prelude.<$> gte,
+            ("prefix" Data..=) Prelude.<$> prefix,
+            ("eq" Data..=) Prelude.<$> eq,
+            ("gt" Data..=) Prelude.<$> gt
           ]
       )

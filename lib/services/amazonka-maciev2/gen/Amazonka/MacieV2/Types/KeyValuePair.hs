@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.KeyValuePair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the tags that are associated with an S3
@@ -69,13 +70,13 @@ keyValuePair_key = Lens.lens (\KeyValuePair' {key} -> key) (\s@KeyValuePair' {} 
 keyValuePair_value :: Lens.Lens' KeyValuePair (Prelude.Maybe Prelude.Text)
 keyValuePair_value = Lens.lens (\KeyValuePair' {value} -> value) (\s@KeyValuePair' {} a -> s {value = a} :: KeyValuePair)
 
-instance Core.FromJSON KeyValuePair where
+instance Data.FromJSON KeyValuePair where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeyValuePair"
       ( \x ->
           KeyValuePair'
-            Prelude.<$> (x Core..:? "key") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "key") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable KeyValuePair where

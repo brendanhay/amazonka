@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.UsageStatisticsSortBy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.OrderBy
 import Amazonka.MacieV2.Types.UsageStatisticsSortKey
 import qualified Amazonka.Prelude as Prelude
@@ -79,11 +80,11 @@ instance Prelude.NFData UsageStatisticsSortBy where
   rnf UsageStatisticsSortBy' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf orderBy
 
-instance Core.ToJSON UsageStatisticsSortBy where
+instance Data.ToJSON UsageStatisticsSortBy where
   toJSON UsageStatisticsSortBy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("orderBy" Core..=) Prelude.<$> orderBy
+          [ ("key" Data..=) Prelude.<$> key,
+            ("orderBy" Data..=) Prelude.<$> orderBy
           ]
       )

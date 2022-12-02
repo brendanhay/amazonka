@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.FindingActor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.DomainDetails
 import Amazonka.MacieV2.Types.IpAddressDetails
 import Amazonka.MacieV2.Types.UserIdentity
@@ -86,15 +87,15 @@ findingActor_ipAddressDetails = Lens.lens (\FindingActor' {ipAddressDetails} -> 
 findingActor_domainDetails :: Lens.Lens' FindingActor (Prelude.Maybe DomainDetails)
 findingActor_domainDetails = Lens.lens (\FindingActor' {domainDetails} -> domainDetails) (\s@FindingActor' {} a -> s {domainDetails = a} :: FindingActor)
 
-instance Core.FromJSON FindingActor where
+instance Data.FromJSON FindingActor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindingActor"
       ( \x ->
           FindingActor'
-            Prelude.<$> (x Core..:? "userIdentity")
-            Prelude.<*> (x Core..:? "ipAddressDetails")
-            Prelude.<*> (x Core..:? "domainDetails")
+            Prelude.<$> (x Data..:? "userIdentity")
+            Prelude.<*> (x Data..:? "ipAddressDetails")
+            Prelude.<*> (x Data..:? "domainDetails")
       )
 
 instance Prelude.Hashable FindingActor where

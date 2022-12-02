@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.AllowListStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.AllowListStatusCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -206,14 +207,14 @@ allowListStatus_description = Lens.lens (\AllowListStatus' {description} -> desc
 allowListStatus_code :: Lens.Lens' AllowListStatus AllowListStatusCode
 allowListStatus_code = Lens.lens (\AllowListStatus' {code} -> code) (\s@AllowListStatus' {} a -> s {code = a} :: AllowListStatus)
 
-instance Core.FromJSON AllowListStatus where
+instance Data.FromJSON AllowListStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AllowListStatus"
       ( \x ->
           AllowListStatus'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..: "code")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..: "code")
       )
 
 instance Prelude.Hashable AllowListStatus where

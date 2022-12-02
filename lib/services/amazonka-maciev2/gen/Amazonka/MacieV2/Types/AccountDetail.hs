@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.AccountDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the details of an account to associate with an Amazon Macie
@@ -76,11 +77,11 @@ instance Prelude.NFData AccountDetail where
     Prelude.rnf email
       `Prelude.seq` Prelude.rnf accountId
 
-instance Core.ToJSON AccountDetail where
+instance Data.ToJSON AccountDetail where
   toJSON AccountDetail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("email" Core..= email),
-            Prelude.Just ("accountId" Core..= accountId)
+          [ Prelude.Just ("email" Data..= email),
+            Prelude.Just ("accountId" Data..= accountId)
           ]
       )

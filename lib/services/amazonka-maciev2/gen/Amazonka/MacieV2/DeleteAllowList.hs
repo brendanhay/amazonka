@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,25 +135,25 @@ instance Prelude.NFData DeleteAllowList where
     Prelude.rnf ignoreJobChecks
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DeleteAllowList where
+instance Data.ToHeaders DeleteAllowList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAllowList where
+instance Data.ToPath DeleteAllowList where
   toPath DeleteAllowList' {..} =
-    Prelude.mconcat ["/allow-lists/", Core.toBS id]
+    Prelude.mconcat ["/allow-lists/", Data.toBS id]
 
-instance Core.ToQuery DeleteAllowList where
+instance Data.ToQuery DeleteAllowList where
   toQuery DeleteAllowList' {..} =
     Prelude.mconcat
-      ["ignoreJobChecks" Core.=: ignoreJobChecks]
+      ["ignoreJobChecks" Data.=: ignoreJobChecks]
 
 -- | /See:/ 'newDeleteAllowListResponse' smart constructor.
 data DeleteAllowListResponse = DeleteAllowListResponse'

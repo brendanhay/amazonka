@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.BucketPublicAccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.BucketPermissionConfiguration
 import Amazonka.MacieV2.Types.EffectivePermission
 import qualified Amazonka.Prelude as Prelude
@@ -92,14 +93,14 @@ bucketPublicAccess_permissionConfiguration = Lens.lens (\BucketPublicAccess' {pe
 bucketPublicAccess_effectivePermission :: Lens.Lens' BucketPublicAccess (Prelude.Maybe EffectivePermission)
 bucketPublicAccess_effectivePermission = Lens.lens (\BucketPublicAccess' {effectivePermission} -> effectivePermission) (\s@BucketPublicAccess' {} a -> s {effectivePermission = a} :: BucketPublicAccess)
 
-instance Core.FromJSON BucketPublicAccess where
+instance Data.FromJSON BucketPublicAccess where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BucketPublicAccess"
       ( \x ->
           BucketPublicAccess'
-            Prelude.<$> (x Core..:? "permissionConfiguration")
-            Prelude.<*> (x Core..:? "effectivePermission")
+            Prelude.<$> (x Data..:? "permissionConfiguration")
+            Prelude.<*> (x Data..:? "effectivePermission")
       )
 
 instance Prelude.Hashable BucketPublicAccess where

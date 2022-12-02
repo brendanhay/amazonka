@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.UnprocessedAccount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.ErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,15 +76,15 @@ unprocessedAccount_accountId = Lens.lens (\UnprocessedAccount' {accountId} -> ac
 unprocessedAccount_errorCode :: Lens.Lens' UnprocessedAccount (Prelude.Maybe ErrorCode)
 unprocessedAccount_errorCode = Lens.lens (\UnprocessedAccount' {errorCode} -> errorCode) (\s@UnprocessedAccount' {} a -> s {errorCode = a} :: UnprocessedAccount)
 
-instance Core.FromJSON UnprocessedAccount where
+instance Data.FromJSON UnprocessedAccount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnprocessedAccount"
       ( \x ->
           UnprocessedAccount'
-            Prelude.<$> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance Prelude.Hashable UnprocessedAccount where

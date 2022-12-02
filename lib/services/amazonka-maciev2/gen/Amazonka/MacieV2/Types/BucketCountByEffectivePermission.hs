@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.BucketCountByEffectivePermission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the number of S3 buckets that are publicly
@@ -98,18 +99,18 @@ bucketCountByEffectivePermission_publiclyWritable :: Lens.Lens' BucketCountByEff
 bucketCountByEffectivePermission_publiclyWritable = Lens.lens (\BucketCountByEffectivePermission' {publiclyWritable} -> publiclyWritable) (\s@BucketCountByEffectivePermission' {} a -> s {publiclyWritable = a} :: BucketCountByEffectivePermission)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BucketCountByEffectivePermission
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BucketCountByEffectivePermission"
       ( \x ->
           BucketCountByEffectivePermission'
-            Prelude.<$> (x Core..:? "publiclyAccessible")
-            Prelude.<*> (x Core..:? "publiclyReadable")
-            Prelude.<*> (x Core..:? "unknown")
-            Prelude.<*> (x Core..:? "publiclyWritable")
+            Prelude.<$> (x Data..:? "publiclyAccessible")
+            Prelude.<*> (x Data..:? "publiclyReadable")
+            Prelude.<*> (x Data..:? "unknown")
+            Prelude.<*> (x Data..:? "publiclyWritable")
       )
 
 instance

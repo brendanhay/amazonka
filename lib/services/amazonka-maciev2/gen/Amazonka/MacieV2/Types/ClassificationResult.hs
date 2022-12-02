@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ClassificationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.ClassificationResultStatus
 import Amazonka.MacieV2.Types.CustomDataIdentifiers
 import Amazonka.MacieV2.Types.SensitiveDataItem
@@ -135,18 +136,18 @@ classificationResult_sizeClassified = Lens.lens (\ClassificationResult' {sizeCla
 classificationResult_sensitiveData :: Lens.Lens' ClassificationResult (Prelude.Maybe [SensitiveDataItem])
 classificationResult_sensitiveData = Lens.lens (\ClassificationResult' {sensitiveData} -> sensitiveData) (\s@ClassificationResult' {} a -> s {sensitiveData = a} :: ClassificationResult) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ClassificationResult where
+instance Data.FromJSON ClassificationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClassificationResult"
       ( \x ->
           ClassificationResult'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "additionalOccurrences")
-            Prelude.<*> (x Core..:? "customDataIdentifiers")
-            Prelude.<*> (x Core..:? "mimeType")
-            Prelude.<*> (x Core..:? "sizeClassified")
-            Prelude.<*> (x Core..:? "sensitiveData" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "additionalOccurrences")
+            Prelude.<*> (x Data..:? "customDataIdentifiers")
+            Prelude.<*> (x Data..:? "mimeType")
+            Prelude.<*> (x Data..:? "sizeClassified")
+            Prelude.<*> (x Data..:? "sensitiveData" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ClassificationResult where

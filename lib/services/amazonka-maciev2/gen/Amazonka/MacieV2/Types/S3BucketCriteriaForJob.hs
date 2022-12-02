@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.S3BucketCriteriaForJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.CriteriaBlockForJob
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,14 +71,14 @@ s3BucketCriteriaForJob_excludes = Lens.lens (\S3BucketCriteriaForJob' {excludes}
 s3BucketCriteriaForJob_includes :: Lens.Lens' S3BucketCriteriaForJob (Prelude.Maybe CriteriaBlockForJob)
 s3BucketCriteriaForJob_includes = Lens.lens (\S3BucketCriteriaForJob' {includes} -> includes) (\s@S3BucketCriteriaForJob' {} a -> s {includes = a} :: S3BucketCriteriaForJob)
 
-instance Core.FromJSON S3BucketCriteriaForJob where
+instance Data.FromJSON S3BucketCriteriaForJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3BucketCriteriaForJob"
       ( \x ->
           S3BucketCriteriaForJob'
-            Prelude.<$> (x Core..:? "excludes")
-            Prelude.<*> (x Core..:? "includes")
+            Prelude.<$> (x Data..:? "excludes")
+            Prelude.<*> (x Data..:? "includes")
       )
 
 instance Prelude.Hashable S3BucketCriteriaForJob where
@@ -90,11 +91,11 @@ instance Prelude.NFData S3BucketCriteriaForJob where
     Prelude.rnf excludes
       `Prelude.seq` Prelude.rnf includes
 
-instance Core.ToJSON S3BucketCriteriaForJob where
+instance Data.ToJSON S3BucketCriteriaForJob where
   toJSON S3BucketCriteriaForJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("excludes" Core..=) Prelude.<$> excludes,
-            ("includes" Core..=) Prelude.<$> includes
+          [ ("excludes" Data..=) Prelude.<$> excludes,
+            ("includes" Data..=) Prelude.<$> includes
           ]
       )

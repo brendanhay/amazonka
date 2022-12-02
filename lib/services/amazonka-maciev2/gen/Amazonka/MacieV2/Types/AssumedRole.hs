@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.AssumedRole where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.SessionContext
 import qualified Amazonka.Prelude as Prelude
 
@@ -104,17 +105,17 @@ assumedRole_accountId = Lens.lens (\AssumedRole' {accountId} -> accountId) (\s@A
 assumedRole_accessKeyId :: Lens.Lens' AssumedRole (Prelude.Maybe Prelude.Text)
 assumedRole_accessKeyId = Lens.lens (\AssumedRole' {accessKeyId} -> accessKeyId) (\s@AssumedRole' {} a -> s {accessKeyId = a} :: AssumedRole)
 
-instance Core.FromJSON AssumedRole where
+instance Data.FromJSON AssumedRole where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssumedRole"
       ( \x ->
           AssumedRole'
-            Prelude.<$> (x Core..:? "principalId")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "sessionContext")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "accessKeyId")
+            Prelude.<$> (x Data..:? "principalId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "sessionContext")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "accessKeyId")
       )
 
 instance Prelude.Hashable AssumedRole where

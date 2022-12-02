@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ClassificationDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.ClassificationResult
 import Amazonka.MacieV2.Types.OriginType
 import qualified Amazonka.Prelude as Prelude
@@ -110,17 +111,17 @@ classificationDetails_result = Lens.lens (\ClassificationDetails' {result} -> re
 classificationDetails_jobArn :: Lens.Lens' ClassificationDetails (Prelude.Maybe Prelude.Text)
 classificationDetails_jobArn = Lens.lens (\ClassificationDetails' {jobArn} -> jobArn) (\s@ClassificationDetails' {} a -> s {jobArn = a} :: ClassificationDetails)
 
-instance Core.FromJSON ClassificationDetails where
+instance Data.FromJSON ClassificationDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClassificationDetails"
       ( \x ->
           ClassificationDetails'
-            Prelude.<$> (x Core..:? "originType")
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "detailedResultsLocation")
-            Prelude.<*> (x Core..:? "result")
-            Prelude.<*> (x Core..:? "jobArn")
+            Prelude.<$> (x Data..:? "originType")
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "detailedResultsLocation")
+            Prelude.<*> (x Data..:? "result")
+            Prelude.<*> (x Data..:? "jobArn")
       )
 
 instance Prelude.Hashable ClassificationDetails where

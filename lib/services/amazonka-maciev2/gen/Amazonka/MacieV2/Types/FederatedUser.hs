@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.FederatedUser where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.SessionContext
 import qualified Amazonka.Prelude as Prelude
 
@@ -104,17 +105,17 @@ federatedUser_accountId = Lens.lens (\FederatedUser' {accountId} -> accountId) (
 federatedUser_accessKeyId :: Lens.Lens' FederatedUser (Prelude.Maybe Prelude.Text)
 federatedUser_accessKeyId = Lens.lens (\FederatedUser' {accessKeyId} -> accessKeyId) (\s@FederatedUser' {} a -> s {accessKeyId = a} :: FederatedUser)
 
-instance Core.FromJSON FederatedUser where
+instance Data.FromJSON FederatedUser where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FederatedUser"
       ( \x ->
           FederatedUser'
-            Prelude.<$> (x Core..:? "principalId")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "sessionContext")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "accessKeyId")
+            Prelude.<$> (x Data..:? "principalId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "sessionContext")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "accessKeyId")
       )
 
 instance Prelude.Hashable FederatedUser where

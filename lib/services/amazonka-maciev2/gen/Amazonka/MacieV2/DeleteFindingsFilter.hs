@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,22 +96,22 @@ instance Prelude.Hashable DeleteFindingsFilter where
 instance Prelude.NFData DeleteFindingsFilter where
   rnf DeleteFindingsFilter' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteFindingsFilter where
+instance Data.ToHeaders DeleteFindingsFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteFindingsFilter where
+instance Data.ToPath DeleteFindingsFilter where
   toPath DeleteFindingsFilter' {..} =
-    Prelude.mconcat ["/findingsfilters/", Core.toBS id]
+    Prelude.mconcat ["/findingsfilters/", Data.toBS id]
 
-instance Core.ToQuery DeleteFindingsFilter where
+instance Data.ToQuery DeleteFindingsFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFindingsFilterResponse' smart constructor.

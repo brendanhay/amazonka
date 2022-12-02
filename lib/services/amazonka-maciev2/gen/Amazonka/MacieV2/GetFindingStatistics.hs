@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -155,7 +156,7 @@ instance Core.AWSRequest GetFindingStatistics where
     Response.receiveJSON
       ( \s h x ->
           GetFindingStatisticsResponse'
-            Prelude.<$> (x Core..?> "countsByGroup" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "countsByGroup" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,33 +174,33 @@ instance Prelude.NFData GetFindingStatistics where
       `Prelude.seq` Prelude.rnf size
       `Prelude.seq` Prelude.rnf groupBy
 
-instance Core.ToHeaders GetFindingStatistics where
+instance Data.ToHeaders GetFindingStatistics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetFindingStatistics where
+instance Data.ToJSON GetFindingStatistics where
   toJSON GetFindingStatistics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
-            ("findingCriteria" Core..=)
+          [ ("sortCriteria" Data..=) Prelude.<$> sortCriteria,
+            ("findingCriteria" Data..=)
               Prelude.<$> findingCriteria,
-            ("size" Core..=) Prelude.<$> size,
-            Prelude.Just ("groupBy" Core..= groupBy)
+            ("size" Data..=) Prelude.<$> size,
+            Prelude.Just ("groupBy" Data..= groupBy)
           ]
       )
 
-instance Core.ToPath GetFindingStatistics where
+instance Data.ToPath GetFindingStatistics where
   toPath = Prelude.const "/findings/statistics"
 
-instance Core.ToQuery GetFindingStatistics where
+instance Data.ToQuery GetFindingStatistics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFindingStatisticsResponse' smart constructor.

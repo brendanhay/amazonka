@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.TagCriterionPairForJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a tag key, a tag value, or a tag key and value (as a pair) to
@@ -65,13 +66,13 @@ tagCriterionPairForJob_key = Lens.lens (\TagCriterionPairForJob' {key} -> key) (
 tagCriterionPairForJob_value :: Lens.Lens' TagCriterionPairForJob (Prelude.Maybe Prelude.Text)
 tagCriterionPairForJob_value = Lens.lens (\TagCriterionPairForJob' {value} -> value) (\s@TagCriterionPairForJob' {} a -> s {value = a} :: TagCriterionPairForJob)
 
-instance Core.FromJSON TagCriterionPairForJob where
+instance Data.FromJSON TagCriterionPairForJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagCriterionPairForJob"
       ( \x ->
           TagCriterionPairForJob'
-            Prelude.<$> (x Core..:? "key") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "key") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable TagCriterionPairForJob where
@@ -83,11 +84,11 @@ instance Prelude.NFData TagCriterionPairForJob where
   rnf TagCriterionPairForJob' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON TagCriterionPairForJob where
+instance Data.ToJSON TagCriterionPairForJob where
   toJSON TagCriterionPairForJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("value" Core..=) Prelude.<$> value
+          [ ("key" Data..=) Prelude.<$> key,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.S3BucketDefinitionForJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Amazon Web Services account that owns S3 buckets for a
@@ -68,14 +69,14 @@ s3BucketDefinitionForJob_accountId = Lens.lens (\S3BucketDefinitionForJob' {acco
 s3BucketDefinitionForJob_buckets :: Lens.Lens' S3BucketDefinitionForJob [Prelude.Text]
 s3BucketDefinitionForJob_buckets = Lens.lens (\S3BucketDefinitionForJob' {buckets} -> buckets) (\s@S3BucketDefinitionForJob' {} a -> s {buckets = a} :: S3BucketDefinitionForJob) Prelude.. Lens.coerced
 
-instance Core.FromJSON S3BucketDefinitionForJob where
+instance Data.FromJSON S3BucketDefinitionForJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3BucketDefinitionForJob"
       ( \x ->
           S3BucketDefinitionForJob'
-            Prelude.<$> (x Core..: "accountId")
-            Prelude.<*> (x Core..:? "buckets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "accountId")
+            Prelude.<*> (x Data..:? "buckets" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable S3BucketDefinitionForJob where
@@ -88,11 +89,11 @@ instance Prelude.NFData S3BucketDefinitionForJob where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf buckets
 
-instance Core.ToJSON S3BucketDefinitionForJob where
+instance Data.ToJSON S3BucketDefinitionForJob where
   toJSON S3BucketDefinitionForJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("accountId" Core..= accountId),
-            Prelude.Just ("buckets" Core..= buckets)
+          [ Prelude.Just ("accountId" Data..= accountId),
+            Prelude.Just ("buckets" Data..= buckets)
           ]
       )

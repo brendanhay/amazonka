@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.Invitation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.RelationshipStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data Invitation = Invitation'
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the
     -- invitation was sent.
-    invitedAt :: Prelude.Maybe Core.POSIX,
+    invitedAt :: Prelude.Maybe Data.POSIX,
     -- | The status of the relationship between the account that sent the
     -- invitation and the account that received the invitation.
     relationshipStatus :: Prelude.Maybe RelationshipStatus,
@@ -78,7 +79,7 @@ invitation_accountId = Lens.lens (\Invitation' {accountId} -> accountId) (\s@Inv
 -- | The date and time, in UTC and extended ISO 8601 format, when the
 -- invitation was sent.
 invitation_invitedAt :: Lens.Lens' Invitation (Prelude.Maybe Prelude.UTCTime)
-invitation_invitedAt = Lens.lens (\Invitation' {invitedAt} -> invitedAt) (\s@Invitation' {} a -> s {invitedAt = a} :: Invitation) Prelude.. Lens.mapping Core._Time
+invitation_invitedAt = Lens.lens (\Invitation' {invitedAt} -> invitedAt) (\s@Invitation' {} a -> s {invitedAt = a} :: Invitation) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the relationship between the account that sent the
 -- invitation and the account that received the invitation.
@@ -89,16 +90,16 @@ invitation_relationshipStatus = Lens.lens (\Invitation' {relationshipStatus} -> 
 invitation_invitationId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
 invitation_invitationId = Lens.lens (\Invitation' {invitationId} -> invitationId) (\s@Invitation' {} a -> s {invitationId = a} :: Invitation)
 
-instance Core.FromJSON Invitation where
+instance Data.FromJSON Invitation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Invitation"
       ( \x ->
           Invitation'
-            Prelude.<$> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "invitedAt")
-            Prelude.<*> (x Core..:? "relationshipStatus")
-            Prelude.<*> (x Core..:? "invitationId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "invitedAt")
+            Prelude.<*> (x Data..:? "relationshipStatus")
+            Prelude.<*> (x Data..:? "invitationId")
       )
 
 instance Prelude.Hashable Invitation where

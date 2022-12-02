@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.SearchResourcesCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.SearchResourcesSimpleCriterion
 import Amazonka.MacieV2.Types.SearchResourcesTagCriterion
 import qualified Amazonka.Prelude as Prelude
@@ -84,12 +85,12 @@ instance Prelude.NFData SearchResourcesCriteria where
     Prelude.rnf tagCriterion
       `Prelude.seq` Prelude.rnf simpleCriterion
 
-instance Core.ToJSON SearchResourcesCriteria where
+instance Data.ToJSON SearchResourcesCriteria where
   toJSON SearchResourcesCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tagCriterion" Core..=) Prelude.<$> tagCriterion,
-            ("simpleCriterion" Core..=)
+          [ ("tagCriterion" Data..=) Prelude.<$> tagCriterion,
+            ("simpleCriterion" Data..=)
               Prelude.<$> simpleCriterion
           ]
       )

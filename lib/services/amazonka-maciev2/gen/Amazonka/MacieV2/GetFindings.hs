@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest GetFindings where
     Response.receiveJSON
       ( \s h x ->
           GetFindingsResponse'
-            Prelude.<$> (x Core..?> "findings" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "findings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,30 +112,30 @@ instance Prelude.NFData GetFindings where
     Prelude.rnf sortCriteria
       `Prelude.seq` Prelude.rnf findingIds
 
-instance Core.ToHeaders GetFindings where
+instance Data.ToHeaders GetFindings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetFindings where
+instance Data.ToJSON GetFindings where
   toJSON GetFindings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
-            Prelude.Just ("findingIds" Core..= findingIds)
+          [ ("sortCriteria" Data..=) Prelude.<$> sortCriteria,
+            Prelude.Just ("findingIds" Data..= findingIds)
           ]
       )
 
-instance Core.ToPath GetFindings where
+instance Data.ToPath GetFindings where
   toPath = Prelude.const "/findings/describe"
 
-instance Core.ToQuery GetFindings where
+instance Data.ToQuery GetFindings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFindingsResponse' smart constructor.

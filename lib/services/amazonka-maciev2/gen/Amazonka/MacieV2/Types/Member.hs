@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.Member where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.RelationshipStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -45,7 +46,7 @@ data Member = Member'
     -- | The date and time, in UTC and extended ISO 8601 format, when an Amazon
     -- Macie membership invitation was last sent to the account. This value is
     -- null if an invitation hasn\'t been sent to the account.
-    invitedAt :: Prelude.Maybe Core.POSIX,
+    invitedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID for the administrator account.
     administratorAccountId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the relationship between the account and the
@@ -54,7 +55,7 @@ data Member = Member'
     -- | The date and time, in UTC and extended ISO 8601 format, of the most
     -- recent change to the status of the relationship between the account and
     -- the administrator account.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -133,7 +134,7 @@ member_accountId = Lens.lens (\Member' {accountId} -> accountId) (\s@Member' {} 
 -- Macie membership invitation was last sent to the account. This value is
 -- null if an invitation hasn\'t been sent to the account.
 member_invitedAt :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
-member_invitedAt = Lens.lens (\Member' {invitedAt} -> invitedAt) (\s@Member' {} a -> s {invitedAt = a} :: Member) Prelude.. Lens.mapping Core._Time
+member_invitedAt = Lens.lens (\Member' {invitedAt} -> invitedAt) (\s@Member' {} a -> s {invitedAt = a} :: Member) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID for the administrator account.
 member_administratorAccountId :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
@@ -148,23 +149,23 @@ member_relationshipStatus = Lens.lens (\Member' {relationshipStatus} -> relation
 -- recent change to the status of the relationship between the account and
 -- the administrator account.
 member_updatedAt :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
-member_updatedAt = Lens.lens (\Member' {updatedAt} -> updatedAt) (\s@Member' {} a -> s {updatedAt = a} :: Member) Prelude.. Lens.mapping Core._Time
+member_updatedAt = Lens.lens (\Member' {updatedAt} -> updatedAt) (\s@Member' {} a -> s {updatedAt = a} :: Member) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Member where
+instance Data.FromJSON Member where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Member"
       ( \x ->
           Member'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "email")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "masterAccountId")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "invitedAt")
-            Prelude.<*> (x Core..:? "administratorAccountId")
-            Prelude.<*> (x Core..:? "relationshipStatus")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "email")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "masterAccountId")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "invitedAt")
+            Prelude.<*> (x Data..:? "administratorAccountId")
+            Prelude.<*> (x Data..:? "relationshipStatus")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable Member where

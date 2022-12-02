@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.Occurrences where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.Cell
 import Amazonka.MacieV2.Types.Page
 import Amazonka.MacieV2.Types.Range
@@ -181,17 +182,17 @@ occurrences_cells = Lens.lens (\Occurrences' {cells} -> cells) (\s@Occurrences' 
 occurrences_pages :: Lens.Lens' Occurrences (Prelude.Maybe [Page])
 occurrences_pages = Lens.lens (\Occurrences' {pages} -> pages) (\s@Occurrences' {} a -> s {pages = a} :: Occurrences) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Occurrences where
+instance Data.FromJSON Occurrences where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Occurrences"
       ( \x ->
           Occurrences'
-            Prelude.<$> (x Core..:? "records" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "lineRanges" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "offsetRanges" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "cells" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "pages" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "records" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "lineRanges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "offsetRanges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "cells" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "pages" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Occurrences where

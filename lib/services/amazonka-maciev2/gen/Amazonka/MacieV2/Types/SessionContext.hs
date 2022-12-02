@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.SessionContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.SessionContextAttributes
 import Amazonka.MacieV2.Types.SessionIssuer
 import qualified Amazonka.Prelude as Prelude
@@ -70,14 +71,14 @@ sessionContext_sessionIssuer = Lens.lens (\SessionContext' {sessionIssuer} -> se
 sessionContext_attributes :: Lens.Lens' SessionContext (Prelude.Maybe SessionContextAttributes)
 sessionContext_attributes = Lens.lens (\SessionContext' {attributes} -> attributes) (\s@SessionContext' {} a -> s {attributes = a} :: SessionContext)
 
-instance Core.FromJSON SessionContext where
+instance Data.FromJSON SessionContext where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SessionContext"
       ( \x ->
           SessionContext'
-            Prelude.<$> (x Core..:? "sessionIssuer")
-            Prelude.<*> (x Core..:? "attributes")
+            Prelude.<$> (x Data..:? "sessionIssuer")
+            Prelude.<*> (x Data..:? "attributes")
       )
 
 instance Prelude.Hashable SessionContext where

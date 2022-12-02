@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,11 +73,11 @@ instance Core.AWSRequest GetMacieSession where
     Response.receiveJSON
       ( \s h x ->
           GetMacieSessionResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "serviceRole")
-            Prelude.<*> (x Core..?> "findingPublishingFrequency")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "updatedAt")
+            Prelude.<$> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "serviceRole")
+            Prelude.<*> (x Data..?> "findingPublishingFrequency")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "updatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -87,21 +88,21 @@ instance Prelude.Hashable GetMacieSession where
 instance Prelude.NFData GetMacieSession where
   rnf _ = ()
 
-instance Core.ToHeaders GetMacieSession where
+instance Data.ToHeaders GetMacieSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetMacieSession where
+instance Data.ToPath GetMacieSession where
   toPath = Prelude.const "/macie"
 
-instance Core.ToQuery GetMacieSession where
+instance Data.ToQuery GetMacieSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMacieSessionResponse' smart constructor.
@@ -121,10 +122,10 @@ data GetMacieSessionResponse = GetMacieSessionResponse'
     findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
     -- | The date and time, in UTC and extended ISO 8601 format, when the Amazon
     -- Macie account was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time, in UTC and extended ISO 8601 format, of the most
     -- recent change to the status of the Amazon Macie account.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,12 +195,12 @@ getMacieSessionResponse_findingPublishingFrequency = Lens.lens (\GetMacieSession
 -- | The date and time, in UTC and extended ISO 8601 format, when the Amazon
 -- Macie account was created.
 getMacieSessionResponse_createdAt :: Lens.Lens' GetMacieSessionResponse (Prelude.Maybe Prelude.UTCTime)
-getMacieSessionResponse_createdAt = Lens.lens (\GetMacieSessionResponse' {createdAt} -> createdAt) (\s@GetMacieSessionResponse' {} a -> s {createdAt = a} :: GetMacieSessionResponse) Prelude.. Lens.mapping Core._Time
+getMacieSessionResponse_createdAt = Lens.lens (\GetMacieSessionResponse' {createdAt} -> createdAt) (\s@GetMacieSessionResponse' {} a -> s {createdAt = a} :: GetMacieSessionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time, in UTC and extended ISO 8601 format, of the most
 -- recent change to the status of the Amazon Macie account.
 getMacieSessionResponse_updatedAt :: Lens.Lens' GetMacieSessionResponse (Prelude.Maybe Prelude.UTCTime)
-getMacieSessionResponse_updatedAt = Lens.lens (\GetMacieSessionResponse' {updatedAt} -> updatedAt) (\s@GetMacieSessionResponse' {} a -> s {updatedAt = a} :: GetMacieSessionResponse) Prelude.. Lens.mapping Core._Time
+getMacieSessionResponse_updatedAt = Lens.lens (\GetMacieSessionResponse' {updatedAt} -> updatedAt) (\s@GetMacieSessionResponse' {} a -> s {updatedAt = a} :: GetMacieSessionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getMacieSessionResponse_httpStatus :: Lens.Lens' GetMacieSessionResponse Prelude.Int

@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ServiceLimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.Unit
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,15 +78,15 @@ serviceLimit_unit = Lens.lens (\ServiceLimit' {unit} -> unit) (\s@ServiceLimit' 
 serviceLimit_value :: Lens.Lens' ServiceLimit (Prelude.Maybe Prelude.Integer)
 serviceLimit_value = Lens.lens (\ServiceLimit' {value} -> value) (\s@ServiceLimit' {} a -> s {value = a} :: ServiceLimit)
 
-instance Core.FromJSON ServiceLimit where
+instance Data.FromJSON ServiceLimit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceLimit"
       ( \x ->
           ServiceLimit'
-            Prelude.<$> (x Core..:? "isServiceLimited")
-            Prelude.<*> (x Core..:? "unit")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "isServiceLimited")
+            Prelude.<*> (x Data..:? "unit")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ServiceLimit where

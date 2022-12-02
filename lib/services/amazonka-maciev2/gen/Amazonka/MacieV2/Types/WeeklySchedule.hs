@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.WeeklySchedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.DayOfWeek
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,12 +52,12 @@ newWeeklySchedule =
 weeklySchedule_dayOfWeek :: Lens.Lens' WeeklySchedule (Prelude.Maybe DayOfWeek)
 weeklySchedule_dayOfWeek = Lens.lens (\WeeklySchedule' {dayOfWeek} -> dayOfWeek) (\s@WeeklySchedule' {} a -> s {dayOfWeek = a} :: WeeklySchedule)
 
-instance Core.FromJSON WeeklySchedule where
+instance Data.FromJSON WeeklySchedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WeeklySchedule"
       ( \x ->
-          WeeklySchedule' Prelude.<$> (x Core..:? "dayOfWeek")
+          WeeklySchedule' Prelude.<$> (x Data..:? "dayOfWeek")
       )
 
 instance Prelude.Hashable WeeklySchedule where
@@ -66,9 +67,9 @@ instance Prelude.Hashable WeeklySchedule where
 instance Prelude.NFData WeeklySchedule where
   rnf WeeklySchedule' {..} = Prelude.rnf dayOfWeek
 
-instance Core.ToJSON WeeklySchedule where
+instance Data.ToJSON WeeklySchedule where
   toJSON WeeklySchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("dayOfWeek" Core..=) Prelude.<$> dayOfWeek]
+          [("dayOfWeek" Data..=) Prelude.<$> dayOfWeek]
       )

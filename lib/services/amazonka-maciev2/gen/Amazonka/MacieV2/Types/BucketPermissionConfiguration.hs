@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.BucketPermissionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.AccountLevelPermissions
 import Amazonka.MacieV2.Types.BucketLevelPermissions
 import qualified Amazonka.Prelude as Prelude
@@ -65,14 +66,14 @@ bucketPermissionConfiguration_accountLevelPermissions = Lens.lens (\BucketPermis
 bucketPermissionConfiguration_bucketLevelPermissions :: Lens.Lens' BucketPermissionConfiguration (Prelude.Maybe BucketLevelPermissions)
 bucketPermissionConfiguration_bucketLevelPermissions = Lens.lens (\BucketPermissionConfiguration' {bucketLevelPermissions} -> bucketLevelPermissions) (\s@BucketPermissionConfiguration' {} a -> s {bucketLevelPermissions = a} :: BucketPermissionConfiguration)
 
-instance Core.FromJSON BucketPermissionConfiguration where
+instance Data.FromJSON BucketPermissionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BucketPermissionConfiguration"
       ( \x ->
           BucketPermissionConfiguration'
-            Prelude.<$> (x Core..:? "accountLevelPermissions")
-            Prelude.<*> (x Core..:? "bucketLevelPermissions")
+            Prelude.<$> (x Data..:? "accountLevelPermissions")
+            Prelude.<*> (x Data..:? "bucketLevelPermissions")
       )
 
 instance

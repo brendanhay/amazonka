@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,31 +119,31 @@ instance Prelude.NFData UpdateMacieSession where
     Prelude.rnf status
       `Prelude.seq` Prelude.rnf findingPublishingFrequency
 
-instance Core.ToHeaders UpdateMacieSession where
+instance Data.ToHeaders UpdateMacieSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMacieSession where
+instance Data.ToJSON UpdateMacieSession where
   toJSON UpdateMacieSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("status" Core..=) Prelude.<$> status,
-            ("findingPublishingFrequency" Core..=)
+          [ ("status" Data..=) Prelude.<$> status,
+            ("findingPublishingFrequency" Data..=)
               Prelude.<$> findingPublishingFrequency
           ]
       )
 
-instance Core.ToPath UpdateMacieSession where
+instance Data.ToPath UpdateMacieSession where
   toPath = Prelude.const "/macie"
 
-instance Core.ToQuery UpdateMacieSession where
+instance Data.ToQuery UpdateMacieSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMacieSessionResponse' smart constructor.

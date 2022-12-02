@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,41 +127,41 @@ instance
       `Prelude.seq` Prelude.rnf securityHubConfiguration
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutFindingsPublicationConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PutFindingsPublicationConfiguration
   where
   toJSON PutFindingsPublicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("securityHubConfiguration" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("securityHubConfiguration" Data..=)
               Prelude.<$> securityHubConfiguration
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutFindingsPublicationConfiguration
   where
   toPath =
     Prelude.const "/findings-publication-configuration"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutFindingsPublicationConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

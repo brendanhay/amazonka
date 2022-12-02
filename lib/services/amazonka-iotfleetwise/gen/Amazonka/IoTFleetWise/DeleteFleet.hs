@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,8 +89,8 @@ instance Core.AWSRequest DeleteFleet where
     Response.receiveJSON
       ( \s h x ->
           DeleteFleetResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,32 +101,32 @@ instance Prelude.Hashable DeleteFleet where
 instance Prelude.NFData DeleteFleet where
   rnf DeleteFleet' {..} = Prelude.rnf fleetId
 
-instance Core.ToHeaders DeleteFleet where
+instance Data.ToHeaders DeleteFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.DeleteFleet" ::
+              Data.=# ( "IoTAutobahnControlPlane.DeleteFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteFleet where
+instance Data.ToJSON DeleteFleet where
   toJSON DeleteFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("fleetId" Core..= fleetId)]
+          [Prelude.Just ("fleetId" Data..= fleetId)]
       )
 
-instance Core.ToPath DeleteFleet where
+instance Data.ToPath DeleteFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteFleet where
+instance Data.ToQuery DeleteFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFleetResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.CreateVehicleResponseItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a created vehicle.
@@ -71,15 +72,15 @@ createVehicleResponseItem_arn = Lens.lens (\CreateVehicleResponseItem' {arn} -> 
 createVehicleResponseItem_vehicleName :: Lens.Lens' CreateVehicleResponseItem (Prelude.Maybe Prelude.Text)
 createVehicleResponseItem_vehicleName = Lens.lens (\CreateVehicleResponseItem' {vehicleName} -> vehicleName) (\s@CreateVehicleResponseItem' {} a -> s {vehicleName = a} :: CreateVehicleResponseItem)
 
-instance Core.FromJSON CreateVehicleResponseItem where
+instance Data.FromJSON CreateVehicleResponseItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreateVehicleResponseItem"
       ( \x ->
           CreateVehicleResponseItem'
-            Prelude.<$> (x Core..:? "thingArn")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "vehicleName")
+            Prelude.<$> (x Data..:? "thingArn")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "vehicleName")
       )
 
 instance Prelude.Hashable CreateVehicleResponseItem where

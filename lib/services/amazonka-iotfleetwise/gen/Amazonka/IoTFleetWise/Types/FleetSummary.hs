@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.FleetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a fleet.
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 data FleetSummary = FleetSummary'
   { -- | The time the fleet was last updated in seconds since epoch (January 1,
     -- 1970 at midnight UTC time).
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | A brief description of the fleet.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the fleet.
@@ -43,7 +44,7 @@ data FleetSummary = FleetSummary'
     signalCatalogArn :: Prelude.Text,
     -- | The time the fleet was created, in seconds since epoch (January 1, 1970
     -- at midnight UTC time).
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,13 +91,13 @@ newFleetSummary
         id = pId_,
         arn = pArn_,
         signalCatalogArn = pSignalCatalogArn_,
-        creationTime = Core._Time Lens.# pCreationTime_
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | The time the fleet was last updated in seconds since epoch (January 1,
 -- 1970 at midnight UTC time).
 fleetSummary_lastModificationTime :: Lens.Lens' FleetSummary (Prelude.Maybe Prelude.UTCTime)
-fleetSummary_lastModificationTime = Lens.lens (\FleetSummary' {lastModificationTime} -> lastModificationTime) (\s@FleetSummary' {} a -> s {lastModificationTime = a} :: FleetSummary) Prelude.. Lens.mapping Core._Time
+fleetSummary_lastModificationTime = Lens.lens (\FleetSummary' {lastModificationTime} -> lastModificationTime) (\s@FleetSummary' {} a -> s {lastModificationTime = a} :: FleetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | A brief description of the fleet.
 fleetSummary_description :: Lens.Lens' FleetSummary (Prelude.Maybe Prelude.Text)
@@ -117,20 +118,20 @@ fleetSummary_signalCatalogArn = Lens.lens (\FleetSummary' {signalCatalogArn} -> 
 -- | The time the fleet was created, in seconds since epoch (January 1, 1970
 -- at midnight UTC time).
 fleetSummary_creationTime :: Lens.Lens' FleetSummary Prelude.UTCTime
-fleetSummary_creationTime = Lens.lens (\FleetSummary' {creationTime} -> creationTime) (\s@FleetSummary' {} a -> s {creationTime = a} :: FleetSummary) Prelude.. Core._Time
+fleetSummary_creationTime = Lens.lens (\FleetSummary' {creationTime} -> creationTime) (\s@FleetSummary' {} a -> s {creationTime = a} :: FleetSummary) Prelude.. Data._Time
 
-instance Core.FromJSON FleetSummary where
+instance Data.FromJSON FleetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FleetSummary"
       ( \x ->
           FleetSummary'
-            Prelude.<$> (x Core..:? "lastModificationTime")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "signalCatalogArn")
-            Prelude.<*> (x Core..: "creationTime")
+            Prelude.<$> (x Data..:? "lastModificationTime")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "signalCatalogArn")
+            Prelude.<*> (x Data..: "creationTime")
       )
 
 instance Prelude.Hashable FleetSummary where

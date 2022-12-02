@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,8 +89,8 @@ instance Core.AWSRequest DeleteModelManifest where
       ( \s h x ->
           DeleteModelManifestResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable DeleteModelManifest where
@@ -99,32 +100,32 @@ instance Prelude.Hashable DeleteModelManifest where
 instance Prelude.NFData DeleteModelManifest where
   rnf DeleteModelManifest' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteModelManifest where
+instance Data.ToHeaders DeleteModelManifest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.DeleteModelManifest" ::
+              Data.=# ( "IoTAutobahnControlPlane.DeleteModelManifest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteModelManifest where
+instance Data.ToJSON DeleteModelManifest where
   toJSON DeleteModelManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath DeleteModelManifest where
+instance Data.ToPath DeleteModelManifest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteModelManifest where
+instance Data.ToQuery DeleteModelManifest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteModelManifestResponse' smart constructor.

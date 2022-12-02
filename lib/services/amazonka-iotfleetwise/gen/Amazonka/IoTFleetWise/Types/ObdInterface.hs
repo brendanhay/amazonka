@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.ObdInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A network interface that specifies the On-board diagnostic (OBD) II
@@ -115,19 +116,19 @@ obdInterface_name = Lens.lens (\ObdInterface' {name} -> name) (\s@ObdInterface' 
 obdInterface_requestMessageId :: Lens.Lens' ObdInterface Prelude.Natural
 obdInterface_requestMessageId = Lens.lens (\ObdInterface' {requestMessageId} -> requestMessageId) (\s@ObdInterface' {} a -> s {requestMessageId = a} :: ObdInterface)
 
-instance Core.FromJSON ObdInterface where
+instance Data.FromJSON ObdInterface where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ObdInterface"
       ( \x ->
           ObdInterface'
-            Prelude.<$> (x Core..:? "pidRequestIntervalSeconds")
-            Prelude.<*> (x Core..:? "obdStandard")
-            Prelude.<*> (x Core..:? "hasTransmissionEcu")
-            Prelude.<*> (x Core..:? "useExtendedIds")
-            Prelude.<*> (x Core..:? "dtcRequestIntervalSeconds")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "requestMessageId")
+            Prelude.<$> (x Data..:? "pidRequestIntervalSeconds")
+            Prelude.<*> (x Data..:? "obdStandard")
+            Prelude.<*> (x Data..:? "hasTransmissionEcu")
+            Prelude.<*> (x Data..:? "useExtendedIds")
+            Prelude.<*> (x Data..:? "dtcRequestIntervalSeconds")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "requestMessageId")
       )
 
 instance Prelude.Hashable ObdInterface where
@@ -151,21 +152,21 @@ instance Prelude.NFData ObdInterface where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf requestMessageId
 
-instance Core.ToJSON ObdInterface where
+instance Data.ToJSON ObdInterface where
   toJSON ObdInterface' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("pidRequestIntervalSeconds" Core..=)
+          [ ("pidRequestIntervalSeconds" Data..=)
               Prelude.<$> pidRequestIntervalSeconds,
-            ("obdStandard" Core..=) Prelude.<$> obdStandard,
-            ("hasTransmissionEcu" Core..=)
+            ("obdStandard" Data..=) Prelude.<$> obdStandard,
+            ("hasTransmissionEcu" Data..=)
               Prelude.<$> hasTransmissionEcu,
-            ("useExtendedIds" Core..=)
+            ("useExtendedIds" Data..=)
               Prelude.<$> useExtendedIds,
-            ("dtcRequestIntervalSeconds" Core..=)
+            ("dtcRequestIntervalSeconds" Data..=)
               Prelude.<$> dtcRequestIntervalSeconds,
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("requestMessageId" Core..= requestMessageId)
+              ("requestMessageId" Data..= requestMessageId)
           ]
       )

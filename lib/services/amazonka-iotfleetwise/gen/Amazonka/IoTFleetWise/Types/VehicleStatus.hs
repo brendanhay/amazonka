@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.VehicleStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.VehicleState
 import qualified Amazonka.Prelude as Prelude
 
@@ -111,15 +112,15 @@ vehicleStatus_status = Lens.lens (\VehicleStatus' {status} -> status) (\s@Vehicl
 vehicleStatus_vehicleName :: Lens.Lens' VehicleStatus (Prelude.Maybe Prelude.Text)
 vehicleStatus_vehicleName = Lens.lens (\VehicleStatus' {vehicleName} -> vehicleName) (\s@VehicleStatus' {} a -> s {vehicleName = a} :: VehicleStatus)
 
-instance Core.FromJSON VehicleStatus where
+instance Data.FromJSON VehicleStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VehicleStatus"
       ( \x ->
           VehicleStatus'
-            Prelude.<$> (x Core..:? "campaignName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "vehicleName")
+            Prelude.<$> (x Data..:? "campaignName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "vehicleName")
       )
 
 instance Prelude.Hashable VehicleStatus where

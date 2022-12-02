@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -153,8 +154,8 @@ instance Core.AWSRequest ListModelManifestNodes where
     Response.receiveJSON
       ( \s h x ->
           ListModelManifestNodesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "nodes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "nodes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,35 +171,35 @@ instance Prelude.NFData ListModelManifestNodes where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders ListModelManifestNodes where
+instance Data.ToHeaders ListModelManifestNodes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.ListModelManifestNodes" ::
+              Data.=# ( "IoTAutobahnControlPlane.ListModelManifestNodes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListModelManifestNodes where
+instance Data.ToJSON ListModelManifestNodes where
   toJSON ListModelManifestNodes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("name" Core..= name)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath ListModelManifestNodes where
+instance Data.ToPath ListModelManifestNodes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListModelManifestNodes where
+instance Data.ToQuery ListModelManifestNodes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListModelManifestNodesResponse' smart constructor.

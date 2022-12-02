@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.CampaignSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.CampaignStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,9 +58,9 @@ data CampaignSummary = CampaignSummary'
     -- | The ARN of the signal catalog associated with the campaign.
     signalCatalogArn :: Prelude.Maybe Prelude.Text,
     -- | The time the campaign was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The last time the campaign was modified.
-    lastModificationTime :: Core.POSIX
+    lastModificationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,9 +116,9 @@ newCampaignSummary
         status = Prelude.Nothing,
         description = Prelude.Nothing,
         signalCatalogArn = Prelude.Nothing,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModificationTime =
-          Core._Time Lens.# pLastModificationTime_
+          Data._Time Lens.# pLastModificationTime_
       }
 
 -- | The name of a campaign.
@@ -159,26 +160,26 @@ campaignSummary_signalCatalogArn = Lens.lens (\CampaignSummary' {signalCatalogAr
 
 -- | The time the campaign was created.
 campaignSummary_creationTime :: Lens.Lens' CampaignSummary Prelude.UTCTime
-campaignSummary_creationTime = Lens.lens (\CampaignSummary' {creationTime} -> creationTime) (\s@CampaignSummary' {} a -> s {creationTime = a} :: CampaignSummary) Prelude.. Core._Time
+campaignSummary_creationTime = Lens.lens (\CampaignSummary' {creationTime} -> creationTime) (\s@CampaignSummary' {} a -> s {creationTime = a} :: CampaignSummary) Prelude.. Data._Time
 
 -- | The last time the campaign was modified.
 campaignSummary_lastModificationTime :: Lens.Lens' CampaignSummary Prelude.UTCTime
-campaignSummary_lastModificationTime = Lens.lens (\CampaignSummary' {lastModificationTime} -> lastModificationTime) (\s@CampaignSummary' {} a -> s {lastModificationTime = a} :: CampaignSummary) Prelude.. Core._Time
+campaignSummary_lastModificationTime = Lens.lens (\CampaignSummary' {lastModificationTime} -> lastModificationTime) (\s@CampaignSummary' {} a -> s {lastModificationTime = a} :: CampaignSummary) Prelude.. Data._Time
 
-instance Core.FromJSON CampaignSummary where
+instance Data.FromJSON CampaignSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignSummary"
       ( \x ->
           CampaignSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "targetArn")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "signalCatalogArn")
-            Prelude.<*> (x Core..: "creationTime")
-            Prelude.<*> (x Core..: "lastModificationTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "targetArn")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "signalCatalogArn")
+            Prelude.<*> (x Data..: "creationTime")
+            Prelude.<*> (x Data..: "lastModificationTime")
       )
 
 instance Prelude.Hashable CampaignSummary where

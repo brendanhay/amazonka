@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.SignalInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a signal.
@@ -85,15 +86,15 @@ signalInformation_maxSampleCount = Lens.lens (\SignalInformation' {maxSampleCoun
 signalInformation_name :: Lens.Lens' SignalInformation Prelude.Text
 signalInformation_name = Lens.lens (\SignalInformation' {name} -> name) (\s@SignalInformation' {} a -> s {name = a} :: SignalInformation)
 
-instance Core.FromJSON SignalInformation where
+instance Data.FromJSON SignalInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SignalInformation"
       ( \x ->
           SignalInformation'
-            Prelude.<$> (x Core..:? "minimumSamplingIntervalMs")
-            Prelude.<*> (x Core..:? "maxSampleCount")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "minimumSamplingIntervalMs")
+            Prelude.<*> (x Data..:? "maxSampleCount")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable SignalInformation where
@@ -109,14 +110,14 @@ instance Prelude.NFData SignalInformation where
       `Prelude.seq` Prelude.rnf maxSampleCount
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON SignalInformation where
+instance Data.ToJSON SignalInformation where
   toJSON SignalInformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("minimumSamplingIntervalMs" Core..=)
+          [ ("minimumSamplingIntervalMs" Data..=)
               Prelude.<$> minimumSamplingIntervalMs,
-            ("maxSampleCount" Core..=)
+            ("maxSampleCount" Data..=)
               Prelude.<$> maxSampleCount,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Data..= name)
           ]
       )

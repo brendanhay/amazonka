@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -189,8 +190,8 @@ instance Core.AWSRequest UpdateDecoderManifest where
       ( \s h x ->
           UpdateDecoderManifestResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable UpdateDecoderManifest where
@@ -218,47 +219,47 @@ instance Prelude.NFData UpdateDecoderManifest where
       `Prelude.seq` Prelude.rnf signalDecodersToRemove
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateDecoderManifest where
+instance Data.ToHeaders UpdateDecoderManifest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.UpdateDecoderManifest" ::
+              Data.=# ( "IoTAutobahnControlPlane.UpdateDecoderManifest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDecoderManifest where
+instance Data.ToJSON UpdateDecoderManifest where
   toJSON UpdateDecoderManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("networkInterfacesToUpdate" Core..=)
+          [ ("networkInterfacesToUpdate" Data..=)
               Prelude.<$> networkInterfacesToUpdate,
-            ("networkInterfacesToAdd" Core..=)
+            ("networkInterfacesToAdd" Data..=)
               Prelude.<$> networkInterfacesToAdd,
-            ("networkInterfacesToRemove" Core..=)
+            ("networkInterfacesToRemove" Data..=)
               Prelude.<$> networkInterfacesToRemove,
-            ("signalDecodersToUpdate" Core..=)
+            ("signalDecodersToUpdate" Data..=)
               Prelude.<$> signalDecodersToUpdate,
-            ("signalDecodersToAdd" Core..=)
+            ("signalDecodersToAdd" Data..=)
               Prelude.<$> signalDecodersToAdd,
-            ("status" Core..=) Prelude.<$> status,
-            ("description" Core..=) Prelude.<$> description,
-            ("signalDecodersToRemove" Core..=)
+            ("status" Data..=) Prelude.<$> status,
+            ("description" Data..=) Prelude.<$> description,
+            ("signalDecodersToRemove" Data..=)
               Prelude.<$> signalDecodersToRemove,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateDecoderManifest where
+instance Data.ToPath UpdateDecoderManifest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDecoderManifest where
+instance Data.ToQuery UpdateDecoderManifest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDecoderManifestResponse' smart constructor.

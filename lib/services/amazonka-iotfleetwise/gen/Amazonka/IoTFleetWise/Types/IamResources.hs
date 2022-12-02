@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.IamResources where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The IAM resource that enables Amazon Web Services IoT FleetWise edge
@@ -63,12 +64,12 @@ newIamResources pRoleArn_ =
 iamResources_roleArn :: Lens.Lens' IamResources Prelude.Text
 iamResources_roleArn = Lens.lens (\IamResources' {roleArn} -> roleArn) (\s@IamResources' {} a -> s {roleArn = a} :: IamResources)
 
-instance Core.FromJSON IamResources where
+instance Data.FromJSON IamResources where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IamResources"
       ( \x ->
-          IamResources' Prelude.<$> (x Core..: "roleArn")
+          IamResources' Prelude.<$> (x Data..: "roleArn")
       )
 
 instance Prelude.Hashable IamResources where
@@ -78,9 +79,9 @@ instance Prelude.Hashable IamResources where
 instance Prelude.NFData IamResources where
   rnf IamResources' {..} = Prelude.rnf roleArn
 
-instance Core.ToJSON IamResources where
+instance Data.ToJSON IamResources where
   toJSON IamResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("roleArn" Core..= roleArn)]
+          [Prelude.Just ("roleArn" Data..= roleArn)]
       )

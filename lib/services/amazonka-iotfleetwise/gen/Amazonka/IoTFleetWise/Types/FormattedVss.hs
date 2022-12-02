@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.FormattedVss where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Vehicle Signal Specification (VSS) is a precise language used to
@@ -59,9 +60,9 @@ instance Prelude.Hashable FormattedVss where
 instance Prelude.NFData FormattedVss where
   rnf FormattedVss' {..} = Prelude.rnf vssJson
 
-instance Core.ToJSON FormattedVss where
+instance Data.ToJSON FormattedVss where
   toJSON FormattedVss' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("vssJson" Core..=) Prelude.<$> vssJson]
+          [("vssJson" Data..=) Prelude.<$> vssJson]
       )

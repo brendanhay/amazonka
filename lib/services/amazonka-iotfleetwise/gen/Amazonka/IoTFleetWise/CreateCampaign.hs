@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ data CreateCampaign = CreateCampaign'
     -- after the campaign expires.
     --
     -- Default: 253402243200 (December 31, 9999, 00:00:00 UTC)
-    expiryTime :: Prelude.Maybe Core.POSIX,
+    expiryTime :: Prelude.Maybe Data.POSIX,
     -- | (Optional) Option for a vehicle to send diagnostic trouble codes to
     -- Amazon Web Services IoT FleetWise. If you want to send diagnostic
     -- trouble codes, use @SEND_ACTIVE_DTCS@. If it\'s not specified, @OFF@ is
@@ -130,7 +131,7 @@ data CreateCampaign = CreateCampaign'
     -- approved. If it\'s not specified, @0@ is used.
     --
     -- Default: @0@
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | (Optional) A list of information about signals to collect.
     signalsToCollect :: Prelude.Maybe [SignalInformation],
     -- | The name of the campaign to create.
@@ -287,7 +288,7 @@ createCampaign_dataExtraDimensions = Lens.lens (\CreateCampaign' {dataExtraDimen
 --
 -- Default: 253402243200 (December 31, 9999, 00:00:00 UTC)
 createCampaign_expiryTime :: Lens.Lens' CreateCampaign (Prelude.Maybe Prelude.UTCTime)
-createCampaign_expiryTime = Lens.lens (\CreateCampaign' {expiryTime} -> expiryTime) (\s@CreateCampaign' {} a -> s {expiryTime = a} :: CreateCampaign) Prelude.. Lens.mapping Core._Time
+createCampaign_expiryTime = Lens.lens (\CreateCampaign' {expiryTime} -> expiryTime) (\s@CreateCampaign' {} a -> s {expiryTime = a} :: CreateCampaign) Prelude.. Lens.mapping Data._Time
 
 -- | (Optional) Option for a vehicle to send diagnostic trouble codes to
 -- Amazon Web Services IoT FleetWise. If you want to send diagnostic
@@ -334,7 +335,7 @@ createCampaign_priority = Lens.lens (\CreateCampaign' {priority} -> priority) (\
 --
 -- Default: @0@
 createCampaign_startTime :: Lens.Lens' CreateCampaign (Prelude.Maybe Prelude.UTCTime)
-createCampaign_startTime = Lens.lens (\CreateCampaign' {startTime} -> startTime) (\s@CreateCampaign' {} a -> s {startTime = a} :: CreateCampaign) Prelude.. Lens.mapping Core._Time
+createCampaign_startTime = Lens.lens (\CreateCampaign' {startTime} -> startTime) (\s@CreateCampaign' {} a -> s {startTime = a} :: CreateCampaign) Prelude.. Lens.mapping Data._Time
 
 -- | (Optional) A list of information about signals to collect.
 createCampaign_signalsToCollect :: Lens.Lens' CreateCampaign (Prelude.Maybe [SignalInformation])
@@ -368,8 +369,8 @@ instance Core.AWSRequest CreateCampaign where
     Response.receiveJSON
       ( \s h x ->
           CreateCampaignResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "arn")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -409,53 +410,53 @@ instance Prelude.NFData CreateCampaign where
       `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf collectionScheme
 
-instance Core.ToHeaders CreateCampaign where
+instance Data.ToHeaders CreateCampaign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.CreateCampaign" ::
+              Data.=# ( "IoTAutobahnControlPlane.CreateCampaign" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCampaign where
+instance Data.ToJSON CreateCampaign where
   toJSON CreateCampaign' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("compression" Core..=) Prelude.<$> compression,
-            ("dataExtraDimensions" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("compression" Data..=) Prelude.<$> compression,
+            ("dataExtraDimensions" Data..=)
               Prelude.<$> dataExtraDimensions,
-            ("expiryTime" Core..=) Prelude.<$> expiryTime,
-            ("diagnosticsMode" Core..=)
+            ("expiryTime" Data..=) Prelude.<$> expiryTime,
+            ("diagnosticsMode" Data..=)
               Prelude.<$> diagnosticsMode,
-            ("description" Core..=) Prelude.<$> description,
-            ("spoolingMode" Core..=) Prelude.<$> spoolingMode,
-            ("postTriggerCollectionDuration" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("spoolingMode" Data..=) Prelude.<$> spoolingMode,
+            ("postTriggerCollectionDuration" Data..=)
               Prelude.<$> postTriggerCollectionDuration,
-            ("priority" Core..=) Prelude.<$> priority,
-            ("startTime" Core..=) Prelude.<$> startTime,
-            ("signalsToCollect" Core..=)
+            ("priority" Data..=) Prelude.<$> priority,
+            ("startTime" Data..=) Prelude.<$> startTime,
+            ("signalsToCollect" Data..=)
               Prelude.<$> signalsToCollect,
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("signalCatalogArn" Core..= signalCatalogArn),
-            Prelude.Just ("targetArn" Core..= targetArn),
+              ("signalCatalogArn" Data..= signalCatalogArn),
+            Prelude.Just ("targetArn" Data..= targetArn),
             Prelude.Just
-              ("collectionScheme" Core..= collectionScheme)
+              ("collectionScheme" Data..= collectionScheme)
           ]
       )
 
-instance Core.ToPath CreateCampaign where
+instance Data.ToPath CreateCampaign where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCampaign where
+instance Data.ToQuery CreateCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCampaignResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,8 +93,8 @@ instance Core.AWSRequest BatchCreateVehicle where
     Response.receiveJSON
       ( \s h x ->
           BatchCreateVehicleResponse'
-            Prelude.<$> (x Core..?> "vehicles" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "vehicles" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,32 +105,32 @@ instance Prelude.Hashable BatchCreateVehicle where
 instance Prelude.NFData BatchCreateVehicle where
   rnf BatchCreateVehicle' {..} = Prelude.rnf vehicles
 
-instance Core.ToHeaders BatchCreateVehicle where
+instance Data.ToHeaders BatchCreateVehicle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.BatchCreateVehicle" ::
+              Data.=# ( "IoTAutobahnControlPlane.BatchCreateVehicle" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchCreateVehicle where
+instance Data.ToJSON BatchCreateVehicle where
   toJSON BatchCreateVehicle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("vehicles" Core..= vehicles)]
+          [Prelude.Just ("vehicles" Data..= vehicles)]
       )
 
-instance Core.ToPath BatchCreateVehicle where
+instance Data.ToPath BatchCreateVehicle where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchCreateVehicle where
+instance Data.ToQuery BatchCreateVehicle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchCreateVehicleResponse' smart constructor.

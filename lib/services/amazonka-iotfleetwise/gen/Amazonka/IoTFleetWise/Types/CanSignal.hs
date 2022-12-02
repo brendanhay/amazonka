@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.CanSignal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a single controller area network (CAN) signal and the
@@ -137,20 +138,20 @@ canSignal_factor = Lens.lens (\CanSignal' {factor} -> factor) (\s@CanSignal' {} 
 canSignal_length :: Lens.Lens' CanSignal Prelude.Natural
 canSignal_length = Lens.lens (\CanSignal' {length} -> length) (\s@CanSignal' {} a -> s {length = a} :: CanSignal)
 
-instance Core.FromJSON CanSignal where
+instance Data.FromJSON CanSignal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CanSignal"
       ( \x ->
           CanSignal'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..: "messageId")
-            Prelude.<*> (x Core..: "isBigEndian")
-            Prelude.<*> (x Core..: "isSigned")
-            Prelude.<*> (x Core..: "startBit")
-            Prelude.<*> (x Core..: "offset")
-            Prelude.<*> (x Core..: "factor")
-            Prelude.<*> (x Core..: "length")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..: "messageId")
+            Prelude.<*> (x Data..: "isBigEndian")
+            Prelude.<*> (x Data..: "isSigned")
+            Prelude.<*> (x Data..: "startBit")
+            Prelude.<*> (x Data..: "offset")
+            Prelude.<*> (x Data..: "factor")
+            Prelude.<*> (x Data..: "length")
       )
 
 instance Prelude.Hashable CanSignal where
@@ -175,17 +176,17 @@ instance Prelude.NFData CanSignal where
       `Prelude.seq` Prelude.rnf factor
       `Prelude.seq` Prelude.rnf length
 
-instance Core.ToJSON CanSignal where
+instance Data.ToJSON CanSignal where
   toJSON CanSignal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            Prelude.Just ("messageId" Core..= messageId),
-            Prelude.Just ("isBigEndian" Core..= isBigEndian),
-            Prelude.Just ("isSigned" Core..= isSigned),
-            Prelude.Just ("startBit" Core..= startBit),
-            Prelude.Just ("offset" Core..= offset),
-            Prelude.Just ("factor" Core..= factor),
-            Prelude.Just ("length" Core..= length)
+          [ ("name" Data..=) Prelude.<$> name,
+            Prelude.Just ("messageId" Data..= messageId),
+            Prelude.Just ("isBigEndian" Data..= isBigEndian),
+            Prelude.Just ("isSigned" Data..= isSigned),
+            Prelude.Just ("startBit" Data..= startBit),
+            Prelude.Just ("offset" Data..= offset),
+            Prelude.Just ("factor" Data..= factor),
+            Prelude.Just ("length" Data..= length)
           ]
       )

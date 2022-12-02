@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.IamRegistrationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.RegistrationStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,15 +84,15 @@ iamRegistrationResponse_roleArn = Lens.lens (\IamRegistrationResponse' {roleArn}
 iamRegistrationResponse_registrationStatus :: Lens.Lens' IamRegistrationResponse RegistrationStatus
 iamRegistrationResponse_registrationStatus = Lens.lens (\IamRegistrationResponse' {registrationStatus} -> registrationStatus) (\s@IamRegistrationResponse' {} a -> s {registrationStatus = a} :: IamRegistrationResponse)
 
-instance Core.FromJSON IamRegistrationResponse where
+instance Data.FromJSON IamRegistrationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IamRegistrationResponse"
       ( \x ->
           IamRegistrationResponse'
-            Prelude.<$> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "registrationStatus")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "registrationStatus")
       )
 
 instance Prelude.Hashable IamRegistrationResponse where

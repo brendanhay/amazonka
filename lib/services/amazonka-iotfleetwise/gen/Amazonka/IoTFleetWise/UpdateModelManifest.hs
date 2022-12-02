@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,8 +142,8 @@ instance Core.AWSRequest UpdateModelManifest where
       ( \s h x ->
           UpdateModelManifestResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable UpdateModelManifest where
@@ -161,37 +162,37 @@ instance Prelude.NFData UpdateModelManifest where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateModelManifest where
+instance Data.ToHeaders UpdateModelManifest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.UpdateModelManifest" ::
+              Data.=# ( "IoTAutobahnControlPlane.UpdateModelManifest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateModelManifest where
+instance Data.ToJSON UpdateModelManifest where
   toJSON UpdateModelManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nodesToRemove" Core..=) Prelude.<$> nodesToRemove,
-            ("nodesToAdd" Core..=) Prelude.<$> nodesToAdd,
-            ("status" Core..=) Prelude.<$> status,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name)
+          [ ("nodesToRemove" Data..=) Prelude.<$> nodesToRemove,
+            ("nodesToAdd" Data..=) Prelude.<$> nodesToAdd,
+            ("status" Data..=) Prelude.<$> status,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateModelManifest where
+instance Data.ToPath UpdateModelManifest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateModelManifest where
+instance Data.ToQuery UpdateModelManifest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateModelManifestResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,8 +125,8 @@ instance Core.AWSRequest CreateFleet where
       ( \s h x ->
           CreateFleetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "id")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "id")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable CreateFleet where
@@ -142,37 +143,37 @@ instance Prelude.NFData CreateFleet where
       `Prelude.seq` Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf signalCatalogArn
 
-instance Core.ToHeaders CreateFleet where
+instance Data.ToHeaders CreateFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.CreateFleet" ::
+              Data.=# ( "IoTAutobahnControlPlane.CreateFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFleet where
+instance Data.ToJSON CreateFleet where
   toJSON CreateFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("fleetId" Core..= fleetId),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("fleetId" Data..= fleetId),
             Prelude.Just
-              ("signalCatalogArn" Core..= signalCatalogArn)
+              ("signalCatalogArn" Data..= signalCatalogArn)
           ]
       )
 
-instance Core.ToPath CreateFleet where
+instance Data.ToPath CreateFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFleet where
+instance Data.ToQuery CreateFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFleetResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,8 +132,8 @@ instance Core.AWSRequest UpdateSignalCatalog where
       ( \s h x ->
           UpdateSignalCatalogResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable UpdateSignalCatalog where
@@ -151,37 +152,37 @@ instance Prelude.NFData UpdateSignalCatalog where
       `Prelude.seq` Prelude.rnf nodesToUpdate
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateSignalCatalog where
+instance Data.ToHeaders UpdateSignalCatalog where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.UpdateSignalCatalog" ::
+              Data.=# ( "IoTAutobahnControlPlane.UpdateSignalCatalog" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSignalCatalog where
+instance Data.ToJSON UpdateSignalCatalog where
   toJSON UpdateSignalCatalog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nodesToRemove" Core..=) Prelude.<$> nodesToRemove,
-            ("nodesToAdd" Core..=) Prelude.<$> nodesToAdd,
-            ("description" Core..=) Prelude.<$> description,
-            ("nodesToUpdate" Core..=) Prelude.<$> nodesToUpdate,
-            Prelude.Just ("name" Core..= name)
+          [ ("nodesToRemove" Data..=) Prelude.<$> nodesToRemove,
+            ("nodesToAdd" Data..=) Prelude.<$> nodesToAdd,
+            ("description" Data..=) Prelude.<$> description,
+            ("nodesToUpdate" Data..=) Prelude.<$> nodesToUpdate,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateSignalCatalog where
+instance Data.ToPath UpdateSignalCatalog where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSignalCatalog where
+instance Data.ToQuery UpdateSignalCatalog where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSignalCatalogResponse' smart constructor.

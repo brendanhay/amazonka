@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,9 +157,9 @@ instance Core.AWSRequest UpdateCampaign where
     Response.receiveJSON
       ( \s h x ->
           UpdateCampaignResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,37 +177,37 @@ instance Prelude.NFData UpdateCampaign where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToHeaders UpdateCampaign where
+instance Data.ToHeaders UpdateCampaign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.UpdateCampaign" ::
+              Data.=# ( "IoTAutobahnControlPlane.UpdateCampaign" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCampaign where
+instance Data.ToJSON UpdateCampaign where
   toJSON UpdateCampaign' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dataExtraDimensions" Core..=)
+          [ ("dataExtraDimensions" Data..=)
               Prelude.<$> dataExtraDimensions,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("action" Core..= action)
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("action" Data..= action)
           ]
       )
 
-instance Core.ToPath UpdateCampaign where
+instance Data.ToPath UpdateCampaign where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCampaign where
+instance Data.ToQuery UpdateCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCampaignResponse' smart constructor.

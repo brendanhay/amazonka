@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.NodeCounts where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the number of nodes and node types in a vehicle
@@ -92,17 +93,17 @@ nodeCounts_totalAttributes = Lens.lens (\NodeCounts' {totalAttributes} -> totalA
 nodeCounts_totalBranches :: Lens.Lens' NodeCounts (Prelude.Maybe Prelude.Int)
 nodeCounts_totalBranches = Lens.lens (\NodeCounts' {totalBranches} -> totalBranches) (\s@NodeCounts' {} a -> s {totalBranches = a} :: NodeCounts)
 
-instance Core.FromJSON NodeCounts where
+instance Data.FromJSON NodeCounts where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeCounts"
       ( \x ->
           NodeCounts'
-            Prelude.<$> (x Core..:? "totalSensors")
-            Prelude.<*> (x Core..:? "totalNodes")
-            Prelude.<*> (x Core..:? "totalActuators")
-            Prelude.<*> (x Core..:? "totalAttributes")
-            Prelude.<*> (x Core..:? "totalBranches")
+            Prelude.<$> (x Data..:? "totalSensors")
+            Prelude.<*> (x Data..:? "totalNodes")
+            Prelude.<*> (x Data..:? "totalActuators")
+            Prelude.<*> (x Data..:? "totalAttributes")
+            Prelude.<*> (x Data..:? "totalBranches")
       )
 
 instance Prelude.Hashable NodeCounts where

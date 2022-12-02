@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,13 +87,13 @@ instance Core.AWSRequest GetFleet where
     Response.receiveJSON
       ( \s h x ->
           GetFleetResponse'
-            Prelude.<$> (x Core..?> "description")
+            Prelude.<$> (x Data..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "id")
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "signalCatalogArn")
-            Prelude.<*> (x Core..:> "creationTime")
-            Prelude.<*> (x Core..:> "lastModificationTime")
+            Prelude.<*> (x Data..:> "id")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "signalCatalogArn")
+            Prelude.<*> (x Data..:> "creationTime")
+            Prelude.<*> (x Data..:> "lastModificationTime")
       )
 
 instance Prelude.Hashable GetFleet where
@@ -102,32 +103,32 @@ instance Prelude.Hashable GetFleet where
 instance Prelude.NFData GetFleet where
   rnf GetFleet' {..} = Prelude.rnf fleetId
 
-instance Core.ToHeaders GetFleet where
+instance Data.ToHeaders GetFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.GetFleet" ::
+              Data.=# ( "IoTAutobahnControlPlane.GetFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetFleet where
+instance Data.ToJSON GetFleet where
   toJSON GetFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("fleetId" Core..= fleetId)]
+          [Prelude.Just ("fleetId" Data..= fleetId)]
       )
 
-instance Core.ToPath GetFleet where
+instance Data.ToPath GetFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetFleet where
+instance Data.ToQuery GetFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFleetResponse' smart constructor.
@@ -144,10 +145,10 @@ data GetFleetResponse = GetFleetResponse'
     signalCatalogArn :: Prelude.Text,
     -- | The time the fleet was created in seconds since epoch (January 1, 1970
     -- at midnight UTC time).
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The time the fleet was last updated, in seconds since epoch (January 1,
     -- 1970 at midnight UTC time).
-    lastModificationTime :: Core.POSIX
+    lastModificationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -201,9 +202,9 @@ newGetFleetResponse
         id = pId_,
         arn = pArn_,
         signalCatalogArn = pSignalCatalogArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModificationTime =
-          Core._Time Lens.# pLastModificationTime_
+          Data._Time Lens.# pLastModificationTime_
       }
 
 -- | A brief description of the fleet.
@@ -229,12 +230,12 @@ getFleetResponse_signalCatalogArn = Lens.lens (\GetFleetResponse' {signalCatalog
 -- | The time the fleet was created in seconds since epoch (January 1, 1970
 -- at midnight UTC time).
 getFleetResponse_creationTime :: Lens.Lens' GetFleetResponse Prelude.UTCTime
-getFleetResponse_creationTime = Lens.lens (\GetFleetResponse' {creationTime} -> creationTime) (\s@GetFleetResponse' {} a -> s {creationTime = a} :: GetFleetResponse) Prelude.. Core._Time
+getFleetResponse_creationTime = Lens.lens (\GetFleetResponse' {creationTime} -> creationTime) (\s@GetFleetResponse' {} a -> s {creationTime = a} :: GetFleetResponse) Prelude.. Data._Time
 
 -- | The time the fleet was last updated, in seconds since epoch (January 1,
 -- 1970 at midnight UTC time).
 getFleetResponse_lastModificationTime :: Lens.Lens' GetFleetResponse Prelude.UTCTime
-getFleetResponse_lastModificationTime = Lens.lens (\GetFleetResponse' {lastModificationTime} -> lastModificationTime) (\s@GetFleetResponse' {} a -> s {lastModificationTime = a} :: GetFleetResponse) Prelude.. Core._Time
+getFleetResponse_lastModificationTime = Lens.lens (\GetFleetResponse' {lastModificationTime} -> lastModificationTime) (\s@GetFleetResponse' {} a -> s {lastModificationTime = a} :: GetFleetResponse) Prelude.. Data._Time
 
 instance Prelude.NFData GetFleetResponse where
   rnf GetFleetResponse' {..} =

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListSignalCatalogs where
     Response.receiveJSON
       ( \s h x ->
           ListSignalCatalogsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "summaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "summaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,34 +158,34 @@ instance Prelude.NFData ListSignalCatalogs where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListSignalCatalogs where
+instance Data.ToHeaders ListSignalCatalogs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.ListSignalCatalogs" ::
+              Data.=# ( "IoTAutobahnControlPlane.ListSignalCatalogs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSignalCatalogs where
+instance Data.ToJSON ListSignalCatalogs where
   toJSON ListSignalCatalogs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListSignalCatalogs where
+instance Data.ToPath ListSignalCatalogs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSignalCatalogs where
+instance Data.ToQuery ListSignalCatalogs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSignalCatalogsResponse' smart constructor.

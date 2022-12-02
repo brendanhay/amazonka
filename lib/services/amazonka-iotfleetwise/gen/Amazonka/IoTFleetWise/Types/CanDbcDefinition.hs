@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.CanDbcDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configurations used to create a decoder manifest.
@@ -34,7 +35,7 @@ data CanDbcDefinition = CanDbcDefinition'
     networkInterface :: Prelude.Text,
     -- | A list of DBC files. You can upload only one DBC file for each network
     -- interface and specify up to five (inclusive) files in the list.
-    canDbcFiles :: Prelude.NonEmpty Core.Base64
+    canDbcFiles :: Prelude.NonEmpty Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,13 +93,13 @@ instance Prelude.NFData CanDbcDefinition where
       `Prelude.seq` Prelude.rnf networkInterface
       `Prelude.seq` Prelude.rnf canDbcFiles
 
-instance Core.ToJSON CanDbcDefinition where
+instance Data.ToJSON CanDbcDefinition where
   toJSON CanDbcDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("signalsMap" Core..=) Prelude.<$> signalsMap,
+          [ ("signalsMap" Data..=) Prelude.<$> signalsMap,
             Prelude.Just
-              ("networkInterface" Core..= networkInterface),
-            Prelude.Just ("canDbcFiles" Core..= canDbcFiles)
+              ("networkInterface" Data..= networkInterface),
+            Prelude.Just ("canDbcFiles" Data..= canDbcFiles)
           ]
       )

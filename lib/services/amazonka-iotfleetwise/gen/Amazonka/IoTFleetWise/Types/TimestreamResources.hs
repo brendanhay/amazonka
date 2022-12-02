@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.TimestreamResources where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The registered Amazon Timestream resources that Amazon Web Services IoT
@@ -69,14 +70,14 @@ timestreamResources_timestreamDatabaseName = Lens.lens (\TimestreamResources' {t
 timestreamResources_timestreamTableName :: Lens.Lens' TimestreamResources Prelude.Text
 timestreamResources_timestreamTableName = Lens.lens (\TimestreamResources' {timestreamTableName} -> timestreamTableName) (\s@TimestreamResources' {} a -> s {timestreamTableName = a} :: TimestreamResources)
 
-instance Core.FromJSON TimestreamResources where
+instance Data.FromJSON TimestreamResources where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimestreamResources"
       ( \x ->
           TimestreamResources'
-            Prelude.<$> (x Core..: "timestreamDatabaseName")
-            Prelude.<*> (x Core..: "timestreamTableName")
+            Prelude.<$> (x Data..: "timestreamDatabaseName")
+            Prelude.<*> (x Data..: "timestreamTableName")
       )
 
 instance Prelude.Hashable TimestreamResources where
@@ -89,15 +90,15 @@ instance Prelude.NFData TimestreamResources where
     Prelude.rnf timestreamDatabaseName
       `Prelude.seq` Prelude.rnf timestreamTableName
 
-instance Core.ToJSON TimestreamResources where
+instance Data.ToJSON TimestreamResources where
   toJSON TimestreamResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "timestreamDatabaseName"
-                  Core..= timestreamDatabaseName
+                  Data..= timestreamDatabaseName
               ),
             Prelude.Just
-              ("timestreamTableName" Core..= timestreamTableName)
+              ("timestreamTableName" Data..= timestreamTableName)
           ]
       )

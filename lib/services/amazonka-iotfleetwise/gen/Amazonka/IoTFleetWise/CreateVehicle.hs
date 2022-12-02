@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,9 +170,9 @@ instance Core.AWSRequest CreateVehicle where
     Response.receiveJSON
       ( \s h x ->
           CreateVehicleResponse'
-            Prelude.<$> (x Core..?> "thingArn")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "vehicleName")
+            Prelude.<$> (x Data..?> "thingArn")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "vehicleName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,41 +194,41 @@ instance Prelude.NFData CreateVehicle where
       `Prelude.seq` Prelude.rnf modelManifestArn
       `Prelude.seq` Prelude.rnf decoderManifestArn
 
-instance Core.ToHeaders CreateVehicle where
+instance Data.ToHeaders CreateVehicle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.CreateVehicle" ::
+              Data.=# ( "IoTAutobahnControlPlane.CreateVehicle" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVehicle where
+instance Data.ToJSON CreateVehicle where
   toJSON CreateVehicle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("attributes" Core..=) Prelude.<$> attributes,
-            ("associationBehavior" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("attributes" Data..=) Prelude.<$> attributes,
+            ("associationBehavior" Data..=)
               Prelude.<$> associationBehavior,
-            Prelude.Just ("vehicleName" Core..= vehicleName),
+            Prelude.Just ("vehicleName" Data..= vehicleName),
             Prelude.Just
-              ("modelManifestArn" Core..= modelManifestArn),
+              ("modelManifestArn" Data..= modelManifestArn),
             Prelude.Just
-              ("decoderManifestArn" Core..= decoderManifestArn)
+              ("decoderManifestArn" Data..= decoderManifestArn)
           ]
       )
 
-instance Core.ToPath CreateVehicle where
+instance Data.ToPath CreateVehicle where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVehicle where
+instance Data.ToQuery CreateVehicle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVehicleResponse' smart constructor.

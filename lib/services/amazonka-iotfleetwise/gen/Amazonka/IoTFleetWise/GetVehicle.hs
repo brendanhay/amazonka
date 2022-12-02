@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,13 +88,13 @@ instance Core.AWSRequest GetVehicle where
     Response.receiveJSON
       ( \s h x ->
           GetVehicleResponse'
-            Prelude.<$> (x Core..?> "lastModificationTime")
-            Prelude.<*> (x Core..?> "modelManifestArn")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "vehicleName")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "attributes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "decoderManifestArn")
+            Prelude.<$> (x Data..?> "lastModificationTime")
+            Prelude.<*> (x Data..?> "modelManifestArn")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "vehicleName")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "decoderManifestArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,39 +105,39 @@ instance Prelude.Hashable GetVehicle where
 instance Prelude.NFData GetVehicle where
   rnf GetVehicle' {..} = Prelude.rnf vehicleName
 
-instance Core.ToHeaders GetVehicle where
+instance Data.ToHeaders GetVehicle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.GetVehicle" ::
+              Data.=# ( "IoTAutobahnControlPlane.GetVehicle" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetVehicle where
+instance Data.ToJSON GetVehicle where
   toJSON GetVehicle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("vehicleName" Core..= vehicleName)]
+          [Prelude.Just ("vehicleName" Data..= vehicleName)]
       )
 
-instance Core.ToPath GetVehicle where
+instance Data.ToPath GetVehicle where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetVehicle where
+instance Data.ToQuery GetVehicle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetVehicleResponse' smart constructor.
 data GetVehicleResponse = GetVehicleResponse'
   { -- | The time the vehicle was last updated in seconds since epoch (January 1,
     -- 1970 at midnight UTC time).
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of a vehicle model (model manifest) associated with the vehicle.
     modelManifestArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the vehicle to retrieve information
@@ -146,7 +147,7 @@ data GetVehicleResponse = GetVehicleResponse'
     vehicleName :: Prelude.Maybe Prelude.Text,
     -- | The time the vehicle was created in seconds since epoch (January 1, 1970
     -- at midnight UTC time).
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Static information about a vehicle in a key-value pair. For example:
     --
     -- @\"engineType\"@ : @\"1.3 L R2\"@
@@ -206,7 +207,7 @@ newGetVehicleResponse pHttpStatus_ =
 -- | The time the vehicle was last updated in seconds since epoch (January 1,
 -- 1970 at midnight UTC time).
 getVehicleResponse_lastModificationTime :: Lens.Lens' GetVehicleResponse (Prelude.Maybe Prelude.UTCTime)
-getVehicleResponse_lastModificationTime = Lens.lens (\GetVehicleResponse' {lastModificationTime} -> lastModificationTime) (\s@GetVehicleResponse' {} a -> s {lastModificationTime = a} :: GetVehicleResponse) Prelude.. Lens.mapping Core._Time
+getVehicleResponse_lastModificationTime = Lens.lens (\GetVehicleResponse' {lastModificationTime} -> lastModificationTime) (\s@GetVehicleResponse' {} a -> s {lastModificationTime = a} :: GetVehicleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of a vehicle model (model manifest) associated with the vehicle.
 getVehicleResponse_modelManifestArn :: Lens.Lens' GetVehicleResponse (Prelude.Maybe Prelude.Text)
@@ -224,7 +225,7 @@ getVehicleResponse_vehicleName = Lens.lens (\GetVehicleResponse' {vehicleName} -
 -- | The time the vehicle was created in seconds since epoch (January 1, 1970
 -- at midnight UTC time).
 getVehicleResponse_creationTime :: Lens.Lens' GetVehicleResponse (Prelude.Maybe Prelude.UTCTime)
-getVehicleResponse_creationTime = Lens.lens (\GetVehicleResponse' {creationTime} -> creationTime) (\s@GetVehicleResponse' {} a -> s {creationTime = a} :: GetVehicleResponse) Prelude.. Lens.mapping Core._Time
+getVehicleResponse_creationTime = Lens.lens (\GetVehicleResponse' {creationTime} -> creationTime) (\s@GetVehicleResponse' {} a -> s {creationTime = a} :: GetVehicleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Static information about a vehicle in a key-value pair. For example:
 --

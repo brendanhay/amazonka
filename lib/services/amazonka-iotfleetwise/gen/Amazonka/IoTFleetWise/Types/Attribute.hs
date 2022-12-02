@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.Attribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.NodeDataType
 import qualified Amazonka.Prelude as Prelude
 
@@ -133,21 +134,21 @@ attribute_fullyQualifiedName = Lens.lens (\Attribute' {fullyQualifiedName} -> fu
 attribute_dataType :: Lens.Lens' Attribute NodeDataType
 attribute_dataType = Lens.lens (\Attribute' {dataType} -> dataType) (\s@Attribute' {} a -> s {dataType = a} :: Attribute)
 
-instance Core.FromJSON Attribute where
+instance Data.FromJSON Attribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Attribute"
       ( \x ->
           Attribute'
-            Prelude.<$> (x Core..:? "max")
-            Prelude.<*> (x Core..:? "defaultValue")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "min")
-            Prelude.<*> (x Core..:? "assignedValue")
-            Prelude.<*> (x Core..:? "allowedValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "unit")
-            Prelude.<*> (x Core..: "fullyQualifiedName")
-            Prelude.<*> (x Core..: "dataType")
+            Prelude.<$> (x Data..:? "max")
+            Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "min")
+            Prelude.<*> (x Data..:? "assignedValue")
+            Prelude.<*> (x Data..:? "allowedValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "unit")
+            Prelude.<*> (x Data..: "fullyQualifiedName")
+            Prelude.<*> (x Data..: "dataType")
       )
 
 instance Prelude.Hashable Attribute where
@@ -174,19 +175,19 @@ instance Prelude.NFData Attribute where
       `Prelude.seq` Prelude.rnf fullyQualifiedName
       `Prelude.seq` Prelude.rnf dataType
 
-instance Core.ToJSON Attribute where
+instance Data.ToJSON Attribute where
   toJSON Attribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("max" Core..=) Prelude.<$> max,
-            ("defaultValue" Core..=) Prelude.<$> defaultValue,
-            ("description" Core..=) Prelude.<$> description,
-            ("min" Core..=) Prelude.<$> min,
-            ("assignedValue" Core..=) Prelude.<$> assignedValue,
-            ("allowedValues" Core..=) Prelude.<$> allowedValues,
-            ("unit" Core..=) Prelude.<$> unit,
+          [ ("max" Data..=) Prelude.<$> max,
+            ("defaultValue" Data..=) Prelude.<$> defaultValue,
+            ("description" Data..=) Prelude.<$> description,
+            ("min" Data..=) Prelude.<$> min,
+            ("assignedValue" Data..=) Prelude.<$> assignedValue,
+            ("allowedValues" Data..=) Prelude.<$> allowedValues,
+            ("unit" Data..=) Prelude.<$> unit,
             Prelude.Just
-              ("fullyQualifiedName" Core..= fullyQualifiedName),
-            Prelude.Just ("dataType" Core..= dataType)
+              ("fullyQualifiedName" Data..= fullyQualifiedName),
+            Prelude.Just ("dataType" Data..= dataType)
           ]
       )

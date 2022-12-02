@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.CloudWatchLogDeliveryOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.LogType
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ cloudWatchLogDeliveryOptions_logGroupName = Lens.lens (\CloudWatchLogDeliveryOpt
 cloudWatchLogDeliveryOptions_logType :: Lens.Lens' CloudWatchLogDeliveryOptions LogType
 cloudWatchLogDeliveryOptions_logType = Lens.lens (\CloudWatchLogDeliveryOptions' {logType} -> logType) (\s@CloudWatchLogDeliveryOptions' {} a -> s {logType = a} :: CloudWatchLogDeliveryOptions)
 
-instance Core.FromJSON CloudWatchLogDeliveryOptions where
+instance Data.FromJSON CloudWatchLogDeliveryOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchLogDeliveryOptions"
       ( \x ->
           CloudWatchLogDeliveryOptions'
-            Prelude.<$> (x Core..:? "logGroupName")
-            Prelude.<*> (x Core..: "logType")
+            Prelude.<$> (x Data..:? "logGroupName")
+            Prelude.<*> (x Data..: "logType")
       )
 
 instance
@@ -88,11 +89,11 @@ instance Prelude.NFData CloudWatchLogDeliveryOptions where
     Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf logType
 
-instance Core.ToJSON CloudWatchLogDeliveryOptions where
+instance Data.ToJSON CloudWatchLogDeliveryOptions where
   toJSON CloudWatchLogDeliveryOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("logGroupName" Core..=) Prelude.<$> logGroupName,
-            Prelude.Just ("logType" Core..= logType)
+          [ ("logGroupName" Data..=) Prelude.<$> logGroupName,
+            Prelude.Just ("logType" Data..= logType)
           ]
       )

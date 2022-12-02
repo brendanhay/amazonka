@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,8 +90,8 @@ instance Core.AWSRequest DeleteDecoderManifest where
       ( \s h x ->
           DeleteDecoderManifestResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable DeleteDecoderManifest where
@@ -100,32 +101,32 @@ instance Prelude.Hashable DeleteDecoderManifest where
 instance Prelude.NFData DeleteDecoderManifest where
   rnf DeleteDecoderManifest' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteDecoderManifest where
+instance Data.ToHeaders DeleteDecoderManifest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.DeleteDecoderManifest" ::
+              Data.=# ( "IoTAutobahnControlPlane.DeleteDecoderManifest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDecoderManifest where
+instance Data.ToJSON DeleteDecoderManifest where
   toJSON DeleteDecoderManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath DeleteDecoderManifest where
+instance Data.ToPath DeleteDecoderManifest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDecoderManifest where
+instance Data.ToQuery DeleteDecoderManifest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDecoderManifestResponse' smart constructor.

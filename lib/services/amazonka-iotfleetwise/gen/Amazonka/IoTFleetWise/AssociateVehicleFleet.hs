@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,34 +110,34 @@ instance Prelude.NFData AssociateVehicleFleet where
     Prelude.rnf vehicleName
       `Prelude.seq` Prelude.rnf fleetId
 
-instance Core.ToHeaders AssociateVehicleFleet where
+instance Data.ToHeaders AssociateVehicleFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.AssociateVehicleFleet" ::
+              Data.=# ( "IoTAutobahnControlPlane.AssociateVehicleFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateVehicleFleet where
+instance Data.ToJSON AssociateVehicleFleet where
   toJSON AssociateVehicleFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("vehicleName" Core..= vehicleName),
-            Prelude.Just ("fleetId" Core..= fleetId)
+          [ Prelude.Just ("vehicleName" Data..= vehicleName),
+            Prelude.Just ("fleetId" Data..= fleetId)
           ]
       )
 
-instance Core.ToPath AssociateVehicleFleet where
+instance Data.ToPath AssociateVehicleFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateVehicleFleet where
+instance Data.ToQuery AssociateVehicleFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateVehicleFleetResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.CanInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single controller area network (CAN) device interface.
@@ -72,15 +73,15 @@ canInterface_protocolVersion = Lens.lens (\CanInterface' {protocolVersion} -> pr
 canInterface_name :: Lens.Lens' CanInterface Prelude.Text
 canInterface_name = Lens.lens (\CanInterface' {name} -> name) (\s@CanInterface' {} a -> s {name = a} :: CanInterface)
 
-instance Core.FromJSON CanInterface where
+instance Data.FromJSON CanInterface where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CanInterface"
       ( \x ->
           CanInterface'
-            Prelude.<$> (x Core..:? "protocolName")
-            Prelude.<*> (x Core..:? "protocolVersion")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "protocolName")
+            Prelude.<*> (x Data..:? "protocolVersion")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable CanInterface where
@@ -95,13 +96,13 @@ instance Prelude.NFData CanInterface where
       `Prelude.seq` Prelude.rnf protocolVersion
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON CanInterface where
+instance Data.ToJSON CanInterface where
   toJSON CanInterface' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("protocolName" Core..=) Prelude.<$> protocolName,
-            ("protocolVersion" Core..=)
+          [ ("protocolName" Data..=) Prelude.<$> protocolName,
+            ("protocolVersion" Data..=)
               Prelude.<$> protocolVersion,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Data..= name)
           ]
       )

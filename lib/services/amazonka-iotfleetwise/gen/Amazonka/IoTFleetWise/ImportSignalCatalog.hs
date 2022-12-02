@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,8 +125,8 @@ instance Core.AWSRequest ImportSignalCatalog where
       ( \s h x ->
           ImportSignalCatalogResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable ImportSignalCatalog where
@@ -142,36 +143,36 @@ instance Prelude.NFData ImportSignalCatalog where
       `Prelude.seq` Prelude.rnf vss
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders ImportSignalCatalog where
+instance Data.ToHeaders ImportSignalCatalog where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.ImportSignalCatalog" ::
+              Data.=# ( "IoTAutobahnControlPlane.ImportSignalCatalog" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportSignalCatalog where
+instance Data.ToJSON ImportSignalCatalog where
   toJSON ImportSignalCatalog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            ("vss" Core..=) Prelude.<$> vss,
-            Prelude.Just ("name" Core..= name)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            ("vss" Data..=) Prelude.<$> vss,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath ImportSignalCatalog where
+instance Data.ToPath ImportSignalCatalog where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportSignalCatalog where
+instance Data.ToQuery ImportSignalCatalog where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportSignalCatalogResponse' smart constructor.

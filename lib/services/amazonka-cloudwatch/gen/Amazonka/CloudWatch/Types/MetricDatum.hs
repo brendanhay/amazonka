@@ -24,6 +24,7 @@ import Amazonka.CloudWatch.Types.StandardUnit
 import Amazonka.CloudWatch.Types.StatisticSet
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encapsulates the information sent to either create a metric or add new
@@ -37,7 +38,7 @@ data MetricDatum = MetricDatum'
     dimensions :: Prelude.Maybe [Dimension],
     -- | The time the metric data was received, expressed as the number of
     -- milliseconds since Jan 1, 1970 00:00:00 UTC.
-    timestamp :: Prelude.Maybe Core.ISO8601,
+    timestamp :: Prelude.Maybe Data.ISO8601,
     -- | Array of numbers that is used along with the @Values@ array. Each number
     -- in the @Count@ array is the number of times the corresponding value in
     -- the @Values@ array occurred during the period.
@@ -175,7 +176,7 @@ metricDatum_dimensions = Lens.lens (\MetricDatum' {dimensions} -> dimensions) (\
 -- | The time the metric data was received, expressed as the number of
 -- milliseconds since Jan 1, 1970 00:00:00 UTC.
 metricDatum_timestamp :: Lens.Lens' MetricDatum (Prelude.Maybe Prelude.UTCTime)
-metricDatum_timestamp = Lens.lens (\MetricDatum' {timestamp} -> timestamp) (\s@MetricDatum' {} a -> s {timestamp = a} :: MetricDatum) Prelude.. Lens.mapping Core._Time
+metricDatum_timestamp = Lens.lens (\MetricDatum' {timestamp} -> timestamp) (\s@MetricDatum' {} a -> s {timestamp = a} :: MetricDatum) Prelude.. Lens.mapping Data._Time
 
 -- | Array of numbers that is used along with the @Values@ array. Each number
 -- in the @Count@ array is the number of times the corresponding value in
@@ -259,22 +260,22 @@ instance Prelude.NFData MetricDatum where
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf metricName
 
-instance Core.ToQuery MetricDatum where
+instance Data.ToQuery MetricDatum where
   toQuery MetricDatum' {..} =
     Prelude.mconcat
-      [ "StatisticValues" Core.=: statisticValues,
+      [ "StatisticValues" Data.=: statisticValues,
         "Dimensions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> dimensions),
-        "Timestamp" Core.=: timestamp,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> dimensions),
+        "Timestamp" Data.=: timestamp,
         "Counts"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> counts),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> counts),
         "Values"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> values),
-        "Unit" Core.=: unit,
-        "StorageResolution" Core.=: storageResolution,
-        "Value" Core.=: value,
-        "MetricName" Core.=: metricName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> values),
+        "Unit" Data.=: unit,
+        "StorageResolution" Data.=: storageResolution,
+        "Value" Data.=: value,
+        "MetricName" Data.=: metricName
       ]

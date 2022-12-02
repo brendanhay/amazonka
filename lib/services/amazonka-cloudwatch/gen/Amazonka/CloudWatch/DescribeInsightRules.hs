@@ -47,6 +47,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,9 +105,9 @@ instance Core.AWSRequest DescribeInsightRules where
       "DescribeInsightRulesResult"
       ( \s h x ->
           DescribeInsightRulesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "InsightRules" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "InsightRules" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -121,21 +122,21 @@ instance Prelude.NFData DescribeInsightRules where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeInsightRules where
+instance Data.ToHeaders DescribeInsightRules where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeInsightRules where
+instance Data.ToPath DescribeInsightRules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInsightRules where
+instance Data.ToQuery DescribeInsightRules where
   toQuery DescribeInsightRules' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeInsightRules" :: Prelude.ByteString),
+          Data.=: ("DescribeInsightRules" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeInsightRulesResponse' smart constructor.

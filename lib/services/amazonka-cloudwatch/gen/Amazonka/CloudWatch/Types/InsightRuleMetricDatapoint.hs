@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | One data point from the metric time series returned in a Contributor
@@ -74,7 +75,7 @@ data InsightRuleMetricDatapoint = InsightRuleMetricDatapoint'
     -- array in your request.
     maximum :: Prelude.Maybe Prelude.Double,
     -- | The timestamp of the data point.
-    timestamp :: Core.ISO8601
+    timestamp :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -143,7 +144,7 @@ newInsightRuleMetricDatapoint pTimestamp_ =
       uniqueContributors = Prelude.Nothing,
       sum = Prelude.Nothing,
       maximum = Prelude.Nothing,
-      timestamp = Core._Time Lens.# pTimestamp_
+      timestamp = Data._Time Lens.# pTimestamp_
     }
 
 -- | The minimum value from a single contributor during the time period
@@ -204,19 +205,19 @@ insightRuleMetricDatapoint_maximum = Lens.lens (\InsightRuleMetricDatapoint' {ma
 
 -- | The timestamp of the data point.
 insightRuleMetricDatapoint_timestamp :: Lens.Lens' InsightRuleMetricDatapoint Prelude.UTCTime
-insightRuleMetricDatapoint_timestamp = Lens.lens (\InsightRuleMetricDatapoint' {timestamp} -> timestamp) (\s@InsightRuleMetricDatapoint' {} a -> s {timestamp = a} :: InsightRuleMetricDatapoint) Prelude.. Core._Time
+insightRuleMetricDatapoint_timestamp = Lens.lens (\InsightRuleMetricDatapoint' {timestamp} -> timestamp) (\s@InsightRuleMetricDatapoint' {} a -> s {timestamp = a} :: InsightRuleMetricDatapoint) Prelude.. Data._Time
 
-instance Core.FromXML InsightRuleMetricDatapoint where
+instance Data.FromXML InsightRuleMetricDatapoint where
   parseXML x =
     InsightRuleMetricDatapoint'
-      Prelude.<$> (x Core..@? "Minimum")
-      Prelude.<*> (x Core..@? "MaxContributorValue")
-      Prelude.<*> (x Core..@? "Average")
-      Prelude.<*> (x Core..@? "SampleCount")
-      Prelude.<*> (x Core..@? "UniqueContributors")
-      Prelude.<*> (x Core..@? "Sum")
-      Prelude.<*> (x Core..@? "Maximum")
-      Prelude.<*> (x Core..@ "Timestamp")
+      Prelude.<$> (x Data..@? "Minimum")
+      Prelude.<*> (x Data..@? "MaxContributorValue")
+      Prelude.<*> (x Data..@? "Average")
+      Prelude.<*> (x Data..@? "SampleCount")
+      Prelude.<*> (x Data..@? "UniqueContributors")
+      Prelude.<*> (x Data..@? "Sum")
+      Prelude.<*> (x Data..@? "Maximum")
+      Prelude.<*> (x Data..@ "Timestamp")
 
 instance Prelude.Hashable InsightRuleMetricDatapoint where
   hashWithSalt _salt InsightRuleMetricDatapoint' {..} =

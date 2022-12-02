@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.MetricStreamFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains the name of one of the metric namespaces that is
@@ -51,10 +52,10 @@ newMetricStreamFilter =
 metricStreamFilter_namespace :: Lens.Lens' MetricStreamFilter (Prelude.Maybe Prelude.Text)
 metricStreamFilter_namespace = Lens.lens (\MetricStreamFilter' {namespace} -> namespace) (\s@MetricStreamFilter' {} a -> s {namespace = a} :: MetricStreamFilter)
 
-instance Core.FromXML MetricStreamFilter where
+instance Data.FromXML MetricStreamFilter where
   parseXML x =
     MetricStreamFilter'
-      Prelude.<$> (x Core..@? "Namespace")
+      Prelude.<$> (x Data..@? "Namespace")
 
 instance Prelude.Hashable MetricStreamFilter where
   hashWithSalt _salt MetricStreamFilter' {..} =
@@ -63,6 +64,6 @@ instance Prelude.Hashable MetricStreamFilter where
 instance Prelude.NFData MetricStreamFilter where
   rnf MetricStreamFilter' {..} = Prelude.rnf namespace
 
-instance Core.ToQuery MetricStreamFilter where
+instance Data.ToQuery MetricStreamFilter where
   toQuery MetricStreamFilter' {..} =
-    Prelude.mconcat ["Namespace" Core.=: namespace]
+    Prelude.mconcat ["Namespace" Data.=: namespace]

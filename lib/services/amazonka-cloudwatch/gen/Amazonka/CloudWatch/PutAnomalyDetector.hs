@@ -52,6 +52,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -287,30 +288,30 @@ instance Prelude.NFData PutAnomalyDetector where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToHeaders PutAnomalyDetector where
+instance Data.ToHeaders PutAnomalyDetector where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutAnomalyDetector where
+instance Data.ToPath PutAnomalyDetector where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutAnomalyDetector where
+instance Data.ToQuery PutAnomalyDetector where
   toQuery PutAnomalyDetector' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutAnomalyDetector" :: Prelude.ByteString),
+          Data.=: ("PutAnomalyDetector" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
         "SingleMetricAnomalyDetector"
-          Core.=: singleMetricAnomalyDetector,
-        "Configuration" Core.=: configuration,
+          Data.=: singleMetricAnomalyDetector,
+        "Configuration" Data.=: configuration,
         "Dimensions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> dimensions),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> dimensions),
         "MetricMathAnomalyDetector"
-          Core.=: metricMathAnomalyDetector,
-        "Stat" Core.=: stat,
-        "MetricName" Core.=: metricName,
-        "Namespace" Core.=: namespace
+          Data.=: metricMathAnomalyDetector,
+        "Stat" Data.=: stat,
+        "MetricName" Data.=: metricName,
+        "Namespace" Data.=: namespace
       ]
 
 -- | /See:/ 'newPutAnomalyDetectorResponse' smart constructor.

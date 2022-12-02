@@ -46,6 +46,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,8 +93,8 @@ instance Core.AWSRequest DeleteInsightRules where
       "DeleteInsightRulesResult"
       ( \s h x ->
           DeleteInsightRulesResponse'
-            Prelude.<$> ( x Core..@? "Failures" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Failures" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -105,21 +106,21 @@ instance Prelude.Hashable DeleteInsightRules where
 instance Prelude.NFData DeleteInsightRules where
   rnf DeleteInsightRules' {..} = Prelude.rnf ruleNames
 
-instance Core.ToHeaders DeleteInsightRules where
+instance Data.ToHeaders DeleteInsightRules where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteInsightRules where
+instance Data.ToPath DeleteInsightRules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteInsightRules where
+instance Data.ToQuery DeleteInsightRules where
   toQuery DeleteInsightRules' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteInsightRules" :: Prelude.ByteString),
+          Data.=: ("DeleteInsightRules" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
         "RuleNames"
-          Core.=: Core.toQueryList "member" ruleNames
+          Data.=: Data.toQueryList "member" ruleNames
       ]
 
 -- | /See:/ 'newDeleteInsightRulesResponse' smart constructor.

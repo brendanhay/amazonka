@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.DimensionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents filters for a dimension.
@@ -72,7 +73,7 @@ instance Prelude.NFData DimensionFilter where
   rnf DimensionFilter' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
-instance Core.ToQuery DimensionFilter where
+instance Data.ToQuery DimensionFilter where
   toQuery DimensionFilter' {..} =
     Prelude.mconcat
-      ["Value" Core.=: value, "Name" Core.=: name]
+      ["Value" Data.=: value, "Name" Data.=: name]

@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.MessageData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A message returned by the @GetMetricData@API, including a code and a
@@ -68,10 +69,10 @@ messageData_code = Lens.lens (\MessageData' {code} -> code) (\s@MessageData' {} 
 messageData_value :: Lens.Lens' MessageData (Prelude.Maybe Prelude.Text)
 messageData_value = Lens.lens (\MessageData' {value} -> value) (\s@MessageData' {} a -> s {value = a} :: MessageData)
 
-instance Core.FromXML MessageData where
+instance Data.FromXML MessageData where
   parseXML x =
     MessageData'
-      Prelude.<$> (x Core..@? "Code") Prelude.<*> (x Core..@? "Value")
+      Prelude.<$> (x Data..@? "Code") Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable MessageData where
   hashWithSalt _salt MessageData' {..} =

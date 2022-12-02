@@ -49,6 +49,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -264,29 +265,29 @@ instance Prelude.NFData DeleteAnomalyDetector where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToHeaders DeleteAnomalyDetector where
+instance Data.ToHeaders DeleteAnomalyDetector where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAnomalyDetector where
+instance Data.ToPath DeleteAnomalyDetector where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAnomalyDetector where
+instance Data.ToQuery DeleteAnomalyDetector where
   toQuery DeleteAnomalyDetector' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteAnomalyDetector" :: Prelude.ByteString),
+          Data.=: ("DeleteAnomalyDetector" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
         "SingleMetricAnomalyDetector"
-          Core.=: singleMetricAnomalyDetector,
+          Data.=: singleMetricAnomalyDetector,
         "Dimensions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> dimensions),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> dimensions),
         "MetricMathAnomalyDetector"
-          Core.=: metricMathAnomalyDetector,
-        "Stat" Core.=: stat,
-        "MetricName" Core.=: metricName,
-        "Namespace" Core.=: namespace
+          Data.=: metricMathAnomalyDetector,
+        "Stat" Data.=: stat,
+        "MetricName" Data.=: metricName,
+        "Namespace" Data.=: namespace
       ]
 
 -- | /See:/ 'newDeleteAnomalyDetectorResponse' smart constructor.

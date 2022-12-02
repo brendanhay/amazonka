@@ -22,6 +22,7 @@ module Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration where
 import Amazonka.CloudWatch.Types.Range
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration specifies details about how the anomaly detection
@@ -92,13 +93,13 @@ anomalyDetectorConfiguration_metricTimezone = Lens.lens (\AnomalyDetectorConfigu
 anomalyDetectorConfiguration_excludedTimeRanges :: Lens.Lens' AnomalyDetectorConfiguration (Prelude.Maybe [Range])
 anomalyDetectorConfiguration_excludedTimeRanges = Lens.lens (\AnomalyDetectorConfiguration' {excludedTimeRanges} -> excludedTimeRanges) (\s@AnomalyDetectorConfiguration' {} a -> s {excludedTimeRanges = a} :: AnomalyDetectorConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML AnomalyDetectorConfiguration where
+instance Data.FromXML AnomalyDetectorConfiguration where
   parseXML x =
     AnomalyDetectorConfiguration'
-      Prelude.<$> (x Core..@? "MetricTimezone")
-      Prelude.<*> ( x Core..@? "ExcludedTimeRanges"
+      Prelude.<$> (x Data..@? "MetricTimezone")
+      Prelude.<*> ( x Data..@? "ExcludedTimeRanges"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance
@@ -114,13 +115,13 @@ instance Prelude.NFData AnomalyDetectorConfiguration where
     Prelude.rnf metricTimezone
       `Prelude.seq` Prelude.rnf excludedTimeRanges
 
-instance Core.ToQuery AnomalyDetectorConfiguration where
+instance Data.ToQuery AnomalyDetectorConfiguration where
   toQuery AnomalyDetectorConfiguration' {..} =
     Prelude.mconcat
-      [ "MetricTimezone" Core.=: metricTimezone,
+      [ "MetricTimezone" Data.=: metricTimezone,
         "ExcludedTimeRanges"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> excludedTimeRanges
             )
       ]

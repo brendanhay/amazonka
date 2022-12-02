@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.DashboardEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a specific dashboard.
@@ -32,7 +33,7 @@ data DashboardEntry = DashboardEntry'
     -- | The time stamp of when the dashboard was last modified, either by an API
     -- call or through the console. This number is expressed as the number of
     -- milliseconds since Jan 1, 1970 00:00:00 UTC.
-    lastModified :: Prelude.Maybe Core.ISO8601,
+    lastModified :: Prelude.Maybe Data.ISO8601,
     -- | The name of the dashboard.
     dashboardName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the dashboard.
@@ -75,7 +76,7 @@ dashboardEntry_size = Lens.lens (\DashboardEntry' {size} -> size) (\s@DashboardE
 -- call or through the console. This number is expressed as the number of
 -- milliseconds since Jan 1, 1970 00:00:00 UTC.
 dashboardEntry_lastModified :: Lens.Lens' DashboardEntry (Prelude.Maybe Prelude.UTCTime)
-dashboardEntry_lastModified = Lens.lens (\DashboardEntry' {lastModified} -> lastModified) (\s@DashboardEntry' {} a -> s {lastModified = a} :: DashboardEntry) Prelude.. Lens.mapping Core._Time
+dashboardEntry_lastModified = Lens.lens (\DashboardEntry' {lastModified} -> lastModified) (\s@DashboardEntry' {} a -> s {lastModified = a} :: DashboardEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the dashboard.
 dashboardEntry_dashboardName :: Lens.Lens' DashboardEntry (Prelude.Maybe Prelude.Text)
@@ -85,13 +86,13 @@ dashboardEntry_dashboardName = Lens.lens (\DashboardEntry' {dashboardName} -> da
 dashboardEntry_dashboardArn :: Lens.Lens' DashboardEntry (Prelude.Maybe Prelude.Text)
 dashboardEntry_dashboardArn = Lens.lens (\DashboardEntry' {dashboardArn} -> dashboardArn) (\s@DashboardEntry' {} a -> s {dashboardArn = a} :: DashboardEntry)
 
-instance Core.FromXML DashboardEntry where
+instance Data.FromXML DashboardEntry where
   parseXML x =
     DashboardEntry'
-      Prelude.<$> (x Core..@? "Size")
-      Prelude.<*> (x Core..@? "LastModified")
-      Prelude.<*> (x Core..@? "DashboardName")
-      Prelude.<*> (x Core..@? "DashboardArn")
+      Prelude.<$> (x Data..@? "Size")
+      Prelude.<*> (x Data..@? "LastModified")
+      Prelude.<*> (x Data..@? "DashboardName")
+      Prelude.<*> (x Data..@? "DashboardArn")
 
 instance Prelude.Hashable DashboardEntry where
   hashWithSalt _salt DashboardEntry' {..} =

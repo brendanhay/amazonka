@@ -46,6 +46,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,9 +119,9 @@ instance Core.AWSRequest ListManagedInsightRules where
       "ListManagedInsightRulesResult"
       ( \s h x ->
           ListManagedInsightRulesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "ManagedRules" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "ManagedRules" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -137,22 +138,22 @@ instance Prelude.NFData ListManagedInsightRules where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceARN
 
-instance Core.ToHeaders ListManagedInsightRules where
+instance Data.ToHeaders ListManagedInsightRules where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListManagedInsightRules where
+instance Data.ToPath ListManagedInsightRules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListManagedInsightRules where
+instance Data.ToQuery ListManagedInsightRules where
   toQuery ListManagedInsightRules' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListManagedInsightRules" :: Prelude.ByteString),
+          Data.=: ("ListManagedInsightRules" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "ResourceARN" Core.=: resourceARN
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults,
+        "ResourceARN" Data.=: resourceARN
       ]
 
 -- | /See:/ 'newListManagedInsightRulesResponse' smart constructor.

@@ -54,6 +54,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,8 +168,8 @@ instance Core.AWSRequest DescribeAlarmsForMetric where
       "DescribeAlarmsForMetricResult"
       ( \s h x ->
           DescribeAlarmsForMetricResponse'
-            Prelude.<$> ( x Core..@? "MetricAlarms" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "MetricAlarms" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -193,28 +194,28 @@ instance Prelude.NFData DescribeAlarmsForMetric where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToHeaders DescribeAlarmsForMetric where
+instance Data.ToHeaders DescribeAlarmsForMetric where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAlarmsForMetric where
+instance Data.ToPath DescribeAlarmsForMetric where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAlarmsForMetric where
+instance Data.ToQuery DescribeAlarmsForMetric where
   toQuery DescribeAlarmsForMetric' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAlarmsForMetric" :: Prelude.ByteString),
+          Data.=: ("DescribeAlarmsForMetric" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "ExtendedStatistic" Core.=: extendedStatistic,
-        "Period" Core.=: period,
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "ExtendedStatistic" Data.=: extendedStatistic,
+        "Period" Data.=: period,
         "Dimensions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> dimensions),
-        "Statistic" Core.=: statistic,
-        "Unit" Core.=: unit,
-        "MetricName" Core.=: metricName,
-        "Namespace" Core.=: namespace
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> dimensions),
+        "Statistic" Data.=: statistic,
+        "Unit" Data.=: unit,
+        "MetricName" Data.=: metricName,
+        "Namespace" Data.=: namespace
       ]
 
 -- | /See:/ 'newDescribeAlarmsForMetricResponse' smart constructor.

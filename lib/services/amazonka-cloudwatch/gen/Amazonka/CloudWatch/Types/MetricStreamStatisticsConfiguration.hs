@@ -22,6 +22,7 @@ module Amazonka.CloudWatch.Types.MetricStreamStatisticsConfiguration where
 import Amazonka.CloudWatch.Types.MetricStreamStatisticsMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | By default, a metric stream always sends the @MAX@, @MIN@, @SUM@, and
@@ -117,17 +118,17 @@ metricStreamStatisticsConfiguration_additionalStatistics :: Lens.Lens' MetricStr
 metricStreamStatisticsConfiguration_additionalStatistics = Lens.lens (\MetricStreamStatisticsConfiguration' {additionalStatistics} -> additionalStatistics) (\s@MetricStreamStatisticsConfiguration' {} a -> s {additionalStatistics = a} :: MetricStreamStatisticsConfiguration) Prelude.. Lens.coerced
 
 instance
-  Core.FromXML
+  Data.FromXML
     MetricStreamStatisticsConfiguration
   where
   parseXML x =
     MetricStreamStatisticsConfiguration'
-      Prelude.<$> ( x Core..@? "IncludeMetrics" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "member"
+      Prelude.<$> ( x Data..@? "IncludeMetrics" Core..!@ Prelude.mempty
+                      Prelude.>>= Data.parseXMLList "member"
                   )
-      Prelude.<*> ( x Core..@? "AdditionalStatistics"
+      Prelude.<*> ( x Data..@? "AdditionalStatistics"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "member"
+                      Prelude.>>= Data.parseXMLList "member"
                   )
 
 instance
@@ -149,13 +150,13 @@ instance
       `Prelude.seq` Prelude.rnf additionalStatistics
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     MetricStreamStatisticsConfiguration
   where
   toQuery MetricStreamStatisticsConfiguration' {..} =
     Prelude.mconcat
       [ "IncludeMetrics"
-          Core.=: Core.toQueryList "member" includeMetrics,
+          Data.=: Data.toQueryList "member" includeMetrics,
         "AdditionalStatistics"
-          Core.=: Core.toQueryList "member" additionalStatistics
+          Data.=: Data.toQueryList "member" additionalStatistics
       ]

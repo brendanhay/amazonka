@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.Dimension where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A dimension is a name\/value pair that is part of the identity of a
@@ -78,10 +79,10 @@ dimension_name = Lens.lens (\Dimension' {name} -> name) (\s@Dimension' {} a -> s
 dimension_value :: Lens.Lens' Dimension Prelude.Text
 dimension_value = Lens.lens (\Dimension' {value} -> value) (\s@Dimension' {} a -> s {value = a} :: Dimension)
 
-instance Core.FromXML Dimension where
+instance Data.FromXML Dimension where
   parseXML x =
     Dimension'
-      Prelude.<$> (x Core..@ "Name") Prelude.<*> (x Core..@ "Value")
+      Prelude.<$> (x Data..@ "Name") Prelude.<*> (x Data..@ "Value")
 
 instance Prelude.Hashable Dimension where
   hashWithSalt _salt Dimension' {..} =
@@ -92,7 +93,7 @@ instance Prelude.NFData Dimension where
   rnf Dimension' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery Dimension where
+instance Data.ToQuery Dimension where
   toQuery Dimension' {..} =
     Prelude.mconcat
-      ["Name" Core.=: name, "Value" Core.=: value]
+      ["Name" Data.=: name, "Value" Data.=: value]

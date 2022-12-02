@@ -27,6 +27,7 @@ import Amazonka.CloudWatch.Types.StateValue
 import Amazonka.CloudWatch.Types.Statistic
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details about a metric alarm.
@@ -38,7 +39,7 @@ data MetricAlarm = MetricAlarm'
     -- Name (ARN).
     alarmActions :: Prelude.Maybe [Prelude.Text],
     -- | The time stamp of the last update to the alarm state.
-    stateUpdatedTimestamp :: Prelude.Maybe Core.ISO8601,
+    stateUpdatedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The description of the alarm.
     alarmDescription :: Prelude.Maybe Prelude.Text,
     -- | The percentile statistic for the metric associated with the alarm.
@@ -88,7 +89,7 @@ data MetricAlarm = MetricAlarm'
     -- based on a single metric.
     metricName :: Prelude.Maybe Prelude.Text,
     -- | The time stamp of the last update to the alarm configuration.
-    alarmConfigurationUpdatedTimestamp :: Prelude.Maybe Core.ISO8601,
+    alarmConfigurationUpdatedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The value to compare with the specified statistic.
     threshold :: Prelude.Maybe Prelude.Double,
     -- | The state value for the alarm.
@@ -246,7 +247,7 @@ metricAlarm_alarmActions = Lens.lens (\MetricAlarm' {alarmActions} -> alarmActio
 
 -- | The time stamp of the last update to the alarm state.
 metricAlarm_stateUpdatedTimestamp :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.UTCTime)
-metricAlarm_stateUpdatedTimestamp = Lens.lens (\MetricAlarm' {stateUpdatedTimestamp} -> stateUpdatedTimestamp) (\s@MetricAlarm' {} a -> s {stateUpdatedTimestamp = a} :: MetricAlarm) Prelude.. Lens.mapping Core._Time
+metricAlarm_stateUpdatedTimestamp = Lens.lens (\MetricAlarm' {stateUpdatedTimestamp} -> stateUpdatedTimestamp) (\s@MetricAlarm' {} a -> s {stateUpdatedTimestamp = a} :: MetricAlarm) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the alarm.
 metricAlarm_alarmDescription :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
@@ -326,7 +327,7 @@ metricAlarm_metricName = Lens.lens (\MetricAlarm' {metricName} -> metricName) (\
 
 -- | The time stamp of the last update to the alarm configuration.
 metricAlarm_alarmConfigurationUpdatedTimestamp :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.UTCTime)
-metricAlarm_alarmConfigurationUpdatedTimestamp = Lens.lens (\MetricAlarm' {alarmConfigurationUpdatedTimestamp} -> alarmConfigurationUpdatedTimestamp) (\s@MetricAlarm' {} a -> s {alarmConfigurationUpdatedTimestamp = a} :: MetricAlarm) Prelude.. Lens.mapping Core._Time
+metricAlarm_alarmConfigurationUpdatedTimestamp = Lens.lens (\MetricAlarm' {alarmConfigurationUpdatedTimestamp} -> alarmConfigurationUpdatedTimestamp) (\s@MetricAlarm' {} a -> s {alarmConfigurationUpdatedTimestamp = a} :: MetricAlarm) Prelude.. Lens.mapping Data._Time
 
 -- | The value to compare with the specified statistic.
 metricAlarm_threshold :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Double)
@@ -373,47 +374,47 @@ metricAlarm_unit = Lens.lens (\MetricAlarm' {unit} -> unit) (\s@MetricAlarm' {} 
 metricAlarm_stateReason :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
 metricAlarm_stateReason = Lens.lens (\MetricAlarm' {stateReason} -> stateReason) (\s@MetricAlarm' {} a -> s {stateReason = a} :: MetricAlarm)
 
-instance Core.FromXML MetricAlarm where
+instance Data.FromXML MetricAlarm where
   parseXML x =
     MetricAlarm'
-      Prelude.<$> ( x Core..@? "AlarmActions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "AlarmActions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "StateUpdatedTimestamp")
-      Prelude.<*> (x Core..@? "AlarmDescription")
-      Prelude.<*> (x Core..@? "ExtendedStatistic")
-      Prelude.<*> (x Core..@? "ActionsEnabled")
-      Prelude.<*> (x Core..@? "Period")
-      Prelude.<*> (x Core..@? "EvaluateLowSampleCountPercentile")
-      Prelude.<*> ( x Core..@? "Dimensions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "StateUpdatedTimestamp")
+      Prelude.<*> (x Data..@? "AlarmDescription")
+      Prelude.<*> (x Data..@? "ExtendedStatistic")
+      Prelude.<*> (x Data..@? "ActionsEnabled")
+      Prelude.<*> (x Data..@? "Period")
+      Prelude.<*> (x Data..@? "EvaluateLowSampleCountPercentile")
+      Prelude.<*> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "ThresholdMetricId")
-      Prelude.<*> (x Core..@? "TreatMissingData")
-      Prelude.<*> ( x Core..@? "Metrics" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "ThresholdMetricId")
+      Prelude.<*> (x Data..@? "TreatMissingData")
+      Prelude.<*> ( x Data..@? "Metrics" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "EvaluationPeriods")
-      Prelude.<*> (x Core..@? "DatapointsToAlarm")
-      Prelude.<*> ( x Core..@? "InsufficientDataActions"
+      Prelude.<*> (x Data..@? "EvaluationPeriods")
+      Prelude.<*> (x Data..@? "DatapointsToAlarm")
+      Prelude.<*> ( x Data..@? "InsufficientDataActions"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "AlarmArn")
-      Prelude.<*> (x Core..@? "MetricName")
-      Prelude.<*> (x Core..@? "AlarmConfigurationUpdatedTimestamp")
-      Prelude.<*> (x Core..@? "Threshold")
-      Prelude.<*> (x Core..@? "StateValue")
-      Prelude.<*> (x Core..@? "StateReasonData")
-      Prelude.<*> ( x Core..@? "OKActions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "AlarmArn")
+      Prelude.<*> (x Data..@? "MetricName")
+      Prelude.<*> (x Data..@? "AlarmConfigurationUpdatedTimestamp")
+      Prelude.<*> (x Data..@? "Threshold")
+      Prelude.<*> (x Data..@? "StateValue")
+      Prelude.<*> (x Data..@? "StateReasonData")
+      Prelude.<*> ( x Data..@? "OKActions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "AlarmName")
-      Prelude.<*> (x Core..@? "ComparisonOperator")
-      Prelude.<*> (x Core..@? "Namespace")
-      Prelude.<*> (x Core..@? "Statistic")
-      Prelude.<*> (x Core..@? "Unit")
-      Prelude.<*> (x Core..@? "StateReason")
+      Prelude.<*> (x Data..@? "AlarmName")
+      Prelude.<*> (x Data..@? "ComparisonOperator")
+      Prelude.<*> (x Data..@? "Namespace")
+      Prelude.<*> (x Data..@? "Statistic")
+      Prelude.<*> (x Data..@? "Unit")
+      Prelude.<*> (x Data..@? "StateReason")
 
 instance Prelude.Hashable MetricAlarm where
   hashWithSalt _salt MetricAlarm' {..} =

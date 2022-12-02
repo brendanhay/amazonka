@@ -22,6 +22,7 @@ module Amazonka.CloudWatch.Types.SingleMetricAnomalyDetector where
 import Amazonka.CloudWatch.Types.Dimension
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Designates the CloudWatch metric and statistic that provides the time
@@ -82,15 +83,15 @@ singleMetricAnomalyDetector_metricName = Lens.lens (\SingleMetricAnomalyDetector
 singleMetricAnomalyDetector_namespace :: Lens.Lens' SingleMetricAnomalyDetector (Prelude.Maybe Prelude.Text)
 singleMetricAnomalyDetector_namespace = Lens.lens (\SingleMetricAnomalyDetector' {namespace} -> namespace) (\s@SingleMetricAnomalyDetector' {} a -> s {namespace = a} :: SingleMetricAnomalyDetector)
 
-instance Core.FromXML SingleMetricAnomalyDetector where
+instance Data.FromXML SingleMetricAnomalyDetector where
   parseXML x =
     SingleMetricAnomalyDetector'
-      Prelude.<$> ( x Core..@? "Dimensions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Stat")
-      Prelude.<*> (x Core..@? "MetricName")
-      Prelude.<*> (x Core..@? "Namespace")
+      Prelude.<*> (x Data..@? "Stat")
+      Prelude.<*> (x Data..@? "MetricName")
+      Prelude.<*> (x Data..@? "Namespace")
 
 instance Prelude.Hashable SingleMetricAnomalyDetector where
   hashWithSalt _salt SingleMetricAnomalyDetector' {..} =
@@ -106,13 +107,13 @@ instance Prelude.NFData SingleMetricAnomalyDetector where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToQuery SingleMetricAnomalyDetector where
+instance Data.ToQuery SingleMetricAnomalyDetector where
   toQuery SingleMetricAnomalyDetector' {..} =
     Prelude.mconcat
       [ "Dimensions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> dimensions),
-        "Stat" Core.=: stat,
-        "MetricName" Core.=: metricName,
-        "Namespace" Core.=: namespace
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> dimensions),
+        "Stat" Data.=: stat,
+        "MetricName" Data.=: metricName,
+        "Namespace" Data.=: namespace
       ]

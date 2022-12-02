@@ -69,6 +69,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -197,9 +198,9 @@ instance Core.AWSRequest ListMetrics where
       "ListMetricsResult"
       ( \s h x ->
           ListMetricsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Metrics" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "Metrics" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -220,26 +221,26 @@ instance Prelude.NFData ListMetrics where
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf recentlyActive
 
-instance Core.ToHeaders ListMetrics where
+instance Data.ToHeaders ListMetrics where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListMetrics where
+instance Data.ToPath ListMetrics where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListMetrics where
+instance Data.ToQuery ListMetrics where
   toQuery ListMetrics' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListMetrics" :: Prelude.ByteString),
+          Data.=: ("ListMetrics" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
         "Dimensions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> dimensions),
-        "MetricName" Core.=: metricName,
-        "Namespace" Core.=: namespace,
-        "RecentlyActive" Core.=: recentlyActive
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> dimensions),
+        "MetricName" Data.=: metricName,
+        "Namespace" Data.=: namespace,
+        "RecentlyActive" Data.=: recentlyActive
       ]
 
 -- | /See:/ 'newListMetricsResponse' smart constructor.

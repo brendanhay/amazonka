@@ -52,6 +52,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,24 +95,24 @@ instance Core.AWSRequest GetMetricStream where
       "GetMetricStreamResult"
       ( \s h x ->
           GetMetricStreamResponse'
-            Prelude.<$> (x Core..@? "Name")
-            Prelude.<*> (x Core..@? "RoleArn")
-            Prelude.<*> ( x Core..@? "StatisticsConfigurations"
+            Prelude.<$> (x Data..@? "Name")
+            Prelude.<*> (x Data..@? "RoleArn")
+            Prelude.<*> ( x Data..@? "StatisticsConfigurations"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Arn")
-            Prelude.<*> (x Core..@? "State")
-            Prelude.<*> (x Core..@? "CreationDate")
-            Prelude.<*> (x Core..@? "LastUpdateDate")
-            Prelude.<*> (x Core..@? "OutputFormat")
-            Prelude.<*> ( x Core..@? "ExcludeFilters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> (x Data..@? "Arn")
+            Prelude.<*> (x Data..@? "State")
+            Prelude.<*> (x Data..@? "CreationDate")
+            Prelude.<*> (x Data..@? "LastUpdateDate")
+            Prelude.<*> (x Data..@? "OutputFormat")
+            Prelude.<*> ( x Data..@? "ExcludeFilters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "IncludeFilters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> ( x Data..@? "IncludeFilters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "FirehoseArn")
+            Prelude.<*> (x Data..@? "FirehoseArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,20 +123,20 @@ instance Prelude.Hashable GetMetricStream where
 instance Prelude.NFData GetMetricStream where
   rnf GetMetricStream' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetMetricStream where
+instance Data.ToHeaders GetMetricStream where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetMetricStream where
+instance Data.ToPath GetMetricStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMetricStream where
+instance Data.ToQuery GetMetricStream where
   toQuery GetMetricStream' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetMetricStream" :: Prelude.ByteString),
+          Data.=: ("GetMetricStream" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "Name" Core.=: name
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "Name" Data.=: name
       ]
 
 -- | /See:/ 'newGetMetricStreamResponse' smart constructor.
@@ -155,10 +156,10 @@ data GetMetricStreamResponse = GetMetricStreamResponse'
     -- @stopped@.
     state :: Prelude.Maybe Prelude.Text,
     -- | The date that the metric stream was created.
-    creationDate :: Prelude.Maybe Core.ISO8601,
+    creationDate :: Prelude.Maybe Data.ISO8601,
     -- | The date of the most recent update to the metric stream\'s
     -- configuration.
-    lastUpdateDate :: Prelude.Maybe Core.ISO8601,
+    lastUpdateDate :: Prelude.Maybe Data.ISO8601,
     -- | The output format for the stream. Valid values are @json@ and
     -- @opentelemetry0.7@. For more information about metric stream output
     -- formats, see
@@ -270,12 +271,12 @@ getMetricStreamResponse_state = Lens.lens (\GetMetricStreamResponse' {state} -> 
 
 -- | The date that the metric stream was created.
 getMetricStreamResponse_creationDate :: Lens.Lens' GetMetricStreamResponse (Prelude.Maybe Prelude.UTCTime)
-getMetricStreamResponse_creationDate = Lens.lens (\GetMetricStreamResponse' {creationDate} -> creationDate) (\s@GetMetricStreamResponse' {} a -> s {creationDate = a} :: GetMetricStreamResponse) Prelude.. Lens.mapping Core._Time
+getMetricStreamResponse_creationDate = Lens.lens (\GetMetricStreamResponse' {creationDate} -> creationDate) (\s@GetMetricStreamResponse' {} a -> s {creationDate = a} :: GetMetricStreamResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date of the most recent update to the metric stream\'s
 -- configuration.
 getMetricStreamResponse_lastUpdateDate :: Lens.Lens' GetMetricStreamResponse (Prelude.Maybe Prelude.UTCTime)
-getMetricStreamResponse_lastUpdateDate = Lens.lens (\GetMetricStreamResponse' {lastUpdateDate} -> lastUpdateDate) (\s@GetMetricStreamResponse' {} a -> s {lastUpdateDate = a} :: GetMetricStreamResponse) Prelude.. Lens.mapping Core._Time
+getMetricStreamResponse_lastUpdateDate = Lens.lens (\GetMetricStreamResponse' {lastUpdateDate} -> lastUpdateDate) (\s@GetMetricStreamResponse' {} a -> s {lastUpdateDate = a} :: GetMetricStreamResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The output format for the stream. Valid values are @json@ and
 -- @opentelemetry0.7@. For more information about metric stream output

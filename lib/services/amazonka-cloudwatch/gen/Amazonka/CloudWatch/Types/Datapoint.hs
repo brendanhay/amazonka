@@ -22,6 +22,7 @@ module Amazonka.CloudWatch.Types.Datapoint where
 import Amazonka.CloudWatch.Types.StandardUnit
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encapsulates the statistical data that CloudWatch computes from metric
@@ -34,7 +35,7 @@ data Datapoint = Datapoint'
     -- | The average of the metric values that correspond to the data point.
     average :: Prelude.Maybe Prelude.Double,
     -- | The time stamp used for the data point.
-    timestamp :: Prelude.Maybe Core.ISO8601,
+    timestamp :: Prelude.Maybe Data.ISO8601,
     -- | The number of metric values that contributed to the aggregate value of
     -- this data point.
     sampleCount :: Prelude.Maybe Prelude.Double,
@@ -97,7 +98,7 @@ datapoint_average = Lens.lens (\Datapoint' {average} -> average) (\s@Datapoint' 
 
 -- | The time stamp used for the data point.
 datapoint_timestamp :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.UTCTime)
-datapoint_timestamp = Lens.lens (\Datapoint' {timestamp} -> timestamp) (\s@Datapoint' {} a -> s {timestamp = a} :: Datapoint) Prelude.. Lens.mapping Core._Time
+datapoint_timestamp = Lens.lens (\Datapoint' {timestamp} -> timestamp) (\s@Datapoint' {} a -> s {timestamp = a} :: Datapoint) Prelude.. Lens.mapping Data._Time
 
 -- | The number of metric values that contributed to the aggregate value of
 -- this data point.
@@ -120,20 +121,20 @@ datapoint_maximum = Lens.lens (\Datapoint' {maximum} -> maximum) (\s@Datapoint' 
 datapoint_unit :: Lens.Lens' Datapoint (Prelude.Maybe StandardUnit)
 datapoint_unit = Lens.lens (\Datapoint' {unit} -> unit) (\s@Datapoint' {} a -> s {unit = a} :: Datapoint)
 
-instance Core.FromXML Datapoint where
+instance Data.FromXML Datapoint where
   parseXML x =
     Datapoint'
-      Prelude.<$> (x Core..@? "Minimum")
-      Prelude.<*> (x Core..@? "Average")
-      Prelude.<*> (x Core..@? "Timestamp")
-      Prelude.<*> (x Core..@? "SampleCount")
-      Prelude.<*> (x Core..@? "Sum")
-      Prelude.<*> ( x Core..@? "ExtendedStatistics"
+      Prelude.<$> (x Data..@? "Minimum")
+      Prelude.<*> (x Data..@? "Average")
+      Prelude.<*> (x Data..@? "Timestamp")
+      Prelude.<*> (x Data..@? "SampleCount")
+      Prelude.<*> (x Data..@? "Sum")
+      Prelude.<*> ( x Data..@? "ExtendedStatistics"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                      Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
-      Prelude.<*> (x Core..@? "Maximum")
-      Prelude.<*> (x Core..@? "Unit")
+      Prelude.<*> (x Data..@? "Maximum")
+      Prelude.<*> (x Data..@? "Unit")
 
 instance Prelude.Hashable Datapoint where
   hashWithSalt _salt Datapoint' {..} =

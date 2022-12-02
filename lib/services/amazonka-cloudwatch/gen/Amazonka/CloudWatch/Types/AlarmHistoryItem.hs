@@ -23,6 +23,7 @@ import Amazonka.CloudWatch.Types.AlarmType
 import Amazonka.CloudWatch.Types.HistoryItemType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the history of a specific alarm.
@@ -32,7 +33,7 @@ data AlarmHistoryItem = AlarmHistoryItem'
   { -- | The type of alarm, either metric alarm or composite alarm.
     alarmType :: Prelude.Maybe AlarmType,
     -- | The time stamp for the alarm history item.
-    timestamp :: Prelude.Maybe Core.ISO8601,
+    timestamp :: Prelude.Maybe Data.ISO8601,
     -- | Data about the alarm, in JSON format.
     historyData :: Prelude.Maybe Prelude.Text,
     -- | The type of alarm history item.
@@ -81,7 +82,7 @@ alarmHistoryItem_alarmType = Lens.lens (\AlarmHistoryItem' {alarmType} -> alarmT
 
 -- | The time stamp for the alarm history item.
 alarmHistoryItem_timestamp :: Lens.Lens' AlarmHistoryItem (Prelude.Maybe Prelude.UTCTime)
-alarmHistoryItem_timestamp = Lens.lens (\AlarmHistoryItem' {timestamp} -> timestamp) (\s@AlarmHistoryItem' {} a -> s {timestamp = a} :: AlarmHistoryItem) Prelude.. Lens.mapping Core._Time
+alarmHistoryItem_timestamp = Lens.lens (\AlarmHistoryItem' {timestamp} -> timestamp) (\s@AlarmHistoryItem' {} a -> s {timestamp = a} :: AlarmHistoryItem) Prelude.. Lens.mapping Data._Time
 
 -- | Data about the alarm, in JSON format.
 alarmHistoryItem_historyData :: Lens.Lens' AlarmHistoryItem (Prelude.Maybe Prelude.Text)
@@ -99,15 +100,15 @@ alarmHistoryItem_historySummary = Lens.lens (\AlarmHistoryItem' {historySummary}
 alarmHistoryItem_alarmName :: Lens.Lens' AlarmHistoryItem (Prelude.Maybe Prelude.Text)
 alarmHistoryItem_alarmName = Lens.lens (\AlarmHistoryItem' {alarmName} -> alarmName) (\s@AlarmHistoryItem' {} a -> s {alarmName = a} :: AlarmHistoryItem)
 
-instance Core.FromXML AlarmHistoryItem where
+instance Data.FromXML AlarmHistoryItem where
   parseXML x =
     AlarmHistoryItem'
-      Prelude.<$> (x Core..@? "AlarmType")
-      Prelude.<*> (x Core..@? "Timestamp")
-      Prelude.<*> (x Core..@? "HistoryData")
-      Prelude.<*> (x Core..@? "HistoryItemType")
-      Prelude.<*> (x Core..@? "HistorySummary")
-      Prelude.<*> (x Core..@? "AlarmName")
+      Prelude.<$> (x Data..@? "AlarmType")
+      Prelude.<*> (x Data..@? "Timestamp")
+      Prelude.<*> (x Data..@? "HistoryData")
+      Prelude.<*> (x Data..@? "HistoryItemType")
+      Prelude.<*> (x Data..@? "HistorySummary")
+      Prelude.<*> (x Data..@? "AlarmName")
 
 instance Prelude.Hashable AlarmHistoryItem where
   hashWithSalt _salt AlarmHistoryItem' {..} =

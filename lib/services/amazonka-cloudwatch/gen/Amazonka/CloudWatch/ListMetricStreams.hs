@@ -44,6 +44,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,9 +99,9 @@ instance Core.AWSRequest ListMetricStreams where
       "ListMetricStreamsResult"
       ( \s h x ->
           ListMetricStreamsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Entries" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "Entries" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -115,21 +116,21 @@ instance Prelude.NFData ListMetricStreams where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListMetricStreams where
+instance Data.ToHeaders ListMetricStreams where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListMetricStreams where
+instance Data.ToPath ListMetricStreams where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListMetricStreams where
+instance Data.ToQuery ListMetricStreams where
   toQuery ListMetricStreams' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListMetricStreams" :: Prelude.ByteString),
+          Data.=: ("ListMetricStreams" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListMetricStreamsResponse' smart constructor.

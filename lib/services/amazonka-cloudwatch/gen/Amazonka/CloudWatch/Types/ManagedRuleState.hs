@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.ManagedRuleState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of a managed Contributor Insights rule.
@@ -68,11 +69,11 @@ managedRuleState_ruleName = Lens.lens (\ManagedRuleState' {ruleName} -> ruleName
 managedRuleState_state :: Lens.Lens' ManagedRuleState Prelude.Text
 managedRuleState_state = Lens.lens (\ManagedRuleState' {state} -> state) (\s@ManagedRuleState' {} a -> s {state = a} :: ManagedRuleState)
 
-instance Core.FromXML ManagedRuleState where
+instance Data.FromXML ManagedRuleState where
   parseXML x =
     ManagedRuleState'
-      Prelude.<$> (x Core..@ "RuleName")
-      Prelude.<*> (x Core..@ "State")
+      Prelude.<$> (x Data..@ "RuleName")
+      Prelude.<*> (x Data..@ "State")
 
 instance Prelude.Hashable ManagedRuleState where
   hashWithSalt _salt ManagedRuleState' {..} =

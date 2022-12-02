@@ -51,6 +51,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -189,25 +190,25 @@ instance Prelude.NFData PutInsightRule where
       `Prelude.seq` Prelude.rnf ruleName
       `Prelude.seq` Prelude.rnf ruleDefinition
 
-instance Core.ToHeaders PutInsightRule where
+instance Data.ToHeaders PutInsightRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutInsightRule where
+instance Data.ToPath PutInsightRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutInsightRule where
+instance Data.ToQuery PutInsightRule where
   toQuery PutInsightRule' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutInsightRule" :: Prelude.ByteString),
+          Data.=: ("PutInsightRule" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "RuleState" Core.=: ruleState,
-        "RuleName" Core.=: ruleName,
-        "RuleDefinition" Core.=: ruleDefinition
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "RuleState" Data.=: ruleState,
+        "RuleName" Data.=: ruleName,
+        "RuleDefinition" Data.=: ruleDefinition
       ]
 
 -- | /See:/ 'newPutInsightRuleResponse' smart constructor.

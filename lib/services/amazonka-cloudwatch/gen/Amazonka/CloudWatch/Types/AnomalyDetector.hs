@@ -26,6 +26,7 @@ import Amazonka.CloudWatch.Types.MetricMathAnomalyDetector
 import Amazonka.CloudWatch.Types.SingleMetricAnomalyDetector
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An anomaly detection model associated with a particular CloudWatch
@@ -132,19 +133,19 @@ anomalyDetector_stateValue = Lens.lens (\AnomalyDetector' {stateValue} -> stateV
 anomalyDetector_namespace :: Lens.Lens' AnomalyDetector (Prelude.Maybe Prelude.Text)
 anomalyDetector_namespace = Lens.lens (\AnomalyDetector' {namespace} -> namespace) (\s@AnomalyDetector' {} a -> s {namespace = a} :: AnomalyDetector)
 
-instance Core.FromXML AnomalyDetector where
+instance Data.FromXML AnomalyDetector where
   parseXML x =
     AnomalyDetector'
-      Prelude.<$> (x Core..@? "SingleMetricAnomalyDetector")
-      Prelude.<*> (x Core..@? "Configuration")
-      Prelude.<*> ( x Core..@? "Dimensions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "SingleMetricAnomalyDetector")
+      Prelude.<*> (x Data..@? "Configuration")
+      Prelude.<*> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "MetricMathAnomalyDetector")
-      Prelude.<*> (x Core..@? "Stat")
-      Prelude.<*> (x Core..@? "MetricName")
-      Prelude.<*> (x Core..@? "StateValue")
-      Prelude.<*> (x Core..@? "Namespace")
+      Prelude.<*> (x Data..@? "MetricMathAnomalyDetector")
+      Prelude.<*> (x Data..@? "Stat")
+      Prelude.<*> (x Data..@? "MetricName")
+      Prelude.<*> (x Data..@? "StateValue")
+      Prelude.<*> (x Data..@? "Namespace")
 
 instance Prelude.Hashable AnomalyDetector where
   hashWithSalt _salt AnomalyDetector' {..} =

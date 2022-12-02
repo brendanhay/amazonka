@@ -56,6 +56,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -205,10 +206,10 @@ instance Core.AWSRequest DescribeAnomalyDetectors where
       "DescribeAnomalyDetectorsResult"
       ( \s h x ->
           DescribeAnomalyDetectorsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "AnomalyDetectors"
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "AnomalyDetectors"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -231,31 +232,31 @@ instance Prelude.NFData DescribeAnomalyDetectors where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToHeaders DescribeAnomalyDetectors where
+instance Data.ToHeaders DescribeAnomalyDetectors where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAnomalyDetectors where
+instance Data.ToPath DescribeAnomalyDetectors where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAnomalyDetectors where
+instance Data.ToQuery DescribeAnomalyDetectors where
   toQuery DescribeAnomalyDetectors' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAnomalyDetectors" :: Prelude.ByteString),
+          Data.=: ("DescribeAnomalyDetectors" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
         "Dimensions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> dimensions),
-        "MaxResults" Core.=: maxResults,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> dimensions),
+        "MaxResults" Data.=: maxResults,
         "AnomalyDetectorTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> anomalyDetectorTypes
             ),
-        "MetricName" Core.=: metricName,
-        "Namespace" Core.=: namespace
+        "MetricName" Data.=: metricName,
+        "Namespace" Data.=: namespace
       ]
 
 -- | /See:/ 'newDescribeAnomalyDetectorsResponse' smart constructor.

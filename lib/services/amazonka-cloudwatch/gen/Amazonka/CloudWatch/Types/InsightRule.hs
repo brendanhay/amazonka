@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.InsightRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains the definition for a Contributor Insights rule.
@@ -117,14 +118,14 @@ insightRule_schema = Lens.lens (\InsightRule' {schema} -> schema) (\s@InsightRul
 insightRule_definition :: Lens.Lens' InsightRule Prelude.Text
 insightRule_definition = Lens.lens (\InsightRule' {definition} -> definition) (\s@InsightRule' {} a -> s {definition = a} :: InsightRule)
 
-instance Core.FromXML InsightRule where
+instance Data.FromXML InsightRule where
   parseXML x =
     InsightRule'
-      Prelude.<$> (x Core..@? "ManagedRule")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> (x Core..@ "State")
-      Prelude.<*> (x Core..@ "Schema")
-      Prelude.<*> (x Core..@ "Definition")
+      Prelude.<$> (x Data..@? "ManagedRule")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "State")
+      Prelude.<*> (x Data..@ "Schema")
+      Prelude.<*> (x Data..@ "Definition")
 
 instance Prelude.Hashable InsightRule where
   hashWithSalt _salt InsightRule' {..} =

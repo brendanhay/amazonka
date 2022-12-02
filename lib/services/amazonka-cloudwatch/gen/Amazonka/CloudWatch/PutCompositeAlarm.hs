@@ -99,6 +99,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -519,42 +520,42 @@ instance Prelude.NFData PutCompositeAlarm where
       `Prelude.seq` Prelude.rnf alarmName
       `Prelude.seq` Prelude.rnf alarmRule
 
-instance Core.ToHeaders PutCompositeAlarm where
+instance Data.ToHeaders PutCompositeAlarm where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutCompositeAlarm where
+instance Data.ToPath PutCompositeAlarm where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutCompositeAlarm where
+instance Data.ToQuery PutCompositeAlarm where
   toQuery PutCompositeAlarm' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutCompositeAlarm" :: Prelude.ByteString),
+          Data.=: ("PutCompositeAlarm" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
         "AlarmActions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> alarmActions),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> alarmActions),
         "ActionsSuppressorExtensionPeriod"
-          Core.=: actionsSuppressorExtensionPeriod,
-        "AlarmDescription" Core.=: alarmDescription,
-        "ActionsEnabled" Core.=: actionsEnabled,
+          Data.=: actionsSuppressorExtensionPeriod,
+        "AlarmDescription" Data.=: alarmDescription,
+        "ActionsEnabled" Data.=: actionsEnabled,
         "InsufficientDataActions"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> insufficientDataActions
             ),
         "OKActions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> oKActions),
-        "ActionsSuppressor" Core.=: actionsSuppressor,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> oKActions),
+        "ActionsSuppressor" Data.=: actionsSuppressor,
         "ActionsSuppressorWaitPeriod"
-          Core.=: actionsSuppressorWaitPeriod,
-        "AlarmName" Core.=: alarmName,
-        "AlarmRule" Core.=: alarmRule
+          Data.=: actionsSuppressorWaitPeriod,
+        "AlarmName" Data.=: alarmName,
+        "AlarmRule" Data.=: alarmRule
       ]
 
 -- | /See:/ 'newPutCompositeAlarmResponse' smart constructor.

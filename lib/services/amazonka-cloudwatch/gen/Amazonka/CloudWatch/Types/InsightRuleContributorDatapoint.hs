@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.InsightRuleContributorDatapoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | One data point related to one contributor.
@@ -33,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newInsightRuleContributorDatapoint' smart constructor.
 data InsightRuleContributorDatapoint = InsightRuleContributorDatapoint'
   { -- | The timestamp of the data point.
-    timestamp :: Core.ISO8601,
+    timestamp :: Data.ISO8601,
     -- | The approximate value that this contributor added during this timestamp.
     approximateValue :: Prelude.Double
   }
@@ -61,23 +62,23 @@ newInsightRuleContributorDatapoint
   pApproximateValue_ =
     InsightRuleContributorDatapoint'
       { timestamp =
-          Core._Time Lens.# pTimestamp_,
+          Data._Time Lens.# pTimestamp_,
         approximateValue = pApproximateValue_
       }
 
 -- | The timestamp of the data point.
 insightRuleContributorDatapoint_timestamp :: Lens.Lens' InsightRuleContributorDatapoint Prelude.UTCTime
-insightRuleContributorDatapoint_timestamp = Lens.lens (\InsightRuleContributorDatapoint' {timestamp} -> timestamp) (\s@InsightRuleContributorDatapoint' {} a -> s {timestamp = a} :: InsightRuleContributorDatapoint) Prelude.. Core._Time
+insightRuleContributorDatapoint_timestamp = Lens.lens (\InsightRuleContributorDatapoint' {timestamp} -> timestamp) (\s@InsightRuleContributorDatapoint' {} a -> s {timestamp = a} :: InsightRuleContributorDatapoint) Prelude.. Data._Time
 
 -- | The approximate value that this contributor added during this timestamp.
 insightRuleContributorDatapoint_approximateValue :: Lens.Lens' InsightRuleContributorDatapoint Prelude.Double
 insightRuleContributorDatapoint_approximateValue = Lens.lens (\InsightRuleContributorDatapoint' {approximateValue} -> approximateValue) (\s@InsightRuleContributorDatapoint' {} a -> s {approximateValue = a} :: InsightRuleContributorDatapoint)
 
-instance Core.FromXML InsightRuleContributorDatapoint where
+instance Data.FromXML InsightRuleContributorDatapoint where
   parseXML x =
     InsightRuleContributorDatapoint'
-      Prelude.<$> (x Core..@ "Timestamp")
-      Prelude.<*> (x Core..@ "ApproximateValue")
+      Prelude.<$> (x Data..@ "Timestamp")
+      Prelude.<*> (x Data..@ "ApproximateValue")
 
 instance
   Prelude.Hashable

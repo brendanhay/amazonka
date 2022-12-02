@@ -21,6 +21,7 @@ module Amazonka.PersonalizeRuntime.Types.PredictedItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that identifies an item.
@@ -78,15 +79,15 @@ predictedItem_promotionName = Lens.lens (\PredictedItem' {promotionName} -> prom
 predictedItem_itemId :: Lens.Lens' PredictedItem (Prelude.Maybe Prelude.Text)
 predictedItem_itemId = Lens.lens (\PredictedItem' {itemId} -> itemId) (\s@PredictedItem' {} a -> s {itemId = a} :: PredictedItem)
 
-instance Core.FromJSON PredictedItem where
+instance Data.FromJSON PredictedItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PredictedItem"
       ( \x ->
           PredictedItem'
-            Prelude.<$> (x Core..:? "score")
-            Prelude.<*> (x Core..:? "promotionName")
-            Prelude.<*> (x Core..:? "itemId")
+            Prelude.<$> (x Data..:? "score")
+            Prelude.<*> (x Data..:? "promotionName")
+            Prelude.<*> (x Data..:? "itemId")
       )
 
 instance Prelude.Hashable PredictedItem where

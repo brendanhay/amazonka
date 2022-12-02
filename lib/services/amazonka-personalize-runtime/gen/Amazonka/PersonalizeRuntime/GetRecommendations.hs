@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PersonalizeRuntime.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ data GetRecommendations = GetRecommendations'
     -- metadata includes any interaction information that might be relevant
     -- when getting a user\'s recommendations, such as the user\'s current
     -- location or device type.
-    context :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)),
+    context :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)),
     -- | The user ID to provide recommendations for.
     --
     -- Required for @USER_PERSONALIZATION@ recipe type.
@@ -111,7 +112,7 @@ data GetRecommendations = GetRecommendations'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering recommendations and user segments>.
-    filterValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)),
+    filterValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)),
     -- | The promotions to apply to the recommendation request. A promotion
     -- defines additional business rules that apply to a configurable subset of
     -- recommended items.
@@ -266,8 +267,8 @@ instance Core.AWSRequest GetRecommendations where
     Response.receiveJSON
       ( \s h x ->
           GetRecommendationsResponse'
-            Prelude.<$> (x Core..?> "recommendationId")
-            Prelude.<*> (x Core..?> "itemList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "recommendationId")
+            Prelude.<*> (x Data..?> "itemList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -295,38 +296,38 @@ instance Prelude.NFData GetRecommendations where
       `Prelude.seq` Prelude.rnf promotions
       `Prelude.seq` Prelude.rnf campaignArn
 
-instance Core.ToHeaders GetRecommendations where
+instance Data.ToHeaders GetRecommendations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRecommendations where
+instance Data.ToJSON GetRecommendations where
   toJSON GetRecommendations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("filterArn" Core..=) Prelude.<$> filterArn,
-            ("recommenderArn" Core..=)
+          [ ("filterArn" Data..=) Prelude.<$> filterArn,
+            ("recommenderArn" Data..=)
               Prelude.<$> recommenderArn,
-            ("numResults" Core..=) Prelude.<$> numResults,
-            ("context" Core..=) Prelude.<$> context,
-            ("userId" Core..=) Prelude.<$> userId,
-            ("itemId" Core..=) Prelude.<$> itemId,
-            ("filterValues" Core..=) Prelude.<$> filterValues,
-            ("promotions" Core..=) Prelude.<$> promotions,
-            ("campaignArn" Core..=) Prelude.<$> campaignArn
+            ("numResults" Data..=) Prelude.<$> numResults,
+            ("context" Data..=) Prelude.<$> context,
+            ("userId" Data..=) Prelude.<$> userId,
+            ("itemId" Data..=) Prelude.<$> itemId,
+            ("filterValues" Data..=) Prelude.<$> filterValues,
+            ("promotions" Data..=) Prelude.<$> promotions,
+            ("campaignArn" Data..=) Prelude.<$> campaignArn
           ]
       )
 
-instance Core.ToPath GetRecommendations where
+instance Data.ToPath GetRecommendations where
   toPath = Prelude.const "/recommendations"
 
-instance Core.ToQuery GetRecommendations where
+instance Data.ToQuery GetRecommendations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRecommendationsResponse' smart constructor.

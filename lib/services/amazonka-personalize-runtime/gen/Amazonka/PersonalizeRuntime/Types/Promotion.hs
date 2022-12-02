@@ -21,6 +21,7 @@ module Amazonka.PersonalizeRuntime.Types.Promotion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on a promotion. A promotion defines additional
@@ -51,7 +52,7 @@ data Promotion = Promotion'
     --
     -- For more information on creating filters, see
     -- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering recommendations and user segments>.
-    filterValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text))
+    filterValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -142,14 +143,14 @@ instance Prelude.NFData Promotion where
       `Prelude.seq` Prelude.rnf filterArn
       `Prelude.seq` Prelude.rnf filterValues
 
-instance Core.ToJSON Promotion where
+instance Data.ToJSON Promotion where
   toJSON Promotion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("percentPromotedItems" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("percentPromotedItems" Data..=)
               Prelude.<$> percentPromotedItems,
-            ("filterArn" Core..=) Prelude.<$> filterArn,
-            ("filterValues" Core..=) Prelude.<$> filterValues
+            ("filterArn" Data..=) Prelude.<$> filterArn,
+            ("filterValues" Data..=) Prelude.<$> filterValues
           ]
       )

@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.VirtualServiceSpec
 import Amazonka.AppMesh.Types.VirtualServiceStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a virtual service returned by a describe
@@ -106,17 +107,17 @@ virtualServiceData_status = Lens.lens (\VirtualServiceData' {status} -> status) 
 virtualServiceData_virtualServiceName :: Lens.Lens' VirtualServiceData Prelude.Text
 virtualServiceData_virtualServiceName = Lens.lens (\VirtualServiceData' {virtualServiceName} -> virtualServiceName) (\s@VirtualServiceData' {} a -> s {virtualServiceName = a} :: VirtualServiceData)
 
-instance Core.FromJSON VirtualServiceData where
+instance Data.FromJSON VirtualServiceData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualServiceData"
       ( \x ->
           VirtualServiceData'
-            Prelude.<$> (x Core..: "meshName")
-            Prelude.<*> (x Core..: "metadata")
-            Prelude.<*> (x Core..: "spec")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "virtualServiceName")
+            Prelude.<$> (x Data..: "meshName")
+            Prelude.<*> (x Data..: "metadata")
+            Prelude.<*> (x Data..: "spec")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "virtualServiceName")
       )
 
 instance Prelude.Hashable VirtualServiceData where

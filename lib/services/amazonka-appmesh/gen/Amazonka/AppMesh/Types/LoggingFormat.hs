@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.LoggingFormat where
 import Amazonka.AppMesh.Types.JsonFormatRef
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the format for the logs.
@@ -60,14 +61,14 @@ loggingFormat_json = Lens.lens (\LoggingFormat' {json} -> json) (\s@LoggingForma
 loggingFormat_text :: Lens.Lens' LoggingFormat (Prelude.Maybe Prelude.Text)
 loggingFormat_text = Lens.lens (\LoggingFormat' {text} -> text) (\s@LoggingFormat' {} a -> s {text = a} :: LoggingFormat)
 
-instance Core.FromJSON LoggingFormat where
+instance Data.FromJSON LoggingFormat where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingFormat"
       ( \x ->
           LoggingFormat'
-            Prelude.<$> (x Core..:? "json" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "text")
+            Prelude.<$> (x Data..:? "json" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "text")
       )
 
 instance Prelude.Hashable LoggingFormat where
@@ -79,11 +80,11 @@ instance Prelude.NFData LoggingFormat where
   rnf LoggingFormat' {..} =
     Prelude.rnf json `Prelude.seq` Prelude.rnf text
 
-instance Core.ToJSON LoggingFormat where
+instance Data.ToJSON LoggingFormat where
   toJSON LoggingFormat' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("json" Core..=) Prelude.<$> json,
-            ("text" Core..=) Prelude.<$> text
+          [ ("json" Data..=) Prelude.<$> json,
+            ("text" Data..=) Prelude.<$> text
           ]
       )

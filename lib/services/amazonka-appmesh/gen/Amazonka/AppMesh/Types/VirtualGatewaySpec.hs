@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.VirtualGatewayListener
 import Amazonka.AppMesh.Types.VirtualGatewayLogging
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the specification of a service mesh resource.
@@ -75,15 +76,15 @@ virtualGatewaySpec_backendDefaults = Lens.lens (\VirtualGatewaySpec' {backendDef
 virtualGatewaySpec_listeners :: Lens.Lens' VirtualGatewaySpec [VirtualGatewayListener]
 virtualGatewaySpec_listeners = Lens.lens (\VirtualGatewaySpec' {listeners} -> listeners) (\s@VirtualGatewaySpec' {} a -> s {listeners = a} :: VirtualGatewaySpec) Prelude.. Lens.coerced
 
-instance Core.FromJSON VirtualGatewaySpec where
+instance Data.FromJSON VirtualGatewaySpec where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewaySpec"
       ( \x ->
           VirtualGatewaySpec'
-            Prelude.<$> (x Core..:? "logging")
-            Prelude.<*> (x Core..:? "backendDefaults")
-            Prelude.<*> (x Core..:? "listeners" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "logging")
+            Prelude.<*> (x Data..:? "backendDefaults")
+            Prelude.<*> (x Data..:? "listeners" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VirtualGatewaySpec where
@@ -98,13 +99,13 @@ instance Prelude.NFData VirtualGatewaySpec where
       `Prelude.seq` Prelude.rnf backendDefaults
       `Prelude.seq` Prelude.rnf listeners
 
-instance Core.ToJSON VirtualGatewaySpec where
+instance Data.ToJSON VirtualGatewaySpec where
   toJSON VirtualGatewaySpec' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("logging" Core..=) Prelude.<$> logging,
-            ("backendDefaults" Core..=)
+          [ ("logging" Data..=) Prelude.<$> logging,
+            ("backendDefaults" Data..=)
               Prelude.<$> backendDefaults,
-            Prelude.Just ("listeners" Core..= listeners)
+            Prelude.Just ("listeners" Data..= listeners)
           ]
       )

@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.DnsResponseType
 import Amazonka.AppMesh.Types.IpPreference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the DNS service discovery information for your
@@ -82,15 +83,15 @@ dnsServiceDiscovery_ipPreference = Lens.lens (\DnsServiceDiscovery' {ipPreferenc
 dnsServiceDiscovery_hostname :: Lens.Lens' DnsServiceDiscovery Prelude.Text
 dnsServiceDiscovery_hostname = Lens.lens (\DnsServiceDiscovery' {hostname} -> hostname) (\s@DnsServiceDiscovery' {} a -> s {hostname = a} :: DnsServiceDiscovery)
 
-instance Core.FromJSON DnsServiceDiscovery where
+instance Data.FromJSON DnsServiceDiscovery where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DnsServiceDiscovery"
       ( \x ->
           DnsServiceDiscovery'
-            Prelude.<$> (x Core..:? "responseType")
-            Prelude.<*> (x Core..:? "ipPreference")
-            Prelude.<*> (x Core..: "hostname")
+            Prelude.<$> (x Data..:? "responseType")
+            Prelude.<*> (x Data..:? "ipPreference")
+            Prelude.<*> (x Data..: "hostname")
       )
 
 instance Prelude.Hashable DnsServiceDiscovery where
@@ -105,12 +106,12 @@ instance Prelude.NFData DnsServiceDiscovery where
       `Prelude.seq` Prelude.rnf ipPreference
       `Prelude.seq` Prelude.rnf hostname
 
-instance Core.ToJSON DnsServiceDiscovery where
+instance Data.ToJSON DnsServiceDiscovery where
   toJSON DnsServiceDiscovery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("responseType" Core..=) Prelude.<$> responseType,
-            ("ipPreference" Core..=) Prelude.<$> ipPreference,
-            Prelude.Just ("hostname" Core..= hostname)
+          [ ("responseType" Data..=) Prelude.<$> responseType,
+            ("ipPreference" Data..=) Prelude.<$> ipPreference,
+            Prelude.Just ("hostname" Data..= hostname)
           ]
       )

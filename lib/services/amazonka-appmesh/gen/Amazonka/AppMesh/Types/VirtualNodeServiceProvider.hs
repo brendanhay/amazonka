@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.VirtualNodeServiceProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a virtual node service provider.
@@ -55,13 +56,13 @@ newVirtualNodeServiceProvider pVirtualNodeName_ =
 virtualNodeServiceProvider_virtualNodeName :: Lens.Lens' VirtualNodeServiceProvider Prelude.Text
 virtualNodeServiceProvider_virtualNodeName = Lens.lens (\VirtualNodeServiceProvider' {virtualNodeName} -> virtualNodeName) (\s@VirtualNodeServiceProvider' {} a -> s {virtualNodeName = a} :: VirtualNodeServiceProvider)
 
-instance Core.FromJSON VirtualNodeServiceProvider where
+instance Data.FromJSON VirtualNodeServiceProvider where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualNodeServiceProvider"
       ( \x ->
           VirtualNodeServiceProvider'
-            Prelude.<$> (x Core..: "virtualNodeName")
+            Prelude.<$> (x Data..: "virtualNodeName")
       )
 
 instance Prelude.Hashable VirtualNodeServiceProvider where
@@ -72,11 +73,11 @@ instance Prelude.NFData VirtualNodeServiceProvider where
   rnf VirtualNodeServiceProvider' {..} =
     Prelude.rnf virtualNodeName
 
-instance Core.ToJSON VirtualNodeServiceProvider where
+instance Data.ToJSON VirtualNodeServiceProvider where
   toJSON VirtualNodeServiceProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("virtualNodeName" Core..= virtualNodeName)
+              ("virtualNodeName" Data..= virtualNodeName)
           ]
       )

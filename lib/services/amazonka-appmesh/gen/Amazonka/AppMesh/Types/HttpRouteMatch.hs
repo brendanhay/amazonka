@@ -26,6 +26,7 @@ import Amazonka.AppMesh.Types.HttpRouteHeader
 import Amazonka.AppMesh.Types.HttpScheme
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the requirements for a route to match HTTP
@@ -130,19 +131,19 @@ httpRouteMatch_queryParameters = Lens.lens (\HttpRouteMatch' {queryParameters} -
 httpRouteMatch_prefix :: Lens.Lens' HttpRouteMatch (Prelude.Maybe Prelude.Text)
 httpRouteMatch_prefix = Lens.lens (\HttpRouteMatch' {prefix} -> prefix) (\s@HttpRouteMatch' {} a -> s {prefix = a} :: HttpRouteMatch)
 
-instance Core.FromJSON HttpRouteMatch where
+instance Data.FromJSON HttpRouteMatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpRouteMatch"
       ( \x ->
           HttpRouteMatch'
-            Prelude.<$> (x Core..:? "port")
-            Prelude.<*> (x Core..:? "scheme")
-            Prelude.<*> (x Core..:? "headers")
-            Prelude.<*> (x Core..:? "method")
-            Prelude.<*> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "queryParameters")
-            Prelude.<*> (x Core..:? "prefix")
+            Prelude.<$> (x Data..:? "port")
+            Prelude.<*> (x Data..:? "scheme")
+            Prelude.<*> (x Data..:? "headers")
+            Prelude.<*> (x Data..:? "method")
+            Prelude.<*> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "queryParameters")
+            Prelude.<*> (x Data..:? "prefix")
       )
 
 instance Prelude.Hashable HttpRouteMatch where
@@ -165,17 +166,17 @@ instance Prelude.NFData HttpRouteMatch where
       `Prelude.seq` Prelude.rnf queryParameters
       `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToJSON HttpRouteMatch where
+instance Data.ToJSON HttpRouteMatch where
   toJSON HttpRouteMatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("port" Core..=) Prelude.<$> port,
-            ("scheme" Core..=) Prelude.<$> scheme,
-            ("headers" Core..=) Prelude.<$> headers,
-            ("method" Core..=) Prelude.<$> method,
-            ("path" Core..=) Prelude.<$> path,
-            ("queryParameters" Core..=)
+          [ ("port" Data..=) Prelude.<$> port,
+            ("scheme" Data..=) Prelude.<$> scheme,
+            ("headers" Data..=) Prelude.<$> headers,
+            ("method" Data..=) Prelude.<$> method,
+            ("path" Data..=) Prelude.<$> path,
+            ("queryParameters" Data..=)
               Prelude.<$> queryParameters,
-            ("prefix" Core..=) Prelude.<$> prefix
+            ("prefix" Data..=) Prelude.<$> prefix
           ]
       )

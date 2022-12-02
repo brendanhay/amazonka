@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.HttpQueryParameter where
 import Amazonka.AppMesh.Types.QueryParameterMatch
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the query parameter in the request.
@@ -64,13 +65,13 @@ httpQueryParameter_match = Lens.lens (\HttpQueryParameter' {match} -> match) (\s
 httpQueryParameter_name :: Lens.Lens' HttpQueryParameter Prelude.Text
 httpQueryParameter_name = Lens.lens (\HttpQueryParameter' {name} -> name) (\s@HttpQueryParameter' {} a -> s {name = a} :: HttpQueryParameter)
 
-instance Core.FromJSON HttpQueryParameter where
+instance Data.FromJSON HttpQueryParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpQueryParameter"
       ( \x ->
           HttpQueryParameter'
-            Prelude.<$> (x Core..:? "match") Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "match") Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable HttpQueryParameter where
@@ -82,11 +83,11 @@ instance Prelude.NFData HttpQueryParameter where
   rnf HttpQueryParameter' {..} =
     Prelude.rnf match `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON HttpQueryParameter where
+instance Data.ToJSON HttpQueryParameter where
   toJSON HttpQueryParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("match" Core..=) Prelude.<$> match,
-            Prelude.Just ("name" Core..= name)
+          [ ("match" Data..=) Prelude.<$> match,
+            Prelude.Just ("name" Data..= name)
           ]
       )

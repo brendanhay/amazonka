@@ -45,6 +45,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,7 +133,7 @@ instance Core.AWSRequest DeleteGatewayRoute where
       ( \s h x ->
           DeleteGatewayRouteResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable DeleteGatewayRoute where
@@ -149,31 +150,31 @@ instance Prelude.NFData DeleteGatewayRoute where
       `Prelude.seq` Prelude.rnf meshName
       `Prelude.seq` Prelude.rnf virtualGatewayName
 
-instance Core.ToHeaders DeleteGatewayRoute where
+instance Data.ToHeaders DeleteGatewayRoute where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteGatewayRoute where
+instance Data.ToPath DeleteGatewayRoute where
   toPath DeleteGatewayRoute' {..} =
     Prelude.mconcat
       [ "/v20190125/meshes/",
-        Core.toBS meshName,
+        Data.toBS meshName,
         "/virtualGateway/",
-        Core.toBS virtualGatewayName,
+        Data.toBS virtualGatewayName,
         "/gatewayRoutes/",
-        Core.toBS gatewayRouteName
+        Data.toBS gatewayRouteName
       ]
 
-instance Core.ToQuery DeleteGatewayRoute where
+instance Data.ToQuery DeleteGatewayRoute where
   toQuery DeleteGatewayRoute' {..} =
-    Prelude.mconcat ["meshOwner" Core.=: meshOwner]
+    Prelude.mconcat ["meshOwner" Data.=: meshOwner]
 
 -- | /See:/ 'newDeleteGatewayRouteResponse' smart constructor.
 data DeleteGatewayRouteResponse = DeleteGatewayRouteResponse'

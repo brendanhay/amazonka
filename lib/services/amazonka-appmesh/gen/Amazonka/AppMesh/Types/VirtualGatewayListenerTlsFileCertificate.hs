@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a local file certificate. The certificate must
@@ -75,16 +76,16 @@ virtualGatewayListenerTlsFileCertificate_privateKey :: Lens.Lens' VirtualGateway
 virtualGatewayListenerTlsFileCertificate_privateKey = Lens.lens (\VirtualGatewayListenerTlsFileCertificate' {privateKey} -> privateKey) (\s@VirtualGatewayListenerTlsFileCertificate' {} a -> s {privateKey = a} :: VirtualGatewayListenerTlsFileCertificate)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     VirtualGatewayListenerTlsFileCertificate
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayListenerTlsFileCertificate"
       ( \x ->
           VirtualGatewayListenerTlsFileCertificate'
-            Prelude.<$> (x Core..: "certificateChain")
-            Prelude.<*> (x Core..: "privateKey")
+            Prelude.<$> (x Data..: "certificateChain")
+            Prelude.<*> (x Data..: "privateKey")
       )
 
 instance
@@ -106,14 +107,14 @@ instance
       `Prelude.seq` Prelude.rnf privateKey
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     VirtualGatewayListenerTlsFileCertificate
   where
   toJSON VirtualGatewayListenerTlsFileCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("certificateChain" Core..= certificateChain),
-            Prelude.Just ("privateKey" Core..= privateKey)
+              ("certificateChain" Data..= certificateChain),
+            Prelude.Just ("privateKey" Data..= privateKey)
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.Backend where
 import Amazonka.AppMesh.Types.VirtualServiceBackend
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the backends that a virtual node is expected
@@ -52,12 +53,12 @@ newBackend =
 backend_virtualService :: Lens.Lens' Backend (Prelude.Maybe VirtualServiceBackend)
 backend_virtualService = Lens.lens (\Backend' {virtualService} -> virtualService) (\s@Backend' {} a -> s {virtualService = a} :: Backend)
 
-instance Core.FromJSON Backend where
+instance Data.FromJSON Backend where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Backend"
       ( \x ->
-          Backend' Prelude.<$> (x Core..:? "virtualService")
+          Backend' Prelude.<$> (x Data..:? "virtualService")
       )
 
 instance Prelude.Hashable Backend where
@@ -67,11 +68,11 @@ instance Prelude.Hashable Backend where
 instance Prelude.NFData Backend where
   rnf Backend' {..} = Prelude.rnf virtualService
 
-instance Core.ToJSON Backend where
+instance Data.ToJSON Backend where
   toJSON Backend' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("virtualService" Core..=)
+          [ ("virtualService" Data..=)
               Prelude.<$> virtualService
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.RouteStatus where
 import Amazonka.AppMesh.Types.RouteStatusCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the current status of a route.
@@ -53,12 +54,12 @@ newRouteStatus pStatus_ =
 routeStatus_status :: Lens.Lens' RouteStatus RouteStatusCode
 routeStatus_status = Lens.lens (\RouteStatus' {status} -> status) (\s@RouteStatus' {} a -> s {status = a} :: RouteStatus)
 
-instance Core.FromJSON RouteStatus where
+instance Data.FromJSON RouteStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RouteStatus"
       ( \x ->
-          RouteStatus' Prelude.<$> (x Core..: "status")
+          RouteStatus' Prelude.<$> (x Data..: "status")
       )
 
 instance Prelude.Hashable RouteStatus where

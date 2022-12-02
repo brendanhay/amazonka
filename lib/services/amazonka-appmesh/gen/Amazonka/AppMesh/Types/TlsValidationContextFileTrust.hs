@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.TlsValidationContextFileTrust where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a Transport Layer Security (TLS) validation
@@ -59,13 +60,13 @@ newTlsValidationContextFileTrust pCertificateChain_ =
 tlsValidationContextFileTrust_certificateChain :: Lens.Lens' TlsValidationContextFileTrust Prelude.Text
 tlsValidationContextFileTrust_certificateChain = Lens.lens (\TlsValidationContextFileTrust' {certificateChain} -> certificateChain) (\s@TlsValidationContextFileTrust' {} a -> s {certificateChain = a} :: TlsValidationContextFileTrust)
 
-instance Core.FromJSON TlsValidationContextFileTrust where
+instance Data.FromJSON TlsValidationContextFileTrust where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TlsValidationContextFileTrust"
       ( \x ->
           TlsValidationContextFileTrust'
-            Prelude.<$> (x Core..: "certificateChain")
+            Prelude.<$> (x Data..: "certificateChain")
       )
 
 instance
@@ -79,11 +80,11 @@ instance Prelude.NFData TlsValidationContextFileTrust where
   rnf TlsValidationContextFileTrust' {..} =
     Prelude.rnf certificateChain
 
-instance Core.ToJSON TlsValidationContextFileTrust where
+instance Data.ToJSON TlsValidationContextFileTrust where
   toJSON TlsValidationContextFileTrust' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("certificateChain" Core..= certificateChain)
+              ("certificateChain" Data..= certificateChain)
           ]
       )

@@ -25,6 +25,7 @@ import Amazonka.AppMesh.Types.HttpRouteMatch
 import Amazonka.AppMesh.Types.HttpTimeout
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents an HTTP or HTTP\/2 route type.
@@ -87,16 +88,16 @@ httpRoute_action = Lens.lens (\HttpRoute' {action} -> action) (\s@HttpRoute' {} 
 httpRoute_match :: Lens.Lens' HttpRoute HttpRouteMatch
 httpRoute_match = Lens.lens (\HttpRoute' {match} -> match) (\s@HttpRoute' {} a -> s {match = a} :: HttpRoute)
 
-instance Core.FromJSON HttpRoute where
+instance Data.FromJSON HttpRoute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpRoute"
       ( \x ->
           HttpRoute'
-            Prelude.<$> (x Core..:? "timeout")
-            Prelude.<*> (x Core..:? "retryPolicy")
-            Prelude.<*> (x Core..: "action")
-            Prelude.<*> (x Core..: "match")
+            Prelude.<$> (x Data..:? "timeout")
+            Prelude.<*> (x Data..:? "retryPolicy")
+            Prelude.<*> (x Data..: "action")
+            Prelude.<*> (x Data..: "match")
       )
 
 instance Prelude.Hashable HttpRoute where
@@ -113,13 +114,13 @@ instance Prelude.NFData HttpRoute where
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf match
 
-instance Core.ToJSON HttpRoute where
+instance Data.ToJSON HttpRoute where
   toJSON HttpRoute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeout" Core..=) Prelude.<$> timeout,
-            ("retryPolicy" Core..=) Prelude.<$> retryPolicy,
-            Prelude.Just ("action" Core..= action),
-            Prelude.Just ("match" Core..= match)
+          [ ("timeout" Data..=) Prelude.<$> timeout,
+            ("retryPolicy" Data..=) Prelude.<$> retryPolicy,
+            Prelude.Just ("action" Data..= action),
+            Prelude.Just ("match" Data..= match)
           ]
       )

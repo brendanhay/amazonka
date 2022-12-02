@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.Duration where
 import Amazonka.AppMesh.Types.DurationUnit
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a duration of time.
@@ -62,13 +63,13 @@ duration_unit = Lens.lens (\Duration' {unit} -> unit) (\s@Duration' {} a -> s {u
 duration_value :: Lens.Lens' Duration (Prelude.Maybe Prelude.Natural)
 duration_value = Lens.lens (\Duration' {value} -> value) (\s@Duration' {} a -> s {value = a} :: Duration)
 
-instance Core.FromJSON Duration where
+instance Data.FromJSON Duration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Duration"
       ( \x ->
           Duration'
-            Prelude.<$> (x Core..:? "unit") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "unit") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Duration where
@@ -80,11 +81,11 @@ instance Prelude.NFData Duration where
   rnf Duration' {..} =
     Prelude.rnf unit `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Duration where
+instance Data.ToJSON Duration where
   toJSON Duration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("unit" Core..=) Prelude.<$> unit,
-            ("value" Core..=) Prelude.<$> value
+          [ ("unit" Data..=) Prelude.<$> unit,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

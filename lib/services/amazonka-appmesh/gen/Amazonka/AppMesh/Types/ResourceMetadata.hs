@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.ResourceMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents metadata for a resource.
@@ -30,10 +31,10 @@ data ResourceMetadata = ResourceMetadata'
   { -- | The full Amazon Resource Name (ARN) for the resource.
     arn :: Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The Unix epoch timestamp in seconds for when the resource was last
     -- updated.
-    lastUpdatedAt :: Core.POSIX,
+    lastUpdatedAt :: Data.POSIX,
     -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
     -- account ID is not your own, then it\'s the ID of the account that shared
     -- the mesh with your account. For more information about mesh sharing, see
@@ -109,8 +110,8 @@ newResourceMetadata
   pVersion_ =
     ResourceMetadata'
       { arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_,
         meshOwner = pMeshOwner_,
         resourceOwner = pResourceOwner_,
         uid = pUid_,
@@ -123,12 +124,12 @@ resourceMetadata_arn = Lens.lens (\ResourceMetadata' {arn} -> arn) (\s@ResourceM
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
 resourceMetadata_createdAt :: Lens.Lens' ResourceMetadata Prelude.UTCTime
-resourceMetadata_createdAt = Lens.lens (\ResourceMetadata' {createdAt} -> createdAt) (\s@ResourceMetadata' {} a -> s {createdAt = a} :: ResourceMetadata) Prelude.. Core._Time
+resourceMetadata_createdAt = Lens.lens (\ResourceMetadata' {createdAt} -> createdAt) (\s@ResourceMetadata' {} a -> s {createdAt = a} :: ResourceMetadata) Prelude.. Data._Time
 
 -- | The Unix epoch timestamp in seconds for when the resource was last
 -- updated.
 resourceMetadata_lastUpdatedAt :: Lens.Lens' ResourceMetadata Prelude.UTCTime
-resourceMetadata_lastUpdatedAt = Lens.lens (\ResourceMetadata' {lastUpdatedAt} -> lastUpdatedAt) (\s@ResourceMetadata' {} a -> s {lastUpdatedAt = a} :: ResourceMetadata) Prelude.. Core._Time
+resourceMetadata_lastUpdatedAt = Lens.lens (\ResourceMetadata' {lastUpdatedAt} -> lastUpdatedAt) (\s@ResourceMetadata' {} a -> s {lastUpdatedAt = a} :: ResourceMetadata) Prelude.. Data._Time
 
 -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
 -- account ID is not your own, then it\'s the ID of the account that shared
@@ -154,19 +155,19 @@ resourceMetadata_uid = Lens.lens (\ResourceMetadata' {uid} -> uid) (\s@ResourceM
 resourceMetadata_version :: Lens.Lens' ResourceMetadata Prelude.Integer
 resourceMetadata_version = Lens.lens (\ResourceMetadata' {version} -> version) (\s@ResourceMetadata' {} a -> s {version = a} :: ResourceMetadata)
 
-instance Core.FromJSON ResourceMetadata where
+instance Data.FromJSON ResourceMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceMetadata"
       ( \x ->
           ResourceMetadata'
-            Prelude.<$> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "lastUpdatedAt")
-            Prelude.<*> (x Core..: "meshOwner")
-            Prelude.<*> (x Core..: "resourceOwner")
-            Prelude.<*> (x Core..: "uid")
-            Prelude.<*> (x Core..: "version")
+            Prelude.<$> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "lastUpdatedAt")
+            Prelude.<*> (x Data..: "meshOwner")
+            Prelude.<*> (x Data..: "resourceOwner")
+            Prelude.<*> (x Data..: "uid")
+            Prelude.<*> (x Data..: "version")
       )
 
 instance Prelude.Hashable ResourceMetadata where

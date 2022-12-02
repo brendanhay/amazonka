@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.ClientTlsCertificate
 import Amazonka.AppMesh.Types.TlsValidationContext
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A reference to an object that represents a Transport Layer Security
@@ -87,16 +88,16 @@ clientPolicyTls_certificate = Lens.lens (\ClientPolicyTls' {certificate} -> cert
 clientPolicyTls_validation :: Lens.Lens' ClientPolicyTls TlsValidationContext
 clientPolicyTls_validation = Lens.lens (\ClientPolicyTls' {validation} -> validation) (\s@ClientPolicyTls' {} a -> s {validation = a} :: ClientPolicyTls)
 
-instance Core.FromJSON ClientPolicyTls where
+instance Data.FromJSON ClientPolicyTls where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClientPolicyTls"
       ( \x ->
           ClientPolicyTls'
-            Prelude.<$> (x Core..:? "ports" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "enforce")
-            Prelude.<*> (x Core..:? "certificate")
-            Prelude.<*> (x Core..: "validation")
+            Prelude.<$> (x Data..:? "ports" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "enforce")
+            Prelude.<*> (x Data..:? "certificate")
+            Prelude.<*> (x Data..: "validation")
       )
 
 instance Prelude.Hashable ClientPolicyTls where
@@ -113,13 +114,13 @@ instance Prelude.NFData ClientPolicyTls where
       `Prelude.seq` Prelude.rnf certificate
       `Prelude.seq` Prelude.rnf validation
 
-instance Core.ToJSON ClientPolicyTls where
+instance Data.ToJSON ClientPolicyTls where
   toJSON ClientPolicyTls' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ports" Core..=) Prelude.<$> ports,
-            ("enforce" Core..=) Prelude.<$> enforce,
-            ("certificate" Core..=) Prelude.<$> certificate,
-            Prelude.Just ("validation" Core..= validation)
+          [ ("ports" Data..=) Prelude.<$> ports,
+            ("enforce" Data..=) Prelude.<$> enforce,
+            ("certificate" Data..=) Prelude.<$> certificate,
+            Prelude.Just ("validation" Data..= validation)
           ]
       )

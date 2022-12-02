@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayRef where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a virtual gateway returned by a list
@@ -31,10 +32,10 @@ data VirtualGatewayRef = VirtualGatewayRef'
   { -- | The full Amazon Resource Name (ARN) for the resource.
     arn :: Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The Unix epoch timestamp in seconds for when the resource was last
     -- updated.
-    lastUpdatedAt :: Core.POSIX,
+    lastUpdatedAt :: Data.POSIX,
     -- | The name of the service mesh that the resource resides in.
     meshName :: Prelude.Text,
     -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
@@ -117,8 +118,8 @@ newVirtualGatewayRef
   pVirtualGatewayName_ =
     VirtualGatewayRef'
       { arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_,
         meshName = pMeshName_,
         meshOwner = pMeshOwner_,
         resourceOwner = pResourceOwner_,
@@ -132,12 +133,12 @@ virtualGatewayRef_arn = Lens.lens (\VirtualGatewayRef' {arn} -> arn) (\s@Virtual
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
 virtualGatewayRef_createdAt :: Lens.Lens' VirtualGatewayRef Prelude.UTCTime
-virtualGatewayRef_createdAt = Lens.lens (\VirtualGatewayRef' {createdAt} -> createdAt) (\s@VirtualGatewayRef' {} a -> s {createdAt = a} :: VirtualGatewayRef) Prelude.. Core._Time
+virtualGatewayRef_createdAt = Lens.lens (\VirtualGatewayRef' {createdAt} -> createdAt) (\s@VirtualGatewayRef' {} a -> s {createdAt = a} :: VirtualGatewayRef) Prelude.. Data._Time
 
 -- | The Unix epoch timestamp in seconds for when the resource was last
 -- updated.
 virtualGatewayRef_lastUpdatedAt :: Lens.Lens' VirtualGatewayRef Prelude.UTCTime
-virtualGatewayRef_lastUpdatedAt = Lens.lens (\VirtualGatewayRef' {lastUpdatedAt} -> lastUpdatedAt) (\s@VirtualGatewayRef' {} a -> s {lastUpdatedAt = a} :: VirtualGatewayRef) Prelude.. Core._Time
+virtualGatewayRef_lastUpdatedAt = Lens.lens (\VirtualGatewayRef' {lastUpdatedAt} -> lastUpdatedAt) (\s@VirtualGatewayRef' {} a -> s {lastUpdatedAt = a} :: VirtualGatewayRef) Prelude.. Data._Time
 
 -- | The name of the service mesh that the resource resides in.
 virtualGatewayRef_meshName :: Lens.Lens' VirtualGatewayRef Prelude.Text
@@ -167,20 +168,20 @@ virtualGatewayRef_version = Lens.lens (\VirtualGatewayRef' {version} -> version)
 virtualGatewayRef_virtualGatewayName :: Lens.Lens' VirtualGatewayRef Prelude.Text
 virtualGatewayRef_virtualGatewayName = Lens.lens (\VirtualGatewayRef' {virtualGatewayName} -> virtualGatewayName) (\s@VirtualGatewayRef' {} a -> s {virtualGatewayName = a} :: VirtualGatewayRef)
 
-instance Core.FromJSON VirtualGatewayRef where
+instance Data.FromJSON VirtualGatewayRef where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayRef"
       ( \x ->
           VirtualGatewayRef'
-            Prelude.<$> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "lastUpdatedAt")
-            Prelude.<*> (x Core..: "meshName")
-            Prelude.<*> (x Core..: "meshOwner")
-            Prelude.<*> (x Core..: "resourceOwner")
-            Prelude.<*> (x Core..: "version")
-            Prelude.<*> (x Core..: "virtualGatewayName")
+            Prelude.<$> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "lastUpdatedAt")
+            Prelude.<*> (x Data..: "meshName")
+            Prelude.<*> (x Data..: "meshOwner")
+            Prelude.<*> (x Data..: "resourceOwner")
+            Prelude.<*> (x Data..: "version")
+            Prelude.<*> (x Data..: "virtualGatewayName")
       )
 
 instance Prelude.Hashable VirtualGatewayRef where

@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.GrpcRouteMatch where
 import Amazonka.AppMesh.Types.GrpcRouteMetadata
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the criteria for determining a request match.
@@ -86,16 +87,16 @@ grpcRouteMatch_metadata = Lens.lens (\GrpcRouteMatch' {metadata} -> metadata) (\
 grpcRouteMatch_serviceName :: Lens.Lens' GrpcRouteMatch (Prelude.Maybe Prelude.Text)
 grpcRouteMatch_serviceName = Lens.lens (\GrpcRouteMatch' {serviceName} -> serviceName) (\s@GrpcRouteMatch' {} a -> s {serviceName = a} :: GrpcRouteMatch)
 
-instance Core.FromJSON GrpcRouteMatch where
+instance Data.FromJSON GrpcRouteMatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GrpcRouteMatch"
       ( \x ->
           GrpcRouteMatch'
-            Prelude.<$> (x Core..:? "port")
-            Prelude.<*> (x Core..:? "methodName")
-            Prelude.<*> (x Core..:? "metadata")
-            Prelude.<*> (x Core..:? "serviceName")
+            Prelude.<$> (x Data..:? "port")
+            Prelude.<*> (x Data..:? "methodName")
+            Prelude.<*> (x Data..:? "metadata")
+            Prelude.<*> (x Data..:? "serviceName")
       )
 
 instance Prelude.Hashable GrpcRouteMatch where
@@ -112,13 +113,13 @@ instance Prelude.NFData GrpcRouteMatch where
       `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToJSON GrpcRouteMatch where
+instance Data.ToJSON GrpcRouteMatch where
   toJSON GrpcRouteMatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("port" Core..=) Prelude.<$> port,
-            ("methodName" Core..=) Prelude.<$> methodName,
-            ("metadata" Core..=) Prelude.<$> metadata,
-            ("serviceName" Core..=) Prelude.<$> serviceName
+          [ ("port" Data..=) Prelude.<$> port,
+            ("methodName" Data..=) Prelude.<$> methodName,
+            ("metadata" Data..=) Prelude.<$> metadata,
+            ("serviceName" Data..=) Prelude.<$> serviceName
           ]
       )

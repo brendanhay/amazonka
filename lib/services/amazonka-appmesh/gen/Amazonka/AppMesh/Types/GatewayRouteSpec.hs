@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.GrpcGatewayRoute
 import Amazonka.AppMesh.Types.HttpGatewayRoute
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a gateway route specification. Specify one
@@ -82,16 +83,16 @@ gatewayRouteSpec_grpcRoute = Lens.lens (\GatewayRouteSpec' {grpcRoute} -> grpcRo
 gatewayRouteSpec_priority :: Lens.Lens' GatewayRouteSpec (Prelude.Maybe Prelude.Natural)
 gatewayRouteSpec_priority = Lens.lens (\GatewayRouteSpec' {priority} -> priority) (\s@GatewayRouteSpec' {} a -> s {priority = a} :: GatewayRouteSpec)
 
-instance Core.FromJSON GatewayRouteSpec where
+instance Data.FromJSON GatewayRouteSpec where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewayRouteSpec"
       ( \x ->
           GatewayRouteSpec'
-            Prelude.<$> (x Core..:? "httpRoute")
-            Prelude.<*> (x Core..:? "http2Route")
-            Prelude.<*> (x Core..:? "grpcRoute")
-            Prelude.<*> (x Core..:? "priority")
+            Prelude.<$> (x Data..:? "httpRoute")
+            Prelude.<*> (x Data..:? "http2Route")
+            Prelude.<*> (x Data..:? "grpcRoute")
+            Prelude.<*> (x Data..:? "priority")
       )
 
 instance Prelude.Hashable GatewayRouteSpec where
@@ -108,13 +109,13 @@ instance Prelude.NFData GatewayRouteSpec where
       `Prelude.seq` Prelude.rnf grpcRoute
       `Prelude.seq` Prelude.rnf priority
 
-instance Core.ToJSON GatewayRouteSpec where
+instance Data.ToJSON GatewayRouteSpec where
   toJSON GatewayRouteSpec' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("httpRoute" Core..=) Prelude.<$> httpRoute,
-            ("http2Route" Core..=) Prelude.<$> http2Route,
-            ("grpcRoute" Core..=) Prelude.<$> grpcRoute,
-            ("priority" Core..=) Prelude.<$> priority
+          [ ("httpRoute" Data..=) Prelude.<$> httpRoute,
+            ("http2Route" Data..=) Prelude.<$> http2Route,
+            ("grpcRoute" Data..=) Prelude.<$> grpcRoute,
+            ("priority" Data..=) Prelude.<$> priority
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.HttpGatewayRoutePathRewrite where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the path to rewrite.
@@ -53,13 +54,13 @@ newHttpGatewayRoutePathRewrite =
 httpGatewayRoutePathRewrite_exact :: Lens.Lens' HttpGatewayRoutePathRewrite (Prelude.Maybe Prelude.Text)
 httpGatewayRoutePathRewrite_exact = Lens.lens (\HttpGatewayRoutePathRewrite' {exact} -> exact) (\s@HttpGatewayRoutePathRewrite' {} a -> s {exact = a} :: HttpGatewayRoutePathRewrite)
 
-instance Core.FromJSON HttpGatewayRoutePathRewrite where
+instance Data.FromJSON HttpGatewayRoutePathRewrite where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpGatewayRoutePathRewrite"
       ( \x ->
           HttpGatewayRoutePathRewrite'
-            Prelude.<$> (x Core..:? "exact")
+            Prelude.<$> (x Data..:? "exact")
       )
 
 instance Prelude.Hashable HttpGatewayRoutePathRewrite where
@@ -70,9 +71,9 @@ instance Prelude.NFData HttpGatewayRoutePathRewrite where
   rnf HttpGatewayRoutePathRewrite' {..} =
     Prelude.rnf exact
 
-instance Core.ToJSON HttpGatewayRoutePathRewrite where
+instance Data.ToJSON HttpGatewayRoutePathRewrite where
   toJSON HttpGatewayRoutePathRewrite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("exact" Core..=) Prelude.<$> exact]
+          [("exact" Data..=) Prelude.<$> exact]
       )

@@ -54,6 +54,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,7 +144,7 @@ instance Core.AWSRequest CreateMesh where
       ( \s h x ->
           CreateMeshResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable CreateMesh where
@@ -160,32 +161,32 @@ instance Prelude.NFData CreateMesh where
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf meshName
 
-instance Core.ToHeaders CreateMesh where
+instance Data.ToHeaders CreateMesh where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMesh where
+instance Data.ToJSON CreateMesh where
   toJSON CreateMesh' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("spec" Core..=) Prelude.<$> spec,
-            Prelude.Just ("meshName" Core..= meshName)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("spec" Data..=) Prelude.<$> spec,
+            Prelude.Just ("meshName" Data..= meshName)
           ]
       )
 
-instance Core.ToPath CreateMesh where
+instance Data.ToPath CreateMesh where
   toPath = Prelude.const "/v20190125/meshes"
 
-instance Core.ToQuery CreateMesh where
+instance Data.ToQuery CreateMesh where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

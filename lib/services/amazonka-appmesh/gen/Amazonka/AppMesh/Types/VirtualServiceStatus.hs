@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.VirtualServiceStatus where
 import Amazonka.AppMesh.Types.VirtualServiceStatusCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the status of a virtual service.
@@ -53,13 +54,13 @@ newVirtualServiceStatus pStatus_ =
 virtualServiceStatus_status :: Lens.Lens' VirtualServiceStatus VirtualServiceStatusCode
 virtualServiceStatus_status = Lens.lens (\VirtualServiceStatus' {status} -> status) (\s@VirtualServiceStatus' {} a -> s {status = a} :: VirtualServiceStatus)
 
-instance Core.FromJSON VirtualServiceStatus where
+instance Data.FromJSON VirtualServiceStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualServiceStatus"
       ( \x ->
           VirtualServiceStatus'
-            Prelude.<$> (x Core..: "status")
+            Prelude.<$> (x Data..: "status")
       )
 
 instance Prelude.Hashable VirtualServiceStatus where

@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.GatewayRouteRef where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a gateway route returned by a list operation.
@@ -30,12 +31,12 @@ data GatewayRouteRef = GatewayRouteRef'
   { -- | The full Amazon Resource Name (ARN) for the gateway route.
     arn :: Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The name of the gateway route.
     gatewayRouteName :: Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was last
     -- updated.
-    lastUpdatedAt :: Core.POSIX,
+    lastUpdatedAt :: Data.POSIX,
     -- | The name of the service mesh that the resource resides in.
     meshName :: Prelude.Text,
     -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
@@ -123,9 +124,9 @@ newGatewayRouteRef
   pVirtualGatewayName_ =
     GatewayRouteRef'
       { arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         gatewayRouteName = pGatewayRouteName_,
-        lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_,
+        lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_,
         meshName = pMeshName_,
         meshOwner = pMeshOwner_,
         resourceOwner = pResourceOwner_,
@@ -139,7 +140,7 @@ gatewayRouteRef_arn = Lens.lens (\GatewayRouteRef' {arn} -> arn) (\s@GatewayRout
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
 gatewayRouteRef_createdAt :: Lens.Lens' GatewayRouteRef Prelude.UTCTime
-gatewayRouteRef_createdAt = Lens.lens (\GatewayRouteRef' {createdAt} -> createdAt) (\s@GatewayRouteRef' {} a -> s {createdAt = a} :: GatewayRouteRef) Prelude.. Core._Time
+gatewayRouteRef_createdAt = Lens.lens (\GatewayRouteRef' {createdAt} -> createdAt) (\s@GatewayRouteRef' {} a -> s {createdAt = a} :: GatewayRouteRef) Prelude.. Data._Time
 
 -- | The name of the gateway route.
 gatewayRouteRef_gatewayRouteName :: Lens.Lens' GatewayRouteRef Prelude.Text
@@ -148,7 +149,7 @@ gatewayRouteRef_gatewayRouteName = Lens.lens (\GatewayRouteRef' {gatewayRouteNam
 -- | The Unix epoch timestamp in seconds for when the resource was last
 -- updated.
 gatewayRouteRef_lastUpdatedAt :: Lens.Lens' GatewayRouteRef Prelude.UTCTime
-gatewayRouteRef_lastUpdatedAt = Lens.lens (\GatewayRouteRef' {lastUpdatedAt} -> lastUpdatedAt) (\s@GatewayRouteRef' {} a -> s {lastUpdatedAt = a} :: GatewayRouteRef) Prelude.. Core._Time
+gatewayRouteRef_lastUpdatedAt = Lens.lens (\GatewayRouteRef' {lastUpdatedAt} -> lastUpdatedAt) (\s@GatewayRouteRef' {} a -> s {lastUpdatedAt = a} :: GatewayRouteRef) Prelude.. Data._Time
 
 -- | The name of the service mesh that the resource resides in.
 gatewayRouteRef_meshName :: Lens.Lens' GatewayRouteRef Prelude.Text
@@ -178,21 +179,21 @@ gatewayRouteRef_version = Lens.lens (\GatewayRouteRef' {version} -> version) (\s
 gatewayRouteRef_virtualGatewayName :: Lens.Lens' GatewayRouteRef Prelude.Text
 gatewayRouteRef_virtualGatewayName = Lens.lens (\GatewayRouteRef' {virtualGatewayName} -> virtualGatewayName) (\s@GatewayRouteRef' {} a -> s {virtualGatewayName = a} :: GatewayRouteRef)
 
-instance Core.FromJSON GatewayRouteRef where
+instance Data.FromJSON GatewayRouteRef where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewayRouteRef"
       ( \x ->
           GatewayRouteRef'
-            Prelude.<$> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "gatewayRouteName")
-            Prelude.<*> (x Core..: "lastUpdatedAt")
-            Prelude.<*> (x Core..: "meshName")
-            Prelude.<*> (x Core..: "meshOwner")
-            Prelude.<*> (x Core..: "resourceOwner")
-            Prelude.<*> (x Core..: "version")
-            Prelude.<*> (x Core..: "virtualGatewayName")
+            Prelude.<$> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "gatewayRouteName")
+            Prelude.<*> (x Data..: "lastUpdatedAt")
+            Prelude.<*> (x Data..: "meshName")
+            Prelude.<*> (x Data..: "meshOwner")
+            Prelude.<*> (x Data..: "resourceOwner")
+            Prelude.<*> (x Data..: "version")
+            Prelude.<*> (x Data..: "virtualGatewayName")
       )
 
 instance Prelude.Hashable GatewayRouteRef where

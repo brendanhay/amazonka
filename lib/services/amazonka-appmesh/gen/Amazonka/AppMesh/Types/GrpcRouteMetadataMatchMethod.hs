@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.GrpcRouteMetadataMatchMethod where
 import Amazonka.AppMesh.Types.MatchRange
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the match method. Specify one of the match
@@ -91,17 +92,17 @@ grpcRouteMetadataMatchMethod_prefix = Lens.lens (\GrpcRouteMetadataMatchMethod' 
 grpcRouteMetadataMatchMethod_suffix :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
 grpcRouteMetadataMatchMethod_suffix = Lens.lens (\GrpcRouteMetadataMatchMethod' {suffix} -> suffix) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {suffix = a} :: GrpcRouteMetadataMatchMethod)
 
-instance Core.FromJSON GrpcRouteMetadataMatchMethod where
+instance Data.FromJSON GrpcRouteMetadataMatchMethod where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GrpcRouteMetadataMatchMethod"
       ( \x ->
           GrpcRouteMetadataMatchMethod'
-            Prelude.<$> (x Core..:? "exact")
-            Prelude.<*> (x Core..:? "regex")
-            Prelude.<*> (x Core..:? "range")
-            Prelude.<*> (x Core..:? "prefix")
-            Prelude.<*> (x Core..:? "suffix")
+            Prelude.<$> (x Data..:? "exact")
+            Prelude.<*> (x Data..:? "regex")
+            Prelude.<*> (x Data..:? "range")
+            Prelude.<*> (x Data..:? "prefix")
+            Prelude.<*> (x Data..:? "suffix")
       )
 
 instance
@@ -123,14 +124,14 @@ instance Prelude.NFData GrpcRouteMetadataMatchMethod where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf suffix
 
-instance Core.ToJSON GrpcRouteMetadataMatchMethod where
+instance Data.ToJSON GrpcRouteMetadataMatchMethod where
   toJSON GrpcRouteMetadataMatchMethod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("exact" Core..=) Prelude.<$> exact,
-            ("regex" Core..=) Prelude.<$> regex,
-            ("range" Core..=) Prelude.<$> range,
-            ("prefix" Core..=) Prelude.<$> prefix,
-            ("suffix" Core..=) Prelude.<$> suffix
+          [ ("exact" Data..=) Prelude.<$> exact,
+            ("regex" Data..=) Prelude.<$> regex,
+            ("range" Data..=) Prelude.<$> range,
+            ("prefix" Data..=) Prelude.<$> prefix,
+            ("suffix" Data..=) Prelude.<$> suffix
           ]
       )

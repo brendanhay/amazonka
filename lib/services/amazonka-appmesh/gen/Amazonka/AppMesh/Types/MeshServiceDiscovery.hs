@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.MeshServiceDiscovery where
 import Amazonka.AppMesh.Types.IpPreference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the service discovery information for a
@@ -55,13 +56,13 @@ newMeshServiceDiscovery =
 meshServiceDiscovery_ipPreference :: Lens.Lens' MeshServiceDiscovery (Prelude.Maybe IpPreference)
 meshServiceDiscovery_ipPreference = Lens.lens (\MeshServiceDiscovery' {ipPreference} -> ipPreference) (\s@MeshServiceDiscovery' {} a -> s {ipPreference = a} :: MeshServiceDiscovery)
 
-instance Core.FromJSON MeshServiceDiscovery where
+instance Data.FromJSON MeshServiceDiscovery where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MeshServiceDiscovery"
       ( \x ->
           MeshServiceDiscovery'
-            Prelude.<$> (x Core..:? "ipPreference")
+            Prelude.<$> (x Data..:? "ipPreference")
       )
 
 instance Prelude.Hashable MeshServiceDiscovery where
@@ -72,9 +73,9 @@ instance Prelude.NFData MeshServiceDiscovery where
   rnf MeshServiceDiscovery' {..} =
     Prelude.rnf ipPreference
 
-instance Core.ToJSON MeshServiceDiscovery where
+instance Data.ToJSON MeshServiceDiscovery where
   toJSON MeshServiceDiscovery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("ipPreference" Core..=) Prelude.<$> ipPreference]
+          [("ipPreference" Data..=) Prelude.<$> ipPreference]
       )

@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayListenerTlsSdsCertificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the virtual gateway\'s listener\'s Secret
@@ -70,15 +71,15 @@ virtualGatewayListenerTlsSdsCertificate_secretName :: Lens.Lens' VirtualGatewayL
 virtualGatewayListenerTlsSdsCertificate_secretName = Lens.lens (\VirtualGatewayListenerTlsSdsCertificate' {secretName} -> secretName) (\s@VirtualGatewayListenerTlsSdsCertificate' {} a -> s {secretName = a} :: VirtualGatewayListenerTlsSdsCertificate)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     VirtualGatewayListenerTlsSdsCertificate
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayListenerTlsSdsCertificate"
       ( \x ->
           VirtualGatewayListenerTlsSdsCertificate'
-            Prelude.<$> (x Core..: "secretName")
+            Prelude.<$> (x Data..: "secretName")
       )
 
 instance
@@ -98,11 +99,11 @@ instance
     Prelude.rnf secretName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     VirtualGatewayListenerTlsSdsCertificate
   where
   toJSON VirtualGatewayListenerTlsSdsCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("secretName" Core..= secretName)]
+          [Prelude.Just ("secretName" Data..= secretName)]
       )

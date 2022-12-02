@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.AwsCloudMapServiceDiscovery
 import Amazonka.AppMesh.Types.DnsServiceDiscovery
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the service discovery information for a
@@ -64,14 +65,14 @@ serviceDiscovery_dns = Lens.lens (\ServiceDiscovery' {dns} -> dns) (\s@ServiceDi
 serviceDiscovery_awsCloudMap :: Lens.Lens' ServiceDiscovery (Prelude.Maybe AwsCloudMapServiceDiscovery)
 serviceDiscovery_awsCloudMap = Lens.lens (\ServiceDiscovery' {awsCloudMap} -> awsCloudMap) (\s@ServiceDiscovery' {} a -> s {awsCloudMap = a} :: ServiceDiscovery)
 
-instance Core.FromJSON ServiceDiscovery where
+instance Data.FromJSON ServiceDiscovery where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceDiscovery"
       ( \x ->
           ServiceDiscovery'
-            Prelude.<$> (x Core..:? "dns")
-            Prelude.<*> (x Core..:? "awsCloudMap")
+            Prelude.<$> (x Data..:? "dns")
+            Prelude.<*> (x Data..:? "awsCloudMap")
       )
 
 instance Prelude.Hashable ServiceDiscovery where
@@ -84,11 +85,11 @@ instance Prelude.NFData ServiceDiscovery where
     Prelude.rnf dns
       `Prelude.seq` Prelude.rnf awsCloudMap
 
-instance Core.ToJSON ServiceDiscovery where
+instance Data.ToJSON ServiceDiscovery where
   toJSON ServiceDiscovery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dns" Core..=) Prelude.<$> dns,
-            ("awsCloudMap" Core..=) Prelude.<$> awsCloudMap
+          [ ("dns" Data..=) Prelude.<$> dns,
+            ("awsCloudMap" Data..=) Prelude.<$> awsCloudMap
           ]
       )

@@ -27,6 +27,7 @@ import Amazonka.AppMesh.Types.PortMapping
 import Amazonka.AppMesh.Types.VirtualNodeConnectionPool
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a listener for a virtual node.
@@ -108,18 +109,18 @@ listener_outlierDetection = Lens.lens (\Listener' {outlierDetection} -> outlierD
 listener_portMapping :: Lens.Lens' Listener PortMapping
 listener_portMapping = Lens.lens (\Listener' {portMapping} -> portMapping) (\s@Listener' {} a -> s {portMapping = a} :: Listener)
 
-instance Core.FromJSON Listener where
+instance Data.FromJSON Listener where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Listener"
       ( \x ->
           Listener'
-            Prelude.<$> (x Core..:? "timeout")
-            Prelude.<*> (x Core..:? "healthCheck")
-            Prelude.<*> (x Core..:? "tls")
-            Prelude.<*> (x Core..:? "connectionPool")
-            Prelude.<*> (x Core..:? "outlierDetection")
-            Prelude.<*> (x Core..: "portMapping")
+            Prelude.<$> (x Data..:? "timeout")
+            Prelude.<*> (x Data..:? "healthCheck")
+            Prelude.<*> (x Data..:? "tls")
+            Prelude.<*> (x Data..:? "connectionPool")
+            Prelude.<*> (x Data..:? "outlierDetection")
+            Prelude.<*> (x Data..: "portMapping")
       )
 
 instance Prelude.Hashable Listener where
@@ -140,17 +141,17 @@ instance Prelude.NFData Listener where
       `Prelude.seq` Prelude.rnf outlierDetection
       `Prelude.seq` Prelude.rnf portMapping
 
-instance Core.ToJSON Listener where
+instance Data.ToJSON Listener where
   toJSON Listener' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeout" Core..=) Prelude.<$> timeout,
-            ("healthCheck" Core..=) Prelude.<$> healthCheck,
-            ("tls" Core..=) Prelude.<$> tls,
-            ("connectionPool" Core..=)
+          [ ("timeout" Data..=) Prelude.<$> timeout,
+            ("healthCheck" Data..=) Prelude.<$> healthCheck,
+            ("tls" Data..=) Prelude.<$> tls,
+            ("connectionPool" Data..=)
               Prelude.<$> connectionPool,
-            ("outlierDetection" Core..=)
+            ("outlierDetection" Data..=)
               Prelude.<$> outlierDetection,
-            Prelude.Just ("portMapping" Core..= portMapping)
+            Prelude.Just ("portMapping" Data..= portMapping)
           ]
       )

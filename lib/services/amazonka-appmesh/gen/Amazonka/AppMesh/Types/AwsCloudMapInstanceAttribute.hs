@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.AwsCloudMapInstanceAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the Cloud Map attribute information for your
@@ -74,13 +75,13 @@ awsCloudMapInstanceAttribute_key = Lens.lens (\AwsCloudMapInstanceAttribute' {ke
 awsCloudMapInstanceAttribute_value :: Lens.Lens' AwsCloudMapInstanceAttribute Prelude.Text
 awsCloudMapInstanceAttribute_value = Lens.lens (\AwsCloudMapInstanceAttribute' {value} -> value) (\s@AwsCloudMapInstanceAttribute' {} a -> s {value = a} :: AwsCloudMapInstanceAttribute)
 
-instance Core.FromJSON AwsCloudMapInstanceAttribute where
+instance Data.FromJSON AwsCloudMapInstanceAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudMapInstanceAttribute"
       ( \x ->
           AwsCloudMapInstanceAttribute'
-            Prelude.<$> (x Core..: "key") Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "key") Prelude.<*> (x Data..: "value")
       )
 
 instance
@@ -95,11 +96,11 @@ instance Prelude.NFData AwsCloudMapInstanceAttribute where
   rnf AwsCloudMapInstanceAttribute' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON AwsCloudMapInstanceAttribute where
+instance Data.ToJSON AwsCloudMapInstanceAttribute where
   toJSON AwsCloudMapInstanceAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("key" Core..= key),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("key" Data..= key),
+            Prelude.Just ("value" Data..= value)
           ]
       )

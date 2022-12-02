@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.EgressFilter
 import Amazonka.AppMesh.Types.MeshServiceDiscovery
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the specification of a service mesh.
@@ -62,14 +63,14 @@ meshSpec_egressFilter = Lens.lens (\MeshSpec' {egressFilter} -> egressFilter) (\
 meshSpec_serviceDiscovery :: Lens.Lens' MeshSpec (Prelude.Maybe MeshServiceDiscovery)
 meshSpec_serviceDiscovery = Lens.lens (\MeshSpec' {serviceDiscovery} -> serviceDiscovery) (\s@MeshSpec' {} a -> s {serviceDiscovery = a} :: MeshSpec)
 
-instance Core.FromJSON MeshSpec where
+instance Data.FromJSON MeshSpec where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MeshSpec"
       ( \x ->
           MeshSpec'
-            Prelude.<$> (x Core..:? "egressFilter")
-            Prelude.<*> (x Core..:? "serviceDiscovery")
+            Prelude.<$> (x Data..:? "egressFilter")
+            Prelude.<*> (x Data..:? "serviceDiscovery")
       )
 
 instance Prelude.Hashable MeshSpec where
@@ -82,12 +83,12 @@ instance Prelude.NFData MeshSpec where
     Prelude.rnf egressFilter
       `Prelude.seq` Prelude.rnf serviceDiscovery
 
-instance Core.ToJSON MeshSpec where
+instance Data.ToJSON MeshSpec where
   toJSON MeshSpec' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("egressFilter" Core..=) Prelude.<$> egressFilter,
-            ("serviceDiscovery" Core..=)
+          [ ("egressFilter" Data..=) Prelude.<$> egressFilter,
+            ("serviceDiscovery" Data..=)
               Prelude.<$> serviceDiscovery
           ]
       )

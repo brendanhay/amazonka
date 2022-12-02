@@ -44,6 +44,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,7 +123,7 @@ instance Core.AWSRequest DescribeVirtualService where
       ( \s h x ->
           DescribeVirtualServiceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable DescribeVirtualService where
@@ -137,29 +138,29 @@ instance Prelude.NFData DescribeVirtualService where
       `Prelude.seq` Prelude.rnf meshName
       `Prelude.seq` Prelude.rnf virtualServiceName
 
-instance Core.ToHeaders DescribeVirtualService where
+instance Data.ToHeaders DescribeVirtualService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeVirtualService where
+instance Data.ToPath DescribeVirtualService where
   toPath DescribeVirtualService' {..} =
     Prelude.mconcat
       [ "/v20190125/meshes/",
-        Core.toBS meshName,
+        Data.toBS meshName,
         "/virtualServices/",
-        Core.toBS virtualServiceName
+        Data.toBS virtualServiceName
       ]
 
-instance Core.ToQuery DescribeVirtualService where
+instance Data.ToQuery DescribeVirtualService where
   toQuery DescribeVirtualService' {..} =
-    Prelude.mconcat ["meshOwner" Core.=: meshOwner]
+    Prelude.mconcat ["meshOwner" Data.=: meshOwner]
 
 -- |
 --

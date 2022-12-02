@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.HttpGatewayRouteHeader where
 import Amazonka.AppMesh.Types.HeaderMatchMethod
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the HTTP header in the gateway route.
@@ -79,15 +80,15 @@ httpGatewayRouteHeader_invert = Lens.lens (\HttpGatewayRouteHeader' {invert} -> 
 httpGatewayRouteHeader_name :: Lens.Lens' HttpGatewayRouteHeader Prelude.Text
 httpGatewayRouteHeader_name = Lens.lens (\HttpGatewayRouteHeader' {name} -> name) (\s@HttpGatewayRouteHeader' {} a -> s {name = a} :: HttpGatewayRouteHeader)
 
-instance Core.FromJSON HttpGatewayRouteHeader where
+instance Data.FromJSON HttpGatewayRouteHeader where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpGatewayRouteHeader"
       ( \x ->
           HttpGatewayRouteHeader'
-            Prelude.<$> (x Core..:? "match")
-            Prelude.<*> (x Core..:? "invert")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "match")
+            Prelude.<*> (x Data..:? "invert")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable HttpGatewayRouteHeader where
@@ -102,12 +103,12 @@ instance Prelude.NFData HttpGatewayRouteHeader where
       `Prelude.seq` Prelude.rnf invert
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON HttpGatewayRouteHeader where
+instance Data.ToJSON HttpGatewayRouteHeader where
   toJSON HttpGatewayRouteHeader' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("match" Core..=) Prelude.<$> match,
-            ("invert" Core..=) Prelude.<$> invert,
-            Prelude.Just ("name" Core..= name)
+          [ ("match" Data..=) Prelude.<$> match,
+            ("invert" Data..=) Prelude.<$> invert,
+            Prelude.Just ("name" Data..= name)
           ]
       )

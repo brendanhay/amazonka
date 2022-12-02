@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.BackendDefaults where
 import Amazonka.AppMesh.Types.ClientPolicy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the default properties for a backend.
@@ -51,13 +52,13 @@ newBackendDefaults =
 backendDefaults_clientPolicy :: Lens.Lens' BackendDefaults (Prelude.Maybe ClientPolicy)
 backendDefaults_clientPolicy = Lens.lens (\BackendDefaults' {clientPolicy} -> clientPolicy) (\s@BackendDefaults' {} a -> s {clientPolicy = a} :: BackendDefaults)
 
-instance Core.FromJSON BackendDefaults where
+instance Data.FromJSON BackendDefaults where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackendDefaults"
       ( \x ->
           BackendDefaults'
-            Prelude.<$> (x Core..:? "clientPolicy")
+            Prelude.<$> (x Data..:? "clientPolicy")
       )
 
 instance Prelude.Hashable BackendDefaults where
@@ -67,9 +68,9 @@ instance Prelude.Hashable BackendDefaults where
 instance Prelude.NFData BackendDefaults where
   rnf BackendDefaults' {..} = Prelude.rnf clientPolicy
 
-instance Core.ToJSON BackendDefaults where
+instance Data.ToJSON BackendDefaults where
   toJSON BackendDefaults' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("clientPolicy" Core..=) Prelude.<$> clientPolicy]
+          [("clientPolicy" Data..=) Prelude.<$> clientPolicy]
       )

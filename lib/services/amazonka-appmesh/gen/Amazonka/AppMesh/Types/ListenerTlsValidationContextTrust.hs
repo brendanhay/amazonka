@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.TlsValidationContextFileTrust
 import Amazonka.AppMesh.Types.TlsValidationContextSdsTrust
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a listener\'s Transport Layer Security (TLS)
@@ -72,15 +73,15 @@ listenerTlsValidationContextTrust_file :: Lens.Lens' ListenerTlsValidationContex
 listenerTlsValidationContextTrust_file = Lens.lens (\ListenerTlsValidationContextTrust' {file} -> file) (\s@ListenerTlsValidationContextTrust' {} a -> s {file = a} :: ListenerTlsValidationContextTrust)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ListenerTlsValidationContextTrust
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListenerTlsValidationContextTrust"
       ( \x ->
           ListenerTlsValidationContextTrust'
-            Prelude.<$> (x Core..:? "sds") Prelude.<*> (x Core..:? "file")
+            Prelude.<$> (x Data..:? "sds") Prelude.<*> (x Data..:? "file")
       )
 
 instance
@@ -101,13 +102,13 @@ instance
     Prelude.rnf sds `Prelude.seq` Prelude.rnf file
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListenerTlsValidationContextTrust
   where
   toJSON ListenerTlsValidationContextTrust' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sds" Core..=) Prelude.<$> sds,
-            ("file" Core..=) Prelude.<$> file
+          [ ("sds" Data..=) Prelude.<$> sds,
+            ("file" Data..=) Prelude.<$> file
           ]
       )

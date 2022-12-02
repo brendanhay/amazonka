@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.GrpcGatewayRouteMetadata where
 import Amazonka.AppMesh.Types.GrpcMetadataMatchMethod
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the metadata of the gateway route.
@@ -76,15 +77,15 @@ grpcGatewayRouteMetadata_invert = Lens.lens (\GrpcGatewayRouteMetadata' {invert}
 grpcGatewayRouteMetadata_name :: Lens.Lens' GrpcGatewayRouteMetadata Prelude.Text
 grpcGatewayRouteMetadata_name = Lens.lens (\GrpcGatewayRouteMetadata' {name} -> name) (\s@GrpcGatewayRouteMetadata' {} a -> s {name = a} :: GrpcGatewayRouteMetadata)
 
-instance Core.FromJSON GrpcGatewayRouteMetadata where
+instance Data.FromJSON GrpcGatewayRouteMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GrpcGatewayRouteMetadata"
       ( \x ->
           GrpcGatewayRouteMetadata'
-            Prelude.<$> (x Core..:? "match")
-            Prelude.<*> (x Core..:? "invert")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "match")
+            Prelude.<*> (x Data..:? "invert")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable GrpcGatewayRouteMetadata where
@@ -99,12 +100,12 @@ instance Prelude.NFData GrpcGatewayRouteMetadata where
       `Prelude.seq` Prelude.rnf invert
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON GrpcGatewayRouteMetadata where
+instance Data.ToJSON GrpcGatewayRouteMetadata where
   toJSON GrpcGatewayRouteMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("match" Core..=) Prelude.<$> match,
-            ("invert" Core..=) Prelude.<$> invert,
-            Prelude.Just ("name" Core..= name)
+          [ ("match" Data..=) Prelude.<$> match,
+            ("invert" Data..=) Prelude.<$> invert,
+            Prelude.Just ("name" Data..= name)
           ]
       )

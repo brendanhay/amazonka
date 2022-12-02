@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContextFileTrust where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a Transport Layer Security (TLS) validation
@@ -61,15 +62,15 @@ virtualGatewayTlsValidationContextFileTrust_certificateChain :: Lens.Lens' Virtu
 virtualGatewayTlsValidationContextFileTrust_certificateChain = Lens.lens (\VirtualGatewayTlsValidationContextFileTrust' {certificateChain} -> certificateChain) (\s@VirtualGatewayTlsValidationContextFileTrust' {} a -> s {certificateChain = a} :: VirtualGatewayTlsValidationContextFileTrust)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     VirtualGatewayTlsValidationContextFileTrust
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayTlsValidationContextFileTrust"
       ( \x ->
           VirtualGatewayTlsValidationContextFileTrust'
-            Prelude.<$> (x Core..: "certificateChain")
+            Prelude.<$> (x Data..: "certificateChain")
       )
 
 instance
@@ -89,14 +90,14 @@ instance
     Prelude.rnf certificateChain
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     VirtualGatewayTlsValidationContextFileTrust
   where
   toJSON
     VirtualGatewayTlsValidationContextFileTrust' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
             [ Prelude.Just
-                ("certificateChain" Core..= certificateChain)
+                ("certificateChain" Data..= certificateChain)
             ]
         )

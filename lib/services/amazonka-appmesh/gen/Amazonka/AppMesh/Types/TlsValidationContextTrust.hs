@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.TlsValidationContextFileTrust
 import Amazonka.AppMesh.Types.TlsValidationContextSdsTrust
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a Transport Layer Security (TLS) validation
@@ -83,15 +84,15 @@ tlsValidationContextTrust_file = Lens.lens (\TlsValidationContextTrust' {file} -
 tlsValidationContextTrust_acm :: Lens.Lens' TlsValidationContextTrust (Prelude.Maybe TlsValidationContextAcmTrust)
 tlsValidationContextTrust_acm = Lens.lens (\TlsValidationContextTrust' {acm} -> acm) (\s@TlsValidationContextTrust' {} a -> s {acm = a} :: TlsValidationContextTrust)
 
-instance Core.FromJSON TlsValidationContextTrust where
+instance Data.FromJSON TlsValidationContextTrust where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TlsValidationContextTrust"
       ( \x ->
           TlsValidationContextTrust'
-            Prelude.<$> (x Core..:? "sds")
-            Prelude.<*> (x Core..:? "file")
-            Prelude.<*> (x Core..:? "acm")
+            Prelude.<$> (x Data..:? "sds")
+            Prelude.<*> (x Data..:? "file")
+            Prelude.<*> (x Data..:? "acm")
       )
 
 instance Prelude.Hashable TlsValidationContextTrust where
@@ -106,12 +107,12 @@ instance Prelude.NFData TlsValidationContextTrust where
       `Prelude.seq` Prelude.rnf file
       `Prelude.seq` Prelude.rnf acm
 
-instance Core.ToJSON TlsValidationContextTrust where
+instance Data.ToJSON TlsValidationContextTrust where
   toJSON TlsValidationContextTrust' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sds" Core..=) Prelude.<$> sds,
-            ("file" Core..=) Prelude.<$> file,
-            ("acm" Core..=) Prelude.<$> acm
+          [ ("sds" Data..=) Prelude.<$> sds,
+            ("file" Data..=) Prelude.<$> file,
+            ("acm" Data..=) Prelude.<$> acm
           ]
       )

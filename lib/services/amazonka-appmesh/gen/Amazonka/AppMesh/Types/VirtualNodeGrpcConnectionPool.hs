@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.VirtualNodeGrpcConnectionPool where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a type of connection pool.
@@ -58,13 +59,13 @@ newVirtualNodeGrpcConnectionPool pMaxRequests_ =
 virtualNodeGrpcConnectionPool_maxRequests :: Lens.Lens' VirtualNodeGrpcConnectionPool Prelude.Natural
 virtualNodeGrpcConnectionPool_maxRequests = Lens.lens (\VirtualNodeGrpcConnectionPool' {maxRequests} -> maxRequests) (\s@VirtualNodeGrpcConnectionPool' {} a -> s {maxRequests = a} :: VirtualNodeGrpcConnectionPool)
 
-instance Core.FromJSON VirtualNodeGrpcConnectionPool where
+instance Data.FromJSON VirtualNodeGrpcConnectionPool where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualNodeGrpcConnectionPool"
       ( \x ->
           VirtualNodeGrpcConnectionPool'
-            Prelude.<$> (x Core..: "maxRequests")
+            Prelude.<$> (x Data..: "maxRequests")
       )
 
 instance
@@ -78,9 +79,9 @@ instance Prelude.NFData VirtualNodeGrpcConnectionPool where
   rnf VirtualNodeGrpcConnectionPool' {..} =
     Prelude.rnf maxRequests
 
-instance Core.ToJSON VirtualNodeGrpcConnectionPool where
+instance Data.ToJSON VirtualNodeGrpcConnectionPool where
   toJSON VirtualNodeGrpcConnectionPool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("maxRequests" Core..= maxRequests)]
+          [Prelude.Just ("maxRequests" Data..= maxRequests)]
       )

@@ -49,6 +49,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -182,9 +183,9 @@ instance Core.AWSRequest ListRoutes where
     Response.receiveJSON
       ( \s h x ->
           ListRoutesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "routes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "routes" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListRoutes where
@@ -203,33 +204,33 @@ instance Prelude.NFData ListRoutes where
       `Prelude.seq` Prelude.rnf meshName
       `Prelude.seq` Prelude.rnf virtualRouterName
 
-instance Core.ToHeaders ListRoutes where
+instance Data.ToHeaders ListRoutes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRoutes where
+instance Data.ToPath ListRoutes where
   toPath ListRoutes' {..} =
     Prelude.mconcat
       [ "/v20190125/meshes/",
-        Core.toBS meshName,
+        Data.toBS meshName,
         "/virtualRouter/",
-        Core.toBS virtualRouterName,
+        Data.toBS virtualRouterName,
         "/routes"
       ]
 
-instance Core.ToQuery ListRoutes where
+instance Data.ToQuery ListRoutes where
   toQuery ListRoutes' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "meshOwner" Core.=: meshOwner,
-        "limit" Core.=: limit
+      [ "nextToken" Data.=: nextToken,
+        "meshOwner" Data.=: meshOwner,
+        "limit" Data.=: limit
       ]
 
 -- |

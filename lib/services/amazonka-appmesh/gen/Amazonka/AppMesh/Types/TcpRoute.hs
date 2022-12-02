@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.TcpRouteMatch
 import Amazonka.AppMesh.Types.TcpTimeout
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a TCP route type.
@@ -75,15 +76,15 @@ tcpRoute_match = Lens.lens (\TcpRoute' {match} -> match) (\s@TcpRoute' {} a -> s
 tcpRoute_action :: Lens.Lens' TcpRoute TcpRouteAction
 tcpRoute_action = Lens.lens (\TcpRoute' {action} -> action) (\s@TcpRoute' {} a -> s {action = a} :: TcpRoute)
 
-instance Core.FromJSON TcpRoute where
+instance Data.FromJSON TcpRoute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TcpRoute"
       ( \x ->
           TcpRoute'
-            Prelude.<$> (x Core..:? "timeout")
-            Prelude.<*> (x Core..:? "match")
-            Prelude.<*> (x Core..: "action")
+            Prelude.<$> (x Data..:? "timeout")
+            Prelude.<*> (x Data..:? "match")
+            Prelude.<*> (x Data..: "action")
       )
 
 instance Prelude.Hashable TcpRoute where
@@ -98,12 +99,12 @@ instance Prelude.NFData TcpRoute where
       `Prelude.seq` Prelude.rnf match
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON TcpRoute where
+instance Data.ToJSON TcpRoute where
   toJSON TcpRoute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeout" Core..=) Prelude.<$> timeout,
-            ("match" Core..=) Prelude.<$> match,
-            Prelude.Just ("action" Core..= action)
+          [ ("timeout" Data..=) Prelude.<$> timeout,
+            ("match" Data..=) Prelude.<$> match,
+            Prelude.Just ("action" Data..= action)
           ]
       )

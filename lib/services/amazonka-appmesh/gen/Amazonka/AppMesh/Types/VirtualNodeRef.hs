@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.VirtualNodeRef where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a virtual node returned by a list operation.
@@ -30,10 +31,10 @@ data VirtualNodeRef = VirtualNodeRef'
   { -- | The full Amazon Resource Name (ARN) for the virtual node.
     arn :: Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The Unix epoch timestamp in seconds for when the resource was last
     -- updated.
-    lastUpdatedAt :: Core.POSIX,
+    lastUpdatedAt :: Data.POSIX,
     -- | The name of the service mesh that the virtual node resides in.
     meshName :: Prelude.Text,
     -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
@@ -116,8 +117,8 @@ newVirtualNodeRef
   pVirtualNodeName_ =
     VirtualNodeRef'
       { arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_,
         meshName = pMeshName_,
         meshOwner = pMeshOwner_,
         resourceOwner = pResourceOwner_,
@@ -131,12 +132,12 @@ virtualNodeRef_arn = Lens.lens (\VirtualNodeRef' {arn} -> arn) (\s@VirtualNodeRe
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
 virtualNodeRef_createdAt :: Lens.Lens' VirtualNodeRef Prelude.UTCTime
-virtualNodeRef_createdAt = Lens.lens (\VirtualNodeRef' {createdAt} -> createdAt) (\s@VirtualNodeRef' {} a -> s {createdAt = a} :: VirtualNodeRef) Prelude.. Core._Time
+virtualNodeRef_createdAt = Lens.lens (\VirtualNodeRef' {createdAt} -> createdAt) (\s@VirtualNodeRef' {} a -> s {createdAt = a} :: VirtualNodeRef) Prelude.. Data._Time
 
 -- | The Unix epoch timestamp in seconds for when the resource was last
 -- updated.
 virtualNodeRef_lastUpdatedAt :: Lens.Lens' VirtualNodeRef Prelude.UTCTime
-virtualNodeRef_lastUpdatedAt = Lens.lens (\VirtualNodeRef' {lastUpdatedAt} -> lastUpdatedAt) (\s@VirtualNodeRef' {} a -> s {lastUpdatedAt = a} :: VirtualNodeRef) Prelude.. Core._Time
+virtualNodeRef_lastUpdatedAt = Lens.lens (\VirtualNodeRef' {lastUpdatedAt} -> lastUpdatedAt) (\s@VirtualNodeRef' {} a -> s {lastUpdatedAt = a} :: VirtualNodeRef) Prelude.. Data._Time
 
 -- | The name of the service mesh that the virtual node resides in.
 virtualNodeRef_meshName :: Lens.Lens' VirtualNodeRef Prelude.Text
@@ -166,20 +167,20 @@ virtualNodeRef_version = Lens.lens (\VirtualNodeRef' {version} -> version) (\s@V
 virtualNodeRef_virtualNodeName :: Lens.Lens' VirtualNodeRef Prelude.Text
 virtualNodeRef_virtualNodeName = Lens.lens (\VirtualNodeRef' {virtualNodeName} -> virtualNodeName) (\s@VirtualNodeRef' {} a -> s {virtualNodeName = a} :: VirtualNodeRef)
 
-instance Core.FromJSON VirtualNodeRef where
+instance Data.FromJSON VirtualNodeRef where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualNodeRef"
       ( \x ->
           VirtualNodeRef'
-            Prelude.<$> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "lastUpdatedAt")
-            Prelude.<*> (x Core..: "meshName")
-            Prelude.<*> (x Core..: "meshOwner")
-            Prelude.<*> (x Core..: "resourceOwner")
-            Prelude.<*> (x Core..: "version")
-            Prelude.<*> (x Core..: "virtualNodeName")
+            Prelude.<$> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "lastUpdatedAt")
+            Prelude.<*> (x Data..: "meshName")
+            Prelude.<*> (x Data..: "meshOwner")
+            Prelude.<*> (x Data..: "resourceOwner")
+            Prelude.<*> (x Data..: "version")
+            Prelude.<*> (x Data..: "virtualNodeName")
       )
 
 instance Prelude.Hashable VirtualNodeRef where

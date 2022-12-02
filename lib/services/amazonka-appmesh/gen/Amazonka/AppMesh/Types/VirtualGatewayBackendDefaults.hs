@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayBackendDefaults where
 import Amazonka.AppMesh.Types.VirtualGatewayClientPolicy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the default properties for a backend.
@@ -54,13 +55,13 @@ newVirtualGatewayBackendDefaults =
 virtualGatewayBackendDefaults_clientPolicy :: Lens.Lens' VirtualGatewayBackendDefaults (Prelude.Maybe VirtualGatewayClientPolicy)
 virtualGatewayBackendDefaults_clientPolicy = Lens.lens (\VirtualGatewayBackendDefaults' {clientPolicy} -> clientPolicy) (\s@VirtualGatewayBackendDefaults' {} a -> s {clientPolicy = a} :: VirtualGatewayBackendDefaults)
 
-instance Core.FromJSON VirtualGatewayBackendDefaults where
+instance Data.FromJSON VirtualGatewayBackendDefaults where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayBackendDefaults"
       ( \x ->
           VirtualGatewayBackendDefaults'
-            Prelude.<$> (x Core..:? "clientPolicy")
+            Prelude.<$> (x Data..:? "clientPolicy")
       )
 
 instance
@@ -74,9 +75,9 @@ instance Prelude.NFData VirtualGatewayBackendDefaults where
   rnf VirtualGatewayBackendDefaults' {..} =
     Prelude.rnf clientPolicy
 
-instance Core.ToJSON VirtualGatewayBackendDefaults where
+instance Data.ToJSON VirtualGatewayBackendDefaults where
   toJSON VirtualGatewayBackendDefaults' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("clientPolicy" Core..=) Prelude.<$> clientPolicy]
+          [("clientPolicy" Data..=) Prelude.<$> clientPolicy]
       )

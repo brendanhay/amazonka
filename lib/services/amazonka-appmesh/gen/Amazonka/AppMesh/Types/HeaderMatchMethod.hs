@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.HeaderMatchMethod where
 import Amazonka.AppMesh.Types.MatchRange
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the method and value to match with the header
@@ -90,17 +91,17 @@ headerMatchMethod_prefix = Lens.lens (\HeaderMatchMethod' {prefix} -> prefix) (\
 headerMatchMethod_suffix :: Lens.Lens' HeaderMatchMethod (Prelude.Maybe Prelude.Text)
 headerMatchMethod_suffix = Lens.lens (\HeaderMatchMethod' {suffix} -> suffix) (\s@HeaderMatchMethod' {} a -> s {suffix = a} :: HeaderMatchMethod)
 
-instance Core.FromJSON HeaderMatchMethod where
+instance Data.FromJSON HeaderMatchMethod where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HeaderMatchMethod"
       ( \x ->
           HeaderMatchMethod'
-            Prelude.<$> (x Core..:? "exact")
-            Prelude.<*> (x Core..:? "regex")
-            Prelude.<*> (x Core..:? "range")
-            Prelude.<*> (x Core..:? "prefix")
-            Prelude.<*> (x Core..:? "suffix")
+            Prelude.<$> (x Data..:? "exact")
+            Prelude.<*> (x Data..:? "regex")
+            Prelude.<*> (x Data..:? "range")
+            Prelude.<*> (x Data..:? "prefix")
+            Prelude.<*> (x Data..:? "suffix")
       )
 
 instance Prelude.Hashable HeaderMatchMethod where
@@ -119,14 +120,14 @@ instance Prelude.NFData HeaderMatchMethod where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf suffix
 
-instance Core.ToJSON HeaderMatchMethod where
+instance Data.ToJSON HeaderMatchMethod where
   toJSON HeaderMatchMethod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("exact" Core..=) Prelude.<$> exact,
-            ("regex" Core..=) Prelude.<$> regex,
-            ("range" Core..=) Prelude.<$> range,
-            ("prefix" Core..=) Prelude.<$> prefix,
-            ("suffix" Core..=) Prelude.<$> suffix
+          [ ("exact" Data..=) Prelude.<$> exact,
+            ("regex" Data..=) Prelude.<$> regex,
+            ("range" Data..=) Prelude.<$> range,
+            ("prefix" Data..=) Prelude.<$> prefix,
+            ("suffix" Data..=) Prelude.<$> suffix
           ]
       )

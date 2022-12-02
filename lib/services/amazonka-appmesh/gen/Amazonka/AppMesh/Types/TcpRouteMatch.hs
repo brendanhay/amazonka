@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.TcpRouteMatch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the TCP route to match.
@@ -50,12 +51,12 @@ newTcpRouteMatch =
 tcpRouteMatch_port :: Lens.Lens' TcpRouteMatch (Prelude.Maybe Prelude.Natural)
 tcpRouteMatch_port = Lens.lens (\TcpRouteMatch' {port} -> port) (\s@TcpRouteMatch' {} a -> s {port = a} :: TcpRouteMatch)
 
-instance Core.FromJSON TcpRouteMatch where
+instance Data.FromJSON TcpRouteMatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TcpRouteMatch"
       ( \x ->
-          TcpRouteMatch' Prelude.<$> (x Core..:? "port")
+          TcpRouteMatch' Prelude.<$> (x Data..:? "port")
       )
 
 instance Prelude.Hashable TcpRouteMatch where
@@ -65,9 +66,9 @@ instance Prelude.Hashable TcpRouteMatch where
 instance Prelude.NFData TcpRouteMatch where
   rnf TcpRouteMatch' {..} = Prelude.rnf port
 
-instance Core.ToJSON TcpRouteMatch where
+instance Data.ToJSON TcpRouteMatch where
   toJSON TcpRouteMatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("port" Core..=) Prelude.<$> port]
+          [("port" Data..=) Prelude.<$> port]
       )

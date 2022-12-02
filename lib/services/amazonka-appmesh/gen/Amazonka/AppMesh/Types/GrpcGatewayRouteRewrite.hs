@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.GrpcGatewayRouteRewrite where
 import Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the gateway route to rewrite.
@@ -54,13 +55,13 @@ newGrpcGatewayRouteRewrite =
 grpcGatewayRouteRewrite_hostname :: Lens.Lens' GrpcGatewayRouteRewrite (Prelude.Maybe GatewayRouteHostnameRewrite)
 grpcGatewayRouteRewrite_hostname = Lens.lens (\GrpcGatewayRouteRewrite' {hostname} -> hostname) (\s@GrpcGatewayRouteRewrite' {} a -> s {hostname = a} :: GrpcGatewayRouteRewrite)
 
-instance Core.FromJSON GrpcGatewayRouteRewrite where
+instance Data.FromJSON GrpcGatewayRouteRewrite where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GrpcGatewayRouteRewrite"
       ( \x ->
           GrpcGatewayRouteRewrite'
-            Prelude.<$> (x Core..:? "hostname")
+            Prelude.<$> (x Data..:? "hostname")
       )
 
 instance Prelude.Hashable GrpcGatewayRouteRewrite where
@@ -71,9 +72,9 @@ instance Prelude.NFData GrpcGatewayRouteRewrite where
   rnf GrpcGatewayRouteRewrite' {..} =
     Prelude.rnf hostname
 
-instance Core.ToJSON GrpcGatewayRouteRewrite where
+instance Data.ToJSON GrpcGatewayRouteRewrite where
   toJSON GrpcGatewayRouteRewrite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("hostname" Core..=) Prelude.<$> hostname]
+          [("hostname" Data..=) Prelude.<$> hostname]
       )

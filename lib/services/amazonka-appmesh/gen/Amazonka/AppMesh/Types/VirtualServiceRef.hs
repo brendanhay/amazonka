@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.VirtualServiceRef where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a virtual service returned by a list
@@ -31,10 +32,10 @@ data VirtualServiceRef = VirtualServiceRef'
   { -- | The full Amazon Resource Name (ARN) for the virtual service.
     arn :: Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The Unix epoch timestamp in seconds for when the resource was last
     -- updated.
-    lastUpdatedAt :: Core.POSIX,
+    lastUpdatedAt :: Data.POSIX,
     -- | The name of the service mesh that the virtual service resides in.
     meshName :: Prelude.Text,
     -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
@@ -117,8 +118,8 @@ newVirtualServiceRef
   pVirtualServiceName_ =
     VirtualServiceRef'
       { arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_,
         meshName = pMeshName_,
         meshOwner = pMeshOwner_,
         resourceOwner = pResourceOwner_,
@@ -132,12 +133,12 @@ virtualServiceRef_arn = Lens.lens (\VirtualServiceRef' {arn} -> arn) (\s@Virtual
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
 virtualServiceRef_createdAt :: Lens.Lens' VirtualServiceRef Prelude.UTCTime
-virtualServiceRef_createdAt = Lens.lens (\VirtualServiceRef' {createdAt} -> createdAt) (\s@VirtualServiceRef' {} a -> s {createdAt = a} :: VirtualServiceRef) Prelude.. Core._Time
+virtualServiceRef_createdAt = Lens.lens (\VirtualServiceRef' {createdAt} -> createdAt) (\s@VirtualServiceRef' {} a -> s {createdAt = a} :: VirtualServiceRef) Prelude.. Data._Time
 
 -- | The Unix epoch timestamp in seconds for when the resource was last
 -- updated.
 virtualServiceRef_lastUpdatedAt :: Lens.Lens' VirtualServiceRef Prelude.UTCTime
-virtualServiceRef_lastUpdatedAt = Lens.lens (\VirtualServiceRef' {lastUpdatedAt} -> lastUpdatedAt) (\s@VirtualServiceRef' {} a -> s {lastUpdatedAt = a} :: VirtualServiceRef) Prelude.. Core._Time
+virtualServiceRef_lastUpdatedAt = Lens.lens (\VirtualServiceRef' {lastUpdatedAt} -> lastUpdatedAt) (\s@VirtualServiceRef' {} a -> s {lastUpdatedAt = a} :: VirtualServiceRef) Prelude.. Data._Time
 
 -- | The name of the service mesh that the virtual service resides in.
 virtualServiceRef_meshName :: Lens.Lens' VirtualServiceRef Prelude.Text
@@ -167,20 +168,20 @@ virtualServiceRef_version = Lens.lens (\VirtualServiceRef' {version} -> version)
 virtualServiceRef_virtualServiceName :: Lens.Lens' VirtualServiceRef Prelude.Text
 virtualServiceRef_virtualServiceName = Lens.lens (\VirtualServiceRef' {virtualServiceName} -> virtualServiceName) (\s@VirtualServiceRef' {} a -> s {virtualServiceName = a} :: VirtualServiceRef)
 
-instance Core.FromJSON VirtualServiceRef where
+instance Data.FromJSON VirtualServiceRef where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualServiceRef"
       ( \x ->
           VirtualServiceRef'
-            Prelude.<$> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "lastUpdatedAt")
-            Prelude.<*> (x Core..: "meshName")
-            Prelude.<*> (x Core..: "meshOwner")
-            Prelude.<*> (x Core..: "resourceOwner")
-            Prelude.<*> (x Core..: "version")
-            Prelude.<*> (x Core..: "virtualServiceName")
+            Prelude.<$> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "lastUpdatedAt")
+            Prelude.<*> (x Data..: "meshName")
+            Prelude.<*> (x Data..: "meshOwner")
+            Prelude.<*> (x Data..: "resourceOwner")
+            Prelude.<*> (x Data..: "version")
+            Prelude.<*> (x Data..: "virtualServiceName")
       )
 
 instance Prelude.Hashable VirtualServiceRef where

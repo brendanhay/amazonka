@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.GatewayRouteTarget where
 import Amazonka.AppMesh.Types.GatewayRouteVirtualService
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a gateway route target.
@@ -64,14 +65,14 @@ gatewayRouteTarget_port = Lens.lens (\GatewayRouteTarget' {port} -> port) (\s@Ga
 gatewayRouteTarget_virtualService :: Lens.Lens' GatewayRouteTarget GatewayRouteVirtualService
 gatewayRouteTarget_virtualService = Lens.lens (\GatewayRouteTarget' {virtualService} -> virtualService) (\s@GatewayRouteTarget' {} a -> s {virtualService = a} :: GatewayRouteTarget)
 
-instance Core.FromJSON GatewayRouteTarget where
+instance Data.FromJSON GatewayRouteTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewayRouteTarget"
       ( \x ->
           GatewayRouteTarget'
-            Prelude.<$> (x Core..:? "port")
-            Prelude.<*> (x Core..: "virtualService")
+            Prelude.<$> (x Data..:? "port")
+            Prelude.<*> (x Data..: "virtualService")
       )
 
 instance Prelude.Hashable GatewayRouteTarget where
@@ -84,12 +85,12 @@ instance Prelude.NFData GatewayRouteTarget where
     Prelude.rnf port
       `Prelude.seq` Prelude.rnf virtualService
 
-instance Core.ToJSON GatewayRouteTarget where
+instance Data.ToJSON GatewayRouteTarget where
   toJSON GatewayRouteTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("port" Core..=) Prelude.<$> port,
+          [ ("port" Data..=) Prelude.<$> port,
             Prelude.Just
-              ("virtualService" Core..= virtualService)
+              ("virtualService" Data..= virtualService)
           ]
       )

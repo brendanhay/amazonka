@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.GrpcGatewayRouteAction
 import Amazonka.AppMesh.Types.GrpcGatewayRouteMatch
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a gRPC gateway route.
@@ -67,13 +68,13 @@ grpcGatewayRoute_action = Lens.lens (\GrpcGatewayRoute' {action} -> action) (\s@
 grpcGatewayRoute_match :: Lens.Lens' GrpcGatewayRoute GrpcGatewayRouteMatch
 grpcGatewayRoute_match = Lens.lens (\GrpcGatewayRoute' {match} -> match) (\s@GrpcGatewayRoute' {} a -> s {match = a} :: GrpcGatewayRoute)
 
-instance Core.FromJSON GrpcGatewayRoute where
+instance Data.FromJSON GrpcGatewayRoute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GrpcGatewayRoute"
       ( \x ->
           GrpcGatewayRoute'
-            Prelude.<$> (x Core..: "action") Prelude.<*> (x Core..: "match")
+            Prelude.<$> (x Data..: "action") Prelude.<*> (x Data..: "match")
       )
 
 instance Prelude.Hashable GrpcGatewayRoute where
@@ -85,11 +86,11 @@ instance Prelude.NFData GrpcGatewayRoute where
   rnf GrpcGatewayRoute' {..} =
     Prelude.rnf action `Prelude.seq` Prelude.rnf match
 
-instance Core.ToJSON GrpcGatewayRoute where
+instance Data.ToJSON GrpcGatewayRoute where
   toJSON GrpcGatewayRoute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("action" Core..= action),
-            Prelude.Just ("match" Core..= match)
+          [ Prelude.Just ("action" Data..= action),
+            Prelude.Just ("match" Data..= match)
           ]
       )

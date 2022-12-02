@@ -26,6 +26,7 @@ import Amazonka.AppMesh.Types.Logging
 import Amazonka.AppMesh.Types.ServiceDiscovery
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the specification of a virtual node.
@@ -111,17 +112,17 @@ virtualNodeSpec_backendDefaults = Lens.lens (\VirtualNodeSpec' {backendDefaults}
 virtualNodeSpec_serviceDiscovery :: Lens.Lens' VirtualNodeSpec (Prelude.Maybe ServiceDiscovery)
 virtualNodeSpec_serviceDiscovery = Lens.lens (\VirtualNodeSpec' {serviceDiscovery} -> serviceDiscovery) (\s@VirtualNodeSpec' {} a -> s {serviceDiscovery = a} :: VirtualNodeSpec)
 
-instance Core.FromJSON VirtualNodeSpec where
+instance Data.FromJSON VirtualNodeSpec where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualNodeSpec"
       ( \x ->
           VirtualNodeSpec'
-            Prelude.<$> (x Core..:? "listeners" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "backends" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "logging")
-            Prelude.<*> (x Core..:? "backendDefaults")
-            Prelude.<*> (x Core..:? "serviceDiscovery")
+            Prelude.<$> (x Data..:? "listeners" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "backends" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "logging")
+            Prelude.<*> (x Data..:? "backendDefaults")
+            Prelude.<*> (x Data..:? "serviceDiscovery")
       )
 
 instance Prelude.Hashable VirtualNodeSpec where
@@ -140,16 +141,16 @@ instance Prelude.NFData VirtualNodeSpec where
       `Prelude.seq` Prelude.rnf backendDefaults
       `Prelude.seq` Prelude.rnf serviceDiscovery
 
-instance Core.ToJSON VirtualNodeSpec where
+instance Data.ToJSON VirtualNodeSpec where
   toJSON VirtualNodeSpec' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("listeners" Core..=) Prelude.<$> listeners,
-            ("backends" Core..=) Prelude.<$> backends,
-            ("logging" Core..=) Prelude.<$> logging,
-            ("backendDefaults" Core..=)
+          [ ("listeners" Data..=) Prelude.<$> listeners,
+            ("backends" Data..=) Prelude.<$> backends,
+            ("logging" Data..=) Prelude.<$> logging,
+            ("backendDefaults" Data..=)
               Prelude.<$> backendDefaults,
-            ("serviceDiscovery" Core..=)
+            ("serviceDiscovery" Data..=)
               Prelude.<$> serviceDiscovery
           ]
       )

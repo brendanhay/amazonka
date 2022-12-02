@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.AwsCloudMapInstanceAttribute
 import Amazonka.AppMesh.Types.IpPreference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the Cloud Map service discovery information
@@ -106,16 +107,16 @@ awsCloudMapServiceDiscovery_namespaceName = Lens.lens (\AwsCloudMapServiceDiscov
 awsCloudMapServiceDiscovery_serviceName :: Lens.Lens' AwsCloudMapServiceDiscovery Prelude.Text
 awsCloudMapServiceDiscovery_serviceName = Lens.lens (\AwsCloudMapServiceDiscovery' {serviceName} -> serviceName) (\s@AwsCloudMapServiceDiscovery' {} a -> s {serviceName = a} :: AwsCloudMapServiceDiscovery)
 
-instance Core.FromJSON AwsCloudMapServiceDiscovery where
+instance Data.FromJSON AwsCloudMapServiceDiscovery where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudMapServiceDiscovery"
       ( \x ->
           AwsCloudMapServiceDiscovery'
-            Prelude.<$> (x Core..:? "ipPreference")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "namespaceName")
-            Prelude.<*> (x Core..: "serviceName")
+            Prelude.<$> (x Data..:? "ipPreference")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "namespaceName")
+            Prelude.<*> (x Data..: "serviceName")
       )
 
 instance Prelude.Hashable AwsCloudMapServiceDiscovery where
@@ -132,13 +133,13 @@ instance Prelude.NFData AwsCloudMapServiceDiscovery where
       `Prelude.seq` Prelude.rnf namespaceName
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToJSON AwsCloudMapServiceDiscovery where
+instance Data.ToJSON AwsCloudMapServiceDiscovery where
   toJSON AwsCloudMapServiceDiscovery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ipPreference" Core..=) Prelude.<$> ipPreference,
-            ("attributes" Core..=) Prelude.<$> attributes,
-            Prelude.Just ("namespaceName" Core..= namespaceName),
-            Prelude.Just ("serviceName" Core..= serviceName)
+          [ ("ipPreference" Data..=) Prelude.<$> ipPreference,
+            ("attributes" Data..=) Prelude.<$> attributes,
+            Prelude.Just ("namespaceName" Data..= namespaceName),
+            Prelude.Just ("serviceName" Data..= serviceName)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.JsonFormatRef where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the key value pairs for the JSON.
@@ -62,13 +63,13 @@ jsonFormatRef_key = Lens.lens (\JsonFormatRef' {key} -> key) (\s@JsonFormatRef' 
 jsonFormatRef_value :: Lens.Lens' JsonFormatRef Prelude.Text
 jsonFormatRef_value = Lens.lens (\JsonFormatRef' {value} -> value) (\s@JsonFormatRef' {} a -> s {value = a} :: JsonFormatRef)
 
-instance Core.FromJSON JsonFormatRef where
+instance Data.FromJSON JsonFormatRef where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JsonFormatRef"
       ( \x ->
           JsonFormatRef'
-            Prelude.<$> (x Core..: "key") Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "key") Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable JsonFormatRef where
@@ -80,11 +81,11 @@ instance Prelude.NFData JsonFormatRef where
   rnf JsonFormatRef' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON JsonFormatRef where
+instance Data.ToJSON JsonFormatRef where
   toJSON JsonFormatRef' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("key" Core..= key),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("key" Data..= key),
+            Prelude.Just ("value" Data..= value)
           ]
       )

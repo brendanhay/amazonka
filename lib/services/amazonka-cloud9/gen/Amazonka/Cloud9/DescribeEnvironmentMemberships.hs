@@ -50,6 +50,7 @@ where
 import Amazonka.Cloud9.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -204,8 +205,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEnvironmentMembershipsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "memberships" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "memberships" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -234,39 +235,39 @@ instance
       `Prelude.seq` Prelude.rnf environmentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeEnvironmentMemberships
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships" ::
+              Data.=# ( "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEnvironmentMemberships where
+instance Data.ToJSON DescribeEnvironmentMemberships where
   toJSON DescribeEnvironmentMemberships' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("permissions" Core..=) Prelude.<$> permissions,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("userArn" Core..=) Prelude.<$> userArn,
-            ("environmentId" Core..=) Prelude.<$> environmentId
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("permissions" Data..=) Prelude.<$> permissions,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("userArn" Data..=) Prelude.<$> userArn,
+            ("environmentId" Data..=) Prelude.<$> environmentId
           ]
       )
 
-instance Core.ToPath DescribeEnvironmentMemberships where
+instance Data.ToPath DescribeEnvironmentMemberships where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEnvironmentMemberships where
+instance Data.ToQuery DescribeEnvironmentMemberships where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEnvironmentMembershipsResponse' smart constructor.

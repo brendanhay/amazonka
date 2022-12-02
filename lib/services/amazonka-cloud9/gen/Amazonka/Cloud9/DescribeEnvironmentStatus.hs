@@ -43,6 +43,7 @@ where
 import Amazonka.Cloud9.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,8 +89,8 @@ instance Core.AWSRequest DescribeEnvironmentStatus where
       ( \s h x ->
           DescribeEnvironmentStatusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "status")
-            Prelude.<*> (x Core..:> "message")
+            Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "message")
       )
 
 instance Prelude.Hashable DescribeEnvironmentStatus where
@@ -100,34 +101,34 @@ instance Prelude.NFData DescribeEnvironmentStatus where
   rnf DescribeEnvironmentStatus' {..} =
     Prelude.rnf environmentId
 
-instance Core.ToHeaders DescribeEnvironmentStatus where
+instance Data.ToHeaders DescribeEnvironmentStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus" ::
+              Data.=# ( "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEnvironmentStatus where
+instance Data.ToJSON DescribeEnvironmentStatus where
   toJSON DescribeEnvironmentStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("environmentId" Core..= environmentId)
+              ("environmentId" Data..= environmentId)
           ]
       )
 
-instance Core.ToPath DescribeEnvironmentStatus where
+instance Data.ToPath DescribeEnvironmentStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEnvironmentStatus where
+instance Data.ToQuery DescribeEnvironmentStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEnvironmentStatusResponse' smart constructor.

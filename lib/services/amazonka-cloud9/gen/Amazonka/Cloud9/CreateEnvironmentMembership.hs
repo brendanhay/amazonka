@@ -44,6 +44,7 @@ where
 import Amazonka.Cloud9.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,7 +136,7 @@ instance Core.AWSRequest CreateEnvironmentMembership where
       ( \s h x ->
           CreateEnvironmentMembershipResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "membership")
+            Prelude.<*> (x Data..:> "membership")
       )
 
 instance Prelude.Hashable CreateEnvironmentMembership where
@@ -150,36 +151,36 @@ instance Prelude.NFData CreateEnvironmentMembership where
       `Prelude.seq` Prelude.rnf userArn
       `Prelude.seq` Prelude.rnf permissions
 
-instance Core.ToHeaders CreateEnvironmentMembership where
+instance Data.ToHeaders CreateEnvironmentMembership where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership" ::
+              Data.=# ( "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEnvironmentMembership where
+instance Data.ToJSON CreateEnvironmentMembership where
   toJSON CreateEnvironmentMembership' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("environmentId" Core..= environmentId),
-            Prelude.Just ("userArn" Core..= userArn),
-            Prelude.Just ("permissions" Core..= permissions)
+              ("environmentId" Data..= environmentId),
+            Prelude.Just ("userArn" Data..= userArn),
+            Prelude.Just ("permissions" Data..= permissions)
           ]
       )
 
-instance Core.ToPath CreateEnvironmentMembership where
+instance Data.ToPath CreateEnvironmentMembership where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEnvironmentMembership where
+instance Data.ToQuery CreateEnvironmentMembership where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEnvironmentMembershipResponse' smart constructor.

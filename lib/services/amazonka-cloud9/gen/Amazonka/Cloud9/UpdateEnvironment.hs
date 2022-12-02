@@ -44,6 +44,7 @@ where
 import Amazonka.Cloud9.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -53,7 +54,7 @@ data UpdateEnvironment = UpdateEnvironment'
   { -- | A replacement name for the environment.
     name :: Prelude.Maybe Prelude.Text,
     -- | Any new or replacement description for the environment.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Allows the environment owner to turn on or turn off the Amazon Web
     -- Services managed temporary credentials for an Cloud9 environment by
     -- using one of the following values:
@@ -116,7 +117,7 @@ updateEnvironment_name = Lens.lens (\UpdateEnvironment' {name} -> name) (\s@Upda
 
 -- | Any new or replacement description for the environment.
 updateEnvironment_description :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_description = Lens.lens (\UpdateEnvironment' {description} -> description) (\s@UpdateEnvironment' {} a -> s {description = a} :: UpdateEnvironment) Prelude.. Lens.mapping Core._Sensitive
+updateEnvironment_description = Lens.lens (\UpdateEnvironment' {description} -> description) (\s@UpdateEnvironment' {} a -> s {description = a} :: UpdateEnvironment) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Allows the environment owner to turn on or turn off the Amazon Web
 -- Services managed temporary credentials for an Cloud9 environment by
@@ -164,38 +165,38 @@ instance Prelude.NFData UpdateEnvironment where
       `Prelude.seq` Prelude.rnf managedCredentialsAction
       `Prelude.seq` Prelude.rnf environmentId
 
-instance Core.ToHeaders UpdateEnvironment where
+instance Data.ToHeaders UpdateEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCloud9WorkspaceManagementService.UpdateEnvironment" ::
+              Data.=# ( "AWSCloud9WorkspaceManagementService.UpdateEnvironment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEnvironment where
+instance Data.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("description" Core..=) Prelude.<$> description,
-            ("managedCredentialsAction" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("description" Data..=) Prelude.<$> description,
+            ("managedCredentialsAction" Data..=)
               Prelude.<$> managedCredentialsAction,
             Prelude.Just
-              ("environmentId" Core..= environmentId)
+              ("environmentId" Data..= environmentId)
           ]
       )
 
-instance Core.ToPath UpdateEnvironment where
+instance Data.ToPath UpdateEnvironment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateEnvironment where
+instance Data.ToQuery UpdateEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEnvironmentResponse' smart constructor.

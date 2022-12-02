@@ -22,6 +22,7 @@ module Amazonka.Cloud9.Types.EnvironmentLifecycle where
 import Amazonka.Cloud9.Types.EnvironmentLifecycleStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the current creation or deletion lifecycle state of an
@@ -105,15 +106,15 @@ environmentLifecycle_reason = Lens.lens (\EnvironmentLifecycle' {reason} -> reas
 environmentLifecycle_failureResource :: Lens.Lens' EnvironmentLifecycle (Prelude.Maybe Prelude.Text)
 environmentLifecycle_failureResource = Lens.lens (\EnvironmentLifecycle' {failureResource} -> failureResource) (\s@EnvironmentLifecycle' {} a -> s {failureResource = a} :: EnvironmentLifecycle)
 
-instance Core.FromJSON EnvironmentLifecycle where
+instance Data.FromJSON EnvironmentLifecycle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentLifecycle"
       ( \x ->
           EnvironmentLifecycle'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..:? "failureResource")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "failureResource")
       )
 
 instance Prelude.Hashable EnvironmentLifecycle where

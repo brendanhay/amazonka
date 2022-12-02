@@ -42,6 +42,7 @@ where
 import Amazonka.Cloud9.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest DescribeEnvironments where
     Response.receiveJSON
       ( \s h x ->
           DescribeEnvironmentsResponse'
-            Prelude.<$> (x Core..?> "environments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "environments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,34 +99,34 @@ instance Prelude.NFData DescribeEnvironments where
   rnf DescribeEnvironments' {..} =
     Prelude.rnf environmentIds
 
-instance Core.ToHeaders DescribeEnvironments where
+instance Data.ToHeaders DescribeEnvironments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCloud9WorkspaceManagementService.DescribeEnvironments" ::
+              Data.=# ( "AWSCloud9WorkspaceManagementService.DescribeEnvironments" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEnvironments where
+instance Data.ToJSON DescribeEnvironments where
   toJSON DescribeEnvironments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("environmentIds" Core..= environmentIds)
+              ("environmentIds" Data..= environmentIds)
           ]
       )
 
-instance Core.ToPath DescribeEnvironments where
+instance Data.ToPath DescribeEnvironments where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEnvironments where
+instance Data.ToQuery DescribeEnvironments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEnvironmentsResponse' smart constructor.

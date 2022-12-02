@@ -21,6 +21,7 @@ module Amazonka.SnowDeviceManagement.Types.DeviceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifying information about the device.
@@ -85,16 +86,16 @@ deviceSummary_managedDeviceArn = Lens.lens (\DeviceSummary' {managedDeviceArn} -
 deviceSummary_managedDeviceId :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.Text)
 deviceSummary_managedDeviceId = Lens.lens (\DeviceSummary' {managedDeviceId} -> managedDeviceId) (\s@DeviceSummary' {} a -> s {managedDeviceId = a} :: DeviceSummary)
 
-instance Core.FromJSON DeviceSummary where
+instance Data.FromJSON DeviceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceSummary"
       ( \x ->
           DeviceSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "associatedWithJob")
-            Prelude.<*> (x Core..:? "managedDeviceArn")
-            Prelude.<*> (x Core..:? "managedDeviceId")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "associatedWithJob")
+            Prelude.<*> (x Data..:? "managedDeviceArn")
+            Prelude.<*> (x Data..:? "managedDeviceId")
       )
 
 instance Prelude.Hashable DeviceSummary where

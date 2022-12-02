@@ -21,6 +21,7 @@ module Amazonka.SnowDeviceManagement.Types.Command where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SnowDeviceManagement.Types.Reboot
 import Amazonka.SnowDeviceManagement.Types.Unlock
@@ -72,11 +73,11 @@ instance Prelude.NFData Command where
   rnf Command' {..} =
     Prelude.rnf reboot `Prelude.seq` Prelude.rnf unlock
 
-instance Core.ToJSON Command where
+instance Data.ToJSON Command where
   toJSON Command' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("reboot" Core..=) Prelude.<$> reboot,
-            ("unlock" Core..=) Prelude.<$> unlock
+          [ ("reboot" Data..=) Prelude.<$> reboot,
+            ("unlock" Data..=) Prelude.<$> unlock
           ]
       )

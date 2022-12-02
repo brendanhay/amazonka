@@ -21,6 +21,7 @@ module Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SnowDeviceManagement.Types.IpAddressAssignment
 import Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType
@@ -109,19 +110,19 @@ physicalNetworkInterface_physicalNetworkInterfaceId = Lens.lens (\PhysicalNetwor
 physicalNetworkInterface_ipAddress :: Lens.Lens' PhysicalNetworkInterface (Prelude.Maybe Prelude.Text)
 physicalNetworkInterface_ipAddress = Lens.lens (\PhysicalNetworkInterface' {ipAddress} -> ipAddress) (\s@PhysicalNetworkInterface' {} a -> s {ipAddress = a} :: PhysicalNetworkInterface)
 
-instance Core.FromJSON PhysicalNetworkInterface where
+instance Data.FromJSON PhysicalNetworkInterface where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhysicalNetworkInterface"
       ( \x ->
           PhysicalNetworkInterface'
-            Prelude.<$> (x Core..:? "ipAddressAssignment")
-            Prelude.<*> (x Core..:? "netmask")
-            Prelude.<*> (x Core..:? "physicalConnectorType")
-            Prelude.<*> (x Core..:? "macAddress")
-            Prelude.<*> (x Core..:? "defaultGateway")
-            Prelude.<*> (x Core..:? "physicalNetworkInterfaceId")
-            Prelude.<*> (x Core..:? "ipAddress")
+            Prelude.<$> (x Data..:? "ipAddressAssignment")
+            Prelude.<*> (x Data..:? "netmask")
+            Prelude.<*> (x Data..:? "physicalConnectorType")
+            Prelude.<*> (x Data..:? "macAddress")
+            Prelude.<*> (x Data..:? "defaultGateway")
+            Prelude.<*> (x Data..:? "physicalNetworkInterfaceId")
+            Prelude.<*> (x Data..:? "ipAddress")
       )
 
 instance Prelude.Hashable PhysicalNetworkInterface where

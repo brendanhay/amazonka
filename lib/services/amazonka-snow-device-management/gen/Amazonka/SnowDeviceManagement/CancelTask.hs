@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,7 +90,7 @@ instance Core.AWSRequest CancelTask where
     Response.receiveJSON
       ( \s h x ->
           CancelTaskResponse'
-            Prelude.<$> (x Core..?> "taskId")
+            Prelude.<$> (x Data..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,26 +101,26 @@ instance Prelude.Hashable CancelTask where
 instance Prelude.NFData CancelTask where
   rnf CancelTask' {..} = Prelude.rnf taskId
 
-instance Core.ToHeaders CancelTask where
+instance Data.ToHeaders CancelTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelTask where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CancelTask where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CancelTask where
+instance Data.ToPath CancelTask where
   toPath CancelTask' {..} =
     Prelude.mconcat
-      ["/task/", Core.toBS taskId, "/cancel"]
+      ["/task/", Data.toBS taskId, "/cancel"]
 
-instance Core.ToQuery CancelTask where
+instance Data.ToQuery CancelTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelTaskResponse' smart constructor.

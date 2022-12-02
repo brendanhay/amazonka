@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,21 +98,21 @@ instance Core.AWSRequest DescribeDevice where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeviceResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "deviceState")
-            Prelude.<*> (x Core..?> "lastUpdatedAt")
-            Prelude.<*> (x Core..?> "software")
-            Prelude.<*> (x Core..?> "lastReachedOutAt")
-            Prelude.<*> ( x Core..?> "deviceCapacities"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "deviceState")
+            Prelude.<*> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "software")
+            Prelude.<*> (x Data..?> "lastReachedOutAt")
+            Prelude.<*> ( x Data..?> "deviceCapacities"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "physicalNetworkInterfaces"
+            Prelude.<*> ( x Data..?> "physicalNetworkInterfaces"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "associatedWithJob")
-            Prelude.<*> (x Core..?> "managedDeviceArn")
-            Prelude.<*> (x Core..?> "managedDeviceId")
-            Prelude.<*> (x Core..?> "deviceType")
+            Prelude.<*> (x Data..?> "associatedWithJob")
+            Prelude.<*> (x Data..?> "managedDeviceArn")
+            Prelude.<*> (x Data..?> "managedDeviceId")
+            Prelude.<*> (x Data..?> "deviceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,29 +123,29 @@ instance Prelude.Hashable DescribeDevice where
 instance Prelude.NFData DescribeDevice where
   rnf DescribeDevice' {..} = Prelude.rnf managedDeviceId
 
-instance Core.ToHeaders DescribeDevice where
+instance Data.ToHeaders DescribeDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDevice where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeDevice where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeDevice where
+instance Data.ToPath DescribeDevice where
   toPath DescribeDevice' {..} =
     Prelude.mconcat
       [ "/managed-device/",
-        Core.toBS managedDeviceId,
+        Data.toBS managedDeviceId,
         "/describe"
       ]
 
-instance Core.ToQuery DescribeDevice where
+instance Data.ToQuery DescribeDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDeviceResponse' smart constructor.
@@ -157,12 +158,12 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
     deviceState :: Prelude.Maybe UnlockState,
     -- | When the device last pushed an update to the Amazon Web Services Cloud.
     -- Indicates when the device cache was refreshed.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The software installed on the device.
     software :: Prelude.Maybe SoftwareInformation,
     -- | When the device last contacted the Amazon Web Services Cloud. Indicates
     -- that the device is online.
-    lastReachedOutAt :: Prelude.Maybe Core.POSIX,
+    lastReachedOutAt :: Prelude.Maybe Data.POSIX,
     -- | The hardware specifications of the device.
     deviceCapacities :: Prelude.Maybe [Capacity],
     -- | The network interfaces available on the device.
@@ -248,7 +249,7 @@ describeDeviceResponse_deviceState = Lens.lens (\DescribeDeviceResponse' {device
 -- | When the device last pushed an update to the Amazon Web Services Cloud.
 -- Indicates when the device cache was refreshed.
 describeDeviceResponse_lastUpdatedAt :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
-describeDeviceResponse_lastUpdatedAt = Lens.lens (\DescribeDeviceResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeDeviceResponse' {} a -> s {lastUpdatedAt = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
+describeDeviceResponse_lastUpdatedAt = Lens.lens (\DescribeDeviceResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeDeviceResponse' {} a -> s {lastUpdatedAt = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The software installed on the device.
 describeDeviceResponse_software :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe SoftwareInformation)
@@ -257,7 +258,7 @@ describeDeviceResponse_software = Lens.lens (\DescribeDeviceResponse' {software}
 -- | When the device last contacted the Amazon Web Services Cloud. Indicates
 -- that the device is online.
 describeDeviceResponse_lastReachedOutAt :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
-describeDeviceResponse_lastReachedOutAt = Lens.lens (\DescribeDeviceResponse' {lastReachedOutAt} -> lastReachedOutAt) (\s@DescribeDeviceResponse' {} a -> s {lastReachedOutAt = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
+describeDeviceResponse_lastReachedOutAt = Lens.lens (\DescribeDeviceResponse' {lastReachedOutAt} -> lastReachedOutAt) (\s@DescribeDeviceResponse' {} a -> s {lastReachedOutAt = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The hardware specifications of the device.
 describeDeviceResponse_deviceCapacities :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe [Capacity])

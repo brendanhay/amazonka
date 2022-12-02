@@ -21,6 +21,7 @@ module Amazonka.SnowDeviceManagement.Types.CpuOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The options for how a device\'s CPU is configured.
@@ -61,14 +62,14 @@ cpuOptions_coreCount = Lens.lens (\CpuOptions' {coreCount} -> coreCount) (\s@Cpu
 cpuOptions_threadsPerCore :: Lens.Lens' CpuOptions (Prelude.Maybe Prelude.Int)
 cpuOptions_threadsPerCore = Lens.lens (\CpuOptions' {threadsPerCore} -> threadsPerCore) (\s@CpuOptions' {} a -> s {threadsPerCore = a} :: CpuOptions)
 
-instance Core.FromJSON CpuOptions where
+instance Data.FromJSON CpuOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CpuOptions"
       ( \x ->
           CpuOptions'
-            Prelude.<$> (x Core..:? "coreCount")
-            Prelude.<*> (x Core..:? "threadsPerCore")
+            Prelude.<$> (x Data..:? "coreCount")
+            Prelude.<*> (x Data..:? "threadsPerCore")
       )
 
 instance Prelude.Hashable CpuOptions where

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,7 +100,7 @@ instance Core.AWSRequest DescribeDeviceEc2Instances where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeviceEc2InstancesResponse'
-            Prelude.<$> (x Core..?> "instances" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "instances" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,33 +114,33 @@ instance Prelude.NFData DescribeDeviceEc2Instances where
     Prelude.rnf instanceIds
       `Prelude.seq` Prelude.rnf managedDeviceId
 
-instance Core.ToHeaders DescribeDeviceEc2Instances where
+instance Data.ToHeaders DescribeDeviceEc2Instances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDeviceEc2Instances where
+instance Data.ToJSON DescribeDeviceEc2Instances where
   toJSON DescribeDeviceEc2Instances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("instanceIds" Core..= instanceIds)]
+          [Prelude.Just ("instanceIds" Data..= instanceIds)]
       )
 
-instance Core.ToPath DescribeDeviceEc2Instances where
+instance Data.ToPath DescribeDeviceEc2Instances where
   toPath DescribeDeviceEc2Instances' {..} =
     Prelude.mconcat
       [ "/managed-device/",
-        Core.toBS managedDeviceId,
+        Data.toBS managedDeviceId,
         "/resources/ec2/describe"
       ]
 
-instance Core.ToQuery DescribeDeviceEc2Instances where
+instance Data.ToQuery DescribeDeviceEc2Instances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDeviceEc2InstancesResponse' smart constructor.

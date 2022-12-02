@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListDeviceResources where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceResourcesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,31 +162,31 @@ instance Prelude.NFData ListDeviceResources where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf managedDeviceId
 
-instance Core.ToHeaders ListDeviceResources where
+instance Data.ToHeaders ListDeviceResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDeviceResources where
+instance Data.ToPath ListDeviceResources where
   toPath ListDeviceResources' {..} =
     Prelude.mconcat
       [ "/managed-device/",
-        Core.toBS managedDeviceId,
+        Data.toBS managedDeviceId,
         "/resources"
       ]
 
-instance Core.ToQuery ListDeviceResources where
+instance Data.ToQuery ListDeviceResources where
   toQuery ListDeviceResources' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "type" Core.=: type',
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "type" Data.=: type',
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListDeviceResourcesResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,8 +140,8 @@ instance Core.AWSRequest ListExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListExecutionsResponse'
-            Prelude.<$> (x Core..?> "executions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "executions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,27 +159,27 @@ instance Prelude.NFData ListExecutions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf taskId
 
-instance Core.ToHeaders ListExecutions where
+instance Data.ToHeaders ListExecutions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListExecutions where
+instance Data.ToPath ListExecutions where
   toPath = Prelude.const "/executions"
 
-instance Core.ToQuery ListExecutions where
+instance Data.ToQuery ListExecutions where
   toQuery ListExecutions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "state" Core.=: state,
-        "maxResults" Core.=: maxResults,
-        "taskId" Core.=: taskId
+      [ "nextToken" Data.=: nextToken,
+        "state" Data.=: state,
+        "maxResults" Data.=: maxResults,
+        "taskId" Data.=: taskId
       ]
 
 -- | /See:/ 'newListExecutionsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.EC2InstanceLimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.EC2InstanceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -101,16 +102,16 @@ eC2InstanceLimit_currentInstances = Lens.lens (\EC2InstanceLimit' {currentInstan
 eC2InstanceLimit_location :: Lens.Lens' EC2InstanceLimit (Prelude.Maybe Prelude.Text)
 eC2InstanceLimit_location = Lens.lens (\EC2InstanceLimit' {location} -> location) (\s@EC2InstanceLimit' {} a -> s {location = a} :: EC2InstanceLimit)
 
-instance Core.FromJSON EC2InstanceLimit where
+instance Data.FromJSON EC2InstanceLimit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EC2InstanceLimit"
       ( \x ->
           EC2InstanceLimit'
-            Prelude.<$> (x Core..:? "InstanceLimit")
-            Prelude.<*> (x Core..:? "EC2InstanceType")
-            Prelude.<*> (x Core..:? "CurrentInstances")
-            Prelude.<*> (x Core..:? "Location")
+            Prelude.<$> (x Data..:? "InstanceLimit")
+            Prelude.<*> (x Data..:? "EC2InstanceType")
+            Prelude.<*> (x Data..:? "CurrentInstances")
+            Prelude.<*> (x Data..:? "Location")
       )
 
 instance Prelude.Hashable EC2InstanceLimit where

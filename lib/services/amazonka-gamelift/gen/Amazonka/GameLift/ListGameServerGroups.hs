@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,8 +145,8 @@ instance Core.AWSRequest ListGameServerGroups where
     Response.receiveJSON
       ( \s h x ->
           ListGameServerGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "GameServerGroups"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "GameServerGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -161,34 +162,34 @@ instance Prelude.NFData ListGameServerGroups where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders ListGameServerGroups where
+instance Data.ToHeaders ListGameServerGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.ListGameServerGroups" ::
+              Data.=# ( "GameLift.ListGameServerGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListGameServerGroups where
+instance Data.ToJSON ListGameServerGroups where
   toJSON ListGameServerGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath ListGameServerGroups where
+instance Data.ToPath ListGameServerGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListGameServerGroups where
+instance Data.ToQuery ListGameServerGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListGameServerGroupsResponse' smart constructor.

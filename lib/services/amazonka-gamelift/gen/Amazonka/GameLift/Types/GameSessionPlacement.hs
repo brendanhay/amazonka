@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.GameSessionPlacement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.GameProperty
 import Amazonka.GameLift.Types.GameSessionPlacementState
 import Amazonka.GameLift.Types.PlacedPlayerSession
@@ -104,7 +105,7 @@ data GameSessionPlacement = GameSessionPlacement'
     gameSessionRegion :: Prelude.Maybe Prelude.Text,
     -- | Time stamp indicating when this request was completed, canceled, or
     -- timed out.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | A set of values, expressed in milliseconds, that indicates the amount of
     -- latency that a player experiences when connected to \@aws; Regions.
     playerLatencies :: Prelude.Maybe [PlayerLatency],
@@ -137,7 +138,7 @@ data GameSessionPlacement = GameSessionPlacement'
     -- | Time stamp indicating when this request was placed in the queue. Format
     -- is a number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The IP address of the game session. To connect to a GameLift game
     -- server, an app needs both the IP address and port number. This value is
     -- set once the new game session is placed (placement status is
@@ -364,7 +365,7 @@ gameSessionPlacement_gameSessionRegion = Lens.lens (\GameSessionPlacement' {game
 -- | Time stamp indicating when this request was completed, canceled, or
 -- timed out.
 gameSessionPlacement_endTime :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.UTCTime)
-gameSessionPlacement_endTime = Lens.lens (\GameSessionPlacement' {endTime} -> endTime) (\s@GameSessionPlacement' {} a -> s {endTime = a} :: GameSessionPlacement) Prelude.. Lens.mapping Core._Time
+gameSessionPlacement_endTime = Lens.lens (\GameSessionPlacement' {endTime} -> endTime) (\s@GameSessionPlacement' {} a -> s {endTime = a} :: GameSessionPlacement) Prelude.. Lens.mapping Data._Time
 
 -- | A set of values, expressed in milliseconds, that indicates the amount of
 -- latency that a player experiences when connected to \@aws; Regions.
@@ -409,7 +410,7 @@ gameSessionPlacement_dnsName = Lens.lens (\GameSessionPlacement' {dnsName} -> dn
 -- is a number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 gameSessionPlacement_startTime :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.UTCTime)
-gameSessionPlacement_startTime = Lens.lens (\GameSessionPlacement' {startTime} -> startTime) (\s@GameSessionPlacement' {} a -> s {startTime = a} :: GameSessionPlacement) Prelude.. Lens.mapping Core._Time
+gameSessionPlacement_startTime = Lens.lens (\GameSessionPlacement' {startTime} -> startTime) (\s@GameSessionPlacement' {} a -> s {startTime = a} :: GameSessionPlacement) Prelude.. Lens.mapping Data._Time
 
 -- | The IP address of the game session. To connect to a GameLift game
 -- server, an app needs both the IP address and port number. This value is
@@ -418,34 +419,34 @@ gameSessionPlacement_startTime = Lens.lens (\GameSessionPlacement' {startTime} -
 gameSessionPlacement_ipAddress :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.Text)
 gameSessionPlacement_ipAddress = Lens.lens (\GameSessionPlacement' {ipAddress} -> ipAddress) (\s@GameSessionPlacement' {} a -> s {ipAddress = a} :: GameSessionPlacement)
 
-instance Core.FromJSON GameSessionPlacement where
+instance Data.FromJSON GameSessionPlacement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GameSessionPlacement"
       ( \x ->
           GameSessionPlacement'
-            Prelude.<$> ( x Core..:? "PlacedPlayerSessions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "PlacedPlayerSessions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "PlacementId")
-            Prelude.<*> (x Core..:? "MatchmakerData")
-            Prelude.<*> (x Core..:? "GameSessionId")
-            Prelude.<*> (x Core..:? "GameSessionName")
-            Prelude.<*> (x Core..:? "GameSessionData")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "GameSessionQueueName")
-            Prelude.<*> (x Core..:? "GameSessionRegion")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> ( x Core..:? "PlayerLatencies"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "PlacementId")
+            Prelude.<*> (x Data..:? "MatchmakerData")
+            Prelude.<*> (x Data..:? "GameSessionId")
+            Prelude.<*> (x Data..:? "GameSessionName")
+            Prelude.<*> (x Data..:? "GameSessionData")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "GameSessionQueueName")
+            Prelude.<*> (x Data..:? "GameSessionRegion")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> ( x Data..:? "PlayerLatencies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MaximumPlayerSessionCount")
-            Prelude.<*> (x Core..:? "GameProperties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "GameSessionArn")
-            Prelude.<*> (x Core..:? "DnsName")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<*> (x Data..:? "MaximumPlayerSessionCount")
+            Prelude.<*> (x Data..:? "GameProperties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "GameSessionArn")
+            Prelude.<*> (x Data..:? "DnsName")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable GameSessionPlacement where

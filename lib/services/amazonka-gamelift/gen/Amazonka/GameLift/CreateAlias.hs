@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -172,7 +173,7 @@ instance Core.AWSRequest CreateAlias where
     Response.receiveJSON
       ( \s h x ->
           CreateAliasResponse'
-            Prelude.<$> (x Core..?> "Alias")
+            Prelude.<$> (x Data..?> "Alias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,35 +191,35 @@ instance Prelude.NFData CreateAlias where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf routingStrategy
 
-instance Core.ToHeaders CreateAlias where
+instance Data.ToHeaders CreateAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.CreateAlias" :: Prelude.ByteString),
+              Data.=# ("GameLift.CreateAlias" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAlias where
+instance Data.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("RoutingStrategy" Core..= routingStrategy)
+              ("RoutingStrategy" Data..= routingStrategy)
           ]
       )
 
-instance Core.ToPath CreateAlias where
+instance Data.ToPath CreateAlias where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAlias where
+instance Data.ToQuery CreateAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

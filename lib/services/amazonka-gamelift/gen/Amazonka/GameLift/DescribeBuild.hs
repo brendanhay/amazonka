@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest DescribeBuild where
     Response.receiveJSON
       ( \s h x ->
           DescribeBuildResponse'
-            Prelude.<$> (x Core..?> "Build")
+            Prelude.<$> (x Data..?> "Build")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,30 +111,30 @@ instance Prelude.Hashable DescribeBuild where
 instance Prelude.NFData DescribeBuild where
   rnf DescribeBuild' {..} = Prelude.rnf buildId
 
-instance Core.ToHeaders DescribeBuild where
+instance Data.ToHeaders DescribeBuild where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DescribeBuild" :: Prelude.ByteString),
+              Data.=# ("GameLift.DescribeBuild" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeBuild where
+instance Data.ToJSON DescribeBuild where
   toJSON DescribeBuild' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("BuildId" Core..= buildId)]
+          [Prelude.Just ("BuildId" Data..= buildId)]
       )
 
-instance Core.ToPath DescribeBuild where
+instance Data.ToPath DescribeBuild where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeBuild where
+instance Data.ToQuery DescribeBuild where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

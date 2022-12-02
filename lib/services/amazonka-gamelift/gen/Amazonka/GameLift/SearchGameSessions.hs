@@ -134,6 +134,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -458,8 +459,8 @@ instance Core.AWSRequest SearchGameSessions where
     Response.receiveJSON
       ( \s h x ->
           SearchGameSessionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "GameSessions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "GameSessions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -483,41 +484,41 @@ instance Prelude.NFData SearchGameSessions where
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders SearchGameSessions where
+instance Data.ToHeaders SearchGameSessions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.SearchGameSessions" ::
+              Data.=# ( "GameLift.SearchGameSessions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchGameSessions where
+instance Data.ToJSON SearchGameSessions where
   toJSON SearchGameSessions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FleetId" Core..=) Prelude.<$> fleetId,
-            ("SortExpression" Core..=)
+          [ ("FleetId" Data..=) Prelude.<$> fleetId,
+            ("SortExpression" Data..=)
               Prelude.<$> sortExpression,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("AliasId" Core..=) Prelude.<$> aliasId,
-            ("FilterExpression" Core..=)
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("AliasId" Data..=) Prelude.<$> aliasId,
+            ("FilterExpression" Data..=)
               Prelude.<$> filterExpression,
-            ("Location" Core..=) Prelude.<$> location,
-            ("Limit" Core..=) Prelude.<$> limit
+            ("Location" Data..=) Prelude.<$> location,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath SearchGameSessions where
+instance Data.ToPath SearchGameSessions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SearchGameSessions where
+instance Data.ToQuery SearchGameSessions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

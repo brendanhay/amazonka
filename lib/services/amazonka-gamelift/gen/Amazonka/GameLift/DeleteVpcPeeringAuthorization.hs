@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,37 +151,37 @@ instance Prelude.NFData DeleteVpcPeeringAuthorization where
     Prelude.rnf gameLiftAwsAccountId
       `Prelude.seq` Prelude.rnf peerVpcId
 
-instance Core.ToHeaders DeleteVpcPeeringAuthorization where
+instance Data.ToHeaders DeleteVpcPeeringAuthorization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DeleteVpcPeeringAuthorization" ::
+              Data.=# ( "GameLift.DeleteVpcPeeringAuthorization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVpcPeeringAuthorization where
+instance Data.ToJSON DeleteVpcPeeringAuthorization where
   toJSON DeleteVpcPeeringAuthorization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "GameLiftAwsAccountId"
-                  Core..= gameLiftAwsAccountId
+                  Data..= gameLiftAwsAccountId
               ),
-            Prelude.Just ("PeerVpcId" Core..= peerVpcId)
+            Prelude.Just ("PeerVpcId" Data..= peerVpcId)
           ]
       )
 
-instance Core.ToPath DeleteVpcPeeringAuthorization where
+instance Data.ToPath DeleteVpcPeeringAuthorization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVpcPeeringAuthorization where
+instance Data.ToQuery DeleteVpcPeeringAuthorization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVpcPeeringAuthorizationResponse' smart constructor.

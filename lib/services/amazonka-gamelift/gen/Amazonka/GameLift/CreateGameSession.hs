@@ -98,6 +98,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -325,7 +326,7 @@ instance Core.AWSRequest CreateGameSession where
     Response.receiveJSON
       ( \s h x ->
           CreateGameSessionResponse'
-            Prelude.<$> (x Core..?> "GameSession")
+            Prelude.<$> (x Data..?> "GameSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -355,46 +356,46 @@ instance Prelude.NFData CreateGameSession where
       `Prelude.seq` Prelude.rnf gameProperties
       `Prelude.seq` Prelude.rnf maximumPlayerSessionCount
 
-instance Core.ToHeaders CreateGameSession where
+instance Data.ToHeaders CreateGameSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.CreateGameSession" :: Prelude.ByteString),
+              Data.=# ("GameLift.CreateGameSession" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateGameSession where
+instance Data.ToJSON CreateGameSession where
   toJSON CreateGameSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GameSessionId" Core..=) Prelude.<$> gameSessionId,
-            ("FleetId" Core..=) Prelude.<$> fleetId,
-            ("CreatorId" Core..=) Prelude.<$> creatorId,
-            ("Name" Core..=) Prelude.<$> name,
-            ("GameSessionData" Core..=)
+          [ ("GameSessionId" Data..=) Prelude.<$> gameSessionId,
+            ("FleetId" Data..=) Prelude.<$> fleetId,
+            ("CreatorId" Data..=) Prelude.<$> creatorId,
+            ("Name" Data..=) Prelude.<$> name,
+            ("GameSessionData" Data..=)
               Prelude.<$> gameSessionData,
-            ("AliasId" Core..=) Prelude.<$> aliasId,
-            ("IdempotencyToken" Core..=)
+            ("AliasId" Data..=) Prelude.<$> aliasId,
+            ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("Location" Core..=) Prelude.<$> location,
-            ("GameProperties" Core..=)
+            ("Location" Data..=) Prelude.<$> location,
+            ("GameProperties" Data..=)
               Prelude.<$> gameProperties,
             Prelude.Just
               ( "MaximumPlayerSessionCount"
-                  Core..= maximumPlayerSessionCount
+                  Data..= maximumPlayerSessionCount
               )
           ]
       )
 
-instance Core.ToPath CreateGameSession where
+instance Data.ToPath CreateGameSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateGameSession where
+instance Data.ToQuery CreateGameSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

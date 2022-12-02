@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.MatchmakingTicket where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.GameSessionConnectionInfo
 import Amazonka.GameLift.Types.MatchmakingConfigurationStatus
 import Amazonka.GameLift.Types.Player
@@ -89,7 +90,7 @@ data MatchmakingTicket = MatchmakingTicket'
     -- processed due to success, failure, or cancellation. Format is a number
     -- expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | A unique identifier for a matchmaking ticket.
     ticketId :: Prelude.Maybe Prelude.Text,
     -- | Identifier and connection information of the game session created for
@@ -106,7 +107,7 @@ data MatchmakingTicket = MatchmakingTicket'
     -- | Time stamp indicating when this matchmaking request was received. Format
     -- is a number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -275,7 +276,7 @@ matchmakingTicket_status = Lens.lens (\MatchmakingTicket' {status} -> status) (\
 -- expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 matchmakingTicket_endTime :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.UTCTime)
-matchmakingTicket_endTime = Lens.lens (\MatchmakingTicket' {endTime} -> endTime) (\s@MatchmakingTicket' {} a -> s {endTime = a} :: MatchmakingTicket) Prelude.. Lens.mapping Core._Time
+matchmakingTicket_endTime = Lens.lens (\MatchmakingTicket' {endTime} -> endTime) (\s@MatchmakingTicket' {} a -> s {endTime = a} :: MatchmakingTicket) Prelude.. Lens.mapping Data._Time
 
 -- | A unique identifier for a matchmaking ticket.
 matchmakingTicket_ticketId :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.Text)
@@ -302,25 +303,25 @@ matchmakingTicket_statusMessage = Lens.lens (\MatchmakingTicket' {statusMessage}
 -- is a number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 matchmakingTicket_startTime :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.UTCTime)
-matchmakingTicket_startTime = Lens.lens (\MatchmakingTicket' {startTime} -> startTime) (\s@MatchmakingTicket' {} a -> s {startTime = a} :: MatchmakingTicket) Prelude.. Lens.mapping Core._Time
+matchmakingTicket_startTime = Lens.lens (\MatchmakingTicket' {startTime} -> startTime) (\s@MatchmakingTicket' {} a -> s {startTime = a} :: MatchmakingTicket) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON MatchmakingTicket where
+instance Data.FromJSON MatchmakingTicket where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MatchmakingTicket"
       ( \x ->
           MatchmakingTicket'
-            Prelude.<$> (x Core..:? "Players" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ConfigurationArn")
-            Prelude.<*> (x Core..:? "EstimatedWaitTime")
-            Prelude.<*> (x Core..:? "StatusReason")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "TicketId")
-            Prelude.<*> (x Core..:? "GameSessionConnectionInfo")
-            Prelude.<*> (x Core..:? "ConfigurationName")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "Players" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ConfigurationArn")
+            Prelude.<*> (x Data..:? "EstimatedWaitTime")
+            Prelude.<*> (x Data..:? "StatusReason")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "TicketId")
+            Prelude.<*> (x Data..:? "GameSessionConnectionInfo")
+            Prelude.<*> (x Data..:? "ConfigurationName")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable MatchmakingTicket where

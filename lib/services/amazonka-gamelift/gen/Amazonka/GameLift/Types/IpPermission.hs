@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.IpPermission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.IpProtocol
 import qualified Amazonka.Prelude as Prelude
 
@@ -129,16 +130,16 @@ ipPermission_ipRange = Lens.lens (\IpPermission' {ipRange} -> ipRange) (\s@IpPer
 ipPermission_protocol :: Lens.Lens' IpPermission IpProtocol
 ipPermission_protocol = Lens.lens (\IpPermission' {protocol} -> protocol) (\s@IpPermission' {} a -> s {protocol = a} :: IpPermission)
 
-instance Core.FromJSON IpPermission where
+instance Data.FromJSON IpPermission where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IpPermission"
       ( \x ->
           IpPermission'
-            Prelude.<$> (x Core..: "FromPort")
-            Prelude.<*> (x Core..: "ToPort")
-            Prelude.<*> (x Core..: "IpRange")
-            Prelude.<*> (x Core..: "Protocol")
+            Prelude.<$> (x Data..: "FromPort")
+            Prelude.<*> (x Data..: "ToPort")
+            Prelude.<*> (x Data..: "IpRange")
+            Prelude.<*> (x Data..: "Protocol")
       )
 
 instance Prelude.Hashable IpPermission where
@@ -155,13 +156,13 @@ instance Prelude.NFData IpPermission where
       `Prelude.seq` Prelude.rnf ipRange
       `Prelude.seq` Prelude.rnf protocol
 
-instance Core.ToJSON IpPermission where
+instance Data.ToJSON IpPermission where
   toJSON IpPermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FromPort" Core..= fromPort),
-            Prelude.Just ("ToPort" Core..= toPort),
-            Prelude.Just ("IpRange" Core..= ipRange),
-            Prelude.Just ("Protocol" Core..= protocol)
+          [ Prelude.Just ("FromPort" Data..= fromPort),
+            Prelude.Just ("ToPort" Data..= toPort),
+            Prelude.Just ("IpRange" Data..= ipRange),
+            Prelude.Just ("Protocol" Data..= protocol)
           ]
       )

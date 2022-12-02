@@ -100,6 +100,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -263,7 +264,7 @@ instance Core.AWSRequest StartGameSessionPlacement where
     Response.receiveJSON
       ( \s h x ->
           StartGameSessionPlacementResponse'
-            Prelude.<$> (x Core..?> "GameSessionPlacement")
+            Prelude.<$> (x Data..?> "GameSessionPlacement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -289,51 +290,51 @@ instance Prelude.NFData StartGameSessionPlacement where
       `Prelude.seq` Prelude.rnf gameSessionQueueName
       `Prelude.seq` Prelude.rnf maximumPlayerSessionCount
 
-instance Core.ToHeaders StartGameSessionPlacement where
+instance Data.ToHeaders StartGameSessionPlacement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.StartGameSessionPlacement" ::
+              Data.=# ( "GameLift.StartGameSessionPlacement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartGameSessionPlacement where
+instance Data.ToJSON StartGameSessionPlacement where
   toJSON StartGameSessionPlacement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GameSessionName" Core..=)
+          [ ("GameSessionName" Data..=)
               Prelude.<$> gameSessionName,
-            ("GameSessionData" Core..=)
+            ("GameSessionData" Data..=)
               Prelude.<$> gameSessionData,
-            ("DesiredPlayerSessions" Core..=)
+            ("DesiredPlayerSessions" Data..=)
               Prelude.<$> desiredPlayerSessions,
-            ("PlayerLatencies" Core..=)
+            ("PlayerLatencies" Data..=)
               Prelude.<$> playerLatencies,
-            ("GameProperties" Core..=)
+            ("GameProperties" Data..=)
               Prelude.<$> gameProperties,
-            Prelude.Just ("PlacementId" Core..= placementId),
+            Prelude.Just ("PlacementId" Data..= placementId),
             Prelude.Just
               ( "GameSessionQueueName"
-                  Core..= gameSessionQueueName
+                  Data..= gameSessionQueueName
               ),
             Prelude.Just
               ( "MaximumPlayerSessionCount"
-                  Core..= maximumPlayerSessionCount
+                  Data..= maximumPlayerSessionCount
               )
           ]
       )
 
-instance Core.ToPath StartGameSessionPlacement where
+instance Data.ToPath StartGameSessionPlacement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartGameSessionPlacement where
+instance Data.ToQuery StartGameSessionPlacement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

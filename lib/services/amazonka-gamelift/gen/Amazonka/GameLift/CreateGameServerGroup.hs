@@ -101,6 +101,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -507,7 +508,7 @@ instance Core.AWSRequest CreateGameServerGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateGameServerGroupResponse'
-            Prelude.<$> (x Core..?> "GameServerGroup")
+            Prelude.<$> (x Data..?> "GameServerGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -539,49 +540,49 @@ instance Prelude.NFData CreateGameServerGroup where
       `Prelude.seq` Prelude.rnf launchTemplate
       `Prelude.seq` Prelude.rnf instanceDefinitions
 
-instance Core.ToHeaders CreateGameServerGroup where
+instance Data.ToHeaders CreateGameServerGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.CreateGameServerGroup" ::
+              Data.=# ( "GameLift.CreateGameServerGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateGameServerGroup where
+instance Data.ToJSON CreateGameServerGroup where
   toJSON CreateGameServerGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("GameServerProtectionPolicy" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("GameServerProtectionPolicy" Data..=)
               Prelude.<$> gameServerProtectionPolicy,
-            ("VpcSubnets" Core..=) Prelude.<$> vpcSubnets,
-            ("BalancingStrategy" Core..=)
+            ("VpcSubnets" Data..=) Prelude.<$> vpcSubnets,
+            ("BalancingStrategy" Data..=)
               Prelude.<$> balancingStrategy,
-            ("AutoScalingPolicy" Core..=)
+            ("AutoScalingPolicy" Data..=)
               Prelude.<$> autoScalingPolicy,
             Prelude.Just
-              ("GameServerGroupName" Core..= gameServerGroupName),
-            Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("MinSize" Core..= minSize),
-            Prelude.Just ("MaxSize" Core..= maxSize),
+              ("GameServerGroupName" Data..= gameServerGroupName),
+            Prelude.Just ("RoleArn" Data..= roleArn),
+            Prelude.Just ("MinSize" Data..= minSize),
+            Prelude.Just ("MaxSize" Data..= maxSize),
             Prelude.Just
-              ("LaunchTemplate" Core..= launchTemplate),
+              ("LaunchTemplate" Data..= launchTemplate),
             Prelude.Just
-              ("InstanceDefinitions" Core..= instanceDefinitions)
+              ("InstanceDefinitions" Data..= instanceDefinitions)
           ]
       )
 
-instance Core.ToPath CreateGameServerGroup where
+instance Data.ToPath CreateGameServerGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateGameServerGroup where
+instance Data.ToQuery CreateGameServerGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGameServerGroupResponse' smart constructor.

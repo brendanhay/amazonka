@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.GameSessionQueue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.FilterConfiguration
 import Amazonka.GameLift.Types.GameSessionQueueDestination
 import Amazonka.GameLift.Types.PlayerLatencyPolicy
@@ -217,23 +218,23 @@ gameSessionQueue_filterConfiguration = Lens.lens (\GameSessionQueue' {filterConf
 gameSessionQueue_customEventData :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Text)
 gameSessionQueue_customEventData = Lens.lens (\GameSessionQueue' {customEventData} -> customEventData) (\s@GameSessionQueue' {} a -> s {customEventData = a} :: GameSessionQueue)
 
-instance Core.FromJSON GameSessionQueue where
+instance Data.FromJSON GameSessionQueue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GameSessionQueue"
       ( \x ->
           GameSessionQueue'
-            Prelude.<$> (x Core..:? "NotificationTarget")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "PriorityConfiguration")
-            Prelude.<*> (x Core..:? "GameSessionQueueArn")
-            Prelude.<*> (x Core..:? "TimeoutInSeconds")
-            Prelude.<*> ( x Core..:? "PlayerLatencyPolicies"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "NotificationTarget")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "PriorityConfiguration")
+            Prelude.<*> (x Data..:? "GameSessionQueueArn")
+            Prelude.<*> (x Data..:? "TimeoutInSeconds")
+            Prelude.<*> ( x Data..:? "PlayerLatencyPolicies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Destinations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "FilterConfiguration")
-            Prelude.<*> (x Core..:? "CustomEventData")
+            Prelude.<*> (x Data..:? "Destinations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "FilterConfiguration")
+            Prelude.<*> (x Data..:? "CustomEventData")
       )
 
 instance Prelude.Hashable GameSessionQueue where

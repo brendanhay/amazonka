@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -199,8 +200,8 @@ instance Core.AWSRequest DescribeInstances where
     Response.receiveJSON
       ( \s h x ->
           DescribeInstancesResponse'
-            Prelude.<$> (x Core..?> "Instances" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Instances" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -220,35 +221,35 @@ instance Prelude.NFData DescribeInstances where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf fleetId
 
-instance Core.ToHeaders DescribeInstances where
+instance Data.ToHeaders DescribeInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DescribeInstances" :: Prelude.ByteString),
+              Data.=# ("GameLift.DescribeInstances" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeInstances where
+instance Data.ToJSON DescribeInstances where
   toJSON DescribeInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Location" Core..=) Prelude.<$> location,
-            ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("FleetId" Core..= fleetId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Location" Data..=) Prelude.<$> location,
+            ("InstanceId" Data..=) Prelude.<$> instanceId,
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("FleetId" Data..= fleetId)
           ]
       )
 
-instance Core.ToPath DescribeInstances where
+instance Data.ToPath DescribeInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInstances where
+instance Data.ToQuery DescribeInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.ResourceCreationLimitPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A policy that puts limits on the number of game sessions that a player
@@ -74,14 +75,14 @@ resourceCreationLimitPolicy_newGameSessionsPerCreator = Lens.lens (\ResourceCrea
 resourceCreationLimitPolicy_policyPeriodInMinutes :: Lens.Lens' ResourceCreationLimitPolicy (Prelude.Maybe Prelude.Natural)
 resourceCreationLimitPolicy_policyPeriodInMinutes = Lens.lens (\ResourceCreationLimitPolicy' {policyPeriodInMinutes} -> policyPeriodInMinutes) (\s@ResourceCreationLimitPolicy' {} a -> s {policyPeriodInMinutes = a} :: ResourceCreationLimitPolicy)
 
-instance Core.FromJSON ResourceCreationLimitPolicy where
+instance Data.FromJSON ResourceCreationLimitPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceCreationLimitPolicy"
       ( \x ->
           ResourceCreationLimitPolicy'
-            Prelude.<$> (x Core..:? "NewGameSessionsPerCreator")
-            Prelude.<*> (x Core..:? "PolicyPeriodInMinutes")
+            Prelude.<$> (x Data..:? "NewGameSessionsPerCreator")
+            Prelude.<*> (x Data..:? "PolicyPeriodInMinutes")
       )
 
 instance Prelude.Hashable ResourceCreationLimitPolicy where
@@ -95,13 +96,13 @@ instance Prelude.NFData ResourceCreationLimitPolicy where
     Prelude.rnf newGameSessionsPerCreator'
       `Prelude.seq` Prelude.rnf policyPeriodInMinutes
 
-instance Core.ToJSON ResourceCreationLimitPolicy where
+instance Data.ToJSON ResourceCreationLimitPolicy where
   toJSON ResourceCreationLimitPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NewGameSessionsPerCreator" Core..=)
+          [ ("NewGameSessionsPerCreator" Data..=)
               Prelude.<$> newGameSessionsPerCreator',
-            ("PolicyPeriodInMinutes" Core..=)
+            ("PolicyPeriodInMinutes" Data..=)
               Prelude.<$> policyPeriodInMinutes
           ]
       )

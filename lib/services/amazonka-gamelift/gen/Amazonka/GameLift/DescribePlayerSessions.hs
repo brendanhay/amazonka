@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -251,8 +252,8 @@ instance Core.AWSRequest DescribePlayerSessions where
     Response.receiveJSON
       ( \s h x ->
           DescribePlayerSessionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "PlayerSessions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "PlayerSessions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -274,40 +275,40 @@ instance Prelude.NFData DescribePlayerSessions where
       `Prelude.seq` Prelude.rnf playerId
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders DescribePlayerSessions where
+instance Data.ToHeaders DescribePlayerSessions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribePlayerSessions" ::
+              Data.=# ( "GameLift.DescribePlayerSessions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePlayerSessions where
+instance Data.ToJSON DescribePlayerSessions where
   toJSON DescribePlayerSessions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GameSessionId" Core..=) Prelude.<$> gameSessionId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("PlayerSessionId" Core..=)
+          [ ("GameSessionId" Data..=) Prelude.<$> gameSessionId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("PlayerSessionId" Data..=)
               Prelude.<$> playerSessionId,
-            ("PlayerSessionStatusFilter" Core..=)
+            ("PlayerSessionStatusFilter" Data..=)
               Prelude.<$> playerSessionStatusFilter,
-            ("PlayerId" Core..=) Prelude.<$> playerId,
-            ("Limit" Core..=) Prelude.<$> limit
+            ("PlayerId" Data..=) Prelude.<$> playerId,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath DescribePlayerSessions where
+instance Data.ToPath DescribePlayerSessions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePlayerSessions where
+instance Data.ToQuery DescribePlayerSessions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

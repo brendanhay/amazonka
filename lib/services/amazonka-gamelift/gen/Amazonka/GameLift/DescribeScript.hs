@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest DescribeScript where
     Response.receiveJSON
       ( \s h x ->
           DescribeScriptResponse'
-            Prelude.<$> (x Core..?> "Script")
+            Prelude.<$> (x Data..?> "Script")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,30 +111,30 @@ instance Prelude.Hashable DescribeScript where
 instance Prelude.NFData DescribeScript where
   rnf DescribeScript' {..} = Prelude.rnf scriptId
 
-instance Core.ToHeaders DescribeScript where
+instance Data.ToHeaders DescribeScript where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DescribeScript" :: Prelude.ByteString),
+              Data.=# ("GameLift.DescribeScript" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeScript where
+instance Data.ToJSON DescribeScript where
   toJSON DescribeScript' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ScriptId" Core..= scriptId)]
+          [Prelude.Just ("ScriptId" Data..= scriptId)]
       )
 
-instance Core.ToPath DescribeScript where
+instance Data.ToPath DescribeScript where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeScript where
+instance Data.ToQuery DescribeScript where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeScriptResponse' smart constructor.

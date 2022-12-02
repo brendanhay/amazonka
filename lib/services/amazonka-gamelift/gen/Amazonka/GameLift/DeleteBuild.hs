@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,30 +102,30 @@ instance Prelude.Hashable DeleteBuild where
 instance Prelude.NFData DeleteBuild where
   rnf DeleteBuild' {..} = Prelude.rnf buildId
 
-instance Core.ToHeaders DeleteBuild where
+instance Data.ToHeaders DeleteBuild where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DeleteBuild" :: Prelude.ByteString),
+              Data.=# ("GameLift.DeleteBuild" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBuild where
+instance Data.ToJSON DeleteBuild where
   toJSON DeleteBuild' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("BuildId" Core..= buildId)]
+          [Prelude.Just ("BuildId" Data..= buildId)]
       )
 
-instance Core.ToPath DeleteBuild where
+instance Data.ToPath DeleteBuild where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteBuild where
+instance Data.ToQuery DeleteBuild where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBuildResponse' smart constructor.

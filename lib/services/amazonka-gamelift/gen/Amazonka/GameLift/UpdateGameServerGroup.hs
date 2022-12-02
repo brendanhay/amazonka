@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -277,7 +278,7 @@ instance Core.AWSRequest UpdateGameServerGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateGameServerGroupResponse'
-            Prelude.<$> (x Core..?> "GameServerGroup")
+            Prelude.<$> (x Data..?> "GameServerGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -297,41 +298,41 @@ instance Prelude.NFData UpdateGameServerGroup where
       `Prelude.seq` Prelude.rnf balancingStrategy
       `Prelude.seq` Prelude.rnf gameServerGroupName
 
-instance Core.ToHeaders UpdateGameServerGroup where
+instance Data.ToHeaders UpdateGameServerGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.UpdateGameServerGroup" ::
+              Data.=# ( "GameLift.UpdateGameServerGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGameServerGroup where
+instance Data.ToJSON UpdateGameServerGroup where
   toJSON UpdateGameServerGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("InstanceDefinitions" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("InstanceDefinitions" Data..=)
               Prelude.<$> instanceDefinitions,
-            ("GameServerProtectionPolicy" Core..=)
+            ("GameServerProtectionPolicy" Data..=)
               Prelude.<$> gameServerProtectionPolicy,
-            ("BalancingStrategy" Core..=)
+            ("BalancingStrategy" Data..=)
               Prelude.<$> balancingStrategy,
             Prelude.Just
-              ("GameServerGroupName" Core..= gameServerGroupName)
+              ("GameServerGroupName" Data..= gameServerGroupName)
           ]
       )
 
-instance Core.ToPath UpdateGameServerGroup where
+instance Data.ToPath UpdateGameServerGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateGameServerGroup where
+instance Data.ToQuery UpdateGameServerGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGameServerGroupResponse' smart constructor.

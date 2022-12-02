@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -197,7 +198,7 @@ instance Core.AWSRequest UpdateFleetAttributes where
     Response.receiveJSON
       ( \s h x ->
           UpdateFleetAttributesResponse'
-            Prelude.<$> (x Core..?> "FleetId")
+            Prelude.<$> (x Data..?> "FleetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,40 +220,40 @@ instance Prelude.NFData UpdateFleetAttributes where
       `Prelude.seq` Prelude.rnf resourceCreationLimitPolicy
       `Prelude.seq` Prelude.rnf fleetId
 
-instance Core.ToHeaders UpdateFleetAttributes where
+instance Data.ToHeaders UpdateFleetAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.UpdateFleetAttributes" ::
+              Data.=# ( "GameLift.UpdateFleetAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFleetAttributes where
+instance Data.ToJSON UpdateFleetAttributes where
   toJSON UpdateFleetAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("NewGameSessionProtectionPolicy" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("NewGameSessionProtectionPolicy" Data..=)
               Prelude.<$> newGameSessionProtectionPolicy',
-            ("Description" Core..=) Prelude.<$> description,
-            ("MetricGroups" Core..=) Prelude.<$> metricGroups,
-            ("ResourceCreationLimitPolicy" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("MetricGroups" Data..=) Prelude.<$> metricGroups,
+            ("ResourceCreationLimitPolicy" Data..=)
               Prelude.<$> resourceCreationLimitPolicy,
-            Prelude.Just ("FleetId" Core..= fleetId)
+            Prelude.Just ("FleetId" Data..= fleetId)
           ]
       )
 
-instance Core.ToPath UpdateFleetAttributes where
+instance Data.ToPath UpdateFleetAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateFleetAttributes where
+instance Data.ToQuery UpdateFleetAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

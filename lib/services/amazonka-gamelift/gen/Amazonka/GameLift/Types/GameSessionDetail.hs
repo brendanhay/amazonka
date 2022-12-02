@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.GameSessionDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.GameSession
 import Amazonka.GameLift.Types.ProtectionPolicy
 import qualified Amazonka.Prelude as Prelude
@@ -83,14 +84,14 @@ gameSessionDetail_protectionPolicy = Lens.lens (\GameSessionDetail' {protectionP
 gameSessionDetail_gameSession :: Lens.Lens' GameSessionDetail (Prelude.Maybe GameSession)
 gameSessionDetail_gameSession = Lens.lens (\GameSessionDetail' {gameSession} -> gameSession) (\s@GameSessionDetail' {} a -> s {gameSession = a} :: GameSessionDetail)
 
-instance Core.FromJSON GameSessionDetail where
+instance Data.FromJSON GameSessionDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GameSessionDetail"
       ( \x ->
           GameSessionDetail'
-            Prelude.<$> (x Core..:? "ProtectionPolicy")
-            Prelude.<*> (x Core..:? "GameSession")
+            Prelude.<$> (x Data..:? "ProtectionPolicy")
+            Prelude.<*> (x Data..:? "GameSession")
       )
 
 instance Prelude.Hashable GameSessionDetail where

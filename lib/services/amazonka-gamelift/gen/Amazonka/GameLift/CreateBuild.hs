@@ -91,6 +91,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -247,9 +248,9 @@ instance Core.AWSRequest CreateBuild where
     Response.receiveJSON
       ( \s h x ->
           CreateBuildResponse'
-            Prelude.<$> (x Core..?> "Build")
-            Prelude.<*> (x Core..?> "UploadCredentials")
-            Prelude.<*> (x Core..?> "StorageLocation")
+            Prelude.<$> (x Data..?> "Build")
+            Prelude.<*> (x Data..?> "UploadCredentials")
+            Prelude.<*> (x Data..?> "StorageLocation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -269,37 +270,37 @@ instance Prelude.NFData CreateBuild where
       `Prelude.seq` Prelude.rnf storageLocation
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToHeaders CreateBuild where
+instance Data.ToHeaders CreateBuild where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.CreateBuild" :: Prelude.ByteString),
+              Data.=# ("GameLift.CreateBuild" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBuild where
+instance Data.ToJSON CreateBuild where
   toJSON CreateBuild' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("OperatingSystem" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("OperatingSystem" Data..=)
               Prelude.<$> operatingSystem,
-            ("Name" Core..=) Prelude.<$> name,
-            ("StorageLocation" Core..=)
+            ("Name" Data..=) Prelude.<$> name,
+            ("StorageLocation" Data..=)
               Prelude.<$> storageLocation,
-            ("Version" Core..=) Prelude.<$> version
+            ("Version" Data..=) Prelude.<$> version
           ]
       )
 
-instance Core.ToPath CreateBuild where
+instance Data.ToPath CreateBuild where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateBuild where
+instance Data.ToQuery CreateBuild where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
@@ -314,7 +315,7 @@ data CreateBuildResponse = CreateBuildResponse'
     -- a build file to an Amazon S3 bucket that is owned by Amazon GameLift.
     -- Credentials have a limited life span. To refresh these credentials, call
     -- RequestUploadCredentials.
-    uploadCredentials :: Prelude.Maybe (Core.Sensitive AwsCredentials),
+    uploadCredentials :: Prelude.Maybe (Data.Sensitive AwsCredentials),
     -- | Amazon S3 location for your game build file, including bucket name and
     -- key.
     storageLocation :: Prelude.Maybe S3Location,
@@ -367,7 +368,7 @@ createBuildResponse_build = Lens.lens (\CreateBuildResponse' {build} -> build) (
 -- Credentials have a limited life span. To refresh these credentials, call
 -- RequestUploadCredentials.
 createBuildResponse_uploadCredentials :: Lens.Lens' CreateBuildResponse (Prelude.Maybe AwsCredentials)
-createBuildResponse_uploadCredentials = Lens.lens (\CreateBuildResponse' {uploadCredentials} -> uploadCredentials) (\s@CreateBuildResponse' {} a -> s {uploadCredentials = a} :: CreateBuildResponse) Prelude.. Lens.mapping Core._Sensitive
+createBuildResponse_uploadCredentials = Lens.lens (\CreateBuildResponse' {uploadCredentials} -> uploadCredentials) (\s@CreateBuildResponse' {} a -> s {uploadCredentials = a} :: CreateBuildResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Amazon S3 location for your game build file, including bucket name and
 -- key.

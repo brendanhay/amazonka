@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.TargetTrackingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __This data type is used with the GameLift FleetIQ and game server
@@ -74,9 +75,9 @@ instance Prelude.NFData TargetTrackingConfiguration where
   rnf TargetTrackingConfiguration' {..} =
     Prelude.rnf targetValue
 
-instance Core.ToJSON TargetTrackingConfiguration where
+instance Data.ToJSON TargetTrackingConfiguration where
   toJSON TargetTrackingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TargetValue" Core..= targetValue)]
+          [Prelude.Just ("TargetValue" Data..= targetValue)]
       )

@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,7 +143,7 @@ instance Core.AWSRequest UpdateRuntimeConfiguration where
     Response.receiveJSON
       ( \s h x ->
           UpdateRuntimeConfigurationResponse'
-            Prelude.<$> (x Core..?> "RuntimeConfiguration")
+            Prelude.<$> (x Data..?> "RuntimeConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,37 +157,37 @@ instance Prelude.NFData UpdateRuntimeConfiguration where
     Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf runtimeConfiguration
 
-instance Core.ToHeaders UpdateRuntimeConfiguration where
+instance Data.ToHeaders UpdateRuntimeConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.UpdateRuntimeConfiguration" ::
+              Data.=# ( "GameLift.UpdateRuntimeConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRuntimeConfiguration where
+instance Data.ToJSON UpdateRuntimeConfiguration where
   toJSON UpdateRuntimeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FleetId" Core..= fleetId),
+          [ Prelude.Just ("FleetId" Data..= fleetId),
             Prelude.Just
               ( "RuntimeConfiguration"
-                  Core..= runtimeConfiguration
+                  Data..= runtimeConfiguration
               )
           ]
       )
 
-instance Core.ToPath UpdateRuntimeConfiguration where
+instance Data.ToPath UpdateRuntimeConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRuntimeConfiguration where
+instance Data.ToQuery UpdateRuntimeConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

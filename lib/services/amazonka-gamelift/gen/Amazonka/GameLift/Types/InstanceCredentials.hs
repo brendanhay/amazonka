@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.InstanceCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Set of credentials required to remotely access a fleet instance. Access
@@ -69,14 +70,14 @@ instanceCredentials_userName = Lens.lens (\InstanceCredentials' {userName} -> us
 instanceCredentials_secret :: Lens.Lens' InstanceCredentials (Prelude.Maybe Prelude.Text)
 instanceCredentials_secret = Lens.lens (\InstanceCredentials' {secret} -> secret) (\s@InstanceCredentials' {} a -> s {secret = a} :: InstanceCredentials)
 
-instance Core.FromJSON InstanceCredentials where
+instance Data.FromJSON InstanceCredentials where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceCredentials"
       ( \x ->
           InstanceCredentials'
-            Prelude.<$> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "Secret")
+            Prelude.<$> (x Data..:? "UserName")
+            Prelude.<*> (x Data..:? "Secret")
       )
 
 instance Prelude.Hashable InstanceCredentials where

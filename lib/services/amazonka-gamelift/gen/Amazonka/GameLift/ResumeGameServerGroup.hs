@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,7 +129,7 @@ instance Core.AWSRequest ResumeGameServerGroup where
     Response.receiveJSON
       ( \s h x ->
           ResumeGameServerGroupResponse'
-            Prelude.<$> (x Core..?> "GameServerGroup")
+            Prelude.<$> (x Data..?> "GameServerGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,36 +143,36 @@ instance Prelude.NFData ResumeGameServerGroup where
     Prelude.rnf gameServerGroupName
       `Prelude.seq` Prelude.rnf resumeActions
 
-instance Core.ToHeaders ResumeGameServerGroup where
+instance Data.ToHeaders ResumeGameServerGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.ResumeGameServerGroup" ::
+              Data.=# ( "GameLift.ResumeGameServerGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResumeGameServerGroup where
+instance Data.ToJSON ResumeGameServerGroup where
   toJSON ResumeGameServerGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("GameServerGroupName" Core..= gameServerGroupName),
+              ("GameServerGroupName" Data..= gameServerGroupName),
             Prelude.Just
-              ("ResumeActions" Core..= resumeActions)
+              ("ResumeActions" Data..= resumeActions)
           ]
       )
 
-instance Core.ToPath ResumeGameServerGroup where
+instance Data.ToPath ResumeGameServerGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResumeGameServerGroup where
+instance Data.ToQuery ResumeGameServerGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResumeGameServerGroupResponse' smart constructor.

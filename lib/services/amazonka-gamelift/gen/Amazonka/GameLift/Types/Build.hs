@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.Build where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.BuildStatus
 import Amazonka.GameLift.Types.OperatingSystem
 import qualified Amazonka.Prelude as Prelude
@@ -72,7 +73,7 @@ data Build = Build'
     -- | A time stamp indicating when this data object was created. Format is a
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Version information that is associated with a build or script. Version
     -- strings do not need to be unique. This value can be set using
     -- CreateBuild or UpdateBuild.
@@ -195,7 +196,7 @@ build_status = Lens.lens (\Build' {status} -> status) (\s@Build' {} a -> s {stat
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 build_creationTime :: Lens.Lens' Build (Prelude.Maybe Prelude.UTCTime)
-build_creationTime = Lens.lens (\Build' {creationTime} -> creationTime) (\s@Build' {} a -> s {creationTime = a} :: Build) Prelude.. Lens.mapping Core._Time
+build_creationTime = Lens.lens (\Build' {creationTime} -> creationTime) (\s@Build' {} a -> s {creationTime = a} :: Build) Prelude.. Lens.mapping Data._Time
 
 -- | Version information that is associated with a build or script. Version
 -- strings do not need to be unique. This value can be set using
@@ -203,20 +204,20 @@ build_creationTime = Lens.lens (\Build' {creationTime} -> creationTime) (\s@Buil
 build_version :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
 build_version = Lens.lens (\Build' {version} -> version) (\s@Build' {} a -> s {version = a} :: Build)
 
-instance Core.FromJSON Build where
+instance Data.FromJSON Build where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Build"
       ( \x ->
           Build'
-            Prelude.<$> (x Core..:? "OperatingSystem")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "BuildId")
-            Prelude.<*> (x Core..:? "BuildArn")
-            Prelude.<*> (x Core..:? "SizeOnDisk")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "OperatingSystem")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "BuildId")
+            Prelude.<*> (x Data..:? "BuildArn")
+            Prelude.<*> (x Data..:? "SizeOnDisk")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable Build where

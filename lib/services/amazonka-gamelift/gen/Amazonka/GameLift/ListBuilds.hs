@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -190,8 +191,8 @@ instance Core.AWSRequest ListBuilds where
     Response.receiveJSON
       ( \s h x ->
           ListBuildsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Builds" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Builds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,33 +208,33 @@ instance Prelude.NFData ListBuilds where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders ListBuilds where
+instance Data.ToHeaders ListBuilds where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.ListBuilds" :: Prelude.ByteString),
+              Data.=# ("GameLift.ListBuilds" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBuilds where
+instance Data.ToJSON ListBuilds where
   toJSON ListBuilds' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Status" Data..=) Prelude.<$> status,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath ListBuilds where
+instance Data.ToPath ListBuilds where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListBuilds where
+instance Data.ToQuery ListBuilds where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

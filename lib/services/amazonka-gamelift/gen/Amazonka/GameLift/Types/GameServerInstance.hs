@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.GameServerInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.GameServerInstanceStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -151,16 +152,16 @@ gameServerInstance_instanceId = Lens.lens (\GameServerInstance' {instanceId} -> 
 gameServerInstance_gameServerGroupArn :: Lens.Lens' GameServerInstance (Prelude.Maybe Prelude.Text)
 gameServerInstance_gameServerGroupArn = Lens.lens (\GameServerInstance' {gameServerGroupArn} -> gameServerGroupArn) (\s@GameServerInstance' {} a -> s {gameServerGroupArn = a} :: GameServerInstance)
 
-instance Core.FromJSON GameServerInstance where
+instance Data.FromJSON GameServerInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GameServerInstance"
       ( \x ->
           GameServerInstance'
-            Prelude.<$> (x Core..:? "InstanceStatus")
-            Prelude.<*> (x Core..:? "GameServerGroupName")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "GameServerGroupArn")
+            Prelude.<$> (x Data..:? "InstanceStatus")
+            Prelude.<*> (x Data..:? "GameServerGroupName")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "GameServerGroupArn")
       )
 
 instance Prelude.Hashable GameServerInstance where

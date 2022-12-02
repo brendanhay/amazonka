@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.FleetCapacity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.EC2InstanceCounts
 import Amazonka.GameLift.Types.EC2InstanceType
 import qualified Amazonka.Prelude as Prelude
@@ -127,17 +128,17 @@ fleetCapacity_instanceType = Lens.lens (\FleetCapacity' {instanceType} -> instan
 fleetCapacity_fleetArn :: Lens.Lens' FleetCapacity (Prelude.Maybe Prelude.Text)
 fleetCapacity_fleetArn = Lens.lens (\FleetCapacity' {fleetArn} -> fleetArn) (\s@FleetCapacity' {} a -> s {fleetArn = a} :: FleetCapacity)
 
-instance Core.FromJSON FleetCapacity where
+instance Data.FromJSON FleetCapacity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FleetCapacity"
       ( \x ->
           FleetCapacity'
-            Prelude.<$> (x Core..:? "FleetId")
-            Prelude.<*> (x Core..:? "InstanceCounts")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "FleetArn")
+            Prelude.<$> (x Data..:? "FleetId")
+            Prelude.<*> (x Data..:? "InstanceCounts")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "FleetArn")
       )
 
 instance Prelude.Hashable FleetCapacity where

@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.PlayerLatency where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Regional latency information for a player, used when requesting a new
@@ -79,15 +80,15 @@ playerLatency_playerId = Lens.lens (\PlayerLatency' {playerId} -> playerId) (\s@
 playerLatency_regionIdentifier :: Lens.Lens' PlayerLatency (Prelude.Maybe Prelude.Text)
 playerLatency_regionIdentifier = Lens.lens (\PlayerLatency' {regionIdentifier} -> regionIdentifier) (\s@PlayerLatency' {} a -> s {regionIdentifier = a} :: PlayerLatency)
 
-instance Core.FromJSON PlayerLatency where
+instance Data.FromJSON PlayerLatency where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlayerLatency"
       ( \x ->
           PlayerLatency'
-            Prelude.<$> (x Core..:? "LatencyInMilliseconds")
-            Prelude.<*> (x Core..:? "PlayerId")
-            Prelude.<*> (x Core..:? "RegionIdentifier")
+            Prelude.<$> (x Data..:? "LatencyInMilliseconds")
+            Prelude.<*> (x Data..:? "PlayerId")
+            Prelude.<*> (x Data..:? "RegionIdentifier")
       )
 
 instance Prelude.Hashable PlayerLatency where
@@ -102,14 +103,14 @@ instance Prelude.NFData PlayerLatency where
       `Prelude.seq` Prelude.rnf playerId
       `Prelude.seq` Prelude.rnf regionIdentifier
 
-instance Core.ToJSON PlayerLatency where
+instance Data.ToJSON PlayerLatency where
   toJSON PlayerLatency' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LatencyInMilliseconds" Core..=)
+          [ ("LatencyInMilliseconds" Data..=)
               Prelude.<$> latencyInMilliseconds,
-            ("PlayerId" Core..=) Prelude.<$> playerId,
-            ("RegionIdentifier" Core..=)
+            ("PlayerId" Data..=) Prelude.<$> playerId,
+            ("RegionIdentifier" Data..=)
               Prelude.<$> regionIdentifier
           ]
       )

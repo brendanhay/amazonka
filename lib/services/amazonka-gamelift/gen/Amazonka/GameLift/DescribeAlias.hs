@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest DescribeAlias where
     Response.receiveJSON
       ( \s h x ->
           DescribeAliasResponse'
-            Prelude.<$> (x Core..?> "Alias")
+            Prelude.<$> (x Data..?> "Alias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,30 +111,30 @@ instance Prelude.Hashable DescribeAlias where
 instance Prelude.NFData DescribeAlias where
   rnf DescribeAlias' {..} = Prelude.rnf aliasId
 
-instance Core.ToHeaders DescribeAlias where
+instance Data.ToHeaders DescribeAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DescribeAlias" :: Prelude.ByteString),
+              Data.=# ("GameLift.DescribeAlias" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAlias where
+instance Data.ToJSON DescribeAlias where
   toJSON DescribeAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AliasId" Core..= aliasId)]
+          [Prelude.Just ("AliasId" Data..= aliasId)]
       )
 
-instance Core.ToPath DescribeAlias where
+instance Data.ToPath DescribeAlias where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAlias where
+instance Data.ToQuery DescribeAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

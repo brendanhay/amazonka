@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -167,7 +168,7 @@ instance Core.AWSRequest UpdateGameSession where
     Response.receiveJSON
       ( \s h x ->
           UpdateGameSessionResponse'
-            Prelude.<$> (x Core..?> "GameSession")
+            Prelude.<$> (x Data..?> "GameSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,39 +188,39 @@ instance Prelude.NFData UpdateGameSession where
       `Prelude.seq` Prelude.rnf maximumPlayerSessionCount
       `Prelude.seq` Prelude.rnf gameSessionId
 
-instance Core.ToHeaders UpdateGameSession where
+instance Data.ToHeaders UpdateGameSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.UpdateGameSession" :: Prelude.ByteString),
+              Data.=# ("GameLift.UpdateGameSession" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGameSession where
+instance Data.ToJSON UpdateGameSession where
   toJSON UpdateGameSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("ProtectionPolicy" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("ProtectionPolicy" Data..=)
               Prelude.<$> protectionPolicy,
-            ("PlayerSessionCreationPolicy" Core..=)
+            ("PlayerSessionCreationPolicy" Data..=)
               Prelude.<$> playerSessionCreationPolicy,
-            ("MaximumPlayerSessionCount" Core..=)
+            ("MaximumPlayerSessionCount" Data..=)
               Prelude.<$> maximumPlayerSessionCount,
             Prelude.Just
-              ("GameSessionId" Core..= gameSessionId)
+              ("GameSessionId" Data..= gameSessionId)
           ]
       )
 
-instance Core.ToPath UpdateGameSession where
+instance Data.ToPath UpdateGameSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateGameSession where
+instance Data.ToQuery UpdateGameSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

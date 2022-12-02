@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.S3Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location in Amazon S3 where build or script files are stored for
@@ -108,16 +109,16 @@ s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' 
 s3Location_objectVersion :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_objectVersion = Lens.lens (\S3Location' {objectVersion} -> objectVersion) (\s@S3Location' {} a -> s {objectVersion = a} :: S3Location)
 
-instance Core.FromJSON S3Location where
+instance Data.FromJSON S3Location where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "Bucket")
-            Prelude.<*> (x Core..:? "ObjectVersion")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "Bucket")
+            Prelude.<*> (x Data..:? "ObjectVersion")
       )
 
 instance Prelude.Hashable S3Location where
@@ -134,13 +135,13 @@ instance Prelude.NFData S3Location where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf objectVersion
 
-instance Core.ToJSON S3Location where
+instance Data.ToJSON S3Location where
   toJSON S3Location' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Bucket" Core..=) Prelude.<$> bucket,
-            ("ObjectVersion" Core..=) Prelude.<$> objectVersion
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Bucket" Data..=) Prelude.<$> bucket,
+            ("ObjectVersion" Data..=) Prelude.<$> objectVersion
           ]
       )

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,8 +94,8 @@ instance Core.AWSRequest ResolveAlias where
     Response.receiveJSON
       ( \s h x ->
           ResolveAliasResponse'
-            Prelude.<$> (x Core..?> "FleetId")
-            Prelude.<*> (x Core..?> "FleetArn")
+            Prelude.<$> (x Data..?> "FleetId")
+            Prelude.<*> (x Data..?> "FleetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,30 +106,30 @@ instance Prelude.Hashable ResolveAlias where
 instance Prelude.NFData ResolveAlias where
   rnf ResolveAlias' {..} = Prelude.rnf aliasId
 
-instance Core.ToHeaders ResolveAlias where
+instance Data.ToHeaders ResolveAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.ResolveAlias" :: Prelude.ByteString),
+              Data.=# ("GameLift.ResolveAlias" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResolveAlias where
+instance Data.ToJSON ResolveAlias where
   toJSON ResolveAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AliasId" Core..= aliasId)]
+          [Prelude.Just ("AliasId" Data..= aliasId)]
       )
 
-instance Core.ToPath ResolveAlias where
+instance Data.ToPath ResolveAlias where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResolveAlias where
+instance Data.ToQuery ResolveAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

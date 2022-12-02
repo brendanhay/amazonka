@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.InstanceAccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.InstanceCredentials
 import Amazonka.GameLift.Types.OperatingSystem
 import qualified Amazonka.Prelude as Prelude
@@ -38,7 +39,7 @@ data InstanceAccess = InstanceAccess'
     -- | A unique identifier for the instance being accessed.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | Credentials required to access the instance.
-    credentials :: Prelude.Maybe (Core.Sensitive InstanceCredentials),
+    credentials :: Prelude.Maybe (Data.Sensitive InstanceCredentials),
     -- | IP address that is assigned to the instance.
     ipAddress :: Prelude.Maybe Prelude.Text
   }
@@ -88,23 +89,23 @@ instanceAccess_instanceId = Lens.lens (\InstanceAccess' {instanceId} -> instance
 
 -- | Credentials required to access the instance.
 instanceAccess_credentials :: Lens.Lens' InstanceAccess (Prelude.Maybe InstanceCredentials)
-instanceAccess_credentials = Lens.lens (\InstanceAccess' {credentials} -> credentials) (\s@InstanceAccess' {} a -> s {credentials = a} :: InstanceAccess) Prelude.. Lens.mapping Core._Sensitive
+instanceAccess_credentials = Lens.lens (\InstanceAccess' {credentials} -> credentials) (\s@InstanceAccess' {} a -> s {credentials = a} :: InstanceAccess) Prelude.. Lens.mapping Data._Sensitive
 
 -- | IP address that is assigned to the instance.
 instanceAccess_ipAddress :: Lens.Lens' InstanceAccess (Prelude.Maybe Prelude.Text)
 instanceAccess_ipAddress = Lens.lens (\InstanceAccess' {ipAddress} -> ipAddress) (\s@InstanceAccess' {} a -> s {ipAddress = a} :: InstanceAccess)
 
-instance Core.FromJSON InstanceAccess where
+instance Data.FromJSON InstanceAccess where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceAccess"
       ( \x ->
           InstanceAccess'
-            Prelude.<$> (x Core..:? "OperatingSystem")
-            Prelude.<*> (x Core..:? "FleetId")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "Credentials")
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<$> (x Data..:? "OperatingSystem")
+            Prelude.<*> (x Data..:? "FleetId")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "Credentials")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable InstanceAccess where

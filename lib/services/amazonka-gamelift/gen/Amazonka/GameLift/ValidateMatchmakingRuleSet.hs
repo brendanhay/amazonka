@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance Core.AWSRequest ValidateMatchmakingRuleSet where
     Response.receiveJSON
       ( \s h x ->
           ValidateMatchmakingRuleSetResponse'
-            Prelude.<$> (x Core..?> "Valid")
+            Prelude.<$> (x Data..?> "Valid")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,32 +119,32 @@ instance Prelude.NFData ValidateMatchmakingRuleSet where
   rnf ValidateMatchmakingRuleSet' {..} =
     Prelude.rnf ruleSetBody
 
-instance Core.ToHeaders ValidateMatchmakingRuleSet where
+instance Data.ToHeaders ValidateMatchmakingRuleSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.ValidateMatchmakingRuleSet" ::
+              Data.=# ( "GameLift.ValidateMatchmakingRuleSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ValidateMatchmakingRuleSet where
+instance Data.ToJSON ValidateMatchmakingRuleSet where
   toJSON ValidateMatchmakingRuleSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("RuleSetBody" Core..= ruleSetBody)]
+          [Prelude.Just ("RuleSetBody" Data..= ruleSetBody)]
       )
 
-instance Core.ToPath ValidateMatchmakingRuleSet where
+instance Data.ToPath ValidateMatchmakingRuleSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ValidateMatchmakingRuleSet where
+instance Data.ToQuery ValidateMatchmakingRuleSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

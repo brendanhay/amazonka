@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -188,36 +189,36 @@ instance Prelude.NFData CreateVpcPeeringConnection where
       `Prelude.seq` Prelude.rnf peerVpcAwsAccountId
       `Prelude.seq` Prelude.rnf peerVpcId
 
-instance Core.ToHeaders CreateVpcPeeringConnection where
+instance Data.ToHeaders CreateVpcPeeringConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.CreateVpcPeeringConnection" ::
+              Data.=# ( "GameLift.CreateVpcPeeringConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVpcPeeringConnection where
+instance Data.ToJSON CreateVpcPeeringConnection where
   toJSON CreateVpcPeeringConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FleetId" Core..= fleetId),
+          [ Prelude.Just ("FleetId" Data..= fleetId),
             Prelude.Just
-              ("PeerVpcAwsAccountId" Core..= peerVpcAwsAccountId),
-            Prelude.Just ("PeerVpcId" Core..= peerVpcId)
+              ("PeerVpcAwsAccountId" Data..= peerVpcAwsAccountId),
+            Prelude.Just ("PeerVpcId" Data..= peerVpcId)
           ]
       )
 
-instance Core.ToPath CreateVpcPeeringConnection where
+instance Data.ToPath CreateVpcPeeringConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVpcPeeringConnection where
+instance Data.ToQuery CreateVpcPeeringConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVpcPeeringConnectionResponse' smart constructor.

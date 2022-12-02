@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -177,7 +178,7 @@ instance Core.AWSRequest CreateMatchmakingRuleSet where
       ( \s h x ->
           CreateMatchmakingRuleSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "RuleSet")
+            Prelude.<*> (x Data..:> "RuleSet")
       )
 
 instance Prelude.Hashable CreateMatchmakingRuleSet where
@@ -192,35 +193,35 @@ instance Prelude.NFData CreateMatchmakingRuleSet where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf ruleSetBody
 
-instance Core.ToHeaders CreateMatchmakingRuleSet where
+instance Data.ToHeaders CreateMatchmakingRuleSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.CreateMatchmakingRuleSet" ::
+              Data.=# ( "GameLift.CreateMatchmakingRuleSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMatchmakingRuleSet where
+instance Data.ToJSON CreateMatchmakingRuleSet where
   toJSON CreateMatchmakingRuleSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("RuleSetBody" Core..= ruleSetBody)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("RuleSetBody" Data..= ruleSetBody)
           ]
       )
 
-instance Core.ToPath CreateMatchmakingRuleSet where
+instance Data.ToPath CreateMatchmakingRuleSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateMatchmakingRuleSet where
+instance Data.ToQuery CreateMatchmakingRuleSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

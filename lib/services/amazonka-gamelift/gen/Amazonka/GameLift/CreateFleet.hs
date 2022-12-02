@@ -116,6 +116,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -615,8 +616,8 @@ instance Core.AWSRequest CreateFleet where
     Response.receiveJSON
       ( \s h x ->
           CreateFleetResponse'
-            Prelude.<$> (x Core..?> "FleetAttributes")
-            Prelude.<*> (x Core..?> "LocationStates" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "FleetAttributes")
+            Prelude.<*> (x Data..?> "LocationStates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -667,60 +668,60 @@ instance Prelude.NFData CreateFleet where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf eC2InstanceType
 
-instance Core.ToHeaders CreateFleet where
+instance Data.ToHeaders CreateFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.CreateFleet" :: Prelude.ByteString),
+              Data.=# ("GameLift.CreateFleet" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFleet where
+instance Data.ToJSON CreateFleet where
   toJSON CreateFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ServerLaunchPath" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ServerLaunchPath" Data..=)
               Prelude.<$> serverLaunchPath,
-            ("FleetType" Core..=) Prelude.<$> fleetType,
-            ("CertificateConfiguration" Core..=)
+            ("FleetType" Data..=) Prelude.<$> fleetType,
+            ("CertificateConfiguration" Data..=)
               Prelude.<$> certificateConfiguration,
-            ("InstanceRoleArn" Core..=)
+            ("InstanceRoleArn" Data..=)
               Prelude.<$> instanceRoleArn,
-            ("BuildId" Core..=) Prelude.<$> buildId,
-            ("NewGameSessionProtectionPolicy" Core..=)
+            ("BuildId" Data..=) Prelude.<$> buildId,
+            ("NewGameSessionProtectionPolicy" Data..=)
               Prelude.<$> newGameSessionProtectionPolicy',
-            ("Description" Core..=) Prelude.<$> description,
-            ("LogPaths" Core..=) Prelude.<$> logPaths,
-            ("RuntimeConfiguration" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("LogPaths" Data..=) Prelude.<$> logPaths,
+            ("RuntimeConfiguration" Data..=)
               Prelude.<$> runtimeConfiguration,
-            ("PeerVpcId" Core..=) Prelude.<$> peerVpcId,
-            ("MetricGroups" Core..=) Prelude.<$> metricGroups,
-            ("ServerLaunchParameters" Core..=)
+            ("PeerVpcId" Data..=) Prelude.<$> peerVpcId,
+            ("MetricGroups" Data..=) Prelude.<$> metricGroups,
+            ("ServerLaunchParameters" Data..=)
               Prelude.<$> serverLaunchParameters,
-            ("Locations" Core..=) Prelude.<$> locations,
-            ("EC2InboundPermissions" Core..=)
+            ("Locations" Data..=) Prelude.<$> locations,
+            ("EC2InboundPermissions" Data..=)
               Prelude.<$> eC2InboundPermissions,
-            ("ScriptId" Core..=) Prelude.<$> scriptId,
-            ("PeerVpcAwsAccountId" Core..=)
+            ("ScriptId" Data..=) Prelude.<$> scriptId,
+            ("PeerVpcAwsAccountId" Data..=)
               Prelude.<$> peerVpcAwsAccountId,
-            ("ResourceCreationLimitPolicy" Core..=)
+            ("ResourceCreationLimitPolicy" Data..=)
               Prelude.<$> resourceCreationLimitPolicy,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("EC2InstanceType" Core..= eC2InstanceType)
+              ("EC2InstanceType" Data..= eC2InstanceType)
           ]
       )
 
-instance Core.ToPath CreateFleet where
+instance Data.ToPath CreateFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFleet where
+instance Data.ToQuery CreateFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

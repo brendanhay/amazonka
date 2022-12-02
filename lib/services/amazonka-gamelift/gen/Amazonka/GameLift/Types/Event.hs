@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.Event where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.EventCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -208,7 +209,7 @@ data Event = Event'
     -- | Time stamp indicating when this event occurred. Format is a number
     -- expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    eventTime :: Prelude.Maybe Core.POSIX,
+    eventTime :: Prelude.Maybe Data.POSIX,
     -- | Location of stored logs with additional detail that is related to the
     -- event. This is useful for debugging issues. The URL is valid for 15
     -- minutes. You can also access fleet creation logs through the GameLift
@@ -597,7 +598,7 @@ event_eventId = Lens.lens (\Event' {eventId} -> eventId) (\s@Event' {} a -> s {e
 -- expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 event_eventTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_eventTime = Lens.lens (\Event' {eventTime} -> eventTime) (\s@Event' {} a -> s {eventTime = a} :: Event) Prelude.. Lens.mapping Core._Time
+event_eventTime = Lens.lens (\Event' {eventTime} -> eventTime) (\s@Event' {} a -> s {eventTime = a} :: Event) Prelude.. Lens.mapping Data._Time
 
 -- | Location of stored logs with additional detail that is related to the
 -- event. This is useful for debugging issues. The URL is valid for 15
@@ -606,18 +607,18 @@ event_eventTime = Lens.lens (\Event' {eventTime} -> eventTime) (\s@Event' {} a -
 event_preSignedLogUrl :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_preSignedLogUrl = Lens.lens (\Event' {preSignedLogUrl} -> preSignedLogUrl) (\s@Event' {} a -> s {preSignedLogUrl = a} :: Event)
 
-instance Core.FromJSON Event where
+instance Data.FromJSON Event where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "EventCode")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "EventId")
-            Prelude.<*> (x Core..:? "EventTime")
-            Prelude.<*> (x Core..:? "PreSignedLogUrl")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "EventCode")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "EventId")
+            Prelude.<*> (x Data..:? "EventTime")
+            Prelude.<*> (x Data..:? "PreSignedLogUrl")
       )
 
 instance Prelude.Hashable Event where

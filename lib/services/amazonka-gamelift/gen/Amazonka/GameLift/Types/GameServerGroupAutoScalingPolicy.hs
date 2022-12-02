@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.GameServerGroupAutoScalingPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.TargetTrackingConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -122,15 +123,15 @@ instance
     Prelude.rnf estimatedInstanceWarmup
       `Prelude.seq` Prelude.rnf targetTrackingConfiguration
 
-instance Core.ToJSON GameServerGroupAutoScalingPolicy where
+instance Data.ToJSON GameServerGroupAutoScalingPolicy where
   toJSON GameServerGroupAutoScalingPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EstimatedInstanceWarmup" Core..=)
+          [ ("EstimatedInstanceWarmup" Data..=)
               Prelude.<$> estimatedInstanceWarmup,
             Prelude.Just
               ( "TargetTrackingConfiguration"
-                  Core..= targetTrackingConfiguration
+                  Data..= targetTrackingConfiguration
               )
           ]
       )

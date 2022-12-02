@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.VpcPeeringConnectionStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents status information for a VPC peering connection. Status is
@@ -66,14 +67,14 @@ vpcPeeringConnectionStatus_message = Lens.lens (\VpcPeeringConnectionStatus' {me
 vpcPeeringConnectionStatus_code :: Lens.Lens' VpcPeeringConnectionStatus (Prelude.Maybe Prelude.Text)
 vpcPeeringConnectionStatus_code = Lens.lens (\VpcPeeringConnectionStatus' {code} -> code) (\s@VpcPeeringConnectionStatus' {} a -> s {code = a} :: VpcPeeringConnectionStatus)
 
-instance Core.FromJSON VpcPeeringConnectionStatus where
+instance Data.FromJSON VpcPeeringConnectionStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcPeeringConnectionStatus"
       ( \x ->
           VpcPeeringConnectionStatus'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
       )
 
 instance Prelude.Hashable VpcPeeringConnectionStatus where

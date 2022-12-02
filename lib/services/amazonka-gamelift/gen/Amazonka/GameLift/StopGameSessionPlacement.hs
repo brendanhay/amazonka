@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest StopGameSessionPlacement where
     Response.receiveJSON
       ( \s h x ->
           StopGameSessionPlacementResponse'
-            Prelude.<$> (x Core..?> "GameSessionPlacement")
+            Prelude.<$> (x Data..?> "GameSessionPlacement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,32 +111,32 @@ instance Prelude.NFData StopGameSessionPlacement where
   rnf StopGameSessionPlacement' {..} =
     Prelude.rnf placementId
 
-instance Core.ToHeaders StopGameSessionPlacement where
+instance Data.ToHeaders StopGameSessionPlacement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.StopGameSessionPlacement" ::
+              Data.=# ( "GameLift.StopGameSessionPlacement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopGameSessionPlacement where
+instance Data.ToJSON StopGameSessionPlacement where
   toJSON StopGameSessionPlacement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PlacementId" Core..= placementId)]
+          [Prelude.Just ("PlacementId" Data..= placementId)]
       )
 
-instance Core.ToPath StopGameSessionPlacement where
+instance Data.ToPath StopGameSessionPlacement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopGameSessionPlacement where
+instance Data.ToQuery StopGameSessionPlacement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

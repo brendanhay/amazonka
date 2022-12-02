@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.FleetUtilization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Current resource utilization statistics in a specified fleet or
@@ -139,19 +140,19 @@ fleetUtilization_activeGameSessionCount = Lens.lens (\FleetUtilization' {activeG
 fleetUtilization_activeServerProcessCount :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Natural)
 fleetUtilization_activeServerProcessCount = Lens.lens (\FleetUtilization' {activeServerProcessCount} -> activeServerProcessCount) (\s@FleetUtilization' {} a -> s {activeServerProcessCount = a} :: FleetUtilization)
 
-instance Core.FromJSON FleetUtilization where
+instance Data.FromJSON FleetUtilization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FleetUtilization"
       ( \x ->
           FleetUtilization'
-            Prelude.<$> (x Core..:? "FleetId")
-            Prelude.<*> (x Core..:? "CurrentPlayerSessionCount")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "FleetArn")
-            Prelude.<*> (x Core..:? "MaximumPlayerSessionCount")
-            Prelude.<*> (x Core..:? "ActiveGameSessionCount")
-            Prelude.<*> (x Core..:? "ActiveServerProcessCount")
+            Prelude.<$> (x Data..:? "FleetId")
+            Prelude.<*> (x Data..:? "CurrentPlayerSessionCount")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "FleetArn")
+            Prelude.<*> (x Data..:? "MaximumPlayerSessionCount")
+            Prelude.<*> (x Data..:? "ActiveGameSessionCount")
+            Prelude.<*> (x Data..:? "ActiveServerProcessCount")
       )
 
 instance Prelude.Hashable FleetUtilization where

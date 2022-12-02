@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,9 +149,9 @@ instance Core.AWSRequest CreateFleetLocations where
     Response.receiveJSON
       ( \s h x ->
           CreateFleetLocationsResponse'
-            Prelude.<$> (x Core..?> "FleetId")
-            Prelude.<*> (x Core..?> "LocationStates" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "FleetArn")
+            Prelude.<$> (x Data..?> "FleetId")
+            Prelude.<*> (x Data..?> "LocationStates" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "FleetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,34 +165,34 @@ instance Prelude.NFData CreateFleetLocations where
     Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf locations
 
-instance Core.ToHeaders CreateFleetLocations where
+instance Data.ToHeaders CreateFleetLocations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.CreateFleetLocations" ::
+              Data.=# ( "GameLift.CreateFleetLocations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFleetLocations where
+instance Data.ToJSON CreateFleetLocations where
   toJSON CreateFleetLocations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FleetId" Core..= fleetId),
-            Prelude.Just ("Locations" Core..= locations)
+          [ Prelude.Just ("FleetId" Data..= fleetId),
+            Prelude.Just ("Locations" Data..= locations)
           ]
       )
 
-instance Core.ToPath CreateFleetLocations where
+instance Data.ToPath CreateFleetLocations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFleetLocations where
+instance Data.ToQuery CreateFleetLocations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

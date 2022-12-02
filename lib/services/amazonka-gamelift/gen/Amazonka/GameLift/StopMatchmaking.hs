@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,30 +117,30 @@ instance Prelude.Hashable StopMatchmaking where
 instance Prelude.NFData StopMatchmaking where
   rnf StopMatchmaking' {..} = Prelude.rnf ticketId
 
-instance Core.ToHeaders StopMatchmaking where
+instance Data.ToHeaders StopMatchmaking where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.StopMatchmaking" :: Prelude.ByteString),
+              Data.=# ("GameLift.StopMatchmaking" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopMatchmaking where
+instance Data.ToJSON StopMatchmaking where
   toJSON StopMatchmaking' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TicketId" Core..= ticketId)]
+          [Prelude.Just ("TicketId" Data..= ticketId)]
       )
 
-instance Core.ToPath StopMatchmaking where
+instance Data.ToPath StopMatchmaking where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopMatchmaking where
+instance Data.ToQuery StopMatchmaking where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopMatchmakingResponse' smart constructor.

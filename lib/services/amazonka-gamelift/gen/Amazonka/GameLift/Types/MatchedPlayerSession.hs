@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.MatchedPlayerSession where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a new player session that is created as a result of a
@@ -68,14 +69,14 @@ matchedPlayerSession_playerSessionId = Lens.lens (\MatchedPlayerSession' {player
 matchedPlayerSession_playerId :: Lens.Lens' MatchedPlayerSession (Prelude.Maybe Prelude.Text)
 matchedPlayerSession_playerId = Lens.lens (\MatchedPlayerSession' {playerId} -> playerId) (\s@MatchedPlayerSession' {} a -> s {playerId = a} :: MatchedPlayerSession)
 
-instance Core.FromJSON MatchedPlayerSession where
+instance Data.FromJSON MatchedPlayerSession where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MatchedPlayerSession"
       ( \x ->
           MatchedPlayerSession'
-            Prelude.<$> (x Core..:? "PlayerSessionId")
-            Prelude.<*> (x Core..:? "PlayerId")
+            Prelude.<$> (x Data..:? "PlayerSessionId")
+            Prelude.<*> (x Data..:? "PlayerId")
       )
 
 instance Prelude.Hashable MatchedPlayerSession where

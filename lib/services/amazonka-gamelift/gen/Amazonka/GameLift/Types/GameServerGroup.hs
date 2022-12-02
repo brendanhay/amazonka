@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.GameServerGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.BalancingStrategy
 import Amazonka.GameLift.Types.GameServerGroupAction
 import Amazonka.GameLift.Types.GameServerGroupStatus
@@ -106,7 +107,7 @@ data GameServerGroup = GameServerGroup'
     -- Services regardless of protection status.
     gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
     -- | A timestamp that indicates when this game server group was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
     -- On-Demand Instances in the game server group. Method options include the
     -- following:
@@ -134,7 +135,7 @@ data GameServerGroup = GameServerGroup'
     -- | A time stamp indicating when this data object was created. Format is a
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -322,7 +323,7 @@ gameServerGroup_gameServerProtectionPolicy = Lens.lens (\GameServerGroup' {gameS
 
 -- | A timestamp that indicates when this game server group was last updated.
 gameServerGroup_lastUpdatedTime :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.UTCTime)
-gameServerGroup_lastUpdatedTime = Lens.lens (\GameServerGroup' {lastUpdatedTime} -> lastUpdatedTime) (\s@GameServerGroup' {} a -> s {lastUpdatedTime = a} :: GameServerGroup) Prelude.. Lens.mapping Core._Time
+gameServerGroup_lastUpdatedTime = Lens.lens (\GameServerGroup' {lastUpdatedTime} -> lastUpdatedTime) (\s@GameServerGroup' {} a -> s {lastUpdatedTime = a} :: GameServerGroup) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
 -- On-Demand Instances in the game server group. Method options include the
@@ -356,26 +357,26 @@ gameServerGroup_gameServerGroupArn = Lens.lens (\GameServerGroup' {gameServerGro
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 gameServerGroup_creationTime :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.UTCTime)
-gameServerGroup_creationTime = Lens.lens (\GameServerGroup' {creationTime} -> creationTime) (\s@GameServerGroup' {} a -> s {creationTime = a} :: GameServerGroup) Prelude.. Lens.mapping Core._Time
+gameServerGroup_creationTime = Lens.lens (\GameServerGroup' {creationTime} -> creationTime) (\s@GameServerGroup' {} a -> s {creationTime = a} :: GameServerGroup) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON GameServerGroup where
+instance Data.FromJSON GameServerGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GameServerGroup"
       ( \x ->
           GameServerGroup'
-            Prelude.<$> (x Core..:? "SuspendedActions")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "AutoScalingGroupArn")
-            Prelude.<*> (x Core..:? "InstanceDefinitions")
-            Prelude.<*> (x Core..:? "StatusReason")
-            Prelude.<*> (x Core..:? "GameServerGroupName")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "GameServerProtectionPolicy")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "BalancingStrategy")
-            Prelude.<*> (x Core..:? "GameServerGroupArn")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "SuspendedActions")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "AutoScalingGroupArn")
+            Prelude.<*> (x Data..:? "InstanceDefinitions")
+            Prelude.<*> (x Data..:? "StatusReason")
+            Prelude.<*> (x Data..:? "GameServerGroupName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "GameServerProtectionPolicy")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "BalancingStrategy")
+            Prelude.<*> (x Data..:? "GameServerGroupArn")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable GameServerGroup where

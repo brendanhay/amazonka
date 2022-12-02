@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.TargetConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for a target-based scaling policy (see ScalingPolicy. A
@@ -79,13 +80,13 @@ newTargetConfiguration pTargetValue_ =
 targetConfiguration_targetValue :: Lens.Lens' TargetConfiguration Prelude.Double
 targetConfiguration_targetValue = Lens.lens (\TargetConfiguration' {targetValue} -> targetValue) (\s@TargetConfiguration' {} a -> s {targetValue = a} :: TargetConfiguration)
 
-instance Core.FromJSON TargetConfiguration where
+instance Data.FromJSON TargetConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetConfiguration"
       ( \x ->
           TargetConfiguration'
-            Prelude.<$> (x Core..: "TargetValue")
+            Prelude.<$> (x Data..: "TargetValue")
       )
 
 instance Prelude.Hashable TargetConfiguration where
@@ -96,9 +97,9 @@ instance Prelude.NFData TargetConfiguration where
   rnf TargetConfiguration' {..} =
     Prelude.rnf targetValue
 
-instance Core.ToJSON TargetConfiguration where
+instance Data.ToJSON TargetConfiguration where
   toJSON TargetConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TargetValue" Core..= targetValue)]
+          [Prelude.Just ("TargetValue" Data..= targetValue)]
       )

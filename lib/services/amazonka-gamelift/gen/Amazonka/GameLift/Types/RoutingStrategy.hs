@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.RoutingStrategy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.RoutingStrategyType
 import qualified Amazonka.Prelude as Prelude
 
@@ -110,15 +111,15 @@ routingStrategy_message = Lens.lens (\RoutingStrategy' {message} -> message) (\s
 routingStrategy_type :: Lens.Lens' RoutingStrategy (Prelude.Maybe RoutingStrategyType)
 routingStrategy_type = Lens.lens (\RoutingStrategy' {type'} -> type') (\s@RoutingStrategy' {} a -> s {type' = a} :: RoutingStrategy)
 
-instance Core.FromJSON RoutingStrategy where
+instance Data.FromJSON RoutingStrategy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoutingStrategy"
       ( \x ->
           RoutingStrategy'
-            Prelude.<$> (x Core..:? "FleetId")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "FleetId")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable RoutingStrategy where
@@ -133,12 +134,12 @@ instance Prelude.NFData RoutingStrategy where
       `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON RoutingStrategy where
+instance Data.ToJSON RoutingStrategy where
   toJSON RoutingStrategy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FleetId" Core..=) Prelude.<$> fleetId,
-            ("Message" Core..=) Prelude.<$> message,
-            ("Type" Core..=) Prelude.<$> type'
+          [ ("FleetId" Data..=) Prelude.<$> fleetId,
+            ("Message" Data..=) Prelude.<$> message,
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )

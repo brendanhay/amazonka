@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.AwsCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Temporary access credentials used for uploading game build files to
@@ -76,15 +77,15 @@ awsCredentials_secretAccessKey = Lens.lens (\AwsCredentials' {secretAccessKey} -
 awsCredentials_accessKeyId :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
 awsCredentials_accessKeyId = Lens.lens (\AwsCredentials' {accessKeyId} -> accessKeyId) (\s@AwsCredentials' {} a -> s {accessKeyId = a} :: AwsCredentials)
 
-instance Core.FromJSON AwsCredentials where
+instance Data.FromJSON AwsCredentials where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCredentials"
       ( \x ->
           AwsCredentials'
-            Prelude.<$> (x Core..:? "SessionToken")
-            Prelude.<*> (x Core..:? "SecretAccessKey")
-            Prelude.<*> (x Core..:? "AccessKeyId")
+            Prelude.<$> (x Data..:? "SessionToken")
+            Prelude.<*> (x Data..:? "SecretAccessKey")
+            Prelude.<*> (x Data..:? "AccessKeyId")
       )
 
 instance Prelude.Hashable AwsCredentials where

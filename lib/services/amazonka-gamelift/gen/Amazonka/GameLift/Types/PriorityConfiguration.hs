@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.PriorityConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.PriorityType
 import qualified Amazonka.Prelude as Prelude
 
@@ -139,14 +140,14 @@ priorityConfiguration_locationOrder = Lens.lens (\PriorityConfiguration' {locati
 priorityConfiguration_priorityOrder :: Lens.Lens' PriorityConfiguration (Prelude.Maybe (Prelude.NonEmpty PriorityType))
 priorityConfiguration_priorityOrder = Lens.lens (\PriorityConfiguration' {priorityOrder} -> priorityOrder) (\s@PriorityConfiguration' {} a -> s {priorityOrder = a} :: PriorityConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PriorityConfiguration where
+instance Data.FromJSON PriorityConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PriorityConfiguration"
       ( \x ->
           PriorityConfiguration'
-            Prelude.<$> (x Core..:? "LocationOrder")
-            Prelude.<*> (x Core..:? "PriorityOrder")
+            Prelude.<$> (x Data..:? "LocationOrder")
+            Prelude.<*> (x Data..:? "PriorityOrder")
       )
 
 instance Prelude.Hashable PriorityConfiguration where
@@ -159,11 +160,11 @@ instance Prelude.NFData PriorityConfiguration where
     Prelude.rnf locationOrder
       `Prelude.seq` Prelude.rnf priorityOrder
 
-instance Core.ToJSON PriorityConfiguration where
+instance Data.ToJSON PriorityConfiguration where
   toJSON PriorityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LocationOrder" Core..=) Prelude.<$> locationOrder,
-            ("PriorityOrder" Core..=) Prelude.<$> priorityOrder
+          [ ("LocationOrder" Data..=) Prelude.<$> locationOrder,
+            ("PriorityOrder" Data..=) Prelude.<$> priorityOrder
           ]
       )

@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ instance Core.AWSRequest DescribeMatchmaking where
     Response.receiveJSON
       ( \s h x ->
           DescribeMatchmakingResponse'
-            Prelude.<$> (x Core..?> "TicketList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "TicketList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,32 +124,32 @@ instance Prelude.Hashable DescribeMatchmaking where
 instance Prelude.NFData DescribeMatchmaking where
   rnf DescribeMatchmaking' {..} = Prelude.rnf ticketIds
 
-instance Core.ToHeaders DescribeMatchmaking where
+instance Data.ToHeaders DescribeMatchmaking where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeMatchmaking" ::
+              Data.=# ( "GameLift.DescribeMatchmaking" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeMatchmaking where
+instance Data.ToJSON DescribeMatchmaking where
   toJSON DescribeMatchmaking' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TicketIds" Core..= ticketIds)]
+          [Prelude.Just ("TicketIds" Data..= ticketIds)]
       )
 
-instance Core.ToPath DescribeMatchmaking where
+instance Data.ToPath DescribeMatchmaking where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeMatchmaking where
+instance Data.ToQuery DescribeMatchmaking where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

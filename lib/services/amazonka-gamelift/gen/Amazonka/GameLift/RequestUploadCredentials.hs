@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,8 +106,8 @@ instance Core.AWSRequest RequestUploadCredentials where
     Response.receiveJSON
       ( \s h x ->
           RequestUploadCredentialsResponse'
-            Prelude.<$> (x Core..?> "UploadCredentials")
-            Prelude.<*> (x Core..?> "StorageLocation")
+            Prelude.<$> (x Data..?> "UploadCredentials")
+            Prelude.<*> (x Data..?> "StorageLocation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,32 +119,32 @@ instance Prelude.NFData RequestUploadCredentials where
   rnf RequestUploadCredentials' {..} =
     Prelude.rnf buildId
 
-instance Core.ToHeaders RequestUploadCredentials where
+instance Data.ToHeaders RequestUploadCredentials where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.RequestUploadCredentials" ::
+              Data.=# ( "GameLift.RequestUploadCredentials" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RequestUploadCredentials where
+instance Data.ToJSON RequestUploadCredentials where
   toJSON RequestUploadCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("BuildId" Core..= buildId)]
+          [Prelude.Just ("BuildId" Data..= buildId)]
       )
 
-instance Core.ToPath RequestUploadCredentials where
+instance Data.ToPath RequestUploadCredentials where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RequestUploadCredentials where
+instance Data.ToQuery RequestUploadCredentials where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
@@ -153,7 +154,7 @@ data RequestUploadCredentialsResponse = RequestUploadCredentialsResponse'
   { -- | Amazon Web Services credentials required when uploading a game build to
     -- the storage location. These credentials have a limited lifespan and are
     -- valid only for the build they were issued for.
-    uploadCredentials :: Prelude.Maybe (Core.Sensitive AwsCredentials),
+    uploadCredentials :: Prelude.Maybe (Data.Sensitive AwsCredentials),
     -- | Amazon S3 path and key, identifying where the game build files are
     -- stored.
     storageLocation :: Prelude.Maybe S3Location,
@@ -194,7 +195,7 @@ newRequestUploadCredentialsResponse pHttpStatus_ =
 -- the storage location. These credentials have a limited lifespan and are
 -- valid only for the build they were issued for.
 requestUploadCredentialsResponse_uploadCredentials :: Lens.Lens' RequestUploadCredentialsResponse (Prelude.Maybe AwsCredentials)
-requestUploadCredentialsResponse_uploadCredentials = Lens.lens (\RequestUploadCredentialsResponse' {uploadCredentials} -> uploadCredentials) (\s@RequestUploadCredentialsResponse' {} a -> s {uploadCredentials = a} :: RequestUploadCredentialsResponse) Prelude.. Lens.mapping Core._Sensitive
+requestUploadCredentialsResponse_uploadCredentials = Lens.lens (\RequestUploadCredentialsResponse' {uploadCredentials} -> uploadCredentials) (\s@RequestUploadCredentialsResponse' {} a -> s {uploadCredentials = a} :: RequestUploadCredentialsResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Amazon S3 path and key, identifying where the game build files are
 -- stored.

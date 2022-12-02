@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,7 +127,7 @@ instance Core.AWSRequest UpdateBuild where
     Response.receiveJSON
       ( \s h x ->
           UpdateBuildResponse'
-            Prelude.<$> (x Core..?> "Build")
+            Prelude.<$> (x Data..?> "Build")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,33 +143,33 @@ instance Prelude.NFData UpdateBuild where
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf buildId
 
-instance Core.ToHeaders UpdateBuild where
+instance Data.ToHeaders UpdateBuild where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.UpdateBuild" :: Prelude.ByteString),
+              Data.=# ("GameLift.UpdateBuild" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBuild where
+instance Data.ToJSON UpdateBuild where
   toJSON UpdateBuild' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Version" Core..=) Prelude.<$> version,
-            Prelude.Just ("BuildId" Core..= buildId)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Version" Data..=) Prelude.<$> version,
+            Prelude.Just ("BuildId" Data..= buildId)
           ]
       )
 
-instance Core.ToPath UpdateBuild where
+instance Data.ToPath UpdateBuild where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateBuild where
+instance Data.ToQuery UpdateBuild where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

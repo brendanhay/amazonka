@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest DescribeGameSessionPlacement where
     Response.receiveJSON
       ( \s h x ->
           DescribeGameSessionPlacementResponse'
-            Prelude.<$> (x Core..?> "GameSessionPlacement")
+            Prelude.<$> (x Data..?> "GameSessionPlacement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,32 +125,32 @@ instance Prelude.NFData DescribeGameSessionPlacement where
   rnf DescribeGameSessionPlacement' {..} =
     Prelude.rnf placementId
 
-instance Core.ToHeaders DescribeGameSessionPlacement where
+instance Data.ToHeaders DescribeGameSessionPlacement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeGameSessionPlacement" ::
+              Data.=# ( "GameLift.DescribeGameSessionPlacement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeGameSessionPlacement where
+instance Data.ToJSON DescribeGameSessionPlacement where
   toJSON DescribeGameSessionPlacement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PlacementId" Core..= placementId)]
+          [Prelude.Just ("PlacementId" Data..= placementId)]
       )
 
-instance Core.ToPath DescribeGameSessionPlacement where
+instance Data.ToPath DescribeGameSessionPlacement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeGameSessionPlacement where
+instance Data.ToQuery DescribeGameSessionPlacement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

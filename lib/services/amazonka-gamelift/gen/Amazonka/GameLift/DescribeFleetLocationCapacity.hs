@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetLocationCapacityResponse'
-            Prelude.<$> (x Core..?> "FleetCapacity")
+            Prelude.<$> (x Data..?> "FleetCapacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,34 +154,34 @@ instance Prelude.NFData DescribeFleetLocationCapacity where
     Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf location
 
-instance Core.ToHeaders DescribeFleetLocationCapacity where
+instance Data.ToHeaders DescribeFleetLocationCapacity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeFleetLocationCapacity" ::
+              Data.=# ( "GameLift.DescribeFleetLocationCapacity" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFleetLocationCapacity where
+instance Data.ToJSON DescribeFleetLocationCapacity where
   toJSON DescribeFleetLocationCapacity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FleetId" Core..= fleetId),
-            Prelude.Just ("Location" Core..= location)
+          [ Prelude.Just ("FleetId" Data..= fleetId),
+            Prelude.Just ("Location" Data..= location)
           ]
       )
 
-instance Core.ToPath DescribeFleetLocationCapacity where
+instance Data.ToPath DescribeFleetLocationCapacity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFleetLocationCapacity where
+instance Data.ToQuery DescribeFleetLocationCapacity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

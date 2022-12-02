@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,12 +175,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetLocationAttributesResponse'
-            Prelude.<$> (x Core..?> "FleetId")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "LocationAttributes"
+            Prelude.<$> (x Data..?> "FleetId")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "LocationAttributes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "FleetArn")
+            Prelude.<*> (x Data..?> "FleetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,38 +207,38 @@ instance
       `Prelude.seq` Prelude.rnf fleetId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeFleetLocationAttributes
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeFleetLocationAttributes" ::
+              Data.=# ( "GameLift.DescribeFleetLocationAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFleetLocationAttributes where
+instance Data.ToJSON DescribeFleetLocationAttributes where
   toJSON DescribeFleetLocationAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("Locations" Core..=) Prelude.<$> locations,
-            Prelude.Just ("FleetId" Core..= fleetId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("Locations" Data..=) Prelude.<$> locations,
+            Prelude.Just ("FleetId" Data..= fleetId)
           ]
       )
 
-instance Core.ToPath DescribeFleetLocationAttributes where
+instance Data.ToPath DescribeFleetLocationAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFleetLocationAttributes where
+instance Data.ToQuery DescribeFleetLocationAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,13 +140,13 @@ instance Core.AWSRequest DescribeFleetPortSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetPortSettingsResponse'
-            Prelude.<$> (x Core..?> "FleetId")
-            Prelude.<*> ( x Core..?> "InboundPermissions"
+            Prelude.<$> (x Data..?> "FleetId")
+            Prelude.<*> ( x Data..?> "InboundPermissions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "UpdateStatus")
-            Prelude.<*> (x Core..?> "Location")
-            Prelude.<*> (x Core..?> "FleetArn")
+            Prelude.<*> (x Data..?> "UpdateStatus")
+            Prelude.<*> (x Data..?> "Location")
+            Prelude.<*> (x Data..?> "FleetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,34 +160,34 @@ instance Prelude.NFData DescribeFleetPortSettings where
     Prelude.rnf location
       `Prelude.seq` Prelude.rnf fleetId
 
-instance Core.ToHeaders DescribeFleetPortSettings where
+instance Data.ToHeaders DescribeFleetPortSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeFleetPortSettings" ::
+              Data.=# ( "GameLift.DescribeFleetPortSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFleetPortSettings where
+instance Data.ToJSON DescribeFleetPortSettings where
   toJSON DescribeFleetPortSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Location" Core..=) Prelude.<$> location,
-            Prelude.Just ("FleetId" Core..= fleetId)
+          [ ("Location" Data..=) Prelude.<$> location,
+            Prelude.Just ("FleetId" Data..= fleetId)
           ]
       )
 
-instance Core.ToPath DescribeFleetPortSettings where
+instance Data.ToPath DescribeFleetPortSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFleetPortSettings where
+instance Data.ToQuery DescribeFleetPortSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

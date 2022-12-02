@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.GameSessionQueueDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A fleet or alias designated in a game session queue. Queues fulfill
@@ -63,13 +64,13 @@ newGameSessionQueueDestination =
 gameSessionQueueDestination_destinationArn :: Lens.Lens' GameSessionQueueDestination (Prelude.Maybe Prelude.Text)
 gameSessionQueueDestination_destinationArn = Lens.lens (\GameSessionQueueDestination' {destinationArn} -> destinationArn) (\s@GameSessionQueueDestination' {} a -> s {destinationArn = a} :: GameSessionQueueDestination)
 
-instance Core.FromJSON GameSessionQueueDestination where
+instance Data.FromJSON GameSessionQueueDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GameSessionQueueDestination"
       ( \x ->
           GameSessionQueueDestination'
-            Prelude.<$> (x Core..:? "DestinationArn")
+            Prelude.<$> (x Data..:? "DestinationArn")
       )
 
 instance Prelude.Hashable GameSessionQueueDestination where
@@ -80,11 +81,11 @@ instance Prelude.NFData GameSessionQueueDestination where
   rnf GameSessionQueueDestination' {..} =
     Prelude.rnf destinationArn
 
-instance Core.ToJSON GameSessionQueueDestination where
+instance Data.ToJSON GameSessionQueueDestination where
   toJSON GameSessionQueueDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DestinationArn" Core..=)
+          [ ("DestinationArn" Data..=)
               Prelude.<$> destinationArn
           ]
       )

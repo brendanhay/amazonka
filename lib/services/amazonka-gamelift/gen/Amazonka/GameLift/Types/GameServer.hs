@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.GameServer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.GameServerClaimStatus
 import Amazonka.GameLift.Types.GameServerUtilizationStatus
 import qualified Amazonka.Prelude as Prelude
@@ -61,7 +62,7 @@ data GameServer = GameServer'
     -- a ClaimGameServer request. The format is a number expressed in Unix time
     -- as milliseconds (for example @\"1469498468.057\"@). This value is used
     -- to calculate when a claimed game server\'s status should revert to null.
-    lastClaimTime :: Prelude.Maybe Core.POSIX,
+    lastClaimTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for the instance where the game server is running.
     -- This ID is available in the instance metadata. EC2 instance IDs use a
     -- 17-character format, for example: @i-1234567890abcdef0@.
@@ -72,13 +73,13 @@ data GameServer = GameServer'
     -- | Timestamp that indicates when the game server was created with a
     -- RegisterGameServer request. The format is a number expressed in Unix
     -- time as milliseconds (for example @\"1469498468.057\"@).
-    registrationTime :: Prelude.Maybe Core.POSIX,
+    registrationTime :: Prelude.Maybe Data.POSIX,
     -- | Timestamp that indicates the last time the game server was updated with
     -- health status using an UpdateGameServer request. The format is a number
     -- expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@). After game server registration, this property is
     -- only changed when a game server update specifies a health check value.
-    lastHealthCheckTime :: Prelude.Maybe Core.POSIX,
+    lastHealthCheckTime :: Prelude.Maybe Data.POSIX,
     -- | The port and IP address that must be used to establish a client
     -- connection to the game server.
     connectionInfo :: Prelude.Maybe Prelude.Text,
@@ -201,7 +202,7 @@ gameServer_gameServerGroupName = Lens.lens (\GameServer' {gameServerGroupName} -
 -- as milliseconds (for example @\"1469498468.057\"@). This value is used
 -- to calculate when a claimed game server\'s status should revert to null.
 gameServer_lastClaimTime :: Lens.Lens' GameServer (Prelude.Maybe Prelude.UTCTime)
-gameServer_lastClaimTime = Lens.lens (\GameServer' {lastClaimTime} -> lastClaimTime) (\s@GameServer' {} a -> s {lastClaimTime = a} :: GameServer) Prelude.. Lens.mapping Core._Time
+gameServer_lastClaimTime = Lens.lens (\GameServer' {lastClaimTime} -> lastClaimTime) (\s@GameServer' {} a -> s {lastClaimTime = a} :: GameServer) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier for the instance where the game server is running.
 -- This ID is available in the instance metadata. EC2 instance IDs use a
@@ -218,7 +219,7 @@ gameServer_gameServerGroupArn = Lens.lens (\GameServer' {gameServerGroupArn} -> 
 -- RegisterGameServer request. The format is a number expressed in Unix
 -- time as milliseconds (for example @\"1469498468.057\"@).
 gameServer_registrationTime :: Lens.Lens' GameServer (Prelude.Maybe Prelude.UTCTime)
-gameServer_registrationTime = Lens.lens (\GameServer' {registrationTime} -> registrationTime) (\s@GameServer' {} a -> s {registrationTime = a} :: GameServer) Prelude.. Lens.mapping Core._Time
+gameServer_registrationTime = Lens.lens (\GameServer' {registrationTime} -> registrationTime) (\s@GameServer' {} a -> s {registrationTime = a} :: GameServer) Prelude.. Lens.mapping Data._Time
 
 -- | Timestamp that indicates the last time the game server was updated with
 -- health status using an UpdateGameServer request. The format is a number
@@ -226,7 +227,7 @@ gameServer_registrationTime = Lens.lens (\GameServer' {registrationTime} -> regi
 -- @\"1469498468.057\"@). After game server registration, this property is
 -- only changed when a game server update specifies a health check value.
 gameServer_lastHealthCheckTime :: Lens.Lens' GameServer (Prelude.Maybe Prelude.UTCTime)
-gameServer_lastHealthCheckTime = Lens.lens (\GameServer' {lastHealthCheckTime} -> lastHealthCheckTime) (\s@GameServer' {} a -> s {lastHealthCheckTime = a} :: GameServer) Prelude.. Lens.mapping Core._Time
+gameServer_lastHealthCheckTime = Lens.lens (\GameServer' {lastHealthCheckTime} -> lastHealthCheckTime) (\s@GameServer' {} a -> s {lastHealthCheckTime = a} :: GameServer) Prelude.. Lens.mapping Data._Time
 
 -- | The port and IP address that must be used to establish a client
 -- connection to the game server.
@@ -251,23 +252,23 @@ gameServer_utilizationStatus = Lens.lens (\GameServer' {utilizationStatus} -> ut
 gameServer_gameServerId :: Lens.Lens' GameServer (Prelude.Maybe Prelude.Text)
 gameServer_gameServerId = Lens.lens (\GameServer' {gameServerId} -> gameServerId) (\s@GameServer' {} a -> s {gameServerId = a} :: GameServer)
 
-instance Core.FromJSON GameServer where
+instance Data.FromJSON GameServer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GameServer"
       ( \x ->
           GameServer'
-            Prelude.<$> (x Core..:? "GameServerData")
-            Prelude.<*> (x Core..:? "ClaimStatus")
-            Prelude.<*> (x Core..:? "GameServerGroupName")
-            Prelude.<*> (x Core..:? "LastClaimTime")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "GameServerGroupArn")
-            Prelude.<*> (x Core..:? "RegistrationTime")
-            Prelude.<*> (x Core..:? "LastHealthCheckTime")
-            Prelude.<*> (x Core..:? "ConnectionInfo")
-            Prelude.<*> (x Core..:? "UtilizationStatus")
-            Prelude.<*> (x Core..:? "GameServerId")
+            Prelude.<$> (x Data..:? "GameServerData")
+            Prelude.<*> (x Data..:? "ClaimStatus")
+            Prelude.<*> (x Data..:? "GameServerGroupName")
+            Prelude.<*> (x Data..:? "LastClaimTime")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "GameServerGroupArn")
+            Prelude.<*> (x Data..:? "RegistrationTime")
+            Prelude.<*> (x Data..:? "LastHealthCheckTime")
+            Prelude.<*> (x Data..:? "ConnectionInfo")
+            Prelude.<*> (x Data..:? "UtilizationStatus")
+            Prelude.<*> (x Data..:? "GameServerId")
       )
 
 instance Prelude.Hashable GameServer where

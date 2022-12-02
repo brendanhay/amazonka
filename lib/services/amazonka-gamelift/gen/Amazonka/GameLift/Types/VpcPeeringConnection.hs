@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.VpcPeeringConnection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.VpcPeeringConnectionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -165,19 +166,19 @@ vpcPeeringConnection_fleetArn = Lens.lens (\VpcPeeringConnection' {fleetArn} -> 
 vpcPeeringConnection_peerVpcId :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe Prelude.Text)
 vpcPeeringConnection_peerVpcId = Lens.lens (\VpcPeeringConnection' {peerVpcId} -> peerVpcId) (\s@VpcPeeringConnection' {} a -> s {peerVpcId = a} :: VpcPeeringConnection)
 
-instance Core.FromJSON VpcPeeringConnection where
+instance Data.FromJSON VpcPeeringConnection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcPeeringConnection"
       ( \x ->
           VpcPeeringConnection'
-            Prelude.<$> (x Core..:? "FleetId")
-            Prelude.<*> (x Core..:? "GameLiftVpcId")
-            Prelude.<*> (x Core..:? "IpV4CidrBlock")
-            Prelude.<*> (x Core..:? "VpcPeeringConnectionId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "FleetArn")
-            Prelude.<*> (x Core..:? "PeerVpcId")
+            Prelude.<$> (x Data..:? "FleetId")
+            Prelude.<*> (x Data..:? "GameLiftVpcId")
+            Prelude.<*> (x Data..:? "IpV4CidrBlock")
+            Prelude.<*> (x Data..:? "VpcPeeringConnectionId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "FleetArn")
+            Prelude.<*> (x Data..:? "PeerVpcId")
       )
 
 instance Prelude.Hashable VpcPeeringConnection where

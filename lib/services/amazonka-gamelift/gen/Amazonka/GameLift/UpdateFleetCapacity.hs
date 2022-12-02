@@ -96,6 +96,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -197,9 +198,9 @@ instance Core.AWSRequest UpdateFleetCapacity where
     Response.receiveJSON
       ( \s h x ->
           UpdateFleetCapacityResponse'
-            Prelude.<$> (x Core..?> "FleetId")
-            Prelude.<*> (x Core..?> "Location")
-            Prelude.<*> (x Core..?> "FleetArn")
+            Prelude.<$> (x Data..?> "FleetId")
+            Prelude.<*> (x Data..?> "Location")
+            Prelude.<*> (x Data..?> "FleetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,38 +220,38 @@ instance Prelude.NFData UpdateFleetCapacity where
       `Prelude.seq` Prelude.rnf maxSize
       `Prelude.seq` Prelude.rnf fleetId
 
-instance Core.ToHeaders UpdateFleetCapacity where
+instance Data.ToHeaders UpdateFleetCapacity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.UpdateFleetCapacity" ::
+              Data.=# ( "GameLift.UpdateFleetCapacity" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFleetCapacity where
+instance Data.ToJSON UpdateFleetCapacity where
   toJSON UpdateFleetCapacity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DesiredInstances" Core..=)
+          [ ("DesiredInstances" Data..=)
               Prelude.<$> desiredInstances,
-            ("Location" Core..=) Prelude.<$> location,
-            ("MinSize" Core..=) Prelude.<$> minSize,
-            ("MaxSize" Core..=) Prelude.<$> maxSize,
-            Prelude.Just ("FleetId" Core..= fleetId)
+            ("Location" Data..=) Prelude.<$> location,
+            ("MinSize" Data..=) Prelude.<$> minSize,
+            ("MaxSize" Data..=) Prelude.<$> maxSize,
+            Prelude.Just ("FleetId" Data..= fleetId)
           ]
       )
 
-instance Core.ToPath UpdateFleetCapacity where
+instance Data.ToPath UpdateFleetCapacity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateFleetCapacity where
+instance Data.ToQuery UpdateFleetCapacity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

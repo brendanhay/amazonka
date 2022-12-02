@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,9 +165,9 @@ instance Core.AWSRequest DescribeMatchmakingRuleSets where
     Response.receiveJSON
       ( \s h x ->
           DescribeMatchmakingRuleSetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "RuleSets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RuleSets" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable DescribeMatchmakingRuleSets where
@@ -181,35 +182,35 @@ instance Prelude.NFData DescribeMatchmakingRuleSets where
       `Prelude.seq` Prelude.rnf names
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders DescribeMatchmakingRuleSets where
+instance Data.ToHeaders DescribeMatchmakingRuleSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeMatchmakingRuleSets" ::
+              Data.=# ( "GameLift.DescribeMatchmakingRuleSets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeMatchmakingRuleSets where
+instance Data.ToJSON DescribeMatchmakingRuleSets where
   toJSON DescribeMatchmakingRuleSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Names" Core..=) Prelude.<$> names,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Names" Data..=) Prelude.<$> names,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath DescribeMatchmakingRuleSets where
+instance Data.ToPath DescribeMatchmakingRuleSets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeMatchmakingRuleSets where
+instance Data.ToQuery DescribeMatchmakingRuleSets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

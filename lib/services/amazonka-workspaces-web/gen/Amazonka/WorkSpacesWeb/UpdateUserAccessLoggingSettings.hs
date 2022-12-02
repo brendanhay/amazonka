@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,7 +134,7 @@ instance
       ( \s h x ->
           UpdateUserAccessLoggingSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "userAccessLoggingSettings")
+            Prelude.<*> (x Data..:> "userAccessLoggingSettings")
       )
 
 instance
@@ -157,37 +158,37 @@ instance
       `Prelude.seq` Prelude.rnf userAccessLoggingSettingsArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateUserAccessLoggingSettings
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUserAccessLoggingSettings where
+instance Data.ToJSON UpdateUserAccessLoggingSettings where
   toJSON UpdateUserAccessLoggingSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("kinesisStreamArn" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("kinesisStreamArn" Data..=)
               Prelude.<$> kinesisStreamArn
           ]
       )
 
-instance Core.ToPath UpdateUserAccessLoggingSettings where
+instance Data.ToPath UpdateUserAccessLoggingSettings where
   toPath UpdateUserAccessLoggingSettings' {..} =
     Prelude.mconcat
       [ "/userAccessLoggingSettings/",
-        Core.toBS userAccessLoggingSettingsArn
+        Data.toBS userAccessLoggingSettingsArn
       ]
 
-instance Core.ToQuery UpdateUserAccessLoggingSettings where
+instance Data.ToQuery UpdateUserAccessLoggingSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserAccessLoggingSettingsResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,8 +103,8 @@ instance Core.AWSRequest AssociateNetworkSettings where
       ( \s h x ->
           AssociateNetworkSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "networkSettingsArn")
-            Prelude.<*> (x Core..:> "portalArn")
+            Prelude.<*> (x Data..:> "networkSettingsArn")
+            Prelude.<*> (x Data..:> "portalArn")
       )
 
 instance Prelude.Hashable AssociateNetworkSettings where
@@ -116,32 +117,32 @@ instance Prelude.NFData AssociateNetworkSettings where
     Prelude.rnf networkSettingsArn
       `Prelude.seq` Prelude.rnf portalArn
 
-instance Core.ToHeaders AssociateNetworkSettings where
+instance Data.ToHeaders AssociateNetworkSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateNetworkSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AssociateNetworkSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath AssociateNetworkSettings where
+instance Data.ToPath AssociateNetworkSettings where
   toPath AssociateNetworkSettings' {..} =
     Prelude.mconcat
       [ "/portals/",
-        Core.toBS portalArn,
+        Data.toBS portalArn,
         "/networkSettings"
       ]
 
-instance Core.ToQuery AssociateNetworkSettings where
+instance Data.ToQuery AssociateNetworkSettings where
   toQuery AssociateNetworkSettings' {..} =
     Prelude.mconcat
-      ["networkSettingsArn" Core.=: networkSettingsArn]
+      ["networkSettingsArn" Data.=: networkSettingsArn]
 
 -- | /See:/ 'newAssociateNetworkSettingsResponse' smart constructor.
 data AssociateNetworkSettingsResponse = AssociateNetworkSettingsResponse'

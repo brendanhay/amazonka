@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,23 +94,23 @@ instance Prelude.NFData DisassociateTrustStore where
   rnf DisassociateTrustStore' {..} =
     Prelude.rnf portalArn
 
-instance Core.ToHeaders DisassociateTrustStore where
+instance Data.ToHeaders DisassociateTrustStore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DisassociateTrustStore where
+instance Data.ToPath DisassociateTrustStore where
   toPath DisassociateTrustStore' {..} =
     Prelude.mconcat
-      ["/portals/", Core.toBS portalArn, "/trustStores"]
+      ["/portals/", Data.toBS portalArn, "/trustStores"]
 
-instance Core.ToQuery DisassociateTrustStore where
+instance Data.ToQuery DisassociateTrustStore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateTrustStoreResponse' smart constructor.

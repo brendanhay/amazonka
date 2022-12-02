@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -53,7 +54,7 @@ import Amazonka.WorkSpacesWeb.Types
 data CreateUserAccessLoggingSettings = CreateUserAccessLoggingSettings'
   { -- | The tags to add to the user settings resource. A tag is a key-value
     -- pair.
-    tags :: Prelude.Maybe [Core.Sensitive Tag],
+    tags :: Prelude.Maybe [Data.Sensitive Tag],
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Idempotency ensures that an API request
     -- completes only once. With an idempotent request, if the original request
@@ -135,7 +136,7 @@ instance
       ( \s h x ->
           CreateUserAccessLoggingSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "userAccessLoggingSettingsArn")
+            Prelude.<*> (x Data..:> "userAccessLoggingSettingsArn")
       )
 
 instance
@@ -159,34 +160,34 @@ instance
       `Prelude.seq` Prelude.rnf kinesisStreamArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateUserAccessLoggingSettings
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUserAccessLoggingSettings where
+instance Data.ToJSON CreateUserAccessLoggingSettings where
   toJSON CreateUserAccessLoggingSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("kinesisStreamArn" Core..= kinesisStreamArn)
+              ("kinesisStreamArn" Data..= kinesisStreamArn)
           ]
       )
 
-instance Core.ToPath CreateUserAccessLoggingSettings where
+instance Data.ToPath CreateUserAccessLoggingSettings where
   toPath = Prelude.const "/userAccessLoggingSettings"
 
-instance Core.ToQuery CreateUserAccessLoggingSettings where
+instance Data.ToQuery CreateUserAccessLoggingSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserAccessLoggingSettingsResponse' smart constructor.

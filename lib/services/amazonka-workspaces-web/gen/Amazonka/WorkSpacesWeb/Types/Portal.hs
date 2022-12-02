@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.Portal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpacesWeb.Types.BrowserType
 import Amazonka.WorkSpacesWeb.Types.PortalStatus
@@ -35,11 +36,11 @@ data Portal = Portal'
     -- | The ARN of the web portal.
     portalArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the web portal.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A message that explains why the web portal is in its current status.
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | The creation date of the web portal.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The endpoint URL of the web portal that users access in order to start
     -- streaming sessions.
     portalEndpoint :: Prelude.Maybe Prelude.Text,
@@ -125,7 +126,7 @@ portal_portalArn = Lens.lens (\Portal' {portalArn} -> portalArn) (\s@Portal' {} 
 
 -- | The name of the web portal.
 portal_displayName :: Lens.Lens' Portal (Prelude.Maybe Prelude.Text)
-portal_displayName = Lens.lens (\Portal' {displayName} -> displayName) (\s@Portal' {} a -> s {displayName = a} :: Portal) Prelude.. Lens.mapping Core._Sensitive
+portal_displayName = Lens.lens (\Portal' {displayName} -> displayName) (\s@Portal' {} a -> s {displayName = a} :: Portal) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A message that explains why the web portal is in its current status.
 portal_statusReason :: Lens.Lens' Portal (Prelude.Maybe Prelude.Text)
@@ -133,7 +134,7 @@ portal_statusReason = Lens.lens (\Portal' {statusReason} -> statusReason) (\s@Po
 
 -- | The creation date of the web portal.
 portal_creationDate :: Lens.Lens' Portal (Prelude.Maybe Prelude.UTCTime)
-portal_creationDate = Lens.lens (\Portal' {creationDate} -> creationDate) (\s@Portal' {} a -> s {creationDate = a} :: Portal) Prelude.. Lens.mapping Core._Time
+portal_creationDate = Lens.lens (\Portal' {creationDate} -> creationDate) (\s@Portal' {} a -> s {creationDate = a} :: Portal) Prelude.. Lens.mapping Data._Time
 
 -- | The endpoint URL of the web portal that users access in order to start
 -- streaming sessions.
@@ -169,25 +170,25 @@ portal_networkSettingsArn = Lens.lens (\Portal' {networkSettingsArn} -> networkS
 portal_rendererType :: Lens.Lens' Portal (Prelude.Maybe RendererType)
 portal_rendererType = Lens.lens (\Portal' {rendererType} -> rendererType) (\s@Portal' {} a -> s {rendererType = a} :: Portal)
 
-instance Core.FromJSON Portal where
+instance Data.FromJSON Portal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Portal"
       ( \x ->
           Portal'
-            Prelude.<$> (x Core..:? "trustStoreArn")
-            Prelude.<*> (x Core..:? "portalArn")
-            Prelude.<*> (x Core..:? "displayName")
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "portalEndpoint")
-            Prelude.<*> (x Core..:? "userAccessLoggingSettingsArn")
-            Prelude.<*> (x Core..:? "browserSettingsArn")
-            Prelude.<*> (x Core..:? "userSettingsArn")
-            Prelude.<*> (x Core..:? "portalStatus")
-            Prelude.<*> (x Core..:? "browserType")
-            Prelude.<*> (x Core..:? "networkSettingsArn")
-            Prelude.<*> (x Core..:? "rendererType")
+            Prelude.<$> (x Data..:? "trustStoreArn")
+            Prelude.<*> (x Data..:? "portalArn")
+            Prelude.<*> (x Data..:? "displayName")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "portalEndpoint")
+            Prelude.<*> (x Data..:? "userAccessLoggingSettingsArn")
+            Prelude.<*> (x Data..:? "browserSettingsArn")
+            Prelude.<*> (x Data..:? "userSettingsArn")
+            Prelude.<*> (x Data..:? "portalStatus")
+            Prelude.<*> (x Data..:? "browserType")
+            Prelude.<*> (x Data..:? "networkSettingsArn")
+            Prelude.<*> (x Data..:? "rendererType")
       )
 
 instance Prelude.Hashable Portal where

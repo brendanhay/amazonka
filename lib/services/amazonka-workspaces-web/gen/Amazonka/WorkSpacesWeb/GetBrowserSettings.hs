@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetBrowserSettings where
     Response.receiveJSON
       ( \s h x ->
           GetBrowserSettingsResponse'
-            Prelude.<$> (x Core..?> "browserSettings")
+            Prelude.<$> (x Data..?> "browserSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,23 +99,23 @@ instance Prelude.NFData GetBrowserSettings where
   rnf GetBrowserSettings' {..} =
     Prelude.rnf browserSettingsArn
 
-instance Core.ToHeaders GetBrowserSettings where
+instance Data.ToHeaders GetBrowserSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBrowserSettings where
+instance Data.ToPath GetBrowserSettings where
   toPath GetBrowserSettings' {..} =
     Prelude.mconcat
-      ["/browserSettings/", Core.toBS browserSettingsArn]
+      ["/browserSettings/", Data.toBS browserSettingsArn]
 
-instance Core.ToQuery GetBrowserSettings where
+instance Data.ToQuery GetBrowserSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBrowserSettingsResponse' smart constructor.

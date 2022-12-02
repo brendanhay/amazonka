@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -52,7 +53,7 @@ import Amazonka.WorkSpacesWeb.Types
 -- | /See:/ 'newUpdateTrustStore' smart constructor.
 data UpdateTrustStore = UpdateTrustStore'
   { -- | A list of CA certificates to add to the trust store.
-    certificatesToAdd :: Prelude.Maybe [Core.Base64],
+    certificatesToAdd :: Prelude.Maybe [Data.Base64],
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Idempotency ensures that an API request
     -- completes only once. With an idempotent request, if the original request
@@ -138,7 +139,7 @@ instance Core.AWSRequest UpdateTrustStore where
       ( \s h x ->
           UpdateTrustStoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "trustStoreArn")
+            Prelude.<*> (x Data..:> "trustStoreArn")
       )
 
 instance Prelude.Hashable UpdateTrustStore where
@@ -155,35 +156,35 @@ instance Prelude.NFData UpdateTrustStore where
       `Prelude.seq` Prelude.rnf certificatesToDelete
       `Prelude.seq` Prelude.rnf trustStoreArn
 
-instance Core.ToHeaders UpdateTrustStore where
+instance Data.ToHeaders UpdateTrustStore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTrustStore where
+instance Data.ToJSON UpdateTrustStore where
   toJSON UpdateTrustStore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("certificatesToAdd" Core..=)
+          [ ("certificatesToAdd" Data..=)
               Prelude.<$> certificatesToAdd,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("certificatesToDelete" Core..=)
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("certificatesToDelete" Data..=)
               Prelude.<$> certificatesToDelete
           ]
       )
 
-instance Core.ToPath UpdateTrustStore where
+instance Data.ToPath UpdateTrustStore where
   toPath UpdateTrustStore' {..} =
     Prelude.mconcat
-      ["/trustStores/", Core.toBS trustStoreArn]
+      ["/trustStores/", Data.toBS trustStoreArn]
 
-instance Core.ToQuery UpdateTrustStore where
+instance Data.ToQuery UpdateTrustStore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTrustStoreResponse' smart constructor.

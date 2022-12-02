@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.PortalSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpacesWeb.Types.BrowserType
 import Amazonka.WorkSpacesWeb.Types.PortalStatus
@@ -35,9 +36,9 @@ data PortalSummary = PortalSummary'
     -- | The ARN of the web portal.
     portalArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the web portal.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The creation date of the web portal.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The endpoint URL of the web portal that users access in order to start
     -- streaming sessions.
     portalEndpoint :: Prelude.Maybe Prelude.Text,
@@ -120,11 +121,11 @@ portalSummary_portalArn = Lens.lens (\PortalSummary' {portalArn} -> portalArn) (
 
 -- | The name of the web portal.
 portalSummary_displayName :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.Text)
-portalSummary_displayName = Lens.lens (\PortalSummary' {displayName} -> displayName) (\s@PortalSummary' {} a -> s {displayName = a} :: PortalSummary) Prelude.. Lens.mapping Core._Sensitive
+portalSummary_displayName = Lens.lens (\PortalSummary' {displayName} -> displayName) (\s@PortalSummary' {} a -> s {displayName = a} :: PortalSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The creation date of the web portal.
 portalSummary_creationDate :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.UTCTime)
-portalSummary_creationDate = Lens.lens (\PortalSummary' {creationDate} -> creationDate) (\s@PortalSummary' {} a -> s {creationDate = a} :: PortalSummary) Prelude.. Lens.mapping Core._Time
+portalSummary_creationDate = Lens.lens (\PortalSummary' {creationDate} -> creationDate) (\s@PortalSummary' {} a -> s {creationDate = a} :: PortalSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The endpoint URL of the web portal that users access in order to start
 -- streaming sessions.
@@ -160,24 +161,24 @@ portalSummary_networkSettingsArn = Lens.lens (\PortalSummary' {networkSettingsAr
 portalSummary_rendererType :: Lens.Lens' PortalSummary (Prelude.Maybe RendererType)
 portalSummary_rendererType = Lens.lens (\PortalSummary' {rendererType} -> rendererType) (\s@PortalSummary' {} a -> s {rendererType = a} :: PortalSummary)
 
-instance Core.FromJSON PortalSummary where
+instance Data.FromJSON PortalSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortalSummary"
       ( \x ->
           PortalSummary'
-            Prelude.<$> (x Core..:? "trustStoreArn")
-            Prelude.<*> (x Core..:? "portalArn")
-            Prelude.<*> (x Core..:? "displayName")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "portalEndpoint")
-            Prelude.<*> (x Core..:? "userAccessLoggingSettingsArn")
-            Prelude.<*> (x Core..:? "browserSettingsArn")
-            Prelude.<*> (x Core..:? "userSettingsArn")
-            Prelude.<*> (x Core..:? "portalStatus")
-            Prelude.<*> (x Core..:? "browserType")
-            Prelude.<*> (x Core..:? "networkSettingsArn")
-            Prelude.<*> (x Core..:? "rendererType")
+            Prelude.<$> (x Data..:? "trustStoreArn")
+            Prelude.<*> (x Data..:? "portalArn")
+            Prelude.<*> (x Data..:? "displayName")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "portalEndpoint")
+            Prelude.<*> (x Data..:? "userAccessLoggingSettingsArn")
+            Prelude.<*> (x Data..:? "browserSettingsArn")
+            Prelude.<*> (x Data..:? "userSettingsArn")
+            Prelude.<*> (x Data..:? "portalStatus")
+            Prelude.<*> (x Data..:? "browserType")
+            Prelude.<*> (x Data..:? "networkSettingsArn")
+            Prelude.<*> (x Data..:? "rendererType")
       )
 
 instance Prelude.Hashable PortalSummary where

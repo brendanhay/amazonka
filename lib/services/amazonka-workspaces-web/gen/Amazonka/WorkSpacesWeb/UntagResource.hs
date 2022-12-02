@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -51,7 +52,7 @@ data UntagResource = UntagResource'
   { -- | The ARN of the resource.
     resourceArn :: Prelude.Text,
     -- | The list of tag keys to remove from the resource.
-    tagKeys :: [Core.Sensitive Prelude.Text]
+    tagKeys :: [Data.Sensitive Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -107,25 +108,25 @@ instance Prelude.NFData UntagResource where
     Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf tagKeys
 
-instance Core.ToHeaders UntagResource where
+instance Data.ToHeaders UntagResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath UntagResource where
+instance Data.ToPath UntagResource where
   toPath UntagResource' {..} =
-    Prelude.mconcat ["/tags/", Core.toBS resourceArn]
+    Prelude.mconcat ["/tags/", Data.toBS resourceArn]
 
-instance Core.ToQuery UntagResource where
+instance Data.ToQuery UntagResource where
   toQuery UntagResource' {..} =
     Prelude.mconcat
-      ["tagKeys" Core.=: Core.toQueryList "member" tagKeys]
+      ["tagKeys" Data.=: Data.toQueryList "member" tagKeys]
 
 -- | /See:/ 'newUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'

@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.TrustStore where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A trust store that can be associated with a web portal. A trust store
@@ -67,15 +68,15 @@ trustStore_trustStoreArn = Lens.lens (\TrustStore' {trustStoreArn} -> trustStore
 trustStore_associatedPortalArns :: Lens.Lens' TrustStore (Prelude.Maybe [Prelude.Text])
 trustStore_associatedPortalArns = Lens.lens (\TrustStore' {associatedPortalArns} -> associatedPortalArns) (\s@TrustStore' {} a -> s {associatedPortalArns = a} :: TrustStore) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TrustStore where
+instance Data.FromJSON TrustStore where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrustStore"
       ( \x ->
           TrustStore'
-            Prelude.<$> (x Core..:? "trustStoreArn")
-            Prelude.<*> ( x Core..:? "associatedPortalArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "trustStoreArn")
+            Prelude.<*> ( x Data..:? "associatedPortalArns"
+                            Data..!= Prelude.mempty
                         )
       )
 

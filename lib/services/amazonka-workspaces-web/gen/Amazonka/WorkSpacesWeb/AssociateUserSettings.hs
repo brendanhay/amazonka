@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,8 +102,8 @@ instance Core.AWSRequest AssociateUserSettings where
       ( \s h x ->
           AssociateUserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "portalArn")
-            Prelude.<*> (x Core..:> "userSettingsArn")
+            Prelude.<*> (x Data..:> "portalArn")
+            Prelude.<*> (x Data..:> "userSettingsArn")
       )
 
 instance Prelude.Hashable AssociateUserSettings where
@@ -115,29 +116,29 @@ instance Prelude.NFData AssociateUserSettings where
     Prelude.rnf portalArn
       `Prelude.seq` Prelude.rnf userSettingsArn
 
-instance Core.ToHeaders AssociateUserSettings where
+instance Data.ToHeaders AssociateUserSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateUserSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AssociateUserSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath AssociateUserSettings where
+instance Data.ToPath AssociateUserSettings where
   toPath AssociateUserSettings' {..} =
     Prelude.mconcat
-      ["/portals/", Core.toBS portalArn, "/userSettings"]
+      ["/portals/", Data.toBS portalArn, "/userSettings"]
 
-instance Core.ToQuery AssociateUserSettings where
+instance Data.ToQuery AssociateUserSettings where
   toQuery AssociateUserSettings' {..} =
     Prelude.mconcat
-      ["userSettingsArn" Core.=: userSettingsArn]
+      ["userSettingsArn" Data.=: userSettingsArn]
 
 -- | /See:/ 'newAssociateUserSettingsResponse' smart constructor.
 data AssociateUserSettingsResponse = AssociateUserSettingsResponse'

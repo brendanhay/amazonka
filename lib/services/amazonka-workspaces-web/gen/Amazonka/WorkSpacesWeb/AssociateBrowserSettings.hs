@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,8 +103,8 @@ instance Core.AWSRequest AssociateBrowserSettings where
       ( \s h x ->
           AssociateBrowserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "browserSettingsArn")
-            Prelude.<*> (x Core..:> "portalArn")
+            Prelude.<*> (x Data..:> "browserSettingsArn")
+            Prelude.<*> (x Data..:> "portalArn")
       )
 
 instance Prelude.Hashable AssociateBrowserSettings where
@@ -116,32 +117,32 @@ instance Prelude.NFData AssociateBrowserSettings where
     Prelude.rnf browserSettingsArn
       `Prelude.seq` Prelude.rnf portalArn
 
-instance Core.ToHeaders AssociateBrowserSettings where
+instance Data.ToHeaders AssociateBrowserSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateBrowserSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AssociateBrowserSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath AssociateBrowserSettings where
+instance Data.ToPath AssociateBrowserSettings where
   toPath AssociateBrowserSettings' {..} =
     Prelude.mconcat
       [ "/portals/",
-        Core.toBS portalArn,
+        Data.toBS portalArn,
         "/browserSettings"
       ]
 
-instance Core.ToQuery AssociateBrowserSettings where
+instance Data.ToQuery AssociateBrowserSettings where
   toQuery AssociateBrowserSettings' {..} =
     Prelude.mconcat
-      ["browserSettingsArn" Core.=: browserSettingsArn]
+      ["browserSettingsArn" Data.=: browserSettingsArn]
 
 -- | /See:/ 'newAssociateBrowserSettingsResponse' smart constructor.
 data AssociateBrowserSettingsResponse = AssociateBrowserSettingsResponse'

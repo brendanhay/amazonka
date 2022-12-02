@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,7 +55,7 @@ import Amazonka.WorkSpacesWeb.Types
 -- | /See:/ 'newCreatePortal' smart constructor.
 data CreatePortal = CreatePortal'
   { -- | The tags to add to the web portal. A tag is a key-value pair.
-    tags :: Prelude.Maybe [Core.Sensitive Tag],
+    tags :: Prelude.Maybe [Data.Sensitive Tag],
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Idempotency ensures that an API request
     -- completes only once. With an idempotent request, if the original request
@@ -68,7 +69,7 @@ data CreatePortal = CreatePortal'
     customerManagedKey :: Prelude.Maybe Prelude.Text,
     -- | The name of the web portal. This is not visible to users who log into
     -- the web portal.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The additional encryption context of the portal.
     additionalEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
@@ -132,7 +133,7 @@ createPortal_customerManagedKey = Lens.lens (\CreatePortal' {customerManagedKey}
 -- | The name of the web portal. This is not visible to users who log into
 -- the web portal.
 createPortal_displayName :: Lens.Lens' CreatePortal (Prelude.Maybe Prelude.Text)
-createPortal_displayName = Lens.lens (\CreatePortal' {displayName} -> displayName) (\s@CreatePortal' {} a -> s {displayName = a} :: CreatePortal) Prelude.. Lens.mapping Core._Sensitive
+createPortal_displayName = Lens.lens (\CreatePortal' {displayName} -> displayName) (\s@CreatePortal' {} a -> s {displayName = a} :: CreatePortal) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The additional encryption context of the portal.
 createPortal_additionalEncryptionContext :: Lens.Lens' CreatePortal (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -147,8 +148,8 @@ instance Core.AWSRequest CreatePortal where
       ( \s h x ->
           CreatePortalResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "portalArn")
-            Prelude.<*> (x Core..:> "portalEndpoint")
+            Prelude.<*> (x Data..:> "portalArn")
+            Prelude.<*> (x Data..:> "portalEndpoint")
       )
 
 instance Prelude.Hashable CreatePortal where
@@ -167,35 +168,35 @@ instance Prelude.NFData CreatePortal where
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf additionalEncryptionContext
 
-instance Core.ToHeaders CreatePortal where
+instance Data.ToHeaders CreatePortal where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePortal where
+instance Data.ToJSON CreatePortal where
   toJSON CreatePortal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("customerManagedKey" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("customerManagedKey" Data..=)
               Prelude.<$> customerManagedKey,
-            ("displayName" Core..=) Prelude.<$> displayName,
-            ("additionalEncryptionContext" Core..=)
+            ("displayName" Data..=) Prelude.<$> displayName,
+            ("additionalEncryptionContext" Data..=)
               Prelude.<$> additionalEncryptionContext
           ]
       )
 
-instance Core.ToPath CreatePortal where
+instance Data.ToPath CreatePortal where
   toPath = Prelude.const "/portals"
 
-instance Core.ToQuery CreatePortal where
+instance Data.ToQuery CreatePortal where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePortalResponse' smart constructor.

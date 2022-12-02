@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetTrustStore where
     Response.receiveJSON
       ( \s h x ->
           GetTrustStoreResponse'
-            Prelude.<$> (x Core..?> "trustStore")
+            Prelude.<$> (x Data..?> "trustStore")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,23 +95,23 @@ instance Prelude.Hashable GetTrustStore where
 instance Prelude.NFData GetTrustStore where
   rnf GetTrustStore' {..} = Prelude.rnf trustStoreArn
 
-instance Core.ToHeaders GetTrustStore where
+instance Data.ToHeaders GetTrustStore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetTrustStore where
+instance Data.ToPath GetTrustStore where
   toPath GetTrustStore' {..} =
     Prelude.mconcat
-      ["/trustStores/", Core.toBS trustStoreArn]
+      ["/trustStores/", Data.toBS trustStoreArn]
 
-instance Core.ToQuery GetTrustStore where
+instance Data.ToQuery GetTrustStore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTrustStoreResponse' smart constructor.

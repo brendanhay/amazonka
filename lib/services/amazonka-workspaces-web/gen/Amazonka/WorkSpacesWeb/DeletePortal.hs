@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,22 +91,22 @@ instance Prelude.Hashable DeletePortal where
 instance Prelude.NFData DeletePortal where
   rnf DeletePortal' {..} = Prelude.rnf portalArn
 
-instance Core.ToHeaders DeletePortal where
+instance Data.ToHeaders DeletePortal where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeletePortal where
+instance Data.ToPath DeletePortal where
   toPath DeletePortal' {..} =
-    Prelude.mconcat ["/portals/", Core.toBS portalArn]
+    Prelude.mconcat ["/portals/", Data.toBS portalArn]
 
-instance Core.ToQuery DeletePortal where
+instance Data.ToQuery DeletePortal where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePortalResponse' smart constructor.

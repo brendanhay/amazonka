@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.BrowserSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The browser settings resource that can be associated with a web portal.
@@ -34,7 +35,7 @@ data BrowserSettings = BrowserSettings'
     associatedPortalArns :: Prelude.Maybe [Prelude.Text],
     -- | A JSON string containing Chrome Enterprise policies that will be applied
     -- to all streaming sessions.
-    browserPolicy :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    browserPolicy :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the browser settings.
     browserSettingsArn :: Prelude.Text
   }
@@ -73,23 +74,23 @@ browserSettings_associatedPortalArns = Lens.lens (\BrowserSettings' {associatedP
 -- | A JSON string containing Chrome Enterprise policies that will be applied
 -- to all streaming sessions.
 browserSettings_browserPolicy :: Lens.Lens' BrowserSettings (Prelude.Maybe Prelude.Text)
-browserSettings_browserPolicy = Lens.lens (\BrowserSettings' {browserPolicy} -> browserPolicy) (\s@BrowserSettings' {} a -> s {browserPolicy = a} :: BrowserSettings) Prelude.. Lens.mapping Core._Sensitive
+browserSettings_browserPolicy = Lens.lens (\BrowserSettings' {browserPolicy} -> browserPolicy) (\s@BrowserSettings' {} a -> s {browserPolicy = a} :: BrowserSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the browser settings.
 browserSettings_browserSettingsArn :: Lens.Lens' BrowserSettings Prelude.Text
 browserSettings_browserSettingsArn = Lens.lens (\BrowserSettings' {browserSettingsArn} -> browserSettingsArn) (\s@BrowserSettings' {} a -> s {browserSettingsArn = a} :: BrowserSettings)
 
-instance Core.FromJSON BrowserSettings where
+instance Data.FromJSON BrowserSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BrowserSettings"
       ( \x ->
           BrowserSettings'
-            Prelude.<$> ( x Core..:? "associatedPortalArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "associatedPortalArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "browserPolicy")
-            Prelude.<*> (x Core..: "browserSettingsArn")
+            Prelude.<*> (x Data..:? "browserPolicy")
+            Prelude.<*> (x Data..: "browserSettingsArn")
       )
 
 instance Prelude.Hashable BrowserSettings where

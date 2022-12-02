@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,23 +97,23 @@ instance Prelude.NFData DeleteUserSettings where
   rnf DeleteUserSettings' {..} =
     Prelude.rnf userSettingsArn
 
-instance Core.ToHeaders DeleteUserSettings where
+instance Data.ToHeaders DeleteUserSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteUserSettings where
+instance Data.ToPath DeleteUserSettings where
   toPath DeleteUserSettings' {..} =
     Prelude.mconcat
-      ["/userSettings/", Core.toBS userSettingsArn]
+      ["/userSettings/", Data.toBS userSettingsArn]
 
-instance Core.ToQuery DeleteUserSettings where
+instance Data.ToQuery DeleteUserSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserSettingsResponse' smart constructor.

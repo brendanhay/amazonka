@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,8 +102,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListUserAccessLoggingSettingsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "userAccessLoggingSettings"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "userAccessLoggingSettings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -121,25 +122,25 @@ instance Prelude.NFData ListUserAccessLoggingSettings where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListUserAccessLoggingSettings where
+instance Data.ToHeaders ListUserAccessLoggingSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListUserAccessLoggingSettings where
+instance Data.ToPath ListUserAccessLoggingSettings where
   toPath = Prelude.const "/userAccessLoggingSettings"
 
-instance Core.ToQuery ListUserAccessLoggingSettings where
+instance Data.ToQuery ListUserAccessLoggingSettings where
   toQuery ListUserAccessLoggingSettings' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListUserAccessLoggingSettingsResponse' smart constructor.

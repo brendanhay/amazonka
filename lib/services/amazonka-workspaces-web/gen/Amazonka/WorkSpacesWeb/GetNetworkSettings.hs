@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetNetworkSettings where
     Response.receiveJSON
       ( \s h x ->
           GetNetworkSettingsResponse'
-            Prelude.<$> (x Core..?> "networkSettings")
+            Prelude.<$> (x Data..?> "networkSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,23 +99,23 @@ instance Prelude.NFData GetNetworkSettings where
   rnf GetNetworkSettings' {..} =
     Prelude.rnf networkSettingsArn
 
-instance Core.ToHeaders GetNetworkSettings where
+instance Data.ToHeaders GetNetworkSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetNetworkSettings where
+instance Data.ToPath GetNetworkSettings where
   toPath GetNetworkSettings' {..} =
     Prelude.mconcat
-      ["/networkSettings/", Core.toBS networkSettingsArn]
+      ["/networkSettings/", Data.toBS networkSettingsArn]
 
-instance Core.ToQuery GetNetworkSettings where
+instance Data.ToQuery GetNetworkSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetNetworkSettingsResponse' smart constructor.

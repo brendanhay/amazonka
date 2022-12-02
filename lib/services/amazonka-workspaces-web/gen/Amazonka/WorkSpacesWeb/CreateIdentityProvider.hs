@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,9 +125,9 @@ data CreateIdentityProvider = CreateIdentityProvider'
     --     -   @MetadataFile@ OR @MetadataURL@
     --
     --     -   @IDPSignout@ (boolean) /optional/
-    identityProviderDetails :: Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text),
+    identityProviderDetails :: Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identity provider name.
-    identityProviderName :: Core.Sensitive Prelude.Text,
+    identityProviderName :: Data.Sensitive Prelude.Text,
     -- | The identity provider type.
     identityProviderType :: IdentityProviderType,
     -- | The ARN of the web portal.
@@ -236,7 +237,7 @@ newCreateIdentityProvider
           Prelude.Nothing,
         identityProviderDetails = Prelude.mempty,
         identityProviderName =
-          Core._Sensitive Lens.# pIdentityProviderName_,
+          Data._Sensitive Lens.# pIdentityProviderName_,
         identityProviderType = pIdentityProviderType_,
         portalArn = pPortalArn_
       }
@@ -315,11 +316,11 @@ createIdentityProvider_clientToken = Lens.lens (\CreateIdentityProvider' {client
 --
 --     -   @IDPSignout@ (boolean) /optional/
 createIdentityProvider_identityProviderDetails :: Lens.Lens' CreateIdentityProvider (Prelude.HashMap Prelude.Text Prelude.Text)
-createIdentityProvider_identityProviderDetails = Lens.lens (\CreateIdentityProvider' {identityProviderDetails} -> identityProviderDetails) (\s@CreateIdentityProvider' {} a -> s {identityProviderDetails = a} :: CreateIdentityProvider) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+createIdentityProvider_identityProviderDetails = Lens.lens (\CreateIdentityProvider' {identityProviderDetails} -> identityProviderDetails) (\s@CreateIdentityProvider' {} a -> s {identityProviderDetails = a} :: CreateIdentityProvider) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | The identity provider name.
 createIdentityProvider_identityProviderName :: Lens.Lens' CreateIdentityProvider Prelude.Text
-createIdentityProvider_identityProviderName = Lens.lens (\CreateIdentityProvider' {identityProviderName} -> identityProviderName) (\s@CreateIdentityProvider' {} a -> s {identityProviderName = a} :: CreateIdentityProvider) Prelude.. Core._Sensitive
+createIdentityProvider_identityProviderName = Lens.lens (\CreateIdentityProvider' {identityProviderName} -> identityProviderName) (\s@CreateIdentityProvider' {} a -> s {identityProviderName = a} :: CreateIdentityProvider) Prelude.. Data._Sensitive
 
 -- | The identity provider type.
 createIdentityProvider_identityProviderType :: Lens.Lens' CreateIdentityProvider IdentityProviderType
@@ -340,7 +341,7 @@ instance Core.AWSRequest CreateIdentityProvider where
       ( \s h x ->
           CreateIdentityProviderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "identityProviderArn")
+            Prelude.<*> (x Data..:> "identityProviderArn")
       )
 
 instance Prelude.Hashable CreateIdentityProvider where
@@ -359,42 +360,42 @@ instance Prelude.NFData CreateIdentityProvider where
       `Prelude.seq` Prelude.rnf identityProviderType
       `Prelude.seq` Prelude.rnf portalArn
 
-instance Core.ToHeaders CreateIdentityProvider where
+instance Data.ToHeaders CreateIdentityProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateIdentityProvider where
+instance Data.ToJSON CreateIdentityProvider where
   toJSON CreateIdentityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
               ( "identityProviderDetails"
-                  Core..= identityProviderDetails
+                  Data..= identityProviderDetails
               ),
             Prelude.Just
               ( "identityProviderName"
-                  Core..= identityProviderName
+                  Data..= identityProviderName
               ),
             Prelude.Just
               ( "identityProviderType"
-                  Core..= identityProviderType
+                  Data..= identityProviderType
               ),
-            Prelude.Just ("portalArn" Core..= portalArn)
+            Prelude.Just ("portalArn" Data..= portalArn)
           ]
       )
 
-instance Core.ToPath CreateIdentityProvider where
+instance Data.ToPath CreateIdentityProvider where
   toPath = Prelude.const "/identityProviders"
 
-instance Core.ToQuery CreateIdentityProvider where
+instance Data.ToQuery CreateIdentityProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIdentityProviderResponse' smart constructor.

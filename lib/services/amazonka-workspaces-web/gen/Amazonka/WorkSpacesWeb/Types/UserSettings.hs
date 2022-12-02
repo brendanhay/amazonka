@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.UserSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpacesWeb.Types.EnabledType
 
@@ -150,23 +151,23 @@ userSettings_uploadAllowed = Lens.lens (\UserSettings' {uploadAllowed} -> upload
 userSettings_userSettingsArn :: Lens.Lens' UserSettings Prelude.Text
 userSettings_userSettingsArn = Lens.lens (\UserSettings' {userSettingsArn} -> userSettingsArn) (\s@UserSettings' {} a -> s {userSettingsArn = a} :: UserSettings)
 
-instance Core.FromJSON UserSettings where
+instance Data.FromJSON UserSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserSettings"
       ( \x ->
           UserSettings'
-            Prelude.<$> (x Core..:? "printAllowed")
-            Prelude.<*> ( x Core..:? "associatedPortalArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "printAllowed")
+            Prelude.<*> ( x Data..:? "associatedPortalArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "idleDisconnectTimeoutInMinutes")
-            Prelude.<*> (x Core..:? "disconnectTimeoutInMinutes")
-            Prelude.<*> (x Core..:? "copyAllowed")
-            Prelude.<*> (x Core..:? "downloadAllowed")
-            Prelude.<*> (x Core..:? "pasteAllowed")
-            Prelude.<*> (x Core..:? "uploadAllowed")
-            Prelude.<*> (x Core..: "userSettingsArn")
+            Prelude.<*> (x Data..:? "idleDisconnectTimeoutInMinutes")
+            Prelude.<*> (x Data..:? "disconnectTimeoutInMinutes")
+            Prelude.<*> (x Data..:? "copyAllowed")
+            Prelude.<*> (x Data..:? "downloadAllowed")
+            Prelude.<*> (x Data..:? "pasteAllowed")
+            Prelude.<*> (x Data..:? "uploadAllowed")
+            Prelude.<*> (x Data..: "userSettingsArn")
       )
 
 instance Prelude.Hashable UserSettings where

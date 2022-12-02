@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -61,7 +62,7 @@ import Amazonka.WorkSpacesWeb.Types
 data CreateUserSettings = CreateUserSettings'
   { -- | The tags to add to the user settings resource. A tag is a key-value
     -- pair.
-    tags :: Prelude.Maybe [Core.Sensitive Tag],
+    tags :: Prelude.Maybe [Data.Sensitive Tag],
     -- | The amount of time that users can be idle (inactive) before they are
     -- disconnected from their streaming session and the disconnect timeout
     -- interval begins.
@@ -227,7 +228,7 @@ instance Core.AWSRequest CreateUserSettings where
       ( \s h x ->
           CreateUserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "userSettingsArn")
+            Prelude.<*> (x Data..:> "userSettingsArn")
       )
 
 instance Prelude.Hashable CreateUserSettings where
@@ -254,41 +255,41 @@ instance Prelude.NFData CreateUserSettings where
       `Prelude.seq` Prelude.rnf printAllowed
       `Prelude.seq` Prelude.rnf uploadAllowed
 
-instance Core.ToHeaders CreateUserSettings where
+instance Data.ToHeaders CreateUserSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUserSettings where
+instance Data.ToJSON CreateUserSettings where
   toJSON CreateUserSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("idleDisconnectTimeoutInMinutes" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("idleDisconnectTimeoutInMinutes" Data..=)
               Prelude.<$> idleDisconnectTimeoutInMinutes,
-            ("disconnectTimeoutInMinutes" Core..=)
+            ("disconnectTimeoutInMinutes" Data..=)
               Prelude.<$> disconnectTimeoutInMinutes,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("copyAllowed" Core..= copyAllowed),
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("copyAllowed" Data..= copyAllowed),
             Prelude.Just
-              ("downloadAllowed" Core..= downloadAllowed),
-            Prelude.Just ("pasteAllowed" Core..= pasteAllowed),
-            Prelude.Just ("printAllowed" Core..= printAllowed),
+              ("downloadAllowed" Data..= downloadAllowed),
+            Prelude.Just ("pasteAllowed" Data..= pasteAllowed),
+            Prelude.Just ("printAllowed" Data..= printAllowed),
             Prelude.Just
-              ("uploadAllowed" Core..= uploadAllowed)
+              ("uploadAllowed" Data..= uploadAllowed)
           ]
       )
 
-instance Core.ToPath CreateUserSettings where
+instance Data.ToPath CreateUserSettings where
   toPath = Prelude.const "/userSettings"
 
-instance Core.ToQuery CreateUserSettings where
+instance Data.ToQuery CreateUserSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserSettingsResponse' smart constructor.

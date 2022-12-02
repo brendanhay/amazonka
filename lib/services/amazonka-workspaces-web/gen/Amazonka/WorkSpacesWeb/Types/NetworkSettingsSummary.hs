@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.NetworkSettingsSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of network settings.
@@ -61,14 +62,14 @@ networkSettingsSummary_vpcId = Lens.lens (\NetworkSettingsSummary' {vpcId} -> vp
 networkSettingsSummary_networkSettingsArn :: Lens.Lens' NetworkSettingsSummary (Prelude.Maybe Prelude.Text)
 networkSettingsSummary_networkSettingsArn = Lens.lens (\NetworkSettingsSummary' {networkSettingsArn} -> networkSettingsArn) (\s@NetworkSettingsSummary' {} a -> s {networkSettingsArn = a} :: NetworkSettingsSummary)
 
-instance Core.FromJSON NetworkSettingsSummary where
+instance Data.FromJSON NetworkSettingsSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkSettingsSummary"
       ( \x ->
           NetworkSettingsSummary'
-            Prelude.<$> (x Core..:? "vpcId")
-            Prelude.<*> (x Core..:? "networkSettingsArn")
+            Prelude.<$> (x Data..:? "vpcId")
+            Prelude.<*> (x Data..:? "networkSettingsArn")
       )
 
 instance Prelude.Hashable NetworkSettingsSummary where

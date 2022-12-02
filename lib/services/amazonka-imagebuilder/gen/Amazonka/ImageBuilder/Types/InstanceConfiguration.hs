@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.InstanceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.InstanceBlockDeviceMapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,16 +74,16 @@ instanceConfiguration_blockDeviceMappings = Lens.lens (\InstanceConfiguration' {
 instanceConfiguration_image :: Lens.Lens' InstanceConfiguration (Prelude.Maybe Prelude.Text)
 instanceConfiguration_image = Lens.lens (\InstanceConfiguration' {image} -> image) (\s@InstanceConfiguration' {} a -> s {image = a} :: InstanceConfiguration)
 
-instance Core.FromJSON InstanceConfiguration where
+instance Data.FromJSON InstanceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceConfiguration"
       ( \x ->
           InstanceConfiguration'
-            Prelude.<$> ( x Core..:? "blockDeviceMappings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "blockDeviceMappings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "image")
+            Prelude.<*> (x Data..:? "image")
       )
 
 instance Prelude.Hashable InstanceConfiguration where
@@ -95,12 +96,12 @@ instance Prelude.NFData InstanceConfiguration where
     Prelude.rnf blockDeviceMappings
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToJSON InstanceConfiguration where
+instance Data.ToJSON InstanceConfiguration where
   toJSON InstanceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("blockDeviceMappings" Core..=)
+          [ ("blockDeviceMappings" Data..=)
               Prelude.<$> blockDeviceMappings,
-            ("image" Core..=) Prelude.<$> image
+            ("image" Data..=) Prelude.<$> image
           ]
       )

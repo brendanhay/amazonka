@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,8 +88,8 @@ instance Core.AWSRequest DeleteContainerRecipe where
     Response.receiveJSON
       ( \s h x ->
           DeleteContainerRecipeResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "containerRecipeArn")
+            Prelude.<$> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "containerRecipeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,24 +101,24 @@ instance Prelude.NFData DeleteContainerRecipe where
   rnf DeleteContainerRecipe' {..} =
     Prelude.rnf containerRecipeArn
 
-instance Core.ToHeaders DeleteContainerRecipe where
+instance Data.ToHeaders DeleteContainerRecipe where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteContainerRecipe where
+instance Data.ToPath DeleteContainerRecipe where
   toPath = Prelude.const "/DeleteContainerRecipe"
 
-instance Core.ToQuery DeleteContainerRecipe where
+instance Data.ToQuery DeleteContainerRecipe where
   toQuery DeleteContainerRecipe' {..} =
     Prelude.mconcat
-      ["containerRecipeArn" Core.=: containerRecipeArn]
+      ["containerRecipeArn" Data.=: containerRecipeArn]
 
 -- | /See:/ 'newDeleteContainerRecipeResponse' smart constructor.
 data DeleteContainerRecipeResponse = DeleteContainerRecipeResponse'

@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.DistributionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.Distribution
 import qualified Amazonka.Prelude as Prelude
 
@@ -121,20 +122,20 @@ distributionConfiguration_distributions = Lens.lens (\DistributionConfiguration'
 distributionConfiguration_timeoutMinutes :: Lens.Lens' DistributionConfiguration Prelude.Natural
 distributionConfiguration_timeoutMinutes = Lens.lens (\DistributionConfiguration' {timeoutMinutes} -> timeoutMinutes) (\s@DistributionConfiguration' {} a -> s {timeoutMinutes = a} :: DistributionConfiguration)
 
-instance Core.FromJSON DistributionConfiguration where
+instance Data.FromJSON DistributionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DistributionConfiguration"
       ( \x ->
           DistributionConfiguration'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "dateUpdated")
-            Prelude.<*> (x Core..:? "dateCreated")
-            Prelude.<*> (x Core..:? "distributions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "timeoutMinutes")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "dateUpdated")
+            Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "distributions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "timeoutMinutes")
       )
 
 instance Prelude.Hashable DistributionConfiguration where

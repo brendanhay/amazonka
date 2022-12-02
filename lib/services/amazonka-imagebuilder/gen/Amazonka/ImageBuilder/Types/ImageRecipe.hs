@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.ImageRecipe where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.AdditionalInstanceConfiguration
 import Amazonka.ImageBuilder.Types.ComponentConfiguration
 import Amazonka.ImageBuilder.Types.ImageType
@@ -192,28 +193,28 @@ imageRecipe_version = Lens.lens (\ImageRecipe' {version} -> version) (\s@ImageRe
 imageRecipe_workingDirectory :: Lens.Lens' ImageRecipe (Prelude.Maybe Prelude.Text)
 imageRecipe_workingDirectory = Lens.lens (\ImageRecipe' {workingDirectory} -> workingDirectory) (\s@ImageRecipe' {} a -> s {workingDirectory = a} :: ImageRecipe)
 
-instance Core.FromJSON ImageRecipe where
+instance Data.FromJSON ImageRecipe where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageRecipe"
       ( \x ->
           ImageRecipe'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "parentImage")
-            Prelude.<*> ( x Core..:? "blockDeviceMappings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "parentImage")
+            Prelude.<*> ( x Data..:? "blockDeviceMappings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "additionalInstanceConfiguration")
-            Prelude.<*> (x Core..:? "components")
-            Prelude.<*> (x Core..:? "dateCreated")
-            Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "workingDirectory")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "additionalInstanceConfiguration")
+            Prelude.<*> (x Data..:? "components")
+            Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "version")
+            Prelude.<*> (x Data..:? "workingDirectory")
       )
 
 instance Prelude.Hashable ImageRecipe where

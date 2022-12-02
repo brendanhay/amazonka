@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.InstanceMetadataOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The instance metadata options that apply to the HTTP requests that
@@ -104,14 +105,14 @@ instanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\InstanceMetadataOp
 instanceMetadataOptions_httpTokens :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe Prelude.Text)
 instanceMetadataOptions_httpTokens = Lens.lens (\InstanceMetadataOptions' {httpTokens} -> httpTokens) (\s@InstanceMetadataOptions' {} a -> s {httpTokens = a} :: InstanceMetadataOptions)
 
-instance Core.FromJSON InstanceMetadataOptions where
+instance Data.FromJSON InstanceMetadataOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceMetadataOptions"
       ( \x ->
           InstanceMetadataOptions'
-            Prelude.<$> (x Core..:? "httpPutResponseHopLimit")
-            Prelude.<*> (x Core..:? "httpTokens")
+            Prelude.<$> (x Data..:? "httpPutResponseHopLimit")
+            Prelude.<*> (x Data..:? "httpTokens")
       )
 
 instance Prelude.Hashable InstanceMetadataOptions where
@@ -125,12 +126,12 @@ instance Prelude.NFData InstanceMetadataOptions where
     Prelude.rnf httpPutResponseHopLimit
       `Prelude.seq` Prelude.rnf httpTokens
 
-instance Core.ToJSON InstanceMetadataOptions where
+instance Data.ToJSON InstanceMetadataOptions where
   toJSON InstanceMetadataOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("httpPutResponseHopLimit" Core..=)
+          [ ("httpPutResponseHopLimit" Data..=)
               Prelude.<$> httpPutResponseHopLimit,
-            ("httpTokens" Core..=) Prelude.<$> httpTokens
+            ("httpTokens" Data..=) Prelude.<$> httpTokens
           ]
       )

@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -288,9 +289,9 @@ instance Core.AWSRequest CreateComponent where
     Response.receiveJSON
       ( \s h x ->
           CreateComponentResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "componentBuildVersionArn")
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "componentBuildVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -322,42 +323,42 @@ instance Prelude.NFData CreateComponent where
       `Prelude.seq` Prelude.rnf platform
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateComponent where
+instance Data.ToHeaders CreateComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateComponent where
+instance Data.ToJSON CreateComponent where
   toJSON CreateComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("changeDescription" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("changeDescription" Data..=)
               Prelude.<$> changeDescription,
-            ("description" Core..=) Prelude.<$> description,
-            ("uri" Core..=) Prelude.<$> uri,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("data" Core..=) Prelude.<$> data',
-            ("supportedOsVersions" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("uri" Data..=) Prelude.<$> uri,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("data" Data..=) Prelude.<$> data',
+            ("supportedOsVersions" Data..=)
               Prelude.<$> supportedOsVersions,
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("semanticVersion" Core..= semanticVersion),
-            Prelude.Just ("platform" Core..= platform),
-            Prelude.Just ("clientToken" Core..= clientToken)
+              ("semanticVersion" Data..= semanticVersion),
+            Prelude.Just ("platform" Data..= platform),
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateComponent where
+instance Data.ToPath CreateComponent where
   toPath = Prelude.const "/CreateComponent"
 
-instance Core.ToQuery CreateComponent where
+instance Data.ToQuery CreateComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateComponentResponse' smart constructor.

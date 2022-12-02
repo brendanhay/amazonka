@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.InfrastructureConfigurationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The infrastructure used when building Amazon EC2 AMIs.
@@ -126,23 +127,23 @@ infrastructureConfigurationSummary_dateCreated :: Lens.Lens' InfrastructureConfi
 infrastructureConfigurationSummary_dateCreated = Lens.lens (\InfrastructureConfigurationSummary' {dateCreated} -> dateCreated) (\s@InfrastructureConfigurationSummary' {} a -> s {dateCreated = a} :: InfrastructureConfigurationSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InfrastructureConfigurationSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InfrastructureConfigurationSummary"
       ( \x ->
           InfrastructureConfigurationSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "instanceProfileName")
-            Prelude.<*> (x Core..:? "instanceTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "resourceTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "dateUpdated")
-            Prelude.<*> (x Core..:? "dateCreated")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "instanceProfileName")
+            Prelude.<*> (x Data..:? "instanceTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "resourceTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "dateUpdated")
+            Prelude.<*> (x Data..:? "dateCreated")
       )
 
 instance

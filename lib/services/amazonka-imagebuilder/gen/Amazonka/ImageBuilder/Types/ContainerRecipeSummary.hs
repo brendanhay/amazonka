@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.ContainerRecipeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.ContainerType
 import Amazonka.ImageBuilder.Types.Platform
 import qualified Amazonka.Prelude as Prelude
@@ -117,20 +118,20 @@ containerRecipeSummary_platform = Lens.lens (\ContainerRecipeSummary' {platform}
 containerRecipeSummary_dateCreated :: Lens.Lens' ContainerRecipeSummary (Prelude.Maybe Prelude.Text)
 containerRecipeSummary_dateCreated = Lens.lens (\ContainerRecipeSummary' {dateCreated} -> dateCreated) (\s@ContainerRecipeSummary' {} a -> s {dateCreated = a} :: ContainerRecipeSummary)
 
-instance Core.FromJSON ContainerRecipeSummary where
+instance Data.FromJSON ContainerRecipeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerRecipeSummary"
       ( \x ->
           ContainerRecipeSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "containerType")
-            Prelude.<*> (x Core..:? "parentImage")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "dateCreated")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "containerType")
+            Prelude.<*> (x Data..:? "parentImage")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "dateCreated")
       )
 
 instance Prelude.Hashable ContainerRecipeSummary where

@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.InstanceBlockDeviceMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,16 +82,16 @@ instanceBlockDeviceMapping_noDevice = Lens.lens (\InstanceBlockDeviceMapping' {n
 instanceBlockDeviceMapping_virtualName :: Lens.Lens' InstanceBlockDeviceMapping (Prelude.Maybe Prelude.Text)
 instanceBlockDeviceMapping_virtualName = Lens.lens (\InstanceBlockDeviceMapping' {virtualName} -> virtualName) (\s@InstanceBlockDeviceMapping' {} a -> s {virtualName = a} :: InstanceBlockDeviceMapping)
 
-instance Core.FromJSON InstanceBlockDeviceMapping where
+instance Data.FromJSON InstanceBlockDeviceMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceBlockDeviceMapping"
       ( \x ->
           InstanceBlockDeviceMapping'
-            Prelude.<$> (x Core..:? "ebs")
-            Prelude.<*> (x Core..:? "deviceName")
-            Prelude.<*> (x Core..:? "noDevice")
-            Prelude.<*> (x Core..:? "virtualName")
+            Prelude.<$> (x Data..:? "ebs")
+            Prelude.<*> (x Data..:? "deviceName")
+            Prelude.<*> (x Data..:? "noDevice")
+            Prelude.<*> (x Data..:? "virtualName")
       )
 
 instance Prelude.Hashable InstanceBlockDeviceMapping where
@@ -107,13 +108,13 @@ instance Prelude.NFData InstanceBlockDeviceMapping where
       `Prelude.seq` Prelude.rnf noDevice
       `Prelude.seq` Prelude.rnf virtualName
 
-instance Core.ToJSON InstanceBlockDeviceMapping where
+instance Data.ToJSON InstanceBlockDeviceMapping where
   toJSON InstanceBlockDeviceMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ebs" Core..=) Prelude.<$> ebs,
-            ("deviceName" Core..=) Prelude.<$> deviceName,
-            ("noDevice" Core..=) Prelude.<$> noDevice,
-            ("virtualName" Core..=) Prelude.<$> virtualName
+          [ ("ebs" Data..=) Prelude.<$> ebs,
+            ("deviceName" Data..=) Prelude.<$> deviceName,
+            ("noDevice" Data..=) Prelude.<$> noDevice,
+            ("virtualName" Data..=) Prelude.<$> virtualName
           ]
       )

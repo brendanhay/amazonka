@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.LaunchTemplateConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies an Amazon EC2 launch template to use for a specific account.
@@ -76,15 +77,15 @@ launchTemplateConfiguration_setDefaultVersion = Lens.lens (\LaunchTemplateConfig
 launchTemplateConfiguration_launchTemplateId :: Lens.Lens' LaunchTemplateConfiguration Prelude.Text
 launchTemplateConfiguration_launchTemplateId = Lens.lens (\LaunchTemplateConfiguration' {launchTemplateId} -> launchTemplateId) (\s@LaunchTemplateConfiguration' {} a -> s {launchTemplateId = a} :: LaunchTemplateConfiguration)
 
-instance Core.FromJSON LaunchTemplateConfiguration where
+instance Data.FromJSON LaunchTemplateConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchTemplateConfiguration"
       ( \x ->
           LaunchTemplateConfiguration'
-            Prelude.<$> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "setDefaultVersion")
-            Prelude.<*> (x Core..: "launchTemplateId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "setDefaultVersion")
+            Prelude.<*> (x Data..: "launchTemplateId")
       )
 
 instance Prelude.Hashable LaunchTemplateConfiguration where
@@ -99,14 +100,14 @@ instance Prelude.NFData LaunchTemplateConfiguration where
       `Prelude.seq` Prelude.rnf setDefaultVersion
       `Prelude.seq` Prelude.rnf launchTemplateId
 
-instance Core.ToJSON LaunchTemplateConfiguration where
+instance Data.ToJSON LaunchTemplateConfiguration where
   toJSON LaunchTemplateConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accountId" Core..=) Prelude.<$> accountId,
-            ("setDefaultVersion" Core..=)
+          [ ("accountId" Data..=) Prelude.<$> accountId,
+            ("setDefaultVersion" Data..=)
               Prelude.<$> setDefaultVersion,
             Prelude.Just
-              ("launchTemplateId" Core..= launchTemplateId)
+              ("launchTemplateId" Data..= launchTemplateId)
           ]
       )

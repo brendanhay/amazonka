@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -246,9 +247,9 @@ instance Core.AWSRequest ImportVmImage where
     Response.receiveJSON
       ( \s h x ->
           ImportVmImageResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "imageArn")
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "imageArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -274,38 +275,38 @@ instance Prelude.NFData ImportVmImage where
       `Prelude.seq` Prelude.rnf vmImportTaskId
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders ImportVmImage where
+instance Data.ToHeaders ImportVmImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportVmImage where
+instance Data.ToJSON ImportVmImage where
   toJSON ImportVmImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("osVersion" Core..=) Prelude.<$> osVersion,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("osVersion" Data..=) Prelude.<$> osVersion,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("semanticVersion" Core..= semanticVersion),
-            Prelude.Just ("platform" Core..= platform),
+              ("semanticVersion" Data..= semanticVersion),
+            Prelude.Just ("platform" Data..= platform),
             Prelude.Just
-              ("vmImportTaskId" Core..= vmImportTaskId),
-            Prelude.Just ("clientToken" Core..= clientToken)
+              ("vmImportTaskId" Data..= vmImportTaskId),
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath ImportVmImage where
+instance Data.ToPath ImportVmImage where
   toPath = Prelude.const "/ImportVmImage"
 
-instance Core.ToQuery ImportVmImage where
+instance Data.ToQuery ImportVmImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportVmImageResponse' smart constructor.

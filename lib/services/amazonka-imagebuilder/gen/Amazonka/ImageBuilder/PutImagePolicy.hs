@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,8 +108,8 @@ instance Core.AWSRequest PutImagePolicy where
     Response.receiveJSON
       ( \s h x ->
           PutImagePolicyResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "imageArn")
+            Prelude.<$> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "imageArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,30 +123,30 @@ instance Prelude.NFData PutImagePolicy where
     Prelude.rnf imageArn
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders PutImagePolicy where
+instance Data.ToHeaders PutImagePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutImagePolicy where
+instance Data.ToJSON PutImagePolicy where
   toJSON PutImagePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("imageArn" Core..= imageArn),
-            Prelude.Just ("policy" Core..= policy)
+          [ Prelude.Just ("imageArn" Data..= imageArn),
+            Prelude.Just ("policy" Data..= policy)
           ]
       )
 
-instance Core.ToPath PutImagePolicy where
+instance Data.ToPath PutImagePolicy where
   toPath = Prelude.const "/PutImagePolicy"
 
-instance Core.ToQuery PutImagePolicy where
+instance Data.ToQuery PutImagePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutImagePolicyResponse' smart constructor.

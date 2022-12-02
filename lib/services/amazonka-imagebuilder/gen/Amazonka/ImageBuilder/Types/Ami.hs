@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.Ami where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.ImageState
 import qualified Amazonka.Prelude as Prelude
 
@@ -100,18 +101,18 @@ ami_accountId = Lens.lens (\Ami' {accountId} -> accountId) (\s@Ami' {} a -> s {a
 ami_image :: Lens.Lens' Ami (Prelude.Maybe Prelude.Text)
 ami_image = Lens.lens (\Ami' {image} -> image) (\s@Ami' {} a -> s {image = a} :: Ami)
 
-instance Core.FromJSON Ami where
+instance Data.FromJSON Ami where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Ami"
       ( \x ->
           Ami'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "image")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "image")
       )
 
 instance Prelude.Hashable Ami where

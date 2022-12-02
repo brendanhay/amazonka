@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -187,11 +188,11 @@ instance Core.AWSRequest ListComponents where
     Response.receiveJSON
       ( \s h x ->
           ListComponentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "componentVersionList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "componentVersionList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "requestId")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,33 +212,33 @@ instance Prelude.NFData ListComponents where
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListComponents where
+instance Data.ToHeaders ListComponents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListComponents where
+instance Data.ToJSON ListComponents where
   toJSON ListComponents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("byName" Core..=) Prelude.<$> byName,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("owner" Core..=) Prelude.<$> owner,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("byName" Data..=) Prelude.<$> byName,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("owner" Data..=) Prelude.<$> owner,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListComponents where
+instance Data.ToPath ListComponents where
   toPath = Prelude.const "/ListComponents"
 
-instance Core.ToQuery ListComponents where
+instance Data.ToQuery ListComponents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListComponentsResponse' smart constructor.

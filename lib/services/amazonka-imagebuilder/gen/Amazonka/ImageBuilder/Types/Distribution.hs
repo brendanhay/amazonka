@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.Distribution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.AmiDistributionConfiguration
 import Amazonka.ImageBuilder.Types.ContainerDistributionConfiguration
 import Amazonka.ImageBuilder.Types.FastLaunchConfiguration
@@ -129,19 +130,19 @@ distribution_containerDistributionConfiguration = Lens.lens (\Distribution' {con
 distribution_region :: Lens.Lens' Distribution Prelude.Text
 distribution_region = Lens.lens (\Distribution' {region} -> region) (\s@Distribution' {} a -> s {region = a} :: Distribution)
 
-instance Core.FromJSON Distribution where
+instance Data.FromJSON Distribution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Distribution"
       ( \x ->
           Distribution'
-            Prelude.<$> (x Core..:? "amiDistributionConfiguration")
-            Prelude.<*> (x Core..:? "licenseConfigurationArns")
-            Prelude.<*> (x Core..:? "s3ExportConfiguration")
-            Prelude.<*> (x Core..:? "fastLaunchConfigurations")
-            Prelude.<*> (x Core..:? "launchTemplateConfigurations")
-            Prelude.<*> (x Core..:? "containerDistributionConfiguration")
-            Prelude.<*> (x Core..: "region")
+            Prelude.<$> (x Data..:? "amiDistributionConfiguration")
+            Prelude.<*> (x Data..:? "licenseConfigurationArns")
+            Prelude.<*> (x Data..:? "s3ExportConfiguration")
+            Prelude.<*> (x Data..:? "fastLaunchConfigurations")
+            Prelude.<*> (x Data..:? "launchTemplateConfigurations")
+            Prelude.<*> (x Data..:? "containerDistributionConfiguration")
+            Prelude.<*> (x Data..: "region")
       )
 
 instance Prelude.Hashable Distribution where
@@ -165,22 +166,22 @@ instance Prelude.NFData Distribution where
       `Prelude.seq` Prelude.rnf containerDistributionConfiguration
       `Prelude.seq` Prelude.rnf region
 
-instance Core.ToJSON Distribution where
+instance Data.ToJSON Distribution where
   toJSON Distribution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("amiDistributionConfiguration" Core..=)
+          [ ("amiDistributionConfiguration" Data..=)
               Prelude.<$> amiDistributionConfiguration,
-            ("licenseConfigurationArns" Core..=)
+            ("licenseConfigurationArns" Data..=)
               Prelude.<$> licenseConfigurationArns,
-            ("s3ExportConfiguration" Core..=)
+            ("s3ExportConfiguration" Data..=)
               Prelude.<$> s3ExportConfiguration,
-            ("fastLaunchConfigurations" Core..=)
+            ("fastLaunchConfigurations" Data..=)
               Prelude.<$> fastLaunchConfigurations,
-            ("launchTemplateConfigurations" Core..=)
+            ("launchTemplateConfigurations" Data..=)
               Prelude.<$> launchTemplateConfigurations,
-            ("containerDistributionConfiguration" Core..=)
+            ("containerDistributionConfiguration" Data..=)
               Prelude.<$> containerDistributionConfiguration,
-            Prelude.Just ("region" Core..= region)
+            Prelude.Just ("region" Data..= region)
           ]
       )

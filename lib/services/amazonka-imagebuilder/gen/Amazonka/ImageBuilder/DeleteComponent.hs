@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,8 +88,8 @@ instance Core.AWSRequest DeleteComponent where
     Response.receiveJSON
       ( \s h x ->
           DeleteComponentResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "componentBuildVersionArn")
+            Prelude.<$> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "componentBuildVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,25 +102,25 @@ instance Prelude.NFData DeleteComponent where
   rnf DeleteComponent' {..} =
     Prelude.rnf componentBuildVersionArn
 
-instance Core.ToHeaders DeleteComponent where
+instance Data.ToHeaders DeleteComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteComponent where
+instance Data.ToPath DeleteComponent where
   toPath = Prelude.const "/DeleteComponent"
 
-instance Core.ToQuery DeleteComponent where
+instance Data.ToQuery DeleteComponent where
   toQuery DeleteComponent' {..} =
     Prelude.mconcat
       [ "componentBuildVersionArn"
-          Core.=: componentBuildVersionArn
+          Data.=: componentBuildVersionArn
       ]
 
 -- | /See:/ 'newDeleteComponentResponse' smart constructor.

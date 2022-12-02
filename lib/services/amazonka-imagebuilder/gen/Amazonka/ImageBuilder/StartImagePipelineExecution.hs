@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,9 +106,9 @@ instance Core.AWSRequest StartImagePipelineExecution where
     Response.receiveJSON
       ( \s h x ->
           StartImagePipelineExecutionResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "imageBuildVersionArn")
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "imageBuildVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,31 +122,31 @@ instance Prelude.NFData StartImagePipelineExecution where
     Prelude.rnf imagePipelineArn
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders StartImagePipelineExecution where
+instance Data.ToHeaders StartImagePipelineExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartImagePipelineExecution where
+instance Data.ToJSON StartImagePipelineExecution where
   toJSON StartImagePipelineExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("imagePipelineArn" Core..= imagePipelineArn),
-            Prelude.Just ("clientToken" Core..= clientToken)
+              ("imagePipelineArn" Data..= imagePipelineArn),
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath StartImagePipelineExecution where
+instance Data.ToPath StartImagePipelineExecution where
   toPath = Prelude.const "/StartImagePipelineExecution"
 
-instance Core.ToQuery StartImagePipelineExecution where
+instance Data.ToQuery StartImagePipelineExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartImagePipelineExecutionResponse' smart constructor.

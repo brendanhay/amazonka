@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.InfrastructureConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.InstanceMetadataOptions
 import Amazonka.ImageBuilder.Types.Logging
 import qualified Amazonka.Prelude as Prelude
@@ -214,30 +215,30 @@ infrastructureConfiguration_dateCreated = Lens.lens (\InfrastructureConfiguratio
 infrastructureConfiguration_terminateInstanceOnFailure :: Lens.Lens' InfrastructureConfiguration (Prelude.Maybe Prelude.Bool)
 infrastructureConfiguration_terminateInstanceOnFailure = Lens.lens (\InfrastructureConfiguration' {terminateInstanceOnFailure} -> terminateInstanceOnFailure) (\s@InfrastructureConfiguration' {} a -> s {terminateInstanceOnFailure = a} :: InfrastructureConfiguration)
 
-instance Core.FromJSON InfrastructureConfiguration where
+instance Data.FromJSON InfrastructureConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InfrastructureConfiguration"
       ( \x ->
           InfrastructureConfiguration'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "instanceProfileName")
-            Prelude.<*> (x Core..:? "instanceTypes" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "securityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "instanceProfileName")
+            Prelude.<*> (x Data..:? "instanceTypes" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "securityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "subnetId")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "resourceTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "keyPair")
-            Prelude.<*> (x Core..:? "logging")
-            Prelude.<*> (x Core..:? "snsTopicArn")
-            Prelude.<*> (x Core..:? "instanceMetadataOptions")
-            Prelude.<*> (x Core..:? "dateUpdated")
-            Prelude.<*> (x Core..:? "dateCreated")
-            Prelude.<*> (x Core..:? "terminateInstanceOnFailure")
+            Prelude.<*> (x Data..:? "subnetId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "resourceTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "keyPair")
+            Prelude.<*> (x Data..:? "logging")
+            Prelude.<*> (x Data..:? "snsTopicArn")
+            Prelude.<*> (x Data..:? "instanceMetadataOptions")
+            Prelude.<*> (x Data..:? "dateUpdated")
+            Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "terminateInstanceOnFailure")
       )
 
 instance Prelude.Hashable InfrastructureConfiguration where

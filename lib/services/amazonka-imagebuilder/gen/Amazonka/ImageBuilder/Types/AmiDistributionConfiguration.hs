@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.AmiDistributionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.LaunchPermissionConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -105,18 +106,18 @@ amiDistributionConfiguration_amiTags = Lens.lens (\AmiDistributionConfiguration'
 amiDistributionConfiguration_kmsKeyId :: Lens.Lens' AmiDistributionConfiguration (Prelude.Maybe Prelude.Text)
 amiDistributionConfiguration_kmsKeyId = Lens.lens (\AmiDistributionConfiguration' {kmsKeyId} -> kmsKeyId) (\s@AmiDistributionConfiguration' {} a -> s {kmsKeyId = a} :: AmiDistributionConfiguration)
 
-instance Core.FromJSON AmiDistributionConfiguration where
+instance Data.FromJSON AmiDistributionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AmiDistributionConfiguration"
       ( \x ->
           AmiDistributionConfiguration'
-            Prelude.<$> (x Core..:? "launchPermission")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "targetAccountIds")
-            Prelude.<*> (x Core..:? "amiTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "kmsKeyId")
+            Prelude.<$> (x Data..:? "launchPermission")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "targetAccountIds")
+            Prelude.<*> (x Data..:? "amiTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "kmsKeyId")
       )
 
 instance
@@ -140,17 +141,17 @@ instance Prelude.NFData AmiDistributionConfiguration where
       `Prelude.seq` Prelude.rnf amiTags
       `Prelude.seq` Prelude.rnf kmsKeyId
 
-instance Core.ToJSON AmiDistributionConfiguration where
+instance Data.ToJSON AmiDistributionConfiguration where
   toJSON AmiDistributionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("launchPermission" Core..=)
+          [ ("launchPermission" Data..=)
               Prelude.<$> launchPermission,
-            ("name" Core..=) Prelude.<$> name,
-            ("description" Core..=) Prelude.<$> description,
-            ("targetAccountIds" Core..=)
+            ("name" Data..=) Prelude.<$> name,
+            ("description" Data..=) Prelude.<$> description,
+            ("targetAccountIds" Data..=)
               Prelude.<$> targetAccountIds,
-            ("amiTags" Core..=) Prelude.<$> amiTags,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId
+            ("amiTags" Data..=) Prelude.<$> amiTags,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId
           ]
       )

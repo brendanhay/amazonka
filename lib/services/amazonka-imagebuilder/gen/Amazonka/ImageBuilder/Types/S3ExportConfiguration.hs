@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.S3ExportConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.DiskImageFormat
 import qualified Amazonka.Prelude as Prelude
 
@@ -123,16 +124,16 @@ s3ExportConfiguration_diskImageFormat = Lens.lens (\S3ExportConfiguration' {disk
 s3ExportConfiguration_s3Bucket :: Lens.Lens' S3ExportConfiguration Prelude.Text
 s3ExportConfiguration_s3Bucket = Lens.lens (\S3ExportConfiguration' {s3Bucket} -> s3Bucket) (\s@S3ExportConfiguration' {} a -> s {s3Bucket = a} :: S3ExportConfiguration)
 
-instance Core.FromJSON S3ExportConfiguration where
+instance Data.FromJSON S3ExportConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ExportConfiguration"
       ( \x ->
           S3ExportConfiguration'
-            Prelude.<$> (x Core..:? "s3Prefix")
-            Prelude.<*> (x Core..: "roleName")
-            Prelude.<*> (x Core..: "diskImageFormat")
-            Prelude.<*> (x Core..: "s3Bucket")
+            Prelude.<$> (x Data..:? "s3Prefix")
+            Prelude.<*> (x Data..: "roleName")
+            Prelude.<*> (x Data..: "diskImageFormat")
+            Prelude.<*> (x Data..: "s3Bucket")
       )
 
 instance Prelude.Hashable S3ExportConfiguration where
@@ -149,14 +150,14 @@ instance Prelude.NFData S3ExportConfiguration where
       `Prelude.seq` Prelude.rnf diskImageFormat
       `Prelude.seq` Prelude.rnf s3Bucket
 
-instance Core.ToJSON S3ExportConfiguration where
+instance Data.ToJSON S3ExportConfiguration where
   toJSON S3ExportConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3Prefix" Core..=) Prelude.<$> s3Prefix,
-            Prelude.Just ("roleName" Core..= roleName),
+          [ ("s3Prefix" Data..=) Prelude.<$> s3Prefix,
+            Prelude.Just ("roleName" Data..= roleName),
             Prelude.Just
-              ("diskImageFormat" Core..= diskImageFormat),
-            Prelude.Just ("s3Bucket" Core..= s3Bucket)
+              ("diskImageFormat" Data..= diskImageFormat),
+            Prelude.Just ("s3Bucket" Data..= s3Bucket)
           ]
       )

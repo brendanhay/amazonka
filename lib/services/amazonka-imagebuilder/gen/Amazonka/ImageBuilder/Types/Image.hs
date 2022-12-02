@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.Image where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.BuildType
 import Amazonka.ImageBuilder.Types.ContainerRecipe
 import Amazonka.ImageBuilder.Types.DistributionConfiguration
@@ -369,31 +370,31 @@ image_buildType = Lens.lens (\Image' {buildType} -> buildType) (\s@Image' {} a -
 image_version :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_version = Lens.lens (\Image' {version} -> version) (\s@Image' {} a -> s {version = a} :: Image)
 
-instance Core.FromJSON Image where
+instance Data.FromJSON Image where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Image"
       ( \x ->
           Image'
-            Prelude.<$> (x Core..:? "enhancedImageMetadataEnabled")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "imageTestsConfiguration")
-            Prelude.<*> (x Core..:? "sourcePipelineArn")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "osVersion")
-            Prelude.<*> (x Core..:? "containerRecipe")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "distributionConfiguration")
-            Prelude.<*> (x Core..:? "imageRecipe")
-            Prelude.<*> (x Core..:? "outputResources")
-            Prelude.<*> (x Core..:? "sourcePipelineName")
-            Prelude.<*> (x Core..:? "dateCreated")
-            Prelude.<*> (x Core..:? "infrastructureConfiguration")
-            Prelude.<*> (x Core..:? "buildType")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "enhancedImageMetadataEnabled")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "imageTestsConfiguration")
+            Prelude.<*> (x Data..:? "sourcePipelineArn")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "osVersion")
+            Prelude.<*> (x Data..:? "containerRecipe")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "distributionConfiguration")
+            Prelude.<*> (x Data..:? "imageRecipe")
+            Prelude.<*> (x Data..:? "outputResources")
+            Prelude.<*> (x Data..:? "sourcePipelineName")
+            Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "infrastructureConfiguration")
+            Prelude.<*> (x Data..:? "buildType")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable Image where

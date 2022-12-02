@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -185,9 +186,9 @@ instance Core.AWSRequest CreateImage where
     Response.receiveJSON
       ( \s h x ->
           CreateImageResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "imageBuildVersionArn")
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "imageBuildVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -214,44 +215,44 @@ instance Prelude.NFData CreateImage where
       `Prelude.seq` Prelude.rnf infrastructureConfigurationArn
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateImage where
+instance Data.ToHeaders CreateImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateImage where
+instance Data.ToJSON CreateImage where
   toJSON CreateImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("enhancedImageMetadataEnabled" Core..=)
+          [ ("enhancedImageMetadataEnabled" Data..=)
               Prelude.<$> enhancedImageMetadataEnabled,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("imageTestsConfiguration" Core..=)
+            ("tags" Data..=) Prelude.<$> tags,
+            ("imageTestsConfiguration" Data..=)
               Prelude.<$> imageTestsConfiguration,
-            ("imageRecipeArn" Core..=)
+            ("imageRecipeArn" Data..=)
               Prelude.<$> imageRecipeArn,
-            ("containerRecipeArn" Core..=)
+            ("containerRecipeArn" Data..=)
               Prelude.<$> containerRecipeArn,
-            ("distributionConfigurationArn" Core..=)
+            ("distributionConfigurationArn" Data..=)
               Prelude.<$> distributionConfigurationArn,
             Prelude.Just
               ( "infrastructureConfigurationArn"
-                  Core..= infrastructureConfigurationArn
+                  Data..= infrastructureConfigurationArn
               ),
-            Prelude.Just ("clientToken" Core..= clientToken)
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateImage where
+instance Data.ToPath CreateImage where
   toPath = Prelude.const "/CreateImage"
 
-instance Core.ToQuery CreateImage where
+instance Data.ToQuery CreateImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateImageResponse' smart constructor.

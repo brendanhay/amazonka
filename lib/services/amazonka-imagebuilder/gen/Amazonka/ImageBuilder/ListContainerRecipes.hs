@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,9 +152,9 @@ instance Core.AWSRequest ListContainerRecipes where
     Response.receiveJSON
       ( \s h x ->
           ListContainerRecipesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "requestId")
-            Prelude.<*> ( x Core..?> "containerRecipeSummaryList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> ( x Data..?> "containerRecipeSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -173,32 +174,32 @@ instance Prelude.NFData ListContainerRecipes where
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListContainerRecipes where
+instance Data.ToHeaders ListContainerRecipes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListContainerRecipes where
+instance Data.ToJSON ListContainerRecipes where
   toJSON ListContainerRecipes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("owner" Core..=) Prelude.<$> owner,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("owner" Data..=) Prelude.<$> owner,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListContainerRecipes where
+instance Data.ToPath ListContainerRecipes where
   toPath = Prelude.const "/ListContainerRecipes"
 
-instance Core.ToQuery ListContainerRecipes where
+instance Data.ToQuery ListContainerRecipes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListContainerRecipesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.ComponentState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.ComponentStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ componentState_status = Lens.lens (\ComponentState' {status} -> status) (\s@Comp
 componentState_reason :: Lens.Lens' ComponentState (Prelude.Maybe Prelude.Text)
 componentState_reason = Lens.lens (\ComponentState' {reason} -> reason) (\s@ComponentState' {} a -> s {reason = a} :: ComponentState)
 
-instance Core.FromJSON ComponentState where
+instance Data.FromJSON ComponentState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentState"
       ( \x ->
           ComponentState'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "reason")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "reason")
       )
 
 instance Prelude.Hashable ComponentState where

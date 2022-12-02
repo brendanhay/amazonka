@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,8 +91,8 @@ instance Core.AWSRequest GetImagePipeline where
     Response.receiveJSON
       ( \s h x ->
           GetImagePipelineResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "imagePipeline")
+            Prelude.<$> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "imagePipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,24 +104,24 @@ instance Prelude.NFData GetImagePipeline where
   rnf GetImagePipeline' {..} =
     Prelude.rnf imagePipelineArn
 
-instance Core.ToHeaders GetImagePipeline where
+instance Data.ToHeaders GetImagePipeline where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetImagePipeline where
+instance Data.ToPath GetImagePipeline where
   toPath = Prelude.const "/GetImagePipeline"
 
-instance Core.ToQuery GetImagePipeline where
+instance Data.ToQuery GetImagePipeline where
   toQuery GetImagePipeline' {..} =
     Prelude.mconcat
-      ["imagePipelineArn" Core.=: imagePipelineArn]
+      ["imagePipelineArn" Data.=: imagePipelineArn]
 
 -- | /See:/ 'newGetImagePipelineResponse' smart constructor.
 data GetImagePipelineResponse = GetImagePipelineResponse'

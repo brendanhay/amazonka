@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.LaunchPermissionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for a launch permission. The launch
@@ -102,16 +103,16 @@ launchPermissionConfiguration_userIds = Lens.lens (\LaunchPermissionConfiguratio
 launchPermissionConfiguration_organizationalUnitArns :: Lens.Lens' LaunchPermissionConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 launchPermissionConfiguration_organizationalUnitArns = Lens.lens (\LaunchPermissionConfiguration' {organizationalUnitArns} -> organizationalUnitArns) (\s@LaunchPermissionConfiguration' {} a -> s {organizationalUnitArns = a} :: LaunchPermissionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LaunchPermissionConfiguration where
+instance Data.FromJSON LaunchPermissionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchPermissionConfiguration"
       ( \x ->
           LaunchPermissionConfiguration'
-            Prelude.<$> (x Core..:? "userGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "organizationArns")
-            Prelude.<*> (x Core..:? "userIds")
-            Prelude.<*> (x Core..:? "organizationalUnitArns")
+            Prelude.<$> (x Data..:? "userGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "organizationArns")
+            Prelude.<*> (x Data..:? "userIds")
+            Prelude.<*> (x Data..:? "organizationalUnitArns")
       )
 
 instance
@@ -131,15 +132,15 @@ instance Prelude.NFData LaunchPermissionConfiguration where
       `Prelude.seq` Prelude.rnf userIds
       `Prelude.seq` Prelude.rnf organizationalUnitArns
 
-instance Core.ToJSON LaunchPermissionConfiguration where
+instance Data.ToJSON LaunchPermissionConfiguration where
   toJSON LaunchPermissionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("userGroups" Core..=) Prelude.<$> userGroups,
-            ("organizationArns" Core..=)
+          [ ("userGroups" Data..=) Prelude.<$> userGroups,
+            ("organizationArns" Data..=)
               Prelude.<$> organizationArns,
-            ("userIds" Core..=) Prelude.<$> userIds,
-            ("organizationalUnitArns" Core..=)
+            ("userIds" Data..=) Prelude.<$> userIds,
+            ("organizationalUnitArns" Data..=)
               Prelude.<$> organizationalUnitArns
           ]
       )

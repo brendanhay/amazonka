@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,9 +149,9 @@ instance Core.AWSRequest ListImageRecipes where
     Response.receiveJSON
       ( \s h x ->
           ListImageRecipesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "requestId")
-            Prelude.<*> ( x Core..?> "imageRecipeSummaryList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> ( x Data..?> "imageRecipeSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -170,32 +171,32 @@ instance Prelude.NFData ListImageRecipes where
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListImageRecipes where
+instance Data.ToHeaders ListImageRecipes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListImageRecipes where
+instance Data.ToJSON ListImageRecipes where
   toJSON ListImageRecipes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("owner" Core..=) Prelude.<$> owner,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("owner" Data..=) Prelude.<$> owner,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListImageRecipes where
+instance Data.ToPath ListImageRecipes where
   toPath = Prelude.const "/ListImageRecipes"
 
-instance Core.ToQuery ListImageRecipes where
+instance Data.ToQuery ListImageRecipes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListImageRecipesResponse' smart constructor.

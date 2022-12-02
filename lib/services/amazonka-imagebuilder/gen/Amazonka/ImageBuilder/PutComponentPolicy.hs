@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,8 +108,8 @@ instance Core.AWSRequest PutComponentPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutComponentPolicyResponse'
-            Prelude.<$> (x Core..?> "componentArn")
-            Prelude.<*> (x Core..?> "requestId")
+            Prelude.<$> (x Data..?> "componentArn")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,30 +123,30 @@ instance Prelude.NFData PutComponentPolicy where
     Prelude.rnf componentArn
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders PutComponentPolicy where
+instance Data.ToHeaders PutComponentPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutComponentPolicy where
+instance Data.ToJSON PutComponentPolicy where
   toJSON PutComponentPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("componentArn" Core..= componentArn),
-            Prelude.Just ("policy" Core..= policy)
+          [ Prelude.Just ("componentArn" Data..= componentArn),
+            Prelude.Just ("policy" Data..= policy)
           ]
       )
 
-instance Core.ToPath PutComponentPolicy where
+instance Data.ToPath PutComponentPolicy where
   toPath = Prelude.const "/PutComponentPolicy"
 
-instance Core.ToQuery PutComponentPolicy where
+instance Data.ToQuery PutComponentPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutComponentPolicyResponse' smart constructor.

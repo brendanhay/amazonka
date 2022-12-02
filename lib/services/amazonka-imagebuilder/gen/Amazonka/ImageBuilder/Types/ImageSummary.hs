@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.ImageSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.BuildType
 import Amazonka.ImageBuilder.Types.ImageState
 import Amazonka.ImageBuilder.Types.ImageType
@@ -186,24 +187,24 @@ imageSummary_buildType = Lens.lens (\ImageSummary' {buildType} -> buildType) (\s
 imageSummary_version :: Lens.Lens' ImageSummary (Prelude.Maybe Prelude.Text)
 imageSummary_version = Lens.lens (\ImageSummary' {version} -> version) (\s@ImageSummary' {} a -> s {version = a} :: ImageSummary)
 
-instance Core.FromJSON ImageSummary where
+instance Data.FromJSON ImageSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageSummary"
       ( \x ->
           ImageSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "osVersion")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "outputResources")
-            Prelude.<*> (x Core..:? "dateCreated")
-            Prelude.<*> (x Core..:? "buildType")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "osVersion")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "outputResources")
+            Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "buildType")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable ImageSummary where

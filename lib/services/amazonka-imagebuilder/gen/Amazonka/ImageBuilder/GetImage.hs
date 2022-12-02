@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,8 +86,8 @@ instance Core.AWSRequest GetImage where
     Response.receiveJSON
       ( \s h x ->
           GetImageResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "image")
+            Prelude.<$> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "image")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,24 +98,24 @@ instance Prelude.Hashable GetImage where
 instance Prelude.NFData GetImage where
   rnf GetImage' {..} = Prelude.rnf imageBuildVersionArn
 
-instance Core.ToHeaders GetImage where
+instance Data.ToHeaders GetImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetImage where
+instance Data.ToPath GetImage where
   toPath = Prelude.const "/GetImage"
 
-instance Core.ToQuery GetImage where
+instance Data.ToQuery GetImage where
   toQuery GetImage' {..} =
     Prelude.mconcat
-      ["imageBuildVersionArn" Core.=: imageBuildVersionArn]
+      ["imageBuildVersionArn" Data.=: imageBuildVersionArn]
 
 -- | /See:/ 'newGetImageResponse' smart constructor.
 data GetImageResponse = GetImageResponse'

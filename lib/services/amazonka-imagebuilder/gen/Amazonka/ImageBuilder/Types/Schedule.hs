@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.Schedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.PipelineExecutionStartCondition
 import qualified Amazonka.Prelude as Prelude
 
@@ -123,15 +124,15 @@ schedule_scheduleExpression = Lens.lens (\Schedule' {scheduleExpression} -> sche
 schedule_pipelineExecutionStartCondition :: Lens.Lens' Schedule (Prelude.Maybe PipelineExecutionStartCondition)
 schedule_pipelineExecutionStartCondition = Lens.lens (\Schedule' {pipelineExecutionStartCondition} -> pipelineExecutionStartCondition) (\s@Schedule' {} a -> s {pipelineExecutionStartCondition = a} :: Schedule)
 
-instance Core.FromJSON Schedule where
+instance Data.FromJSON Schedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Schedule"
       ( \x ->
           Schedule'
-            Prelude.<$> (x Core..:? "timezone")
-            Prelude.<*> (x Core..:? "scheduleExpression")
-            Prelude.<*> (x Core..:? "pipelineExecutionStartCondition")
+            Prelude.<$> (x Data..:? "timezone")
+            Prelude.<*> (x Data..:? "scheduleExpression")
+            Prelude.<*> (x Data..:? "pipelineExecutionStartCondition")
       )
 
 instance Prelude.Hashable Schedule where
@@ -146,14 +147,14 @@ instance Prelude.NFData Schedule where
       `Prelude.seq` Prelude.rnf scheduleExpression
       `Prelude.seq` Prelude.rnf pipelineExecutionStartCondition
 
-instance Core.ToJSON Schedule where
+instance Data.ToJSON Schedule where
   toJSON Schedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timezone" Core..=) Prelude.<$> timezone,
-            ("scheduleExpression" Core..=)
+          [ ("timezone" Data..=) Prelude.<$> timezone,
+            ("scheduleExpression" Data..=)
               Prelude.<$> scheduleExpression,
-            ("pipelineExecutionStartCondition" Core..=)
+            ("pipelineExecutionStartCondition" Data..=)
               Prelude.<$> pipelineExecutionStartCondition
           ]
       )

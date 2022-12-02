@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.FastLaunchSnapshotConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration settings for creating and managing pre-provisioned
@@ -58,15 +59,15 @@ fastLaunchSnapshotConfiguration_targetResourceCount :: Lens.Lens' FastLaunchSnap
 fastLaunchSnapshotConfiguration_targetResourceCount = Lens.lens (\FastLaunchSnapshotConfiguration' {targetResourceCount} -> targetResourceCount) (\s@FastLaunchSnapshotConfiguration' {} a -> s {targetResourceCount = a} :: FastLaunchSnapshotConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FastLaunchSnapshotConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FastLaunchSnapshotConfiguration"
       ( \x ->
           FastLaunchSnapshotConfiguration'
-            Prelude.<$> (x Core..:? "targetResourceCount")
+            Prelude.<$> (x Data..:? "targetResourceCount")
       )
 
 instance
@@ -85,11 +86,11 @@ instance
   rnf FastLaunchSnapshotConfiguration' {..} =
     Prelude.rnf targetResourceCount
 
-instance Core.ToJSON FastLaunchSnapshotConfiguration where
+instance Data.ToJSON FastLaunchSnapshotConfiguration where
   toJSON FastLaunchSnapshotConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetResourceCount" Core..=)
+          [ ("targetResourceCount" Data..=)
               Prelude.<$> targetResourceCount
           ]
       )

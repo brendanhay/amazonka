@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -178,11 +179,11 @@ instance Core.AWSRequest ListImages where
     Response.receiveJSON
       ( \s h x ->
           ListImagesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "imageVersionList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "imageVersionList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "requestId")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,35 +205,35 @@ instance Prelude.NFData ListImages where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf includeDeprecated
 
-instance Core.ToHeaders ListImages where
+instance Data.ToHeaders ListImages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListImages where
+instance Data.ToJSON ListImages where
   toJSON ListImages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("byName" Core..=) Prelude.<$> byName,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("owner" Core..=) Prelude.<$> owner,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("includeDeprecated" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("byName" Data..=) Prelude.<$> byName,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("owner" Data..=) Prelude.<$> owner,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("includeDeprecated" Data..=)
               Prelude.<$> includeDeprecated
           ]
       )
 
-instance Core.ToPath ListImages where
+instance Data.ToPath ListImages where
   toPath = Prelude.const "/ListImages"
 
-instance Core.ToQuery ListImages where
+instance Data.ToQuery ListImages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListImagesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.ComponentConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.ComponentParameter
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,14 +69,14 @@ componentConfiguration_parameters = Lens.lens (\ComponentConfiguration' {paramet
 componentConfiguration_componentArn :: Lens.Lens' ComponentConfiguration Prelude.Text
 componentConfiguration_componentArn = Lens.lens (\ComponentConfiguration' {componentArn} -> componentArn) (\s@ComponentConfiguration' {} a -> s {componentArn = a} :: ComponentConfiguration)
 
-instance Core.FromJSON ComponentConfiguration where
+instance Data.FromJSON ComponentConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentConfiguration"
       ( \x ->
           ComponentConfiguration'
-            Prelude.<$> (x Core..:? "parameters")
-            Prelude.<*> (x Core..: "componentArn")
+            Prelude.<$> (x Data..:? "parameters")
+            Prelude.<*> (x Data..: "componentArn")
       )
 
 instance Prelude.Hashable ComponentConfiguration where
@@ -88,11 +89,11 @@ instance Prelude.NFData ComponentConfiguration where
     Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf componentArn
 
-instance Core.ToJSON ComponentConfiguration where
+instance Data.ToJSON ComponentConfiguration where
   toJSON ComponentConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("componentArn" Core..= componentArn)
+          [ ("parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("componentArn" Data..= componentArn)
           ]
       )

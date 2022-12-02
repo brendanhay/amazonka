@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,8 +97,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetInfrastructureConfigurationResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "infrastructureConfiguration")
+            Prelude.<$> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "infrastructureConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,28 +120,28 @@ instance
     Prelude.rnf infrastructureConfigurationArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetInfrastructureConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetInfrastructureConfiguration where
+instance Data.ToPath GetInfrastructureConfiguration where
   toPath =
     Prelude.const "/GetInfrastructureConfiguration"
 
-instance Core.ToQuery GetInfrastructureConfiguration where
+instance Data.ToQuery GetInfrastructureConfiguration where
   toQuery GetInfrastructureConfiguration' {..} =
     Prelude.mconcat
       [ "infrastructureConfigurationArn"
-          Core.=: infrastructureConfigurationArn
+          Data.=: infrastructureConfigurationArn
       ]
 
 -- | GetInfrastructureConfiguration response object.

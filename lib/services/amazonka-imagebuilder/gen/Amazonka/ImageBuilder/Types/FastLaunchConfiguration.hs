@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.FastLaunchConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.FastLaunchLaunchTemplateSpecification
 import Amazonka.ImageBuilder.Types.FastLaunchSnapshotConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -111,17 +112,17 @@ fastLaunchConfiguration_maxParallelLaunches = Lens.lens (\FastLaunchConfiguratio
 fastLaunchConfiguration_enabled :: Lens.Lens' FastLaunchConfiguration Prelude.Bool
 fastLaunchConfiguration_enabled = Lens.lens (\FastLaunchConfiguration' {enabled} -> enabled) (\s@FastLaunchConfiguration' {} a -> s {enabled = a} :: FastLaunchConfiguration)
 
-instance Core.FromJSON FastLaunchConfiguration where
+instance Data.FromJSON FastLaunchConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FastLaunchConfiguration"
       ( \x ->
           FastLaunchConfiguration'
-            Prelude.<$> (x Core..:? "launchTemplate")
-            Prelude.<*> (x Core..:? "snapshotConfiguration")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "maxParallelLaunches")
-            Prelude.<*> (x Core..: "enabled")
+            Prelude.<$> (x Data..:? "launchTemplate")
+            Prelude.<*> (x Data..:? "snapshotConfiguration")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "maxParallelLaunches")
+            Prelude.<*> (x Data..: "enabled")
       )
 
 instance Prelude.Hashable FastLaunchConfiguration where
@@ -140,17 +141,17 @@ instance Prelude.NFData FastLaunchConfiguration where
       `Prelude.seq` Prelude.rnf maxParallelLaunches
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON FastLaunchConfiguration where
+instance Data.ToJSON FastLaunchConfiguration where
   toJSON FastLaunchConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("launchTemplate" Core..=)
+          [ ("launchTemplate" Data..=)
               Prelude.<$> launchTemplate,
-            ("snapshotConfiguration" Core..=)
+            ("snapshotConfiguration" Data..=)
               Prelude.<$> snapshotConfiguration,
-            ("accountId" Core..=) Prelude.<$> accountId,
-            ("maxParallelLaunches" Core..=)
+            ("accountId" Data..=) Prelude.<$> accountId,
+            ("maxParallelLaunches" Data..=)
               Prelude.<$> maxParallelLaunches,
-            Prelude.Just ("enabled" Core..= enabled)
+            Prelude.Just ("enabled" Data..= enabled)
           ]
       )

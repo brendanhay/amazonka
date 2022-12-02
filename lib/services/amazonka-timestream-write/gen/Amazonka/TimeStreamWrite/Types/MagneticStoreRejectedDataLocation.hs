@@ -21,6 +21,7 @@ module Amazonka.TimeStreamWrite.Types.MagneticStoreRejectedDataLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamWrite.Types.S3Configuration
 
@@ -59,15 +60,15 @@ magneticStoreRejectedDataLocation_s3Configuration :: Lens.Lens' MagneticStoreRej
 magneticStoreRejectedDataLocation_s3Configuration = Lens.lens (\MagneticStoreRejectedDataLocation' {s3Configuration} -> s3Configuration) (\s@MagneticStoreRejectedDataLocation' {} a -> s {s3Configuration = a} :: MagneticStoreRejectedDataLocation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MagneticStoreRejectedDataLocation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MagneticStoreRejectedDataLocation"
       ( \x ->
           MagneticStoreRejectedDataLocation'
-            Prelude.<$> (x Core..:? "S3Configuration")
+            Prelude.<$> (x Data..:? "S3Configuration")
       )
 
 instance
@@ -87,13 +88,13 @@ instance
     Prelude.rnf s3Configuration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MagneticStoreRejectedDataLocation
   where
   toJSON MagneticStoreRejectedDataLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Configuration" Core..=)
+          [ ("S3Configuration" Data..=)
               Prelude.<$> s3Configuration
           ]
       )

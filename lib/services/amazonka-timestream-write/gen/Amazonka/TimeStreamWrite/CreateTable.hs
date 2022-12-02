@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,7 +141,7 @@ instance Core.AWSRequest CreateTable where
     Response.receiveJSON
       ( \s h x ->
           CreateTableResponse'
-            Prelude.<$> (x Core..?> "Table")
+            Prelude.<$> (x Data..?> "Table")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,39 +161,39 @@ instance Prelude.NFData CreateTable where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToHeaders CreateTable where
+instance Data.ToHeaders CreateTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Timestream_20181101.CreateTable" ::
+              Data.=# ( "Timestream_20181101.CreateTable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTable where
+instance Data.ToJSON CreateTable where
   toJSON CreateTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("RetentionProperties" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("RetentionProperties" Data..=)
               Prelude.<$> retentionProperties,
-            ("MagneticStoreWriteProperties" Core..=)
+            ("MagneticStoreWriteProperties" Data..=)
               Prelude.<$> magneticStoreWriteProperties,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName)
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )
 
-instance Core.ToPath CreateTable where
+instance Data.ToPath CreateTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTable where
+instance Data.ToQuery CreateTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTableResponse' smart constructor.

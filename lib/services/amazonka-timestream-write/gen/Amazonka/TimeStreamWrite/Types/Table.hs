@@ -21,6 +21,7 @@ module Amazonka.TimeStreamWrite.Types.Table where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamWrite.Types.MagneticStoreWriteProperties
 import Amazonka.TimeStreamWrite.Types.RetentionProperties
@@ -45,14 +46,14 @@ data Table = Table'
     -- | The Amazon Resource Name that uniquely identifies this table.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time when the Timestream table was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The retention duration for the memory store and magnetic store.
     retentionProperties :: Prelude.Maybe RetentionProperties,
     -- | Contains properties to set on the table when enabling magnetic store
     -- writes.
     magneticStoreWriteProperties :: Prelude.Maybe MagneticStoreWriteProperties,
     -- | The time when the Timestream table was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -120,7 +121,7 @@ table_arn = Lens.lens (\Table' {arn} -> arn) (\s@Table' {} a -> s {arn = a} :: T
 
 -- | The time when the Timestream table was last updated.
 table_lastUpdatedTime :: Lens.Lens' Table (Prelude.Maybe Prelude.UTCTime)
-table_lastUpdatedTime = Lens.lens (\Table' {lastUpdatedTime} -> lastUpdatedTime) (\s@Table' {} a -> s {lastUpdatedTime = a} :: Table) Prelude.. Lens.mapping Core._Time
+table_lastUpdatedTime = Lens.lens (\Table' {lastUpdatedTime} -> lastUpdatedTime) (\s@Table' {} a -> s {lastUpdatedTime = a} :: Table) Prelude.. Lens.mapping Data._Time
 
 -- | The retention duration for the memory store and magnetic store.
 table_retentionProperties :: Lens.Lens' Table (Prelude.Maybe RetentionProperties)
@@ -133,22 +134,22 @@ table_magneticStoreWriteProperties = Lens.lens (\Table' {magneticStoreWritePrope
 
 -- | The time when the Timestream table was created.
 table_creationTime :: Lens.Lens' Table (Prelude.Maybe Prelude.UTCTime)
-table_creationTime = Lens.lens (\Table' {creationTime} -> creationTime) (\s@Table' {} a -> s {creationTime = a} :: Table) Prelude.. Lens.mapping Core._Time
+table_creationTime = Lens.lens (\Table' {creationTime} -> creationTime) (\s@Table' {} a -> s {creationTime = a} :: Table) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Table where
+instance Data.FromJSON Table where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Table"
       ( \x ->
           Table'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "TableStatus")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "RetentionProperties")
-            Prelude.<*> (x Core..:? "MagneticStoreWriteProperties")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "TableStatus")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "RetentionProperties")
+            Prelude.<*> (x Data..:? "MagneticStoreWriteProperties")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable Table where

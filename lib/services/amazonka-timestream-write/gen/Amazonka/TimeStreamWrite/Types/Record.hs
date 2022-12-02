@@ -21,6 +21,7 @@ module Amazonka.TimeStreamWrite.Types.Record where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamWrite.Types.Dimension
 import Amazonka.TimeStreamWrite.Types.MeasureValue
@@ -208,18 +209,18 @@ instance Prelude.NFData Record where
       `Prelude.seq` Prelude.rnf measureValueType
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON Record where
+instance Data.ToJSON Record where
   toJSON Record' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TimeUnit" Core..=) Prelude.<$> timeUnit,
-            ("MeasureValue" Core..=) Prelude.<$> measureValue,
-            ("MeasureValues" Core..=) Prelude.<$> measureValues,
-            ("Time" Core..=) Prelude.<$> time,
-            ("Dimensions" Core..=) Prelude.<$> dimensions,
-            ("MeasureName" Core..=) Prelude.<$> measureName,
-            ("MeasureValueType" Core..=)
+          [ ("TimeUnit" Data..=) Prelude.<$> timeUnit,
+            ("MeasureValue" Data..=) Prelude.<$> measureValue,
+            ("MeasureValues" Data..=) Prelude.<$> measureValues,
+            ("Time" Data..=) Prelude.<$> time,
+            ("Dimensions" Data..=) Prelude.<$> dimensions,
+            ("MeasureName" Data..=) Prelude.<$> measureName,
+            ("MeasureValueType" Data..=)
               Prelude.<$> measureValueType,
-            ("Version" Core..=) Prelude.<$> version
+            ("Version" Data..=) Prelude.<$> version
           ]
       )

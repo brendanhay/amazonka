@@ -21,6 +21,7 @@ module Amazonka.TimeStreamWrite.Types.S3Configuration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamWrite.Types.S3EncryptionOption
 
@@ -86,16 +87,16 @@ s3Configuration_bucketName = Lens.lens (\S3Configuration' {bucketName} -> bucket
 s3Configuration_kmsKeyId :: Lens.Lens' S3Configuration (Prelude.Maybe Prelude.Text)
 s3Configuration_kmsKeyId = Lens.lens (\S3Configuration' {kmsKeyId} -> kmsKeyId) (\s@S3Configuration' {} a -> s {kmsKeyId = a} :: S3Configuration)
 
-instance Core.FromJSON S3Configuration where
+instance Data.FromJSON S3Configuration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Configuration"
       ( \x ->
           S3Configuration'
-            Prelude.<$> (x Core..:? "ObjectKeyPrefix")
-            Prelude.<*> (x Core..:? "EncryptionOption")
-            Prelude.<*> (x Core..:? "BucketName")
-            Prelude.<*> (x Core..:? "KmsKeyId")
+            Prelude.<$> (x Data..:? "ObjectKeyPrefix")
+            Prelude.<*> (x Data..:? "EncryptionOption")
+            Prelude.<*> (x Data..:? "BucketName")
+            Prelude.<*> (x Data..:? "KmsKeyId")
       )
 
 instance Prelude.Hashable S3Configuration where
@@ -112,15 +113,15 @@ instance Prelude.NFData S3Configuration where
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf kmsKeyId
 
-instance Core.ToJSON S3Configuration where
+instance Data.ToJSON S3Configuration where
   toJSON S3Configuration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ObjectKeyPrefix" Core..=)
+          [ ("ObjectKeyPrefix" Data..=)
               Prelude.<$> objectKeyPrefix,
-            ("EncryptionOption" Core..=)
+            ("EncryptionOption" Data..=)
               Prelude.<$> encryptionOption,
-            ("BucketName" Core..=) Prelude.<$> bucketName,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId
+            ("BucketName" Data..=) Prelude.<$> bucketName,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId
           ]
       )

@@ -89,6 +89,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -183,7 +184,7 @@ instance Core.AWSRequest WriteRecords where
     Response.receiveJSON
       ( \s h x ->
           WriteRecordsResponse'
-            Prelude.<$> (x Core..?> "RecordsIngested")
+            Prelude.<$> (x Data..?> "RecordsIngested")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,37 +202,37 @@ instance Prelude.NFData WriteRecords where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf records
 
-instance Core.ToHeaders WriteRecords where
+instance Data.ToHeaders WriteRecords where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Timestream_20181101.WriteRecords" ::
+              Data.=# ( "Timestream_20181101.WriteRecords" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON WriteRecords where
+instance Data.ToJSON WriteRecords where
   toJSON WriteRecords' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CommonAttributes" Core..=)
+          [ ("CommonAttributes" Data..=)
               Prelude.<$> commonAttributes,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("Records" Core..= records)
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("Records" Data..= records)
           ]
       )
 
-instance Core.ToPath WriteRecords where
+instance Data.ToPath WriteRecords where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery WriteRecords where
+instance Data.ToQuery WriteRecords where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newWriteRecordsResponse' smart constructor.

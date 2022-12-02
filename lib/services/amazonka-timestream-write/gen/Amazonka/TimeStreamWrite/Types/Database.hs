@@ -21,6 +21,7 @@ module Amazonka.TimeStreamWrite.Types.Database where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A top level container for a table. Databases and tables are the
@@ -34,13 +35,13 @@ data Database = Database'
     -- | The Amazon Resource Name that uniquely identifies this database.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The last time that this database was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the KMS key used to encrypt the data stored in the
     -- database.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The time when the database was created, calculated from the Unix epoch
     -- time.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The total number of tables found within a Timestream database.
     tableCount :: Prelude.Maybe Prelude.Integer
   }
@@ -89,7 +90,7 @@ database_arn = Lens.lens (\Database' {arn} -> arn) (\s@Database' {} a -> s {arn 
 
 -- | The last time that this database was updated.
 database_lastUpdatedTime :: Lens.Lens' Database (Prelude.Maybe Prelude.UTCTime)
-database_lastUpdatedTime = Lens.lens (\Database' {lastUpdatedTime} -> lastUpdatedTime) (\s@Database' {} a -> s {lastUpdatedTime = a} :: Database) Prelude.. Lens.mapping Core._Time
+database_lastUpdatedTime = Lens.lens (\Database' {lastUpdatedTime} -> lastUpdatedTime) (\s@Database' {} a -> s {lastUpdatedTime = a} :: Database) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the KMS key used to encrypt the data stored in the
 -- database.
@@ -99,24 +100,24 @@ database_kmsKeyId = Lens.lens (\Database' {kmsKeyId} -> kmsKeyId) (\s@Database' 
 -- | The time when the database was created, calculated from the Unix epoch
 -- time.
 database_creationTime :: Lens.Lens' Database (Prelude.Maybe Prelude.UTCTime)
-database_creationTime = Lens.lens (\Database' {creationTime} -> creationTime) (\s@Database' {} a -> s {creationTime = a} :: Database) Prelude.. Lens.mapping Core._Time
+database_creationTime = Lens.lens (\Database' {creationTime} -> creationTime) (\s@Database' {} a -> s {creationTime = a} :: Database) Prelude.. Lens.mapping Data._Time
 
 -- | The total number of tables found within a Timestream database.
 database_tableCount :: Lens.Lens' Database (Prelude.Maybe Prelude.Integer)
 database_tableCount = Lens.lens (\Database' {tableCount} -> tableCount) (\s@Database' {} a -> s {tableCount = a} :: Database)
 
-instance Core.FromJSON Database where
+instance Data.FromJSON Database where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Database"
       ( \x ->
           Database'
-            Prelude.<$> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "TableCount")
+            Prelude.<$> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "TableCount")
       )
 
 instance Prelude.Hashable Database where

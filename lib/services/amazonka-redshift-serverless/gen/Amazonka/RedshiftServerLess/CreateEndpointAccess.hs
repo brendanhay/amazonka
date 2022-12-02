@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -138,7 +139,7 @@ instance Core.AWSRequest CreateEndpointAccess where
     Response.receiveJSON
       ( \s h x ->
           CreateEndpointAccessResponse'
-            Prelude.<$> (x Core..?> "endpoint")
+            Prelude.<$> (x Data..?> "endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,38 +157,38 @@ instance Prelude.NFData CreateEndpointAccess where
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf workgroupName
 
-instance Core.ToHeaders CreateEndpointAccess where
+instance Data.ToHeaders CreateEndpointAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.CreateEndpointAccess" ::
+              Data.=# ( "RedshiftServerless.CreateEndpointAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEndpointAccess where
+instance Data.ToJSON CreateEndpointAccess where
   toJSON CreateEndpointAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("vpcSecurityGroupIds" Core..=)
+          [ ("vpcSecurityGroupIds" Data..=)
               Prelude.<$> vpcSecurityGroupIds,
-            Prelude.Just ("endpointName" Core..= endpointName),
-            Prelude.Just ("subnetIds" Core..= subnetIds),
+            Prelude.Just ("endpointName" Data..= endpointName),
+            Prelude.Just ("subnetIds" Data..= subnetIds),
             Prelude.Just
-              ("workgroupName" Core..= workgroupName)
+              ("workgroupName" Data..= workgroupName)
           ]
       )
 
-instance Core.ToPath CreateEndpointAccess where
+instance Data.ToPath CreateEndpointAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEndpointAccess where
+instance Data.ToQuery CreateEndpointAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEndpointAccessResponse' smart constructor.

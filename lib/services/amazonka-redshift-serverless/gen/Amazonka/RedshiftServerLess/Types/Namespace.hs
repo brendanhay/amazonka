@@ -21,6 +21,7 @@ module Amazonka.RedshiftServerLess.Types.Namespace where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types.LogExport
 import Amazonka.RedshiftServerLess.Types.NamespaceStatus
@@ -36,7 +37,7 @@ data Namespace = Namespace'
     -- in the Amazon Redshift Database Developer Guide.
     namespaceName :: Prelude.Maybe Prelude.Text,
     -- | The date of when the namespace was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The types of logs the namespace can export. Available export types are
     -- User log, Connection log, and User activity log.
     logExports :: Prelude.Maybe [LogExport],
@@ -56,7 +57,7 @@ data Namespace = Namespace'
     defaultIamRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The username of the administrator for the first database created in the
     -- namespace.
-    adminUsername :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    adminUsername :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the first database created in the namespace.
     dbName :: Prelude.Maybe Prelude.Text
   }
@@ -126,7 +127,7 @@ namespace_namespaceName = Lens.lens (\Namespace' {namespaceName} -> namespaceNam
 
 -- | The date of when the namespace was created.
 namespace_creationDate :: Lens.Lens' Namespace (Prelude.Maybe Prelude.UTCTime)
-namespace_creationDate = Lens.lens (\Namespace' {creationDate} -> creationDate) (\s@Namespace' {} a -> s {creationDate = a} :: Namespace) Prelude.. Lens.mapping Core._Time
+namespace_creationDate = Lens.lens (\Namespace' {creationDate} -> creationDate) (\s@Namespace' {} a -> s {creationDate = a} :: Namespace) Prelude.. Lens.mapping Data._Time
 
 -- | The types of logs the namespace can export. Available export types are
 -- User log, Connection log, and User activity log.
@@ -162,29 +163,29 @@ namespace_defaultIamRoleArn = Lens.lens (\Namespace' {defaultIamRoleArn} -> defa
 -- | The username of the administrator for the first database created in the
 -- namespace.
 namespace_adminUsername :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Text)
-namespace_adminUsername = Lens.lens (\Namespace' {adminUsername} -> adminUsername) (\s@Namespace' {} a -> s {adminUsername = a} :: Namespace) Prelude.. Lens.mapping Core._Sensitive
+namespace_adminUsername = Lens.lens (\Namespace' {adminUsername} -> adminUsername) (\s@Namespace' {} a -> s {adminUsername = a} :: Namespace) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the first database created in the namespace.
 namespace_dbName :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Text)
 namespace_dbName = Lens.lens (\Namespace' {dbName} -> dbName) (\s@Namespace' {} a -> s {dbName = a} :: Namespace)
 
-instance Core.FromJSON Namespace where
+instance Data.FromJSON Namespace where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Namespace"
       ( \x ->
           Namespace'
-            Prelude.<$> (x Core..:? "namespaceName")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "logExports" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "namespaceArn")
-            Prelude.<*> (x Core..:? "iamRoles" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "namespaceId")
-            Prelude.<*> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "defaultIamRoleArn")
-            Prelude.<*> (x Core..:? "adminUsername")
-            Prelude.<*> (x Core..:? "dbName")
+            Prelude.<$> (x Data..:? "namespaceName")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "logExports" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "namespaceArn")
+            Prelude.<*> (x Data..:? "iamRoles" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "namespaceId")
+            Prelude.<*> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "defaultIamRoleArn")
+            Prelude.<*> (x Data..:? "adminUsername")
+            Prelude.<*> (x Data..:? "dbName")
       )
 
 instance Prelude.Hashable Namespace where

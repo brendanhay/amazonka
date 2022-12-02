@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest UpdateEndpointAccess where
     Response.receiveJSON
       ( \s h x ->
           UpdateEndpointAccessResponse'
-            Prelude.<$> (x Core..?> "endpoint")
+            Prelude.<$> (x Data..?> "endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,35 +114,35 @@ instance Prelude.NFData UpdateEndpointAccess where
     Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf endpointName
 
-instance Core.ToHeaders UpdateEndpointAccess where
+instance Data.ToHeaders UpdateEndpointAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.UpdateEndpointAccess" ::
+              Data.=# ( "RedshiftServerless.UpdateEndpointAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEndpointAccess where
+instance Data.ToJSON UpdateEndpointAccess where
   toJSON UpdateEndpointAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("vpcSecurityGroupIds" Core..=)
+          [ ("vpcSecurityGroupIds" Data..=)
               Prelude.<$> vpcSecurityGroupIds,
-            Prelude.Just ("endpointName" Core..= endpointName)
+            Prelude.Just ("endpointName" Data..= endpointName)
           ]
       )
 
-instance Core.ToPath UpdateEndpointAccess where
+instance Data.ToPath UpdateEndpointAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateEndpointAccess where
+instance Data.ToQuery UpdateEndpointAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEndpointAccessResponse' smart constructor.

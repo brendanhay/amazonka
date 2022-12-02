@@ -21,6 +21,7 @@ module Amazonka.RedshiftServerLess.Types.ResourcePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The resource policy object. Currently, you can use policies to share
@@ -62,14 +63,14 @@ resourcePolicy_policy = Lens.lens (\ResourcePolicy' {policy} -> policy) (\s@Reso
 resourcePolicy_resourceArn :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
 resourcePolicy_resourceArn = Lens.lens (\ResourcePolicy' {resourceArn} -> resourceArn) (\s@ResourcePolicy' {} a -> s {resourceArn = a} :: ResourcePolicy)
 
-instance Core.FromJSON ResourcePolicy where
+instance Data.FromJSON ResourcePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourcePolicy"
       ( \x ->
           ResourcePolicy'
-            Prelude.<$> (x Core..:? "policy")
-            Prelude.<*> (x Core..:? "resourceArn")
+            Prelude.<$> (x Data..:? "policy")
+            Prelude.<*> (x Data..:? "resourceArn")
       )
 
 instance Prelude.Hashable ResourcePolicy where

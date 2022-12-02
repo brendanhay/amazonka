@@ -21,6 +21,7 @@ module Amazonka.RedshiftServerLess.Types.Snapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types.SnapshotStatus
 
@@ -47,9 +48,9 @@ data Snapshot = Snapshot'
     -- | The amount of time it took to back up data into a snapshot.
     elapsedTimeInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The timestamp of when data within the snapshot started getting retained.
-    snapshotRetentionStartTime :: Prelude.Maybe Core.POSIX,
+    snapshotRetentionStartTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of when the snapshot was created.
-    snapshotCreateTime :: Prelude.Maybe Core.POSIX,
+    snapshotCreateTime :: Prelude.Maybe Data.POSIX,
     -- | The period of time, in days, of how long the snapshot is retained.
     snapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The estimated amount of seconds until the snapshot completes backup.
@@ -191,11 +192,11 @@ snapshot_elapsedTimeInSeconds = Lens.lens (\Snapshot' {elapsedTimeInSeconds} -> 
 
 -- | The timestamp of when data within the snapshot started getting retained.
 snapshot_snapshotRetentionStartTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_snapshotRetentionStartTime = Lens.lens (\Snapshot' {snapshotRetentionStartTime} -> snapshotRetentionStartTime) (\s@Snapshot' {} a -> s {snapshotRetentionStartTime = a} :: Snapshot) Prelude.. Lens.mapping Core._Time
+snapshot_snapshotRetentionStartTime = Lens.lens (\Snapshot' {snapshotRetentionStartTime} -> snapshotRetentionStartTime) (\s@Snapshot' {} a -> s {snapshotRetentionStartTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of when the snapshot was created.
 snapshot_snapshotCreateTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_snapshotCreateTime = Lens.lens (\Snapshot' {snapshotCreateTime} -> snapshotCreateTime) (\s@Snapshot' {} a -> s {snapshotCreateTime = a} :: Snapshot) Prelude.. Lens.mapping Core._Time
+snapshot_snapshotCreateTime = Lens.lens (\Snapshot' {snapshotCreateTime} -> snapshotCreateTime) (\s@Snapshot' {} a -> s {snapshotCreateTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The period of time, in days, of how long the snapshot is retained.
 snapshot_snapshotRetentionPeriod :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Int)
@@ -239,35 +240,35 @@ snapshot_actualIncrementalBackupSizeInMegaBytes = Lens.lens (\Snapshot' {actualI
 snapshot_accountsWithProvisionedRestoreAccess :: Lens.Lens' Snapshot (Prelude.Maybe [Prelude.Text])
 snapshot_accountsWithProvisionedRestoreAccess = Lens.lens (\Snapshot' {accountsWithProvisionedRestoreAccess} -> accountsWithProvisionedRestoreAccess) (\s@Snapshot' {} a -> s {accountsWithProvisionedRestoreAccess = a} :: Snapshot) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Snapshot where
+instance Data.FromJSON Snapshot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Snapshot"
       ( \x ->
           Snapshot'
-            Prelude.<$> (x Core..:? "currentBackupRateInMegaBytesPerSecond")
-            Prelude.<*> (x Core..:? "namespaceName")
-            Prelude.<*> (x Core..:? "snapshotName")
-            Prelude.<*> (x Core..:? "snapshotArn")
-            Prelude.<*> (x Core..:? "snapshotRemainingDays")
-            Prelude.<*> (x Core..:? "namespaceArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "elapsedTimeInSeconds")
-            Prelude.<*> (x Core..:? "snapshotRetentionStartTime")
-            Prelude.<*> (x Core..:? "snapshotCreateTime")
-            Prelude.<*> (x Core..:? "snapshotRetentionPeriod")
-            Prelude.<*> (x Core..:? "estimatedSecondsToCompletion")
-            Prelude.<*> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "totalBackupSizeInMegaBytes")
-            Prelude.<*> ( x Core..:? "accountsWithRestoreAccess"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "currentBackupRateInMegaBytesPerSecond")
+            Prelude.<*> (x Data..:? "namespaceName")
+            Prelude.<*> (x Data..:? "snapshotName")
+            Prelude.<*> (x Data..:? "snapshotArn")
+            Prelude.<*> (x Data..:? "snapshotRemainingDays")
+            Prelude.<*> (x Data..:? "namespaceArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "elapsedTimeInSeconds")
+            Prelude.<*> (x Data..:? "snapshotRetentionStartTime")
+            Prelude.<*> (x Data..:? "snapshotCreateTime")
+            Prelude.<*> (x Data..:? "snapshotRetentionPeriod")
+            Prelude.<*> (x Data..:? "estimatedSecondsToCompletion")
+            Prelude.<*> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "totalBackupSizeInMegaBytes")
+            Prelude.<*> ( x Data..:? "accountsWithRestoreAccess"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ownerAccount")
-            Prelude.<*> (x Core..:? "backupProgressInMegaBytes")
-            Prelude.<*> (x Core..:? "adminUsername")
-            Prelude.<*> (x Core..:? "actualIncrementalBackupSizeInMegaBytes")
-            Prelude.<*> ( x Core..:? "accountsWithProvisionedRestoreAccess"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ownerAccount")
+            Prelude.<*> (x Data..:? "backupProgressInMegaBytes")
+            Prelude.<*> (x Data..:? "adminUsername")
+            Prelude.<*> (x Data..:? "actualIncrementalBackupSizeInMegaBytes")
+            Prelude.<*> ( x Data..:? "accountsWithProvisionedRestoreAccess"
+                            Data..!= Prelude.mempty
                         )
       )
 

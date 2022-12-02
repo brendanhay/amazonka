@@ -21,6 +21,7 @@ module Amazonka.RedshiftServerLess.Types.VpcSecurityGroupMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the members of a VPC security group.
@@ -62,14 +63,14 @@ vpcSecurityGroupMembership_status = Lens.lens (\VpcSecurityGroupMembership' {sta
 vpcSecurityGroupMembership_vpcSecurityGroupId :: Lens.Lens' VpcSecurityGroupMembership (Prelude.Maybe Prelude.Text)
 vpcSecurityGroupMembership_vpcSecurityGroupId = Lens.lens (\VpcSecurityGroupMembership' {vpcSecurityGroupId} -> vpcSecurityGroupId) (\s@VpcSecurityGroupMembership' {} a -> s {vpcSecurityGroupId = a} :: VpcSecurityGroupMembership)
 
-instance Core.FromJSON VpcSecurityGroupMembership where
+instance Data.FromJSON VpcSecurityGroupMembership where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcSecurityGroupMembership"
       ( \x ->
           VpcSecurityGroupMembership'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "vpcSecurityGroupId")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "vpcSecurityGroupId")
       )
 
 instance Prelude.Hashable VpcSecurityGroupMembership where

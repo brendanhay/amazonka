@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetUsageLimit where
     Response.receiveJSON
       ( \s h x ->
           GetUsageLimitResponse'
-            Prelude.<$> (x Core..?> "usageLimit")
+            Prelude.<$> (x Data..?> "usageLimit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable GetUsageLimit where
 instance Prelude.NFData GetUsageLimit where
   rnf GetUsageLimit' {..} = Prelude.rnf usageLimitId
 
-instance Core.ToHeaders GetUsageLimit where
+instance Data.ToHeaders GetUsageLimit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.GetUsageLimit" ::
+              Data.=# ( "RedshiftServerless.GetUsageLimit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetUsageLimit where
+instance Data.ToJSON GetUsageLimit where
   toJSON GetUsageLimit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("usageLimitId" Core..= usageLimitId)]
+          [Prelude.Just ("usageLimitId" Data..= usageLimitId)]
       )
 
-instance Core.ToPath GetUsageLimit where
+instance Data.ToPath GetUsageLimit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetUsageLimit where
+instance Data.ToQuery GetUsageLimit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUsageLimitResponse' smart constructor.

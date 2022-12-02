@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetEndpointAccess where
     Response.receiveJSON
       ( \s h x ->
           GetEndpointAccessResponse'
-            Prelude.<$> (x Core..?> "endpoint")
+            Prelude.<$> (x Data..?> "endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable GetEndpointAccess where
 instance Prelude.NFData GetEndpointAccess where
   rnf GetEndpointAccess' {..} = Prelude.rnf endpointName
 
-instance Core.ToHeaders GetEndpointAccess where
+instance Data.ToHeaders GetEndpointAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.GetEndpointAccess" ::
+              Data.=# ( "RedshiftServerless.GetEndpointAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEndpointAccess where
+instance Data.ToJSON GetEndpointAccess where
   toJSON GetEndpointAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("endpointName" Core..= endpointName)]
+          [Prelude.Just ("endpointName" Data..= endpointName)]
       )
 
-instance Core.ToPath GetEndpointAccess where
+instance Data.ToPath GetEndpointAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEndpointAccess where
+instance Data.ToQuery GetEndpointAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEndpointAccessResponse' smart constructor.

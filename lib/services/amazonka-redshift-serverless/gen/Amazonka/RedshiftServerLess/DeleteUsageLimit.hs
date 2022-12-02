@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteUsageLimit where
     Response.receiveJSON
       ( \s h x ->
           DeleteUsageLimitResponse'
-            Prelude.<$> (x Core..?> "usageLimit")
+            Prelude.<$> (x Data..?> "usageLimit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable DeleteUsageLimit where
 instance Prelude.NFData DeleteUsageLimit where
   rnf DeleteUsageLimit' {..} = Prelude.rnf usageLimitId
 
-instance Core.ToHeaders DeleteUsageLimit where
+instance Data.ToHeaders DeleteUsageLimit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.DeleteUsageLimit" ::
+              Data.=# ( "RedshiftServerless.DeleteUsageLimit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteUsageLimit where
+instance Data.ToJSON DeleteUsageLimit where
   toJSON DeleteUsageLimit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("usageLimitId" Core..= usageLimitId)]
+          [Prelude.Just ("usageLimitId" Data..= usageLimitId)]
       )
 
-instance Core.ToPath DeleteUsageLimit where
+instance Data.ToPath DeleteUsageLimit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteUsageLimit where
+instance Data.ToQuery DeleteUsageLimit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUsageLimitResponse' smart constructor.

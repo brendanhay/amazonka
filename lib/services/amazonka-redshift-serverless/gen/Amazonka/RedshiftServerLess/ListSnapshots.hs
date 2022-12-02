@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -67,14 +68,14 @@ data ListSnapshots = ListSnapshots'
     -- snapshots.
     namespaceArn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp showing when the snapshot creation finished.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | An optional parameter that specifies the maximum number of results to
     -- return. You can use @nextToken@ to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The owner Amazon Web Services account of the snapshot.
     ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The time when the creation of the snapshot was initiated.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -133,7 +134,7 @@ listSnapshots_namespaceArn = Lens.lens (\ListSnapshots' {namespaceArn} -> namesp
 
 -- | The timestamp showing when the snapshot creation finished.
 listSnapshots_endTime :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.UTCTime)
-listSnapshots_endTime = Lens.lens (\ListSnapshots' {endTime} -> endTime) (\s@ListSnapshots' {} a -> s {endTime = a} :: ListSnapshots) Prelude.. Lens.mapping Core._Time
+listSnapshots_endTime = Lens.lens (\ListSnapshots' {endTime} -> endTime) (\s@ListSnapshots' {} a -> s {endTime = a} :: ListSnapshots) Prelude.. Lens.mapping Data._Time
 
 -- | An optional parameter that specifies the maximum number of results to
 -- return. You can use @nextToken@ to get the next page of results.
@@ -146,7 +147,7 @@ listSnapshots_ownerAccount = Lens.lens (\ListSnapshots' {ownerAccount} -> ownerA
 
 -- | The time when the creation of the snapshot was initiated.
 listSnapshots_startTime :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.UTCTime)
-listSnapshots_startTime = Lens.lens (\ListSnapshots' {startTime} -> startTime) (\s@ListSnapshots' {} a -> s {startTime = a} :: ListSnapshots) Prelude.. Lens.mapping Core._Time
+listSnapshots_startTime = Lens.lens (\ListSnapshots' {startTime} -> startTime) (\s@ListSnapshots' {} a -> s {startTime = a} :: ListSnapshots) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListSnapshots where
   page rq rs
@@ -177,8 +178,8 @@ instance Core.AWSRequest ListSnapshots where
     Response.receiveJSON
       ( \s h x ->
           ListSnapshotsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "snapshots" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "snapshots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,39 +203,39 @@ instance Prelude.NFData ListSnapshots where
       `Prelude.seq` Prelude.rnf ownerAccount
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders ListSnapshots where
+instance Data.ToHeaders ListSnapshots where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.ListSnapshots" ::
+              Data.=# ( "RedshiftServerless.ListSnapshots" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSnapshots where
+instance Data.ToJSON ListSnapshots where
   toJSON ListSnapshots' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("namespaceName" Core..=) Prelude.<$> namespaceName,
-            ("namespaceArn" Core..=) Prelude.<$> namespaceArn,
-            ("endTime" Core..=) Prelude.<$> endTime,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("ownerAccount" Core..=) Prelude.<$> ownerAccount,
-            ("startTime" Core..=) Prelude.<$> startTime
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("namespaceName" Data..=) Prelude.<$> namespaceName,
+            ("namespaceArn" Data..=) Prelude.<$> namespaceArn,
+            ("endTime" Data..=) Prelude.<$> endTime,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("ownerAccount" Data..=) Prelude.<$> ownerAccount,
+            ("startTime" Data..=) Prelude.<$> startTime
           ]
       )
 
-instance Core.ToPath ListSnapshots where
+instance Data.ToPath ListSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSnapshots where
+instance Data.ToQuery ListSnapshots where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSnapshotsResponse' smart constructor.

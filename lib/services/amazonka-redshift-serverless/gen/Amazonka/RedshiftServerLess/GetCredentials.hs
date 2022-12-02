@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -163,10 +164,10 @@ instance Core.AWSRequest GetCredentials where
     Response.receiveJSON
       ( \s h x ->
           GetCredentialsResponse'
-            Prelude.<$> (x Core..?> "expiration")
-            Prelude.<*> (x Core..?> "dbPassword")
-            Prelude.<*> (x Core..?> "nextRefreshTime")
-            Prelude.<*> (x Core..?> "dbUser")
+            Prelude.<$> (x Data..?> "expiration")
+            Prelude.<*> (x Data..?> "dbPassword")
+            Prelude.<*> (x Data..?> "nextRefreshTime")
+            Prelude.<*> (x Data..?> "dbUser")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,55 +183,55 @@ instance Prelude.NFData GetCredentials where
       `Prelude.seq` Prelude.rnf dbName
       `Prelude.seq` Prelude.rnf workgroupName
 
-instance Core.ToHeaders GetCredentials where
+instance Data.ToHeaders GetCredentials where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.GetCredentials" ::
+              Data.=# ( "RedshiftServerless.GetCredentials" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCredentials where
+instance Data.ToJSON GetCredentials where
   toJSON GetCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("durationSeconds" Core..=)
+          [ ("durationSeconds" Data..=)
               Prelude.<$> durationSeconds,
-            ("dbName" Core..=) Prelude.<$> dbName,
+            ("dbName" Data..=) Prelude.<$> dbName,
             Prelude.Just
-              ("workgroupName" Core..= workgroupName)
+              ("workgroupName" Data..= workgroupName)
           ]
       )
 
-instance Core.ToPath GetCredentials where
+instance Data.ToPath GetCredentials where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCredentials where
+instance Data.ToQuery GetCredentials where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCredentialsResponse' smart constructor.
 data GetCredentialsResponse = GetCredentialsResponse'
   { -- | The date and time the password in @DbPassword@ expires.
-    expiration :: Prelude.Maybe Core.POSIX,
+    expiration :: Prelude.Maybe Data.POSIX,
     -- | A temporary password that authorizes the user name returned by @DbUser@
     -- to log on to the database @DbName@.
-    dbPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    dbPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The date and time of when the @DbUser@ and @DbPassword@ authorization
     -- refreshes.
-    nextRefreshTime :: Prelude.Maybe Core.POSIX,
+    nextRefreshTime :: Prelude.Maybe Data.POSIX,
     -- | A database user name that is authorized to log on to the database
     -- @DbName@ using the password @DbPassword@. If the specified @DbUser@
     -- exists in the database, the new user name has the same database
     -- privileges as the the user named in @DbUser@. By default, the user is
     -- added to PUBLIC.
-    dbUser :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    dbUser :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -275,17 +276,17 @@ newGetCredentialsResponse pHttpStatus_ =
 
 -- | The date and time the password in @DbPassword@ expires.
 getCredentialsResponse_expiration :: Lens.Lens' GetCredentialsResponse (Prelude.Maybe Prelude.UTCTime)
-getCredentialsResponse_expiration = Lens.lens (\GetCredentialsResponse' {expiration} -> expiration) (\s@GetCredentialsResponse' {} a -> s {expiration = a} :: GetCredentialsResponse) Prelude.. Lens.mapping Core._Time
+getCredentialsResponse_expiration = Lens.lens (\GetCredentialsResponse' {expiration} -> expiration) (\s@GetCredentialsResponse' {} a -> s {expiration = a} :: GetCredentialsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A temporary password that authorizes the user name returned by @DbUser@
 -- to log on to the database @DbName@.
 getCredentialsResponse_dbPassword :: Lens.Lens' GetCredentialsResponse (Prelude.Maybe Prelude.Text)
-getCredentialsResponse_dbPassword = Lens.lens (\GetCredentialsResponse' {dbPassword} -> dbPassword) (\s@GetCredentialsResponse' {} a -> s {dbPassword = a} :: GetCredentialsResponse) Prelude.. Lens.mapping Core._Sensitive
+getCredentialsResponse_dbPassword = Lens.lens (\GetCredentialsResponse' {dbPassword} -> dbPassword) (\s@GetCredentialsResponse' {} a -> s {dbPassword = a} :: GetCredentialsResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The date and time of when the @DbUser@ and @DbPassword@ authorization
 -- refreshes.
 getCredentialsResponse_nextRefreshTime :: Lens.Lens' GetCredentialsResponse (Prelude.Maybe Prelude.UTCTime)
-getCredentialsResponse_nextRefreshTime = Lens.lens (\GetCredentialsResponse' {nextRefreshTime} -> nextRefreshTime) (\s@GetCredentialsResponse' {} a -> s {nextRefreshTime = a} :: GetCredentialsResponse) Prelude.. Lens.mapping Core._Time
+getCredentialsResponse_nextRefreshTime = Lens.lens (\GetCredentialsResponse' {nextRefreshTime} -> nextRefreshTime) (\s@GetCredentialsResponse' {} a -> s {nextRefreshTime = a} :: GetCredentialsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A database user name that is authorized to log on to the database
 -- @DbName@ using the password @DbPassword@. If the specified @DbUser@
@@ -293,7 +294,7 @@ getCredentialsResponse_nextRefreshTime = Lens.lens (\GetCredentialsResponse' {ne
 -- privileges as the the user named in @DbUser@. By default, the user is
 -- added to PUBLIC.
 getCredentialsResponse_dbUser :: Lens.Lens' GetCredentialsResponse (Prelude.Maybe Prelude.Text)
-getCredentialsResponse_dbUser = Lens.lens (\GetCredentialsResponse' {dbUser} -> dbUser) (\s@GetCredentialsResponse' {} a -> s {dbUser = a} :: GetCredentialsResponse) Prelude.. Lens.mapping Core._Sensitive
+getCredentialsResponse_dbUser = Lens.lens (\GetCredentialsResponse' {dbUser} -> dbUser) (\s@GetCredentialsResponse' {} a -> s {dbUser = a} :: GetCredentialsResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 getCredentialsResponse_httpStatus :: Lens.Lens' GetCredentialsResponse Prelude.Int

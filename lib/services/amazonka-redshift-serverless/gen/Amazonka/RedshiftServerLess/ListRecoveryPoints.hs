@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -62,12 +63,12 @@ data ListRecoveryPoints = ListRecoveryPoints'
     -- | The name of the namespace to list recovery points for.
     namespaceName :: Prelude.Maybe Prelude.Text,
     -- | The time when creation of the recovery point finished.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | An optional parameter that specifies the maximum number of results to
     -- return. You can use @nextToken@ to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The time when the recovery point\'s creation was initiated.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,7 +115,7 @@ listRecoveryPoints_namespaceName = Lens.lens (\ListRecoveryPoints' {namespaceNam
 
 -- | The time when creation of the recovery point finished.
 listRecoveryPoints_endTime :: Lens.Lens' ListRecoveryPoints (Prelude.Maybe Prelude.UTCTime)
-listRecoveryPoints_endTime = Lens.lens (\ListRecoveryPoints' {endTime} -> endTime) (\s@ListRecoveryPoints' {} a -> s {endTime = a} :: ListRecoveryPoints) Prelude.. Lens.mapping Core._Time
+listRecoveryPoints_endTime = Lens.lens (\ListRecoveryPoints' {endTime} -> endTime) (\s@ListRecoveryPoints' {} a -> s {endTime = a} :: ListRecoveryPoints) Prelude.. Lens.mapping Data._Time
 
 -- | An optional parameter that specifies the maximum number of results to
 -- return. You can use @nextToken@ to get the next page of results.
@@ -123,7 +124,7 @@ listRecoveryPoints_maxResults = Lens.lens (\ListRecoveryPoints' {maxResults} -> 
 
 -- | The time when the recovery point\'s creation was initiated.
 listRecoveryPoints_startTime :: Lens.Lens' ListRecoveryPoints (Prelude.Maybe Prelude.UTCTime)
-listRecoveryPoints_startTime = Lens.lens (\ListRecoveryPoints' {startTime} -> startTime) (\s@ListRecoveryPoints' {} a -> s {startTime = a} :: ListRecoveryPoints) Prelude.. Lens.mapping Core._Time
+listRecoveryPoints_startTime = Lens.lens (\ListRecoveryPoints' {startTime} -> startTime) (\s@ListRecoveryPoints' {} a -> s {startTime = a} :: ListRecoveryPoints) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListRecoveryPoints where
   page rq rs
@@ -157,8 +158,8 @@ instance Core.AWSRequest ListRecoveryPoints where
     Response.receiveJSON
       ( \s h x ->
           ListRecoveryPointsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "recoveryPoints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "recoveryPoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,37 +179,37 @@ instance Prelude.NFData ListRecoveryPoints where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders ListRecoveryPoints where
+instance Data.ToHeaders ListRecoveryPoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.ListRecoveryPoints" ::
+              Data.=# ( "RedshiftServerless.ListRecoveryPoints" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRecoveryPoints where
+instance Data.ToJSON ListRecoveryPoints where
   toJSON ListRecoveryPoints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("namespaceName" Core..=) Prelude.<$> namespaceName,
-            ("endTime" Core..=) Prelude.<$> endTime,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("startTime" Core..=) Prelude.<$> startTime
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("namespaceName" Data..=) Prelude.<$> namespaceName,
+            ("endTime" Data..=) Prelude.<$> endTime,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("startTime" Data..=) Prelude.<$> startTime
           ]
       )
 
-instance Core.ToPath ListRecoveryPoints where
+instance Data.ToPath ListRecoveryPoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRecoveryPoints where
+instance Data.ToQuery ListRecoveryPoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRecoveryPointsResponse' smart constructor.

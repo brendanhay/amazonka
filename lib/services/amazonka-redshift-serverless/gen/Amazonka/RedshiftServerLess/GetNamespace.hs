@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -82,7 +83,7 @@ instance Core.AWSRequest GetNamespace where
       ( \s h x ->
           GetNamespaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "namespace")
+            Prelude.<*> (x Data..:> "namespace")
       )
 
 instance Prelude.Hashable GetNamespace where
@@ -92,34 +93,34 @@ instance Prelude.Hashable GetNamespace where
 instance Prelude.NFData GetNamespace where
   rnf GetNamespace' {..} = Prelude.rnf namespaceName
 
-instance Core.ToHeaders GetNamespace where
+instance Data.ToHeaders GetNamespace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.GetNamespace" ::
+              Data.=# ( "RedshiftServerless.GetNamespace" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetNamespace where
+instance Data.ToJSON GetNamespace where
   toJSON GetNamespace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("namespaceName" Core..= namespaceName)
+              ("namespaceName" Data..= namespaceName)
           ]
       )
 
-instance Core.ToPath GetNamespace where
+instance Data.ToPath GetNamespace where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetNamespace where
+instance Data.ToQuery GetNamespace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetNamespaceResponse' smart constructor.

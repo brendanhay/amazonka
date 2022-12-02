@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest UpdateUsageLimit where
     Response.receiveJSON
       ( \s h x ->
           UpdateUsageLimitResponse'
-            Prelude.<$> (x Core..?> "usageLimit")
+            Prelude.<$> (x Data..?> "usageLimit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,35 +126,35 @@ instance Prelude.NFData UpdateUsageLimit where
       `Prelude.seq` Prelude.rnf amount
       `Prelude.seq` Prelude.rnf usageLimitId
 
-instance Core.ToHeaders UpdateUsageLimit where
+instance Data.ToHeaders UpdateUsageLimit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.UpdateUsageLimit" ::
+              Data.=# ( "RedshiftServerless.UpdateUsageLimit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUsageLimit where
+instance Data.ToJSON UpdateUsageLimit where
   toJSON UpdateUsageLimit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("breachAction" Core..=) Prelude.<$> breachAction,
-            ("amount" Core..=) Prelude.<$> amount,
-            Prelude.Just ("usageLimitId" Core..= usageLimitId)
+          [ ("breachAction" Data..=) Prelude.<$> breachAction,
+            ("amount" Data..=) Prelude.<$> amount,
+            Prelude.Just ("usageLimitId" Data..= usageLimitId)
           ]
       )
 
-instance Core.ToPath UpdateUsageLimit where
+instance Data.ToPath UpdateUsageLimit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateUsageLimit where
+instance Data.ToQuery UpdateUsageLimit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUsageLimitResponse' smart constructor.

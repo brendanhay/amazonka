@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -132,9 +133,9 @@ instance Core.AWSRequest RestoreFromSnapshot where
     Response.receiveJSON
       ( \s h x ->
           RestoreFromSnapshotResponse'
-            Prelude.<$> (x Core..?> "snapshotName")
-            Prelude.<*> (x Core..?> "ownerAccount")
-            Prelude.<*> (x Core..?> "namespace")
+            Prelude.<$> (x Data..?> "snapshotName")
+            Prelude.<*> (x Data..?> "ownerAccount")
+            Prelude.<*> (x Data..?> "namespace")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,38 +155,38 @@ instance Prelude.NFData RestoreFromSnapshot where
       `Prelude.seq` Prelude.rnf namespaceName
       `Prelude.seq` Prelude.rnf workgroupName
 
-instance Core.ToHeaders RestoreFromSnapshot where
+instance Data.ToHeaders RestoreFromSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.RestoreFromSnapshot" ::
+              Data.=# ( "RedshiftServerless.RestoreFromSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestoreFromSnapshot where
+instance Data.ToJSON RestoreFromSnapshot where
   toJSON RestoreFromSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("snapshotName" Core..=) Prelude.<$> snapshotName,
-            ("snapshotArn" Core..=) Prelude.<$> snapshotArn,
-            ("ownerAccount" Core..=) Prelude.<$> ownerAccount,
-            Prelude.Just ("namespaceName" Core..= namespaceName),
+          [ ("snapshotName" Data..=) Prelude.<$> snapshotName,
+            ("snapshotArn" Data..=) Prelude.<$> snapshotArn,
+            ("ownerAccount" Data..=) Prelude.<$> ownerAccount,
+            Prelude.Just ("namespaceName" Data..= namespaceName),
             Prelude.Just
-              ("workgroupName" Core..= workgroupName)
+              ("workgroupName" Data..= workgroupName)
           ]
       )
 
-instance Core.ToPath RestoreFromSnapshot where
+instance Data.ToPath RestoreFromSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreFromSnapshot where
+instance Data.ToQuery RestoreFromSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreFromSnapshotResponse' smart constructor.

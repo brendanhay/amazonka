@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.FlinkRunConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the starting parameters for a Flink-based Kinesis Data
@@ -87,13 +88,13 @@ newFlinkRunConfiguration =
 flinkRunConfiguration_allowNonRestoredState :: Lens.Lens' FlinkRunConfiguration (Prelude.Maybe Prelude.Bool)
 flinkRunConfiguration_allowNonRestoredState = Lens.lens (\FlinkRunConfiguration' {allowNonRestoredState} -> allowNonRestoredState) (\s@FlinkRunConfiguration' {} a -> s {allowNonRestoredState = a} :: FlinkRunConfiguration)
 
-instance Core.FromJSON FlinkRunConfiguration where
+instance Data.FromJSON FlinkRunConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FlinkRunConfiguration"
       ( \x ->
           FlinkRunConfiguration'
-            Prelude.<$> (x Core..:? "AllowNonRestoredState")
+            Prelude.<$> (x Data..:? "AllowNonRestoredState")
       )
 
 instance Prelude.Hashable FlinkRunConfiguration where
@@ -104,11 +105,11 @@ instance Prelude.NFData FlinkRunConfiguration where
   rnf FlinkRunConfiguration' {..} =
     Prelude.rnf allowNonRestoredState
 
-instance Core.ToJSON FlinkRunConfiguration where
+instance Data.ToJSON FlinkRunConfiguration where
   toJSON FlinkRunConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllowNonRestoredState" Core..=)
+          [ ("AllowNonRestoredState" Data..=)
               Prelude.<$> allowNonRestoredState
           ]
       )

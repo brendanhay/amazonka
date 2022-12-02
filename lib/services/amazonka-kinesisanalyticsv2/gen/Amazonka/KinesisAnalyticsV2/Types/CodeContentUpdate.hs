@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.CodeContentUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.S3ContentLocationUpdate
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data CodeContentUpdate = CodeContentUpdate'
     -- | Describes an update to the text code for an application.
     textContentUpdate :: Prelude.Maybe Prelude.Text,
     -- | Describes an update to the zipped code for an application.
-    zipFileContentUpdate :: Prelude.Maybe Core.Base64
+    zipFileContentUpdate :: Prelude.Maybe Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,7 +80,7 @@ codeContentUpdate_textContentUpdate = Lens.lens (\CodeContentUpdate' {textConten
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 codeContentUpdate_zipFileContentUpdate :: Lens.Lens' CodeContentUpdate (Prelude.Maybe Prelude.ByteString)
-codeContentUpdate_zipFileContentUpdate = Lens.lens (\CodeContentUpdate' {zipFileContentUpdate} -> zipFileContentUpdate) (\s@CodeContentUpdate' {} a -> s {zipFileContentUpdate = a} :: CodeContentUpdate) Prelude.. Lens.mapping Core._Base64
+codeContentUpdate_zipFileContentUpdate = Lens.lens (\CodeContentUpdate' {zipFileContentUpdate} -> zipFileContentUpdate) (\s@CodeContentUpdate' {} a -> s {zipFileContentUpdate = a} :: CodeContentUpdate) Prelude.. Lens.mapping Data._Base64
 
 instance Prelude.Hashable CodeContentUpdate where
   hashWithSalt _salt CodeContentUpdate' {..} =
@@ -94,15 +95,15 @@ instance Prelude.NFData CodeContentUpdate where
       `Prelude.seq` Prelude.rnf textContentUpdate
       `Prelude.seq` Prelude.rnf zipFileContentUpdate
 
-instance Core.ToJSON CodeContentUpdate where
+instance Data.ToJSON CodeContentUpdate where
   toJSON CodeContentUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3ContentLocationUpdate" Core..=)
+          [ ("S3ContentLocationUpdate" Data..=)
               Prelude.<$> s3ContentLocationUpdate,
-            ("TextContentUpdate" Core..=)
+            ("TextContentUpdate" Data..=)
               Prelude.<$> textContentUpdate,
-            ("ZipFileContentUpdate" Core..=)
+            ("ZipFileContentUpdate" Data..=)
               Prelude.<$> zipFileContentUpdate
           ]
       )

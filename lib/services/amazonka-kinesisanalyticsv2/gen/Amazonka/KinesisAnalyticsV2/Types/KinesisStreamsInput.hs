@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.KinesisStreamsInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies a Kinesis data stream as the streaming source. You provide
@@ -61,9 +62,9 @@ instance Prelude.NFData KinesisStreamsInput where
   rnf KinesisStreamsInput' {..} =
     Prelude.rnf resourceARN
 
-instance Core.ToJSON KinesisStreamsInput where
+instance Data.ToJSON KinesisStreamsInput where
   toJSON KinesisStreamsInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceARN" Core..= resourceARN)]
+          [Prelude.Just ("ResourceARN" Data..= resourceARN)]
       )

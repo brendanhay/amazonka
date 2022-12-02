@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ApplicationMaintenanceConfigurationUpda
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the updated maintenance configuration for the application.
@@ -75,15 +76,15 @@ instance
       applicationMaintenanceWindowStartTimeUpdate
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ApplicationMaintenanceConfigurationUpdate
   where
   toJSON ApplicationMaintenanceConfigurationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ApplicationMaintenanceWindowStartTimeUpdate"
-                  Core..= applicationMaintenanceWindowStartTimeUpdate
+                  Data..= applicationMaintenanceWindowStartTimeUpdate
               )
           ]
       )

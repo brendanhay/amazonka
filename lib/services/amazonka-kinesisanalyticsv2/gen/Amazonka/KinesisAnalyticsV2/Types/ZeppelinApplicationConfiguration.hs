@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.CatalogConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.DeployAsApplicationConfiguration
@@ -117,17 +118,17 @@ instance
       `Prelude.seq` Prelude.rnf deployAsApplicationConfiguration
       `Prelude.seq` Prelude.rnf monitoringConfiguration
 
-instance Core.ToJSON ZeppelinApplicationConfiguration where
+instance Data.ToJSON ZeppelinApplicationConfiguration where
   toJSON ZeppelinApplicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomArtifactsConfiguration" Core..=)
+          [ ("CustomArtifactsConfiguration" Data..=)
               Prelude.<$> customArtifactsConfiguration,
-            ("CatalogConfiguration" Core..=)
+            ("CatalogConfiguration" Data..=)
               Prelude.<$> catalogConfiguration,
-            ("DeployAsApplicationConfiguration" Core..=)
+            ("DeployAsApplicationConfiguration" Data..=)
               Prelude.<$> deployAsApplicationConfiguration,
-            ("MonitoringConfiguration" Core..=)
+            ("MonitoringConfiguration" Data..=)
               Prelude.<$> monitoringConfiguration
           ]
       )

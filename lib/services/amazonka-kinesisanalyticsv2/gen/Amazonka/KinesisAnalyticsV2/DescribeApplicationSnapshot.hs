@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest DescribeApplicationSnapshot where
       ( \s h x ->
           DescribeApplicationSnapshotResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "SnapshotDetails")
+            Prelude.<*> (x Data..:> "SnapshotDetails")
       )
 
 instance Prelude.Hashable DescribeApplicationSnapshot where
@@ -117,35 +118,35 @@ instance Prelude.NFData DescribeApplicationSnapshot where
     Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf snapshotName
 
-instance Core.ToHeaders DescribeApplicationSnapshot where
+instance Data.ToHeaders DescribeApplicationSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.DescribeApplicationSnapshot" ::
+              Data.=# ( "KinesisAnalytics_20180523.DescribeApplicationSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeApplicationSnapshot where
+instance Data.ToJSON DescribeApplicationSnapshot where
   toJSON DescribeApplicationSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ApplicationName" Core..= applicationName),
-            Prelude.Just ("SnapshotName" Core..= snapshotName)
+              ("ApplicationName" Data..= applicationName),
+            Prelude.Just ("SnapshotName" Data..= snapshotName)
           ]
       )
 
-instance Core.ToPath DescribeApplicationSnapshot where
+instance Data.ToPath DescribeApplicationSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeApplicationSnapshot where
+instance Data.ToQuery DescribeApplicationSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeApplicationSnapshotResponse' smart constructor.

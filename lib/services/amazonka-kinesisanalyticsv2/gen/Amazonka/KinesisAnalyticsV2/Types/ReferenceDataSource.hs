@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ReferenceDataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.S3ReferenceDataSource
 import Amazonka.KinesisAnalyticsV2.Types.SourceSchema
 import qualified Amazonka.Prelude as Prelude
@@ -108,14 +109,14 @@ instance Prelude.NFData ReferenceDataSource where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf referenceSchema
 
-instance Core.ToJSON ReferenceDataSource where
+instance Data.ToJSON ReferenceDataSource where
   toJSON ReferenceDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3ReferenceDataSource" Core..=)
+          [ ("S3ReferenceDataSource" Data..=)
               Prelude.<$> s3ReferenceDataSource,
-            Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just
-              ("ReferenceSchema" Core..= referenceSchema)
+              ("ReferenceSchema" Data..= referenceSchema)
           ]
       )

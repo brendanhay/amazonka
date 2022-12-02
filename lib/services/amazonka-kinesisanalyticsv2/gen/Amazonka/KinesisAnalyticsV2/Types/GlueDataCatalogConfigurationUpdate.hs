@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.GlueDataCatalogConfigurationUpdate wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates to the configuration of the Glue Data Catalog that you use for
@@ -74,13 +75,13 @@ instance
     Prelude.rnf databaseARNUpdate
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GlueDataCatalogConfigurationUpdate
   where
   toJSON GlueDataCatalogConfigurationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DatabaseARNUpdate" Core..= databaseARNUpdate)
+              ("DatabaseARNUpdate" Data..= databaseARNUpdate)
           ]
       )

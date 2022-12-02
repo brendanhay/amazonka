@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.CloudWatchLoggingOptionDescription wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the Amazon CloudWatch logging option.
@@ -90,17 +91,17 @@ cloudWatchLoggingOptionDescription_logStreamARN :: Lens.Lens' CloudWatchLoggingO
 cloudWatchLoggingOptionDescription_logStreamARN = Lens.lens (\CloudWatchLoggingOptionDescription' {logStreamARN} -> logStreamARN) (\s@CloudWatchLoggingOptionDescription' {} a -> s {logStreamARN = a} :: CloudWatchLoggingOptionDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CloudWatchLoggingOptionDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchLoggingOptionDescription"
       ( \x ->
           CloudWatchLoggingOptionDescription'
-            Prelude.<$> (x Core..:? "RoleARN")
-            Prelude.<*> (x Core..:? "CloudWatchLoggingOptionId")
-            Prelude.<*> (x Core..: "LogStreamARN")
+            Prelude.<$> (x Data..:? "RoleARN")
+            Prelude.<*> (x Data..:? "CloudWatchLoggingOptionId")
+            Prelude.<*> (x Data..: "LogStreamARN")
       )
 
 instance

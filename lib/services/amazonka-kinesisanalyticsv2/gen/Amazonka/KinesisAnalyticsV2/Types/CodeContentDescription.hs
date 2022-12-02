@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.CodeContentDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.S3ApplicationCodeLocationDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,16 +90,16 @@ codeContentDescription_s3ApplicationCodeLocationDescription = Lens.lens (\CodeCo
 codeContentDescription_codeSize :: Lens.Lens' CodeContentDescription (Prelude.Maybe Prelude.Natural)
 codeContentDescription_codeSize = Lens.lens (\CodeContentDescription' {codeSize} -> codeSize) (\s@CodeContentDescription' {} a -> s {codeSize = a} :: CodeContentDescription)
 
-instance Core.FromJSON CodeContentDescription where
+instance Data.FromJSON CodeContentDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeContentDescription"
       ( \x ->
           CodeContentDescription'
-            Prelude.<$> (x Core..:? "TextContent")
-            Prelude.<*> (x Core..:? "CodeMD5")
-            Prelude.<*> (x Core..:? "S3ApplicationCodeLocationDescription")
-            Prelude.<*> (x Core..:? "CodeSize")
+            Prelude.<$> (x Data..:? "TextContent")
+            Prelude.<*> (x Data..:? "CodeMD5")
+            Prelude.<*> (x Data..:? "S3ApplicationCodeLocationDescription")
+            Prelude.<*> (x Data..:? "CodeSize")
       )
 
 instance Prelude.Hashable CodeContentDescription where

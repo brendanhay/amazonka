@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.KinesisFirehoseOutputUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a SQL-based Kinesis Data Analytics application, when updating an
@@ -66,11 +67,11 @@ instance Prelude.NFData KinesisFirehoseOutputUpdate where
   rnf KinesisFirehoseOutputUpdate' {..} =
     Prelude.rnf resourceARNUpdate
 
-instance Core.ToJSON KinesisFirehoseOutputUpdate where
+instance Data.ToJSON KinesisFirehoseOutputUpdate where
   toJSON KinesisFirehoseOutputUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResourceARNUpdate" Core..= resourceARNUpdate)
+              ("ResourceARNUpdate" Data..= resourceARNUpdate)
           ]
       )

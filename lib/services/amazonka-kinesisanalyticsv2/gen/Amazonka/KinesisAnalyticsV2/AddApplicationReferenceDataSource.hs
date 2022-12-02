@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,11 +147,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AddApplicationReferenceDataSourceResponse'
-            Prelude.<$> ( x Core..?> "ReferenceDataSourceDescriptions"
+            Prelude.<$> ( x Data..?> "ReferenceDataSourceDescriptions"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Core..?> "ApplicationARN")
-              Prelude.<*> (x Core..?> "ApplicationVersionId")
+              Prelude.<*> (x Data..?> "ApplicationARN")
+              Prelude.<*> (x Data..?> "ApplicationVersionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,49 +176,49 @@ instance
       `Prelude.seq` Prelude.rnf referenceDataSource
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AddApplicationReferenceDataSource
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.AddApplicationReferenceDataSource" ::
+              Data.=# ( "KinesisAnalytics_20180523.AddApplicationReferenceDataSource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AddApplicationReferenceDataSource
   where
   toJSON AddApplicationReferenceDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ApplicationName" Core..= applicationName),
+              ("ApplicationName" Data..= applicationName),
             Prelude.Just
               ( "CurrentApplicationVersionId"
-                  Core..= currentApplicationVersionId
+                  Data..= currentApplicationVersionId
               ),
             Prelude.Just
-              ("ReferenceDataSource" Core..= referenceDataSource)
+              ("ReferenceDataSource" Data..= referenceDataSource)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     AddApplicationReferenceDataSource
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AddApplicationReferenceDataSource
   where
   toQuery = Prelude.const Prelude.mempty

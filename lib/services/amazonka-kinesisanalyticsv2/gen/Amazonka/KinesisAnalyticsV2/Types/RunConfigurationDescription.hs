@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.RunConfigurationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationRestoreConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.FlinkRunConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -65,15 +66,15 @@ runConfigurationDescription_flinkRunConfigurationDescription = Lens.lens (\RunCo
 runConfigurationDescription_applicationRestoreConfigurationDescription :: Lens.Lens' RunConfigurationDescription (Prelude.Maybe ApplicationRestoreConfiguration)
 runConfigurationDescription_applicationRestoreConfigurationDescription = Lens.lens (\RunConfigurationDescription' {applicationRestoreConfigurationDescription} -> applicationRestoreConfigurationDescription) (\s@RunConfigurationDescription' {} a -> s {applicationRestoreConfigurationDescription = a} :: RunConfigurationDescription)
 
-instance Core.FromJSON RunConfigurationDescription where
+instance Data.FromJSON RunConfigurationDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RunConfigurationDescription"
       ( \x ->
           RunConfigurationDescription'
-            Prelude.<$> (x Core..:? "FlinkRunConfigurationDescription")
+            Prelude.<$> (x Data..:? "FlinkRunConfigurationDescription")
             Prelude.<*> ( x
-                            Core..:? "ApplicationRestoreConfigurationDescription"
+                            Data..:? "ApplicationRestoreConfigurationDescription"
                         )
       )
 

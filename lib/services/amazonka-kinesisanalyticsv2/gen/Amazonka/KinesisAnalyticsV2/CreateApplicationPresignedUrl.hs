@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,7 +133,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateApplicationPresignedUrlResponse'
-            Prelude.<$> (x Core..?> "AuthorizedUrl")
+            Prelude.<$> (x Data..?> "AuthorizedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,37 +153,37 @@ instance Prelude.NFData CreateApplicationPresignedUrl where
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf urlType
 
-instance Core.ToHeaders CreateApplicationPresignedUrl where
+instance Data.ToHeaders CreateApplicationPresignedUrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.CreateApplicationPresignedUrl" ::
+              Data.=# ( "KinesisAnalytics_20180523.CreateApplicationPresignedUrl" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApplicationPresignedUrl where
+instance Data.ToJSON CreateApplicationPresignedUrl where
   toJSON CreateApplicationPresignedUrl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SessionExpirationDurationInSeconds" Core..=)
+          [ ("SessionExpirationDurationInSeconds" Data..=)
               Prelude.<$> sessionExpirationDurationInSeconds,
             Prelude.Just
-              ("ApplicationName" Core..= applicationName),
-            Prelude.Just ("UrlType" Core..= urlType)
+              ("ApplicationName" Data..= applicationName),
+            Prelude.Just ("UrlType" Data..= urlType)
           ]
       )
 
-instance Core.ToPath CreateApplicationPresignedUrl where
+instance Data.ToPath CreateApplicationPresignedUrl where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateApplicationPresignedUrl where
+instance Data.ToQuery CreateApplicationPresignedUrl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateApplicationPresignedUrlResponse' smart constructor.

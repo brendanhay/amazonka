@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfigurationUpdate w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.LogLevel
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,13 +79,13 @@ instance
     Prelude.rnf logLevelUpdate
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ZeppelinMonitoringConfigurationUpdate
   where
   toJSON ZeppelinMonitoringConfigurationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LogLevelUpdate" Core..= logLevelUpdate)
+              ("LogLevelUpdate" Data..= logLevelUpdate)
           ]
       )

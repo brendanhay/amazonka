@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,10 +128,10 @@ instance Core.AWSRequest ListApplicationVersions where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationVersionsResponse'
-            Prelude.<$> ( x Core..?> "ApplicationVersionSummaries"
+            Prelude.<$> ( x Data..?> "ApplicationVersionSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,36 +147,36 @@ instance Prelude.NFData ListApplicationVersions where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders ListApplicationVersions where
+instance Data.ToHeaders ListApplicationVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.ListApplicationVersions" ::
+              Data.=# ( "KinesisAnalytics_20180523.ListApplicationVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListApplicationVersions where
+instance Data.ToJSON ListApplicationVersions where
   toJSON ListApplicationVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
             Prelude.Just
-              ("ApplicationName" Core..= applicationName)
+              ("ApplicationName" Data..= applicationName)
           ]
       )
 
-instance Core.ToPath ListApplicationVersions where
+instance Data.ToPath ListApplicationVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListApplicationVersions where
+instance Data.ToQuery ListApplicationVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListApplicationVersionsResponse' smart constructor.

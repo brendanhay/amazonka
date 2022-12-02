@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.KinesisFirehoseOutputDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a SQL-based Kinesis Data Analytics application\'s output, describes
@@ -82,16 +83,16 @@ kinesisFirehoseOutputDescription_resourceARN :: Lens.Lens' KinesisFirehoseOutput
 kinesisFirehoseOutputDescription_resourceARN = Lens.lens (\KinesisFirehoseOutputDescription' {resourceARN} -> resourceARN) (\s@KinesisFirehoseOutputDescription' {} a -> s {resourceARN = a} :: KinesisFirehoseOutputDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     KinesisFirehoseOutputDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisFirehoseOutputDescription"
       ( \x ->
           KinesisFirehoseOutputDescription'
-            Prelude.<$> (x Core..:? "RoleARN")
-            Prelude.<*> (x Core..: "ResourceARN")
+            Prelude.<$> (x Data..:? "RoleARN")
+            Prelude.<*> (x Data..: "ResourceARN")
       )
 
 instance

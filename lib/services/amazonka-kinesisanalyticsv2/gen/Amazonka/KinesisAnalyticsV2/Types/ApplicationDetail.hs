@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ApplicationDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationMaintenanceConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationMode
@@ -35,13 +36,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newApplicationDetail' smart constructor.
 data ApplicationDetail = ApplicationDetail'
   { -- | The current timestamp when the application was last updated.
-    lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdateTimestamp :: Prelude.Maybe Data.POSIX,
     -- | To create a Kinesis Data Analytics Studio notebook, you must set the
     -- mode to @INTERACTIVE@. However, for a Kinesis Data Analytics for Apache
     -- Flink application, the mode is optional.
     applicationMode :: Prelude.Maybe ApplicationMode,
     -- | The current timestamp when the application was created.
-    createTimestamp :: Prelude.Maybe Core.POSIX,
+    createTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The details of the maintenance configuration for the application.
     applicationMaintenanceConfigurationDescription :: Prelude.Maybe ApplicationMaintenanceConfigurationDescription,
     -- | A value you use to implement strong concurrency for application updates.
@@ -170,7 +171,7 @@ newApplicationDetail
 
 -- | The current timestamp when the application was last updated.
 applicationDetail_lastUpdateTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
-applicationDetail_lastUpdateTimestamp = Lens.lens (\ApplicationDetail' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ApplicationDetail' {} a -> s {lastUpdateTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
+applicationDetail_lastUpdateTimestamp = Lens.lens (\ApplicationDetail' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ApplicationDetail' {} a -> s {lastUpdateTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Data._Time
 
 -- | To create a Kinesis Data Analytics Studio notebook, you must set the
 -- mode to @INTERACTIVE@. However, for a Kinesis Data Analytics for Apache
@@ -180,7 +181,7 @@ applicationDetail_applicationMode = Lens.lens (\ApplicationDetail' {applicationM
 
 -- | The current timestamp when the application was created.
 applicationDetail_createTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
-applicationDetail_createTimestamp = Lens.lens (\ApplicationDetail' {createTimestamp} -> createTimestamp) (\s@ApplicationDetail' {} a -> s {createTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
+applicationDetail_createTimestamp = Lens.lens (\ApplicationDetail' {createTimestamp} -> createTimestamp) (\s@ApplicationDetail' {} a -> s {createTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The details of the maintenance configuration for the application.
 applicationDetail_applicationMaintenanceConfigurationDescription :: Lens.Lens' ApplicationDetail (Prelude.Maybe ApplicationMaintenanceConfigurationDescription)
@@ -243,33 +244,33 @@ applicationDetail_applicationStatus = Lens.lens (\ApplicationDetail' {applicatio
 applicationDetail_applicationVersionId :: Lens.Lens' ApplicationDetail Prelude.Natural
 applicationDetail_applicationVersionId = Lens.lens (\ApplicationDetail' {applicationVersionId} -> applicationVersionId) (\s@ApplicationDetail' {} a -> s {applicationVersionId = a} :: ApplicationDetail)
 
-instance Core.FromJSON ApplicationDetail where
+instance Data.FromJSON ApplicationDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationDetail"
       ( \x ->
           ApplicationDetail'
-            Prelude.<$> (x Core..:? "LastUpdateTimestamp")
-            Prelude.<*> (x Core..:? "ApplicationMode")
-            Prelude.<*> (x Core..:? "CreateTimestamp")
+            Prelude.<$> (x Data..:? "LastUpdateTimestamp")
+            Prelude.<*> (x Data..:? "ApplicationMode")
+            Prelude.<*> (x Data..:? "CreateTimestamp")
             Prelude.<*> ( x
-                            Core..:? "ApplicationMaintenanceConfigurationDescription"
+                            Data..:? "ApplicationMaintenanceConfigurationDescription"
                         )
-            Prelude.<*> (x Core..:? "ConditionalToken")
-            Prelude.<*> ( x Core..:? "CloudWatchLoggingOptionDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ConditionalToken")
+            Prelude.<*> ( x Data..:? "CloudWatchLoggingOptionDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ApplicationVersionRolledBackTo")
-            Prelude.<*> (x Core..:? "ApplicationVersionUpdatedFrom")
-            Prelude.<*> (x Core..:? "ApplicationConfigurationDescription")
-            Prelude.<*> (x Core..:? "ApplicationVersionRolledBackFrom")
-            Prelude.<*> (x Core..:? "ApplicationDescription")
-            Prelude.<*> (x Core..:? "ServiceExecutionRole")
-            Prelude.<*> (x Core..: "ApplicationARN")
-            Prelude.<*> (x Core..: "ApplicationName")
-            Prelude.<*> (x Core..: "RuntimeEnvironment")
-            Prelude.<*> (x Core..: "ApplicationStatus")
-            Prelude.<*> (x Core..: "ApplicationVersionId")
+            Prelude.<*> (x Data..:? "ApplicationVersionRolledBackTo")
+            Prelude.<*> (x Data..:? "ApplicationVersionUpdatedFrom")
+            Prelude.<*> (x Data..:? "ApplicationConfigurationDescription")
+            Prelude.<*> (x Data..:? "ApplicationVersionRolledBackFrom")
+            Prelude.<*> (x Data..:? "ApplicationDescription")
+            Prelude.<*> (x Data..:? "ServiceExecutionRole")
+            Prelude.<*> (x Data..: "ApplicationARN")
+            Prelude.<*> (x Data..: "ApplicationName")
+            Prelude.<*> (x Data..: "RuntimeEnvironment")
+            Prelude.<*> (x Data..: "ApplicationStatus")
+            Prelude.<*> (x Data..: "ApplicationVersionId")
       )
 
 instance Prelude.Hashable ApplicationDetail where

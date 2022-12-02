@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.MonitoringConfigurationDescription wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ConfigurationType
 import Amazonka.KinesisAnalyticsV2.Types.LogLevel
 import Amazonka.KinesisAnalyticsV2.Types.MetricsLevel
@@ -79,17 +80,17 @@ monitoringConfigurationDescription_configurationType :: Lens.Lens' MonitoringCon
 monitoringConfigurationDescription_configurationType = Lens.lens (\MonitoringConfigurationDescription' {configurationType} -> configurationType) (\s@MonitoringConfigurationDescription' {} a -> s {configurationType = a} :: MonitoringConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MonitoringConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringConfigurationDescription"
       ( \x ->
           MonitoringConfigurationDescription'
-            Prelude.<$> (x Core..:? "LogLevel")
-            Prelude.<*> (x Core..:? "MetricsLevel")
-            Prelude.<*> (x Core..:? "ConfigurationType")
+            Prelude.<$> (x Data..:? "LogLevel")
+            Prelude.<*> (x Data..:? "MetricsLevel")
+            Prelude.<*> (x Data..:? "ConfigurationType")
       )
 
 instance

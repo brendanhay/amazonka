@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate
 import Amazonka.KinesisAnalyticsV2.Types.MonitoringConfigurationUpdate
 import Amazonka.KinesisAnalyticsV2.Types.ParallelismConfigurationUpdate
@@ -111,17 +112,17 @@ instance
       `Prelude.seq` Prelude.rnf checkpointConfigurationUpdate
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     FlinkApplicationConfigurationUpdate
   where
   toJSON FlinkApplicationConfigurationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MonitoringConfigurationUpdate" Core..=)
+          [ ("MonitoringConfigurationUpdate" Data..=)
               Prelude.<$> monitoringConfigurationUpdate,
-            ("ParallelismConfigurationUpdate" Core..=)
+            ("ParallelismConfigurationUpdate" Data..=)
               Prelude.<$> parallelismConfigurationUpdate,
-            ("CheckpointConfigurationUpdate" Core..=)
+            ("CheckpointConfigurationUpdate" Data..=)
               Prelude.<$> checkpointConfigurationUpdate
           ]
       )

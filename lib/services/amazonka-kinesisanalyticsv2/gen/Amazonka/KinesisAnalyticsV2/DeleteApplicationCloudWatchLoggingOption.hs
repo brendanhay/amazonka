@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,11 +164,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteApplicationCloudWatchLoggingOptionResponse'
-            Prelude.<$> (x Core..?> "ApplicationARN")
-              Prelude.<*> ( x Core..?> "CloudWatchLoggingOptionDescriptions"
+            Prelude.<$> (x Data..?> "ApplicationARN")
+              Prelude.<*> ( x Data..?> "CloudWatchLoggingOptionDescriptions"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> (x Core..?> "ApplicationVersionId")
+              Prelude.<*> (x Data..?> "ApplicationVersionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,51 +195,51 @@ instance
       `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteApplicationCloudWatchLoggingOption
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.DeleteApplicationCloudWatchLoggingOption" ::
+              Data.=# ( "KinesisAnalytics_20180523.DeleteApplicationCloudWatchLoggingOption" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteApplicationCloudWatchLoggingOption
   where
   toJSON DeleteApplicationCloudWatchLoggingOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConditionalToken" Core..=)
+          [ ("ConditionalToken" Data..=)
               Prelude.<$> conditionalToken,
-            ("CurrentApplicationVersionId" Core..=)
+            ("CurrentApplicationVersionId" Data..=)
               Prelude.<$> currentApplicationVersionId,
             Prelude.Just
-              ("ApplicationName" Core..= applicationName),
+              ("ApplicationName" Data..= applicationName),
             Prelude.Just
               ( "CloudWatchLoggingOptionId"
-                  Core..= cloudWatchLoggingOptionId
+                  Data..= cloudWatchLoggingOptionId
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteApplicationCloudWatchLoggingOption
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteApplicationCloudWatchLoggingOption
   where
   toQuery = Prelude.const Prelude.mempty

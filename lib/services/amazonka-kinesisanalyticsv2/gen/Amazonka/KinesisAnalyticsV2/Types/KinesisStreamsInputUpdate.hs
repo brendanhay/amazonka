@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.KinesisStreamsInputUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When you update the input configuration for a SQL-based Kinesis Data
@@ -65,11 +66,11 @@ instance Prelude.NFData KinesisStreamsInputUpdate where
   rnf KinesisStreamsInputUpdate' {..} =
     Prelude.rnf resourceARNUpdate
 
-instance Core.ToJSON KinesisStreamsInputUpdate where
+instance Data.ToJSON KinesisStreamsInputUpdate where
   toJSON KinesisStreamsInputUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResourceARNUpdate" Core..= resourceARNUpdate)
+              ("ResourceARNUpdate" Data..= resourceARNUpdate)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.S3ContentLocationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an update for the Amazon S3 code content location for an
@@ -87,14 +88,14 @@ instance Prelude.NFData S3ContentLocationUpdate where
       `Prelude.seq` Prelude.rnf bucketARNUpdate
       `Prelude.seq` Prelude.rnf fileKeyUpdate
 
-instance Core.ToJSON S3ContentLocationUpdate where
+instance Data.ToJSON S3ContentLocationUpdate where
   toJSON S3ContentLocationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ObjectVersionUpdate" Core..=)
+          [ ("ObjectVersionUpdate" Data..=)
               Prelude.<$> objectVersionUpdate,
-            ("BucketARNUpdate" Core..=)
+            ("BucketARNUpdate" Data..=)
               Prelude.<$> bucketARNUpdate,
-            ("FileKeyUpdate" Core..=) Prelude.<$> fileKeyUpdate
+            ("FileKeyUpdate" Data..=) Prelude.<$> fileKeyUpdate
           ]
       )

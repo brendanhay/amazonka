@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.CodeContent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.S3ContentLocation
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data CodeContent = CodeContent'
     s3ContentLocation :: Prelude.Maybe S3ContentLocation,
     -- | The zip-format code for a Flink-based Kinesis Data Analytics
     -- application.
-    zipFileContent :: Prelude.Maybe Core.Base64
+    zipFileContent :: Prelude.Maybe Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,7 +88,7 @@ codeContent_s3ContentLocation = Lens.lens (\CodeContent' {s3ContentLocation} -> 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 codeContent_zipFileContent :: Lens.Lens' CodeContent (Prelude.Maybe Prelude.ByteString)
-codeContent_zipFileContent = Lens.lens (\CodeContent' {zipFileContent} -> zipFileContent) (\s@CodeContent' {} a -> s {zipFileContent = a} :: CodeContent) Prelude.. Lens.mapping Core._Base64
+codeContent_zipFileContent = Lens.lens (\CodeContent' {zipFileContent} -> zipFileContent) (\s@CodeContent' {} a -> s {zipFileContent = a} :: CodeContent) Prelude.. Lens.mapping Data._Base64
 
 instance Prelude.Hashable CodeContent where
   hashWithSalt _salt CodeContent' {..} =
@@ -101,14 +102,14 @@ instance Prelude.NFData CodeContent where
       `Prelude.seq` Prelude.rnf s3ContentLocation
       `Prelude.seq` Prelude.rnf zipFileContent
 
-instance Core.ToJSON CodeContent where
+instance Data.ToJSON CodeContent where
   toJSON CodeContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TextContent" Core..=) Prelude.<$> textContent,
-            ("S3ContentLocation" Core..=)
+          [ ("TextContent" Data..=) Prelude.<$> textContent,
+            ("S3ContentLocation" Data..=)
               Prelude.<$> s3ContentLocation,
-            ("ZipFileContent" Core..=)
+            ("ZipFileContent" Data..=)
               Prelude.<$> zipFileContent
           ]
       )

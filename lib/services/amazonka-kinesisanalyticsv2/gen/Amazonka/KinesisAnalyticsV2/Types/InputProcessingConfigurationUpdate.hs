@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.InputProcessingConfigurationUpdate wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.InputLambdaProcessorUpdate
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,15 +77,15 @@ instance
     Prelude.rnf inputLambdaProcessorUpdate
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     InputProcessingConfigurationUpdate
   where
   toJSON InputProcessingConfigurationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "InputLambdaProcessorUpdate"
-                  Core..= inputLambdaProcessorUpdate
+                  Data..= inputLambdaProcessorUpdate
               )
           ]
       )

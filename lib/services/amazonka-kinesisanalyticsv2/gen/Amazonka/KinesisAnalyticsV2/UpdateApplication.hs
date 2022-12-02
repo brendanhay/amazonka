@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -192,7 +193,7 @@ instance Core.AWSRequest UpdateApplication where
       ( \s h x ->
           UpdateApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ApplicationDetail")
+            Prelude.<*> (x Data..:> "ApplicationDetail")
       )
 
 instance Prelude.Hashable UpdateApplication where
@@ -216,46 +217,46 @@ instance Prelude.NFData UpdateApplication where
       `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionUpdates
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders UpdateApplication where
+instance Data.ToHeaders UpdateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.UpdateApplication" ::
+              Data.=# ( "KinesisAnalytics_20180523.UpdateApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApplication where
+instance Data.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ApplicationConfigurationUpdate" Core..=)
+          [ ("ApplicationConfigurationUpdate" Data..=)
               Prelude.<$> applicationConfigurationUpdate,
-            ("ServiceExecutionRoleUpdate" Core..=)
+            ("ServiceExecutionRoleUpdate" Data..=)
               Prelude.<$> serviceExecutionRoleUpdate,
-            ("ConditionalToken" Core..=)
+            ("ConditionalToken" Data..=)
               Prelude.<$> conditionalToken,
-            ("CurrentApplicationVersionId" Core..=)
+            ("CurrentApplicationVersionId" Data..=)
               Prelude.<$> currentApplicationVersionId,
-            ("RunConfigurationUpdate" Core..=)
+            ("RunConfigurationUpdate" Data..=)
               Prelude.<$> runConfigurationUpdate,
-            ("CloudWatchLoggingOptionUpdates" Core..=)
+            ("CloudWatchLoggingOptionUpdates" Data..=)
               Prelude.<$> cloudWatchLoggingOptionUpdates,
             Prelude.Just
-              ("ApplicationName" Core..= applicationName)
+              ("ApplicationName" Data..= applicationName)
           ]
       )
 
-instance Core.ToPath UpdateApplication where
+instance Data.ToPath UpdateApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateApplication where
+instance Data.ToQuery UpdateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApplicationResponse' smart constructor.

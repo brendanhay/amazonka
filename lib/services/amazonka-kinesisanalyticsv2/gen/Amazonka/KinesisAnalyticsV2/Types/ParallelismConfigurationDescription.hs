@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ParallelismConfigurationDescription whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ConfigurationType
 import qualified Amazonka.Prelude as Prelude
 
@@ -155,19 +156,19 @@ parallelismConfigurationDescription_configurationType :: Lens.Lens' ParallelismC
 parallelismConfigurationDescription_configurationType = Lens.lens (\ParallelismConfigurationDescription' {configurationType} -> configurationType) (\s@ParallelismConfigurationDescription' {} a -> s {configurationType = a} :: ParallelismConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ParallelismConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParallelismConfigurationDescription"
       ( \x ->
           ParallelismConfigurationDescription'
-            Prelude.<$> (x Core..:? "ParallelismPerKPU")
-            Prelude.<*> (x Core..:? "CurrentParallelism")
-            Prelude.<*> (x Core..:? "AutoScalingEnabled")
-            Prelude.<*> (x Core..:? "Parallelism")
-            Prelude.<*> (x Core..:? "ConfigurationType")
+            Prelude.<$> (x Data..:? "ParallelismPerKPU")
+            Prelude.<*> (x Data..:? "CurrentParallelism")
+            Prelude.<*> (x Data..:? "AutoScalingEnabled")
+            Prelude.<*> (x Data..:? "Parallelism")
+            Prelude.<*> (x Data..:? "ConfigurationType")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.S3ApplicationCodeLocationDescription wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the location of an application\'s code stored in an S3 bucket.
@@ -81,17 +82,17 @@ s3ApplicationCodeLocationDescription_fileKey :: Lens.Lens' S3ApplicationCodeLoca
 s3ApplicationCodeLocationDescription_fileKey = Lens.lens (\S3ApplicationCodeLocationDescription' {fileKey} -> fileKey) (\s@S3ApplicationCodeLocationDescription' {} a -> s {fileKey = a} :: S3ApplicationCodeLocationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     S3ApplicationCodeLocationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ApplicationCodeLocationDescription"
       ( \x ->
           S3ApplicationCodeLocationDescription'
-            Prelude.<$> (x Core..:? "ObjectVersion")
-            Prelude.<*> (x Core..: "BucketARN")
-            Prelude.<*> (x Core..: "FileKey")
+            Prelude.<$> (x Data..:? "ObjectVersion")
+            Prelude.<*> (x Data..: "BucketARN")
+            Prelude.<*> (x Data..: "FileKey")
       )
 
 instance

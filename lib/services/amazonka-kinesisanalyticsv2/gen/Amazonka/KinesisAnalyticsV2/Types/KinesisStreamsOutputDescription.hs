@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.KinesisStreamsOutputDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For an SQL-based Kinesis Data Analytics application\'s output, describes
@@ -81,16 +82,16 @@ kinesisStreamsOutputDescription_resourceARN :: Lens.Lens' KinesisStreamsOutputDe
 kinesisStreamsOutputDescription_resourceARN = Lens.lens (\KinesisStreamsOutputDescription' {resourceARN} -> resourceARN) (\s@KinesisStreamsOutputDescription' {} a -> s {resourceARN = a} :: KinesisStreamsOutputDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     KinesisStreamsOutputDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisStreamsOutputDescription"
       ( \x ->
           KinesisStreamsOutputDescription'
-            Prelude.<$> (x Core..:? "RoleARN")
-            Prelude.<*> (x Core..: "ResourceARN")
+            Prelude.<$> (x Data..:? "RoleARN")
+            Prelude.<*> (x Data..: "ResourceARN")
       )
 
 instance

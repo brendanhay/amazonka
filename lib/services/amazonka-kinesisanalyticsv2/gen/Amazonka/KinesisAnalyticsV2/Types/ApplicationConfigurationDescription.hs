@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.EnvironmentPropertyDescriptions
@@ -154,32 +155,32 @@ applicationConfigurationDescription_environmentPropertyDescriptions :: Lens.Lens
 applicationConfigurationDescription_environmentPropertyDescriptions = Lens.lens (\ApplicationConfigurationDescription' {environmentPropertyDescriptions} -> environmentPropertyDescriptions) (\s@ApplicationConfigurationDescription' {} a -> s {environmentPropertyDescriptions = a} :: ApplicationConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ApplicationConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationConfigurationDescription"
       ( \x ->
           ApplicationConfigurationDescription'
-            Prelude.<$> (x Core..:? "SqlApplicationConfigurationDescription")
+            Prelude.<$> (x Data..:? "SqlApplicationConfigurationDescription")
             Prelude.<*> ( x
-                            Core..:? "ApplicationSnapshotConfigurationDescription"
+                            Data..:? "ApplicationSnapshotConfigurationDescription"
                         )
-            Prelude.<*> ( x Core..:? "VpcConfigurationDescriptions"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x
-                            Core..:? "ZeppelinApplicationConfigurationDescription"
-                        )
-            Prelude.<*> (x Core..:? "RunConfigurationDescription")
-            Prelude.<*> ( x
-                            Core..:? "ApplicationCodeConfigurationDescription"
+            Prelude.<*> ( x Data..:? "VpcConfigurationDescriptions"
+                            Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x
-                            Core..:? "FlinkApplicationConfigurationDescription"
+                            Data..:? "ZeppelinApplicationConfigurationDescription"
                         )
-            Prelude.<*> (x Core..:? "EnvironmentPropertyDescriptions")
+            Prelude.<*> (x Data..:? "RunConfigurationDescription")
+            Prelude.<*> ( x
+                            Data..:? "ApplicationCodeConfigurationDescription"
+                        )
+            Prelude.<*> ( x
+                            Data..:? "FlinkApplicationConfigurationDescription"
+                        )
+            Prelude.<*> (x Data..:? "EnvironmentPropertyDescriptions")
       )
 
 instance

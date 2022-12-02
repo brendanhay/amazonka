@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.CheckpointConfigurationDescription wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ConfigurationType
 import qualified Amazonka.Prelude as Prelude
 
@@ -162,18 +163,18 @@ checkpointConfigurationDescription_checkpointInterval :: Lens.Lens' CheckpointCo
 checkpointConfigurationDescription_checkpointInterval = Lens.lens (\CheckpointConfigurationDescription' {checkpointInterval} -> checkpointInterval) (\s@CheckpointConfigurationDescription' {} a -> s {checkpointInterval = a} :: CheckpointConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CheckpointConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CheckpointConfigurationDescription"
       ( \x ->
           CheckpointConfigurationDescription'
-            Prelude.<$> (x Core..:? "CheckpointingEnabled")
-            Prelude.<*> (x Core..:? "MinPauseBetweenCheckpoints")
-            Prelude.<*> (x Core..:? "ConfigurationType")
-            Prelude.<*> (x Core..:? "CheckpointInterval")
+            Prelude.<$> (x Data..:? "CheckpointingEnabled")
+            Prelude.<*> (x Data..:? "MinPauseBetweenCheckpoints")
+            Prelude.<*> (x Data..:? "ConfigurationType")
+            Prelude.<*> (x Data..:? "CheckpointInterval")
       )
 
 instance

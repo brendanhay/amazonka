@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,8 +140,8 @@ instance Core.AWSRequest DeleteApplicationOutput where
     Response.receiveJSON
       ( \s h x ->
           DeleteApplicationOutputResponse'
-            Prelude.<$> (x Core..?> "ApplicationARN")
-            Prelude.<*> (x Core..?> "ApplicationVersionId")
+            Prelude.<$> (x Data..?> "ApplicationARN")
+            Prelude.<*> (x Data..?> "ApplicationVersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,39 +157,39 @@ instance Prelude.NFData DeleteApplicationOutput where
       `Prelude.seq` Prelude.rnf currentApplicationVersionId
       `Prelude.seq` Prelude.rnf outputId
 
-instance Core.ToHeaders DeleteApplicationOutput where
+instance Data.ToHeaders DeleteApplicationOutput where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.DeleteApplicationOutput" ::
+              Data.=# ( "KinesisAnalytics_20180523.DeleteApplicationOutput" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteApplicationOutput where
+instance Data.ToJSON DeleteApplicationOutput where
   toJSON DeleteApplicationOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ApplicationName" Core..= applicationName),
+              ("ApplicationName" Data..= applicationName),
             Prelude.Just
               ( "CurrentApplicationVersionId"
-                  Core..= currentApplicationVersionId
+                  Data..= currentApplicationVersionId
               ),
-            Prelude.Just ("OutputId" Core..= outputId)
+            Prelude.Just ("OutputId" Data..= outputId)
           ]
       )
 
-instance Core.ToPath DeleteApplicationOutput where
+instance Data.ToPath DeleteApplicationOutput where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteApplicationOutput where
+instance Data.ToQuery DeleteApplicationOutput where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteApplicationOutputResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationDescription
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.CodeContentDescription
 import Amazonka.KinesisAnalyticsV2.Types.CodeContentType
 import qualified Amazonka.Prelude as Prelude
@@ -69,16 +70,16 @@ applicationCodeConfigurationDescription_codeContentType :: Lens.Lens' Applicatio
 applicationCodeConfigurationDescription_codeContentType = Lens.lens (\ApplicationCodeConfigurationDescription' {codeContentType} -> codeContentType) (\s@ApplicationCodeConfigurationDescription' {} a -> s {codeContentType = a} :: ApplicationCodeConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ApplicationCodeConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationCodeConfigurationDescription"
       ( \x ->
           ApplicationCodeConfigurationDescription'
-            Prelude.<$> (x Core..:? "CodeContentDescription")
-            Prelude.<*> (x Core..: "CodeContentType")
+            Prelude.<$> (x Data..:? "CodeContentDescription")
+            Prelude.<*> (x Data..: "CodeContentType")
       )
 
 instance

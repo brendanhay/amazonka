@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.CodeContentType
 import Amazonka.KinesisAnalyticsV2.Types.CodeContentUpdate
 import qualified Amazonka.Prelude as Prelude
@@ -85,15 +86,15 @@ instance
       `Prelude.seq` Prelude.rnf codeContentUpdate
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ApplicationCodeConfigurationUpdate
   where
   toJSON ApplicationCodeConfigurationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CodeContentTypeUpdate" Core..=)
+          [ ("CodeContentTypeUpdate" Data..=)
               Prelude.<$> codeContentTypeUpdate,
-            ("CodeContentUpdate" Core..=)
+            ("CodeContentUpdate" Data..=)
               Prelude.<$> codeContentUpdate
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.PropertyGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Property key-value pairs passed into an application.
@@ -63,14 +64,14 @@ propertyGroup_propertyGroupId = Lens.lens (\PropertyGroup' {propertyGroupId} -> 
 propertyGroup_propertyMap :: Lens.Lens' PropertyGroup (Prelude.HashMap Prelude.Text Prelude.Text)
 propertyGroup_propertyMap = Lens.lens (\PropertyGroup' {propertyMap} -> propertyMap) (\s@PropertyGroup' {} a -> s {propertyMap = a} :: PropertyGroup) Prelude.. Lens.coerced
 
-instance Core.FromJSON PropertyGroup where
+instance Data.FromJSON PropertyGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PropertyGroup"
       ( \x ->
           PropertyGroup'
-            Prelude.<$> (x Core..: "PropertyGroupId")
-            Prelude.<*> (x Core..:? "PropertyMap" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "PropertyGroupId")
+            Prelude.<*> (x Data..:? "PropertyMap" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PropertyGroup where
@@ -83,12 +84,12 @@ instance Prelude.NFData PropertyGroup where
     Prelude.rnf propertyGroupId
       `Prelude.seq` Prelude.rnf propertyMap
 
-instance Core.ToJSON PropertyGroup where
+instance Data.ToJSON PropertyGroup where
   toJSON PropertyGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PropertyGroupId" Core..= propertyGroupId),
-            Prelude.Just ("PropertyMap" Core..= propertyMap)
+              ("PropertyGroupId" Data..= propertyGroupId),
+            Prelude.Just ("PropertyMap" Data..= propertyMap)
           ]
       )

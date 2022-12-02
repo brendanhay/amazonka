@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ApplicationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationMode
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationStatus
 import Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment
@@ -123,18 +124,18 @@ applicationSummary_applicationVersionId = Lens.lens (\ApplicationSummary' {appli
 applicationSummary_runtimeEnvironment :: Lens.Lens' ApplicationSummary RuntimeEnvironment
 applicationSummary_runtimeEnvironment = Lens.lens (\ApplicationSummary' {runtimeEnvironment} -> runtimeEnvironment) (\s@ApplicationSummary' {} a -> s {runtimeEnvironment = a} :: ApplicationSummary)
 
-instance Core.FromJSON ApplicationSummary where
+instance Data.FromJSON ApplicationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Prelude.<$> (x Core..:? "ApplicationMode")
-            Prelude.<*> (x Core..: "ApplicationName")
-            Prelude.<*> (x Core..: "ApplicationARN")
-            Prelude.<*> (x Core..: "ApplicationStatus")
-            Prelude.<*> (x Core..: "ApplicationVersionId")
-            Prelude.<*> (x Core..: "RuntimeEnvironment")
+            Prelude.<$> (x Data..:? "ApplicationMode")
+            Prelude.<*> (x Data..: "ApplicationName")
+            Prelude.<*> (x Data..: "ApplicationARN")
+            Prelude.<*> (x Data..: "ApplicationStatus")
+            Prelude.<*> (x Data..: "ApplicationVersionId")
+            Prelude.<*> (x Data..: "RuntimeEnvironment")
       )
 
 instance Prelude.Hashable ApplicationSummary where

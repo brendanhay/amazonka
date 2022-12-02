@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ApplicationMaintenanceConfigurationDesc
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the maintenance configuration for the application.
@@ -70,16 +71,16 @@ applicationMaintenanceConfigurationDescription_applicationMaintenanceWindowEndTi
 applicationMaintenanceConfigurationDescription_applicationMaintenanceWindowEndTime = Lens.lens (\ApplicationMaintenanceConfigurationDescription' {applicationMaintenanceWindowEndTime} -> applicationMaintenanceWindowEndTime) (\s@ApplicationMaintenanceConfigurationDescription' {} a -> s {applicationMaintenanceWindowEndTime = a} :: ApplicationMaintenanceConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ApplicationMaintenanceConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationMaintenanceConfigurationDescription"
       ( \x ->
           ApplicationMaintenanceConfigurationDescription'
-            Prelude.<$> (x Core..: "ApplicationMaintenanceWindowStartTime")
-              Prelude.<*> (x Core..: "ApplicationMaintenanceWindowEndTime")
+            Prelude.<$> (x Data..: "ApplicationMaintenanceWindowStartTime")
+              Prelude.<*> (x Data..: "ApplicationMaintenanceWindowEndTime")
       )
 
 instance

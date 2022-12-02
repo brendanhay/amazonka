@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.DestinationSchema where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.RecordFormatType
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newDestinationSchema pRecordFormatType_ =
 destinationSchema_recordFormatType :: Lens.Lens' DestinationSchema RecordFormatType
 destinationSchema_recordFormatType = Lens.lens (\DestinationSchema' {recordFormatType} -> recordFormatType) (\s@DestinationSchema' {} a -> s {recordFormatType = a} :: DestinationSchema)
 
-instance Core.FromJSON DestinationSchema where
+instance Data.FromJSON DestinationSchema where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationSchema"
       ( \x ->
           DestinationSchema'
-            Prelude.<$> (x Core..: "RecordFormatType")
+            Prelude.<$> (x Data..: "RecordFormatType")
       )
 
 instance Prelude.Hashable DestinationSchema where
@@ -74,11 +75,11 @@ instance Prelude.NFData DestinationSchema where
   rnf DestinationSchema' {..} =
     Prelude.rnf recordFormatType
 
-instance Core.ToJSON DestinationSchema where
+instance Data.ToJSON DestinationSchema where
   toJSON DestinationSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RecordFormatType" Core..= recordFormatType)
+              ("RecordFormatType" Data..= recordFormatType)
           ]
       )

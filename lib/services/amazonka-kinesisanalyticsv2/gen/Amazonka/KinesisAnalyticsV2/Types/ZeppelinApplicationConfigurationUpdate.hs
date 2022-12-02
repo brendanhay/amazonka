@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.CatalogConfigurationUpdate
 import Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.DeployAsApplicationConfigurationUpdate
@@ -119,19 +120,19 @@ instance
       `Prelude.seq` Prelude.rnf deployAsApplicationConfigurationUpdate
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ZeppelinApplicationConfigurationUpdate
   where
   toJSON ZeppelinApplicationConfigurationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MonitoringConfigurationUpdate" Core..=)
+          [ ("MonitoringConfigurationUpdate" Data..=)
               Prelude.<$> monitoringConfigurationUpdate,
-            ("CatalogConfigurationUpdate" Core..=)
+            ("CatalogConfigurationUpdate" Data..=)
               Prelude.<$> catalogConfigurationUpdate,
-            ("CustomArtifactsConfigurationUpdate" Core..=)
+            ("CustomArtifactsConfigurationUpdate" Data..=)
               Prelude.<$> customArtifactsConfigurationUpdate,
-            ("DeployAsApplicationConfigurationUpdate" Core..=)
+            ("DeployAsApplicationConfigurationUpdate" Data..=)
               Prelude.<$> deployAsApplicationConfigurationUpdate
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.S3ReferenceDataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a SQL-based Kinesis Data Analytics application, identifies the
@@ -76,11 +77,11 @@ instance Prelude.NFData S3ReferenceDataSource where
     Prelude.rnf fileKey
       `Prelude.seq` Prelude.rnf bucketARN
 
-instance Core.ToJSON S3ReferenceDataSource where
+instance Data.ToJSON S3ReferenceDataSource where
   toJSON S3ReferenceDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FileKey" Core..=) Prelude.<$> fileKey,
-            ("BucketARN" Core..=) Prelude.<$> bucketARN
+          [ ("FileKey" Data..=) Prelude.<$> fileKey,
+            ("BucketARN" Data..=) Prelude.<$> bucketARN
           ]
       )

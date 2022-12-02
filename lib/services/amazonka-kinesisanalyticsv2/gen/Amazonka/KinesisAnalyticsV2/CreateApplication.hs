@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -192,7 +193,7 @@ instance Core.AWSRequest CreateApplication where
       ( \s h x ->
           CreateApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ApplicationDetail")
+            Prelude.<*> (x Data..:> "ApplicationDetail")
       )
 
 instance Prelude.Hashable CreateApplication where
@@ -217,49 +218,49 @@ instance Prelude.NFData CreateApplication where
       `Prelude.seq` Prelude.rnf runtimeEnvironment
       `Prelude.seq` Prelude.rnf serviceExecutionRole
 
-instance Core.ToHeaders CreateApplication where
+instance Data.ToHeaders CreateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.CreateApplication" ::
+              Data.=# ( "KinesisAnalytics_20180523.CreateApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApplication where
+instance Data.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ApplicationMode" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ApplicationMode" Data..=)
               Prelude.<$> applicationMode,
-            ("ApplicationConfiguration" Core..=)
+            ("ApplicationConfiguration" Data..=)
               Prelude.<$> applicationConfiguration,
-            ("CloudWatchLoggingOptions" Core..=)
+            ("CloudWatchLoggingOptions" Data..=)
               Prelude.<$> cloudWatchLoggingOptions,
-            ("ApplicationDescription" Core..=)
+            ("ApplicationDescription" Data..=)
               Prelude.<$> applicationDescription,
             Prelude.Just
-              ("ApplicationName" Core..= applicationName),
+              ("ApplicationName" Data..= applicationName),
             Prelude.Just
-              ("RuntimeEnvironment" Core..= runtimeEnvironment),
+              ("RuntimeEnvironment" Data..= runtimeEnvironment),
             Prelude.Just
               ( "ServiceExecutionRole"
-                  Core..= serviceExecutionRole
+                  Data..= serviceExecutionRole
               )
           ]
       )
 
-instance Core.ToPath CreateApplication where
+instance Data.ToPath CreateApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateApplication where
+instance Data.ToQuery CreateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateApplicationResponse' smart constructor.

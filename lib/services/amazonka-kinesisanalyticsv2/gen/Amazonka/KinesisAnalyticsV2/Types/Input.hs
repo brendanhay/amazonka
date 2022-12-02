@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.Input where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.InputParallelism
 import Amazonka.KinesisAnalyticsV2.Types.InputProcessingConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.KinesisFirehoseInput
@@ -169,19 +170,19 @@ instance Prelude.NFData Input where
       `Prelude.seq` Prelude.rnf namePrefix
       `Prelude.seq` Prelude.rnf inputSchema
 
-instance Core.ToJSON Input where
+instance Data.ToJSON Input where
   toJSON Input' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KinesisFirehoseInput" Core..=)
+          [ ("KinesisFirehoseInput" Data..=)
               Prelude.<$> kinesisFirehoseInput,
-            ("InputProcessingConfiguration" Core..=)
+            ("InputProcessingConfiguration" Data..=)
               Prelude.<$> inputProcessingConfiguration,
-            ("InputParallelism" Core..=)
+            ("InputParallelism" Data..=)
               Prelude.<$> inputParallelism,
-            ("KinesisStreamsInput" Core..=)
+            ("KinesisStreamsInput" Data..=)
               Prelude.<$> kinesisStreamsInput,
-            Prelude.Just ("NamePrefix" Core..= namePrefix),
-            Prelude.Just ("InputSchema" Core..= inputSchema)
+            Prelude.Just ("NamePrefix" Data..= namePrefix),
+            Prelude.Just ("InputSchema" Data..= inputSchema)
           ]
       )

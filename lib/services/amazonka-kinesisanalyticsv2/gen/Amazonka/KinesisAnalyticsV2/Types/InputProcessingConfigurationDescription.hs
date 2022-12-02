@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.InputProcessingConfigurationDescription
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.InputLambdaProcessorDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,15 +62,15 @@ inputProcessingConfigurationDescription_inputLambdaProcessorDescription :: Lens.
 inputProcessingConfigurationDescription_inputLambdaProcessorDescription = Lens.lens (\InputProcessingConfigurationDescription' {inputLambdaProcessorDescription} -> inputLambdaProcessorDescription) (\s@InputProcessingConfigurationDescription' {} a -> s {inputLambdaProcessorDescription = a} :: InputProcessingConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InputProcessingConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputProcessingConfigurationDescription"
       ( \x ->
           InputProcessingConfigurationDescription'
-            Prelude.<$> (x Core..:? "InputLambdaProcessorDescription")
+            Prelude.<$> (x Data..:? "InputLambdaProcessorDescription")
       )
 
 instance

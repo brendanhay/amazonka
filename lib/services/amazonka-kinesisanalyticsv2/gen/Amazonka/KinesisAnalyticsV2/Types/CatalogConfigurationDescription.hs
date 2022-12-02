@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.CatalogConfigurationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.GlueDataCatalogConfigurationDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,16 +67,16 @@ catalogConfigurationDescription_glueDataCatalogConfigurationDescription :: Lens.
 catalogConfigurationDescription_glueDataCatalogConfigurationDescription = Lens.lens (\CatalogConfigurationDescription' {glueDataCatalogConfigurationDescription} -> glueDataCatalogConfigurationDescription) (\s@CatalogConfigurationDescription' {} a -> s {glueDataCatalogConfigurationDescription = a} :: CatalogConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CatalogConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CatalogConfigurationDescription"
       ( \x ->
           CatalogConfigurationDescription'
             Prelude.<$> ( x
-                            Core..: "GlueDataCatalogConfigurationDescription"
+                            Data..: "GlueDataCatalogConfigurationDescription"
                         )
       )
 

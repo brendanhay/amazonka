@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationDescrip
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes whether snapshots are enabled for a Flink-based Kinesis Data
@@ -61,15 +62,15 @@ applicationSnapshotConfigurationDescription_snapshotsEnabled :: Lens.Lens' Appli
 applicationSnapshotConfigurationDescription_snapshotsEnabled = Lens.lens (\ApplicationSnapshotConfigurationDescription' {snapshotsEnabled} -> snapshotsEnabled) (\s@ApplicationSnapshotConfigurationDescription' {} a -> s {snapshotsEnabled = a} :: ApplicationSnapshotConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ApplicationSnapshotConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationSnapshotConfigurationDescription"
       ( \x ->
           ApplicationSnapshotConfigurationDescription'
-            Prelude.<$> (x Core..: "SnapshotsEnabled")
+            Prelude.<$> (x Data..: "SnapshotsEnabled")
       )
 
 instance

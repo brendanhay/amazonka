@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.NetworkFabricAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.Edition
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ networkFabricAttributes_orderingServiceEndpoint = Lens.lens (\NetworkFabricAttri
 networkFabricAttributes_edition :: Lens.Lens' NetworkFabricAttributes (Prelude.Maybe Edition)
 networkFabricAttributes_edition = Lens.lens (\NetworkFabricAttributes' {edition} -> edition) (\s@NetworkFabricAttributes' {} a -> s {edition = a} :: NetworkFabricAttributes)
 
-instance Core.FromJSON NetworkFabricAttributes where
+instance Data.FromJSON NetworkFabricAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkFabricAttributes"
       ( \x ->
           NetworkFabricAttributes'
-            Prelude.<$> (x Core..:? "OrderingServiceEndpoint")
-            Prelude.<*> (x Core..:? "Edition")
+            Prelude.<$> (x Data..:? "OrderingServiceEndpoint")
+            Prelude.<*> (x Data..:? "Edition")
       )
 
 instance Prelude.Hashable NetworkFabricAttributes where

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -218,7 +219,7 @@ instance Core.AWSRequest CreateProposal where
     Response.receiveJSON
       ( \s h x ->
           CreateProposalResponse'
-            Prelude.<$> (x Core..?> "ProposalId")
+            Prelude.<$> (x Data..?> "ProposalId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -240,36 +241,36 @@ instance Prelude.NFData CreateProposal where
       `Prelude.seq` Prelude.rnf memberId
       `Prelude.seq` Prelude.rnf actions
 
-instance Core.ToHeaders CreateProposal where
+instance Data.ToHeaders CreateProposal where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProposal where
+instance Data.ToJSON CreateProposal where
   toJSON CreateProposal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken),
-            Prelude.Just ("MemberId" Core..= memberId),
-            Prelude.Just ("Actions" Core..= actions)
+              ("ClientRequestToken" Data..= clientRequestToken),
+            Prelude.Just ("MemberId" Data..= memberId),
+            Prelude.Just ("Actions" Data..= actions)
           ]
       )
 
-instance Core.ToPath CreateProposal where
+instance Data.ToPath CreateProposal where
   toPath CreateProposal' {..} =
     Prelude.mconcat
-      ["/networks/", Core.toBS networkId, "/proposals"]
+      ["/networks/", Data.toBS networkId, "/proposals"]
 
-instance Core.ToQuery CreateProposal where
+instance Data.ToQuery CreateProposal where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProposalResponse' smart constructor.

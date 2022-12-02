@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.Proposal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.ProposalActions
 import Amazonka.ManagedBlockChain.Types.ProposalStatus
 import qualified Amazonka.Prelude as Prelude
@@ -50,7 +51,7 @@ data Proposal = Proposal'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the proposal was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the proposal. Values are as follows:
     --
     -- -   @IN_PROGRESS@ - The proposal is active and open for member voting.
@@ -91,7 +92,7 @@ data Proposal = Proposal'
     -- @ProposalThresholdPolicy@. After this date and time, if members haven\'t
     -- cast enough votes to determine the outcome according to the voting
     -- policy, the proposal is @EXPIRED@ and @Actions@ aren\'t carried out.
-    expirationDate :: Prelude.Maybe Core.POSIX,
+    expirationDate :: Prelude.Maybe Data.POSIX,
     -- | The actions to perform on the network if the proposal is @APPROVED@.
     actions :: Prelude.Maybe ProposalActions
   }
@@ -215,7 +216,7 @@ proposal_arn = Lens.lens (\Proposal' {arn} -> arn) (\s@Proposal' {} a -> s {arn 
 
 -- | The date and time that the proposal was created.
 proposal_creationDate :: Lens.Lens' Proposal (Prelude.Maybe Prelude.UTCTime)
-proposal_creationDate = Lens.lens (\Proposal' {creationDate} -> creationDate) (\s@Proposal' {} a -> s {creationDate = a} :: Proposal) Prelude.. Lens.mapping Core._Time
+proposal_creationDate = Lens.lens (\Proposal' {creationDate} -> creationDate) (\s@Proposal' {} a -> s {creationDate = a} :: Proposal) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the proposal. Values are as follows:
 --
@@ -272,32 +273,32 @@ proposal_networkId = Lens.lens (\Proposal' {networkId} -> networkId) (\s@Proposa
 -- cast enough votes to determine the outcome according to the voting
 -- policy, the proposal is @EXPIRED@ and @Actions@ aren\'t carried out.
 proposal_expirationDate :: Lens.Lens' Proposal (Prelude.Maybe Prelude.UTCTime)
-proposal_expirationDate = Lens.lens (\Proposal' {expirationDate} -> expirationDate) (\s@Proposal' {} a -> s {expirationDate = a} :: Proposal) Prelude.. Lens.mapping Core._Time
+proposal_expirationDate = Lens.lens (\Proposal' {expirationDate} -> expirationDate) (\s@Proposal' {} a -> s {expirationDate = a} :: Proposal) Prelude.. Lens.mapping Data._Time
 
 -- | The actions to perform on the network if the proposal is @APPROVED@.
 proposal_actions :: Lens.Lens' Proposal (Prelude.Maybe ProposalActions)
 proposal_actions = Lens.lens (\Proposal' {actions} -> actions) (\s@Proposal' {} a -> s {actions = a} :: Proposal)
 
-instance Core.FromJSON Proposal where
+instance Data.FromJSON Proposal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Proposal"
       ( \x ->
           Proposal'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ProposalId")
-            Prelude.<*> (x Core..:? "YesVoteCount")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "OutstandingVoteCount")
-            Prelude.<*> (x Core..:? "NoVoteCount")
-            Prelude.<*> (x Core..:? "ProposedByMemberId")
-            Prelude.<*> (x Core..:? "ProposedByMemberName")
-            Prelude.<*> (x Core..:? "NetworkId")
-            Prelude.<*> (x Core..:? "ExpirationDate")
-            Prelude.<*> (x Core..:? "Actions")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ProposalId")
+            Prelude.<*> (x Data..:? "YesVoteCount")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "OutstandingVoteCount")
+            Prelude.<*> (x Data..:? "NoVoteCount")
+            Prelude.<*> (x Data..:? "ProposedByMemberId")
+            Prelude.<*> (x Data..:? "ProposedByMemberName")
+            Prelude.<*> (x Data..:? "NetworkId")
+            Prelude.<*> (x Data..:? "ExpirationDate")
+            Prelude.<*> (x Data..:? "Actions")
       )
 
 instance Prelude.Hashable Proposal where

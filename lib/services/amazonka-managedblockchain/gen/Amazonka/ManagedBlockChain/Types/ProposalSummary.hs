@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.ProposalSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.ProposalStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,7 +39,7 @@ data ProposalSummary = ProposalSummary'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the proposal was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the proposal. Values are as follows:
     --
     -- -   @IN_PROGRESS@ - The proposal is active and open for member voting.
@@ -70,7 +71,7 @@ data ProposalSummary = ProposalSummary'
     -- @ProposalThresholdPolicy@. After this date and time, if members haven\'t
     -- cast enough votes to determine the outcome according to the voting
     -- policy, the proposal is @EXPIRED@ and @Actions@ aren\'t carried out.
-    expirationDate :: Prelude.Maybe Core.POSIX
+    expirationDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -149,7 +150,7 @@ proposalSummary_arn = Lens.lens (\ProposalSummary' {arn} -> arn) (\s@ProposalSum
 
 -- | The date and time that the proposal was created.
 proposalSummary_creationDate :: Lens.Lens' ProposalSummary (Prelude.Maybe Prelude.UTCTime)
-proposalSummary_creationDate = Lens.lens (\ProposalSummary' {creationDate} -> creationDate) (\s@ProposalSummary' {} a -> s {creationDate = a} :: ProposalSummary) Prelude.. Lens.mapping Core._Time
+proposalSummary_creationDate = Lens.lens (\ProposalSummary' {creationDate} -> creationDate) (\s@ProposalSummary' {} a -> s {creationDate = a} :: ProposalSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the proposal. Values are as follows:
 --
@@ -191,22 +192,22 @@ proposalSummary_proposedByMemberName = Lens.lens (\ProposalSummary' {proposedByM
 -- cast enough votes to determine the outcome according to the voting
 -- policy, the proposal is @EXPIRED@ and @Actions@ aren\'t carried out.
 proposalSummary_expirationDate :: Lens.Lens' ProposalSummary (Prelude.Maybe Prelude.UTCTime)
-proposalSummary_expirationDate = Lens.lens (\ProposalSummary' {expirationDate} -> expirationDate) (\s@ProposalSummary' {} a -> s {expirationDate = a} :: ProposalSummary) Prelude.. Lens.mapping Core._Time
+proposalSummary_expirationDate = Lens.lens (\ProposalSummary' {expirationDate} -> expirationDate) (\s@ProposalSummary' {} a -> s {expirationDate = a} :: ProposalSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ProposalSummary where
+instance Data.FromJSON ProposalSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProposalSummary"
       ( \x ->
           ProposalSummary'
-            Prelude.<$> (x Core..:? "ProposalId")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ProposedByMemberId")
-            Prelude.<*> (x Core..:? "ProposedByMemberName")
-            Prelude.<*> (x Core..:? "ExpirationDate")
+            Prelude.<$> (x Data..:? "ProposalId")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ProposedByMemberId")
+            Prelude.<*> (x Data..:? "ProposedByMemberName")
+            Prelude.<*> (x Data..:? "ExpirationDate")
       )
 
 instance Prelude.Hashable ProposalSummary where

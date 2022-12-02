@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.RemoveAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An action to remove a member from a Managed Blockchain network as the
@@ -56,12 +57,12 @@ newRemoveAction pMemberId_ =
 removeAction_memberId :: Lens.Lens' RemoveAction Prelude.Text
 removeAction_memberId = Lens.lens (\RemoveAction' {memberId} -> memberId) (\s@RemoveAction' {} a -> s {memberId = a} :: RemoveAction)
 
-instance Core.FromJSON RemoveAction where
+instance Data.FromJSON RemoveAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemoveAction"
       ( \x ->
-          RemoveAction' Prelude.<$> (x Core..: "MemberId")
+          RemoveAction' Prelude.<$> (x Data..: "MemberId")
       )
 
 instance Prelude.Hashable RemoveAction where
@@ -71,9 +72,9 @@ instance Prelude.Hashable RemoveAction where
 instance Prelude.NFData RemoveAction where
   rnf RemoveAction' {..} = Prelude.rnf memberId
 
-instance Core.ToJSON RemoveAction where
+instance Data.ToJSON RemoveAction where
   toJSON RemoveAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("MemberId" Core..= memberId)]
+          [Prelude.Just ("MemberId" Data..= memberId)]
       )

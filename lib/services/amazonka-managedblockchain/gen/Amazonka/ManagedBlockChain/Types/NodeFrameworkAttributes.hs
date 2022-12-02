@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.NodeFrameworkAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes
 import Amazonka.ManagedBlockChain.Types.NodeFabricAttributes
 import qualified Amazonka.Prelude as Prelude
@@ -70,14 +71,14 @@ nodeFrameworkAttributes_fabric = Lens.lens (\NodeFrameworkAttributes' {fabric} -
 nodeFrameworkAttributes_ethereum :: Lens.Lens' NodeFrameworkAttributes (Prelude.Maybe NodeEthereumAttributes)
 nodeFrameworkAttributes_ethereum = Lens.lens (\NodeFrameworkAttributes' {ethereum} -> ethereum) (\s@NodeFrameworkAttributes' {} a -> s {ethereum = a} :: NodeFrameworkAttributes)
 
-instance Core.FromJSON NodeFrameworkAttributes where
+instance Data.FromJSON NodeFrameworkAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeFrameworkAttributes"
       ( \x ->
           NodeFrameworkAttributes'
-            Prelude.<$> (x Core..:? "Fabric")
-            Prelude.<*> (x Core..:? "Ethereum")
+            Prelude.<$> (x Data..:? "Fabric")
+            Prelude.<*> (x Data..:? "Ethereum")
       )
 
 instance Prelude.Hashable NodeFrameworkAttributes where

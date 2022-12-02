@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.VoteSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.VoteValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,15 +74,15 @@ voteSummary_memberId = Lens.lens (\VoteSummary' {memberId} -> memberId) (\s@Vote
 voteSummary_vote :: Lens.Lens' VoteSummary (Prelude.Maybe VoteValue)
 voteSummary_vote = Lens.lens (\VoteSummary' {vote} -> vote) (\s@VoteSummary' {} a -> s {vote = a} :: VoteSummary)
 
-instance Core.FromJSON VoteSummary where
+instance Data.FromJSON VoteSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VoteSummary"
       ( \x ->
           VoteSummary'
-            Prelude.<$> (x Core..:? "MemberName")
-            Prelude.<*> (x Core..:? "MemberId")
-            Prelude.<*> (x Core..:? "Vote")
+            Prelude.<$> (x Data..:? "MemberName")
+            Prelude.<*> (x Data..:? "MemberId")
+            Prelude.<*> (x Data..:? "Vote")
       )
 
 instance Prelude.Hashable VoteSummary where

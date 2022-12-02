@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,8 +138,8 @@ instance Core.AWSRequest ListNetworks where
     Response.receiveJSON
       ( \s h x ->
           ListNetworksResponse'
-            Prelude.<$> (x Core..?> "Networks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Networks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,28 +159,28 @@ instance Prelude.NFData ListNetworks where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf framework
 
-instance Core.ToHeaders ListNetworks where
+instance Data.ToHeaders ListNetworks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListNetworks where
+instance Data.ToPath ListNetworks where
   toPath = Prelude.const "/networks"
 
-instance Core.ToQuery ListNetworks where
+instance Data.ToQuery ListNetworks where
   toQuery ListNetworks' {..} =
     Prelude.mconcat
-      [ "name" Core.=: name,
-        "nextToken" Core.=: nextToken,
-        "status" Core.=: status,
-        "maxResults" Core.=: maxResults,
-        "framework" Core.=: framework
+      [ "name" Data.=: name,
+        "nextToken" Data.=: nextToken,
+        "status" Data.=: status,
+        "maxResults" Data.=: maxResults,
+        "framework" Data.=: framework
       ]
 
 -- | /See:/ 'newListNetworksResponse' smart constructor.

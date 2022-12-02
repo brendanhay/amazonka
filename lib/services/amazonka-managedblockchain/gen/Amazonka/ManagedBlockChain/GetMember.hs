@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest GetMember where
     Response.receiveJSON
       ( \s h x ->
           GetMemberResponse'
-            Prelude.<$> (x Core..?> "Member")
+            Prelude.<$> (x Data..?> "Member")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,27 +112,27 @@ instance Prelude.NFData GetMember where
     Prelude.rnf networkId
       `Prelude.seq` Prelude.rnf memberId
 
-instance Core.ToHeaders GetMember where
+instance Data.ToHeaders GetMember where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetMember where
+instance Data.ToPath GetMember where
   toPath GetMember' {..} =
     Prelude.mconcat
       [ "/networks/",
-        Core.toBS networkId,
+        Data.toBS networkId,
         "/members/",
-        Core.toBS memberId
+        Data.toBS memberId
       ]
 
-instance Core.ToQuery GetMember where
+instance Data.ToQuery GetMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMemberResponse' smart constructor.

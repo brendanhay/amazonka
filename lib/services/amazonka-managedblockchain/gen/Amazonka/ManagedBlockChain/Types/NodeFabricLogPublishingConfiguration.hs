@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.LogConfigurations
 import qualified Amazonka.Prelude as Prelude
 
@@ -86,16 +87,16 @@ nodeFabricLogPublishingConfiguration_chaincodeLogs :: Lens.Lens' NodeFabricLogPu
 nodeFabricLogPublishingConfiguration_chaincodeLogs = Lens.lens (\NodeFabricLogPublishingConfiguration' {chaincodeLogs} -> chaincodeLogs) (\s@NodeFabricLogPublishingConfiguration' {} a -> s {chaincodeLogs = a} :: NodeFabricLogPublishingConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     NodeFabricLogPublishingConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeFabricLogPublishingConfiguration"
       ( \x ->
           NodeFabricLogPublishingConfiguration'
-            Prelude.<$> (x Core..:? "PeerLogs")
-            Prelude.<*> (x Core..:? "ChaincodeLogs")
+            Prelude.<$> (x Data..:? "PeerLogs")
+            Prelude.<*> (x Data..:? "ChaincodeLogs")
       )
 
 instance
@@ -117,13 +118,13 @@ instance
       `Prelude.seq` Prelude.rnf chaincodeLogs
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     NodeFabricLogPublishingConfiguration
   where
   toJSON NodeFabricLogPublishingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PeerLogs" Core..=) Prelude.<$> peerLogs,
-            ("ChaincodeLogs" Core..=) Prelude.<$> chaincodeLogs
+          [ ("PeerLogs" Data..=) Prelude.<$> peerLogs,
+            ("ChaincodeLogs" Data..=) Prelude.<$> chaincodeLogs
           ]
       )

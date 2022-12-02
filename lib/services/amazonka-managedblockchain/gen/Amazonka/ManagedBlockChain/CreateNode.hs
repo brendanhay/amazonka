@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -213,7 +214,7 @@ instance Core.AWSRequest CreateNode where
     Response.receiveJSON
       ( \s h x ->
           CreateNodeResponse'
-            Prelude.<$> (x Core..?> "NodeId")
+            Prelude.<$> (x Data..?> "NodeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -233,36 +234,36 @@ instance Prelude.NFData CreateNode where
       `Prelude.seq` Prelude.rnf networkId
       `Prelude.seq` Prelude.rnf nodeConfiguration
 
-instance Core.ToHeaders CreateNode where
+instance Data.ToHeaders CreateNode where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNode where
+instance Data.ToJSON CreateNode where
   toJSON CreateNode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("MemberId" Core..=) Prelude.<$> memberId,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("MemberId" Data..=) Prelude.<$> memberId,
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken),
+              ("ClientRequestToken" Data..= clientRequestToken),
             Prelude.Just
-              ("NodeConfiguration" Core..= nodeConfiguration)
+              ("NodeConfiguration" Data..= nodeConfiguration)
           ]
       )
 
-instance Core.ToPath CreateNode where
+instance Data.ToPath CreateNode where
   toPath CreateNode' {..} =
     Prelude.mconcat
-      ["/networks/", Core.toBS networkId, "/nodes"]
+      ["/networks/", Data.toBS networkId, "/nodes"]
 
-instance Core.ToQuery CreateNode where
+instance Data.ToQuery CreateNode where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateNodeResponse' smart constructor.

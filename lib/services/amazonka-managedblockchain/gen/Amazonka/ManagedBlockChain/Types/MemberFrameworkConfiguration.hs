@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.MemberFrameworkConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.MemberFabricConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,9 +70,9 @@ instance Prelude.NFData MemberFrameworkConfiguration where
   rnf MemberFrameworkConfiguration' {..} =
     Prelude.rnf fabric
 
-instance Core.ToJSON MemberFrameworkConfiguration where
+instance Data.ToJSON MemberFrameworkConfiguration where
   toJSON MemberFrameworkConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Fabric" Core..=) Prelude.<$> fabric]
+          [("Fabric" Data..=) Prelude.<$> fabric]
       )

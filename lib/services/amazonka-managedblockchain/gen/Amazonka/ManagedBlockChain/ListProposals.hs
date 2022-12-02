@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,8 +109,8 @@ instance Core.AWSRequest ListProposals where
     Response.receiveJSON
       ( \s h x ->
           ListProposalsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Proposals" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Proposals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,27 +126,27 @@ instance Prelude.NFData ListProposals where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf networkId
 
-instance Core.ToHeaders ListProposals where
+instance Data.ToHeaders ListProposals where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListProposals where
+instance Data.ToPath ListProposals where
   toPath ListProposals' {..} =
     Prelude.mconcat
-      ["/networks/", Core.toBS networkId, "/proposals"]
+      ["/networks/", Data.toBS networkId, "/proposals"]
 
-instance Core.ToQuery ListProposals where
+instance Data.ToQuery ListProposals where
   toQuery ListProposals' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListProposalsResponse' smart constructor.

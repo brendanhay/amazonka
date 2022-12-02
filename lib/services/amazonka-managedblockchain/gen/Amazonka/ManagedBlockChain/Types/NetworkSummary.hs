@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.NetworkSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.Framework
 import Amazonka.ManagedBlockChain.Types.NetworkStatus
 import qualified Amazonka.Prelude as Prelude
@@ -37,7 +38,7 @@ data NetworkSummary = NetworkSummary'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the network was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The current status of the network.
     status :: Prelude.Maybe NetworkStatus,
     -- | The unique identifier of the network.
@@ -104,7 +105,7 @@ networkSummary_arn = Lens.lens (\NetworkSummary' {arn} -> arn) (\s@NetworkSummar
 
 -- | The date and time that the network was created.
 networkSummary_creationDate :: Lens.Lens' NetworkSummary (Prelude.Maybe Prelude.UTCTime)
-networkSummary_creationDate = Lens.lens (\NetworkSummary' {creationDate} -> creationDate) (\s@NetworkSummary' {} a -> s {creationDate = a} :: NetworkSummary) Prelude.. Lens.mapping Core._Time
+networkSummary_creationDate = Lens.lens (\NetworkSummary' {creationDate} -> creationDate) (\s@NetworkSummary' {} a -> s {creationDate = a} :: NetworkSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the network.
 networkSummary_status :: Lens.Lens' NetworkSummary (Prelude.Maybe NetworkStatus)
@@ -126,20 +127,20 @@ networkSummary_frameworkVersion = Lens.lens (\NetworkSummary' {frameworkVersion}
 networkSummary_framework :: Lens.Lens' NetworkSummary (Prelude.Maybe Framework)
 networkSummary_framework = Lens.lens (\NetworkSummary' {framework} -> framework) (\s@NetworkSummary' {} a -> s {framework = a} :: NetworkSummary)
 
-instance Core.FromJSON NetworkSummary where
+instance Data.FromJSON NetworkSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkSummary"
       ( \x ->
           NetworkSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "FrameworkVersion")
-            Prelude.<*> (x Core..:? "Framework")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "FrameworkVersion")
+            Prelude.<*> (x Data..:? "Framework")
       )
 
 instance Prelude.Hashable NetworkSummary where

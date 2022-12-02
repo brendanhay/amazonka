@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.Accessor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.AccessorStatus
 import Amazonka.ManagedBlockChain.Types.AccessorType
 import qualified Amazonka.Prelude as Prelude
@@ -49,7 +50,7 @@ data Accessor = Accessor'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The creation date and time of the accessor.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The current status of the accessor.
     status :: Prelude.Maybe AccessorStatus,
     -- | The unique identifier of the accessor.
@@ -118,7 +119,7 @@ accessor_arn = Lens.lens (\Accessor' {arn} -> arn) (\s@Accessor' {} a -> s {arn 
 
 -- | The creation date and time of the accessor.
 accessor_creationDate :: Lens.Lens' Accessor (Prelude.Maybe Prelude.UTCTime)
-accessor_creationDate = Lens.lens (\Accessor' {creationDate} -> creationDate) (\s@Accessor' {} a -> s {creationDate = a} :: Accessor) Prelude.. Lens.mapping Core._Time
+accessor_creationDate = Lens.lens (\Accessor' {creationDate} -> creationDate) (\s@Accessor' {} a -> s {creationDate = a} :: Accessor) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the accessor.
 accessor_status :: Lens.Lens' Accessor (Prelude.Maybe AccessorStatus)
@@ -128,18 +129,18 @@ accessor_status = Lens.lens (\Accessor' {status} -> status) (\s@Accessor' {} a -
 accessor_id :: Lens.Lens' Accessor (Prelude.Maybe Prelude.Text)
 accessor_id = Lens.lens (\Accessor' {id} -> id) (\s@Accessor' {} a -> s {id = a} :: Accessor)
 
-instance Core.FromJSON Accessor where
+instance Data.FromJSON Accessor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Accessor"
       ( \x ->
           Accessor'
-            Prelude.<$> (x Core..:? "BillingToken")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "BillingToken")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable Accessor where

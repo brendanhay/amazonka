@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.MemberFabricAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes of Hyperledger Fabric for a member in a Managed Blockchain
@@ -63,14 +64,14 @@ memberFabricAttributes_caEndpoint = Lens.lens (\MemberFabricAttributes' {caEndpo
 memberFabricAttributes_adminUsername :: Lens.Lens' MemberFabricAttributes (Prelude.Maybe Prelude.Text)
 memberFabricAttributes_adminUsername = Lens.lens (\MemberFabricAttributes' {adminUsername} -> adminUsername) (\s@MemberFabricAttributes' {} a -> s {adminUsername = a} :: MemberFabricAttributes)
 
-instance Core.FromJSON MemberFabricAttributes where
+instance Data.FromJSON MemberFabricAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MemberFabricAttributes"
       ( \x ->
           MemberFabricAttributes'
-            Prelude.<$> (x Core..:? "CaEndpoint")
-            Prelude.<*> (x Core..:? "AdminUsername")
+            Prelude.<$> (x Data..:? "CaEndpoint")
+            Prelude.<*> (x Data..:? "AdminUsername")
       )
 
 instance Prelude.Hashable MemberFabricAttributes where

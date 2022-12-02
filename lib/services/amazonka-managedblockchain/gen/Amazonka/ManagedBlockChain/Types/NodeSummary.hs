@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.NodeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.NodeStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data NodeSummary = NodeSummary'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the node was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the node.
     status :: Prelude.Maybe NodeStatus,
     -- | The Availability Zone in which the node exists.
@@ -89,7 +90,7 @@ nodeSummary_arn = Lens.lens (\NodeSummary' {arn} -> arn) (\s@NodeSummary' {} a -
 
 -- | The date and time that the node was created.
 nodeSummary_creationDate :: Lens.Lens' NodeSummary (Prelude.Maybe Prelude.UTCTime)
-nodeSummary_creationDate = Lens.lens (\NodeSummary' {creationDate} -> creationDate) (\s@NodeSummary' {} a -> s {creationDate = a} :: NodeSummary) Prelude.. Lens.mapping Core._Time
+nodeSummary_creationDate = Lens.lens (\NodeSummary' {creationDate} -> creationDate) (\s@NodeSummary' {} a -> s {creationDate = a} :: NodeSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the node.
 nodeSummary_status :: Lens.Lens' NodeSummary (Prelude.Maybe NodeStatus)
@@ -107,18 +108,18 @@ nodeSummary_id = Lens.lens (\NodeSummary' {id} -> id) (\s@NodeSummary' {} a -> s
 nodeSummary_instanceType :: Lens.Lens' NodeSummary (Prelude.Maybe Prelude.Text)
 nodeSummary_instanceType = Lens.lens (\NodeSummary' {instanceType} -> instanceType) (\s@NodeSummary' {} a -> s {instanceType = a} :: NodeSummary)
 
-instance Core.FromJSON NodeSummary where
+instance Data.FromJSON NodeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeSummary"
       ( \x ->
           NodeSummary'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "InstanceType")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "InstanceType")
       )
 
 instance Prelude.Hashable NodeSummary where

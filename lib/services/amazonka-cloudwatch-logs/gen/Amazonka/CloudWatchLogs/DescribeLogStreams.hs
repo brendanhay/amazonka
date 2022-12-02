@@ -55,6 +55,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -219,8 +220,8 @@ instance Core.AWSRequest DescribeLogStreams where
     Response.receiveJSON
       ( \s h x ->
           DescribeLogStreamsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "logStreams" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "logStreams" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -242,39 +243,39 @@ instance Prelude.NFData DescribeLogStreams where
       `Prelude.seq` Prelude.rnf orderBy
       `Prelude.seq` Prelude.rnf logGroupName
 
-instance Core.ToHeaders DescribeLogStreams where
+instance Data.ToHeaders DescribeLogStreams where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DescribeLogStreams" ::
+              Data.=# ( "Logs_20140328.DescribeLogStreams" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLogStreams where
+instance Data.ToJSON DescribeLogStreams where
   toJSON DescribeLogStreams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("limit" Core..=) Prelude.<$> limit,
-            ("logStreamNamePrefix" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("limit" Data..=) Prelude.<$> limit,
+            ("logStreamNamePrefix" Data..=)
               Prelude.<$> logStreamNamePrefix,
-            ("descending" Core..=) Prelude.<$> descending,
-            ("orderBy" Core..=) Prelude.<$> orderBy,
-            Prelude.Just ("logGroupName" Core..= logGroupName)
+            ("descending" Data..=) Prelude.<$> descending,
+            ("orderBy" Data..=) Prelude.<$> orderBy,
+            Prelude.Just ("logGroupName" Data..= logGroupName)
           ]
       )
 
-instance Core.ToPath DescribeLogStreams where
+instance Data.ToPath DescribeLogStreams where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLogStreams where
+instance Data.ToQuery DescribeLogStreams where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLogStreamsResponse' smart constructor.

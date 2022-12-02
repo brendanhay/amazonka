@@ -44,6 +44,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest StopQuery where
     Response.receiveJSON
       ( \s h x ->
           StopQueryResponse'
-            Prelude.<$> (x Core..?> "success")
+            Prelude.<$> (x Data..?> "success")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,30 +98,30 @@ instance Prelude.Hashable StopQuery where
 instance Prelude.NFData StopQuery where
   rnf StopQuery' {..} = Prelude.rnf queryId
 
-instance Core.ToHeaders StopQuery where
+instance Data.ToHeaders StopQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Logs_20140328.StopQuery" :: Prelude.ByteString),
+              Data.=# ("Logs_20140328.StopQuery" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopQuery where
+instance Data.ToJSON StopQuery where
   toJSON StopQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("queryId" Core..= queryId)]
+          [Prelude.Just ("queryId" Data..= queryId)]
       )
 
-instance Core.ToPath StopQuery where
+instance Data.ToPath StopQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopQuery where
+instance Data.ToQuery StopQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopQueryResponse' smart constructor.

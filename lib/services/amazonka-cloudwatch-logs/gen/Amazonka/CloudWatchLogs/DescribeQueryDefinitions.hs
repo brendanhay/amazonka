@@ -50,6 +50,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,8 +113,8 @@ instance Core.AWSRequest DescribeQueryDefinitions where
     Response.receiveJSON
       ( \s h x ->
           DescribeQueryDefinitionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "queryDefinitions"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "queryDefinitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -131,36 +132,36 @@ instance Prelude.NFData DescribeQueryDefinitions where
       `Prelude.seq` Prelude.rnf queryDefinitionNamePrefix
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeQueryDefinitions where
+instance Data.ToHeaders DescribeQueryDefinitions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DescribeQueryDefinitions" ::
+              Data.=# ( "Logs_20140328.DescribeQueryDefinitions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeQueryDefinitions where
+instance Data.ToJSON DescribeQueryDefinitions where
   toJSON DescribeQueryDefinitions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("queryDefinitionNamePrefix" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("queryDefinitionNamePrefix" Data..=)
               Prelude.<$> queryDefinitionNamePrefix,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeQueryDefinitions where
+instance Data.ToPath DescribeQueryDefinitions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeQueryDefinitions where
+instance Data.ToQuery DescribeQueryDefinitions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeQueryDefinitionsResponse' smart constructor.

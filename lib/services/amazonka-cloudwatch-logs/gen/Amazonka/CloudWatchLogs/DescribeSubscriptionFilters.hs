@@ -50,6 +50,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,8 +153,8 @@ instance Core.AWSRequest DescribeSubscriptionFilters where
     Response.receiveJSON
       ( \s h x ->
           DescribeSubscriptionFiltersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "subscriptionFilters"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "subscriptionFilters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -173,37 +174,37 @@ instance Prelude.NFData DescribeSubscriptionFilters where
       `Prelude.seq` Prelude.rnf filterNamePrefix
       `Prelude.seq` Prelude.rnf logGroupName
 
-instance Core.ToHeaders DescribeSubscriptionFilters where
+instance Data.ToHeaders DescribeSubscriptionFilters where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DescribeSubscriptionFilters" ::
+              Data.=# ( "Logs_20140328.DescribeSubscriptionFilters" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSubscriptionFilters where
+instance Data.ToJSON DescribeSubscriptionFilters where
   toJSON DescribeSubscriptionFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("limit" Core..=) Prelude.<$> limit,
-            ("filterNamePrefix" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("limit" Data..=) Prelude.<$> limit,
+            ("filterNamePrefix" Data..=)
               Prelude.<$> filterNamePrefix,
-            Prelude.Just ("logGroupName" Core..= logGroupName)
+            Prelude.Just ("logGroupName" Data..= logGroupName)
           ]
       )
 
-instance Core.ToPath DescribeSubscriptionFilters where
+instance Data.ToPath DescribeSubscriptionFilters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSubscriptionFilters where
+instance Data.ToQuery DescribeSubscriptionFilters where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSubscriptionFiltersResponse' smart constructor.

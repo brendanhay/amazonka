@@ -21,6 +21,7 @@ module Amazonka.CloudWatchLogs.Types.RejectedLogEventsInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the rejected events.
@@ -71,15 +72,15 @@ rejectedLogEventsInfo_expiredLogEventEndIndex = Lens.lens (\RejectedLogEventsInf
 rejectedLogEventsInfo_tooOldLogEventEndIndex :: Lens.Lens' RejectedLogEventsInfo (Prelude.Maybe Prelude.Int)
 rejectedLogEventsInfo_tooOldLogEventEndIndex = Lens.lens (\RejectedLogEventsInfo' {tooOldLogEventEndIndex} -> tooOldLogEventEndIndex) (\s@RejectedLogEventsInfo' {} a -> s {tooOldLogEventEndIndex = a} :: RejectedLogEventsInfo)
 
-instance Core.FromJSON RejectedLogEventsInfo where
+instance Data.FromJSON RejectedLogEventsInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RejectedLogEventsInfo"
       ( \x ->
           RejectedLogEventsInfo'
-            Prelude.<$> (x Core..:? "tooNewLogEventStartIndex")
-            Prelude.<*> (x Core..:? "expiredLogEventEndIndex")
-            Prelude.<*> (x Core..:? "tooOldLogEventEndIndex")
+            Prelude.<$> (x Data..:? "tooNewLogEventStartIndex")
+            Prelude.<*> (x Data..:? "expiredLogEventEndIndex")
+            Prelude.<*> (x Data..:? "tooOldLogEventEndIndex")
       )
 
 instance Prelude.Hashable RejectedLogEventsInfo where

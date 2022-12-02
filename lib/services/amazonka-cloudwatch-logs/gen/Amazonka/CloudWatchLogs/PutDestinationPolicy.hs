@@ -49,6 +49,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -162,36 +163,36 @@ instance Prelude.NFData PutDestinationPolicy where
       `Prelude.seq` Prelude.rnf destinationName
       `Prelude.seq` Prelude.rnf accessPolicy
 
-instance Core.ToHeaders PutDestinationPolicy where
+instance Data.ToHeaders PutDestinationPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.PutDestinationPolicy" ::
+              Data.=# ( "Logs_20140328.PutDestinationPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutDestinationPolicy where
+instance Data.ToJSON PutDestinationPolicy where
   toJSON PutDestinationPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("forceUpdate" Core..=) Prelude.<$> forceUpdate,
+          [ ("forceUpdate" Data..=) Prelude.<$> forceUpdate,
             Prelude.Just
-              ("destinationName" Core..= destinationName),
-            Prelude.Just ("accessPolicy" Core..= accessPolicy)
+              ("destinationName" Data..= destinationName),
+            Prelude.Just ("accessPolicy" Data..= accessPolicy)
           ]
       )
 
-instance Core.ToPath PutDestinationPolicy where
+instance Data.ToPath PutDestinationPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutDestinationPolicy where
+instance Data.ToQuery PutDestinationPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutDestinationPolicyResponse' smart constructor.

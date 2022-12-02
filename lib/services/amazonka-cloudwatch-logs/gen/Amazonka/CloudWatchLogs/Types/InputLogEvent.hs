@@ -21,6 +21,7 @@ module Amazonka.CloudWatchLogs.Types.InputLogEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a log event, which is a record of activity that was recorded
@@ -79,11 +80,11 @@ instance Prelude.NFData InputLogEvent where
     Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf message
 
-instance Core.ToJSON InputLogEvent where
+instance Data.ToJSON InputLogEvent where
   toJSON InputLogEvent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("timestamp" Core..= timestamp),
-            Prelude.Just ("message" Core..= message)
+          [ Prelude.Just ("timestamp" Data..= timestamp),
+            Prelude.Just ("message" Data..= message)
           ]
       )

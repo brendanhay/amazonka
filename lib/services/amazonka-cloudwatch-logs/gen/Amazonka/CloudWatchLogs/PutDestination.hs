@@ -63,6 +63,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -155,7 +156,7 @@ instance Core.AWSRequest PutDestination where
     Response.receiveJSON
       ( \s h x ->
           PutDestinationResponse'
-            Prelude.<$> (x Core..?> "destination")
+            Prelude.<$> (x Data..?> "destination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,37 +174,37 @@ instance Prelude.NFData PutDestination where
       `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders PutDestination where
+instance Data.ToHeaders PutDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.PutDestination" ::
+              Data.=# ( "Logs_20140328.PutDestination" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutDestination where
+instance Data.ToJSON PutDestination where
   toJSON PutDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("destinationName" Core..= destinationName),
-            Prelude.Just ("targetArn" Core..= targetArn),
-            Prelude.Just ("roleArn" Core..= roleArn)
+              ("destinationName" Data..= destinationName),
+            Prelude.Just ("targetArn" Data..= targetArn),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath PutDestination where
+instance Data.ToPath PutDestination where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutDestination where
+instance Data.ToQuery PutDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutDestinationResponse' smart constructor.

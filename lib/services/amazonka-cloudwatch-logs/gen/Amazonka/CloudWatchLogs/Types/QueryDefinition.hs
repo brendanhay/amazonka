@@ -21,6 +21,7 @@ module Amazonka.CloudWatchLogs.Types.QueryDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains details about a saved CloudWatch Logs Insights
@@ -95,17 +96,17 @@ queryDefinition_lastModified = Lens.lens (\QueryDefinition' {lastModified} -> la
 queryDefinition_queryString :: Lens.Lens' QueryDefinition (Prelude.Maybe Prelude.Text)
 queryDefinition_queryString = Lens.lens (\QueryDefinition' {queryString} -> queryString) (\s@QueryDefinition' {} a -> s {queryString = a} :: QueryDefinition)
 
-instance Core.FromJSON QueryDefinition where
+instance Data.FromJSON QueryDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryDefinition"
       ( \x ->
           QueryDefinition'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "queryDefinitionId")
-            Prelude.<*> (x Core..:? "logGroupNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "lastModified")
-            Prelude.<*> (x Core..:? "queryString")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "queryDefinitionId")
+            Prelude.<*> (x Data..:? "logGroupNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "lastModified")
+            Prelude.<*> (x Data..:? "queryString")
       )
 
 instance Prelude.Hashable QueryDefinition where

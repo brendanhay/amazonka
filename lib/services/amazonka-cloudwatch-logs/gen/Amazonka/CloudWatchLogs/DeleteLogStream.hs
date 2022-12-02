@@ -40,6 +40,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,35 +104,35 @@ instance Prelude.NFData DeleteLogStream where
     Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf logStreamName
 
-instance Core.ToHeaders DeleteLogStream where
+instance Data.ToHeaders DeleteLogStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DeleteLogStream" ::
+              Data.=# ( "Logs_20140328.DeleteLogStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLogStream where
+instance Data.ToJSON DeleteLogStream where
   toJSON DeleteLogStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("logGroupName" Core..= logGroupName),
+          [ Prelude.Just ("logGroupName" Data..= logGroupName),
             Prelude.Just
-              ("logStreamName" Core..= logStreamName)
+              ("logStreamName" Data..= logStreamName)
           ]
       )
 
-instance Core.ToPath DeleteLogStream where
+instance Data.ToPath DeleteLogStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLogStream where
+instance Data.ToQuery DeleteLogStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLogStreamResponse' smart constructor.

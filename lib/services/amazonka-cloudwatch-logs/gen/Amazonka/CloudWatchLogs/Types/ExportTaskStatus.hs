@@ -22,6 +22,7 @@ module Amazonka.CloudWatchLogs.Types.ExportTaskStatus where
 import Amazonka.CloudWatchLogs.Types.ExportTaskStatusCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the status of an export task.
@@ -62,14 +63,14 @@ exportTaskStatus_message = Lens.lens (\ExportTaskStatus' {message} -> message) (
 exportTaskStatus_code :: Lens.Lens' ExportTaskStatus (Prelude.Maybe ExportTaskStatusCode)
 exportTaskStatus_code = Lens.lens (\ExportTaskStatus' {code} -> code) (\s@ExportTaskStatus' {} a -> s {code = a} :: ExportTaskStatus)
 
-instance Core.FromJSON ExportTaskStatus where
+instance Data.FromJSON ExportTaskStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportTaskStatus"
       ( \x ->
           ExportTaskStatus'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable ExportTaskStatus where

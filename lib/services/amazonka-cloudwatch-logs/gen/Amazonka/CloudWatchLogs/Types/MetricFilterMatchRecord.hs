@@ -21,6 +21,7 @@ module Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a matched event.
@@ -71,17 +72,17 @@ metricFilterMatchRecord_extractedValues = Lens.lens (\MetricFilterMatchRecord' {
 metricFilterMatchRecord_eventMessage :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe Prelude.Text)
 metricFilterMatchRecord_eventMessage = Lens.lens (\MetricFilterMatchRecord' {eventMessage} -> eventMessage) (\s@MetricFilterMatchRecord' {} a -> s {eventMessage = a} :: MetricFilterMatchRecord)
 
-instance Core.FromJSON MetricFilterMatchRecord where
+instance Data.FromJSON MetricFilterMatchRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricFilterMatchRecord"
       ( \x ->
           MetricFilterMatchRecord'
-            Prelude.<$> (x Core..:? "eventNumber")
-            Prelude.<*> ( x Core..:? "extractedValues"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "eventNumber")
+            Prelude.<*> ( x Data..:? "extractedValues"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "eventMessage")
+            Prelude.<*> (x Data..:? "eventMessage")
       )
 
 instance Prelude.Hashable MetricFilterMatchRecord where

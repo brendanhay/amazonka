@@ -21,6 +21,7 @@ module Amazonka.CloudWatchLogs.Types.FilteredLogEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a matched event.
@@ -94,17 +95,17 @@ filteredLogEvent_ingestionTime = Lens.lens (\FilteredLogEvent' {ingestionTime} -
 filteredLogEvent_logStreamName :: Lens.Lens' FilteredLogEvent (Prelude.Maybe Prelude.Text)
 filteredLogEvent_logStreamName = Lens.lens (\FilteredLogEvent' {logStreamName} -> logStreamName) (\s@FilteredLogEvent' {} a -> s {logStreamName = a} :: FilteredLogEvent)
 
-instance Core.FromJSON FilteredLogEvent where
+instance Data.FromJSON FilteredLogEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FilteredLogEvent"
       ( \x ->
           FilteredLogEvent'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "timestamp")
-            Prelude.<*> (x Core..:? "eventId")
-            Prelude.<*> (x Core..:? "ingestionTime")
-            Prelude.<*> (x Core..:? "logStreamName")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "timestamp")
+            Prelude.<*> (x Data..:? "eventId")
+            Prelude.<*> (x Data..:? "ingestionTime")
+            Prelude.<*> (x Data..:? "logStreamName")
       )
 
 instance Prelude.Hashable FilteredLogEvent where

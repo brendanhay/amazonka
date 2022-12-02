@@ -39,6 +39,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,34 +107,34 @@ instance Prelude.NFData DeleteSubscriptionFilter where
     Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf filterName
 
-instance Core.ToHeaders DeleteSubscriptionFilter where
+instance Data.ToHeaders DeleteSubscriptionFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DeleteSubscriptionFilter" ::
+              Data.=# ( "Logs_20140328.DeleteSubscriptionFilter" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSubscriptionFilter where
+instance Data.ToJSON DeleteSubscriptionFilter where
   toJSON DeleteSubscriptionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("logGroupName" Core..= logGroupName),
-            Prelude.Just ("filterName" Core..= filterName)
+          [ Prelude.Just ("logGroupName" Data..= logGroupName),
+            Prelude.Just ("filterName" Data..= filterName)
           ]
       )
 
-instance Core.ToPath DeleteSubscriptionFilter where
+instance Data.ToPath DeleteSubscriptionFilter where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSubscriptionFilter where
+instance Data.ToQuery DeleteSubscriptionFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSubscriptionFilterResponse' smart constructor.

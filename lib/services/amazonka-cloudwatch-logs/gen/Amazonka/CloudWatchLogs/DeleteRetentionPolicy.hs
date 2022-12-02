@@ -41,6 +41,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,32 +93,32 @@ instance Prelude.NFData DeleteRetentionPolicy where
   rnf DeleteRetentionPolicy' {..} =
     Prelude.rnf logGroupName
 
-instance Core.ToHeaders DeleteRetentionPolicy where
+instance Data.ToHeaders DeleteRetentionPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DeleteRetentionPolicy" ::
+              Data.=# ( "Logs_20140328.DeleteRetentionPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRetentionPolicy where
+instance Data.ToJSON DeleteRetentionPolicy where
   toJSON DeleteRetentionPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("logGroupName" Core..= logGroupName)]
+          [Prelude.Just ("logGroupName" Data..= logGroupName)]
       )
 
-instance Core.ToPath DeleteRetentionPolicy where
+instance Data.ToPath DeleteRetentionPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRetentionPolicy where
+instance Data.ToQuery DeleteRetentionPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRetentionPolicyResponse' smart constructor.

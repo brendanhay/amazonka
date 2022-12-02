@@ -58,6 +58,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,9 +100,9 @@ instance Core.AWSRequest GetQueryResults where
     Response.receiveJSON
       ( \s h x ->
           GetQueryResultsResponse'
-            Prelude.<$> (x Core..?> "statistics")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "results" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "statistics")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,32 +113,32 @@ instance Prelude.Hashable GetQueryResults where
 instance Prelude.NFData GetQueryResults where
   rnf GetQueryResults' {..} = Prelude.rnf queryId
 
-instance Core.ToHeaders GetQueryResults where
+instance Data.ToHeaders GetQueryResults where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.GetQueryResults" ::
+              Data.=# ( "Logs_20140328.GetQueryResults" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetQueryResults where
+instance Data.ToJSON GetQueryResults where
   toJSON GetQueryResults' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("queryId" Core..= queryId)]
+          [Prelude.Just ("queryId" Data..= queryId)]
       )
 
-instance Core.ToPath GetQueryResults where
+instance Data.ToPath GetQueryResults where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetQueryResults where
+instance Data.ToQuery GetQueryResults where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetQueryResultsResponse' smart constructor.

@@ -55,6 +55,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,7 +123,7 @@ instance Core.AWSRequest GetLogGroupFields where
     Response.receiveJSON
       ( \s h x ->
           GetLogGroupFieldsResponse'
-            Prelude.<$> (x Core..?> "logGroupFields" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "logGroupFields" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,34 +137,34 @@ instance Prelude.NFData GetLogGroupFields where
     Prelude.rnf time
       `Prelude.seq` Prelude.rnf logGroupName
 
-instance Core.ToHeaders GetLogGroupFields where
+instance Data.ToHeaders GetLogGroupFields where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.GetLogGroupFields" ::
+              Data.=# ( "Logs_20140328.GetLogGroupFields" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLogGroupFields where
+instance Data.ToJSON GetLogGroupFields where
   toJSON GetLogGroupFields' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("time" Core..=) Prelude.<$> time,
-            Prelude.Just ("logGroupName" Core..= logGroupName)
+          [ ("time" Data..=) Prelude.<$> time,
+            Prelude.Just ("logGroupName" Data..= logGroupName)
           ]
       )
 
-instance Core.ToPath GetLogGroupFields where
+instance Data.ToPath GetLogGroupFields where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLogGroupFields where
+instance Data.ToQuery GetLogGroupFields where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLogGroupFieldsResponse' smart constructor.

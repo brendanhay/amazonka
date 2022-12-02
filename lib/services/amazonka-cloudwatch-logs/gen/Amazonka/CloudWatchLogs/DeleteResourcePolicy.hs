@@ -39,6 +39,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,32 +86,32 @@ instance Prelude.NFData DeleteResourcePolicy where
   rnf DeleteResourcePolicy' {..} =
     Prelude.rnf policyName
 
-instance Core.ToHeaders DeleteResourcePolicy where
+instance Data.ToHeaders DeleteResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DeleteResourcePolicy" ::
+              Data.=# ( "Logs_20140328.DeleteResourcePolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteResourcePolicy where
+instance Data.ToJSON DeleteResourcePolicy where
   toJSON DeleteResourcePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("policyName" Core..=) Prelude.<$> policyName]
+          [("policyName" Data..=) Prelude.<$> policyName]
       )
 
-instance Core.ToPath DeleteResourcePolicy where
+instance Data.ToPath DeleteResourcePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteResourcePolicy where
+instance Data.ToQuery DeleteResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourcePolicyResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.CloudWatchLogs.Types.QueryInfo where
 import Amazonka.CloudWatchLogs.Types.QueryStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about one CloudWatch Logs Insights query that matches the
@@ -93,17 +94,17 @@ queryInfo_createTime = Lens.lens (\QueryInfo' {createTime} -> createTime) (\s@Qu
 queryInfo_logGroupName :: Lens.Lens' QueryInfo (Prelude.Maybe Prelude.Text)
 queryInfo_logGroupName = Lens.lens (\QueryInfo' {logGroupName} -> logGroupName) (\s@QueryInfo' {} a -> s {logGroupName = a} :: QueryInfo)
 
-instance Core.FromJSON QueryInfo where
+instance Data.FromJSON QueryInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryInfo"
       ( \x ->
           QueryInfo'
-            Prelude.<$> (x Core..:? "queryId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "queryString")
-            Prelude.<*> (x Core..:? "createTime")
-            Prelude.<*> (x Core..:? "logGroupName")
+            Prelude.<$> (x Data..:? "queryId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "queryString")
+            Prelude.<*> (x Data..:? "createTime")
+            Prelude.<*> (x Data..:? "logGroupName")
       )
 
 instance Prelude.Hashable QueryInfo where

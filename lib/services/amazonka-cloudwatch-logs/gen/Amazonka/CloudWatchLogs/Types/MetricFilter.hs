@@ -22,6 +22,7 @@ module Amazonka.CloudWatchLogs.Types.MetricFilter where
 import Amazonka.CloudWatchLogs.Types.MetricTransformation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metric filters express how CloudWatch Logs would extract metric
@@ -93,17 +94,17 @@ metricFilter_filterPattern = Lens.lens (\MetricFilter' {filterPattern} -> filter
 metricFilter_logGroupName :: Lens.Lens' MetricFilter (Prelude.Maybe Prelude.Text)
 metricFilter_logGroupName = Lens.lens (\MetricFilter' {logGroupName} -> logGroupName) (\s@MetricFilter' {} a -> s {logGroupName = a} :: MetricFilter)
 
-instance Core.FromJSON MetricFilter where
+instance Data.FromJSON MetricFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricFilter"
       ( \x ->
           MetricFilter'
-            Prelude.<$> (x Core..:? "filterName")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "metricTransformations")
-            Prelude.<*> (x Core..:? "filterPattern")
-            Prelude.<*> (x Core..:? "logGroupName")
+            Prelude.<$> (x Data..:? "filterName")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "metricTransformations")
+            Prelude.<*> (x Data..:? "filterPattern")
+            Prelude.<*> (x Data..:? "logGroupName")
       )
 
 instance Prelude.Hashable MetricFilter where

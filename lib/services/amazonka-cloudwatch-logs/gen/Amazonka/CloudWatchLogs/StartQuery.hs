@@ -59,6 +59,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -191,7 +192,7 @@ instance Core.AWSRequest StartQuery where
     Response.receiveJSON
       ( \s h x ->
           StartQueryResponse'
-            Prelude.<$> (x Core..?> "queryId")
+            Prelude.<$> (x Data..?> "queryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,36 +214,36 @@ instance Prelude.NFData StartQuery where
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf queryString
 
-instance Core.ToHeaders StartQuery where
+instance Data.ToHeaders StartQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Logs_20140328.StartQuery" :: Prelude.ByteString),
+              Data.=# ("Logs_20140328.StartQuery" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartQuery where
+instance Data.ToJSON StartQuery where
   toJSON StartQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("limit" Core..=) Prelude.<$> limit,
-            ("logGroupNames" Core..=) Prelude.<$> logGroupNames,
-            ("logGroupName" Core..=) Prelude.<$> logGroupName,
-            Prelude.Just ("startTime" Core..= startTime),
-            Prelude.Just ("endTime" Core..= endTime),
-            Prelude.Just ("queryString" Core..= queryString)
+          [ ("limit" Data..=) Prelude.<$> limit,
+            ("logGroupNames" Data..=) Prelude.<$> logGroupNames,
+            ("logGroupName" Data..=) Prelude.<$> logGroupName,
+            Prelude.Just ("startTime" Data..= startTime),
+            Prelude.Just ("endTime" Data..= endTime),
+            Prelude.Just ("queryString" Data..= queryString)
           ]
       )
 
-instance Core.ToPath StartQuery where
+instance Data.ToPath StartQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartQuery where
+instance Data.ToQuery StartQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartQueryResponse' smart constructor.

@@ -71,6 +71,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,35 +168,35 @@ instance Prelude.NFData CreateLogGroup where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf logGroupName
 
-instance Core.ToHeaders CreateLogGroup where
+instance Data.ToHeaders CreateLogGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.CreateLogGroup" ::
+              Data.=# ( "Logs_20140328.CreateLogGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLogGroup where
+instance Data.ToJSON CreateLogGroup where
   toJSON CreateLogGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            Prelude.Just ("logGroupName" Core..= logGroupName)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("logGroupName" Data..= logGroupName)
           ]
       )
 
-instance Core.ToPath CreateLogGroup where
+instance Data.ToPath CreateLogGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLogGroup where
+instance Data.ToQuery CreateLogGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLogGroupResponse' smart constructor.

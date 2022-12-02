@@ -49,6 +49,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,8 +152,8 @@ instance Core.AWSRequest DescribeExportTasks where
     Response.receiveJSON
       ( \s h x ->
           DescribeExportTasksResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "exportTasks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "exportTasks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,36 +171,36 @@ instance Prelude.NFData DescribeExportTasks where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf statusCode
 
-instance Core.ToHeaders DescribeExportTasks where
+instance Data.ToHeaders DescribeExportTasks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DescribeExportTasks" ::
+              Data.=# ( "Logs_20140328.DescribeExportTasks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeExportTasks where
+instance Data.ToJSON DescribeExportTasks where
   toJSON DescribeExportTasks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("taskId" Core..=) Prelude.<$> taskId,
-            ("limit" Core..=) Prelude.<$> limit,
-            ("statusCode" Core..=) Prelude.<$> statusCode
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("taskId" Data..=) Prelude.<$> taskId,
+            ("limit" Data..=) Prelude.<$> limit,
+            ("statusCode" Data..=) Prelude.<$> statusCode
           ]
       )
 
-instance Core.ToPath DescribeExportTasks where
+instance Data.ToPath DescribeExportTasks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeExportTasks where
+instance Data.ToQuery DescribeExportTasks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeExportTasksResponse' smart constructor.

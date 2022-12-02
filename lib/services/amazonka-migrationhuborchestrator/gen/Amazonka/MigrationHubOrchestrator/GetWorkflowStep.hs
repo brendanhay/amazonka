@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,27 +130,27 @@ instance Core.AWSRequest GetWorkflowStep where
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowStepResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "workflowId")
-            Prelude.<*> (x Core..?> "scriptOutputLocation")
-            Prelude.<*> (x Core..?> "noOfSrvFailed")
-            Prelude.<*> (x Core..?> "next" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "lastStartTime")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "owner")
-            Prelude.<*> (x Core..?> "noOfSrvCompleted")
-            Prelude.<*> (x Core..?> "stepActionType")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "workflowStepAutomationConfiguration")
-            Prelude.<*> (x Core..?> "endTime")
-            Prelude.<*> (x Core..?> "stepTarget" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "stepGroupId")
-            Prelude.<*> (x Core..?> "outputs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "statusMessage")
-            Prelude.<*> (x Core..?> "stepId")
-            Prelude.<*> (x Core..?> "previous" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "totalNoOfSrv")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "workflowId")
+            Prelude.<*> (x Data..?> "scriptOutputLocation")
+            Prelude.<*> (x Data..?> "noOfSrvFailed")
+            Prelude.<*> (x Data..?> "next" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lastStartTime")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "owner")
+            Prelude.<*> (x Data..?> "noOfSrvCompleted")
+            Prelude.<*> (x Data..?> "stepActionType")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "workflowStepAutomationConfiguration")
+            Prelude.<*> (x Data..?> "endTime")
+            Prelude.<*> (x Data..?> "stepTarget" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "stepGroupId")
+            Prelude.<*> (x Data..?> "outputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "statusMessage")
+            Prelude.<*> (x Data..?> "stepId")
+            Prelude.<*> (x Data..?> "previous" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "totalNoOfSrv")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,26 +166,26 @@ instance Prelude.NFData GetWorkflowStep where
       `Prelude.seq` Prelude.rnf stepGroupId
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders GetWorkflowStep where
+instance Data.ToHeaders GetWorkflowStep where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetWorkflowStep where
+instance Data.ToPath GetWorkflowStep where
   toPath GetWorkflowStep' {..} =
-    Prelude.mconcat ["/workflowstep/", Core.toBS id]
+    Prelude.mconcat ["/workflowstep/", Data.toBS id]
 
-instance Core.ToQuery GetWorkflowStep where
+instance Data.ToQuery GetWorkflowStep where
   toQuery GetWorkflowStep' {..} =
     Prelude.mconcat
-      [ "workflowId" Core.=: workflowId,
-        "stepGroupId" Core.=: stepGroupId
+      [ "workflowId" Data.=: workflowId,
+        "stepGroupId" Data.=: stepGroupId
       ]
 
 -- | /See:/ 'newGetWorkflowStepResponse' smart constructor.
@@ -200,7 +201,7 @@ data GetWorkflowStepResponse = GetWorkflowStepResponse'
     -- | The next step.
     next :: Prelude.Maybe [Prelude.Text],
     -- | The time at which the workflow was last started.
-    lastStartTime :: Prelude.Maybe Core.POSIX,
+    lastStartTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the step.
     status :: Prelude.Maybe StepStatus,
     -- | The owner of the step.
@@ -216,7 +217,7 @@ data GetWorkflowStepResponse = GetWorkflowStepResponse'
     -- | The custom script to run tests on source or target environments.
     workflowStepAutomationConfiguration :: Prelude.Maybe WorkflowStepAutomationConfiguration,
     -- | The time at which the step ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The servers on which a step will be run.
     stepTarget :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the step group.
@@ -224,7 +225,7 @@ data GetWorkflowStepResponse = GetWorkflowStepResponse'
     -- | The outputs of the step.
     outputs :: Prelude.Maybe [WorkflowStepOutput],
     -- | The time at which the step was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The status message of the migration workflow.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the step.
@@ -344,7 +345,7 @@ getWorkflowStepResponse_next = Lens.lens (\GetWorkflowStepResponse' {next} -> ne
 
 -- | The time at which the workflow was last started.
 getWorkflowStepResponse_lastStartTime :: Lens.Lens' GetWorkflowStepResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowStepResponse_lastStartTime = Lens.lens (\GetWorkflowStepResponse' {lastStartTime} -> lastStartTime) (\s@GetWorkflowStepResponse' {} a -> s {lastStartTime = a} :: GetWorkflowStepResponse) Prelude.. Lens.mapping Core._Time
+getWorkflowStepResponse_lastStartTime = Lens.lens (\GetWorkflowStepResponse' {lastStartTime} -> lastStartTime) (\s@GetWorkflowStepResponse' {} a -> s {lastStartTime = a} :: GetWorkflowStepResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the step.
 getWorkflowStepResponse_status :: Lens.Lens' GetWorkflowStepResponse (Prelude.Maybe StepStatus)
@@ -374,7 +375,7 @@ getWorkflowStepResponse_workflowStepAutomationConfiguration = Lens.lens (\GetWor
 
 -- | The time at which the step ended.
 getWorkflowStepResponse_endTime :: Lens.Lens' GetWorkflowStepResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowStepResponse_endTime = Lens.lens (\GetWorkflowStepResponse' {endTime} -> endTime) (\s@GetWorkflowStepResponse' {} a -> s {endTime = a} :: GetWorkflowStepResponse) Prelude.. Lens.mapping Core._Time
+getWorkflowStepResponse_endTime = Lens.lens (\GetWorkflowStepResponse' {endTime} -> endTime) (\s@GetWorkflowStepResponse' {} a -> s {endTime = a} :: GetWorkflowStepResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The servers on which a step will be run.
 getWorkflowStepResponse_stepTarget :: Lens.Lens' GetWorkflowStepResponse (Prelude.Maybe [Prelude.Text])
@@ -390,7 +391,7 @@ getWorkflowStepResponse_outputs = Lens.lens (\GetWorkflowStepResponse' {outputs}
 
 -- | The time at which the step was created.
 getWorkflowStepResponse_creationTime :: Lens.Lens' GetWorkflowStepResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowStepResponse_creationTime = Lens.lens (\GetWorkflowStepResponse' {creationTime} -> creationTime) (\s@GetWorkflowStepResponse' {} a -> s {creationTime = a} :: GetWorkflowStepResponse) Prelude.. Lens.mapping Core._Time
+getWorkflowStepResponse_creationTime = Lens.lens (\GetWorkflowStepResponse' {creationTime} -> creationTime) (\s@GetWorkflowStepResponse' {} a -> s {creationTime = a} :: GetWorkflowStepResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status message of the migration workflow.
 getWorkflowStepResponse_statusMessage :: Lens.Lens' GetWorkflowStepResponse (Prelude.Maybe Prelude.Text)

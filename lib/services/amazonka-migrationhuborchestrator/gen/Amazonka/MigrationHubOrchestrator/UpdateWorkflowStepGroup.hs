@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,14 +145,14 @@ instance Core.AWSRequest UpdateWorkflowStepGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateWorkflowStepGroupResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "workflowId")
-            Prelude.<*> (x Core..?> "tools" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "next" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "lastModifiedTime")
-            Prelude.<*> (x Core..?> "previous" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "workflowId")
+            Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "next" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "lastModifiedTime")
+            Prelude.<*> (x Data..?> "previous" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,36 +174,36 @@ instance Prelude.NFData UpdateWorkflowStepGroup where
       `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateWorkflowStepGroup where
+instance Data.ToHeaders UpdateWorkflowStepGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkflowStepGroup where
+instance Data.ToJSON UpdateWorkflowStepGroup where
   toJSON UpdateWorkflowStepGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("next" Core..=) Prelude.<$> next,
-            ("description" Core..=) Prelude.<$> description,
-            ("previous" Core..=) Prelude.<$> previous
+          [ ("name" Data..=) Prelude.<$> name,
+            ("next" Data..=) Prelude.<$> next,
+            ("description" Data..=) Prelude.<$> description,
+            ("previous" Data..=) Prelude.<$> previous
           ]
       )
 
-instance Core.ToPath UpdateWorkflowStepGroup where
+instance Data.ToPath UpdateWorkflowStepGroup where
   toPath UpdateWorkflowStepGroup' {..} =
     Prelude.mconcat
-      ["/workflowstepgroup/", Core.toBS id]
+      ["/workflowstepgroup/", Data.toBS id]
 
-instance Core.ToQuery UpdateWorkflowStepGroup where
+instance Data.ToQuery UpdateWorkflowStepGroup where
   toQuery UpdateWorkflowStepGroup' {..} =
-    Prelude.mconcat ["workflowId" Core.=: workflowId]
+    Prelude.mconcat ["workflowId" Data.=: workflowId]
 
 -- | /See:/ 'newUpdateWorkflowStepGroupResponse' smart constructor.
 data UpdateWorkflowStepGroupResponse = UpdateWorkflowStepGroupResponse'
@@ -219,7 +220,7 @@ data UpdateWorkflowStepGroupResponse = UpdateWorkflowStepGroupResponse'
     -- | The ID of the step group.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time at which the step group was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The previous step group.
     previous :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
@@ -296,7 +297,7 @@ updateWorkflowStepGroupResponse_id = Lens.lens (\UpdateWorkflowStepGroupResponse
 
 -- | The time at which the step group was last modified.
 updateWorkflowStepGroupResponse_lastModifiedTime :: Lens.Lens' UpdateWorkflowStepGroupResponse (Prelude.Maybe Prelude.UTCTime)
-updateWorkflowStepGroupResponse_lastModifiedTime = Lens.lens (\UpdateWorkflowStepGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateWorkflowStepGroupResponse' {} a -> s {lastModifiedTime = a} :: UpdateWorkflowStepGroupResponse) Prelude.. Lens.mapping Core._Time
+updateWorkflowStepGroupResponse_lastModifiedTime = Lens.lens (\UpdateWorkflowStepGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateWorkflowStepGroupResponse' {} a -> s {lastModifiedTime = a} :: UpdateWorkflowStepGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The previous step group.
 updateWorkflowStepGroupResponse_previous :: Lens.Lens' UpdateWorkflowStepGroupResponse (Prelude.Maybe [Prelude.Text])

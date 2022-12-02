@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,10 +113,10 @@ instance Core.AWSRequest RetryWorkflowStep where
     Response.receiveJSON
       ( \s h x ->
           RetryWorkflowStepResponse'
-            Prelude.<$> (x Core..?> "workflowId")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "stepGroupId")
+            Prelude.<$> (x Data..?> "workflowId")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "stepGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,30 +132,30 @@ instance Prelude.NFData RetryWorkflowStep where
       `Prelude.seq` Prelude.rnf stepGroupId
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders RetryWorkflowStep where
+instance Data.ToHeaders RetryWorkflowStep where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RetryWorkflowStep where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON RetryWorkflowStep where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath RetryWorkflowStep where
+instance Data.ToPath RetryWorkflowStep where
   toPath RetryWorkflowStep' {..} =
     Prelude.mconcat
-      ["/retryworkflowstep/", Core.toBS id]
+      ["/retryworkflowstep/", Data.toBS id]
 
-instance Core.ToQuery RetryWorkflowStep where
+instance Data.ToQuery RetryWorkflowStep where
   toQuery RetryWorkflowStep' {..} =
     Prelude.mconcat
-      [ "workflowId" Core.=: workflowId,
-        "stepGroupId" Core.=: stepGroupId
+      [ "workflowId" Data.=: workflowId,
+        "stepGroupId" Data.=: stepGroupId
       ]
 
 -- | /See:/ 'newRetryWorkflowStepResponse' smart constructor.

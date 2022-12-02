@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,11 +85,11 @@ instance Core.AWSRequest StopWorkflow where
     Response.receiveJSON
       ( \s h x ->
           StopWorkflowResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "lastStopTime")
-            Prelude.<*> (x Core..?> "statusMessage")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "lastStopTime")
+            Prelude.<*> (x Data..?> "statusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,26 +100,26 @@ instance Prelude.Hashable StopWorkflow where
 instance Prelude.NFData StopWorkflow where
   rnf StopWorkflow' {..} = Prelude.rnf id
 
-instance Core.ToHeaders StopWorkflow where
+instance Data.ToHeaders StopWorkflow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopWorkflow where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopWorkflow where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopWorkflow where
+instance Data.ToPath StopWorkflow where
   toPath StopWorkflow' {..} =
     Prelude.mconcat
-      ["/migrationworkflow/", Core.toBS id, "/stop"]
+      ["/migrationworkflow/", Data.toBS id, "/stop"]
 
-instance Core.ToQuery StopWorkflow where
+instance Data.ToQuery StopWorkflow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopWorkflowResponse' smart constructor.
@@ -130,7 +131,7 @@ data StopWorkflowResponse = StopWorkflowResponse'
     -- | The ID of the migration workflow.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time at which the migration workflow was stopped.
-    lastStopTime :: Prelude.Maybe Core.POSIX,
+    lastStopTime :: Prelude.Maybe Data.POSIX,
     -- | The status message of the migration workflow.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -185,7 +186,7 @@ stopWorkflowResponse_id = Lens.lens (\StopWorkflowResponse' {id} -> id) (\s@Stop
 
 -- | The time at which the migration workflow was stopped.
 stopWorkflowResponse_lastStopTime :: Lens.Lens' StopWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-stopWorkflowResponse_lastStopTime = Lens.lens (\StopWorkflowResponse' {lastStopTime} -> lastStopTime) (\s@StopWorkflowResponse' {} a -> s {lastStopTime = a} :: StopWorkflowResponse) Prelude.. Lens.mapping Core._Time
+stopWorkflowResponse_lastStopTime = Lens.lens (\StopWorkflowResponse' {lastStopTime} -> lastStopTime) (\s@StopWorkflowResponse' {} a -> s {lastStopTime = a} :: StopWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status message of the migration workflow.
 stopWorkflowResponse_statusMessage :: Lens.Lens' StopWorkflowResponse (Prelude.Maybe Prelude.Text)

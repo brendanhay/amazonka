@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.PluginSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types.PluginHealth
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,18 +99,18 @@ pluginSummary_version = Lens.lens (\PluginSummary' {version} -> version) (\s@Plu
 pluginSummary_ipAddress :: Lens.Lens' PluginSummary (Prelude.Maybe Prelude.Text)
 pluginSummary_ipAddress = Lens.lens (\PluginSummary' {ipAddress} -> ipAddress) (\s@PluginSummary' {} a -> s {ipAddress = a} :: PluginSummary)
 
-instance Core.FromJSON PluginSummary where
+instance Data.FromJSON PluginSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PluginSummary"
       ( \x ->
           PluginSummary'
-            Prelude.<$> (x Core..:? "pluginId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "hostname")
-            Prelude.<*> (x Core..:? "registeredTime")
-            Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "ipAddress")
+            Prelude.<$> (x Data..:? "pluginId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "hostname")
+            Prelude.<*> (x Data..:? "registeredTime")
+            Prelude.<*> (x Data..:? "version")
+            Prelude.<*> (x Data..:? "ipAddress")
       )
 
 instance Prelude.Hashable PluginSummary where

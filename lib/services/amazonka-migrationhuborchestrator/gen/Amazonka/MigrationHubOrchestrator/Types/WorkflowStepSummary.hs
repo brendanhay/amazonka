@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.WorkflowStepSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types.Owner
 import Amazonka.MigrationHubOrchestrator.Types.StepActionType
 import Amazonka.MigrationHubOrchestrator.Types.StepStatus
@@ -169,25 +170,25 @@ workflowStepSummary_previous = Lens.lens (\WorkflowStepSummary' {previous} -> pr
 workflowStepSummary_totalNoOfSrv :: Lens.Lens' WorkflowStepSummary (Prelude.Maybe Prelude.Int)
 workflowStepSummary_totalNoOfSrv = Lens.lens (\WorkflowStepSummary' {totalNoOfSrv} -> totalNoOfSrv) (\s@WorkflowStepSummary' {} a -> s {totalNoOfSrv = a} :: WorkflowStepSummary)
 
-instance Core.FromJSON WorkflowStepSummary where
+instance Data.FromJSON WorkflowStepSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowStepSummary"
       ( \x ->
           WorkflowStepSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "scriptLocation")
-            Prelude.<*> (x Core..:? "noOfSrvFailed")
-            Prelude.<*> (x Core..:? "next" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "noOfSrvCompleted")
-            Prelude.<*> (x Core..:? "stepActionType")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "stepId")
-            Prelude.<*> (x Core..:? "previous" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "totalNoOfSrv")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "scriptLocation")
+            Prelude.<*> (x Data..:? "noOfSrvFailed")
+            Prelude.<*> (x Data..:? "next" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "noOfSrvCompleted")
+            Prelude.<*> (x Data..:? "stepActionType")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "stepId")
+            Prelude.<*> (x Data..:? "previous" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "totalNoOfSrv")
       )
 
 instance Prelude.Hashable WorkflowStepSummary where

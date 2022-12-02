@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.WorkflowStepOutputUnion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure to hold multiple values of an output.
@@ -71,17 +72,17 @@ workflowStepOutputUnion_listOfStringValue = Lens.lens (\WorkflowStepOutputUnion'
 workflowStepOutputUnion_stringValue :: Lens.Lens' WorkflowStepOutputUnion (Prelude.Maybe Prelude.Text)
 workflowStepOutputUnion_stringValue = Lens.lens (\WorkflowStepOutputUnion' {stringValue} -> stringValue) (\s@WorkflowStepOutputUnion' {} a -> s {stringValue = a} :: WorkflowStepOutputUnion)
 
-instance Core.FromJSON WorkflowStepOutputUnion where
+instance Data.FromJSON WorkflowStepOutputUnion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowStepOutputUnion"
       ( \x ->
           WorkflowStepOutputUnion'
-            Prelude.<$> (x Core..:? "integerValue")
-            Prelude.<*> ( x Core..:? "listOfStringValue"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "integerValue")
+            Prelude.<*> ( x Data..:? "listOfStringValue"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "stringValue")
+            Prelude.<*> (x Data..:? "stringValue")
       )
 
 instance Prelude.Hashable WorkflowStepOutputUnion where
@@ -96,13 +97,13 @@ instance Prelude.NFData WorkflowStepOutputUnion where
       `Prelude.seq` Prelude.rnf listOfStringValue
       `Prelude.seq` Prelude.rnf stringValue
 
-instance Core.ToJSON WorkflowStepOutputUnion where
+instance Data.ToJSON WorkflowStepOutputUnion where
   toJSON WorkflowStepOutputUnion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("integerValue" Core..=) Prelude.<$> integerValue,
-            ("listOfStringValue" Core..=)
+          [ ("integerValue" Data..=) Prelude.<$> integerValue,
+            ("listOfStringValue" Data..=)
               Prelude.<$> listOfStringValue,
-            ("stringValue" Core..=) Prelude.<$> stringValue
+            ("stringValue" Data..=) Prelude.<$> stringValue
           ]
       )

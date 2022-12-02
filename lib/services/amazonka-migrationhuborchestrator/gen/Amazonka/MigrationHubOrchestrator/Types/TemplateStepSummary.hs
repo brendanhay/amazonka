@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.TemplateStepSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types.Owner
 import Amazonka.MigrationHubOrchestrator.Types.StepActionType
 import Amazonka.MigrationHubOrchestrator.Types.TargetType
@@ -133,21 +134,21 @@ templateStepSummary_stepGroupId = Lens.lens (\TemplateStepSummary' {stepGroupId}
 templateStepSummary_previous :: Lens.Lens' TemplateStepSummary (Prelude.Maybe [Prelude.Text])
 templateStepSummary_previous = Lens.lens (\TemplateStepSummary' {previous} -> previous) (\s@TemplateStepSummary' {} a -> s {previous = a} :: TemplateStepSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TemplateStepSummary where
+instance Data.FromJSON TemplateStepSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateStepSummary"
       ( \x ->
           TemplateStepSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "next" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "stepActionType")
-            Prelude.<*> (x Core..:? "templateId")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "targetType")
-            Prelude.<*> (x Core..:? "stepGroupId")
-            Prelude.<*> (x Core..:? "previous" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "next" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "stepActionType")
+            Prelude.<*> (x Data..:? "templateId")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "targetType")
+            Prelude.<*> (x Data..:? "stepGroupId")
+            Prelude.<*> (x Data..:? "previous" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TemplateStepSummary where

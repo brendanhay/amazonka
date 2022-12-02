@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.TemplateStepGroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of the step group in the template.
@@ -79,16 +80,16 @@ templateStepGroupSummary_id = Lens.lens (\TemplateStepGroupSummary' {id} -> id) 
 templateStepGroupSummary_previous :: Lens.Lens' TemplateStepGroupSummary (Prelude.Maybe [Prelude.Text])
 templateStepGroupSummary_previous = Lens.lens (\TemplateStepGroupSummary' {previous} -> previous) (\s@TemplateStepGroupSummary' {} a -> s {previous = a} :: TemplateStepGroupSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TemplateStepGroupSummary where
+instance Data.FromJSON TemplateStepGroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateStepGroupSummary"
       ( \x ->
           TemplateStepGroupSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "next" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "previous" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "next" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "previous" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TemplateStepGroupSummary where

@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.StepOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types.DataType
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ stepOutput_required = Lens.lens (\StepOutput' {required} -> required) (\s@StepOu
 stepOutput_dataType :: Lens.Lens' StepOutput (Prelude.Maybe DataType)
 stepOutput_dataType = Lens.lens (\StepOutput' {dataType} -> dataType) (\s@StepOutput' {} a -> s {dataType = a} :: StepOutput)
 
-instance Core.FromJSON StepOutput where
+instance Data.FromJSON StepOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StepOutput"
       ( \x ->
           StepOutput'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "required")
-            Prelude.<*> (x Core..:? "dataType")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "required")
+            Prelude.<*> (x Data..:? "dataType")
       )
 
 instance Prelude.Hashable StepOutput where

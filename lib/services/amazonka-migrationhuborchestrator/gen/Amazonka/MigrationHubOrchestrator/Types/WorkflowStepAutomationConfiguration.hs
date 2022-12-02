@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.WorkflowStepAutomationConfigurati
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types.PlatformCommand
 import Amazonka.MigrationHubOrchestrator.Types.PlatformScriptKey
 import Amazonka.MigrationHubOrchestrator.Types.RunEnvironment
@@ -95,19 +96,19 @@ workflowStepAutomationConfiguration_runEnvironment :: Lens.Lens' WorkflowStepAut
 workflowStepAutomationConfiguration_runEnvironment = Lens.lens (\WorkflowStepAutomationConfiguration' {runEnvironment} -> runEnvironment) (\s@WorkflowStepAutomationConfiguration' {} a -> s {runEnvironment = a} :: WorkflowStepAutomationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     WorkflowStepAutomationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowStepAutomationConfiguration"
       ( \x ->
           WorkflowStepAutomationConfiguration'
-            Prelude.<$> (x Core..:? "command")
-            Prelude.<*> (x Core..:? "targetType")
-            Prelude.<*> (x Core..:? "scriptLocationS3Key")
-            Prelude.<*> (x Core..:? "scriptLocationS3Bucket")
-            Prelude.<*> (x Core..:? "runEnvironment")
+            Prelude.<$> (x Data..:? "command")
+            Prelude.<*> (x Data..:? "targetType")
+            Prelude.<*> (x Data..:? "scriptLocationS3Key")
+            Prelude.<*> (x Data..:? "scriptLocationS3Bucket")
+            Prelude.<*> (x Data..:? "runEnvironment")
       )
 
 instance
@@ -135,19 +136,19 @@ instance
       `Prelude.seq` Prelude.rnf runEnvironment
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     WorkflowStepAutomationConfiguration
   where
   toJSON WorkflowStepAutomationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("command" Core..=) Prelude.<$> command,
-            ("targetType" Core..=) Prelude.<$> targetType,
-            ("scriptLocationS3Key" Core..=)
+          [ ("command" Data..=) Prelude.<$> command,
+            ("targetType" Data..=) Prelude.<$> targetType,
+            ("scriptLocationS3Key" Data..=)
               Prelude.<$> scriptLocationS3Key,
-            ("scriptLocationS3Bucket" Core..=)
+            ("scriptLocationS3Bucket" Data..=)
               Prelude.<$> scriptLocationS3Bucket,
-            ("runEnvironment" Core..=)
+            ("runEnvironment" Data..=)
               Prelude.<$> runEnvironment
           ]
       )

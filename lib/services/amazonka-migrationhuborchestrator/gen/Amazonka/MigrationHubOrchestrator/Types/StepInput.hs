@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.StepInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A map of key value pairs that is generated when you create a migration
@@ -81,20 +82,20 @@ stepInput_mapOfStringValue = Lens.lens (\StepInput' {mapOfStringValue} -> mapOfS
 stepInput_stringValue :: Lens.Lens' StepInput (Prelude.Maybe Prelude.Text)
 stepInput_stringValue = Lens.lens (\StepInput' {stringValue} -> stringValue) (\s@StepInput' {} a -> s {stringValue = a} :: StepInput)
 
-instance Core.FromJSON StepInput where
+instance Data.FromJSON StepInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StepInput"
       ( \x ->
           StepInput'
-            Prelude.<$> (x Core..:? "integerValue")
-            Prelude.<*> ( x Core..:? "listOfStringsValue"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "integerValue")
+            Prelude.<*> ( x Data..:? "listOfStringsValue"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "mapOfStringValue"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "mapOfStringValue"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "stringValue")
+            Prelude.<*> (x Data..:? "stringValue")
       )
 
 instance Prelude.Hashable StepInput where
@@ -111,15 +112,15 @@ instance Prelude.NFData StepInput where
       `Prelude.seq` Prelude.rnf mapOfStringValue
       `Prelude.seq` Prelude.rnf stringValue
 
-instance Core.ToJSON StepInput where
+instance Data.ToJSON StepInput where
   toJSON StepInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("integerValue" Core..=) Prelude.<$> integerValue,
-            ("listOfStringsValue" Core..=)
+          [ ("integerValue" Data..=) Prelude.<$> integerValue,
+            ("listOfStringsValue" Data..=)
               Prelude.<$> listOfStringsValue,
-            ("mapOfStringValue" Core..=)
+            ("mapOfStringValue" Data..=)
               Prelude.<$> mapOfStringValue,
-            ("stringValue" Core..=) Prelude.<$> stringValue
+            ("stringValue" Data..=) Prelude.<$> stringValue
           ]
       )

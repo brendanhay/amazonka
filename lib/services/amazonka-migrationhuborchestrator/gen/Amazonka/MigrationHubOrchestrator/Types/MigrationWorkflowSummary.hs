@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.MigrationWorkflowSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types.MigrationWorkflowStatusEnum
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,13 +38,13 @@ data MigrationWorkflowSummary = MigrationWorkflowSummary'
     -- | The ID of the template.
     templateId :: Prelude.Maybe Prelude.Text,
     -- | The time at which the migration workflow ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the migration workflow.
     id :: Prelude.Maybe Prelude.Text,
     -- | The steps completed in the migration workflow.
     completedSteps :: Prelude.Maybe Prelude.Int,
     -- | The time at which the migration workflow was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The status message of the migration workflow.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | All the steps in a migration workflow.
@@ -113,7 +114,7 @@ migrationWorkflowSummary_templateId = Lens.lens (\MigrationWorkflowSummary' {tem
 
 -- | The time at which the migration workflow ended.
 migrationWorkflowSummary_endTime :: Lens.Lens' MigrationWorkflowSummary (Prelude.Maybe Prelude.UTCTime)
-migrationWorkflowSummary_endTime = Lens.lens (\MigrationWorkflowSummary' {endTime} -> endTime) (\s@MigrationWorkflowSummary' {} a -> s {endTime = a} :: MigrationWorkflowSummary) Prelude.. Lens.mapping Core._Time
+migrationWorkflowSummary_endTime = Lens.lens (\MigrationWorkflowSummary' {endTime} -> endTime) (\s@MigrationWorkflowSummary' {} a -> s {endTime = a} :: MigrationWorkflowSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the migration workflow.
 migrationWorkflowSummary_id :: Lens.Lens' MigrationWorkflowSummary (Prelude.Maybe Prelude.Text)
@@ -125,7 +126,7 @@ migrationWorkflowSummary_completedSteps = Lens.lens (\MigrationWorkflowSummary' 
 
 -- | The time at which the migration workflow was created.
 migrationWorkflowSummary_creationTime :: Lens.Lens' MigrationWorkflowSummary (Prelude.Maybe Prelude.UTCTime)
-migrationWorkflowSummary_creationTime = Lens.lens (\MigrationWorkflowSummary' {creationTime} -> creationTime) (\s@MigrationWorkflowSummary' {} a -> s {creationTime = a} :: MigrationWorkflowSummary) Prelude.. Lens.mapping Core._Time
+migrationWorkflowSummary_creationTime = Lens.lens (\MigrationWorkflowSummary' {creationTime} -> creationTime) (\s@MigrationWorkflowSummary' {} a -> s {creationTime = a} :: MigrationWorkflowSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The status message of the migration workflow.
 migrationWorkflowSummary_statusMessage :: Lens.Lens' MigrationWorkflowSummary (Prelude.Maybe Prelude.Text)
@@ -135,22 +136,22 @@ migrationWorkflowSummary_statusMessage = Lens.lens (\MigrationWorkflowSummary' {
 migrationWorkflowSummary_totalSteps :: Lens.Lens' MigrationWorkflowSummary (Prelude.Maybe Prelude.Int)
 migrationWorkflowSummary_totalSteps = Lens.lens (\MigrationWorkflowSummary' {totalSteps} -> totalSteps) (\s@MigrationWorkflowSummary' {} a -> s {totalSteps = a} :: MigrationWorkflowSummary)
 
-instance Core.FromJSON MigrationWorkflowSummary where
+instance Data.FromJSON MigrationWorkflowSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MigrationWorkflowSummary"
       ( \x ->
           MigrationWorkflowSummary'
-            Prelude.<$> (x Core..:? "adsApplicationConfigurationName")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "templateId")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "completedSteps")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "totalSteps")
+            Prelude.<$> (x Data..:? "adsApplicationConfigurationName")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "templateId")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "completedSteps")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "totalSteps")
       )
 
 instance Prelude.Hashable MigrationWorkflowSummary where

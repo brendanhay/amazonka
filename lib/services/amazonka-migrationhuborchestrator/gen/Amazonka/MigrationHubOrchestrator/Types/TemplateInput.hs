@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.TemplateInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types.DataType
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ templateInput_inputName = Lens.lens (\TemplateInput' {inputName} -> inputName) (
 templateInput_dataType :: Lens.Lens' TemplateInput (Prelude.Maybe DataType)
 templateInput_dataType = Lens.lens (\TemplateInput' {dataType} -> dataType) (\s@TemplateInput' {} a -> s {dataType = a} :: TemplateInput)
 
-instance Core.FromJSON TemplateInput where
+instance Data.FromJSON TemplateInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateInput"
       ( \x ->
           TemplateInput'
-            Prelude.<$> (x Core..:? "required")
-            Prelude.<*> (x Core..:? "inputName")
-            Prelude.<*> (x Core..:? "dataType")
+            Prelude.<$> (x Data..:? "required")
+            Prelude.<*> (x Data..:? "inputName")
+            Prelude.<*> (x Data..:? "dataType")
       )
 
 instance Prelude.Hashable TemplateInput where

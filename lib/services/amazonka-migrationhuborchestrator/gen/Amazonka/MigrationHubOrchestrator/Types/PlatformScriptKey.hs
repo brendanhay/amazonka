@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.PlatformScriptKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The script location for a particular operating system.
@@ -61,14 +62,14 @@ platformScriptKey_windows = Lens.lens (\PlatformScriptKey' {windows} -> windows)
 platformScriptKey_linux :: Lens.Lens' PlatformScriptKey (Prelude.Maybe Prelude.Text)
 platformScriptKey_linux = Lens.lens (\PlatformScriptKey' {linux} -> linux) (\s@PlatformScriptKey' {} a -> s {linux = a} :: PlatformScriptKey)
 
-instance Core.FromJSON PlatformScriptKey where
+instance Data.FromJSON PlatformScriptKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlatformScriptKey"
       ( \x ->
           PlatformScriptKey'
-            Prelude.<$> (x Core..:? "windows")
-            Prelude.<*> (x Core..:? "linux")
+            Prelude.<$> (x Data..:? "windows")
+            Prelude.<*> (x Data..:? "linux")
       )
 
 instance Prelude.Hashable PlatformScriptKey where
@@ -80,11 +81,11 @@ instance Prelude.NFData PlatformScriptKey where
   rnf PlatformScriptKey' {..} =
     Prelude.rnf windows `Prelude.seq` Prelude.rnf linux
 
-instance Core.ToJSON PlatformScriptKey where
+instance Data.ToJSON PlatformScriptKey where
   toJSON PlatformScriptKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("windows" Core..=) Prelude.<$> windows,
-            ("linux" Core..=) Prelude.<$> linux
+          [ ("windows" Data..=) Prelude.<$> windows,
+            ("linux" Data..=) Prelude.<$> linux
           ]
       )

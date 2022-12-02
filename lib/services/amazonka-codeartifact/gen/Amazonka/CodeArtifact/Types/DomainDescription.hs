@@ -22,6 +22,7 @@ module Amazonka.CodeArtifact.Types.DomainDescription where
 import Amazonka.CodeArtifact.Types.DomainStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a domain. A domain is a container for repositories.
@@ -35,7 +36,7 @@ data DomainDescription = DomainDescription'
     -- | The number of repositories in the domain.
     repositoryCount :: Prelude.Maybe Prelude.Int,
     -- | A timestamp that represents the date and time the domain was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The total size of all assets in the domain.
     assetSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | The Amazon Resource Name (ARN) of the domain.
@@ -103,7 +104,7 @@ domainDescription_repositoryCount = Lens.lens (\DomainDescription' {repositoryCo
 
 -- | A timestamp that represents the date and time the domain was created.
 domainDescription_createdTime :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.UTCTime)
-domainDescription_createdTime = Lens.lens (\DomainDescription' {createdTime} -> createdTime) (\s@DomainDescription' {} a -> s {createdTime = a} :: DomainDescription) Prelude.. Lens.mapping Core._Time
+domainDescription_createdTime = Lens.lens (\DomainDescription' {createdTime} -> createdTime) (\s@DomainDescription' {} a -> s {createdTime = a} :: DomainDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The total size of all assets in the domain.
 domainDescription_assetSizeBytes :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Integer)
@@ -130,21 +131,21 @@ domainDescription_s3BucketArn = Lens.lens (\DomainDescription' {s3BucketArn} -> 
 domainDescription_encryptionKey :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Text)
 domainDescription_encryptionKey = Lens.lens (\DomainDescription' {encryptionKey} -> encryptionKey) (\s@DomainDescription' {} a -> s {encryptionKey = a} :: DomainDescription)
 
-instance Core.FromJSON DomainDescription where
+instance Data.FromJSON DomainDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainDescription"
       ( \x ->
           DomainDescription'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "repositoryCount")
-            Prelude.<*> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "assetSizeBytes")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "s3BucketArn")
-            Prelude.<*> (x Core..:? "encryptionKey")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "repositoryCount")
+            Prelude.<*> (x Data..:? "createdTime")
+            Prelude.<*> (x Data..:? "assetSizeBytes")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "s3BucketArn")
+            Prelude.<*> (x Data..:? "encryptionKey")
       )
 
 instance Prelude.Hashable DomainDescription where

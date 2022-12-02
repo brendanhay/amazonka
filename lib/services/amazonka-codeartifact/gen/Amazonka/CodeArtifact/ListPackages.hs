@@ -56,6 +56,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -262,8 +263,8 @@ instance Core.AWSRequest ListPackages where
     Response.receiveJSON
       ( \s h x ->
           ListPackagesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "packages" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "packages" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -293,36 +294,36 @@ instance Prelude.NFData ListPackages where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
 
-instance Core.ToHeaders ListPackages where
+instance Data.ToHeaders ListPackages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPackages where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ListPackages where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ListPackages where
+instance Data.ToPath ListPackages where
   toPath = Prelude.const "/v1/packages"
 
-instance Core.ToQuery ListPackages where
+instance Data.ToQuery ListPackages where
   toQuery ListPackages' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "publish" Core.=: publish,
-        "upstream" Core.=: upstream,
-        "format" Core.=: format,
-        "max-results" Core.=: maxResults,
-        "domain-owner" Core.=: domainOwner,
-        "namespace" Core.=: namespace,
-        "package-prefix" Core.=: packagePrefix,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository
+      [ "next-token" Data.=: nextToken,
+        "publish" Data.=: publish,
+        "upstream" Data.=: upstream,
+        "format" Data.=: format,
+        "max-results" Data.=: maxResults,
+        "domain-owner" Data.=: domainOwner,
+        "namespace" Data.=: namespace,
+        "package-prefix" Data.=: packagePrefix,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository
       ]
 
 -- | /See:/ 'newListPackagesResponse' smart constructor.

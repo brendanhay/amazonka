@@ -62,6 +62,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -227,13 +228,13 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListPackageVersionDependenciesResponse'
-            Prelude.<$> (x Core..?> "dependencies" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "versionRevision")
-            Prelude.<*> (x Core..?> "format")
-            Prelude.<*> (x Core..?> "package")
-            Prelude.<*> (x Core..?> "namespace")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "dependencies" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "versionRevision")
+            Prelude.<*> (x Data..?> "format")
+            Prelude.<*> (x Data..?> "package")
+            Prelude.<*> (x Data..?> "namespace")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -268,37 +269,37 @@ instance
       `Prelude.seq` Prelude.rnf packageVersion
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListPackageVersionDependencies
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPackageVersionDependencies where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ListPackageVersionDependencies where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ListPackageVersionDependencies where
+instance Data.ToPath ListPackageVersionDependencies where
   toPath =
     Prelude.const "/v1/package/version/dependencies"
 
-instance Core.ToQuery ListPackageVersionDependencies where
+instance Data.ToQuery ListPackageVersionDependencies where
   toQuery ListPackageVersionDependencies' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "domain-owner" Core.=: domainOwner,
-        "namespace" Core.=: namespace,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository,
-        "format" Core.=: format,
-        "package" Core.=: package,
-        "version" Core.=: packageVersion
+      [ "next-token" Data.=: nextToken,
+        "domain-owner" Data.=: domainOwner,
+        "namespace" Data.=: namespace,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository,
+        "format" Data.=: format,
+        "package" Data.=: package,
+        "version" Data.=: packageVersion
       ]
 
 -- | /See:/ 'newListPackageVersionDependenciesResponse' smart constructor.

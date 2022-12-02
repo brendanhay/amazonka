@@ -51,6 +51,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,7 +139,7 @@ instance Core.AWSRequest PutDomainPermissionsPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutDomainPermissionsPolicyResponse'
-            Prelude.<$> (x Core..?> "policy")
+            Prelude.<$> (x Data..?> "policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,35 +157,35 @@ instance Prelude.NFData PutDomainPermissionsPolicy where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf policyDocument
 
-instance Core.ToHeaders PutDomainPermissionsPolicy where
+instance Data.ToHeaders PutDomainPermissionsPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutDomainPermissionsPolicy where
+instance Data.ToJSON PutDomainPermissionsPolicy where
   toJSON PutDomainPermissionsPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("policyRevision" Core..=)
+          [ ("policyRevision" Data..=)
               Prelude.<$> policyRevision,
-            ("domainOwner" Core..=) Prelude.<$> domainOwner,
-            Prelude.Just ("domain" Core..= domain),
+            ("domainOwner" Data..=) Prelude.<$> domainOwner,
+            Prelude.Just ("domain" Data..= domain),
             Prelude.Just
-              ("policyDocument" Core..= policyDocument)
+              ("policyDocument" Data..= policyDocument)
           ]
       )
 
-instance Core.ToPath PutDomainPermissionsPolicy where
+instance Data.ToPath PutDomainPermissionsPolicy where
   toPath =
     Prelude.const "/v1/domain/permissions/policy"
 
-instance Core.ToQuery PutDomainPermissionsPolicy where
+instance Data.ToQuery PutDomainPermissionsPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutDomainPermissionsPolicyResponse' smart constructor.

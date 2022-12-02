@@ -46,6 +46,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,7 +143,7 @@ instance Core.AWSRequest UpdateRepository where
     Response.receiveJSON
       ( \s h x ->
           UpdateRepositoryResponse'
-            Prelude.<$> (x Core..?> "repository")
+            Prelude.<$> (x Data..?> "repository")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,35 +163,35 @@ instance Prelude.NFData UpdateRepository where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
 
-instance Core.ToHeaders UpdateRepository where
+instance Data.ToHeaders UpdateRepository where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRepository where
+instance Data.ToJSON UpdateRepository where
   toJSON UpdateRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("upstreams" Core..=) Prelude.<$> upstreams,
-            ("description" Core..=) Prelude.<$> description
+          [ ("upstreams" Data..=) Prelude.<$> upstreams,
+            ("description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateRepository where
+instance Data.ToPath UpdateRepository where
   toPath = Prelude.const "/v1/repository"
 
-instance Core.ToQuery UpdateRepository where
+instance Data.ToQuery UpdateRepository where
   toQuery UpdateRepository' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository
+      [ "domain-owner" Data.=: domainOwner,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository
       ]
 
 -- | /See:/ 'newUpdateRepositoryResponse' smart constructor.

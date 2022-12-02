@@ -54,6 +54,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -180,8 +181,8 @@ instance Core.AWSRequest ListRepositoriesInDomain where
     Response.receiveJSON
       ( \s h x ->
           ListRepositoriesInDomainResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "repositories" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "repositories" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,33 +204,33 @@ instance Prelude.NFData ListRepositoriesInDomain where
       `Prelude.seq` Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf domain
 
-instance Core.ToHeaders ListRepositoriesInDomain where
+instance Data.ToHeaders ListRepositoriesInDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRepositoriesInDomain where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ListRepositoriesInDomain where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ListRepositoriesInDomain where
+instance Data.ToPath ListRepositoriesInDomain where
   toPath = Prelude.const "/v1/domain/repositories"
 
-instance Core.ToQuery ListRepositoriesInDomain where
+instance Data.ToQuery ListRepositoriesInDomain where
   toQuery ListRepositoriesInDomain' {..} =
     Prelude.mconcat
       [ "administrator-account"
-          Core.=: administratorAccount,
-        "next-token" Core.=: nextToken,
-        "repository-prefix" Core.=: repositoryPrefix,
-        "max-results" Core.=: maxResults,
-        "domain-owner" Core.=: domainOwner,
-        "domain" Core.=: domain
+          Data.=: administratorAccount,
+        "next-token" Data.=: nextToken,
+        "repository-prefix" Data.=: repositoryPrefix,
+        "max-results" Data.=: maxResults,
+        "domain-owner" Data.=: domainOwner,
+        "domain" Data.=: domain
       ]
 
 -- | /See:/ 'newListRepositoriesInDomainResponse' smart constructor.

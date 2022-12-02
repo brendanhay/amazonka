@@ -22,6 +22,7 @@ module Amazonka.CodeArtifact.Types.DomainSummary where
 import Amazonka.CodeArtifact.Types.DomainStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a domain, including its name, Amazon Resource Name
@@ -34,7 +35,7 @@ data DomainSummary = DomainSummary'
   { -- | The name of the domain.
     name :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that contains the date and time the domain was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the domain.
     arn :: Prelude.Maybe Prelude.Text,
     -- | A string that contains the status of the domain.
@@ -85,7 +86,7 @@ domainSummary_name = Lens.lens (\DomainSummary' {name} -> name) (\s@DomainSummar
 
 -- | A timestamp that contains the date and time the domain was created.
 domainSummary_createdTime :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.UTCTime)
-domainSummary_createdTime = Lens.lens (\DomainSummary' {createdTime} -> createdTime) (\s@DomainSummary' {} a -> s {createdTime = a} :: DomainSummary) Prelude.. Lens.mapping Core._Time
+domainSummary_createdTime = Lens.lens (\DomainSummary' {createdTime} -> createdTime) (\s@DomainSummary' {} a -> s {createdTime = a} :: DomainSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the domain.
 domainSummary_arn :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
@@ -104,18 +105,18 @@ domainSummary_owner = Lens.lens (\DomainSummary' {owner} -> owner) (\s@DomainSum
 domainSummary_encryptionKey :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
 domainSummary_encryptionKey = Lens.lens (\DomainSummary' {encryptionKey} -> encryptionKey) (\s@DomainSummary' {} a -> s {encryptionKey = a} :: DomainSummary)
 
-instance Core.FromJSON DomainSummary where
+instance Data.FromJSON DomainSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainSummary"
       ( \x ->
           DomainSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "encryptionKey")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "createdTime")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "encryptionKey")
       )
 
 instance Prelude.Hashable DomainSummary where

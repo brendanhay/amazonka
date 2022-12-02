@@ -21,6 +21,7 @@ module Amazonka.CodeArtifact.Types.PackageDependency where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a package dependency.
@@ -118,16 +119,16 @@ packageDependency_dependencyType = Lens.lens (\PackageDependency' {dependencyTyp
 packageDependency_namespace :: Lens.Lens' PackageDependency (Prelude.Maybe Prelude.Text)
 packageDependency_namespace = Lens.lens (\PackageDependency' {namespace} -> namespace) (\s@PackageDependency' {} a -> s {namespace = a} :: PackageDependency)
 
-instance Core.FromJSON PackageDependency where
+instance Data.FromJSON PackageDependency where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageDependency"
       ( \x ->
           PackageDependency'
-            Prelude.<$> (x Core..:? "package")
-            Prelude.<*> (x Core..:? "versionRequirement")
-            Prelude.<*> (x Core..:? "dependencyType")
-            Prelude.<*> (x Core..:? "namespace")
+            Prelude.<$> (x Data..:? "package")
+            Prelude.<*> (x Data..:? "versionRequirement")
+            Prelude.<*> (x Data..:? "dependencyType")
+            Prelude.<*> (x Data..:? "namespace")
       )
 
 instance Prelude.Hashable PackageDependency where

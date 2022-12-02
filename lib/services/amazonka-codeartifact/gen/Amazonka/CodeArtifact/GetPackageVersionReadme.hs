@@ -59,6 +59,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -209,12 +210,12 @@ instance Core.AWSRequest GetPackageVersionReadme where
     Response.receiveJSON
       ( \s h x ->
           GetPackageVersionReadmeResponse'
-            Prelude.<$> (x Core..?> "versionRevision")
-            Prelude.<*> (x Core..?> "format")
-            Prelude.<*> (x Core..?> "readme")
-            Prelude.<*> (x Core..?> "package")
-            Prelude.<*> (x Core..?> "namespace")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "versionRevision")
+            Prelude.<*> (x Data..?> "format")
+            Prelude.<*> (x Data..?> "readme")
+            Prelude.<*> (x Data..?> "package")
+            Prelude.<*> (x Data..?> "namespace")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -238,30 +239,30 @@ instance Prelude.NFData GetPackageVersionReadme where
       `Prelude.seq` Prelude.rnf package
       `Prelude.seq` Prelude.rnf packageVersion
 
-instance Core.ToHeaders GetPackageVersionReadme where
+instance Data.ToHeaders GetPackageVersionReadme where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetPackageVersionReadme where
+instance Data.ToPath GetPackageVersionReadme where
   toPath = Prelude.const "/v1/package/version/readme"
 
-instance Core.ToQuery GetPackageVersionReadme where
+instance Data.ToQuery GetPackageVersionReadme where
   toQuery GetPackageVersionReadme' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "namespace" Core.=: namespace,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository,
-        "format" Core.=: format,
-        "package" Core.=: package,
-        "version" Core.=: packageVersion
+      [ "domain-owner" Data.=: domainOwner,
+        "namespace" Data.=: namespace,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository,
+        "format" Data.=: format,
+        "package" Data.=: package,
+        "version" Data.=: packageVersion
       ]
 
 -- | /See:/ 'newGetPackageVersionReadmeResponse' smart constructor.

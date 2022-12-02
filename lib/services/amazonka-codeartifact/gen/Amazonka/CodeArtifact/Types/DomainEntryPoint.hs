@@ -21,6 +21,7 @@ module Amazonka.CodeArtifact.Types.DomainEntryPoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about how a package originally entered the CodeArtifact
@@ -67,14 +68,14 @@ domainEntryPoint_repositoryName = Lens.lens (\DomainEntryPoint' {repositoryName}
 domainEntryPoint_externalConnectionName :: Lens.Lens' DomainEntryPoint (Prelude.Maybe Prelude.Text)
 domainEntryPoint_externalConnectionName = Lens.lens (\DomainEntryPoint' {externalConnectionName} -> externalConnectionName) (\s@DomainEntryPoint' {} a -> s {externalConnectionName = a} :: DomainEntryPoint)
 
-instance Core.FromJSON DomainEntryPoint where
+instance Data.FromJSON DomainEntryPoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainEntryPoint"
       ( \x ->
           DomainEntryPoint'
-            Prelude.<$> (x Core..:? "repositoryName")
-            Prelude.<*> (x Core..:? "externalConnectionName")
+            Prelude.<$> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "externalConnectionName")
       )
 
 instance Prelude.Hashable DomainEntryPoint where

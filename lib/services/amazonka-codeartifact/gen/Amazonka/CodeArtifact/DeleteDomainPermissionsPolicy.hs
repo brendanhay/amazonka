@@ -44,6 +44,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,7 +122,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteDomainPermissionsPolicyResponse'
-            Prelude.<$> (x Core..?> "policy")
+            Prelude.<$> (x Data..?> "policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,27 +141,27 @@ instance Prelude.NFData DeleteDomainPermissionsPolicy where
       `Prelude.seq` Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf domain
 
-instance Core.ToHeaders DeleteDomainPermissionsPolicy where
+instance Data.ToHeaders DeleteDomainPermissionsPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDomainPermissionsPolicy where
+instance Data.ToPath DeleteDomainPermissionsPolicy where
   toPath =
     Prelude.const "/v1/domain/permissions/policy"
 
-instance Core.ToQuery DeleteDomainPermissionsPolicy where
+instance Data.ToQuery DeleteDomainPermissionsPolicy where
   toQuery DeleteDomainPermissionsPolicy' {..} =
     Prelude.mconcat
-      [ "policy-revision" Core.=: policyRevision,
-        "domain-owner" Core.=: domainOwner,
-        "domain" Core.=: domain
+      [ "policy-revision" Data.=: policyRevision,
+        "domain-owner" Data.=: domainOwner,
+        "domain" Data.=: domain
       ]
 
 -- | /See:/ 'newDeleteDomainPermissionsPolicyResponse' smart constructor.

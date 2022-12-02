@@ -45,6 +45,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,7 +136,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DisassociateExternalConnectionResponse'
-            Prelude.<$> (x Core..?> "repository")
+            Prelude.<$> (x Data..?> "repository")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,30 +163,30 @@ instance
       `Prelude.seq` Prelude.rnf externalConnection
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateExternalConnection
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DisassociateExternalConnection where
+instance Data.ToPath DisassociateExternalConnection where
   toPath =
     Prelude.const "/v1/repository/external-connection"
 
-instance Core.ToQuery DisassociateExternalConnection where
+instance Data.ToQuery DisassociateExternalConnection where
   toQuery DisassociateExternalConnection' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository,
-        "external-connection" Core.=: externalConnection
+      [ "domain-owner" Data.=: domainOwner,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository,
+        "external-connection" Data.=: externalConnection
       ]
 
 -- | /See:/ 'newDisassociateExternalConnectionResponse' smart constructor.

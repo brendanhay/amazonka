@@ -49,6 +49,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -181,7 +182,7 @@ instance Core.AWSRequest DescribePackage where
       ( \s h x ->
           DescribePackageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "package")
+            Prelude.<*> (x Data..:> "package")
       )
 
 instance Prelude.Hashable DescribePackage where
@@ -202,29 +203,29 @@ instance Prelude.NFData DescribePackage where
       `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf package
 
-instance Core.ToHeaders DescribePackage where
+instance Data.ToHeaders DescribePackage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribePackage where
+instance Data.ToPath DescribePackage where
   toPath = Prelude.const "/v1/package"
 
-instance Core.ToQuery DescribePackage where
+instance Data.ToQuery DescribePackage where
   toQuery DescribePackage' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "namespace" Core.=: namespace,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository,
-        "format" Core.=: format,
-        "package" Core.=: package
+      [ "domain-owner" Data.=: domainOwner,
+        "namespace" Data.=: namespace,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository,
+        "format" Data.=: format,
+        "package" Data.=: package
       ]
 
 -- | /See:/ 'newDescribePackageResponse' smart constructor.

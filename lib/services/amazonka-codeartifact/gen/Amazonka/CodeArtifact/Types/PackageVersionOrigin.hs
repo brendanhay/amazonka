@@ -23,6 +23,7 @@ import Amazonka.CodeArtifact.Types.DomainEntryPoint
 import Amazonka.CodeArtifact.Types.PackageVersionOriginType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about how a package version was added to a repository.
@@ -81,14 +82,14 @@ packageVersionOrigin_originType = Lens.lens (\PackageVersionOrigin' {originType}
 packageVersionOrigin_domainEntryPoint :: Lens.Lens' PackageVersionOrigin (Prelude.Maybe DomainEntryPoint)
 packageVersionOrigin_domainEntryPoint = Lens.lens (\PackageVersionOrigin' {domainEntryPoint} -> domainEntryPoint) (\s@PackageVersionOrigin' {} a -> s {domainEntryPoint = a} :: PackageVersionOrigin)
 
-instance Core.FromJSON PackageVersionOrigin where
+instance Data.FromJSON PackageVersionOrigin where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageVersionOrigin"
       ( \x ->
           PackageVersionOrigin'
-            Prelude.<$> (x Core..:? "originType")
-            Prelude.<*> (x Core..:? "domainEntryPoint")
+            Prelude.<$> (x Data..:? "originType")
+            Prelude.<*> (x Data..:? "domainEntryPoint")
       )
 
 instance Prelude.Hashable PackageVersionOrigin where

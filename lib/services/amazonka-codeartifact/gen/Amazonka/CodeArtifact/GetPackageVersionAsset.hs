@@ -55,6 +55,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -232,9 +233,9 @@ instance Core.AWSRequest GetPackageVersionAsset where
     Response.receiveBody
       ( \s h x ->
           GetPackageVersionAssetResponse'
-            Prelude.<$> (h Core..#? "X-AssetName")
-            Prelude.<*> (h Core..#? "X-PackageVersionRevision")
-            Prelude.<*> (h Core..#? "X-PackageVersion")
+            Prelude.<$> (h Data..#? "X-AssetName")
+            Prelude.<*> (h Data..#? "X-PackageVersionRevision")
+            Prelude.<*> (h Data..#? "X-PackageVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -263,32 +264,32 @@ instance Prelude.NFData GetPackageVersionAsset where
       `Prelude.seq` Prelude.rnf packageVersion
       `Prelude.seq` Prelude.rnf asset
 
-instance Core.ToHeaders GetPackageVersionAsset where
+instance Data.ToHeaders GetPackageVersionAsset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetPackageVersionAsset where
+instance Data.ToPath GetPackageVersionAsset where
   toPath = Prelude.const "/v1/package/version/asset"
 
-instance Core.ToQuery GetPackageVersionAsset where
+instance Data.ToQuery GetPackageVersionAsset where
   toQuery GetPackageVersionAsset' {..} =
     Prelude.mconcat
-      [ "revision" Core.=: packageVersionRevision,
-        "domain-owner" Core.=: domainOwner,
-        "namespace" Core.=: namespace,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository,
-        "format" Core.=: format,
-        "package" Core.=: package,
-        "version" Core.=: packageVersion,
-        "asset" Core.=: asset
+      [ "revision" Data.=: packageVersionRevision,
+        "domain-owner" Data.=: domainOwner,
+        "namespace" Data.=: namespace,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository,
+        "format" Data.=: format,
+        "package" Data.=: package,
+        "version" Data.=: packageVersion,
+        "asset" Data.=: asset
       ]
 
 -- | /See:/ 'newGetPackageVersionAssetResponse' smart constructor.
@@ -303,7 +304,7 @@ data GetPackageVersionAssetResponse = GetPackageVersionAssetResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The binary file, or asset, that is downloaded.
-    asset :: Core.ResponseBody
+    asset :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -329,7 +330,7 @@ newGetPackageVersionAssetResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'asset'
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   GetPackageVersionAssetResponse
 newGetPackageVersionAssetResponse
   pHttpStatus_
@@ -361,5 +362,5 @@ getPackageVersionAssetResponse_httpStatus :: Lens.Lens' GetPackageVersionAssetRe
 getPackageVersionAssetResponse_httpStatus = Lens.lens (\GetPackageVersionAssetResponse' {httpStatus} -> httpStatus) (\s@GetPackageVersionAssetResponse' {} a -> s {httpStatus = a} :: GetPackageVersionAssetResponse)
 
 -- | The binary file, or asset, that is downloaded.
-getPackageVersionAssetResponse_asset :: Lens.Lens' GetPackageVersionAssetResponse Core.ResponseBody
+getPackageVersionAssetResponse_asset :: Lens.Lens' GetPackageVersionAssetResponse Data.ResponseBody
 getPackageVersionAssetResponse_asset = Lens.lens (\GetPackageVersionAssetResponse' {asset} -> asset) (\s@GetPackageVersionAssetResponse' {} a -> s {asset = a} :: GetPackageVersionAssetResponse)

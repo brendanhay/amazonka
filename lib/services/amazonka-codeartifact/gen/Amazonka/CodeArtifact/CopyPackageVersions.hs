@@ -57,6 +57,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -291,8 +292,8 @@ instance Core.AWSRequest CopyPackageVersions where
     Response.receiveJSON
       ( \s h x ->
           CopyPackageVersionsResponse'
-            Prelude.<$> (x Core..?> "failedVersions" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "successfulVersions"
+            Prelude.<$> (x Data..?> "failedVersions" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "successfulVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -326,45 +327,45 @@ instance Prelude.NFData CopyPackageVersions where
       `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf package
 
-instance Core.ToHeaders CopyPackageVersions where
+instance Data.ToHeaders CopyPackageVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CopyPackageVersions where
+instance Data.ToJSON CopyPackageVersions where
   toJSON CopyPackageVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("includeFromUpstream" Core..=)
+          [ ("includeFromUpstream" Data..=)
               Prelude.<$> includeFromUpstream,
-            ("versionRevisions" Core..=)
+            ("versionRevisions" Data..=)
               Prelude.<$> versionRevisions,
-            ("allowOverwrite" Core..=)
+            ("allowOverwrite" Data..=)
               Prelude.<$> allowOverwrite,
-            ("versions" Core..=) Prelude.<$> versions
+            ("versions" Data..=) Prelude.<$> versions
           ]
       )
 
-instance Core.ToPath CopyPackageVersions where
+instance Data.ToPath CopyPackageVersions where
   toPath = Prelude.const "/v1/package/versions/copy"
 
-instance Core.ToQuery CopyPackageVersions where
+instance Data.ToQuery CopyPackageVersions where
   toQuery CopyPackageVersions' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "namespace" Core.=: namespace,
-        "domain" Core.=: domain,
-        "source-repository" Core.=: sourceRepository,
+      [ "domain-owner" Data.=: domainOwner,
+        "namespace" Data.=: namespace,
+        "domain" Data.=: domain,
+        "source-repository" Data.=: sourceRepository,
         "destination-repository"
-          Core.=: destinationRepository,
-        "format" Core.=: format,
-        "package" Core.=: package
+          Data.=: destinationRepository,
+        "format" Data.=: format,
+        "package" Data.=: package
       ]
 
 -- | /See:/ 'newCopyPackageVersionsResponse' smart constructor.

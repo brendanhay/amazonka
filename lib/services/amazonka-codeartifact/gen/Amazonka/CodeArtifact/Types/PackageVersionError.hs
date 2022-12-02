@@ -22,6 +22,7 @@ module Amazonka.CodeArtifact.Types.PackageVersionError where
 import Amazonka.CodeArtifact.Types.PackageVersionErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | l An error associated with package.
@@ -99,14 +100,14 @@ packageVersionError_errorMessage = Lens.lens (\PackageVersionError' {errorMessag
 packageVersionError_errorCode :: Lens.Lens' PackageVersionError (Prelude.Maybe PackageVersionErrorCode)
 packageVersionError_errorCode = Lens.lens (\PackageVersionError' {errorCode} -> errorCode) (\s@PackageVersionError' {} a -> s {errorCode = a} :: PackageVersionError)
 
-instance Core.FromJSON PackageVersionError where
+instance Data.FromJSON PackageVersionError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageVersionError"
       ( \x ->
           PackageVersionError'
-            Prelude.<$> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance Prelude.Hashable PackageVersionError where

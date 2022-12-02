@@ -22,6 +22,7 @@ module Amazonka.CodeArtifact.Types.PackageOriginConfiguration where
 import Amazonka.CodeArtifact.Types.PackageOriginRestrictions
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the package origin configuration of a package.
@@ -57,13 +58,13 @@ newPackageOriginConfiguration =
 packageOriginConfiguration_restrictions :: Lens.Lens' PackageOriginConfiguration (Prelude.Maybe PackageOriginRestrictions)
 packageOriginConfiguration_restrictions = Lens.lens (\PackageOriginConfiguration' {restrictions} -> restrictions) (\s@PackageOriginConfiguration' {} a -> s {restrictions = a} :: PackageOriginConfiguration)
 
-instance Core.FromJSON PackageOriginConfiguration where
+instance Data.FromJSON PackageOriginConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageOriginConfiguration"
       ( \x ->
           PackageOriginConfiguration'
-            Prelude.<$> (x Core..:? "restrictions")
+            Prelude.<$> (x Data..:? "restrictions")
       )
 
 instance Prelude.Hashable PackageOriginConfiguration where

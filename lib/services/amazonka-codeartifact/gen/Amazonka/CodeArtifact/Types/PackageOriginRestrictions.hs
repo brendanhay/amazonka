@@ -23,6 +23,7 @@ import Amazonka.CodeArtifact.Types.AllowPublish
 import Amazonka.CodeArtifact.Types.AllowUpstream
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the origin restrictions set on the package. The package
@@ -78,14 +79,14 @@ packageOriginRestrictions_publish = Lens.lens (\PackageOriginRestrictions' {publ
 packageOriginRestrictions_upstream :: Lens.Lens' PackageOriginRestrictions AllowUpstream
 packageOriginRestrictions_upstream = Lens.lens (\PackageOriginRestrictions' {upstream} -> upstream) (\s@PackageOriginRestrictions' {} a -> s {upstream = a} :: PackageOriginRestrictions)
 
-instance Core.FromJSON PackageOriginRestrictions where
+instance Data.FromJSON PackageOriginRestrictions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageOriginRestrictions"
       ( \x ->
           PackageOriginRestrictions'
-            Prelude.<$> (x Core..: "publish")
-            Prelude.<*> (x Core..: "upstream")
+            Prelude.<$> (x Data..: "publish")
+            Prelude.<*> (x Data..: "upstream")
       )
 
 instance Prelude.Hashable PackageOriginRestrictions where
@@ -98,11 +99,11 @@ instance Prelude.NFData PackageOriginRestrictions where
     Prelude.rnf publish
       `Prelude.seq` Prelude.rnf upstream
 
-instance Core.ToJSON PackageOriginRestrictions where
+instance Data.ToJSON PackageOriginRestrictions where
   toJSON PackageOriginRestrictions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("publish" Core..= publish),
-            Prelude.Just ("upstream" Core..= upstream)
+          [ Prelude.Just ("publish" Data..= publish),
+            Prelude.Just ("upstream" Data..= upstream)
           ]
       )

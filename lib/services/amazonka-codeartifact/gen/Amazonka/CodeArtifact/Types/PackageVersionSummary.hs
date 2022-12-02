@@ -23,6 +23,7 @@ import Amazonka.CodeArtifact.Types.PackageVersionOrigin
 import Amazonka.CodeArtifact.Types.PackageVersionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a package version, including its status, version, and
@@ -100,16 +101,16 @@ packageVersionSummary_version = Lens.lens (\PackageVersionSummary' {version} -> 
 packageVersionSummary_status :: Lens.Lens' PackageVersionSummary PackageVersionStatus
 packageVersionSummary_status = Lens.lens (\PackageVersionSummary' {status} -> status) (\s@PackageVersionSummary' {} a -> s {status = a} :: PackageVersionSummary)
 
-instance Core.FromJSON PackageVersionSummary where
+instance Data.FromJSON PackageVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageVersionSummary"
       ( \x ->
           PackageVersionSummary'
-            Prelude.<$> (x Core..:? "revision")
-            Prelude.<*> (x Core..:? "origin")
-            Prelude.<*> (x Core..: "version")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "revision")
+            Prelude.<*> (x Data..:? "origin")
+            Prelude.<*> (x Data..: "version")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable PackageVersionSummary where

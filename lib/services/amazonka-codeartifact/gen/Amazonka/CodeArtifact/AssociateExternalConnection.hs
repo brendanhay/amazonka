@@ -49,6 +49,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -169,7 +170,7 @@ instance Core.AWSRequest AssociateExternalConnection where
     Response.receiveJSON
       ( \s h x ->
           AssociateExternalConnectionResponse'
-            Prelude.<$> (x Core..?> "repository")
+            Prelude.<$> (x Data..?> "repository")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,31 +188,31 @@ instance Prelude.NFData AssociateExternalConnection where
       `Prelude.seq` Prelude.rnf repository
       `Prelude.seq` Prelude.rnf externalConnection
 
-instance Core.ToHeaders AssociateExternalConnection where
+instance Data.ToHeaders AssociateExternalConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateExternalConnection where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AssociateExternalConnection where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath AssociateExternalConnection where
+instance Data.ToPath AssociateExternalConnection where
   toPath =
     Prelude.const "/v1/repository/external-connection"
 
-instance Core.ToQuery AssociateExternalConnection where
+instance Data.ToQuery AssociateExternalConnection where
   toQuery AssociateExternalConnection' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository,
-        "external-connection" Core.=: externalConnection
+      [ "domain-owner" Data.=: domainOwner,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository,
+        "external-connection" Data.=: externalConnection
       ]
 
 -- | /See:/ 'newAssociateExternalConnectionResponse' smart constructor.

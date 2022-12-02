@@ -22,6 +22,7 @@ module Amazonka.CodeArtifact.Types.SuccessfulPackageVersionInfo where
 import Amazonka.CodeArtifact.Types.PackageVersionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the revision and status of a package version.
@@ -63,14 +64,14 @@ successfulPackageVersionInfo_revision = Lens.lens (\SuccessfulPackageVersionInfo
 successfulPackageVersionInfo_status :: Lens.Lens' SuccessfulPackageVersionInfo (Prelude.Maybe PackageVersionStatus)
 successfulPackageVersionInfo_status = Lens.lens (\SuccessfulPackageVersionInfo' {status} -> status) (\s@SuccessfulPackageVersionInfo' {} a -> s {status = a} :: SuccessfulPackageVersionInfo)
 
-instance Core.FromJSON SuccessfulPackageVersionInfo where
+instance Data.FromJSON SuccessfulPackageVersionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuccessfulPackageVersionInfo"
       ( \x ->
           SuccessfulPackageVersionInfo'
-            Prelude.<$> (x Core..:? "revision")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<$> (x Data..:? "revision")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance

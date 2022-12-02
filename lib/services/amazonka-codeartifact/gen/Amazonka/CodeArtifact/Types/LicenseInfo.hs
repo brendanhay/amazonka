@@ -21,6 +21,7 @@ module Amazonka.CodeArtifact.Types.LicenseInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the license data.
@@ -61,13 +62,13 @@ licenseInfo_name = Lens.lens (\LicenseInfo' {name} -> name) (\s@LicenseInfo' {} 
 licenseInfo_url :: Lens.Lens' LicenseInfo (Prelude.Maybe Prelude.Text)
 licenseInfo_url = Lens.lens (\LicenseInfo' {url} -> url) (\s@LicenseInfo' {} a -> s {url = a} :: LicenseInfo)
 
-instance Core.FromJSON LicenseInfo where
+instance Data.FromJSON LicenseInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LicenseInfo"
       ( \x ->
           LicenseInfo'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "url")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable LicenseInfo where

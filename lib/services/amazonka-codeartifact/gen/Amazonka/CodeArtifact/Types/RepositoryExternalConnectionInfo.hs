@@ -23,6 +23,7 @@ import Amazonka.CodeArtifact.Types.ExternalConnectionStatus
 import Amazonka.CodeArtifact.Types.PackageFormat
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the external connection of a repository.
@@ -107,17 +108,17 @@ repositoryExternalConnectionInfo_packageFormat :: Lens.Lens' RepositoryExternalC
 repositoryExternalConnectionInfo_packageFormat = Lens.lens (\RepositoryExternalConnectionInfo' {packageFormat} -> packageFormat) (\s@RepositoryExternalConnectionInfo' {} a -> s {packageFormat = a} :: RepositoryExternalConnectionInfo)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RepositoryExternalConnectionInfo
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryExternalConnectionInfo"
       ( \x ->
           RepositoryExternalConnectionInfo'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "externalConnectionName")
-            Prelude.<*> (x Core..:? "packageFormat")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "externalConnectionName")
+            Prelude.<*> (x Data..:? "packageFormat")
       )
 
 instance

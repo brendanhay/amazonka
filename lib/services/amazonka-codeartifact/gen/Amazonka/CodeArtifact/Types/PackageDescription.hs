@@ -23,6 +23,7 @@ import Amazonka.CodeArtifact.Types.PackageFormat
 import Amazonka.CodeArtifact.Types.PackageOriginConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a package.
@@ -105,16 +106,16 @@ packageDescription_originConfiguration = Lens.lens (\PackageDescription' {origin
 packageDescription_namespace :: Lens.Lens' PackageDescription (Prelude.Maybe Prelude.Text)
 packageDescription_namespace = Lens.lens (\PackageDescription' {namespace} -> namespace) (\s@PackageDescription' {} a -> s {namespace = a} :: PackageDescription)
 
-instance Core.FromJSON PackageDescription where
+instance Data.FromJSON PackageDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageDescription"
       ( \x ->
           PackageDescription'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "originConfiguration")
-            Prelude.<*> (x Core..:? "namespace")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "format")
+            Prelude.<*> (x Data..:? "originConfiguration")
+            Prelude.<*> (x Data..:? "namespace")
       )
 
 instance Prelude.Hashable PackageDescription where

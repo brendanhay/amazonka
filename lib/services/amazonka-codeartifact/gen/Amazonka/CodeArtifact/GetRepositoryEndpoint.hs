@@ -54,6 +54,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,7 +142,7 @@ instance Core.AWSRequest GetRepositoryEndpoint where
     Response.receiveJSON
       ( \s h x ->
           GetRepositoryEndpointResponse'
-            Prelude.<$> (x Core..?> "repositoryEndpoint")
+            Prelude.<$> (x Data..?> "repositoryEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,27 +160,27 @@ instance Prelude.NFData GetRepositoryEndpoint where
       `Prelude.seq` Prelude.rnf repository
       `Prelude.seq` Prelude.rnf format
 
-instance Core.ToHeaders GetRepositoryEndpoint where
+instance Data.ToHeaders GetRepositoryEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRepositoryEndpoint where
+instance Data.ToPath GetRepositoryEndpoint where
   toPath = Prelude.const "/v1/repository/endpoint"
 
-instance Core.ToQuery GetRepositoryEndpoint where
+instance Data.ToQuery GetRepositoryEndpoint where
   toQuery GetRepositoryEndpoint' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository,
-        "format" Core.=: format
+      [ "domain-owner" Data.=: domainOwner,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository,
+        "format" Data.=: format
       ]
 
 -- | /See:/ 'newGetRepositoryEndpointResponse' smart constructor.

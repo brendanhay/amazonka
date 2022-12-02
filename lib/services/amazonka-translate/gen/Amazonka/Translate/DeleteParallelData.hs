@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,8 +85,8 @@ instance Core.AWSRequest DeleteParallelData where
     Response.receiveJSON
       ( \s h x ->
           DeleteParallelDataResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,32 +97,32 @@ instance Prelude.Hashable DeleteParallelData where
 instance Prelude.NFData DeleteParallelData where
   rnf DeleteParallelData' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteParallelData where
+instance Data.ToHeaders DeleteParallelData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShineFrontendService_20170701.DeleteParallelData" ::
+              Data.=# ( "AWSShineFrontendService_20170701.DeleteParallelData" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteParallelData where
+instance Data.ToJSON DeleteParallelData where
   toJSON DeleteParallelData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteParallelData where
+instance Data.ToPath DeleteParallelData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteParallelData where
+instance Data.ToQuery DeleteParallelData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteParallelDataResponse' smart constructor.

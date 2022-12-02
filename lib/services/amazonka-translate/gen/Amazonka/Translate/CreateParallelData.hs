@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,8 +162,8 @@ instance Core.AWSRequest CreateParallelData where
     Response.receiveJSON
       ( \s h x ->
           CreateParallelDataResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,39 +185,39 @@ instance Prelude.NFData CreateParallelData where
       `Prelude.seq` Prelude.rnf parallelDataConfig
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateParallelData where
+instance Data.ToHeaders CreateParallelData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShineFrontendService_20170701.CreateParallelData" ::
+              Data.=# ( "AWSShineFrontendService_20170701.CreateParallelData" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateParallelData where
+instance Data.ToJSON CreateParallelData where
   toJSON CreateParallelData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("EncryptionKey" Core..=) Prelude.<$> encryptionKey,
-            Prelude.Just ("Name" Core..= name),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("EncryptionKey" Data..=) Prelude.<$> encryptionKey,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("ParallelDataConfig" Core..= parallelDataConfig),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+              ("ParallelDataConfig" Data..= parallelDataConfig),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateParallelData where
+instance Data.ToPath CreateParallelData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateParallelData where
+instance Data.ToQuery CreateParallelData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateParallelDataResponse' smart constructor.

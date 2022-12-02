@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,8 +115,8 @@ instance Core.AWSRequest ListTextTranslationJobs where
     Response.receiveJSON
       ( \s h x ->
           ListTextTranslationJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "TextTranslationJobPropertiesList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "TextTranslationJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -133,35 +134,35 @@ instance Prelude.NFData ListTextTranslationJobs where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListTextTranslationJobs where
+instance Data.ToHeaders ListTextTranslationJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShineFrontendService_20170701.ListTextTranslationJobs" ::
+              Data.=# ( "AWSShineFrontendService_20170701.ListTextTranslationJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTextTranslationJobs where
+instance Data.ToJSON ListTextTranslationJobs where
   toJSON ListTextTranslationJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListTextTranslationJobs where
+instance Data.ToPath ListTextTranslationJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTextTranslationJobs where
+instance Data.ToQuery ListTextTranslationJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTextTranslationJobsResponse' smart constructor.

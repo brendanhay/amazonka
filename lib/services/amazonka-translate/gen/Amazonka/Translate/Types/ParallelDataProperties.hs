@@ -21,6 +21,7 @@ module Amazonka.Translate.Types.ParallelDataProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Translate.Types.EncryptionKey
 import Amazonka.Translate.Types.ParallelDataConfig
@@ -39,7 +40,7 @@ data ParallelDataProperties = ParallelDataProperties'
     -- resource.
     latestUpdateAttemptStatus :: Prelude.Maybe ParallelDataStatus,
     -- | The time at which the parallel data resource was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The number of items in the input file that Amazon Translate skipped when
     -- you created or updated the parallel data resource. For example, Amazon
     -- Translate skips empty records, empty target texts, and empty lines.
@@ -57,7 +58,7 @@ data ParallelDataProperties = ParallelDataProperties'
     -- | Specifies the format and S3 location of the parallel data input file.
     parallelDataConfig :: Prelude.Maybe ParallelDataConfig,
     -- | The time that the most recent update was attempted.
-    latestUpdateAttemptAt :: Prelude.Maybe Core.POSIX,
+    latestUpdateAttemptAt :: Prelude.Maybe Data.POSIX,
     -- | The number of records unsuccessfully imported from the parallel data
     -- input file.
     failedRecordCount :: Prelude.Maybe Prelude.Integer,
@@ -74,7 +75,7 @@ data ParallelDataProperties = ParallelDataProperties'
     -- Exchange (.tmx) file, this number does not include the tags.
     importedDataSize :: Prelude.Maybe Prelude.Integer,
     -- | The time at which the parallel data resource was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -170,7 +171,7 @@ parallelDataProperties_latestUpdateAttemptStatus = Lens.lens (\ParallelDataPrope
 
 -- | The time at which the parallel data resource was last updated.
 parallelDataProperties_lastUpdatedAt :: Lens.Lens' ParallelDataProperties (Prelude.Maybe Prelude.UTCTime)
-parallelDataProperties_lastUpdatedAt = Lens.lens (\ParallelDataProperties' {lastUpdatedAt} -> lastUpdatedAt) (\s@ParallelDataProperties' {} a -> s {lastUpdatedAt = a} :: ParallelDataProperties) Prelude.. Lens.mapping Core._Time
+parallelDataProperties_lastUpdatedAt = Lens.lens (\ParallelDataProperties' {lastUpdatedAt} -> lastUpdatedAt) (\s@ParallelDataProperties' {} a -> s {lastUpdatedAt = a} :: ParallelDataProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The number of items in the input file that Amazon Translate skipped when
 -- you created or updated the parallel data resource. For example, Amazon
@@ -202,7 +203,7 @@ parallelDataProperties_parallelDataConfig = Lens.lens (\ParallelDataProperties' 
 
 -- | The time that the most recent update was attempted.
 parallelDataProperties_latestUpdateAttemptAt :: Lens.Lens' ParallelDataProperties (Prelude.Maybe Prelude.UTCTime)
-parallelDataProperties_latestUpdateAttemptAt = Lens.lens (\ParallelDataProperties' {latestUpdateAttemptAt} -> latestUpdateAttemptAt) (\s@ParallelDataProperties' {} a -> s {latestUpdateAttemptAt = a} :: ParallelDataProperties) Prelude.. Lens.mapping Core._Time
+parallelDataProperties_latestUpdateAttemptAt = Lens.lens (\ParallelDataProperties' {latestUpdateAttemptAt} -> latestUpdateAttemptAt) (\s@ParallelDataProperties' {} a -> s {latestUpdateAttemptAt = a} :: ParallelDataProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The number of records unsuccessfully imported from the parallel data
 -- input file.
@@ -232,33 +233,33 @@ parallelDataProperties_importedDataSize = Lens.lens (\ParallelDataProperties' {i
 
 -- | The time at which the parallel data resource was created.
 parallelDataProperties_createdAt :: Lens.Lens' ParallelDataProperties (Prelude.Maybe Prelude.UTCTime)
-parallelDataProperties_createdAt = Lens.lens (\ParallelDataProperties' {createdAt} -> createdAt) (\s@ParallelDataProperties' {} a -> s {createdAt = a} :: ParallelDataProperties) Prelude.. Lens.mapping Core._Time
+parallelDataProperties_createdAt = Lens.lens (\ParallelDataProperties' {createdAt} -> createdAt) (\s@ParallelDataProperties' {} a -> s {createdAt = a} :: ParallelDataProperties) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ParallelDataProperties where
+instance Data.FromJSON ParallelDataProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParallelDataProperties"
       ( \x ->
           ParallelDataProperties'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LatestUpdateAttemptStatus")
-            Prelude.<*> (x Core..:? "LastUpdatedAt")
-            Prelude.<*> (x Core..:? "SkippedRecordCount")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> ( x Core..:? "TargetLanguageCodes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LatestUpdateAttemptStatus")
+            Prelude.<*> (x Data..:? "LastUpdatedAt")
+            Prelude.<*> (x Data..:? "SkippedRecordCount")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> ( x Data..:? "TargetLanguageCodes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ParallelDataConfig")
-            Prelude.<*> (x Core..:? "LatestUpdateAttemptAt")
-            Prelude.<*> (x Core..:? "FailedRecordCount")
-            Prelude.<*> (x Core..:? "SourceLanguageCode")
-            Prelude.<*> (x Core..:? "ImportedRecordCount")
-            Prelude.<*> (x Core..:? "EncryptionKey")
-            Prelude.<*> (x Core..:? "ImportedDataSize")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ParallelDataConfig")
+            Prelude.<*> (x Data..:? "LatestUpdateAttemptAt")
+            Prelude.<*> (x Data..:? "FailedRecordCount")
+            Prelude.<*> (x Data..:? "SourceLanguageCode")
+            Prelude.<*> (x Data..:? "ImportedRecordCount")
+            Prelude.<*> (x Data..:? "EncryptionKey")
+            Prelude.<*> (x Data..:? "ImportedDataSize")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable ParallelDataProperties where

@@ -21,6 +21,7 @@ module Amazonka.Translate.Types.JobDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of documents successfully and unsuccessfully processed during
@@ -75,15 +76,15 @@ jobDetails_translatedDocumentsCount = Lens.lens (\JobDetails' {translatedDocumen
 jobDetails_inputDocumentsCount :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Int)
 jobDetails_inputDocumentsCount = Lens.lens (\JobDetails' {inputDocumentsCount} -> inputDocumentsCount) (\s@JobDetails' {} a -> s {inputDocumentsCount = a} :: JobDetails)
 
-instance Core.FromJSON JobDetails where
+instance Data.FromJSON JobDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobDetails"
       ( \x ->
           JobDetails'
-            Prelude.<$> (x Core..:? "DocumentsWithErrorsCount")
-            Prelude.<*> (x Core..:? "TranslatedDocumentsCount")
-            Prelude.<*> (x Core..:? "InputDocumentsCount")
+            Prelude.<$> (x Data..:? "DocumentsWithErrorsCount")
+            Prelude.<*> (x Data..:? "TranslatedDocumentsCount")
+            Prelude.<*> (x Data..:? "InputDocumentsCount")
       )
 
 instance Prelude.Hashable JobDetails where

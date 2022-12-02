@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -198,14 +199,14 @@ instance Core.AWSRequest TranslateText where
     Response.receiveJSON
       ( \s h x ->
           TranslateTextResponse'
-            Prelude.<$> ( x Core..?> "AppliedTerminologies"
+            Prelude.<$> ( x Data..?> "AppliedTerminologies"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "AppliedSettings")
+            Prelude.<*> (x Data..?> "AppliedSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "TranslatedText")
-            Prelude.<*> (x Core..:> "SourceLanguageCode")
-            Prelude.<*> (x Core..:> "TargetLanguageCode")
+            Prelude.<*> (x Data..:> "TranslatedText")
+            Prelude.<*> (x Data..:> "SourceLanguageCode")
+            Prelude.<*> (x Data..:> "TargetLanguageCode")
       )
 
 instance Prelude.Hashable TranslateText where
@@ -224,40 +225,40 @@ instance Prelude.NFData TranslateText where
       `Prelude.seq` Prelude.rnf sourceLanguageCode
       `Prelude.seq` Prelude.rnf targetLanguageCode
 
-instance Core.ToHeaders TranslateText where
+instance Data.ToHeaders TranslateText where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShineFrontendService_20170701.TranslateText" ::
+              Data.=# ( "AWSShineFrontendService_20170701.TranslateText" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TranslateText where
+instance Data.ToJSON TranslateText where
   toJSON TranslateText' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TerminologyNames" Core..=)
+          [ ("TerminologyNames" Data..=)
               Prelude.<$> terminologyNames,
-            ("Settings" Core..=) Prelude.<$> settings,
-            Prelude.Just ("Text" Core..= text),
+            ("Settings" Data..=) Prelude.<$> settings,
+            Prelude.Just ("Text" Data..= text),
             Prelude.Just
-              ("SourceLanguageCode" Core..= sourceLanguageCode),
+              ("SourceLanguageCode" Data..= sourceLanguageCode),
             Prelude.Just
-              ("TargetLanguageCode" Core..= targetLanguageCode)
+              ("TargetLanguageCode" Data..= targetLanguageCode)
           ]
       )
 
-instance Core.ToPath TranslateText where
+instance Data.ToPath TranslateText where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TranslateText where
+instance Data.ToQuery TranslateText where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTranslateTextResponse' smart constructor.

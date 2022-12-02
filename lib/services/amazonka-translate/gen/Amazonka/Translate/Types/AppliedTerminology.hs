@@ -21,6 +21,7 @@ module Amazonka.Translate.Types.AppliedTerminology where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Translate.Types.Term
 
@@ -78,14 +79,14 @@ appliedTerminology_name = Lens.lens (\AppliedTerminology' {name} -> name) (\s@Ap
 appliedTerminology_terms :: Lens.Lens' AppliedTerminology (Prelude.Maybe [Term])
 appliedTerminology_terms = Lens.lens (\AppliedTerminology' {terms} -> terms) (\s@AppliedTerminology' {} a -> s {terms = a} :: AppliedTerminology) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AppliedTerminology where
+instance Data.FromJSON AppliedTerminology where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppliedTerminology"
       ( \x ->
           AppliedTerminology'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Terms" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Terms" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AppliedTerminology where

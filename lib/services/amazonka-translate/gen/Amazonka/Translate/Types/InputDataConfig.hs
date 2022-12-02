@@ -21,6 +21,7 @@ module Amazonka.Translate.Types.InputDataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input configuration properties for requesting a batch translation
@@ -180,14 +181,14 @@ inputDataConfig_s3Uri = Lens.lens (\InputDataConfig' {s3Uri} -> s3Uri) (\s@Input
 inputDataConfig_contentType :: Lens.Lens' InputDataConfig Prelude.Text
 inputDataConfig_contentType = Lens.lens (\InputDataConfig' {contentType} -> contentType) (\s@InputDataConfig' {} a -> s {contentType = a} :: InputDataConfig)
 
-instance Core.FromJSON InputDataConfig where
+instance Data.FromJSON InputDataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDataConfig"
       ( \x ->
           InputDataConfig'
-            Prelude.<$> (x Core..: "S3Uri")
-            Prelude.<*> (x Core..: "ContentType")
+            Prelude.<$> (x Data..: "S3Uri")
+            Prelude.<*> (x Data..: "ContentType")
       )
 
 instance Prelude.Hashable InputDataConfig where
@@ -200,11 +201,11 @@ instance Prelude.NFData InputDataConfig where
     Prelude.rnf s3Uri
       `Prelude.seq` Prelude.rnf contentType
 
-instance Core.ToJSON InputDataConfig where
+instance Data.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("S3Uri" Core..= s3Uri),
-            Prelude.Just ("ContentType" Core..= contentType)
+          [ Prelude.Just ("S3Uri" Data..= s3Uri),
+            Prelude.Just ("ContentType" Data..= contentType)
           ]
       )

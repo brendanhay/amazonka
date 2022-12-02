@@ -21,6 +21,7 @@ module Amazonka.Translate.Types.TerminologyProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Translate.Types.Directionality
 import Amazonka.Translate.Types.EncryptionKey
@@ -40,7 +41,7 @@ data TerminologyProperties = TerminologyProperties'
     name :: Prelude.Maybe Prelude.Text,
     -- | The time at which the custom terminology was last update, based on the
     -- timestamp.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The directionality of your terminology resource indicates whether it has
     -- one source language (uni-directional) or multiple (multi-directional).
     --
@@ -72,7 +73,7 @@ data TerminologyProperties = TerminologyProperties'
     encryptionKey :: Prelude.Maybe EncryptionKey,
     -- | The time at which the custom terminology was created, based on the
     -- timestamp.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -164,7 +165,7 @@ terminologyProperties_name = Lens.lens (\TerminologyProperties' {name} -> name) 
 -- | The time at which the custom terminology was last update, based on the
 -- timestamp.
 terminologyProperties_lastUpdatedAt :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.UTCTime)
-terminologyProperties_lastUpdatedAt = Lens.lens (\TerminologyProperties' {lastUpdatedAt} -> lastUpdatedAt) (\s@TerminologyProperties' {} a -> s {lastUpdatedAt = a} :: TerminologyProperties) Prelude.. Lens.mapping Core._Time
+terminologyProperties_lastUpdatedAt = Lens.lens (\TerminologyProperties' {lastUpdatedAt} -> lastUpdatedAt) (\s@TerminologyProperties' {} a -> s {lastUpdatedAt = a} :: TerminologyProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The directionality of your terminology resource indicates whether it has
 -- one source language (uni-directional) or multiple (multi-directional).
@@ -216,30 +217,30 @@ terminologyProperties_encryptionKey = Lens.lens (\TerminologyProperties' {encryp
 -- | The time at which the custom terminology was created, based on the
 -- timestamp.
 terminologyProperties_createdAt :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.UTCTime)
-terminologyProperties_createdAt = Lens.lens (\TerminologyProperties' {createdAt} -> createdAt) (\s@TerminologyProperties' {} a -> s {createdAt = a} :: TerminologyProperties) Prelude.. Lens.mapping Core._Time
+terminologyProperties_createdAt = Lens.lens (\TerminologyProperties' {createdAt} -> createdAt) (\s@TerminologyProperties' {} a -> s {createdAt = a} :: TerminologyProperties) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TerminologyProperties where
+instance Data.FromJSON TerminologyProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TerminologyProperties"
       ( \x ->
           TerminologyProperties'
-            Prelude.<$> (x Core..:? "SkippedTermCount")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastUpdatedAt")
-            Prelude.<*> (x Core..:? "Directionality")
-            Prelude.<*> (x Core..:? "TermCount")
-            Prelude.<*> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "SizeBytes")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> ( x Core..:? "TargetLanguageCodes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SkippedTermCount")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastUpdatedAt")
+            Prelude.<*> (x Data..:? "Directionality")
+            Prelude.<*> (x Data..:? "TermCount")
+            Prelude.<*> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "SizeBytes")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> ( x Data..:? "TargetLanguageCodes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SourceLanguageCode")
-            Prelude.<*> (x Core..:? "EncryptionKey")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SourceLanguageCode")
+            Prelude.<*> (x Data..:? "EncryptionKey")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable TerminologyProperties where

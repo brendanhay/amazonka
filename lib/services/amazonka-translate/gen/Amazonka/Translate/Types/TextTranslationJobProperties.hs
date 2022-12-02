@@ -21,6 +21,7 @@ module Amazonka.Translate.Types.TextTranslationJobProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Translate.Types.InputDataConfig
 import Amazonka.Translate.Types.JobDetails
@@ -44,7 +45,7 @@ data TextTranslationJobProperties = TextTranslationJobProperties'
     -- the translation job.
     jobDetails :: Prelude.Maybe JobDetails,
     -- | The time at which the translation job was submitted.
-    submittedTime :: Prelude.Maybe Core.POSIX,
+    submittedTime :: Prelude.Maybe Data.POSIX,
     -- | The user-defined name of the translation job.
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The language code of the language of the target text. The language must
@@ -61,7 +62,7 @@ data TextTranslationJobProperties = TextTranslationJobProperties'
     -- StartTextTranslationJob request at this time.
     terminologyNames :: Prelude.Maybe [Prelude.Text],
     -- | The time at which the translation job ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Settings that configure the translation output.
     settings :: Prelude.Maybe TranslationSettings,
     -- | The language code of the language of the source text. The language must
@@ -167,7 +168,7 @@ textTranslationJobProperties_jobDetails = Lens.lens (\TextTranslationJobProperti
 
 -- | The time at which the translation job was submitted.
 textTranslationJobProperties_submittedTime :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe Prelude.UTCTime)
-textTranslationJobProperties_submittedTime = Lens.lens (\TextTranslationJobProperties' {submittedTime} -> submittedTime) (\s@TextTranslationJobProperties' {} a -> s {submittedTime = a} :: TextTranslationJobProperties) Prelude.. Lens.mapping Core._Time
+textTranslationJobProperties_submittedTime = Lens.lens (\TextTranslationJobProperties' {submittedTime} -> submittedTime) (\s@TextTranslationJobProperties' {} a -> s {submittedTime = a} :: TextTranslationJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The user-defined name of the translation job.
 textTranslationJobProperties_jobName :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe Prelude.Text)
@@ -196,7 +197,7 @@ textTranslationJobProperties_terminologyNames = Lens.lens (\TextTranslationJobPr
 
 -- | The time at which the translation job ended.
 textTranslationJobProperties_endTime :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe Prelude.UTCTime)
-textTranslationJobProperties_endTime = Lens.lens (\TextTranslationJobProperties' {endTime} -> endTime) (\s@TextTranslationJobProperties' {} a -> s {endTime = a} :: TextTranslationJobProperties) Prelude.. Lens.mapping Core._Time
+textTranslationJobProperties_endTime = Lens.lens (\TextTranslationJobProperties' {endTime} -> endTime) (\s@TextTranslationJobProperties' {} a -> s {endTime = a} :: TextTranslationJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | Settings that configure the translation output.
 textTranslationJobProperties_settings :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe TranslationSettings)
@@ -217,30 +218,30 @@ textTranslationJobProperties_inputDataConfig = Lens.lens (\TextTranslationJobPro
 textTranslationJobProperties_parallelDataNames :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe [Prelude.Text])
 textTranslationJobProperties_parallelDataNames = Lens.lens (\TextTranslationJobProperties' {parallelDataNames} -> parallelDataNames) (\s@TextTranslationJobProperties' {} a -> s {parallelDataNames = a} :: TextTranslationJobProperties) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TextTranslationJobProperties where
+instance Data.FromJSON TextTranslationJobProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TextTranslationJobProperties"
       ( \x ->
           TextTranslationJobProperties'
-            Prelude.<$> (x Core..:? "OutputDataConfig")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "JobDetails")
-            Prelude.<*> (x Core..:? "SubmittedTime")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "TargetLanguageCodes")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> ( x Core..:? "TerminologyNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "OutputDataConfig")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "JobDetails")
+            Prelude.<*> (x Data..:? "SubmittedTime")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "TargetLanguageCodes")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> ( x Data..:? "TerminologyNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "Settings")
-            Prelude.<*> (x Core..:? "SourceLanguageCode")
-            Prelude.<*> (x Core..:? "InputDataConfig")
-            Prelude.<*> ( x Core..:? "ParallelDataNames"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "Settings")
+            Prelude.<*> (x Data..:? "SourceLanguageCode")
+            Prelude.<*> (x Data..:? "InputDataConfig")
+            Prelude.<*> ( x Data..:? "ParallelDataNames"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -21,6 +21,7 @@ module Amazonka.Translate.Types.ParallelDataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Translate.Types.ParallelDataFormat
 
@@ -72,13 +73,13 @@ parallelDataConfig_s3Uri = Lens.lens (\ParallelDataConfig' {s3Uri} -> s3Uri) (\s
 parallelDataConfig_format :: Lens.Lens' ParallelDataConfig ParallelDataFormat
 parallelDataConfig_format = Lens.lens (\ParallelDataConfig' {format} -> format) (\s@ParallelDataConfig' {} a -> s {format = a} :: ParallelDataConfig)
 
-instance Core.FromJSON ParallelDataConfig where
+instance Data.FromJSON ParallelDataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParallelDataConfig"
       ( \x ->
           ParallelDataConfig'
-            Prelude.<$> (x Core..: "S3Uri") Prelude.<*> (x Core..: "Format")
+            Prelude.<$> (x Data..: "S3Uri") Prelude.<*> (x Data..: "Format")
       )
 
 instance Prelude.Hashable ParallelDataConfig where
@@ -90,11 +91,11 @@ instance Prelude.NFData ParallelDataConfig where
   rnf ParallelDataConfig' {..} =
     Prelude.rnf s3Uri `Prelude.seq` Prelude.rnf format
 
-instance Core.ToJSON ParallelDataConfig where
+instance Data.ToJSON ParallelDataConfig where
   toJSON ParallelDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("S3Uri" Core..= s3Uri),
-            Prelude.Just ("Format" Core..= format)
+          [ Prelude.Just ("S3Uri" Data..= s3Uri),
+            Prelude.Just ("Format" Data..= format)
           ]
       )

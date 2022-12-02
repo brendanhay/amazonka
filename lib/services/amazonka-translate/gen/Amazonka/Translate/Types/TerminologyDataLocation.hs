@@ -21,6 +21,7 @@ module Amazonka.Translate.Types.TerminologyDataLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location of the custom terminology data.
@@ -110,14 +111,14 @@ terminologyDataLocation_repositoryType = Lens.lens (\TerminologyDataLocation' {r
 terminologyDataLocation_location :: Lens.Lens' TerminologyDataLocation Prelude.Text
 terminologyDataLocation_location = Lens.lens (\TerminologyDataLocation' {location} -> location) (\s@TerminologyDataLocation' {} a -> s {location = a} :: TerminologyDataLocation)
 
-instance Core.FromJSON TerminologyDataLocation where
+instance Data.FromJSON TerminologyDataLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TerminologyDataLocation"
       ( \x ->
           TerminologyDataLocation'
-            Prelude.<$> (x Core..: "RepositoryType")
-            Prelude.<*> (x Core..: "Location")
+            Prelude.<$> (x Data..: "RepositoryType")
+            Prelude.<*> (x Data..: "Location")
       )
 
 instance Prelude.Hashable TerminologyDataLocation where

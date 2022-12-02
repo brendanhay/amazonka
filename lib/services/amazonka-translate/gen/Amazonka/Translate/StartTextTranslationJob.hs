@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -360,8 +361,8 @@ instance Core.AWSRequest StartTextTranslationJob where
     Response.receiveJSON
       ( \s h x ->
           StartTextTranslationJobResponse'
-            Prelude.<$> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -391,49 +392,49 @@ instance Prelude.NFData StartTextTranslationJob where
       `Prelude.seq` Prelude.rnf targetLanguageCodes
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders StartTextTranslationJob where
+instance Data.ToHeaders StartTextTranslationJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShineFrontendService_20170701.StartTextTranslationJob" ::
+              Data.=# ( "AWSShineFrontendService_20170701.StartTextTranslationJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartTextTranslationJob where
+instance Data.ToJSON StartTextTranslationJob where
   toJSON StartTextTranslationJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JobName" Core..=) Prelude.<$> jobName,
-            ("TerminologyNames" Core..=)
+          [ ("JobName" Data..=) Prelude.<$> jobName,
+            ("TerminologyNames" Data..=)
               Prelude.<$> terminologyNames,
-            ("Settings" Core..=) Prelude.<$> settings,
-            ("ParallelDataNames" Core..=)
+            ("Settings" Data..=) Prelude.<$> settings,
+            ("ParallelDataNames" Data..=)
               Prelude.<$> parallelDataNames,
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
+              ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
-              ("OutputDataConfig" Core..= outputDataConfig),
+              ("OutputDataConfig" Data..= outputDataConfig),
             Prelude.Just
-              ("DataAccessRoleArn" Core..= dataAccessRoleArn),
+              ("DataAccessRoleArn" Data..= dataAccessRoleArn),
             Prelude.Just
-              ("SourceLanguageCode" Core..= sourceLanguageCode),
+              ("SourceLanguageCode" Data..= sourceLanguageCode),
             Prelude.Just
-              ("TargetLanguageCodes" Core..= targetLanguageCodes),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+              ("TargetLanguageCodes" Data..= targetLanguageCodes),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath StartTextTranslationJob where
+instance Data.ToPath StartTextTranslationJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartTextTranslationJob where
+instance Data.ToQuery StartTextTranslationJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartTextTranslationJobResponse' smart constructor.

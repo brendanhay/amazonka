@@ -21,6 +21,7 @@ module Amazonka.Translate.Types.Language where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A supported language.
@@ -65,14 +66,14 @@ language_languageName = Lens.lens (\Language' {languageName} -> languageName) (\
 language_languageCode :: Lens.Lens' Language Prelude.Text
 language_languageCode = Lens.lens (\Language' {languageCode} -> languageCode) (\s@Language' {} a -> s {languageCode = a} :: Language)
 
-instance Core.FromJSON Language where
+instance Data.FromJSON Language where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Language"
       ( \x ->
           Language'
-            Prelude.<$> (x Core..: "LanguageName")
-            Prelude.<*> (x Core..: "LanguageCode")
+            Prelude.<$> (x Data..: "LanguageName")
+            Prelude.<*> (x Data..: "LanguageCode")
       )
 
 instance Prelude.Hashable Language where

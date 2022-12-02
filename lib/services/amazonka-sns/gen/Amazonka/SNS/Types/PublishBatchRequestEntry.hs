@@ -21,6 +21,7 @@ module Amazonka.SNS.Types.PublishBatchRequestEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SNS.Types.MessageAttributeValue
 
@@ -397,19 +398,19 @@ instance Prelude.NFData PublishBatchRequestEntry where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf message
 
-instance Core.ToQuery PublishBatchRequestEntry where
+instance Data.ToQuery PublishBatchRequestEntry where
   toQuery PublishBatchRequestEntry' {..} =
     Prelude.mconcat
       [ "MessageDeduplicationId"
-          Core.=: messageDeduplicationId,
-        "MessageGroupId" Core.=: messageGroupId,
+          Data.=: messageDeduplicationId,
+        "MessageGroupId" Data.=: messageGroupId,
         "MessageAttributes"
-          Core.=: Core.toQuery
-            ( Core.toQueryMap "entry" "Name" "Value"
+          Data.=: Data.toQuery
+            ( Data.toQueryMap "entry" "Name" "Value"
                 Prelude.<$> messageAttributes
             ),
-        "MessageStructure" Core.=: messageStructure,
-        "Subject" Core.=: subject,
-        "Id" Core.=: id,
-        "Message" Core.=: message
+        "MessageStructure" Data.=: messageStructure,
+        "Subject" Data.=: subject,
+        "Id" Data.=: id,
+        "Message" Data.=: message
       ]

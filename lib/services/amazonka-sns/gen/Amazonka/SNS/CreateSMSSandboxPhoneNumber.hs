@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,23 +128,23 @@ instance Prelude.NFData CreateSMSSandboxPhoneNumber where
     Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf phoneNumber
 
-instance Core.ToHeaders CreateSMSSandboxPhoneNumber where
+instance Data.ToHeaders CreateSMSSandboxPhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateSMSSandboxPhoneNumber where
+instance Data.ToPath CreateSMSSandboxPhoneNumber where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSMSSandboxPhoneNumber where
+instance Data.ToQuery CreateSMSSandboxPhoneNumber where
   toQuery CreateSMSSandboxPhoneNumber' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateSMSSandboxPhoneNumber" ::
+          Data.=: ( "CreateSMSSandboxPhoneNumber" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "LanguageCode" Core.=: languageCode,
-        "PhoneNumber" Core.=: phoneNumber
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "LanguageCode" Data.=: languageCode,
+        "PhoneNumber" Data.=: phoneNumber
       ]
 
 -- | /See:/ 'newCreateSMSSandboxPhoneNumberResponse' smart constructor.

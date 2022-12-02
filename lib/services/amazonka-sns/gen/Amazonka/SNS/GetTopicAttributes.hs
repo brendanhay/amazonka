@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,8 +88,8 @@ instance Core.AWSRequest GetTopicAttributes where
       "GetTopicAttributesResult"
       ( \s h x ->
           GetTopicAttributesResponse'
-            Prelude.<$> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+            Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -100,20 +101,20 @@ instance Prelude.Hashable GetTopicAttributes where
 instance Prelude.NFData GetTopicAttributes where
   rnf GetTopicAttributes' {..} = Prelude.rnf topicArn
 
-instance Core.ToHeaders GetTopicAttributes where
+instance Data.ToHeaders GetTopicAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetTopicAttributes where
+instance Data.ToPath GetTopicAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTopicAttributes where
+instance Data.ToQuery GetTopicAttributes where
   toQuery GetTopicAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetTopicAttributes" :: Prelude.ByteString),
+          Data.=: ("GetTopicAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "TopicArn" Core.=: topicArn
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "TopicArn" Data.=: topicArn
       ]
 
 -- | Response for GetTopicAttributes action.

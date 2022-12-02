@@ -21,6 +21,7 @@ module Amazonka.SNS.Types.PhoneNumberInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SNS.Types.NumberCapability
 import Amazonka.SNS.Types.RouteType
@@ -41,7 +42,7 @@ data PhoneNumberInformation = PhoneNumberInformation'
     -- | The phone number.
     phoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the phone number was created.
-    createdAt :: Prelude.Maybe Core.ISO8601
+    createdAt :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,20 +102,20 @@ phoneNumberInformation_phoneNumber = Lens.lens (\PhoneNumberInformation' {phoneN
 
 -- | The date and time when the phone number was created.
 phoneNumberInformation_createdAt :: Lens.Lens' PhoneNumberInformation (Prelude.Maybe Prelude.UTCTime)
-phoneNumberInformation_createdAt = Lens.lens (\PhoneNumberInformation' {createdAt} -> createdAt) (\s@PhoneNumberInformation' {} a -> s {createdAt = a} :: PhoneNumberInformation) Prelude.. Lens.mapping Core._Time
+phoneNumberInformation_createdAt = Lens.lens (\PhoneNumberInformation' {createdAt} -> createdAt) (\s@PhoneNumberInformation' {} a -> s {createdAt = a} :: PhoneNumberInformation) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML PhoneNumberInformation where
+instance Data.FromXML PhoneNumberInformation where
   parseXML x =
     PhoneNumberInformation'
-      Prelude.<$> (x Core..@? "RouteType")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "Iso2CountryCode")
-      Prelude.<*> ( x Core..@? "NumberCapabilities"
+      Prelude.<$> (x Data..@? "RouteType")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "Iso2CountryCode")
+      Prelude.<*> ( x Data..@? "NumberCapabilities"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PhoneNumber")
-      Prelude.<*> (x Core..@? "CreatedAt")
+      Prelude.<*> (x Data..@? "PhoneNumber")
+      Prelude.<*> (x Data..@? "CreatedAt")
 
 instance Prelude.Hashable PhoneNumberInformation where
   hashWithSalt _salt PhoneNumberInformation' {..} =

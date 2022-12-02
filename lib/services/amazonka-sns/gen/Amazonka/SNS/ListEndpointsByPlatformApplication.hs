@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,9 +153,9 @@ instance
       "ListEndpointsByPlatformApplicationResult"
       ( \s h x ->
           ListEndpointsByPlatformApplicationResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-              Prelude.<*> ( x Core..@? "Endpoints" Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+              Prelude.<*> ( x Data..@? "Endpoints" Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Data.parseXMLList "member")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -178,32 +179,32 @@ instance
       `Prelude.seq` Prelude.rnf platformApplicationArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListEndpointsByPlatformApplication
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListEndpointsByPlatformApplication
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListEndpointsByPlatformApplication
   where
   toQuery ListEndpointsByPlatformApplication' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ListEndpointsByPlatformApplication" ::
+          Data.=: ( "ListEndpointsByPlatformApplication" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
         "PlatformApplicationArn"
-          Core.=: platformApplicationArn
+          Data.=: platformApplicationArn
       ]
 
 -- | Response for ListEndpointsByPlatformApplication action.

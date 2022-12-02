@@ -21,6 +21,7 @@ module Amazonka.SNS.Types.Tag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of tags to be added to the specified topic.
@@ -62,10 +63,10 @@ tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
-instance Core.FromXML Tag where
+instance Data.FromXML Tag where
   parseXML x =
     Tag'
-      Prelude.<$> (x Core..@ "Key") Prelude.<*> (x Core..@ "Value")
+      Prelude.<$> (x Data..@ "Key") Prelude.<*> (x Data..@ "Value")
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
@@ -76,7 +77,7 @@ instance Prelude.NFData Tag where
   rnf Tag' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery Tag where
+instance Data.ToQuery Tag where
   toQuery Tag' {..} =
     Prelude.mconcat
-      ["Key" Core.=: key, "Value" Core.=: value]
+      ["Key" Data.=: key, "Value" Data.=: value]

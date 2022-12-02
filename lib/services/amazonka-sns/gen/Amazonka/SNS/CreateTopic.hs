@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -317,7 +318,7 @@ instance Core.AWSRequest CreateTopic where
       "CreateTopicResult"
       ( \s h x ->
           CreateTopicResponse'
-            Prelude.<$> (x Core..@? "TopicArn")
+            Prelude.<$> (x Data..@? "TopicArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -335,29 +336,29 @@ instance Prelude.NFData CreateTopic where
       `Prelude.seq` Prelude.rnf dataProtectionPolicy
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateTopic where
+instance Data.ToHeaders CreateTopic where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTopic where
+instance Data.ToPath CreateTopic where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTopic where
+instance Data.ToQuery CreateTopic where
   toQuery CreateTopic' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateTopic" :: Prelude.ByteString),
+          Data.=: ("CreateTopic" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
         "Attributes"
-          Core.=: Core.toQuery
-            ( Core.toQueryMap "entry" "key" "value"
+          Data.=: Data.toQuery
+            ( Data.toQueryMap "entry" "key" "value"
                 Prelude.<$> attributes
             ),
-        "DataProtectionPolicy" Core.=: dataProtectionPolicy,
-        "Name" Core.=: name
+        "DataProtectionPolicy" Data.=: dataProtectionPolicy,
+        "Name" Data.=: name
       ]
 
 -- | Response from CreateTopic action.

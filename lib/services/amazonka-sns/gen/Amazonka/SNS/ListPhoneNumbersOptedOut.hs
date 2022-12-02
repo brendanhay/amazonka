@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,9 +128,9 @@ instance Core.AWSRequest ListPhoneNumbersOptedOut where
       "ListPhoneNumbersOptedOutResult"
       ( \s h x ->
           ListPhoneNumbersOptedOutResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "phoneNumbers" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "phoneNumbers" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -142,20 +143,20 @@ instance Prelude.NFData ListPhoneNumbersOptedOut where
   rnf ListPhoneNumbersOptedOut' {..} =
     Prelude.rnf nextToken
 
-instance Core.ToHeaders ListPhoneNumbersOptedOut where
+instance Data.ToHeaders ListPhoneNumbersOptedOut where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPhoneNumbersOptedOut where
+instance Data.ToPath ListPhoneNumbersOptedOut where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPhoneNumbersOptedOut where
+instance Data.ToQuery ListPhoneNumbersOptedOut where
   toQuery ListPhoneNumbersOptedOut' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListPhoneNumbersOptedOut" :: Prelude.ByteString),
+          Data.=: ("ListPhoneNumbersOptedOut" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "nextToken" Core.=: nextToken
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "nextToken" Data.=: nextToken
       ]
 
 -- | The response from the @ListPhoneNumbersOptedOut@ action.

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,22 +110,22 @@ instance Prelude.NFData DeleteSMSSandboxPhoneNumber where
   rnf DeleteSMSSandboxPhoneNumber' {..} =
     Prelude.rnf phoneNumber
 
-instance Core.ToHeaders DeleteSMSSandboxPhoneNumber where
+instance Data.ToHeaders DeleteSMSSandboxPhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteSMSSandboxPhoneNumber where
+instance Data.ToPath DeleteSMSSandboxPhoneNumber where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSMSSandboxPhoneNumber where
+instance Data.ToQuery DeleteSMSSandboxPhoneNumber where
   toQuery DeleteSMSSandboxPhoneNumber' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DeleteSMSSandboxPhoneNumber" ::
+          Data.=: ( "DeleteSMSSandboxPhoneNumber" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "PhoneNumber" Core.=: phoneNumber
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "PhoneNumber" Data.=: phoneNumber
       ]
 
 -- | /See:/ 'newDeleteSMSSandboxPhoneNumberResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,7 +95,7 @@ instance Core.AWSRequest CheckIfPhoneNumberIsOptedOut where
       "CheckIfPhoneNumberIsOptedOutResult"
       ( \s h x ->
           CheckIfPhoneNumberIsOptedOutResponse'
-            Prelude.<$> (x Core..@? "isOptedOut")
+            Prelude.<$> (x Data..@? "isOptedOut")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,22 +110,22 @@ instance Prelude.NFData CheckIfPhoneNumberIsOptedOut where
   rnf CheckIfPhoneNumberIsOptedOut' {..} =
     Prelude.rnf phoneNumber
 
-instance Core.ToHeaders CheckIfPhoneNumberIsOptedOut where
+instance Data.ToHeaders CheckIfPhoneNumberIsOptedOut where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CheckIfPhoneNumberIsOptedOut where
+instance Data.ToPath CheckIfPhoneNumberIsOptedOut where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CheckIfPhoneNumberIsOptedOut where
+instance Data.ToQuery CheckIfPhoneNumberIsOptedOut where
   toQuery CheckIfPhoneNumberIsOptedOut' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CheckIfPhoneNumberIsOptedOut" ::
+          Data.=: ( "CheckIfPhoneNumberIsOptedOut" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "phoneNumber" Core.=: phoneNumber
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "phoneNumber" Data.=: phoneNumber
       ]
 
 -- | The response from the @CheckIfPhoneNumberIsOptedOut@ action.

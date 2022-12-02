@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,8 +106,8 @@ instance Core.AWSRequest GetSMSAttributes where
       "GetSMSAttributesResult"
       ( \s h x ->
           GetSMSAttributesResponse'
-            Prelude.<$> ( x Core..@? "attributes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+            Prelude.<$> ( x Data..@? "attributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -118,22 +119,22 @@ instance Prelude.Hashable GetSMSAttributes where
 instance Prelude.NFData GetSMSAttributes where
   rnf GetSMSAttributes' {..} = Prelude.rnf attributes
 
-instance Core.ToHeaders GetSMSAttributes where
+instance Data.ToHeaders GetSMSAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetSMSAttributes where
+instance Data.ToPath GetSMSAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSMSAttributes where
+instance Data.ToQuery GetSMSAttributes where
   toQuery GetSMSAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetSMSAttributes" :: Prelude.ByteString),
+          Data.=: ("GetSMSAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
         "attributes"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> attributes)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> attributes)
       ]
 
 -- | The response from the @GetSMSAttributes@ request.

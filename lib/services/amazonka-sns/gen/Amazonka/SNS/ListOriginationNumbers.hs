@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,9 +125,9 @@ instance Core.AWSRequest ListOriginationNumbers where
       "ListOriginationNumbersResult"
       ( \s h x ->
           ListOriginationNumbersResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "PhoneNumbers" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "PhoneNumbers" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -141,21 +142,21 @@ instance Prelude.NFData ListOriginationNumbers where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListOriginationNumbers where
+instance Data.ToHeaders ListOriginationNumbers where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListOriginationNumbers where
+instance Data.ToPath ListOriginationNumbers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListOriginationNumbers where
+instance Data.ToQuery ListOriginationNumbers where
   toQuery ListOriginationNumbers' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListOriginationNumbers" :: Prelude.ByteString),
+          Data.=: ("ListOriginationNumbers" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListOriginationNumbersResponse' smart constructor.

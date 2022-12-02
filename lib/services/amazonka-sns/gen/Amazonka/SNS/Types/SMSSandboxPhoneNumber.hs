@@ -21,6 +21,7 @@ module Amazonka.SNS.Types.SMSSandboxPhoneNumber where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus
 
@@ -73,11 +74,11 @@ sMSSandboxPhoneNumber_status = Lens.lens (\SMSSandboxPhoneNumber' {status} -> st
 sMSSandboxPhoneNumber_phoneNumber :: Lens.Lens' SMSSandboxPhoneNumber (Prelude.Maybe Prelude.Text)
 sMSSandboxPhoneNumber_phoneNumber = Lens.lens (\SMSSandboxPhoneNumber' {phoneNumber} -> phoneNumber) (\s@SMSSandboxPhoneNumber' {} a -> s {phoneNumber = a} :: SMSSandboxPhoneNumber)
 
-instance Core.FromXML SMSSandboxPhoneNumber where
+instance Data.FromXML SMSSandboxPhoneNumber where
   parseXML x =
     SMSSandboxPhoneNumber'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "PhoneNumber")
+      Prelude.<$> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "PhoneNumber")
 
 instance Prelude.Hashable SMSSandboxPhoneNumber where
   hashWithSalt _salt SMSSandboxPhoneNumber' {..} =

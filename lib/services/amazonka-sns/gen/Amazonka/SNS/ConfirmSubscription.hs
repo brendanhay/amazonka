@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,7 +128,7 @@ instance Core.AWSRequest ConfirmSubscription where
       "ConfirmSubscriptionResult"
       ( \s h x ->
           ConfirmSubscriptionResponse'
-            Prelude.<$> (x Core..@? "SubscriptionArn")
+            Prelude.<$> (x Data..@? "SubscriptionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,23 +145,23 @@ instance Prelude.NFData ConfirmSubscription where
       `Prelude.seq` Prelude.rnf topicArn
       `Prelude.seq` Prelude.rnf token
 
-instance Core.ToHeaders ConfirmSubscription where
+instance Data.ToHeaders ConfirmSubscription where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ConfirmSubscription where
+instance Data.ToPath ConfirmSubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ConfirmSubscription where
+instance Data.ToQuery ConfirmSubscription where
   toQuery ConfirmSubscription' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ConfirmSubscription" :: Prelude.ByteString),
+          Data.=: ("ConfirmSubscription" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
         "AuthenticateOnUnsubscribe"
-          Core.=: authenticateOnUnsubscribe,
-        "TopicArn" Core.=: topicArn,
-        "Token" Core.=: token
+          Data.=: authenticateOnUnsubscribe,
+        "TopicArn" Data.=: topicArn,
+        "Token" Data.=: token
       ]
 
 -- | Response for ConfirmSubscriptions action.

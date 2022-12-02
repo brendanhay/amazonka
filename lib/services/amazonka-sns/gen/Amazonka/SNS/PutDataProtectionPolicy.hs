@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,21 +135,21 @@ instance Prelude.NFData PutDataProtectionPolicy where
     Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf dataProtectionPolicy
 
-instance Core.ToHeaders PutDataProtectionPolicy where
+instance Data.ToHeaders PutDataProtectionPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutDataProtectionPolicy where
+instance Data.ToPath PutDataProtectionPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutDataProtectionPolicy where
+instance Data.ToQuery PutDataProtectionPolicy where
   toQuery PutDataProtectionPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutDataProtectionPolicy" :: Prelude.ByteString),
+          Data.=: ("PutDataProtectionPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "ResourceArn" Core.=: resourceArn,
-        "DataProtectionPolicy" Core.=: dataProtectionPolicy
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "ResourceArn" Data.=: resourceArn,
+        "DataProtectionPolicy" Data.=: dataProtectionPolicy
       ]
 
 -- | /See:/ 'newPutDataProtectionPolicyResponse' smart constructor.

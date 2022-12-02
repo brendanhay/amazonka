@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,8 +97,8 @@ instance
       "GetPlatformApplicationAttributesResult"
       ( \s h x ->
           GetPlatformApplicationAttributesResponse'
-            Prelude.<$> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+            Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -119,28 +120,28 @@ instance
     Prelude.rnf platformApplicationArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetPlatformApplicationAttributes
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPlatformApplicationAttributes where
+instance Data.ToPath GetPlatformApplicationAttributes where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetPlatformApplicationAttributes
   where
   toQuery GetPlatformApplicationAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetPlatformApplicationAttributes" ::
+          Data.=: ( "GetPlatformApplicationAttributes" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
         "PlatformApplicationArn"
-          Core.=: platformApplicationArn
+          Data.=: platformApplicationArn
       ]
 
 -- | Response for GetPlatformApplicationAttributes action.

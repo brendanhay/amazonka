@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -162,7 +163,7 @@ instance Core.AWSRequest CreatePlatformEndpoint where
       "CreatePlatformEndpointResult"
       ( \s h x ->
           CreatePlatformEndpointResponse'
-            Prelude.<$> (x Core..@? "EndpointArn")
+            Prelude.<$> (x Data..@? "EndpointArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,28 +181,28 @@ instance Prelude.NFData CreatePlatformEndpoint where
       `Prelude.seq` Prelude.rnf platformApplicationArn
       `Prelude.seq` Prelude.rnf token
 
-instance Core.ToHeaders CreatePlatformEndpoint where
+instance Data.ToHeaders CreatePlatformEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreatePlatformEndpoint where
+instance Data.ToPath CreatePlatformEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePlatformEndpoint where
+instance Data.ToQuery CreatePlatformEndpoint where
   toQuery CreatePlatformEndpoint' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreatePlatformEndpoint" :: Prelude.ByteString),
+          Data.=: ("CreatePlatformEndpoint" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "CustomUserData" Core.=: customUserData,
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "CustomUserData" Data.=: customUserData,
         "Attributes"
-          Core.=: Core.toQuery
-            ( Core.toQueryMap "entry" "key" "value"
+          Data.=: Data.toQuery
+            ( Data.toQueryMap "entry" "key" "value"
                 Prelude.<$> attributes
             ),
         "PlatformApplicationArn"
-          Core.=: platformApplicationArn,
-        "Token" Core.=: token
+          Data.=: platformApplicationArn,
+        "Token" Data.=: token
       ]
 
 -- | Response from CreateEndpoint action.

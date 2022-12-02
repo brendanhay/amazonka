@@ -21,6 +21,7 @@ module Amazonka.SNS.Types.Subscription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A wrapper type for the attributes of an Amazon SNS subscription.
@@ -88,14 +89,14 @@ subscription_protocol = Lens.lens (\Subscription' {protocol} -> protocol) (\s@Su
 subscription_endpoint :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
 subscription_endpoint = Lens.lens (\Subscription' {endpoint} -> endpoint) (\s@Subscription' {} a -> s {endpoint = a} :: Subscription)
 
-instance Core.FromXML Subscription where
+instance Data.FromXML Subscription where
   parseXML x =
     Subscription'
-      Prelude.<$> (x Core..@? "SubscriptionArn")
-      Prelude.<*> (x Core..@? "TopicArn")
-      Prelude.<*> (x Core..@? "Owner")
-      Prelude.<*> (x Core..@? "Protocol")
-      Prelude.<*> (x Core..@? "Endpoint")
+      Prelude.<$> (x Data..@? "SubscriptionArn")
+      Prelude.<*> (x Data..@? "TopicArn")
+      Prelude.<*> (x Data..@? "Owner")
+      Prelude.<*> (x Data..@? "Protocol")
+      Prelude.<*> (x Data..@? "Endpoint")
 
 instance Prelude.Hashable Subscription where
   hashWithSalt _salt Subscription' {..} =

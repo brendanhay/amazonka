@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -252,22 +253,22 @@ instance Prelude.NFData SetTopicAttributes where
       `Prelude.seq` Prelude.rnf topicArn
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToHeaders SetTopicAttributes where
+instance Data.ToHeaders SetTopicAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetTopicAttributes where
+instance Data.ToPath SetTopicAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetTopicAttributes where
+instance Data.ToQuery SetTopicAttributes where
   toQuery SetTopicAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SetTopicAttributes" :: Prelude.ByteString),
+          Data.=: ("SetTopicAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "AttributeValue" Core.=: attributeValue,
-        "TopicArn" Core.=: topicArn,
-        "AttributeName" Core.=: attributeName
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "AttributeValue" Data.=: attributeValue,
+        "TopicArn" Data.=: topicArn,
+        "AttributeName" Data.=: attributeName
       ]
 
 -- | /See:/ 'newSetTopicAttributesResponse' smart constructor.

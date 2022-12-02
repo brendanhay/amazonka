@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,9 +115,9 @@ instance Core.AWSRequest ListSubscriptions where
       "ListSubscriptionsResult"
       ( \s h x ->
           ListSubscriptionsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Subscriptions" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "Subscriptions" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -128,20 +129,20 @@ instance Prelude.Hashable ListSubscriptions where
 instance Prelude.NFData ListSubscriptions where
   rnf ListSubscriptions' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders ListSubscriptions where
+instance Data.ToHeaders ListSubscriptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListSubscriptions where
+instance Data.ToPath ListSubscriptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSubscriptions where
+instance Data.ToQuery ListSubscriptions where
   toQuery ListSubscriptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListSubscriptions" :: Prelude.ByteString),
+          Data.=: ("ListSubscriptions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken
       ]
 
 -- | Response for ListSubscriptions action

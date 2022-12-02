@@ -53,6 +53,7 @@ where
 import Amazonka.AWSHealth.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,10 +162,10 @@ instance Core.AWSRequest DescribeEventAggregates where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventAggregatesResponse'
-            Prelude.<$> ( x Core..?> "eventAggregates"
+            Prelude.<$> ( x Data..?> "eventAggregates"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,37 +183,37 @@ instance Prelude.NFData DescribeEventAggregates where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf aggregateField
 
-instance Core.ToHeaders DescribeEventAggregates where
+instance Data.ToHeaders DescribeEventAggregates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHealth_20160804.DescribeEventAggregates" ::
+              Data.=# ( "AWSHealth_20160804.DescribeEventAggregates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEventAggregates where
+instance Data.ToJSON DescribeEventAggregates where
   toJSON DescribeEventAggregates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filter" Core..=) Prelude.<$> filter',
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filter" Data..=) Prelude.<$> filter',
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("aggregateField" Core..= aggregateField)
+              ("aggregateField" Data..= aggregateField)
           ]
       )
 
-instance Core.ToPath DescribeEventAggregates where
+instance Data.ToPath DescribeEventAggregates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEventAggregates where
+instance Data.ToQuery DescribeEventAggregates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEventAggregatesResponse' smart constructor.

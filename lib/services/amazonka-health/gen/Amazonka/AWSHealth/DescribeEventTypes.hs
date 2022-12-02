@@ -59,6 +59,7 @@ where
 import Amazonka.AWSHealth.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,8 +168,8 @@ instance Core.AWSRequest DescribeEventTypes where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventTypesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "eventTypes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "eventTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,36 +187,36 @@ instance Prelude.NFData DescribeEventTypes where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeEventTypes where
+instance Data.ToHeaders DescribeEventTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHealth_20160804.DescribeEventTypes" ::
+              Data.=# ( "AWSHealth_20160804.DescribeEventTypes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEventTypes where
+instance Data.ToJSON DescribeEventTypes where
   toJSON DescribeEventTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("locale" Core..=) Prelude.<$> locale,
-            ("filter" Core..=) Prelude.<$> filter',
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("locale" Data..=) Prelude.<$> locale,
+            ("filter" Data..=) Prelude.<$> filter',
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeEventTypes where
+instance Data.ToPath DescribeEventTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEventTypes where
+instance Data.ToQuery DescribeEventTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEventTypesResponse' smart constructor.

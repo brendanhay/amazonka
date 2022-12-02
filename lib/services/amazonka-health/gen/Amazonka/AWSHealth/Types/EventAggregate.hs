@@ -21,6 +21,7 @@ module Amazonka.AWSHealth.Types.EventAggregate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of events of each issue type. Returned by the
@@ -63,14 +64,14 @@ eventAggregate_aggregateValue = Lens.lens (\EventAggregate' {aggregateValue} -> 
 eventAggregate_count :: Lens.Lens' EventAggregate (Prelude.Maybe Prelude.Int)
 eventAggregate_count = Lens.lens (\EventAggregate' {count} -> count) (\s@EventAggregate' {} a -> s {count = a} :: EventAggregate)
 
-instance Core.FromJSON EventAggregate where
+instance Data.FromJSON EventAggregate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventAggregate"
       ( \x ->
           EventAggregate'
-            Prelude.<$> (x Core..:? "aggregateValue")
-            Prelude.<*> (x Core..:? "count")
+            Prelude.<$> (x Data..:? "aggregateValue")
+            Prelude.<*> (x Data..:? "count")
       )
 
 instance Prelude.Hashable EventAggregate where

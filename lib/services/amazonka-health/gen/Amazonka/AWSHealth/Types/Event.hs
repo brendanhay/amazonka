@@ -24,6 +24,7 @@ import Amazonka.AWSHealth.Types.EventStatusCode
 import Amazonka.AWSHealth.Types.EventTypeCategory
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about an Health event.
@@ -56,9 +57,9 @@ data Event = Event'
     -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
     arn :: Prelude.Maybe Prelude.Text,
     -- | The most recent date and time that the event was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the event ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services Availability Zone of the event. For example,
     -- us-east-1a.
     availabilityZone :: Prelude.Maybe Prelude.Text,
@@ -95,7 +96,7 @@ data Event = Event'
     -- @closed@, and @upcoming@.
     statusCode :: Prelude.Maybe EventStatusCode,
     -- | The date and time that the event began.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -184,11 +185,11 @@ event_arn = Lens.lens (\Event' {arn} -> arn) (\s@Event' {} a -> s {arn = a} :: E
 
 -- | The most recent date and time that the event was updated.
 event_lastUpdatedTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_lastUpdatedTime = Lens.lens (\Event' {lastUpdatedTime} -> lastUpdatedTime) (\s@Event' {} a -> s {lastUpdatedTime = a} :: Event) Prelude.. Lens.mapping Core._Time
+event_lastUpdatedTime = Lens.lens (\Event' {lastUpdatedTime} -> lastUpdatedTime) (\s@Event' {} a -> s {lastUpdatedTime = a} :: Event) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the event ended.
 event_endTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_endTime = Lens.lens (\Event' {endTime} -> endTime) (\s@Event' {} a -> s {endTime = a} :: Event) Prelude.. Lens.mapping Core._Time
+event_endTime = Lens.lens (\Event' {endTime} -> endTime) (\s@Event' {} a -> s {endTime = a} :: Event) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services Availability Zone of the event. For example,
 -- us-east-1a.
@@ -241,25 +242,25 @@ event_statusCode = Lens.lens (\Event' {statusCode} -> statusCode) (\s@Event' {} 
 
 -- | The date and time that the event began.
 event_startTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_startTime = Lens.lens (\Event' {startTime} -> startTime) (\s@Event' {} a -> s {startTime = a} :: Event) Prelude.. Lens.mapping Core._Time
+event_startTime = Lens.lens (\Event' {startTime} -> startTime) (\s@Event' {} a -> s {startTime = a} :: Event) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Event where
+instance Data.FromJSON Event where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "availabilityZone")
-            Prelude.<*> (x Core..:? "service")
-            Prelude.<*> (x Core..:? "eventScopeCode")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "eventTypeCode")
-            Prelude.<*> (x Core..:? "eventTypeCategory")
-            Prelude.<*> (x Core..:? "statusCode")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "availabilityZone")
+            Prelude.<*> (x Data..:? "service")
+            Prelude.<*> (x Data..:? "eventScopeCode")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "eventTypeCode")
+            Prelude.<*> (x Data..:? "eventTypeCategory")
+            Prelude.<*> (x Data..:? "statusCode")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable Event where

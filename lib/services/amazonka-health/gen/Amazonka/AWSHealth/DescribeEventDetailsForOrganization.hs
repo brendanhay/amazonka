@@ -81,6 +81,7 @@ where
 import Amazonka.AWSHealth.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -146,8 +147,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEventDetailsForOrganizationResponse'
-            Prelude.<$> (x Core..?> "successfulSet" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "failedSet" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "successfulSet" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "failedSet" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,46 +171,46 @@ instance
       `Prelude.seq` Prelude.rnf organizationEventDetailFilters
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeEventDetailsForOrganization
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHealth_20160804.DescribeEventDetailsForOrganization" ::
+              Data.=# ( "AWSHealth_20160804.DescribeEventDetailsForOrganization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeEventDetailsForOrganization
   where
   toJSON DescribeEventDetailsForOrganization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("locale" Core..=) Prelude.<$> locale,
+          [ ("locale" Data..=) Prelude.<$> locale,
             Prelude.Just
               ( "organizationEventDetailFilters"
-                  Core..= organizationEventDetailFilters
+                  Data..= organizationEventDetailFilters
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeEventDetailsForOrganization
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeEventDetailsForOrganization
   where
   toQuery = Prelude.const Prelude.mempty

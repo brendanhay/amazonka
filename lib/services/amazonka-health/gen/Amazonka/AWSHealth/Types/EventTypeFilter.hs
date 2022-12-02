@@ -22,6 +22,7 @@ module Amazonka.AWSHealth.Types.EventTypeFilter where
 import Amazonka.AWSHealth.Types.EventTypeCategory
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values to use to filter results from the
@@ -94,14 +95,14 @@ instance Prelude.NFData EventTypeFilter where
       `Prelude.seq` Prelude.rnf eventTypeCodes
       `Prelude.seq` Prelude.rnf eventTypeCategories
 
-instance Core.ToJSON EventTypeFilter where
+instance Data.ToJSON EventTypeFilter where
   toJSON EventTypeFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("services" Core..=) Prelude.<$> services,
-            ("eventTypeCodes" Core..=)
+          [ ("services" Data..=) Prelude.<$> services,
+            ("eventTypeCodes" Data..=)
               Prelude.<$> eventTypeCodes,
-            ("eventTypeCategories" Core..=)
+            ("eventTypeCategories" Data..=)
               Prelude.<$> eventTypeCategories
           ]
       )

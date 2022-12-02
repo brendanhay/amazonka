@@ -21,6 +21,7 @@ module Amazonka.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Error information returned when a
@@ -110,18 +111,18 @@ organizationAffectedEntitiesErrorItem_errorName :: Lens.Lens' OrganizationAffect
 organizationAffectedEntitiesErrorItem_errorName = Lens.lens (\OrganizationAffectedEntitiesErrorItem' {errorName} -> errorName) (\s@OrganizationAffectedEntitiesErrorItem' {} a -> s {errorName = a} :: OrganizationAffectedEntitiesErrorItem)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     OrganizationAffectedEntitiesErrorItem
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationAffectedEntitiesErrorItem"
       ( \x ->
           OrganizationAffectedEntitiesErrorItem'
-            Prelude.<$> (x Core..:? "awsAccountId")
-            Prelude.<*> (x Core..:? "eventArn")
-            Prelude.<*> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "errorName")
+            Prelude.<$> (x Data..:? "awsAccountId")
+            Prelude.<*> (x Data..:? "eventArn")
+            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "errorName")
       )
 
 instance

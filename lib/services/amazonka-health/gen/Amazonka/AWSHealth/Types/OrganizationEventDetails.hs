@@ -23,6 +23,7 @@ import Amazonka.AWSHealth.Types.Event
 import Amazonka.AWSHealth.Types.EventDescription
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about an event. A combination of an
@@ -89,16 +90,16 @@ organizationEventDetails_event = Lens.lens (\OrganizationEventDetails' {event} -
 organizationEventDetails_eventDescription :: Lens.Lens' OrganizationEventDetails (Prelude.Maybe EventDescription)
 organizationEventDetails_eventDescription = Lens.lens (\OrganizationEventDetails' {eventDescription} -> eventDescription) (\s@OrganizationEventDetails' {} a -> s {eventDescription = a} :: OrganizationEventDetails)
 
-instance Core.FromJSON OrganizationEventDetails where
+instance Data.FromJSON OrganizationEventDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationEventDetails"
       ( \x ->
           OrganizationEventDetails'
-            Prelude.<$> (x Core..:? "awsAccountId")
-            Prelude.<*> (x Core..:? "eventMetadata" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "event")
-            Prelude.<*> (x Core..:? "eventDescription")
+            Prelude.<$> (x Data..:? "awsAccountId")
+            Prelude.<*> (x Data..:? "eventMetadata" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "event")
+            Prelude.<*> (x Data..:? "eventDescription")
       )
 
 instance Prelude.Hashable OrganizationEventDetails where

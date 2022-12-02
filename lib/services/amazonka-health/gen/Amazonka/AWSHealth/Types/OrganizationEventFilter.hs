@@ -24,6 +24,7 @@ import Amazonka.AWSHealth.Types.EventStatusCode
 import Amazonka.AWSHealth.Types.EventTypeCategory
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values to filter results from the
@@ -191,24 +192,24 @@ instance Prelude.NFData OrganizationEventFilter where
       `Prelude.seq` Prelude.rnf eventTypeCategories
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToJSON OrganizationEventFilter where
+instance Data.ToJSON OrganizationEventFilter where
   toJSON OrganizationEventFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("awsAccountIds" Core..=) Prelude.<$> awsAccountIds,
-            ("entityArns" Core..=) Prelude.<$> entityArns,
-            ("regions" Core..=) Prelude.<$> regions,
-            ("lastUpdatedTime" Core..=)
+          [ ("awsAccountIds" Data..=) Prelude.<$> awsAccountIds,
+            ("entityArns" Data..=) Prelude.<$> entityArns,
+            ("regions" Data..=) Prelude.<$> regions,
+            ("lastUpdatedTime" Data..=)
               Prelude.<$> lastUpdatedTime,
-            ("endTime" Core..=) Prelude.<$> endTime,
-            ("services" Core..=) Prelude.<$> services,
-            ("eventStatusCodes" Core..=)
+            ("endTime" Data..=) Prelude.<$> endTime,
+            ("services" Data..=) Prelude.<$> services,
+            ("eventStatusCodes" Data..=)
               Prelude.<$> eventStatusCodes,
-            ("eventTypeCodes" Core..=)
+            ("eventTypeCodes" Data..=)
               Prelude.<$> eventTypeCodes,
-            ("entityValues" Core..=) Prelude.<$> entityValues,
-            ("eventTypeCategories" Core..=)
+            ("entityValues" Data..=) Prelude.<$> entityValues,
+            ("eventTypeCategories" Data..=)
               Prelude.<$> eventTypeCategories,
-            ("startTime" Core..=) Prelude.<$> startTime
+            ("startTime" Data..=) Prelude.<$> startTime
           ]
       )

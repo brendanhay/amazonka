@@ -61,6 +61,7 @@ where
 import Amazonka.AWSHealth.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,8 +120,8 @@ instance Core.AWSRequest DescribeEventDetails where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventDetailsResponse'
-            Prelude.<$> (x Core..?> "successfulSet" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failedSet" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "successfulSet" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failedSet" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,34 +135,34 @@ instance Prelude.NFData DescribeEventDetails where
     Prelude.rnf locale
       `Prelude.seq` Prelude.rnf eventArns
 
-instance Core.ToHeaders DescribeEventDetails where
+instance Data.ToHeaders DescribeEventDetails where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHealth_20160804.DescribeEventDetails" ::
+              Data.=# ( "AWSHealth_20160804.DescribeEventDetails" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEventDetails where
+instance Data.ToJSON DescribeEventDetails where
   toJSON DescribeEventDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("locale" Core..=) Prelude.<$> locale,
-            Prelude.Just ("eventArns" Core..= eventArns)
+          [ ("locale" Data..=) Prelude.<$> locale,
+            Prelude.Just ("eventArns" Data..= eventArns)
           ]
       )
 
-instance Core.ToPath DescribeEventDetails where
+instance Data.ToPath DescribeEventDetails where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEventDetails where
+instance Data.ToQuery DescribeEventDetails where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEventDetailsResponse' smart constructor.

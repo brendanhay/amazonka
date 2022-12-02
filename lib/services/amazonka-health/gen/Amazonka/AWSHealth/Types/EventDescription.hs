@@ -21,6 +21,7 @@ module Amazonka.AWSHealth.Types.EventDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detailed description of the event. Included in the information
@@ -56,13 +57,13 @@ newEventDescription =
 eventDescription_latestDescription :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
 eventDescription_latestDescription = Lens.lens (\EventDescription' {latestDescription} -> latestDescription) (\s@EventDescription' {} a -> s {latestDescription = a} :: EventDescription)
 
-instance Core.FromJSON EventDescription where
+instance Data.FromJSON EventDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventDescription"
       ( \x ->
           EventDescription'
-            Prelude.<$> (x Core..:? "latestDescription")
+            Prelude.<$> (x Data..:? "latestDescription")
       )
 
 instance Prelude.Hashable EventDescription where

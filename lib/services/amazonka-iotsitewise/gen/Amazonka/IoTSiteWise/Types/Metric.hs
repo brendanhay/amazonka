@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.Metric where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.ExpressionVariable
 import Amazonka.IoTSiteWise.Types.MetricProcessingConfig
 import Amazonka.IoTSiteWise.Types.MetricWindow
@@ -129,16 +130,16 @@ metric_variables = Lens.lens (\Metric' {variables} -> variables) (\s@Metric' {} 
 metric_window :: Lens.Lens' Metric MetricWindow
 metric_window = Lens.lens (\Metric' {window} -> window) (\s@Metric' {} a -> s {window = a} :: Metric)
 
-instance Core.FromJSON Metric where
+instance Data.FromJSON Metric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Metric"
       ( \x ->
           Metric'
-            Prelude.<$> (x Core..:? "processingConfig")
-            Prelude.<*> (x Core..: "expression")
-            Prelude.<*> (x Core..:? "variables" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "window")
+            Prelude.<$> (x Data..:? "processingConfig")
+            Prelude.<*> (x Data..: "expression")
+            Prelude.<*> (x Data..:? "variables" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "window")
       )
 
 instance Prelude.Hashable Metric where
@@ -155,14 +156,14 @@ instance Prelude.NFData Metric where
       `Prelude.seq` Prelude.rnf variables
       `Prelude.seq` Prelude.rnf window
 
-instance Core.ToJSON Metric where
+instance Data.ToJSON Metric where
   toJSON Metric' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("processingConfig" Core..=)
+          [ ("processingConfig" Data..=)
               Prelude.<$> processingConfig,
-            Prelude.Just ("expression" Core..= expression),
-            Prelude.Just ("variables" Core..= variables),
-            Prelude.Just ("window" Core..= window)
+            Prelude.Just ("expression" Data..= expression),
+            Prelude.Just ("variables" Data..= variables),
+            Prelude.Just ("window" Data..= window)
           ]
       )

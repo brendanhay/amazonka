@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -229,9 +230,9 @@ instance Core.AWSRequest CreateAssetModel where
       ( \s h x ->
           CreateAssetModelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "assetModelId")
-            Prelude.<*> (x Core..:> "assetModelArn")
-            Prelude.<*> (x Core..:> "assetModelStatus")
+            Prelude.<*> (x Data..:> "assetModelId")
+            Prelude.<*> (x Data..:> "assetModelArn")
+            Prelude.<*> (x Data..:> "assetModelStatus")
       )
 
 instance Prelude.Hashable CreateAssetModel where
@@ -254,40 +255,40 @@ instance Prelude.NFData CreateAssetModel where
       `Prelude.seq` Prelude.rnf assetModelProperties
       `Prelude.seq` Prelude.rnf assetModelName
 
-instance Core.ToHeaders CreateAssetModel where
+instance Data.ToHeaders CreateAssetModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAssetModel where
+instance Data.ToJSON CreateAssetModel where
   toJSON CreateAssetModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("assetModelCompositeModels" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("assetModelCompositeModels" Data..=)
               Prelude.<$> assetModelCompositeModels,
-            ("assetModelDescription" Core..=)
+            ("assetModelDescription" Data..=)
               Prelude.<$> assetModelDescription,
-            ("assetModelHierarchies" Core..=)
+            ("assetModelHierarchies" Data..=)
               Prelude.<$> assetModelHierarchies,
-            ("assetModelProperties" Core..=)
+            ("assetModelProperties" Data..=)
               Prelude.<$> assetModelProperties,
             Prelude.Just
-              ("assetModelName" Core..= assetModelName)
+              ("assetModelName" Data..= assetModelName)
           ]
       )
 
-instance Core.ToPath CreateAssetModel where
+instance Data.ToPath CreateAssetModel where
   toPath = Prelude.const "/asset-models"
 
-instance Core.ToQuery CreateAssetModel where
+instance Data.ToQuery CreateAssetModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAssetModelResponse' smart constructor.

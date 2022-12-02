@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.ProjectResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies a specific IoT SiteWise Monitor project.
@@ -51,12 +52,12 @@ newProjectResource pId_ = ProjectResource' {id = pId_}
 projectResource_id :: Lens.Lens' ProjectResource Prelude.Text
 projectResource_id = Lens.lens (\ProjectResource' {id} -> id) (\s@ProjectResource' {} a -> s {id = a} :: ProjectResource)
 
-instance Core.FromJSON ProjectResource where
+instance Data.FromJSON ProjectResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectResource"
       ( \x ->
-          ProjectResource' Prelude.<$> (x Core..: "id")
+          ProjectResource' Prelude.<$> (x Data..: "id")
       )
 
 instance Prelude.Hashable ProjectResource where
@@ -66,7 +67,7 @@ instance Prelude.Hashable ProjectResource where
 instance Prelude.NFData ProjectResource where
   rnf ProjectResource' {..} = Prelude.rnf id
 
-instance Core.ToJSON ProjectResource where
+instance Data.ToJSON ProjectResource where
   toJSON ProjectResource' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("id" Data..= id)])

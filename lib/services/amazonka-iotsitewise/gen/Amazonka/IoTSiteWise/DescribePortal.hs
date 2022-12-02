@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,22 +98,22 @@ instance Core.AWSRequest DescribePortal where
     Response.receiveJSON
       ( \s h x ->
           DescribePortalResponse'
-            Prelude.<$> (x Core..?> "alarms")
-            Prelude.<*> (x Core..?> "roleArn")
-            Prelude.<*> (x Core..?> "portalLogoImageLocation")
-            Prelude.<*> (x Core..?> "portalDescription")
-            Prelude.<*> (x Core..?> "portalAuthMode")
-            Prelude.<*> (x Core..?> "notificationSenderEmail")
+            Prelude.<$> (x Data..?> "alarms")
+            Prelude.<*> (x Data..?> "roleArn")
+            Prelude.<*> (x Data..?> "portalLogoImageLocation")
+            Prelude.<*> (x Data..?> "portalDescription")
+            Prelude.<*> (x Data..?> "portalAuthMode")
+            Prelude.<*> (x Data..?> "notificationSenderEmail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "portalId")
-            Prelude.<*> (x Core..:> "portalArn")
-            Prelude.<*> (x Core..:> "portalName")
-            Prelude.<*> (x Core..:> "portalClientId")
-            Prelude.<*> (x Core..:> "portalStartUrl")
-            Prelude.<*> (x Core..:> "portalContactEmail")
-            Prelude.<*> (x Core..:> "portalStatus")
-            Prelude.<*> (x Core..:> "portalCreationDate")
-            Prelude.<*> (x Core..:> "portalLastUpdateDate")
+            Prelude.<*> (x Data..:> "portalId")
+            Prelude.<*> (x Data..:> "portalArn")
+            Prelude.<*> (x Data..:> "portalName")
+            Prelude.<*> (x Data..:> "portalClientId")
+            Prelude.<*> (x Data..:> "portalStartUrl")
+            Prelude.<*> (x Data..:> "portalContactEmail")
+            Prelude.<*> (x Data..:> "portalStatus")
+            Prelude.<*> (x Data..:> "portalCreationDate")
+            Prelude.<*> (x Data..:> "portalLastUpdateDate")
       )
 
 instance Prelude.Hashable DescribePortal where
@@ -122,22 +123,22 @@ instance Prelude.Hashable DescribePortal where
 instance Prelude.NFData DescribePortal where
   rnf DescribePortal' {..} = Prelude.rnf portalId
 
-instance Core.ToHeaders DescribePortal where
+instance Data.ToHeaders DescribePortal where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribePortal where
+instance Data.ToPath DescribePortal where
   toPath DescribePortal' {..} =
-    Prelude.mconcat ["/portals/", Core.toBS portalId]
+    Prelude.mconcat ["/portals/", Data.toBS portalId]
 
-instance Core.ToQuery DescribePortal where
+instance Data.ToQuery DescribePortal where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePortalResponse' smart constructor.
@@ -187,9 +188,9 @@ data DescribePortalResponse = DescribePortalResponse'
     -- message.
     portalStatus :: PortalStatus,
     -- | The date the portal was created, in Unix epoch time.
-    portalCreationDate :: Core.POSIX,
+    portalCreationDate :: Data.POSIX,
     -- | The date the portal was last updated, in Unix epoch time.
-    portalLastUpdateDate :: Core.POSIX
+    portalLastUpdateDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -297,9 +298,9 @@ newDescribePortalResponse
         portalContactEmail = pPortalContactEmail_,
         portalStatus = pPortalStatus_,
         portalCreationDate =
-          Core._Time Lens.# pPortalCreationDate_,
+          Data._Time Lens.# pPortalCreationDate_,
         portalLastUpdateDate =
-          Core._Time Lens.# pPortalLastUpdateDate_
+          Data._Time Lens.# pPortalLastUpdateDate_
       }
 
 -- | Contains the configuration information of an alarm created in an IoT
@@ -376,11 +377,11 @@ describePortalResponse_portalStatus = Lens.lens (\DescribePortalResponse' {porta
 
 -- | The date the portal was created, in Unix epoch time.
 describePortalResponse_portalCreationDate :: Lens.Lens' DescribePortalResponse Prelude.UTCTime
-describePortalResponse_portalCreationDate = Lens.lens (\DescribePortalResponse' {portalCreationDate} -> portalCreationDate) (\s@DescribePortalResponse' {} a -> s {portalCreationDate = a} :: DescribePortalResponse) Prelude.. Core._Time
+describePortalResponse_portalCreationDate = Lens.lens (\DescribePortalResponse' {portalCreationDate} -> portalCreationDate) (\s@DescribePortalResponse' {} a -> s {portalCreationDate = a} :: DescribePortalResponse) Prelude.. Data._Time
 
 -- | The date the portal was last updated, in Unix epoch time.
 describePortalResponse_portalLastUpdateDate :: Lens.Lens' DescribePortalResponse Prelude.UTCTime
-describePortalResponse_portalLastUpdateDate = Lens.lens (\DescribePortalResponse' {portalLastUpdateDate} -> portalLastUpdateDate) (\s@DescribePortalResponse' {} a -> s {portalLastUpdateDate = a} :: DescribePortalResponse) Prelude.. Core._Time
+describePortalResponse_portalLastUpdateDate = Lens.lens (\DescribePortalResponse' {portalLastUpdateDate} -> portalLastUpdateDate) (\s@DescribePortalResponse' {} a -> s {portalLastUpdateDate = a} :: DescribePortalResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribePortalResponse where
   rnf DescribePortalResponse' {..} =

@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.PropertyType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.Attribute
 import Amazonka.IoTSiteWise.Types.Measurement
 import Amazonka.IoTSiteWise.Types.Metric
@@ -114,16 +115,16 @@ propertyType_transform = Lens.lens (\PropertyType' {transform} -> transform) (\s
 propertyType_measurement :: Lens.Lens' PropertyType (Prelude.Maybe Measurement)
 propertyType_measurement = Lens.lens (\PropertyType' {measurement} -> measurement) (\s@PropertyType' {} a -> s {measurement = a} :: PropertyType)
 
-instance Core.FromJSON PropertyType where
+instance Data.FromJSON PropertyType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PropertyType"
       ( \x ->
           PropertyType'
-            Prelude.<$> (x Core..:? "attribute")
-            Prelude.<*> (x Core..:? "metric")
-            Prelude.<*> (x Core..:? "transform")
-            Prelude.<*> (x Core..:? "measurement")
+            Prelude.<$> (x Data..:? "attribute")
+            Prelude.<*> (x Data..:? "metric")
+            Prelude.<*> (x Data..:? "transform")
+            Prelude.<*> (x Data..:? "measurement")
       )
 
 instance Prelude.Hashable PropertyType where
@@ -140,13 +141,13 @@ instance Prelude.NFData PropertyType where
       `Prelude.seq` Prelude.rnf transform
       `Prelude.seq` Prelude.rnf measurement
 
-instance Core.ToJSON PropertyType where
+instance Data.ToJSON PropertyType where
   toJSON PropertyType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("attribute" Core..=) Prelude.<$> attribute,
-            ("metric" Core..=) Prelude.<$> metric,
-            ("transform" Core..=) Prelude.<$> transform,
-            ("measurement" Core..=) Prelude.<$> measurement
+          [ ("attribute" Data..=) Prelude.<$> attribute,
+            ("metric" Data..=) Prelude.<$> metric,
+            ("transform" Data..=) Prelude.<$> transform,
+            ("measurement" Data..=) Prelude.<$> measurement
           ]
       )

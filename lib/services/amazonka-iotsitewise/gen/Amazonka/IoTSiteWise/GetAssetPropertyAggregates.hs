@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,10 +102,10 @@ data GetAssetPropertyAggregates = GetAssetPropertyAggregates'
     resolution :: Prelude.Text,
     -- | The exclusive start of the range from which to query historical data,
     -- expressed in seconds in Unix epoch time.
-    startDate :: Core.POSIX,
+    startDate :: Data.POSIX,
     -- | The inclusive end of the range from which to query historical data,
     -- expressed in seconds in Unix epoch time.
-    endDate :: Core.POSIX
+    endDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -175,8 +176,8 @@ newGetAssetPropertyAggregates
         aggregateTypes =
           Lens.coerced Lens.# pAggregateTypes_,
         resolution = pResolution_,
-        startDate = Core._Time Lens.# pStartDate_,
-        endDate = Core._Time Lens.# pEndDate_
+        startDate = Data._Time Lens.# pStartDate_,
+        endDate = Data._Time Lens.# pEndDate_
       }
 
 -- | The token to be used for the next set of paginated results.
@@ -227,12 +228,12 @@ getAssetPropertyAggregates_resolution = Lens.lens (\GetAssetPropertyAggregates' 
 -- | The exclusive start of the range from which to query historical data,
 -- expressed in seconds in Unix epoch time.
 getAssetPropertyAggregates_startDate :: Lens.Lens' GetAssetPropertyAggregates Prelude.UTCTime
-getAssetPropertyAggregates_startDate = Lens.lens (\GetAssetPropertyAggregates' {startDate} -> startDate) (\s@GetAssetPropertyAggregates' {} a -> s {startDate = a} :: GetAssetPropertyAggregates) Prelude.. Core._Time
+getAssetPropertyAggregates_startDate = Lens.lens (\GetAssetPropertyAggregates' {startDate} -> startDate) (\s@GetAssetPropertyAggregates' {} a -> s {startDate = a} :: GetAssetPropertyAggregates) Prelude.. Data._Time
 
 -- | The inclusive end of the range from which to query historical data,
 -- expressed in seconds in Unix epoch time.
 getAssetPropertyAggregates_endDate :: Lens.Lens' GetAssetPropertyAggregates Prelude.UTCTime
-getAssetPropertyAggregates_endDate = Lens.lens (\GetAssetPropertyAggregates' {endDate} -> endDate) (\s@GetAssetPropertyAggregates' {} a -> s {endDate = a} :: GetAssetPropertyAggregates) Prelude.. Core._Time
+getAssetPropertyAggregates_endDate = Lens.lens (\GetAssetPropertyAggregates' {endDate} -> endDate) (\s@GetAssetPropertyAggregates' {} a -> s {endDate = a} :: GetAssetPropertyAggregates) Prelude.. Data._Time
 
 instance Core.AWSPager GetAssetPropertyAggregates where
   page rq rs
@@ -265,9 +266,9 @@ instance Core.AWSRequest GetAssetPropertyAggregates where
     Response.receiveJSON
       ( \s h x ->
           GetAssetPropertyAggregatesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "aggregatedValues"
+            Prelude.<*> ( x Data..?> "aggregatedValues"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -300,37 +301,37 @@ instance Prelude.NFData GetAssetPropertyAggregates where
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf endDate
 
-instance Core.ToHeaders GetAssetPropertyAggregates where
+instance Data.ToHeaders GetAssetPropertyAggregates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAssetPropertyAggregates where
+instance Data.ToPath GetAssetPropertyAggregates where
   toPath = Prelude.const "/properties/aggregates"
 
-instance Core.ToQuery GetAssetPropertyAggregates where
+instance Data.ToQuery GetAssetPropertyAggregates where
   toQuery GetAssetPropertyAggregates' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "propertyAlias" Core.=: propertyAlias,
-        "assetId" Core.=: assetId,
+      [ "nextToken" Data.=: nextToken,
+        "propertyAlias" Data.=: propertyAlias,
+        "assetId" Data.=: assetId,
         "qualities"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> qualities),
-        "propertyId" Core.=: propertyId,
-        "maxResults" Core.=: maxResults,
-        "timeOrdering" Core.=: timeOrdering,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> qualities),
+        "propertyId" Data.=: propertyId,
+        "maxResults" Data.=: maxResults,
+        "timeOrdering" Data.=: timeOrdering,
         "aggregateTypes"
-          Core.=: Core.toQueryList "member" aggregateTypes,
-        "resolution" Core.=: resolution,
-        "startDate" Core.=: startDate,
-        "endDate" Core.=: endDate
+          Data.=: Data.toQueryList "member" aggregateTypes,
+        "resolution" Data.=: resolution,
+        "startDate" Data.=: startDate,
+        "endDate" Data.=: endDate
       ]
 
 -- | /See:/ 'newGetAssetPropertyAggregatesResponse' smart constructor.

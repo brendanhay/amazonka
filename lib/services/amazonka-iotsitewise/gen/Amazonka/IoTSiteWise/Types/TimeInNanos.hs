@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.TimeInNanos where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a timestamp with optional nanosecond granularity.
@@ -66,14 +67,14 @@ timeInNanos_offsetInNanos = Lens.lens (\TimeInNanos' {offsetInNanos} -> offsetIn
 timeInNanos_timeInSeconds :: Lens.Lens' TimeInNanos Prelude.Natural
 timeInNanos_timeInSeconds = Lens.lens (\TimeInNanos' {timeInSeconds} -> timeInSeconds) (\s@TimeInNanos' {} a -> s {timeInSeconds = a} :: TimeInNanos)
 
-instance Core.FromJSON TimeInNanos where
+instance Data.FromJSON TimeInNanos where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeInNanos"
       ( \x ->
           TimeInNanos'
-            Prelude.<$> (x Core..:? "offsetInNanos")
-            Prelude.<*> (x Core..: "timeInSeconds")
+            Prelude.<$> (x Data..:? "offsetInNanos")
+            Prelude.<*> (x Data..: "timeInSeconds")
       )
 
 instance Prelude.Hashable TimeInNanos where
@@ -86,12 +87,12 @@ instance Prelude.NFData TimeInNanos where
     Prelude.rnf offsetInNanos
       `Prelude.seq` Prelude.rnf timeInSeconds
 
-instance Core.ToJSON TimeInNanos where
+instance Data.ToJSON TimeInNanos where
   toJSON TimeInNanos' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("offsetInNanos" Core..=) Prelude.<$> offsetInNanos,
+          [ ("offsetInNanos" Data..=) Prelude.<$> offsetInNanos,
             Prelude.Just
-              ("timeInSeconds" Core..= timeInSeconds)
+              ("timeInSeconds" Data..= timeInSeconds)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueSkippedEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.BatchEntryCompletionStatus
 import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueErrorInfo
 import qualified Amazonka.Prelude as Prelude
@@ -90,17 +91,17 @@ batchGetAssetPropertyValueSkippedEntry_completionStatus :: Lens.Lens' BatchGetAs
 batchGetAssetPropertyValueSkippedEntry_completionStatus = Lens.lens (\BatchGetAssetPropertyValueSkippedEntry' {completionStatus} -> completionStatus) (\s@BatchGetAssetPropertyValueSkippedEntry' {} a -> s {completionStatus = a} :: BatchGetAssetPropertyValueSkippedEntry)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchGetAssetPropertyValueSkippedEntry
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetAssetPropertyValueSkippedEntry"
       ( \x ->
           BatchGetAssetPropertyValueSkippedEntry'
-            Prelude.<$> (x Core..:? "errorInfo")
-            Prelude.<*> (x Core..: "entryId")
-            Prelude.<*> (x Core..: "completionStatus")
+            Prelude.<$> (x Data..:? "errorInfo")
+            Prelude.<*> (x Data..: "entryId")
+            Prelude.<*> (x Data..: "completionStatus")
       )
 
 instance

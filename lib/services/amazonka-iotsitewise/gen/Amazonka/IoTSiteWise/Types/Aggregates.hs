@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.Aggregates where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the (pre-calculated) aggregate values for an asset property.
@@ -97,18 +98,18 @@ aggregates_sum = Lens.lens (\Aggregates' {sum} -> sum) (\s@Aggregates' {} a -> s
 aggregates_maximum :: Lens.Lens' Aggregates (Prelude.Maybe Prelude.Double)
 aggregates_maximum = Lens.lens (\Aggregates' {maximum} -> maximum) (\s@Aggregates' {} a -> s {maximum = a} :: Aggregates)
 
-instance Core.FromJSON Aggregates where
+instance Data.FromJSON Aggregates where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Aggregates"
       ( \x ->
           Aggregates'
-            Prelude.<$> (x Core..:? "minimum")
-            Prelude.<*> (x Core..:? "standardDeviation")
-            Prelude.<*> (x Core..:? "average")
-            Prelude.<*> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "sum")
-            Prelude.<*> (x Core..:? "maximum")
+            Prelude.<$> (x Data..:? "minimum")
+            Prelude.<*> (x Data..:? "standardDeviation")
+            Prelude.<*> (x Data..:? "average")
+            Prelude.<*> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "sum")
+            Prelude.<*> (x Data..:? "maximum")
       )
 
 instance Prelude.Hashable Aggregates where

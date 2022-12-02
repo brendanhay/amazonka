@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,15 +124,15 @@ instance Core.AWSRequest DescribeTimeSeries where
     Response.receiveJSON
       ( \s h x ->
           DescribeTimeSeriesResponse'
-            Prelude.<$> (x Core..?> "alias")
-            Prelude.<*> (x Core..?> "dataTypeSpec")
-            Prelude.<*> (x Core..?> "assetId")
-            Prelude.<*> (x Core..?> "propertyId")
+            Prelude.<$> (x Data..?> "alias")
+            Prelude.<*> (x Data..?> "dataTypeSpec")
+            Prelude.<*> (x Data..?> "assetId")
+            Prelude.<*> (x Data..?> "propertyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "timeSeriesId")
-            Prelude.<*> (x Core..:> "dataType")
-            Prelude.<*> (x Core..:> "timeSeriesCreationDate")
-            Prelude.<*> (x Core..:> "timeSeriesLastUpdateDate")
+            Prelude.<*> (x Data..:> "timeSeriesId")
+            Prelude.<*> (x Data..:> "dataType")
+            Prelude.<*> (x Data..:> "timeSeriesCreationDate")
+            Prelude.<*> (x Data..:> "timeSeriesLastUpdateDate")
       )
 
 instance Prelude.Hashable DescribeTimeSeries where
@@ -146,26 +147,26 @@ instance Prelude.NFData DescribeTimeSeries where
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf propertyId
 
-instance Core.ToHeaders DescribeTimeSeries where
+instance Data.ToHeaders DescribeTimeSeries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeTimeSeries where
+instance Data.ToPath DescribeTimeSeries where
   toPath = Prelude.const "/timeseries/describe/"
 
-instance Core.ToQuery DescribeTimeSeries where
+instance Data.ToQuery DescribeTimeSeries where
   toQuery DescribeTimeSeries' {..} =
     Prelude.mconcat
-      [ "alias" Core.=: alias,
-        "assetId" Core.=: assetId,
-        "propertyId" Core.=: propertyId
+      [ "alias" Data.=: alias,
+        "assetId" Data.=: assetId,
+        "propertyId" Data.=: propertyId
       ]
 
 -- | /See:/ 'newDescribeTimeSeriesResponse' smart constructor.
@@ -194,9 +195,9 @@ data DescribeTimeSeriesResponse = DescribeTimeSeriesResponse'
     -- identify the type of the structure for this time series.
     dataType :: PropertyDataType,
     -- | The date that the time series was created, in Unix epoch time.
-    timeSeriesCreationDate :: Core.POSIX,
+    timeSeriesCreationDate :: Data.POSIX,
     -- | The date that the time series was last updated, in Unix epoch time.
-    timeSeriesLastUpdateDate :: Core.POSIX
+    timeSeriesLastUpdateDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -262,9 +263,9 @@ newDescribeTimeSeriesResponse
         timeSeriesId = pTimeSeriesId_,
         dataType = pDataType_,
         timeSeriesCreationDate =
-          Core._Time Lens.# pTimeSeriesCreationDate_,
+          Data._Time Lens.# pTimeSeriesCreationDate_,
         timeSeriesLastUpdateDate =
-          Core._Time Lens.# pTimeSeriesLastUpdateDate_
+          Data._Time Lens.# pTimeSeriesLastUpdateDate_
       }
 
 -- | The alias that identifies the time series.
@@ -306,11 +307,11 @@ describeTimeSeriesResponse_dataType = Lens.lens (\DescribeTimeSeriesResponse' {d
 
 -- | The date that the time series was created, in Unix epoch time.
 describeTimeSeriesResponse_timeSeriesCreationDate :: Lens.Lens' DescribeTimeSeriesResponse Prelude.UTCTime
-describeTimeSeriesResponse_timeSeriesCreationDate = Lens.lens (\DescribeTimeSeriesResponse' {timeSeriesCreationDate} -> timeSeriesCreationDate) (\s@DescribeTimeSeriesResponse' {} a -> s {timeSeriesCreationDate = a} :: DescribeTimeSeriesResponse) Prelude.. Core._Time
+describeTimeSeriesResponse_timeSeriesCreationDate = Lens.lens (\DescribeTimeSeriesResponse' {timeSeriesCreationDate} -> timeSeriesCreationDate) (\s@DescribeTimeSeriesResponse' {} a -> s {timeSeriesCreationDate = a} :: DescribeTimeSeriesResponse) Prelude.. Data._Time
 
 -- | The date that the time series was last updated, in Unix epoch time.
 describeTimeSeriesResponse_timeSeriesLastUpdateDate :: Lens.Lens' DescribeTimeSeriesResponse Prelude.UTCTime
-describeTimeSeriesResponse_timeSeriesLastUpdateDate = Lens.lens (\DescribeTimeSeriesResponse' {timeSeriesLastUpdateDate} -> timeSeriesLastUpdateDate) (\s@DescribeTimeSeriesResponse' {} a -> s {timeSeriesLastUpdateDate = a} :: DescribeTimeSeriesResponse) Prelude.. Core._Time
+describeTimeSeriesResponse_timeSeriesLastUpdateDate = Lens.lens (\DescribeTimeSeriesResponse' {timeSeriesLastUpdateDate} -> timeSeriesLastUpdateDate) (\s@DescribeTimeSeriesResponse' {} a -> s {timeSeriesLastUpdateDate = a} :: DescribeTimeSeriesResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeTimeSeriesResponse where
   rnf DescribeTimeSeriesResponse' {..} =

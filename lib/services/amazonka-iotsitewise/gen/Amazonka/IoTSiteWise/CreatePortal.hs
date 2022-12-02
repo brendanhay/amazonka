@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -303,11 +304,11 @@ instance Core.AWSRequest CreatePortal where
       ( \s h x ->
           CreatePortalResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "portalId")
-            Prelude.<*> (x Core..:> "portalArn")
-            Prelude.<*> (x Core..:> "portalStartUrl")
-            Prelude.<*> (x Core..:> "portalStatus")
-            Prelude.<*> (x Core..:> "ssoApplicationId")
+            Prelude.<*> (x Data..:> "portalId")
+            Prelude.<*> (x Data..:> "portalArn")
+            Prelude.<*> (x Data..:> "portalStartUrl")
+            Prelude.<*> (x Data..:> "portalStatus")
+            Prelude.<*> (x Data..:> "ssoApplicationId")
       )
 
 instance Prelude.Hashable CreatePortal where
@@ -336,43 +337,43 @@ instance Prelude.NFData CreatePortal where
       `Prelude.seq` Prelude.rnf portalContactEmail
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreatePortal where
+instance Data.ToHeaders CreatePortal where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePortal where
+instance Data.ToJSON CreatePortal where
   toJSON CreatePortal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("alarms" Core..=) Prelude.<$> alarms,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("portalDescription" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("alarms" Data..=) Prelude.<$> alarms,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("portalDescription" Data..=)
               Prelude.<$> portalDescription,
-            ("portalAuthMode" Core..=)
+            ("portalAuthMode" Data..=)
               Prelude.<$> portalAuthMode,
-            ("portalLogoImageFile" Core..=)
+            ("portalLogoImageFile" Data..=)
               Prelude.<$> portalLogoImageFile,
-            ("notificationSenderEmail" Core..=)
+            ("notificationSenderEmail" Data..=)
               Prelude.<$> notificationSenderEmail,
-            Prelude.Just ("portalName" Core..= portalName),
+            Prelude.Just ("portalName" Data..= portalName),
             Prelude.Just
-              ("portalContactEmail" Core..= portalContactEmail),
-            Prelude.Just ("roleArn" Core..= roleArn)
+              ("portalContactEmail" Data..= portalContactEmail),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreatePortal where
+instance Data.ToPath CreatePortal where
   toPath = Prelude.const "/portals"
 
-instance Core.ToQuery CreatePortal where
+instance Data.ToQuery CreatePortal where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePortalResponse' smart constructor.

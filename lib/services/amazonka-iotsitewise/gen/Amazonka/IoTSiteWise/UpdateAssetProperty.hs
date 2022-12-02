@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -207,39 +208,39 @@ instance Prelude.NFData UpdateAssetProperty where
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf propertyId
 
-instance Core.ToHeaders UpdateAssetProperty where
+instance Data.ToHeaders UpdateAssetProperty where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAssetProperty where
+instance Data.ToJSON UpdateAssetProperty where
   toJSON UpdateAssetProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("propertyAlias" Core..=) Prelude.<$> propertyAlias,
-            ("propertyNotificationState" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
+            ("propertyNotificationState" Data..=)
               Prelude.<$> propertyNotificationState,
-            ("propertyUnit" Core..=) Prelude.<$> propertyUnit
+            ("propertyUnit" Data..=) Prelude.<$> propertyUnit
           ]
       )
 
-instance Core.ToPath UpdateAssetProperty where
+instance Data.ToPath UpdateAssetProperty where
   toPath UpdateAssetProperty' {..} =
     Prelude.mconcat
       [ "/assets/",
-        Core.toBS assetId,
+        Data.toBS assetId,
         "/properties/",
-        Core.toBS propertyId
+        Data.toBS propertyId
       ]
 
-instance Core.ToQuery UpdateAssetProperty where
+instance Data.ToQuery UpdateAssetProperty where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAssetPropertyResponse' smart constructor.

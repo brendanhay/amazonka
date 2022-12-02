@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.AggregatedValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.Aggregates
 import Amazonka.IoTSiteWise.Types.Quality
 import qualified Amazonka.Prelude as Prelude
@@ -33,7 +34,7 @@ data AggregatedValue = AggregatedValue'
   { -- | The quality of the aggregated data.
     quality :: Prelude.Maybe Quality,
     -- | The date the aggregating computations occurred, in Unix epoch time.
-    timestamp :: Core.POSIX,
+    timestamp :: Data.POSIX,
     -- | The value of the aggregates.
     value :: Aggregates
   }
@@ -61,7 +62,7 @@ newAggregatedValue ::
 newAggregatedValue pTimestamp_ pValue_ =
   AggregatedValue'
     { quality = Prelude.Nothing,
-      timestamp = Core._Time Lens.# pTimestamp_,
+      timestamp = Data._Time Lens.# pTimestamp_,
       value = pValue_
     }
 
@@ -71,21 +72,21 @@ aggregatedValue_quality = Lens.lens (\AggregatedValue' {quality} -> quality) (\s
 
 -- | The date the aggregating computations occurred, in Unix epoch time.
 aggregatedValue_timestamp :: Lens.Lens' AggregatedValue Prelude.UTCTime
-aggregatedValue_timestamp = Lens.lens (\AggregatedValue' {timestamp} -> timestamp) (\s@AggregatedValue' {} a -> s {timestamp = a} :: AggregatedValue) Prelude.. Core._Time
+aggregatedValue_timestamp = Lens.lens (\AggregatedValue' {timestamp} -> timestamp) (\s@AggregatedValue' {} a -> s {timestamp = a} :: AggregatedValue) Prelude.. Data._Time
 
 -- | The value of the aggregates.
 aggregatedValue_value :: Lens.Lens' AggregatedValue Aggregates
 aggregatedValue_value = Lens.lens (\AggregatedValue' {value} -> value) (\s@AggregatedValue' {} a -> s {value = a} :: AggregatedValue)
 
-instance Core.FromJSON AggregatedValue where
+instance Data.FromJSON AggregatedValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregatedValue"
       ( \x ->
           AggregatedValue'
-            Prelude.<$> (x Core..:? "quality")
-            Prelude.<*> (x Core..: "timestamp")
-            Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..:? "quality")
+            Prelude.<*> (x Data..: "timestamp")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable AggregatedValue where

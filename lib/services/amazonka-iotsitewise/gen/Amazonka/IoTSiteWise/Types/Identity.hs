@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.Identity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.GroupIdentity
 import Amazonka.IoTSiteWise.Types.IAMRoleIdentity
 import Amazonka.IoTSiteWise.Types.IAMUserIdentity
@@ -88,16 +89,16 @@ identity_iamUser = Lens.lens (\Identity' {iamUser} -> iamUser) (\s@Identity' {} 
 identity_group :: Lens.Lens' Identity (Prelude.Maybe GroupIdentity)
 identity_group = Lens.lens (\Identity' {group'} -> group') (\s@Identity' {} a -> s {group' = a} :: Identity)
 
-instance Core.FromJSON Identity where
+instance Data.FromJSON Identity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Identity"
       ( \x ->
           Identity'
-            Prelude.<$> (x Core..:? "iamRole")
-            Prelude.<*> (x Core..:? "user")
-            Prelude.<*> (x Core..:? "iamUser")
-            Prelude.<*> (x Core..:? "group")
+            Prelude.<$> (x Data..:? "iamRole")
+            Prelude.<*> (x Data..:? "user")
+            Prelude.<*> (x Data..:? "iamUser")
+            Prelude.<*> (x Data..:? "group")
       )
 
 instance Prelude.Hashable Identity where
@@ -114,13 +115,13 @@ instance Prelude.NFData Identity where
       `Prelude.seq` Prelude.rnf iamUser
       `Prelude.seq` Prelude.rnf group'
 
-instance Core.ToJSON Identity where
+instance Data.ToJSON Identity where
   toJSON Identity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("iamRole" Core..=) Prelude.<$> iamRole,
-            ("user" Core..=) Prelude.<$> user,
-            ("iamUser" Core..=) Prelude.<$> iamUser,
-            ("group" Core..=) Prelude.<$> group'
+          [ ("iamRole" Data..=) Prelude.<$> iamRole,
+            ("user" Data..=) Prelude.<$> user,
+            ("iamUser" Data..=) Prelude.<$> iamUser,
+            ("group" Data..=) Prelude.<$> group'
           ]
       )

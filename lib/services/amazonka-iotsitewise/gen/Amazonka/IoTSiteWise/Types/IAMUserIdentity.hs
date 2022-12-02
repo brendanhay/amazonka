@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.IAMUserIdentity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an Identity and Access Management user.
@@ -70,12 +71,12 @@ newIAMUserIdentity pArn_ =
 iAMUserIdentity_arn :: Lens.Lens' IAMUserIdentity Prelude.Text
 iAMUserIdentity_arn = Lens.lens (\IAMUserIdentity' {arn} -> arn) (\s@IAMUserIdentity' {} a -> s {arn = a} :: IAMUserIdentity)
 
-instance Core.FromJSON IAMUserIdentity where
+instance Data.FromJSON IAMUserIdentity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IAMUserIdentity"
       ( \x ->
-          IAMUserIdentity' Prelude.<$> (x Core..: "arn")
+          IAMUserIdentity' Prelude.<$> (x Data..: "arn")
       )
 
 instance Prelude.Hashable IAMUserIdentity where
@@ -85,9 +86,9 @@ instance Prelude.Hashable IAMUserIdentity where
 instance Prelude.NFData IAMUserIdentity where
   rnf IAMUserIdentity' {..} = Prelude.rnf arn
 
-instance Core.ToJSON IAMUserIdentity where
+instance Data.ToJSON IAMUserIdentity where
   toJSON IAMUserIdentity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )

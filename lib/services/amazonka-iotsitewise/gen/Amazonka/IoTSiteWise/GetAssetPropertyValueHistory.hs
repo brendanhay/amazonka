@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,14 +85,14 @@ data GetAssetPropertyValueHistory = GetAssetPropertyValueHistory'
     assetId :: Prelude.Maybe Prelude.Text,
     -- | The inclusive end of the range from which to query historical data,
     -- expressed in seconds in Unix epoch time.
-    endDate :: Prelude.Maybe Core.POSIX,
+    endDate :: Prelude.Maybe Data.POSIX,
     -- | The quality by which to filter asset data.
     qualities :: Prelude.Maybe (Prelude.NonEmpty Quality),
     -- | The ID of the asset property.
     propertyId :: Prelude.Maybe Prelude.Text,
     -- | The exclusive start of the range from which to query historical data,
     -- expressed in seconds in Unix epoch time.
-    startDate :: Prelude.Maybe Core.POSIX,
+    startDate :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of results to return for each paginated request.
     --
     -- Default: 100
@@ -175,7 +176,7 @@ getAssetPropertyValueHistory_assetId = Lens.lens (\GetAssetPropertyValueHistory'
 -- | The inclusive end of the range from which to query historical data,
 -- expressed in seconds in Unix epoch time.
 getAssetPropertyValueHistory_endDate :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.UTCTime)
-getAssetPropertyValueHistory_endDate = Lens.lens (\GetAssetPropertyValueHistory' {endDate} -> endDate) (\s@GetAssetPropertyValueHistory' {} a -> s {endDate = a} :: GetAssetPropertyValueHistory) Prelude.. Lens.mapping Core._Time
+getAssetPropertyValueHistory_endDate = Lens.lens (\GetAssetPropertyValueHistory' {endDate} -> endDate) (\s@GetAssetPropertyValueHistory' {} a -> s {endDate = a} :: GetAssetPropertyValueHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The quality by which to filter asset data.
 getAssetPropertyValueHistory_qualities :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe (Prelude.NonEmpty Quality))
@@ -188,7 +189,7 @@ getAssetPropertyValueHistory_propertyId = Lens.lens (\GetAssetPropertyValueHisto
 -- | The exclusive start of the range from which to query historical data,
 -- expressed in seconds in Unix epoch time.
 getAssetPropertyValueHistory_startDate :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.UTCTime)
-getAssetPropertyValueHistory_startDate = Lens.lens (\GetAssetPropertyValueHistory' {startDate} -> startDate) (\s@GetAssetPropertyValueHistory' {} a -> s {startDate = a} :: GetAssetPropertyValueHistory) Prelude.. Lens.mapping Core._Time
+getAssetPropertyValueHistory_startDate = Lens.lens (\GetAssetPropertyValueHistory' {startDate} -> startDate) (\s@GetAssetPropertyValueHistory' {} a -> s {startDate = a} :: GetAssetPropertyValueHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of results to return for each paginated request.
 --
@@ -233,9 +234,9 @@ instance Core.AWSRequest GetAssetPropertyValueHistory where
     Response.receiveJSON
       ( \s h x ->
           GetAssetPropertyValueHistoryResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "assetPropertyValueHistory"
+            Prelude.<*> ( x Data..?> "assetPropertyValueHistory"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -267,34 +268,34 @@ instance Prelude.NFData GetAssetPropertyValueHistory where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf timeOrdering
 
-instance Core.ToHeaders GetAssetPropertyValueHistory where
+instance Data.ToHeaders GetAssetPropertyValueHistory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAssetPropertyValueHistory where
+instance Data.ToPath GetAssetPropertyValueHistory where
   toPath = Prelude.const "/properties/history"
 
-instance Core.ToQuery GetAssetPropertyValueHistory where
+instance Data.ToQuery GetAssetPropertyValueHistory where
   toQuery GetAssetPropertyValueHistory' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "propertyAlias" Core.=: propertyAlias,
-        "assetId" Core.=: assetId,
-        "endDate" Core.=: endDate,
+      [ "nextToken" Data.=: nextToken,
+        "propertyAlias" Data.=: propertyAlias,
+        "assetId" Data.=: assetId,
+        "endDate" Data.=: endDate,
         "qualities"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> qualities),
-        "propertyId" Core.=: propertyId,
-        "startDate" Core.=: startDate,
-        "maxResults" Core.=: maxResults,
-        "timeOrdering" Core.=: timeOrdering
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> qualities),
+        "propertyId" Data.=: propertyId,
+        "startDate" Data.=: startDate,
+        "maxResults" Data.=: maxResults,
+        "timeOrdering" Data.=: timeOrdering
       ]
 
 -- | /See:/ 'newGetAssetPropertyValueHistoryResponse' smart constructor.

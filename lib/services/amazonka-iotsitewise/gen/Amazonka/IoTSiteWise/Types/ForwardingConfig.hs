@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.ForwardingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.ForwardingConfigState
 import qualified Amazonka.Prelude as Prelude
 
@@ -53,12 +54,12 @@ newForwardingConfig pState_ =
 forwardingConfig_state :: Lens.Lens' ForwardingConfig ForwardingConfigState
 forwardingConfig_state = Lens.lens (\ForwardingConfig' {state} -> state) (\s@ForwardingConfig' {} a -> s {state = a} :: ForwardingConfig)
 
-instance Core.FromJSON ForwardingConfig where
+instance Data.FromJSON ForwardingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ForwardingConfig"
       ( \x ->
-          ForwardingConfig' Prelude.<$> (x Core..: "state")
+          ForwardingConfig' Prelude.<$> (x Data..: "state")
       )
 
 instance Prelude.Hashable ForwardingConfig where
@@ -68,9 +69,9 @@ instance Prelude.Hashable ForwardingConfig where
 instance Prelude.NFData ForwardingConfig where
   rnf ForwardingConfig' {..} = Prelude.rnf state
 
-instance Core.ToJSON ForwardingConfig where
+instance Data.ToJSON ForwardingConfig where
   toJSON ForwardingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("state" Core..= state)]
+          [Prelude.Just ("state" Data..= state)]
       )

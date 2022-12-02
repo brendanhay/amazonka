@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.GatewayPlatform where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.Greengrass
 import Amazonka.IoTSiteWise.Types.GreengrassV2
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ gatewayPlatform_greengrass = Lens.lens (\GatewayPlatform' {greengrass} -> greeng
 gatewayPlatform_greengrassV2 :: Lens.Lens' GatewayPlatform (Prelude.Maybe GreengrassV2)
 gatewayPlatform_greengrassV2 = Lens.lens (\GatewayPlatform' {greengrassV2} -> greengrassV2) (\s@GatewayPlatform' {} a -> s {greengrassV2 = a} :: GatewayPlatform)
 
-instance Core.FromJSON GatewayPlatform where
+instance Data.FromJSON GatewayPlatform where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewayPlatform"
       ( \x ->
           GatewayPlatform'
-            Prelude.<$> (x Core..:? "greengrass")
-            Prelude.<*> (x Core..:? "greengrassV2")
+            Prelude.<$> (x Data..:? "greengrass")
+            Prelude.<*> (x Data..:? "greengrassV2")
       )
 
 instance Prelude.Hashable GatewayPlatform where
@@ -83,11 +84,11 @@ instance Prelude.NFData GatewayPlatform where
     Prelude.rnf greengrass
       `Prelude.seq` Prelude.rnf greengrassV2
 
-instance Core.ToJSON GatewayPlatform where
+instance Data.ToJSON GatewayPlatform where
   toJSON GatewayPlatform' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("greengrass" Core..=) Prelude.<$> greengrass,
-            ("greengrassV2" Core..=) Prelude.<$> greengrassV2
+          [ ("greengrass" Data..=) Prelude.<$> greengrass,
+            ("greengrassV2" Data..=) Prelude.<$> greengrassV2
           ]
       )

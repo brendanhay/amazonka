@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.TransformProcessingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.ComputeLocation
 import Amazonka.IoTSiteWise.Types.ForwardingConfig
 import qualified Amazonka.Prelude as Prelude
@@ -68,14 +69,14 @@ transformProcessingConfig_forwardingConfig = Lens.lens (\TransformProcessingConf
 transformProcessingConfig_computeLocation :: Lens.Lens' TransformProcessingConfig ComputeLocation
 transformProcessingConfig_computeLocation = Lens.lens (\TransformProcessingConfig' {computeLocation} -> computeLocation) (\s@TransformProcessingConfig' {} a -> s {computeLocation = a} :: TransformProcessingConfig)
 
-instance Core.FromJSON TransformProcessingConfig where
+instance Data.FromJSON TransformProcessingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransformProcessingConfig"
       ( \x ->
           TransformProcessingConfig'
-            Prelude.<$> (x Core..:? "forwardingConfig")
-            Prelude.<*> (x Core..: "computeLocation")
+            Prelude.<$> (x Data..:? "forwardingConfig")
+            Prelude.<*> (x Data..: "computeLocation")
       )
 
 instance Prelude.Hashable TransformProcessingConfig where
@@ -88,13 +89,13 @@ instance Prelude.NFData TransformProcessingConfig where
     Prelude.rnf forwardingConfig
       `Prelude.seq` Prelude.rnf computeLocation
 
-instance Core.ToJSON TransformProcessingConfig where
+instance Data.ToJSON TransformProcessingConfig where
   toJSON TransformProcessingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("forwardingConfig" Core..=)
+          [ ("forwardingConfig" Data..=)
               Prelude.<$> forwardingConfig,
             Prelude.Just
-              ("computeLocation" Core..= computeLocation)
+              ("computeLocation" Data..= computeLocation)
           ]
       )

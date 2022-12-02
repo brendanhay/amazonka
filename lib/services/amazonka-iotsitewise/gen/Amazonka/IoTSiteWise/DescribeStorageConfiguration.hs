@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,13 +74,13 @@ instance Core.AWSRequest DescribeStorageConfiguration where
     Response.receiveJSON
       ( \s h x ->
           DescribeStorageConfigurationResponse'
-            Prelude.<$> (x Core..?> "multiLayerStorage")
-            Prelude.<*> (x Core..?> "disassociatedDataStorage")
-            Prelude.<*> (x Core..?> "lastUpdateDate")
-            Prelude.<*> (x Core..?> "retentionPeriod")
+            Prelude.<$> (x Data..?> "multiLayerStorage")
+            Prelude.<*> (x Data..?> "disassociatedDataStorage")
+            Prelude.<*> (x Data..?> "lastUpdateDate")
+            Prelude.<*> (x Data..?> "retentionPeriod")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "storageType")
-            Prelude.<*> (x Core..:> "configurationStatus")
+            Prelude.<*> (x Data..:> "storageType")
+            Prelude.<*> (x Data..:> "configurationStatus")
       )
 
 instance
@@ -92,22 +93,22 @@ instance
 instance Prelude.NFData DescribeStorageConfiguration where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeStorageConfiguration where
+instance Data.ToHeaders DescribeStorageConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeStorageConfiguration where
+instance Data.ToPath DescribeStorageConfiguration where
   toPath =
     Prelude.const "/configuration/account/storage"
 
-instance Core.ToQuery DescribeStorageConfiguration where
+instance Data.ToQuery DescribeStorageConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeStorageConfigurationResponse' smart constructor.
@@ -132,7 +133,7 @@ data DescribeStorageConfigurationResponse = DescribeStorageConfigurationResponse
     -- in the /IoT SiteWise User Guide/.
     disassociatedDataStorage :: Prelude.Maybe DisassociatedDataStorageState,
     -- | The date the storage configuration was last updated, in Unix epoch time.
-    lastUpdateDate :: Prelude.Maybe Core.POSIX,
+    lastUpdateDate :: Prelude.Maybe Data.POSIX,
     -- | How many days your data is kept in the hot tier. By default, your data
     -- is kept indefinitely in the hot tier.
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
@@ -247,7 +248,7 @@ describeStorageConfigurationResponse_disassociatedDataStorage = Lens.lens (\Desc
 
 -- | The date the storage configuration was last updated, in Unix epoch time.
 describeStorageConfigurationResponse_lastUpdateDate :: Lens.Lens' DescribeStorageConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-describeStorageConfigurationResponse_lastUpdateDate = Lens.lens (\DescribeStorageConfigurationResponse' {lastUpdateDate} -> lastUpdateDate) (\s@DescribeStorageConfigurationResponse' {} a -> s {lastUpdateDate = a} :: DescribeStorageConfigurationResponse) Prelude.. Lens.mapping Core._Time
+describeStorageConfigurationResponse_lastUpdateDate = Lens.lens (\DescribeStorageConfigurationResponse' {lastUpdateDate} -> lastUpdateDate) (\s@DescribeStorageConfigurationResponse' {} a -> s {lastUpdateDate = a} :: DescribeStorageConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | How many days your data is kept in the hot tier. By default, your data
 -- is kept indefinitely in the hot tier.

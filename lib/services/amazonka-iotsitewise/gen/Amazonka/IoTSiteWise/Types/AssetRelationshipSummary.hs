@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.AssetRelationshipSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.AssetHierarchyInfo
 import Amazonka.IoTSiteWise.Types.AssetRelationshipType
 import qualified Amazonka.Prelude as Prelude
@@ -87,14 +88,14 @@ assetRelationshipSummary_hierarchyInfo = Lens.lens (\AssetRelationshipSummary' {
 assetRelationshipSummary_relationshipType :: Lens.Lens' AssetRelationshipSummary AssetRelationshipType
 assetRelationshipSummary_relationshipType = Lens.lens (\AssetRelationshipSummary' {relationshipType} -> relationshipType) (\s@AssetRelationshipSummary' {} a -> s {relationshipType = a} :: AssetRelationshipSummary)
 
-instance Core.FromJSON AssetRelationshipSummary where
+instance Data.FromJSON AssetRelationshipSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetRelationshipSummary"
       ( \x ->
           AssetRelationshipSummary'
-            Prelude.<$> (x Core..:? "hierarchyInfo")
-            Prelude.<*> (x Core..: "relationshipType")
+            Prelude.<$> (x Data..:? "hierarchyInfo")
+            Prelude.<*> (x Data..: "relationshipType")
       )
 
 instance Prelude.Hashable AssetRelationshipSummary where

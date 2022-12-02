@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -209,7 +210,7 @@ instance Core.AWSRequest UpdatePortal where
       ( \s h x ->
           UpdatePortalResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "portalStatus")
+            Prelude.<*> (x Data..:> "portalStatus")
       )
 
 instance Prelude.Hashable UpdatePortal where
@@ -236,41 +237,41 @@ instance Prelude.NFData UpdatePortal where
       `Prelude.seq` Prelude.rnf portalContactEmail
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders UpdatePortal where
+instance Data.ToHeaders UpdatePortal where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePortal where
+instance Data.ToJSON UpdatePortal where
   toJSON UpdatePortal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("alarms" Core..=) Prelude.<$> alarms,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("portalLogoImage" Core..=)
+          [ ("alarms" Data..=) Prelude.<$> alarms,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("portalLogoImage" Data..=)
               Prelude.<$> portalLogoImage,
-            ("portalDescription" Core..=)
+            ("portalDescription" Data..=)
               Prelude.<$> portalDescription,
-            ("notificationSenderEmail" Core..=)
+            ("notificationSenderEmail" Data..=)
               Prelude.<$> notificationSenderEmail,
-            Prelude.Just ("portalName" Core..= portalName),
+            Prelude.Just ("portalName" Data..= portalName),
             Prelude.Just
-              ("portalContactEmail" Core..= portalContactEmail),
-            Prelude.Just ("roleArn" Core..= roleArn)
+              ("portalContactEmail" Data..= portalContactEmail),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath UpdatePortal where
+instance Data.ToPath UpdatePortal where
   toPath UpdatePortal' {..} =
-    Prelude.mconcat ["/portals/", Core.toBS portalId]
+    Prelude.mconcat ["/portals/", Data.toBS portalId]
 
-instance Core.ToQuery UpdatePortal where
+instance Data.ToQuery UpdatePortal where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePortalResponse' smart constructor.

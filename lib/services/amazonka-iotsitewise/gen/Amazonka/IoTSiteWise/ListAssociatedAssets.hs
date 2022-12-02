@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -219,9 +220,9 @@ instance Core.AWSRequest ListAssociatedAssets where
     Response.receiveJSON
       ( \s h x ->
           ListAssociatedAssetsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "assetSummaries"
+            Prelude.<*> ( x Data..?> "assetSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -242,29 +243,29 @@ instance Prelude.NFData ListAssociatedAssets where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf assetId
 
-instance Core.ToHeaders ListAssociatedAssets where
+instance Data.ToHeaders ListAssociatedAssets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAssociatedAssets where
+instance Data.ToPath ListAssociatedAssets where
   toPath ListAssociatedAssets' {..} =
     Prelude.mconcat
-      ["/assets/", Core.toBS assetId, "/hierarchies"]
+      ["/assets/", Data.toBS assetId, "/hierarchies"]
 
-instance Core.ToQuery ListAssociatedAssets where
+instance Data.ToQuery ListAssociatedAssets where
   toQuery ListAssociatedAssets' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "traversalDirection" Core.=: traversalDirection,
-        "hierarchyId" Core.=: hierarchyId,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "traversalDirection" Data.=: traversalDirection,
+        "hierarchyId" Data.=: hierarchyId,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAssociatedAssetsResponse' smart constructor.

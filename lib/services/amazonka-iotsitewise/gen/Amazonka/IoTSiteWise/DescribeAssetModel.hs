@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,23 +106,23 @@ instance Core.AWSRequest DescribeAssetModel where
     Response.receiveJSON
       ( \s h x ->
           DescribeAssetModelResponse'
-            Prelude.<$> ( x Core..?> "assetModelCompositeModels"
+            Prelude.<$> ( x Data..?> "assetModelCompositeModels"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "assetModelId")
-            Prelude.<*> (x Core..:> "assetModelArn")
-            Prelude.<*> (x Core..:> "assetModelName")
-            Prelude.<*> (x Core..:> "assetModelDescription")
-            Prelude.<*> ( x Core..?> "assetModelProperties"
+            Prelude.<*> (x Data..:> "assetModelId")
+            Prelude.<*> (x Data..:> "assetModelArn")
+            Prelude.<*> (x Data..:> "assetModelName")
+            Prelude.<*> (x Data..:> "assetModelDescription")
+            Prelude.<*> ( x Data..?> "assetModelProperties"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "assetModelHierarchies"
+            Prelude.<*> ( x Data..?> "assetModelHierarchies"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..:> "assetModelCreationDate")
-            Prelude.<*> (x Core..:> "assetModelLastUpdateDate")
-            Prelude.<*> (x Core..:> "assetModelStatus")
+            Prelude.<*> (x Data..:> "assetModelCreationDate")
+            Prelude.<*> (x Data..:> "assetModelLastUpdateDate")
+            Prelude.<*> (x Data..:> "assetModelStatus")
       )
 
 instance Prelude.Hashable DescribeAssetModel where
@@ -134,26 +135,26 @@ instance Prelude.NFData DescribeAssetModel where
     Prelude.rnf excludeProperties
       `Prelude.seq` Prelude.rnf assetModelId
 
-instance Core.ToHeaders DescribeAssetModel where
+instance Data.ToHeaders DescribeAssetModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeAssetModel where
+instance Data.ToPath DescribeAssetModel where
   toPath DescribeAssetModel' {..} =
     Prelude.mconcat
-      ["/asset-models/", Core.toBS assetModelId]
+      ["/asset-models/", Data.toBS assetModelId]
 
-instance Core.ToQuery DescribeAssetModel where
+instance Data.ToQuery DescribeAssetModel where
   toQuery DescribeAssetModel' {..} =
     Prelude.mconcat
-      ["excludeProperties" Core.=: excludeProperties]
+      ["excludeProperties" Data.=: excludeProperties]
 
 -- | /See:/ 'newDescribeAssetModelResponse' smart constructor.
 data DescribeAssetModelResponse = DescribeAssetModelResponse'
@@ -184,9 +185,9 @@ data DescribeAssetModelResponse = DescribeAssetModelResponse'
     -- specifies allowed parent\/child asset relationships for an asset model.
     assetModelHierarchies :: [AssetModelHierarchy],
     -- | The date the asset model was created, in Unix epoch time.
-    assetModelCreationDate :: Core.POSIX,
+    assetModelCreationDate :: Data.POSIX,
     -- | The date the asset model was last updated, in Unix epoch time.
-    assetModelLastUpdateDate :: Core.POSIX,
+    assetModelLastUpdateDate :: Data.POSIX,
     -- | The current status of the asset model, which contains a state and any
     -- error message.
     assetModelStatus :: AssetModelStatus
@@ -271,9 +272,9 @@ newDescribeAssetModelResponse
         assetModelProperties = Prelude.mempty,
         assetModelHierarchies = Prelude.mempty,
         assetModelCreationDate =
-          Core._Time Lens.# pAssetModelCreationDate_,
+          Data._Time Lens.# pAssetModelCreationDate_,
         assetModelLastUpdateDate =
-          Core._Time Lens.# pAssetModelLastUpdateDate_,
+          Data._Time Lens.# pAssetModelLastUpdateDate_,
         assetModelStatus = pAssetModelStatus_
       }
 
@@ -321,11 +322,11 @@ describeAssetModelResponse_assetModelHierarchies = Lens.lens (\DescribeAssetMode
 
 -- | The date the asset model was created, in Unix epoch time.
 describeAssetModelResponse_assetModelCreationDate :: Lens.Lens' DescribeAssetModelResponse Prelude.UTCTime
-describeAssetModelResponse_assetModelCreationDate = Lens.lens (\DescribeAssetModelResponse' {assetModelCreationDate} -> assetModelCreationDate) (\s@DescribeAssetModelResponse' {} a -> s {assetModelCreationDate = a} :: DescribeAssetModelResponse) Prelude.. Core._Time
+describeAssetModelResponse_assetModelCreationDate = Lens.lens (\DescribeAssetModelResponse' {assetModelCreationDate} -> assetModelCreationDate) (\s@DescribeAssetModelResponse' {} a -> s {assetModelCreationDate = a} :: DescribeAssetModelResponse) Prelude.. Data._Time
 
 -- | The date the asset model was last updated, in Unix epoch time.
 describeAssetModelResponse_assetModelLastUpdateDate :: Lens.Lens' DescribeAssetModelResponse Prelude.UTCTime
-describeAssetModelResponse_assetModelLastUpdateDate = Lens.lens (\DescribeAssetModelResponse' {assetModelLastUpdateDate} -> assetModelLastUpdateDate) (\s@DescribeAssetModelResponse' {} a -> s {assetModelLastUpdateDate = a} :: DescribeAssetModelResponse) Prelude.. Core._Time
+describeAssetModelResponse_assetModelLastUpdateDate = Lens.lens (\DescribeAssetModelResponse' {assetModelLastUpdateDate} -> assetModelLastUpdateDate) (\s@DescribeAssetModelResponse' {} a -> s {assetModelLastUpdateDate = a} :: DescribeAssetModelResponse) Prelude.. Data._Time
 
 -- | The current status of the asset model, which contains a state and any
 -- error message.

@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.Csv where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.ColumnName
 import qualified Amazonka.Prelude as Prelude
 
@@ -50,13 +51,13 @@ newCsv = Csv' {columnNames = Prelude.Nothing}
 csv_columnNames :: Lens.Lens' Csv (Prelude.Maybe [ColumnName])
 csv_columnNames = Lens.lens (\Csv' {columnNames} -> columnNames) (\s@Csv' {} a -> s {columnNames = a} :: Csv) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Csv where
+instance Data.FromJSON Csv where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Csv"
       ( \x ->
           Csv'
-            Prelude.<$> (x Core..:? "columnNames" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "columnNames" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Csv where
@@ -66,9 +67,9 @@ instance Prelude.Hashable Csv where
 instance Prelude.NFData Csv where
   rnf Csv' {..} = Prelude.rnf columnNames
 
-instance Core.ToJSON Csv where
+instance Data.ToJSON Csv where
   toJSON Csv' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("columnNames" Core..=) Prelude.<$> columnNames]
+          [("columnNames" Data..=) Prelude.<$> columnNames]
       )

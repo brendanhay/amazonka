@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -78,10 +79,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDefaultEncryptionConfigurationResponse'
-            Prelude.<$> (x Core..?> "kmsKeyArn")
+            Prelude.<$> (x Data..?> "kmsKeyArn")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "encryptionType")
-              Prelude.<*> (x Core..:> "configurationStatus")
+              Prelude.<*> (x Data..:> "encryptionType")
+              Prelude.<*> (x Data..:> "configurationStatus")
       )
 
 instance
@@ -98,28 +99,28 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeDefaultEncryptionConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeDefaultEncryptionConfiguration
   where
   toPath =
     Prelude.const "/configuration/account/encryption"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeDefaultEncryptionConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

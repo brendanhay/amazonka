@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.AccessPolicySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.Identity
 import Amazonka.IoTSiteWise.Types.Permission
 import Amazonka.IoTSiteWise.Types.Resource
@@ -32,9 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAccessPolicySummary' smart constructor.
 data AccessPolicySummary = AccessPolicySummary'
   { -- | The date the access policy was created, in Unix epoch time.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The date the access policy was last updated, in Unix epoch time.
-    lastUpdateDate :: Prelude.Maybe Core.POSIX,
+    lastUpdateDate :: Prelude.Maybe Data.POSIX,
     -- | The ID of the access policy.
     id :: Prelude.Text,
     -- | The identity (an IAM Identity Center user, an IAM Identity Center group,
@@ -96,11 +97,11 @@ newAccessPolicySummary
 
 -- | The date the access policy was created, in Unix epoch time.
 accessPolicySummary_creationDate :: Lens.Lens' AccessPolicySummary (Prelude.Maybe Prelude.UTCTime)
-accessPolicySummary_creationDate = Lens.lens (\AccessPolicySummary' {creationDate} -> creationDate) (\s@AccessPolicySummary' {} a -> s {creationDate = a} :: AccessPolicySummary) Prelude.. Lens.mapping Core._Time
+accessPolicySummary_creationDate = Lens.lens (\AccessPolicySummary' {creationDate} -> creationDate) (\s@AccessPolicySummary' {} a -> s {creationDate = a} :: AccessPolicySummary) Prelude.. Lens.mapping Data._Time
 
 -- | The date the access policy was last updated, in Unix epoch time.
 accessPolicySummary_lastUpdateDate :: Lens.Lens' AccessPolicySummary (Prelude.Maybe Prelude.UTCTime)
-accessPolicySummary_lastUpdateDate = Lens.lens (\AccessPolicySummary' {lastUpdateDate} -> lastUpdateDate) (\s@AccessPolicySummary' {} a -> s {lastUpdateDate = a} :: AccessPolicySummary) Prelude.. Lens.mapping Core._Time
+accessPolicySummary_lastUpdateDate = Lens.lens (\AccessPolicySummary' {lastUpdateDate} -> lastUpdateDate) (\s@AccessPolicySummary' {} a -> s {lastUpdateDate = a} :: AccessPolicySummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the access policy.
 accessPolicySummary_id :: Lens.Lens' AccessPolicySummary Prelude.Text
@@ -120,18 +121,18 @@ accessPolicySummary_resource = Lens.lens (\AccessPolicySummary' {resource} -> re
 accessPolicySummary_permission :: Lens.Lens' AccessPolicySummary Permission
 accessPolicySummary_permission = Lens.lens (\AccessPolicySummary' {permission} -> permission) (\s@AccessPolicySummary' {} a -> s {permission = a} :: AccessPolicySummary)
 
-instance Core.FromJSON AccessPolicySummary where
+instance Data.FromJSON AccessPolicySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessPolicySummary"
       ( \x ->
           AccessPolicySummary'
-            Prelude.<$> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "lastUpdateDate")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "identity")
-            Prelude.<*> (x Core..: "resource")
-            Prelude.<*> (x Core..: "permission")
+            Prelude.<$> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "lastUpdateDate")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "identity")
+            Prelude.<*> (x Data..: "resource")
+            Prelude.<*> (x Data..: "permission")
       )
 
 instance Prelude.Hashable AccessPolicySummary where

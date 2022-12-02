@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,9 +159,9 @@ instance Core.AWSRequest CreateBulkImportJob where
       ( \s h x ->
           CreateBulkImportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "jobId")
-            Prelude.<*> (x Core..:> "jobName")
-            Prelude.<*> (x Core..:> "jobStatus")
+            Prelude.<*> (x Data..:> "jobId")
+            Prelude.<*> (x Data..:> "jobName")
+            Prelude.<*> (x Data..:> "jobStatus")
       )
 
 instance Prelude.Hashable CreateBulkImportJob where
@@ -179,35 +180,35 @@ instance Prelude.NFData CreateBulkImportJob where
       `Prelude.seq` Prelude.rnf errorReportLocation
       `Prelude.seq` Prelude.rnf jobConfiguration
 
-instance Core.ToHeaders CreateBulkImportJob where
+instance Data.ToHeaders CreateBulkImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBulkImportJob where
+instance Data.ToJSON CreateBulkImportJob where
   toJSON CreateBulkImportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("jobName" Core..= jobName),
-            Prelude.Just ("jobRoleArn" Core..= jobRoleArn),
-            Prelude.Just ("files" Core..= files),
+          [ Prelude.Just ("jobName" Data..= jobName),
+            Prelude.Just ("jobRoleArn" Data..= jobRoleArn),
+            Prelude.Just ("files" Data..= files),
             Prelude.Just
-              ("errorReportLocation" Core..= errorReportLocation),
+              ("errorReportLocation" Data..= errorReportLocation),
             Prelude.Just
-              ("jobConfiguration" Core..= jobConfiguration)
+              ("jobConfiguration" Data..= jobConfiguration)
           ]
       )
 
-instance Core.ToPath CreateBulkImportJob where
+instance Data.ToPath CreateBulkImportJob where
   toPath = Prelude.const "/jobs"
 
-instance Core.ToQuery CreateBulkImportJob where
+instance Data.ToQuery CreateBulkImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBulkImportJobResponse' smart constructor.

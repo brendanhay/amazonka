@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,7 +131,7 @@ instance Core.AWSRequest GetAssetPropertyValue where
     Response.receiveJSON
       ( \s h x ->
           GetAssetPropertyValueResponse'
-            Prelude.<$> (x Core..?> "propertyValue")
+            Prelude.<$> (x Data..?> "propertyValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,26 +147,26 @@ instance Prelude.NFData GetAssetPropertyValue where
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf propertyId
 
-instance Core.ToHeaders GetAssetPropertyValue where
+instance Data.ToHeaders GetAssetPropertyValue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAssetPropertyValue where
+instance Data.ToPath GetAssetPropertyValue where
   toPath = Prelude.const "/properties/latest"
 
-instance Core.ToQuery GetAssetPropertyValue where
+instance Data.ToQuery GetAssetPropertyValue where
   toQuery GetAssetPropertyValue' {..} =
     Prelude.mconcat
-      [ "propertyAlias" Core.=: propertyAlias,
-        "assetId" Core.=: assetId,
-        "propertyId" Core.=: propertyId
+      [ "propertyAlias" Data.=: propertyAlias,
+        "assetId" Data.=: assetId,
+        "propertyId" Data.=: propertyId
       ]
 
 -- | /See:/ 'newGetAssetPropertyValueResponse' smart constructor.

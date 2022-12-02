@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesErrorInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data BatchGetAssetPropertyAggregatesErrorInfo = BatchGetAssetPropertyAggregatesE
   { -- | The error code.
     errorCode :: BatchGetAssetPropertyAggregatesErrorCode,
     -- | The date the error occurred, in Unix epoch time.
-    errorTimestamp :: Core.POSIX
+    errorTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,7 +63,7 @@ newBatchGetAssetPropertyAggregatesErrorInfo
       { errorCode =
           pErrorCode_,
         errorTimestamp =
-          Core._Time
+          Data._Time
             Lens.# pErrorTimestamp_
       }
 
@@ -72,19 +73,19 @@ batchGetAssetPropertyAggregatesErrorInfo_errorCode = Lens.lens (\BatchGetAssetPr
 
 -- | The date the error occurred, in Unix epoch time.
 batchGetAssetPropertyAggregatesErrorInfo_errorTimestamp :: Lens.Lens' BatchGetAssetPropertyAggregatesErrorInfo Prelude.UTCTime
-batchGetAssetPropertyAggregatesErrorInfo_errorTimestamp = Lens.lens (\BatchGetAssetPropertyAggregatesErrorInfo' {errorTimestamp} -> errorTimestamp) (\s@BatchGetAssetPropertyAggregatesErrorInfo' {} a -> s {errorTimestamp = a} :: BatchGetAssetPropertyAggregatesErrorInfo) Prelude.. Core._Time
+batchGetAssetPropertyAggregatesErrorInfo_errorTimestamp = Lens.lens (\BatchGetAssetPropertyAggregatesErrorInfo' {errorTimestamp} -> errorTimestamp) (\s@BatchGetAssetPropertyAggregatesErrorInfo' {} a -> s {errorTimestamp = a} :: BatchGetAssetPropertyAggregatesErrorInfo) Prelude.. Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchGetAssetPropertyAggregatesErrorInfo
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetAssetPropertyAggregatesErrorInfo"
       ( \x ->
           BatchGetAssetPropertyAggregatesErrorInfo'
-            Prelude.<$> (x Core..: "errorCode")
-            Prelude.<*> (x Core..: "errorTimestamp")
+            Prelude.<$> (x Data..: "errorCode")
+            Prelude.<*> (x Data..: "errorTimestamp")
       )
 
 instance

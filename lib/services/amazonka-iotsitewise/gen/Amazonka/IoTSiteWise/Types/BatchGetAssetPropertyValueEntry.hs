@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information for an asset property value entry that is
@@ -131,13 +132,13 @@ instance
       `Prelude.seq` Prelude.rnf propertyId
       `Prelude.seq` Prelude.rnf entryId
 
-instance Core.ToJSON BatchGetAssetPropertyValueEntry where
+instance Data.ToJSON BatchGetAssetPropertyValueEntry where
   toJSON BatchGetAssetPropertyValueEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("propertyAlias" Core..=) Prelude.<$> propertyAlias,
-            ("assetId" Core..=) Prelude.<$> assetId,
-            ("propertyId" Core..=) Prelude.<$> propertyId,
-            Prelude.Just ("entryId" Core..= entryId)
+          [ ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
+            ("assetId" Data..=) Prelude.<$> assetId,
+            ("propertyId" Data..=) Prelude.<$> propertyId,
+            Prelude.Just ("entryId" Data..= entryId)
           ]
       )

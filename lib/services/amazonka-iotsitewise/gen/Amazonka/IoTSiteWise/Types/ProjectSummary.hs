@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.ProjectSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains project summary information.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newProjectSummary' smart constructor.
 data ProjectSummary = ProjectSummary'
   { -- | The date the project was created, in Unix epoch time.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The date the project was last updated, in Unix epoch time.
-    lastUpdateDate :: Prelude.Maybe Core.POSIX,
+    lastUpdateDate :: Prelude.Maybe Data.POSIX,
     -- | The project\'s description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the project.
@@ -74,11 +75,11 @@ newProjectSummary pId_ pName_ =
 
 -- | The date the project was created, in Unix epoch time.
 projectSummary_creationDate :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.UTCTime)
-projectSummary_creationDate = Lens.lens (\ProjectSummary' {creationDate} -> creationDate) (\s@ProjectSummary' {} a -> s {creationDate = a} :: ProjectSummary) Prelude.. Lens.mapping Core._Time
+projectSummary_creationDate = Lens.lens (\ProjectSummary' {creationDate} -> creationDate) (\s@ProjectSummary' {} a -> s {creationDate = a} :: ProjectSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The date the project was last updated, in Unix epoch time.
 projectSummary_lastUpdateDate :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.UTCTime)
-projectSummary_lastUpdateDate = Lens.lens (\ProjectSummary' {lastUpdateDate} -> lastUpdateDate) (\s@ProjectSummary' {} a -> s {lastUpdateDate = a} :: ProjectSummary) Prelude.. Lens.mapping Core._Time
+projectSummary_lastUpdateDate = Lens.lens (\ProjectSummary' {lastUpdateDate} -> lastUpdateDate) (\s@ProjectSummary' {} a -> s {lastUpdateDate = a} :: ProjectSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The project\'s description.
 projectSummary_description :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
@@ -92,17 +93,17 @@ projectSummary_id = Lens.lens (\ProjectSummary' {id} -> id) (\s@ProjectSummary' 
 projectSummary_name :: Lens.Lens' ProjectSummary Prelude.Text
 projectSummary_name = Lens.lens (\ProjectSummary' {name} -> name) (\s@ProjectSummary' {} a -> s {name = a} :: ProjectSummary)
 
-instance Core.FromJSON ProjectSummary where
+instance Data.FromJSON ProjectSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Prelude.<$> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "lastUpdateDate")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "lastUpdateDate")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable ProjectSummary where

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,10 +128,10 @@ instance
       ( \s h x ->
           DescribeGatewayCapabilityConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "gatewayId")
-              Prelude.<*> (x Core..:> "capabilityNamespace")
-              Prelude.<*> (x Core..:> "capabilityConfiguration")
-              Prelude.<*> (x Core..:> "capabilitySyncStatus")
+              Prelude.<*> (x Data..:> "gatewayId")
+              Prelude.<*> (x Data..:> "capabilityNamespace")
+              Prelude.<*> (x Data..:> "capabilityConfiguration")
+              Prelude.<*> (x Data..:> "capabilitySyncStatus")
       )
 
 instance
@@ -152,33 +153,33 @@ instance
       `Prelude.seq` Prelude.rnf capabilityNamespace
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeGatewayCapabilityConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeGatewayCapabilityConfiguration
   where
   toPath DescribeGatewayCapabilityConfiguration' {..} =
     Prelude.mconcat
       [ "/20200301/gateways/",
-        Core.toBS gatewayId,
+        Data.toBS gatewayId,
         "/capability/",
-        Core.toBS capabilityNamespace
+        Data.toBS capabilityNamespace
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeGatewayCapabilityConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

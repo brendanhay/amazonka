@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.AssetModelStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.AssetModelState
 import Amazonka.IoTSiteWise.Types.ErrorDetails
 import qualified Amazonka.Prelude as Prelude
@@ -68,13 +69,13 @@ assetModelStatus_error = Lens.lens (\AssetModelStatus' {error} -> error) (\s@Ass
 assetModelStatus_state :: Lens.Lens' AssetModelStatus AssetModelState
 assetModelStatus_state = Lens.lens (\AssetModelStatus' {state} -> state) (\s@AssetModelStatus' {} a -> s {state = a} :: AssetModelStatus)
 
-instance Core.FromJSON AssetModelStatus where
+instance Data.FromJSON AssetModelStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetModelStatus"
       ( \x ->
           AssetModelStatus'
-            Prelude.<$> (x Core..:? "error") Prelude.<*> (x Core..: "state")
+            Prelude.<$> (x Data..:? "error") Prelude.<*> (x Data..: "state")
       )
 
 instance Prelude.Hashable AssetModelStatus where

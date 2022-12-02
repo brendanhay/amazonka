@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,9 +165,9 @@ instance Core.AWSRequest ListTimeSeries where
     Response.receiveJSON
       ( \s h x ->
           ListTimeSeriesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "TimeSeriesSummaries"
+            Prelude.<*> ( x Data..?> "TimeSeriesSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -187,28 +188,28 @@ instance Prelude.NFData ListTimeSeries where
       `Prelude.seq` Prelude.rnf aliasPrefix
       `Prelude.seq` Prelude.rnf timeSeriesType
 
-instance Core.ToHeaders ListTimeSeries where
+instance Data.ToHeaders ListTimeSeries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListTimeSeries where
+instance Data.ToPath ListTimeSeries where
   toPath = Prelude.const "/timeseries/"
 
-instance Core.ToQuery ListTimeSeries where
+instance Data.ToQuery ListTimeSeries where
   toQuery ListTimeSeries' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "assetId" Core.=: assetId,
-        "maxResults" Core.=: maxResults,
-        "aliasPrefix" Core.=: aliasPrefix,
-        "timeSeriesType" Core.=: timeSeriesType
+      [ "nextToken" Data.=: nextToken,
+        "assetId" Data.=: assetId,
+        "maxResults" Data.=: maxResults,
+        "aliasPrefix" Data.=: aliasPrefix,
+        "timeSeriesType" Data.=: timeSeriesType
       ]
 
 -- | /See:/ 'newListTimeSeriesResponse' smart constructor.

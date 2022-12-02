@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.Alarms where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the configuration information of an alarm created in an IoT
@@ -92,14 +93,14 @@ alarms_notificationLambdaArn = Lens.lens (\Alarms' {notificationLambdaArn} -> no
 alarms_alarmRoleArn :: Lens.Lens' Alarms Prelude.Text
 alarms_alarmRoleArn = Lens.lens (\Alarms' {alarmRoleArn} -> alarmRoleArn) (\s@Alarms' {} a -> s {alarmRoleArn = a} :: Alarms)
 
-instance Core.FromJSON Alarms where
+instance Data.FromJSON Alarms where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Alarms"
       ( \x ->
           Alarms'
-            Prelude.<$> (x Core..:? "notificationLambdaArn")
-            Prelude.<*> (x Core..: "alarmRoleArn")
+            Prelude.<$> (x Data..:? "notificationLambdaArn")
+            Prelude.<*> (x Data..: "alarmRoleArn")
       )
 
 instance Prelude.Hashable Alarms where
@@ -112,12 +113,12 @@ instance Prelude.NFData Alarms where
     Prelude.rnf notificationLambdaArn
       `Prelude.seq` Prelude.rnf alarmRoleArn
 
-instance Core.ToJSON Alarms where
+instance Data.ToJSON Alarms where
   toJSON Alarms' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("notificationLambdaArn" Core..=)
+          [ ("notificationLambdaArn" Data..=)
               Prelude.<$> notificationLambdaArn,
-            Prelude.Just ("alarmRoleArn" Core..= alarmRoleArn)
+            Prelude.Just ("alarmRoleArn" Data..= alarmRoleArn)
           ]
       )

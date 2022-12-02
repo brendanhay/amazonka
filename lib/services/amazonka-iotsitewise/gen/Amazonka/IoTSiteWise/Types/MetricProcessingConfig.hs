@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.MetricProcessingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.ComputeLocation
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,13 +59,13 @@ newMetricProcessingConfig pComputeLocation_ =
 metricProcessingConfig_computeLocation :: Lens.Lens' MetricProcessingConfig ComputeLocation
 metricProcessingConfig_computeLocation = Lens.lens (\MetricProcessingConfig' {computeLocation} -> computeLocation) (\s@MetricProcessingConfig' {} a -> s {computeLocation = a} :: MetricProcessingConfig)
 
-instance Core.FromJSON MetricProcessingConfig where
+instance Data.FromJSON MetricProcessingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricProcessingConfig"
       ( \x ->
           MetricProcessingConfig'
-            Prelude.<$> (x Core..: "computeLocation")
+            Prelude.<$> (x Data..: "computeLocation")
       )
 
 instance Prelude.Hashable MetricProcessingConfig where
@@ -75,11 +76,11 @@ instance Prelude.NFData MetricProcessingConfig where
   rnf MetricProcessingConfig' {..} =
     Prelude.rnf computeLocation
 
-instance Core.ToJSON MetricProcessingConfig where
+instance Data.ToJSON MetricProcessingConfig where
   toJSON MetricProcessingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("computeLocation" Core..= computeLocation)
+              ("computeLocation" Data..= computeLocation)
           ]
       )

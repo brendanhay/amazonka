@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,10 +108,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PutDefaultEncryptionConfigurationResponse'
-            Prelude.<$> (x Core..?> "kmsKeyArn")
+            Prelude.<$> (x Data..?> "kmsKeyArn")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "encryptionType")
-              Prelude.<*> (x Core..:> "configurationStatus")
+              Prelude.<*> (x Data..:> "encryptionType")
+              Prelude.<*> (x Data..:> "configurationStatus")
       )
 
 instance
@@ -132,41 +133,41 @@ instance
       `Prelude.seq` Prelude.rnf encryptionType
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutDefaultEncryptionConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PutDefaultEncryptionConfiguration
   where
   toJSON PutDefaultEncryptionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+          [ ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             Prelude.Just
-              ("encryptionType" Core..= encryptionType)
+              ("encryptionType" Data..= encryptionType)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutDefaultEncryptionConfiguration
   where
   toPath =
     Prelude.const "/configuration/account/encryption"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutDefaultEncryptionConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

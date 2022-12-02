@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,43 +170,43 @@ instance Prelude.NFData UpdateAccessPolicy where
       `Prelude.seq` Prelude.rnf accessPolicyResource
       `Prelude.seq` Prelude.rnf accessPolicyPermission
 
-instance Core.ToHeaders UpdateAccessPolicy where
+instance Data.ToHeaders UpdateAccessPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAccessPolicy where
+instance Data.ToJSON UpdateAccessPolicy where
   toJSON UpdateAccessPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
               ( "accessPolicyIdentity"
-                  Core..= accessPolicyIdentity
+                  Data..= accessPolicyIdentity
               ),
             Prelude.Just
               ( "accessPolicyResource"
-                  Core..= accessPolicyResource
+                  Data..= accessPolicyResource
               ),
             Prelude.Just
               ( "accessPolicyPermission"
-                  Core..= accessPolicyPermission
+                  Data..= accessPolicyPermission
               )
           ]
       )
 
-instance Core.ToPath UpdateAccessPolicy where
+instance Data.ToPath UpdateAccessPolicy where
   toPath UpdateAccessPolicy' {..} =
     Prelude.mconcat
-      ["/access-policies/", Core.toBS accessPolicyId]
+      ["/access-policies/", Data.toBS accessPolicyId]
 
-instance Core.ToQuery UpdateAccessPolicy where
+instance Data.ToQuery UpdateAccessPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAccessPolicyResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.TimeSeriesSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.PropertyDataType
 import qualified Amazonka.Prelude as Prelude
 
@@ -50,9 +51,9 @@ data TimeSeriesSummary = TimeSeriesSummary'
     -- identify the type of the structure for this time series.
     dataType :: PropertyDataType,
     -- | The date that the time series was created, in Unix epoch time.
-    timeSeriesCreationDate :: Core.POSIX,
+    timeSeriesCreationDate :: Data.POSIX,
     -- | The date that the time series was last updated, in Unix epoch time.
-    timeSeriesLastUpdateDate :: Core.POSIX
+    timeSeriesLastUpdateDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -111,9 +112,9 @@ newTimeSeriesSummary
         timeSeriesId = pTimeSeriesId_,
         dataType = pDataType_,
         timeSeriesCreationDate =
-          Core._Time Lens.# pTimeSeriesCreationDate_,
+          Data._Time Lens.# pTimeSeriesCreationDate_,
         timeSeriesLastUpdateDate =
-          Core._Time Lens.# pTimeSeriesLastUpdateDate_
+          Data._Time Lens.# pTimeSeriesLastUpdateDate_
       }
 
 -- | The alias that identifies the time series.
@@ -151,26 +152,26 @@ timeSeriesSummary_dataType = Lens.lens (\TimeSeriesSummary' {dataType} -> dataTy
 
 -- | The date that the time series was created, in Unix epoch time.
 timeSeriesSummary_timeSeriesCreationDate :: Lens.Lens' TimeSeriesSummary Prelude.UTCTime
-timeSeriesSummary_timeSeriesCreationDate = Lens.lens (\TimeSeriesSummary' {timeSeriesCreationDate} -> timeSeriesCreationDate) (\s@TimeSeriesSummary' {} a -> s {timeSeriesCreationDate = a} :: TimeSeriesSummary) Prelude.. Core._Time
+timeSeriesSummary_timeSeriesCreationDate = Lens.lens (\TimeSeriesSummary' {timeSeriesCreationDate} -> timeSeriesCreationDate) (\s@TimeSeriesSummary' {} a -> s {timeSeriesCreationDate = a} :: TimeSeriesSummary) Prelude.. Data._Time
 
 -- | The date that the time series was last updated, in Unix epoch time.
 timeSeriesSummary_timeSeriesLastUpdateDate :: Lens.Lens' TimeSeriesSummary Prelude.UTCTime
-timeSeriesSummary_timeSeriesLastUpdateDate = Lens.lens (\TimeSeriesSummary' {timeSeriesLastUpdateDate} -> timeSeriesLastUpdateDate) (\s@TimeSeriesSummary' {} a -> s {timeSeriesLastUpdateDate = a} :: TimeSeriesSummary) Prelude.. Core._Time
+timeSeriesSummary_timeSeriesLastUpdateDate = Lens.lens (\TimeSeriesSummary' {timeSeriesLastUpdateDate} -> timeSeriesLastUpdateDate) (\s@TimeSeriesSummary' {} a -> s {timeSeriesLastUpdateDate = a} :: TimeSeriesSummary) Prelude.. Data._Time
 
-instance Core.FromJSON TimeSeriesSummary where
+instance Data.FromJSON TimeSeriesSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeSeriesSummary"
       ( \x ->
           TimeSeriesSummary'
-            Prelude.<$> (x Core..:? "alias")
-            Prelude.<*> (x Core..:? "dataTypeSpec")
-            Prelude.<*> (x Core..:? "assetId")
-            Prelude.<*> (x Core..:? "propertyId")
-            Prelude.<*> (x Core..: "timeSeriesId")
-            Prelude.<*> (x Core..: "dataType")
-            Prelude.<*> (x Core..: "timeSeriesCreationDate")
-            Prelude.<*> (x Core..: "timeSeriesLastUpdateDate")
+            Prelude.<$> (x Data..:? "alias")
+            Prelude.<*> (x Data..:? "dataTypeSpec")
+            Prelude.<*> (x Data..:? "assetId")
+            Prelude.<*> (x Data..:? "propertyId")
+            Prelude.<*> (x Data..: "timeSeriesId")
+            Prelude.<*> (x Data..: "dataType")
+            Prelude.<*> (x Data..: "timeSeriesCreationDate")
+            Prelude.<*> (x Data..: "timeSeriesLastUpdateDate")
       )
 
 instance Prelude.Hashable TimeSeriesSummary where

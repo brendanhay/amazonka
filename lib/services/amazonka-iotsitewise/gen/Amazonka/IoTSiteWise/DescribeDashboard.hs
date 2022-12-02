@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,15 +91,15 @@ instance Core.AWSRequest DescribeDashboard where
     Response.receiveJSON
       ( \s h x ->
           DescribeDashboardResponse'
-            Prelude.<$> (x Core..?> "dashboardDescription")
+            Prelude.<$> (x Data..?> "dashboardDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "dashboardId")
-            Prelude.<*> (x Core..:> "dashboardArn")
-            Prelude.<*> (x Core..:> "dashboardName")
-            Prelude.<*> (x Core..:> "projectId")
-            Prelude.<*> (x Core..:> "dashboardDefinition")
-            Prelude.<*> (x Core..:> "dashboardCreationDate")
-            Prelude.<*> (x Core..:> "dashboardLastUpdateDate")
+            Prelude.<*> (x Data..:> "dashboardId")
+            Prelude.<*> (x Data..:> "dashboardArn")
+            Prelude.<*> (x Data..:> "dashboardName")
+            Prelude.<*> (x Data..:> "projectId")
+            Prelude.<*> (x Data..:> "dashboardDefinition")
+            Prelude.<*> (x Data..:> "dashboardCreationDate")
+            Prelude.<*> (x Data..:> "dashboardLastUpdateDate")
       )
 
 instance Prelude.Hashable DescribeDashboard where
@@ -108,23 +109,23 @@ instance Prelude.Hashable DescribeDashboard where
 instance Prelude.NFData DescribeDashboard where
   rnf DescribeDashboard' {..} = Prelude.rnf dashboardId
 
-instance Core.ToHeaders DescribeDashboard where
+instance Data.ToHeaders DescribeDashboard where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeDashboard where
+instance Data.ToPath DescribeDashboard where
   toPath DescribeDashboard' {..} =
     Prelude.mconcat
-      ["/dashboards/", Core.toBS dashboardId]
+      ["/dashboards/", Data.toBS dashboardId]
 
-instance Core.ToQuery DescribeDashboard where
+instance Data.ToQuery DescribeDashboard where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDashboardResponse' smart constructor.
@@ -150,9 +151,9 @@ data DescribeDashboardResponse = DescribeDashboardResponse'
     -- in the /IoT SiteWise User Guide/.
     dashboardDefinition :: Prelude.Text,
     -- | The date the dashboard was created, in Unix epoch time.
-    dashboardCreationDate :: Core.POSIX,
+    dashboardCreationDate :: Data.POSIX,
     -- | The date the dashboard was last updated, in Unix epoch time.
-    dashboardLastUpdateDate :: Core.POSIX
+    dashboardLastUpdateDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -224,9 +225,9 @@ newDescribeDashboardResponse
         projectId = pProjectId_,
         dashboardDefinition = pDashboardDefinition_,
         dashboardCreationDate =
-          Core._Time Lens.# pDashboardCreationDate_,
+          Data._Time Lens.# pDashboardCreationDate_,
         dashboardLastUpdateDate =
-          Core._Time Lens.# pDashboardLastUpdateDate_
+          Data._Time Lens.# pDashboardLastUpdateDate_
       }
 
 -- | The dashboard\'s description.
@@ -265,11 +266,11 @@ describeDashboardResponse_dashboardDefinition = Lens.lens (\DescribeDashboardRes
 
 -- | The date the dashboard was created, in Unix epoch time.
 describeDashboardResponse_dashboardCreationDate :: Lens.Lens' DescribeDashboardResponse Prelude.UTCTime
-describeDashboardResponse_dashboardCreationDate = Lens.lens (\DescribeDashboardResponse' {dashboardCreationDate} -> dashboardCreationDate) (\s@DescribeDashboardResponse' {} a -> s {dashboardCreationDate = a} :: DescribeDashboardResponse) Prelude.. Core._Time
+describeDashboardResponse_dashboardCreationDate = Lens.lens (\DescribeDashboardResponse' {dashboardCreationDate} -> dashboardCreationDate) (\s@DescribeDashboardResponse' {} a -> s {dashboardCreationDate = a} :: DescribeDashboardResponse) Prelude.. Data._Time
 
 -- | The date the dashboard was last updated, in Unix epoch time.
 describeDashboardResponse_dashboardLastUpdateDate :: Lens.Lens' DescribeDashboardResponse Prelude.UTCTime
-describeDashboardResponse_dashboardLastUpdateDate = Lens.lens (\DescribeDashboardResponse' {dashboardLastUpdateDate} -> dashboardLastUpdateDate) (\s@DescribeDashboardResponse' {} a -> s {dashboardLastUpdateDate = a} :: DescribeDashboardResponse) Prelude.. Core._Time
+describeDashboardResponse_dashboardLastUpdateDate = Lens.lens (\DescribeDashboardResponse' {dashboardLastUpdateDate} -> dashboardLastUpdateDate) (\s@DescribeDashboardResponse' {} a -> s {dashboardLastUpdateDate = a} :: DescribeDashboardResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeDashboardResponse where
   rnf DescribeDashboardResponse' {..} =

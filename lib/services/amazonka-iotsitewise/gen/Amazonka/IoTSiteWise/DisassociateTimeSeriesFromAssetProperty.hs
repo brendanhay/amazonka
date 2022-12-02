@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,44 +153,44 @@ instance
       `Prelude.seq` Prelude.rnf propertyId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateTimeSeriesFromAssetProperty
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DisassociateTimeSeriesFromAssetProperty
   where
   toJSON DisassociateTimeSeriesFromAssetProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("clientToken" Core..=) Prelude.<$> clientToken]
+          [("clientToken" Data..=) Prelude.<$> clientToken]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateTimeSeriesFromAssetProperty
   where
   toPath = Prelude.const "/timeseries/disassociate/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateTimeSeriesFromAssetProperty
   where
   toQuery DisassociateTimeSeriesFromAssetProperty' {..} =
     Prelude.mconcat
-      [ "alias" Core.=: alias,
-        "assetId" Core.=: assetId,
-        "propertyId" Core.=: propertyId
+      [ "alias" Data.=: alias,
+        "assetId" Data.=: assetId,
+        "propertyId" Data.=: propertyId
       ]
 
 -- | /See:/ 'newDisassociateTimeSeriesFromAssetPropertyResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.FileFormat where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.Csv
 import qualified Amazonka.Prelude as Prelude
 
@@ -50,11 +51,11 @@ newFileFormat = FileFormat' {csv = Prelude.Nothing}
 fileFormat_csv :: Lens.Lens' FileFormat (Prelude.Maybe Csv)
 fileFormat_csv = Lens.lens (\FileFormat' {csv} -> csv) (\s@FileFormat' {} a -> s {csv = a} :: FileFormat)
 
-instance Core.FromJSON FileFormat where
+instance Data.FromJSON FileFormat where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileFormat"
-      (\x -> FileFormat' Prelude.<$> (x Core..:? "csv"))
+      (\x -> FileFormat' Prelude.<$> (x Data..:? "csv"))
 
 instance Prelude.Hashable FileFormat where
   hashWithSalt _salt FileFormat' {..} =
@@ -63,7 +64,7 @@ instance Prelude.Hashable FileFormat where
 instance Prelude.NFData FileFormat where
   rnf FileFormat' {..} = Prelude.rnf csv
 
-instance Core.ToJSON FileFormat where
+instance Data.ToJSON FileFormat where
   toJSON FileFormat' {..} =
-    Core.object
-      (Prelude.catMaybes [("csv" Core..=) Prelude.<$> csv])
+    Data.object
+      (Prelude.catMaybes [("csv" Data..=) Prelude.<$> csv])

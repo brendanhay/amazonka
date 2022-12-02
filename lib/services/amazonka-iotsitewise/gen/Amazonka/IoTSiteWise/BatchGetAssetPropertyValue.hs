@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,11 +104,11 @@ instance Core.AWSRequest BatchGetAssetPropertyValue where
     Response.receiveJSON
       ( \s h x ->
           BatchGetAssetPropertyValueResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "errorEntries" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "successEntries" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "skippedEntries"
+            Prelude.<*> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "successEntries" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "skippedEntries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -122,30 +123,30 @@ instance Prelude.NFData BatchGetAssetPropertyValue where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf entries
 
-instance Core.ToHeaders BatchGetAssetPropertyValue where
+instance Data.ToHeaders BatchGetAssetPropertyValue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetAssetPropertyValue where
+instance Data.ToJSON BatchGetAssetPropertyValue where
   toJSON BatchGetAssetPropertyValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            Prelude.Just ("entries" Core..= entries)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            Prelude.Just ("entries" Data..= entries)
           ]
       )
 
-instance Core.ToPath BatchGetAssetPropertyValue where
+instance Data.ToPath BatchGetAssetPropertyValue where
   toPath = Prelude.const "/properties/batch/latest"
 
-instance Core.ToQuery BatchGetAssetPropertyValue where
+instance Data.ToQuery BatchGetAssetPropertyValue where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetAssetPropertyValueResponse' smart constructor.

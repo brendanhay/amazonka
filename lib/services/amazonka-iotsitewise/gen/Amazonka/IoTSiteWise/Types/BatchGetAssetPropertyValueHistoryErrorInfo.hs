@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryErrorInfo whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ data BatchGetAssetPropertyValueHistoryErrorInfo = BatchGetAssetPropertyValueHist
   { -- | The error code.
     errorCode :: BatchGetAssetPropertyValueHistoryErrorCode,
     -- | The date the error occurred, in Unix epoch time.
-    errorTimestamp :: Core.POSIX
+    errorTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,7 +60,7 @@ newBatchGetAssetPropertyValueHistoryErrorInfo
       { errorCode =
           pErrorCode_,
         errorTimestamp =
-          Core._Time
+          Data._Time
             Lens.# pErrorTimestamp_
       }
 
@@ -69,19 +70,19 @@ batchGetAssetPropertyValueHistoryErrorInfo_errorCode = Lens.lens (\BatchGetAsset
 
 -- | The date the error occurred, in Unix epoch time.
 batchGetAssetPropertyValueHistoryErrorInfo_errorTimestamp :: Lens.Lens' BatchGetAssetPropertyValueHistoryErrorInfo Prelude.UTCTime
-batchGetAssetPropertyValueHistoryErrorInfo_errorTimestamp = Lens.lens (\BatchGetAssetPropertyValueHistoryErrorInfo' {errorTimestamp} -> errorTimestamp) (\s@BatchGetAssetPropertyValueHistoryErrorInfo' {} a -> s {errorTimestamp = a} :: BatchGetAssetPropertyValueHistoryErrorInfo) Prelude.. Core._Time
+batchGetAssetPropertyValueHistoryErrorInfo_errorTimestamp = Lens.lens (\BatchGetAssetPropertyValueHistoryErrorInfo' {errorTimestamp} -> errorTimestamp) (\s@BatchGetAssetPropertyValueHistoryErrorInfo' {} a -> s {errorTimestamp = a} :: BatchGetAssetPropertyValueHistoryErrorInfo) Prelude.. Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchGetAssetPropertyValueHistoryErrorInfo
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetAssetPropertyValueHistoryErrorInfo"
       ( \x ->
           BatchGetAssetPropertyValueHistoryErrorInfo'
-            Prelude.<$> (x Core..: "errorCode")
-              Prelude.<*> (x Core..: "errorTimestamp")
+            Prelude.<$> (x Data..: "errorCode")
+              Prelude.<*> (x Data..: "errorTimestamp")
       )
 
 instance

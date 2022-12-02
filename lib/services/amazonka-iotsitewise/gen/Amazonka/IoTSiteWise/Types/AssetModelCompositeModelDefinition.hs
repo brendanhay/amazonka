@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.AssetModelCompositeModelDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.AssetModelPropertyDefinition
 import qualified Amazonka.Prelude as Prelude
 
@@ -112,15 +113,15 @@ instance
       `Prelude.seq` Prelude.rnf type'
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AssetModelCompositeModelDefinition
   where
   toJSON AssetModelCompositeModelDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("properties" Core..=) Prelude.<$> properties,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("type" Core..= type')
+          [ ("properties" Data..=) Prelude.<$> properties,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("type" Data..= type')
           ]
       )

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest BatchAssociateProjectAssets where
     Response.receiveJSON
       ( \s h x ->
           BatchAssociateProjectAssetsResponse'
-            Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,35 +132,35 @@ instance Prelude.NFData BatchAssociateProjectAssets where
       `Prelude.seq` Prelude.rnf projectId
       `Prelude.seq` Prelude.rnf assetIds
 
-instance Core.ToHeaders BatchAssociateProjectAssets where
+instance Data.ToHeaders BatchAssociateProjectAssets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchAssociateProjectAssets where
+instance Data.ToJSON BatchAssociateProjectAssets where
   toJSON BatchAssociateProjectAssets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("assetIds" Core..= assetIds)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("assetIds" Data..= assetIds)
           ]
       )
 
-instance Core.ToPath BatchAssociateProjectAssets where
+instance Data.ToPath BatchAssociateProjectAssets where
   toPath BatchAssociateProjectAssets' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS projectId,
+        Data.toBS projectId,
         "/assets/associate"
       ]
 
-instance Core.ToQuery BatchAssociateProjectAssets where
+instance Data.ToQuery BatchAssociateProjectAssets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchAssociateProjectAssetsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueSuccessEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.AssetPropertyValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,16 +68,16 @@ batchGetAssetPropertyValueSuccessEntry_entryId :: Lens.Lens' BatchGetAssetProper
 batchGetAssetPropertyValueSuccessEntry_entryId = Lens.lens (\BatchGetAssetPropertyValueSuccessEntry' {entryId} -> entryId) (\s@BatchGetAssetPropertyValueSuccessEntry' {} a -> s {entryId = a} :: BatchGetAssetPropertyValueSuccessEntry)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchGetAssetPropertyValueSuccessEntry
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetAssetPropertyValueSuccessEntry"
       ( \x ->
           BatchGetAssetPropertyValueSuccessEntry'
-            Prelude.<$> (x Core..:? "assetPropertyValue")
-            Prelude.<*> (x Core..: "entryId")
+            Prelude.<$> (x Data..:? "assetPropertyValue")
+            Prelude.<*> (x Data..: "entryId")
       )
 
 instance

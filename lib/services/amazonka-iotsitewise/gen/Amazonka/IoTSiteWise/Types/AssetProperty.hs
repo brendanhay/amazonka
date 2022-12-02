@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.AssetProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.PropertyDataType
 import Amazonka.IoTSiteWise.Types.PropertyNotification
 import qualified Amazonka.Prelude as Prelude
@@ -138,19 +139,19 @@ assetProperty_name = Lens.lens (\AssetProperty' {name} -> name) (\s@AssetPropert
 assetProperty_dataType :: Lens.Lens' AssetProperty PropertyDataType
 assetProperty_dataType = Lens.lens (\AssetProperty' {dataType} -> dataType) (\s@AssetProperty' {} a -> s {dataType = a} :: AssetProperty)
 
-instance Core.FromJSON AssetProperty where
+instance Data.FromJSON AssetProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetProperty"
       ( \x ->
           AssetProperty'
-            Prelude.<$> (x Core..:? "alias")
-            Prelude.<*> (x Core..:? "dataTypeSpec")
-            Prelude.<*> (x Core..:? "notification")
-            Prelude.<*> (x Core..:? "unit")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "dataType")
+            Prelude.<$> (x Data..:? "alias")
+            Prelude.<*> (x Data..:? "dataTypeSpec")
+            Prelude.<*> (x Data..:? "notification")
+            Prelude.<*> (x Data..:? "unit")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "dataType")
       )
 
 instance Prelude.Hashable AssetProperty where

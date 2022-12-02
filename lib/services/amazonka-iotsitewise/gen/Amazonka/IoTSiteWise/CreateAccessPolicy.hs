@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -160,8 +161,8 @@ instance Core.AWSRequest CreateAccessPolicy where
       ( \s h x ->
           CreateAccessPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "accessPolicyId")
-            Prelude.<*> (x Core..:> "accessPolicyArn")
+            Prelude.<*> (x Data..:> "accessPolicyId")
+            Prelude.<*> (x Data..:> "accessPolicyArn")
       )
 
 instance Prelude.Hashable CreateAccessPolicy where
@@ -180,42 +181,42 @@ instance Prelude.NFData CreateAccessPolicy where
       `Prelude.seq` Prelude.rnf accessPolicyResource
       `Prelude.seq` Prelude.rnf accessPolicyPermission
 
-instance Core.ToHeaders CreateAccessPolicy where
+instance Data.ToHeaders CreateAccessPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAccessPolicy where
+instance Data.ToJSON CreateAccessPolicy where
   toJSON CreateAccessPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
               ( "accessPolicyIdentity"
-                  Core..= accessPolicyIdentity
+                  Data..= accessPolicyIdentity
               ),
             Prelude.Just
               ( "accessPolicyResource"
-                  Core..= accessPolicyResource
+                  Data..= accessPolicyResource
               ),
             Prelude.Just
               ( "accessPolicyPermission"
-                  Core..= accessPolicyPermission
+                  Data..= accessPolicyPermission
               )
           ]
       )
 
-instance Core.ToPath CreateAccessPolicy where
+instance Data.ToPath CreateAccessPolicy where
   toPath = Prelude.const "/access-policies"
 
-instance Core.ToQuery CreateAccessPolicy where
+instance Data.ToQuery CreateAccessPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAccessPolicyResponse' smart constructor.

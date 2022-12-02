@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.MonitorErrorDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.MonitorErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ monitorErrorDetails_message = Lens.lens (\MonitorErrorDetails' {message} -> mess
 monitorErrorDetails_code :: Lens.Lens' MonitorErrorDetails (Prelude.Maybe MonitorErrorCode)
 monitorErrorDetails_code = Lens.lens (\MonitorErrorDetails' {code} -> code) (\s@MonitorErrorDetails' {} a -> s {code = a} :: MonitorErrorDetails)
 
-instance Core.FromJSON MonitorErrorDetails where
+instance Data.FromJSON MonitorErrorDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitorErrorDetails"
       ( \x ->
           MonitorErrorDetails'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable MonitorErrorDetails where

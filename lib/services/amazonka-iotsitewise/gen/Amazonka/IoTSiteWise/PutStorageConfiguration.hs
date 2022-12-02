@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -191,12 +192,12 @@ instance Core.AWSRequest PutStorageConfiguration where
     Response.receiveJSON
       ( \s h x ->
           PutStorageConfigurationResponse'
-            Prelude.<$> (x Core..?> "multiLayerStorage")
-            Prelude.<*> (x Core..?> "disassociatedDataStorage")
-            Prelude.<*> (x Core..?> "retentionPeriod")
+            Prelude.<$> (x Data..?> "multiLayerStorage")
+            Prelude.<*> (x Data..?> "disassociatedDataStorage")
+            Prelude.<*> (x Data..?> "retentionPeriod")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "storageType")
-            Prelude.<*> (x Core..:> "configurationStatus")
+            Prelude.<*> (x Data..:> "storageType")
+            Prelude.<*> (x Data..:> "configurationStatus")
       )
 
 instance Prelude.Hashable PutStorageConfiguration where
@@ -213,36 +214,36 @@ instance Prelude.NFData PutStorageConfiguration where
       `Prelude.seq` Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf storageType
 
-instance Core.ToHeaders PutStorageConfiguration where
+instance Data.ToHeaders PutStorageConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutStorageConfiguration where
+instance Data.ToJSON PutStorageConfiguration where
   toJSON PutStorageConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("multiLayerStorage" Core..=)
+          [ ("multiLayerStorage" Data..=)
               Prelude.<$> multiLayerStorage,
-            ("disassociatedDataStorage" Core..=)
+            ("disassociatedDataStorage" Data..=)
               Prelude.<$> disassociatedDataStorage,
-            ("retentionPeriod" Core..=)
+            ("retentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
-            Prelude.Just ("storageType" Core..= storageType)
+            Prelude.Just ("storageType" Data..= storageType)
           ]
       )
 
-instance Core.ToPath PutStorageConfiguration where
+instance Data.ToPath PutStorageConfiguration where
   toPath =
     Prelude.const "/configuration/account/storage"
 
-instance Core.ToQuery PutStorageConfiguration where
+instance Data.ToQuery PutStorageConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutStorageConfigurationResponse' smart constructor.

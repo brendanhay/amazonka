@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -172,9 +173,9 @@ instance Core.AWSRequest ListAssetModelProperties where
     Response.receiveJSON
       ( \s h x ->
           ListAssetModelPropertiesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "assetModelPropertySummaries"
+            Prelude.<*> ( x Data..?> "assetModelPropertySummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -193,31 +194,31 @@ instance Prelude.NFData ListAssetModelProperties where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf assetModelId
 
-instance Core.ToHeaders ListAssetModelProperties where
+instance Data.ToHeaders ListAssetModelProperties where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAssetModelProperties where
+instance Data.ToPath ListAssetModelProperties where
   toPath ListAssetModelProperties' {..} =
     Prelude.mconcat
       [ "/asset-models/",
-        Core.toBS assetModelId,
+        Data.toBS assetModelId,
         "/properties"
       ]
 
-instance Core.ToQuery ListAssetModelProperties where
+instance Data.ToQuery ListAssetModelProperties where
   toQuery ListAssetModelProperties' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "filter" Core.=: filter',
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "filter" Data.=: filter',
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAssetModelPropertiesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.ImageFile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.ImageFileType
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data ImageFile = ImageFile'
   { -- | The image file contents, represented as a base64-encoded string. The
     -- file size must be less than 1 MB.
-    data' :: Core.Base64,
+    data' :: Data.Base64,
     -- | The file type of the image.
     type' :: ImageFileType
   }
@@ -60,7 +61,7 @@ newImageFile ::
   ImageFile
 newImageFile pData_ pType_ =
   ImageFile'
-    { data' = Core._Base64 Lens.# pData_,
+    { data' = Data._Base64 Lens.# pData_,
       type' = pType_
     }
 
@@ -71,7 +72,7 @@ newImageFile pData_ pType_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 imageFile_data :: Lens.Lens' ImageFile Prelude.ByteString
-imageFile_data = Lens.lens (\ImageFile' {data'} -> data') (\s@ImageFile' {} a -> s {data' = a} :: ImageFile) Prelude.. Core._Base64
+imageFile_data = Lens.lens (\ImageFile' {data'} -> data') (\s@ImageFile' {} a -> s {data' = a} :: ImageFile) Prelude.. Data._Base64
 
 -- | The file type of the image.
 imageFile_type :: Lens.Lens' ImageFile ImageFileType
@@ -86,11 +87,11 @@ instance Prelude.NFData ImageFile where
   rnf ImageFile' {..} =
     Prelude.rnf data' `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON ImageFile where
+instance Data.ToJSON ImageFile where
   toJSON ImageFile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("data" Core..= data'),
-            Prelude.Just ("type" Core..= type')
+          [ Prelude.Just ("data" Data..= data'),
+            Prelude.Just ("type" Data..= type')
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.AssetModelPropertySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.PropertyDataType
 import Amazonka.IoTSiteWise.Types.PropertyType
 import qualified Amazonka.Prelude as Prelude
@@ -117,19 +118,19 @@ assetModelPropertySummary_dataType = Lens.lens (\AssetModelPropertySummary' {dat
 assetModelPropertySummary_type :: Lens.Lens' AssetModelPropertySummary PropertyType
 assetModelPropertySummary_type = Lens.lens (\AssetModelPropertySummary' {type'} -> type') (\s@AssetModelPropertySummary' {} a -> s {type' = a} :: AssetModelPropertySummary)
 
-instance Core.FromJSON AssetModelPropertySummary where
+instance Data.FromJSON AssetModelPropertySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetModelPropertySummary"
       ( \x ->
           AssetModelPropertySummary'
-            Prelude.<$> (x Core..:? "dataTypeSpec")
-            Prelude.<*> (x Core..:? "assetModelCompositeModelId")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "unit")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "dataType")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "dataTypeSpec")
+            Prelude.<*> (x Data..:? "assetModelCompositeModelId")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "unit")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "dataType")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable AssetModelPropertySummary where

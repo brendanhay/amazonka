@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.ErrorReportLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon S3 destination where errors associated with the job creation
@@ -84,14 +85,14 @@ errorReportLocation_bucket = Lens.lens (\ErrorReportLocation' {bucket} -> bucket
 errorReportLocation_prefix :: Lens.Lens' ErrorReportLocation Prelude.Text
 errorReportLocation_prefix = Lens.lens (\ErrorReportLocation' {prefix} -> prefix) (\s@ErrorReportLocation' {} a -> s {prefix = a} :: ErrorReportLocation)
 
-instance Core.FromJSON ErrorReportLocation where
+instance Data.FromJSON ErrorReportLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorReportLocation"
       ( \x ->
           ErrorReportLocation'
-            Prelude.<$> (x Core..: "bucket")
-            Prelude.<*> (x Core..: "prefix")
+            Prelude.<$> (x Data..: "bucket")
+            Prelude.<*> (x Data..: "prefix")
       )
 
 instance Prelude.Hashable ErrorReportLocation where
@@ -103,11 +104,11 @@ instance Prelude.NFData ErrorReportLocation where
   rnf ErrorReportLocation' {..} =
     Prelude.rnf bucket `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToJSON ErrorReportLocation where
+instance Data.ToJSON ErrorReportLocation where
   toJSON ErrorReportLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("bucket" Core..= bucket),
-            Prelude.Just ("prefix" Core..= prefix)
+          [ Prelude.Just ("bucket" Data..= bucket),
+            Prelude.Just ("prefix" Data..= prefix)
           ]
       )

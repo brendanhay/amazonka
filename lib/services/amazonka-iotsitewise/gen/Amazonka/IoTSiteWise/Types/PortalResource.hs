@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.PortalResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies an IoT SiteWise Monitor portal.
@@ -51,11 +52,11 @@ newPortalResource pId_ = PortalResource' {id = pId_}
 portalResource_id :: Lens.Lens' PortalResource Prelude.Text
 portalResource_id = Lens.lens (\PortalResource' {id} -> id) (\s@PortalResource' {} a -> s {id = a} :: PortalResource)
 
-instance Core.FromJSON PortalResource where
+instance Data.FromJSON PortalResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortalResource"
-      (\x -> PortalResource' Prelude.<$> (x Core..: "id"))
+      (\x -> PortalResource' Prelude.<$> (x Data..: "id"))
 
 instance Prelude.Hashable PortalResource where
   hashWithSalt _salt PortalResource' {..} =
@@ -64,7 +65,7 @@ instance Prelude.Hashable PortalResource where
 instance Prelude.NFData PortalResource where
   rnf PortalResource' {..} = Prelude.rnf id
 
-instance Core.ToJSON PortalResource where
+instance Data.ToJSON PortalResource where
   toJSON PortalResource' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("id" Data..= id)])

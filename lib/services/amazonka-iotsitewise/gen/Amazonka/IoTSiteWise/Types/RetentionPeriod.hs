@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.RetentionPeriod where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | How many days your data is kept in the hot tier. By default, your data
@@ -80,14 +81,14 @@ retentionPeriod_numberOfDays = Lens.lens (\RetentionPeriod' {numberOfDays} -> nu
 retentionPeriod_unlimited :: Lens.Lens' RetentionPeriod (Prelude.Maybe Prelude.Bool)
 retentionPeriod_unlimited = Lens.lens (\RetentionPeriod' {unlimited} -> unlimited) (\s@RetentionPeriod' {} a -> s {unlimited = a} :: RetentionPeriod)
 
-instance Core.FromJSON RetentionPeriod where
+instance Data.FromJSON RetentionPeriod where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RetentionPeriod"
       ( \x ->
           RetentionPeriod'
-            Prelude.<$> (x Core..:? "numberOfDays")
-            Prelude.<*> (x Core..:? "unlimited")
+            Prelude.<$> (x Data..:? "numberOfDays")
+            Prelude.<*> (x Data..:? "unlimited")
       )
 
 instance Prelude.Hashable RetentionPeriod where
@@ -100,11 +101,11 @@ instance Prelude.NFData RetentionPeriod where
     Prelude.rnf numberOfDays
       `Prelude.seq` Prelude.rnf unlimited
 
-instance Core.ToJSON RetentionPeriod where
+instance Data.ToJSON RetentionPeriod where
   toJSON RetentionPeriod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("numberOfDays" Core..=) Prelude.<$> numberOfDays,
-            ("unlimited" Core..=) Prelude.<$> unlimited
+          [ ("numberOfDays" Data..=) Prelude.<$> numberOfDays,
+            ("unlimited" Data..=) Prelude.<$> unlimited
           ]
       )

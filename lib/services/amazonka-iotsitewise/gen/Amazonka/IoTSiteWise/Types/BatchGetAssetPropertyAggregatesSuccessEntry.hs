@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesSuccessEntry wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.AggregatedValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,17 +74,17 @@ batchGetAssetPropertyAggregatesSuccessEntry_aggregatedValues :: Lens.Lens' Batch
 batchGetAssetPropertyAggregatesSuccessEntry_aggregatedValues = Lens.lens (\BatchGetAssetPropertyAggregatesSuccessEntry' {aggregatedValues} -> aggregatedValues) (\s@BatchGetAssetPropertyAggregatesSuccessEntry' {} a -> s {aggregatedValues = a} :: BatchGetAssetPropertyAggregatesSuccessEntry) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchGetAssetPropertyAggregatesSuccessEntry
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetAssetPropertyAggregatesSuccessEntry"
       ( \x ->
           BatchGetAssetPropertyAggregatesSuccessEntry'
-            Prelude.<$> (x Core..: "entryId")
-              Prelude.<*> ( x Core..:? "aggregatedValues"
-                              Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "entryId")
+              Prelude.<*> ( x Data..:? "aggregatedValues"
+                              Data..!= Prelude.mempty
                           )
       )
 

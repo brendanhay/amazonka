@@ -18,6 +18,7 @@ module Amazonka.IoTSiteWise.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.DescribeAsset
 import Amazonka.IoTSiteWise.DescribeAssetModel
 import Amazonka.IoTSiteWise.DescribePortal
@@ -66,14 +67,14 @@ newAssetActive =
             Core.AcceptSuccess
             ( describeAssetResponse_assetStatus
                 Prelude.. assetStatus_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( describeAssetResponse_assetStatus
                 Prelude.. assetStatus_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -105,14 +106,14 @@ newAssetModelActive =
             Core.AcceptSuccess
             ( describeAssetModelResponse_assetModelStatus
                 Prelude.. assetModelStatus_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( describeAssetModelResponse_assetModelStatus
                 Prelude.. assetModelStatus_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -130,7 +131,7 @@ newPortalActive =
             Core.AcceptSuccess
             ( describePortalResponse_portalStatus
                 Prelude.. portalStatus_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

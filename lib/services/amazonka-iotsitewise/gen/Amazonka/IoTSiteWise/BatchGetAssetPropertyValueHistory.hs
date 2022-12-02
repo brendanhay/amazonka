@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,11 +135,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchGetAssetPropertyValueHistoryResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..?> "errorEntries" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "successEntries" Core..!@ Prelude.mempty)
-              Prelude.<*> ( x Core..?> "skippedEntries"
+              Prelude.<*> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "successEntries" Core..!@ Prelude.mempty)
+              Prelude.<*> ( x Data..?> "skippedEntries"
                               Core..!@ Prelude.mempty
                           )
       )
@@ -164,40 +165,40 @@ instance
       `Prelude.seq` Prelude.rnf entries
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchGetAssetPropertyValueHistory
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BatchGetAssetPropertyValueHistory
   where
   toJSON BatchGetAssetPropertyValueHistory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("entries" Core..= entries)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("entries" Data..= entries)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     BatchGetAssetPropertyValueHistory
   where
   toPath = Prelude.const "/properties/batch/history"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     BatchGetAssetPropertyValueHistory
   where
   toQuery = Prelude.const Prelude.mempty

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,33 +144,33 @@ instance Prelude.NFData DeleteTimeSeries where
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf propertyId
 
-instance Core.ToHeaders DeleteTimeSeries where
+instance Data.ToHeaders DeleteTimeSeries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteTimeSeries where
+instance Data.ToJSON DeleteTimeSeries where
   toJSON DeleteTimeSeries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("clientToken" Core..=) Prelude.<$> clientToken]
+          [("clientToken" Data..=) Prelude.<$> clientToken]
       )
 
-instance Core.ToPath DeleteTimeSeries where
+instance Data.ToPath DeleteTimeSeries where
   toPath = Prelude.const "/timeseries/delete/"
 
-instance Core.ToQuery DeleteTimeSeries where
+instance Data.ToQuery DeleteTimeSeries where
   toQuery DeleteTimeSeries' {..} =
     Prelude.mconcat
-      [ "alias" Core.=: alias,
-        "assetId" Core.=: assetId,
-        "propertyId" Core.=: propertyId
+      [ "alias" Data.=: alias,
+        "assetId" Data.=: assetId,
+        "propertyId" Data.=: propertyId
       ]
 
 -- | /See:/ 'newDeleteTimeSeriesResponse' smart constructor.

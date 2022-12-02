@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.Variant where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an asset property value (of a single type only).
@@ -79,16 +80,16 @@ variant_booleanValue = Lens.lens (\Variant' {booleanValue} -> booleanValue) (\s@
 variant_stringValue :: Lens.Lens' Variant (Prelude.Maybe Prelude.Text)
 variant_stringValue = Lens.lens (\Variant' {stringValue} -> stringValue) (\s@Variant' {} a -> s {stringValue = a} :: Variant)
 
-instance Core.FromJSON Variant where
+instance Data.FromJSON Variant where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Variant"
       ( \x ->
           Variant'
-            Prelude.<$> (x Core..:? "integerValue")
-            Prelude.<*> (x Core..:? "doubleValue")
-            Prelude.<*> (x Core..:? "booleanValue")
-            Prelude.<*> (x Core..:? "stringValue")
+            Prelude.<$> (x Data..:? "integerValue")
+            Prelude.<*> (x Data..:? "doubleValue")
+            Prelude.<*> (x Data..:? "booleanValue")
+            Prelude.<*> (x Data..:? "stringValue")
       )
 
 instance Prelude.Hashable Variant where
@@ -105,13 +106,13 @@ instance Prelude.NFData Variant where
       `Prelude.seq` Prelude.rnf booleanValue
       `Prelude.seq` Prelude.rnf stringValue
 
-instance Core.ToJSON Variant where
+instance Data.ToJSON Variant where
   toJSON Variant' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("integerValue" Core..=) Prelude.<$> integerValue,
-            ("doubleValue" Core..=) Prelude.<$> doubleValue,
-            ("booleanValue" Core..=) Prelude.<$> booleanValue,
-            ("stringValue" Core..=) Prelude.<$> stringValue
+          [ ("integerValue" Data..=) Prelude.<$> integerValue,
+            ("doubleValue" Data..=) Prelude.<$> doubleValue,
+            ("booleanValue" Data..=) Prelude.<$> booleanValue,
+            ("stringValue" Data..=) Prelude.<$> stringValue
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyValueErrorCode
 import Amazonka.IoTSiteWise.Types.TimeInNanos
 import qualified Amazonka.Prelude as Prelude
@@ -80,15 +81,15 @@ batchPutAssetPropertyError_errorMessage = Lens.lens (\BatchPutAssetPropertyError
 batchPutAssetPropertyError_timestamps :: Lens.Lens' BatchPutAssetPropertyError [TimeInNanos]
 batchPutAssetPropertyError_timestamps = Lens.lens (\BatchPutAssetPropertyError' {timestamps} -> timestamps) (\s@BatchPutAssetPropertyError' {} a -> s {timestamps = a} :: BatchPutAssetPropertyError) Prelude.. Lens.coerced
 
-instance Core.FromJSON BatchPutAssetPropertyError where
+instance Data.FromJSON BatchPutAssetPropertyError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchPutAssetPropertyError"
       ( \x ->
           BatchPutAssetPropertyError'
-            Prelude.<$> (x Core..: "errorCode")
-            Prelude.<*> (x Core..: "errorMessage")
-            Prelude.<*> (x Core..:? "timestamps" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "errorCode")
+            Prelude.<*> (x Data..: "errorMessage")
+            Prelude.<*> (x Data..:? "timestamps" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchPutAssetPropertyError where

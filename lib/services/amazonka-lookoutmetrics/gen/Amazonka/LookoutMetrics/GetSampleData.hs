@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,8 +83,8 @@ instance Core.AWSRequest GetSampleData where
     Response.receiveJSON
       ( \s h x ->
           GetSampleDataResponse'
-            Prelude.<$> (x Core..?> "SampleRows" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "HeaderValues" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "SampleRows" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "HeaderValues" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,30 +95,30 @@ instance Prelude.Hashable GetSampleData where
 instance Prelude.NFData GetSampleData where
   rnf GetSampleData' {..} = Prelude.rnf s3SourceConfig
 
-instance Core.ToHeaders GetSampleData where
+instance Data.ToHeaders GetSampleData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSampleData where
+instance Data.ToJSON GetSampleData where
   toJSON GetSampleData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3SourceConfig" Core..=)
+          [ ("S3SourceConfig" Data..=)
               Prelude.<$> s3SourceConfig
           ]
       )
 
-instance Core.ToPath GetSampleData where
+instance Data.ToPath GetSampleData where
   toPath = Prelude.const "/GetSampleData"
 
-instance Core.ToQuery GetSampleData where
+instance Data.ToQuery GetSampleData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSampleDataResponse' smart constructor.

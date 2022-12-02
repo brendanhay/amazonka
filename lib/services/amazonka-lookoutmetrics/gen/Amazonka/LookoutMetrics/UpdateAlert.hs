@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,7 +127,7 @@ instance Core.AWSRequest UpdateAlert where
     Response.receiveJSON
       ( \s h x ->
           UpdateAlertResponse'
-            Prelude.<$> (x Core..?> "AlertArn")
+            Prelude.<$> (x Data..?> "AlertArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,35 +147,35 @@ instance Prelude.NFData UpdateAlert where
       `Prelude.seq` Prelude.rnf alertFilters
       `Prelude.seq` Prelude.rnf alertArn
 
-instance Core.ToHeaders UpdateAlert where
+instance Data.ToHeaders UpdateAlert where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAlert where
+instance Data.ToJSON UpdateAlert where
   toJSON UpdateAlert' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AlertDescription" Core..=)
+          [ ("AlertDescription" Data..=)
               Prelude.<$> alertDescription,
-            ("AlertSensitivityThreshold" Core..=)
+            ("AlertSensitivityThreshold" Data..=)
               Prelude.<$> alertSensitivityThreshold,
-            ("Action" Core..=) Prelude.<$> action,
-            ("AlertFilters" Core..=) Prelude.<$> alertFilters,
-            Prelude.Just ("AlertArn" Core..= alertArn)
+            ("Action" Data..=) Prelude.<$> action,
+            ("AlertFilters" Data..=) Prelude.<$> alertFilters,
+            Prelude.Just ("AlertArn" Data..= alertArn)
           ]
       )
 
-instance Core.ToPath UpdateAlert where
+instance Data.ToPath UpdateAlert where
   toPath = Prelude.const "/UpdateAlert"
 
-instance Core.ToQuery UpdateAlert where
+instance Data.ToQuery UpdateAlert where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAlertResponse' smart constructor.

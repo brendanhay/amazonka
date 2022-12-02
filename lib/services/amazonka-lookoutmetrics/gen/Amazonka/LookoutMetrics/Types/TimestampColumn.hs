@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.TimestampColumn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the column used to track time in a source
@@ -62,14 +63,14 @@ timestampColumn_columnName = Lens.lens (\TimestampColumn' {columnName} -> column
 timestampColumn_columnFormat :: Lens.Lens' TimestampColumn (Prelude.Maybe Prelude.Text)
 timestampColumn_columnFormat = Lens.lens (\TimestampColumn' {columnFormat} -> columnFormat) (\s@TimestampColumn' {} a -> s {columnFormat = a} :: TimestampColumn)
 
-instance Core.FromJSON TimestampColumn where
+instance Data.FromJSON TimestampColumn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimestampColumn"
       ( \x ->
           TimestampColumn'
-            Prelude.<$> (x Core..:? "ColumnName")
-            Prelude.<*> (x Core..:? "ColumnFormat")
+            Prelude.<$> (x Data..:? "ColumnName")
+            Prelude.<*> (x Data..:? "ColumnFormat")
       )
 
 instance Prelude.Hashable TimestampColumn where
@@ -82,11 +83,11 @@ instance Prelude.NFData TimestampColumn where
     Prelude.rnf columnName
       `Prelude.seq` Prelude.rnf columnFormat
 
-instance Core.ToJSON TimestampColumn where
+instance Data.ToJSON TimestampColumn where
   toJSON TimestampColumn' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ColumnName" Core..=) Prelude.<$> columnName,
-            ("ColumnFormat" Core..=) Prelude.<$> columnFormat
+          [ ("ColumnName" Data..=) Prelude.<$> columnName,
+            ("ColumnFormat" Data..=) Prelude.<$> columnFormat
           ]
       )

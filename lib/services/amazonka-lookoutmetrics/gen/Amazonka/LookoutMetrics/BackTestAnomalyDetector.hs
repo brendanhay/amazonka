@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,30 +97,30 @@ instance Prelude.NFData BackTestAnomalyDetector where
   rnf BackTestAnomalyDetector' {..} =
     Prelude.rnf anomalyDetectorArn
 
-instance Core.ToHeaders BackTestAnomalyDetector where
+instance Data.ToHeaders BackTestAnomalyDetector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BackTestAnomalyDetector where
+instance Data.ToJSON BackTestAnomalyDetector where
   toJSON BackTestAnomalyDetector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn)
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn)
           ]
       )
 
-instance Core.ToPath BackTestAnomalyDetector where
+instance Data.ToPath BackTestAnomalyDetector where
   toPath = Prelude.const "/BackTestAnomalyDetector"
 
-instance Core.ToQuery BackTestAnomalyDetector where
+instance Data.ToQuery BackTestAnomalyDetector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBackTestAnomalyDetectorResponse' smart constructor.

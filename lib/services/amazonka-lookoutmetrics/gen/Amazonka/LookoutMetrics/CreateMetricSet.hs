@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -220,7 +221,7 @@ instance Core.AWSRequest CreateMetricSet where
     Response.receiveJSON
       ( \s h x ->
           CreateMetricSetResponse'
-            Prelude.<$> (x Core..?> "MetricSetArn")
+            Prelude.<$> (x Data..?> "MetricSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -254,45 +255,45 @@ instance Prelude.NFData CreateMetricSet where
       `Prelude.seq` Prelude.rnf metricList
       `Prelude.seq` Prelude.rnf metricSource
 
-instance Core.ToHeaders CreateMetricSet where
+instance Data.ToHeaders CreateMetricSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMetricSet where
+instance Data.ToJSON CreateMetricSet where
   toJSON CreateMetricSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("TimestampColumn" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("TimestampColumn" Data..=)
               Prelude.<$> timestampColumn,
-            ("MetricSetDescription" Core..=)
+            ("MetricSetDescription" Data..=)
               Prelude.<$> metricSetDescription,
-            ("Timezone" Core..=) Prelude.<$> timezone,
-            ("Offset" Core..=) Prelude.<$> offset,
-            ("DimensionFilterList" Core..=)
+            ("Timezone" Data..=) Prelude.<$> timezone,
+            ("Offset" Data..=) Prelude.<$> offset,
+            ("DimensionFilterList" Data..=)
               Prelude.<$> dimensionFilterList,
-            ("DimensionList" Core..=) Prelude.<$> dimensionList,
-            ("MetricSetFrequency" Core..=)
+            ("DimensionList" Data..=) Prelude.<$> dimensionList,
+            ("MetricSetFrequency" Data..=)
               Prelude.<$> metricSetFrequency,
             Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn),
-            Prelude.Just ("MetricSetName" Core..= metricSetName),
-            Prelude.Just ("MetricList" Core..= metricList),
-            Prelude.Just ("MetricSource" Core..= metricSource)
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn),
+            Prelude.Just ("MetricSetName" Data..= metricSetName),
+            Prelude.Just ("MetricList" Data..= metricList),
+            Prelude.Just ("MetricSource" Data..= metricSource)
           ]
       )
 
-instance Core.ToPath CreateMetricSet where
+instance Data.ToPath CreateMetricSet where
   toPath = Prelude.const "/CreateMetricSet"
 
-instance Core.ToQuery CreateMetricSet where
+instance Data.ToQuery CreateMetricSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateMetricSetResponse' smart constructor.

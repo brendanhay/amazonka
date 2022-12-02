@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.RDSSourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.VpcConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -121,20 +122,20 @@ rDSSourceConfig_databasePort = Lens.lens (\RDSSourceConfig' {databasePort} -> da
 rDSSourceConfig_secretManagerArn :: Lens.Lens' RDSSourceConfig (Prelude.Maybe Prelude.Text)
 rDSSourceConfig_secretManagerArn = Lens.lens (\RDSSourceConfig' {secretManagerArn} -> secretManagerArn) (\s@RDSSourceConfig' {} a -> s {secretManagerArn = a} :: RDSSourceConfig)
 
-instance Core.FromJSON RDSSourceConfig where
+instance Data.FromJSON RDSSourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RDSSourceConfig"
       ( \x ->
           RDSSourceConfig'
-            Prelude.<$> (x Core..:? "VpcConfiguration")
-            Prelude.<*> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "DBInstanceIdentifier")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "DatabaseHost")
-            Prelude.<*> (x Core..:? "DatabasePort")
-            Prelude.<*> (x Core..:? "SecretManagerArn")
+            Prelude.<$> (x Data..:? "VpcConfiguration")
+            Prelude.<*> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "DBInstanceIdentifier")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "DatabaseHost")
+            Prelude.<*> (x Data..:? "DatabasePort")
+            Prelude.<*> (x Data..:? "SecretManagerArn")
       )
 
 instance Prelude.Hashable RDSSourceConfig where
@@ -159,20 +160,20 @@ instance Prelude.NFData RDSSourceConfig where
       `Prelude.seq` Prelude.rnf databasePort
       `Prelude.seq` Prelude.rnf secretManagerArn
 
-instance Core.ToJSON RDSSourceConfig where
+instance Data.ToJSON RDSSourceConfig where
   toJSON RDSSourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfiguration" Core..=)
+          [ ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("TableName" Core..=) Prelude.<$> tableName,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("DBInstanceIdentifier" Core..=)
+            ("TableName" Data..=) Prelude.<$> tableName,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("DBInstanceIdentifier" Data..=)
               Prelude.<$> dbInstanceIdentifier,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("DatabaseHost" Core..=) Prelude.<$> databaseHost,
-            ("DatabasePort" Core..=) Prelude.<$> databasePort,
-            ("SecretManagerArn" Core..=)
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("DatabaseHost" Data..=) Prelude.<$> databaseHost,
+            ("DatabasePort" Data..=) Prelude.<$> databasePort,
+            ("SecretManagerArn" Data..=)
               Prelude.<$> secretManagerArn
           ]
       )

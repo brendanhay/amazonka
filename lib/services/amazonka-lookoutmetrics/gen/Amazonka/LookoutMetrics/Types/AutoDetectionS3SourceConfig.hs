@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.AutoDetectionS3SourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An auto detection source config.
@@ -72,13 +73,13 @@ instance Prelude.NFData AutoDetectionS3SourceConfig where
     Prelude.rnf templatedPathList
       `Prelude.seq` Prelude.rnf historicalDataPathList
 
-instance Core.ToJSON AutoDetectionS3SourceConfig where
+instance Data.ToJSON AutoDetectionS3SourceConfig where
   toJSON AutoDetectionS3SourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TemplatedPathList" Core..=)
+          [ ("TemplatedPathList" Data..=)
               Prelude.<$> templatedPathList,
-            ("HistoricalDataPathList" Core..=)
+            ("HistoricalDataPathList" Data..=)
               Prelude.<$> historicalDataPathList
           ]
       )

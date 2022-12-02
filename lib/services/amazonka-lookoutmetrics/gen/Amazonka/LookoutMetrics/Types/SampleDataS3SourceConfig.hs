@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.SampleDataS3SourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.FileFormatDescriptor
 import qualified Amazonka.Prelude as Prelude
 
@@ -100,18 +101,18 @@ instance Prelude.NFData SampleDataS3SourceConfig where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf fileFormatDescriptor
 
-instance Core.ToJSON SampleDataS3SourceConfig where
+instance Data.ToJSON SampleDataS3SourceConfig where
   toJSON SampleDataS3SourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TemplatedPathList" Core..=)
+          [ ("TemplatedPathList" Data..=)
               Prelude.<$> templatedPathList,
-            ("HistoricalDataPathList" Core..=)
+            ("HistoricalDataPathList" Data..=)
               Prelude.<$> historicalDataPathList,
-            Prelude.Just ("RoleArn" Core..= roleArn),
+            Prelude.Just ("RoleArn" Data..= roleArn),
             Prelude.Just
               ( "FileFormatDescriptor"
-                  Core..= fileFormatDescriptor
+                  Data..= fileFormatDescriptor
               )
           ]
       )

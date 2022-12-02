@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,30 +98,30 @@ instance Prelude.NFData DeleteAnomalyDetector where
   rnf DeleteAnomalyDetector' {..} =
     Prelude.rnf anomalyDetectorArn
 
-instance Core.ToHeaders DeleteAnomalyDetector where
+instance Data.ToHeaders DeleteAnomalyDetector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAnomalyDetector where
+instance Data.ToJSON DeleteAnomalyDetector where
   toJSON DeleteAnomalyDetector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn)
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn)
           ]
       )
 
-instance Core.ToPath DeleteAnomalyDetector where
+instance Data.ToPath DeleteAnomalyDetector where
   toPath = Prelude.const "/DeleteAnomalyDetector"
 
-instance Core.ToQuery DeleteAnomalyDetector where
+instance Data.ToQuery DeleteAnomalyDetector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAnomalyDetectorResponse' smart constructor.

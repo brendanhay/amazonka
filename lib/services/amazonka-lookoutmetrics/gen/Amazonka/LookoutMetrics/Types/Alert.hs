@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.Alert where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.Action
 import Amazonka.LookoutMetrics.Types.AlertFilters
 import Amazonka.LookoutMetrics.Types.AlertStatus
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAlert' smart constructor.
 data Alert = Alert'
   { -- | The time at which the alert was last modified.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the detector to which the alert is attached.
     anomalyDetectorArn :: Prelude.Maybe Prelude.Text,
     -- | A description of the alert.
@@ -42,7 +43,7 @@ data Alert = Alert'
     -- | Action that will be triggered when there is an alert.
     action :: Prelude.Maybe Action,
     -- | The time at which the alert was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the alert.
     alertName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the alert.
@@ -106,7 +107,7 @@ newAlert =
 
 -- | The time at which the alert was last modified.
 alert_lastModificationTime :: Lens.Lens' Alert (Prelude.Maybe Prelude.UTCTime)
-alert_lastModificationTime = Lens.lens (\Alert' {lastModificationTime} -> lastModificationTime) (\s@Alert' {} a -> s {lastModificationTime = a} :: Alert) Prelude.. Lens.mapping Core._Time
+alert_lastModificationTime = Lens.lens (\Alert' {lastModificationTime} -> lastModificationTime) (\s@Alert' {} a -> s {lastModificationTime = a} :: Alert) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the detector to which the alert is attached.
 alert_anomalyDetectorArn :: Lens.Lens' Alert (Prelude.Maybe Prelude.Text)
@@ -126,7 +127,7 @@ alert_action = Lens.lens (\Alert' {action} -> action) (\s@Alert' {} a -> s {acti
 
 -- | The time at which the alert was created.
 alert_creationTime :: Lens.Lens' Alert (Prelude.Maybe Prelude.UTCTime)
-alert_creationTime = Lens.lens (\Alert' {creationTime} -> creationTime) (\s@Alert' {} a -> s {creationTime = a} :: Alert) Prelude.. Lens.mapping Core._Time
+alert_creationTime = Lens.lens (\Alert' {creationTime} -> creationTime) (\s@Alert' {} a -> s {creationTime = a} :: Alert) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the alert.
 alert_alertName :: Lens.Lens' Alert (Prelude.Maybe Prelude.Text)
@@ -149,23 +150,23 @@ alert_alertType = Lens.lens (\Alert' {alertType} -> alertType) (\s@Alert' {} a -
 alert_alertFilters :: Lens.Lens' Alert (Prelude.Maybe AlertFilters)
 alert_alertFilters = Lens.lens (\Alert' {alertFilters} -> alertFilters) (\s@Alert' {} a -> s {alertFilters = a} :: Alert)
 
-instance Core.FromJSON Alert where
+instance Data.FromJSON Alert where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Alert"
       ( \x ->
           Alert'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "AnomalyDetectorArn")
-            Prelude.<*> (x Core..:? "AlertDescription")
-            Prelude.<*> (x Core..:? "AlertSensitivityThreshold")
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "AlertName")
-            Prelude.<*> (x Core..:? "AlertArn")
-            Prelude.<*> (x Core..:? "AlertStatus")
-            Prelude.<*> (x Core..:? "AlertType")
-            Prelude.<*> (x Core..:? "AlertFilters")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "AnomalyDetectorArn")
+            Prelude.<*> (x Data..:? "AlertDescription")
+            Prelude.<*> (x Data..:? "AlertSensitivityThreshold")
+            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "AlertName")
+            Prelude.<*> (x Data..:? "AlertArn")
+            Prelude.<*> (x Data..:? "AlertStatus")
+            Prelude.<*> (x Data..:? "AlertType")
+            Prelude.<*> (x Data..:? "AlertFilters")
       )
 
 instance Prelude.Hashable Alert where

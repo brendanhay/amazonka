@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,7 +120,7 @@ instance Core.AWSRequest UpdateAnomalyDetector where
     Response.receiveJSON
       ( \s h x ->
           UpdateAnomalyDetectorResponse'
-            Prelude.<$> (x Core..?> "AnomalyDetectorArn")
+            Prelude.<$> (x Data..?> "AnomalyDetectorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,35 +138,35 @@ instance Prelude.NFData UpdateAnomalyDetector where
       `Prelude.seq` Prelude.rnf anomalyDetectorConfig
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
 
-instance Core.ToHeaders UpdateAnomalyDetector where
+instance Data.ToHeaders UpdateAnomalyDetector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAnomalyDetector where
+instance Data.ToJSON UpdateAnomalyDetector where
   toJSON UpdateAnomalyDetector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("AnomalyDetectorDescription" Core..=)
+          [ ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("AnomalyDetectorDescription" Data..=)
               Prelude.<$> anomalyDetectorDescription,
-            ("AnomalyDetectorConfig" Core..=)
+            ("AnomalyDetectorConfig" Data..=)
               Prelude.<$> anomalyDetectorConfig,
             Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn)
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn)
           ]
       )
 
-instance Core.ToPath UpdateAnomalyDetector where
+instance Data.ToPath UpdateAnomalyDetector where
   toPath = Prelude.const "/UpdateAnomalyDetector"
 
-instance Core.ToQuery UpdateAnomalyDetector where
+instance Data.ToQuery UpdateAnomalyDetector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAnomalyDetectorResponse' smart constructor.

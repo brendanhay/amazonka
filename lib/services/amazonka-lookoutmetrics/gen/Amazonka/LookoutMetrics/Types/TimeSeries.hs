@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.TimeSeries where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.DimensionNameValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,16 +76,16 @@ timeSeries_dimensionList = Lens.lens (\TimeSeries' {dimensionList} -> dimensionL
 timeSeries_metricValueList :: Lens.Lens' TimeSeries [Prelude.Double]
 timeSeries_metricValueList = Lens.lens (\TimeSeries' {metricValueList} -> metricValueList) (\s@TimeSeries' {} a -> s {metricValueList = a} :: TimeSeries) Prelude.. Lens.coerced
 
-instance Core.FromJSON TimeSeries where
+instance Data.FromJSON TimeSeries where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeSeries"
       ( \x ->
           TimeSeries'
-            Prelude.<$> (x Core..: "TimeSeriesId")
-            Prelude.<*> (x Core..:? "DimensionList" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "MetricValueList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "TimeSeriesId")
+            Prelude.<*> (x Data..:? "DimensionList" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "MetricValueList"
+                            Data..!= Prelude.mempty
                         )
       )
 

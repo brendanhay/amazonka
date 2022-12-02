@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.InterMetricImpactDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.RelationshipType
 import qualified Amazonka.Prelude as Prelude
 
@@ -91,16 +92,16 @@ interMetricImpactDetails_metricName = Lens.lens (\InterMetricImpactDetails' {met
 interMetricImpactDetails_contributionPercentage :: Lens.Lens' InterMetricImpactDetails (Prelude.Maybe Prelude.Double)
 interMetricImpactDetails_contributionPercentage = Lens.lens (\InterMetricImpactDetails' {contributionPercentage} -> contributionPercentage) (\s@InterMetricImpactDetails' {} a -> s {contributionPercentage = a} :: InterMetricImpactDetails)
 
-instance Core.FromJSON InterMetricImpactDetails where
+instance Data.FromJSON InterMetricImpactDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InterMetricImpactDetails"
       ( \x ->
           InterMetricImpactDetails'
-            Prelude.<$> (x Core..:? "AnomalyGroupId")
-            Prelude.<*> (x Core..:? "RelationshipType")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "ContributionPercentage")
+            Prelude.<$> (x Data..:? "AnomalyGroupId")
+            Prelude.<*> (x Data..:? "RelationshipType")
+            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "ContributionPercentage")
       )
 
 instance Prelude.Hashable InterMetricImpactDetails where

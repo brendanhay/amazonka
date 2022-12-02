@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,8 +123,8 @@ instance Core.AWSRequest GetFeedback where
     Response.receiveJSON
       ( \s h x ->
           GetFeedbackResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AnomalyGroupTimeSeriesFeedback"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "AnomalyGroupTimeSeriesFeedback"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -143,36 +144,36 @@ instance Prelude.NFData GetFeedback where
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf anomalyGroupTimeSeriesFeedback
 
-instance Core.ToHeaders GetFeedback where
+instance Data.ToHeaders GetFeedback where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetFeedback where
+instance Data.ToJSON GetFeedback where
   toJSON GetFeedback' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn),
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn),
             Prelude.Just
               ( "AnomalyGroupTimeSeriesFeedback"
-                  Core..= anomalyGroupTimeSeriesFeedback
+                  Data..= anomalyGroupTimeSeriesFeedback
               )
           ]
       )
 
-instance Core.ToPath GetFeedback where
+instance Data.ToPath GetFeedback where
   toPath = Prelude.const "/GetFeedback"
 
-instance Core.ToQuery GetFeedback where
+instance Data.ToQuery GetFeedback where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFeedbackResponse' smart constructor.

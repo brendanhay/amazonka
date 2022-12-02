@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.MetricLevelImpact where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.ContributionMatrix
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ metricLevelImpact_numTimeSeries = Lens.lens (\MetricLevelImpact' {numTimeSeries}
 metricLevelImpact_metricName :: Lens.Lens' MetricLevelImpact (Prelude.Maybe Prelude.Text)
 metricLevelImpact_metricName = Lens.lens (\MetricLevelImpact' {metricName} -> metricName) (\s@MetricLevelImpact' {} a -> s {metricName = a} :: MetricLevelImpact)
 
-instance Core.FromJSON MetricLevelImpact where
+instance Data.FromJSON MetricLevelImpact where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricLevelImpact"
       ( \x ->
           MetricLevelImpact'
-            Prelude.<$> (x Core..:? "ContributionMatrix")
-            Prelude.<*> (x Core..:? "NumTimeSeries")
-            Prelude.<*> (x Core..:? "MetricName")
+            Prelude.<$> (x Data..:? "ContributionMatrix")
+            Prelude.<*> (x Data..:? "NumTimeSeries")
+            Prelude.<*> (x Data..:? "MetricName")
       )
 
 instance Prelude.Hashable MetricLevelImpact where

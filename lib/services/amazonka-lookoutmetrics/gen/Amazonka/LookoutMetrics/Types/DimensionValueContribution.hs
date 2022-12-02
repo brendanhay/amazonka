@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.DimensionValueContribution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The severity of a value of a dimension that contributed to an anomaly.
@@ -62,14 +63,14 @@ dimensionValueContribution_dimensionValue = Lens.lens (\DimensionValueContributi
 dimensionValueContribution_contributionScore :: Lens.Lens' DimensionValueContribution (Prelude.Maybe Prelude.Double)
 dimensionValueContribution_contributionScore = Lens.lens (\DimensionValueContribution' {contributionScore} -> contributionScore) (\s@DimensionValueContribution' {} a -> s {contributionScore = a} :: DimensionValueContribution)
 
-instance Core.FromJSON DimensionValueContribution where
+instance Data.FromJSON DimensionValueContribution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DimensionValueContribution"
       ( \x ->
           DimensionValueContribution'
-            Prelude.<$> (x Core..:? "DimensionValue")
-            Prelude.<*> (x Core..:? "ContributionScore")
+            Prelude.<$> (x Data..:? "DimensionValue")
+            Prelude.<*> (x Data..:? "ContributionScore")
       )
 
 instance Prelude.Hashable DimensionValueContribution where

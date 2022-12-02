@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.LambdaConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a Lambda configuration.
@@ -68,14 +69,14 @@ lambdaConfiguration_roleArn = Lens.lens (\LambdaConfiguration' {roleArn} -> role
 lambdaConfiguration_lambdaArn :: Lens.Lens' LambdaConfiguration Prelude.Text
 lambdaConfiguration_lambdaArn = Lens.lens (\LambdaConfiguration' {lambdaArn} -> lambdaArn) (\s@LambdaConfiguration' {} a -> s {lambdaArn = a} :: LambdaConfiguration)
 
-instance Core.FromJSON LambdaConfiguration where
+instance Data.FromJSON LambdaConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaConfiguration"
       ( \x ->
           LambdaConfiguration'
-            Prelude.<$> (x Core..: "RoleArn")
-            Prelude.<*> (x Core..: "LambdaArn")
+            Prelude.<$> (x Data..: "RoleArn")
+            Prelude.<*> (x Data..: "LambdaArn")
       )
 
 instance Prelude.Hashable LambdaConfiguration where
@@ -88,11 +89,11 @@ instance Prelude.NFData LambdaConfiguration where
     Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf lambdaArn
 
-instance Core.ToJSON LambdaConfiguration where
+instance Data.ToJSON LambdaConfiguration where
   toJSON LambdaConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("LambdaArn" Core..= lambdaArn)
+          [ Prelude.Just ("RoleArn" Data..= roleArn),
+            Prelude.Just ("LambdaArn" Data..= lambdaArn)
           ]
       )

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DescribeAlert where
     Response.receiveJSON
       ( \s h x ->
           DescribeAlertResponse'
-            Prelude.<$> (x Core..?> "Alert")
+            Prelude.<$> (x Data..?> "Alert")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,28 +100,28 @@ instance Prelude.Hashable DescribeAlert where
 instance Prelude.NFData DescribeAlert where
   rnf DescribeAlert' {..} = Prelude.rnf alertArn
 
-instance Core.ToHeaders DescribeAlert where
+instance Data.ToHeaders DescribeAlert where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAlert where
+instance Data.ToJSON DescribeAlert where
   toJSON DescribeAlert' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AlertArn" Core..= alertArn)]
+          [Prelude.Just ("AlertArn" Data..= alertArn)]
       )
 
-instance Core.ToPath DescribeAlert where
+instance Data.ToPath DescribeAlert where
   toPath = Prelude.const "/DescribeAlert"
 
-instance Core.ToQuery DescribeAlert where
+instance Data.ToQuery DescribeAlert where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAlertResponse' smart constructor.

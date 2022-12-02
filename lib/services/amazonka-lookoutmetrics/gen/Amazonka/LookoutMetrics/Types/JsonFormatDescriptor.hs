@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.JsonFormatDescriptor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.JsonFileCompression
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ jsonFormatDescriptor_fileCompression = Lens.lens (\JsonFormatDescriptor' {fileCo
 jsonFormatDescriptor_charset :: Lens.Lens' JsonFormatDescriptor (Prelude.Maybe Prelude.Text)
 jsonFormatDescriptor_charset = Lens.lens (\JsonFormatDescriptor' {charset} -> charset) (\s@JsonFormatDescriptor' {} a -> s {charset = a} :: JsonFormatDescriptor)
 
-instance Core.FromJSON JsonFormatDescriptor where
+instance Data.FromJSON JsonFormatDescriptor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JsonFormatDescriptor"
       ( \x ->
           JsonFormatDescriptor'
-            Prelude.<$> (x Core..:? "FileCompression")
-            Prelude.<*> (x Core..:? "Charset")
+            Prelude.<$> (x Data..:? "FileCompression")
+            Prelude.<*> (x Data..:? "Charset")
       )
 
 instance Prelude.Hashable JsonFormatDescriptor where
@@ -84,12 +85,12 @@ instance Prelude.NFData JsonFormatDescriptor where
     Prelude.rnf fileCompression
       `Prelude.seq` Prelude.rnf charset
 
-instance Core.ToJSON JsonFormatDescriptor where
+instance Data.ToJSON JsonFormatDescriptor where
   toJSON JsonFormatDescriptor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FileCompression" Core..=)
+          [ ("FileCompression" Data..=)
               Prelude.<$> fileCompression,
-            ("Charset" Core..=) Prelude.<$> charset
+            ("Charset" Data..=) Prelude.<$> charset
           ]
       )

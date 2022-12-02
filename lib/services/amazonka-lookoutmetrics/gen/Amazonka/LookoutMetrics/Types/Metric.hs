@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.Metric where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.AggregationFunction
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,15 +77,15 @@ metric_metricName = Lens.lens (\Metric' {metricName} -> metricName) (\s@Metric' 
 metric_aggregationFunction :: Lens.Lens' Metric AggregationFunction
 metric_aggregationFunction = Lens.lens (\Metric' {aggregationFunction} -> aggregationFunction) (\s@Metric' {} a -> s {aggregationFunction = a} :: Metric)
 
-instance Core.FromJSON Metric where
+instance Data.FromJSON Metric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Metric"
       ( \x ->
           Metric'
-            Prelude.<$> (x Core..:? "Namespace")
-            Prelude.<*> (x Core..: "MetricName")
-            Prelude.<*> (x Core..: "AggregationFunction")
+            Prelude.<$> (x Data..:? "Namespace")
+            Prelude.<*> (x Data..: "MetricName")
+            Prelude.<*> (x Data..: "AggregationFunction")
       )
 
 instance Prelude.Hashable Metric where
@@ -99,13 +100,13 @@ instance Prelude.NFData Metric where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf aggregationFunction
 
-instance Core.ToJSON Metric where
+instance Data.ToJSON Metric where
   toJSON Metric' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Namespace" Core..=) Prelude.<$> namespace,
-            Prelude.Just ("MetricName" Core..= metricName),
+          [ ("Namespace" Data..=) Prelude.<$> namespace,
+            Prelude.Just ("MetricName" Data..= metricName),
             Prelude.Just
-              ("AggregationFunction" Core..= aggregationFunction)
+              ("AggregationFunction" Data..= aggregationFunction)
           ]
       )

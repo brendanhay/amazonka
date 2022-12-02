@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAnomalyDetectorSummary' smart constructor.
 data AnomalyDetectorSummary = AnomalyDetectorSummary'
   { -- | The time at which the detector was last modified.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The detector\'s
     -- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -42,7 +43,7 @@ data AnomalyDetectorSummary = AnomalyDetectorSummary'
     -- | A description of the detector.
     anomalyDetectorDescription :: Prelude.Maybe Prelude.Text,
     -- | The time at which the detector was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,7 +85,7 @@ newAnomalyDetectorSummary =
 
 -- | The time at which the detector was last modified.
 anomalyDetectorSummary_lastModificationTime :: Lens.Lens' AnomalyDetectorSummary (Prelude.Maybe Prelude.UTCTime)
-anomalyDetectorSummary_lastModificationTime = Lens.lens (\AnomalyDetectorSummary' {lastModificationTime} -> lastModificationTime) (\s@AnomalyDetectorSummary' {} a -> s {lastModificationTime = a} :: AnomalyDetectorSummary) Prelude.. Lens.mapping Core._Time
+anomalyDetectorSummary_lastModificationTime = Lens.lens (\AnomalyDetectorSummary' {lastModificationTime} -> lastModificationTime) (\s@AnomalyDetectorSummary' {} a -> s {lastModificationTime = a} :: AnomalyDetectorSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The detector\'s
 -- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>.
@@ -109,21 +110,21 @@ anomalyDetectorSummary_anomalyDetectorDescription = Lens.lens (\AnomalyDetectorS
 
 -- | The time at which the detector was created.
 anomalyDetectorSummary_creationTime :: Lens.Lens' AnomalyDetectorSummary (Prelude.Maybe Prelude.UTCTime)
-anomalyDetectorSummary_creationTime = Lens.lens (\AnomalyDetectorSummary' {creationTime} -> creationTime) (\s@AnomalyDetectorSummary' {} a -> s {creationTime = a} :: AnomalyDetectorSummary) Prelude.. Lens.mapping Core._Time
+anomalyDetectorSummary_creationTime = Lens.lens (\AnomalyDetectorSummary' {creationTime} -> creationTime) (\s@AnomalyDetectorSummary' {} a -> s {creationTime = a} :: AnomalyDetectorSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AnomalyDetectorSummary where
+instance Data.FromJSON AnomalyDetectorSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnomalyDetectorSummary"
       ( \x ->
           AnomalyDetectorSummary'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AnomalyDetectorArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AnomalyDetectorName")
-            Prelude.<*> (x Core..:? "AnomalyDetectorDescription")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AnomalyDetectorArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AnomalyDetectorName")
+            Prelude.<*> (x Data..:? "AnomalyDetectorDescription")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable AnomalyDetectorSummary where

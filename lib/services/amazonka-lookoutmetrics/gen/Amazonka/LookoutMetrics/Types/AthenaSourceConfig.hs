@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.AthenaSourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.BackTestConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -110,19 +111,19 @@ athenaSourceConfig_s3ResultsPath = Lens.lens (\AthenaSourceConfig' {s3ResultsPat
 athenaSourceConfig_workGroupName :: Lens.Lens' AthenaSourceConfig (Prelude.Maybe Prelude.Text)
 athenaSourceConfig_workGroupName = Lens.lens (\AthenaSourceConfig' {workGroupName} -> workGroupName) (\s@AthenaSourceConfig' {} a -> s {workGroupName = a} :: AthenaSourceConfig)
 
-instance Core.FromJSON AthenaSourceConfig where
+instance Data.FromJSON AthenaSourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AthenaSourceConfig"
       ( \x ->
           AthenaSourceConfig'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "DataCatalog")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "BackTestConfiguration")
-            Prelude.<*> (x Core..:? "S3ResultsPath")
-            Prelude.<*> (x Core..:? "WorkGroupName")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "DataCatalog")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "BackTestConfiguration")
+            Prelude.<*> (x Data..:? "S3ResultsPath")
+            Prelude.<*> (x Data..:? "WorkGroupName")
       )
 
 instance Prelude.Hashable AthenaSourceConfig where
@@ -145,17 +146,17 @@ instance Prelude.NFData AthenaSourceConfig where
       `Prelude.seq` Prelude.rnf s3ResultsPath
       `Prelude.seq` Prelude.rnf workGroupName
 
-instance Core.ToJSON AthenaSourceConfig where
+instance Data.ToJSON AthenaSourceConfig where
   toJSON AthenaSourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TableName" Core..=) Prelude.<$> tableName,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("DataCatalog" Core..=) Prelude.<$> dataCatalog,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("BackTestConfiguration" Core..=)
+          [ ("TableName" Data..=) Prelude.<$> tableName,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("DataCatalog" Data..=) Prelude.<$> dataCatalog,
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("BackTestConfiguration" Data..=)
               Prelude.<$> backTestConfiguration,
-            ("S3ResultsPath" Core..=) Prelude.<$> s3ResultsPath,
-            ("WorkGroupName" Core..=) Prelude.<$> workGroupName
+            ("S3ResultsPath" Data..=) Prelude.<$> s3ResultsPath,
+            ("WorkGroupName" Data..=) Prelude.<$> workGroupName
           ]
       )

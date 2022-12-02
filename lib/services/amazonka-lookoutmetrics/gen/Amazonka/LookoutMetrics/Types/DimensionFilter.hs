@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.DimensionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The dimension filter, containing DimensionName and DimensionValueList.
@@ -65,14 +66,14 @@ dimensionFilter_dimensionValueList = Lens.lens (\DimensionFilter' {dimensionValu
 dimensionFilter_dimensionName :: Lens.Lens' DimensionFilter (Prelude.Maybe Prelude.Text)
 dimensionFilter_dimensionName = Lens.lens (\DimensionFilter' {dimensionName} -> dimensionName) (\s@DimensionFilter' {} a -> s {dimensionName = a} :: DimensionFilter)
 
-instance Core.FromJSON DimensionFilter where
+instance Data.FromJSON DimensionFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DimensionFilter"
       ( \x ->
           DimensionFilter'
-            Prelude.<$> (x Core..:? "DimensionValueList")
-            Prelude.<*> (x Core..:? "DimensionName")
+            Prelude.<$> (x Data..:? "DimensionValueList")
+            Prelude.<*> (x Data..:? "DimensionName")
       )
 
 instance Prelude.Hashable DimensionFilter where
@@ -85,12 +86,12 @@ instance Prelude.NFData DimensionFilter where
     Prelude.rnf dimensionValueList
       `Prelude.seq` Prelude.rnf dimensionName
 
-instance Core.ToJSON DimensionFilter where
+instance Data.ToJSON DimensionFilter where
   toJSON DimensionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DimensionValueList" Core..=)
+          [ ("DimensionValueList" Data..=)
               Prelude.<$> dimensionValueList,
-            ("DimensionName" Core..=) Prelude.<$> dimensionName
+            ("DimensionName" Data..=) Prelude.<$> dimensionName
           ]
       )

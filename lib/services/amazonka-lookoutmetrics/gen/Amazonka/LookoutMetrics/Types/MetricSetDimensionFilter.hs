@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.MetricSetDimensionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.Filter
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,14 +67,14 @@ metricSetDimensionFilter_name = Lens.lens (\MetricSetDimensionFilter' {name} -> 
 metricSetDimensionFilter_filterList :: Lens.Lens' MetricSetDimensionFilter (Prelude.Maybe (Prelude.NonEmpty Filter))
 metricSetDimensionFilter_filterList = Lens.lens (\MetricSetDimensionFilter' {filterList} -> filterList) (\s@MetricSetDimensionFilter' {} a -> s {filterList = a} :: MetricSetDimensionFilter) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON MetricSetDimensionFilter where
+instance Data.FromJSON MetricSetDimensionFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricSetDimensionFilter"
       ( \x ->
           MetricSetDimensionFilter'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "FilterList")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "FilterList")
       )
 
 instance Prelude.Hashable MetricSetDimensionFilter where
@@ -86,11 +87,11 @@ instance Prelude.NFData MetricSetDimensionFilter where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf filterList
 
-instance Core.ToJSON MetricSetDimensionFilter where
+instance Data.ToJSON MetricSetDimensionFilter where
   toJSON MetricSetDimensionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("FilterList" Core..=) Prelude.<$> filterList
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("FilterList" Data..=) Prelude.<$> filterList
           ]
       )

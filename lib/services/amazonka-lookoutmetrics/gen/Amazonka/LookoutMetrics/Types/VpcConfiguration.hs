@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.VpcConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information about the Amazon Virtual Private
@@ -65,15 +66,15 @@ vpcConfiguration_subnetIdList = Lens.lens (\VpcConfiguration' {subnetIdList} -> 
 vpcConfiguration_securityGroupIdList :: Lens.Lens' VpcConfiguration [Prelude.Text]
 vpcConfiguration_securityGroupIdList = Lens.lens (\VpcConfiguration' {securityGroupIdList} -> securityGroupIdList) (\s@VpcConfiguration' {} a -> s {securityGroupIdList = a} :: VpcConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON VpcConfiguration where
+instance Data.FromJSON VpcConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcConfiguration"
       ( \x ->
           VpcConfiguration'
-            Prelude.<$> (x Core..:? "SubnetIdList" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "SecurityGroupIdList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SubnetIdList" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "SecurityGroupIdList"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -87,12 +88,12 @@ instance Prelude.NFData VpcConfiguration where
     Prelude.rnf subnetIdList
       `Prelude.seq` Prelude.rnf securityGroupIdList
 
-instance Core.ToJSON VpcConfiguration where
+instance Data.ToJSON VpcConfiguration where
   toJSON VpcConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SubnetIdList" Core..= subnetIdList),
+          [ Prelude.Just ("SubnetIdList" Data..= subnetIdList),
             Prelude.Just
-              ("SecurityGroupIdList" Core..= securityGroupIdList)
+              ("SecurityGroupIdList" Data..= securityGroupIdList)
           ]
       )

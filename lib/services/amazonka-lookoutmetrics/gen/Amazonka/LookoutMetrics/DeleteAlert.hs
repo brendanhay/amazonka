@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,28 +91,28 @@ instance Prelude.Hashable DeleteAlert where
 instance Prelude.NFData DeleteAlert where
   rnf DeleteAlert' {..} = Prelude.rnf alertArn
 
-instance Core.ToHeaders DeleteAlert where
+instance Data.ToHeaders DeleteAlert where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAlert where
+instance Data.ToJSON DeleteAlert where
   toJSON DeleteAlert' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AlertArn" Core..= alertArn)]
+          [Prelude.Just ("AlertArn" Data..= alertArn)]
       )
 
-instance Core.ToPath DeleteAlert where
+instance Data.ToPath DeleteAlert where
   toPath = Prelude.const "/DeleteAlert"
 
-instance Core.ToQuery DeleteAlert where
+instance Data.ToQuery DeleteAlert where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAlertResponse' smart constructor.

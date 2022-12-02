@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,8 +145,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAnomalyGroupRelatedMetricsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "InterMetricImpactList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "InterMetricImpactList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -176,39 +177,39 @@ instance
       `Prelude.seq` Prelude.rnf anomalyGroupId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListAnomalyGroupRelatedMetrics
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAnomalyGroupRelatedMetrics where
+instance Data.ToJSON ListAnomalyGroupRelatedMetrics where
   toJSON ListAnomalyGroupRelatedMetrics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("RelationshipTypeFilter" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("RelationshipTypeFilter" Data..=)
               Prelude.<$> relationshipTypeFilter,
             Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn),
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn),
             Prelude.Just
-              ("AnomalyGroupId" Core..= anomalyGroupId)
+              ("AnomalyGroupId" Data..= anomalyGroupId)
           ]
       )
 
-instance Core.ToPath ListAnomalyGroupRelatedMetrics where
+instance Data.ToPath ListAnomalyGroupRelatedMetrics where
   toPath =
     Prelude.const "/ListAnomalyGroupRelatedMetrics"
 
-instance Core.ToQuery ListAnomalyGroupRelatedMetrics where
+instance Data.ToQuery ListAnomalyGroupRelatedMetrics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAnomalyGroupRelatedMetricsResponse' smart constructor.

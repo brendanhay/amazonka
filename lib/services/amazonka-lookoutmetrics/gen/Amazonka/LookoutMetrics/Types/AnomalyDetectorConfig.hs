@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.Frequency
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,11 +64,11 @@ instance Prelude.NFData AnomalyDetectorConfig where
   rnf AnomalyDetectorConfig' {..} =
     Prelude.rnf anomalyDetectorFrequency
 
-instance Core.ToJSON AnomalyDetectorConfig where
+instance Data.ToJSON AnomalyDetectorConfig where
   toJSON AnomalyDetectorConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AnomalyDetectorFrequency" Core..=)
+          [ ("AnomalyDetectorFrequency" Data..=)
               Prelude.<$> anomalyDetectorFrequency
           ]
       )

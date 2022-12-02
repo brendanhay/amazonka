@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.AttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attribute value.
@@ -97,18 +98,18 @@ attributeValue_bs = Lens.lens (\AttributeValue' {bs} -> bs) (\s@AttributeValue' 
 attributeValue_n :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Text)
 attributeValue_n = Lens.lens (\AttributeValue' {n} -> n) (\s@AttributeValue' {} a -> s {n = a} :: AttributeValue)
 
-instance Core.FromJSON AttributeValue where
+instance Data.FromJSON AttributeValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttributeValue"
       ( \x ->
           AttributeValue'
-            Prelude.<$> (x Core..:? "SS" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "NS" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "B")
-            Prelude.<*> (x Core..:? "S")
-            Prelude.<*> (x Core..:? "BS" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "N")
+            Prelude.<$> (x Data..:? "SS" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "NS" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "B")
+            Prelude.<*> (x Data..:? "S")
+            Prelude.<*> (x Data..:? "BS" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "N")
       )
 
 instance Prelude.Hashable AttributeValue where

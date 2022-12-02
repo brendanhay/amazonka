@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,16 +101,16 @@ instance Core.AWSRequest DescribeAnomalyDetector where
     Response.receiveJSON
       ( \s h x ->
           DescribeAnomalyDetectorResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "AnomalyDetectorArn")
-            Prelude.<*> (x Core..?> "FailureType")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "KmsKeyArn")
-            Prelude.<*> (x Core..?> "AnomalyDetectorName")
-            Prelude.<*> (x Core..?> "AnomalyDetectorDescription")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "AnomalyDetectorConfig")
-            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "AnomalyDetectorArn")
+            Prelude.<*> (x Data..?> "FailureType")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "KmsKeyArn")
+            Prelude.<*> (x Data..?> "AnomalyDetectorName")
+            Prelude.<*> (x Data..?> "AnomalyDetectorDescription")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "AnomalyDetectorConfig")
+            Prelude.<*> (x Data..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,36 +122,36 @@ instance Prelude.NFData DescribeAnomalyDetector where
   rnf DescribeAnomalyDetector' {..} =
     Prelude.rnf anomalyDetectorArn
 
-instance Core.ToHeaders DescribeAnomalyDetector where
+instance Data.ToHeaders DescribeAnomalyDetector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAnomalyDetector where
+instance Data.ToJSON DescribeAnomalyDetector where
   toJSON DescribeAnomalyDetector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn)
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn)
           ]
       )
 
-instance Core.ToPath DescribeAnomalyDetector where
+instance Data.ToPath DescribeAnomalyDetector where
   toPath = Prelude.const "/DescribeAnomalyDetector"
 
-instance Core.ToQuery DescribeAnomalyDetector where
+instance Data.ToQuery DescribeAnomalyDetector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAnomalyDetectorResponse' smart constructor.
 data DescribeAnomalyDetectorResponse = DescribeAnomalyDetectorResponse'
   { -- | The time at which the detector was last modified.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the detector.
     anomalyDetectorArn :: Prelude.Maybe Prelude.Text,
     -- | The process that caused the detector to fail.
@@ -164,7 +165,7 @@ data DescribeAnomalyDetectorResponse = DescribeAnomalyDetectorResponse'
     -- | A description of the detector.
     anomalyDetectorDescription :: Prelude.Maybe Prelude.Text,
     -- | The time at which the detector was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Contains information about the detector\'s configuration.
     anomalyDetectorConfig :: Prelude.Maybe AnomalyDetectorConfigSummary,
     -- | The reason that the detector failed.
@@ -226,7 +227,7 @@ newDescribeAnomalyDetectorResponse pHttpStatus_ =
 
 -- | The time at which the detector was last modified.
 describeAnomalyDetectorResponse_lastModificationTime :: Lens.Lens' DescribeAnomalyDetectorResponse (Prelude.Maybe Prelude.UTCTime)
-describeAnomalyDetectorResponse_lastModificationTime = Lens.lens (\DescribeAnomalyDetectorResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeAnomalyDetectorResponse' {} a -> s {lastModificationTime = a} :: DescribeAnomalyDetectorResponse) Prelude.. Lens.mapping Core._Time
+describeAnomalyDetectorResponse_lastModificationTime = Lens.lens (\DescribeAnomalyDetectorResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeAnomalyDetectorResponse' {} a -> s {lastModificationTime = a} :: DescribeAnomalyDetectorResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the detector.
 describeAnomalyDetectorResponse_anomalyDetectorArn :: Lens.Lens' DescribeAnomalyDetectorResponse (Prelude.Maybe Prelude.Text)
@@ -254,7 +255,7 @@ describeAnomalyDetectorResponse_anomalyDetectorDescription = Lens.lens (\Describ
 
 -- | The time at which the detector was created.
 describeAnomalyDetectorResponse_creationTime :: Lens.Lens' DescribeAnomalyDetectorResponse (Prelude.Maybe Prelude.UTCTime)
-describeAnomalyDetectorResponse_creationTime = Lens.lens (\DescribeAnomalyDetectorResponse' {creationTime} -> creationTime) (\s@DescribeAnomalyDetectorResponse' {} a -> s {creationTime = a} :: DescribeAnomalyDetectorResponse) Prelude.. Lens.mapping Core._Time
+describeAnomalyDetectorResponse_creationTime = Lens.lens (\DescribeAnomalyDetectorResponse' {creationTime} -> creationTime) (\s@DescribeAnomalyDetectorResponse' {} a -> s {creationTime = a} :: DescribeAnomalyDetectorResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Contains information about the detector\'s configuration.
 describeAnomalyDetectorResponse_anomalyDetectorConfig :: Lens.Lens' DescribeAnomalyDetectorResponse (Prelude.Maybe AnomalyDetectorConfigSummary)

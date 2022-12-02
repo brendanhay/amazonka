@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.AnomalyGroupStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.ItemizedMetricStats
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,17 +73,17 @@ anomalyGroupStatistics_itemizedMetricStatsList = Lens.lens (\AnomalyGroupStatist
 anomalyGroupStatistics_totalCount :: Lens.Lens' AnomalyGroupStatistics (Prelude.Maybe Prelude.Int)
 anomalyGroupStatistics_totalCount = Lens.lens (\AnomalyGroupStatistics' {totalCount} -> totalCount) (\s@AnomalyGroupStatistics' {} a -> s {totalCount = a} :: AnomalyGroupStatistics)
 
-instance Core.FromJSON AnomalyGroupStatistics where
+instance Data.FromJSON AnomalyGroupStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnomalyGroupStatistics"
       ( \x ->
           AnomalyGroupStatistics'
-            Prelude.<$> (x Core..:? "EvaluationStartDate")
-            Prelude.<*> ( x Core..:? "ItemizedMetricStatsList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EvaluationStartDate")
+            Prelude.<*> ( x Data..:? "ItemizedMetricStatsList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TotalCount")
+            Prelude.<*> (x Data..:? "TotalCount")
       )
 
 instance Prelude.Hashable AnomalyGroupStatistics where

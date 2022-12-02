@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.AnomalyDetectorDataQualityMetric where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.MetricSetDataQualityMetric
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAnomalyDetectorDataQualityMetric' smart constructor.
 data AnomalyDetectorDataQualityMetric = AnomalyDetectorDataQualityMetric'
   { -- | The start time for the data quality metrics collection.
-    startTimestamp :: Prelude.Maybe Core.POSIX,
+    startTimestamp :: Prelude.Maybe Data.POSIX,
     -- | An array of @DataQualityMetricList@ objects. Each object in the array
     -- contains information about a data quality metric.
     metricSetDataQualityMetricList :: Prelude.Maybe [MetricSetDataQualityMetric]
@@ -61,7 +62,7 @@ newAnomalyDetectorDataQualityMetric =
 
 -- | The start time for the data quality metrics collection.
 anomalyDetectorDataQualityMetric_startTimestamp :: Lens.Lens' AnomalyDetectorDataQualityMetric (Prelude.Maybe Prelude.UTCTime)
-anomalyDetectorDataQualityMetric_startTimestamp = Lens.lens (\AnomalyDetectorDataQualityMetric' {startTimestamp} -> startTimestamp) (\s@AnomalyDetectorDataQualityMetric' {} a -> s {startTimestamp = a} :: AnomalyDetectorDataQualityMetric) Prelude.. Lens.mapping Core._Time
+anomalyDetectorDataQualityMetric_startTimestamp = Lens.lens (\AnomalyDetectorDataQualityMetric' {startTimestamp} -> startTimestamp) (\s@AnomalyDetectorDataQualityMetric' {} a -> s {startTimestamp = a} :: AnomalyDetectorDataQualityMetric) Prelude.. Lens.mapping Data._Time
 
 -- | An array of @DataQualityMetricList@ objects. Each object in the array
 -- contains information about a data quality metric.
@@ -69,17 +70,17 @@ anomalyDetectorDataQualityMetric_metricSetDataQualityMetricList :: Lens.Lens' An
 anomalyDetectorDataQualityMetric_metricSetDataQualityMetricList = Lens.lens (\AnomalyDetectorDataQualityMetric' {metricSetDataQualityMetricList} -> metricSetDataQualityMetricList) (\s@AnomalyDetectorDataQualityMetric' {} a -> s {metricSetDataQualityMetricList = a} :: AnomalyDetectorDataQualityMetric) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AnomalyDetectorDataQualityMetric
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnomalyDetectorDataQualityMetric"
       ( \x ->
           AnomalyDetectorDataQualityMetric'
-            Prelude.<$> (x Core..:? "StartTimestamp")
-            Prelude.<*> ( x Core..:? "MetricSetDataQualityMetricList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "StartTimestamp")
+            Prelude.<*> ( x Data..:? "MetricSetDataQualityMetricList"
+                            Data..!= Prelude.mempty
                         )
       )
 

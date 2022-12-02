@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.RedshiftSourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.VpcConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -123,20 +124,20 @@ redshiftSourceConfig_databasePort = Lens.lens (\RedshiftSourceConfig' {databaseP
 redshiftSourceConfig_secretManagerArn :: Lens.Lens' RedshiftSourceConfig (Prelude.Maybe Prelude.Text)
 redshiftSourceConfig_secretManagerArn = Lens.lens (\RedshiftSourceConfig' {secretManagerArn} -> secretManagerArn) (\s@RedshiftSourceConfig' {} a -> s {secretManagerArn = a} :: RedshiftSourceConfig)
 
-instance Core.FromJSON RedshiftSourceConfig where
+instance Data.FromJSON RedshiftSourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftSourceConfig"
       ( \x ->
           RedshiftSourceConfig'
-            Prelude.<$> (x Core..:? "VpcConfiguration")
-            Prelude.<*> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "ClusterIdentifier")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "DatabaseHost")
-            Prelude.<*> (x Core..:? "DatabasePort")
-            Prelude.<*> (x Core..:? "SecretManagerArn")
+            Prelude.<$> (x Data..:? "VpcConfiguration")
+            Prelude.<*> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "ClusterIdentifier")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "DatabaseHost")
+            Prelude.<*> (x Data..:? "DatabasePort")
+            Prelude.<*> (x Data..:? "SecretManagerArn")
       )
 
 instance Prelude.Hashable RedshiftSourceConfig where
@@ -161,20 +162,20 @@ instance Prelude.NFData RedshiftSourceConfig where
       `Prelude.seq` Prelude.rnf databasePort
       `Prelude.seq` Prelude.rnf secretManagerArn
 
-instance Core.ToJSON RedshiftSourceConfig where
+instance Data.ToJSON RedshiftSourceConfig where
   toJSON RedshiftSourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfiguration" Core..=)
+          [ ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("TableName" Core..=) Prelude.<$> tableName,
-            ("ClusterIdentifier" Core..=)
+            ("TableName" Data..=) Prelude.<$> tableName,
+            ("ClusterIdentifier" Data..=)
               Prelude.<$> clusterIdentifier,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("DatabaseHost" Core..=) Prelude.<$> databaseHost,
-            ("DatabasePort" Core..=) Prelude.<$> databasePort,
-            ("SecretManagerArn" Core..=)
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("DatabaseHost" Data..=) Prelude.<$> databaseHost,
+            ("DatabasePort" Data..=) Prelude.<$> databasePort,
+            ("SecretManagerArn" Data..=)
               Prelude.<$> secretManagerArn
           ]
       )

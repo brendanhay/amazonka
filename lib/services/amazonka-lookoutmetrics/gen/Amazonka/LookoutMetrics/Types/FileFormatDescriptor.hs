@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.FileFormatDescriptor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.CsvFormatDescriptor
 import Amazonka.LookoutMetrics.Types.JsonFormatDescriptor
 import qualified Amazonka.Prelude as Prelude
@@ -70,14 +71,14 @@ fileFormatDescriptor_jsonFormatDescriptor = Lens.lens (\FileFormatDescriptor' {j
 fileFormatDescriptor_csvFormatDescriptor :: Lens.Lens' FileFormatDescriptor (Prelude.Maybe CsvFormatDescriptor)
 fileFormatDescriptor_csvFormatDescriptor = Lens.lens (\FileFormatDescriptor' {csvFormatDescriptor} -> csvFormatDescriptor) (\s@FileFormatDescriptor' {} a -> s {csvFormatDescriptor = a} :: FileFormatDescriptor)
 
-instance Core.FromJSON FileFormatDescriptor where
+instance Data.FromJSON FileFormatDescriptor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileFormatDescriptor"
       ( \x ->
           FileFormatDescriptor'
-            Prelude.<$> (x Core..:? "JsonFormatDescriptor")
-            Prelude.<*> (x Core..:? "CsvFormatDescriptor")
+            Prelude.<$> (x Data..:? "JsonFormatDescriptor")
+            Prelude.<*> (x Data..:? "CsvFormatDescriptor")
       )
 
 instance Prelude.Hashable FileFormatDescriptor where
@@ -90,13 +91,13 @@ instance Prelude.NFData FileFormatDescriptor where
     Prelude.rnf jsonFormatDescriptor
       `Prelude.seq` Prelude.rnf csvFormatDescriptor
 
-instance Core.ToJSON FileFormatDescriptor where
+instance Data.ToJSON FileFormatDescriptor where
   toJSON FileFormatDescriptor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JsonFormatDescriptor" Core..=)
+          [ ("JsonFormatDescriptor" Data..=)
               Prelude.<$> jsonFormatDescriptor,
-            ("CsvFormatDescriptor" Core..=)
+            ("CsvFormatDescriptor" Data..=)
               Prelude.<$> csvFormatDescriptor
           ]
       )

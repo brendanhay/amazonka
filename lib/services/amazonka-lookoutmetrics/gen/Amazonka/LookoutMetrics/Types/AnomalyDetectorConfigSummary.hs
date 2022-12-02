@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.Frequency
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newAnomalyDetectorConfigSummary =
 anomalyDetectorConfigSummary_anomalyDetectorFrequency :: Lens.Lens' AnomalyDetectorConfigSummary (Prelude.Maybe Frequency)
 anomalyDetectorConfigSummary_anomalyDetectorFrequency = Lens.lens (\AnomalyDetectorConfigSummary' {anomalyDetectorFrequency} -> anomalyDetectorFrequency) (\s@AnomalyDetectorConfigSummary' {} a -> s {anomalyDetectorFrequency = a} :: AnomalyDetectorConfigSummary)
 
-instance Core.FromJSON AnomalyDetectorConfigSummary where
+instance Data.FromJSON AnomalyDetectorConfigSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnomalyDetectorConfigSummary"
       ( \x ->
           AnomalyDetectorConfigSummary'
-            Prelude.<$> (x Core..:? "AnomalyDetectorFrequency")
+            Prelude.<$> (x Data..:? "AnomalyDetectorFrequency")
       )
 
 instance

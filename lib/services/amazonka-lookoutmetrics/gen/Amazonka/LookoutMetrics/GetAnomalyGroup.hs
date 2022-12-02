@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest GetAnomalyGroup where
     Response.receiveJSON
       ( \s h x ->
           GetAnomalyGroupResponse'
-            Prelude.<$> (x Core..?> "AnomalyGroup")
+            Prelude.<$> (x Data..?> "AnomalyGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,32 +114,32 @@ instance Prelude.NFData GetAnomalyGroup where
     Prelude.rnf anomalyGroupId
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
 
-instance Core.ToHeaders GetAnomalyGroup where
+instance Data.ToHeaders GetAnomalyGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAnomalyGroup where
+instance Data.ToJSON GetAnomalyGroup where
   toJSON GetAnomalyGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AnomalyGroupId" Core..= anomalyGroupId),
+              ("AnomalyGroupId" Data..= anomalyGroupId),
             Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn)
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn)
           ]
       )
 
-instance Core.ToPath GetAnomalyGroup where
+instance Data.ToPath GetAnomalyGroup where
   toPath = Prelude.const "/GetAnomalyGroup"
 
-instance Core.ToQuery GetAnomalyGroup where
+instance Data.ToQuery GetAnomalyGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAnomalyGroupResponse' smart constructor.

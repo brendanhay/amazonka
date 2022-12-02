@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,34 +112,34 @@ instance Prelude.NFData PutFeedback where
     Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf anomalyGroupTimeSeriesFeedback
 
-instance Core.ToHeaders PutFeedback where
+instance Data.ToHeaders PutFeedback where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutFeedback where
+instance Data.ToJSON PutFeedback where
   toJSON PutFeedback' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn),
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn),
             Prelude.Just
               ( "AnomalyGroupTimeSeriesFeedback"
-                  Core..= anomalyGroupTimeSeriesFeedback
+                  Data..= anomalyGroupTimeSeriesFeedback
               )
           ]
       )
 
-instance Core.ToPath PutFeedback where
+instance Data.ToPath PutFeedback where
   toPath = Prelude.const "/PutFeedback"
 
-instance Core.ToQuery PutFeedback where
+instance Data.ToQuery PutFeedback where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutFeedbackResponse' smart constructor.

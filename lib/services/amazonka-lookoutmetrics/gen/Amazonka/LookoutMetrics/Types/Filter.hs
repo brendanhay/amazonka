@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.FilterOperation
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ filter_dimensionValue = Lens.lens (\Filter' {dimensionValue} -> dimensionValue) 
 filter_filterOperation :: Lens.Lens' Filter (Prelude.Maybe FilterOperation)
 filter_filterOperation = Lens.lens (\Filter' {filterOperation} -> filterOperation) (\s@Filter' {} a -> s {filterOperation = a} :: Filter)
 
-instance Core.FromJSON Filter where
+instance Data.FromJSON Filter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Filter"
       ( \x ->
           Filter'
-            Prelude.<$> (x Core..:? "DimensionValue")
-            Prelude.<*> (x Core..:? "FilterOperation")
+            Prelude.<$> (x Data..:? "DimensionValue")
+            Prelude.<*> (x Data..:? "FilterOperation")
       )
 
 instance Prelude.Hashable Filter where
@@ -85,13 +86,13 @@ instance Prelude.NFData Filter where
     Prelude.rnf dimensionValue
       `Prelude.seq` Prelude.rnf filterOperation
 
-instance Core.ToJSON Filter where
+instance Data.ToJSON Filter where
   toJSON Filter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DimensionValue" Core..=)
+          [ ("DimensionValue" Data..=)
               Prelude.<$> dimensionValue,
-            ("FilterOperation" Core..=)
+            ("FilterOperation" Data..=)
               Prelude.<$> filterOperation
           ]
       )

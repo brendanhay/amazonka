@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.CloudWatchConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.BackTestConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ cloudWatchConfig_roleArn = Lens.lens (\CloudWatchConfig' {roleArn} -> roleArn) (
 cloudWatchConfig_backTestConfiguration :: Lens.Lens' CloudWatchConfig (Prelude.Maybe BackTestConfiguration)
 cloudWatchConfig_backTestConfiguration = Lens.lens (\CloudWatchConfig' {backTestConfiguration} -> backTestConfiguration) (\s@CloudWatchConfig' {} a -> s {backTestConfiguration = a} :: CloudWatchConfig)
 
-instance Core.FromJSON CloudWatchConfig where
+instance Data.FromJSON CloudWatchConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchConfig"
       ( \x ->
           CloudWatchConfig'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "BackTestConfiguration")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "BackTestConfiguration")
       )
 
 instance Prelude.Hashable CloudWatchConfig where
@@ -85,12 +86,12 @@ instance Prelude.NFData CloudWatchConfig where
     Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf backTestConfiguration
 
-instance Core.ToJSON CloudWatchConfig where
+instance Data.ToJSON CloudWatchConfig where
   toJSON CloudWatchConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("BackTestConfiguration" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("BackTestConfiguration" Data..=)
               Prelude.<$> backTestConfiguration
           ]
       )

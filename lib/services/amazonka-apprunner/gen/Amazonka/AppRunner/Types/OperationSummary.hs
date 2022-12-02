@@ -23,6 +23,7 @@ import Amazonka.AppRunner.Types.OperationStatus
 import Amazonka.AppRunner.Types.OperationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information for an operation that occurred on an App
@@ -33,7 +34,7 @@ data OperationSummary = OperationSummary'
   { -- | The type of operation. It indicates a specific action that occured.
     type' :: Prelude.Maybe OperationType,
     -- | The time when the operation ended. It\'s in the Unix time stamp format.
-    endedAt :: Prelude.Maybe Core.POSIX,
+    endedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the resource that the operation acted
     -- on (for example, an App Runner service).
     targetArn :: Prelude.Maybe Prelude.Text,
@@ -44,10 +45,10 @@ data OperationSummary = OperationSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | The time when the operation started. It\'s in the Unix time stamp
     -- format.
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The time when the operation was last updated. It\'s in the Unix time
     -- stamp format.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,7 +96,7 @@ operationSummary_type = Lens.lens (\OperationSummary' {type'} -> type') (\s@Oper
 
 -- | The time when the operation ended. It\'s in the Unix time stamp format.
 operationSummary_endedAt :: Lens.Lens' OperationSummary (Prelude.Maybe Prelude.UTCTime)
-operationSummary_endedAt = Lens.lens (\OperationSummary' {endedAt} -> endedAt) (\s@OperationSummary' {} a -> s {endedAt = a} :: OperationSummary) Prelude.. Lens.mapping Core._Time
+operationSummary_endedAt = Lens.lens (\OperationSummary' {endedAt} -> endedAt) (\s@OperationSummary' {} a -> s {endedAt = a} :: OperationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the resource that the operation acted
 -- on (for example, an App Runner service).
@@ -114,26 +115,26 @@ operationSummary_id = Lens.lens (\OperationSummary' {id} -> id) (\s@OperationSum
 -- | The time when the operation started. It\'s in the Unix time stamp
 -- format.
 operationSummary_startedAt :: Lens.Lens' OperationSummary (Prelude.Maybe Prelude.UTCTime)
-operationSummary_startedAt = Lens.lens (\OperationSummary' {startedAt} -> startedAt) (\s@OperationSummary' {} a -> s {startedAt = a} :: OperationSummary) Prelude.. Lens.mapping Core._Time
+operationSummary_startedAt = Lens.lens (\OperationSummary' {startedAt} -> startedAt) (\s@OperationSummary' {} a -> s {startedAt = a} :: OperationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time when the operation was last updated. It\'s in the Unix time
 -- stamp format.
 operationSummary_updatedAt :: Lens.Lens' OperationSummary (Prelude.Maybe Prelude.UTCTime)
-operationSummary_updatedAt = Lens.lens (\OperationSummary' {updatedAt} -> updatedAt) (\s@OperationSummary' {} a -> s {updatedAt = a} :: OperationSummary) Prelude.. Lens.mapping Core._Time
+operationSummary_updatedAt = Lens.lens (\OperationSummary' {updatedAt} -> updatedAt) (\s@OperationSummary' {} a -> s {updatedAt = a} :: OperationSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON OperationSummary where
+instance Data.FromJSON OperationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OperationSummary"
       ( \x ->
           OperationSummary'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "EndedAt")
-            Prelude.<*> (x Core..:? "TargetArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "StartedAt")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "EndedAt")
+            Prelude.<*> (x Data..:? "TargetArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "StartedAt")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable OperationSummary where

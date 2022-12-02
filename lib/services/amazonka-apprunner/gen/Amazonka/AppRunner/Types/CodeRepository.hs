@@ -23,6 +23,7 @@ import Amazonka.AppRunner.Types.CodeConfiguration
 import Amazonka.AppRunner.Types.SourceCodeVersion
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a source code repository.
@@ -86,15 +87,15 @@ codeRepository_repositoryUrl = Lens.lens (\CodeRepository' {repositoryUrl} -> re
 codeRepository_sourceCodeVersion :: Lens.Lens' CodeRepository SourceCodeVersion
 codeRepository_sourceCodeVersion = Lens.lens (\CodeRepository' {sourceCodeVersion} -> sourceCodeVersion) (\s@CodeRepository' {} a -> s {sourceCodeVersion = a} :: CodeRepository)
 
-instance Core.FromJSON CodeRepository where
+instance Data.FromJSON CodeRepository where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeRepository"
       ( \x ->
           CodeRepository'
-            Prelude.<$> (x Core..:? "CodeConfiguration")
-            Prelude.<*> (x Core..: "RepositoryUrl")
-            Prelude.<*> (x Core..: "SourceCodeVersion")
+            Prelude.<$> (x Data..:? "CodeConfiguration")
+            Prelude.<*> (x Data..: "RepositoryUrl")
+            Prelude.<*> (x Data..: "SourceCodeVersion")
       )
 
 instance Prelude.Hashable CodeRepository where
@@ -109,14 +110,14 @@ instance Prelude.NFData CodeRepository where
       `Prelude.seq` Prelude.rnf repositoryUrl
       `Prelude.seq` Prelude.rnf sourceCodeVersion
 
-instance Core.ToJSON CodeRepository where
+instance Data.ToJSON CodeRepository where
   toJSON CodeRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CodeConfiguration" Core..=)
+          [ ("CodeConfiguration" Data..=)
               Prelude.<$> codeConfiguration,
-            Prelude.Just ("RepositoryUrl" Core..= repositoryUrl),
+            Prelude.Just ("RepositoryUrl" Data..= repositoryUrl),
             Prelude.Just
-              ("SourceCodeVersion" Core..= sourceCodeVersion)
+              ("SourceCodeVersion" Data..= sourceCodeVersion)
           ]
       )

@@ -43,6 +43,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,7 +108,7 @@ instance
       ( \s h x ->
           DescribeObservabilityConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "ObservabilityConfiguration")
+              Prelude.<*> (x Data..:> "ObservabilityConfiguration")
       )
 
 instance
@@ -128,45 +129,45 @@ instance
     Prelude.rnf observabilityConfigurationArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeObservabilityConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.DescribeObservabilityConfiguration" ::
+              Data.=# ( "AppRunner.DescribeObservabilityConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeObservabilityConfiguration
   where
   toJSON DescribeObservabilityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ObservabilityConfigurationArn"
-                  Core..= observabilityConfigurationArn
+                  Data..= observabilityConfigurationArn
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeObservabilityConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeObservabilityConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

@@ -46,6 +46,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,9 +137,9 @@ instance Core.AWSRequest ListVpcIngressConnections where
     Response.receiveJSON
       ( \s h x ->
           ListVpcIngressConnectionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "VpcIngressConnectionSummaryList"
+            Prelude.<*> ( x Data..?> "VpcIngressConnectionSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -155,35 +156,35 @@ instance Prelude.NFData ListVpcIngressConnections where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListVpcIngressConnections where
+instance Data.ToHeaders ListVpcIngressConnections where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.ListVpcIngressConnections" ::
+              Data.=# ( "AppRunner.ListVpcIngressConnections" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListVpcIngressConnections where
+instance Data.ToJSON ListVpcIngressConnections where
   toJSON ListVpcIngressConnections' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListVpcIngressConnections where
+instance Data.ToPath ListVpcIngressConnections where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListVpcIngressConnections where
+instance Data.ToQuery ListVpcIngressConnections where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListVpcIngressConnectionsResponse' smart constructor.

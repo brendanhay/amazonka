@@ -21,6 +21,7 @@ module Amazonka.AppRunner.Types.IngressConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Network configuration settings for inbound network traffic.
@@ -62,13 +63,13 @@ newIngressConfiguration =
 ingressConfiguration_isPubliclyAccessible :: Lens.Lens' IngressConfiguration (Prelude.Maybe Prelude.Bool)
 ingressConfiguration_isPubliclyAccessible = Lens.lens (\IngressConfiguration' {isPubliclyAccessible} -> isPubliclyAccessible) (\s@IngressConfiguration' {} a -> s {isPubliclyAccessible = a} :: IngressConfiguration)
 
-instance Core.FromJSON IngressConfiguration where
+instance Data.FromJSON IngressConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IngressConfiguration"
       ( \x ->
           IngressConfiguration'
-            Prelude.<$> (x Core..:? "IsPubliclyAccessible")
+            Prelude.<$> (x Data..:? "IsPubliclyAccessible")
       )
 
 instance Prelude.Hashable IngressConfiguration where
@@ -79,11 +80,11 @@ instance Prelude.NFData IngressConfiguration where
   rnf IngressConfiguration' {..} =
     Prelude.rnf isPubliclyAccessible
 
-instance Core.ToJSON IngressConfiguration where
+instance Data.ToJSON IngressConfiguration where
   toJSON IngressConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IsPubliclyAccessible" Core..=)
+          [ ("IsPubliclyAccessible" Data..=)
               Prelude.<$> isPubliclyAccessible
           ]
       )

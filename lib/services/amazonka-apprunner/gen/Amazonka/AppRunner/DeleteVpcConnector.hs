@@ -43,6 +43,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,7 +98,7 @@ instance Core.AWSRequest DeleteVpcConnector where
       ( \s h x ->
           DeleteVpcConnectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "VpcConnector")
+            Prelude.<*> (x Data..:> "VpcConnector")
       )
 
 instance Prelude.Hashable DeleteVpcConnector where
@@ -108,34 +109,34 @@ instance Prelude.NFData DeleteVpcConnector where
   rnf DeleteVpcConnector' {..} =
     Prelude.rnf vpcConnectorArn
 
-instance Core.ToHeaders DeleteVpcConnector where
+instance Data.ToHeaders DeleteVpcConnector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.DeleteVpcConnector" ::
+              Data.=# ( "AppRunner.DeleteVpcConnector" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVpcConnector where
+instance Data.ToJSON DeleteVpcConnector where
   toJSON DeleteVpcConnector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("VpcConnectorArn" Core..= vpcConnectorArn)
+              ("VpcConnectorArn" Data..= vpcConnectorArn)
           ]
       )
 
-instance Core.ToPath DeleteVpcConnector where
+instance Data.ToPath DeleteVpcConnector where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVpcConnector where
+instance Data.ToQuery DeleteVpcConnector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVpcConnectorResponse' smart constructor.

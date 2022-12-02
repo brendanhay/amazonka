@@ -21,6 +21,7 @@ module Amazonka.AppRunner.Types.ObservabilityConfigurationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information about an App Runner observability
@@ -92,17 +93,17 @@ observabilityConfigurationSummary_observabilityConfigurationArn :: Lens.Lens' Ob
 observabilityConfigurationSummary_observabilityConfigurationArn = Lens.lens (\ObservabilityConfigurationSummary' {observabilityConfigurationArn} -> observabilityConfigurationArn) (\s@ObservabilityConfigurationSummary' {} a -> s {observabilityConfigurationArn = a} :: ObservabilityConfigurationSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ObservabilityConfigurationSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ObservabilityConfigurationSummary"
       ( \x ->
           ObservabilityConfigurationSummary'
-            Prelude.<$> (x Core..:? "ObservabilityConfigurationName")
-            Prelude.<*> (x Core..:? "ObservabilityConfigurationRevision")
-            Prelude.<*> (x Core..:? "ObservabilityConfigurationArn")
+            Prelude.<$> (x Data..:? "ObservabilityConfigurationName")
+            Prelude.<*> (x Data..:? "ObservabilityConfigurationRevision")
+            Prelude.<*> (x Data..:? "ObservabilityConfigurationArn")
       )
 
 instance

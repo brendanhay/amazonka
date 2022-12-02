@@ -21,6 +21,7 @@ module Amazonka.AppRunner.Types.ListVpcIngressConnectionsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns a list of VPC Ingress Connections based on the filter provided.
@@ -81,11 +82,11 @@ instance
     Prelude.rnf vpcEndpointId
       `Prelude.seq` Prelude.rnf serviceArn
 
-instance Core.ToJSON ListVpcIngressConnectionsFilter where
+instance Data.ToJSON ListVpcIngressConnectionsFilter where
   toJSON ListVpcIngressConnectionsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcEndpointId" Core..=) Prelude.<$> vpcEndpointId,
-            ("ServiceArn" Core..=) Prelude.<$> serviceArn
+          [ ("VpcEndpointId" Data..=) Prelude.<$> vpcEndpointId,
+            ("ServiceArn" Data..=) Prelude.<$> serviceArn
           ]
       )

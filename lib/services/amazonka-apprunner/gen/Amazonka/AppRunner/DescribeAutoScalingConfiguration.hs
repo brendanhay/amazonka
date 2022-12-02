@@ -43,6 +43,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,7 +108,7 @@ instance
       ( \s h x ->
           DescribeAutoScalingConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "AutoScalingConfiguration")
+            Prelude.<*> (x Data..:> "AutoScalingConfiguration")
       )
 
 instance
@@ -128,39 +129,39 @@ instance
     Prelude.rnf autoScalingConfigurationArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeAutoScalingConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.DescribeAutoScalingConfiguration" ::
+              Data.=# ( "AppRunner.DescribeAutoScalingConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAutoScalingConfiguration where
+instance Data.ToJSON DescribeAutoScalingConfiguration where
   toJSON DescribeAutoScalingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "AutoScalingConfigurationArn"
-                  Core..= autoScalingConfigurationArn
+                  Data..= autoScalingConfigurationArn
               )
           ]
       )
 
-instance Core.ToPath DescribeAutoScalingConfiguration where
+instance Data.ToPath DescribeAutoScalingConfiguration where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeAutoScalingConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

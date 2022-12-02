@@ -23,6 +23,7 @@ import Amazonka.AppRunner.Types.ObservabilityConfigurationStatus
 import Amazonka.AppRunner.Types.TraceConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an App Runner observability configuration resource. Multiple
@@ -55,7 +56,7 @@ data ObservabilityConfiguration = ObservabilityConfiguration'
     status :: Prelude.Maybe ObservabilityConfigurationStatus,
     -- | The time when the observability configuration was deleted. It\'s in Unix
     -- time stamp format.
-    deletedAt :: Prelude.Maybe Core.POSIX,
+    deletedAt :: Prelude.Maybe Data.POSIX,
     -- | It\'s set to @true@ for the configuration with the highest @Revision@
     -- among all configurations that share the same
     -- @ObservabilityConfigurationName@. It\'s set to @false@ otherwise.
@@ -64,7 +65,7 @@ data ObservabilityConfiguration = ObservabilityConfiguration'
     observabilityConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | The time when the observability configuration was created. It\'s in Unix
     -- time stamp format.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -145,7 +146,7 @@ observabilityConfiguration_status = Lens.lens (\ObservabilityConfiguration' {sta
 -- | The time when the observability configuration was deleted. It\'s in Unix
 -- time stamp format.
 observabilityConfiguration_deletedAt :: Lens.Lens' ObservabilityConfiguration (Prelude.Maybe Prelude.UTCTime)
-observabilityConfiguration_deletedAt = Lens.lens (\ObservabilityConfiguration' {deletedAt} -> deletedAt) (\s@ObservabilityConfiguration' {} a -> s {deletedAt = a} :: ObservabilityConfiguration) Prelude.. Lens.mapping Core._Time
+observabilityConfiguration_deletedAt = Lens.lens (\ObservabilityConfiguration' {deletedAt} -> deletedAt) (\s@ObservabilityConfiguration' {} a -> s {deletedAt = a} :: ObservabilityConfiguration) Prelude.. Lens.mapping Data._Time
 
 -- | It\'s set to @true@ for the configuration with the highest @Revision@
 -- among all configurations that share the same
@@ -160,22 +161,22 @@ observabilityConfiguration_observabilityConfigurationArn = Lens.lens (\Observabi
 -- | The time when the observability configuration was created. It\'s in Unix
 -- time stamp format.
 observabilityConfiguration_createdAt :: Lens.Lens' ObservabilityConfiguration (Prelude.Maybe Prelude.UTCTime)
-observabilityConfiguration_createdAt = Lens.lens (\ObservabilityConfiguration' {createdAt} -> createdAt) (\s@ObservabilityConfiguration' {} a -> s {createdAt = a} :: ObservabilityConfiguration) Prelude.. Lens.mapping Core._Time
+observabilityConfiguration_createdAt = Lens.lens (\ObservabilityConfiguration' {createdAt} -> createdAt) (\s@ObservabilityConfiguration' {} a -> s {createdAt = a} :: ObservabilityConfiguration) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ObservabilityConfiguration where
+instance Data.FromJSON ObservabilityConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ObservabilityConfiguration"
       ( \x ->
           ObservabilityConfiguration'
-            Prelude.<$> (x Core..:? "TraceConfiguration")
-            Prelude.<*> (x Core..:? "ObservabilityConfigurationName")
-            Prelude.<*> (x Core..:? "ObservabilityConfigurationRevision")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DeletedAt")
-            Prelude.<*> (x Core..:? "Latest")
-            Prelude.<*> (x Core..:? "ObservabilityConfigurationArn")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "TraceConfiguration")
+            Prelude.<*> (x Data..:? "ObservabilityConfigurationName")
+            Prelude.<*> (x Data..:? "ObservabilityConfigurationRevision")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DeletedAt")
+            Prelude.<*> (x Data..:? "Latest")
+            Prelude.<*> (x Data..:? "ObservabilityConfigurationArn")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable ObservabilityConfiguration where

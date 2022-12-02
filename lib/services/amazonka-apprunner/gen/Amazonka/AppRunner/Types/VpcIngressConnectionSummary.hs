@@ -21,6 +21,7 @@ module Amazonka.AppRunner.Types.VpcIngressConnectionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information about an VPC Ingress Connection, which
@@ -66,14 +67,14 @@ vpcIngressConnectionSummary_vpcIngressConnectionArn = Lens.lens (\VpcIngressConn
 vpcIngressConnectionSummary_serviceArn :: Lens.Lens' VpcIngressConnectionSummary (Prelude.Maybe Prelude.Text)
 vpcIngressConnectionSummary_serviceArn = Lens.lens (\VpcIngressConnectionSummary' {serviceArn} -> serviceArn) (\s@VpcIngressConnectionSummary' {} a -> s {serviceArn = a} :: VpcIngressConnectionSummary)
 
-instance Core.FromJSON VpcIngressConnectionSummary where
+instance Data.FromJSON VpcIngressConnectionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcIngressConnectionSummary"
       ( \x ->
           VpcIngressConnectionSummary'
-            Prelude.<$> (x Core..:? "VpcIngressConnectionArn")
-            Prelude.<*> (x Core..:? "ServiceArn")
+            Prelude.<$> (x Data..:? "VpcIngressConnectionArn")
+            Prelude.<*> (x Data..:? "ServiceArn")
       )
 
 instance Prelude.Hashable VpcIngressConnectionSummary where

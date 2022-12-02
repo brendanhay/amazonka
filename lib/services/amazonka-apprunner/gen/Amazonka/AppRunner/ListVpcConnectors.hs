@@ -45,6 +45,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,9 +123,9 @@ instance Core.AWSRequest ListVpcConnectors where
     Response.receiveJSON
       ( \s h x ->
           ListVpcConnectorsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "VpcConnectors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "VpcConnectors" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListVpcConnectors where
@@ -137,34 +138,34 @@ instance Prelude.NFData ListVpcConnectors where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListVpcConnectors where
+instance Data.ToHeaders ListVpcConnectors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.ListVpcConnectors" ::
+              Data.=# ( "AppRunner.ListVpcConnectors" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListVpcConnectors where
+instance Data.ToJSON ListVpcConnectors where
   toJSON ListVpcConnectors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListVpcConnectors where
+instance Data.ToPath ListVpcConnectors where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListVpcConnectors where
+instance Data.ToQuery ListVpcConnectors where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListVpcConnectorsResponse' smart constructor.

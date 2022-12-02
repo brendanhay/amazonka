@@ -47,6 +47,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,7 +146,7 @@ instance Core.AWSRequest CreateVpcIngressConnection where
       ( \s h x ->
           CreateVpcIngressConnectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "VpcIngressConnection")
+            Prelude.<*> (x Data..:> "VpcIngressConnection")
       )
 
 instance Prelude.Hashable CreateVpcIngressConnection where
@@ -162,42 +163,42 @@ instance Prelude.NFData CreateVpcIngressConnection where
       `Prelude.seq` Prelude.rnf vpcIngressConnectionName
       `Prelude.seq` Prelude.rnf ingressVpcConfiguration
 
-instance Core.ToHeaders CreateVpcIngressConnection where
+instance Data.ToHeaders CreateVpcIngressConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.CreateVpcIngressConnection" ::
+              Data.=# ( "AppRunner.CreateVpcIngressConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVpcIngressConnection where
+instance Data.ToJSON CreateVpcIngressConnection where
   toJSON CreateVpcIngressConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("ServiceArn" Core..= serviceArn),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("ServiceArn" Data..= serviceArn),
             Prelude.Just
               ( "VpcIngressConnectionName"
-                  Core..= vpcIngressConnectionName
+                  Data..= vpcIngressConnectionName
               ),
             Prelude.Just
               ( "IngressVpcConfiguration"
-                  Core..= ingressVpcConfiguration
+                  Data..= ingressVpcConfiguration
               )
           ]
       )
 
-instance Core.ToPath CreateVpcIngressConnection where
+instance Data.ToPath CreateVpcIngressConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVpcIngressConnection where
+instance Data.ToQuery CreateVpcIngressConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVpcIngressConnectionResponse' smart constructor.

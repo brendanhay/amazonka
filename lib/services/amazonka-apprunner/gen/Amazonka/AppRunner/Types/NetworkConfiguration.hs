@@ -23,6 +23,7 @@ import Amazonka.AppRunner.Types.EgressConfiguration
 import Amazonka.AppRunner.Types.IngressConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes configuration settings related to network traffic of an App
@@ -66,14 +67,14 @@ networkConfiguration_ingressConfiguration = Lens.lens (\NetworkConfiguration' {i
 networkConfiguration_egressConfiguration :: Lens.Lens' NetworkConfiguration (Prelude.Maybe EgressConfiguration)
 networkConfiguration_egressConfiguration = Lens.lens (\NetworkConfiguration' {egressConfiguration} -> egressConfiguration) (\s@NetworkConfiguration' {} a -> s {egressConfiguration = a} :: NetworkConfiguration)
 
-instance Core.FromJSON NetworkConfiguration where
+instance Data.FromJSON NetworkConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkConfiguration"
       ( \x ->
           NetworkConfiguration'
-            Prelude.<$> (x Core..:? "IngressConfiguration")
-            Prelude.<*> (x Core..:? "EgressConfiguration")
+            Prelude.<$> (x Data..:? "IngressConfiguration")
+            Prelude.<*> (x Data..:? "EgressConfiguration")
       )
 
 instance Prelude.Hashable NetworkConfiguration where
@@ -86,13 +87,13 @@ instance Prelude.NFData NetworkConfiguration where
     Prelude.rnf ingressConfiguration
       `Prelude.seq` Prelude.rnf egressConfiguration
 
-instance Core.ToJSON NetworkConfiguration where
+instance Data.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IngressConfiguration" Core..=)
+          [ ("IngressConfiguration" Data..=)
               Prelude.<$> ingressConfiguration,
-            ("EgressConfiguration" Core..=)
+            ("EgressConfiguration" Data..=)
               Prelude.<$> egressConfiguration
           ]
       )

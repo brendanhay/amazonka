@@ -22,6 +22,7 @@ module Amazonka.AppRunner.Types.ServiceSummary where
 import Amazonka.AppRunner.Types.ServiceStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information for an App Runner service.
@@ -62,12 +63,12 @@ data ServiceSummary = ServiceSummary'
     serviceUrl :: Prelude.Maybe Prelude.Text,
     -- | The time when the App Runner service was created. It\'s in the Unix time
     -- stamp format.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of this service.
     serviceArn :: Prelude.Maybe Prelude.Text,
     -- | The time when the App Runner service was last updated. It\'s in theUnix
     -- time stamp format.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | An ID that App Runner generated for this service. It\'s unique within
     -- the Amazon Web Services Region.
     serviceId :: Prelude.Maybe Prelude.Text
@@ -154,7 +155,7 @@ serviceSummary_serviceUrl = Lens.lens (\ServiceSummary' {serviceUrl} -> serviceU
 -- | The time when the App Runner service was created. It\'s in the Unix time
 -- stamp format.
 serviceSummary_createdAt :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.UTCTime)
-serviceSummary_createdAt = Lens.lens (\ServiceSummary' {createdAt} -> createdAt) (\s@ServiceSummary' {} a -> s {createdAt = a} :: ServiceSummary) Prelude.. Lens.mapping Core._Time
+serviceSummary_createdAt = Lens.lens (\ServiceSummary' {createdAt} -> createdAt) (\s@ServiceSummary' {} a -> s {createdAt = a} :: ServiceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of this service.
 serviceSummary_serviceArn :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
@@ -163,26 +164,26 @@ serviceSummary_serviceArn = Lens.lens (\ServiceSummary' {serviceArn} -> serviceA
 -- | The time when the App Runner service was last updated. It\'s in theUnix
 -- time stamp format.
 serviceSummary_updatedAt :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.UTCTime)
-serviceSummary_updatedAt = Lens.lens (\ServiceSummary' {updatedAt} -> updatedAt) (\s@ServiceSummary' {} a -> s {updatedAt = a} :: ServiceSummary) Prelude.. Lens.mapping Core._Time
+serviceSummary_updatedAt = Lens.lens (\ServiceSummary' {updatedAt} -> updatedAt) (\s@ServiceSummary' {} a -> s {updatedAt = a} :: ServiceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | An ID that App Runner generated for this service. It\'s unique within
 -- the Amazon Web Services Region.
 serviceSummary_serviceId :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
 serviceSummary_serviceId = Lens.lens (\ServiceSummary' {serviceId} -> serviceId) (\s@ServiceSummary' {} a -> s {serviceId = a} :: ServiceSummary)
 
-instance Core.FromJSON ServiceSummary where
+instance Data.FromJSON ServiceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceSummary"
       ( \x ->
           ServiceSummary'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ServiceName")
-            Prelude.<*> (x Core..:? "ServiceUrl")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "ServiceArn")
-            Prelude.<*> (x Core..:? "UpdatedAt")
-            Prelude.<*> (x Core..:? "ServiceId")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ServiceName")
+            Prelude.<*> (x Data..:? "ServiceUrl")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "ServiceArn")
+            Prelude.<*> (x Data..:? "UpdatedAt")
+            Prelude.<*> (x Data..:? "ServiceId")
       )
 
 instance Prelude.Hashable ServiceSummary where

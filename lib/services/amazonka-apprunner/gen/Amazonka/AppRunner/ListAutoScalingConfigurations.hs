@@ -54,6 +54,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -181,9 +182,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAutoScalingConfigurationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "AutoScalingConfigurationSummaryList"
+            Prelude.<*> ( x Data..?> "AutoScalingConfigurationSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -205,37 +206,37 @@ instance Prelude.NFData ListAutoScalingConfigurations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf autoScalingConfigurationName
 
-instance Core.ToHeaders ListAutoScalingConfigurations where
+instance Data.ToHeaders ListAutoScalingConfigurations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.ListAutoScalingConfigurations" ::
+              Data.=# ( "AppRunner.ListAutoScalingConfigurations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAutoScalingConfigurations where
+instance Data.ToJSON ListAutoScalingConfigurations where
   toJSON ListAutoScalingConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("LatestOnly" Core..=) Prelude.<$> latestOnly,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("AutoScalingConfigurationName" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("LatestOnly" Data..=) Prelude.<$> latestOnly,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("AutoScalingConfigurationName" Data..=)
               Prelude.<$> autoScalingConfigurationName
           ]
       )
 
-instance Core.ToPath ListAutoScalingConfigurations where
+instance Data.ToPath ListAutoScalingConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAutoScalingConfigurations where
+instance Data.ToQuery ListAutoScalingConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAutoScalingConfigurationsResponse' smart constructor.

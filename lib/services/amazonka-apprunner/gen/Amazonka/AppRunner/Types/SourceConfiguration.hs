@@ -24,6 +24,7 @@ import Amazonka.AppRunner.Types.CodeRepository
 import Amazonka.AppRunner.Types.ImageRepository
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the source deployed to an App Runner service. It can be a code
@@ -123,16 +124,16 @@ sourceConfiguration_imageRepository = Lens.lens (\SourceConfiguration' {imageRep
 sourceConfiguration_authenticationConfiguration :: Lens.Lens' SourceConfiguration (Prelude.Maybe AuthenticationConfiguration)
 sourceConfiguration_authenticationConfiguration = Lens.lens (\SourceConfiguration' {authenticationConfiguration} -> authenticationConfiguration) (\s@SourceConfiguration' {} a -> s {authenticationConfiguration = a} :: SourceConfiguration)
 
-instance Core.FromJSON SourceConfiguration where
+instance Data.FromJSON SourceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceConfiguration"
       ( \x ->
           SourceConfiguration'
-            Prelude.<$> (x Core..:? "CodeRepository")
-            Prelude.<*> (x Core..:? "AutoDeploymentsEnabled")
-            Prelude.<*> (x Core..:? "ImageRepository")
-            Prelude.<*> (x Core..:? "AuthenticationConfiguration")
+            Prelude.<$> (x Data..:? "CodeRepository")
+            Prelude.<*> (x Data..:? "AutoDeploymentsEnabled")
+            Prelude.<*> (x Data..:? "ImageRepository")
+            Prelude.<*> (x Data..:? "AuthenticationConfiguration")
       )
 
 instance Prelude.Hashable SourceConfiguration where
@@ -149,17 +150,17 @@ instance Prelude.NFData SourceConfiguration where
       `Prelude.seq` Prelude.rnf imageRepository
       `Prelude.seq` Prelude.rnf authenticationConfiguration
 
-instance Core.ToJSON SourceConfiguration where
+instance Data.ToJSON SourceConfiguration where
   toJSON SourceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CodeRepository" Core..=)
+          [ ("CodeRepository" Data..=)
               Prelude.<$> codeRepository,
-            ("AutoDeploymentsEnabled" Core..=)
+            ("AutoDeploymentsEnabled" Data..=)
               Prelude.<$> autoDeploymentsEnabled,
-            ("ImageRepository" Core..=)
+            ("ImageRepository" Data..=)
               Prelude.<$> imageRepository,
-            ("AuthenticationConfiguration" Core..=)
+            ("AuthenticationConfiguration" Data..=)
               Prelude.<$> authenticationConfiguration
           ]
       )

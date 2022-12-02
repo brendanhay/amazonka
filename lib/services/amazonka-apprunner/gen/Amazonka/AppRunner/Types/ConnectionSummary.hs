@@ -23,6 +23,7 @@ import Amazonka.AppRunner.Types.ConnectionStatus
 import Amazonka.AppRunner.Types.ProviderType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information about an App Runner connection resource.
@@ -37,7 +38,7 @@ data ConnectionSummary = ConnectionSummary'
     -- | The source repository provider.
     providerType :: Prelude.Maybe ProviderType,
     -- | The App Runner connection creation time, expressed as a Unix time stamp.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The customer-provided connection name.
     connectionName :: Prelude.Maybe Prelude.Text
   }
@@ -87,23 +88,23 @@ connectionSummary_providerType = Lens.lens (\ConnectionSummary' {providerType} -
 
 -- | The App Runner connection creation time, expressed as a Unix time stamp.
 connectionSummary_createdAt :: Lens.Lens' ConnectionSummary (Prelude.Maybe Prelude.UTCTime)
-connectionSummary_createdAt = Lens.lens (\ConnectionSummary' {createdAt} -> createdAt) (\s@ConnectionSummary' {} a -> s {createdAt = a} :: ConnectionSummary) Prelude.. Lens.mapping Core._Time
+connectionSummary_createdAt = Lens.lens (\ConnectionSummary' {createdAt} -> createdAt) (\s@ConnectionSummary' {} a -> s {createdAt = a} :: ConnectionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The customer-provided connection name.
 connectionSummary_connectionName :: Lens.Lens' ConnectionSummary (Prelude.Maybe Prelude.Text)
 connectionSummary_connectionName = Lens.lens (\ConnectionSummary' {connectionName} -> connectionName) (\s@ConnectionSummary' {} a -> s {connectionName = a} :: ConnectionSummary)
 
-instance Core.FromJSON ConnectionSummary where
+instance Data.FromJSON ConnectionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionSummary"
       ( \x ->
           ConnectionSummary'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ConnectionArn")
-            Prelude.<*> (x Core..:? "ProviderType")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "ConnectionName")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ConnectionArn")
+            Prelude.<*> (x Data..:? "ProviderType")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "ConnectionName")
       )
 
 instance Prelude.Hashable ConnectionSummary where

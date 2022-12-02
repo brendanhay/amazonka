@@ -57,6 +57,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,10 +144,10 @@ instance Core.AWSRequest AssociateCustomDomain where
       ( \s h x ->
           AssociateCustomDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DNSTarget")
-            Prelude.<*> (x Core..:> "ServiceArn")
-            Prelude.<*> (x Core..:> "CustomDomain")
-            Prelude.<*> (x Core..?> "VpcDNSTargets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "DNSTarget")
+            Prelude.<*> (x Data..:> "ServiceArn")
+            Prelude.<*> (x Data..:> "CustomDomain")
+            Prelude.<*> (x Data..?> "VpcDNSTargets" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable AssociateCustomDomain where
@@ -161,36 +162,36 @@ instance Prelude.NFData AssociateCustomDomain where
       `Prelude.seq` Prelude.rnf serviceArn
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders AssociateCustomDomain where
+instance Data.ToHeaders AssociateCustomDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.AssociateCustomDomain" ::
+              Data.=# ( "AppRunner.AssociateCustomDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateCustomDomain where
+instance Data.ToJSON AssociateCustomDomain where
   toJSON AssociateCustomDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EnableWWWSubdomain" Core..=)
+          [ ("EnableWWWSubdomain" Data..=)
               Prelude.<$> enableWWWSubdomain,
-            Prelude.Just ("ServiceArn" Core..= serviceArn),
-            Prelude.Just ("DomainName" Core..= domainName)
+            Prelude.Just ("ServiceArn" Data..= serviceArn),
+            Prelude.Just ("DomainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath AssociateCustomDomain where
+instance Data.ToPath AssociateCustomDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateCustomDomain where
+instance Data.ToQuery AssociateCustomDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateCustomDomainResponse' smart constructor.

@@ -61,6 +61,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,7 +172,7 @@ instance
       ( \s h x ->
           CreateObservabilityConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ObservabilityConfiguration")
+            Prelude.<*> (x Data..:> "ObservabilityConfiguration")
       )
 
 instance
@@ -195,42 +196,42 @@ instance
       `Prelude.seq` Prelude.rnf observabilityConfigurationName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateObservabilityConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.CreateObservabilityConfiguration" ::
+              Data.=# ( "AppRunner.CreateObservabilityConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateObservabilityConfiguration where
+instance Data.ToJSON CreateObservabilityConfiguration where
   toJSON CreateObservabilityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("TraceConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("TraceConfiguration" Data..=)
               Prelude.<$> traceConfiguration,
             Prelude.Just
               ( "ObservabilityConfigurationName"
-                  Core..= observabilityConfigurationName
+                  Data..= observabilityConfigurationName
               )
           ]
       )
 
-instance Core.ToPath CreateObservabilityConfiguration where
+instance Data.ToPath CreateObservabilityConfiguration where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateObservabilityConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

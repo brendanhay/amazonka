@@ -22,6 +22,7 @@ module Amazonka.AppRunner.Types.AutoScalingConfiguration where
 import Amazonka.AppRunner.Types.AutoScalingConfigurationStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an App Runner automatic scaling configuration resource.
@@ -46,7 +47,7 @@ data AutoScalingConfiguration = AutoScalingConfiguration'
     status :: Prelude.Maybe AutoScalingConfigurationStatus,
     -- | The time when the auto scaling configuration was deleted. It\'s in Unix
     -- time stamp format.
-    deletedAt :: Prelude.Maybe Core.POSIX,
+    deletedAt :: Prelude.Maybe Data.POSIX,
     -- | It\'s set to @true@ for the configuration with the highest @Revision@
     -- among all configurations that share the same
     -- @AutoScalingConfigurationName@. It\'s set to @false@ otherwise.
@@ -81,7 +82,7 @@ data AutoScalingConfiguration = AutoScalingConfiguration'
     autoScalingConfigurationRevision :: Prelude.Maybe Prelude.Int,
     -- | The time when the auto scaling configuration was created. It\'s in Unix
     -- time stamp format.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -162,7 +163,7 @@ autoScalingConfiguration_status = Lens.lens (\AutoScalingConfiguration' {status}
 -- | The time when the auto scaling configuration was deleted. It\'s in Unix
 -- time stamp format.
 autoScalingConfiguration_deletedAt :: Lens.Lens' AutoScalingConfiguration (Prelude.Maybe Prelude.UTCTime)
-autoScalingConfiguration_deletedAt = Lens.lens (\AutoScalingConfiguration' {deletedAt} -> deletedAt) (\s@AutoScalingConfiguration' {} a -> s {deletedAt = a} :: AutoScalingConfiguration) Prelude.. Lens.mapping Core._Time
+autoScalingConfiguration_deletedAt = Lens.lens (\AutoScalingConfiguration' {deletedAt} -> deletedAt) (\s@AutoScalingConfiguration' {} a -> s {deletedAt = a} :: AutoScalingConfiguration) Prelude.. Lens.mapping Data._Time
 
 -- | It\'s set to @true@ for the configuration with the highest @Revision@
 -- among all configurations that share the same
@@ -213,24 +214,24 @@ autoScalingConfiguration_autoScalingConfigurationRevision = Lens.lens (\AutoScal
 -- | The time when the auto scaling configuration was created. It\'s in Unix
 -- time stamp format.
 autoScalingConfiguration_createdAt :: Lens.Lens' AutoScalingConfiguration (Prelude.Maybe Prelude.UTCTime)
-autoScalingConfiguration_createdAt = Lens.lens (\AutoScalingConfiguration' {createdAt} -> createdAt) (\s@AutoScalingConfiguration' {} a -> s {createdAt = a} :: AutoScalingConfiguration) Prelude.. Lens.mapping Core._Time
+autoScalingConfiguration_createdAt = Lens.lens (\AutoScalingConfiguration' {createdAt} -> createdAt) (\s@AutoScalingConfiguration' {} a -> s {createdAt = a} :: AutoScalingConfiguration) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AutoScalingConfiguration where
+instance Data.FromJSON AutoScalingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingConfiguration"
       ( \x ->
           AutoScalingConfiguration'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DeletedAt")
-            Prelude.<*> (x Core..:? "Latest")
-            Prelude.<*> (x Core..:? "AutoScalingConfigurationName")
-            Prelude.<*> (x Core..:? "MinSize")
-            Prelude.<*> (x Core..:? "MaxConcurrency")
-            Prelude.<*> (x Core..:? "AutoScalingConfigurationArn")
-            Prelude.<*> (x Core..:? "MaxSize")
-            Prelude.<*> (x Core..:? "AutoScalingConfigurationRevision")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DeletedAt")
+            Prelude.<*> (x Data..:? "Latest")
+            Prelude.<*> (x Data..:? "AutoScalingConfigurationName")
+            Prelude.<*> (x Data..:? "MinSize")
+            Prelude.<*> (x Data..:? "MaxConcurrency")
+            Prelude.<*> (x Data..:? "AutoScalingConfigurationArn")
+            Prelude.<*> (x Data..:? "MaxSize")
+            Prelude.<*> (x Data..:? "AutoScalingConfigurationRevision")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable AutoScalingConfiguration where

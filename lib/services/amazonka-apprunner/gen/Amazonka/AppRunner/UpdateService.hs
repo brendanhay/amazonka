@@ -61,6 +61,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -205,8 +206,8 @@ instance Core.AWSRequest UpdateService where
       ( \s h x ->
           UpdateServiceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Service")
-            Prelude.<*> (x Core..:> "OperationId")
+            Prelude.<*> (x Data..:> "Service")
+            Prelude.<*> (x Data..:> "OperationId")
       )
 
 instance Prelude.Hashable UpdateService where
@@ -229,43 +230,43 @@ instance Prelude.NFData UpdateService where
       `Prelude.seq` Prelude.rnf healthCheckConfiguration
       `Prelude.seq` Prelude.rnf serviceArn
 
-instance Core.ToHeaders UpdateService where
+instance Data.ToHeaders UpdateService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AppRunner.UpdateService" :: Prelude.ByteString),
+              Data.=# ("AppRunner.UpdateService" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateService where
+instance Data.ToJSON UpdateService where
   toJSON UpdateService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceConfiguration" Core..=)
+          [ ("SourceConfiguration" Data..=)
               Prelude.<$> sourceConfiguration,
-            ("InstanceConfiguration" Core..=)
+            ("InstanceConfiguration" Data..=)
               Prelude.<$> instanceConfiguration,
-            ("ObservabilityConfiguration" Core..=)
+            ("ObservabilityConfiguration" Data..=)
               Prelude.<$> observabilityConfiguration,
-            ("NetworkConfiguration" Core..=)
+            ("NetworkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
-            ("AutoScalingConfigurationArn" Core..=)
+            ("AutoScalingConfigurationArn" Data..=)
               Prelude.<$> autoScalingConfigurationArn,
-            ("HealthCheckConfiguration" Core..=)
+            ("HealthCheckConfiguration" Data..=)
               Prelude.<$> healthCheckConfiguration,
-            Prelude.Just ("ServiceArn" Core..= serviceArn)
+            Prelude.Just ("ServiceArn" Data..= serviceArn)
           ]
       )
 
-instance Core.ToPath UpdateService where
+instance Data.ToPath UpdateService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateService where
+instance Data.ToQuery UpdateService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServiceResponse' smart constructor.

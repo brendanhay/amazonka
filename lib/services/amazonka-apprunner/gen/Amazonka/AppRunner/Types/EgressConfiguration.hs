@@ -22,6 +22,7 @@ module Amazonka.AppRunner.Types.EgressConfiguration where
 import Amazonka.AppRunner.Types.EgressType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes configuration settings related to outbound network traffic of
@@ -85,14 +86,14 @@ egressConfiguration_vpcConnectorArn = Lens.lens (\EgressConfiguration' {vpcConne
 egressConfiguration_egressType :: Lens.Lens' EgressConfiguration (Prelude.Maybe EgressType)
 egressConfiguration_egressType = Lens.lens (\EgressConfiguration' {egressType} -> egressType) (\s@EgressConfiguration' {} a -> s {egressType = a} :: EgressConfiguration)
 
-instance Core.FromJSON EgressConfiguration where
+instance Data.FromJSON EgressConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EgressConfiguration"
       ( \x ->
           EgressConfiguration'
-            Prelude.<$> (x Core..:? "VpcConnectorArn")
-            Prelude.<*> (x Core..:? "EgressType")
+            Prelude.<$> (x Data..:? "VpcConnectorArn")
+            Prelude.<*> (x Data..:? "EgressType")
       )
 
 instance Prelude.Hashable EgressConfiguration where
@@ -105,12 +106,12 @@ instance Prelude.NFData EgressConfiguration where
     Prelude.rnf vpcConnectorArn
       `Prelude.seq` Prelude.rnf egressType
 
-instance Core.ToJSON EgressConfiguration where
+instance Data.ToJSON EgressConfiguration where
   toJSON EgressConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcConnectorArn" Core..=)
+          [ ("VpcConnectorArn" Data..=)
               Prelude.<$> vpcConnectorArn,
-            ("EgressType" Core..=) Prelude.<$> egressType
+            ("EgressType" Data..=) Prelude.<$> egressType
           ]
       )

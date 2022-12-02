@@ -53,6 +53,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,10 +116,10 @@ instance Core.AWSRequest DisassociateCustomDomain where
       ( \s h x ->
           DisassociateCustomDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DNSTarget")
-            Prelude.<*> (x Core..:> "ServiceArn")
-            Prelude.<*> (x Core..:> "CustomDomain")
-            Prelude.<*> (x Core..?> "VpcDNSTargets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "DNSTarget")
+            Prelude.<*> (x Data..:> "ServiceArn")
+            Prelude.<*> (x Data..:> "CustomDomain")
+            Prelude.<*> (x Data..?> "VpcDNSTargets" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable DisassociateCustomDomain where
@@ -131,34 +132,34 @@ instance Prelude.NFData DisassociateCustomDomain where
     Prelude.rnf serviceArn
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders DisassociateCustomDomain where
+instance Data.ToHeaders DisassociateCustomDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.DisassociateCustomDomain" ::
+              Data.=# ( "AppRunner.DisassociateCustomDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateCustomDomain where
+instance Data.ToJSON DisassociateCustomDomain where
   toJSON DisassociateCustomDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ServiceArn" Core..= serviceArn),
-            Prelude.Just ("DomainName" Core..= domainName)
+          [ Prelude.Just ("ServiceArn" Data..= serviceArn),
+            Prelude.Just ("DomainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath DisassociateCustomDomain where
+instance Data.ToPath DisassociateCustomDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateCustomDomain where
+instance Data.ToQuery DisassociateCustomDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateCustomDomainResponse' smart constructor.

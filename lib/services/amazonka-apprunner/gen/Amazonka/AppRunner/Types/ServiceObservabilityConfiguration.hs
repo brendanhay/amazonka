@@ -21,6 +21,7 @@ module Amazonka.AppRunner.Types.ServiceObservabilityConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the observability configuration of an App Runner service.
@@ -100,16 +101,16 @@ serviceObservabilityConfiguration_observabilityEnabled :: Lens.Lens' ServiceObse
 serviceObservabilityConfiguration_observabilityEnabled = Lens.lens (\ServiceObservabilityConfiguration' {observabilityEnabled} -> observabilityEnabled) (\s@ServiceObservabilityConfiguration' {} a -> s {observabilityEnabled = a} :: ServiceObservabilityConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ServiceObservabilityConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceObservabilityConfiguration"
       ( \x ->
           ServiceObservabilityConfiguration'
-            Prelude.<$> (x Core..:? "ObservabilityConfigurationArn")
-            Prelude.<*> (x Core..: "ObservabilityEnabled")
+            Prelude.<$> (x Data..:? "ObservabilityConfigurationArn")
+            Prelude.<*> (x Data..: "ObservabilityEnabled")
       )
 
 instance
@@ -132,17 +133,17 @@ instance
       `Prelude.seq` Prelude.rnf observabilityEnabled
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ServiceObservabilityConfiguration
   where
   toJSON ServiceObservabilityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ObservabilityConfigurationArn" Core..=)
+          [ ("ObservabilityConfigurationArn" Data..=)
               Prelude.<$> observabilityConfigurationArn,
             Prelude.Just
               ( "ObservabilityEnabled"
-                  Core..= observabilityEnabled
+                  Data..= observabilityEnabled
               )
           ]
       )

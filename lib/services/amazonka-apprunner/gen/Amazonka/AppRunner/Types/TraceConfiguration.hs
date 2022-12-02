@@ -22,6 +22,7 @@ module Amazonka.AppRunner.Types.TraceConfiguration where
 import Amazonka.AppRunner.Types.TracingVendor
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of the tracing feature within an App Runner
@@ -54,12 +55,12 @@ newTraceConfiguration pVendor_ =
 traceConfiguration_vendor :: Lens.Lens' TraceConfiguration TracingVendor
 traceConfiguration_vendor = Lens.lens (\TraceConfiguration' {vendor} -> vendor) (\s@TraceConfiguration' {} a -> s {vendor = a} :: TraceConfiguration)
 
-instance Core.FromJSON TraceConfiguration where
+instance Data.FromJSON TraceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TraceConfiguration"
       ( \x ->
-          TraceConfiguration' Prelude.<$> (x Core..: "Vendor")
+          TraceConfiguration' Prelude.<$> (x Data..: "Vendor")
       )
 
 instance Prelude.Hashable TraceConfiguration where
@@ -69,9 +70,9 @@ instance Prelude.Hashable TraceConfiguration where
 instance Prelude.NFData TraceConfiguration where
   rnf TraceConfiguration' {..} = Prelude.rnf vendor
 
-instance Core.ToJSON TraceConfiguration where
+instance Data.ToJSON TraceConfiguration where
   toJSON TraceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Vendor" Core..= vendor)]
+          [Prelude.Just ("Vendor" Data..= vendor)]
       )

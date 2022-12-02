@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.WorkflowExecutionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.CloseStatus
 import Amazonka.SWF.Types.ExecutionStatus
@@ -39,7 +40,7 @@ data WorkflowExecutionInfo = WorkflowExecutionInfo'
     cancelRequested :: Prelude.Maybe Prelude.Bool,
     -- | The time when the workflow execution was closed. Set only if the
     -- execution status is CLOSED.
-    closeTimestamp :: Prelude.Maybe Core.POSIX,
+    closeTimestamp :: Prelude.Maybe Data.POSIX,
     -- | If the execution status is closed then this specifies how the execution
     -- was closed:
     --
@@ -68,7 +69,7 @@ data WorkflowExecutionInfo = WorkflowExecutionInfo'
     -- | The type of the workflow execution.
     workflowType :: WorkflowType,
     -- | The time when the execution was started.
-    startTimestamp :: Core.POSIX,
+    startTimestamp :: Data.POSIX,
     -- | The current status of the execution.
     executionStatus :: ExecutionStatus
   }
@@ -144,7 +145,7 @@ newWorkflowExecutionInfo
         parent = Prelude.Nothing,
         execution = pExecution_,
         workflowType = pWorkflowType_,
-        startTimestamp = Core._Time Lens.# pStartTimestamp_,
+        startTimestamp = Data._Time Lens.# pStartTimestamp_,
         executionStatus = pExecutionStatus_
       }
 
@@ -161,7 +162,7 @@ workflowExecutionInfo_cancelRequested = Lens.lens (\WorkflowExecutionInfo' {canc
 -- | The time when the workflow execution was closed. Set only if the
 -- execution status is CLOSED.
 workflowExecutionInfo_closeTimestamp :: Lens.Lens' WorkflowExecutionInfo (Prelude.Maybe Prelude.UTCTime)
-workflowExecutionInfo_closeTimestamp = Lens.lens (\WorkflowExecutionInfo' {closeTimestamp} -> closeTimestamp) (\s@WorkflowExecutionInfo' {} a -> s {closeTimestamp = a} :: WorkflowExecutionInfo) Prelude.. Lens.mapping Core._Time
+workflowExecutionInfo_closeTimestamp = Lens.lens (\WorkflowExecutionInfo' {closeTimestamp} -> closeTimestamp) (\s@WorkflowExecutionInfo' {} a -> s {closeTimestamp = a} :: WorkflowExecutionInfo) Prelude.. Lens.mapping Data._Time
 
 -- | If the execution status is closed then this specifies how the execution
 -- was closed:
@@ -200,27 +201,27 @@ workflowExecutionInfo_workflowType = Lens.lens (\WorkflowExecutionInfo' {workflo
 
 -- | The time when the execution was started.
 workflowExecutionInfo_startTimestamp :: Lens.Lens' WorkflowExecutionInfo Prelude.UTCTime
-workflowExecutionInfo_startTimestamp = Lens.lens (\WorkflowExecutionInfo' {startTimestamp} -> startTimestamp) (\s@WorkflowExecutionInfo' {} a -> s {startTimestamp = a} :: WorkflowExecutionInfo) Prelude.. Core._Time
+workflowExecutionInfo_startTimestamp = Lens.lens (\WorkflowExecutionInfo' {startTimestamp} -> startTimestamp) (\s@WorkflowExecutionInfo' {} a -> s {startTimestamp = a} :: WorkflowExecutionInfo) Prelude.. Data._Time
 
 -- | The current status of the execution.
 workflowExecutionInfo_executionStatus :: Lens.Lens' WorkflowExecutionInfo ExecutionStatus
 workflowExecutionInfo_executionStatus = Lens.lens (\WorkflowExecutionInfo' {executionStatus} -> executionStatus) (\s@WorkflowExecutionInfo' {} a -> s {executionStatus = a} :: WorkflowExecutionInfo)
 
-instance Core.FromJSON WorkflowExecutionInfo where
+instance Data.FromJSON WorkflowExecutionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowExecutionInfo"
       ( \x ->
           WorkflowExecutionInfo'
-            Prelude.<$> (x Core..:? "tagList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "cancelRequested")
-            Prelude.<*> (x Core..:? "closeTimestamp")
-            Prelude.<*> (x Core..:? "closeStatus")
-            Prelude.<*> (x Core..:? "parent")
-            Prelude.<*> (x Core..: "execution")
-            Prelude.<*> (x Core..: "workflowType")
-            Prelude.<*> (x Core..: "startTimestamp")
-            Prelude.<*> (x Core..: "executionStatus")
+            Prelude.<$> (x Data..:? "tagList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "cancelRequested")
+            Prelude.<*> (x Data..:? "closeTimestamp")
+            Prelude.<*> (x Data..:? "closeStatus")
+            Prelude.<*> (x Data..:? "parent")
+            Prelude.<*> (x Data..: "execution")
+            Prelude.<*> (x Data..: "workflowType")
+            Prelude.<*> (x Data..: "startTimestamp")
+            Prelude.<*> (x Data..: "executionStatus")
       )
 
 instance Prelude.Hashable WorkflowExecutionInfo where

@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.StartTimerFailedEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.StartTimerFailedCause
 
@@ -113,17 +114,17 @@ startTimerFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' Start
 startTimerFailedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\StartTimerFailedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@StartTimerFailedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: StartTimerFailedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StartTimerFailedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StartTimerFailedEventAttributes"
       ( \x ->
           StartTimerFailedEventAttributes'
-            Prelude.<$> (x Core..: "timerId")
-            Prelude.<*> (x Core..: "cause")
-            Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..: "timerId")
+            Prelude.<*> (x Data..: "cause")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance

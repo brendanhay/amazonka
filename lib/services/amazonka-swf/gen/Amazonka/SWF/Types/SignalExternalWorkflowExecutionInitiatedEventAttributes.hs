@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttribute
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @SignalExternalWorkflowExecutionInitiated@
@@ -126,20 +127,20 @@ signalExternalWorkflowExecutionInitiatedEventAttributes_decisionTaskCompletedEve
 signalExternalWorkflowExecutionInitiatedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\SignalExternalWorkflowExecutionInitiatedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@SignalExternalWorkflowExecutionInitiatedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: SignalExternalWorkflowExecutionInitiatedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SignalExternalWorkflowExecutionInitiatedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SignalExternalWorkflowExecutionInitiatedEventAttributes"
       ( \x ->
           SignalExternalWorkflowExecutionInitiatedEventAttributes'
-            Prelude.<$> (x Core..:? "input")
-              Prelude.<*> (x Core..:? "control")
-              Prelude.<*> (x Core..:? "runId")
-              Prelude.<*> (x Core..: "workflowId")
-              Prelude.<*> (x Core..: "signalName")
-              Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..:? "input")
+              Prelude.<*> (x Data..:? "control")
+              Prelude.<*> (x Data..:? "runId")
+              Prelude.<*> (x Data..: "workflowId")
+              Prelude.<*> (x Data..: "signalName")
+              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance

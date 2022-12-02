@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.WorkflowExecutionSignaledEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.WorkflowExecution
 
@@ -113,18 +114,18 @@ workflowExecutionSignaledEventAttributes_signalName :: Lens.Lens' WorkflowExecut
 workflowExecutionSignaledEventAttributes_signalName = Lens.lens (\WorkflowExecutionSignaledEventAttributes' {signalName} -> signalName) (\s@WorkflowExecutionSignaledEventAttributes' {} a -> s {signalName = a} :: WorkflowExecutionSignaledEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     WorkflowExecutionSignaledEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowExecutionSignaledEventAttributes"
       ( \x ->
           WorkflowExecutionSignaledEventAttributes'
-            Prelude.<$> (x Core..:? "externalWorkflowExecution")
-            Prelude.<*> (x Core..:? "input")
-            Prelude.<*> (x Core..:? "externalInitiatedEventId")
-            Prelude.<*> (x Core..: "signalName")
+            Prelude.<$> (x Data..:? "externalWorkflowExecution")
+            Prelude.<*> (x Data..:? "input")
+            Prelude.<*> (x Data..:? "externalInitiatedEventId")
+            Prelude.<*> (x Data..: "signalName")
       )
 
 instance

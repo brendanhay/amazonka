@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -247,38 +248,38 @@ instance Prelude.NFData TerminateWorkflowExecution where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf workflowId
 
-instance Core.ToHeaders TerminateWorkflowExecution where
+instance Data.ToHeaders TerminateWorkflowExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.TerminateWorkflowExecution" ::
+              Data.=# ( "SimpleWorkflowService.TerminateWorkflowExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TerminateWorkflowExecution where
+instance Data.ToJSON TerminateWorkflowExecution where
   toJSON TerminateWorkflowExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("details" Core..=) Prelude.<$> details,
-            ("reason" Core..=) Prelude.<$> reason,
-            ("childPolicy" Core..=) Prelude.<$> childPolicy,
-            ("runId" Core..=) Prelude.<$> runId,
-            Prelude.Just ("domain" Core..= domain),
-            Prelude.Just ("workflowId" Core..= workflowId)
+          [ ("details" Data..=) Prelude.<$> details,
+            ("reason" Data..=) Prelude.<$> reason,
+            ("childPolicy" Data..=) Prelude.<$> childPolicy,
+            ("runId" Data..=) Prelude.<$> runId,
+            Prelude.Just ("domain" Data..= domain),
+            Prelude.Just ("workflowId" Data..= workflowId)
           ]
       )
 
-instance Core.ToPath TerminateWorkflowExecution where
+instance Data.ToPath TerminateWorkflowExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TerminateWorkflowExecution where
+instance Data.ToQuery TerminateWorkflowExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTerminateWorkflowExecutionResponse' smart constructor.

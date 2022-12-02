@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.HistoryEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.ActivityTaskCancelRequestedEventAttributes
 import Amazonka.SWF.Types.ActivityTaskCanceledEventAttributes
@@ -448,7 +449,7 @@ data HistoryEvent = HistoryEvent'
     -- other event types.
     decisionTaskTimedOutEventAttributes :: Prelude.Maybe DecisionTaskTimedOutEventAttributes,
     -- | The date and time when the event occurred.
-    eventTimestamp :: Core.POSIX,
+    eventTimestamp :: Data.POSIX,
     -- | The type of the history event.
     eventType :: EventType,
     -- | The system generated ID of the event. This ID uniquely identifies the
@@ -792,7 +793,7 @@ newHistoryEvent
           Prelude.Nothing,
         decisionTaskTimedOutEventAttributes =
           Prelude.Nothing,
-        eventTimestamp = Core._Time Lens.# pEventTimestamp_,
+        eventTimestamp = Data._Time Lens.# pEventTimestamp_,
         eventType = pEventType_,
         eventId = pEventId_
       }
@@ -1117,7 +1118,7 @@ historyEvent_decisionTaskTimedOutEventAttributes = Lens.lens (\HistoryEvent' {de
 
 -- | The date and time when the event occurred.
 historyEvent_eventTimestamp :: Lens.Lens' HistoryEvent Prelude.UTCTime
-historyEvent_eventTimestamp = Lens.lens (\HistoryEvent' {eventTimestamp} -> eventTimestamp) (\s@HistoryEvent' {} a -> s {eventTimestamp = a} :: HistoryEvent) Prelude.. Core._Time
+historyEvent_eventTimestamp = Lens.lens (\HistoryEvent' {eventTimestamp} -> eventTimestamp) (\s@HistoryEvent' {} a -> s {eventTimestamp = a} :: HistoryEvent) Prelude.. Data._Time
 
 -- | The type of the history event.
 historyEvent_eventType :: Lens.Lens' HistoryEvent EventType
@@ -1128,131 +1129,131 @@ historyEvent_eventType = Lens.lens (\HistoryEvent' {eventType} -> eventType) (\s
 historyEvent_eventId :: Lens.Lens' HistoryEvent Prelude.Integer
 historyEvent_eventId = Lens.lens (\HistoryEvent' {eventId} -> eventId) (\s@HistoryEvent' {} a -> s {eventId = a} :: HistoryEvent)
 
-instance Core.FromJSON HistoryEvent where
+instance Data.FromJSON HistoryEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HistoryEvent"
       ( \x ->
           HistoryEvent'
-            Prelude.<$> (x Core..:? "activityTaskCanceledEventAttributes")
+            Prelude.<$> (x Data..:? "activityTaskCanceledEventAttributes")
             Prelude.<*> ( x
-                            Core..:? "childWorkflowExecutionStartedEventAttributes"
+                            Data..:? "childWorkflowExecutionStartedEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "completeWorkflowExecutionFailedEventAttributes"
+                            Data..:? "completeWorkflowExecutionFailedEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "signalExternalWorkflowExecutionFailedEventAttributes"
+                            Data..:? "signalExternalWorkflowExecutionFailedEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "childWorkflowExecutionCompletedEventAttributes"
+                            Data..:? "childWorkflowExecutionCompletedEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "requestCancelExternalWorkflowExecutionFailedEventAttributes"
+                            Data..:? "requestCancelExternalWorkflowExecutionFailedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "startTimerFailedEventAttributes")
-            Prelude.<*> (x Core..:? "activityTaskFailedEventAttributes")
+            Prelude.<*> (x Data..:? "startTimerFailedEventAttributes")
+            Prelude.<*> (x Data..:? "activityTaskFailedEventAttributes")
             Prelude.<*> ( x
-                            Core..:? "continueAsNewWorkflowExecutionFailedEventAttributes"
+                            Data..:? "continueAsNewWorkflowExecutionFailedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "activityTaskStartedEventAttributes")
-            Prelude.<*> (x Core..:? "recordMarkerFailedEventAttributes")
-            Prelude.<*> (x Core..:? "lambdaFunctionCompletedEventAttributes")
+            Prelude.<*> (x Data..:? "activityTaskStartedEventAttributes")
+            Prelude.<*> (x Data..:? "recordMarkerFailedEventAttributes")
+            Prelude.<*> (x Data..:? "lambdaFunctionCompletedEventAttributes")
             Prelude.<*> ( x
-                            Core..:? "workflowExecutionTerminatedEventAttributes"
+                            Data..:? "workflowExecutionTerminatedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "activityTaskScheduledEventAttributes")
-            Prelude.<*> (x Core..:? "decisionTaskScheduledEventAttributes")
-            Prelude.<*> (x Core..:? "lambdaFunctionStartedEventAttributes")
+            Prelude.<*> (x Data..:? "activityTaskScheduledEventAttributes")
+            Prelude.<*> (x Data..:? "decisionTaskScheduledEventAttributes")
+            Prelude.<*> (x Data..:? "lambdaFunctionStartedEventAttributes")
             Prelude.<*> ( x
-                            Core..:? "requestCancelActivityTaskFailedEventAttributes"
-                        )
-            Prelude.<*> ( x
-                            Core..:? "failWorkflowExecutionFailedEventAttributes"
+                            Data..:? "requestCancelActivityTaskFailedEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "scheduleActivityTaskFailedEventAttributes"
-                        )
-            Prelude.<*> (x Core..:? "timerFiredEventAttributes")
-            Prelude.<*> (x Core..:? "workflowExecutionFailedEventAttributes")
-            Prelude.<*> ( x
-                            Core..:? "childWorkflowExecutionTerminatedEventAttributes"
-                        )
-            Prelude.<*> (x Core..:? "activityTaskTimedOutEventAttributes")
-            Prelude.<*> (x Core..:? "decisionTaskStartedEventAttributes")
-            Prelude.<*> ( x
-                            Core..:? "startChildWorkflowExecutionInitiatedEventAttributes"
-                        )
-            Prelude.<*> (x Core..:? "markerRecordedEventAttributes")
-            Prelude.<*> ( x
-                            Core..:? "startChildWorkflowExecutionFailedEventAttributes"
+                            Data..:? "failWorkflowExecutionFailedEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "externalWorkflowExecutionCancelRequestedEventAttributes"
+                            Data..:? "scheduleActivityTaskFailedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "lambdaFunctionFailedEventAttributes")
+            Prelude.<*> (x Data..:? "timerFiredEventAttributes")
+            Prelude.<*> (x Data..:? "workflowExecutionFailedEventAttributes")
             Prelude.<*> ( x
-                            Core..:? "requestCancelExternalWorkflowExecutionInitiatedEventAttributes"
+                            Data..:? "childWorkflowExecutionTerminatedEventAttributes"
                         )
+            Prelude.<*> (x Data..:? "activityTaskTimedOutEventAttributes")
+            Prelude.<*> (x Data..:? "decisionTaskStartedEventAttributes")
             Prelude.<*> ( x
-                            Core..:? "scheduleLambdaFunctionFailedEventAttributes"
+                            Data..:? "startChildWorkflowExecutionInitiatedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "lambdaFunctionScheduledEventAttributes")
+            Prelude.<*> (x Data..:? "markerRecordedEventAttributes")
             Prelude.<*> ( x
-                            Core..:? "workflowExecutionCancelRequestedEventAttributes"
-                        )
-            Prelude.<*> (x Core..:? "activityTaskCompletedEventAttributes")
-            Prelude.<*> (x Core..:? "lambdaFunctionTimedOutEventAttributes")
-            Prelude.<*> ( x
-                            Core..:? "activityTaskCancelRequestedEventAttributes"
+                            Data..:? "startChildWorkflowExecutionFailedEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "workflowExecutionContinuedAsNewEventAttributes"
+                            Data..:? "externalWorkflowExecutionCancelRequestedEventAttributes"
+                        )
+            Prelude.<*> (x Data..:? "lambdaFunctionFailedEventAttributes")
+            Prelude.<*> ( x
+                            Data..:? "requestCancelExternalWorkflowExecutionInitiatedEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "externalWorkflowExecutionSignaledEventAttributes"
+                            Data..:? "scheduleLambdaFunctionFailedEventAttributes"
+                        )
+            Prelude.<*> (x Data..:? "lambdaFunctionScheduledEventAttributes")
+            Prelude.<*> ( x
+                            Data..:? "workflowExecutionCancelRequestedEventAttributes"
+                        )
+            Prelude.<*> (x Data..:? "activityTaskCompletedEventAttributes")
+            Prelude.<*> (x Data..:? "lambdaFunctionTimedOutEventAttributes")
+            Prelude.<*> ( x
+                            Data..:? "activityTaskCancelRequestedEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "workflowExecutionSignaledEventAttributes"
+                            Data..:? "workflowExecutionContinuedAsNewEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "workflowExecutionCanceledEventAttributes"
+                            Data..:? "externalWorkflowExecutionSignaledEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "workflowExecutionTimedOutEventAttributes"
+                            Data..:? "workflowExecutionSignaledEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "startLambdaFunctionFailedEventAttributes"
+                            Data..:? "workflowExecutionCanceledEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "workflowExecutionStartedEventAttributes"
+                            Data..:? "workflowExecutionTimedOutEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "cancelWorkflowExecutionFailedEventAttributes"
+                            Data..:? "startLambdaFunctionFailedEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "signalExternalWorkflowExecutionInitiatedEventAttributes"
-                        )
-            Prelude.<*> (x Core..:? "timerStartedEventAttributes")
-            Prelude.<*> ( x
-                            Core..:? "childWorkflowExecutionTimedOutEventAttributes"
+                            Data..:? "workflowExecutionStartedEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "childWorkflowExecutionCanceledEventAttributes"
+                            Data..:? "cancelWorkflowExecutionFailedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "cancelTimerFailedEventAttributes")
             Prelude.<*> ( x
-                            Core..:? "childWorkflowExecutionFailedEventAttributes"
+                            Data..:? "signalExternalWorkflowExecutionInitiatedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "decisionTaskCompletedEventAttributes")
-            Prelude.<*> (x Core..:? "timerCanceledEventAttributes")
+            Prelude.<*> (x Data..:? "timerStartedEventAttributes")
             Prelude.<*> ( x
-                            Core..:? "workflowExecutionCompletedEventAttributes"
+                            Data..:? "childWorkflowExecutionTimedOutEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "decisionTaskTimedOutEventAttributes")
-            Prelude.<*> (x Core..: "eventTimestamp")
-            Prelude.<*> (x Core..: "eventType")
-            Prelude.<*> (x Core..: "eventId")
+            Prelude.<*> ( x
+                            Data..:? "childWorkflowExecutionCanceledEventAttributes"
+                        )
+            Prelude.<*> (x Data..:? "cancelTimerFailedEventAttributes")
+            Prelude.<*> ( x
+                            Data..:? "childWorkflowExecutionFailedEventAttributes"
+                        )
+            Prelude.<*> (x Data..:? "decisionTaskCompletedEventAttributes")
+            Prelude.<*> (x Data..:? "timerCanceledEventAttributes")
+            Prelude.<*> ( x
+                            Data..:? "workflowExecutionCompletedEventAttributes"
+                        )
+            Prelude.<*> (x Data..:? "decisionTaskTimedOutEventAttributes")
+            Prelude.<*> (x Data..: "eventTimestamp")
+            Prelude.<*> (x Data..: "eventType")
+            Prelude.<*> (x Data..: "eventId")
       )
 
 instance Prelude.Hashable HistoryEvent where

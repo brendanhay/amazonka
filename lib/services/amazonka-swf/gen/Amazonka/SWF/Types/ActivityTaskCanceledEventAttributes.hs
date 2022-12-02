@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.ActivityTaskCanceledEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @ActivityTaskCanceled@ event.
@@ -111,18 +112,18 @@ activityTaskCanceledEventAttributes_startedEventId :: Lens.Lens' ActivityTaskCan
 activityTaskCanceledEventAttributes_startedEventId = Lens.lens (\ActivityTaskCanceledEventAttributes' {startedEventId} -> startedEventId) (\s@ActivityTaskCanceledEventAttributes' {} a -> s {startedEventId = a} :: ActivityTaskCanceledEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ActivityTaskCanceledEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActivityTaskCanceledEventAttributes"
       ( \x ->
           ActivityTaskCanceledEventAttributes'
-            Prelude.<$> (x Core..:? "latestCancelRequestedEventId")
-            Prelude.<*> (x Core..:? "details")
-            Prelude.<*> (x Core..: "scheduledEventId")
-            Prelude.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Data..:? "latestCancelRequestedEventId")
+            Prelude.<*> (x Data..:? "details")
+            Prelude.<*> (x Data..: "scheduledEventId")
+            Prelude.<*> (x Data..: "startedEventId")
       )
 
 instance

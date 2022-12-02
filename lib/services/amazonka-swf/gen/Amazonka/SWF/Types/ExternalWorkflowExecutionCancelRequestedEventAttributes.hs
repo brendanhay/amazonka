@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttribute
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.WorkflowExecution
 
@@ -87,16 +88,16 @@ externalWorkflowExecutionCancelRequestedEventAttributes_initiatedEventId :: Lens
 externalWorkflowExecutionCancelRequestedEventAttributes_initiatedEventId = Lens.lens (\ExternalWorkflowExecutionCancelRequestedEventAttributes' {initiatedEventId} -> initiatedEventId) (\s@ExternalWorkflowExecutionCancelRequestedEventAttributes' {} a -> s {initiatedEventId = a} :: ExternalWorkflowExecutionCancelRequestedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ExternalWorkflowExecutionCancelRequestedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExternalWorkflowExecutionCancelRequestedEventAttributes"
       ( \x ->
           ExternalWorkflowExecutionCancelRequestedEventAttributes'
-            Prelude.<$> (x Core..: "workflowExecution")
-              Prelude.<*> (x Core..: "initiatedEventId")
+            Prelude.<$> (x Data..: "workflowExecution")
+              Prelude.<*> (x Data..: "initiatedEventId")
       )
 
 instance

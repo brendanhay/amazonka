@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.Decision where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.CancelTimerDecisionAttributes
 import Amazonka.SWF.Types.CancelWorkflowExecutionDecisionAttributes
@@ -455,48 +456,48 @@ instance Prelude.NFData Decision where
         scheduleActivityTaskDecisionAttributes
       `Prelude.seq` Prelude.rnf decisionType
 
-instance Core.ToJSON Decision where
+instance Data.ToJSON Decision where
   toJSON Decision' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cancelTimerDecisionAttributes" Core..=)
+          [ ("cancelTimerDecisionAttributes" Data..=)
               Prelude.<$> cancelTimerDecisionAttributes,
-            ("recordMarkerDecisionAttributes" Core..=)
+            ("recordMarkerDecisionAttributes" Data..=)
               Prelude.<$> recordMarkerDecisionAttributes,
             ( "continueAsNewWorkflowExecutionDecisionAttributes"
-                Core..=
+                Data..=
             )
               Prelude.<$> continueAsNewWorkflowExecutionDecisionAttributes,
             ( "startChildWorkflowExecutionDecisionAttributes"
-                Core..=
+                Data..=
             )
               Prelude.<$> startChildWorkflowExecutionDecisionAttributes,
             ( "completeWorkflowExecutionDecisionAttributes"
-                Core..=
+                Data..=
             )
               Prelude.<$> completeWorkflowExecutionDecisionAttributes,
             ( "requestCancelActivityTaskDecisionAttributes"
-                Core..=
+                Data..=
             )
               Prelude.<$> requestCancelActivityTaskDecisionAttributes,
-            ("cancelWorkflowExecutionDecisionAttributes" Core..=)
+            ("cancelWorkflowExecutionDecisionAttributes" Data..=)
               Prelude.<$> cancelWorkflowExecutionDecisionAttributes,
             ( "requestCancelExternalWorkflowExecutionDecisionAttributes"
-                Core..=
+                Data..=
             )
               Prelude.<$> requestCancelExternalWorkflowExecutionDecisionAttributes,
-            ("startTimerDecisionAttributes" Core..=)
+            ("startTimerDecisionAttributes" Data..=)
               Prelude.<$> startTimerDecisionAttributes,
-            ("failWorkflowExecutionDecisionAttributes" Core..=)
+            ("failWorkflowExecutionDecisionAttributes" Data..=)
               Prelude.<$> failWorkflowExecutionDecisionAttributes,
             ( "signalExternalWorkflowExecutionDecisionAttributes"
-                Core..=
+                Data..=
             )
               Prelude.<$> signalExternalWorkflowExecutionDecisionAttributes,
-            ("scheduleLambdaFunctionDecisionAttributes" Core..=)
+            ("scheduleLambdaFunctionDecisionAttributes" Data..=)
               Prelude.<$> scheduleLambdaFunctionDecisionAttributes,
-            ("scheduleActivityTaskDecisionAttributes" Core..=)
+            ("scheduleActivityTaskDecisionAttributes" Data..=)
               Prelude.<$> scheduleActivityTaskDecisionAttributes,
-            Prelude.Just ("decisionType" Core..= decisionType)
+            Prelude.Just ("decisionType" Data..= decisionType)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.CancelTimerDecisionAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @CancelTimer@ decision.
@@ -83,9 +84,9 @@ instance Prelude.NFData CancelTimerDecisionAttributes where
   rnf CancelTimerDecisionAttributes' {..} =
     Prelude.rnf timerId
 
-instance Core.ToJSON CancelTimerDecisionAttributes where
+instance Data.ToJSON CancelTimerDecisionAttributes where
   toJSON CancelTimerDecisionAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("timerId" Core..= timerId)]
+          [Prelude.Just ("timerId" Data..= timerId)]
       )

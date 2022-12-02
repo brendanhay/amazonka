@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.LambdaFunctionFailedEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @LambdaFunctionFailed@ event. It isn\'t set
@@ -100,18 +101,18 @@ lambdaFunctionFailedEventAttributes_startedEventId :: Lens.Lens' LambdaFunctionF
 lambdaFunctionFailedEventAttributes_startedEventId = Lens.lens (\LambdaFunctionFailedEventAttributes' {startedEventId} -> startedEventId) (\s@LambdaFunctionFailedEventAttributes' {} a -> s {startedEventId = a} :: LambdaFunctionFailedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LambdaFunctionFailedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaFunctionFailedEventAttributes"
       ( \x ->
           LambdaFunctionFailedEventAttributes'
-            Prelude.<$> (x Core..:? "details")
-            Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..: "scheduledEventId")
-            Prelude.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Data..:? "details")
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..: "scheduledEventId")
+            Prelude.<*> (x Data..: "startedEventId")
       )
 
 instance

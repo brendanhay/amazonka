@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.WorkflowExecutionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to filter the workflow executions in visibility APIs by their
@@ -61,9 +62,9 @@ instance Prelude.NFData WorkflowExecutionFilter where
   rnf WorkflowExecutionFilter' {..} =
     Prelude.rnf workflowId
 
-instance Core.ToJSON WorkflowExecutionFilter where
+instance Data.ToJSON WorkflowExecutionFilter where
   toJSON WorkflowExecutionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("workflowId" Core..= workflowId)]
+          [Prelude.Just ("workflowId" Data..= workflowId)]
       )

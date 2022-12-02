@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -181,37 +182,37 @@ instance Prelude.NFData SignalWorkflowExecution where
       `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf signalName
 
-instance Core.ToHeaders SignalWorkflowExecution where
+instance Data.ToHeaders SignalWorkflowExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.SignalWorkflowExecution" ::
+              Data.=# ( "SimpleWorkflowService.SignalWorkflowExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SignalWorkflowExecution where
+instance Data.ToJSON SignalWorkflowExecution where
   toJSON SignalWorkflowExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("input" Core..=) Prelude.<$> input,
-            ("runId" Core..=) Prelude.<$> runId,
-            Prelude.Just ("domain" Core..= domain),
-            Prelude.Just ("workflowId" Core..= workflowId),
-            Prelude.Just ("signalName" Core..= signalName)
+          [ ("input" Data..=) Prelude.<$> input,
+            ("runId" Data..=) Prelude.<$> runId,
+            Prelude.Just ("domain" Data..= domain),
+            Prelude.Just ("workflowId" Data..= workflowId),
+            Prelude.Just ("signalName" Data..= signalName)
           ]
       )
 
-instance Core.ToPath SignalWorkflowExecution where
+instance Data.ToPath SignalWorkflowExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SignalWorkflowExecution where
+instance Data.ToQuery SignalWorkflowExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSignalWorkflowExecutionResponse' smart constructor.

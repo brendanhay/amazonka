@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.WorkflowExecution
 import Amazonka.SWF.Types.WorkflowExecutionTimeoutType
@@ -132,19 +133,19 @@ childWorkflowExecutionTimedOutEventAttributes_startedEventId :: Lens.Lens' Child
 childWorkflowExecutionTimedOutEventAttributes_startedEventId = Lens.lens (\ChildWorkflowExecutionTimedOutEventAttributes' {startedEventId} -> startedEventId) (\s@ChildWorkflowExecutionTimedOutEventAttributes' {} a -> s {startedEventId = a} :: ChildWorkflowExecutionTimedOutEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ChildWorkflowExecutionTimedOutEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChildWorkflowExecutionTimedOutEventAttributes"
       ( \x ->
           ChildWorkflowExecutionTimedOutEventAttributes'
-            Prelude.<$> (x Core..: "workflowExecution")
-              Prelude.<*> (x Core..: "workflowType")
-              Prelude.<*> (x Core..: "timeoutType")
-              Prelude.<*> (x Core..: "initiatedEventId")
-              Prelude.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Data..: "workflowExecution")
+              Prelude.<*> (x Data..: "workflowType")
+              Prelude.<*> (x Data..: "timeoutType")
+              Prelude.<*> (x Data..: "initiatedEventId")
+              Prelude.<*> (x Data..: "startedEventId")
       )
 
 instance

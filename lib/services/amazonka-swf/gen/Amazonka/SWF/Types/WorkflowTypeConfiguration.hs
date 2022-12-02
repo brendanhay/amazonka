@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.WorkflowTypeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.ChildPolicy
 import Amazonka.SWF.Types.TaskList
@@ -271,18 +272,18 @@ workflowTypeConfiguration_defaultTaskList = Lens.lens (\WorkflowTypeConfiguratio
 workflowTypeConfiguration_defaultLambdaRole :: Lens.Lens' WorkflowTypeConfiguration (Prelude.Maybe Prelude.Text)
 workflowTypeConfiguration_defaultLambdaRole = Lens.lens (\WorkflowTypeConfiguration' {defaultLambdaRole} -> defaultLambdaRole) (\s@WorkflowTypeConfiguration' {} a -> s {defaultLambdaRole = a} :: WorkflowTypeConfiguration)
 
-instance Core.FromJSON WorkflowTypeConfiguration where
+instance Data.FromJSON WorkflowTypeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowTypeConfiguration"
       ( \x ->
           WorkflowTypeConfiguration'
-            Prelude.<$> (x Core..:? "defaultExecutionStartToCloseTimeout")
-            Prelude.<*> (x Core..:? "defaultTaskStartToCloseTimeout")
-            Prelude.<*> (x Core..:? "defaultChildPolicy")
-            Prelude.<*> (x Core..:? "defaultTaskPriority")
-            Prelude.<*> (x Core..:? "defaultTaskList")
-            Prelude.<*> (x Core..:? "defaultLambdaRole")
+            Prelude.<$> (x Data..:? "defaultExecutionStartToCloseTimeout")
+            Prelude.<*> (x Data..:? "defaultTaskStartToCloseTimeout")
+            Prelude.<*> (x Data..:? "defaultChildPolicy")
+            Prelude.<*> (x Data..:? "defaultTaskPriority")
+            Prelude.<*> (x Data..:? "defaultTaskList")
+            Prelude.<*> (x Data..:? "defaultLambdaRole")
       )
 
 instance Prelude.Hashable WorkflowTypeConfiguration where

@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.ActivityTaskScheduledEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.ActivityType
 import Amazonka.SWF.Types.TaskList
@@ -220,25 +221,25 @@ activityTaskScheduledEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' 
 activityTaskScheduledEventAttributes_decisionTaskCompletedEventId = Lens.lens (\ActivityTaskScheduledEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@ActivityTaskScheduledEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: ActivityTaskScheduledEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ActivityTaskScheduledEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActivityTaskScheduledEventAttributes"
       ( \x ->
           ActivityTaskScheduledEventAttributes'
-            Prelude.<$> (x Core..:? "scheduleToStartTimeout")
-            Prelude.<*> (x Core..:? "scheduleToCloseTimeout")
-            Prelude.<*> (x Core..:? "taskPriority")
-            Prelude.<*> (x Core..:? "input")
-            Prelude.<*> (x Core..:? "startToCloseTimeout")
-            Prelude.<*> (x Core..:? "heartbeatTimeout")
-            Prelude.<*> (x Core..:? "control")
-            Prelude.<*> (x Core..: "activityType")
-            Prelude.<*> (x Core..: "activityId")
-            Prelude.<*> (x Core..: "taskList")
-            Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..:? "scheduleToStartTimeout")
+            Prelude.<*> (x Data..:? "scheduleToCloseTimeout")
+            Prelude.<*> (x Data..:? "taskPriority")
+            Prelude.<*> (x Data..:? "input")
+            Prelude.<*> (x Data..:? "startToCloseTimeout")
+            Prelude.<*> (x Data..:? "heartbeatTimeout")
+            Prelude.<*> (x Data..:? "control")
+            Prelude.<*> (x Data..: "activityType")
+            Prelude.<*> (x Data..: "activityId")
+            Prelude.<*> (x Data..: "taskList")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance

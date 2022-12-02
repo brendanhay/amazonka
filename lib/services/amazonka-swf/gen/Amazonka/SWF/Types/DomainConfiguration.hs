@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.DomainConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the configuration settings of a domain.
@@ -56,13 +57,13 @@ newDomainConfiguration
 domainConfiguration_workflowExecutionRetentionPeriodInDays :: Lens.Lens' DomainConfiguration Prelude.Text
 domainConfiguration_workflowExecutionRetentionPeriodInDays = Lens.lens (\DomainConfiguration' {workflowExecutionRetentionPeriodInDays} -> workflowExecutionRetentionPeriodInDays) (\s@DomainConfiguration' {} a -> s {workflowExecutionRetentionPeriodInDays = a} :: DomainConfiguration)
 
-instance Core.FromJSON DomainConfiguration where
+instance Data.FromJSON DomainConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainConfiguration"
       ( \x ->
           DomainConfiguration'
-            Prelude.<$> (x Core..: "workflowExecutionRetentionPeriodInDays")
+            Prelude.<$> (x Data..: "workflowExecutionRetentionPeriodInDays")
       )
 
 instance Prelude.Hashable DomainConfiguration where

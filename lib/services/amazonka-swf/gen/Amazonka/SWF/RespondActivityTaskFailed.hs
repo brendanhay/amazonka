@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,35 +160,35 @@ instance Prelude.NFData RespondActivityTaskFailed where
       `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf taskToken
 
-instance Core.ToHeaders RespondActivityTaskFailed where
+instance Data.ToHeaders RespondActivityTaskFailed where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.RespondActivityTaskFailed" ::
+              Data.=# ( "SimpleWorkflowService.RespondActivityTaskFailed" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RespondActivityTaskFailed where
+instance Data.ToJSON RespondActivityTaskFailed where
   toJSON RespondActivityTaskFailed' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("details" Core..=) Prelude.<$> details,
-            ("reason" Core..=) Prelude.<$> reason,
-            Prelude.Just ("taskToken" Core..= taskToken)
+          [ ("details" Data..=) Prelude.<$> details,
+            ("reason" Data..=) Prelude.<$> reason,
+            Prelude.Just ("taskToken" Data..= taskToken)
           ]
       )
 
-instance Core.ToPath RespondActivityTaskFailed where
+instance Data.ToPath RespondActivityTaskFailed where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RespondActivityTaskFailed where
+instance Data.ToQuery RespondActivityTaskFailed where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRespondActivityTaskFailedResponse' smart constructor.

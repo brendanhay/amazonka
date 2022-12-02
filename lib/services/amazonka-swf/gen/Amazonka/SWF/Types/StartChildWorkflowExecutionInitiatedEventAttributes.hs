@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.StartChildWorkflowExecutionInitiatedEventAttributes wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.ChildPolicy
 import Amazonka.SWF.Types.TaskList
@@ -287,26 +288,26 @@ startChildWorkflowExecutionInitiatedEventAttributes_childPolicy :: Lens.Lens' St
 startChildWorkflowExecutionInitiatedEventAttributes_childPolicy = Lens.lens (\StartChildWorkflowExecutionInitiatedEventAttributes' {childPolicy} -> childPolicy) (\s@StartChildWorkflowExecutionInitiatedEventAttributes' {} a -> s {childPolicy = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StartChildWorkflowExecutionInitiatedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StartChildWorkflowExecutionInitiatedEventAttributes"
       ( \x ->
           StartChildWorkflowExecutionInitiatedEventAttributes'
-            Prelude.<$> (x Core..:? "lambdaRole")
-              Prelude.<*> (x Core..:? "tagList" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "taskPriority")
-              Prelude.<*> (x Core..:? "input")
-              Prelude.<*> (x Core..:? "taskStartToCloseTimeout")
-              Prelude.<*> (x Core..:? "control")
-              Prelude.<*> (x Core..:? "executionStartToCloseTimeout")
-              Prelude.<*> (x Core..: "workflowId")
-              Prelude.<*> (x Core..: "workflowType")
-              Prelude.<*> (x Core..: "taskList")
-              Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
-              Prelude.<*> (x Core..: "childPolicy")
+            Prelude.<$> (x Data..:? "lambdaRole")
+              Prelude.<*> (x Data..:? "tagList" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "taskPriority")
+              Prelude.<*> (x Data..:? "input")
+              Prelude.<*> (x Data..:? "taskStartToCloseTimeout")
+              Prelude.<*> (x Data..:? "control")
+              Prelude.<*> (x Data..:? "executionStartToCloseTimeout")
+              Prelude.<*> (x Data..: "workflowId")
+              Prelude.<*> (x Data..: "workflowType")
+              Prelude.<*> (x Data..: "taskList")
+              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
+              Prelude.<*> (x Data..: "childPolicy")
       )
 
 instance

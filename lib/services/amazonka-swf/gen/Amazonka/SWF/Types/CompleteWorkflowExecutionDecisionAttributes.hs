@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.CompleteWorkflowExecutionDecisionAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @CompleteWorkflowExecution@ decision.
@@ -93,12 +94,12 @@ instance
     Prelude.rnf result
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CompleteWorkflowExecutionDecisionAttributes
   where
   toJSON
     CompleteWorkflowExecutionDecisionAttributes' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("result" Core..=) Prelude.<$> result]
+            [("result" Data..=) Prelude.<$> result]
         )

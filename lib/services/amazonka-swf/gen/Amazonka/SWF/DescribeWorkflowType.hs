@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,8 +129,8 @@ instance Core.AWSRequest DescribeWorkflowType where
       ( \s h x ->
           DescribeWorkflowTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "typeInfo")
-            Prelude.<*> (x Core..:> "configuration")
+            Prelude.<*> (x Data..:> "typeInfo")
+            Prelude.<*> (x Data..:> "configuration")
       )
 
 instance Prelude.Hashable DescribeWorkflowType where
@@ -142,34 +143,34 @@ instance Prelude.NFData DescribeWorkflowType where
     Prelude.rnf domain
       `Prelude.seq` Prelude.rnf workflowType
 
-instance Core.ToHeaders DescribeWorkflowType where
+instance Data.ToHeaders DescribeWorkflowType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.DescribeWorkflowType" ::
+              Data.=# ( "SimpleWorkflowService.DescribeWorkflowType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWorkflowType where
+instance Data.ToJSON DescribeWorkflowType where
   toJSON DescribeWorkflowType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("domain" Core..= domain),
-            Prelude.Just ("workflowType" Core..= workflowType)
+          [ Prelude.Just ("domain" Data..= domain),
+            Prelude.Just ("workflowType" Data..= workflowType)
           ]
       )
 
-instance Core.ToPath DescribeWorkflowType where
+instance Data.ToPath DescribeWorkflowType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeWorkflowType where
+instance Data.ToQuery DescribeWorkflowType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains details about a workflow type.

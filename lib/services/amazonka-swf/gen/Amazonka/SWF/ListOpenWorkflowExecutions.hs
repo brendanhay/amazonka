@@ -86,6 +86,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -284,7 +285,7 @@ instance Core.AWSRequest ListOpenWorkflowExecutions where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable ListOpenWorkflowExecutions where
   hashWithSalt _salt ListOpenWorkflowExecutions' {..} =
@@ -308,41 +309,41 @@ instance Prelude.NFData ListOpenWorkflowExecutions where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf startTimeFilter
 
-instance Core.ToHeaders ListOpenWorkflowExecutions where
+instance Data.ToHeaders ListOpenWorkflowExecutions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.ListOpenWorkflowExecutions" ::
+              Data.=# ( "SimpleWorkflowService.ListOpenWorkflowExecutions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListOpenWorkflowExecutions where
+instance Data.ToJSON ListOpenWorkflowExecutions where
   toJSON ListOpenWorkflowExecutions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maximumPageSize" Core..=)
+          [ ("maximumPageSize" Data..=)
               Prelude.<$> maximumPageSize,
-            ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("typeFilter" Core..=) Prelude.<$> typeFilter,
-            ("executionFilter" Core..=)
+            ("nextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("typeFilter" Data..=) Prelude.<$> typeFilter,
+            ("executionFilter" Data..=)
               Prelude.<$> executionFilter,
-            ("tagFilter" Core..=) Prelude.<$> tagFilter,
-            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
-            Prelude.Just ("domain" Core..= domain),
+            ("tagFilter" Data..=) Prelude.<$> tagFilter,
+            ("reverseOrder" Data..=) Prelude.<$> reverseOrder,
+            Prelude.Just ("domain" Data..= domain),
             Prelude.Just
-              ("startTimeFilter" Core..= startTimeFilter)
+              ("startTimeFilter" Data..= startTimeFilter)
           ]
       )
 
-instance Core.ToPath ListOpenWorkflowExecutions where
+instance Data.ToPath ListOpenWorkflowExecutions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListOpenWorkflowExecutions where
+instance Data.ToQuery ListOpenWorkflowExecutions where
   toQuery = Prelude.const Prelude.mempty

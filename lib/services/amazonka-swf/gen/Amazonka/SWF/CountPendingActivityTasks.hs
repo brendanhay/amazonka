@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,7 +121,7 @@ instance Core.AWSRequest CountPendingActivityTasks where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CountPendingActivityTasks where
   hashWithSalt _salt CountPendingActivityTasks' {..} =
@@ -132,32 +133,32 @@ instance Prelude.NFData CountPendingActivityTasks where
     Prelude.rnf domain
       `Prelude.seq` Prelude.rnf taskList
 
-instance Core.ToHeaders CountPendingActivityTasks where
+instance Data.ToHeaders CountPendingActivityTasks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.CountPendingActivityTasks" ::
+              Data.=# ( "SimpleWorkflowService.CountPendingActivityTasks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CountPendingActivityTasks where
+instance Data.ToJSON CountPendingActivityTasks where
   toJSON CountPendingActivityTasks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("domain" Core..= domain),
-            Prelude.Just ("taskList" Core..= taskList)
+          [ Prelude.Just ("domain" Data..= domain),
+            Prelude.Just ("taskList" Data..= taskList)
           ]
       )
 
-instance Core.ToPath CountPendingActivityTasks where
+instance Data.ToPath CountPendingActivityTasks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CountPendingActivityTasks where
+instance Data.ToQuery CountPendingActivityTasks where
   toQuery = Prelude.const Prelude.mempty

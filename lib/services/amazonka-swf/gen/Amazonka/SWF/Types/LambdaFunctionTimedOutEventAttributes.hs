@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.LambdaFunctionTimedOutEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.LambdaFunctionTimeoutType
 
@@ -92,17 +93,17 @@ lambdaFunctionTimedOutEventAttributes_startedEventId :: Lens.Lens' LambdaFunctio
 lambdaFunctionTimedOutEventAttributes_startedEventId = Lens.lens (\LambdaFunctionTimedOutEventAttributes' {startedEventId} -> startedEventId) (\s@LambdaFunctionTimedOutEventAttributes' {} a -> s {startedEventId = a} :: LambdaFunctionTimedOutEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LambdaFunctionTimedOutEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaFunctionTimedOutEventAttributes"
       ( \x ->
           LambdaFunctionTimedOutEventAttributes'
-            Prelude.<$> (x Core..:? "timeoutType")
-            Prelude.<*> (x Core..: "scheduledEventId")
-            Prelude.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Data..:? "timeoutType")
+            Prelude.<*> (x Data..: "scheduledEventId")
+            Prelude.<*> (x Data..: "startedEventId")
       )
 
 instance

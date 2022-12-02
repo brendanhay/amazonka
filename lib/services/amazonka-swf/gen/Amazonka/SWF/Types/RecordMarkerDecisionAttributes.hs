@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.RecordMarkerDecisionAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @RecordMarker@ decision.
@@ -102,11 +103,11 @@ instance
     Prelude.rnf details
       `Prelude.seq` Prelude.rnf markerName
 
-instance Core.ToJSON RecordMarkerDecisionAttributes where
+instance Data.ToJSON RecordMarkerDecisionAttributes where
   toJSON RecordMarkerDecisionAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("details" Core..=) Prelude.<$> details,
-            Prelude.Just ("markerName" Core..= markerName)
+          [ ("details" Data..=) Prelude.<$> details,
+            Prelude.Just ("markerName" Data..= markerName)
           ]
       )

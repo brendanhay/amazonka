@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,34 +137,34 @@ instance Prelude.NFData DeprecateWorkflowType where
     Prelude.rnf domain
       `Prelude.seq` Prelude.rnf workflowType
 
-instance Core.ToHeaders DeprecateWorkflowType where
+instance Data.ToHeaders DeprecateWorkflowType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.DeprecateWorkflowType" ::
+              Data.=# ( "SimpleWorkflowService.DeprecateWorkflowType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeprecateWorkflowType where
+instance Data.ToJSON DeprecateWorkflowType where
   toJSON DeprecateWorkflowType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("domain" Core..= domain),
-            Prelude.Just ("workflowType" Core..= workflowType)
+          [ Prelude.Just ("domain" Data..= domain),
+            Prelude.Just ("workflowType" Data..= workflowType)
           ]
       )
 
-instance Core.ToPath DeprecateWorkflowType where
+instance Data.ToPath DeprecateWorkflowType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeprecateWorkflowType where
+instance Data.ToQuery DeprecateWorkflowType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeprecateWorkflowTypeResponse' smart constructor.

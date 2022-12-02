@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,12 +126,12 @@ instance Core.AWSRequest DescribeWorkflowExecution where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkflowExecutionResponse'
-            Prelude.<$> (x Core..?> "latestActivityTaskTimestamp")
-            Prelude.<*> (x Core..?> "latestExecutionContext")
+            Prelude.<$> (x Data..?> "latestActivityTaskTimestamp")
+            Prelude.<*> (x Data..?> "latestExecutionContext")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "executionInfo")
-            Prelude.<*> (x Core..:> "executionConfiguration")
-            Prelude.<*> (x Core..:> "openCounts")
+            Prelude.<*> (x Data..:> "executionInfo")
+            Prelude.<*> (x Data..:> "executionConfiguration")
+            Prelude.<*> (x Data..:> "openCounts")
       )
 
 instance Prelude.Hashable DescribeWorkflowExecution where
@@ -143,34 +144,34 @@ instance Prelude.NFData DescribeWorkflowExecution where
     Prelude.rnf domain
       `Prelude.seq` Prelude.rnf execution
 
-instance Core.ToHeaders DescribeWorkflowExecution where
+instance Data.ToHeaders DescribeWorkflowExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.DescribeWorkflowExecution" ::
+              Data.=# ( "SimpleWorkflowService.DescribeWorkflowExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWorkflowExecution where
+instance Data.ToJSON DescribeWorkflowExecution where
   toJSON DescribeWorkflowExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("domain" Core..= domain),
-            Prelude.Just ("execution" Core..= execution)
+          [ Prelude.Just ("domain" Data..= domain),
+            Prelude.Just ("execution" Data..= execution)
           ]
       )
 
-instance Core.ToPath DescribeWorkflowExecution where
+instance Data.ToPath DescribeWorkflowExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeWorkflowExecution where
+instance Data.ToQuery DescribeWorkflowExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains details about a workflow execution.
@@ -181,7 +182,7 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
     -- execution. You can use this information to determine if the workflow has
     -- not made progress for an unusually long period of time and might require
     -- a corrective action.
-    latestActivityTaskTimestamp :: Prelude.Maybe Core.POSIX,
+    latestActivityTaskTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The latest executionContext provided by the decider for this workflow
     -- execution. A decider can provide an executionContext (a free-form
     -- string) when closing a decision task using RespondDecisionTaskCompleted.
@@ -256,7 +257,7 @@ newDescribeWorkflowExecutionResponse
 -- not made progress for an unusually long period of time and might require
 -- a corrective action.
 describeWorkflowExecutionResponse_latestActivityTaskTimestamp :: Lens.Lens' DescribeWorkflowExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-describeWorkflowExecutionResponse_latestActivityTaskTimestamp = Lens.lens (\DescribeWorkflowExecutionResponse' {latestActivityTaskTimestamp} -> latestActivityTaskTimestamp) (\s@DescribeWorkflowExecutionResponse' {} a -> s {latestActivityTaskTimestamp = a} :: DescribeWorkflowExecutionResponse) Prelude.. Lens.mapping Core._Time
+describeWorkflowExecutionResponse_latestActivityTaskTimestamp = Lens.lens (\DescribeWorkflowExecutionResponse' {latestActivityTaskTimestamp} -> latestActivityTaskTimestamp) (\s@DescribeWorkflowExecutionResponse' {} a -> s {latestActivityTaskTimestamp = a} :: DescribeWorkflowExecutionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The latest executionContext provided by the decider for this workflow
 -- execution. A decider can provide an executionContext (a free-form

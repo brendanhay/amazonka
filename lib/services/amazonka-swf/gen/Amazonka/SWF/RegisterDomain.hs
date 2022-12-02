@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -213,39 +214,39 @@ instance Prelude.NFData RegisterDomain where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf workflowExecutionRetentionPeriodInDays
 
-instance Core.ToHeaders RegisterDomain where
+instance Data.ToHeaders RegisterDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.RegisterDomain" ::
+              Data.=# ( "SimpleWorkflowService.RegisterDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterDomain where
+instance Data.ToJSON RegisterDomain where
   toJSON RegisterDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
               ( "workflowExecutionRetentionPeriodInDays"
-                  Core..= workflowExecutionRetentionPeriodInDays
+                  Data..= workflowExecutionRetentionPeriodInDays
               )
           ]
       )
 
-instance Core.ToPath RegisterDomain where
+instance Data.ToPath RegisterDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterDomain where
+instance Data.ToQuery RegisterDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterDomainResponse' smart constructor.

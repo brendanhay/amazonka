@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -214,9 +215,9 @@ instance Core.AWSRequest ListWorkflowTypes where
     Response.receiveJSON
       ( \s h x ->
           ListWorkflowTypesResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
+            Prelude.<$> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "typeInfos" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "typeInfos" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListWorkflowTypes where
@@ -237,40 +238,40 @@ instance Prelude.NFData ListWorkflowTypes where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf registrationStatus
 
-instance Core.ToHeaders ListWorkflowTypes where
+instance Data.ToHeaders ListWorkflowTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.ListWorkflowTypes" ::
+              Data.=# ( "SimpleWorkflowService.ListWorkflowTypes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListWorkflowTypes where
+instance Data.ToJSON ListWorkflowTypes where
   toJSON ListWorkflowTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("maximumPageSize" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("maximumPageSize" Data..=)
               Prelude.<$> maximumPageSize,
-            ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
-            Prelude.Just ("domain" Core..= domain),
+            ("nextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("reverseOrder" Data..=) Prelude.<$> reverseOrder,
+            Prelude.Just ("domain" Data..= domain),
             Prelude.Just
-              ("registrationStatus" Core..= registrationStatus)
+              ("registrationStatus" Data..= registrationStatus)
           ]
       )
 
-instance Core.ToPath ListWorkflowTypes where
+instance Data.ToPath ListWorkflowTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListWorkflowTypes where
+instance Data.ToQuery ListWorkflowTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains a paginated list of information structures about workflow

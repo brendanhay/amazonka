@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.WorkflowExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a workflow execution.
@@ -65,14 +66,14 @@ workflowExecution_workflowId = Lens.lens (\WorkflowExecution' {workflowId} -> wo
 workflowExecution_runId :: Lens.Lens' WorkflowExecution Prelude.Text
 workflowExecution_runId = Lens.lens (\WorkflowExecution' {runId} -> runId) (\s@WorkflowExecution' {} a -> s {runId = a} :: WorkflowExecution)
 
-instance Core.FromJSON WorkflowExecution where
+instance Data.FromJSON WorkflowExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowExecution"
       ( \x ->
           WorkflowExecution'
-            Prelude.<$> (x Core..: "workflowId")
-            Prelude.<*> (x Core..: "runId")
+            Prelude.<$> (x Data..: "workflowId")
+            Prelude.<*> (x Data..: "runId")
       )
 
 instance Prelude.Hashable WorkflowExecution where
@@ -85,11 +86,11 @@ instance Prelude.NFData WorkflowExecution where
     Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf runId
 
-instance Core.ToJSON WorkflowExecution where
+instance Data.ToJSON WorkflowExecution where
   toJSON WorkflowExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("workflowId" Core..= workflowId),
-            Prelude.Just ("runId" Core..= runId)
+          [ Prelude.Just ("workflowId" Data..= workflowId),
+            Prelude.Just ("runId" Data..= runId)
           ]
       )

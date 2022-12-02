@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.WorkflowExecutionFailedEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @WorkflowExecutionFailed@ event.
@@ -85,17 +86,17 @@ workflowExecutionFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens
 workflowExecutionFailedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\WorkflowExecutionFailedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@WorkflowExecutionFailedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: WorkflowExecutionFailedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     WorkflowExecutionFailedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowExecutionFailedEventAttributes"
       ( \x ->
           WorkflowExecutionFailedEventAttributes'
-            Prelude.<$> (x Core..:? "details")
-            Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..:? "details")
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance

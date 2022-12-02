@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,36 +159,36 @@ instance Prelude.NFData RespondDecisionTaskCompleted where
       `Prelude.seq` Prelude.rnf decisions
       `Prelude.seq` Prelude.rnf taskToken
 
-instance Core.ToHeaders RespondDecisionTaskCompleted where
+instance Data.ToHeaders RespondDecisionTaskCompleted where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.RespondDecisionTaskCompleted" ::
+              Data.=# ( "SimpleWorkflowService.RespondDecisionTaskCompleted" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RespondDecisionTaskCompleted where
+instance Data.ToJSON RespondDecisionTaskCompleted where
   toJSON RespondDecisionTaskCompleted' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("executionContext" Core..=)
+          [ ("executionContext" Data..=)
               Prelude.<$> executionContext,
-            ("decisions" Core..=) Prelude.<$> decisions,
-            Prelude.Just ("taskToken" Core..= taskToken)
+            ("decisions" Data..=) Prelude.<$> decisions,
+            Prelude.Just ("taskToken" Data..= taskToken)
           ]
       )
 
-instance Core.ToPath RespondDecisionTaskCompleted where
+instance Data.ToPath RespondDecisionTaskCompleted where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RespondDecisionTaskCompleted where
+instance Data.ToQuery RespondDecisionTaskCompleted where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRespondDecisionTaskCompletedResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.WorkflowExecutionCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the count of workflow executions returned from
@@ -71,14 +72,14 @@ workflowExecutionCount_truncated = Lens.lens (\WorkflowExecutionCount' {truncate
 workflowExecutionCount_count :: Lens.Lens' WorkflowExecutionCount Prelude.Natural
 workflowExecutionCount_count = Lens.lens (\WorkflowExecutionCount' {count} -> count) (\s@WorkflowExecutionCount' {} a -> s {count = a} :: WorkflowExecutionCount)
 
-instance Core.FromJSON WorkflowExecutionCount where
+instance Data.FromJSON WorkflowExecutionCount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowExecutionCount"
       ( \x ->
           WorkflowExecutionCount'
-            Prelude.<$> (x Core..:? "truncated")
-            Prelude.<*> (x Core..: "count")
+            Prelude.<$> (x Data..:? "truncated")
+            Prelude.<*> (x Data..: "count")
       )
 
 instance Prelude.Hashable WorkflowExecutionCount where

@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.SignalExternalWorkflowExecutionDecisionAttributes wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @SignalExternalWorkflowExecution@ decision.
@@ -153,17 +154,17 @@ instance
         `Prelude.seq` Prelude.rnf signalName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SignalExternalWorkflowExecutionDecisionAttributes
   where
   toJSON
     SignalExternalWorkflowExecutionDecisionAttributes' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("input" Core..=) Prelude.<$> input,
-              ("control" Core..=) Prelude.<$> control,
-              ("runId" Core..=) Prelude.<$> runId,
-              Prelude.Just ("workflowId" Core..= workflowId),
-              Prelude.Just ("signalName" Core..= signalName)
+            [ ("input" Data..=) Prelude.<$> input,
+              ("control" Data..=) Prelude.<$> control,
+              ("runId" Data..=) Prelude.<$> runId,
+              Prelude.Just ("workflowId" Data..= workflowId),
+              Prelude.Just ("signalName" Data..= signalName)
             ]
         )

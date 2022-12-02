@@ -48,6 +48,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,10 +128,10 @@ instance Core.AWSRequest ImportBackendStorage where
     Response.receiveJSON
       ( \s h x ->
           ImportBackendStorageResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "appId")
-            Prelude.<*> (x Core..?> "backendEnvironmentName")
+            Prelude.<$> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "appId")
+            Prelude.<*> (x Data..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,37 +149,37 @@ instance Prelude.NFData ImportBackendStorage where
       `Prelude.seq` Prelude.rnf backendEnvironmentName
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToHeaders ImportBackendStorage where
+instance Data.ToHeaders ImportBackendStorage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportBackendStorage where
+instance Data.ToJSON ImportBackendStorage where
   toJSON ImportBackendStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bucketName" Core..=) Prelude.<$> bucketName,
-            Prelude.Just ("serviceName" Core..= serviceName)
+          [ ("bucketName" Data..=) Prelude.<$> bucketName,
+            Prelude.Just ("serviceName" Data..= serviceName)
           ]
       )
 
-instance Core.ToPath ImportBackendStorage where
+instance Data.ToPath ImportBackendStorage where
   toPath ImportBackendStorage' {..} =
     Prelude.mconcat
       [ "/backend/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/storage/",
-        Core.toBS backendEnvironmentName,
+        Data.toBS backendEnvironmentName,
         "/import"
       ]
 
-instance Core.ToQuery ImportBackendStorage where
+instance Data.ToQuery ImportBackendStorage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportBackendStorageResponse' smart constructor.

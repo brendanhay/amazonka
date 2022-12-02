@@ -46,6 +46,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,10 +102,10 @@ instance Core.AWSRequest CreateBackendConfig where
     Response.receiveJSON
       ( \s h x ->
           CreateBackendConfigResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "appId")
-            Prelude.<*> (x Core..?> "backendEnvironmentName")
+            Prelude.<$> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "appId")
+            Prelude.<*> (x Data..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,32 +119,32 @@ instance Prelude.NFData CreateBackendConfig where
     Prelude.rnf backendManagerAppId
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders CreateBackendConfig where
+instance Data.ToHeaders CreateBackendConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBackendConfig where
+instance Data.ToJSON CreateBackendConfig where
   toJSON CreateBackendConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("backendManagerAppId" Core..=)
+          [ ("backendManagerAppId" Data..=)
               Prelude.<$> backendManagerAppId
           ]
       )
 
-instance Core.ToPath CreateBackendConfig where
+instance Data.ToPath CreateBackendConfig where
   toPath CreateBackendConfig' {..} =
     Prelude.mconcat
-      ["/backend/", Core.toBS appId, "/config"]
+      ["/backend/", Data.toBS appId, "/config"]
 
-instance Core.ToQuery CreateBackendConfig where
+instance Data.ToQuery CreateBackendConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBackendConfigResponse' smart constructor.

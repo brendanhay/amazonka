@@ -47,6 +47,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,11 +103,11 @@ instance Core.AWSRequest RemoveAllBackends where
     Response.receiveJSON
       ( \s h x ->
           RemoveAllBackendsResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "error")
-            Prelude.<*> (x Core..?> "operation")
-            Prelude.<*> (x Core..?> "appId")
+            Prelude.<$> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "error")
+            Prelude.<*> (x Data..?> "operation")
+            Prelude.<*> (x Data..?> "appId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,32 +121,32 @@ instance Prelude.NFData RemoveAllBackends where
     Prelude.rnf cleanAmplifyApp
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders RemoveAllBackends where
+instance Data.ToHeaders RemoveAllBackends where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveAllBackends where
+instance Data.ToJSON RemoveAllBackends where
   toJSON RemoveAllBackends' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cleanAmplifyApp" Core..=)
+          [ ("cleanAmplifyApp" Data..=)
               Prelude.<$> cleanAmplifyApp
           ]
       )
 
-instance Core.ToPath RemoveAllBackends where
+instance Data.ToPath RemoveAllBackends where
   toPath RemoveAllBackends' {..} =
     Prelude.mconcat
-      ["/backend/", Core.toBS appId, "/remove"]
+      ["/backend/", Data.toBS appId, "/remove"]
 
-instance Core.ToQuery RemoveAllBackends where
+instance Data.ToQuery RemoveAllBackends where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveAllBackendsResponse' smart constructor.

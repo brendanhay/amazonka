@@ -48,6 +48,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,10 +131,10 @@ instance Core.AWSRequest DeleteBackendStorage where
     Response.receiveJSON
       ( \s h x ->
           DeleteBackendStorageResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "appId")
-            Prelude.<*> (x Core..?> "backendEnvironmentName")
+            Prelude.<$> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "appId")
+            Prelude.<*> (x Data..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,37 +152,37 @@ instance Prelude.NFData DeleteBackendStorage where
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf resourceName
 
-instance Core.ToHeaders DeleteBackendStorage where
+instance Data.ToHeaders DeleteBackendStorage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBackendStorage where
+instance Data.ToJSON DeleteBackendStorage where
   toJSON DeleteBackendStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("serviceName" Core..= serviceName),
-            Prelude.Just ("resourceName" Core..= resourceName)
+          [ Prelude.Just ("serviceName" Data..= serviceName),
+            Prelude.Just ("resourceName" Data..= resourceName)
           ]
       )
 
-instance Core.ToPath DeleteBackendStorage where
+instance Data.ToPath DeleteBackendStorage where
   toPath DeleteBackendStorage' {..} =
     Prelude.mconcat
       [ "/backend/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/storage/",
-        Core.toBS backendEnvironmentName,
+        Data.toBS backendEnvironmentName,
         "/remove"
       ]
 
-instance Core.ToQuery DeleteBackendStorage where
+instance Data.ToQuery DeleteBackendStorage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBackendStorageResponse' smart constructor.

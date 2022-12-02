@@ -21,6 +21,7 @@ module Amazonka.AmplifyBackend.Types.ResourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the resource configuration for the data model in your Amplify
@@ -47,5 +48,5 @@ instance Prelude.Hashable ResourceConfig where
 instance Prelude.NFData ResourceConfig where
   rnf _ = ()
 
-instance Core.ToJSON ResourceConfig where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ResourceConfig where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

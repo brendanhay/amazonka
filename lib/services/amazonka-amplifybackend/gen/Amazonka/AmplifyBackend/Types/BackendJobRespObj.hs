@@ -21,6 +21,7 @@ module Amazonka.AmplifyBackend.Types.BackendJobRespObj where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The response object for this operation.
@@ -119,20 +120,20 @@ backendJobRespObj_appId = Lens.lens (\BackendJobRespObj' {appId} -> appId) (\s@B
 backendJobRespObj_backendEnvironmentName :: Lens.Lens' BackendJobRespObj Prelude.Text
 backendJobRespObj_backendEnvironmentName = Lens.lens (\BackendJobRespObj' {backendEnvironmentName} -> backendEnvironmentName) (\s@BackendJobRespObj' {} a -> s {backendEnvironmentName = a} :: BackendJobRespObj)
 
-instance Core.FromJSON BackendJobRespObj where
+instance Data.FromJSON BackendJobRespObj where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackendJobRespObj"
       ( \x ->
           BackendJobRespObj'
-            Prelude.<$> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "updateTime")
-            Prelude.<*> (x Core..:? "createTime")
-            Prelude.<*> (x Core..:? "error")
-            Prelude.<*> (x Core..:? "operation")
-            Prelude.<*> (x Core..: "appId")
-            Prelude.<*> (x Core..: "backendEnvironmentName")
+            Prelude.<$> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "updateTime")
+            Prelude.<*> (x Data..:? "createTime")
+            Prelude.<*> (x Data..:? "error")
+            Prelude.<*> (x Data..:? "operation")
+            Prelude.<*> (x Data..: "appId")
+            Prelude.<*> (x Data..: "backendEnvironmentName")
       )
 
 instance Prelude.Hashable BackendJobRespObj where

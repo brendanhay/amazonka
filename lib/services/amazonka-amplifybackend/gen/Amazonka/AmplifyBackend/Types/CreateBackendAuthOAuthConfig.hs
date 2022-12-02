@@ -24,6 +24,7 @@ import Amazonka.AmplifyBackend.Types.OAuthScopesElement
 import Amazonka.AmplifyBackend.Types.SocialProviderSettings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Creates the OAuth configuration for your Amplify project.
@@ -109,22 +110,22 @@ createBackendAuthOAuthConfig_oAuthGrantType = Lens.lens (\CreateBackendAuthOAuth
 createBackendAuthOAuthConfig_oAuthScopes :: Lens.Lens' CreateBackendAuthOAuthConfig [OAuthScopesElement]
 createBackendAuthOAuthConfig_oAuthScopes = Lens.lens (\CreateBackendAuthOAuthConfig' {oAuthScopes} -> oAuthScopes) (\s@CreateBackendAuthOAuthConfig' {} a -> s {oAuthScopes = a} :: CreateBackendAuthOAuthConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON CreateBackendAuthOAuthConfig where
+instance Data.FromJSON CreateBackendAuthOAuthConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreateBackendAuthOAuthConfig"
       ( \x ->
           CreateBackendAuthOAuthConfig'
-            Prelude.<$> (x Core..:? "domainPrefix")
-            Prelude.<*> (x Core..:? "socialProviderSettings")
-            Prelude.<*> ( x Core..:? "redirectSignOutURIs"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "domainPrefix")
+            Prelude.<*> (x Data..:? "socialProviderSettings")
+            Prelude.<*> ( x Data..:? "redirectSignOutURIs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "redirectSignInURIs"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "redirectSignInURIs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "oAuthGrantType")
-            Prelude.<*> (x Core..:? "oAuthScopes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "oAuthGrantType")
+            Prelude.<*> (x Data..:? "oAuthScopes" Data..!= Prelude.mempty)
       )
 
 instance
@@ -148,19 +149,19 @@ instance Prelude.NFData CreateBackendAuthOAuthConfig where
       `Prelude.seq` Prelude.rnf oAuthGrantType
       `Prelude.seq` Prelude.rnf oAuthScopes
 
-instance Core.ToJSON CreateBackendAuthOAuthConfig where
+instance Data.ToJSON CreateBackendAuthOAuthConfig where
   toJSON CreateBackendAuthOAuthConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("domainPrefix" Core..=) Prelude.<$> domainPrefix,
-            ("socialProviderSettings" Core..=)
+          [ ("domainPrefix" Data..=) Prelude.<$> domainPrefix,
+            ("socialProviderSettings" Data..=)
               Prelude.<$> socialProviderSettings,
             Prelude.Just
-              ("redirectSignOutURIs" Core..= redirectSignOutURIs),
+              ("redirectSignOutURIs" Data..= redirectSignOutURIs),
             Prelude.Just
-              ("redirectSignInURIs" Core..= redirectSignInURIs),
+              ("redirectSignInURIs" Data..= redirectSignInURIs),
             Prelude.Just
-              ("oAuthGrantType" Core..= oAuthGrantType),
-            Prelude.Just ("oAuthScopes" Core..= oAuthScopes)
+              ("oAuthGrantType" Data..= oAuthGrantType),
+            Prelude.Just ("oAuthScopes" Data..= oAuthScopes)
           ]
       )

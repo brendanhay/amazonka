@@ -51,6 +51,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -179,8 +180,8 @@ instance Core.AWSRequest ListBackendJobs where
     Response.receiveJSON
       ( \s h x ->
           ListBackendJobsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "jobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "jobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,39 +205,39 @@ instance Prelude.NFData ListBackendJobs where
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf backendEnvironmentName
 
-instance Core.ToHeaders ListBackendJobs where
+instance Data.ToHeaders ListBackendJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBackendJobs where
+instance Data.ToJSON ListBackendJobs where
   toJSON ListBackendJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("jobId" Core..=) Prelude.<$> jobId,
-            ("status" Core..=) Prelude.<$> status,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("operation" Core..=) Prelude.<$> operation
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("jobId" Data..=) Prelude.<$> jobId,
+            ("status" Data..=) Prelude.<$> status,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("operation" Data..=) Prelude.<$> operation
           ]
       )
 
-instance Core.ToPath ListBackendJobs where
+instance Data.ToPath ListBackendJobs where
   toPath ListBackendJobs' {..} =
     Prelude.mconcat
       [ "/backend/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/job/",
-        Core.toBS backendEnvironmentName
+        Data.toBS backendEnvironmentName
       ]
 
-instance Core.ToQuery ListBackendJobs where
+instance Data.ToQuery ListBackendJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBackendJobsResponse' smart constructor.

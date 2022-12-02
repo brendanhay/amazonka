@@ -21,6 +21,7 @@ module Amazonka.AmplifyBackend.Types.S3BucketInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the metadata of the S3 bucket.
@@ -61,14 +62,14 @@ s3BucketInfo_name = Lens.lens (\S3BucketInfo' {name} -> name) (\s@S3BucketInfo' 
 s3BucketInfo_creationDate :: Lens.Lens' S3BucketInfo (Prelude.Maybe Prelude.Text)
 s3BucketInfo_creationDate = Lens.lens (\S3BucketInfo' {creationDate} -> creationDate) (\s@S3BucketInfo' {} a -> s {creationDate = a} :: S3BucketInfo)
 
-instance Core.FromJSON S3BucketInfo where
+instance Data.FromJSON S3BucketInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3BucketInfo"
       ( \x ->
           S3BucketInfo'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDate")
       )
 
 instance Prelude.Hashable S3BucketInfo where

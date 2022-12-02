@@ -48,6 +48,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,10 +131,10 @@ instance Core.AWSRequest UpdateBackendStorage where
     Response.receiveJSON
       ( \s h x ->
           UpdateBackendStorageResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "appId")
-            Prelude.<*> (x Core..?> "backendEnvironmentName")
+            Prelude.<$> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "appId")
+            Prelude.<*> (x Data..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,37 +152,37 @@ instance Prelude.NFData UpdateBackendStorage where
       `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf resourceConfig
 
-instance Core.ToHeaders UpdateBackendStorage where
+instance Data.ToHeaders UpdateBackendStorage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBackendStorage where
+instance Data.ToJSON UpdateBackendStorage where
   toJSON UpdateBackendStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("resourceName" Core..= resourceName),
+          [ Prelude.Just ("resourceName" Data..= resourceName),
             Prelude.Just
-              ("resourceConfig" Core..= resourceConfig)
+              ("resourceConfig" Data..= resourceConfig)
           ]
       )
 
-instance Core.ToPath UpdateBackendStorage where
+instance Data.ToPath UpdateBackendStorage where
   toPath UpdateBackendStorage' {..} =
     Prelude.mconcat
       [ "/backend/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/storage/",
-        Core.toBS backendEnvironmentName
+        Data.toBS backendEnvironmentName
       ]
 
-instance Core.ToQuery UpdateBackendStorage where
+instance Data.ToQuery UpdateBackendStorage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBackendStorageResponse' smart constructor.

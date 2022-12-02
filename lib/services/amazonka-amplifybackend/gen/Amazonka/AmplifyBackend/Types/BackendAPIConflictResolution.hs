@@ -22,6 +22,7 @@ module Amazonka.AmplifyBackend.Types.BackendAPIConflictResolution where
 import Amazonka.AmplifyBackend.Types.ResolutionStrategy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the conflict resolution configuration for your data model
@@ -55,13 +56,13 @@ newBackendAPIConflictResolution =
 backendAPIConflictResolution_resolutionStrategy :: Lens.Lens' BackendAPIConflictResolution (Prelude.Maybe ResolutionStrategy)
 backendAPIConflictResolution_resolutionStrategy = Lens.lens (\BackendAPIConflictResolution' {resolutionStrategy} -> resolutionStrategy) (\s@BackendAPIConflictResolution' {} a -> s {resolutionStrategy = a} :: BackendAPIConflictResolution)
 
-instance Core.FromJSON BackendAPIConflictResolution where
+instance Data.FromJSON BackendAPIConflictResolution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackendAPIConflictResolution"
       ( \x ->
           BackendAPIConflictResolution'
-            Prelude.<$> (x Core..:? "resolutionStrategy")
+            Prelude.<$> (x Data..:? "resolutionStrategy")
       )
 
 instance
@@ -75,11 +76,11 @@ instance Prelude.NFData BackendAPIConflictResolution where
   rnf BackendAPIConflictResolution' {..} =
     Prelude.rnf resolutionStrategy
 
-instance Core.ToJSON BackendAPIConflictResolution where
+instance Data.ToJSON BackendAPIConflictResolution where
   toJSON BackendAPIConflictResolution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resolutionStrategy" Core..=)
+          [ ("resolutionStrategy" Data..=)
               Prelude.<$> resolutionStrategy
           ]
       )

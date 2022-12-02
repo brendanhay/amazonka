@@ -21,6 +21,7 @@ module Amazonka.AmplifyBackend.Types.UpdateBackendAuthIdentityPoolConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the authorization configuration for the Amazon Cognito
@@ -75,13 +76,13 @@ instance
     Prelude.rnf unauthenticatedLogin
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateBackendAuthIdentityPoolConfig
   where
   toJSON UpdateBackendAuthIdentityPoolConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("unauthenticatedLogin" Core..=)
+          [ ("unauthenticatedLogin" Data..=)
               Prelude.<$> unauthenticatedLogin
           ]
       )

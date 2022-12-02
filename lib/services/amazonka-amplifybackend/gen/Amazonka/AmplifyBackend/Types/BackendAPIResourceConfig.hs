@@ -23,6 +23,7 @@ import Amazonka.AmplifyBackend.Types.BackendAPIAuthType
 import Amazonka.AmplifyBackend.Types.BackendAPIConflictResolution
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The resource config for the data model, configured as a part of the
@@ -116,20 +117,20 @@ backendAPIResourceConfig_defaultAuthType = Lens.lens (\BackendAPIResourceConfig'
 backendAPIResourceConfig_apiName :: Lens.Lens' BackendAPIResourceConfig (Prelude.Maybe Prelude.Text)
 backendAPIResourceConfig_apiName = Lens.lens (\BackendAPIResourceConfig' {apiName} -> apiName) (\s@BackendAPIResourceConfig' {} a -> s {apiName = a} :: BackendAPIResourceConfig)
 
-instance Core.FromJSON BackendAPIResourceConfig where
+instance Data.FromJSON BackendAPIResourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackendAPIResourceConfig"
       ( \x ->
           BackendAPIResourceConfig'
-            Prelude.<$> ( x Core..:? "additionalAuthTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "additionalAuthTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "conflictResolution")
-            Prelude.<*> (x Core..:? "service")
-            Prelude.<*> (x Core..:? "transformSchema")
-            Prelude.<*> (x Core..:? "defaultAuthType")
-            Prelude.<*> (x Core..:? "apiName")
+            Prelude.<*> (x Data..:? "conflictResolution")
+            Prelude.<*> (x Data..:? "service")
+            Prelude.<*> (x Data..:? "transformSchema")
+            Prelude.<*> (x Data..:? "defaultAuthType")
+            Prelude.<*> (x Data..:? "apiName")
       )
 
 instance Prelude.Hashable BackendAPIResourceConfig where
@@ -150,19 +151,19 @@ instance Prelude.NFData BackendAPIResourceConfig where
       `Prelude.seq` Prelude.rnf defaultAuthType
       `Prelude.seq` Prelude.rnf apiName
 
-instance Core.ToJSON BackendAPIResourceConfig where
+instance Data.ToJSON BackendAPIResourceConfig where
   toJSON BackendAPIResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("additionalAuthTypes" Core..=)
+          [ ("additionalAuthTypes" Data..=)
               Prelude.<$> additionalAuthTypes,
-            ("conflictResolution" Core..=)
+            ("conflictResolution" Data..=)
               Prelude.<$> conflictResolution,
-            ("service" Core..=) Prelude.<$> service,
-            ("transformSchema" Core..=)
+            ("service" Data..=) Prelude.<$> service,
+            ("transformSchema" Data..=)
               Prelude.<$> transformSchema,
-            ("defaultAuthType" Core..=)
+            ("defaultAuthType" Data..=)
               Prelude.<$> defaultAuthType,
-            ("apiName" Core..=) Prelude.<$> apiName
+            ("apiName" Data..=) Prelude.<$> apiName
           ]
       )

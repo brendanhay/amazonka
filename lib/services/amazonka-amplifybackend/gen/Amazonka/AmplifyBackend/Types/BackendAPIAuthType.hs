@@ -23,6 +23,7 @@ import Amazonka.AmplifyBackend.Types.BackendAPIAppSyncAuthSettings
 import Amazonka.AmplifyBackend.Types.Mode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the auth types for your configured data models.
@@ -63,14 +64,14 @@ backendAPIAuthType_settings = Lens.lens (\BackendAPIAuthType' {settings} -> sett
 backendAPIAuthType_mode :: Lens.Lens' BackendAPIAuthType (Prelude.Maybe Mode)
 backendAPIAuthType_mode = Lens.lens (\BackendAPIAuthType' {mode} -> mode) (\s@BackendAPIAuthType' {} a -> s {mode = a} :: BackendAPIAuthType)
 
-instance Core.FromJSON BackendAPIAuthType where
+instance Data.FromJSON BackendAPIAuthType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackendAPIAuthType"
       ( \x ->
           BackendAPIAuthType'
-            Prelude.<$> (x Core..:? "settings")
-            Prelude.<*> (x Core..:? "mode")
+            Prelude.<$> (x Data..:? "settings")
+            Prelude.<*> (x Data..:? "mode")
       )
 
 instance Prelude.Hashable BackendAPIAuthType where
@@ -82,11 +83,11 @@ instance Prelude.NFData BackendAPIAuthType where
   rnf BackendAPIAuthType' {..} =
     Prelude.rnf settings `Prelude.seq` Prelude.rnf mode
 
-instance Core.ToJSON BackendAPIAuthType where
+instance Data.ToJSON BackendAPIAuthType where
   toJSON BackendAPIAuthType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("settings" Core..=) Prelude.<$> settings,
-            ("mode" Core..=) Prelude.<$> mode
+          [ ("settings" Data..=) Prelude.<$> settings,
+            ("mode" Data..=) Prelude.<$> mode
           ]
       )

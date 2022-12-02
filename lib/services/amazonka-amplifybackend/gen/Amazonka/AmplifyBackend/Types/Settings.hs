@@ -22,6 +22,7 @@ module Amazonka.AmplifyBackend.Types.Settings where
 import Amazonka.AmplifyBackend.Types.MfaTypesElement
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings of your MFA configuration for the backend of your Amplify
@@ -63,14 +64,14 @@ settings_mfaTypes = Lens.lens (\Settings' {mfaTypes} -> mfaTypes) (\s@Settings' 
 settings_smsMessage :: Lens.Lens' Settings (Prelude.Maybe Prelude.Text)
 settings_smsMessage = Lens.lens (\Settings' {smsMessage} -> smsMessage) (\s@Settings' {} a -> s {smsMessage = a} :: Settings)
 
-instance Core.FromJSON Settings where
+instance Data.FromJSON Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Settings"
       ( \x ->
           Settings'
-            Prelude.<$> (x Core..:? "mfaTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "smsMessage")
+            Prelude.<$> (x Data..:? "mfaTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "smsMessage")
       )
 
 instance Prelude.Hashable Settings where
@@ -83,11 +84,11 @@ instance Prelude.NFData Settings where
     Prelude.rnf mfaTypes
       `Prelude.seq` Prelude.rnf smsMessage
 
-instance Core.ToJSON Settings where
+instance Data.ToJSON Settings where
   toJSON Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("mfaTypes" Core..=) Prelude.<$> mfaTypes,
-            ("smsMessage" Core..=) Prelude.<$> smsMessage
+          [ ("mfaTypes" Data..=) Prelude.<$> mfaTypes,
+            ("smsMessage" Data..=) Prelude.<$> smsMessage
           ]
       )

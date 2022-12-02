@@ -28,6 +28,7 @@ import Amazonka.AmplifyBackend.Types.RequiredSignUpAttributesElement
 import Amazonka.AmplifyBackend.Types.SignInMethod
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the Amazon Cognito user pool configuration for the auth
@@ -152,24 +153,24 @@ createBackendAuthUserPoolConfig_userPoolName :: Lens.Lens' CreateBackendAuthUser
 createBackendAuthUserPoolConfig_userPoolName = Lens.lens (\CreateBackendAuthUserPoolConfig' {userPoolName} -> userPoolName) (\s@CreateBackendAuthUserPoolConfig' {} a -> s {userPoolName = a} :: CreateBackendAuthUserPoolConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CreateBackendAuthUserPoolConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreateBackendAuthUserPoolConfig"
       ( \x ->
           CreateBackendAuthUserPoolConfig'
-            Prelude.<$> (x Core..:? "oAuth")
-            Prelude.<*> (x Core..:? "passwordPolicy")
-            Prelude.<*> (x Core..:? "forgotPassword")
-            Prelude.<*> (x Core..:? "verificationMessage")
-            Prelude.<*> (x Core..:? "mfa")
-            Prelude.<*> ( x Core..:? "requiredSignUpAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "oAuth")
+            Prelude.<*> (x Data..:? "passwordPolicy")
+            Prelude.<*> (x Data..:? "forgotPassword")
+            Prelude.<*> (x Data..:? "verificationMessage")
+            Prelude.<*> (x Data..:? "mfa")
+            Prelude.<*> ( x Data..:? "requiredSignUpAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "signInMethod")
-            Prelude.<*> (x Core..: "userPoolName")
+            Prelude.<*> (x Data..: "signInMethod")
+            Prelude.<*> (x Data..: "userPoolName")
       )
 
 instance
@@ -202,23 +203,23 @@ instance
       `Prelude.seq` Prelude.rnf signInMethod
       `Prelude.seq` Prelude.rnf userPoolName
 
-instance Core.ToJSON CreateBackendAuthUserPoolConfig where
+instance Data.ToJSON CreateBackendAuthUserPoolConfig where
   toJSON CreateBackendAuthUserPoolConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("oAuth" Core..=) Prelude.<$> oAuth,
-            ("passwordPolicy" Core..=)
+          [ ("oAuth" Data..=) Prelude.<$> oAuth,
+            ("passwordPolicy" Data..=)
               Prelude.<$> passwordPolicy,
-            ("forgotPassword" Core..=)
+            ("forgotPassword" Data..=)
               Prelude.<$> forgotPassword,
-            ("verificationMessage" Core..=)
+            ("verificationMessage" Data..=)
               Prelude.<$> verificationMessage,
-            ("mfa" Core..=) Prelude.<$> mfa,
+            ("mfa" Data..=) Prelude.<$> mfa,
             Prelude.Just
               ( "requiredSignUpAttributes"
-                  Core..= requiredSignUpAttributes
+                  Data..= requiredSignUpAttributes
               ),
-            Prelude.Just ("signInMethod" Core..= signInMethod),
-            Prelude.Just ("userPoolName" Core..= userPoolName)
+            Prelude.Just ("signInMethod" Data..= signInMethod),
+            Prelude.Just ("userPoolName" Data..= userPoolName)
           ]
       )

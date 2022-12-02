@@ -49,6 +49,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,12 +118,12 @@ instance Core.AWSRequest CloneBackend where
     Response.receiveJSON
       ( \s h x ->
           CloneBackendResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "error")
-            Prelude.<*> (x Core..?> "operation")
-            Prelude.<*> (x Core..?> "appId")
-            Prelude.<*> (x Core..?> "backendEnvironmentName")
+            Prelude.<$> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "error")
+            Prelude.<*> (x Data..?> "operation")
+            Prelude.<*> (x Data..?> "appId")
+            Prelude.<*> (x Data..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,39 +139,39 @@ instance Prelude.NFData CloneBackend where
       `Prelude.seq` Prelude.rnf backendEnvironmentName
       `Prelude.seq` Prelude.rnf targetEnvironmentName
 
-instance Core.ToHeaders CloneBackend where
+instance Data.ToHeaders CloneBackend where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CloneBackend where
+instance Data.ToJSON CloneBackend where
   toJSON CloneBackend' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "targetEnvironmentName"
-                  Core..= targetEnvironmentName
+                  Data..= targetEnvironmentName
               )
           ]
       )
 
-instance Core.ToPath CloneBackend where
+instance Data.ToPath CloneBackend where
   toPath CloneBackend' {..} =
     Prelude.mconcat
       [ "/backend/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environments/",
-        Core.toBS backendEnvironmentName,
+        Data.toBS backendEnvironmentName,
         "/clone"
       ]
 
-instance Core.ToQuery CloneBackend where
+instance Data.ToQuery CloneBackend where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCloneBackendResponse' smart constructor.

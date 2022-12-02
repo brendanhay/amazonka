@@ -26,6 +26,7 @@ import Amazonka.AmplifyBackend.Types.UpdateBackendAuthPasswordPolicyConfig
 import Amazonka.AmplifyBackend.Types.UpdateBackendAuthVerificationMessageConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the Amazon Cognito user pool configuration for the
@@ -135,17 +136,17 @@ instance
       `Prelude.seq` Prelude.rnf verificationMessage
       `Prelude.seq` Prelude.rnf mfa
 
-instance Core.ToJSON UpdateBackendAuthUserPoolConfig where
+instance Data.ToJSON UpdateBackendAuthUserPoolConfig where
   toJSON UpdateBackendAuthUserPoolConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("oAuth" Core..=) Prelude.<$> oAuth,
-            ("passwordPolicy" Core..=)
+          [ ("oAuth" Data..=) Prelude.<$> oAuth,
+            ("passwordPolicy" Data..=)
               Prelude.<$> passwordPolicy,
-            ("forgotPassword" Core..=)
+            ("forgotPassword" Data..=)
               Prelude.<$> forgotPassword,
-            ("verificationMessage" Core..=)
+            ("verificationMessage" Data..=)
               Prelude.<$> verificationMessage,
-            ("mfa" Core..=) Prelude.<$> mfa
+            ("mfa" Data..=) Prelude.<$> mfa
           ]
       )

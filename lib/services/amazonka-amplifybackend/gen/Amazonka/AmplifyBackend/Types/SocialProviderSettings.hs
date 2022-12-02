@@ -23,6 +23,7 @@ import Amazonka.AmplifyBackend.Types.BackendAuthAppleProviderConfig
 import Amazonka.AmplifyBackend.Types.BackendAuthSocialProviderConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for using the social identity providers for access to your
@@ -79,16 +80,16 @@ socialProviderSettings_facebook = Lens.lens (\SocialProviderSettings' {facebook}
 socialProviderSettings_google :: Lens.Lens' SocialProviderSettings (Prelude.Maybe BackendAuthSocialProviderConfig)
 socialProviderSettings_google = Lens.lens (\SocialProviderSettings' {google} -> google) (\s@SocialProviderSettings' {} a -> s {google = a} :: SocialProviderSettings)
 
-instance Core.FromJSON SocialProviderSettings where
+instance Data.FromJSON SocialProviderSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SocialProviderSettings"
       ( \x ->
           SocialProviderSettings'
-            Prelude.<$> (x Core..:? "LoginWithAmazon")
-            Prelude.<*> (x Core..:? "SignInWithApple")
-            Prelude.<*> (x Core..:? "Facebook")
-            Prelude.<*> (x Core..:? "Google")
+            Prelude.<$> (x Data..:? "LoginWithAmazon")
+            Prelude.<*> (x Data..:? "SignInWithApple")
+            Prelude.<*> (x Data..:? "Facebook")
+            Prelude.<*> (x Data..:? "Google")
       )
 
 instance Prelude.Hashable SocialProviderSettings where
@@ -105,15 +106,15 @@ instance Prelude.NFData SocialProviderSettings where
       `Prelude.seq` Prelude.rnf facebook
       `Prelude.seq` Prelude.rnf google
 
-instance Core.ToJSON SocialProviderSettings where
+instance Data.ToJSON SocialProviderSettings where
   toJSON SocialProviderSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LoginWithAmazon" Core..=)
+          [ ("LoginWithAmazon" Data..=)
               Prelude.<$> loginWithAmazon,
-            ("SignInWithApple" Core..=)
+            ("SignInWithApple" Data..=)
               Prelude.<$> signInWithApple,
-            ("Facebook" Core..=) Prelude.<$> facebook,
-            ("Google" Core..=) Prelude.<$> google
+            ("Facebook" Data..=) Prelude.<$> facebook,
+            ("Google" Data..=) Prelude.<$> google
           ]
       )

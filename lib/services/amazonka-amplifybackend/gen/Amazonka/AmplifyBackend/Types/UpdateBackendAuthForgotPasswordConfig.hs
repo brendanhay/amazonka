@@ -24,6 +24,7 @@ import Amazonka.AmplifyBackend.Types.EmailSettings
 import Amazonka.AmplifyBackend.Types.SmsSettings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __(DEPRECATED)__ Describes the forgot password policy for authenticating
@@ -105,15 +106,15 @@ instance
       `Prelude.seq` Prelude.rnf smsSettings
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateBackendAuthForgotPasswordConfig
   where
   toJSON UpdateBackendAuthForgotPasswordConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("emailSettings" Core..=) Prelude.<$> emailSettings,
-            ("deliveryMethod" Core..=)
+          [ ("emailSettings" Data..=) Prelude.<$> emailSettings,
+            ("deliveryMethod" Data..=)
               Prelude.<$> deliveryMethod,
-            ("smsSettings" Core..=) Prelude.<$> smsSettings
+            ("smsSettings" Data..=) Prelude.<$> smsSettings
           ]
       )

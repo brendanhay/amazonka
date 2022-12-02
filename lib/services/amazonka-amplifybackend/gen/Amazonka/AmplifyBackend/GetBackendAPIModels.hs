@@ -45,6 +45,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,8 +116,8 @@ instance Core.AWSRequest GetBackendAPIModels where
     Response.receiveJSON
       ( \s h x ->
           GetBackendAPIModelsResponse'
-            Prelude.<$> (x Core..?> "models")
-            Prelude.<*> (x Core..?> "status")
+            Prelude.<$> (x Data..?> "models")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,35 +133,35 @@ instance Prelude.NFData GetBackendAPIModels where
       `Prelude.seq` Prelude.rnf backendEnvironmentName
       `Prelude.seq` Prelude.rnf resourceName
 
-instance Core.ToHeaders GetBackendAPIModels where
+instance Data.ToHeaders GetBackendAPIModels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetBackendAPIModels where
+instance Data.ToJSON GetBackendAPIModels where
   toJSON GetBackendAPIModels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("resourceName" Core..= resourceName)]
+          [Prelude.Just ("resourceName" Data..= resourceName)]
       )
 
-instance Core.ToPath GetBackendAPIModels where
+instance Data.ToPath GetBackendAPIModels where
   toPath GetBackendAPIModels' {..} =
     Prelude.mconcat
       [ "/backend/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/api/",
-        Core.toBS backendEnvironmentName,
+        Data.toBS backendEnvironmentName,
         "/getModels"
       ]
 
-instance Core.ToQuery GetBackendAPIModels where
+instance Data.ToQuery GetBackendAPIModels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBackendAPIModelsResponse' smart constructor.

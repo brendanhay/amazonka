@@ -21,6 +21,7 @@ module Amazonka.AmplifyBackend.Types.BackendAuthAppleProviderConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes Apple social federation configurations for allowing your app
@@ -81,16 +82,16 @@ backendAuthAppleProviderConfig_teamId = Lens.lens (\BackendAuthAppleProviderConf
 backendAuthAppleProviderConfig_keyId :: Lens.Lens' BackendAuthAppleProviderConfig (Prelude.Maybe Prelude.Text)
 backendAuthAppleProviderConfig_keyId = Lens.lens (\BackendAuthAppleProviderConfig' {keyId} -> keyId) (\s@BackendAuthAppleProviderConfig' {} a -> s {keyId = a} :: BackendAuthAppleProviderConfig)
 
-instance Core.FromJSON BackendAuthAppleProviderConfig where
+instance Data.FromJSON BackendAuthAppleProviderConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackendAuthAppleProviderConfig"
       ( \x ->
           BackendAuthAppleProviderConfig'
-            Prelude.<$> (x Core..:? "client_id")
-            Prelude.<*> (x Core..:? "private_key")
-            Prelude.<*> (x Core..:? "team_id")
-            Prelude.<*> (x Core..:? "key_id")
+            Prelude.<$> (x Data..:? "client_id")
+            Prelude.<*> (x Data..:? "private_key")
+            Prelude.<*> (x Data..:? "team_id")
+            Prelude.<*> (x Data..:? "key_id")
       )
 
 instance
@@ -115,13 +116,13 @@ instance
       `Prelude.seq` Prelude.rnf teamId
       `Prelude.seq` Prelude.rnf keyId
 
-instance Core.ToJSON BackendAuthAppleProviderConfig where
+instance Data.ToJSON BackendAuthAppleProviderConfig where
   toJSON BackendAuthAppleProviderConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("client_id" Core..=) Prelude.<$> clientId,
-            ("private_key" Core..=) Prelude.<$> privateKey,
-            ("team_id" Core..=) Prelude.<$> teamId,
-            ("key_id" Core..=) Prelude.<$> keyId
+          [ ("client_id" Data..=) Prelude.<$> clientId,
+            ("private_key" Data..=) Prelude.<$> privateKey,
+            ("team_id" Data..=) Prelude.<$> teamId,
+            ("key_id" Data..=) Prelude.<$> keyId
           ]
       )

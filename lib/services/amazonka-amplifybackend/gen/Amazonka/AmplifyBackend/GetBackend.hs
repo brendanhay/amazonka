@@ -49,6 +49,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,15 +103,15 @@ instance Core.AWSRequest GetBackend where
     Response.receiveJSON
       ( \s h x ->
           GetBackendResponse'
-            Prelude.<$> (x Core..?> "appName")
-            Prelude.<*> (x Core..?> "amplifyFeatureFlags")
-            Prelude.<*> ( x Core..?> "backendEnvironmentList"
+            Prelude.<$> (x Data..?> "appName")
+            Prelude.<*> (x Data..?> "amplifyFeatureFlags")
+            Prelude.<*> ( x Data..?> "backendEnvironmentList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "amplifyMetaConfig")
-            Prelude.<*> (x Core..?> "error")
-            Prelude.<*> (x Core..?> "appId")
-            Prelude.<*> (x Core..?> "backendEnvironmentName")
+            Prelude.<*> (x Data..?> "amplifyMetaConfig")
+            Prelude.<*> (x Data..?> "error")
+            Prelude.<*> (x Data..?> "appId")
+            Prelude.<*> (x Data..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,32 +125,32 @@ instance Prelude.NFData GetBackend where
     Prelude.rnf backendEnvironmentName
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders GetBackend where
+instance Data.ToHeaders GetBackend where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetBackend where
+instance Data.ToJSON GetBackend where
   toJSON GetBackend' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("backendEnvironmentName" Core..=)
+          [ ("backendEnvironmentName" Data..=)
               Prelude.<$> backendEnvironmentName
           ]
       )
 
-instance Core.ToPath GetBackend where
+instance Data.ToPath GetBackend where
   toPath GetBackend' {..} =
     Prelude.mconcat
-      ["/backend/", Core.toBS appId, "/details"]
+      ["/backend/", Data.toBS appId, "/details"]
 
-instance Core.ToQuery GetBackend where
+instance Data.ToQuery GetBackend where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBackendResponse' smart constructor.

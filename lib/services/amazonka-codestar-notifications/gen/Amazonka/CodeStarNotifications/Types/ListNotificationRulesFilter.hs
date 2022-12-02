@@ -22,6 +22,7 @@ module Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter where
 import Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a filter to apply to the list of returned notification
@@ -88,11 +89,11 @@ instance Prelude.NFData ListNotificationRulesFilter where
   rnf ListNotificationRulesFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ListNotificationRulesFilter where
+instance Data.ToJSON ListNotificationRulesFilter where
   toJSON ListNotificationRulesFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.CodeStarNotifications.Types.Target where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the Chatbot topics or Chatbot clients associated with
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTarget' smart constructor.
 data Target = Target'
   { -- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.
-    targetAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    targetAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The target type. Can be an Chatbot topic or Chatbot client.
     --
     -- -   Chatbot topics are specified as @SNS@.
@@ -64,7 +65,7 @@ newTarget =
 
 -- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.
 target_targetAddress :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
-target_targetAddress = Lens.lens (\Target' {targetAddress} -> targetAddress) (\s@Target' {} a -> s {targetAddress = a} :: Target) Prelude.. Lens.mapping Core._Sensitive
+target_targetAddress = Lens.lens (\Target' {targetAddress} -> targetAddress) (\s@Target' {} a -> s {targetAddress = a} :: Target) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The target type. Can be an Chatbot topic or Chatbot client.
 --
@@ -84,11 +85,11 @@ instance Prelude.NFData Target where
     Prelude.rnf targetAddress
       `Prelude.seq` Prelude.rnf targetType
 
-instance Core.ToJSON Target where
+instance Data.ToJSON Target where
   toJSON Target' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetAddress" Core..=) Prelude.<$> targetAddress,
-            ("TargetType" Core..=) Prelude.<$> targetType
+          [ ("TargetAddress" Data..=) Prelude.<$> targetAddress,
+            ("TargetType" Data..=) Prelude.<$> targetType
           ]
       )

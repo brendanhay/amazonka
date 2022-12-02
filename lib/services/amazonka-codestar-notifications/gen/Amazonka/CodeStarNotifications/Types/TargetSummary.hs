@@ -22,6 +22,7 @@ module Amazonka.CodeStarNotifications.Types.TargetSummary where
 import Amazonka.CodeStarNotifications.Types.TargetStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the targets specified for a notification rule.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTargetSummary' smart constructor.
 data TargetSummary = TargetSummary'
   { -- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.
-    targetAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    targetAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The type of the target (for example, @SNS@).
     --
     -- -   Chatbot topics are specified as @SNS@.
@@ -69,7 +70,7 @@ newTargetSummary =
 
 -- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.
 targetSummary_targetAddress :: Lens.Lens' TargetSummary (Prelude.Maybe Prelude.Text)
-targetSummary_targetAddress = Lens.lens (\TargetSummary' {targetAddress} -> targetAddress) (\s@TargetSummary' {} a -> s {targetAddress = a} :: TargetSummary) Prelude.. Lens.mapping Core._Sensitive
+targetSummary_targetAddress = Lens.lens (\TargetSummary' {targetAddress} -> targetAddress) (\s@TargetSummary' {} a -> s {targetAddress = a} :: TargetSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The type of the target (for example, @SNS@).
 --
@@ -83,15 +84,15 @@ targetSummary_targetType = Lens.lens (\TargetSummary' {targetType} -> targetType
 targetSummary_targetStatus :: Lens.Lens' TargetSummary (Prelude.Maybe TargetStatus)
 targetSummary_targetStatus = Lens.lens (\TargetSummary' {targetStatus} -> targetStatus) (\s@TargetSummary' {} a -> s {targetStatus = a} :: TargetSummary)
 
-instance Core.FromJSON TargetSummary where
+instance Data.FromJSON TargetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetSummary"
       ( \x ->
           TargetSummary'
-            Prelude.<$> (x Core..:? "TargetAddress")
-            Prelude.<*> (x Core..:? "TargetType")
-            Prelude.<*> (x Core..:? "TargetStatus")
+            Prelude.<$> (x Data..:? "TargetAddress")
+            Prelude.<*> (x Data..:? "TargetType")
+            Prelude.<*> (x Data..:? "TargetStatus")
       )
 
 instance Prelude.Hashable TargetSummary where

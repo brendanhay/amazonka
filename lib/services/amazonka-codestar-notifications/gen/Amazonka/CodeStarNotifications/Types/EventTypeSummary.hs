@@ -21,6 +21,7 @@ module Amazonka.CodeStarNotifications.Types.EventTypeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about an event that has triggered a notification
@@ -89,16 +90,16 @@ eventTypeSummary_eventTypeId = Lens.lens (\EventTypeSummary' {eventTypeId} -> ev
 eventTypeSummary_serviceName :: Lens.Lens' EventTypeSummary (Prelude.Maybe Prelude.Text)
 eventTypeSummary_serviceName = Lens.lens (\EventTypeSummary' {serviceName} -> serviceName) (\s@EventTypeSummary' {} a -> s {serviceName = a} :: EventTypeSummary)
 
-instance Core.FromJSON EventTypeSummary where
+instance Data.FromJSON EventTypeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventTypeSummary"
       ( \x ->
           EventTypeSummary'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "EventTypeName")
-            Prelude.<*> (x Core..:? "EventTypeId")
-            Prelude.<*> (x Core..:? "ServiceName")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "EventTypeName")
+            Prelude.<*> (x Data..:? "EventTypeId")
+            Prelude.<*> (x Data..:? "ServiceName")
       )
 
 instance Prelude.Hashable EventTypeSummary where

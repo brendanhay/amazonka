@@ -52,6 +52,7 @@ where
 import Amazonka.CodeStarNotifications.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,18 +94,18 @@ instance Core.AWSRequest DescribeNotificationRule where
     Response.receiveJSON
       ( \s h x ->
           DescribeNotificationRuleResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "DetailType")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "LastModifiedTimestamp")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Targets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "EventTypes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CreatedBy")
-            Prelude.<*> (x Core..?> "Resource")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "DetailType")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "LastModifiedTimestamp")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Targets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "EventTypes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "Resource")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Arn")
+            Prelude.<*> (x Data..:> "Arn")
       )
 
 instance Prelude.Hashable DescribeNotificationRule where
@@ -114,28 +115,28 @@ instance Prelude.Hashable DescribeNotificationRule where
 instance Prelude.NFData DescribeNotificationRule where
   rnf DescribeNotificationRule' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DescribeNotificationRule where
+instance Data.ToHeaders DescribeNotificationRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeNotificationRule where
+instance Data.ToJSON DescribeNotificationRule where
   toJSON DescribeNotificationRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Arn" Core..= arn)]
+          [Prelude.Just ("Arn" Data..= arn)]
       )
 
-instance Core.ToPath DescribeNotificationRule where
+instance Data.ToPath DescribeNotificationRule where
   toPath = Prelude.const "/describeNotificationRule"
 
-instance Core.ToQuery DescribeNotificationRule where
+instance Data.ToQuery DescribeNotificationRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeNotificationRuleResponse' smart constructor.
@@ -143,7 +144,7 @@ data DescribeNotificationRuleResponse = DescribeNotificationRuleResponse'
   { -- | The tags associated with the notification rule.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the notification rule.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The level of detail included in the notifications for this resource.
     -- BASIC will include only the contents of the event as it would appear in
     -- Amazon CloudWatch. FULL will include any supplemental information
@@ -152,10 +153,10 @@ data DescribeNotificationRuleResponse = DescribeNotificationRuleResponse'
     detailType :: Prelude.Maybe DetailType,
     -- | The date and time the notification rule was created, in timestamp
     -- format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The date and time the notification rule was most recently updated, in
     -- timestamp format.
-    lastModifiedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status of the notification rule. Valid statuses are on (sending
     -- notifications) or off (not sending notifications).
     status :: Prelude.Maybe NotificationRuleStatus,
@@ -247,7 +248,7 @@ describeNotificationRuleResponse_tags = Lens.lens (\DescribeNotificationRuleResp
 
 -- | The name of the notification rule.
 describeNotificationRuleResponse_name :: Lens.Lens' DescribeNotificationRuleResponse (Prelude.Maybe Prelude.Text)
-describeNotificationRuleResponse_name = Lens.lens (\DescribeNotificationRuleResponse' {name} -> name) (\s@DescribeNotificationRuleResponse' {} a -> s {name = a} :: DescribeNotificationRuleResponse) Prelude.. Lens.mapping Core._Sensitive
+describeNotificationRuleResponse_name = Lens.lens (\DescribeNotificationRuleResponse' {name} -> name) (\s@DescribeNotificationRuleResponse' {} a -> s {name = a} :: DescribeNotificationRuleResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The level of detail included in the notifications for this resource.
 -- BASIC will include only the contents of the event as it would appear in
@@ -260,12 +261,12 @@ describeNotificationRuleResponse_detailType = Lens.lens (\DescribeNotificationRu
 -- | The date and time the notification rule was created, in timestamp
 -- format.
 describeNotificationRuleResponse_createdTimestamp :: Lens.Lens' DescribeNotificationRuleResponse (Prelude.Maybe Prelude.UTCTime)
-describeNotificationRuleResponse_createdTimestamp = Lens.lens (\DescribeNotificationRuleResponse' {createdTimestamp} -> createdTimestamp) (\s@DescribeNotificationRuleResponse' {} a -> s {createdTimestamp = a} :: DescribeNotificationRuleResponse) Prelude.. Lens.mapping Core._Time
+describeNotificationRuleResponse_createdTimestamp = Lens.lens (\DescribeNotificationRuleResponse' {createdTimestamp} -> createdTimestamp) (\s@DescribeNotificationRuleResponse' {} a -> s {createdTimestamp = a} :: DescribeNotificationRuleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time the notification rule was most recently updated, in
 -- timestamp format.
 describeNotificationRuleResponse_lastModifiedTimestamp :: Lens.Lens' DescribeNotificationRuleResponse (Prelude.Maybe Prelude.UTCTime)
-describeNotificationRuleResponse_lastModifiedTimestamp = Lens.lens (\DescribeNotificationRuleResponse' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@DescribeNotificationRuleResponse' {} a -> s {lastModifiedTimestamp = a} :: DescribeNotificationRuleResponse) Prelude.. Lens.mapping Core._Time
+describeNotificationRuleResponse_lastModifiedTimestamp = Lens.lens (\DescribeNotificationRuleResponse' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@DescribeNotificationRuleResponse' {} a -> s {lastModifiedTimestamp = a} :: DescribeNotificationRuleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the notification rule. Valid statuses are on (sending
 -- notifications) or off (not sending notifications).

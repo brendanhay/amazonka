@@ -22,6 +22,7 @@ module Amazonka.CodeStarNotifications.Types.ListTargetsFilter where
 import Amazonka.CodeStarNotifications.Types.ListTargetsFilterName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a filter to apply to the list of returned targets. You
@@ -85,11 +86,11 @@ instance Prelude.NFData ListTargetsFilter where
   rnf ListTargetsFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ListTargetsFilter where
+instance Data.ToJSON ListTargetsFilter where
   toJSON ListTargetsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

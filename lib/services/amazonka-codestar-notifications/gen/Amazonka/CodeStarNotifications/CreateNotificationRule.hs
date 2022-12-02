@@ -52,6 +52,7 @@ where
 import Amazonka.CodeStarNotifications.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -77,7 +78,7 @@ data CreateNotificationRule = CreateNotificationRule'
     status :: Prelude.Maybe NotificationRuleStatus,
     -- | The name for the notification rule. Notification rule names must be
     -- unique in your Amazon Web Services account.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | A list of event types associated with this notification rule. For a list
     -- of allowed events, see EventTypeSummary.
     eventTypeIds :: [Prelude.Text],
@@ -160,7 +161,7 @@ newCreateNotificationRule
       { tags = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
         status = Prelude.Nothing,
-        name = Core._Sensitive Lens.# pName_,
+        name = Data._Sensitive Lens.# pName_,
         eventTypeIds = Prelude.mempty,
         resource = pResource_,
         targets = Prelude.mempty,
@@ -193,7 +194,7 @@ createNotificationRule_status = Lens.lens (\CreateNotificationRule' {status} -> 
 -- | The name for the notification rule. Notification rule names must be
 -- unique in your Amazon Web Services account.
 createNotificationRule_name :: Lens.Lens' CreateNotificationRule Prelude.Text
-createNotificationRule_name = Lens.lens (\CreateNotificationRule' {name} -> name) (\s@CreateNotificationRule' {} a -> s {name = a} :: CreateNotificationRule) Prelude.. Core._Sensitive
+createNotificationRule_name = Lens.lens (\CreateNotificationRule' {name} -> name) (\s@CreateNotificationRule' {} a -> s {name = a} :: CreateNotificationRule) Prelude.. Data._Sensitive
 
 -- | A list of event types associated with this notification rule. For a list
 -- of allowed events, see EventTypeSummary.
@@ -231,7 +232,7 @@ instance Core.AWSRequest CreateNotificationRule where
     Response.receiveJSON
       ( \s h x ->
           CreateNotificationRuleResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -257,37 +258,37 @@ instance Prelude.NFData CreateNotificationRule where
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf detailType
 
-instance Core.ToHeaders CreateNotificationRule where
+instance Data.ToHeaders CreateNotificationRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNotificationRule where
+instance Data.ToJSON CreateNotificationRule where
   toJSON CreateNotificationRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("Status" Core..=) Prelude.<$> status,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("EventTypeIds" Core..= eventTypeIds),
-            Prelude.Just ("Resource" Core..= resource),
-            Prelude.Just ("Targets" Core..= targets),
-            Prelude.Just ("DetailType" Core..= detailType)
+            ("Status" Data..=) Prelude.<$> status,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("EventTypeIds" Data..= eventTypeIds),
+            Prelude.Just ("Resource" Data..= resource),
+            Prelude.Just ("Targets" Data..= targets),
+            Prelude.Just ("DetailType" Data..= detailType)
           ]
       )
 
-instance Core.ToPath CreateNotificationRule where
+instance Data.ToPath CreateNotificationRule where
   toPath = Prelude.const "/createNotificationRule"
 
-instance Core.ToQuery CreateNotificationRule where
+instance Data.ToQuery CreateNotificationRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateNotificationRuleResponse' smart constructor.

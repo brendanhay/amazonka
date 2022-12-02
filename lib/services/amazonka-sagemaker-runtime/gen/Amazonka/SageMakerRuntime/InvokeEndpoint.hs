@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +119,7 @@ data InvokeEndpoint = InvokeEndpoint'
     --
     -- This feature is currently supported in the Amazon Web Services SDKs but
     -- not in the Amazon SageMaker Python SDK.
-    customAttributes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    customAttributes :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The model to request for inference when invoking a multi-model endpoint.
     targetModel :: Prelude.Maybe Prelude.Text,
     -- | An optional JMESPath expression used to override the
@@ -276,7 +277,7 @@ invokeEndpoint_targetVariant = Lens.lens (\InvokeEndpoint' {targetVariant} -> ta
 -- This feature is currently supported in the Amazon Web Services SDKs but
 -- not in the Amazon SageMaker Python SDK.
 invokeEndpoint_customAttributes :: Lens.Lens' InvokeEndpoint (Prelude.Maybe Prelude.Text)
-invokeEndpoint_customAttributes = Lens.lens (\InvokeEndpoint' {customAttributes} -> customAttributes) (\s@InvokeEndpoint' {} a -> s {customAttributes = a} :: InvokeEndpoint) Prelude.. Lens.mapping Core._Sensitive
+invokeEndpoint_customAttributes = Lens.lens (\InvokeEndpoint' {customAttributes} -> customAttributes) (\s@InvokeEndpoint' {} a -> s {customAttributes = a} :: InvokeEndpoint) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The model to request for inference when invoking a multi-model endpoint.
 invokeEndpoint_targetModel :: Lens.Lens' InvokeEndpoint (Prelude.Maybe Prelude.Text)
@@ -326,11 +327,11 @@ instance Core.AWSRequest InvokeEndpoint where
     Response.receiveJSON
       ( \s h x ->
           InvokeEndpointResponse'
-            Prelude.<$> (h Core..#? "X-Amzn-SageMaker-Custom-Attributes")
-            Prelude.<*> (h Core..#? "x-Amzn-Invoked-Production-Variant")
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<$> (h Data..#? "X-Amzn-SageMaker-Custom-Attributes")
+            Prelude.<*> (h Data..#? "x-Amzn-Invoked-Production-Variant")
+            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable InvokeEndpoint where
@@ -360,35 +361,35 @@ instance Prelude.NFData InvokeEndpoint where
       `Prelude.seq` Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf body
 
-instance Core.ToHeaders InvokeEndpoint where
+instance Data.ToHeaders InvokeEndpoint where
   toHeaders InvokeEndpoint' {..} =
     Prelude.mconcat
       [ "X-Amzn-SageMaker-Target-Container-Hostname"
-          Core.=# targetContainerHostname,
-        "Accept" Core.=# accept,
+          Data.=# targetContainerHostname,
+        "Accept" Data.=# accept,
         "X-Amzn-SageMaker-Target-Variant"
-          Core.=# targetVariant,
+          Data.=# targetVariant,
         "X-Amzn-SageMaker-Custom-Attributes"
-          Core.=# customAttributes,
-        "X-Amzn-SageMaker-Target-Model" Core.=# targetModel,
+          Data.=# customAttributes,
+        "X-Amzn-SageMaker-Target-Model" Data.=# targetModel,
         "X-Amzn-SageMaker-Enable-Explanations"
-          Core.=# enableExplanations,
-        "X-Amzn-SageMaker-Inference-Id" Core.=# inferenceId,
-        "Content-Type" Core.=# contentType
+          Data.=# enableExplanations,
+        "X-Amzn-SageMaker-Inference-Id" Data.=# inferenceId,
+        "Content-Type" Data.=# contentType
       ]
 
-instance Core.ToJSON InvokeEndpoint where
-  toJSON InvokeEndpoint' {..} = Core.toJSON body
+instance Data.ToJSON InvokeEndpoint where
+  toJSON InvokeEndpoint' {..} = Data.toJSON body
 
-instance Core.ToPath InvokeEndpoint where
+instance Data.ToPath InvokeEndpoint where
   toPath InvokeEndpoint' {..} =
     Prelude.mconcat
       [ "/endpoints/",
-        Core.toBS endpointName,
+        Data.toBS endpointName,
         "/invocations"
       ]
 
-instance Core.ToQuery InvokeEndpoint where
+instance Data.ToQuery InvokeEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInvokeEndpointResponse' smart constructor.
@@ -413,7 +414,7 @@ data InvokeEndpointResponse = InvokeEndpointResponse'
     --
     -- This feature is currently supported in the Amazon Web Services SDKs but
     -- not in the Amazon SageMaker Python SDK.
-    customAttributes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    customAttributes :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Identifies the production variant that was invoked.
     invokedProductionVariant :: Prelude.Maybe Prelude.Text,
     -- | The MIME type of the inference returned in the response body.
@@ -516,7 +517,7 @@ newInvokeEndpointResponse pHttpStatus_ pBody_ =
 -- This feature is currently supported in the Amazon Web Services SDKs but
 -- not in the Amazon SageMaker Python SDK.
 invokeEndpointResponse_customAttributes :: Lens.Lens' InvokeEndpointResponse (Prelude.Maybe Prelude.Text)
-invokeEndpointResponse_customAttributes = Lens.lens (\InvokeEndpointResponse' {customAttributes} -> customAttributes) (\s@InvokeEndpointResponse' {} a -> s {customAttributes = a} :: InvokeEndpointResponse) Prelude.. Lens.mapping Core._Sensitive
+invokeEndpointResponse_customAttributes = Lens.lens (\InvokeEndpointResponse' {customAttributes} -> customAttributes) (\s@InvokeEndpointResponse' {} a -> s {customAttributes = a} :: InvokeEndpointResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Identifies the production variant that was invoked.
 invokeEndpointResponse_invokedProductionVariant :: Lens.Lens' InvokeEndpointResponse (Prelude.Maybe Prelude.Text)

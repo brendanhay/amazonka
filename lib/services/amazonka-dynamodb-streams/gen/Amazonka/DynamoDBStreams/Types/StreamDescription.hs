@@ -21,6 +21,7 @@ module Amazonka.DynamoDBStreams.Types.StreamDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.KeySchemaElement
 import Amazonka.DynamoDBStreams.Types.Shard
@@ -48,7 +49,7 @@ data StreamDescription = StreamDescription'
     -- -   the @StreamLabel@
     streamLabel :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the request to create this stream was issued.
-    creationRequestDateTime :: Prelude.Maybe Core.POSIX,
+    creationRequestDateTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the format of the records within this stream:
     --
     -- -   @KEYS_ONLY@ - only the key attributes of items that were modified in
@@ -200,7 +201,7 @@ streamDescription_streamLabel = Lens.lens (\StreamDescription' {streamLabel} -> 
 
 -- | The date and time when the request to create this stream was issued.
 streamDescription_creationRequestDateTime :: Lens.Lens' StreamDescription (Prelude.Maybe Prelude.UTCTime)
-streamDescription_creationRequestDateTime = Lens.lens (\StreamDescription' {creationRequestDateTime} -> creationRequestDateTime) (\s@StreamDescription' {} a -> s {creationRequestDateTime = a} :: StreamDescription) Prelude.. Lens.mapping Core._Time
+streamDescription_creationRequestDateTime = Lens.lens (\StreamDescription' {creationRequestDateTime} -> creationRequestDateTime) (\s@StreamDescription' {} a -> s {creationRequestDateTime = a} :: StreamDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the format of the records within this stream:
 --
@@ -258,21 +259,21 @@ streamDescription_streamArn = Lens.lens (\StreamDescription' {streamArn} -> stre
 streamDescription_lastEvaluatedShardId :: Lens.Lens' StreamDescription (Prelude.Maybe Prelude.Text)
 streamDescription_lastEvaluatedShardId = Lens.lens (\StreamDescription' {lastEvaluatedShardId} -> lastEvaluatedShardId) (\s@StreamDescription' {} a -> s {lastEvaluatedShardId = a} :: StreamDescription)
 
-instance Core.FromJSON StreamDescription where
+instance Data.FromJSON StreamDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamDescription"
       ( \x ->
           StreamDescription'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "StreamLabel")
-            Prelude.<*> (x Core..:? "CreationRequestDateTime")
-            Prelude.<*> (x Core..:? "StreamViewType")
-            Prelude.<*> (x Core..:? "StreamStatus")
-            Prelude.<*> (x Core..:? "KeySchema")
-            Prelude.<*> (x Core..:? "Shards" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StreamArn")
-            Prelude.<*> (x Core..:? "LastEvaluatedShardId")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "StreamLabel")
+            Prelude.<*> (x Data..:? "CreationRequestDateTime")
+            Prelude.<*> (x Data..:? "StreamViewType")
+            Prelude.<*> (x Data..:? "StreamStatus")
+            Prelude.<*> (x Data..:? "KeySchema")
+            Prelude.<*> (x Data..:? "Shards" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StreamArn")
+            Prelude.<*> (x Data..:? "LastEvaluatedShardId")
       )
 
 instance Prelude.Hashable StreamDescription where

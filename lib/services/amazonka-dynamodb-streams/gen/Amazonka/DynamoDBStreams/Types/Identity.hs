@@ -21,6 +21,7 @@ module Amazonka.DynamoDBStreams.Types.Identity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDBStreams.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ identity_principalId = Lens.lens (\Identity' {principalId} -> principalId) (\s@I
 identity_type :: Lens.Lens' Identity (Prelude.Maybe Prelude.Text)
 identity_type = Lens.lens (\Identity' {type'} -> type') (\s@Identity' {} a -> s {type' = a} :: Identity)
 
-instance Core.FromJSON Identity where
+instance Data.FromJSON Identity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Identity"
       ( \x ->
           Identity'
-            Prelude.<$> (x Core..:? "PrincipalId")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "PrincipalId")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Identity where

@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.LogDeliveryDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newLogDeliveryDescription =
 logDeliveryDescription_workerLogDelivery :: Lens.Lens' LogDeliveryDescription (Prelude.Maybe WorkerLogDeliveryDescription)
 logDeliveryDescription_workerLogDelivery = Lens.lens (\LogDeliveryDescription' {workerLogDelivery} -> workerLogDelivery) (\s@LogDeliveryDescription' {} a -> s {workerLogDelivery = a} :: LogDeliveryDescription)
 
-instance Core.FromJSON LogDeliveryDescription where
+instance Data.FromJSON LogDeliveryDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogDeliveryDescription"
       ( \x ->
           LogDeliveryDescription'
-            Prelude.<$> (x Core..:? "workerLogDelivery")
+            Prelude.<$> (x Data..:? "workerLogDelivery")
       )
 
 instance Prelude.Hashable LogDeliveryDescription where

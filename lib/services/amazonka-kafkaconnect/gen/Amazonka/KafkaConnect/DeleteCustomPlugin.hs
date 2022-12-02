@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,8 +91,8 @@ instance Core.AWSRequest DeleteCustomPlugin where
     Response.receiveJSON
       ( \s h x ->
           DeleteCustomPluginResponse'
-            Prelude.<$> (x Core..?> "customPluginState")
-            Prelude.<*> (x Core..?> "customPluginArn")
+            Prelude.<$> (x Data..?> "customPluginState")
+            Prelude.<*> (x Data..?> "customPluginArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,23 +104,23 @@ instance Prelude.NFData DeleteCustomPlugin where
   rnf DeleteCustomPlugin' {..} =
     Prelude.rnf customPluginArn
 
-instance Core.ToHeaders DeleteCustomPlugin where
+instance Data.ToHeaders DeleteCustomPlugin where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteCustomPlugin where
+instance Data.ToPath DeleteCustomPlugin where
   toPath DeleteCustomPlugin' {..} =
     Prelude.mconcat
-      ["/v1/custom-plugins/", Core.toBS customPluginArn]
+      ["/v1/custom-plugins/", Data.toBS customPluginArn]
 
-instance Core.ToQuery DeleteCustomPlugin where
+instance Data.ToQuery DeleteCustomPlugin where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCustomPluginResponse' smart constructor.

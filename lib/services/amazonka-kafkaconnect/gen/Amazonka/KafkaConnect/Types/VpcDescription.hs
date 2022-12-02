@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.VpcDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the VPC in which the connector resides.
@@ -61,15 +62,15 @@ vpcDescription_subnets = Lens.lens (\VpcDescription' {subnets} -> subnets) (\s@V
 vpcDescription_securityGroups :: Lens.Lens' VpcDescription (Prelude.Maybe [Prelude.Text])
 vpcDescription_securityGroups = Lens.lens (\VpcDescription' {securityGroups} -> securityGroups) (\s@VpcDescription' {} a -> s {securityGroups = a} :: VpcDescription) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VpcDescription where
+instance Data.FromJSON VpcDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcDescription"
       ( \x ->
           VpcDescription'
-            Prelude.<$> (x Core..:? "subnets" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "securityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "subnets" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "securityGroups"
+                            Data..!= Prelude.mempty
                         )
       )
 

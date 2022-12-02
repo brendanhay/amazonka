@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.CustomPluginLocationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.S3LocationDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,15 +59,15 @@ customPluginLocationDescription_s3Location :: Lens.Lens' CustomPluginLocationDes
 customPluginLocationDescription_s3Location = Lens.lens (\CustomPluginLocationDescription' {s3Location} -> s3Location) (\s@CustomPluginLocationDescription' {} a -> s {s3Location = a} :: CustomPluginLocationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomPluginLocationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomPluginLocationDescription"
       ( \x ->
           CustomPluginLocationDescription'
-            Prelude.<$> (x Core..:? "s3Location")
+            Prelude.<$> (x Data..:? "s3Location")
       )
 
 instance

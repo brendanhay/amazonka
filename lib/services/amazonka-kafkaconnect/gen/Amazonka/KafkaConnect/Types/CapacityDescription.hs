@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.CapacityDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.AutoScalingDescription
 import Amazonka.KafkaConnect.Types.ProvisionedCapacityDescription
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ capacityDescription_provisionedCapacity = Lens.lens (\CapacityDescription' {prov
 capacityDescription_autoScaling :: Lens.Lens' CapacityDescription (Prelude.Maybe AutoScalingDescription)
 capacityDescription_autoScaling = Lens.lens (\CapacityDescription' {autoScaling} -> autoScaling) (\s@CapacityDescription' {} a -> s {autoScaling = a} :: CapacityDescription)
 
-instance Core.FromJSON CapacityDescription where
+instance Data.FromJSON CapacityDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CapacityDescription"
       ( \x ->
           CapacityDescription'
-            Prelude.<$> (x Core..:? "provisionedCapacity")
-            Prelude.<*> (x Core..:? "autoScaling")
+            Prelude.<$> (x Data..:? "provisionedCapacity")
+            Prelude.<*> (x Data..:? "autoScaling")
       )
 
 instance Prelude.Hashable CapacityDescription where

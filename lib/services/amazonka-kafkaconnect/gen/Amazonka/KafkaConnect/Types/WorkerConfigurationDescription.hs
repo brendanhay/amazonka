@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.WorkerConfigurationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the worker configuration.
@@ -62,14 +63,14 @@ workerConfigurationDescription_revision = Lens.lens (\WorkerConfigurationDescrip
 workerConfigurationDescription_workerConfigurationArn :: Lens.Lens' WorkerConfigurationDescription (Prelude.Maybe Prelude.Text)
 workerConfigurationDescription_workerConfigurationArn = Lens.lens (\WorkerConfigurationDescription' {workerConfigurationArn} -> workerConfigurationArn) (\s@WorkerConfigurationDescription' {} a -> s {workerConfigurationArn = a} :: WorkerConfigurationDescription)
 
-instance Core.FromJSON WorkerConfigurationDescription where
+instance Data.FromJSON WorkerConfigurationDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkerConfigurationDescription"
       ( \x ->
           WorkerConfigurationDescription'
-            Prelude.<$> (x Core..:? "revision")
-            Prelude.<*> (x Core..:? "workerConfigurationArn")
+            Prelude.<$> (x Data..:? "revision")
+            Prelude.<*> (x Data..:? "workerConfigurationArn")
       )
 
 instance

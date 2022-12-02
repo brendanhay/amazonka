@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,11 +73,11 @@ instance
   rnf KafkaClusterEncryptionInTransit' {..} =
     Prelude.rnf encryptionType
 
-instance Core.ToJSON KafkaClusterEncryptionInTransit where
+instance Data.ToJSON KafkaClusterEncryptionInTransit where
   toJSON KafkaClusterEncryptionInTransit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("encryptionType" Core..= encryptionType)
+              ("encryptionType" Data..= encryptionType)
           ]
       )

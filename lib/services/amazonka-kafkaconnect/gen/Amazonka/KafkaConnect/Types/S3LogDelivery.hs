@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.S3LogDelivery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about delivering logs to Amazon S3.
@@ -87,12 +88,12 @@ instance Prelude.NFData S3LogDelivery where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON S3LogDelivery where
+instance Data.ToJSON S3LogDelivery where
   toJSON S3LogDelivery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bucket" Core..=) Prelude.<$> bucket,
-            ("prefix" Core..=) Prelude.<$> prefix,
-            Prelude.Just ("enabled" Core..= enabled)
+          [ ("bucket" Data..=) Prelude.<$> bucket,
+            ("prefix" Data..=) Prelude.<$> prefix,
+            Prelude.Just ("enabled" Data..= enabled)
           ]
       )

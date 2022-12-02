@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.S3LogDeliveryDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the details about delivering logs to Amazon S3.
@@ -73,15 +74,15 @@ s3LogDeliveryDescription_enabled = Lens.lens (\S3LogDeliveryDescription' {enable
 s3LogDeliveryDescription_prefix :: Lens.Lens' S3LogDeliveryDescription (Prelude.Maybe Prelude.Text)
 s3LogDeliveryDescription_prefix = Lens.lens (\S3LogDeliveryDescription' {prefix} -> prefix) (\s@S3LogDeliveryDescription' {} a -> s {prefix = a} :: S3LogDeliveryDescription)
 
-instance Core.FromJSON S3LogDeliveryDescription where
+instance Data.FromJSON S3LogDeliveryDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3LogDeliveryDescription"
       ( \x ->
           S3LogDeliveryDescription'
-            Prelude.<$> (x Core..:? "bucket")
-            Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "prefix")
+            Prelude.<$> (x Data..:? "bucket")
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "prefix")
       )
 
 instance Prelude.Hashable S3LogDeliveryDescription where

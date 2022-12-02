@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.AutoScaling where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.ScaleInPolicy
 import Amazonka.KafkaConnect.Types.ScaleOutPolicy
 import qualified Amazonka.Prelude as Prelude
@@ -118,17 +119,17 @@ instance Prelude.NFData AutoScaling where
       `Prelude.seq` Prelude.rnf mcuCount
       `Prelude.seq` Prelude.rnf minWorkerCount
 
-instance Core.ToJSON AutoScaling where
+instance Data.ToJSON AutoScaling where
   toJSON AutoScaling' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("scaleOutPolicy" Core..=)
+          [ ("scaleOutPolicy" Data..=)
               Prelude.<$> scaleOutPolicy,
-            ("scaleInPolicy" Core..=) Prelude.<$> scaleInPolicy,
+            ("scaleInPolicy" Data..=) Prelude.<$> scaleInPolicy,
             Prelude.Just
-              ("maxWorkerCount" Core..= maxWorkerCount),
-            Prelude.Just ("mcuCount" Core..= mcuCount),
+              ("maxWorkerCount" Data..= maxWorkerCount),
+            Prelude.Just ("mcuCount" Data..= mcuCount),
             Prelude.Just
-              ("minWorkerCount" Core..= minWorkerCount)
+              ("minWorkerCount" Data..= minWorkerCount)
           ]
       )

@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,25 +103,25 @@ instance Core.AWSRequest DescribeConnector where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectorResponse'
-            Prelude.<$> (x Core..?> "stateDescription")
-            Prelude.<*> (x Core..?> "connectorDescription")
-            Prelude.<*> (x Core..?> "kafkaClusterEncryptionInTransit")
-            Prelude.<*> (x Core..?> "kafkaConnectVersion")
-            Prelude.<*> (x Core..?> "serviceExecutionRoleArn")
-            Prelude.<*> (x Core..?> "connectorArn")
-            Prelude.<*> (x Core..?> "plugins" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "kafkaClusterClientAuthentication")
-            Prelude.<*> (x Core..?> "currentVersion")
-            Prelude.<*> (x Core..?> "logDelivery")
-            Prelude.<*> (x Core..?> "connectorName")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "kafkaCluster")
-            Prelude.<*> ( x Core..?> "connectorConfiguration"
+            Prelude.<$> (x Data..?> "stateDescription")
+            Prelude.<*> (x Data..?> "connectorDescription")
+            Prelude.<*> (x Data..?> "kafkaClusterEncryptionInTransit")
+            Prelude.<*> (x Data..?> "kafkaConnectVersion")
+            Prelude.<*> (x Data..?> "serviceExecutionRoleArn")
+            Prelude.<*> (x Data..?> "connectorArn")
+            Prelude.<*> (x Data..?> "plugins" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "kafkaClusterClientAuthentication")
+            Prelude.<*> (x Data..?> "currentVersion")
+            Prelude.<*> (x Data..?> "logDelivery")
+            Prelude.<*> (x Data..?> "connectorName")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "kafkaCluster")
+            Prelude.<*> ( x Data..?> "connectorConfiguration"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "capacity")
-            Prelude.<*> (x Core..?> "connectorState")
-            Prelude.<*> (x Core..?> "workerConfiguration")
+            Prelude.<*> (x Data..?> "capacity")
+            Prelude.<*> (x Data..?> "connectorState")
+            Prelude.<*> (x Data..?> "workerConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,23 +132,23 @@ instance Prelude.Hashable DescribeConnector where
 instance Prelude.NFData DescribeConnector where
   rnf DescribeConnector' {..} = Prelude.rnf connectorArn
 
-instance Core.ToHeaders DescribeConnector where
+instance Data.ToHeaders DescribeConnector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeConnector where
+instance Data.ToPath DescribeConnector where
   toPath DescribeConnector' {..} =
     Prelude.mconcat
-      ["/v1/connectors/", Core.toBS connectorArn]
+      ["/v1/connectors/", Data.toBS connectorArn]
 
-instance Core.ToQuery DescribeConnector where
+instance Data.ToQuery DescribeConnector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConnectorResponse' smart constructor.
@@ -178,12 +179,12 @@ data DescribeConnectorResponse = DescribeConnectorResponse'
     -- | The name of the connector.
     connectorName :: Prelude.Maybe Prelude.Text,
     -- | The time the connector was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Apache Kafka cluster that the connector is connected to.
     kafkaCluster :: Prelude.Maybe KafkaClusterDescription,
     -- | A map of keys to values that represent the configuration for the
     -- connector.
-    connectorConfiguration :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    connectorConfiguration :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Information about the capacity of the connector, whether it is auto
     -- scaled or provisioned.
     capacity :: Prelude.Maybe CapacityDescription,
@@ -322,7 +323,7 @@ describeConnectorResponse_connectorName = Lens.lens (\DescribeConnectorResponse'
 
 -- | The time the connector was created.
 describeConnectorResponse_creationTime :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.UTCTime)
-describeConnectorResponse_creationTime = Lens.lens (\DescribeConnectorResponse' {creationTime} -> creationTime) (\s@DescribeConnectorResponse' {} a -> s {creationTime = a} :: DescribeConnectorResponse) Prelude.. Lens.mapping Core._Time
+describeConnectorResponse_creationTime = Lens.lens (\DescribeConnectorResponse' {creationTime} -> creationTime) (\s@DescribeConnectorResponse' {} a -> s {creationTime = a} :: DescribeConnectorResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Apache Kafka cluster that the connector is connected to.
 describeConnectorResponse_kafkaCluster :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe KafkaClusterDescription)
@@ -331,7 +332,7 @@ describeConnectorResponse_kafkaCluster = Lens.lens (\DescribeConnectorResponse' 
 -- | A map of keys to values that represent the configuration for the
 -- connector.
 describeConnectorResponse_connectorConfiguration :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeConnectorResponse_connectorConfiguration = Lens.lens (\DescribeConnectorResponse' {connectorConfiguration} -> connectorConfiguration) (\s@DescribeConnectorResponse' {} a -> s {connectorConfiguration = a} :: DescribeConnectorResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+describeConnectorResponse_connectorConfiguration = Lens.lens (\DescribeConnectorResponse' {connectorConfiguration} -> connectorConfiguration) (\s@DescribeConnectorResponse' {} a -> s {connectorConfiguration = a} :: DescribeConnectorResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Information about the capacity of the connector, whether it is auto
 -- scaled or provisioned.

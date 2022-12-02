@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.StateDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the state of a resource.
@@ -61,14 +62,14 @@ stateDescription_message = Lens.lens (\StateDescription' {message} -> message) (
 stateDescription_code :: Lens.Lens' StateDescription (Prelude.Maybe Prelude.Text)
 stateDescription_code = Lens.lens (\StateDescription' {code} -> code) (\s@StateDescription' {} a -> s {code = a} :: StateDescription)
 
-instance Core.FromJSON StateDescription where
+instance Data.FromJSON StateDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StateDescription"
       ( \x ->
           StateDescription'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable StateDescription where

@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.FirehoseLogDeliveryDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of the settings for delivering logs to Amazon Kinesis Data
@@ -69,14 +70,14 @@ firehoseLogDeliveryDescription_deliveryStream = Lens.lens (\FirehoseLogDeliveryD
 firehoseLogDeliveryDescription_enabled :: Lens.Lens' FirehoseLogDeliveryDescription (Prelude.Maybe Prelude.Bool)
 firehoseLogDeliveryDescription_enabled = Lens.lens (\FirehoseLogDeliveryDescription' {enabled} -> enabled) (\s@FirehoseLogDeliveryDescription' {} a -> s {enabled = a} :: FirehoseLogDeliveryDescription)
 
-instance Core.FromJSON FirehoseLogDeliveryDescription where
+instance Data.FromJSON FirehoseLogDeliveryDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirehoseLogDeliveryDescription"
       ( \x ->
           FirehoseLogDeliveryDescription'
-            Prelude.<$> (x Core..:? "deliveryStream")
-            Prelude.<*> (x Core..:? "enabled")
+            Prelude.<$> (x Data..:? "deliveryStream")
+            Prelude.<*> (x Data..:? "enabled")
       )
 
 instance

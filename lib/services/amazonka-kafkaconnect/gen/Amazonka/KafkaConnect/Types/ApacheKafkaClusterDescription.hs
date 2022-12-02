@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.VpcDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,14 +68,14 @@ apacheKafkaClusterDescription_vpc = Lens.lens (\ApacheKafkaClusterDescription' {
 apacheKafkaClusterDescription_bootstrapServers :: Lens.Lens' ApacheKafkaClusterDescription (Prelude.Maybe Prelude.Text)
 apacheKafkaClusterDescription_bootstrapServers = Lens.lens (\ApacheKafkaClusterDescription' {bootstrapServers} -> bootstrapServers) (\s@ApacheKafkaClusterDescription' {} a -> s {bootstrapServers = a} :: ApacheKafkaClusterDescription)
 
-instance Core.FromJSON ApacheKafkaClusterDescription where
+instance Data.FromJSON ApacheKafkaClusterDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApacheKafkaClusterDescription"
       ( \x ->
           ApacheKafkaClusterDescription'
-            Prelude.<$> (x Core..:? "vpc")
-            Prelude.<*> (x Core..:? "bootstrapServers")
+            Prelude.<$> (x Data..:? "vpc")
+            Prelude.<*> (x Data..:? "bootstrapServers")
       )
 
 instance

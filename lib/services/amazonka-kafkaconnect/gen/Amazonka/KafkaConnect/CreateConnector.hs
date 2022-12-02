@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,7 +73,7 @@ data CreateConnector = CreateConnector'
     capacity :: Capacity,
     -- | A map of keys to values that represent the configuration for the
     -- connector.
-    connectorConfiguration :: Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text),
+    connectorConfiguration :: Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the connector.
     connectorName :: Prelude.Text,
     -- | Specifies which Apache Kafka cluster to connect to.
@@ -195,7 +196,7 @@ createConnector_capacity = Lens.lens (\CreateConnector' {capacity} -> capacity) 
 -- | A map of keys to values that represent the configuration for the
 -- connector.
 createConnector_connectorConfiguration :: Lens.Lens' CreateConnector (Prelude.HashMap Prelude.Text Prelude.Text)
-createConnector_connectorConfiguration = Lens.lens (\CreateConnector' {connectorConfiguration} -> connectorConfiguration) (\s@CreateConnector' {} a -> s {connectorConfiguration = a} :: CreateConnector) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+createConnector_connectorConfiguration = Lens.lens (\CreateConnector' {connectorConfiguration} -> connectorConfiguration) (\s@CreateConnector' {} a -> s {connectorConfiguration = a} :: CreateConnector) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | The name of the connector.
 createConnector_connectorName :: Lens.Lens' CreateConnector Prelude.Text
@@ -240,9 +241,9 @@ instance Core.AWSRequest CreateConnector where
     Response.receiveJSON
       ( \s h x ->
           CreateConnectorResponse'
-            Prelude.<$> (x Core..?> "connectorArn")
-            Prelude.<*> (x Core..?> "connectorName")
-            Prelude.<*> (x Core..?> "connectorState")
+            Prelude.<$> (x Data..?> "connectorArn")
+            Prelude.<*> (x Data..?> "connectorName")
+            Prelude.<*> (x Data..?> "connectorState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -276,55 +277,55 @@ instance Prelude.NFData CreateConnector where
       `Prelude.seq` Prelude.rnf plugins
       `Prelude.seq` Prelude.rnf serviceExecutionRoleArn
 
-instance Core.ToHeaders CreateConnector where
+instance Data.ToHeaders CreateConnector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConnector where
+instance Data.ToJSON CreateConnector where
   toJSON CreateConnector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("connectorDescription" Core..=)
+          [ ("connectorDescription" Data..=)
               Prelude.<$> connectorDescription,
-            ("logDelivery" Core..=) Prelude.<$> logDelivery,
-            ("workerConfiguration" Core..=)
+            ("logDelivery" Data..=) Prelude.<$> logDelivery,
+            ("workerConfiguration" Data..=)
               Prelude.<$> workerConfiguration,
-            Prelude.Just ("capacity" Core..= capacity),
+            Prelude.Just ("capacity" Data..= capacity),
             Prelude.Just
               ( "connectorConfiguration"
-                  Core..= connectorConfiguration
+                  Data..= connectorConfiguration
               ),
-            Prelude.Just ("connectorName" Core..= connectorName),
-            Prelude.Just ("kafkaCluster" Core..= kafkaCluster),
+            Prelude.Just ("connectorName" Data..= connectorName),
+            Prelude.Just ("kafkaCluster" Data..= kafkaCluster),
             Prelude.Just
               ( "kafkaClusterClientAuthentication"
-                  Core..= kafkaClusterClientAuthentication
+                  Data..= kafkaClusterClientAuthentication
               ),
             Prelude.Just
               ( "kafkaClusterEncryptionInTransit"
-                  Core..= kafkaClusterEncryptionInTransit
+                  Data..= kafkaClusterEncryptionInTransit
               ),
             Prelude.Just
-              ("kafkaConnectVersion" Core..= kafkaConnectVersion),
-            Prelude.Just ("plugins" Core..= plugins),
+              ("kafkaConnectVersion" Data..= kafkaConnectVersion),
+            Prelude.Just ("plugins" Data..= plugins),
             Prelude.Just
               ( "serviceExecutionRoleArn"
-                  Core..= serviceExecutionRoleArn
+                  Data..= serviceExecutionRoleArn
               )
           ]
       )
 
-instance Core.ToPath CreateConnector where
+instance Data.ToPath CreateConnector where
   toPath = Prelude.const "/v1/connectors"
 
-instance Core.ToQuery CreateConnector where
+instance Data.ToQuery CreateConnector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConnectorResponse' smart constructor.

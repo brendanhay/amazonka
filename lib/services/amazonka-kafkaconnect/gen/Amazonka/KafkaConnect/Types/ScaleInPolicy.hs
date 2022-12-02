@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.ScaleInPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The scale-in policy for the connector.
@@ -67,13 +68,13 @@ instance Prelude.NFData ScaleInPolicy where
   rnf ScaleInPolicy' {..} =
     Prelude.rnf cpuUtilizationPercentage
 
-instance Core.ToJSON ScaleInPolicy where
+instance Data.ToJSON ScaleInPolicy where
   toJSON ScaleInPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "cpuUtilizationPercentage"
-                  Core..= cpuUtilizationPercentage
+                  Data..= cpuUtilizationPercentage
               )
           ]
       )

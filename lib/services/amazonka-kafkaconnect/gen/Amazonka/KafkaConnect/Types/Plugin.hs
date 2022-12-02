@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.Plugin where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.CustomPlugin
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,9 +62,9 @@ instance Prelude.Hashable Plugin where
 instance Prelude.NFData Plugin where
   rnf Plugin' {..} = Prelude.rnf customPlugin
 
-instance Core.ToJSON Plugin where
+instance Data.ToJSON Plugin where
   toJSON Plugin' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("customPlugin" Core..= customPlugin)]
+          [Prelude.Just ("customPlugin" Data..= customPlugin)]
       )

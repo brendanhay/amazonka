@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription
 import Amazonka.KafkaConnect.Types.FirehoseLogDeliveryDescription
 import Amazonka.KafkaConnect.Types.S3LogDeliveryDescription
@@ -75,15 +76,15 @@ workerLogDeliveryDescription_firehose = Lens.lens (\WorkerLogDeliveryDescription
 workerLogDeliveryDescription_s3 :: Lens.Lens' WorkerLogDeliveryDescription (Prelude.Maybe S3LogDeliveryDescription)
 workerLogDeliveryDescription_s3 = Lens.lens (\WorkerLogDeliveryDescription' {s3} -> s3) (\s@WorkerLogDeliveryDescription' {} a -> s {s3 = a} :: WorkerLogDeliveryDescription)
 
-instance Core.FromJSON WorkerLogDeliveryDescription where
+instance Data.FromJSON WorkerLogDeliveryDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkerLogDeliveryDescription"
       ( \x ->
           WorkerLogDeliveryDescription'
-            Prelude.<$> (x Core..:? "cloudWatchLogs")
-            Prelude.<*> (x Core..:? "firehose")
-            Prelude.<*> (x Core..:? "s3")
+            Prelude.<$> (x Data..:? "cloudWatchLogs")
+            Prelude.<*> (x Data..:? "firehose")
+            Prelude.<*> (x Data..:? "s3")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.ConnectorSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.CapacityDescription
 import Amazonka.KafkaConnect.Types.ConnectorState
 import Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription
@@ -59,7 +60,7 @@ data ConnectorSummary = ConnectorSummary'
     -- | The name of the connector.
     connectorName :: Prelude.Maybe Prelude.Text,
     -- | The time that the connector was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The details of the Apache Kafka cluster to which the connector is
     -- connected.
     kafkaCluster :: Prelude.Maybe KafkaClusterDescription,
@@ -180,7 +181,7 @@ connectorSummary_connectorName = Lens.lens (\ConnectorSummary' {connectorName} -
 
 -- | The time that the connector was created.
 connectorSummary_creationTime :: Lens.Lens' ConnectorSummary (Prelude.Maybe Prelude.UTCTime)
-connectorSummary_creationTime = Lens.lens (\ConnectorSummary' {creationTime} -> creationTime) (\s@ConnectorSummary' {} a -> s {creationTime = a} :: ConnectorSummary) Prelude.. Lens.mapping Core._Time
+connectorSummary_creationTime = Lens.lens (\ConnectorSummary' {creationTime} -> creationTime) (\s@ConnectorSummary' {} a -> s {creationTime = a} :: ConnectorSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The details of the Apache Kafka cluster to which the connector is
 -- connected.
@@ -199,27 +200,27 @@ connectorSummary_connectorState = Lens.lens (\ConnectorSummary' {connectorState}
 connectorSummary_workerConfiguration :: Lens.Lens' ConnectorSummary (Prelude.Maybe WorkerConfigurationDescription)
 connectorSummary_workerConfiguration = Lens.lens (\ConnectorSummary' {workerConfiguration} -> workerConfiguration) (\s@ConnectorSummary' {} a -> s {workerConfiguration = a} :: ConnectorSummary)
 
-instance Core.FromJSON ConnectorSummary where
+instance Data.FromJSON ConnectorSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectorSummary"
       ( \x ->
           ConnectorSummary'
-            Prelude.<$> (x Core..:? "connectorDescription")
-            Prelude.<*> (x Core..:? "kafkaClusterEncryptionInTransit")
-            Prelude.<*> (x Core..:? "kafkaConnectVersion")
-            Prelude.<*> (x Core..:? "serviceExecutionRoleArn")
-            Prelude.<*> (x Core..:? "connectorArn")
-            Prelude.<*> (x Core..:? "plugins" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "kafkaClusterClientAuthentication")
-            Prelude.<*> (x Core..:? "currentVersion")
-            Prelude.<*> (x Core..:? "logDelivery")
-            Prelude.<*> (x Core..:? "connectorName")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "kafkaCluster")
-            Prelude.<*> (x Core..:? "capacity")
-            Prelude.<*> (x Core..:? "connectorState")
-            Prelude.<*> (x Core..:? "workerConfiguration")
+            Prelude.<$> (x Data..:? "connectorDescription")
+            Prelude.<*> (x Data..:? "kafkaClusterEncryptionInTransit")
+            Prelude.<*> (x Data..:? "kafkaConnectVersion")
+            Prelude.<*> (x Data..:? "serviceExecutionRoleArn")
+            Prelude.<*> (x Data..:? "connectorArn")
+            Prelude.<*> (x Data..:? "plugins" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "kafkaClusterClientAuthentication")
+            Prelude.<*> (x Data..:? "currentVersion")
+            Prelude.<*> (x Data..:? "logDelivery")
+            Prelude.<*> (x Data..:? "connectorName")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "kafkaCluster")
+            Prelude.<*> (x Data..:? "capacity")
+            Prelude.<*> (x Data..:? "connectorState")
+            Prelude.<*> (x Data..:? "workerConfiguration")
       )
 
 instance Prelude.Hashable ConnectorSummary where

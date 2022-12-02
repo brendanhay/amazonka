@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.CustomPluginFileDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a custom plugin file.
@@ -68,14 +69,14 @@ customPluginFileDescription_fileSize = Lens.lens (\CustomPluginFileDescription' 
 customPluginFileDescription_fileMd5 :: Lens.Lens' CustomPluginFileDescription (Prelude.Maybe Prelude.Text)
 customPluginFileDescription_fileMd5 = Lens.lens (\CustomPluginFileDescription' {fileMd5} -> fileMd5) (\s@CustomPluginFileDescription' {} a -> s {fileMd5 = a} :: CustomPluginFileDescription)
 
-instance Core.FromJSON CustomPluginFileDescription where
+instance Data.FromJSON CustomPluginFileDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomPluginFileDescription"
       ( \x ->
           CustomPluginFileDescription'
-            Prelude.<$> (x Core..:? "fileSize")
-            Prelude.<*> (x Core..:? "fileMd5")
+            Prelude.<$> (x Data..:? "fileSize")
+            Prelude.<*> (x Data..:? "fileMd5")
       )
 
 instance Prelude.Hashable CustomPluginFileDescription where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,8 +138,8 @@ instance Core.AWSRequest ListConnectors where
     Response.receiveJSON
       ( \s h x ->
           ListConnectorsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "connectors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "connectors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,26 +155,26 @@ instance Prelude.NFData ListConnectors where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListConnectors where
+instance Data.ToHeaders ListConnectors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListConnectors where
+instance Data.ToPath ListConnectors where
   toPath = Prelude.const "/v1/connectors"
 
-instance Core.ToQuery ListConnectors where
+instance Data.ToQuery ListConnectors where
   toQuery ListConnectors' {..} =
     Prelude.mconcat
-      [ "connectorNamePrefix" Core.=: connectorNamePrefix,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "connectorNamePrefix" Data.=: connectorNamePrefix,
+        "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListConnectorsResponse' smart constructor.

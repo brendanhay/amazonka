@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.Vpc where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the VPC in which the connector resides.
@@ -71,12 +72,12 @@ instance Prelude.NFData Vpc where
     Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf subnets
 
-instance Core.ToJSON Vpc where
+instance Data.ToJSON Vpc where
   toJSON Vpc' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("securityGroups" Core..=)
+          [ ("securityGroups" Data..=)
               Prelude.<$> securityGroups,
-            Prelude.Just ("subnets" Core..= subnets)
+            Prelude.Just ("subnets" Data..= subnets)
           ]
       )

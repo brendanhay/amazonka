@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,15 +57,15 @@ kafkaClusterEncryptionInTransitDescription_encryptionType :: Lens.Lens' KafkaClu
 kafkaClusterEncryptionInTransitDescription_encryptionType = Lens.lens (\KafkaClusterEncryptionInTransitDescription' {encryptionType} -> encryptionType) (\s@KafkaClusterEncryptionInTransitDescription' {} a -> s {encryptionType = a} :: KafkaClusterEncryptionInTransitDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     KafkaClusterEncryptionInTransitDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KafkaClusterEncryptionInTransitDescription"
       ( \x ->
           KafkaClusterEncryptionInTransitDescription'
-            Prelude.<$> (x Core..:? "encryptionType")
+            Prelude.<$> (x Data..:? "encryptionType")
       )
 
 instance

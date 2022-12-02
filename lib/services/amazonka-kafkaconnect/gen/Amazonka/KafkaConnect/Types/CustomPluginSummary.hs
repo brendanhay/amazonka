@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.CustomPluginSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary
 import Amazonka.KafkaConnect.Types.CustomPluginState
 import qualified Amazonka.Prelude as Prelude
@@ -38,7 +39,7 @@ data CustomPluginSummary = CustomPluginSummary'
     -- | A description of the custom plugin.
     description :: Prelude.Maybe Prelude.Text,
     -- | The time that the custom plugin was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the custom plugin.
     customPluginArn :: Prelude.Maybe Prelude.Text
   }
@@ -94,24 +95,24 @@ customPluginSummary_description = Lens.lens (\CustomPluginSummary' {description}
 
 -- | The time that the custom plugin was created.
 customPluginSummary_creationTime :: Lens.Lens' CustomPluginSummary (Prelude.Maybe Prelude.UTCTime)
-customPluginSummary_creationTime = Lens.lens (\CustomPluginSummary' {creationTime} -> creationTime) (\s@CustomPluginSummary' {} a -> s {creationTime = a} :: CustomPluginSummary) Prelude.. Lens.mapping Core._Time
+customPluginSummary_creationTime = Lens.lens (\CustomPluginSummary' {creationTime} -> creationTime) (\s@CustomPluginSummary' {} a -> s {creationTime = a} :: CustomPluginSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the custom plugin.
 customPluginSummary_customPluginArn :: Lens.Lens' CustomPluginSummary (Prelude.Maybe Prelude.Text)
 customPluginSummary_customPluginArn = Lens.lens (\CustomPluginSummary' {customPluginArn} -> customPluginArn) (\s@CustomPluginSummary' {} a -> s {customPluginArn = a} :: CustomPluginSummary)
 
-instance Core.FromJSON CustomPluginSummary where
+instance Data.FromJSON CustomPluginSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomPluginSummary"
       ( \x ->
           CustomPluginSummary'
-            Prelude.<$> (x Core..:? "latestRevision")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "customPluginState")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "customPluginArn")
+            Prelude.<$> (x Data..:? "latestRevision")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "customPluginState")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "customPluginArn")
       )
 
 instance Prelude.Hashable CustomPluginSummary where

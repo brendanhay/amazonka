@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.WorkerLogDelivery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery
 import Amazonka.KafkaConnect.Types.FirehoseLogDelivery
 import Amazonka.KafkaConnect.Types.S3LogDelivery
@@ -87,13 +88,13 @@ instance Prelude.NFData WorkerLogDelivery where
       `Prelude.seq` Prelude.rnf firehose
       `Prelude.seq` Prelude.rnf s3
 
-instance Core.ToJSON WorkerLogDelivery where
+instance Data.ToJSON WorkerLogDelivery where
   toJSON WorkerLogDelivery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cloudWatchLogs" Core..=)
+          [ ("cloudWatchLogs" Data..=)
               Prelude.<$> cloudWatchLogs,
-            ("firehose" Core..=) Prelude.<$> firehose,
-            ("s3" Core..=) Prelude.<$> s3
+            ("firehose" Data..=) Prelude.<$> firehose,
+            ("s3" Data..=) Prelude.<$> s3
           ]
       )

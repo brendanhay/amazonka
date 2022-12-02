@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,12 +91,12 @@ instance Core.AWSRequest GetDefaultRetentionPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetDefaultRetentionPolicyResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> ( x Core..?> "FolderConfigurations"
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> ( x Data..?> "FolderConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,34 +108,34 @@ instance Prelude.NFData GetDefaultRetentionPolicy where
   rnf GetDefaultRetentionPolicy' {..} =
     Prelude.rnf organizationId
 
-instance Core.ToHeaders GetDefaultRetentionPolicy where
+instance Data.ToHeaders GetDefaultRetentionPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.GetDefaultRetentionPolicy" ::
+              Data.=# ( "WorkMailService.GetDefaultRetentionPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDefaultRetentionPolicy where
+instance Data.ToJSON GetDefaultRetentionPolicy where
   toJSON GetDefaultRetentionPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
-instance Core.ToPath GetDefaultRetentionPolicy where
+instance Data.ToPath GetDefaultRetentionPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDefaultRetentionPolicy where
+instance Data.ToQuery GetDefaultRetentionPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDefaultRetentionPolicyResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.EntityState
 import Amazonka.WorkMail.Types.ResourceType
@@ -40,9 +41,9 @@ data Resource = Resource'
     -- | The identifier of the resource.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date indicating when the resource was enabled for WorkMail use.
-    enabledDate :: Prelude.Maybe Core.POSIX,
+    enabledDate :: Prelude.Maybe Data.POSIX,
     -- | The date indicating when the resource was disabled from WorkMail use.
-    disabledDate :: Prelude.Maybe Core.POSIX
+    disabledDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,25 +103,25 @@ resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a}
 
 -- | The date indicating when the resource was enabled for WorkMail use.
 resource_enabledDate :: Lens.Lens' Resource (Prelude.Maybe Prelude.UTCTime)
-resource_enabledDate = Lens.lens (\Resource' {enabledDate} -> enabledDate) (\s@Resource' {} a -> s {enabledDate = a} :: Resource) Prelude.. Lens.mapping Core._Time
+resource_enabledDate = Lens.lens (\Resource' {enabledDate} -> enabledDate) (\s@Resource' {} a -> s {enabledDate = a} :: Resource) Prelude.. Lens.mapping Data._Time
 
 -- | The date indicating when the resource was disabled from WorkMail use.
 resource_disabledDate :: Lens.Lens' Resource (Prelude.Maybe Prelude.UTCTime)
-resource_disabledDate = Lens.lens (\Resource' {disabledDate} -> disabledDate) (\s@Resource' {} a -> s {disabledDate = a} :: Resource) Prelude.. Lens.mapping Core._Time
+resource_disabledDate = Lens.lens (\Resource' {disabledDate} -> disabledDate) (\s@Resource' {} a -> s {disabledDate = a} :: Resource) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "EnabledDate")
-            Prelude.<*> (x Core..:? "DisabledDate")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Email")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "EnabledDate")
+            Prelude.<*> (x Data..:? "DisabledDate")
       )
 
 instance Prelude.Hashable Resource where

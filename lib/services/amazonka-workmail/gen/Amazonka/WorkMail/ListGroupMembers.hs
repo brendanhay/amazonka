@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +150,8 @@ instance Core.AWSRequest ListGroupMembers where
     Response.receiveJSON
       ( \s h x ->
           ListGroupMembersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Members" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Members" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,37 +169,37 @@ instance Prelude.NFData ListGroupMembers where
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToHeaders ListGroupMembers where
+instance Data.ToHeaders ListGroupMembers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.ListGroupMembers" ::
+              Data.=# ( "WorkMailService.ListGroupMembers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListGroupMembers where
+instance Data.ToJSON ListGroupMembers where
   toJSON ListGroupMembers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("GroupId" Core..= groupId)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("GroupId" Data..= groupId)
           ]
       )
 
-instance Core.ToPath ListGroupMembers where
+instance Data.ToPath ListGroupMembers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListGroupMembers where
+instance Data.ToQuery ListGroupMembers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListGroupMembersResponse' smart constructor.

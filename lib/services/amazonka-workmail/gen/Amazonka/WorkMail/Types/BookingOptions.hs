@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.BookingOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | At least one delegate must be associated to the resource to disable
@@ -78,15 +79,15 @@ bookingOptions_autoDeclineConflictingRequests = Lens.lens (\BookingOptions' {aut
 bookingOptions_autoAcceptRequests :: Lens.Lens' BookingOptions (Prelude.Maybe Prelude.Bool)
 bookingOptions_autoAcceptRequests = Lens.lens (\BookingOptions' {autoAcceptRequests} -> autoAcceptRequests) (\s@BookingOptions' {} a -> s {autoAcceptRequests = a} :: BookingOptions)
 
-instance Core.FromJSON BookingOptions where
+instance Data.FromJSON BookingOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BookingOptions"
       ( \x ->
           BookingOptions'
-            Prelude.<$> (x Core..:? "AutoDeclineRecurringRequests")
-            Prelude.<*> (x Core..:? "AutoDeclineConflictingRequests")
-            Prelude.<*> (x Core..:? "AutoAcceptRequests")
+            Prelude.<$> (x Data..:? "AutoDeclineRecurringRequests")
+            Prelude.<*> (x Data..:? "AutoDeclineConflictingRequests")
+            Prelude.<*> (x Data..:? "AutoAcceptRequests")
       )
 
 instance Prelude.Hashable BookingOptions where
@@ -102,15 +103,15 @@ instance Prelude.NFData BookingOptions where
       `Prelude.seq` Prelude.rnf autoDeclineConflictingRequests
       `Prelude.seq` Prelude.rnf autoAcceptRequests
 
-instance Core.ToJSON BookingOptions where
+instance Data.ToJSON BookingOptions where
   toJSON BookingOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutoDeclineRecurringRequests" Core..=)
+          [ ("AutoDeclineRecurringRequests" Data..=)
               Prelude.<$> autoDeclineRecurringRequests,
-            ("AutoDeclineConflictingRequests" Core..=)
+            ("AutoDeclineConflictingRequests" Data..=)
               Prelude.<$> autoDeclineConflictingRequests,
-            ("AutoAcceptRequests" Core..=)
+            ("AutoAcceptRequests" Data..=)
               Prelude.<$> autoAcceptRequests
           ]
       )

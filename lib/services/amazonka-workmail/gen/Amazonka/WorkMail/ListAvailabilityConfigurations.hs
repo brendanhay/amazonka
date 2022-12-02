@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,8 +142,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAvailabilityConfigurationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AvailabilityConfigurations"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "AvailabilityConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -169,38 +170,38 @@ instance
       `Prelude.seq` Prelude.rnf organizationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListAvailabilityConfigurations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.ListAvailabilityConfigurations" ::
+              Data.=# ( "WorkMailService.ListAvailabilityConfigurations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAvailabilityConfigurations where
+instance Data.ToJSON ListAvailabilityConfigurations where
   toJSON ListAvailabilityConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
-instance Core.ToPath ListAvailabilityConfigurations where
+instance Data.ToPath ListAvailabilityConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAvailabilityConfigurations where
+instance Data.ToQuery ListAvailabilityConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAvailabilityConfigurationsResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,14 +109,14 @@ instance Core.AWSRequest DescribeResource where
     Response.receiveJSON
       ( \s h x ->
           DescribeResourceResponse'
-            Prelude.<$> (x Core..?> "ResourceId")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "Email")
-            Prelude.<*> (x Core..?> "BookingOptions")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "EnabledDate")
-            Prelude.<*> (x Core..?> "DisabledDate")
+            Prelude.<$> (x Data..?> "ResourceId")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "Email")
+            Prelude.<*> (x Data..?> "BookingOptions")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "EnabledDate")
+            Prelude.<*> (x Data..?> "DisabledDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,35 +130,35 @@ instance Prelude.NFData DescribeResource where
     Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders DescribeResource where
+instance Data.ToHeaders DescribeResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.DescribeResource" ::
+              Data.=# ( "WorkMailService.DescribeResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeResource where
+instance Data.ToJSON DescribeResource where
   toJSON DescribeResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("ResourceId" Core..= resourceId)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
 
-instance Core.ToPath DescribeResource where
+instance Data.ToPath DescribeResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeResource where
+instance Data.ToQuery DescribeResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeResourceResponse' smart constructor.
@@ -177,10 +178,10 @@ data DescribeResourceResponse = DescribeResourceResponse'
     state :: Prelude.Maybe EntityState,
     -- | The date and time when a resource was enabled for WorkMail, in UNIX
     -- epoch time format.
-    enabledDate :: Prelude.Maybe Core.POSIX,
+    enabledDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time when a resource was disabled from WorkMail, in UNIX
     -- epoch time format.
-    disabledDate :: Prelude.Maybe Core.POSIX,
+    disabledDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -260,12 +261,12 @@ describeResourceResponse_state = Lens.lens (\DescribeResourceResponse' {state} -
 -- | The date and time when a resource was enabled for WorkMail, in UNIX
 -- epoch time format.
 describeResourceResponse_enabledDate :: Lens.Lens' DescribeResourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeResourceResponse_enabledDate = Lens.lens (\DescribeResourceResponse' {enabledDate} -> enabledDate) (\s@DescribeResourceResponse' {} a -> s {enabledDate = a} :: DescribeResourceResponse) Prelude.. Lens.mapping Core._Time
+describeResourceResponse_enabledDate = Lens.lens (\DescribeResourceResponse' {enabledDate} -> enabledDate) (\s@DescribeResourceResponse' {} a -> s {enabledDate = a} :: DescribeResourceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when a resource was disabled from WorkMail, in UNIX
 -- epoch time format.
 describeResourceResponse_disabledDate :: Lens.Lens' DescribeResourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeResourceResponse_disabledDate = Lens.lens (\DescribeResourceResponse' {disabledDate} -> disabledDate) (\s@DescribeResourceResponse' {} a -> s {disabledDate = a} :: DescribeResourceResponse) Prelude.. Lens.mapping Core._Time
+describeResourceResponse_disabledDate = Lens.lens (\DescribeResourceResponse' {disabledDate} -> disabledDate) (\s@DescribeResourceResponse' {} a -> s {disabledDate = a} :: DescribeResourceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeResourceResponse_httpStatus :: Lens.Lens' DescribeResourceResponse Prelude.Int

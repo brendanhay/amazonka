@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,38 +168,38 @@ instance Prelude.NFData PutMailboxPermissions where
       `Prelude.seq` Prelude.rnf granteeId
       `Prelude.seq` Prelude.rnf permissionValues
 
-instance Core.ToHeaders PutMailboxPermissions where
+instance Data.ToHeaders PutMailboxPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.PutMailboxPermissions" ::
+              Data.=# ( "WorkMailService.PutMailboxPermissions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutMailboxPermissions where
+instance Data.ToJSON PutMailboxPermissions where
   toJSON PutMailboxPermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("EntityId" Core..= entityId),
-            Prelude.Just ("GranteeId" Core..= granteeId),
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("EntityId" Data..= entityId),
+            Prelude.Just ("GranteeId" Data..= granteeId),
             Prelude.Just
-              ("PermissionValues" Core..= permissionValues)
+              ("PermissionValues" Data..= permissionValues)
           ]
       )
 
-instance Core.ToPath PutMailboxPermissions where
+instance Data.ToPath PutMailboxPermissions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutMailboxPermissions where
+instance Data.ToQuery PutMailboxPermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutMailboxPermissionsResponse' smart constructor.

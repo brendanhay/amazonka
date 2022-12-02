@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.EwsAvailabilityProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an EWS based availability provider. This is only used as input
@@ -33,7 +34,7 @@ data EwsAvailabilityProvider = EwsAvailabilityProvider'
     -- | The username used to authenticate the remote EWS server.
     ewsUsername :: Prelude.Text,
     -- | The password used to authenticate the remote EWS server.
-    ewsPassword :: Core.Sensitive Prelude.Text
+    ewsPassword :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -66,7 +67,7 @@ newEwsAvailabilityProvider
       { ewsEndpoint =
           pEwsEndpoint_,
         ewsUsername = pEwsUsername_,
-        ewsPassword = Core._Sensitive Lens.# pEwsPassword_
+        ewsPassword = Data._Sensitive Lens.# pEwsPassword_
       }
 
 -- | The endpoint of the remote EWS server.
@@ -79,7 +80,7 @@ ewsAvailabilityProvider_ewsUsername = Lens.lens (\EwsAvailabilityProvider' {ewsU
 
 -- | The password used to authenticate the remote EWS server.
 ewsAvailabilityProvider_ewsPassword :: Lens.Lens' EwsAvailabilityProvider Prelude.Text
-ewsAvailabilityProvider_ewsPassword = Lens.lens (\EwsAvailabilityProvider' {ewsPassword} -> ewsPassword) (\s@EwsAvailabilityProvider' {} a -> s {ewsPassword = a} :: EwsAvailabilityProvider) Prelude.. Core._Sensitive
+ewsAvailabilityProvider_ewsPassword = Lens.lens (\EwsAvailabilityProvider' {ewsPassword} -> ewsPassword) (\s@EwsAvailabilityProvider' {} a -> s {ewsPassword = a} :: EwsAvailabilityProvider) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable EwsAvailabilityProvider where
   hashWithSalt _salt EwsAvailabilityProvider' {..} =
@@ -93,12 +94,12 @@ instance Prelude.NFData EwsAvailabilityProvider where
       `Prelude.seq` Prelude.rnf ewsUsername
       `Prelude.seq` Prelude.rnf ewsPassword
 
-instance Core.ToJSON EwsAvailabilityProvider where
+instance Data.ToJSON EwsAvailabilityProvider where
   toJSON EwsAvailabilityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("EwsEndpoint" Core..= ewsEndpoint),
-            Prelude.Just ("EwsUsername" Core..= ewsUsername),
-            Prelude.Just ("EwsPassword" Core..= ewsPassword)
+          [ Prelude.Just ("EwsEndpoint" Data..= ewsEndpoint),
+            Prelude.Just ("EwsUsername" Data..= ewsUsername),
+            Prelude.Just ("EwsPassword" Data..= ewsPassword)
           ]
       )

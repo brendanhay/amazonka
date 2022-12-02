@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,15 +96,15 @@ instance Core.AWSRequest DescribeOrganization where
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationResponse'
-            Prelude.<$> (x Core..?> "Alias")
-            Prelude.<*> (x Core..?> "DirectoryId")
-            Prelude.<*> (x Core..?> "DirectoryType")
-            Prelude.<*> (x Core..?> "CompletedDate")
-            Prelude.<*> (x Core..?> "ErrorMessage")
-            Prelude.<*> (x Core..?> "DefaultMailDomain")
-            Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "OrganizationId")
+            Prelude.<$> (x Data..?> "Alias")
+            Prelude.<*> (x Data..?> "DirectoryId")
+            Prelude.<*> (x Data..?> "DirectoryType")
+            Prelude.<*> (x Data..?> "CompletedDate")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "DefaultMailDomain")
+            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "OrganizationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,34 +116,34 @@ instance Prelude.NFData DescribeOrganization where
   rnf DescribeOrganization' {..} =
     Prelude.rnf organizationId
 
-instance Core.ToHeaders DescribeOrganization where
+instance Data.ToHeaders DescribeOrganization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.DescribeOrganization" ::
+              Data.=# ( "WorkMailService.DescribeOrganization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeOrganization where
+instance Data.ToJSON DescribeOrganization where
   toJSON DescribeOrganization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
-instance Core.ToPath DescribeOrganization where
+instance Data.ToPath DescribeOrganization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeOrganization where
+instance Data.ToQuery DescribeOrganization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeOrganizationResponse' smart constructor.
@@ -156,7 +157,7 @@ data DescribeOrganizationResponse = DescribeOrganizationResponse'
     directoryType :: Prelude.Maybe Prelude.Text,
     -- | The date at which the organization became usable in the WorkMail
     -- context, in UNIX epoch time format.
-    completedDate :: Prelude.Maybe Core.POSIX,
+    completedDate :: Prelude.Maybe Data.POSIX,
     -- | (Optional) The error message indicating if unexpected behavior was
     -- encountered with regards to the organization.
     errorMessage :: Prelude.Maybe Prelude.Text,
@@ -238,7 +239,7 @@ describeOrganizationResponse_directoryType = Lens.lens (\DescribeOrganizationRes
 -- | The date at which the organization became usable in the WorkMail
 -- context, in UNIX epoch time format.
 describeOrganizationResponse_completedDate :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.UTCTime)
-describeOrganizationResponse_completedDate = Lens.lens (\DescribeOrganizationResponse' {completedDate} -> completedDate) (\s@DescribeOrganizationResponse' {} a -> s {completedDate = a} :: DescribeOrganizationResponse) Prelude.. Lens.mapping Core._Time
+describeOrganizationResponse_completedDate = Lens.lens (\DescribeOrganizationResponse' {completedDate} -> completedDate) (\s@DescribeOrganizationResponse' {} a -> s {completedDate = a} :: DescribeOrganizationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | (Optional) The error message indicating if unexpected behavior was
 -- encountered with regards to the organization.

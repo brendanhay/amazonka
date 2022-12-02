@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,36 +132,36 @@ instance Prelude.NFData UpdateMailboxQuota where
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf mailboxQuota
 
-instance Core.ToHeaders UpdateMailboxQuota where
+instance Data.ToHeaders UpdateMailboxQuota where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.UpdateMailboxQuota" ::
+              Data.=# ( "WorkMailService.UpdateMailboxQuota" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMailboxQuota where
+instance Data.ToJSON UpdateMailboxQuota where
   toJSON UpdateMailboxQuota' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("UserId" Core..= userId),
-            Prelude.Just ("MailboxQuota" Core..= mailboxQuota)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("UserId" Data..= userId),
+            Prelude.Just ("MailboxQuota" Data..= mailboxQuota)
           ]
       )
 
-instance Core.ToPath UpdateMailboxQuota where
+instance Data.ToPath UpdateMailboxQuota where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateMailboxQuota where
+instance Data.ToQuery UpdateMailboxQuota where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMailboxQuotaResponse' smart constructor.

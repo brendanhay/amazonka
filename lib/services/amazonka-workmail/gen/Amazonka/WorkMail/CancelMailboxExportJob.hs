@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,36 +131,36 @@ instance Prelude.NFData CancelMailboxExportJob where
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf organizationId
 
-instance Core.ToHeaders CancelMailboxExportJob where
+instance Data.ToHeaders CancelMailboxExportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.CancelMailboxExportJob" ::
+              Data.=# ( "WorkMailService.CancelMailboxExportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelMailboxExportJob where
+instance Data.ToJSON CancelMailboxExportJob where
   toJSON CancelMailboxExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ClientToken" Core..= clientToken),
-            Prelude.Just ("JobId" Core..= jobId),
+          [ Prelude.Just ("ClientToken" Data..= clientToken),
+            Prelude.Just ("JobId" Data..= jobId),
             Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
-instance Core.ToPath CancelMailboxExportJob where
+instance Data.ToPath CancelMailboxExportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelMailboxExportJob where
+instance Data.ToQuery CancelMailboxExportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelMailboxExportJobResponse' smart constructor.

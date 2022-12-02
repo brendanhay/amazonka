@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,8 +107,8 @@ instance Core.AWSRequest AssumeImpersonationRole where
     Response.receiveJSON
       ( \s h x ->
           AssumeImpersonationRoleResponse'
-            Prelude.<$> (x Core..?> "ExpiresIn")
-            Prelude.<*> (x Core..?> "Token")
+            Prelude.<$> (x Data..?> "ExpiresIn")
+            Prelude.<*> (x Data..?> "Token")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,36 +122,36 @@ instance Prelude.NFData AssumeImpersonationRole where
     Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf impersonationRoleId
 
-instance Core.ToHeaders AssumeImpersonationRole where
+instance Data.ToHeaders AssumeImpersonationRole where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.AssumeImpersonationRole" ::
+              Data.=# ( "WorkMailService.AssumeImpersonationRole" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssumeImpersonationRole where
+instance Data.ToJSON AssumeImpersonationRole where
   toJSON AssumeImpersonationRole' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
+              ("OrganizationId" Data..= organizationId),
             Prelude.Just
-              ("ImpersonationRoleId" Core..= impersonationRoleId)
+              ("ImpersonationRoleId" Data..= impersonationRoleId)
           ]
       )
 
-instance Core.ToPath AssumeImpersonationRole where
+instance Data.ToPath AssumeImpersonationRole where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssumeImpersonationRole where
+instance Data.ToQuery AssumeImpersonationRole where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssumeImpersonationRoleResponse' smart constructor.

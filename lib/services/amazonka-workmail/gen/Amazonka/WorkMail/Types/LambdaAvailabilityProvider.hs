@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.LambdaAvailabilityProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Lambda based availability provider.
@@ -58,13 +59,13 @@ newLambdaAvailabilityProvider pLambdaArn_ =
 lambdaAvailabilityProvider_lambdaArn :: Lens.Lens' LambdaAvailabilityProvider Prelude.Text
 lambdaAvailabilityProvider_lambdaArn = Lens.lens (\LambdaAvailabilityProvider' {lambdaArn} -> lambdaArn) (\s@LambdaAvailabilityProvider' {} a -> s {lambdaArn = a} :: LambdaAvailabilityProvider)
 
-instance Core.FromJSON LambdaAvailabilityProvider where
+instance Data.FromJSON LambdaAvailabilityProvider where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaAvailabilityProvider"
       ( \x ->
           LambdaAvailabilityProvider'
-            Prelude.<$> (x Core..: "LambdaArn")
+            Prelude.<$> (x Data..: "LambdaArn")
       )
 
 instance Prelude.Hashable LambdaAvailabilityProvider where
@@ -75,9 +76,9 @@ instance Prelude.NFData LambdaAvailabilityProvider where
   rnf LambdaAvailabilityProvider' {..} =
     Prelude.rnf lambdaArn
 
-instance Core.ToJSON LambdaAvailabilityProvider where
+instance Data.ToJSON LambdaAvailabilityProvider where
   toJSON LambdaAvailabilityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LambdaArn" Core..= lambdaArn)]
+          [Prelude.Just ("LambdaArn" Data..= lambdaArn)]
       )

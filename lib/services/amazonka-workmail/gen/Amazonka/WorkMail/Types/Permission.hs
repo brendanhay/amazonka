@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.Permission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.MemberType
 import Amazonka.WorkMail.Types.PermissionType
@@ -98,16 +99,16 @@ permission_granteeType = Lens.lens (\Permission' {granteeType} -> granteeType) (
 permission_permissionValues :: Lens.Lens' Permission [PermissionType]
 permission_permissionValues = Lens.lens (\Permission' {permissionValues} -> permissionValues) (\s@Permission' {} a -> s {permissionValues = a} :: Permission) Prelude.. Lens.coerced
 
-instance Core.FromJSON Permission where
+instance Data.FromJSON Permission where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Permission"
       ( \x ->
           Permission'
-            Prelude.<$> (x Core..: "GranteeId")
-            Prelude.<*> (x Core..: "GranteeType")
-            Prelude.<*> ( x Core..:? "PermissionValues"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "GranteeId")
+            Prelude.<*> (x Data..: "GranteeType")
+            Prelude.<*> ( x Data..:? "PermissionValues"
+                            Data..!= Prelude.mempty
                         )
       )
 

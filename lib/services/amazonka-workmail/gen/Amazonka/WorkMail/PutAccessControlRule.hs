@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -254,47 +255,47 @@ instance Prelude.NFData PutAccessControlRule where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf organizationId
 
-instance Core.ToHeaders PutAccessControlRule where
+instance Data.ToHeaders PutAccessControlRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.PutAccessControlRule" ::
+              Data.=# ( "WorkMailService.PutAccessControlRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAccessControlRule where
+instance Data.ToJSON PutAccessControlRule where
   toJSON PutAccessControlRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NotIpRanges" Core..=) Prelude.<$> notIpRanges,
-            ("NotActions" Core..=) Prelude.<$> notActions,
-            ("IpRanges" Core..=) Prelude.<$> ipRanges,
-            ("NotImpersonationRoleIds" Core..=)
+          [ ("NotIpRanges" Data..=) Prelude.<$> notIpRanges,
+            ("NotActions" Data..=) Prelude.<$> notActions,
+            ("IpRanges" Data..=) Prelude.<$> ipRanges,
+            ("NotImpersonationRoleIds" Data..=)
               Prelude.<$> notImpersonationRoleIds,
-            ("UserIds" Core..=) Prelude.<$> userIds,
-            ("ImpersonationRoleIds" Core..=)
+            ("UserIds" Data..=) Prelude.<$> userIds,
+            ("ImpersonationRoleIds" Data..=)
               Prelude.<$> impersonationRoleIds,
-            ("NotUserIds" Core..=) Prelude.<$> notUserIds,
-            ("Actions" Core..=) Prelude.<$> actions,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Effect" Core..= effect),
-            Prelude.Just ("Description" Core..= description),
+            ("NotUserIds" Data..=) Prelude.<$> notUserIds,
+            ("Actions" Data..=) Prelude.<$> actions,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Effect" Data..= effect),
+            Prelude.Just ("Description" Data..= description),
             Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
-instance Core.ToPath PutAccessControlRule where
+instance Data.ToPath PutAccessControlRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutAccessControlRule where
+instance Data.ToQuery PutAccessControlRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAccessControlRuleResponse' smart constructor.

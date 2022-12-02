@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,37 +129,37 @@ instance
       `Prelude.seq` Prelude.rnf domainName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteAvailabilityConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.DeleteAvailabilityConfiguration" ::
+              Data.=# ( "WorkMailService.DeleteAvailabilityConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAvailabilityConfiguration where
+instance Data.ToJSON DeleteAvailabilityConfiguration where
   toJSON DeleteAvailabilityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("DomainName" Core..= domainName)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("DomainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath DeleteAvailabilityConfiguration where
+instance Data.ToPath DeleteAvailabilityConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAvailabilityConfiguration where
+instance Data.ToQuery DeleteAvailabilityConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAvailabilityConfigurationResponse' smart constructor.

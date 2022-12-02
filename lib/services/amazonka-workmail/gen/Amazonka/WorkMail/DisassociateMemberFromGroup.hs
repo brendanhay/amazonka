@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,36 +128,36 @@ instance Prelude.NFData DisassociateMemberFromGroup where
       `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf memberId
 
-instance Core.ToHeaders DisassociateMemberFromGroup where
+instance Data.ToHeaders DisassociateMemberFromGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.DisassociateMemberFromGroup" ::
+              Data.=# ( "WorkMailService.DisassociateMemberFromGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateMemberFromGroup where
+instance Data.ToJSON DisassociateMemberFromGroup where
   toJSON DisassociateMemberFromGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("GroupId" Core..= groupId),
-            Prelude.Just ("MemberId" Core..= memberId)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("GroupId" Data..= groupId),
+            Prelude.Just ("MemberId" Data..= memberId)
           ]
       )
 
-instance Core.ToPath DisassociateMemberFromGroup where
+instance Data.ToPath DisassociateMemberFromGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateMemberFromGroup where
+instance Data.ToQuery DisassociateMemberFromGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateMemberFromGroupResponse' smart constructor.

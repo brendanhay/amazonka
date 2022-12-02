@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,43 +113,43 @@ instance
     Prelude.rnf organizationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteEmailMonitoringConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.DeleteEmailMonitoringConfiguration" ::
+              Data.=# ( "WorkMailService.DeleteEmailMonitoringConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteEmailMonitoringConfiguration
   where
   toJSON DeleteEmailMonitoringConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteEmailMonitoringConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteEmailMonitoringConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

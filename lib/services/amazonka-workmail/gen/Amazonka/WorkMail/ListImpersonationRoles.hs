@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,8 +114,8 @@ instance Core.AWSRequest ListImpersonationRoles where
     Response.receiveJSON
       ( \s h x ->
           ListImpersonationRolesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Roles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Roles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,36 +131,36 @@ instance Prelude.NFData ListImpersonationRoles where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf organizationId
 
-instance Core.ToHeaders ListImpersonationRoles where
+instance Data.ToHeaders ListImpersonationRoles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.ListImpersonationRoles" ::
+              Data.=# ( "WorkMailService.ListImpersonationRoles" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListImpersonationRoles where
+instance Data.ToJSON ListImpersonationRoles where
   toJSON ListImpersonationRoles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
-instance Core.ToPath ListImpersonationRoles where
+instance Data.ToPath ListImpersonationRoles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListImpersonationRoles where
+instance Data.ToQuery ListImpersonationRoles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListImpersonationRolesResponse' smart constructor.

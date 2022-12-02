@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.RedactedEwsAvailabilityProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an EWS based availability provider when returned from the
@@ -64,16 +65,16 @@ redactedEwsAvailabilityProvider_ewsEndpoint :: Lens.Lens' RedactedEwsAvailabilit
 redactedEwsAvailabilityProvider_ewsEndpoint = Lens.lens (\RedactedEwsAvailabilityProvider' {ewsEndpoint} -> ewsEndpoint) (\s@RedactedEwsAvailabilityProvider' {} a -> s {ewsEndpoint = a} :: RedactedEwsAvailabilityProvider)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RedactedEwsAvailabilityProvider
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedactedEwsAvailabilityProvider"
       ( \x ->
           RedactedEwsAvailabilityProvider'
-            Prelude.<$> (x Core..:? "EwsUsername")
-            Prelude.<*> (x Core..:? "EwsEndpoint")
+            Prelude.<$> (x Data..:? "EwsUsername")
+            Prelude.<*> (x Data..:? "EwsEndpoint")
       )
 
 instance

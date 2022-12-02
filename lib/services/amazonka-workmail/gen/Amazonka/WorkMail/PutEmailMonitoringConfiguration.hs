@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,38 +150,38 @@ instance
       `Prelude.seq` Prelude.rnf logGroupArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutEmailMonitoringConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.PutEmailMonitoringConfiguration" ::
+              Data.=# ( "WorkMailService.PutEmailMonitoringConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutEmailMonitoringConfiguration where
+instance Data.ToJSON PutEmailMonitoringConfiguration where
   toJSON PutEmailMonitoringConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("LogGroupArn" Core..= logGroupArn)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("RoleArn" Data..= roleArn),
+            Prelude.Just ("LogGroupArn" Data..= logGroupArn)
           ]
       )
 
-instance Core.ToPath PutEmailMonitoringConfiguration where
+instance Data.ToPath PutEmailMonitoringConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutEmailMonitoringConfiguration where
+instance Data.ToQuery PutEmailMonitoringConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutEmailMonitoringConfigurationResponse' smart constructor.

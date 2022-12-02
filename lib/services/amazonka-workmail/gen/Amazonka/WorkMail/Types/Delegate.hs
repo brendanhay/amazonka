@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.Delegate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.MemberType
 
@@ -67,13 +68,13 @@ delegate_id = Lens.lens (\Delegate' {id} -> id) (\s@Delegate' {} a -> s {id = a}
 delegate_type :: Lens.Lens' Delegate MemberType
 delegate_type = Lens.lens (\Delegate' {type'} -> type') (\s@Delegate' {} a -> s {type' = a} :: Delegate)
 
-instance Core.FromJSON Delegate where
+instance Data.FromJSON Delegate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Delegate"
       ( \x ->
           Delegate'
-            Prelude.<$> (x Core..: "Id") Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..: "Id") Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable Delegate where

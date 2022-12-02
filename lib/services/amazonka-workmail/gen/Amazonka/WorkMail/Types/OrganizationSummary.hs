@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.OrganizationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The representation of an organization.
@@ -94,17 +95,17 @@ organizationSummary_state = Lens.lens (\OrganizationSummary' {state} -> state) (
 organizationSummary_organizationId :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
 organizationSummary_organizationId = Lens.lens (\OrganizationSummary' {organizationId} -> organizationId) (\s@OrganizationSummary' {} a -> s {organizationId = a} :: OrganizationSummary)
 
-instance Core.FromJSON OrganizationSummary where
+instance Data.FromJSON OrganizationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationSummary"
       ( \x ->
           OrganizationSummary'
-            Prelude.<$> (x Core..:? "Alias")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "DefaultMailDomain")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "OrganizationId")
+            Prelude.<$> (x Data..:? "Alias")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "DefaultMailDomain")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "OrganizationId")
       )
 
 instance Prelude.Hashable OrganizationSummary where

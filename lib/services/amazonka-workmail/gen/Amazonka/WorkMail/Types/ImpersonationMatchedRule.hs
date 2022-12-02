@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.ImpersonationMatchedRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The impersonation rule that matched the input.
@@ -61,14 +62,14 @@ impersonationMatchedRule_name = Lens.lens (\ImpersonationMatchedRule' {name} -> 
 impersonationMatchedRule_impersonationRuleId :: Lens.Lens' ImpersonationMatchedRule (Prelude.Maybe Prelude.Text)
 impersonationMatchedRule_impersonationRuleId = Lens.lens (\ImpersonationMatchedRule' {impersonationRuleId} -> impersonationRuleId) (\s@ImpersonationMatchedRule' {} a -> s {impersonationRuleId = a} :: ImpersonationMatchedRule)
 
-instance Core.FromJSON ImpersonationMatchedRule where
+instance Data.FromJSON ImpersonationMatchedRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImpersonationMatchedRule"
       ( \x ->
           ImpersonationMatchedRule'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ImpersonationRuleId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ImpersonationRuleId")
       )
 
 instance Prelude.Hashable ImpersonationMatchedRule where

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,36 +141,36 @@ instance Prelude.NFData RegisterToWorkMail where
       `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf email
 
-instance Core.ToHeaders RegisterToWorkMail where
+instance Data.ToHeaders RegisterToWorkMail where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.RegisterToWorkMail" ::
+              Data.=# ( "WorkMailService.RegisterToWorkMail" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterToWorkMail where
+instance Data.ToJSON RegisterToWorkMail where
   toJSON RegisterToWorkMail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("EntityId" Core..= entityId),
-            Prelude.Just ("Email" Core..= email)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("EntityId" Data..= entityId),
+            Prelude.Just ("Email" Data..= email)
           ]
       )
 
-instance Core.ToPath RegisterToWorkMail where
+instance Data.ToPath RegisterToWorkMail where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterToWorkMail where
+instance Data.ToQuery RegisterToWorkMail where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterToWorkMailResponse' smart constructor.

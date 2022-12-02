@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -168,8 +169,8 @@ instance Core.AWSRequest ListCommands where
     Response.receiveJSON
       ( \s h x ->
           ListCommandsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Commands" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Commands" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,35 +190,35 @@ instance Prelude.NFData ListCommands where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListCommands where
+instance Data.ToHeaders ListCommands where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.ListCommands" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.ListCommands" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCommands where
+instance Data.ToJSON ListCommands where
   toJSON ListCommands' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("CommandId" Core..=) Prelude.<$> commandId,
-            ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("CommandId" Data..=) Prelude.<$> commandId,
+            ("InstanceId" Data..=) Prelude.<$> instanceId,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListCommands where
+instance Data.ToPath ListCommands where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCommands where
+instance Data.ToQuery ListCommands where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCommandsResponse' smart constructor.

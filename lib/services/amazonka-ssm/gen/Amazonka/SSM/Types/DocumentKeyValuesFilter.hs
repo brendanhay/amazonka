@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.DocumentKeyValuesFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | One or more filters. Use a filter to return a more specific list of
@@ -139,11 +140,11 @@ instance Prelude.NFData DocumentKeyValuesFilter where
   rnf DocumentKeyValuesFilter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON DocumentKeyValuesFilter where
+instance Data.ToJSON DocumentKeyValuesFilter where
   toJSON DocumentKeyValuesFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

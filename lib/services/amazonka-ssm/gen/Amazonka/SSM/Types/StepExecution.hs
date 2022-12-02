@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.StepExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AlarmStateInformation
 import Amazonka.SSM.Types.AutomationExecutionStatus
@@ -56,7 +57,7 @@ data StepExecution = StepExecution'
     stepExecutionId :: Prelude.Maybe Prelude.Text,
     -- | If a step has begun execution, this contains the time the step started.
     -- If the step is in Pending status, this field isn\'t populated.
-    executionStartTime :: Prelude.Maybe Core.POSIX,
+    executionStartTime :: Prelude.Maybe Data.POSIX,
     -- | The name of this execution step.
     stepName :: Prelude.Maybe Prelude.Text,
     -- | If a step failed, this message explains why the execution failed.
@@ -88,7 +89,7 @@ data StepExecution = StepExecution'
     responseCode :: Prelude.Maybe Prelude.Text,
     -- | If a step has finished execution, this contains the time the execution
     -- ended. If the step hasn\'t yet concluded, this field isn\'t populated.
-    executionEndTime :: Prelude.Maybe Core.POSIX
+    executionEndTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -226,7 +227,7 @@ stepExecution_stepExecutionId = Lens.lens (\StepExecution' {stepExecutionId} -> 
 -- | If a step has begun execution, this contains the time the step started.
 -- If the step is in Pending status, this field isn\'t populated.
 stepExecution_executionStartTime :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.UTCTime)
-stepExecution_executionStartTime = Lens.lens (\StepExecution' {executionStartTime} -> executionStartTime) (\s@StepExecution' {} a -> s {executionStartTime = a} :: StepExecution) Prelude.. Lens.mapping Core._Time
+stepExecution_executionStartTime = Lens.lens (\StepExecution' {executionStartTime} -> executionStartTime) (\s@StepExecution' {} a -> s {executionStartTime = a} :: StepExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The name of this execution step.
 stepExecution_stepName :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Text)
@@ -286,39 +287,39 @@ stepExecution_responseCode = Lens.lens (\StepExecution' {responseCode} -> respon
 -- | If a step has finished execution, this contains the time the execution
 -- ended. If the step hasn\'t yet concluded, this field isn\'t populated.
 stepExecution_executionEndTime :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.UTCTime)
-stepExecution_executionEndTime = Lens.lens (\StepExecution' {executionEndTime} -> executionEndTime) (\s@StepExecution' {} a -> s {executionEndTime = a} :: StepExecution) Prelude.. Lens.mapping Core._Time
+stepExecution_executionEndTime = Lens.lens (\StepExecution' {executionEndTime} -> executionEndTime) (\s@StepExecution' {} a -> s {executionEndTime = a} :: StepExecution) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON StepExecution where
+instance Data.FromJSON StepExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StepExecution"
       ( \x ->
           StepExecution'
-            Prelude.<$> (x Core..:? "Response")
-            Prelude.<*> ( x Core..:? "OverriddenParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Response")
+            Prelude.<*> ( x Data..:? "OverriddenParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "IsEnd")
-            Prelude.<*> (x Core..:? "TimeoutSeconds")
-            Prelude.<*> (x Core..:? "ValidNextSteps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TargetLocation")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StepExecutionId")
-            Prelude.<*> (x Core..:? "ExecutionStartTime")
-            Prelude.<*> (x Core..:? "StepName")
-            Prelude.<*> (x Core..:? "FailureMessage")
-            Prelude.<*> (x Core..:? "OnFailure")
-            Prelude.<*> (x Core..:? "FailureDetails")
-            Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "NextStep")
-            Prelude.<*> (x Core..:? "MaxAttempts")
-            Prelude.<*> (x Core..:? "Inputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IsCritical")
-            Prelude.<*> (x Core..:? "TriggeredAlarms")
-            Prelude.<*> (x Core..:? "StepStatus")
-            Prelude.<*> (x Core..:? "ResponseCode")
-            Prelude.<*> (x Core..:? "ExecutionEndTime")
+            Prelude.<*> (x Data..:? "IsEnd")
+            Prelude.<*> (x Data..:? "TimeoutSeconds")
+            Prelude.<*> (x Data..:? "ValidNextSteps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TargetLocation")
+            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StepExecutionId")
+            Prelude.<*> (x Data..:? "ExecutionStartTime")
+            Prelude.<*> (x Data..:? "StepName")
+            Prelude.<*> (x Data..:? "FailureMessage")
+            Prelude.<*> (x Data..:? "OnFailure")
+            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "Outputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "NextStep")
+            Prelude.<*> (x Data..:? "MaxAttempts")
+            Prelude.<*> (x Data..:? "Inputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IsCritical")
+            Prelude.<*> (x Data..:? "TriggeredAlarms")
+            Prelude.<*> (x Data..:? "StepStatus")
+            Prelude.<*> (x Data..:? "ResponseCode")
+            Prelude.<*> (x Data..:? "ExecutionEndTime")
       )
 
 instance Prelude.Hashable StepExecution where

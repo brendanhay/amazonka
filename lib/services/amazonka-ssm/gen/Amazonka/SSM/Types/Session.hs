@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.Session where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.SessionManagerOutputUrl
 import Amazonka.SSM.Types.SessionStatus
@@ -31,7 +32,7 @@ import Amazonka.SSM.Types.SessionStatus
 data Session = Session'
   { -- | The date and time, in ISO-8601 Extended format, when the session was
     -- terminated.
-    endDate :: Prelude.Maybe Core.POSIX,
+    endDate :: Prelude.Maybe Data.POSIX,
     -- | Reserved for future use.
     outputUrl :: Prelude.Maybe SessionManagerOutputUrl,
     -- | The ID of the Amazon Web Services user account that started the session.
@@ -43,7 +44,7 @@ data Session = Session'
     -- | Reserved for future use.
     details :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in ISO-8601 Extended format, when the session began.
-    startDate :: Prelude.Maybe Core.POSIX,
+    startDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the Session Manager SSM document used to define the
     -- parameters and plugin settings for the session. For example,
     -- @SSM-SessionManagerRunShell@.
@@ -109,7 +110,7 @@ newSession =
 -- | The date and time, in ISO-8601 Extended format, when the session was
 -- terminated.
 session_endDate :: Lens.Lens' Session (Prelude.Maybe Prelude.UTCTime)
-session_endDate = Lens.lens (\Session' {endDate} -> endDate) (\s@Session' {} a -> s {endDate = a} :: Session) Prelude.. Lens.mapping Core._Time
+session_endDate = Lens.lens (\Session' {endDate} -> endDate) (\s@Session' {} a -> s {endDate = a} :: Session) Prelude.. Lens.mapping Data._Time
 
 -- | Reserved for future use.
 session_outputUrl :: Lens.Lens' Session (Prelude.Maybe SessionManagerOutputUrl)
@@ -133,7 +134,7 @@ session_details = Lens.lens (\Session' {details} -> details) (\s@Session' {} a -
 
 -- | The date and time, in ISO-8601 Extended format, when the session began.
 session_startDate :: Lens.Lens' Session (Prelude.Maybe Prelude.UTCTime)
-session_startDate = Lens.lens (\Session' {startDate} -> startDate) (\s@Session' {} a -> s {startDate = a} :: Session) Prelude.. Lens.mapping Core._Time
+session_startDate = Lens.lens (\Session' {startDate} -> startDate) (\s@Session' {} a -> s {startDate = a} :: Session) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the Session Manager SSM document used to define the
 -- parameters and plugin settings for the session. For example,
@@ -153,23 +154,23 @@ session_reason = Lens.lens (\Session' {reason} -> reason) (\s@Session' {} a -> s
 session_maxSessionDuration :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
 session_maxSessionDuration = Lens.lens (\Session' {maxSessionDuration} -> maxSessionDuration) (\s@Session' {} a -> s {maxSessionDuration = a} :: Session)
 
-instance Core.FromJSON Session where
+instance Data.FromJSON Session where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Session"
       ( \x ->
           Session'
-            Prelude.<$> (x Core..:? "EndDate")
-            Prelude.<*> (x Core..:? "OutputUrl")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Target")
-            Prelude.<*> (x Core..:? "Details")
-            Prelude.<*> (x Core..:? "StartDate")
-            Prelude.<*> (x Core..:? "DocumentName")
-            Prelude.<*> (x Core..:? "SessionId")
-            Prelude.<*> (x Core..:? "Reason")
-            Prelude.<*> (x Core..:? "MaxSessionDuration")
+            Prelude.<$> (x Data..:? "EndDate")
+            Prelude.<*> (x Data..:? "OutputUrl")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Target")
+            Prelude.<*> (x Data..:? "Details")
+            Prelude.<*> (x Data..:? "StartDate")
+            Prelude.<*> (x Data..:? "DocumentName")
+            Prelude.<*> (x Data..:? "SessionId")
+            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "MaxSessionDuration")
       )
 
 instance Prelude.Hashable Session where

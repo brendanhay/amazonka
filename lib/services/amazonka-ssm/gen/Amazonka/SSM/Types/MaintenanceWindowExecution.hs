@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.MaintenanceWindowExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.MaintenanceWindowExecutionStatus
 
@@ -37,9 +38,9 @@ data MaintenanceWindowExecution = MaintenanceWindowExecution'
     -- | The status of the execution.
     status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
     -- | The time the execution finished.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The time the execution started.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,24 +94,24 @@ maintenanceWindowExecution_status = Lens.lens (\MaintenanceWindowExecution' {sta
 
 -- | The time the execution finished.
 maintenanceWindowExecution_endTime :: Lens.Lens' MaintenanceWindowExecution (Prelude.Maybe Prelude.UTCTime)
-maintenanceWindowExecution_endTime = Lens.lens (\MaintenanceWindowExecution' {endTime} -> endTime) (\s@MaintenanceWindowExecution' {} a -> s {endTime = a} :: MaintenanceWindowExecution) Prelude.. Lens.mapping Core._Time
+maintenanceWindowExecution_endTime = Lens.lens (\MaintenanceWindowExecution' {endTime} -> endTime) (\s@MaintenanceWindowExecution' {} a -> s {endTime = a} :: MaintenanceWindowExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The time the execution started.
 maintenanceWindowExecution_startTime :: Lens.Lens' MaintenanceWindowExecution (Prelude.Maybe Prelude.UTCTime)
-maintenanceWindowExecution_startTime = Lens.lens (\MaintenanceWindowExecution' {startTime} -> startTime) (\s@MaintenanceWindowExecution' {} a -> s {startTime = a} :: MaintenanceWindowExecution) Prelude.. Lens.mapping Core._Time
+maintenanceWindowExecution_startTime = Lens.lens (\MaintenanceWindowExecution' {startTime} -> startTime) (\s@MaintenanceWindowExecution' {} a -> s {startTime = a} :: MaintenanceWindowExecution) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON MaintenanceWindowExecution where
+instance Data.FromJSON MaintenanceWindowExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MaintenanceWindowExecution"
       ( \x ->
           MaintenanceWindowExecution'
-            Prelude.<$> (x Core..:? "WindowExecutionId")
-            Prelude.<*> (x Core..:? "StatusDetails")
-            Prelude.<*> (x Core..:? "WindowId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "WindowExecutionId")
+            Prelude.<*> (x Data..:? "StatusDetails")
+            Prelude.<*> (x Data..:? "WindowId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable MaintenanceWindowExecution where

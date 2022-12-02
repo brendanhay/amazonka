@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AlarmStateInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.ExternalAlarmState
 
@@ -66,13 +67,13 @@ alarmStateInformation_name = Lens.lens (\AlarmStateInformation' {name} -> name) 
 alarmStateInformation_state :: Lens.Lens' AlarmStateInformation ExternalAlarmState
 alarmStateInformation_state = Lens.lens (\AlarmStateInformation' {state} -> state) (\s@AlarmStateInformation' {} a -> s {state = a} :: AlarmStateInformation)
 
-instance Core.FromJSON AlarmStateInformation where
+instance Data.FromJSON AlarmStateInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlarmStateInformation"
       ( \x ->
           AlarmStateInformation'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "State")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "State")
       )
 
 instance Prelude.Hashable AlarmStateInformation where

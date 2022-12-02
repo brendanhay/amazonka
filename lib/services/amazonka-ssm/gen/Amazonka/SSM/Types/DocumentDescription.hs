@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.DocumentDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AttachmentInformation
 import Amazonka.SSM.Types.DocumentFormat
@@ -103,7 +104,7 @@ data DocumentDescription = DocumentDescription'
     -- | The schema version.
     schemaVersion :: Prelude.Maybe Prelude.Text,
     -- | The date when the document was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The version of the document currently approved for use in the
     -- organization.
     approvedVersion :: Prelude.Maybe Prelude.Text,
@@ -356,7 +357,7 @@ documentDescription_schemaVersion = Lens.lens (\DocumentDescription' {schemaVers
 
 -- | The date when the document was created.
 documentDescription_createdDate :: Lens.Lens' DocumentDescription (Prelude.Maybe Prelude.UTCTime)
-documentDescription_createdDate = Lens.lens (\DocumentDescription' {createdDate} -> createdDate) (\s@DocumentDescription' {} a -> s {createdDate = a} :: DocumentDescription) Prelude.. Lens.mapping Core._Time
+documentDescription_createdDate = Lens.lens (\DocumentDescription' {createdDate} -> createdDate) (\s@DocumentDescription' {} a -> s {createdDate = a} :: DocumentDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the document currently approved for use in the
 -- organization.
@@ -385,44 +386,44 @@ documentDescription_documentVersion = Lens.lens (\DocumentDescription' {document
 documentDescription_parameters :: Lens.Lens' DocumentDescription (Prelude.Maybe [DocumentParameter])
 documentDescription_parameters = Lens.lens (\DocumentDescription' {parameters} -> parameters) (\s@DocumentDescription' {} a -> s {parameters = a} :: DocumentDescription) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DocumentDescription where
+instance Data.FromJSON DocumentDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentDescription"
       ( \x ->
           DocumentDescription'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Requires")
-            Prelude.<*> (x Core..:? "Author")
-            Prelude.<*> (x Core..:? "PendingReviewVersion")
-            Prelude.<*> (x Core..:? "DocumentType")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Sha1")
-            Prelude.<*> ( x Core..:? "AttachmentsInformation"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Requires")
+            Prelude.<*> (x Data..:? "Author")
+            Prelude.<*> (x Data..:? "PendingReviewVersion")
+            Prelude.<*> (x Data..:? "DocumentType")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Sha1")
+            Prelude.<*> ( x Data..:? "AttachmentsInformation"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Hash")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "LatestVersion")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DefaultVersion")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "TargetType")
-            Prelude.<*> (x Core..:? "VersionName")
-            Prelude.<*> (x Core..:? "ReviewInformation")
-            Prelude.<*> (x Core..:? "PlatformTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CategoryEnum" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StatusInformation")
-            Prelude.<*> (x Core..:? "Category" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SchemaVersion")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "ApprovedVersion")
-            Prelude.<*> (x Core..:? "ReviewStatus")
-            Prelude.<*> (x Core..:? "HashType")
-            Prelude.<*> (x Core..:? "DocumentFormat")
-            Prelude.<*> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Hash")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "LatestVersion")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DefaultVersion")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "TargetType")
+            Prelude.<*> (x Data..:? "VersionName")
+            Prelude.<*> (x Data..:? "ReviewInformation")
+            Prelude.<*> (x Data..:? "PlatformTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CategoryEnum" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StatusInformation")
+            Prelude.<*> (x Data..:? "Category" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SchemaVersion")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "ApprovedVersion")
+            Prelude.<*> (x Data..:? "ReviewStatus")
+            Prelude.<*> (x Data..:? "HashType")
+            Prelude.<*> (x Data..:? "DocumentFormat")
+            Prelude.<*> (x Data..:? "DocumentVersion")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DocumentDescription where

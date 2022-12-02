@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,11 +146,11 @@ instance Core.AWSRequest ListDocumentMetadataHistory where
     Response.receiveJSON
       ( \s h x ->
           ListDocumentMetadataHistoryResponse'
-            Prelude.<$> (x Core..?> "Author")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Metadata")
-            Prelude.<*> (x Core..?> "DocumentVersion")
+            Prelude.<$> (x Data..?> "Author")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Metadata")
+            Prelude.<*> (x Data..?> "DocumentVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,38 +170,38 @@ instance Prelude.NFData ListDocumentMetadataHistory where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf metadata
 
-instance Core.ToHeaders ListDocumentMetadataHistory where
+instance Data.ToHeaders ListDocumentMetadataHistory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.ListDocumentMetadataHistory" ::
+              Data.=# ( "AmazonSSM.ListDocumentMetadataHistory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDocumentMetadataHistory where
+instance Data.ToJSON ListDocumentMetadataHistory where
   toJSON ListDocumentMetadataHistory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("DocumentVersion" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Metadata" Core..= metadata)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Metadata" Data..= metadata)
           ]
       )
 
-instance Core.ToPath ListDocumentMetadataHistory where
+instance Data.ToPath ListDocumentMetadataHistory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDocumentMetadataHistory where
+instance Data.ToQuery ListDocumentMetadataHistory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDocumentMetadataHistoryResponse' smart constructor.

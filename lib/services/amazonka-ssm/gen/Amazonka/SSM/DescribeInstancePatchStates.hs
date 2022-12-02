@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,8 +136,8 @@ instance Core.AWSRequest DescribeInstancePatchStates where
     Response.receiveJSON
       ( \s h x ->
           DescribeInstancePatchStatesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "InstancePatchStates"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "InstancePatchStates"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -154,35 +155,35 @@ instance Prelude.NFData DescribeInstancePatchStates where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceIds
 
-instance Core.ToHeaders DescribeInstancePatchStates where
+instance Data.ToHeaders DescribeInstancePatchStates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribeInstancePatchStates" ::
+              Data.=# ( "AmazonSSM.DescribeInstancePatchStates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeInstancePatchStates where
+instance Data.ToJSON DescribeInstancePatchStates where
   toJSON DescribeInstancePatchStates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("InstanceIds" Core..= instanceIds)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("InstanceIds" Data..= instanceIds)
           ]
       )
 
-instance Core.ToPath DescribeInstancePatchStates where
+instance Data.ToPath DescribeInstancePatchStates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInstancePatchStates where
+instance Data.ToQuery DescribeInstancePatchStates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeInstancePatchStatesResponse' smart constructor.

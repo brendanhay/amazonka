@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -160,8 +161,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeMaintenanceWindowsForTargetResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "WindowIdentities"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "WindowIdentities"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -190,45 +191,45 @@ instance
       `Prelude.seq` Prelude.rnf resourceType
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeMaintenanceWindowsForTarget
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribeMaintenanceWindowsForTarget" ::
+              Data.=# ( "AmazonSSM.DescribeMaintenanceWindowsForTarget" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeMaintenanceWindowsForTarget
   where
   toJSON DescribeMaintenanceWindowsForTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Targets" Core..= targets),
-            Prelude.Just ("ResourceType" Core..= resourceType)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Targets" Data..= targets),
+            Prelude.Just ("ResourceType" Data..= resourceType)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeMaintenanceWindowsForTarget
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeMaintenanceWindowsForTarget
   where
   toQuery = Prelude.const Prelude.mempty

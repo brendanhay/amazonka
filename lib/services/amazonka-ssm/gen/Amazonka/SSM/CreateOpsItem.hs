@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,10 +97,10 @@ data CreateOpsItem = CreateOpsItem'
     severity :: Prelude.Maybe Prelude.Text,
     -- | The time specified in a change request for a runbook workflow to start.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedStartTime :: Prelude.Maybe Core.POSIX,
+    plannedStartTime :: Prelude.Maybe Data.POSIX,
     -- | The time specified in a change request for a runbook workflow to end.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedEndTime :: Prelude.Maybe Core.POSIX,
+    plannedEndTime :: Prelude.Maybe Data.POSIX,
     -- | The target Amazon Web Services account where you want to create an
     -- OpsItem. To make this call, your account must be configured to work with
     -- OpsItems across accounts. For more information, see
@@ -155,10 +156,10 @@ data CreateOpsItem = CreateOpsItem'
     operationalData :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue),
     -- | The time a runbook workflow started. Currently reported only for the
     -- OpsItem type @\/aws\/changerequest@.
-    actualStartTime :: Prelude.Maybe Core.POSIX,
+    actualStartTime :: Prelude.Maybe Data.POSIX,
     -- | The time a runbook workflow ended. Currently reported only for the
     -- OpsItem type @\/aws\/changerequest@.
-    actualEndTime :: Prelude.Maybe Core.POSIX,
+    actualEndTime :: Prelude.Maybe Data.POSIX,
     -- | One or more OpsItems that share something in common with the current
     -- OpsItems. For example, related OpsItems can include OpsItems with
     -- similar error messages, impacted resources, or statuses for the impacted
@@ -341,12 +342,12 @@ createOpsItem_severity = Lens.lens (\CreateOpsItem' {severity} -> severity) (\s@
 -- | The time specified in a change request for a runbook workflow to start.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
 createOpsItem_plannedStartTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
-createOpsItem_plannedStartTime = Lens.lens (\CreateOpsItem' {plannedStartTime} -> plannedStartTime) (\s@CreateOpsItem' {} a -> s {plannedStartTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Core._Time
+createOpsItem_plannedStartTime = Lens.lens (\CreateOpsItem' {plannedStartTime} -> plannedStartTime) (\s@CreateOpsItem' {} a -> s {plannedStartTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Data._Time
 
 -- | The time specified in a change request for a runbook workflow to end.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
 createOpsItem_plannedEndTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
-createOpsItem_plannedEndTime = Lens.lens (\CreateOpsItem' {plannedEndTime} -> plannedEndTime) (\s@CreateOpsItem' {} a -> s {plannedEndTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Core._Time
+createOpsItem_plannedEndTime = Lens.lens (\CreateOpsItem' {plannedEndTime} -> plannedEndTime) (\s@CreateOpsItem' {} a -> s {plannedEndTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Data._Time
 
 -- | The target Amazon Web Services account where you want to create an
 -- OpsItem. To make this call, your account must be configured to work with
@@ -414,12 +415,12 @@ createOpsItem_operationalData = Lens.lens (\CreateOpsItem' {operationalData} -> 
 -- | The time a runbook workflow started. Currently reported only for the
 -- OpsItem type @\/aws\/changerequest@.
 createOpsItem_actualStartTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
-createOpsItem_actualStartTime = Lens.lens (\CreateOpsItem' {actualStartTime} -> actualStartTime) (\s@CreateOpsItem' {} a -> s {actualStartTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Core._Time
+createOpsItem_actualStartTime = Lens.lens (\CreateOpsItem' {actualStartTime} -> actualStartTime) (\s@CreateOpsItem' {} a -> s {actualStartTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Data._Time
 
 -- | The time a runbook workflow ended. Currently reported only for the
 -- OpsItem type @\/aws\/changerequest@.
 createOpsItem_actualEndTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
-createOpsItem_actualEndTime = Lens.lens (\CreateOpsItem' {actualEndTime} -> actualEndTime) (\s@CreateOpsItem' {} a -> s {actualEndTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Core._Time
+createOpsItem_actualEndTime = Lens.lens (\CreateOpsItem' {actualEndTime} -> actualEndTime) (\s@CreateOpsItem' {} a -> s {actualEndTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Data._Time
 
 -- | One or more OpsItems that share something in common with the current
 -- OpsItems. For example, related OpsItems can include OpsItems with
@@ -454,8 +455,8 @@ instance Core.AWSRequest CreateOpsItem where
     Response.receiveJSON
       ( \s h x ->
           CreateOpsItemResponse'
-            Prelude.<$> (x Core..?> "OpsItemArn")
-            Prelude.<*> (x Core..?> "OpsItemId")
+            Prelude.<$> (x Data..?> "OpsItemArn")
+            Prelude.<*> (x Data..?> "OpsItemId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -497,51 +498,51 @@ instance Prelude.NFData CreateOpsItem where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf title
 
-instance Core.ToHeaders CreateOpsItem where
+instance Data.ToHeaders CreateOpsItem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.CreateOpsItem" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.CreateOpsItem" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateOpsItem where
+instance Data.ToJSON CreateOpsItem where
   toJSON CreateOpsItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Notifications" Core..=) Prelude.<$> notifications,
-            ("Severity" Core..=) Prelude.<$> severity,
-            ("PlannedStartTime" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Notifications" Data..=) Prelude.<$> notifications,
+            ("Severity" Data..=) Prelude.<$> severity,
+            ("PlannedStartTime" Data..=)
               Prelude.<$> plannedStartTime,
-            ("PlannedEndTime" Core..=)
+            ("PlannedEndTime" Data..=)
               Prelude.<$> plannedEndTime,
-            ("AccountId" Core..=) Prelude.<$> accountId,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("OpsItemType" Core..=) Prelude.<$> opsItemType,
-            ("Category" Core..=) Prelude.<$> category,
-            ("OperationalData" Core..=)
+            ("AccountId" Data..=) Prelude.<$> accountId,
+            ("Priority" Data..=) Prelude.<$> priority,
+            ("OpsItemType" Data..=) Prelude.<$> opsItemType,
+            ("Category" Data..=) Prelude.<$> category,
+            ("OperationalData" Data..=)
               Prelude.<$> operationalData,
-            ("ActualStartTime" Core..=)
+            ("ActualStartTime" Data..=)
               Prelude.<$> actualStartTime,
-            ("ActualEndTime" Core..=) Prelude.<$> actualEndTime,
-            ("RelatedOpsItems" Core..=)
+            ("ActualEndTime" Data..=) Prelude.<$> actualEndTime,
+            ("RelatedOpsItems" Data..=)
               Prelude.<$> relatedOpsItems,
-            Prelude.Just ("Description" Core..= description),
-            Prelude.Just ("Source" Core..= source),
-            Prelude.Just ("Title" Core..= title)
+            Prelude.Just ("Description" Data..= description),
+            Prelude.Just ("Source" Data..= source),
+            Prelude.Just ("Title" Data..= title)
           ]
       )
 
-instance Core.ToPath CreateOpsItem where
+instance Data.ToPath CreateOpsItem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateOpsItem where
+instance Data.ToQuery CreateOpsItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOpsItemResponse' smart constructor.

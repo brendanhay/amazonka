@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InstancePatchState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.PatchOperationType
 import Amazonka.SSM.Types.RebootOption
@@ -51,7 +52,7 @@ data InstancePatchState = InstancePatchState'
     rebootOption :: Prelude.Maybe RebootOption,
     -- | The time of the last attempt to patch the managed node with @NoReboot@
     -- specified as the reboot option.
-    lastNoRebootInstallOperationTime :: Prelude.Maybe Core.POSIX,
+    lastNoRebootInstallOperationTime :: Prelude.Maybe Data.POSIX,
     -- | The number of patches beyond the supported limit of @NotApplicableCount@
     -- that aren\'t reported by name to Inventory. Inventory is a capability of
     -- Amazon Web Services Systems Manager.
@@ -95,7 +96,7 @@ data InstancePatchState = InstancePatchState'
     notApplicableCount :: Prelude.Maybe Prelude.Int,
     -- | Placeholder information. This field will always be empty in the current
     -- release of the service.
-    ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    ownerInformation :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The number of patches from the patch baseline that are applicable for
     -- the managed node but aren\'t currently installed.
     missingCount :: Prelude.Maybe Prelude.Int,
@@ -124,10 +125,10 @@ data InstancePatchState = InstancePatchState'
     baselineId :: Prelude.Text,
     -- | The time the most recent patching operation was started on the managed
     -- node.
-    operationStartTime :: Core.POSIX,
+    operationStartTime :: Data.POSIX,
     -- | The time the most recent patching operation completed on the managed
     -- node.
-    operationEndTime :: Core.POSIX,
+    operationEndTime :: Data.POSIX,
     -- | The type of patching operation that was performed: or
     --
     -- -   @SCAN@ assesses the patch compliance state.
@@ -289,9 +290,9 @@ newInstancePatchState
         patchGroup = pPatchGroup_,
         baselineId = pBaselineId_,
         operationStartTime =
-          Core._Time Lens.# pOperationStartTime_,
+          Data._Time Lens.# pOperationStartTime_,
         operationEndTime =
-          Core._Time Lens.# pOperationEndTime_,
+          Data._Time Lens.# pOperationEndTime_,
         operation = pOperation_
       }
 
@@ -319,7 +320,7 @@ instancePatchState_rebootOption = Lens.lens (\InstancePatchState' {rebootOption}
 -- | The time of the last attempt to patch the managed node with @NoReboot@
 -- specified as the reboot option.
 instancePatchState_lastNoRebootInstallOperationTime :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.UTCTime)
-instancePatchState_lastNoRebootInstallOperationTime = Lens.lens (\InstancePatchState' {lastNoRebootInstallOperationTime} -> lastNoRebootInstallOperationTime) (\s@InstancePatchState' {} a -> s {lastNoRebootInstallOperationTime = a} :: InstancePatchState) Prelude.. Lens.mapping Core._Time
+instancePatchState_lastNoRebootInstallOperationTime = Lens.lens (\InstancePatchState' {lastNoRebootInstallOperationTime} -> lastNoRebootInstallOperationTime) (\s@InstancePatchState' {} a -> s {lastNoRebootInstallOperationTime = a} :: InstancePatchState) Prelude.. Lens.mapping Data._Time
 
 -- | The number of patches beyond the supported limit of @NotApplicableCount@
 -- that aren\'t reported by name to Inventory. Inventory is a capability of
@@ -381,7 +382,7 @@ instancePatchState_notApplicableCount = Lens.lens (\InstancePatchState' {notAppl
 -- | Placeholder information. This field will always be empty in the current
 -- release of the service.
 instancePatchState_ownerInformation :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Text)
-instancePatchState_ownerInformation = Lens.lens (\InstancePatchState' {ownerInformation} -> ownerInformation) (\s@InstancePatchState' {} a -> s {ownerInformation = a} :: InstancePatchState) Prelude.. Lens.mapping Core._Sensitive
+instancePatchState_ownerInformation = Lens.lens (\InstancePatchState' {ownerInformation} -> ownerInformation) (\s@InstancePatchState' {} a -> s {ownerInformation = a} :: InstancePatchState) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The number of patches from the patch baseline that are applicable for
 -- the managed node but aren\'t currently installed.
@@ -426,12 +427,12 @@ instancePatchState_baselineId = Lens.lens (\InstancePatchState' {baselineId} -> 
 -- | The time the most recent patching operation was started on the managed
 -- node.
 instancePatchState_operationStartTime :: Lens.Lens' InstancePatchState Prelude.UTCTime
-instancePatchState_operationStartTime = Lens.lens (\InstancePatchState' {operationStartTime} -> operationStartTime) (\s@InstancePatchState' {} a -> s {operationStartTime = a} :: InstancePatchState) Prelude.. Core._Time
+instancePatchState_operationStartTime = Lens.lens (\InstancePatchState' {operationStartTime} -> operationStartTime) (\s@InstancePatchState' {} a -> s {operationStartTime = a} :: InstancePatchState) Prelude.. Data._Time
 
 -- | The time the most recent patching operation completed on the managed
 -- node.
 instancePatchState_operationEndTime :: Lens.Lens' InstancePatchState Prelude.UTCTime
-instancePatchState_operationEndTime = Lens.lens (\InstancePatchState' {operationEndTime} -> operationEndTime) (\s@InstancePatchState' {} a -> s {operationEndTime = a} :: InstancePatchState) Prelude.. Core._Time
+instancePatchState_operationEndTime = Lens.lens (\InstancePatchState' {operationEndTime} -> operationEndTime) (\s@InstancePatchState' {} a -> s {operationEndTime = a} :: InstancePatchState) Prelude.. Data._Time
 
 -- | The type of patching operation that was performed: or
 --
@@ -441,34 +442,34 @@ instancePatchState_operationEndTime = Lens.lens (\InstancePatchState' {operation
 instancePatchState_operation :: Lens.Lens' InstancePatchState PatchOperationType
 instancePatchState_operation = Lens.lens (\InstancePatchState' {operation} -> operation) (\s@InstancePatchState' {} a -> s {operation = a} :: InstancePatchState)
 
-instance Core.FromJSON InstancePatchState where
+instance Data.FromJSON InstancePatchState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstancePatchState"
       ( \x ->
           InstancePatchState'
-            Prelude.<$> (x Core..:? "InstalledOtherCount")
-            Prelude.<*> (x Core..:? "RebootOption")
-            Prelude.<*> (x Core..:? "LastNoRebootInstallOperationTime")
-            Prelude.<*> (x Core..:? "UnreportedNotApplicableCount")
-            Prelude.<*> (x Core..:? "FailedCount")
-            Prelude.<*> (x Core..:? "InstalledCount")
-            Prelude.<*> (x Core..:? "SnapshotId")
-            Prelude.<*> (x Core..:? "InstalledRejectedCount")
-            Prelude.<*> (x Core..:? "InstallOverrideList")
-            Prelude.<*> (x Core..:? "InstalledPendingRebootCount")
-            Prelude.<*> (x Core..:? "NotApplicableCount")
-            Prelude.<*> (x Core..:? "OwnerInformation")
-            Prelude.<*> (x Core..:? "MissingCount")
-            Prelude.<*> (x Core..:? "OtherNonCompliantCount")
-            Prelude.<*> (x Core..:? "SecurityNonCompliantCount")
-            Prelude.<*> (x Core..:? "CriticalNonCompliantCount")
-            Prelude.<*> (x Core..: "InstanceId")
-            Prelude.<*> (x Core..: "PatchGroup")
-            Prelude.<*> (x Core..: "BaselineId")
-            Prelude.<*> (x Core..: "OperationStartTime")
-            Prelude.<*> (x Core..: "OperationEndTime")
-            Prelude.<*> (x Core..: "Operation")
+            Prelude.<$> (x Data..:? "InstalledOtherCount")
+            Prelude.<*> (x Data..:? "RebootOption")
+            Prelude.<*> (x Data..:? "LastNoRebootInstallOperationTime")
+            Prelude.<*> (x Data..:? "UnreportedNotApplicableCount")
+            Prelude.<*> (x Data..:? "FailedCount")
+            Prelude.<*> (x Data..:? "InstalledCount")
+            Prelude.<*> (x Data..:? "SnapshotId")
+            Prelude.<*> (x Data..:? "InstalledRejectedCount")
+            Prelude.<*> (x Data..:? "InstallOverrideList")
+            Prelude.<*> (x Data..:? "InstalledPendingRebootCount")
+            Prelude.<*> (x Data..:? "NotApplicableCount")
+            Prelude.<*> (x Data..:? "OwnerInformation")
+            Prelude.<*> (x Data..:? "MissingCount")
+            Prelude.<*> (x Data..:? "OtherNonCompliantCount")
+            Prelude.<*> (x Data..:? "SecurityNonCompliantCount")
+            Prelude.<*> (x Data..:? "CriticalNonCompliantCount")
+            Prelude.<*> (x Data..: "InstanceId")
+            Prelude.<*> (x Data..: "PatchGroup")
+            Prelude.<*> (x Data..: "BaselineId")
+            Prelude.<*> (x Data..: "OperationStartTime")
+            Prelude.<*> (x Data..: "OperationEndTime")
+            Prelude.<*> (x Data..: "Operation")
       )
 
 instance Prelude.Hashable InstancePatchState where

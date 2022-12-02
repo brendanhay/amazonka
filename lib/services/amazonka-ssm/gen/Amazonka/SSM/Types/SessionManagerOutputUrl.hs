@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.SessionManagerOutputUrl where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reserved for future use.
@@ -62,14 +63,14 @@ sessionManagerOutputUrl_s3OutputUrl = Lens.lens (\SessionManagerOutputUrl' {s3Ou
 sessionManagerOutputUrl_cloudWatchOutputUrl :: Lens.Lens' SessionManagerOutputUrl (Prelude.Maybe Prelude.Text)
 sessionManagerOutputUrl_cloudWatchOutputUrl = Lens.lens (\SessionManagerOutputUrl' {cloudWatchOutputUrl} -> cloudWatchOutputUrl) (\s@SessionManagerOutputUrl' {} a -> s {cloudWatchOutputUrl = a} :: SessionManagerOutputUrl)
 
-instance Core.FromJSON SessionManagerOutputUrl where
+instance Data.FromJSON SessionManagerOutputUrl where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SessionManagerOutputUrl"
       ( \x ->
           SessionManagerOutputUrl'
-            Prelude.<$> (x Core..:? "S3OutputUrl")
-            Prelude.<*> (x Core..:? "CloudWatchOutputUrl")
+            Prelude.<$> (x Data..:? "S3OutputUrl")
+            Prelude.<*> (x Data..:? "CloudWatchOutputUrl")
       )
 
 instance Prelude.Hashable SessionManagerOutputUrl where

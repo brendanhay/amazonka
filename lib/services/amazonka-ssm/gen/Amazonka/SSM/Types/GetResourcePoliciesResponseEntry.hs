@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.GetResourcePoliciesResponseEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource policy helps you to define the IAM entity (for example, an
@@ -98,17 +99,17 @@ getResourcePoliciesResponseEntry_policyHash :: Lens.Lens' GetResourcePoliciesRes
 getResourcePoliciesResponseEntry_policyHash = Lens.lens (\GetResourcePoliciesResponseEntry' {policyHash} -> policyHash) (\s@GetResourcePoliciesResponseEntry' {} a -> s {policyHash = a} :: GetResourcePoliciesResponseEntry)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     GetResourcePoliciesResponseEntry
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GetResourcePoliciesResponseEntry"
       ( \x ->
           GetResourcePoliciesResponseEntry'
-            Prelude.<$> (x Core..:? "PolicyId")
-            Prelude.<*> (x Core..:? "Policy")
-            Prelude.<*> (x Core..:? "PolicyHash")
+            Prelude.<$> (x Data..:? "PolicyId")
+            Prelude.<*> (x Data..:? "Policy")
+            Prelude.<*> (x Data..:? "PolicyHash")
       )
 
 instance

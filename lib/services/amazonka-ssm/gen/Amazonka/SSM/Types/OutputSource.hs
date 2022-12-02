@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.OutputSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the source where the association execution details are
@@ -65,14 +66,14 @@ outputSource_outputSourceType = Lens.lens (\OutputSource' {outputSourceType} -> 
 outputSource_outputSourceId :: Lens.Lens' OutputSource (Prelude.Maybe Prelude.Text)
 outputSource_outputSourceId = Lens.lens (\OutputSource' {outputSourceId} -> outputSourceId) (\s@OutputSource' {} a -> s {outputSourceId = a} :: OutputSource)
 
-instance Core.FromJSON OutputSource where
+instance Data.FromJSON OutputSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputSource"
       ( \x ->
           OutputSource'
-            Prelude.<$> (x Core..:? "OutputSourceType")
-            Prelude.<*> (x Core..:? "OutputSourceId")
+            Prelude.<$> (x Data..:? "OutputSourceType")
+            Prelude.<*> (x Data..:? "OutputSourceId")
       )
 
 instance Prelude.Hashable OutputSource where

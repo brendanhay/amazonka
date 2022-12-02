@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,30 +96,30 @@ instance Prelude.Hashable DeleteActivation where
 instance Prelude.NFData DeleteActivation where
   rnf DeleteActivation' {..} = Prelude.rnf activationId
 
-instance Core.ToHeaders DeleteActivation where
+instance Data.ToHeaders DeleteActivation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DeleteActivation" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.DeleteActivation" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteActivation where
+instance Data.ToJSON DeleteActivation where
   toJSON DeleteActivation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ActivationId" Core..= activationId)]
+          [Prelude.Just ("ActivationId" Data..= activationId)]
       )
 
-instance Core.ToPath DeleteActivation where
+instance Data.ToPath DeleteActivation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteActivation where
+instance Data.ToQuery DeleteActivation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteActivationResponse' smart constructor.

@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,23 +172,23 @@ instance Core.AWSRequest GetCommandInvocation where
     Response.receiveJSON
       ( \s h x ->
           GetCommandInvocationResponse'
-            Prelude.<$> (x Core..?> "StatusDetails")
-            Prelude.<*> (x Core..?> "StandardErrorContent")
-            Prelude.<*> (x Core..?> "CloudWatchOutputConfig")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "StandardErrorUrl")
-            Prelude.<*> (x Core..?> "CommandId")
-            Prelude.<*> (x Core..?> "StandardOutputContent")
-            Prelude.<*> (x Core..?> "Comment")
-            Prelude.<*> (x Core..?> "InstanceId")
-            Prelude.<*> (x Core..?> "PluginName")
-            Prelude.<*> (x Core..?> "DocumentName")
-            Prelude.<*> (x Core..?> "ExecutionEndDateTime")
-            Prelude.<*> (x Core..?> "ExecutionStartDateTime")
-            Prelude.<*> (x Core..?> "ExecutionElapsedTime")
-            Prelude.<*> (x Core..?> "ResponseCode")
-            Prelude.<*> (x Core..?> "DocumentVersion")
-            Prelude.<*> (x Core..?> "StandardOutputUrl")
+            Prelude.<$> (x Data..?> "StatusDetails")
+            Prelude.<*> (x Data..?> "StandardErrorContent")
+            Prelude.<*> (x Data..?> "CloudWatchOutputConfig")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "StandardErrorUrl")
+            Prelude.<*> (x Data..?> "CommandId")
+            Prelude.<*> (x Data..?> "StandardOutputContent")
+            Prelude.<*> (x Data..?> "Comment")
+            Prelude.<*> (x Data..?> "InstanceId")
+            Prelude.<*> (x Data..?> "PluginName")
+            Prelude.<*> (x Data..?> "DocumentName")
+            Prelude.<*> (x Data..?> "ExecutionEndDateTime")
+            Prelude.<*> (x Data..?> "ExecutionStartDateTime")
+            Prelude.<*> (x Data..?> "ExecutionElapsedTime")
+            Prelude.<*> (x Data..?> "ResponseCode")
+            Prelude.<*> (x Data..?> "DocumentVersion")
+            Prelude.<*> (x Data..?> "StandardOutputUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,35 +204,35 @@ instance Prelude.NFData GetCommandInvocation where
       `Prelude.seq` Prelude.rnf commandId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders GetCommandInvocation where
+instance Data.ToHeaders GetCommandInvocation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.GetCommandInvocation" ::
+              Data.=# ( "AmazonSSM.GetCommandInvocation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCommandInvocation where
+instance Data.ToJSON GetCommandInvocation where
   toJSON GetCommandInvocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PluginName" Core..=) Prelude.<$> pluginName,
-            Prelude.Just ("CommandId" Core..= commandId),
-            Prelude.Just ("InstanceId" Core..= instanceId)
+          [ ("PluginName" Data..=) Prelude.<$> pluginName,
+            Prelude.Just ("CommandId" Data..= commandId),
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath GetCommandInvocation where
+instance Data.ToPath GetCommandInvocation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCommandInvocation where
+instance Data.ToQuery GetCommandInvocation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCommandInvocationResponse' smart constructor.

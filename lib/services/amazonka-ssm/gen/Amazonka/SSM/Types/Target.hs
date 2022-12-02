@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.Target where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An array of search criteria that targets managed nodes using a key-value
@@ -140,14 +141,14 @@ target_key = Lens.lens (\Target' {key} -> key) (\s@Target' {} a -> s {key = a} :
 target_values :: Lens.Lens' Target (Prelude.Maybe [Prelude.Text])
 target_values = Lens.lens (\Target' {values} -> values) (\s@Target' {} a -> s {values = a} :: Target) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Target where
+instance Data.FromJSON Target where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Target"
       ( \x ->
           Target'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Target where
@@ -159,11 +160,11 @@ instance Prelude.NFData Target where
   rnf Target' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON Target where
+instance Data.ToJSON Target where
   toJSON Target' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

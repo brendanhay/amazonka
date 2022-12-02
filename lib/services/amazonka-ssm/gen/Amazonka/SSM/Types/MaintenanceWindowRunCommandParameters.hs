@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.MaintenanceWindowRunCommandParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.CloudWatchOutputConfig
 import Amazonka.SSM.Types.DocumentHashType
@@ -87,7 +88,7 @@ data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParamete
     -- @--document-version \"3\"@
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The parameters for the @RUN_COMMAND@ task execution.
-    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text]))
+    parameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text]))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -213,28 +214,28 @@ maintenanceWindowRunCommandParameters_documentVersion = Lens.lens (\MaintenanceW
 
 -- | The parameters for the @RUN_COMMAND@ task execution.
 maintenanceWindowRunCommandParameters_parameters :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-maintenanceWindowRunCommandParameters_parameters = Lens.lens (\MaintenanceWindowRunCommandParameters' {parameters} -> parameters) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {parameters = a} :: MaintenanceWindowRunCommandParameters) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+maintenanceWindowRunCommandParameters_parameters = Lens.lens (\MaintenanceWindowRunCommandParameters' {parameters} -> parameters) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {parameters = a} :: MaintenanceWindowRunCommandParameters) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MaintenanceWindowRunCommandParameters
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MaintenanceWindowRunCommandParameters"
       ( \x ->
           MaintenanceWindowRunCommandParameters'
-            Prelude.<$> (x Core..:? "ServiceRoleArn")
-            Prelude.<*> (x Core..:? "TimeoutSeconds")
-            Prelude.<*> (x Core..:? "CloudWatchOutputConfig")
-            Prelude.<*> (x Core..:? "Comment")
-            Prelude.<*> (x Core..:? "NotificationConfig")
-            Prelude.<*> (x Core..:? "DocumentHashType")
-            Prelude.<*> (x Core..:? "OutputS3BucketName")
-            Prelude.<*> (x Core..:? "DocumentHash")
-            Prelude.<*> (x Core..:? "OutputS3KeyPrefix")
-            Prelude.<*> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ServiceRoleArn")
+            Prelude.<*> (x Data..:? "TimeoutSeconds")
+            Prelude.<*> (x Data..:? "CloudWatchOutputConfig")
+            Prelude.<*> (x Data..:? "Comment")
+            Prelude.<*> (x Data..:? "NotificationConfig")
+            Prelude.<*> (x Data..:? "DocumentHashType")
+            Prelude.<*> (x Data..:? "OutputS3BucketName")
+            Prelude.<*> (x Data..:? "DocumentHash")
+            Prelude.<*> (x Data..:? "OutputS3KeyPrefix")
+            Prelude.<*> (x Data..:? "DocumentVersion")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance
@@ -274,30 +275,30 @@ instance
       `Prelude.seq` Prelude.rnf parameters
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MaintenanceWindowRunCommandParameters
   where
   toJSON MaintenanceWindowRunCommandParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ServiceRoleArn" Core..=)
+          [ ("ServiceRoleArn" Data..=)
               Prelude.<$> serviceRoleArn,
-            ("TimeoutSeconds" Core..=)
+            ("TimeoutSeconds" Data..=)
               Prelude.<$> timeoutSeconds,
-            ("CloudWatchOutputConfig" Core..=)
+            ("CloudWatchOutputConfig" Data..=)
               Prelude.<$> cloudWatchOutputConfig,
-            ("Comment" Core..=) Prelude.<$> comment,
-            ("NotificationConfig" Core..=)
+            ("Comment" Data..=) Prelude.<$> comment,
+            ("NotificationConfig" Data..=)
               Prelude.<$> notificationConfig,
-            ("DocumentHashType" Core..=)
+            ("DocumentHashType" Data..=)
               Prelude.<$> documentHashType,
-            ("OutputS3BucketName" Core..=)
+            ("OutputS3BucketName" Data..=)
               Prelude.<$> outputS3BucketName,
-            ("DocumentHash" Core..=) Prelude.<$> documentHash,
-            ("OutputS3KeyPrefix" Core..=)
+            ("DocumentHash" Data..=) Prelude.<$> documentHash,
+            ("OutputS3KeyPrefix" Data..=)
               Prelude.<$> outputS3KeyPrefix,
-            ("DocumentVersion" Core..=)
+            ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            ("Parameters" Core..=) Prelude.<$> parameters
+            ("Parameters" Data..=) Prelude.<$> parameters
           ]
       )

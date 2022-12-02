@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +119,7 @@ instance Core.AWSRequest UpdateAssociationStatus where
     Response.receiveJSON
       ( \s h x ->
           UpdateAssociationStatusResponse'
-            Prelude.<$> (x Core..?> "AssociationDescription")
+            Prelude.<$> (x Data..?> "AssociationDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,36 +135,36 @@ instance Prelude.NFData UpdateAssociationStatus where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf associationStatus
 
-instance Core.ToHeaders UpdateAssociationStatus where
+instance Data.ToHeaders UpdateAssociationStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.UpdateAssociationStatus" ::
+              Data.=# ( "AmazonSSM.UpdateAssociationStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAssociationStatus where
+instance Data.ToJSON UpdateAssociationStatus where
   toJSON UpdateAssociationStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("InstanceId" Core..= instanceId),
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("InstanceId" Data..= instanceId),
             Prelude.Just
-              ("AssociationStatus" Core..= associationStatus)
+              ("AssociationStatus" Data..= associationStatus)
           ]
       )
 
-instance Core.ToPath UpdateAssociationStatus where
+instance Data.ToPath UpdateAssociationStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAssociationStatus where
+instance Data.ToQuery UpdateAssociationStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAssociationStatusResponse' smart constructor.

@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -327,10 +328,10 @@ instance Core.AWSRequest DescribeOpsItems where
     Response.receiveJSON
       ( \s h x ->
           DescribeOpsItemsResponse'
-            Prelude.<$> ( x Core..?> "OpsItemSummaries"
+            Prelude.<$> ( x Data..?> "OpsItemSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -346,34 +347,34 @@ instance Prelude.NFData DescribeOpsItems where
       `Prelude.seq` Prelude.rnf opsItemFilters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeOpsItems where
+instance Data.ToHeaders DescribeOpsItems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DescribeOpsItems" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.DescribeOpsItems" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeOpsItems where
+instance Data.ToJSON DescribeOpsItems where
   toJSON DescribeOpsItems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("OpsItemFilters" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("OpsItemFilters" Data..=)
               Prelude.<$> opsItemFilters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeOpsItems where
+instance Data.ToPath DescribeOpsItems where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeOpsItems where
+instance Data.ToQuery DescribeOpsItems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeOpsItemsResponse' smart constructor.

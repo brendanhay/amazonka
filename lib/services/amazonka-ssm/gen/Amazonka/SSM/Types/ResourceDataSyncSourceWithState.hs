@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ResourceDataSyncSourceWithState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.ResourceDataSyncAwsOrganizationsSource
 
@@ -185,20 +186,20 @@ resourceDataSyncSourceWithState_includeFutureRegions :: Lens.Lens' ResourceDataS
 resourceDataSyncSourceWithState_includeFutureRegions = Lens.lens (\ResourceDataSyncSourceWithState' {includeFutureRegions} -> includeFutureRegions) (\s@ResourceDataSyncSourceWithState' {} a -> s {includeFutureRegions = a} :: ResourceDataSyncSourceWithState)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ResourceDataSyncSourceWithState
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceDataSyncSourceWithState"
       ( \x ->
           ResourceDataSyncSourceWithState'
-            Prelude.<$> (x Core..:? "EnableAllOpsDataSources")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..:? "SourceRegions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AwsOrganizationsSource")
-            Prelude.<*> (x Core..:? "IncludeFutureRegions")
+            Prelude.<$> (x Data..:? "EnableAllOpsDataSources")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..:? "SourceRegions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AwsOrganizationsSource")
+            Prelude.<*> (x Data..:? "IncludeFutureRegions")
       )
 
 instance

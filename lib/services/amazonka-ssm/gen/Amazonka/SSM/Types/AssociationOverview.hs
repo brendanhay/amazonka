@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AssociationOverview where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the association.
@@ -80,17 +81,17 @@ associationOverview_status = Lens.lens (\AssociationOverview' {status} -> status
 associationOverview_detailedStatus :: Lens.Lens' AssociationOverview (Prelude.Maybe Prelude.Text)
 associationOverview_detailedStatus = Lens.lens (\AssociationOverview' {detailedStatus} -> detailedStatus) (\s@AssociationOverview' {} a -> s {detailedStatus = a} :: AssociationOverview)
 
-instance Core.FromJSON AssociationOverview where
+instance Data.FromJSON AssociationOverview where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociationOverview"
       ( \x ->
           AssociationOverview'
-            Prelude.<$> ( x Core..:? "AssociationStatusAggregatedCount"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "AssociationStatusAggregatedCount"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DetailedStatus")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DetailedStatus")
       )
 
 instance Prelude.Hashable AssociationOverview where

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,11 +60,11 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
     -- | An optional name for the target.
     name :: Prelude.Maybe Prelude.Text,
     -- | An optional description for the target.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | User-provided value that will be included in any Amazon CloudWatch
     -- Events events raised while running tasks for these targets in this
     -- maintenance window.
-    ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    ownerInformation :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the maintenance window the target should be registered with.
     windowId :: Prelude.Text,
     -- | The type of target being registered with the maintenance window.
@@ -204,13 +205,13 @@ registerTargetWithMaintenanceWindow_name = Lens.lens (\RegisterTargetWithMainten
 
 -- | An optional description for the target.
 registerTargetWithMaintenanceWindow_description :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
-registerTargetWithMaintenanceWindow_description = Lens.lens (\RegisterTargetWithMaintenanceWindow' {description} -> description) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {description = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
+registerTargetWithMaintenanceWindow_description = Lens.lens (\RegisterTargetWithMaintenanceWindow' {description} -> description) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {description = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Data._Sensitive
 
 -- | User-provided value that will be included in any Amazon CloudWatch
 -- Events events raised while running tasks for these targets in this
 -- maintenance window.
 registerTargetWithMaintenanceWindow_ownerInformation :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
-registerTargetWithMaintenanceWindow_ownerInformation = Lens.lens (\RegisterTargetWithMaintenanceWindow' {ownerInformation} -> ownerInformation) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {ownerInformation = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
+registerTargetWithMaintenanceWindow_ownerInformation = Lens.lens (\RegisterTargetWithMaintenanceWindow' {ownerInformation} -> ownerInformation) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {ownerInformation = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the maintenance window the target should be registered with.
 registerTargetWithMaintenanceWindow_windowId :: Lens.Lens' RegisterTargetWithMaintenanceWindow Prelude.Text
@@ -276,7 +277,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           RegisterTargetWithMaintenanceWindowResponse'
-            Prelude.<$> (x Core..?> "WindowTargetId")
+            Prelude.<$> (x Data..?> "WindowTargetId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -309,49 +310,49 @@ instance
       `Prelude.seq` Prelude.rnf targets
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RegisterTargetWithMaintenanceWindow
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.RegisterTargetWithMaintenanceWindow" ::
+              Data.=# ( "AmazonSSM.RegisterTargetWithMaintenanceWindow" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RegisterTargetWithMaintenanceWindow
   where
   toJSON RegisterTargetWithMaintenanceWindow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description,
-            ("OwnerInformation" Core..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Name" Data..=) Prelude.<$> name,
+            ("Description" Data..=) Prelude.<$> description,
+            ("OwnerInformation" Data..=)
               Prelude.<$> ownerInformation,
-            Prelude.Just ("WindowId" Core..= windowId),
-            Prelude.Just ("ResourceType" Core..= resourceType),
-            Prelude.Just ("Targets" Core..= targets)
+            Prelude.Just ("WindowId" Data..= windowId),
+            Prelude.Just ("ResourceType" Data..= resourceType),
+            Prelude.Just ("Targets" Data..= targets)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     RegisterTargetWithMaintenanceWindow
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     RegisterTargetWithMaintenanceWindow
   where
   toQuery = Prelude.const Prelude.mempty

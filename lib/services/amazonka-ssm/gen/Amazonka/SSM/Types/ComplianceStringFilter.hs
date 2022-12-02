@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ComplianceStringFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.ComplianceQueryOperatorType
 
@@ -87,12 +88,12 @@ instance Prelude.NFData ComplianceStringFilter where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON ComplianceStringFilter where
+instance Data.ToJSON ComplianceStringFilter where
   toJSON ComplianceStringFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

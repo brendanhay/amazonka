@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,7 +95,7 @@ data UpdateMaintenanceWindow = UpdateMaintenanceWindow'
     -- run.
     endDate :: Prelude.Maybe Prelude.Text,
     -- | An optional description for the update request.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Whether the maintenance window is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The duration of the maintenance window in hours.
@@ -235,7 +236,7 @@ updateMaintenanceWindow_endDate = Lens.lens (\UpdateMaintenanceWindow' {endDate}
 
 -- | An optional description for the update request.
 updateMaintenanceWindow_description :: Lens.Lens' UpdateMaintenanceWindow (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindow_description = Lens.lens (\UpdateMaintenanceWindow' {description} -> description) (\s@UpdateMaintenanceWindow' {} a -> s {description = a} :: UpdateMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
+updateMaintenanceWindow_description = Lens.lens (\UpdateMaintenanceWindow' {description} -> description) (\s@UpdateMaintenanceWindow' {} a -> s {description = a} :: UpdateMaintenanceWindow) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Whether the maintenance window is enabled.
 updateMaintenanceWindow_enabled :: Lens.Lens' UpdateMaintenanceWindow (Prelude.Maybe Prelude.Bool)
@@ -298,18 +299,18 @@ instance Core.AWSRequest UpdateMaintenanceWindow where
     Response.receiveJSON
       ( \s h x ->
           UpdateMaintenanceWindowResponse'
-            Prelude.<$> (x Core..?> "Schedule")
-            Prelude.<*> (x Core..?> "Cutoff")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "EndDate")
-            Prelude.<*> (x Core..?> "WindowId")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "Enabled")
-            Prelude.<*> (x Core..?> "Duration")
-            Prelude.<*> (x Core..?> "ScheduleTimezone")
-            Prelude.<*> (x Core..?> "ScheduleOffset")
-            Prelude.<*> (x Core..?> "StartDate")
-            Prelude.<*> (x Core..?> "AllowUnassociatedTargets")
+            Prelude.<$> (x Data..?> "Schedule")
+            Prelude.<*> (x Data..?> "Cutoff")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "EndDate")
+            Prelude.<*> (x Data..?> "WindowId")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "Enabled")
+            Prelude.<*> (x Data..?> "Duration")
+            Prelude.<*> (x Data..?> "ScheduleTimezone")
+            Prelude.<*> (x Data..?> "ScheduleOffset")
+            Prelude.<*> (x Data..?> "StartDate")
+            Prelude.<*> (x Data..?> "AllowUnassociatedTargets")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -345,48 +346,48 @@ instance Prelude.NFData UpdateMaintenanceWindow where
       `Prelude.seq` Prelude.rnf allowUnassociatedTargets
       `Prelude.seq` Prelude.rnf windowId
 
-instance Core.ToHeaders UpdateMaintenanceWindow where
+instance Data.ToHeaders UpdateMaintenanceWindow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.UpdateMaintenanceWindow" ::
+              Data.=# ( "AmazonSSM.UpdateMaintenanceWindow" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMaintenanceWindow where
+instance Data.ToJSON UpdateMaintenanceWindow where
   toJSON UpdateMaintenanceWindow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Schedule" Core..=) Prelude.<$> schedule,
-            ("Cutoff" Core..=) Prelude.<$> cutoff,
-            ("Name" Core..=) Prelude.<$> name,
-            ("EndDate" Core..=) Prelude.<$> endDate,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("Duration" Core..=) Prelude.<$> duration,
-            ("ScheduleTimezone" Core..=)
+          [ ("Schedule" Data..=) Prelude.<$> schedule,
+            ("Cutoff" Data..=) Prelude.<$> cutoff,
+            ("Name" Data..=) Prelude.<$> name,
+            ("EndDate" Data..=) Prelude.<$> endDate,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("Duration" Data..=) Prelude.<$> duration,
+            ("ScheduleTimezone" Data..=)
               Prelude.<$> scheduleTimezone,
-            ("ScheduleOffset" Core..=)
+            ("ScheduleOffset" Data..=)
               Prelude.<$> scheduleOffset,
-            ("StartDate" Core..=) Prelude.<$> startDate,
-            ("Replace" Core..=) Prelude.<$> replace,
-            ("AllowUnassociatedTargets" Core..=)
+            ("StartDate" Data..=) Prelude.<$> startDate,
+            ("Replace" Data..=) Prelude.<$> replace,
+            ("AllowUnassociatedTargets" Data..=)
               Prelude.<$> allowUnassociatedTargets,
-            Prelude.Just ("WindowId" Core..= windowId)
+            Prelude.Just ("WindowId" Data..= windowId)
           ]
       )
 
-instance Core.ToPath UpdateMaintenanceWindow where
+instance Data.ToPath UpdateMaintenanceWindow where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateMaintenanceWindow where
+instance Data.ToQuery UpdateMaintenanceWindow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMaintenanceWindowResponse' smart constructor.
@@ -406,7 +407,7 @@ data UpdateMaintenanceWindowResponse = UpdateMaintenanceWindowResponse'
     -- | The ID of the created maintenance window.
     windowId :: Prelude.Maybe Prelude.Text,
     -- | An optional description of the update.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Whether the maintenance window is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The duration of the maintenance window in hours.
@@ -527,7 +528,7 @@ updateMaintenanceWindowResponse_windowId = Lens.lens (\UpdateMaintenanceWindowRe
 
 -- | An optional description of the update.
 updateMaintenanceWindowResponse_description :: Lens.Lens' UpdateMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowResponse_description = Lens.lens (\UpdateMaintenanceWindowResponse' {description} -> description) (\s@UpdateMaintenanceWindowResponse' {} a -> s {description = a} :: UpdateMaintenanceWindowResponse) Prelude.. Lens.mapping Core._Sensitive
+updateMaintenanceWindowResponse_description = Lens.lens (\UpdateMaintenanceWindowResponse' {description} -> description) (\s@UpdateMaintenanceWindowResponse' {} a -> s {description = a} :: UpdateMaintenanceWindowResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Whether the maintenance window is enabled.
 updateMaintenanceWindowResponse_enabled :: Lens.Lens' UpdateMaintenanceWindowResponse (Prelude.Maybe Prelude.Bool)

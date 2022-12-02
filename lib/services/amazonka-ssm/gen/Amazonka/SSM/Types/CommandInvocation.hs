@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.CommandInvocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.CloudWatchOutputConfig
 import Amazonka.SSM.Types.CommandInvocationStatus
@@ -91,7 +92,7 @@ data CommandInvocation = CommandInvocation'
     --     node but wasn\'t successful. The system retries again.
     statusDetails :: Prelude.Maybe Prelude.Text,
     -- | The time and date the request was sent to this managed node.
-    requestedDateTime :: Prelude.Maybe Core.POSIX,
+    requestedDateTime :: Prelude.Maybe Data.POSIX,
     -- | Amazon CloudWatch Logs information where you want Amazon Web Services
     -- Systems Manager to send the command output.
     cloudWatchOutputConfig :: Prelude.Maybe CloudWatchOutputConfig,
@@ -315,7 +316,7 @@ commandInvocation_statusDetails = Lens.lens (\CommandInvocation' {statusDetails}
 
 -- | The time and date the request was sent to this managed node.
 commandInvocation_requestedDateTime :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.UTCTime)
-commandInvocation_requestedDateTime = Lens.lens (\CommandInvocation' {requestedDateTime} -> requestedDateTime) (\s@CommandInvocation' {} a -> s {requestedDateTime = a} :: CommandInvocation) Prelude.. Lens.mapping Core._Time
+commandInvocation_requestedDateTime = Lens.lens (\CommandInvocation' {requestedDateTime} -> requestedDateTime) (\s@CommandInvocation' {} a -> s {requestedDateTime = a} :: CommandInvocation) Prelude.. Lens.mapping Data._Time
 
 -- | Amazon CloudWatch Logs information where you want Amazon Web Services
 -- Systems Manager to send the command output.
@@ -377,28 +378,28 @@ commandInvocation_documentVersion = Lens.lens (\CommandInvocation' {documentVers
 commandInvocation_standardOutputUrl :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_standardOutputUrl = Lens.lens (\CommandInvocation' {standardOutputUrl} -> standardOutputUrl) (\s@CommandInvocation' {} a -> s {standardOutputUrl = a} :: CommandInvocation)
 
-instance Core.FromJSON CommandInvocation where
+instance Data.FromJSON CommandInvocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CommandInvocation"
       ( \x ->
           CommandInvocation'
-            Prelude.<$> (x Core..:? "CommandPlugins" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "InstanceName")
-            Prelude.<*> (x Core..:? "StatusDetails")
-            Prelude.<*> (x Core..:? "RequestedDateTime")
-            Prelude.<*> (x Core..:? "CloudWatchOutputConfig")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "TraceOutput")
-            Prelude.<*> (x Core..:? "StandardErrorUrl")
-            Prelude.<*> (x Core..:? "ServiceRole")
-            Prelude.<*> (x Core..:? "CommandId")
-            Prelude.<*> (x Core..:? "Comment")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "DocumentName")
-            Prelude.<*> (x Core..:? "NotificationConfig")
-            Prelude.<*> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "StandardOutputUrl")
+            Prelude.<$> (x Data..:? "CommandPlugins" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "InstanceName")
+            Prelude.<*> (x Data..:? "StatusDetails")
+            Prelude.<*> (x Data..:? "RequestedDateTime")
+            Prelude.<*> (x Data..:? "CloudWatchOutputConfig")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "TraceOutput")
+            Prelude.<*> (x Data..:? "StandardErrorUrl")
+            Prelude.<*> (x Data..:? "ServiceRole")
+            Prelude.<*> (x Data..:? "CommandId")
+            Prelude.<*> (x Data..:? "Comment")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "DocumentName")
+            Prelude.<*> (x Data..:? "NotificationConfig")
+            Prelude.<*> (x Data..:? "DocumentVersion")
+            Prelude.<*> (x Data..:? "StandardOutputUrl")
       )
 
 instance Prelude.Hashable CommandInvocation where

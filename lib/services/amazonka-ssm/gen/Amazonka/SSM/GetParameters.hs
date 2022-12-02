@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,10 +117,10 @@ instance Core.AWSRequest GetParameters where
       ( \s h x ->
           GetParametersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "InvalidParameters"
+            Prelude.<*> ( x Data..?> "InvalidParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetParameters where
@@ -132,33 +133,33 @@ instance Prelude.NFData GetParameters where
     Prelude.rnf withDecryption
       `Prelude.seq` Prelude.rnf names
 
-instance Core.ToHeaders GetParameters where
+instance Data.ToHeaders GetParameters where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetParameters" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.GetParameters" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetParameters where
+instance Data.ToJSON GetParameters where
   toJSON GetParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WithDecryption" Core..=)
+          [ ("WithDecryption" Data..=)
               Prelude.<$> withDecryption,
-            Prelude.Just ("Names" Core..= names)
+            Prelude.Just ("Names" Data..= names)
           ]
       )
 
-instance Core.ToPath GetParameters where
+instance Data.ToPath GetParameters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetParameters where
+instance Data.ToQuery GetParameters where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetParametersResponse' smart constructor.

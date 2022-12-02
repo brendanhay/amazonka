@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,8 +157,8 @@ instance Core.AWSRequest DescribeSessions where
     Response.receiveJSON
       ( \s h x ->
           DescribeSessionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Sessions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Sessions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,34 +176,34 @@ instance Prelude.NFData DescribeSessions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf state
 
-instance Core.ToHeaders DescribeSessions where
+instance Data.ToHeaders DescribeSessions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DescribeSessions" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.DescribeSessions" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSessions where
+instance Data.ToJSON DescribeSessions where
   toJSON DescribeSessions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("State" Core..= state)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("State" Data..= state)
           ]
       )
 
-instance Core.ToPath DescribeSessions where
+instance Data.ToPath DescribeSessions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSessions where
+instance Data.ToQuery DescribeSessions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSessionsResponse' smart constructor.

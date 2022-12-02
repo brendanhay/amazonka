@@ -80,6 +80,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -233,7 +234,7 @@ data UpdateAssociation = UpdateAssociation'
     -- parameter using Parameter Store, a capability of Amazon Web Services
     -- Systems Manager, you can reference the parameter using
     -- @{{ssm:parameter-name}}@.
-    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
+    parameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
     -- | The ID of the association you want to update.
     associationId :: Prelude.Text
   }
@@ -609,7 +610,7 @@ updateAssociation_documentVersion = Lens.lens (\UpdateAssociation' {documentVers
 -- Systems Manager, you can reference the parameter using
 -- @{{ssm:parameter-name}}@.
 updateAssociation_parameters :: Lens.Lens' UpdateAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-updateAssociation_parameters = Lens.lens (\UpdateAssociation' {parameters} -> parameters) (\s@UpdateAssociation' {} a -> s {parameters = a} :: UpdateAssociation) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+updateAssociation_parameters = Lens.lens (\UpdateAssociation' {parameters} -> parameters) (\s@UpdateAssociation' {} a -> s {parameters = a} :: UpdateAssociation) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The ID of the association you want to update.
 updateAssociation_associationId :: Lens.Lens' UpdateAssociation Prelude.Text
@@ -625,7 +626,7 @@ instance Core.AWSRequest UpdateAssociation where
     Response.receiveJSON
       ( \s h x ->
           UpdateAssociationResponse'
-            Prelude.<$> (x Core..?> "AssociationDescription")
+            Prelude.<$> (x Data..?> "AssociationDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -675,66 +676,66 @@ instance Prelude.NFData UpdateAssociation where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf associationId
 
-instance Core.ToHeaders UpdateAssociation where
+instance Data.ToHeaders UpdateAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.UpdateAssociation" ::
+              Data.=# ( "AmazonSSM.UpdateAssociation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAssociation where
+instance Data.ToJSON UpdateAssociation where
   toJSON UpdateAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AssociationName" Core..=)
+          [ ("AssociationName" Data..=)
               Prelude.<$> associationName,
-            ("Name" Core..=) Prelude.<$> name,
-            ("AssociationVersion" Core..=)
+            ("Name" Data..=) Prelude.<$> name,
+            ("AssociationVersion" Data..=)
               Prelude.<$> associationVersion,
-            ("TargetLocations" Core..=)
+            ("TargetLocations" Data..=)
               Prelude.<$> targetLocations,
-            ("AutomationTargetParameterName" Core..=)
+            ("AutomationTargetParameterName" Data..=)
               Prelude.<$> automationTargetParameterName,
-            ("TargetMaps" Core..=) Prelude.<$> targetMaps,
-            ("OutputLocation" Core..=)
+            ("TargetMaps" Data..=) Prelude.<$> targetMaps,
+            ("OutputLocation" Data..=)
               Prelude.<$> outputLocation,
-            ("Targets" Core..=) Prelude.<$> targets,
-            ("CalendarNames" Core..=) Prelude.<$> calendarNames,
-            ("ScheduleExpression" Core..=)
+            ("Targets" Data..=) Prelude.<$> targets,
+            ("CalendarNames" Data..=) Prelude.<$> calendarNames,
+            ("ScheduleExpression" Data..=)
               Prelude.<$> scheduleExpression,
-            ("ScheduleOffset" Core..=)
+            ("ScheduleOffset" Data..=)
               Prelude.<$> scheduleOffset,
-            ("AlarmConfiguration" Core..=)
+            ("AlarmConfiguration" Data..=)
               Prelude.<$> alarmConfiguration,
-            ("MaxConcurrency" Core..=)
+            ("MaxConcurrency" Data..=)
               Prelude.<$> maxConcurrency,
-            ("ApplyOnlyAtCronInterval" Core..=)
+            ("ApplyOnlyAtCronInterval" Data..=)
               Prelude.<$> applyOnlyAtCronInterval,
-            ("MaxErrors" Core..=) Prelude.<$> maxErrors,
-            ("ComplianceSeverity" Core..=)
+            ("MaxErrors" Data..=) Prelude.<$> maxErrors,
+            ("ComplianceSeverity" Data..=)
               Prelude.<$> complianceSeverity,
-            ("SyncCompliance" Core..=)
+            ("SyncCompliance" Data..=)
               Prelude.<$> syncCompliance,
-            ("DocumentVersion" Core..=)
+            ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            ("Parameters" Core..=) Prelude.<$> parameters,
+            ("Parameters" Data..=) Prelude.<$> parameters,
             Prelude.Just
-              ("AssociationId" Core..= associationId)
+              ("AssociationId" Data..= associationId)
           ]
       )
 
-instance Core.ToPath UpdateAssociation where
+instance Data.ToPath UpdateAssociation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAssociation where
+instance Data.ToQuery UpdateAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAssociationResponse' smart constructor.

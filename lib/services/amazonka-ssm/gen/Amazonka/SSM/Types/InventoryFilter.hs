@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InventoryFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.InventoryQueryOperatorType
 
@@ -109,12 +110,12 @@ instance Prelude.NFData InventoryFilter where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON InventoryFilter where
+instance Data.ToJSON InventoryFilter where
   toJSON InventoryFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Values" Core..= values)
+          [ ("Type" Data..=) Prelude.<$> type',
+            Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

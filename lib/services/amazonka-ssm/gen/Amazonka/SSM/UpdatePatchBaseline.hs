@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -300,24 +301,24 @@ instance Core.AWSRequest UpdatePatchBaseline where
     Response.receiveJSON
       ( \s h x ->
           UpdatePatchBaselineResponse'
-            Prelude.<$> (x Core..?> "OperatingSystem")
-            Prelude.<*> ( x Core..?> "ApprovedPatches"
+            Prelude.<$> (x Data..?> "OperatingSystem")
+            Prelude.<*> ( x Data..?> "ApprovedPatches"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ApprovedPatchesComplianceLevel")
-            Prelude.<*> (x Core..?> "Sources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "BaselineId")
-            Prelude.<*> (x Core..?> "ApprovalRules")
-            Prelude.<*> (x Core..?> "RejectedPatchesAction")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "GlobalFilters")
-            Prelude.<*> (x Core..?> "CreatedDate")
-            Prelude.<*> ( x Core..?> "RejectedPatches"
+            Prelude.<*> (x Data..?> "ApprovedPatchesComplianceLevel")
+            Prelude.<*> (x Data..?> "Sources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "BaselineId")
+            Prelude.<*> (x Data..?> "ApprovalRules")
+            Prelude.<*> (x Data..?> "RejectedPatchesAction")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "GlobalFilters")
+            Prelude.<*> (x Data..?> "CreatedDate")
+            Prelude.<*> ( x Data..?> "RejectedPatches"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ApprovedPatchesEnableNonSecurity")
-            Prelude.<*> (x Core..?> "ModifiedDate")
+            Prelude.<*> (x Data..?> "ApprovedPatchesEnableNonSecurity")
+            Prelude.<*> (x Data..?> "ModifiedDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -351,49 +352,49 @@ instance Prelude.NFData UpdatePatchBaseline where
       `Prelude.seq` Prelude.rnf replace
       `Prelude.seq` Prelude.rnf baselineId
 
-instance Core.ToHeaders UpdatePatchBaseline where
+instance Data.ToHeaders UpdatePatchBaseline where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.UpdatePatchBaseline" ::
+              Data.=# ( "AmazonSSM.UpdatePatchBaseline" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePatchBaseline where
+instance Data.ToJSON UpdatePatchBaseline where
   toJSON UpdatePatchBaseline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ApprovedPatches" Core..=)
+          [ ("ApprovedPatches" Data..=)
               Prelude.<$> approvedPatches,
-            ("ApprovedPatchesComplianceLevel" Core..=)
+            ("ApprovedPatchesComplianceLevel" Data..=)
               Prelude.<$> approvedPatchesComplianceLevel,
-            ("Sources" Core..=) Prelude.<$> sources,
-            ("Name" Core..=) Prelude.<$> name,
-            ("ApprovalRules" Core..=) Prelude.<$> approvalRules,
-            ("RejectedPatchesAction" Core..=)
+            ("Sources" Data..=) Prelude.<$> sources,
+            ("Name" Data..=) Prelude.<$> name,
+            ("ApprovalRules" Data..=) Prelude.<$> approvalRules,
+            ("RejectedPatchesAction" Data..=)
               Prelude.<$> rejectedPatchesAction,
-            ("Description" Core..=) Prelude.<$> description,
-            ("GlobalFilters" Core..=) Prelude.<$> globalFilters,
-            ("RejectedPatches" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("GlobalFilters" Data..=) Prelude.<$> globalFilters,
+            ("RejectedPatches" Data..=)
               Prelude.<$> rejectedPatches,
-            ("ApprovedPatchesEnableNonSecurity" Core..=)
+            ("ApprovedPatchesEnableNonSecurity" Data..=)
               Prelude.<$> approvedPatchesEnableNonSecurity,
-            ("Replace" Core..=) Prelude.<$> replace,
-            Prelude.Just ("BaselineId" Core..= baselineId)
+            ("Replace" Data..=) Prelude.<$> replace,
+            Prelude.Just ("BaselineId" Data..= baselineId)
           ]
       )
 
-instance Core.ToPath UpdatePatchBaseline where
+instance Data.ToPath UpdatePatchBaseline where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdatePatchBaseline where
+instance Data.ToQuery UpdatePatchBaseline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePatchBaselineResponse' smart constructor.
@@ -425,7 +426,7 @@ data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
     -- | A set of global filters used to exclude patches from the baseline.
     globalFilters :: Prelude.Maybe PatchFilterGroup,
     -- | The date when the patch baseline was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | A list of explicitly rejected patches for the baseline.
     rejectedPatches :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether the list of approved patches includes non-security
@@ -433,7 +434,7 @@ data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
     -- is @false@. Applies to Linux managed nodes only.
     approvedPatchesEnableNonSecurity :: Prelude.Maybe Prelude.Bool,
     -- | The date when the patch baseline was last modified.
-    modifiedDate :: Prelude.Maybe Core.POSIX,
+    modifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -558,7 +559,7 @@ updatePatchBaselineResponse_globalFilters = Lens.lens (\UpdatePatchBaselineRespo
 
 -- | The date when the patch baseline was created.
 updatePatchBaselineResponse_createdDate :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe Prelude.UTCTime)
-updatePatchBaselineResponse_createdDate = Lens.lens (\UpdatePatchBaselineResponse' {createdDate} -> createdDate) (\s@UpdatePatchBaselineResponse' {} a -> s {createdDate = a} :: UpdatePatchBaselineResponse) Prelude.. Lens.mapping Core._Time
+updatePatchBaselineResponse_createdDate = Lens.lens (\UpdatePatchBaselineResponse' {createdDate} -> createdDate) (\s@UpdatePatchBaselineResponse' {} a -> s {createdDate = a} :: UpdatePatchBaselineResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A list of explicitly rejected patches for the baseline.
 updatePatchBaselineResponse_rejectedPatches :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe [Prelude.Text])
@@ -572,7 +573,7 @@ updatePatchBaselineResponse_approvedPatchesEnableNonSecurity = Lens.lens (\Updat
 
 -- | The date when the patch baseline was last modified.
 updatePatchBaselineResponse_modifiedDate :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe Prelude.UTCTime)
-updatePatchBaselineResponse_modifiedDate = Lens.lens (\UpdatePatchBaselineResponse' {modifiedDate} -> modifiedDate) (\s@UpdatePatchBaselineResponse' {} a -> s {modifiedDate = a} :: UpdatePatchBaselineResponse) Prelude.. Lens.mapping Core._Time
+updatePatchBaselineResponse_modifiedDate = Lens.lens (\UpdatePatchBaselineResponse' {modifiedDate} -> modifiedDate) (\s@UpdatePatchBaselineResponse' {} a -> s {modifiedDate = a} :: UpdatePatchBaselineResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updatePatchBaselineResponse_httpStatus :: Lens.Lens' UpdatePatchBaselineResponse Prelude.Int

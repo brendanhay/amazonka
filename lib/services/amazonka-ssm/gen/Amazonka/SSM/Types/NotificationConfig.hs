@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.NotificationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.NotificationEvent
 import Amazonka.SSM.Types.NotificationType
@@ -109,16 +110,16 @@ notificationConfig_notificationArn = Lens.lens (\NotificationConfig' {notificati
 notificationConfig_notificationEvents :: Lens.Lens' NotificationConfig (Prelude.Maybe [NotificationEvent])
 notificationConfig_notificationEvents = Lens.lens (\NotificationConfig' {notificationEvents} -> notificationEvents) (\s@NotificationConfig' {} a -> s {notificationEvents = a} :: NotificationConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON NotificationConfig where
+instance Data.FromJSON NotificationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotificationConfig"
       ( \x ->
           NotificationConfig'
-            Prelude.<$> (x Core..:? "NotificationType")
-            Prelude.<*> (x Core..:? "NotificationArn")
-            Prelude.<*> ( x Core..:? "NotificationEvents"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "NotificationType")
+            Prelude.<*> (x Data..:? "NotificationArn")
+            Prelude.<*> ( x Data..:? "NotificationEvents"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -134,15 +135,15 @@ instance Prelude.NFData NotificationConfig where
       `Prelude.seq` Prelude.rnf notificationArn
       `Prelude.seq` Prelude.rnf notificationEvents
 
-instance Core.ToJSON NotificationConfig where
+instance Data.ToJSON NotificationConfig where
   toJSON NotificationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NotificationType" Core..=)
+          [ ("NotificationType" Data..=)
               Prelude.<$> notificationType,
-            ("NotificationArn" Core..=)
+            ("NotificationArn" Data..=)
               Prelude.<$> notificationArn,
-            ("NotificationEvents" Core..=)
+            ("NotificationEvents" Data..=)
               Prelude.<$> notificationEvents
           ]
       )

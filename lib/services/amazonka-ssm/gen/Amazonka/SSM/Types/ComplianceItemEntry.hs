@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ComplianceItemEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.ComplianceSeverity
 import Amazonka.SSM.Types.ComplianceStatus
@@ -128,14 +129,14 @@ instance Prelude.NFData ComplianceItemEntry where
       `Prelude.seq` Prelude.rnf severity
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToJSON ComplianceItemEntry where
+instance Data.ToJSON ComplianceItemEntry where
   toJSON ComplianceItemEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Id" Core..=) Prelude.<$> id,
-            ("Details" Core..=) Prelude.<$> details,
-            ("Title" Core..=) Prelude.<$> title,
-            Prelude.Just ("Severity" Core..= severity),
-            Prelude.Just ("Status" Core..= status)
+          [ ("Id" Data..=) Prelude.<$> id,
+            ("Details" Data..=) Prelude.<$> details,
+            ("Title" Data..=) Prelude.<$> title,
+            Prelude.Just ("Severity" Data..= severity),
+            Prelude.Just ("Status" Data..= status)
           ]
       )

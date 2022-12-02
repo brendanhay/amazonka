@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.MaintenanceWindowLambdaParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for a @LAMBDA@ task type.
@@ -52,7 +53,7 @@ data MaintenanceWindowLambdaParameters = MaintenanceWindowLambdaParameters'
     -- function as you choose through the context variable.
     clientContext :: Prelude.Maybe Prelude.Text,
     -- | JSON to provide to your Lambda function as input.
-    payload :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    payload :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | (Optional) Specify an Lambda function version or alias name. If you
     -- specify a function version, the operation uses the qualified function
     -- Amazon Resource Name (ARN) to invoke a specific Lambda function. If you
@@ -107,7 +108,7 @@ maintenanceWindowLambdaParameters_clientContext = Lens.lens (\MaintenanceWindowL
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 maintenanceWindowLambdaParameters_payload :: Lens.Lens' MaintenanceWindowLambdaParameters (Prelude.Maybe Prelude.ByteString)
-maintenanceWindowLambdaParameters_payload = Lens.lens (\MaintenanceWindowLambdaParameters' {payload} -> payload) (\s@MaintenanceWindowLambdaParameters' {} a -> s {payload = a} :: MaintenanceWindowLambdaParameters) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+maintenanceWindowLambdaParameters_payload = Lens.lens (\MaintenanceWindowLambdaParameters' {payload} -> payload) (\s@MaintenanceWindowLambdaParameters' {} a -> s {payload = a} :: MaintenanceWindowLambdaParameters) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | (Optional) Specify an Lambda function version or alias name. If you
 -- specify a function version, the operation uses the qualified function
@@ -118,17 +119,17 @@ maintenanceWindowLambdaParameters_qualifier :: Lens.Lens' MaintenanceWindowLambd
 maintenanceWindowLambdaParameters_qualifier = Lens.lens (\MaintenanceWindowLambdaParameters' {qualifier} -> qualifier) (\s@MaintenanceWindowLambdaParameters' {} a -> s {qualifier = a} :: MaintenanceWindowLambdaParameters)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MaintenanceWindowLambdaParameters
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MaintenanceWindowLambdaParameters"
       ( \x ->
           MaintenanceWindowLambdaParameters'
-            Prelude.<$> (x Core..:? "ClientContext")
-            Prelude.<*> (x Core..:? "Payload")
-            Prelude.<*> (x Core..:? "Qualifier")
+            Prelude.<$> (x Data..:? "ClientContext")
+            Prelude.<*> (x Data..:? "Payload")
+            Prelude.<*> (x Data..:? "Qualifier")
       )
 
 instance
@@ -152,14 +153,14 @@ instance
       `Prelude.seq` Prelude.rnf qualifier
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MaintenanceWindowLambdaParameters
   where
   toJSON MaintenanceWindowLambdaParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientContext" Core..=) Prelude.<$> clientContext,
-            ("Payload" Core..=) Prelude.<$> payload,
-            ("Qualifier" Core..=) Prelude.<$> qualifier
+          [ ("ClientContext" Data..=) Prelude.<$> clientContext,
+            ("Payload" Data..=) Prelude.<$> payload,
+            ("Qualifier" Data..=) Prelude.<$> qualifier
           ]
       )

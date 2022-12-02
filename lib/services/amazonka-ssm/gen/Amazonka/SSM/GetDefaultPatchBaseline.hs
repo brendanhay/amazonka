@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,8 +91,8 @@ instance Core.AWSRequest GetDefaultPatchBaseline where
     Response.receiveJSON
       ( \s h x ->
           GetDefaultPatchBaselineResponse'
-            Prelude.<$> (x Core..?> "OperatingSystem")
-            Prelude.<*> (x Core..?> "BaselineId")
+            Prelude.<$> (x Data..?> "OperatingSystem")
+            Prelude.<*> (x Data..?> "BaselineId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,34 +104,34 @@ instance Prelude.NFData GetDefaultPatchBaseline where
   rnf GetDefaultPatchBaseline' {..} =
     Prelude.rnf operatingSystem
 
-instance Core.ToHeaders GetDefaultPatchBaseline where
+instance Data.ToHeaders GetDefaultPatchBaseline where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.GetDefaultPatchBaseline" ::
+              Data.=# ( "AmazonSSM.GetDefaultPatchBaseline" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDefaultPatchBaseline where
+instance Data.ToJSON GetDefaultPatchBaseline where
   toJSON GetDefaultPatchBaseline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OperatingSystem" Core..=)
+          [ ("OperatingSystem" Data..=)
               Prelude.<$> operatingSystem
           ]
       )
 
-instance Core.ToPath GetDefaultPatchBaseline where
+instance Data.ToPath GetDefaultPatchBaseline where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDefaultPatchBaseline where
+instance Data.ToQuery GetDefaultPatchBaseline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDefaultPatchBaselineResponse' smart constructor.

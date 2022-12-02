@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,34 +110,34 @@ instance Prelude.NFData DeleteResourceDataSync where
     Prelude.rnf syncType
       `Prelude.seq` Prelude.rnf syncName
 
-instance Core.ToHeaders DeleteResourceDataSync where
+instance Data.ToHeaders DeleteResourceDataSync where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DeleteResourceDataSync" ::
+              Data.=# ( "AmazonSSM.DeleteResourceDataSync" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteResourceDataSync where
+instance Data.ToJSON DeleteResourceDataSync where
   toJSON DeleteResourceDataSync' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SyncType" Core..=) Prelude.<$> syncType,
-            Prelude.Just ("SyncName" Core..= syncName)
+          [ ("SyncType" Data..=) Prelude.<$> syncType,
+            Prelude.Just ("SyncName" Data..= syncName)
           ]
       )
 
-instance Core.ToPath DeleteResourceDataSync where
+instance Data.ToPath DeleteResourceDataSync where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteResourceDataSync where
+instance Data.ToQuery DeleteResourceDataSync where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourceDataSyncResponse' smart constructor.

@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,8 +146,8 @@ instance Core.AWSRequest LabelParameterVersion where
     Response.receiveJSON
       ( \s h x ->
           LabelParameterVersionResponse'
-            Prelude.<$> (x Core..?> "InvalidLabels")
-            Prelude.<*> (x Core..?> "ParameterVersion")
+            Prelude.<$> (x Data..?> "InvalidLabels")
+            Prelude.<*> (x Data..?> "ParameterVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,36 +163,36 @@ instance Prelude.NFData LabelParameterVersion where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf labels
 
-instance Core.ToHeaders LabelParameterVersion where
+instance Data.ToHeaders LabelParameterVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.LabelParameterVersion" ::
+              Data.=# ( "AmazonSSM.LabelParameterVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON LabelParameterVersion where
+instance Data.ToJSON LabelParameterVersion where
   toJSON LabelParameterVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ParameterVersion" Core..=)
+          [ ("ParameterVersion" Data..=)
               Prelude.<$> parameterVersion,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Labels" Core..= labels)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Labels" Data..= labels)
           ]
       )
 
-instance Core.ToPath LabelParameterVersion where
+instance Data.ToPath LabelParameterVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery LabelParameterVersion where
+instance Data.ToQuery LabelParameterVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newLabelParameterVersionResponse' smart constructor.

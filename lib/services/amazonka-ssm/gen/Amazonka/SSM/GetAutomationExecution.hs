@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ instance Core.AWSRequest GetAutomationExecution where
     Response.receiveJSON
       ( \s h x ->
           GetAutomationExecutionResponse'
-            Prelude.<$> (x Core..?> "AutomationExecution")
+            Prelude.<$> (x Data..?> "AutomationExecution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,36 +105,36 @@ instance Prelude.NFData GetAutomationExecution where
   rnf GetAutomationExecution' {..} =
     Prelude.rnf automationExecutionId
 
-instance Core.ToHeaders GetAutomationExecution where
+instance Data.ToHeaders GetAutomationExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.GetAutomationExecution" ::
+              Data.=# ( "AmazonSSM.GetAutomationExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAutomationExecution where
+instance Data.ToJSON GetAutomationExecution where
   toJSON GetAutomationExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "AutomationExecutionId"
-                  Core..= automationExecutionId
+                  Data..= automationExecutionId
               )
           ]
       )
 
-instance Core.ToPath GetAutomationExecution where
+instance Data.ToPath GetAutomationExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAutomationExecution where
+instance Data.ToQuery GetAutomationExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAutomationExecutionResponse' smart constructor.

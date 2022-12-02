@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,25 +96,25 @@ instance Core.AWSRequest DescribePatchGroupState where
     Response.receiveJSON
       ( \s h x ->
           DescribePatchGroupStateResponse'
-            Prelude.<$> (x Core..?> "Instances")
-            Prelude.<*> (x Core..?> "InstancesWithInstalledPatches")
+            Prelude.<$> (x Data..?> "Instances")
+            Prelude.<*> (x Data..?> "InstancesWithInstalledPatches")
             Prelude.<*> ( x
-                            Core..?> "InstancesWithUnreportedNotApplicablePatches"
+                            Data..?> "InstancesWithUnreportedNotApplicablePatches"
                         )
-            Prelude.<*> (x Core..?> "InstancesWithInstalledOtherPatches")
+            Prelude.<*> (x Data..?> "InstancesWithInstalledOtherPatches")
             Prelude.<*> ( x
-                            Core..?> "InstancesWithSecurityNonCompliantPatches"
+                            Data..?> "InstancesWithSecurityNonCompliantPatches"
                         )
-            Prelude.<*> (x Core..?> "InstancesWithFailedPatches")
-            Prelude.<*> (x Core..?> "InstancesWithOtherNonCompliantPatches")
-            Prelude.<*> (x Core..?> "InstancesWithNotApplicablePatches")
-            Prelude.<*> (x Core..?> "InstancesWithMissingPatches")
-            Prelude.<*> (x Core..?> "InstancesWithInstalledRejectedPatches")
+            Prelude.<*> (x Data..?> "InstancesWithFailedPatches")
+            Prelude.<*> (x Data..?> "InstancesWithOtherNonCompliantPatches")
+            Prelude.<*> (x Data..?> "InstancesWithNotApplicablePatches")
+            Prelude.<*> (x Data..?> "InstancesWithMissingPatches")
+            Prelude.<*> (x Data..?> "InstancesWithInstalledRejectedPatches")
             Prelude.<*> ( x
-                            Core..?> "InstancesWithCriticalNonCompliantPatches"
+                            Data..?> "InstancesWithCriticalNonCompliantPatches"
                         )
             Prelude.<*> ( x
-                            Core..?> "InstancesWithInstalledPendingRebootPatches"
+                            Data..?> "InstancesWithInstalledPendingRebootPatches"
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -126,32 +127,32 @@ instance Prelude.NFData DescribePatchGroupState where
   rnf DescribePatchGroupState' {..} =
     Prelude.rnf patchGroup
 
-instance Core.ToHeaders DescribePatchGroupState where
+instance Data.ToHeaders DescribePatchGroupState where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribePatchGroupState" ::
+              Data.=# ( "AmazonSSM.DescribePatchGroupState" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePatchGroupState where
+instance Data.ToJSON DescribePatchGroupState where
   toJSON DescribePatchGroupState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PatchGroup" Core..= patchGroup)]
+          [Prelude.Just ("PatchGroup" Data..= patchGroup)]
       )
 
-instance Core.ToPath DescribePatchGroupState where
+instance Data.ToPath DescribePatchGroupState where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePatchGroupState where
+instance Data.ToQuery DescribePatchGroupState where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePatchGroupStateResponse' smart constructor.

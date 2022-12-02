@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AutomationExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AlarmConfiguration
 import Amazonka.SSM.Types.AlarmStateInformation
@@ -61,7 +62,7 @@ data AutomationExecution = AutomationExecution'
     -- | The specified targets.
     targets :: Prelude.Maybe [Target],
     -- | The time the execution started.
-    executionStartTime :: Prelude.Maybe Core.POSIX,
+    executionStartTime :: Prelude.Maybe Data.POSIX,
     -- | A message describing why an execution has failed, if the status is set
     -- to Failed.
     failureMessage :: Prelude.Maybe Prelude.Text,
@@ -115,9 +116,9 @@ data AutomationExecution = AutomationExecution'
     -- | The ID of a State Manager association used in the Automation operation.
     associationId :: Prelude.Maybe Prelude.Text,
     -- | The date and time the Automation operation is scheduled to start.
-    scheduledTime :: Prelude.Maybe Core.POSIX,
+    scheduledTime :: Prelude.Maybe Data.POSIX,
     -- | The time the execution finished.
-    executionEndTime :: Prelude.Maybe Core.POSIX,
+    executionEndTime :: Prelude.Maybe Data.POSIX,
     -- | The version of the document to use during execution.
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The key-value map of execution parameters, which were supplied when
@@ -296,7 +297,7 @@ automationExecution_targets = Lens.lens (\AutomationExecution' {targets} -> targ
 
 -- | The time the execution started.
 automationExecution_executionStartTime :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.UTCTime)
-automationExecution_executionStartTime = Lens.lens (\AutomationExecution' {executionStartTime} -> executionStartTime) (\s@AutomationExecution' {} a -> s {executionStartTime = a} :: AutomationExecution) Prelude.. Lens.mapping Core._Time
+automationExecution_executionStartTime = Lens.lens (\AutomationExecution' {executionStartTime} -> executionStartTime) (\s@AutomationExecution' {} a -> s {executionStartTime = a} :: AutomationExecution) Prelude.. Lens.mapping Data._Time
 
 -- | A message describing why an execution has failed, if the status is set
 -- to Failed.
@@ -392,11 +393,11 @@ automationExecution_associationId = Lens.lens (\AutomationExecution' {associatio
 
 -- | The date and time the Automation operation is scheduled to start.
 automationExecution_scheduledTime :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.UTCTime)
-automationExecution_scheduledTime = Lens.lens (\AutomationExecution' {scheduledTime} -> scheduledTime) (\s@AutomationExecution' {} a -> s {scheduledTime = a} :: AutomationExecution) Prelude.. Lens.mapping Core._Time
+automationExecution_scheduledTime = Lens.lens (\AutomationExecution' {scheduledTime} -> scheduledTime) (\s@AutomationExecution' {} a -> s {scheduledTime = a} :: AutomationExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The time the execution finished.
 automationExecution_executionEndTime :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.UTCTime)
-automationExecution_executionEndTime = Lens.lens (\AutomationExecution' {executionEndTime} -> executionEndTime) (\s@AutomationExecution' {} a -> s {executionEndTime = a} :: AutomationExecution) Prelude.. Lens.mapping Core._Time
+automationExecution_executionEndTime = Lens.lens (\AutomationExecution' {executionEndTime} -> executionEndTime) (\s@AutomationExecution' {} a -> s {executionEndTime = a} :: AutomationExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the document to use during execution.
 automationExecution_documentVersion :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
@@ -407,45 +408,45 @@ automationExecution_documentVersion = Lens.lens (\AutomationExecution' {document
 automationExecution_parameters :: Lens.Lens' AutomationExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 automationExecution_parameters = Lens.lens (\AutomationExecution' {parameters} -> parameters) (\s@AutomationExecution' {} a -> s {parameters = a} :: AutomationExecution) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AutomationExecution where
+instance Data.FromJSON AutomationExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutomationExecution"
       ( \x ->
           AutomationExecution'
-            Prelude.<$> (x Core..:? "TargetLocations")
-            Prelude.<*> (x Core..:? "ResolvedTargets")
-            Prelude.<*> (x Core..:? "StepExecutions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TargetParameterName")
-            Prelude.<*> (x Core..:? "OpsItemId")
-            Prelude.<*> (x Core..:? "TargetMaps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Target")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ExecutionStartTime")
-            Prelude.<*> (x Core..:? "FailureMessage")
-            Prelude.<*> (x Core..:? "AutomationExecutionId")
-            Prelude.<*> (x Core..:? "DocumentName")
-            Prelude.<*> (x Core..:? "AutomationSubtype")
-            Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AlarmConfiguration")
-            Prelude.<*> (x Core..:? "CurrentStepName")
-            Prelude.<*> (x Core..:? "ExecutedBy")
-            Prelude.<*> (x Core..:? "MaxConcurrency")
-            Prelude.<*> (x Core..:? "Mode")
-            Prelude.<*> (x Core..:? "ChangeRequestName")
-            Prelude.<*> (x Core..:? "MaxErrors")
-            Prelude.<*> (x Core..:? "ParentAutomationExecutionId")
-            Prelude.<*> (x Core..:? "AutomationExecutionStatus")
-            Prelude.<*> (x Core..:? "Runbooks")
-            Prelude.<*> (x Core..:? "TriggeredAlarms")
-            Prelude.<*> (x Core..:? "CurrentAction")
-            Prelude.<*> (x Core..:? "StepExecutionsTruncated")
-            Prelude.<*> (x Core..:? "ProgressCounters")
-            Prelude.<*> (x Core..:? "AssociationId")
-            Prelude.<*> (x Core..:? "ScheduledTime")
-            Prelude.<*> (x Core..:? "ExecutionEndTime")
-            Prelude.<*> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "TargetLocations")
+            Prelude.<*> (x Data..:? "ResolvedTargets")
+            Prelude.<*> (x Data..:? "StepExecutions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TargetParameterName")
+            Prelude.<*> (x Data..:? "OpsItemId")
+            Prelude.<*> (x Data..:? "TargetMaps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Target")
+            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ExecutionStartTime")
+            Prelude.<*> (x Data..:? "FailureMessage")
+            Prelude.<*> (x Data..:? "AutomationExecutionId")
+            Prelude.<*> (x Data..:? "DocumentName")
+            Prelude.<*> (x Data..:? "AutomationSubtype")
+            Prelude.<*> (x Data..:? "Outputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AlarmConfiguration")
+            Prelude.<*> (x Data..:? "CurrentStepName")
+            Prelude.<*> (x Data..:? "ExecutedBy")
+            Prelude.<*> (x Data..:? "MaxConcurrency")
+            Prelude.<*> (x Data..:? "Mode")
+            Prelude.<*> (x Data..:? "ChangeRequestName")
+            Prelude.<*> (x Data..:? "MaxErrors")
+            Prelude.<*> (x Data..:? "ParentAutomationExecutionId")
+            Prelude.<*> (x Data..:? "AutomationExecutionStatus")
+            Prelude.<*> (x Data..:? "Runbooks")
+            Prelude.<*> (x Data..:? "TriggeredAlarms")
+            Prelude.<*> (x Data..:? "CurrentAction")
+            Prelude.<*> (x Data..:? "StepExecutionsTruncated")
+            Prelude.<*> (x Data..:? "ProgressCounters")
+            Prelude.<*> (x Data..:? "AssociationId")
+            Prelude.<*> (x Data..:? "ScheduledTime")
+            Prelude.<*> (x Data..:? "ExecutionEndTime")
+            Prelude.<*> (x Data..:? "DocumentVersion")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AutomationExecution where

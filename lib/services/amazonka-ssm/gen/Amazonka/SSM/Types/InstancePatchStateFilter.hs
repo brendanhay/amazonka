@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InstancePatchStateFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.InstancePatchStateOperatorType
 
@@ -148,12 +149,12 @@ instance Prelude.NFData InstancePatchStateFilter where
       `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON InstancePatchStateFilter where
+instance Data.ToJSON InstancePatchStateFilter where
   toJSON InstancePatchStateFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Values" Core..= values),
-            Prelude.Just ("Type" Core..= type')
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Values" Data..= values),
+            Prelude.Just ("Type" Data..= type')
           ]
       )

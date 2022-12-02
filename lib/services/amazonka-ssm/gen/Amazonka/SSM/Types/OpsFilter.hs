@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.OpsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.OpsFilterOperatorType
 
@@ -87,12 +88,12 @@ instance Prelude.NFData OpsFilter where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON OpsFilter where
+instance Data.ToJSON OpsFilter where
   toJSON OpsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Values" Core..= values)
+          [ ("Type" Data..=) Prelude.<$> type',
+            Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

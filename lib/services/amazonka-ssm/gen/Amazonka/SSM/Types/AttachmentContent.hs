@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AttachmentContent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AttachmentHashType
 
@@ -90,17 +91,17 @@ attachmentContent_url = Lens.lens (\AttachmentContent' {url} -> url) (\s@Attachm
 attachmentContent_hashType :: Lens.Lens' AttachmentContent (Prelude.Maybe AttachmentHashType)
 attachmentContent_hashType = Lens.lens (\AttachmentContent' {hashType} -> hashType) (\s@AttachmentContent' {} a -> s {hashType = a} :: AttachmentContent)
 
-instance Core.FromJSON AttachmentContent where
+instance Data.FromJSON AttachmentContent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttachmentContent"
       ( \x ->
           AttachmentContent'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Hash")
-            Prelude.<*> (x Core..:? "Size")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "HashType")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Hash")
+            Prelude.<*> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "HashType")
       )
 
 instance Prelude.Hashable AttachmentContent where

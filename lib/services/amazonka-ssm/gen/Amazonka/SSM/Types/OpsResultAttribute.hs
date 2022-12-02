@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.OpsResultAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The OpsItem data type to return.
@@ -65,9 +66,9 @@ instance Prelude.Hashable OpsResultAttribute where
 instance Prelude.NFData OpsResultAttribute where
   rnf OpsResultAttribute' {..} = Prelude.rnf typeName
 
-instance Core.ToJSON OpsResultAttribute where
+instance Data.ToJSON OpsResultAttribute where
   toJSON OpsResultAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TypeName" Core..= typeName)]
+          [Prelude.Just ("TypeName" Data..= typeName)]
       )

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,7 +98,7 @@ instance Core.AWSRequest PutInventory where
     Response.receiveJSON
       ( \s h x ->
           PutInventoryResponse'
-            Prelude.<$> (x Core..?> "Message")
+            Prelude.<$> (x Data..?> "Message")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,32 +112,32 @@ instance Prelude.NFData PutInventory where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf items
 
-instance Core.ToHeaders PutInventory where
+instance Data.ToHeaders PutInventory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.PutInventory" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.PutInventory" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutInventory where
+instance Data.ToJSON PutInventory where
   toJSON PutInventory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("Items" Core..= items)
+          [ Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("Items" Data..= items)
           ]
       )
 
-instance Core.ToPath PutInventory where
+instance Data.ToPath PutInventory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutInventory where
+instance Data.ToQuery PutInventory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutInventoryResponse' smart constructor.

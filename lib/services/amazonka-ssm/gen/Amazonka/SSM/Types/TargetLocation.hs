@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.TargetLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AlarmConfiguration
 
@@ -117,18 +118,18 @@ targetLocation_executionRoleName = Lens.lens (\TargetLocation' {executionRoleNam
 targetLocation_targetLocationMaxErrors :: Lens.Lens' TargetLocation (Prelude.Maybe Prelude.Text)
 targetLocation_targetLocationMaxErrors = Lens.lens (\TargetLocation' {targetLocationMaxErrors} -> targetLocationMaxErrors) (\s@TargetLocation' {} a -> s {targetLocationMaxErrors = a} :: TargetLocation)
 
-instance Core.FromJSON TargetLocation where
+instance Data.FromJSON TargetLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetLocation"
       ( \x ->
           TargetLocation'
-            Prelude.<$> (x Core..:? "TargetLocationAlarmConfiguration")
-            Prelude.<*> (x Core..:? "Regions")
-            Prelude.<*> (x Core..:? "TargetLocationMaxConcurrency")
-            Prelude.<*> (x Core..:? "Accounts")
-            Prelude.<*> (x Core..:? "ExecutionRoleName")
-            Prelude.<*> (x Core..:? "TargetLocationMaxErrors")
+            Prelude.<$> (x Data..:? "TargetLocationAlarmConfiguration")
+            Prelude.<*> (x Data..:? "Regions")
+            Prelude.<*> (x Data..:? "TargetLocationMaxConcurrency")
+            Prelude.<*> (x Data..:? "Accounts")
+            Prelude.<*> (x Data..:? "ExecutionRoleName")
+            Prelude.<*> (x Data..:? "TargetLocationMaxErrors")
       )
 
 instance Prelude.Hashable TargetLocation where
@@ -150,19 +151,19 @@ instance Prelude.NFData TargetLocation where
       `Prelude.seq` Prelude.rnf executionRoleName
       `Prelude.seq` Prelude.rnf targetLocationMaxErrors
 
-instance Core.ToJSON TargetLocation where
+instance Data.ToJSON TargetLocation where
   toJSON TargetLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetLocationAlarmConfiguration" Core..=)
+          [ ("TargetLocationAlarmConfiguration" Data..=)
               Prelude.<$> targetLocationAlarmConfiguration,
-            ("Regions" Core..=) Prelude.<$> regions,
-            ("TargetLocationMaxConcurrency" Core..=)
+            ("Regions" Data..=) Prelude.<$> regions,
+            ("TargetLocationMaxConcurrency" Data..=)
               Prelude.<$> targetLocationMaxConcurrency,
-            ("Accounts" Core..=) Prelude.<$> accounts,
-            ("ExecutionRoleName" Core..=)
+            ("Accounts" Data..=) Prelude.<$> accounts,
+            ("ExecutionRoleName" Data..=)
               Prelude.<$> executionRoleName,
-            ("TargetLocationMaxErrors" Core..=)
+            ("TargetLocationMaxErrors" Data..=)
               Prelude.<$> targetLocationMaxErrors
           ]
       )

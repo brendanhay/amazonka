@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,22 +122,22 @@ instance Core.AWSRequest GetMaintenanceWindowTask where
     Response.receiveJSON
       ( \s h x ->
           GetMaintenanceWindowTaskResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "TaskParameters" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ServiceRoleArn")
-            Prelude.<*> (x Core..?> "TaskInvocationParameters")
-            Prelude.<*> (x Core..?> "WindowTaskId")
-            Prelude.<*> (x Core..?> "TaskArn")
-            Prelude.<*> (x Core..?> "WindowId")
-            Prelude.<*> (x Core..?> "Targets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "TaskType")
-            Prelude.<*> (x Core..?> "AlarmConfiguration")
-            Prelude.<*> (x Core..?> "Priority")
-            Prelude.<*> (x Core..?> "MaxConcurrency")
-            Prelude.<*> (x Core..?> "MaxErrors")
-            Prelude.<*> (x Core..?> "LoggingInfo")
-            Prelude.<*> (x Core..?> "CutoffBehavior")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "TaskParameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ServiceRoleArn")
+            Prelude.<*> (x Data..?> "TaskInvocationParameters")
+            Prelude.<*> (x Data..?> "WindowTaskId")
+            Prelude.<*> (x Data..?> "TaskArn")
+            Prelude.<*> (x Data..?> "WindowId")
+            Prelude.<*> (x Data..?> "Targets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "TaskType")
+            Prelude.<*> (x Data..?> "AlarmConfiguration")
+            Prelude.<*> (x Data..?> "Priority")
+            Prelude.<*> (x Data..?> "MaxConcurrency")
+            Prelude.<*> (x Data..?> "MaxErrors")
+            Prelude.<*> (x Data..?> "LoggingInfo")
+            Prelude.<*> (x Data..?> "CutoffBehavior")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,34 +151,34 @@ instance Prelude.NFData GetMaintenanceWindowTask where
     Prelude.rnf windowId
       `Prelude.seq` Prelude.rnf windowTaskId
 
-instance Core.ToHeaders GetMaintenanceWindowTask where
+instance Data.ToHeaders GetMaintenanceWindowTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.GetMaintenanceWindowTask" ::
+              Data.=# ( "AmazonSSM.GetMaintenanceWindowTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMaintenanceWindowTask where
+instance Data.ToJSON GetMaintenanceWindowTask where
   toJSON GetMaintenanceWindowTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("WindowId" Core..= windowId),
-            Prelude.Just ("WindowTaskId" Core..= windowTaskId)
+          [ Prelude.Just ("WindowId" Data..= windowId),
+            Prelude.Just ("WindowTaskId" Data..= windowTaskId)
           ]
       )
 
-instance Core.ToPath GetMaintenanceWindowTask where
+instance Data.ToPath GetMaintenanceWindowTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMaintenanceWindowTask where
+instance Data.ToQuery GetMaintenanceWindowTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMaintenanceWindowTaskResponse' smart constructor.
@@ -191,7 +192,7 @@ data GetMaintenanceWindowTaskResponse = GetMaintenanceWindowTaskResponse'
     -- @TaskInvocationParameters@ structure. For information about how Systems
     -- Manager handles these options for the supported maintenance window task
     -- types, see MaintenanceWindowTaskInvocationParameters.
-    taskParameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive MaintenanceWindowTaskParameterValueExpression))),
+    taskParameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive MaintenanceWindowTaskParameterValueExpression))),
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
     -- (IAM) service role to use to publish Amazon Simple Notification Service
     -- (Amazon SNS) notifications for maintenance window Run Command tasks.
@@ -210,7 +211,7 @@ data GetMaintenanceWindowTaskResponse = GetMaintenanceWindowTaskResponse'
     -- | The targets where the task should run.
     targets :: Prelude.Maybe [Target],
     -- | The retrieved task description.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The type of task to run.
     taskType :: Prelude.Maybe MaintenanceWindowTaskType,
     -- | The details for the CloudWatch alarm you applied to your maintenance
@@ -381,7 +382,7 @@ getMaintenanceWindowTaskResponse_name = Lens.lens (\GetMaintenanceWindowTaskResp
 -- Manager handles these options for the supported maintenance window task
 -- types, see MaintenanceWindowTaskInvocationParameters.
 getMaintenanceWindowTaskResponse_taskParameters :: Lens.Lens' GetMaintenanceWindowTaskResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression))
-getMaintenanceWindowTaskResponse_taskParameters = Lens.lens (\GetMaintenanceWindowTaskResponse' {taskParameters} -> taskParameters) (\s@GetMaintenanceWindowTaskResponse' {} a -> s {taskParameters = a} :: GetMaintenanceWindowTaskResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getMaintenanceWindowTaskResponse_taskParameters = Lens.lens (\GetMaintenanceWindowTaskResponse' {taskParameters} -> taskParameters) (\s@GetMaintenanceWindowTaskResponse' {} a -> s {taskParameters = a} :: GetMaintenanceWindowTaskResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) service role to use to publish Amazon Simple Notification Service
@@ -414,7 +415,7 @@ getMaintenanceWindowTaskResponse_targets = Lens.lens (\GetMaintenanceWindowTaskR
 
 -- | The retrieved task description.
 getMaintenanceWindowTaskResponse_description :: Lens.Lens' GetMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
-getMaintenanceWindowTaskResponse_description = Lens.lens (\GetMaintenanceWindowTaskResponse' {description} -> description) (\s@GetMaintenanceWindowTaskResponse' {} a -> s {description = a} :: GetMaintenanceWindowTaskResponse) Prelude.. Lens.mapping Core._Sensitive
+getMaintenanceWindowTaskResponse_description = Lens.lens (\GetMaintenanceWindowTaskResponse' {description} -> description) (\s@GetMaintenanceWindowTaskResponse' {} a -> s {description = a} :: GetMaintenanceWindowTaskResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The type of task to run.
 getMaintenanceWindowTaskResponse_taskType :: Lens.Lens' GetMaintenanceWindowTaskResponse (Prelude.Maybe MaintenanceWindowTaskType)

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest UpdateOpsMetadata where
     Response.receiveJSON
       ( \s h x ->
           UpdateOpsMetadataResponse'
-            Prelude.<$> (x Core..?> "OpsMetadataArn")
+            Prelude.<$> (x Data..?> "OpsMetadataArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,37 +123,37 @@ instance Prelude.NFData UpdateOpsMetadata where
       `Prelude.seq` Prelude.rnf metadataToUpdate
       `Prelude.seq` Prelude.rnf opsMetadataArn
 
-instance Core.ToHeaders UpdateOpsMetadata where
+instance Data.ToHeaders UpdateOpsMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.UpdateOpsMetadata" ::
+              Data.=# ( "AmazonSSM.UpdateOpsMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateOpsMetadata where
+instance Data.ToJSON UpdateOpsMetadata where
   toJSON UpdateOpsMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KeysToDelete" Core..=) Prelude.<$> keysToDelete,
-            ("MetadataToUpdate" Core..=)
+          [ ("KeysToDelete" Data..=) Prelude.<$> keysToDelete,
+            ("MetadataToUpdate" Data..=)
               Prelude.<$> metadataToUpdate,
             Prelude.Just
-              ("OpsMetadataArn" Core..= opsMetadataArn)
+              ("OpsMetadataArn" Data..= opsMetadataArn)
           ]
       )
 
-instance Core.ToPath UpdateOpsMetadata where
+instance Data.ToPath UpdateOpsMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateOpsMetadata where
+instance Data.ToQuery UpdateOpsMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateOpsMetadataResponse' smart constructor.

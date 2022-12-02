@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.CloudWatchOutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration options for sending command output to Amazon CloudWatch
@@ -78,14 +79,14 @@ cloudWatchOutputConfig_cloudWatchOutputEnabled = Lens.lens (\CloudWatchOutputCon
 cloudWatchOutputConfig_cloudWatchLogGroupName :: Lens.Lens' CloudWatchOutputConfig (Prelude.Maybe Prelude.Text)
 cloudWatchOutputConfig_cloudWatchLogGroupName = Lens.lens (\CloudWatchOutputConfig' {cloudWatchLogGroupName} -> cloudWatchLogGroupName) (\s@CloudWatchOutputConfig' {} a -> s {cloudWatchLogGroupName = a} :: CloudWatchOutputConfig)
 
-instance Core.FromJSON CloudWatchOutputConfig where
+instance Data.FromJSON CloudWatchOutputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchOutputConfig"
       ( \x ->
           CloudWatchOutputConfig'
-            Prelude.<$> (x Core..:? "CloudWatchOutputEnabled")
-            Prelude.<*> (x Core..:? "CloudWatchLogGroupName")
+            Prelude.<$> (x Data..:? "CloudWatchOutputEnabled")
+            Prelude.<*> (x Data..:? "CloudWatchLogGroupName")
       )
 
 instance Prelude.Hashable CloudWatchOutputConfig where
@@ -99,13 +100,13 @@ instance Prelude.NFData CloudWatchOutputConfig where
     Prelude.rnf cloudWatchOutputEnabled
       `Prelude.seq` Prelude.rnf cloudWatchLogGroupName
 
-instance Core.ToJSON CloudWatchOutputConfig where
+instance Data.ToJSON CloudWatchOutputConfig where
   toJSON CloudWatchOutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CloudWatchOutputEnabled" Core..=)
+          [ ("CloudWatchOutputEnabled" Data..=)
               Prelude.<$> cloudWatchOutputEnabled,
-            ("CloudWatchLogGroupName" Core..=)
+            ("CloudWatchLogGroupName" Data..=)
               Prelude.<$> cloudWatchLogGroupName
           ]
       )

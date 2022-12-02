@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ServiceSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The service setting data structure.
@@ -48,7 +49,7 @@ data ServiceSetting = ServiceSetting'
     -- setting value was overwritten.
     lastModifiedUser :: Prelude.Maybe Prelude.Text,
     -- | The last time the service setting was modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the service setting.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the service setting.
@@ -119,7 +120,7 @@ serviceSetting_lastModifiedUser = Lens.lens (\ServiceSetting' {lastModifiedUser}
 
 -- | The last time the service setting was modified.
 serviceSetting_lastModifiedDate :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.UTCTime)
-serviceSetting_lastModifiedDate = Lens.lens (\ServiceSetting' {lastModifiedDate} -> lastModifiedDate) (\s@ServiceSetting' {} a -> s {lastModifiedDate = a} :: ServiceSetting) Prelude.. Lens.mapping Core._Time
+serviceSetting_lastModifiedDate = Lens.lens (\ServiceSetting' {lastModifiedDate} -> lastModifiedDate) (\s@ServiceSetting' {} a -> s {lastModifiedDate = a} :: ServiceSetting) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the service setting.
 serviceSetting_arn :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
@@ -147,18 +148,18 @@ serviceSetting_status = Lens.lens (\ServiceSetting' {status} -> status) (\s@Serv
 serviceSetting_settingValue :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
 serviceSetting_settingValue = Lens.lens (\ServiceSetting' {settingValue} -> settingValue) (\s@ServiceSetting' {} a -> s {settingValue = a} :: ServiceSetting)
 
-instance Core.FromJSON ServiceSetting where
+instance Data.FromJSON ServiceSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceSetting"
       ( \x ->
           ServiceSetting'
-            Prelude.<$> (x Core..:? "LastModifiedUser")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "SettingId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "SettingValue")
+            Prelude.<$> (x Data..:? "LastModifiedUser")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "SettingId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SettingValue")
       )
 
 instance Prelude.Hashable ServiceSetting where

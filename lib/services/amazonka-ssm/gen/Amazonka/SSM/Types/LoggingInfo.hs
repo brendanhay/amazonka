@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.LoggingInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon Simple Storage Service (Amazon S3) bucket to
@@ -83,15 +84,15 @@ loggingInfo_s3BucketName = Lens.lens (\LoggingInfo' {s3BucketName} -> s3BucketNa
 loggingInfo_s3Region :: Lens.Lens' LoggingInfo Prelude.Text
 loggingInfo_s3Region = Lens.lens (\LoggingInfo' {s3Region} -> s3Region) (\s@LoggingInfo' {} a -> s {s3Region = a} :: LoggingInfo)
 
-instance Core.FromJSON LoggingInfo where
+instance Data.FromJSON LoggingInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingInfo"
       ( \x ->
           LoggingInfo'
-            Prelude.<$> (x Core..:? "S3KeyPrefix")
-            Prelude.<*> (x Core..: "S3BucketName")
-            Prelude.<*> (x Core..: "S3Region")
+            Prelude.<$> (x Data..:? "S3KeyPrefix")
+            Prelude.<*> (x Data..: "S3BucketName")
+            Prelude.<*> (x Data..: "S3Region")
       )
 
 instance Prelude.Hashable LoggingInfo where
@@ -106,12 +107,12 @@ instance Prelude.NFData LoggingInfo where
       `Prelude.seq` Prelude.rnf s3BucketName
       `Prelude.seq` Prelude.rnf s3Region
 
-instance Core.ToJSON LoggingInfo where
+instance Data.ToJSON LoggingInfo where
   toJSON LoggingInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-            Prelude.Just ("S3BucketName" Core..= s3BucketName),
-            Prelude.Just ("S3Region" Core..= s3Region)
+          [ ("S3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
+            Prelude.Just ("S3BucketName" Data..= s3BucketName),
+            Prelude.Just ("S3Region" Data..= s3Region)
           ]
       )

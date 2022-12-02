@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.DocumentDefaultVersionDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A default version of a document.
@@ -72,17 +73,17 @@ documentDefaultVersionDescription_defaultVersion :: Lens.Lens' DocumentDefaultVe
 documentDefaultVersionDescription_defaultVersion = Lens.lens (\DocumentDefaultVersionDescription' {defaultVersion} -> defaultVersion) (\s@DocumentDefaultVersionDescription' {} a -> s {defaultVersion = a} :: DocumentDefaultVersionDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DocumentDefaultVersionDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentDefaultVersionDescription"
       ( \x ->
           DocumentDefaultVersionDescription'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DefaultVersionName")
-            Prelude.<*> (x Core..:? "DefaultVersion")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "DefaultVersionName")
+            Prelude.<*> (x Data..:? "DefaultVersion")
       )
 
 instance

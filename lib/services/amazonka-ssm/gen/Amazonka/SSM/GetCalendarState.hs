@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,9 +127,9 @@ instance Core.AWSRequest GetCalendarState where
     Response.receiveJSON
       ( \s h x ->
           GetCalendarStateResponse'
-            Prelude.<$> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "NextTransitionTime")
-            Prelude.<*> (x Core..?> "AtTime")
+            Prelude.<$> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "NextTransitionTime")
+            Prelude.<*> (x Data..?> "AtTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,33 +143,33 @@ instance Prelude.NFData GetCalendarState where
     Prelude.rnf atTime
       `Prelude.seq` Prelude.rnf calendarNames
 
-instance Core.ToHeaders GetCalendarState where
+instance Data.ToHeaders GetCalendarState where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetCalendarState" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.GetCalendarState" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCalendarState where
+instance Data.ToJSON GetCalendarState where
   toJSON GetCalendarState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AtTime" Core..=) Prelude.<$> atTime,
+          [ ("AtTime" Data..=) Prelude.<$> atTime,
             Prelude.Just
-              ("CalendarNames" Core..= calendarNames)
+              ("CalendarNames" Data..= calendarNames)
           ]
       )
 
-instance Core.ToPath GetCalendarState where
+instance Data.ToPath GetCalendarState where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCalendarState where
+instance Data.ToQuery GetCalendarState where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCalendarStateResponse' smart constructor.

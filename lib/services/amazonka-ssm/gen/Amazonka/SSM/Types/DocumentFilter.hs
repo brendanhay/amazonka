@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.DocumentFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.DocumentFilterKey
 
@@ -72,11 +73,11 @@ instance Prelude.NFData DocumentFilter where
   rnf DocumentFilter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON DocumentFilter where
+instance Data.ToJSON DocumentFilter where
   toJSON DocumentFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("key" Core..= key),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("key" Data..= key),
+            Prelude.Just ("value" Data..= value)
           ]
       )

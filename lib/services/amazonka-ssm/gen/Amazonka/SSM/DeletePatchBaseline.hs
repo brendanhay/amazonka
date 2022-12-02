@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeletePatchBaseline where
     Response.receiveJSON
       ( \s h x ->
           DeletePatchBaselineResponse'
-            Prelude.<$> (x Core..?> "BaselineId")
+            Prelude.<$> (x Data..?> "BaselineId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable DeletePatchBaseline where
 instance Prelude.NFData DeletePatchBaseline where
   rnf DeletePatchBaseline' {..} = Prelude.rnf baselineId
 
-instance Core.ToHeaders DeletePatchBaseline where
+instance Data.ToHeaders DeletePatchBaseline where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DeletePatchBaseline" ::
+              Data.=# ( "AmazonSSM.DeletePatchBaseline" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePatchBaseline where
+instance Data.ToJSON DeletePatchBaseline where
   toJSON DeletePatchBaseline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("BaselineId" Core..= baselineId)]
+          [Prelude.Just ("BaselineId" Data..= baselineId)]
       )
 
-instance Core.ToPath DeletePatchBaseline where
+instance Data.ToPath DeletePatchBaseline where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePatchBaseline where
+instance Data.ToQuery DeletePatchBaseline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePatchBaselineResponse' smart constructor.

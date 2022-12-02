@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,8 +158,8 @@ instance Core.AWSRequest GetParameterHistory where
     Response.receiveJSON
       ( \s h x ->
           GetParameterHistoryResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,37 +177,37 @@ instance Prelude.NFData GetParameterHistory where
       `Prelude.seq` Prelude.rnf withDecryption
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders GetParameterHistory where
+instance Data.ToHeaders GetParameterHistory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.GetParameterHistory" ::
+              Data.=# ( "AmazonSSM.GetParameterHistory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetParameterHistory where
+instance Data.ToJSON GetParameterHistory where
   toJSON GetParameterHistory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("WithDecryption" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("WithDecryption" Data..=)
               Prelude.<$> withDecryption,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath GetParameterHistory where
+instance Data.ToPath GetParameterHistory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetParameterHistory where
+instance Data.ToQuery GetParameterHistory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetParameterHistoryResponse' smart constructor.

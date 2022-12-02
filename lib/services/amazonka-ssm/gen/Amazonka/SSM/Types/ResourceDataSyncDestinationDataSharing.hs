@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ResourceDataSyncDestinationDataSharing where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Synchronize Amazon Web Services Systems Manager Inventory data from
@@ -58,15 +59,15 @@ resourceDataSyncDestinationDataSharing_destinationDataSharingType :: Lens.Lens' 
 resourceDataSyncDestinationDataSharing_destinationDataSharingType = Lens.lens (\ResourceDataSyncDestinationDataSharing' {destinationDataSharingType} -> destinationDataSharingType) (\s@ResourceDataSyncDestinationDataSharing' {} a -> s {destinationDataSharingType = a} :: ResourceDataSyncDestinationDataSharing)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ResourceDataSyncDestinationDataSharing
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceDataSyncDestinationDataSharing"
       ( \x ->
           ResourceDataSyncDestinationDataSharing'
-            Prelude.<$> (x Core..:? "DestinationDataSharingType")
+            Prelude.<$> (x Data..:? "DestinationDataSharingType")
       )
 
 instance
@@ -87,13 +88,13 @@ instance
     Prelude.rnf destinationDataSharingType
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ResourceDataSyncDestinationDataSharing
   where
   toJSON ResourceDataSyncDestinationDataSharing' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DestinationDataSharingType" Core..=)
+          [ ("DestinationDataSharingType" Data..=)
               Prelude.<$> destinationDataSharingType
           ]
       )

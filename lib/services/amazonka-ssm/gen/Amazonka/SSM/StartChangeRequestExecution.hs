@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,13 +98,13 @@ data StartChangeRequestExecution = StartChangeRequestExecution'
     -- | The time that the requester expects the runbook workflow related to the
     -- change request to complete. The time is an estimate only that the
     -- requester provides for reviewers.
-    scheduledEndTime :: Prelude.Maybe Core.POSIX,
+    scheduledEndTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time specified in the change request to run the Automation
     -- runbooks.
     --
     -- The Automation runbooks specified for the runbook workflow can\'t run
     -- until all required approvals for the change request have been received.
-    scheduledTime :: Prelude.Maybe Core.POSIX,
+    scheduledTime :: Prelude.Maybe Data.POSIX,
     -- | The version of the change template document to run during the runbook
     -- workflow.
     documentVersion :: Prelude.Maybe Prelude.Text,
@@ -260,7 +261,7 @@ startChangeRequestExecution_changeRequestName = Lens.lens (\StartChangeRequestEx
 -- change request to complete. The time is an estimate only that the
 -- requester provides for reviewers.
 startChangeRequestExecution_scheduledEndTime :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe Prelude.UTCTime)
-startChangeRequestExecution_scheduledEndTime = Lens.lens (\StartChangeRequestExecution' {scheduledEndTime} -> scheduledEndTime) (\s@StartChangeRequestExecution' {} a -> s {scheduledEndTime = a} :: StartChangeRequestExecution) Prelude.. Lens.mapping Core._Time
+startChangeRequestExecution_scheduledEndTime = Lens.lens (\StartChangeRequestExecution' {scheduledEndTime} -> scheduledEndTime) (\s@StartChangeRequestExecution' {} a -> s {scheduledEndTime = a} :: StartChangeRequestExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time specified in the change request to run the Automation
 -- runbooks.
@@ -268,7 +269,7 @@ startChangeRequestExecution_scheduledEndTime = Lens.lens (\StartChangeRequestExe
 -- The Automation runbooks specified for the runbook workflow can\'t run
 -- until all required approvals for the change request have been received.
 startChangeRequestExecution_scheduledTime :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe Prelude.UTCTime)
-startChangeRequestExecution_scheduledTime = Lens.lens (\StartChangeRequestExecution' {scheduledTime} -> scheduledTime) (\s@StartChangeRequestExecution' {} a -> s {scheduledTime = a} :: StartChangeRequestExecution) Prelude.. Lens.mapping Core._Time
+startChangeRequestExecution_scheduledTime = Lens.lens (\StartChangeRequestExecution' {scheduledTime} -> scheduledTime) (\s@StartChangeRequestExecution' {} a -> s {scheduledTime = a} :: StartChangeRequestExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the change template document to run during the runbook
 -- workflow.
@@ -303,7 +304,7 @@ instance Core.AWSRequest StartChangeRequestExecution where
     Response.receiveJSON
       ( \s h x ->
           StartChangeRequestExecutionResponse'
-            Prelude.<$> (x Core..?> "AutomationExecutionId")
+            Prelude.<$> (x Data..?> "AutomationExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -335,46 +336,46 @@ instance Prelude.NFData StartChangeRequestExecution where
       `Prelude.seq` Prelude.rnf documentName
       `Prelude.seq` Prelude.rnf runbooks
 
-instance Core.ToHeaders StartChangeRequestExecution where
+instance Data.ToHeaders StartChangeRequestExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.StartChangeRequestExecution" ::
+              Data.=# ( "AmazonSSM.StartChangeRequestExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartChangeRequestExecution where
+instance Data.ToJSON StartChangeRequestExecution where
   toJSON StartChangeRequestExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("ChangeDetails" Core..=) Prelude.<$> changeDetails,
-            ("AutoApprove" Core..=) Prelude.<$> autoApprove,
-            ("ChangeRequestName" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("ChangeDetails" Data..=) Prelude.<$> changeDetails,
+            ("AutoApprove" Data..=) Prelude.<$> autoApprove,
+            ("ChangeRequestName" Data..=)
               Prelude.<$> changeRequestName,
-            ("ScheduledEndTime" Core..=)
+            ("ScheduledEndTime" Data..=)
               Prelude.<$> scheduledEndTime,
-            ("ScheduledTime" Core..=) Prelude.<$> scheduledTime,
-            ("DocumentVersion" Core..=)
+            ("ScheduledTime" Data..=) Prelude.<$> scheduledTime,
+            ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("DocumentName" Core..= documentName),
-            Prelude.Just ("Runbooks" Core..= runbooks)
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("DocumentName" Data..= documentName),
+            Prelude.Just ("Runbooks" Data..= runbooks)
           ]
       )
 
-instance Core.ToPath StartChangeRequestExecution where
+instance Data.ToPath StartChangeRequestExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartChangeRequestExecution where
+instance Data.ToQuery StartChangeRequestExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartChangeRequestExecutionResponse' smart constructor.

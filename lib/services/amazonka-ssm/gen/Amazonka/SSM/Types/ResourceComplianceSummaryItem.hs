@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ResourceComplianceSummaryItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.ComplianceExecutionSummary
 import Amazonka.SSM.Types.ComplianceSeverity
@@ -124,20 +125,20 @@ resourceComplianceSummaryItem_complianceType = Lens.lens (\ResourceComplianceSum
 resourceComplianceSummaryItem_overallSeverity :: Lens.Lens' ResourceComplianceSummaryItem (Prelude.Maybe ComplianceSeverity)
 resourceComplianceSummaryItem_overallSeverity = Lens.lens (\ResourceComplianceSummaryItem' {overallSeverity} -> overallSeverity) (\s@ResourceComplianceSummaryItem' {} a -> s {overallSeverity = a} :: ResourceComplianceSummaryItem)
 
-instance Core.FromJSON ResourceComplianceSummaryItem where
+instance Data.FromJSON ResourceComplianceSummaryItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceComplianceSummaryItem"
       ( \x ->
           ResourceComplianceSummaryItem'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "CompliantSummary")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ExecutionSummary")
-            Prelude.<*> (x Core..:? "NonCompliantSummary")
-            Prelude.<*> (x Core..:? "ComplianceType")
-            Prelude.<*> (x Core..:? "OverallSeverity")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "CompliantSummary")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ExecutionSummary")
+            Prelude.<*> (x Data..:? "NonCompliantSummary")
+            Prelude.<*> (x Data..:? "ComplianceType")
+            Prelude.<*> (x Data..:? "OverallSeverity")
       )
 
 instance

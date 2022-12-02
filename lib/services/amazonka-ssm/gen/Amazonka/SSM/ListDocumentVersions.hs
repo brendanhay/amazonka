@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,8 +141,8 @@ instance Core.AWSRequest ListDocumentVersions where
     Response.receiveJSON
       ( \s h x ->
           ListDocumentVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "DocumentVersions")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "DocumentVersions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,35 +158,35 @@ instance Prelude.NFData ListDocumentVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders ListDocumentVersions where
+instance Data.ToHeaders ListDocumentVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.ListDocumentVersions" ::
+              Data.=# ( "AmazonSSM.ListDocumentVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDocumentVersions where
+instance Data.ToJSON ListDocumentVersions where
   toJSON ListDocumentVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Name" Core..= name)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath ListDocumentVersions where
+instance Data.ToPath ListDocumentVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDocumentVersions where
+instance Data.ToQuery ListDocumentVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDocumentVersionsResponse' smart constructor.

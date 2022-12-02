@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AssociationStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AssociationStatusName
 
@@ -31,7 +32,7 @@ data AssociationStatus = AssociationStatus'
   { -- | A user-defined string.
     additionalInfo :: Prelude.Maybe Prelude.Text,
     -- | The date when the status changed.
-    date :: Core.POSIX,
+    date :: Data.POSIX,
     -- | The status.
     name :: AssociationStatusName,
     -- | The reason for the status.
@@ -66,7 +67,7 @@ newAssociationStatus pDate_ pName_ pMessage_ =
   AssociationStatus'
     { additionalInfo =
         Prelude.Nothing,
-      date = Core._Time Lens.# pDate_,
+      date = Data._Time Lens.# pDate_,
       name = pName_,
       message = pMessage_
     }
@@ -77,7 +78,7 @@ associationStatus_additionalInfo = Lens.lens (\AssociationStatus' {additionalInf
 
 -- | The date when the status changed.
 associationStatus_date :: Lens.Lens' AssociationStatus Prelude.UTCTime
-associationStatus_date = Lens.lens (\AssociationStatus' {date} -> date) (\s@AssociationStatus' {} a -> s {date = a} :: AssociationStatus) Prelude.. Core._Time
+associationStatus_date = Lens.lens (\AssociationStatus' {date} -> date) (\s@AssociationStatus' {} a -> s {date = a} :: AssociationStatus) Prelude.. Data._Time
 
 -- | The status.
 associationStatus_name :: Lens.Lens' AssociationStatus AssociationStatusName
@@ -87,16 +88,16 @@ associationStatus_name = Lens.lens (\AssociationStatus' {name} -> name) (\s@Asso
 associationStatus_message :: Lens.Lens' AssociationStatus Prelude.Text
 associationStatus_message = Lens.lens (\AssociationStatus' {message} -> message) (\s@AssociationStatus' {} a -> s {message = a} :: AssociationStatus)
 
-instance Core.FromJSON AssociationStatus where
+instance Data.FromJSON AssociationStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociationStatus"
       ( \x ->
           AssociationStatus'
-            Prelude.<$> (x Core..:? "AdditionalInfo")
-            Prelude.<*> (x Core..: "Date")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Message")
+            Prelude.<$> (x Data..:? "AdditionalInfo")
+            Prelude.<*> (x Data..: "Date")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Message")
       )
 
 instance Prelude.Hashable AssociationStatus where
@@ -113,14 +114,14 @@ instance Prelude.NFData AssociationStatus where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf message
 
-instance Core.ToJSON AssociationStatus where
+instance Data.ToJSON AssociationStatus where
   toJSON AssociationStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AdditionalInfo" Core..=)
+          [ ("AdditionalInfo" Data..=)
               Prelude.<$> additionalInfo,
-            Prelude.Just ("Date" Core..= date),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Message" Core..= message)
+            Prelude.Just ("Date" Data..= date),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Message" Data..= message)
           ]
       )

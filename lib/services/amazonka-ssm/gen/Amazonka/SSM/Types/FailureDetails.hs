@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.FailureDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Automation failure.
@@ -79,15 +80,15 @@ failureDetails_details = Lens.lens (\FailureDetails' {details} -> details) (\s@F
 failureDetails_failureStage :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
 failureDetails_failureStage = Lens.lens (\FailureDetails' {failureStage} -> failureStage) (\s@FailureDetails' {} a -> s {failureStage = a} :: FailureDetails)
 
-instance Core.FromJSON FailureDetails where
+instance Data.FromJSON FailureDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailureDetails"
       ( \x ->
           FailureDetails'
-            Prelude.<$> (x Core..:? "FailureType")
-            Prelude.<*> (x Core..:? "Details" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "FailureStage")
+            Prelude.<$> (x Data..:? "FailureType")
+            Prelude.<*> (x Data..:? "Details" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "FailureStage")
       )
 
 instance Prelude.Hashable FailureDetails where

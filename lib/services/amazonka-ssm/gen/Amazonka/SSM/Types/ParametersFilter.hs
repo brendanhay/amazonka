@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ParametersFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.ParametersFilterKey
 
@@ -75,11 +76,11 @@ instance Prelude.NFData ParametersFilter where
   rnf ParametersFilter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON ParametersFilter where
+instance Data.ToJSON ParametersFilter where
   toJSON ParametersFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

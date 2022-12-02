@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,7 +148,7 @@ instance Core.AWSRequest ResetServiceSetting where
     Response.receiveJSON
       ( \s h x ->
           ResetServiceSettingResponse'
-            Prelude.<$> (x Core..?> "ServiceSetting")
+            Prelude.<$> (x Data..?> "ServiceSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,32 +159,32 @@ instance Prelude.Hashable ResetServiceSetting where
 instance Prelude.NFData ResetServiceSetting where
   rnf ResetServiceSetting' {..} = Prelude.rnf settingId
 
-instance Core.ToHeaders ResetServiceSetting where
+instance Data.ToHeaders ResetServiceSetting where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.ResetServiceSetting" ::
+              Data.=# ( "AmazonSSM.ResetServiceSetting" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResetServiceSetting where
+instance Data.ToJSON ResetServiceSetting where
   toJSON ResetServiceSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SettingId" Core..= settingId)]
+          [Prelude.Just ("SettingId" Data..= settingId)]
       )
 
-instance Core.ToPath ResetServiceSetting where
+instance Data.ToPath ResetServiceSetting where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetServiceSetting where
+instance Data.ToQuery ResetServiceSetting where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result body of the ResetServiceSetting API operation.

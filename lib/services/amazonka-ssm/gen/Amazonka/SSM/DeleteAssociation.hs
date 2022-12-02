@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,35 +153,35 @@ instance Prelude.NFData DeleteAssociation where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf associationId
 
-instance Core.ToHeaders DeleteAssociation where
+instance Data.ToHeaders DeleteAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DeleteAssociation" ::
+              Data.=# ( "AmazonSSM.DeleteAssociation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAssociation where
+instance Data.ToJSON DeleteAssociation where
   toJSON DeleteAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("AssociationId" Core..=) Prelude.<$> associationId
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("InstanceId" Data..=) Prelude.<$> instanceId,
+            ("AssociationId" Data..=) Prelude.<$> associationId
           ]
       )
 
-instance Core.ToPath DeleteAssociation where
+instance Data.ToPath DeleteAssociation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAssociation where
+instance Data.ToQuery DeleteAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAssociationResponse' smart constructor.

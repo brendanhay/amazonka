@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.DescribeActivationsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.DescribeActivationsFilterKeys
 
@@ -73,11 +74,11 @@ instance Prelude.NFData DescribeActivationsFilter where
     Prelude.rnf filterValues
       `Prelude.seq` Prelude.rnf filterKey
 
-instance Core.ToJSON DescribeActivationsFilter where
+instance Data.ToJSON DescribeActivationsFilter where
   toJSON DescribeActivationsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FilterValues" Core..=) Prelude.<$> filterValues,
-            ("FilterKey" Core..=) Prelude.<$> filterKey
+          [ ("FilterValues" Data..=) Prelude.<$> filterValues,
+            ("FilterKey" Data..=) Prelude.<$> filterKey
           ]
       )

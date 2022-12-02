@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InstanceAssociationOutputUrl where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.S3OutputUrl
 
@@ -58,13 +59,13 @@ newInstanceAssociationOutputUrl =
 instanceAssociationOutputUrl_s3OutputUrl :: Lens.Lens' InstanceAssociationOutputUrl (Prelude.Maybe S3OutputUrl)
 instanceAssociationOutputUrl_s3OutputUrl = Lens.lens (\InstanceAssociationOutputUrl' {s3OutputUrl} -> s3OutputUrl) (\s@InstanceAssociationOutputUrl' {} a -> s {s3OutputUrl = a} :: InstanceAssociationOutputUrl)
 
-instance Core.FromJSON InstanceAssociationOutputUrl where
+instance Data.FromJSON InstanceAssociationOutputUrl where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceAssociationOutputUrl"
       ( \x ->
           InstanceAssociationOutputUrl'
-            Prelude.<$> (x Core..:? "S3OutputUrl")
+            Prelude.<$> (x Data..:? "S3OutputUrl")
       )
 
 instance

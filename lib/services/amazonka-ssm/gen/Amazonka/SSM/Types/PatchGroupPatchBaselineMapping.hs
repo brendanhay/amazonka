@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.PatchGroupPatchBaselineMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.PatchBaselineIdentity
 
@@ -64,14 +65,14 @@ patchGroupPatchBaselineMapping_patchGroup = Lens.lens (\PatchGroupPatchBaselineM
 patchGroupPatchBaselineMapping_baselineIdentity :: Lens.Lens' PatchGroupPatchBaselineMapping (Prelude.Maybe PatchBaselineIdentity)
 patchGroupPatchBaselineMapping_baselineIdentity = Lens.lens (\PatchGroupPatchBaselineMapping' {baselineIdentity} -> baselineIdentity) (\s@PatchGroupPatchBaselineMapping' {} a -> s {baselineIdentity = a} :: PatchGroupPatchBaselineMapping)
 
-instance Core.FromJSON PatchGroupPatchBaselineMapping where
+instance Data.FromJSON PatchGroupPatchBaselineMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PatchGroupPatchBaselineMapping"
       ( \x ->
           PatchGroupPatchBaselineMapping'
-            Prelude.<$> (x Core..:? "PatchGroup")
-            Prelude.<*> (x Core..:? "BaselineIdentity")
+            Prelude.<$> (x Data..:? "PatchGroup")
+            Prelude.<*> (x Data..:? "BaselineIdentity")
       )
 
 instance

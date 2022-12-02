@@ -87,6 +87,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -209,8 +210,8 @@ instance Core.AWSRequest DescribePatchProperties where
     Response.receiveJSON
       ( \s h x ->
           DescribePatchPropertiesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Properties" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Properties" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,38 +231,38 @@ instance Prelude.NFData DescribePatchProperties where
       `Prelude.seq` Prelude.rnf operatingSystem
       `Prelude.seq` Prelude.rnf property
 
-instance Core.ToHeaders DescribePatchProperties where
+instance Data.ToHeaders DescribePatchProperties where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribePatchProperties" ::
+              Data.=# ( "AmazonSSM.DescribePatchProperties" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePatchProperties where
+instance Data.ToJSON DescribePatchProperties where
   toJSON DescribePatchProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("PatchSet" Core..=) Prelude.<$> patchSet,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("PatchSet" Data..=) Prelude.<$> patchSet,
             Prelude.Just
-              ("OperatingSystem" Core..= operatingSystem),
-            Prelude.Just ("Property" Core..= property)
+              ("OperatingSystem" Data..= operatingSystem),
+            Prelude.Just ("Property" Data..= property)
           ]
       )
 
-instance Core.ToPath DescribePatchProperties where
+instance Data.ToPath DescribePatchProperties where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePatchProperties where
+instance Data.ToQuery DescribePatchProperties where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePatchPropertiesResponse' smart constructor.

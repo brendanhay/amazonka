@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,9 +106,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetPatchBaselineForPatchGroupResponse'
-            Prelude.<$> (x Core..?> "OperatingSystem")
-            Prelude.<*> (x Core..?> "BaselineId")
-            Prelude.<*> (x Core..?> "PatchGroup")
+            Prelude.<$> (x Data..?> "OperatingSystem")
+            Prelude.<*> (x Data..?> "BaselineId")
+            Prelude.<*> (x Data..?> "PatchGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,35 +125,35 @@ instance Prelude.NFData GetPatchBaselineForPatchGroup where
     Prelude.rnf operatingSystem
       `Prelude.seq` Prelude.rnf patchGroup
 
-instance Core.ToHeaders GetPatchBaselineForPatchGroup where
+instance Data.ToHeaders GetPatchBaselineForPatchGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.GetPatchBaselineForPatchGroup" ::
+              Data.=# ( "AmazonSSM.GetPatchBaselineForPatchGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetPatchBaselineForPatchGroup where
+instance Data.ToJSON GetPatchBaselineForPatchGroup where
   toJSON GetPatchBaselineForPatchGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OperatingSystem" Core..=)
+          [ ("OperatingSystem" Data..=)
               Prelude.<$> operatingSystem,
-            Prelude.Just ("PatchGroup" Core..= patchGroup)
+            Prelude.Just ("PatchGroup" Data..= patchGroup)
           ]
       )
 
-instance Core.ToPath GetPatchBaselineForPatchGroup where
+instance Data.ToPath GetPatchBaselineForPatchGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetPatchBaselineForPatchGroup where
+instance Data.ToQuery GetPatchBaselineForPatchGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPatchBaselineForPatchGroupResponse' smart constructor.

@@ -90,6 +90,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -281,42 +282,42 @@ instance Prelude.NFData PutComplianceItems where
       `Prelude.seq` Prelude.rnf executionSummary
       `Prelude.seq` Prelude.rnf items
 
-instance Core.ToHeaders PutComplianceItems where
+instance Data.ToHeaders PutComplianceItems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.PutComplianceItems" ::
+              Data.=# ( "AmazonSSM.PutComplianceItems" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutComplianceItems where
+instance Data.ToJSON PutComplianceItems where
   toJSON PutComplianceItems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UploadType" Core..=) Prelude.<$> uploadType,
-            ("ItemContentHash" Core..=)
+          [ ("UploadType" Data..=) Prelude.<$> uploadType,
+            ("ItemContentHash" Data..=)
               Prelude.<$> itemContentHash,
-            Prelude.Just ("ResourceId" Core..= resourceId),
-            Prelude.Just ("ResourceType" Core..= resourceType),
+            Prelude.Just ("ResourceId" Data..= resourceId),
+            Prelude.Just ("ResourceType" Data..= resourceType),
             Prelude.Just
-              ("ComplianceType" Core..= complianceType),
+              ("ComplianceType" Data..= complianceType),
             Prelude.Just
-              ("ExecutionSummary" Core..= executionSummary),
-            Prelude.Just ("Items" Core..= items)
+              ("ExecutionSummary" Data..= executionSummary),
+            Prelude.Just ("Items" Data..= items)
           ]
       )
 
-instance Core.ToPath PutComplianceItems where
+instance Data.ToPath PutComplianceItems where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutComplianceItems where
+instance Data.ToQuery PutComplianceItems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutComplianceItemsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.DocumentRequires where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An SSM document required by the current document.
@@ -66,14 +67,14 @@ documentRequires_version = Lens.lens (\DocumentRequires' {version} -> version) (
 documentRequires_name :: Lens.Lens' DocumentRequires Prelude.Text
 documentRequires_name = Lens.lens (\DocumentRequires' {name} -> name) (\s@DocumentRequires' {} a -> s {name = a} :: DocumentRequires)
 
-instance Core.FromJSON DocumentRequires where
+instance Data.FromJSON DocumentRequires where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentRequires"
       ( \x ->
           DocumentRequires'
-            Prelude.<$> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable DocumentRequires where
@@ -85,11 +86,11 @@ instance Prelude.NFData DocumentRequires where
   rnf DocumentRequires' {..} =
     Prelude.rnf version `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON DocumentRequires where
+instance Data.ToJSON DocumentRequires where
   toJSON DocumentRequires' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Version" Core..=) Prelude.<$> version,
-            Prelude.Just ("Name" Core..= name)
+          [ ("Version" Data..=) Prelude.<$> version,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

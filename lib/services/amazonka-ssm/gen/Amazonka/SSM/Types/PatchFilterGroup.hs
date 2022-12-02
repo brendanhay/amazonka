@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.PatchFilterGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.PatchFilter
 
@@ -51,13 +52,13 @@ newPatchFilterGroup =
 patchFilterGroup_patchFilters :: Lens.Lens' PatchFilterGroup [PatchFilter]
 patchFilterGroup_patchFilters = Lens.lens (\PatchFilterGroup' {patchFilters} -> patchFilters) (\s@PatchFilterGroup' {} a -> s {patchFilters = a} :: PatchFilterGroup) Prelude.. Lens.coerced
 
-instance Core.FromJSON PatchFilterGroup where
+instance Data.FromJSON PatchFilterGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PatchFilterGroup"
       ( \x ->
           PatchFilterGroup'
-            Prelude.<$> (x Core..:? "PatchFilters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "PatchFilters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PatchFilterGroup where
@@ -67,9 +68,9 @@ instance Prelude.Hashable PatchFilterGroup where
 instance Prelude.NFData PatchFilterGroup where
   rnf PatchFilterGroup' {..} = Prelude.rnf patchFilters
 
-instance Core.ToJSON PatchFilterGroup where
+instance Data.ToJSON PatchFilterGroup where
   toJSON PatchFilterGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PatchFilters" Core..= patchFilters)]
+          [Prelude.Just ("PatchFilters" Data..= patchFilters)]
       )

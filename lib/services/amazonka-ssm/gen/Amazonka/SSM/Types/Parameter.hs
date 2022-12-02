@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.Parameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.ParameterType
 
@@ -37,7 +38,7 @@ data Parameter = Parameter'
     selector :: Prelude.Maybe Prelude.Text,
     -- | Date the parameter was last changed or updated and the parameter version
     -- was created.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the parameter.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The data type of the parameter, such as @text@ or @aws:ec2:image@. The
@@ -59,7 +60,7 @@ data Parameter = Parameter'
     --
     -- If type is @StringList@, the system returns a comma-separated string
     -- with no spaces between commas in the @Value@ field.
-    value :: Core.Sensitive Prelude.Text,
+    value :: Data.Sensitive Prelude.Text,
     -- | The parameter version.
     version :: Prelude.Integer
   }
@@ -125,7 +126,7 @@ newParameter pName_ pType_ pValue_ pVersion_ =
       sourceResult = Prelude.Nothing,
       name = pName_,
       type' = pType_,
-      value = Core._Sensitive Lens.# pValue_,
+      value = Data._Sensitive Lens.# pValue_,
       version = pVersion_
     }
 
@@ -141,7 +142,7 @@ parameter_selector = Lens.lens (\Parameter' {selector} -> selector) (\s@Paramete
 -- | Date the parameter was last changed or updated and the parameter version
 -- was created.
 parameter_lastModifiedDate :: Lens.Lens' Parameter (Prelude.Maybe Prelude.UTCTime)
-parameter_lastModifiedDate = Lens.lens (\Parameter' {lastModifiedDate} -> lastModifiedDate) (\s@Parameter' {} a -> s {lastModifiedDate = a} :: Parameter) Prelude.. Lens.mapping Core._Time
+parameter_lastModifiedDate = Lens.lens (\Parameter' {lastModifiedDate} -> lastModifiedDate) (\s@Parameter' {} a -> s {lastModifiedDate = a} :: Parameter) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the parameter.
 parameter_arn :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
@@ -175,27 +176,27 @@ parameter_type = Lens.lens (\Parameter' {type'} -> type') (\s@Parameter' {} a ->
 -- If type is @StringList@, the system returns a comma-separated string
 -- with no spaces between commas in the @Value@ field.
 parameter_value :: Lens.Lens' Parameter Prelude.Text
-parameter_value = Lens.lens (\Parameter' {value} -> value) (\s@Parameter' {} a -> s {value = a} :: Parameter) Prelude.. Core._Sensitive
+parameter_value = Lens.lens (\Parameter' {value} -> value) (\s@Parameter' {} a -> s {value = a} :: Parameter) Prelude.. Data._Sensitive
 
 -- | The parameter version.
 parameter_version :: Lens.Lens' Parameter Prelude.Integer
 parameter_version = Lens.lens (\Parameter' {version} -> version) (\s@Parameter' {} a -> s {version = a} :: Parameter)
 
-instance Core.FromJSON Parameter where
+instance Data.FromJSON Parameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Parameter"
       ( \x ->
           Parameter'
-            Prelude.<$> (x Core..:? "Selector")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "DataType")
-            Prelude.<*> (x Core..:? "SourceResult")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "Value")
-            Prelude.<*> (x Core..: "Version")
+            Prelude.<$> (x Data..:? "Selector")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "DataType")
+            Prelude.<*> (x Data..:? "SourceResult")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Value")
+            Prelude.<*> (x Data..: "Version")
       )
 
 instance Prelude.Hashable Parameter where

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.OpsAggregator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.OpsFilter
 
@@ -118,16 +119,16 @@ instance Prelude.NFData OpsAggregator where
       `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToJSON OpsAggregator where
+instance Data.ToJSON OpsAggregator where
   toJSON OpsAggregator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AggregatorType" Core..=)
+          [ ("AggregatorType" Data..=)
               Prelude.<$> aggregatorType,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("TypeName" Core..=) Prelude.<$> typeName,
-            ("Aggregators" Core..=) Prelude.<$> aggregators,
-            ("Values" Core..=) Prelude.<$> values,
-            ("AttributeName" Core..=) Prelude.<$> attributeName
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("TypeName" Data..=) Prelude.<$> typeName,
+            ("Aggregators" Data..=) Prelude.<$> aggregators,
+            ("Values" Data..=) Prelude.<$> values,
+            ("AttributeName" Data..=) Prelude.<$> attributeName
           ]
       )

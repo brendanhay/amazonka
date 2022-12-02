@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteMaintenanceWindow where
     Response.receiveJSON
       ( \s h x ->
           DeleteMaintenanceWindowResponse'
-            Prelude.<$> (x Core..?> "WindowId")
+            Prelude.<$> (x Data..?> "WindowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,32 +96,32 @@ instance Prelude.NFData DeleteMaintenanceWindow where
   rnf DeleteMaintenanceWindow' {..} =
     Prelude.rnf windowId
 
-instance Core.ToHeaders DeleteMaintenanceWindow where
+instance Data.ToHeaders DeleteMaintenanceWindow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DeleteMaintenanceWindow" ::
+              Data.=# ( "AmazonSSM.DeleteMaintenanceWindow" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMaintenanceWindow where
+instance Data.ToJSON DeleteMaintenanceWindow where
   toJSON DeleteMaintenanceWindow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("WindowId" Core..= windowId)]
+          [Prelude.Just ("WindowId" Data..= windowId)]
       )
 
-instance Core.ToPath DeleteMaintenanceWindow where
+instance Data.ToPath DeleteMaintenanceWindow where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteMaintenanceWindow where
+instance Data.ToQuery DeleteMaintenanceWindow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMaintenanceWindowResponse' smart constructor.

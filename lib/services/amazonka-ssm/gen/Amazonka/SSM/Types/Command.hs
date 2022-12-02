@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.Command where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AlarmConfiguration
 import Amazonka.SSM.Types.AlarmStateInformation
@@ -44,7 +45,7 @@ data Command = Command'
     -- command. For more information, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html?icmpid=docs_ec2_console#monitor-about-status-timeouts Understanding command timeout values>
     -- in the /Amazon Web Services Systems Manager User Guide/.
-    expiresAfter :: Prelude.Maybe Core.POSIX,
+    expiresAfter :: Prelude.Maybe Data.POSIX,
     -- | A detailed status of the command execution. @StatusDetails@ includes
     -- more information than @Status@ because it includes states resulting from
     -- error and concurrency control parameters. @StatusDetails@ can show
@@ -92,7 +93,7 @@ data Command = Command'
     -- | The @TimeoutSeconds@ value specified for a command.
     timeoutSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The date and time the command was requested.
-    requestedDateTime :: Prelude.Maybe Core.POSIX,
+    requestedDateTime :: Prelude.Maybe Data.POSIX,
     -- | Amazon CloudWatch Logs information where you want Amazon Web Services
     -- Systems Manager to send the command output.
     cloudWatchOutputConfig :: Prelude.Maybe CloudWatchOutputConfig,
@@ -157,7 +158,7 @@ data Command = Command'
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The parameter values to be inserted in the document when running the
     -- command.
-    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text]))
+    parameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text]))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -341,7 +342,7 @@ command_errorCount = Lens.lens (\Command' {errorCount} -> errorCount) (\s@Comman
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html?icmpid=docs_ec2_console#monitor-about-status-timeouts Understanding command timeout values>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 command_expiresAfter :: Lens.Lens' Command (Prelude.Maybe Prelude.UTCTime)
-command_expiresAfter = Lens.lens (\Command' {expiresAfter} -> expiresAfter) (\s@Command' {} a -> s {expiresAfter = a} :: Command) Prelude.. Lens.mapping Core._Time
+command_expiresAfter = Lens.lens (\Command' {expiresAfter} -> expiresAfter) (\s@Command' {} a -> s {expiresAfter = a} :: Command) Prelude.. Lens.mapping Data._Time
 
 -- | A detailed status of the command execution. @StatusDetails@ includes
 -- more information than @Status@ because it includes states resulting from
@@ -395,7 +396,7 @@ command_timeoutSeconds = Lens.lens (\Command' {timeoutSeconds} -> timeoutSeconds
 
 -- | The date and time the command was requested.
 command_requestedDateTime :: Lens.Lens' Command (Prelude.Maybe Prelude.UTCTime)
-command_requestedDateTime = Lens.lens (\Command' {requestedDateTime} -> requestedDateTime) (\s@Command' {} a -> s {requestedDateTime = a} :: Command) Prelude.. Lens.mapping Core._Time
+command_requestedDateTime = Lens.lens (\Command' {requestedDateTime} -> requestedDateTime) (\s@Command' {} a -> s {requestedDateTime = a} :: Command) Prelude.. Lens.mapping Data._Time
 
 -- | Amazon CloudWatch Logs information where you want Amazon Web Services
 -- Systems Manager to send the command output.
@@ -500,40 +501,40 @@ command_documentVersion = Lens.lens (\Command' {documentVersion} -> documentVers
 -- | The parameter values to be inserted in the document when running the
 -- command.
 command_parameters :: Lens.Lens' Command (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-command_parameters = Lens.lens (\Command' {parameters} -> parameters) (\s@Command' {} a -> s {parameters = a} :: Command) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+command_parameters = Lens.lens (\Command' {parameters} -> parameters) (\s@Command' {} a -> s {parameters = a} :: Command) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
-instance Core.FromJSON Command where
+instance Data.FromJSON Command where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Command"
       ( \x ->
           Command'
-            Prelude.<$> (x Core..:? "TargetCount")
-            Prelude.<*> (x Core..:? "ErrorCount")
-            Prelude.<*> (x Core..:? "ExpiresAfter")
-            Prelude.<*> (x Core..:? "StatusDetails")
-            Prelude.<*> (x Core..:? "TimeoutSeconds")
-            Prelude.<*> (x Core..:? "RequestedDateTime")
-            Prelude.<*> (x Core..:? "CloudWatchOutputConfig")
-            Prelude.<*> (x Core..:? "OutputS3Region")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ServiceRole")
-            Prelude.<*> (x Core..:? "CommandId")
-            Prelude.<*> (x Core..:? "Comment")
-            Prelude.<*> (x Core..:? "DocumentName")
-            Prelude.<*> (x Core..:? "AlarmConfiguration")
-            Prelude.<*> (x Core..:? "MaxConcurrency")
-            Prelude.<*> (x Core..:? "CompletedCount")
-            Prelude.<*> (x Core..:? "MaxErrors")
-            Prelude.<*> (x Core..:? "NotificationConfig")
-            Prelude.<*> (x Core..:? "InstanceIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DeliveryTimedOutCount")
-            Prelude.<*> (x Core..:? "OutputS3BucketName")
-            Prelude.<*> (x Core..:? "TriggeredAlarms")
-            Prelude.<*> (x Core..:? "OutputS3KeyPrefix")
-            Prelude.<*> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "TargetCount")
+            Prelude.<*> (x Data..:? "ErrorCount")
+            Prelude.<*> (x Data..:? "ExpiresAfter")
+            Prelude.<*> (x Data..:? "StatusDetails")
+            Prelude.<*> (x Data..:? "TimeoutSeconds")
+            Prelude.<*> (x Data..:? "RequestedDateTime")
+            Prelude.<*> (x Data..:? "CloudWatchOutputConfig")
+            Prelude.<*> (x Data..:? "OutputS3Region")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ServiceRole")
+            Prelude.<*> (x Data..:? "CommandId")
+            Prelude.<*> (x Data..:? "Comment")
+            Prelude.<*> (x Data..:? "DocumentName")
+            Prelude.<*> (x Data..:? "AlarmConfiguration")
+            Prelude.<*> (x Data..:? "MaxConcurrency")
+            Prelude.<*> (x Data..:? "CompletedCount")
+            Prelude.<*> (x Data..:? "MaxErrors")
+            Prelude.<*> (x Data..:? "NotificationConfig")
+            Prelude.<*> (x Data..:? "InstanceIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DeliveryTimedOutCount")
+            Prelude.<*> (x Data..:? "OutputS3BucketName")
+            Prelude.<*> (x Data..:? "TriggeredAlarms")
+            Prelude.<*> (x Data..:? "OutputS3KeyPrefix")
+            Prelude.<*> (x Data..:? "DocumentVersion")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Command where

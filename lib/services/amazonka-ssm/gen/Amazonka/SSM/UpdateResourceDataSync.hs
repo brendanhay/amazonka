@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,35 +140,35 @@ instance Prelude.NFData UpdateResourceDataSync where
       `Prelude.seq` Prelude.rnf syncType
       `Prelude.seq` Prelude.rnf syncSource
 
-instance Core.ToHeaders UpdateResourceDataSync where
+instance Data.ToHeaders UpdateResourceDataSync where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.UpdateResourceDataSync" ::
+              Data.=# ( "AmazonSSM.UpdateResourceDataSync" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateResourceDataSync where
+instance Data.ToJSON UpdateResourceDataSync where
   toJSON UpdateResourceDataSync' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SyncName" Core..= syncName),
-            Prelude.Just ("SyncType" Core..= syncType),
-            Prelude.Just ("SyncSource" Core..= syncSource)
+          [ Prelude.Just ("SyncName" Data..= syncName),
+            Prelude.Just ("SyncType" Data..= syncType),
+            Prelude.Just ("SyncSource" Data..= syncSource)
           ]
       )
 
-instance Core.ToPath UpdateResourceDataSync where
+instance Data.ToPath UpdateResourceDataSync where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateResourceDataSync where
+instance Data.ToQuery UpdateResourceDataSync where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateResourceDataSyncResponse' smart constructor.

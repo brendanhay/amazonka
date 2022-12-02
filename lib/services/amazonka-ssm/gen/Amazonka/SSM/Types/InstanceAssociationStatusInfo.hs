@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InstanceAssociationStatusInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.InstanceAssociationOutputUrl
 
@@ -29,7 +30,7 @@ import Amazonka.SSM.Types.InstanceAssociationOutputUrl
 -- /See:/ 'newInstanceAssociationStatusInfo' smart constructor.
 data InstanceAssociationStatusInfo = InstanceAssociationStatusInfo'
   { -- | The date the association ran.
-    executionDate :: Prelude.Maybe Core.POSIX,
+    executionDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the association applied to the managed node.
     associationName :: Prelude.Maybe Prelude.Text,
     -- | The name of the association.
@@ -109,7 +110,7 @@ newInstanceAssociationStatusInfo =
 
 -- | The date the association ran.
 instanceAssociationStatusInfo_executionDate :: Lens.Lens' InstanceAssociationStatusInfo (Prelude.Maybe Prelude.UTCTime)
-instanceAssociationStatusInfo_executionDate = Lens.lens (\InstanceAssociationStatusInfo' {executionDate} -> executionDate) (\s@InstanceAssociationStatusInfo' {} a -> s {executionDate = a} :: InstanceAssociationStatusInfo) Prelude.. Lens.mapping Core._Time
+instanceAssociationStatusInfo_executionDate = Lens.lens (\InstanceAssociationStatusInfo' {executionDate} -> executionDate) (\s@InstanceAssociationStatusInfo' {} a -> s {executionDate = a} :: InstanceAssociationStatusInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the association applied to the managed node.
 instanceAssociationStatusInfo_associationName :: Lens.Lens' InstanceAssociationStatusInfo (Prelude.Maybe Prelude.Text)
@@ -156,24 +157,24 @@ instanceAssociationStatusInfo_associationId = Lens.lens (\InstanceAssociationSta
 instanceAssociationStatusInfo_documentVersion :: Lens.Lens' InstanceAssociationStatusInfo (Prelude.Maybe Prelude.Text)
 instanceAssociationStatusInfo_documentVersion = Lens.lens (\InstanceAssociationStatusInfo' {documentVersion} -> documentVersion) (\s@InstanceAssociationStatusInfo' {} a -> s {documentVersion = a} :: InstanceAssociationStatusInfo)
 
-instance Core.FromJSON InstanceAssociationStatusInfo where
+instance Data.FromJSON InstanceAssociationStatusInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceAssociationStatusInfo"
       ( \x ->
           InstanceAssociationStatusInfo'
-            Prelude.<$> (x Core..:? "ExecutionDate")
-            Prelude.<*> (x Core..:? "AssociationName")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AssociationVersion")
-            Prelude.<*> (x Core..:? "OutputUrl")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ExecutionSummary")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "DetailedStatus")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "AssociationId")
-            Prelude.<*> (x Core..:? "DocumentVersion")
+            Prelude.<$> (x Data..:? "ExecutionDate")
+            Prelude.<*> (x Data..:? "AssociationName")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AssociationVersion")
+            Prelude.<*> (x Data..:? "OutputUrl")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ExecutionSummary")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "DetailedStatus")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "AssociationId")
+            Prelude.<*> (x Data..:? "DocumentVersion")
       )
 
 instance

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,9 +137,9 @@ instance Core.AWSRequest DescribeDocumentPermission where
     Response.receiveJSON
       ( \s h x ->
           DescribeDocumentPermissionResponse'
-            Prelude.<$> (x Core..?> "AccountIds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AccountSharingInfoList"
+            Prelude.<$> (x Data..?> "AccountIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "AccountSharingInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -158,37 +159,37 @@ instance Prelude.NFData DescribeDocumentPermission where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf permissionType
 
-instance Core.ToHeaders DescribeDocumentPermission where
+instance Data.ToHeaders DescribeDocumentPermission where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribeDocumentPermission" ::
+              Data.=# ( "AmazonSSM.DescribeDocumentPermission" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDocumentPermission where
+instance Data.ToJSON DescribeDocumentPermission where
   toJSON DescribeDocumentPermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Name" Core..= name),
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("PermissionType" Core..= permissionType)
+              ("PermissionType" Data..= permissionType)
           ]
       )
 
-instance Core.ToPath DescribeDocumentPermission where
+instance Data.ToPath DescribeDocumentPermission where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDocumentPermission where
+instance Data.ToQuery DescribeDocumentPermission where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDocumentPermissionResponse' smart constructor.

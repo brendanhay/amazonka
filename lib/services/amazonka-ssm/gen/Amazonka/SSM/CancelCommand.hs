@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,32 +118,32 @@ instance Prelude.NFData CancelCommand where
     Prelude.rnf instanceIds
       `Prelude.seq` Prelude.rnf commandId
 
-instance Core.ToHeaders CancelCommand where
+instance Data.ToHeaders CancelCommand where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.CancelCommand" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.CancelCommand" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelCommand where
+instance Data.ToJSON CancelCommand where
   toJSON CancelCommand' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InstanceIds" Core..=) Prelude.<$> instanceIds,
-            Prelude.Just ("CommandId" Core..= commandId)
+          [ ("InstanceIds" Data..=) Prelude.<$> instanceIds,
+            Prelude.Just ("CommandId" Data..= commandId)
           ]
       )
 
-instance Core.ToPath CancelCommand where
+instance Data.ToPath CancelCommand where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelCommand where
+instance Data.ToQuery CancelCommand where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Whether or not the command was successfully canceled. There is no

@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -186,36 +187,36 @@ instance Prelude.NFData CreateResourceDataSync where
       `Prelude.seq` Prelude.rnf syncSource
       `Prelude.seq` Prelude.rnf syncName
 
-instance Core.ToHeaders CreateResourceDataSync where
+instance Data.ToHeaders CreateResourceDataSync where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.CreateResourceDataSync" ::
+              Data.=# ( "AmazonSSM.CreateResourceDataSync" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateResourceDataSync where
+instance Data.ToJSON CreateResourceDataSync where
   toJSON CreateResourceDataSync' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SyncType" Core..=) Prelude.<$> syncType,
-            ("S3Destination" Core..=) Prelude.<$> s3Destination,
-            ("SyncSource" Core..=) Prelude.<$> syncSource,
-            Prelude.Just ("SyncName" Core..= syncName)
+          [ ("SyncType" Data..=) Prelude.<$> syncType,
+            ("S3Destination" Data..=) Prelude.<$> s3Destination,
+            ("SyncSource" Data..=) Prelude.<$> syncSource,
+            Prelude.Just ("SyncName" Data..= syncName)
           ]
       )
 
-instance Core.ToPath CreateResourceDataSync where
+instance Data.ToPath CreateResourceDataSync where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateResourceDataSync where
+instance Data.ToQuery CreateResourceDataSync where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResourceDataSyncResponse' smart constructor.

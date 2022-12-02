@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.MaintenanceWindowTaskParameterValueExpression where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the values for a task parameter.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data MaintenanceWindowTaskParameterValueExpression = MaintenanceWindowTaskParameterValueExpression'
   { -- | This field contains an array of 0 or more strings, each 1 to 255
     -- characters in length.
-    values :: Prelude.Maybe (Core.Sensitive [Core.Sensitive Prelude.Text])
+    values :: Prelude.Maybe (Data.Sensitive [Data.Sensitive Prelude.Text])
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -54,18 +55,18 @@ newMaintenanceWindowTaskParameterValueExpression =
 -- | This field contains an array of 0 or more strings, each 1 to 255
 -- characters in length.
 maintenanceWindowTaskParameterValueExpression_values :: Lens.Lens' MaintenanceWindowTaskParameterValueExpression (Prelude.Maybe [Prelude.Text])
-maintenanceWindowTaskParameterValueExpression_values = Lens.lens (\MaintenanceWindowTaskParameterValueExpression' {values} -> values) (\s@MaintenanceWindowTaskParameterValueExpression' {} a -> s {values = a} :: MaintenanceWindowTaskParameterValueExpression) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+maintenanceWindowTaskParameterValueExpression_values = Lens.lens (\MaintenanceWindowTaskParameterValueExpression' {values} -> values) (\s@MaintenanceWindowTaskParameterValueExpression' {} a -> s {values = a} :: MaintenanceWindowTaskParameterValueExpression) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MaintenanceWindowTaskParameterValueExpression
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MaintenanceWindowTaskParameterValueExpression"
       ( \x ->
           MaintenanceWindowTaskParameterValueExpression'
-            Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance
@@ -86,12 +87,12 @@ instance
       Prelude.rnf values
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MaintenanceWindowTaskParameterValueExpression
   where
   toJSON
     MaintenanceWindowTaskParameterValueExpression' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("Values" Core..=) Prelude.<$> values]
+            [("Values" Data..=) Prelude.<$> values]
         )

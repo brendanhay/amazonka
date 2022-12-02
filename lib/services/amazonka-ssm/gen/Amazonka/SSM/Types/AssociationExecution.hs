@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AssociationExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AlarmConfiguration
 import Amazonka.SSM.Types.AlarmStateInformation
@@ -30,7 +31,7 @@ import Amazonka.SSM.Types.AlarmStateInformation
 -- /See:/ 'newAssociationExecution' smart constructor.
 data AssociationExecution = AssociationExecution'
   { -- | The time the execution started.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The association version.
     associationVersion :: Prelude.Maybe Prelude.Text,
     -- | The status of the association execution.
@@ -44,7 +45,7 @@ data AssociationExecution = AssociationExecution'
     -- | Detailed status information about the execution.
     detailedStatus :: Prelude.Maybe Prelude.Text,
     -- | The date of the last execution.
-    lastExecutionDate :: Prelude.Maybe Core.POSIX,
+    lastExecutionDate :: Prelude.Maybe Data.POSIX,
     -- | The CloudWatch alarms that were invoked by the association.
     triggeredAlarms :: Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation),
     -- | The association ID.
@@ -99,7 +100,7 @@ newAssociationExecution =
 
 -- | The time the execution started.
 associationExecution_createdTime :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.UTCTime)
-associationExecution_createdTime = Lens.lens (\AssociationExecution' {createdTime} -> createdTime) (\s@AssociationExecution' {} a -> s {createdTime = a} :: AssociationExecution) Prelude.. Lens.mapping Core._Time
+associationExecution_createdTime = Lens.lens (\AssociationExecution' {createdTime} -> createdTime) (\s@AssociationExecution' {} a -> s {createdTime = a} :: AssociationExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The association version.
 associationExecution_associationVersion :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.Text)
@@ -128,7 +129,7 @@ associationExecution_detailedStatus = Lens.lens (\AssociationExecution' {detaile
 
 -- | The date of the last execution.
 associationExecution_lastExecutionDate :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.UTCTime)
-associationExecution_lastExecutionDate = Lens.lens (\AssociationExecution' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationExecution' {} a -> s {lastExecutionDate = a} :: AssociationExecution) Prelude.. Lens.mapping Core._Time
+associationExecution_lastExecutionDate = Lens.lens (\AssociationExecution' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationExecution' {} a -> s {lastExecutionDate = a} :: AssociationExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The CloudWatch alarms that were invoked by the association.
 associationExecution_triggeredAlarms :: Lens.Lens' AssociationExecution (Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation))
@@ -138,22 +139,22 @@ associationExecution_triggeredAlarms = Lens.lens (\AssociationExecution' {trigge
 associationExecution_associationId :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.Text)
 associationExecution_associationId = Lens.lens (\AssociationExecution' {associationId} -> associationId) (\s@AssociationExecution' {} a -> s {associationId = a} :: AssociationExecution)
 
-instance Core.FromJSON AssociationExecution where
+instance Data.FromJSON AssociationExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociationExecution"
       ( \x ->
           AssociationExecution'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "AssociationVersion")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ResourceCountByStatus")
-            Prelude.<*> (x Core..:? "ExecutionId")
-            Prelude.<*> (x Core..:? "AlarmConfiguration")
-            Prelude.<*> (x Core..:? "DetailedStatus")
-            Prelude.<*> (x Core..:? "LastExecutionDate")
-            Prelude.<*> (x Core..:? "TriggeredAlarms")
-            Prelude.<*> (x Core..:? "AssociationId")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "AssociationVersion")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ResourceCountByStatus")
+            Prelude.<*> (x Data..:? "ExecutionId")
+            Prelude.<*> (x Data..:? "AlarmConfiguration")
+            Prelude.<*> (x Data..:? "DetailedStatus")
+            Prelude.<*> (x Data..:? "LastExecutionDate")
+            Prelude.<*> (x Data..:? "TriggeredAlarms")
+            Prelude.<*> (x Data..:? "AssociationId")
       )
 
 instance Prelude.Hashable AssociationExecution where

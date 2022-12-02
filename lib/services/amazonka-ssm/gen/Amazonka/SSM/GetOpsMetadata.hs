@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,9 +118,9 @@ instance Core.AWSRequest GetOpsMetadata where
     Response.receiveJSON
       ( \s h x ->
           GetOpsMetadataResponse'
-            Prelude.<$> (x Core..?> "ResourceId")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Metadata" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ResourceId")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Metadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,34 +136,34 @@ instance Prelude.NFData GetOpsMetadata where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf opsMetadataArn
 
-instance Core.ToHeaders GetOpsMetadata where
+instance Data.ToHeaders GetOpsMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetOpsMetadata" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.GetOpsMetadata" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetOpsMetadata where
+instance Data.ToJSON GetOpsMetadata where
   toJSON GetOpsMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("OpsMetadataArn" Core..= opsMetadataArn)
+              ("OpsMetadataArn" Data..= opsMetadataArn)
           ]
       )
 
-instance Core.ToPath GetOpsMetadata where
+instance Data.ToPath GetOpsMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetOpsMetadata where
+instance Data.ToQuery GetOpsMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOpsMetadataResponse' smart constructor.

@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -232,8 +233,8 @@ instance Core.AWSRequest GetParametersByPath where
     Response.receiveJSON
       ( \s h x ->
           GetParametersByPathResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -255,40 +256,40 @@ instance Prelude.NFData GetParametersByPath where
       `Prelude.seq` Prelude.rnf withDecryption
       `Prelude.seq` Prelude.rnf path
 
-instance Core.ToHeaders GetParametersByPath where
+instance Data.ToHeaders GetParametersByPath where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.GetParametersByPath" ::
+              Data.=# ( "AmazonSSM.GetParametersByPath" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetParametersByPath where
+instance Data.ToJSON GetParametersByPath where
   toJSON GetParametersByPath' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ParameterFilters" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ParameterFilters" Data..=)
               Prelude.<$> parameterFilters,
-            ("Recursive" Core..=) Prelude.<$> recursive,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("WithDecryption" Core..=)
+            ("Recursive" Data..=) Prelude.<$> recursive,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("WithDecryption" Data..=)
               Prelude.<$> withDecryption,
-            Prelude.Just ("Path" Core..= path)
+            Prelude.Just ("Path" Data..= path)
           ]
       )
 
-instance Core.ToPath GetParametersByPath where
+instance Data.ToPath GetParametersByPath where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetParametersByPath where
+instance Data.ToQuery GetParametersByPath where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetParametersByPathResponse' smart constructor.

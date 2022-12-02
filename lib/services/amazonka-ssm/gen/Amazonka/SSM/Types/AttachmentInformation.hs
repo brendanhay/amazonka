@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AttachmentInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attribute of an attachment, such as the attachment name.
@@ -50,13 +51,13 @@ newAttachmentInformation =
 attachmentInformation_name :: Lens.Lens' AttachmentInformation (Prelude.Maybe Prelude.Text)
 attachmentInformation_name = Lens.lens (\AttachmentInformation' {name} -> name) (\s@AttachmentInformation' {} a -> s {name = a} :: AttachmentInformation)
 
-instance Core.FromJSON AttachmentInformation where
+instance Data.FromJSON AttachmentInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttachmentInformation"
       ( \x ->
           AttachmentInformation'
-            Prelude.<$> (x Core..:? "Name")
+            Prelude.<$> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable AttachmentInformation where

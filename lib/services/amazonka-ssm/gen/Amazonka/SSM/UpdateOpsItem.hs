@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,12 +82,12 @@ data UpdateOpsItem = UpdateOpsItem'
     severity :: Prelude.Maybe Prelude.Text,
     -- | The time specified in a change request for a runbook workflow to start.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedStartTime :: Prelude.Maybe Core.POSIX,
+    plannedStartTime :: Prelude.Maybe Data.POSIX,
     -- | Keys that you want to remove from the OperationalData map.
     operationalDataToDelete :: Prelude.Maybe [Prelude.Text],
     -- | The time specified in a change request for a runbook workflow to end.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedEndTime :: Prelude.Maybe Core.POSIX,
+    plannedEndTime :: Prelude.Maybe Data.POSIX,
     -- | The OpsItem status. Status can be @Open@, @In Progress@, or @Resolved@.
     -- For more information, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details Editing OpsItem details>
@@ -132,10 +133,10 @@ data UpdateOpsItem = UpdateOpsItem'
     operationalData :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue),
     -- | The time a runbook workflow started. Currently reported only for the
     -- OpsItem type @\/aws\/changerequest@.
-    actualStartTime :: Prelude.Maybe Core.POSIX,
+    actualStartTime :: Prelude.Maybe Data.POSIX,
     -- | The time a runbook workflow ended. Currently reported only for the
     -- OpsItem type @\/aws\/changerequest@.
-    actualEndTime :: Prelude.Maybe Core.POSIX,
+    actualEndTime :: Prelude.Maybe Data.POSIX,
     -- | One or more OpsItems that share something in common with the current
     -- OpsItems. For example, related OpsItems can include OpsItems with
     -- similar error messages, impacted resources, or statuses for the impacted
@@ -264,7 +265,7 @@ updateOpsItem_severity = Lens.lens (\UpdateOpsItem' {severity} -> severity) (\s@
 -- | The time specified in a change request for a runbook workflow to start.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
 updateOpsItem_plannedStartTime :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.UTCTime)
-updateOpsItem_plannedStartTime = Lens.lens (\UpdateOpsItem' {plannedStartTime} -> plannedStartTime) (\s@UpdateOpsItem' {} a -> s {plannedStartTime = a} :: UpdateOpsItem) Prelude.. Lens.mapping Core._Time
+updateOpsItem_plannedStartTime = Lens.lens (\UpdateOpsItem' {plannedStartTime} -> plannedStartTime) (\s@UpdateOpsItem' {} a -> s {plannedStartTime = a} :: UpdateOpsItem) Prelude.. Lens.mapping Data._Time
 
 -- | Keys that you want to remove from the OperationalData map.
 updateOpsItem_operationalDataToDelete :: Lens.Lens' UpdateOpsItem (Prelude.Maybe [Prelude.Text])
@@ -273,7 +274,7 @@ updateOpsItem_operationalDataToDelete = Lens.lens (\UpdateOpsItem' {operationalD
 -- | The time specified in a change request for a runbook workflow to end.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
 updateOpsItem_plannedEndTime :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.UTCTime)
-updateOpsItem_plannedEndTime = Lens.lens (\UpdateOpsItem' {plannedEndTime} -> plannedEndTime) (\s@UpdateOpsItem' {} a -> s {plannedEndTime = a} :: UpdateOpsItem) Prelude.. Lens.mapping Core._Time
+updateOpsItem_plannedEndTime = Lens.lens (\UpdateOpsItem' {plannedEndTime} -> plannedEndTime) (\s@UpdateOpsItem' {} a -> s {plannedEndTime = a} :: UpdateOpsItem) Prelude.. Lens.mapping Data._Time
 
 -- | The OpsItem status. Status can be @Open@, @In Progress@, or @Resolved@.
 -- For more information, see
@@ -333,12 +334,12 @@ updateOpsItem_operationalData = Lens.lens (\UpdateOpsItem' {operationalData} -> 
 -- | The time a runbook workflow started. Currently reported only for the
 -- OpsItem type @\/aws\/changerequest@.
 updateOpsItem_actualStartTime :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.UTCTime)
-updateOpsItem_actualStartTime = Lens.lens (\UpdateOpsItem' {actualStartTime} -> actualStartTime) (\s@UpdateOpsItem' {} a -> s {actualStartTime = a} :: UpdateOpsItem) Prelude.. Lens.mapping Core._Time
+updateOpsItem_actualStartTime = Lens.lens (\UpdateOpsItem' {actualStartTime} -> actualStartTime) (\s@UpdateOpsItem' {} a -> s {actualStartTime = a} :: UpdateOpsItem) Prelude.. Lens.mapping Data._Time
 
 -- | The time a runbook workflow ended. Currently reported only for the
 -- OpsItem type @\/aws\/changerequest@.
 updateOpsItem_actualEndTime :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.UTCTime)
-updateOpsItem_actualEndTime = Lens.lens (\UpdateOpsItem' {actualEndTime} -> actualEndTime) (\s@UpdateOpsItem' {} a -> s {actualEndTime = a} :: UpdateOpsItem) Prelude.. Lens.mapping Core._Time
+updateOpsItem_actualEndTime = Lens.lens (\UpdateOpsItem' {actualEndTime} -> actualEndTime) (\s@UpdateOpsItem' {} a -> s {actualEndTime = a} :: UpdateOpsItem) Prelude.. Lens.mapping Data._Time
 
 -- | One or more OpsItems that share something in common with the current
 -- OpsItems. For example, related OpsItems can include OpsItems with
@@ -402,52 +403,52 @@ instance Prelude.NFData UpdateOpsItem where
       `Prelude.seq` Prelude.rnf relatedOpsItems
       `Prelude.seq` Prelude.rnf opsItemId
 
-instance Core.ToHeaders UpdateOpsItem where
+instance Data.ToHeaders UpdateOpsItem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.UpdateOpsItem" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.UpdateOpsItem" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateOpsItem where
+instance Data.ToJSON UpdateOpsItem where
   toJSON UpdateOpsItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Notifications" Core..=) Prelude.<$> notifications,
-            ("OpsItemArn" Core..=) Prelude.<$> opsItemArn,
-            ("Severity" Core..=) Prelude.<$> severity,
-            ("PlannedStartTime" Core..=)
+          [ ("Notifications" Data..=) Prelude.<$> notifications,
+            ("OpsItemArn" Data..=) Prelude.<$> opsItemArn,
+            ("Severity" Data..=) Prelude.<$> severity,
+            ("PlannedStartTime" Data..=)
               Prelude.<$> plannedStartTime,
-            ("OperationalDataToDelete" Core..=)
+            ("OperationalDataToDelete" Data..=)
               Prelude.<$> operationalDataToDelete,
-            ("PlannedEndTime" Core..=)
+            ("PlannedEndTime" Data..=)
               Prelude.<$> plannedEndTime,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Title" Core..=) Prelude.<$> title,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("Category" Core..=) Prelude.<$> category,
-            ("OperationalData" Core..=)
+            ("Status" Data..=) Prelude.<$> status,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Title" Data..=) Prelude.<$> title,
+            ("Priority" Data..=) Prelude.<$> priority,
+            ("Category" Data..=) Prelude.<$> category,
+            ("OperationalData" Data..=)
               Prelude.<$> operationalData,
-            ("ActualStartTime" Core..=)
+            ("ActualStartTime" Data..=)
               Prelude.<$> actualStartTime,
-            ("ActualEndTime" Core..=) Prelude.<$> actualEndTime,
-            ("RelatedOpsItems" Core..=)
+            ("ActualEndTime" Data..=) Prelude.<$> actualEndTime,
+            ("RelatedOpsItems" Data..=)
               Prelude.<$> relatedOpsItems,
-            Prelude.Just ("OpsItemId" Core..= opsItemId)
+            Prelude.Just ("OpsItemId" Data..= opsItemId)
           ]
       )
 
-instance Core.ToPath UpdateOpsItem where
+instance Data.ToPath UpdateOpsItem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateOpsItem where
+instance Data.ToQuery UpdateOpsItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateOpsItemResponse' smart constructor.

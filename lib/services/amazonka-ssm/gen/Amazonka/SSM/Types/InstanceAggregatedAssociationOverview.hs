@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InstanceAggregatedAssociationOverview where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Status information about the aggregated associations.
@@ -64,18 +65,18 @@ instanceAggregatedAssociationOverview_instanceAssociationStatusAggregatedCount :
 instanceAggregatedAssociationOverview_instanceAssociationStatusAggregatedCount = Lens.lens (\InstanceAggregatedAssociationOverview' {instanceAssociationStatusAggregatedCount} -> instanceAssociationStatusAggregatedCount) (\s@InstanceAggregatedAssociationOverview' {} a -> s {instanceAssociationStatusAggregatedCount = a} :: InstanceAggregatedAssociationOverview) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InstanceAggregatedAssociationOverview
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceAggregatedAssociationOverview"
       ( \x ->
           InstanceAggregatedAssociationOverview'
-            Prelude.<$> (x Core..:? "DetailedStatus")
+            Prelude.<$> (x Data..:? "DetailedStatus")
             Prelude.<*> ( x
-                            Core..:? "InstanceAssociationStatusAggregatedCount"
-                            Core..!= Prelude.mempty
+                            Data..:? "InstanceAssociationStatusAggregatedCount"
+                            Data..!= Prelude.mempty
                         )
       )
 

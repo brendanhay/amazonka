@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ParameterStringFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | One or more filters. Use a filter to return a more specific list of
@@ -151,12 +152,12 @@ instance Prelude.NFData ParameterStringFilter where
       `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON ParameterStringFilter where
+instance Data.ToJSON ParameterStringFilter where
   toJSON ParameterStringFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Option" Core..=) Prelude.<$> option,
-            ("Values" Core..=) Prelude.<$> values,
-            Prelude.Just ("Key" Core..= key)
+          [ ("Option" Data..=) Prelude.<$> option,
+            ("Values" Data..=) Prelude.<$> values,
+            Prelude.Just ("Key" Data..= key)
           ]
       )

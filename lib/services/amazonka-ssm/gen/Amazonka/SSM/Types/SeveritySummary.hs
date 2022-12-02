@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.SeveritySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of managed nodes found for each patch severity level defined
@@ -134,18 +135,18 @@ severitySummary_highCount = Lens.lens (\SeveritySummary' {highCount} -> highCoun
 severitySummary_lowCount :: Lens.Lens' SeveritySummary (Prelude.Maybe Prelude.Int)
 severitySummary_lowCount = Lens.lens (\SeveritySummary' {lowCount} -> lowCount) (\s@SeveritySummary' {} a -> s {lowCount = a} :: SeveritySummary)
 
-instance Core.FromJSON SeveritySummary where
+instance Data.FromJSON SeveritySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SeveritySummary"
       ( \x ->
           SeveritySummary'
-            Prelude.<$> (x Core..:? "MediumCount")
-            Prelude.<*> (x Core..:? "InformationalCount")
-            Prelude.<*> (x Core..:? "UnspecifiedCount")
-            Prelude.<*> (x Core..:? "CriticalCount")
-            Prelude.<*> (x Core..:? "HighCount")
-            Prelude.<*> (x Core..:? "LowCount")
+            Prelude.<$> (x Data..:? "MediumCount")
+            Prelude.<*> (x Data..:? "InformationalCount")
+            Prelude.<*> (x Data..:? "UnspecifiedCount")
+            Prelude.<*> (x Data..:? "CriticalCount")
+            Prelude.<*> (x Data..:? "HighCount")
+            Prelude.<*> (x Data..:? "LowCount")
       )
 
 instance Prelude.Hashable SeveritySummary where

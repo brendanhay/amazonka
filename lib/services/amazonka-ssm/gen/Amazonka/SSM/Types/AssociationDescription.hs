@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AssociationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AlarmConfiguration
 import Amazonka.SSM.Types.AlarmStateInformation
@@ -43,12 +44,12 @@ data AssociationDescription = AssociationDescription'
     -- | The association version.
     associationVersion :: Prelude.Maybe Prelude.Text,
     -- | The last date on which the association was successfully run.
-    lastSuccessfulExecutionDate :: Prelude.Maybe Core.POSIX,
+    lastSuccessfulExecutionDate :: Prelude.Maybe Data.POSIX,
     -- | The combination of Amazon Web Services Regions and Amazon Web Services
     -- accounts where you want to run the association.
     targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
     -- | The date when the association was made.
-    date :: Prelude.Maybe Core.POSIX,
+    date :: Prelude.Maybe Data.POSIX,
     -- | Choose the parameter that will define how your automation will branch
     -- out. This target is required for associations that use an Automation
     -- runbook and target resources by using rate controls. Automation is a
@@ -78,7 +79,7 @@ data AssociationDescription = AssociationDescription'
     overview :: Prelude.Maybe AssociationOverview,
     alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The date when the association was last updated.
-    lastUpdateAssociationDate :: Prelude.Maybe Core.POSIX,
+    lastUpdateAssociationDate :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of targets allowed to run the association at the same
     -- time. You can specify a number, for example 10, or a percentage of the
     -- target set, for example 10%. The default value is 100%, which means all
@@ -113,7 +114,7 @@ data AssociationDescription = AssociationDescription'
     -- one at a time.
     maxErrors :: Prelude.Maybe Prelude.Text,
     -- | The date on which the association was last run.
-    lastExecutionDate :: Prelude.Maybe Core.POSIX,
+    lastExecutionDate :: Prelude.Maybe Data.POSIX,
     -- | The CloudWatch alarm that was invoked during the association.
     triggeredAlarms :: Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation),
     -- | The severity level that is assigned to the association.
@@ -138,7 +139,7 @@ data AssociationDescription = AssociationDescription'
     -- | The document version.
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | A description of the parameters for a document.
-    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text]))
+    parameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text]))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -302,7 +303,7 @@ associationDescription_associationVersion = Lens.lens (\AssociationDescription' 
 
 -- | The last date on which the association was successfully run.
 associationDescription_lastSuccessfulExecutionDate :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.UTCTime)
-associationDescription_lastSuccessfulExecutionDate = Lens.lens (\AssociationDescription' {lastSuccessfulExecutionDate} -> lastSuccessfulExecutionDate) (\s@AssociationDescription' {} a -> s {lastSuccessfulExecutionDate = a} :: AssociationDescription) Prelude.. Lens.mapping Core._Time
+associationDescription_lastSuccessfulExecutionDate = Lens.lens (\AssociationDescription' {lastSuccessfulExecutionDate} -> lastSuccessfulExecutionDate) (\s@AssociationDescription' {} a -> s {lastSuccessfulExecutionDate = a} :: AssociationDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The combination of Amazon Web Services Regions and Amazon Web Services
 -- accounts where you want to run the association.
@@ -311,7 +312,7 @@ associationDescription_targetLocations = Lens.lens (\AssociationDescription' {ta
 
 -- | The date when the association was made.
 associationDescription_date :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.UTCTime)
-associationDescription_date = Lens.lens (\AssociationDescription' {date} -> date) (\s@AssociationDescription' {} a -> s {date = a} :: AssociationDescription) Prelude.. Lens.mapping Core._Time
+associationDescription_date = Lens.lens (\AssociationDescription' {date} -> date) (\s@AssociationDescription' {} a -> s {date = a} :: AssociationDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Choose the parameter that will define how your automation will branch
 -- out. This target is required for associations that use an Automation
@@ -366,7 +367,7 @@ associationDescription_alarmConfiguration = Lens.lens (\AssociationDescription' 
 
 -- | The date when the association was last updated.
 associationDescription_lastUpdateAssociationDate :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.UTCTime)
-associationDescription_lastUpdateAssociationDate = Lens.lens (\AssociationDescription' {lastUpdateAssociationDate} -> lastUpdateAssociationDate) (\s@AssociationDescription' {} a -> s {lastUpdateAssociationDate = a} :: AssociationDescription) Prelude.. Lens.mapping Core._Time
+associationDescription_lastUpdateAssociationDate = Lens.lens (\AssociationDescription' {lastUpdateAssociationDate} -> lastUpdateAssociationDate) (\s@AssociationDescription' {} a -> s {lastUpdateAssociationDate = a} :: AssociationDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of targets allowed to run the association at the same
 -- time. You can specify a number, for example 10, or a percentage of the
@@ -409,7 +410,7 @@ associationDescription_maxErrors = Lens.lens (\AssociationDescription' {maxError
 
 -- | The date on which the association was last run.
 associationDescription_lastExecutionDate :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.UTCTime)
-associationDescription_lastExecutionDate = Lens.lens (\AssociationDescription' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationDescription' {} a -> s {lastExecutionDate = a} :: AssociationDescription) Prelude.. Lens.mapping Core._Time
+associationDescription_lastExecutionDate = Lens.lens (\AssociationDescription' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationDescription' {} a -> s {lastExecutionDate = a} :: AssociationDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The CloudWatch alarm that was invoked during the association.
 associationDescription_triggeredAlarms :: Lens.Lens' AssociationDescription (Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation))
@@ -446,42 +447,42 @@ associationDescription_documentVersion = Lens.lens (\AssociationDescription' {do
 
 -- | A description of the parameters for a document.
 associationDescription_parameters :: Lens.Lens' AssociationDescription (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-associationDescription_parameters = Lens.lens (\AssociationDescription' {parameters} -> parameters) (\s@AssociationDescription' {} a -> s {parameters = a} :: AssociationDescription) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+associationDescription_parameters = Lens.lens (\AssociationDescription' {parameters} -> parameters) (\s@AssociationDescription' {} a -> s {parameters = a} :: AssociationDescription) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
-instance Core.FromJSON AssociationDescription where
+instance Data.FromJSON AssociationDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociationDescription"
       ( \x ->
           AssociationDescription'
-            Prelude.<$> (x Core..:? "AssociationName")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AssociationVersion")
-            Prelude.<*> (x Core..:? "LastSuccessfulExecutionDate")
-            Prelude.<*> (x Core..:? "TargetLocations")
-            Prelude.<*> (x Core..:? "Date")
-            Prelude.<*> (x Core..:? "AutomationTargetParameterName")
-            Prelude.<*> (x Core..:? "TargetMaps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OutputLocation")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CalendarNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ScheduleExpression")
-            Prelude.<*> (x Core..:? "ScheduleOffset")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "Overview")
-            Prelude.<*> (x Core..:? "AlarmConfiguration")
-            Prelude.<*> (x Core..:? "LastUpdateAssociationDate")
-            Prelude.<*> (x Core..:? "MaxConcurrency")
-            Prelude.<*> (x Core..:? "ApplyOnlyAtCronInterval")
-            Prelude.<*> (x Core..:? "MaxErrors")
-            Prelude.<*> (x Core..:? "LastExecutionDate")
-            Prelude.<*> (x Core..:? "TriggeredAlarms")
-            Prelude.<*> (x Core..:? "ComplianceSeverity")
-            Prelude.<*> (x Core..:? "SyncCompliance")
-            Prelude.<*> (x Core..:? "AssociationId")
-            Prelude.<*> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "AssociationName")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AssociationVersion")
+            Prelude.<*> (x Data..:? "LastSuccessfulExecutionDate")
+            Prelude.<*> (x Data..:? "TargetLocations")
+            Prelude.<*> (x Data..:? "Date")
+            Prelude.<*> (x Data..:? "AutomationTargetParameterName")
+            Prelude.<*> (x Data..:? "TargetMaps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OutputLocation")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CalendarNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ScheduleExpression")
+            Prelude.<*> (x Data..:? "ScheduleOffset")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "Overview")
+            Prelude.<*> (x Data..:? "AlarmConfiguration")
+            Prelude.<*> (x Data..:? "LastUpdateAssociationDate")
+            Prelude.<*> (x Data..:? "MaxConcurrency")
+            Prelude.<*> (x Data..:? "ApplyOnlyAtCronInterval")
+            Prelude.<*> (x Data..:? "MaxErrors")
+            Prelude.<*> (x Data..:? "LastExecutionDate")
+            Prelude.<*> (x Data..:? "TriggeredAlarms")
+            Prelude.<*> (x Data..:? "ComplianceSeverity")
+            Prelude.<*> (x Data..:? "SyncCompliance")
+            Prelude.<*> (x Data..:? "AssociationId")
+            Prelude.<*> (x Data..:? "DocumentVersion")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AssociationDescription where

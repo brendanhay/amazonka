@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.OpsItemRelatedItemSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.OpsItemIdentity
 
@@ -31,7 +32,7 @@ data OpsItemRelatedItemSummary = OpsItemRelatedItemSummary'
   { -- | The resource type.
     resourceType :: Prelude.Maybe Prelude.Text,
     -- | The time the related-item association was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The association type.
     associationType :: Prelude.Maybe Prelude.Text,
     -- | The OpsItem ID.
@@ -39,7 +40,7 @@ data OpsItemRelatedItemSummary = OpsItemRelatedItemSummary'
     -- | The Amazon Resource Name (ARN) of the related-item resource.
     resourceUri :: Prelude.Maybe Prelude.Text,
     -- | The time the related-item association was last updated.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     lastModifiedBy :: Prelude.Maybe OpsItemIdentity,
     createdBy :: Prelude.Maybe OpsItemIdentity,
     -- | The association ID.
@@ -94,7 +95,7 @@ opsItemRelatedItemSummary_resourceType = Lens.lens (\OpsItemRelatedItemSummary' 
 
 -- | The time the related-item association was created.
 opsItemRelatedItemSummary_createdTime :: Lens.Lens' OpsItemRelatedItemSummary (Prelude.Maybe Prelude.UTCTime)
-opsItemRelatedItemSummary_createdTime = Lens.lens (\OpsItemRelatedItemSummary' {createdTime} -> createdTime) (\s@OpsItemRelatedItemSummary' {} a -> s {createdTime = a} :: OpsItemRelatedItemSummary) Prelude.. Lens.mapping Core._Time
+opsItemRelatedItemSummary_createdTime = Lens.lens (\OpsItemRelatedItemSummary' {createdTime} -> createdTime) (\s@OpsItemRelatedItemSummary' {} a -> s {createdTime = a} :: OpsItemRelatedItemSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The association type.
 opsItemRelatedItemSummary_associationType :: Lens.Lens' OpsItemRelatedItemSummary (Prelude.Maybe Prelude.Text)
@@ -110,7 +111,7 @@ opsItemRelatedItemSummary_resourceUri = Lens.lens (\OpsItemRelatedItemSummary' {
 
 -- | The time the related-item association was last updated.
 opsItemRelatedItemSummary_lastModifiedTime :: Lens.Lens' OpsItemRelatedItemSummary (Prelude.Maybe Prelude.UTCTime)
-opsItemRelatedItemSummary_lastModifiedTime = Lens.lens (\OpsItemRelatedItemSummary' {lastModifiedTime} -> lastModifiedTime) (\s@OpsItemRelatedItemSummary' {} a -> s {lastModifiedTime = a} :: OpsItemRelatedItemSummary) Prelude.. Lens.mapping Core._Time
+opsItemRelatedItemSummary_lastModifiedTime = Lens.lens (\OpsItemRelatedItemSummary' {lastModifiedTime} -> lastModifiedTime) (\s@OpsItemRelatedItemSummary' {} a -> s {lastModifiedTime = a} :: OpsItemRelatedItemSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 opsItemRelatedItemSummary_lastModifiedBy :: Lens.Lens' OpsItemRelatedItemSummary (Prelude.Maybe OpsItemIdentity)
@@ -124,21 +125,21 @@ opsItemRelatedItemSummary_createdBy = Lens.lens (\OpsItemRelatedItemSummary' {cr
 opsItemRelatedItemSummary_associationId :: Lens.Lens' OpsItemRelatedItemSummary (Prelude.Maybe Prelude.Text)
 opsItemRelatedItemSummary_associationId = Lens.lens (\OpsItemRelatedItemSummary' {associationId} -> associationId) (\s@OpsItemRelatedItemSummary' {} a -> s {associationId = a} :: OpsItemRelatedItemSummary)
 
-instance Core.FromJSON OpsItemRelatedItemSummary where
+instance Data.FromJSON OpsItemRelatedItemSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpsItemRelatedItemSummary"
       ( \x ->
           OpsItemRelatedItemSummary'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "AssociationType")
-            Prelude.<*> (x Core..:? "OpsItemId")
-            Prelude.<*> (x Core..:? "ResourceUri")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "AssociationId")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "AssociationType")
+            Prelude.<*> (x Data..:? "OpsItemId")
+            Prelude.<*> (x Data..:? "ResourceUri")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "AssociationId")
       )
 
 instance Prelude.Hashable OpsItemRelatedItemSummary where

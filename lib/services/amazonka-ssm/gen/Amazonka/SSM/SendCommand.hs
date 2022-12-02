@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -165,7 +166,7 @@ data SendCommand = SendCommand'
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The required and optional parameters specified in the document being
     -- run.
-    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
+    parameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
     -- | The name of the Amazon Web Services Systems Manager document (SSM
     -- document) to run. This can be a public document or a custom document. To
     -- run a shared document belonging to another account, specify the document
@@ -458,7 +459,7 @@ sendCommand_documentVersion = Lens.lens (\SendCommand' {documentVersion} -> docu
 -- | The required and optional parameters specified in the document being
 -- run.
 sendCommand_parameters :: Lens.Lens' SendCommand (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-sendCommand_parameters = Lens.lens (\SendCommand' {parameters} -> parameters) (\s@SendCommand' {} a -> s {parameters = a} :: SendCommand) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+sendCommand_parameters = Lens.lens (\SendCommand' {parameters} -> parameters) (\s@SendCommand' {} a -> s {parameters = a} :: SendCommand) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the Amazon Web Services Systems Manager document (SSM
 -- document) to run. This can be a public document or a custom document. To
@@ -481,7 +482,7 @@ instance Core.AWSRequest SendCommand where
     Response.receiveJSON
       ( \s h x ->
           SendCommandResponse'
-            Prelude.<$> (x Core..?> "Command")
+            Prelude.<$> (x Data..?> "Command")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -527,59 +528,59 @@ instance Prelude.NFData SendCommand where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf documentName
 
-instance Core.ToHeaders SendCommand where
+instance Data.ToHeaders SendCommand where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.SendCommand" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.SendCommand" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendCommand where
+instance Data.ToJSON SendCommand where
   toJSON SendCommand' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ServiceRoleArn" Core..=)
+          [ ("ServiceRoleArn" Data..=)
               Prelude.<$> serviceRoleArn,
-            ("TimeoutSeconds" Core..=)
+            ("TimeoutSeconds" Data..=)
               Prelude.<$> timeoutSeconds,
-            ("CloudWatchOutputConfig" Core..=)
+            ("CloudWatchOutputConfig" Data..=)
               Prelude.<$> cloudWatchOutputConfig,
-            ("OutputS3Region" Core..=)
+            ("OutputS3Region" Data..=)
               Prelude.<$> outputS3Region,
-            ("Targets" Core..=) Prelude.<$> targets,
-            ("Comment" Core..=) Prelude.<$> comment,
-            ("AlarmConfiguration" Core..=)
+            ("Targets" Data..=) Prelude.<$> targets,
+            ("Comment" Data..=) Prelude.<$> comment,
+            ("AlarmConfiguration" Data..=)
               Prelude.<$> alarmConfiguration,
-            ("MaxConcurrency" Core..=)
+            ("MaxConcurrency" Data..=)
               Prelude.<$> maxConcurrency,
-            ("MaxErrors" Core..=) Prelude.<$> maxErrors,
-            ("NotificationConfig" Core..=)
+            ("MaxErrors" Data..=) Prelude.<$> maxErrors,
+            ("NotificationConfig" Data..=)
               Prelude.<$> notificationConfig,
-            ("DocumentHashType" Core..=)
+            ("DocumentHashType" Data..=)
               Prelude.<$> documentHashType,
-            ("InstanceIds" Core..=) Prelude.<$> instanceIds,
-            ("OutputS3BucketName" Core..=)
+            ("InstanceIds" Data..=) Prelude.<$> instanceIds,
+            ("OutputS3BucketName" Data..=)
               Prelude.<$> outputS3BucketName,
-            ("DocumentHash" Core..=) Prelude.<$> documentHash,
-            ("OutputS3KeyPrefix" Core..=)
+            ("DocumentHash" Data..=) Prelude.<$> documentHash,
+            ("OutputS3KeyPrefix" Data..=)
               Prelude.<$> outputS3KeyPrefix,
-            ("DocumentVersion" Core..=)
+            ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("DocumentName" Core..= documentName)
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("DocumentName" Data..= documentName)
           ]
       )
 
-instance Core.ToPath SendCommand where
+instance Data.ToPath SendCommand where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendCommand where
+instance Data.ToQuery SendCommand where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendCommandResponse' smart constructor.

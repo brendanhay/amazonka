@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.CommandPlugin where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.CommandPluginStatus
 
@@ -80,7 +81,7 @@ data CommandPlugin = CommandPlugin'
     --     a terminal state.
     statusDetails :: Prelude.Maybe Prelude.Text,
     -- | The time the plugin started running.
-    responseStartDateTime :: Prelude.Maybe Core.POSIX,
+    responseStartDateTime :: Prelude.Maybe Data.POSIX,
     -- | (Deprecated) You can no longer specify this parameter. The system
     -- ignores it. Instead, Amazon Web Services Systems Manager automatically
     -- determines the S3 bucket region.
@@ -89,7 +90,7 @@ data CommandPlugin = CommandPlugin'
     status :: Prelude.Maybe CommandPluginStatus,
     -- | The time the plugin stopped running. Could stop prematurely if, for
     -- example, a cancel command was sent.
-    responseFinishDateTime :: Prelude.Maybe Core.POSIX,
+    responseFinishDateTime :: Prelude.Maybe Data.POSIX,
     -- | The URL for the complete text written by the plugin to stderr. If
     -- execution isn\'t yet complete, then this string is empty.
     standardErrorUrl :: Prelude.Maybe Prelude.Text,
@@ -315,7 +316,7 @@ commandPlugin_statusDetails = Lens.lens (\CommandPlugin' {statusDetails} -> stat
 
 -- | The time the plugin started running.
 commandPlugin_responseStartDateTime :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.UTCTime)
-commandPlugin_responseStartDateTime = Lens.lens (\CommandPlugin' {responseStartDateTime} -> responseStartDateTime) (\s@CommandPlugin' {} a -> s {responseStartDateTime = a} :: CommandPlugin) Prelude.. Lens.mapping Core._Time
+commandPlugin_responseStartDateTime = Lens.lens (\CommandPlugin' {responseStartDateTime} -> responseStartDateTime) (\s@CommandPlugin' {} a -> s {responseStartDateTime = a} :: CommandPlugin) Prelude.. Lens.mapping Data._Time
 
 -- | (Deprecated) You can no longer specify this parameter. The system
 -- ignores it. Instead, Amazon Web Services Systems Manager automatically
@@ -330,7 +331,7 @@ commandPlugin_status = Lens.lens (\CommandPlugin' {status} -> status) (\s@Comman
 -- | The time the plugin stopped running. Could stop prematurely if, for
 -- example, a cancel command was sent.
 commandPlugin_responseFinishDateTime :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.UTCTime)
-commandPlugin_responseFinishDateTime = Lens.lens (\CommandPlugin' {responseFinishDateTime} -> responseFinishDateTime) (\s@CommandPlugin' {} a -> s {responseFinishDateTime = a} :: CommandPlugin) Prelude.. Lens.mapping Core._Time
+commandPlugin_responseFinishDateTime = Lens.lens (\CommandPlugin' {responseFinishDateTime} -> responseFinishDateTime) (\s@CommandPlugin' {} a -> s {responseFinishDateTime = a} :: CommandPlugin) Prelude.. Lens.mapping Data._Time
 
 -- | The URL for the complete text written by the plugin to stderr. If
 -- execution isn\'t yet complete, then this string is empty.
@@ -383,24 +384,24 @@ commandPlugin_outputS3KeyPrefix = Lens.lens (\CommandPlugin' {outputS3KeyPrefix}
 commandPlugin_standardOutputUrl :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
 commandPlugin_standardOutputUrl = Lens.lens (\CommandPlugin' {standardOutputUrl} -> standardOutputUrl) (\s@CommandPlugin' {} a -> s {standardOutputUrl = a} :: CommandPlugin)
 
-instance Core.FromJSON CommandPlugin where
+instance Data.FromJSON CommandPlugin where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CommandPlugin"
       ( \x ->
           CommandPlugin'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "StatusDetails")
-            Prelude.<*> (x Core..:? "ResponseStartDateTime")
-            Prelude.<*> (x Core..:? "OutputS3Region")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ResponseFinishDateTime")
-            Prelude.<*> (x Core..:? "StandardErrorUrl")
-            Prelude.<*> (x Core..:? "Output")
-            Prelude.<*> (x Core..:? "OutputS3BucketName")
-            Prelude.<*> (x Core..:? "ResponseCode")
-            Prelude.<*> (x Core..:? "OutputS3KeyPrefix")
-            Prelude.<*> (x Core..:? "StandardOutputUrl")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "StatusDetails")
+            Prelude.<*> (x Data..:? "ResponseStartDateTime")
+            Prelude.<*> (x Data..:? "OutputS3Region")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ResponseFinishDateTime")
+            Prelude.<*> (x Data..:? "StandardErrorUrl")
+            Prelude.<*> (x Data..:? "Output")
+            Prelude.<*> (x Data..:? "OutputS3BucketName")
+            Prelude.<*> (x Data..:? "ResponseCode")
+            Prelude.<*> (x Data..:? "OutputS3KeyPrefix")
+            Prelude.<*> (x Data..:? "StandardOutputUrl")
       )
 
 instance Prelude.Hashable CommandPlugin where

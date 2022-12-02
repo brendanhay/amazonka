@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,7 +86,7 @@ instance Core.AWSRequest TerminateSession where
     Response.receiveJSON
       ( \s h x ->
           TerminateSessionResponse'
-            Prelude.<$> (x Core..?> "SessionId")
+            Prelude.<$> (x Data..?> "SessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,30 +97,30 @@ instance Prelude.Hashable TerminateSession where
 instance Prelude.NFData TerminateSession where
   rnf TerminateSession' {..} = Prelude.rnf sessionId
 
-instance Core.ToHeaders TerminateSession where
+instance Data.ToHeaders TerminateSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.TerminateSession" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.TerminateSession" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TerminateSession where
+instance Data.ToJSON TerminateSession where
   toJSON TerminateSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SessionId" Core..= sessionId)]
+          [Prelude.Just ("SessionId" Data..= sessionId)]
       )
 
-instance Core.ToPath TerminateSession where
+instance Data.ToPath TerminateSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TerminateSession where
+instance Data.ToQuery TerminateSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTerminateSessionResponse' smart constructor.

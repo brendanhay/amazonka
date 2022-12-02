@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.MetadataValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata to assign to an Application Manager application.
@@ -50,12 +51,12 @@ newMetadataValue =
 metadataValue_value :: Lens.Lens' MetadataValue (Prelude.Maybe Prelude.Text)
 metadataValue_value = Lens.lens (\MetadataValue' {value} -> value) (\s@MetadataValue' {} a -> s {value = a} :: MetadataValue)
 
-instance Core.FromJSON MetadataValue where
+instance Data.FromJSON MetadataValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetadataValue"
       ( \x ->
-          MetadataValue' Prelude.<$> (x Core..:? "Value")
+          MetadataValue' Prelude.<$> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable MetadataValue where
@@ -65,9 +66,9 @@ instance Prelude.Hashable MetadataValue where
 instance Prelude.NFData MetadataValue where
   rnf MetadataValue' {..} = Prelude.rnf value
 
-instance Core.ToJSON MetadataValue where
+instance Data.ToJSON MetadataValue where
   toJSON MetadataValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Value" Core..=) Prelude.<$> value]
+          [("Value" Data..=) Prelude.<$> value]
       )

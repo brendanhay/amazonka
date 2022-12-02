@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AutomationExecutionMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AlarmConfiguration
 import Amazonka.SSM.Types.AlarmStateInformation
@@ -58,7 +59,7 @@ data AutomationExecutionMetadata = AutomationExecutionMetadata'
     -- | The targets defined by the user when starting the automation.
     targets :: Prelude.Maybe [Target],
     -- | The time the execution started.
-    executionStartTime :: Prelude.Maybe Core.POSIX,
+    executionStartTime :: Prelude.Maybe Data.POSIX,
     -- | The list of execution outputs as defined in the Automation runbook.
     failureMessage :: Prelude.Maybe Prelude.Text,
     -- | The execution ID.
@@ -105,10 +106,10 @@ data AutomationExecutionMetadata = AutomationExecutionMetadata'
     -- | The ID of a State Manager association used in the Automation operation.
     associationId :: Prelude.Maybe Prelude.Text,
     -- | The date and time the Automation operation is scheduled to start.
-    scheduledTime :: Prelude.Maybe Core.POSIX,
+    scheduledTime :: Prelude.Maybe Data.POSIX,
     -- | The time the execution finished. This isn\'t populated if the execution
     -- is still in progress.
-    executionEndTime :: Prelude.Maybe Core.POSIX,
+    executionEndTime :: Prelude.Maybe Data.POSIX,
     -- | The document version used during the execution.
     documentVersion :: Prelude.Maybe Prelude.Text
   }
@@ -270,7 +271,7 @@ automationExecutionMetadata_targets = Lens.lens (\AutomationExecutionMetadata' {
 
 -- | The time the execution started.
 automationExecutionMetadata_executionStartTime :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
-automationExecutionMetadata_executionStartTime = Lens.lens (\AutomationExecutionMetadata' {executionStartTime} -> executionStartTime) (\s@AutomationExecutionMetadata' {} a -> s {executionStartTime = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Core._Time
+automationExecutionMetadata_executionStartTime = Lens.lens (\AutomationExecutionMetadata' {executionStartTime} -> executionStartTime) (\s@AutomationExecutionMetadata' {} a -> s {executionStartTime = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The list of execution outputs as defined in the Automation runbook.
 automationExecutionMetadata_failureMessage :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
@@ -357,53 +358,53 @@ automationExecutionMetadata_associationId = Lens.lens (\AutomationExecutionMetad
 
 -- | The date and time the Automation operation is scheduled to start.
 automationExecutionMetadata_scheduledTime :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
-automationExecutionMetadata_scheduledTime = Lens.lens (\AutomationExecutionMetadata' {scheduledTime} -> scheduledTime) (\s@AutomationExecutionMetadata' {} a -> s {scheduledTime = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Core._Time
+automationExecutionMetadata_scheduledTime = Lens.lens (\AutomationExecutionMetadata' {scheduledTime} -> scheduledTime) (\s@AutomationExecutionMetadata' {} a -> s {scheduledTime = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The time the execution finished. This isn\'t populated if the execution
 -- is still in progress.
 automationExecutionMetadata_executionEndTime :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
-automationExecutionMetadata_executionEndTime = Lens.lens (\AutomationExecutionMetadata' {executionEndTime} -> executionEndTime) (\s@AutomationExecutionMetadata' {} a -> s {executionEndTime = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Core._Time
+automationExecutionMetadata_executionEndTime = Lens.lens (\AutomationExecutionMetadata' {executionEndTime} -> executionEndTime) (\s@AutomationExecutionMetadata' {} a -> s {executionEndTime = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The document version used during the execution.
 automationExecutionMetadata_documentVersion :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
 automationExecutionMetadata_documentVersion = Lens.lens (\AutomationExecutionMetadata' {documentVersion} -> documentVersion) (\s@AutomationExecutionMetadata' {} a -> s {documentVersion = a} :: AutomationExecutionMetadata)
 
-instance Core.FromJSON AutomationExecutionMetadata where
+instance Data.FromJSON AutomationExecutionMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutomationExecutionMetadata"
       ( \x ->
           AutomationExecutionMetadata'
-            Prelude.<$> (x Core..:? "ResolvedTargets")
-            Prelude.<*> (x Core..:? "TargetParameterName")
-            Prelude.<*> (x Core..:? "OpsItemId")
-            Prelude.<*> (x Core..:? "TargetMaps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AutomationType")
-            Prelude.<*> (x Core..:? "Target")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ExecutionStartTime")
-            Prelude.<*> (x Core..:? "FailureMessage")
-            Prelude.<*> (x Core..:? "AutomationExecutionId")
-            Prelude.<*> (x Core..:? "DocumentName")
-            Prelude.<*> (x Core..:? "AutomationSubtype")
-            Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AlarmConfiguration")
-            Prelude.<*> (x Core..:? "CurrentStepName")
-            Prelude.<*> (x Core..:? "ExecutedBy")
-            Prelude.<*> (x Core..:? "MaxConcurrency")
-            Prelude.<*> (x Core..:? "Mode")
-            Prelude.<*> (x Core..:? "LogFile")
-            Prelude.<*> (x Core..:? "ChangeRequestName")
-            Prelude.<*> (x Core..:? "MaxErrors")
-            Prelude.<*> (x Core..:? "ParentAutomationExecutionId")
-            Prelude.<*> (x Core..:? "AutomationExecutionStatus")
-            Prelude.<*> (x Core..:? "Runbooks")
-            Prelude.<*> (x Core..:? "TriggeredAlarms")
-            Prelude.<*> (x Core..:? "CurrentAction")
-            Prelude.<*> (x Core..:? "AssociationId")
-            Prelude.<*> (x Core..:? "ScheduledTime")
-            Prelude.<*> (x Core..:? "ExecutionEndTime")
-            Prelude.<*> (x Core..:? "DocumentVersion")
+            Prelude.<$> (x Data..:? "ResolvedTargets")
+            Prelude.<*> (x Data..:? "TargetParameterName")
+            Prelude.<*> (x Data..:? "OpsItemId")
+            Prelude.<*> (x Data..:? "TargetMaps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AutomationType")
+            Prelude.<*> (x Data..:? "Target")
+            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ExecutionStartTime")
+            Prelude.<*> (x Data..:? "FailureMessage")
+            Prelude.<*> (x Data..:? "AutomationExecutionId")
+            Prelude.<*> (x Data..:? "DocumentName")
+            Prelude.<*> (x Data..:? "AutomationSubtype")
+            Prelude.<*> (x Data..:? "Outputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AlarmConfiguration")
+            Prelude.<*> (x Data..:? "CurrentStepName")
+            Prelude.<*> (x Data..:? "ExecutedBy")
+            Prelude.<*> (x Data..:? "MaxConcurrency")
+            Prelude.<*> (x Data..:? "Mode")
+            Prelude.<*> (x Data..:? "LogFile")
+            Prelude.<*> (x Data..:? "ChangeRequestName")
+            Prelude.<*> (x Data..:? "MaxErrors")
+            Prelude.<*> (x Data..:? "ParentAutomationExecutionId")
+            Prelude.<*> (x Data..:? "AutomationExecutionStatus")
+            Prelude.<*> (x Data..:? "Runbooks")
+            Prelude.<*> (x Data..:? "TriggeredAlarms")
+            Prelude.<*> (x Data..:? "CurrentAction")
+            Prelude.<*> (x Data..:? "AssociationId")
+            Prelude.<*> (x Data..:? "ScheduledTime")
+            Prelude.<*> (x Data..:? "ExecutionEndTime")
+            Prelude.<*> (x Data..:? "DocumentVersion")
       )
 
 instance Prelude.Hashable AutomationExecutionMetadata where

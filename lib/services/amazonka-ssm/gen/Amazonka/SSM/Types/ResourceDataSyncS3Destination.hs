@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ResourceDataSyncS3Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.ResourceDataSyncDestinationDataSharing
 import Amazonka.SSM.Types.ResourceDataSyncS3Format
@@ -118,18 +119,18 @@ resourceDataSyncS3Destination_syncFormat = Lens.lens (\ResourceDataSyncS3Destina
 resourceDataSyncS3Destination_region :: Lens.Lens' ResourceDataSyncS3Destination Prelude.Text
 resourceDataSyncS3Destination_region = Lens.lens (\ResourceDataSyncS3Destination' {region} -> region) (\s@ResourceDataSyncS3Destination' {} a -> s {region = a} :: ResourceDataSyncS3Destination)
 
-instance Core.FromJSON ResourceDataSyncS3Destination where
+instance Data.FromJSON ResourceDataSyncS3Destination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceDataSyncS3Destination"
       ( \x ->
           ResourceDataSyncS3Destination'
-            Prelude.<$> (x Core..:? "DestinationDataSharing")
-            Prelude.<*> (x Core..:? "AWSKMSKeyARN")
-            Prelude.<*> (x Core..:? "Prefix")
-            Prelude.<*> (x Core..: "BucketName")
-            Prelude.<*> (x Core..: "SyncFormat")
-            Prelude.<*> (x Core..: "Region")
+            Prelude.<$> (x Data..:? "DestinationDataSharing")
+            Prelude.<*> (x Data..:? "AWSKMSKeyARN")
+            Prelude.<*> (x Data..:? "Prefix")
+            Prelude.<*> (x Data..: "BucketName")
+            Prelude.<*> (x Data..: "SyncFormat")
+            Prelude.<*> (x Data..: "Region")
       )
 
 instance
@@ -153,16 +154,16 @@ instance Prelude.NFData ResourceDataSyncS3Destination where
       `Prelude.seq` Prelude.rnf syncFormat
       `Prelude.seq` Prelude.rnf region
 
-instance Core.ToJSON ResourceDataSyncS3Destination where
+instance Data.ToJSON ResourceDataSyncS3Destination where
   toJSON ResourceDataSyncS3Destination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DestinationDataSharing" Core..=)
+          [ ("DestinationDataSharing" Data..=)
               Prelude.<$> destinationDataSharing,
-            ("AWSKMSKeyARN" Core..=) Prelude.<$> aWSKMSKeyARN,
-            ("Prefix" Core..=) Prelude.<$> prefix,
-            Prelude.Just ("BucketName" Core..= bucketName),
-            Prelude.Just ("SyncFormat" Core..= syncFormat),
-            Prelude.Just ("Region" Core..= region)
+            ("AWSKMSKeyARN" Data..=) Prelude.<$> aWSKMSKeyARN,
+            ("Prefix" Data..=) Prelude.<$> prefix,
+            Prelude.Just ("BucketName" Data..= bucketName),
+            Prelude.Just ("SyncFormat" Data..= syncFormat),
+            Prelude.Just ("Region" Data..= region)
           ]
       )

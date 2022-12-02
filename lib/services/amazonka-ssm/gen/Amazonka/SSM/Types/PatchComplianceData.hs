@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.PatchComplianceData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.PatchComplianceDataState
 
@@ -50,7 +51,7 @@ data PatchComplianceData = PatchComplianceData'
     state :: PatchComplianceDataState,
     -- | The date\/time the patch was installed on the managed node. Not all
     -- operating systems provide this level of information.
-    installedTime :: Core.POSIX
+    installedTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -111,7 +112,7 @@ newPatchComplianceData
         classification = pClassification_,
         severity = pSeverity_,
         state = pState_,
-        installedTime = Core._Time Lens.# pInstalledTime_
+        installedTime = Data._Time Lens.# pInstalledTime_
       }
 
 -- | The IDs of one or more Common Vulnerabilities and Exposure (CVE) issues
@@ -148,21 +149,21 @@ patchComplianceData_state = Lens.lens (\PatchComplianceData' {state} -> state) (
 -- | The date\/time the patch was installed on the managed node. Not all
 -- operating systems provide this level of information.
 patchComplianceData_installedTime :: Lens.Lens' PatchComplianceData Prelude.UTCTime
-patchComplianceData_installedTime = Lens.lens (\PatchComplianceData' {installedTime} -> installedTime) (\s@PatchComplianceData' {} a -> s {installedTime = a} :: PatchComplianceData) Prelude.. Core._Time
+patchComplianceData_installedTime = Lens.lens (\PatchComplianceData' {installedTime} -> installedTime) (\s@PatchComplianceData' {} a -> s {installedTime = a} :: PatchComplianceData) Prelude.. Data._Time
 
-instance Core.FromJSON PatchComplianceData where
+instance Data.FromJSON PatchComplianceData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PatchComplianceData"
       ( \x ->
           PatchComplianceData'
-            Prelude.<$> (x Core..:? "CVEIds")
-            Prelude.<*> (x Core..: "Title")
-            Prelude.<*> (x Core..: "KBId")
-            Prelude.<*> (x Core..: "Classification")
-            Prelude.<*> (x Core..: "Severity")
-            Prelude.<*> (x Core..: "State")
-            Prelude.<*> (x Core..: "InstalledTime")
+            Prelude.<$> (x Data..:? "CVEIds")
+            Prelude.<*> (x Data..: "Title")
+            Prelude.<*> (x Data..: "KBId")
+            Prelude.<*> (x Data..: "Classification")
+            Prelude.<*> (x Data..: "Severity")
+            Prelude.<*> (x Data..: "State")
+            Prelude.<*> (x Data..: "InstalledTime")
       )
 
 instance Prelude.Hashable PatchComplianceData where

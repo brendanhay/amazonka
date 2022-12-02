@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest GetOpsItem where
     Response.receiveJSON
       ( \s h x ->
           GetOpsItemResponse'
-            Prelude.<$> (x Core..?> "OpsItem")
+            Prelude.<$> (x Data..?> "OpsItem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,32 +119,32 @@ instance Prelude.NFData GetOpsItem where
     Prelude.rnf opsItemArn
       `Prelude.seq` Prelude.rnf opsItemId
 
-instance Core.ToHeaders GetOpsItem where
+instance Data.ToHeaders GetOpsItem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetOpsItem" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.GetOpsItem" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetOpsItem where
+instance Data.ToJSON GetOpsItem where
   toJSON GetOpsItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OpsItemArn" Core..=) Prelude.<$> opsItemArn,
-            Prelude.Just ("OpsItemId" Core..= opsItemId)
+          [ ("OpsItemArn" Data..=) Prelude.<$> opsItemArn,
+            Prelude.Just ("OpsItemId" Data..= opsItemId)
           ]
       )
 
-instance Core.ToPath GetOpsItem where
+instance Data.ToPath GetOpsItem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetOpsItem where
+instance Data.ToQuery GetOpsItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOpsItemResponse' smart constructor.

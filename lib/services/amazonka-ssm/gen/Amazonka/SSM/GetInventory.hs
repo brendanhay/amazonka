@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -165,8 +166,8 @@ instance Core.AWSRequest GetInventory where
     Response.receiveJSON
       ( \s h x ->
           GetInventoryResponse'
-            Prelude.<$> (x Core..?> "Entities" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Entities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,36 +187,36 @@ instance Prelude.NFData GetInventory where
       `Prelude.seq` Prelude.rnf aggregators
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders GetInventory where
+instance Data.ToHeaders GetInventory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetInventory" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.GetInventory" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetInventory where
+instance Data.ToJSON GetInventory where
   toJSON GetInventory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResultAttributes" Core..=)
+          [ ("ResultAttributes" Data..=)
               Prelude.<$> resultAttributes,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("Aggregators" Core..=) Prelude.<$> aggregators,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("Aggregators" Data..=) Prelude.<$> aggregators,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath GetInventory where
+instance Data.ToPath GetInventory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInventory where
+instance Data.ToQuery GetInventory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInventoryResponse' smart constructor.

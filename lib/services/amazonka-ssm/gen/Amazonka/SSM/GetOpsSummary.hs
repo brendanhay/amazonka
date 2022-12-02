@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -172,8 +173,8 @@ instance Core.AWSRequest GetOpsSummary where
     Response.receiveJSON
       ( \s h x ->
           GetOpsSummaryResponse'
-            Prelude.<$> (x Core..?> "Entities" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Entities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,37 +196,37 @@ instance Prelude.NFData GetOpsSummary where
       `Prelude.seq` Prelude.rnf aggregators
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders GetOpsSummary where
+instance Data.ToHeaders GetOpsSummary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetOpsSummary" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.GetOpsSummary" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetOpsSummary where
+instance Data.ToJSON GetOpsSummary where
   toJSON GetOpsSummary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResultAttributes" Core..=)
+          [ ("ResultAttributes" Data..=)
               Prelude.<$> resultAttributes,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SyncName" Core..=) Prelude.<$> syncName,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("Aggregators" Core..=) Prelude.<$> aggregators,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SyncName" Data..=) Prelude.<$> syncName,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("Aggregators" Data..=) Prelude.<$> aggregators,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath GetOpsSummary where
+instance Data.ToPath GetOpsSummary where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetOpsSummary where
+instance Data.ToQuery GetOpsSummary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOpsSummaryResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.MaintenanceWindowTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.MaintenanceWindowResourceType
 import Amazonka.SSM.Types.Target
@@ -48,11 +49,11 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
     -- @Key=\<tag name>,Values=\<tag value>@.
     targets :: Prelude.Maybe [Target],
     -- | A description for the target.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A user-provided value that will be included in any Amazon CloudWatch
     -- Events events that are raised while running tasks for these targets in
     -- this maintenance window.
-    ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    ownerInformation :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -131,27 +132,27 @@ maintenanceWindowTarget_targets = Lens.lens (\MaintenanceWindowTarget' {targets}
 
 -- | A description for the target.
 maintenanceWindowTarget_description :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
-maintenanceWindowTarget_description = Lens.lens (\MaintenanceWindowTarget' {description} -> description) (\s@MaintenanceWindowTarget' {} a -> s {description = a} :: MaintenanceWindowTarget) Prelude.. Lens.mapping Core._Sensitive
+maintenanceWindowTarget_description = Lens.lens (\MaintenanceWindowTarget' {description} -> description) (\s@MaintenanceWindowTarget' {} a -> s {description = a} :: MaintenanceWindowTarget) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A user-provided value that will be included in any Amazon CloudWatch
 -- Events events that are raised while running tasks for these targets in
 -- this maintenance window.
 maintenanceWindowTarget_ownerInformation :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
-maintenanceWindowTarget_ownerInformation = Lens.lens (\MaintenanceWindowTarget' {ownerInformation} -> ownerInformation) (\s@MaintenanceWindowTarget' {} a -> s {ownerInformation = a} :: MaintenanceWindowTarget) Prelude.. Lens.mapping Core._Sensitive
+maintenanceWindowTarget_ownerInformation = Lens.lens (\MaintenanceWindowTarget' {ownerInformation} -> ownerInformation) (\s@MaintenanceWindowTarget' {} a -> s {ownerInformation = a} :: MaintenanceWindowTarget) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON MaintenanceWindowTarget where
+instance Data.FromJSON MaintenanceWindowTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MaintenanceWindowTarget"
       ( \x ->
           MaintenanceWindowTarget'
-            Prelude.<$> (x Core..:? "WindowTargetId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "WindowId")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "OwnerInformation")
+            Prelude.<$> (x Data..:? "WindowTargetId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "WindowId")
+            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "OwnerInformation")
       )
 
 instance Prelude.Hashable MaintenanceWindowTarget where

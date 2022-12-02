@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,8 +105,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeregisterTaskFromMaintenanceWindowResponse'
-            Prelude.<$> (x Core..?> "WindowTaskId")
-              Prelude.<*> (x Core..?> "WindowId")
+            Prelude.<$> (x Data..?> "WindowTaskId")
+              Prelude.<*> (x Data..?> "WindowId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,43 +129,43 @@ instance
       `Prelude.seq` Prelude.rnf windowTaskId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeregisterTaskFromMaintenanceWindow
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DeregisterTaskFromMaintenanceWindow" ::
+              Data.=# ( "AmazonSSM.DeregisterTaskFromMaintenanceWindow" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeregisterTaskFromMaintenanceWindow
   where
   toJSON DeregisterTaskFromMaintenanceWindow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("WindowId" Core..= windowId),
-            Prelude.Just ("WindowTaskId" Core..= windowTaskId)
+          [ Prelude.Just ("WindowId" Data..= windowId),
+            Prelude.Just ("WindowTaskId" Data..= windowTaskId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeregisterTaskFromMaintenanceWindow
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeregisterTaskFromMaintenanceWindow
   where
   toQuery = Prelude.const Prelude.mempty

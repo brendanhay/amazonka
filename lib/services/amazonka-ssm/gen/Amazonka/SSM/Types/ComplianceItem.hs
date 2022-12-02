@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ComplianceItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.ComplianceExecutionSummary
 import Amazonka.SSM.Types.ComplianceSeverity
@@ -162,21 +163,21 @@ complianceItem_title = Lens.lens (\ComplianceItem' {title} -> title) (\s@Complia
 complianceItem_complianceType :: Lens.Lens' ComplianceItem (Prelude.Maybe Prelude.Text)
 complianceItem_complianceType = Lens.lens (\ComplianceItem' {complianceType} -> complianceType) (\s@ComplianceItem' {} a -> s {complianceType = a} :: ComplianceItem)
 
-instance Core.FromJSON ComplianceItem where
+instance Data.FromJSON ComplianceItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComplianceItem"
       ( \x ->
           ComplianceItem'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Details" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ExecutionSummary")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "ComplianceType")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Severity")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Details" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ExecutionSummary")
+            Prelude.<*> (x Data..:? "Title")
+            Prelude.<*> (x Data..:? "ComplianceType")
       )
 
 instance Prelude.Hashable ComplianceItem where

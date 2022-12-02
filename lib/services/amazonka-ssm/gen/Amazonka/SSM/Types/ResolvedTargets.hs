@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ResolvedTargets where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about targets that resolved during the Automation execution.
@@ -67,15 +68,15 @@ resolvedTargets_truncated = Lens.lens (\ResolvedTargets' {truncated} -> truncate
 resolvedTargets_parameterValues :: Lens.Lens' ResolvedTargets (Prelude.Maybe [Prelude.Text])
 resolvedTargets_parameterValues = Lens.lens (\ResolvedTargets' {parameterValues} -> parameterValues) (\s@ResolvedTargets' {} a -> s {parameterValues = a} :: ResolvedTargets) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ResolvedTargets where
+instance Data.FromJSON ResolvedTargets where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResolvedTargets"
       ( \x ->
           ResolvedTargets'
-            Prelude.<$> (x Core..:? "Truncated")
-            Prelude.<*> ( x Core..:? "ParameterValues"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Truncated")
+            Prelude.<*> ( x Data..:? "ParameterValues"
+                            Data..!= Prelude.mempty
                         )
       )
 

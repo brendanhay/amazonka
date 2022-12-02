@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,34 +97,34 @@ instance Prelude.NFData DeleteOpsMetadata where
   rnf DeleteOpsMetadata' {..} =
     Prelude.rnf opsMetadataArn
 
-instance Core.ToHeaders DeleteOpsMetadata where
+instance Data.ToHeaders DeleteOpsMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DeleteOpsMetadata" ::
+              Data.=# ( "AmazonSSM.DeleteOpsMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteOpsMetadata where
+instance Data.ToJSON DeleteOpsMetadata where
   toJSON DeleteOpsMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OpsMetadataArn" Core..= opsMetadataArn)
+              ("OpsMetadataArn" Data..= opsMetadataArn)
           ]
       )
 
-instance Core.ToPath DeleteOpsMetadata where
+instance Data.ToPath DeleteOpsMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteOpsMetadata where
+instance Data.ToQuery DeleteOpsMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteOpsMetadataResponse' smart constructor.

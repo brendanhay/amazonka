@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,12 +145,12 @@ instance Core.AWSRequest ListInventoryEntries where
     Response.receiveJSON
       ( \s h x ->
           ListInventoryEntriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "TypeName")
-            Prelude.<*> (x Core..?> "InstanceId")
-            Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CaptureTime")
-            Prelude.<*> (x Core..?> "SchemaVersion")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "TypeName")
+            Prelude.<*> (x Data..?> "InstanceId")
+            Prelude.<*> (x Data..?> "Entries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CaptureTime")
+            Prelude.<*> (x Data..?> "SchemaVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,37 +170,37 @@ instance Prelude.NFData ListInventoryEntries where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf typeName
 
-instance Core.ToHeaders ListInventoryEntries where
+instance Data.ToHeaders ListInventoryEntries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.ListInventoryEntries" ::
+              Data.=# ( "AmazonSSM.ListInventoryEntries" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListInventoryEntries where
+instance Data.ToJSON ListInventoryEntries where
   toJSON ListInventoryEntries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("TypeName" Core..= typeName)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("TypeName" Data..= typeName)
           ]
       )
 
-instance Core.ToPath ListInventoryEntries where
+instance Data.ToPath ListInventoryEntries where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListInventoryEntries where
+instance Data.ToQuery ListInventoryEntries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListInventoryEntriesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.NonCompliantSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.SeveritySummary
 
@@ -64,14 +65,14 @@ nonCompliantSummary_nonCompliantCount = Lens.lens (\NonCompliantSummary' {nonCom
 nonCompliantSummary_severitySummary :: Lens.Lens' NonCompliantSummary (Prelude.Maybe SeveritySummary)
 nonCompliantSummary_severitySummary = Lens.lens (\NonCompliantSummary' {severitySummary} -> severitySummary) (\s@NonCompliantSummary' {} a -> s {severitySummary = a} :: NonCompliantSummary)
 
-instance Core.FromJSON NonCompliantSummary where
+instance Data.FromJSON NonCompliantSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NonCompliantSummary"
       ( \x ->
           NonCompliantSummary'
-            Prelude.<$> (x Core..:? "NonCompliantCount")
-            Prelude.<*> (x Core..:? "SeveritySummary")
+            Prelude.<$> (x Data..:? "NonCompliantCount")
+            Prelude.<*> (x Data..:? "SeveritySummary")
       )
 
 instance Prelude.Hashable NonCompliantSummary where

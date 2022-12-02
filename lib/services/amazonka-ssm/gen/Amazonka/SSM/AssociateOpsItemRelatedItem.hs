@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,7 +157,7 @@ instance Core.AWSRequest AssociateOpsItemRelatedItem where
     Response.receiveJSON
       ( \s h x ->
           AssociateOpsItemRelatedItemResponse'
-            Prelude.<$> (x Core..?> "AssociationId")
+            Prelude.<$> (x Data..?> "AssociationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,37 +175,37 @@ instance Prelude.NFData AssociateOpsItemRelatedItem where
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resourceUri
 
-instance Core.ToHeaders AssociateOpsItemRelatedItem where
+instance Data.ToHeaders AssociateOpsItemRelatedItem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.AssociateOpsItemRelatedItem" ::
+              Data.=# ( "AmazonSSM.AssociateOpsItemRelatedItem" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateOpsItemRelatedItem where
+instance Data.ToJSON AssociateOpsItemRelatedItem where
   toJSON AssociateOpsItemRelatedItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("OpsItemId" Core..= opsItemId),
+          [ Prelude.Just ("OpsItemId" Data..= opsItemId),
             Prelude.Just
-              ("AssociationType" Core..= associationType),
-            Prelude.Just ("ResourceType" Core..= resourceType),
-            Prelude.Just ("ResourceUri" Core..= resourceUri)
+              ("AssociationType" Data..= associationType),
+            Prelude.Just ("ResourceType" Data..= resourceType),
+            Prelude.Just ("ResourceUri" Data..= resourceUri)
           ]
       )
 
-instance Core.ToPath AssociateOpsItemRelatedItem where
+instance Data.ToPath AssociateOpsItemRelatedItem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateOpsItemRelatedItem where
+instance Data.ToQuery AssociateOpsItemRelatedItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateOpsItemRelatedItemResponse' smart constructor.

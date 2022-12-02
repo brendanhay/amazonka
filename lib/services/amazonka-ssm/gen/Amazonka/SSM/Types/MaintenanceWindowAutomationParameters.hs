@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.MaintenanceWindowAutomationParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for an @AUTOMATION@ task type.
@@ -123,16 +124,16 @@ maintenanceWindowAutomationParameters_parameters :: Lens.Lens' MaintenanceWindow
 maintenanceWindowAutomationParameters_parameters = Lens.lens (\MaintenanceWindowAutomationParameters' {parameters} -> parameters) (\s@MaintenanceWindowAutomationParameters' {} a -> s {parameters = a} :: MaintenanceWindowAutomationParameters) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MaintenanceWindowAutomationParameters
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MaintenanceWindowAutomationParameters"
       ( \x ->
           MaintenanceWindowAutomationParameters'
-            Prelude.<$> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "DocumentVersion")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance
@@ -154,14 +155,14 @@ instance
       `Prelude.seq` Prelude.rnf parameters
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MaintenanceWindowAutomationParameters
   where
   toJSON MaintenanceWindowAutomationParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DocumentVersion" Core..=)
+          [ ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            ("Parameters" Core..=) Prelude.<$> parameters
+            ("Parameters" Data..=) Prelude.<$> parameters
           ]
       )

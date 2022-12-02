@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.FailedCreateAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.CreateAssociationBatchRequestEntry
 import Amazonka.SSM.Types.Fault
@@ -72,15 +73,15 @@ failedCreateAssociation_fault = Lens.lens (\FailedCreateAssociation' {fault} -> 
 failedCreateAssociation_entry :: Lens.Lens' FailedCreateAssociation (Prelude.Maybe CreateAssociationBatchRequestEntry)
 failedCreateAssociation_entry = Lens.lens (\FailedCreateAssociation' {entry} -> entry) (\s@FailedCreateAssociation' {} a -> s {entry = a} :: FailedCreateAssociation)
 
-instance Core.FromJSON FailedCreateAssociation where
+instance Data.FromJSON FailedCreateAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedCreateAssociation"
       ( \x ->
           FailedCreateAssociation'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Fault")
-            Prelude.<*> (x Core..:? "Entry")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Fault")
+            Prelude.<*> (x Data..:? "Entry")
       )
 
 instance Prelude.Hashable FailedCreateAssociation where

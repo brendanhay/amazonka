@@ -194,7 +194,7 @@ bootShape' l template s =
     Module
       { name = (l ^. typesNS) <> ((mkNS . typeId) $ identifier s),
         imports =
-          [ "qualified Amazonka.Core as Core",
+          [ "qualified Amazonka.Data as Data",
             "qualified Amazonka.Prelude as Prelude"
           ],
         template,

@@ -15,6 +15,7 @@ operationImports l _o =
     "qualified Amazonka.Response as Response" :
     "qualified Amazonka.Core as Core" :
     "qualified Amazonka.Core.Lens.Internal as Lens" :
+    "qualified Amazonka.Data as Data" :
     "qualified Amazonka.Prelude as Prelude" :
     l ^. typesNS :
     l ^. operationModules
@@ -36,6 +37,7 @@ sumImports :: Library -> [NS]
 sumImports l =
   List.sort $
     "qualified Amazonka.Core as Core" :
+    "qualified Amazonka.Data as Data" :
     "qualified Amazonka.Prelude as Prelude" :
     l ^. typeModules
 
@@ -44,6 +46,7 @@ productImports l p =
   List.sort $
     "qualified Amazonka.Core as Core" :
     "qualified Amazonka.Core.Lens.Internal as Lens" :
+    "qualified Amazonka.Data as Data" :
     "qualified Amazonka.Prelude as Prelude" :
     l ^. typeModules ++ productDependencies l p
 
@@ -72,6 +75,7 @@ waiterImports l =
   List.sort $
     "qualified Amazonka.Core as Core" :
     "qualified Amazonka.Core.Lens.Internal as Lens" :
+    "qualified Amazonka.Data as Data" :
     "qualified Amazonka.Prelude as Prelude" :
     l ^. typesNS :
     l ^. lensNS :

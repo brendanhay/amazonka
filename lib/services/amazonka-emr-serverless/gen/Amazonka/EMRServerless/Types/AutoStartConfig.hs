@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.AutoStartConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for an application to automatically start on job
@@ -54,12 +55,12 @@ newAutoStartConfig =
 autoStartConfig_enabled :: Lens.Lens' AutoStartConfig (Prelude.Maybe Prelude.Bool)
 autoStartConfig_enabled = Lens.lens (\AutoStartConfig' {enabled} -> enabled) (\s@AutoStartConfig' {} a -> s {enabled = a} :: AutoStartConfig)
 
-instance Core.FromJSON AutoStartConfig where
+instance Data.FromJSON AutoStartConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoStartConfig"
       ( \x ->
-          AutoStartConfig' Prelude.<$> (x Core..:? "enabled")
+          AutoStartConfig' Prelude.<$> (x Data..:? "enabled")
       )
 
 instance Prelude.Hashable AutoStartConfig where
@@ -69,9 +70,9 @@ instance Prelude.Hashable AutoStartConfig where
 instance Prelude.NFData AutoStartConfig where
   rnf AutoStartConfig' {..} = Prelude.rnf enabled
 
-instance Core.ToJSON AutoStartConfig where
+instance Data.ToJSON AutoStartConfig where
   toJSON AutoStartConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("enabled" Core..=) Prelude.<$> enabled]
+          [("enabled" Data..=) Prelude.<$> enabled]
       )

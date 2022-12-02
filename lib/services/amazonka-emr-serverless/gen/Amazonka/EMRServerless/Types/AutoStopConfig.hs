@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.AutoStopConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for an application to automatically stop after a
@@ -69,14 +70,14 @@ autoStopConfig_idleTimeoutMinutes = Lens.lens (\AutoStopConfig' {idleTimeoutMinu
 autoStopConfig_enabled :: Lens.Lens' AutoStopConfig (Prelude.Maybe Prelude.Bool)
 autoStopConfig_enabled = Lens.lens (\AutoStopConfig' {enabled} -> enabled) (\s@AutoStopConfig' {} a -> s {enabled = a} :: AutoStopConfig)
 
-instance Core.FromJSON AutoStopConfig where
+instance Data.FromJSON AutoStopConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoStopConfig"
       ( \x ->
           AutoStopConfig'
-            Prelude.<$> (x Core..:? "idleTimeoutMinutes")
-            Prelude.<*> (x Core..:? "enabled")
+            Prelude.<$> (x Data..:? "idleTimeoutMinutes")
+            Prelude.<*> (x Data..:? "enabled")
       )
 
 instance Prelude.Hashable AutoStopConfig where
@@ -89,12 +90,12 @@ instance Prelude.NFData AutoStopConfig where
     Prelude.rnf idleTimeoutMinutes
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON AutoStopConfig where
+instance Data.ToJSON AutoStopConfig where
   toJSON AutoStopConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("idleTimeoutMinutes" Core..=)
+          [ ("idleTimeoutMinutes" Data..=)
               Prelude.<$> idleTimeoutMinutes,
-            ("enabled" Core..=) Prelude.<$> enabled
+            ("enabled" Data..=) Prelude.<$> enabled
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.InitialCapacityConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types.WorkerResourceConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ initialCapacityConfig_workerConfiguration = Lens.lens (\InitialCapacityConfig' {
 initialCapacityConfig_workerCount :: Lens.Lens' InitialCapacityConfig Prelude.Natural
 initialCapacityConfig_workerCount = Lens.lens (\InitialCapacityConfig' {workerCount} -> workerCount) (\s@InitialCapacityConfig' {} a -> s {workerCount = a} :: InitialCapacityConfig)
 
-instance Core.FromJSON InitialCapacityConfig where
+instance Data.FromJSON InitialCapacityConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InitialCapacityConfig"
       ( \x ->
           InitialCapacityConfig'
-            Prelude.<$> (x Core..:? "workerConfiguration")
-            Prelude.<*> (x Core..: "workerCount")
+            Prelude.<$> (x Data..:? "workerConfiguration")
+            Prelude.<*> (x Data..: "workerCount")
       )
 
 instance Prelude.Hashable InitialCapacityConfig where
@@ -85,12 +86,12 @@ instance Prelude.NFData InitialCapacityConfig where
     Prelude.rnf workerConfiguration
       `Prelude.seq` Prelude.rnf workerCount
 
-instance Core.ToJSON InitialCapacityConfig where
+instance Data.ToJSON InitialCapacityConfig where
   toJSON InitialCapacityConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("workerConfiguration" Core..=)
+          [ ("workerConfiguration" Data..=)
               Prelude.<$> workerConfiguration,
-            Prelude.Just ("workerCount" Core..= workerCount)
+            Prelude.Just ("workerCount" Data..= workerCount)
           ]
       )

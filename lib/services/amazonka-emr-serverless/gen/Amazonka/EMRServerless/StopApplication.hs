@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,26 +95,26 @@ instance Prelude.Hashable StopApplication where
 instance Prelude.NFData StopApplication where
   rnf StopApplication' {..} = Prelude.rnf applicationId
 
-instance Core.ToHeaders StopApplication where
+instance Data.ToHeaders StopApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopApplication where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopApplication where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopApplication where
+instance Data.ToPath StopApplication where
   toPath StopApplication' {..} =
     Prelude.mconcat
-      ["/applications/", Core.toBS applicationId, "/stop"]
+      ["/applications/", Data.toBS applicationId, "/stop"]
 
-instance Core.ToQuery StopApplication where
+instance Data.ToQuery StopApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopApplicationResponse' smart constructor.

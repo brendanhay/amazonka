@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.ManagedPersistenceMonitoringConfiguration wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The managed log persistence configuration for a job run.
@@ -66,16 +67,16 @@ managedPersistenceMonitoringConfiguration_enabled :: Lens.Lens' ManagedPersisten
 managedPersistenceMonitoringConfiguration_enabled = Lens.lens (\ManagedPersistenceMonitoringConfiguration' {enabled} -> enabled) (\s@ManagedPersistenceMonitoringConfiguration' {} a -> s {enabled = a} :: ManagedPersistenceMonitoringConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ManagedPersistenceMonitoringConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagedPersistenceMonitoringConfiguration"
       ( \x ->
           ManagedPersistenceMonitoringConfiguration'
-            Prelude.<$> (x Core..:? "encryptionKeyArn")
-              Prelude.<*> (x Core..:? "enabled")
+            Prelude.<$> (x Data..:? "encryptionKeyArn")
+              Prelude.<*> (x Data..:? "enabled")
       )
 
 instance
@@ -97,14 +98,14 @@ instance
       `Prelude.seq` Prelude.rnf enabled
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ManagedPersistenceMonitoringConfiguration
   where
   toJSON ManagedPersistenceMonitoringConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionKeyArn" Core..=)
+          [ ("encryptionKeyArn" Data..=)
               Prelude.<$> encryptionKeyArn,
-            ("enabled" Core..=) Prelude.<$> enabled
+            ("enabled" Data..=) Prelude.<$> enabled
           ]
       )

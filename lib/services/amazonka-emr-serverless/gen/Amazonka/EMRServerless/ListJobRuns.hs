@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -61,9 +62,9 @@ data ListJobRuns = ListJobRuns'
     -- | The maximum number of job runs that can be listed.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The lower bound of the option to filter by creation date and time.
-    createdAtAfter :: Prelude.Maybe Core.POSIX,
+    createdAtAfter :: Prelude.Maybe Data.POSIX,
     -- | The upper bound of the option to filter by creation date and time.
-    createdAtBefore :: Prelude.Maybe Core.POSIX,
+    createdAtBefore :: Prelude.Maybe Data.POSIX,
     -- | An optional filter for job run states. Note that if this filter contains
     -- multiple states, the resulting list will be grouped by the state.
     states :: Prelude.Maybe [JobRunState],
@@ -116,11 +117,11 @@ listJobRuns_maxResults = Lens.lens (\ListJobRuns' {maxResults} -> maxResults) (\
 
 -- | The lower bound of the option to filter by creation date and time.
 listJobRuns_createdAtAfter :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.UTCTime)
-listJobRuns_createdAtAfter = Lens.lens (\ListJobRuns' {createdAtAfter} -> createdAtAfter) (\s@ListJobRuns' {} a -> s {createdAtAfter = a} :: ListJobRuns) Prelude.. Lens.mapping Core._Time
+listJobRuns_createdAtAfter = Lens.lens (\ListJobRuns' {createdAtAfter} -> createdAtAfter) (\s@ListJobRuns' {} a -> s {createdAtAfter = a} :: ListJobRuns) Prelude.. Lens.mapping Data._Time
 
 -- | The upper bound of the option to filter by creation date and time.
 listJobRuns_createdAtBefore :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.UTCTime)
-listJobRuns_createdAtBefore = Lens.lens (\ListJobRuns' {createdAtBefore} -> createdAtBefore) (\s@ListJobRuns' {} a -> s {createdAtBefore = a} :: ListJobRuns) Prelude.. Lens.mapping Core._Time
+listJobRuns_createdAtBefore = Lens.lens (\ListJobRuns' {createdAtBefore} -> createdAtBefore) (\s@ListJobRuns' {} a -> s {createdAtBefore = a} :: ListJobRuns) Prelude.. Lens.mapping Data._Time
 
 -- | An optional filter for job run states. Note that if this filter contains
 -- multiple states, the resulting list will be grouped by the state.
@@ -155,9 +156,9 @@ instance Core.AWSRequest ListJobRuns where
     Response.receiveJSON
       ( \s h x ->
           ListJobRunsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "jobRuns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "jobRuns" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListJobRuns where
@@ -178,35 +179,35 @@ instance Prelude.NFData ListJobRuns where
       `Prelude.seq` Prelude.rnf states
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders ListJobRuns where
+instance Data.ToHeaders ListJobRuns where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListJobRuns where
+instance Data.ToPath ListJobRuns where
   toPath ListJobRuns' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/jobruns"
       ]
 
-instance Core.ToQuery ListJobRuns where
+instance Data.ToQuery ListJobRuns where
   toQuery ListJobRuns' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "createdAtAfter" Core.=: createdAtAfter,
-        "createdAtBefore" Core.=: createdAtBefore,
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "createdAtAfter" Data.=: createdAtAfter,
+        "createdAtBefore" Data.=: createdAtBefore,
         "states"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> states)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> states)
       ]
 
 -- | /See:/ 'newListJobRunsResponse' smart constructor.

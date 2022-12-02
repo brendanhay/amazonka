@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.Hive where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configurations for the Hive job driver.
@@ -28,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newHive' smart constructor.
 data Hive = Hive'
   { -- | The query file for the Hive job run.
-    initQueryFile :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    initQueryFile :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The parameters for the Hive job run.
-    parameters :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    parameters :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The query for the Hive job run.
-    query :: Core.Sensitive Prelude.Text
+    query :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -57,30 +58,30 @@ newHive pQuery_ =
   Hive'
     { initQueryFile = Prelude.Nothing,
       parameters = Prelude.Nothing,
-      query = Core._Sensitive Lens.# pQuery_
+      query = Data._Sensitive Lens.# pQuery_
     }
 
 -- | The query file for the Hive job run.
 hive_initQueryFile :: Lens.Lens' Hive (Prelude.Maybe Prelude.Text)
-hive_initQueryFile = Lens.lens (\Hive' {initQueryFile} -> initQueryFile) (\s@Hive' {} a -> s {initQueryFile = a} :: Hive) Prelude.. Lens.mapping Core._Sensitive
+hive_initQueryFile = Lens.lens (\Hive' {initQueryFile} -> initQueryFile) (\s@Hive' {} a -> s {initQueryFile = a} :: Hive) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The parameters for the Hive job run.
 hive_parameters :: Lens.Lens' Hive (Prelude.Maybe Prelude.Text)
-hive_parameters = Lens.lens (\Hive' {parameters} -> parameters) (\s@Hive' {} a -> s {parameters = a} :: Hive) Prelude.. Lens.mapping Core._Sensitive
+hive_parameters = Lens.lens (\Hive' {parameters} -> parameters) (\s@Hive' {} a -> s {parameters = a} :: Hive) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The query for the Hive job run.
 hive_query :: Lens.Lens' Hive Prelude.Text
-hive_query = Lens.lens (\Hive' {query} -> query) (\s@Hive' {} a -> s {query = a} :: Hive) Prelude.. Core._Sensitive
+hive_query = Lens.lens (\Hive' {query} -> query) (\s@Hive' {} a -> s {query = a} :: Hive) Prelude.. Data._Sensitive
 
-instance Core.FromJSON Hive where
+instance Data.FromJSON Hive where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Hive"
       ( \x ->
           Hive'
-            Prelude.<$> (x Core..:? "initQueryFile")
-            Prelude.<*> (x Core..:? "parameters")
-            Prelude.<*> (x Core..: "query")
+            Prelude.<$> (x Data..:? "initQueryFile")
+            Prelude.<*> (x Data..:? "parameters")
+            Prelude.<*> (x Data..: "query")
       )
 
 instance Prelude.Hashable Hive where
@@ -95,12 +96,12 @@ instance Prelude.NFData Hive where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf query
 
-instance Core.ToJSON Hive where
+instance Data.ToJSON Hive where
   toJSON Hive' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("initQueryFile" Core..=) Prelude.<$> initQueryFile,
-            ("parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("query" Core..= query)
+          [ ("initQueryFile" Data..=) Prelude.<$> initQueryFile,
+            ("parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("query" Data..= query)
           ]
       )

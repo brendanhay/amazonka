@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.ApplicationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types.ApplicationState
 import Amazonka.EMRServerless.Types.Architecture
 import qualified Amazonka.Prelude as Prelude
@@ -46,9 +47,9 @@ data ApplicationSummary = ApplicationSummary'
     -- | The state of the application.
     state :: ApplicationState,
     -- | The date and time when the application was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The date and time when the application was last updated.
-    updatedAt :: Core.POSIX
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -112,8 +113,8 @@ newApplicationSummary
         releaseLabel = pReleaseLabel_,
         type' = pType_,
         state = pState_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | The name of the application.
@@ -150,28 +151,28 @@ applicationSummary_state = Lens.lens (\ApplicationSummary' {state} -> state) (\s
 
 -- | The date and time when the application was created.
 applicationSummary_createdAt :: Lens.Lens' ApplicationSummary Prelude.UTCTime
-applicationSummary_createdAt = Lens.lens (\ApplicationSummary' {createdAt} -> createdAt) (\s@ApplicationSummary' {} a -> s {createdAt = a} :: ApplicationSummary) Prelude.. Core._Time
+applicationSummary_createdAt = Lens.lens (\ApplicationSummary' {createdAt} -> createdAt) (\s@ApplicationSummary' {} a -> s {createdAt = a} :: ApplicationSummary) Prelude.. Data._Time
 
 -- | The date and time when the application was last updated.
 applicationSummary_updatedAt :: Lens.Lens' ApplicationSummary Prelude.UTCTime
-applicationSummary_updatedAt = Lens.lens (\ApplicationSummary' {updatedAt} -> updatedAt) (\s@ApplicationSummary' {} a -> s {updatedAt = a} :: ApplicationSummary) Prelude.. Core._Time
+applicationSummary_updatedAt = Lens.lens (\ApplicationSummary' {updatedAt} -> updatedAt) (\s@ApplicationSummary' {} a -> s {updatedAt = a} :: ApplicationSummary) Prelude.. Data._Time
 
-instance Core.FromJSON ApplicationSummary where
+instance Data.FromJSON ApplicationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "stateDetails")
-            Prelude.<*> (x Core..:? "architecture")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "releaseLabel")
-            Prelude.<*> (x Core..: "type")
-            Prelude.<*> (x Core..: "state")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "updatedAt")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "stateDetails")
+            Prelude.<*> (x Data..:? "architecture")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "releaseLabel")
+            Prelude.<*> (x Data..: "type")
+            Prelude.<*> (x Data..: "state")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "updatedAt")
       )
 
 instance Prelude.Hashable ApplicationSummary where

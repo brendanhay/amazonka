@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.Application where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types.ApplicationState
 import Amazonka.EMRServerless.Types.Architecture
 import Amazonka.EMRServerless.Types.AutoStartConfig
@@ -70,9 +71,9 @@ data Application = Application'
     -- | The state of the application.
     state :: ApplicationState,
     -- | The date and time when the application run was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The date and time when the application run was last updated.
-    updatedAt :: Core.POSIX
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -160,8 +161,8 @@ newApplication
         releaseLabel = pReleaseLabel_,
         type' = pType_,
         state = pState_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | The tags assigned to the application.
@@ -228,36 +229,36 @@ application_state = Lens.lens (\Application' {state} -> state) (\s@Application' 
 
 -- | The date and time when the application run was created.
 application_createdAt :: Lens.Lens' Application Prelude.UTCTime
-application_createdAt = Lens.lens (\Application' {createdAt} -> createdAt) (\s@Application' {} a -> s {createdAt = a} :: Application) Prelude.. Core._Time
+application_createdAt = Lens.lens (\Application' {createdAt} -> createdAt) (\s@Application' {} a -> s {createdAt = a} :: Application) Prelude.. Data._Time
 
 -- | The date and time when the application run was last updated.
 application_updatedAt :: Lens.Lens' Application Prelude.UTCTime
-application_updatedAt = Lens.lens (\Application' {updatedAt} -> updatedAt) (\s@Application' {} a -> s {updatedAt = a} :: Application) Prelude.. Core._Time
+application_updatedAt = Lens.lens (\Application' {updatedAt} -> updatedAt) (\s@Application' {} a -> s {updatedAt = a} :: Application) Prelude.. Data._Time
 
-instance Core.FromJSON Application where
+instance Data.FromJSON Application where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Application"
       ( \x ->
           Application'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "autoStopConfiguration")
-            Prelude.<*> (x Core..:? "stateDetails")
-            Prelude.<*> ( x Core..:? "initialCapacity"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "autoStopConfiguration")
+            Prelude.<*> (x Data..:? "stateDetails")
+            Prelude.<*> ( x Data..:? "initialCapacity"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "networkConfiguration")
-            Prelude.<*> (x Core..:? "autoStartConfiguration")
-            Prelude.<*> (x Core..:? "maximumCapacity")
-            Prelude.<*> (x Core..:? "architecture")
-            Prelude.<*> (x Core..: "applicationId")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "releaseLabel")
-            Prelude.<*> (x Core..: "type")
-            Prelude.<*> (x Core..: "state")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "updatedAt")
+            Prelude.<*> (x Data..:? "networkConfiguration")
+            Prelude.<*> (x Data..:? "autoStartConfiguration")
+            Prelude.<*> (x Data..:? "maximumCapacity")
+            Prelude.<*> (x Data..:? "architecture")
+            Prelude.<*> (x Data..: "applicationId")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "releaseLabel")
+            Prelude.<*> (x Data..: "type")
+            Prelude.<*> (x Data..: "state")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "updatedAt")
       )
 
 instance Prelude.Hashable Application where

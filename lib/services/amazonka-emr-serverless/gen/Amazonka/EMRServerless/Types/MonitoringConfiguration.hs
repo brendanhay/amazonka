@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.MonitoringConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types.ManagedPersistenceMonitoringConfiguration
 import Amazonka.EMRServerless.Types.S3MonitoringConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -64,16 +65,16 @@ monitoringConfiguration_managedPersistenceMonitoringConfiguration = Lens.lens (\
 monitoringConfiguration_s3MonitoringConfiguration :: Lens.Lens' MonitoringConfiguration (Prelude.Maybe S3MonitoringConfiguration)
 monitoringConfiguration_s3MonitoringConfiguration = Lens.lens (\MonitoringConfiguration' {s3MonitoringConfiguration} -> s3MonitoringConfiguration) (\s@MonitoringConfiguration' {} a -> s {s3MonitoringConfiguration = a} :: MonitoringConfiguration)
 
-instance Core.FromJSON MonitoringConfiguration where
+instance Data.FromJSON MonitoringConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringConfiguration"
       ( \x ->
           MonitoringConfiguration'
             Prelude.<$> ( x
-                            Core..:? "managedPersistenceMonitoringConfiguration"
+                            Data..:? "managedPersistenceMonitoringConfiguration"
                         )
-            Prelude.<*> (x Core..:? "s3MonitoringConfiguration")
+            Prelude.<*> (x Data..:? "s3MonitoringConfiguration")
       )
 
 instance Prelude.Hashable MonitoringConfiguration where
@@ -88,15 +89,15 @@ instance Prelude.NFData MonitoringConfiguration where
       managedPersistenceMonitoringConfiguration
       `Prelude.seq` Prelude.rnf s3MonitoringConfiguration
 
-instance Core.ToJSON MonitoringConfiguration where
+instance Data.ToJSON MonitoringConfiguration where
   toJSON MonitoringConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ ( "managedPersistenceMonitoringConfiguration"
-                Core..=
+                Data..=
             )
               Prelude.<$> managedPersistenceMonitoringConfiguration,
-            ("s3MonitoringConfiguration" Core..=)
+            ("s3MonitoringConfiguration" Data..=)
               Prelude.<$> s3MonitoringConfiguration
           ]
       )

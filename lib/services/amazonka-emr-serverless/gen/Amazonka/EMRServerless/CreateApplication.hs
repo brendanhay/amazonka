@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -212,10 +213,10 @@ instance Core.AWSRequest CreateApplication where
     Response.receiveJSON
       ( \s h x ->
           CreateApplicationResponse'
-            Prelude.<$> (x Core..?> "name")
+            Prelude.<$> (x Data..?> "name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "applicationId")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "applicationId")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable CreateApplication where
@@ -246,44 +247,44 @@ instance Prelude.NFData CreateApplication where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateApplication where
+instance Data.ToHeaders CreateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApplication where
+instance Data.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("name" Core..=) Prelude.<$> name,
-            ("autoStopConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("name" Data..=) Prelude.<$> name,
+            ("autoStopConfiguration" Data..=)
               Prelude.<$> autoStopConfiguration,
-            ("initialCapacity" Core..=)
+            ("initialCapacity" Data..=)
               Prelude.<$> initialCapacity,
-            ("networkConfiguration" Core..=)
+            ("networkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
-            ("autoStartConfiguration" Core..=)
+            ("autoStartConfiguration" Data..=)
               Prelude.<$> autoStartConfiguration,
-            ("maximumCapacity" Core..=)
+            ("maximumCapacity" Data..=)
               Prelude.<$> maximumCapacity,
-            ("architecture" Core..=) Prelude.<$> architecture,
-            Prelude.Just ("releaseLabel" Core..= releaseLabel),
-            Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("clientToken" Core..= clientToken)
+            ("architecture" Data..=) Prelude.<$> architecture,
+            Prelude.Just ("releaseLabel" Data..= releaseLabel),
+            Prelude.Just ("type" Data..= type'),
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateApplication where
+instance Data.ToPath CreateApplication where
   toPath = Prelude.const "/applications"
 
-instance Core.ToQuery CreateApplication where
+instance Data.ToQuery CreateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateApplicationResponse' smart constructor.

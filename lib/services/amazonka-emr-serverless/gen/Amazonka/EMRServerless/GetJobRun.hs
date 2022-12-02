@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,7 +97,7 @@ instance Core.AWSRequest GetJobRun where
       ( \s h x ->
           GetJobRunResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "jobRun")
+            Prelude.<*> (x Data..:> "jobRun")
       )
 
 instance Prelude.Hashable GetJobRun where
@@ -109,27 +110,27 @@ instance Prelude.NFData GetJobRun where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf jobRunId
 
-instance Core.ToHeaders GetJobRun where
+instance Data.ToHeaders GetJobRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetJobRun where
+instance Data.ToPath GetJobRun where
   toPath GetJobRun' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/jobruns/",
-        Core.toBS jobRunId
+        Data.toBS jobRunId
       ]
 
-instance Core.ToQuery GetJobRun where
+instance Data.ToQuery GetJobRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetJobRunResponse' smart constructor.

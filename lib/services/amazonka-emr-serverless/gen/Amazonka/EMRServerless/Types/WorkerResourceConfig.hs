@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.WorkerResourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The cumulative configuration requirements for every worker instance of
@@ -75,15 +76,15 @@ workerResourceConfig_cpu = Lens.lens (\WorkerResourceConfig' {cpu} -> cpu) (\s@W
 workerResourceConfig_memory :: Lens.Lens' WorkerResourceConfig Prelude.Text
 workerResourceConfig_memory = Lens.lens (\WorkerResourceConfig' {memory} -> memory) (\s@WorkerResourceConfig' {} a -> s {memory = a} :: WorkerResourceConfig)
 
-instance Core.FromJSON WorkerResourceConfig where
+instance Data.FromJSON WorkerResourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkerResourceConfig"
       ( \x ->
           WorkerResourceConfig'
-            Prelude.<$> (x Core..:? "disk")
-            Prelude.<*> (x Core..: "cpu")
-            Prelude.<*> (x Core..: "memory")
+            Prelude.<$> (x Data..:? "disk")
+            Prelude.<*> (x Data..: "cpu")
+            Prelude.<*> (x Data..: "memory")
       )
 
 instance Prelude.Hashable WorkerResourceConfig where
@@ -98,12 +99,12 @@ instance Prelude.NFData WorkerResourceConfig where
       `Prelude.seq` Prelude.rnf cpu
       `Prelude.seq` Prelude.rnf memory
 
-instance Core.ToJSON WorkerResourceConfig where
+instance Data.ToJSON WorkerResourceConfig where
   toJSON WorkerResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("disk" Core..=) Prelude.<$> disk,
-            Prelude.Just ("cpu" Core..= cpu),
-            Prelude.Just ("memory" Core..= memory)
+          [ ("disk" Data..=) Prelude.<$> disk,
+            Prelude.Just ("cpu" Data..= cpu),
+            Prelude.Just ("memory" Data..= memory)
           ]
       )

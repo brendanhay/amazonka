@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.S3MonitoringConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon S3 configuration for monitoring log publishing. You can
@@ -66,14 +67,14 @@ s3MonitoringConfiguration_encryptionKeyArn = Lens.lens (\S3MonitoringConfigurati
 s3MonitoringConfiguration_logUri :: Lens.Lens' S3MonitoringConfiguration (Prelude.Maybe Prelude.Text)
 s3MonitoringConfiguration_logUri = Lens.lens (\S3MonitoringConfiguration' {logUri} -> logUri) (\s@S3MonitoringConfiguration' {} a -> s {logUri = a} :: S3MonitoringConfiguration)
 
-instance Core.FromJSON S3MonitoringConfiguration where
+instance Data.FromJSON S3MonitoringConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3MonitoringConfiguration"
       ( \x ->
           S3MonitoringConfiguration'
-            Prelude.<$> (x Core..:? "encryptionKeyArn")
-            Prelude.<*> (x Core..:? "logUri")
+            Prelude.<$> (x Data..:? "encryptionKeyArn")
+            Prelude.<*> (x Data..:? "logUri")
       )
 
 instance Prelude.Hashable S3MonitoringConfiguration where
@@ -86,12 +87,12 @@ instance Prelude.NFData S3MonitoringConfiguration where
     Prelude.rnf encryptionKeyArn
       `Prelude.seq` Prelude.rnf logUri
 
-instance Core.ToJSON S3MonitoringConfiguration where
+instance Data.ToJSON S3MonitoringConfiguration where
   toJSON S3MonitoringConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionKeyArn" Core..=)
+          [ ("encryptionKeyArn" Data..=)
               Prelude.<$> encryptionKeyArn,
-            ("logUri" Core..=) Prelude.<$> logUri
+            ("logUri" Data..=) Prelude.<$> logUri
           ]
       )

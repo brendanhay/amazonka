@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.TargetOnDeviceService where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.DeviceServiceName
 import Amazonka.Snowball.Types.TransferOption
@@ -73,14 +74,14 @@ targetOnDeviceService_transferOption = Lens.lens (\TargetOnDeviceService' {trans
 targetOnDeviceService_serviceName :: Lens.Lens' TargetOnDeviceService (Prelude.Maybe DeviceServiceName)
 targetOnDeviceService_serviceName = Lens.lens (\TargetOnDeviceService' {serviceName} -> serviceName) (\s@TargetOnDeviceService' {} a -> s {serviceName = a} :: TargetOnDeviceService)
 
-instance Core.FromJSON TargetOnDeviceService where
+instance Data.FromJSON TargetOnDeviceService where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetOnDeviceService"
       ( \x ->
           TargetOnDeviceService'
-            Prelude.<$> (x Core..:? "TransferOption")
-            Prelude.<*> (x Core..:? "ServiceName")
+            Prelude.<$> (x Data..:? "TransferOption")
+            Prelude.<*> (x Data..:? "ServiceName")
       )
 
 instance Prelude.Hashable TargetOnDeviceService where
@@ -93,12 +94,12 @@ instance Prelude.NFData TargetOnDeviceService where
     Prelude.rnf transferOption
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToJSON TargetOnDeviceService where
+instance Data.ToJSON TargetOnDeviceService where
   toJSON TargetOnDeviceService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TransferOption" Core..=)
+          [ ("TransferOption" Data..=)
               Prelude.<$> transferOption,
-            ("ServiceName" Core..=) Prelude.<$> serviceName
+            ("ServiceName" Data..=) Prelude.<$> serviceName
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.Shipment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @Status@ and @TrackingNumber@ information for an inbound or outbound
@@ -77,14 +78,14 @@ shipment_status = Lens.lens (\Shipment' {status} -> status) (\s@Shipment' {} a -
 shipment_trackingNumber :: Lens.Lens' Shipment (Prelude.Maybe Prelude.Text)
 shipment_trackingNumber = Lens.lens (\Shipment' {trackingNumber} -> trackingNumber) (\s@Shipment' {} a -> s {trackingNumber = a} :: Shipment)
 
-instance Core.FromJSON Shipment where
+instance Data.FromJSON Shipment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Shipment"
       ( \x ->
           Shipment'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "TrackingNumber")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "TrackingNumber")
       )
 
 instance Prelude.Hashable Shipment where

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -249,46 +250,46 @@ instance Prelude.NFData UpdateJob where
       `Prelude.seq` Prelude.rnf onDeviceServiceConfiguration
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders UpdateJob where
+instance Data.ToHeaders UpdateJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.UpdateJob" ::
+              Data.=# ( "AWSIESnowballJobManagementService.UpdateJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateJob where
+instance Data.ToJSON UpdateJob where
   toJSON UpdateJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleARN" Core..=) Prelude.<$> roleARN,
-            ("ForwardingAddressId" Core..=)
+          [ ("RoleARN" Data..=) Prelude.<$> roleARN,
+            ("ForwardingAddressId" Data..=)
               Prelude.<$> forwardingAddressId,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Notification" Core..=) Prelude.<$> notification,
-            ("Resources" Core..=) Prelude.<$> resources,
-            ("SnowballCapacityPreference" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("Notification" Data..=) Prelude.<$> notification,
+            ("Resources" Data..=) Prelude.<$> resources,
+            ("SnowballCapacityPreference" Data..=)
               Prelude.<$> snowballCapacityPreference,
-            ("AddressId" Core..=) Prelude.<$> addressId,
-            ("ShippingOption" Core..=)
+            ("AddressId" Data..=) Prelude.<$> addressId,
+            ("ShippingOption" Data..=)
               Prelude.<$> shippingOption,
-            ("OnDeviceServiceConfiguration" Core..=)
+            ("OnDeviceServiceConfiguration" Data..=)
               Prelude.<$> onDeviceServiceConfiguration,
-            Prelude.Just ("JobId" Core..= jobId)
+            Prelude.Just ("JobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath UpdateJob where
+instance Data.ToPath UpdateJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateJob where
+instance Data.ToQuery UpdateJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateJobResponse' smart constructor.

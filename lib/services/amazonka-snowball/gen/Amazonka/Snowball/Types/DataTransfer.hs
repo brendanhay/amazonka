@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.DataTransfer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the real-time status of a Snow device\'s data transfer while the
@@ -94,16 +95,16 @@ dataTransfer_totalObjects = Lens.lens (\DataTransfer' {totalObjects} -> totalObj
 dataTransfer_bytesTransferred :: Lens.Lens' DataTransfer (Prelude.Maybe Prelude.Integer)
 dataTransfer_bytesTransferred = Lens.lens (\DataTransfer' {bytesTransferred} -> bytesTransferred) (\s@DataTransfer' {} a -> s {bytesTransferred = a} :: DataTransfer)
 
-instance Core.FromJSON DataTransfer where
+instance Data.FromJSON DataTransfer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataTransfer"
       ( \x ->
           DataTransfer'
-            Prelude.<$> (x Core..:? "ObjectsTransferred")
-            Prelude.<*> (x Core..:? "TotalBytes")
-            Prelude.<*> (x Core..:? "TotalObjects")
-            Prelude.<*> (x Core..:? "BytesTransferred")
+            Prelude.<$> (x Data..:? "ObjectsTransferred")
+            Prelude.<*> (x Data..:? "TotalBytes")
+            Prelude.<*> (x Data..:? "TotalObjects")
+            Prelude.<*> (x Data..:? "BytesTransferred")
       )
 
 instance Prelude.Hashable DataTransfer where

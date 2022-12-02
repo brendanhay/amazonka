@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,8 +130,8 @@ instance Core.AWSRequest DescribeAddresses where
     Response.receiveJSON
       ( \s h x ->
           DescribeAddressesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Addresses" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Addresses" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,34 +145,34 @@ instance Prelude.NFData DescribeAddresses where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeAddresses where
+instance Data.ToHeaders DescribeAddresses where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.DescribeAddresses" ::
+              Data.=# ( "AWSIESnowballJobManagementService.DescribeAddresses" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAddresses where
+instance Data.ToJSON DescribeAddresses where
   toJSON DescribeAddresses' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeAddresses where
+instance Data.ToPath DescribeAddresses where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAddresses where
+instance Data.ToQuery DescribeAddresses where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAddressesResponse' smart constructor.

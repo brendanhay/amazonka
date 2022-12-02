@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.LongTermPricingListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.LongTermPricingType
 import Amazonka.Snowball.Types.SnowballType
@@ -33,7 +34,7 @@ data LongTermPricingListEntry = LongTermPricingListEntry'
   { -- | The status of the long-term pricing type.
     longTermPricingStatus :: Prelude.Maybe Prelude.Text,
     -- | The end date the long-term pricing contract.
-    longTermPricingEndDate :: Prelude.Maybe Core.POSIX,
+    longTermPricingEndDate :: Prelude.Maybe Data.POSIX,
     -- | The current active jobs on the device the long-term pricing type.
     currentActiveJob :: Prelude.Maybe Prelude.Text,
     -- | The type of long-term pricing that was selected for the device.
@@ -48,7 +49,7 @@ data LongTermPricingListEntry = LongTermPricingListEntry'
     -- pricing.
     replacementJob :: Prelude.Maybe Prelude.Text,
     -- | The start date of the long-term pricing contract.
-    longTermPricingStartDate :: Prelude.Maybe Core.POSIX,
+    longTermPricingStartDate :: Prelude.Maybe Data.POSIX,
     -- | The type of Snow Family devices associated with this long-term pricing
     -- job.
     snowballType :: Prelude.Maybe SnowballType,
@@ -111,7 +112,7 @@ longTermPricingListEntry_longTermPricingStatus = Lens.lens (\LongTermPricingList
 
 -- | The end date the long-term pricing contract.
 longTermPricingListEntry_longTermPricingEndDate :: Lens.Lens' LongTermPricingListEntry (Prelude.Maybe Prelude.UTCTime)
-longTermPricingListEntry_longTermPricingEndDate = Lens.lens (\LongTermPricingListEntry' {longTermPricingEndDate} -> longTermPricingEndDate) (\s@LongTermPricingListEntry' {} a -> s {longTermPricingEndDate = a} :: LongTermPricingListEntry) Prelude.. Lens.mapping Core._Time
+longTermPricingListEntry_longTermPricingEndDate = Lens.lens (\LongTermPricingListEntry' {longTermPricingEndDate} -> longTermPricingEndDate) (\s@LongTermPricingListEntry' {} a -> s {longTermPricingEndDate = a} :: LongTermPricingListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The current active jobs on the device the long-term pricing type.
 longTermPricingListEntry_currentActiveJob :: Lens.Lens' LongTermPricingListEntry (Prelude.Maybe Prelude.Text)
@@ -138,7 +139,7 @@ longTermPricingListEntry_replacementJob = Lens.lens (\LongTermPricingListEntry' 
 
 -- | The start date of the long-term pricing contract.
 longTermPricingListEntry_longTermPricingStartDate :: Lens.Lens' LongTermPricingListEntry (Prelude.Maybe Prelude.UTCTime)
-longTermPricingListEntry_longTermPricingStartDate = Lens.lens (\LongTermPricingListEntry' {longTermPricingStartDate} -> longTermPricingStartDate) (\s@LongTermPricingListEntry' {} a -> s {longTermPricingStartDate = a} :: LongTermPricingListEntry) Prelude.. Lens.mapping Core._Time
+longTermPricingListEntry_longTermPricingStartDate = Lens.lens (\LongTermPricingListEntry' {longTermPricingStartDate} -> longTermPricingStartDate) (\s@LongTermPricingListEntry' {} a -> s {longTermPricingStartDate = a} :: LongTermPricingListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The type of Snow Family devices associated with this long-term pricing
 -- job.
@@ -149,22 +150,22 @@ longTermPricingListEntry_snowballType = Lens.lens (\LongTermPricingListEntry' {s
 longTermPricingListEntry_jobIds :: Lens.Lens' LongTermPricingListEntry (Prelude.Maybe [Prelude.Text])
 longTermPricingListEntry_jobIds = Lens.lens (\LongTermPricingListEntry' {jobIds} -> jobIds) (\s@LongTermPricingListEntry' {} a -> s {jobIds = a} :: LongTermPricingListEntry) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LongTermPricingListEntry where
+instance Data.FromJSON LongTermPricingListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LongTermPricingListEntry"
       ( \x ->
           LongTermPricingListEntry'
-            Prelude.<$> (x Core..:? "LongTermPricingStatus")
-            Prelude.<*> (x Core..:? "LongTermPricingEndDate")
-            Prelude.<*> (x Core..:? "CurrentActiveJob")
-            Prelude.<*> (x Core..:? "LongTermPricingType")
-            Prelude.<*> (x Core..:? "IsLongTermPricingAutoRenew")
-            Prelude.<*> (x Core..:? "LongTermPricingId")
-            Prelude.<*> (x Core..:? "ReplacementJob")
-            Prelude.<*> (x Core..:? "LongTermPricingStartDate")
-            Prelude.<*> (x Core..:? "SnowballType")
-            Prelude.<*> (x Core..:? "JobIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "LongTermPricingStatus")
+            Prelude.<*> (x Data..:? "LongTermPricingEndDate")
+            Prelude.<*> (x Data..:? "CurrentActiveJob")
+            Prelude.<*> (x Data..:? "LongTermPricingType")
+            Prelude.<*> (x Data..:? "IsLongTermPricingAutoRenew")
+            Prelude.<*> (x Data..:? "LongTermPricingId")
+            Prelude.<*> (x Data..:? "ReplacementJob")
+            Prelude.<*> (x Data..:? "LongTermPricingStartDate")
+            Prelude.<*> (x Data..:? "SnowballType")
+            Prelude.<*> (x Data..:? "JobIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable LongTermPricingListEntry where

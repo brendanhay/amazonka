@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.JobLogs where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains job logs. Whenever a Snow device is used to import data into or
@@ -100,15 +101,15 @@ jobLogs_jobFailureLogURI = Lens.lens (\JobLogs' {jobFailureLogURI} -> jobFailure
 jobLogs_jobCompletionReportURI :: Lens.Lens' JobLogs (Prelude.Maybe Prelude.Text)
 jobLogs_jobCompletionReportURI = Lens.lens (\JobLogs' {jobCompletionReportURI} -> jobCompletionReportURI) (\s@JobLogs' {} a -> s {jobCompletionReportURI = a} :: JobLogs)
 
-instance Core.FromJSON JobLogs where
+instance Data.FromJSON JobLogs where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobLogs"
       ( \x ->
           JobLogs'
-            Prelude.<$> (x Core..:? "JobSuccessLogURI")
-            Prelude.<*> (x Core..:? "JobFailureLogURI")
-            Prelude.<*> (x Core..:? "JobCompletionReportURI")
+            Prelude.<$> (x Data..:? "JobSuccessLogURI")
+            Prelude.<*> (x Data..:? "JobFailureLogURI")
+            Prelude.<*> (x Data..:? "JobCompletionReportURI")
       )
 
 instance Prelude.Hashable JobLogs where

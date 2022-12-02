@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,8 +87,8 @@ instance Core.AWSRequest DescribeJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobResponse'
-            Prelude.<$> (x Core..?> "JobMetadata")
-            Prelude.<*> (x Core..?> "SubJobMetadata" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "JobMetadata")
+            Prelude.<*> (x Data..?> "SubJobMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,32 +99,32 @@ instance Prelude.Hashable DescribeJob where
 instance Prelude.NFData DescribeJob where
   rnf DescribeJob' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders DescribeJob where
+instance Data.ToHeaders DescribeJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.DescribeJob" ::
+              Data.=# ( "AWSIESnowballJobManagementService.DescribeJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeJob where
+instance Data.ToJSON DescribeJob where
   toJSON DescribeJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
-instance Core.ToPath DescribeJob where
+instance Data.ToPath DescribeJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeJob where
+instance Data.ToQuery DescribeJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeJobResponse' smart constructor.

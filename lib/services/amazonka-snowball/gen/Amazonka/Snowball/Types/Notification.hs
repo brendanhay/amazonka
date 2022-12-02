@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.Notification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.JobState
 
@@ -104,17 +105,17 @@ notification_snsTopicARN = Lens.lens (\Notification' {snsTopicARN} -> snsTopicAR
 notification_notifyAll :: Lens.Lens' Notification (Prelude.Maybe Prelude.Bool)
 notification_notifyAll = Lens.lens (\Notification' {notifyAll} -> notifyAll) (\s@Notification' {} a -> s {notifyAll = a} :: Notification)
 
-instance Core.FromJSON Notification where
+instance Data.FromJSON Notification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Notification"
       ( \x ->
           Notification'
-            Prelude.<$> ( x Core..:? "JobStatesToNotify"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "JobStatesToNotify"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SnsTopicARN")
-            Prelude.<*> (x Core..:? "NotifyAll")
+            Prelude.<*> (x Data..:? "SnsTopicARN")
+            Prelude.<*> (x Data..:? "NotifyAll")
       )
 
 instance Prelude.Hashable Notification where
@@ -129,13 +130,13 @@ instance Prelude.NFData Notification where
       `Prelude.seq` Prelude.rnf snsTopicARN
       `Prelude.seq` Prelude.rnf notifyAll
 
-instance Core.ToJSON Notification where
+instance Data.ToJSON Notification where
   toJSON Notification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JobStatesToNotify" Core..=)
+          [ ("JobStatesToNotify" Data..=)
               Prelude.<$> jobStatesToNotify,
-            ("SnsTopicARN" Core..=) Prelude.<$> snsTopicARN,
-            ("NotifyAll" Core..=) Prelude.<$> notifyAll
+            ("SnsTopicARN" Data..=) Prelude.<$> snsTopicARN,
+            ("NotifyAll" Data..=) Prelude.<$> notifyAll
           ]
       )

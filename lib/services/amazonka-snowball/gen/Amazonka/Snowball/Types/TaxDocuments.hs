@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.TaxDocuments where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.INDTaxDocuments
 
@@ -50,11 +51,11 @@ newTaxDocuments =
 taxDocuments_ind :: Lens.Lens' TaxDocuments (Prelude.Maybe INDTaxDocuments)
 taxDocuments_ind = Lens.lens (\TaxDocuments' {ind} -> ind) (\s@TaxDocuments' {} a -> s {ind = a} :: TaxDocuments)
 
-instance Core.FromJSON TaxDocuments where
+instance Data.FromJSON TaxDocuments where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaxDocuments"
-      (\x -> TaxDocuments' Prelude.<$> (x Core..:? "IND"))
+      (\x -> TaxDocuments' Prelude.<$> (x Data..:? "IND"))
 
 instance Prelude.Hashable TaxDocuments where
   hashWithSalt _salt TaxDocuments' {..} =
@@ -63,7 +64,7 @@ instance Prelude.Hashable TaxDocuments where
 instance Prelude.NFData TaxDocuments where
   rnf TaxDocuments' {..} = Prelude.rnf ind
 
-instance Core.ToJSON TaxDocuments where
+instance Data.ToJSON TaxDocuments where
   toJSON TaxDocuments' {..} =
-    Core.object
-      (Prelude.catMaybes [("IND" Core..=) Prelude.<$> ind])
+    Data.object
+      (Prelude.catMaybes [("IND" Data..=) Prelude.<$> ind])

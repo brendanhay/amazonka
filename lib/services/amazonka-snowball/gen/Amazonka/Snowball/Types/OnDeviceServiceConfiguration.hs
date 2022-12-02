@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.OnDeviceServiceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration
 import Amazonka.Snowball.Types.TGWOnDeviceServiceConfiguration
@@ -71,14 +72,14 @@ onDeviceServiceConfiguration_nFSOnDeviceService = Lens.lens (\OnDeviceServiceCon
 onDeviceServiceConfiguration_tGWOnDeviceService :: Lens.Lens' OnDeviceServiceConfiguration (Prelude.Maybe TGWOnDeviceServiceConfiguration)
 onDeviceServiceConfiguration_tGWOnDeviceService = Lens.lens (\OnDeviceServiceConfiguration' {tGWOnDeviceService} -> tGWOnDeviceService) (\s@OnDeviceServiceConfiguration' {} a -> s {tGWOnDeviceService = a} :: OnDeviceServiceConfiguration)
 
-instance Core.FromJSON OnDeviceServiceConfiguration where
+instance Data.FromJSON OnDeviceServiceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OnDeviceServiceConfiguration"
       ( \x ->
           OnDeviceServiceConfiguration'
-            Prelude.<$> (x Core..:? "NFSOnDeviceService")
-            Prelude.<*> (x Core..:? "TGWOnDeviceService")
+            Prelude.<$> (x Data..:? "NFSOnDeviceService")
+            Prelude.<*> (x Data..:? "TGWOnDeviceService")
       )
 
 instance
@@ -94,13 +95,13 @@ instance Prelude.NFData OnDeviceServiceConfiguration where
     Prelude.rnf nFSOnDeviceService
       `Prelude.seq` Prelude.rnf tGWOnDeviceService
 
-instance Core.ToJSON OnDeviceServiceConfiguration where
+instance Data.ToJSON OnDeviceServiceConfiguration where
   toJSON OnDeviceServiceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NFSOnDeviceService" Core..=)
+          [ ("NFSOnDeviceService" Data..=)
               Prelude.<$> nFSOnDeviceService,
-            ("TGWOnDeviceService" Core..=)
+            ("TGWOnDeviceService" Data..=)
               Prelude.<$> tGWOnDeviceService
           ]
       )

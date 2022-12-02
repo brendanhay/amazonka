@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.SnowconeDeviceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.WirelessConnection
 
@@ -54,13 +55,13 @@ newSnowconeDeviceConfiguration =
 snowconeDeviceConfiguration_wirelessConnection :: Lens.Lens' SnowconeDeviceConfiguration (Prelude.Maybe WirelessConnection)
 snowconeDeviceConfiguration_wirelessConnection = Lens.lens (\SnowconeDeviceConfiguration' {wirelessConnection} -> wirelessConnection) (\s@SnowconeDeviceConfiguration' {} a -> s {wirelessConnection = a} :: SnowconeDeviceConfiguration)
 
-instance Core.FromJSON SnowconeDeviceConfiguration where
+instance Data.FromJSON SnowconeDeviceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SnowconeDeviceConfiguration"
       ( \x ->
           SnowconeDeviceConfiguration'
-            Prelude.<$> (x Core..:? "WirelessConnection")
+            Prelude.<$> (x Data..:? "WirelessConnection")
       )
 
 instance Prelude.Hashable SnowconeDeviceConfiguration where
@@ -71,11 +72,11 @@ instance Prelude.NFData SnowconeDeviceConfiguration where
   rnf SnowconeDeviceConfiguration' {..} =
     Prelude.rnf wirelessConnection
 
-instance Core.ToJSON SnowconeDeviceConfiguration where
+instance Data.ToJSON SnowconeDeviceConfiguration where
   toJSON SnowconeDeviceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WirelessConnection" Core..=)
+          [ ("WirelessConnection" Data..=)
               Prelude.<$> wirelessConnection
           ]
       )

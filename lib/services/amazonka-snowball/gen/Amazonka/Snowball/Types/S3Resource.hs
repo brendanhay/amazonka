@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.S3Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.KeyRange
 import Amazonka.Snowball.Types.TargetOnDeviceService
@@ -93,17 +94,17 @@ s3Resource_bucketArn = Lens.lens (\S3Resource' {bucketArn} -> bucketArn) (\s@S3R
 s3Resource_keyRange :: Lens.Lens' S3Resource (Prelude.Maybe KeyRange)
 s3Resource_keyRange = Lens.lens (\S3Resource' {keyRange} -> keyRange) (\s@S3Resource' {} a -> s {keyRange = a} :: S3Resource)
 
-instance Core.FromJSON S3Resource where
+instance Data.FromJSON S3Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Resource"
       ( \x ->
           S3Resource'
-            Prelude.<$> ( x Core..:? "TargetOnDeviceServices"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "TargetOnDeviceServices"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "BucketArn")
-            Prelude.<*> (x Core..:? "KeyRange")
+            Prelude.<*> (x Data..:? "BucketArn")
+            Prelude.<*> (x Data..:? "KeyRange")
       )
 
 instance Prelude.Hashable S3Resource where
@@ -118,13 +119,13 @@ instance Prelude.NFData S3Resource where
       `Prelude.seq` Prelude.rnf bucketArn
       `Prelude.seq` Prelude.rnf keyRange
 
-instance Core.ToJSON S3Resource where
+instance Data.ToJSON S3Resource where
   toJSON S3Resource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetOnDeviceServices" Core..=)
+          [ ("TargetOnDeviceServices" Data..=)
               Prelude.<$> targetOnDeviceServices,
-            ("BucketArn" Core..=) Prelude.<$> bucketArn,
-            ("KeyRange" Core..=) Prelude.<$> keyRange
+            ("BucketArn" Data..=) Prelude.<$> bucketArn,
+            ("KeyRange" Data..=) Prelude.<$> keyRange
           ]
       )

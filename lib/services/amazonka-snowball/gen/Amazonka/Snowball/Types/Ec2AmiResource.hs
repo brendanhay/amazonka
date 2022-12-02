@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.Ec2AmiResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A JSON-formatted object that contains the IDs for an Amazon Machine
@@ -66,14 +67,14 @@ ec2AmiResource_snowballAmiId = Lens.lens (\Ec2AmiResource' {snowballAmiId} -> sn
 ec2AmiResource_amiId :: Lens.Lens' Ec2AmiResource Prelude.Text
 ec2AmiResource_amiId = Lens.lens (\Ec2AmiResource' {amiId} -> amiId) (\s@Ec2AmiResource' {} a -> s {amiId = a} :: Ec2AmiResource)
 
-instance Core.FromJSON Ec2AmiResource where
+instance Data.FromJSON Ec2AmiResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Ec2AmiResource"
       ( \x ->
           Ec2AmiResource'
-            Prelude.<$> (x Core..:? "SnowballAmiId")
-            Prelude.<*> (x Core..: "AmiId")
+            Prelude.<$> (x Data..:? "SnowballAmiId")
+            Prelude.<*> (x Data..: "AmiId")
       )
 
 instance Prelude.Hashable Ec2AmiResource where
@@ -86,11 +87,11 @@ instance Prelude.NFData Ec2AmiResource where
     Prelude.rnf snowballAmiId
       `Prelude.seq` Prelude.rnf amiId
 
-instance Core.ToJSON Ec2AmiResource where
+instance Data.ToJSON Ec2AmiResource where
   toJSON Ec2AmiResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SnowballAmiId" Core..=) Prelude.<$> snowballAmiId,
-            Prelude.Just ("AmiId" Core..= amiId)
+          [ ("SnowballAmiId" Data..=) Prelude.<$> snowballAmiId,
+            Prelude.Just ("AmiId" Data..= amiId)
           ]
       )

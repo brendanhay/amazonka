@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.JobListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.JobState
 import Amazonka.Snowball.Types.JobType
@@ -33,7 +34,7 @@ import Amazonka.Snowball.Types.SnowballType
 -- /See:/ 'newJobListEntry' smart constructor.
 data JobListEntry = JobListEntry'
   { -- | The creation date for this job.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The automatically generated ID for a job, for example
     -- @JID123e4567-e89b-12d3-a456-426655440000@.
     jobId :: Prelude.Maybe Prelude.Text,
@@ -101,7 +102,7 @@ newJobListEntry =
 
 -- | The creation date for this job.
 jobListEntry_creationDate :: Lens.Lens' JobListEntry (Prelude.Maybe Prelude.UTCTime)
-jobListEntry_creationDate = Lens.lens (\JobListEntry' {creationDate} -> creationDate) (\s@JobListEntry' {} a -> s {creationDate = a} :: JobListEntry) Prelude.. Lens.mapping Core._Time
+jobListEntry_creationDate = Lens.lens (\JobListEntry' {creationDate} -> creationDate) (\s@JobListEntry' {} a -> s {creationDate = a} :: JobListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The automatically generated ID for a job, for example
 -- @JID123e4567-e89b-12d3-a456-426655440000@.
@@ -135,19 +136,19 @@ jobListEntry_snowballType = Lens.lens (\JobListEntry' {snowballType} -> snowball
 jobListEntry_jobType :: Lens.Lens' JobListEntry (Prelude.Maybe JobType)
 jobListEntry_jobType = Lens.lens (\JobListEntry' {jobType} -> jobType) (\s@JobListEntry' {} a -> s {jobType = a} :: JobListEntry)
 
-instance Core.FromJSON JobListEntry where
+instance Data.FromJSON JobListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobListEntry"
       ( \x ->
           JobListEntry'
-            Prelude.<$> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "IsMaster")
-            Prelude.<*> (x Core..:? "JobState")
-            Prelude.<*> (x Core..:? "SnowballType")
-            Prelude.<*> (x Core..:? "JobType")
+            Prelude.<$> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "IsMaster")
+            Prelude.<*> (x Data..:? "JobState")
+            Prelude.<*> (x Data..:? "SnowballType")
+            Prelude.<*> (x Data..:? "JobType")
       )
 
 instance Prelude.Hashable JobListEntry where

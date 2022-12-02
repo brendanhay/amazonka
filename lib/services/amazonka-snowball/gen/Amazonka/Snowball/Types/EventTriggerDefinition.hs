@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.EventTriggerDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The container for the EventTriggerDefinition$EventResourceARN.
@@ -56,13 +57,13 @@ newEventTriggerDefinition =
 eventTriggerDefinition_eventResourceARN :: Lens.Lens' EventTriggerDefinition (Prelude.Maybe Prelude.Text)
 eventTriggerDefinition_eventResourceARN = Lens.lens (\EventTriggerDefinition' {eventResourceARN} -> eventResourceARN) (\s@EventTriggerDefinition' {} a -> s {eventResourceARN = a} :: EventTriggerDefinition)
 
-instance Core.FromJSON EventTriggerDefinition where
+instance Data.FromJSON EventTriggerDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventTriggerDefinition"
       ( \x ->
           EventTriggerDefinition'
-            Prelude.<$> (x Core..:? "EventResourceARN")
+            Prelude.<$> (x Data..:? "EventResourceARN")
       )
 
 instance Prelude.Hashable EventTriggerDefinition where
@@ -73,11 +74,11 @@ instance Prelude.NFData EventTriggerDefinition where
   rnf EventTriggerDefinition' {..} =
     Prelude.rnf eventResourceARN
 
-instance Core.ToJSON EventTriggerDefinition where
+instance Data.ToJSON EventTriggerDefinition where
   toJSON EventTriggerDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventResourceARN" Core..=)
+          [ ("EventResourceARN" Data..=)
               Prelude.<$> eventResourceARN
           ]
       )

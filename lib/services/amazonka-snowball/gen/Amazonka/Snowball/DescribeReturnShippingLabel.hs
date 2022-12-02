@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,9 +90,9 @@ instance Core.AWSRequest DescribeReturnShippingLabel where
     Response.receiveJSON
       ( \s h x ->
           DescribeReturnShippingLabelResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ReturnShippingLabelURI")
-            Prelude.<*> (x Core..?> "ExpirationDate")
+            Prelude.<$> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ReturnShippingLabelURI")
+            Prelude.<*> (x Data..?> "ExpirationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,32 +104,32 @@ instance Prelude.NFData DescribeReturnShippingLabel where
   rnf DescribeReturnShippingLabel' {..} =
     Prelude.rnf jobId
 
-instance Core.ToHeaders DescribeReturnShippingLabel where
+instance Data.ToHeaders DescribeReturnShippingLabel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.DescribeReturnShippingLabel" ::
+              Data.=# ( "AWSIESnowballJobManagementService.DescribeReturnShippingLabel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeReturnShippingLabel where
+instance Data.ToJSON DescribeReturnShippingLabel where
   toJSON DescribeReturnShippingLabel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
-instance Core.ToPath DescribeReturnShippingLabel where
+instance Data.ToPath DescribeReturnShippingLabel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeReturnShippingLabel where
+instance Data.ToQuery DescribeReturnShippingLabel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeReturnShippingLabelResponse' smart constructor.
@@ -139,7 +140,7 @@ data DescribeReturnShippingLabelResponse = DescribeReturnShippingLabelResponse'
     -- | The pre-signed Amazon S3 URI used to download the return shipping label.
     returnShippingLabelURI :: Prelude.Maybe Prelude.Text,
     -- | The expiration date of the current return shipping label.
-    expirationDate :: Prelude.Maybe Core.POSIX,
+    expirationDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,7 +187,7 @@ describeReturnShippingLabelResponse_returnShippingLabelURI = Lens.lens (\Describ
 
 -- | The expiration date of the current return shipping label.
 describeReturnShippingLabelResponse_expirationDate :: Lens.Lens' DescribeReturnShippingLabelResponse (Prelude.Maybe Prelude.UTCTime)
-describeReturnShippingLabelResponse_expirationDate = Lens.lens (\DescribeReturnShippingLabelResponse' {expirationDate} -> expirationDate) (\s@DescribeReturnShippingLabelResponse' {} a -> s {expirationDate = a} :: DescribeReturnShippingLabelResponse) Prelude.. Lens.mapping Core._Time
+describeReturnShippingLabelResponse_expirationDate = Lens.lens (\DescribeReturnShippingLabelResponse' {expirationDate} -> expirationDate) (\s@DescribeReturnShippingLabelResponse' {} a -> s {expirationDate = a} :: DescribeReturnShippingLabelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeReturnShippingLabelResponse_httpStatus :: Lens.Lens' DescribeReturnShippingLabelResponse Prelude.Int

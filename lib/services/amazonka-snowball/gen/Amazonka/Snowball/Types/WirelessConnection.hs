@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.WirelessConnection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures the wireless connection on an Snowcone device.
@@ -53,13 +54,13 @@ newWirelessConnection =
 wirelessConnection_isWifiEnabled :: Lens.Lens' WirelessConnection (Prelude.Maybe Prelude.Bool)
 wirelessConnection_isWifiEnabled = Lens.lens (\WirelessConnection' {isWifiEnabled} -> isWifiEnabled) (\s@WirelessConnection' {} a -> s {isWifiEnabled = a} :: WirelessConnection)
 
-instance Core.FromJSON WirelessConnection where
+instance Data.FromJSON WirelessConnection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WirelessConnection"
       ( \x ->
           WirelessConnection'
-            Prelude.<$> (x Core..:? "IsWifiEnabled")
+            Prelude.<$> (x Data..:? "IsWifiEnabled")
       )
 
 instance Prelude.Hashable WirelessConnection where
@@ -70,11 +71,11 @@ instance Prelude.NFData WirelessConnection where
   rnf WirelessConnection' {..} =
     Prelude.rnf isWifiEnabled
 
-instance Core.ToJSON WirelessConnection where
+instance Data.ToJSON WirelessConnection where
   toJSON WirelessConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IsWifiEnabled" Core..=)
+          [ ("IsWifiEnabled" Data..=)
               Prelude.<$> isWifiEnabled
           ]
       )

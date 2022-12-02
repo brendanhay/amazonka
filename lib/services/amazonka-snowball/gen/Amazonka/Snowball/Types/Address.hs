@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.Address where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The address that you want the Snow device(s) associated with a specific
@@ -192,26 +193,26 @@ address_street2 = Lens.lens (\Address' {street2} -> street2) (\s@Address' {} a -
 address_addressId :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
 address_addressId = Lens.lens (\Address' {addressId} -> addressId) (\s@Address' {} a -> s {addressId = a} :: Address)
 
-instance Core.FromJSON Address where
+instance Data.FromJSON Address where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Address"
       ( \x ->
           Address'
-            Prelude.<$> (x Core..:? "StateOrProvince")
-            Prelude.<*> (x Core..:? "Street1")
-            Prelude.<*> (x Core..:? "IsRestricted")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "PostalCode")
-            Prelude.<*> (x Core..:? "Company")
-            Prelude.<*> (x Core..:? "Street3")
-            Prelude.<*> (x Core..:? "Country")
-            Prelude.<*> (x Core..:? "PrefectureOrDistrict")
-            Prelude.<*> (x Core..:? "City")
-            Prelude.<*> (x Core..:? "Landmark")
-            Prelude.<*> (x Core..:? "PhoneNumber")
-            Prelude.<*> (x Core..:? "Street2")
-            Prelude.<*> (x Core..:? "AddressId")
+            Prelude.<$> (x Data..:? "StateOrProvince")
+            Prelude.<*> (x Data..:? "Street1")
+            Prelude.<*> (x Data..:? "IsRestricted")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "PostalCode")
+            Prelude.<*> (x Data..:? "Company")
+            Prelude.<*> (x Data..:? "Street3")
+            Prelude.<*> (x Data..:? "Country")
+            Prelude.<*> (x Data..:? "PrefectureOrDistrict")
+            Prelude.<*> (x Data..:? "City")
+            Prelude.<*> (x Data..:? "Landmark")
+            Prelude.<*> (x Data..:? "PhoneNumber")
+            Prelude.<*> (x Data..:? "Street2")
+            Prelude.<*> (x Data..:? "AddressId")
       )
 
 instance Prelude.Hashable Address where
@@ -248,25 +249,25 @@ instance Prelude.NFData Address where
       `Prelude.seq` Prelude.rnf street2
       `Prelude.seq` Prelude.rnf addressId
 
-instance Core.ToJSON Address where
+instance Data.ToJSON Address where
   toJSON Address' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StateOrProvince" Core..=)
+          [ ("StateOrProvince" Data..=)
               Prelude.<$> stateOrProvince,
-            ("Street1" Core..=) Prelude.<$> street1,
-            ("IsRestricted" Core..=) Prelude.<$> isRestricted,
-            ("Name" Core..=) Prelude.<$> name,
-            ("PostalCode" Core..=) Prelude.<$> postalCode,
-            ("Company" Core..=) Prelude.<$> company,
-            ("Street3" Core..=) Prelude.<$> street3,
-            ("Country" Core..=) Prelude.<$> country,
-            ("PrefectureOrDistrict" Core..=)
+            ("Street1" Data..=) Prelude.<$> street1,
+            ("IsRestricted" Data..=) Prelude.<$> isRestricted,
+            ("Name" Data..=) Prelude.<$> name,
+            ("PostalCode" Data..=) Prelude.<$> postalCode,
+            ("Company" Data..=) Prelude.<$> company,
+            ("Street3" Data..=) Prelude.<$> street3,
+            ("Country" Data..=) Prelude.<$> country,
+            ("PrefectureOrDistrict" Data..=)
               Prelude.<$> prefectureOrDistrict,
-            ("City" Core..=) Prelude.<$> city,
-            ("Landmark" Core..=) Prelude.<$> landmark,
-            ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
-            ("Street2" Core..=) Prelude.<$> street2,
-            ("AddressId" Core..=) Prelude.<$> addressId
+            ("City" Data..=) Prelude.<$> city,
+            ("Landmark" Data..=) Prelude.<$> landmark,
+            ("PhoneNumber" Data..=) Prelude.<$> phoneNumber,
+            ("Street2" Data..=) Prelude.<$> street2,
+            ("AddressId" Data..=) Prelude.<$> addressId
           ]
       )

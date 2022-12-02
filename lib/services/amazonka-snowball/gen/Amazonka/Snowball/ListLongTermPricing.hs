@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,8 +122,8 @@ instance Core.AWSRequest ListLongTermPricing where
     Response.receiveJSON
       ( \s h x ->
           ListLongTermPricingResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "LongTermPricingEntries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "LongTermPricingEntries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -138,34 +139,34 @@ instance Prelude.NFData ListLongTermPricing where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListLongTermPricing where
+instance Data.ToHeaders ListLongTermPricing where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.ListLongTermPricing" ::
+              Data.=# ( "AWSIESnowballJobManagementService.ListLongTermPricing" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLongTermPricing where
+instance Data.ToJSON ListLongTermPricing where
   toJSON ListLongTermPricing' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListLongTermPricing where
+instance Data.ToPath ListLongTermPricing where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLongTermPricing where
+instance Data.ToQuery ListLongTermPricing where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLongTermPricingResponse' smart constructor.

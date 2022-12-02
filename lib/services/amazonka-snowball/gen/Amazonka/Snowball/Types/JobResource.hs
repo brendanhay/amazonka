@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.JobResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.Ec2AmiResource
 import Amazonka.Snowball.Types.LambdaResource
@@ -76,18 +77,18 @@ jobResource_s3Resources = Lens.lens (\JobResource' {s3Resources} -> s3Resources)
 jobResource_lambdaResources :: Lens.Lens' JobResource (Prelude.Maybe [LambdaResource])
 jobResource_lambdaResources = Lens.lens (\JobResource' {lambdaResources} -> lambdaResources) (\s@JobResource' {} a -> s {lambdaResources = a} :: JobResource) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON JobResource where
+instance Data.FromJSON JobResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobResource"
       ( \x ->
           JobResource'
-            Prelude.<$> ( x Core..:? "Ec2AmiResources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "Ec2AmiResources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "S3Resources" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "LambdaResources"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "S3Resources" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "LambdaResources"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -103,14 +104,14 @@ instance Prelude.NFData JobResource where
       `Prelude.seq` Prelude.rnf s3Resources
       `Prelude.seq` Prelude.rnf lambdaResources
 
-instance Core.ToJSON JobResource where
+instance Data.ToJSON JobResource where
   toJSON JobResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Ec2AmiResources" Core..=)
+          [ ("Ec2AmiResources" Data..=)
               Prelude.<$> ec2AmiResources,
-            ("S3Resources" Core..=) Prelude.<$> s3Resources,
-            ("LambdaResources" Core..=)
+            ("S3Resources" Data..=) Prelude.<$> s3Resources,
+            ("LambdaResources" Data..=)
               Prelude.<$> lambdaResources
           ]
       )

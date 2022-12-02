@@ -134,6 +134,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -537,7 +538,7 @@ instance Core.AWSRequest CreateJob where
     Response.receiveJSON
       ( \s h x ->
           CreateJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -582,56 +583,56 @@ instance Prelude.NFData CreateJob where
       `Prelude.seq` Prelude.rnf
         onDeviceServiceConfiguration
 
-instance Core.ToHeaders CreateJob where
+instance Data.ToHeaders CreateJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.CreateJob" ::
+              Data.=# ( "AWSIESnowballJobManagementService.CreateJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateJob where
+instance Data.ToJSON CreateJob where
   toJSON CreateJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleARN" Core..=) Prelude.<$> roleARN,
-            ("DeviceConfiguration" Core..=)
+          [ ("RoleARN" Data..=) Prelude.<$> roleARN,
+            ("DeviceConfiguration" Data..=)
               Prelude.<$> deviceConfiguration,
-            ("ForwardingAddressId" Core..=)
+            ("ForwardingAddressId" Data..=)
               Prelude.<$> forwardingAddressId,
-            ("Description" Core..=) Prelude.<$> description,
-            ("KmsKeyARN" Core..=) Prelude.<$> kmsKeyARN,
-            ("LongTermPricingId" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("KmsKeyARN" Data..=) Prelude.<$> kmsKeyARN,
+            ("LongTermPricingId" Data..=)
               Prelude.<$> longTermPricingId,
-            ("Notification" Core..=) Prelude.<$> notification,
-            ("RemoteManagement" Core..=)
+            ("Notification" Data..=) Prelude.<$> notification,
+            ("RemoteManagement" Data..=)
               Prelude.<$> remoteManagement,
-            ("ClusterId" Core..=) Prelude.<$> clusterId,
-            ("TaxDocuments" Core..=) Prelude.<$> taxDocuments,
-            ("Resources" Core..=) Prelude.<$> resources,
-            ("SnowballCapacityPreference" Core..=)
+            ("ClusterId" Data..=) Prelude.<$> clusterId,
+            ("TaxDocuments" Data..=) Prelude.<$> taxDocuments,
+            ("Resources" Data..=) Prelude.<$> resources,
+            ("SnowballCapacityPreference" Data..=)
               Prelude.<$> snowballCapacityPreference,
-            ("AddressId" Core..=) Prelude.<$> addressId,
-            ("SnowballType" Core..=) Prelude.<$> snowballType,
-            ("JobType" Core..=) Prelude.<$> jobType,
-            ("ShippingOption" Core..=)
+            ("AddressId" Data..=) Prelude.<$> addressId,
+            ("SnowballType" Data..=) Prelude.<$> snowballType,
+            ("JobType" Data..=) Prelude.<$> jobType,
+            ("ShippingOption" Data..=)
               Prelude.<$> shippingOption,
-            ("OnDeviceServiceConfiguration" Core..=)
+            ("OnDeviceServiceConfiguration" Data..=)
               Prelude.<$> onDeviceServiceConfiguration
           ]
       )
 
-instance Core.ToPath CreateJob where
+instance Data.ToPath CreateJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateJob where
+instance Data.ToQuery CreateJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateJobResponse' smart constructor.

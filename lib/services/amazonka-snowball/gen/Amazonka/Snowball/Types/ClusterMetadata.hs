@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.ClusterMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.ClusterState
 import Amazonka.Snowball.Types.JobResource
@@ -41,7 +42,7 @@ data ClusterMetadata = ClusterMetadata'
     -- API action in Identity and Access Management (IAM).
     roleARN :: Prelude.Maybe Prelude.Text,
     -- | The creation date for this cluster.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The ID of the address that you want a cluster shipped to, after it will
     -- be shipped to its primary address. This field is not supported in most
     -- regions.
@@ -195,7 +196,7 @@ clusterMetadata_roleARN = Lens.lens (\ClusterMetadata' {roleARN} -> roleARN) (\s
 
 -- | The creation date for this cluster.
 clusterMetadata_creationDate :: Lens.Lens' ClusterMetadata (Prelude.Maybe Prelude.UTCTime)
-clusterMetadata_creationDate = Lens.lens (\ClusterMetadata' {creationDate} -> creationDate) (\s@ClusterMetadata' {} a -> s {creationDate = a} :: ClusterMetadata) Prelude.. Lens.mapping Core._Time
+clusterMetadata_creationDate = Lens.lens (\ClusterMetadata' {creationDate} -> creationDate) (\s@ClusterMetadata' {} a -> s {creationDate = a} :: ClusterMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the address that you want a cluster shipped to, after it will
 -- be shipped to its primary address. This field is not supported in most
@@ -276,27 +277,27 @@ clusterMetadata_shippingOption = Lens.lens (\ClusterMetadata' {shippingOption} -
 clusterMetadata_onDeviceServiceConfiguration :: Lens.Lens' ClusterMetadata (Prelude.Maybe OnDeviceServiceConfiguration)
 clusterMetadata_onDeviceServiceConfiguration = Lens.lens (\ClusterMetadata' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@ClusterMetadata' {} a -> s {onDeviceServiceConfiguration = a} :: ClusterMetadata)
 
-instance Core.FromJSON ClusterMetadata where
+instance Data.FromJSON ClusterMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterMetadata"
       ( \x ->
           ClusterMetadata'
-            Prelude.<$> (x Core..:? "RoleARN")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "ForwardingAddressId")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "KmsKeyARN")
-            Prelude.<*> (x Core..:? "ClusterState")
-            Prelude.<*> (x Core..:? "Notification")
-            Prelude.<*> (x Core..:? "ClusterId")
-            Prelude.<*> (x Core..:? "TaxDocuments")
-            Prelude.<*> (x Core..:? "Resources")
-            Prelude.<*> (x Core..:? "AddressId")
-            Prelude.<*> (x Core..:? "SnowballType")
-            Prelude.<*> (x Core..:? "JobType")
-            Prelude.<*> (x Core..:? "ShippingOption")
-            Prelude.<*> (x Core..:? "OnDeviceServiceConfiguration")
+            Prelude.<$> (x Data..:? "RoleARN")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "ForwardingAddressId")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "KmsKeyARN")
+            Prelude.<*> (x Data..:? "ClusterState")
+            Prelude.<*> (x Data..:? "Notification")
+            Prelude.<*> (x Data..:? "ClusterId")
+            Prelude.<*> (x Data..:? "TaxDocuments")
+            Prelude.<*> (x Data..:? "Resources")
+            Prelude.<*> (x Data..:? "AddressId")
+            Prelude.<*> (x Data..:? "SnowballType")
+            Prelude.<*> (x Data..:? "JobType")
+            Prelude.<*> (x Data..:? "ShippingOption")
+            Prelude.<*> (x Data..:? "OnDeviceServiceConfiguration")
       )
 
 instance Prelude.Hashable ClusterMetadata where

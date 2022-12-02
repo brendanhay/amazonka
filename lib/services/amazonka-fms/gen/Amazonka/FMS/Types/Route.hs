@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.Route where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.DestinationType
 import Amazonka.FMS.Types.TargetType
 import qualified Amazonka.Prelude as Prelude
@@ -81,16 +82,16 @@ route_target = Lens.lens (\Route' {target} -> target) (\s@Route' {} a -> s {targ
 route_targetType :: Lens.Lens' Route (Prelude.Maybe TargetType)
 route_targetType = Lens.lens (\Route' {targetType} -> targetType) (\s@Route' {} a -> s {targetType = a} :: Route)
 
-instance Core.FromJSON Route where
+instance Data.FromJSON Route where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Route"
       ( \x ->
           Route'
-            Prelude.<$> (x Core..:? "Destination")
-            Prelude.<*> (x Core..:? "DestinationType")
-            Prelude.<*> (x Core..:? "Target")
-            Prelude.<*> (x Core..:? "TargetType")
+            Prelude.<$> (x Data..:? "Destination")
+            Prelude.<*> (x Data..:? "DestinationType")
+            Prelude.<*> (x Data..:? "Target")
+            Prelude.<*> (x Data..:? "TargetType")
       )
 
 instance Prelude.Hashable Route where

@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.NetworkFirewallPolicyDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.StatefulEngineOptions
 import Amazonka.FMS.Types.StatefulRuleGroup
 import Amazonka.FMS.Types.StatelessRuleGroup
@@ -169,32 +170,32 @@ networkFirewallPolicyDescription_statefulRuleGroups :: Lens.Lens' NetworkFirewal
 networkFirewallPolicyDescription_statefulRuleGroups = Lens.lens (\NetworkFirewallPolicyDescription' {statefulRuleGroups} -> statefulRuleGroups) (\s@NetworkFirewallPolicyDescription' {} a -> s {statefulRuleGroups = a} :: NetworkFirewallPolicyDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     NetworkFirewallPolicyDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkFirewallPolicyDescription"
       ( \x ->
           NetworkFirewallPolicyDescription'
-            Prelude.<$> (x Core..:? "StatefulEngineOptions")
-            Prelude.<*> ( x Core..:? "StatelessCustomActions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "StatefulEngineOptions")
+            Prelude.<*> ( x Data..:? "StatelessCustomActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatefulDefaultActions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatefulDefaultActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatelessDefaultActions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatelessDefaultActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatelessRuleGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatelessRuleGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatelessFragmentDefaultActions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatelessFragmentDefaultActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatefulRuleGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatefulRuleGroups"
+                            Data..!= Prelude.mempty
                         )
       )
 

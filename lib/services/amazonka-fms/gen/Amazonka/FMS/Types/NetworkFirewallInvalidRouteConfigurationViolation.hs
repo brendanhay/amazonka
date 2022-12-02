@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.ExpectedRoute
 import Amazonka.FMS.Types.Route
 import qualified Amazonka.Prelude as Prelude
@@ -210,40 +211,40 @@ networkFirewallInvalidRouteConfigurationViolation_isRouteTableUsedInDifferentAZ 
 networkFirewallInvalidRouteConfigurationViolation_isRouteTableUsedInDifferentAZ = Lens.lens (\NetworkFirewallInvalidRouteConfigurationViolation' {isRouteTableUsedInDifferentAZ} -> isRouteTableUsedInDifferentAZ) (\s@NetworkFirewallInvalidRouteConfigurationViolation' {} a -> s {isRouteTableUsedInDifferentAZ = a} :: NetworkFirewallInvalidRouteConfigurationViolation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     NetworkFirewallInvalidRouteConfigurationViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkFirewallInvalidRouteConfigurationViolation"
       ( \x ->
           NetworkFirewallInvalidRouteConfigurationViolation'
-            Prelude.<$> ( x Core..:? "ActualInternetGatewayRoutes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ActualInternetGatewayRoutes"
+                            Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Core..:? "CurrentFirewallSubnetRouteTable")
-              Prelude.<*> (x Core..:? "ViolatingRoute")
-              Prelude.<*> (x Core..:? "ExpectedFirewallEndpoint")
-              Prelude.<*> ( x Core..:? "ActualFirewallSubnetRoutes"
-                              Core..!= Prelude.mempty
+              Prelude.<*> (x Data..:? "CurrentFirewallSubnetRouteTable")
+              Prelude.<*> (x Data..:? "ViolatingRoute")
+              Prelude.<*> (x Data..:? "ExpectedFirewallEndpoint")
+              Prelude.<*> ( x Data..:? "ActualFirewallSubnetRoutes"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> ( x Core..:? "ExpectedInternetGatewayRoutes"
-                              Core..!= Prelude.mempty
+              Prelude.<*> ( x Data..:? "ExpectedInternetGatewayRoutes"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> ( x Core..:? "ExpectedFirewallSubnetRoutes"
-                              Core..!= Prelude.mempty
+              Prelude.<*> ( x Data..:? "ExpectedFirewallSubnetRoutes"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Core..:? "CurrentInternetGatewayRouteTable")
-              Prelude.<*> (x Core..:? "RouteTableId")
-              Prelude.<*> (x Core..:? "InternetGatewayId")
-              Prelude.<*> (x Core..:? "ActualFirewallEndpoint")
-              Prelude.<*> (x Core..:? "ExpectedFirewallSubnetId")
-              Prelude.<*> (x Core..:? "VpcId")
-              Prelude.<*> ( x Core..:? "AffectedSubnets"
-                              Core..!= Prelude.mempty
+              Prelude.<*> (x Data..:? "CurrentInternetGatewayRouteTable")
+              Prelude.<*> (x Data..:? "RouteTableId")
+              Prelude.<*> (x Data..:? "InternetGatewayId")
+              Prelude.<*> (x Data..:? "ActualFirewallEndpoint")
+              Prelude.<*> (x Data..:? "ExpectedFirewallSubnetId")
+              Prelude.<*> (x Data..:? "VpcId")
+              Prelude.<*> ( x Data..:? "AffectedSubnets"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Core..:? "ActualFirewallSubnetId")
-              Prelude.<*> (x Core..:? "IsRouteTableUsedInDifferentAZ")
+              Prelude.<*> (x Data..:? "ActualFirewallSubnetId")
+              Prelude.<*> (x Data..:? "IsRouteTableUsedInDifferentAZ")
       )
 
 instance

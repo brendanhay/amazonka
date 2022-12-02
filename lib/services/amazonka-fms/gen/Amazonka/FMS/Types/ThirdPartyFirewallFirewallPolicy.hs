@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.ThirdPartyFirewallFirewallPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures the third-party firewall\'s firewall policy.
@@ -63,16 +64,16 @@ thirdPartyFirewallFirewallPolicy_firewallPolicyId :: Lens.Lens' ThirdPartyFirewa
 thirdPartyFirewallFirewallPolicy_firewallPolicyId = Lens.lens (\ThirdPartyFirewallFirewallPolicy' {firewallPolicyId} -> firewallPolicyId) (\s@ThirdPartyFirewallFirewallPolicy' {} a -> s {firewallPolicyId = a} :: ThirdPartyFirewallFirewallPolicy)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ThirdPartyFirewallFirewallPolicy
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThirdPartyFirewallFirewallPolicy"
       ( \x ->
           ThirdPartyFirewallFirewallPolicy'
-            Prelude.<$> (x Core..:? "FirewallPolicyName")
-            Prelude.<*> (x Core..:? "FirewallPolicyId")
+            Prelude.<$> (x Data..:? "FirewallPolicyName")
+            Prelude.<*> (x Data..:? "FirewallPolicyId")
       )
 
 instance

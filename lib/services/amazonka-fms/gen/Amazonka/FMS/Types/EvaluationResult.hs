@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.EvaluationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.PolicyComplianceStatusType
 import qualified Amazonka.Prelude as Prelude
 
@@ -95,15 +96,15 @@ evaluationResult_complianceStatus = Lens.lens (\EvaluationResult' {complianceSta
 evaluationResult_violatorCount :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Natural)
 evaluationResult_violatorCount = Lens.lens (\EvaluationResult' {violatorCount} -> violatorCount) (\s@EvaluationResult' {} a -> s {violatorCount = a} :: EvaluationResult)
 
-instance Core.FromJSON EvaluationResult where
+instance Data.FromJSON EvaluationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluationResult"
       ( \x ->
           EvaluationResult'
-            Prelude.<$> (x Core..:? "EvaluationLimitExceeded")
-            Prelude.<*> (x Core..:? "ComplianceStatus")
-            Prelude.<*> (x Core..:? "ViolatorCount")
+            Prelude.<$> (x Data..:? "EvaluationLimitExceeded")
+            Prelude.<*> (x Data..:? "ComplianceStatus")
+            Prelude.<*> (x Data..:? "ViolatorCount")
       )
 
 instance Prelude.Hashable EvaluationResult where

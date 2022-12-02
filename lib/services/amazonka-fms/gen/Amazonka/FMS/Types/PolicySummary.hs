@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.PolicySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.SecurityServiceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -182,19 +183,19 @@ policySummary_policyArn = Lens.lens (\PolicySummary' {policyArn} -> policyArn) (
 policySummary_deleteUnusedFMManagedResources :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Bool)
 policySummary_deleteUnusedFMManagedResources = Lens.lens (\PolicySummary' {deleteUnusedFMManagedResources} -> deleteUnusedFMManagedResources) (\s@PolicySummary' {} a -> s {deleteUnusedFMManagedResources = a} :: PolicySummary)
 
-instance Core.FromJSON PolicySummary where
+instance Data.FromJSON PolicySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PolicySummary"
       ( \x ->
           PolicySummary'
-            Prelude.<$> (x Core..:? "PolicyName")
-            Prelude.<*> (x Core..:? "PolicyId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "SecurityServiceType")
-            Prelude.<*> (x Core..:? "RemediationEnabled")
-            Prelude.<*> (x Core..:? "PolicyArn")
-            Prelude.<*> (x Core..:? "DeleteUnusedFMManagedResources")
+            Prelude.<$> (x Data..:? "PolicyName")
+            Prelude.<*> (x Data..:? "PolicyId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "SecurityServiceType")
+            Prelude.<*> (x Data..:? "RemediationEnabled")
+            Prelude.<*> (x Data..:? "PolicyArn")
+            Prelude.<*> (x Data..:? "DeleteUnusedFMManagedResources")
       )
 
 instance Prelude.Hashable PolicySummary where

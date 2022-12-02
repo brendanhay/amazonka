@@ -36,6 +36,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,28 +74,28 @@ instance Prelude.Hashable DeleteNotificationChannel where
 instance Prelude.NFData DeleteNotificationChannel where
   rnf _ = ()
 
-instance Core.ToHeaders DeleteNotificationChannel where
+instance Data.ToHeaders DeleteNotificationChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.DeleteNotificationChannel" ::
+              Data.=# ( "AWSFMS_20180101.DeleteNotificationChannel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteNotificationChannel where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DeleteNotificationChannel where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DeleteNotificationChannel where
+instance Data.ToPath DeleteNotificationChannel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteNotificationChannel where
+instance Data.ToQuery DeleteNotificationChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteNotificationChannelResponse' smart constructor.

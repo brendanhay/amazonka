@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.ExpectedRoute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the expected route in the route table.
@@ -97,20 +98,20 @@ expectedRoute_ipV6Cidr = Lens.lens (\ExpectedRoute' {ipV6Cidr} -> ipV6Cidr) (\s@
 expectedRoute_ipV4Cidr :: Lens.Lens' ExpectedRoute (Prelude.Maybe Prelude.Text)
 expectedRoute_ipV4Cidr = Lens.lens (\ExpectedRoute' {ipV4Cidr} -> ipV4Cidr) (\s@ExpectedRoute' {} a -> s {ipV4Cidr = a} :: ExpectedRoute)
 
-instance Core.FromJSON ExpectedRoute where
+instance Data.FromJSON ExpectedRoute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExpectedRoute"
       ( \x ->
           ExpectedRoute'
-            Prelude.<$> (x Core..:? "AllowedTargets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PrefixListId")
-            Prelude.<*> (x Core..:? "RouteTableId")
-            Prelude.<*> ( x Core..:? "ContributingSubnets"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AllowedTargets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PrefixListId")
+            Prelude.<*> (x Data..:? "RouteTableId")
+            Prelude.<*> ( x Data..:? "ContributingSubnets"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "IpV6Cidr")
-            Prelude.<*> (x Core..:? "IpV4Cidr")
+            Prelude.<*> (x Data..:? "IpV6Cidr")
+            Prelude.<*> (x Data..:? "IpV4Cidr")
       )
 
 instance Prelude.Hashable ExpectedRoute where

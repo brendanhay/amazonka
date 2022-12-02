@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.PolicyComplianceDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.ComplianceViolator
 import Amazonka.FMS.Types.DependentServiceName
 import qualified Amazonka.Prelude as Prelude
@@ -50,7 +51,7 @@ data PolicyComplianceDetail = PolicyComplianceDetail'
     issueInfoMap :: Prelude.Maybe (Prelude.HashMap DependentServiceName Prelude.Text),
     -- | A timestamp that indicates when the returned information should be
     -- considered out of date.
-    expiredAt :: Prelude.Maybe Core.POSIX,
+    expiredAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID.
     memberAccount :: Prelude.Maybe Prelude.Text
   }
@@ -127,25 +128,25 @@ policyComplianceDetail_issueInfoMap = Lens.lens (\PolicyComplianceDetail' {issue
 -- | A timestamp that indicates when the returned information should be
 -- considered out of date.
 policyComplianceDetail_expiredAt :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.UTCTime)
-policyComplianceDetail_expiredAt = Lens.lens (\PolicyComplianceDetail' {expiredAt} -> expiredAt) (\s@PolicyComplianceDetail' {} a -> s {expiredAt = a} :: PolicyComplianceDetail) Prelude.. Lens.mapping Core._Time
+policyComplianceDetail_expiredAt = Lens.lens (\PolicyComplianceDetail' {expiredAt} -> expiredAt) (\s@PolicyComplianceDetail' {} a -> s {expiredAt = a} :: PolicyComplianceDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID.
 policyComplianceDetail_memberAccount :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.Text)
 policyComplianceDetail_memberAccount = Lens.lens (\PolicyComplianceDetail' {memberAccount} -> memberAccount) (\s@PolicyComplianceDetail' {} a -> s {memberAccount = a} :: PolicyComplianceDetail)
 
-instance Core.FromJSON PolicyComplianceDetail where
+instance Data.FromJSON PolicyComplianceDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PolicyComplianceDetail"
       ( \x ->
           PolicyComplianceDetail'
-            Prelude.<$> (x Core..:? "EvaluationLimitExceeded")
-            Prelude.<*> (x Core..:? "PolicyId")
-            Prelude.<*> (x Core..:? "Violators" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PolicyOwner")
-            Prelude.<*> (x Core..:? "IssueInfoMap" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ExpiredAt")
-            Prelude.<*> (x Core..:? "MemberAccount")
+            Prelude.<$> (x Data..:? "EvaluationLimitExceeded")
+            Prelude.<*> (x Data..:? "PolicyId")
+            Prelude.<*> (x Data..:? "Violators" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PolicyOwner")
+            Prelude.<*> (x Data..:? "IssueInfoMap" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ExpiredAt")
+            Prelude.<*> (x Data..:? "MemberAccount")
       )
 
 instance Prelude.Hashable PolicyComplianceDetail where

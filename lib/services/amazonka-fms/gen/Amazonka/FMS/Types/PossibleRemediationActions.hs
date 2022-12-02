@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.PossibleRemediationActions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.PossibleRemediationAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ possibleRemediationActions_description = Lens.lens (\PossibleRemediationActions'
 possibleRemediationActions_actions :: Lens.Lens' PossibleRemediationActions (Prelude.Maybe [PossibleRemediationAction])
 possibleRemediationActions_actions = Lens.lens (\PossibleRemediationActions' {actions} -> actions) (\s@PossibleRemediationActions' {} a -> s {actions = a} :: PossibleRemediationActions) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PossibleRemediationActions where
+instance Data.FromJSON PossibleRemediationActions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PossibleRemediationActions"
       ( \x ->
           PossibleRemediationActions'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Actions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Actions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PossibleRemediationActions where

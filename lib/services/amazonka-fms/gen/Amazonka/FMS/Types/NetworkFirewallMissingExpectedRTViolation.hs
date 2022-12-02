@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.NetworkFirewallMissingExpectedRTViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail for Network Firewall for a subnet that\'s not
@@ -101,19 +102,19 @@ networkFirewallMissingExpectedRTViolation_expectedRouteTable :: Lens.Lens' Netwo
 networkFirewallMissingExpectedRTViolation_expectedRouteTable = Lens.lens (\NetworkFirewallMissingExpectedRTViolation' {expectedRouteTable} -> expectedRouteTable) (\s@NetworkFirewallMissingExpectedRTViolation' {} a -> s {expectedRouteTable = a} :: NetworkFirewallMissingExpectedRTViolation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     NetworkFirewallMissingExpectedRTViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkFirewallMissingExpectedRTViolation"
       ( \x ->
           NetworkFirewallMissingExpectedRTViolation'
-            Prelude.<$> (x Core..:? "VPC")
-              Prelude.<*> (x Core..:? "ViolationTarget")
-              Prelude.<*> (x Core..:? "CurrentRouteTable")
-              Prelude.<*> (x Core..:? "AvailabilityZone")
-              Prelude.<*> (x Core..:? "ExpectedRouteTable")
+            Prelude.<$> (x Data..:? "VPC")
+              Prelude.<*> (x Data..:? "ViolationTarget")
+              Prelude.<*> (x Data..:? "CurrentRouteTable")
+              Prelude.<*> (x Data..:? "AvailabilityZone")
+              Prelude.<*> (x Data..:? "ExpectedRouteTable")
       )
 
 instance

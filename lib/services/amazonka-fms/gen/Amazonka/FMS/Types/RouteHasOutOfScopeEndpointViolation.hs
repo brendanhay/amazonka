@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.RouteHasOutOfScopeEndpointViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.Route
 import qualified Amazonka.Prelude as Prelude
 
@@ -163,32 +164,32 @@ routeHasOutOfScopeEndpointViolation_vpcId :: Lens.Lens' RouteHasOutOfScopeEndpoi
 routeHasOutOfScopeEndpointViolation_vpcId = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {vpcId} -> vpcId) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {vpcId = a} :: RouteHasOutOfScopeEndpointViolation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RouteHasOutOfScopeEndpointViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RouteHasOutOfScopeEndpointViolation"
       ( \x ->
           RouteHasOutOfScopeEndpointViolation'
-            Prelude.<$> ( x Core..:? "ViolatingRoutes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ViolatingRoutes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SubnetAvailabilityZoneId")
-            Prelude.<*> ( x Core..:? "InternetGatewayRoutes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "SubnetAvailabilityZoneId")
+            Prelude.<*> ( x Data..:? "InternetGatewayRoutes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "CurrentFirewallSubnetRouteTable")
-            Prelude.<*> ( x Core..:? "FirewallSubnetRoutes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "CurrentFirewallSubnetRouteTable")
+            Prelude.<*> ( x Data..:? "FirewallSubnetRoutes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CurrentInternetGatewayRouteTable")
-            Prelude.<*> (x Core..:? "RouteTableId")
-            Prelude.<*> (x Core..:? "InternetGatewayId")
-            Prelude.<*> (x Core..:? "SubnetAvailabilityZone")
-            Prelude.<*> (x Core..:? "FirewallSubnetId")
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Data..:? "CurrentInternetGatewayRouteTable")
+            Prelude.<*> (x Data..:? "RouteTableId")
+            Prelude.<*> (x Data..:? "InternetGatewayId")
+            Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
+            Prelude.<*> (x Data..:? "FirewallSubnetId")
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance

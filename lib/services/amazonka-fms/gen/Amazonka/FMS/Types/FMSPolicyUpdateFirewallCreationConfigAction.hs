@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.FMSPolicyUpdateFirewallCreationConfigAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the actions that you can take to remediate
@@ -73,16 +74,16 @@ fMSPolicyUpdateFirewallCreationConfigAction_description :: Lens.Lens' FMSPolicyU
 fMSPolicyUpdateFirewallCreationConfigAction_description = Lens.lens (\FMSPolicyUpdateFirewallCreationConfigAction' {description} -> description) (\s@FMSPolicyUpdateFirewallCreationConfigAction' {} a -> s {description = a} :: FMSPolicyUpdateFirewallCreationConfigAction)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FMSPolicyUpdateFirewallCreationConfigAction
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FMSPolicyUpdateFirewallCreationConfigAction"
       ( \x ->
           FMSPolicyUpdateFirewallCreationConfigAction'
-            Prelude.<$> (x Core..:? "FirewallCreationConfig")
-              Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "FirewallCreationConfig")
+              Prelude.<*> (x Data..:? "Description")
       )
 
 instance

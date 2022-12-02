@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -165,8 +166,8 @@ instance Core.AWSRequest ListComplianceStatus where
     Response.receiveJSON
       ( \s h x ->
           ListComplianceStatusResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PolicyComplianceStatusList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "PolicyComplianceStatusList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -184,35 +185,35 @@ instance Prelude.NFData ListComplianceStatus where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf policyId
 
-instance Core.ToHeaders ListComplianceStatus where
+instance Data.ToHeaders ListComplianceStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.ListComplianceStatus" ::
+              Data.=# ( "AWSFMS_20180101.ListComplianceStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListComplianceStatus where
+instance Data.ToJSON ListComplianceStatus where
   toJSON ListComplianceStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("PolicyId" Core..= policyId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("PolicyId" Data..= policyId)
           ]
       )
 
-instance Core.ToPath ListComplianceStatus where
+instance Data.ToPath ListComplianceStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListComplianceStatus where
+instance Data.ToQuery ListComplianceStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListComplianceStatusResponse' smart constructor.

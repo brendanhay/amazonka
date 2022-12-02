@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.NetworkFirewallPolicyModifiedViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.NetworkFirewallPolicyDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,17 +81,17 @@ networkFirewallPolicyModifiedViolation_expectedPolicyDescription :: Lens.Lens' N
 networkFirewallPolicyModifiedViolation_expectedPolicyDescription = Lens.lens (\NetworkFirewallPolicyModifiedViolation' {expectedPolicyDescription} -> expectedPolicyDescription) (\s@NetworkFirewallPolicyModifiedViolation' {} a -> s {expectedPolicyDescription = a} :: NetworkFirewallPolicyModifiedViolation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     NetworkFirewallPolicyModifiedViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkFirewallPolicyModifiedViolation"
       ( \x ->
           NetworkFirewallPolicyModifiedViolation'
-            Prelude.<$> (x Core..:? "ViolationTarget")
-            Prelude.<*> (x Core..:? "CurrentPolicyDescription")
-            Prelude.<*> (x Core..:? "ExpectedPolicyDescription")
+            Prelude.<$> (x Data..:? "ViolationTarget")
+            Prelude.<*> (x Data..:? "CurrentPolicyDescription")
+            Prelude.<*> (x Data..:? "ExpectedPolicyDescription")
       )
 
 instance

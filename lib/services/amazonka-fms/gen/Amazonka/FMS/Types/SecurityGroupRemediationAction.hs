@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.SecurityGroupRemediationAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.RemediationActionType
 import Amazonka.FMS.Types.SecurityGroupRuleDescription
 import qualified Amazonka.Prelude as Prelude
@@ -85,16 +86,16 @@ securityGroupRemediationAction_remediationActionType = Lens.lens (\SecurityGroup
 securityGroupRemediationAction_remediationResult :: Lens.Lens' SecurityGroupRemediationAction (Prelude.Maybe SecurityGroupRuleDescription)
 securityGroupRemediationAction_remediationResult = Lens.lens (\SecurityGroupRemediationAction' {remediationResult} -> remediationResult) (\s@SecurityGroupRemediationAction' {} a -> s {remediationResult = a} :: SecurityGroupRemediationAction)
 
-instance Core.FromJSON SecurityGroupRemediationAction where
+instance Data.FromJSON SecurityGroupRemediationAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityGroupRemediationAction"
       ( \x ->
           SecurityGroupRemediationAction'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "IsDefaultAction")
-            Prelude.<*> (x Core..:? "RemediationActionType")
-            Prelude.<*> (x Core..:? "RemediationResult")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "IsDefaultAction")
+            Prelude.<*> (x Data..:? "RemediationActionType")
+            Prelude.<*> (x Data..:? "RemediationResult")
       )
 
 instance

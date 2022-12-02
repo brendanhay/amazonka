@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -69,8 +70,8 @@ instance Core.AWSRequest GetAdminAccount where
     Response.receiveJSON
       ( \s h x ->
           GetAdminAccountResponse'
-            Prelude.<$> (x Core..?> "AdminAccount")
-            Prelude.<*> (x Core..?> "RoleStatus")
+            Prelude.<$> (x Data..?> "AdminAccount")
+            Prelude.<*> (x Data..?> "RoleStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -81,28 +82,28 @@ instance Prelude.Hashable GetAdminAccount where
 instance Prelude.NFData GetAdminAccount where
   rnf _ = ()
 
-instance Core.ToHeaders GetAdminAccount where
+instance Data.ToHeaders GetAdminAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.GetAdminAccount" ::
+              Data.=# ( "AWSFMS_20180101.GetAdminAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAdminAccount where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetAdminAccount where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetAdminAccount where
+instance Data.ToPath GetAdminAccount where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAdminAccount where
+instance Data.ToQuery GetAdminAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAdminAccountResponse' smart constructor.

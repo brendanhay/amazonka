@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest GetComplianceDetail where
     Response.receiveJSON
       ( \s h x ->
           GetComplianceDetailResponse'
-            Prelude.<$> (x Core..?> "PolicyComplianceDetail")
+            Prelude.<$> (x Data..?> "PolicyComplianceDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,35 +138,35 @@ instance Prelude.NFData GetComplianceDetail where
     Prelude.rnf policyId
       `Prelude.seq` Prelude.rnf memberAccount
 
-instance Core.ToHeaders GetComplianceDetail where
+instance Data.ToHeaders GetComplianceDetail where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.GetComplianceDetail" ::
+              Data.=# ( "AWSFMS_20180101.GetComplianceDetail" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetComplianceDetail where
+instance Data.ToJSON GetComplianceDetail where
   toJSON GetComplianceDetail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("PolicyId" Core..= policyId),
+          [ Prelude.Just ("PolicyId" Data..= policyId),
             Prelude.Just
-              ("MemberAccount" Core..= memberAccount)
+              ("MemberAccount" Data..= memberAccount)
           ]
       )
 
-instance Core.ToPath GetComplianceDetail where
+instance Data.ToPath GetComplianceDetail where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetComplianceDetail where
+instance Data.ToQuery GetComplianceDetail where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetComplianceDetailResponse' smart constructor.

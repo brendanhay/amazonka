@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,8 +116,8 @@ instance Core.AWSRequest PutResourceSet where
       ( \s h x ->
           PutResourceSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ResourceSet")
-            Prelude.<*> (x Core..:> "ResourceSetArn")
+            Prelude.<*> (x Data..:> "ResourceSet")
+            Prelude.<*> (x Data..:> "ResourceSetArn")
       )
 
 instance Prelude.Hashable PutResourceSet where
@@ -129,34 +130,34 @@ instance Prelude.NFData PutResourceSet where
     Prelude.rnf tagList
       `Prelude.seq` Prelude.rnf resourceSet
 
-instance Core.ToHeaders PutResourceSet where
+instance Data.ToHeaders PutResourceSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.PutResourceSet" ::
+              Data.=# ( "AWSFMS_20180101.PutResourceSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutResourceSet where
+instance Data.ToJSON PutResourceSet where
   toJSON PutResourceSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TagList" Core..=) Prelude.<$> tagList,
-            Prelude.Just ("ResourceSet" Core..= resourceSet)
+          [ ("TagList" Data..=) Prelude.<$> tagList,
+            Prelude.Just ("ResourceSet" Data..= resourceSet)
           ]
       )
 
-instance Core.ToPath PutResourceSet where
+instance Data.ToPath PutResourceSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutResourceSet where
+instance Data.ToQuery PutResourceSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutResourceSetResponse' smart constructor.

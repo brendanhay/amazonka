@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.StatefulRuleGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.NetworkFirewallStatefulRuleGroupOverride
 import qualified Amazonka.Prelude as Prelude
 
@@ -120,16 +121,16 @@ statefulRuleGroup_override = Lens.lens (\StatefulRuleGroup' {override} -> overri
 statefulRuleGroup_priority :: Lens.Lens' StatefulRuleGroup (Prelude.Maybe Prelude.Int)
 statefulRuleGroup_priority = Lens.lens (\StatefulRuleGroup' {priority} -> priority) (\s@StatefulRuleGroup' {} a -> s {priority = a} :: StatefulRuleGroup)
 
-instance Core.FromJSON StatefulRuleGroup where
+instance Data.FromJSON StatefulRuleGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatefulRuleGroup"
       ( \x ->
           StatefulRuleGroup'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "RuleGroupName")
-            Prelude.<*> (x Core..:? "Override")
-            Prelude.<*> (x Core..:? "Priority")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "RuleGroupName")
+            Prelude.<*> (x Data..:? "Override")
+            Prelude.<*> (x Data..:? "Priority")
       )
 
 instance Prelude.Hashable StatefulRuleGroup where

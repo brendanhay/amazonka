@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.ComplianceViolator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.ViolationReason
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,16 +93,16 @@ complianceViolator_metadata = Lens.lens (\ComplianceViolator' {metadata} -> meta
 complianceViolator_violationReason :: Lens.Lens' ComplianceViolator (Prelude.Maybe ViolationReason)
 complianceViolator_violationReason = Lens.lens (\ComplianceViolator' {violationReason} -> violationReason) (\s@ComplianceViolator' {} a -> s {violationReason = a} :: ComplianceViolator)
 
-instance Core.FromJSON ComplianceViolator where
+instance Data.FromJSON ComplianceViolator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComplianceViolator"
       ( \x ->
           ComplianceViolator'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Metadata" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ViolationReason")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Metadata" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ViolationReason")
       )
 
 instance Prelude.Hashable ComplianceViolator where

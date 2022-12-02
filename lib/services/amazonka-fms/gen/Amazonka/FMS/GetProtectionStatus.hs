@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -69,7 +70,7 @@ data GetProtectionStatus = GetProtectionStatus'
     -- @timestamp@ type. The request syntax listing indicates a @number@ type
     -- because the default used by Firewall Manager is Unix time in seconds.
     -- However, any valid @timestamp@ format is allowed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies the number of objects that you want Firewall Manager to return
     -- for this request. If you have more objects than the number that you
     -- specify for @MaxResults@, the response includes a @NextToken@ value that
@@ -82,7 +83,7 @@ data GetProtectionStatus = GetProtectionStatus'
     -- @timestamp@ type. The request syntax listing indicates a @number@ type
     -- because the default used by Firewall Manager is Unix time in seconds.
     -- However, any valid @timestamp@ format is allowed.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the policy for which you want to get the attack information.
     policyId :: Prelude.Text
   }
@@ -150,7 +151,7 @@ getProtectionStatus_nextToken = Lens.lens (\GetProtectionStatus' {nextToken} -> 
 -- because the default used by Firewall Manager is Unix time in seconds.
 -- However, any valid @timestamp@ format is allowed.
 getProtectionStatus_endTime :: Lens.Lens' GetProtectionStatus (Prelude.Maybe Prelude.UTCTime)
-getProtectionStatus_endTime = Lens.lens (\GetProtectionStatus' {endTime} -> endTime) (\s@GetProtectionStatus' {} a -> s {endTime = a} :: GetProtectionStatus) Prelude.. Lens.mapping Core._Time
+getProtectionStatus_endTime = Lens.lens (\GetProtectionStatus' {endTime} -> endTime) (\s@GetProtectionStatus' {} a -> s {endTime = a} :: GetProtectionStatus) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the number of objects that you want Firewall Manager to return
 -- for this request. If you have more objects than the number that you
@@ -169,7 +170,7 @@ getProtectionStatus_memberAccountId = Lens.lens (\GetProtectionStatus' {memberAc
 -- because the default used by Firewall Manager is Unix time in seconds.
 -- However, any valid @timestamp@ format is allowed.
 getProtectionStatus_startTime :: Lens.Lens' GetProtectionStatus (Prelude.Maybe Prelude.UTCTime)
-getProtectionStatus_startTime = Lens.lens (\GetProtectionStatus' {startTime} -> startTime) (\s@GetProtectionStatus' {} a -> s {startTime = a} :: GetProtectionStatus) Prelude.. Lens.mapping Core._Time
+getProtectionStatus_startTime = Lens.lens (\GetProtectionStatus' {startTime} -> startTime) (\s@GetProtectionStatus' {} a -> s {startTime = a} :: GetProtectionStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the policy for which you want to get the attack information.
 getProtectionStatus_policyId :: Lens.Lens' GetProtectionStatus Prelude.Text
@@ -185,10 +186,10 @@ instance Core.AWSRequest GetProtectionStatus where
     Response.receiveJSON
       ( \s h x ->
           GetProtectionStatusResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ServiceType")
-            Prelude.<*> (x Core..?> "AdminAccountId")
-            Prelude.<*> (x Core..?> "Data")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ServiceType")
+            Prelude.<*> (x Data..?> "AdminAccountId")
+            Prelude.<*> (x Data..?> "Data")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,39 +211,39 @@ instance Prelude.NFData GetProtectionStatus where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf policyId
 
-instance Core.ToHeaders GetProtectionStatus where
+instance Data.ToHeaders GetProtectionStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.GetProtectionStatus" ::
+              Data.=# ( "AWSFMS_20180101.GetProtectionStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetProtectionStatus where
+instance Data.ToJSON GetProtectionStatus where
   toJSON GetProtectionStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("MemberAccountId" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("MemberAccountId" Data..=)
               Prelude.<$> memberAccountId,
-            ("StartTime" Core..=) Prelude.<$> startTime,
-            Prelude.Just ("PolicyId" Core..= policyId)
+            ("StartTime" Data..=) Prelude.<$> startTime,
+            Prelude.Just ("PolicyId" Data..= policyId)
           ]
       )
 
-instance Core.ToPath GetProtectionStatus where
+instance Data.ToPath GetProtectionStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetProtectionStatus where
+instance Data.ToQuery GetProtectionStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetProtectionStatusResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.StatefulEngineOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.RuleOrder
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,13 +71,13 @@ newStatefulEngineOptions =
 statefulEngineOptions_ruleOrder :: Lens.Lens' StatefulEngineOptions (Prelude.Maybe RuleOrder)
 statefulEngineOptions_ruleOrder = Lens.lens (\StatefulEngineOptions' {ruleOrder} -> ruleOrder) (\s@StatefulEngineOptions' {} a -> s {ruleOrder = a} :: StatefulEngineOptions)
 
-instance Core.FromJSON StatefulEngineOptions where
+instance Data.FromJSON StatefulEngineOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatefulEngineOptions"
       ( \x ->
           StatefulEngineOptions'
-            Prelude.<$> (x Core..:? "RuleOrder")
+            Prelude.<$> (x Data..:? "RuleOrder")
       )
 
 instance Prelude.Hashable StatefulEngineOptions where

@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.PolicyComplianceStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.DependentServiceName
 import Amazonka.FMS.Types.EvaluationResult
 import qualified Amazonka.Prelude as Prelude
@@ -42,7 +43,7 @@ data PolicyComplianceStatus = PolicyComplianceStatus'
     -- policy.
     policyOwner :: Prelude.Maybe Prelude.Text,
     -- | Timestamp of the last update to the @EvaluationResult@ objects.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | Details about problems with dependent services, such as WAF or Config,
     -- and the error message received that indicates the problem with the
     -- service.
@@ -109,7 +110,7 @@ policyComplianceStatus_policyOwner = Lens.lens (\PolicyComplianceStatus' {policy
 
 -- | Timestamp of the last update to the @EvaluationResult@ objects.
 policyComplianceStatus_lastUpdated :: Lens.Lens' PolicyComplianceStatus (Prelude.Maybe Prelude.UTCTime)
-policyComplianceStatus_lastUpdated = Lens.lens (\PolicyComplianceStatus' {lastUpdated} -> lastUpdated) (\s@PolicyComplianceStatus' {} a -> s {lastUpdated = a} :: PolicyComplianceStatus) Prelude.. Lens.mapping Core._Time
+policyComplianceStatus_lastUpdated = Lens.lens (\PolicyComplianceStatus' {lastUpdated} -> lastUpdated) (\s@PolicyComplianceStatus' {} a -> s {lastUpdated = a} :: PolicyComplianceStatus) Prelude.. Lens.mapping Data._Time
 
 -- | Details about problems with dependent services, such as WAF or Config,
 -- and the error message received that indicates the problem with the
@@ -121,21 +122,21 @@ policyComplianceStatus_issueInfoMap = Lens.lens (\PolicyComplianceStatus' {issue
 policyComplianceStatus_memberAccount :: Lens.Lens' PolicyComplianceStatus (Prelude.Maybe Prelude.Text)
 policyComplianceStatus_memberAccount = Lens.lens (\PolicyComplianceStatus' {memberAccount} -> memberAccount) (\s@PolicyComplianceStatus' {} a -> s {memberAccount = a} :: PolicyComplianceStatus)
 
-instance Core.FromJSON PolicyComplianceStatus where
+instance Data.FromJSON PolicyComplianceStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PolicyComplianceStatus"
       ( \x ->
           PolicyComplianceStatus'
-            Prelude.<$> (x Core..:? "PolicyName")
-            Prelude.<*> (x Core..:? "PolicyId")
-            Prelude.<*> ( x Core..:? "EvaluationResults"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "PolicyName")
+            Prelude.<*> (x Data..:? "PolicyId")
+            Prelude.<*> ( x Data..:? "EvaluationResults"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PolicyOwner")
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "IssueInfoMap" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MemberAccount")
+            Prelude.<*> (x Data..:? "PolicyOwner")
+            Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "IssueInfoMap" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MemberAccount")
       )
 
 instance Prelude.Hashable PolicyComplianceStatus where

@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.PossibleRemediationAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.RemediationActionWithOrder
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,16 +73,16 @@ possibleRemediationAction_isDefaultAction = Lens.lens (\PossibleRemediationActio
 possibleRemediationAction_orderedRemediationActions :: Lens.Lens' PossibleRemediationAction [RemediationActionWithOrder]
 possibleRemediationAction_orderedRemediationActions = Lens.lens (\PossibleRemediationAction' {orderedRemediationActions} -> orderedRemediationActions) (\s@PossibleRemediationAction' {} a -> s {orderedRemediationActions = a} :: PossibleRemediationAction) Prelude.. Lens.coerced
 
-instance Core.FromJSON PossibleRemediationAction where
+instance Data.FromJSON PossibleRemediationAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PossibleRemediationAction"
       ( \x ->
           PossibleRemediationAction'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "IsDefaultAction")
-            Prelude.<*> ( x Core..:? "OrderedRemediationActions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "IsDefaultAction")
+            Prelude.<*> ( x Data..:? "OrderedRemediationActions"
+                            Data..!= Prelude.mempty
                         )
       )
 

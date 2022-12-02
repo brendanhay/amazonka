@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.EC2DeleteRouteAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.ActionTarget
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,17 +99,17 @@ eC2DeleteRouteAction_destinationIpv6CidrBlock = Lens.lens (\EC2DeleteRouteAction
 eC2DeleteRouteAction_routeTableId :: Lens.Lens' EC2DeleteRouteAction ActionTarget
 eC2DeleteRouteAction_routeTableId = Lens.lens (\EC2DeleteRouteAction' {routeTableId} -> routeTableId) (\s@EC2DeleteRouteAction' {} a -> s {routeTableId = a} :: EC2DeleteRouteAction)
 
-instance Core.FromJSON EC2DeleteRouteAction where
+instance Data.FromJSON EC2DeleteRouteAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EC2DeleteRouteAction"
       ( \x ->
           EC2DeleteRouteAction'
-            Prelude.<$> (x Core..:? "DestinationPrefixListId")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "DestinationCidrBlock")
-            Prelude.<*> (x Core..:? "DestinationIpv6CidrBlock")
-            Prelude.<*> (x Core..: "RouteTableId")
+            Prelude.<$> (x Data..:? "DestinationPrefixListId")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "DestinationCidrBlock")
+            Prelude.<*> (x Data..:? "DestinationIpv6CidrBlock")
+            Prelude.<*> (x Data..: "RouteTableId")
       )
 
 instance Prelude.Hashable EC2DeleteRouteAction where

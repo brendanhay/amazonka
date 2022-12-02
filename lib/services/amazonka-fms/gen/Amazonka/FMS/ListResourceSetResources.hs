@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,9 +133,9 @@ instance Core.AWSRequest ListResourceSetResources where
     Response.receiveJSON
       ( \s h x ->
           ListResourceSetResourcesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Items" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListResourceSetResources where
@@ -149,35 +150,35 @@ instance Prelude.NFData ListResourceSetResources where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf identifier
 
-instance Core.ToHeaders ListResourceSetResources where
+instance Data.ToHeaders ListResourceSetResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.ListResourceSetResources" ::
+              Data.=# ( "AWSFMS_20180101.ListResourceSetResources" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResourceSetResources where
+instance Data.ToJSON ListResourceSetResources where
   toJSON ListResourceSetResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Identifier" Core..= identifier)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Identifier" Data..= identifier)
           ]
       )
 
-instance Core.ToPath ListResourceSetResources where
+instance Data.ToPath ListResourceSetResources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListResourceSetResources where
+instance Data.ToQuery ListResourceSetResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourceSetResourcesResponse' smart constructor.

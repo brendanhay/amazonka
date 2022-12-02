@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,8 +123,8 @@ instance Core.AWSRequest PutPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutPolicyResponse'
-            Prelude.<$> (x Core..?> "Policy")
-            Prelude.<*> (x Core..?> "PolicyArn")
+            Prelude.<$> (x Data..?> "Policy")
+            Prelude.<*> (x Data..?> "PolicyArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,32 +138,32 @@ instance Prelude.NFData PutPolicy where
     Prelude.rnf tagList
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders PutPolicy where
+instance Data.ToHeaders PutPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSFMS_20180101.PutPolicy" :: Prelude.ByteString),
+              Data.=# ("AWSFMS_20180101.PutPolicy" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutPolicy where
+instance Data.ToJSON PutPolicy where
   toJSON PutPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TagList" Core..=) Prelude.<$> tagList,
-            Prelude.Just ("Policy" Core..= policy)
+          [ ("TagList" Data..=) Prelude.<$> tagList,
+            Prelude.Just ("Policy" Data..= policy)
           ]
       )
 
-instance Core.ToPath PutPolicy where
+instance Data.ToPath PutPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutPolicy where
+instance Data.ToQuery PutPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutPolicyResponse' smart constructor.

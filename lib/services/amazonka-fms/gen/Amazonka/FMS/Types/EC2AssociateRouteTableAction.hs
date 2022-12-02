@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.EC2AssociateRouteTableAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.ActionTarget
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,16 +97,16 @@ eC2AssociateRouteTableAction_gatewayId = Lens.lens (\EC2AssociateRouteTableActio
 eC2AssociateRouteTableAction_routeTableId :: Lens.Lens' EC2AssociateRouteTableAction ActionTarget
 eC2AssociateRouteTableAction_routeTableId = Lens.lens (\EC2AssociateRouteTableAction' {routeTableId} -> routeTableId) (\s@EC2AssociateRouteTableAction' {} a -> s {routeTableId = a} :: EC2AssociateRouteTableAction)
 
-instance Core.FromJSON EC2AssociateRouteTableAction where
+instance Data.FromJSON EC2AssociateRouteTableAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EC2AssociateRouteTableAction"
       ( \x ->
           EC2AssociateRouteTableAction'
-            Prelude.<$> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "GatewayId")
-            Prelude.<*> (x Core..: "RouteTableId")
+            Prelude.<$> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "GatewayId")
+            Prelude.<*> (x Data..: "RouteTableId")
       )
 
 instance

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,7 +94,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DisassociateThirdPartyFirewallResponse'
-            Prelude.<$> (x Core..?> "ThirdPartyFirewallStatus")
+            Prelude.<$> (x Data..?> "ThirdPartyFirewallStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,36 +115,36 @@ instance
     Prelude.rnf thirdPartyFirewall
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateThirdPartyFirewall
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.DisassociateThirdPartyFirewall" ::
+              Data.=# ( "AWSFMS_20180101.DisassociateThirdPartyFirewall" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateThirdPartyFirewall where
+instance Data.ToJSON DisassociateThirdPartyFirewall where
   toJSON DisassociateThirdPartyFirewall' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ThirdPartyFirewall" Core..= thirdPartyFirewall)
+              ("ThirdPartyFirewall" Data..= thirdPartyFirewall)
           ]
       )
 
-instance Core.ToPath DisassociateThirdPartyFirewall where
+instance Data.ToPath DisassociateThirdPartyFirewall where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateThirdPartyFirewall where
+instance Data.ToQuery DisassociateThirdPartyFirewall where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateThirdPartyFirewallResponse' smart constructor.

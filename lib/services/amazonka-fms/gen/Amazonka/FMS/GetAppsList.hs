@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,8 +102,8 @@ instance Core.AWSRequest GetAppsList where
     Response.receiveJSON
       ( \s h x ->
           GetAppsListResponse'
-            Prelude.<$> (x Core..?> "AppsList")
-            Prelude.<*> (x Core..?> "AppsListArn")
+            Prelude.<$> (x Data..?> "AppsList")
+            Prelude.<*> (x Data..?> "AppsListArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,34 +117,34 @@ instance Prelude.NFData GetAppsList where
     Prelude.rnf defaultList
       `Prelude.seq` Prelude.rnf listId
 
-instance Core.ToHeaders GetAppsList where
+instance Data.ToHeaders GetAppsList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.GetAppsList" ::
+              Data.=# ( "AWSFMS_20180101.GetAppsList" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAppsList where
+instance Data.ToJSON GetAppsList where
   toJSON GetAppsList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DefaultList" Core..=) Prelude.<$> defaultList,
-            Prelude.Just ("ListId" Core..= listId)
+          [ ("DefaultList" Data..=) Prelude.<$> defaultList,
+            Prelude.Just ("ListId" Data..= listId)
           ]
       )
 
-instance Core.ToPath GetAppsList where
+instance Data.ToPath GetAppsList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAppsList where
+instance Data.ToQuery GetAppsList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAppsListResponse' smart constructor.

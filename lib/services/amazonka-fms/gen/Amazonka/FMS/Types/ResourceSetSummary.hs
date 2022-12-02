@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.ResourceSetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summarizes the resource sets used in a policy.
@@ -37,7 +38,7 @@ data ResourceSetSummary = ResourceSetSummary'
     -- | A description of the resource set.
     description :: Prelude.Maybe Prelude.Text,
     -- | The last time that the resource set was changed.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,18 +87,18 @@ resourceSetSummary_description = Lens.lens (\ResourceSetSummary' {description} -
 
 -- | The last time that the resource set was changed.
 resourceSetSummary_lastUpdateTime :: Lens.Lens' ResourceSetSummary (Prelude.Maybe Prelude.UTCTime)
-resourceSetSummary_lastUpdateTime = Lens.lens (\ResourceSetSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ResourceSetSummary' {} a -> s {lastUpdateTime = a} :: ResourceSetSummary) Prelude.. Lens.mapping Core._Time
+resourceSetSummary_lastUpdateTime = Lens.lens (\ResourceSetSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ResourceSetSummary' {} a -> s {lastUpdateTime = a} :: ResourceSetSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ResourceSetSummary where
+instance Data.FromJSON ResourceSetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceSetSummary"
       ( \x ->
           ResourceSetSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastUpdateTime")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastUpdateTime")
       )
 
 instance Prelude.Hashable ResourceSetSummary where

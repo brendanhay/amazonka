@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.DnsRuleGroupLimitExceededViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VPC that Firewall Manager was applying a DNS Fireall policy to
@@ -77,17 +78,17 @@ dnsRuleGroupLimitExceededViolation_violationTargetDescription :: Lens.Lens' DnsR
 dnsRuleGroupLimitExceededViolation_violationTargetDescription = Lens.lens (\DnsRuleGroupLimitExceededViolation' {violationTargetDescription} -> violationTargetDescription) (\s@DnsRuleGroupLimitExceededViolation' {} a -> s {violationTargetDescription = a} :: DnsRuleGroupLimitExceededViolation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DnsRuleGroupLimitExceededViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DnsRuleGroupLimitExceededViolation"
       ( \x ->
           DnsRuleGroupLimitExceededViolation'
-            Prelude.<$> (x Core..:? "ViolationTarget")
-            Prelude.<*> (x Core..:? "NumberOfRuleGroupsAlreadyAssociated")
-            Prelude.<*> (x Core..:? "ViolationTargetDescription")
+            Prelude.<$> (x Data..:? "ViolationTarget")
+            Prelude.<*> (x Data..:? "NumberOfRuleGroupsAlreadyAssociated")
+            Prelude.<*> (x Data..:? "ViolationTargetDescription")
       )
 
 instance

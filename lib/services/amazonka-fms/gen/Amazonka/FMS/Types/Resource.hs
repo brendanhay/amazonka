@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of a resource that is associated to an Firewall Manager resource
@@ -64,14 +65,14 @@ resource_accountId = Lens.lens (\Resource' {accountId} -> accountId) (\s@Resourc
 resource_uri :: Lens.Lens' Resource Prelude.Text
 resource_uri = Lens.lens (\Resource' {uri} -> uri) (\s@Resource' {} a -> s {uri = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..: "URI")
+            Prelude.<$> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..: "URI")
       )
 
 instance Prelude.Hashable Resource where

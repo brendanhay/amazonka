@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.AwsVPCSecurityGroupViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.PartialMatch
 import Amazonka.FMS.Types.SecurityGroupRemediationAction
 import qualified Amazonka.Prelude as Prelude
@@ -87,18 +88,18 @@ awsVPCSecurityGroupViolation_possibleSecurityGroupRemediationActions = Lens.lens
 awsVPCSecurityGroupViolation_violationTargetDescription :: Lens.Lens' AwsVPCSecurityGroupViolation (Prelude.Maybe Prelude.Text)
 awsVPCSecurityGroupViolation_violationTargetDescription = Lens.lens (\AwsVPCSecurityGroupViolation' {violationTargetDescription} -> violationTargetDescription) (\s@AwsVPCSecurityGroupViolation' {} a -> s {violationTargetDescription = a} :: AwsVPCSecurityGroupViolation)
 
-instance Core.FromJSON AwsVPCSecurityGroupViolation where
+instance Data.FromJSON AwsVPCSecurityGroupViolation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsVPCSecurityGroupViolation"
       ( \x ->
           AwsVPCSecurityGroupViolation'
-            Prelude.<$> (x Core..:? "PartialMatches" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ViolationTarget")
-            Prelude.<*> ( x Core..:? "PossibleSecurityGroupRemediationActions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "PartialMatches" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ViolationTarget")
+            Prelude.<*> ( x Data..:? "PossibleSecurityGroupRemediationActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ViolationTargetDescription")
+            Prelude.<*> (x Data..:? "ViolationTargetDescription")
       )
 
 instance

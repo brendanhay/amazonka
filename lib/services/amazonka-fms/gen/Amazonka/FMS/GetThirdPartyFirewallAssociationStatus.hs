@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,8 +94,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetThirdPartyFirewallAssociationStatusResponse'
-            Prelude.<$> (x Core..?> "MarketplaceOnboardingStatus")
-              Prelude.<*> (x Core..?> "ThirdPartyFirewallStatus")
+            Prelude.<$> (x Data..?> "MarketplaceOnboardingStatus")
+              Prelude.<*> (x Data..?> "ThirdPartyFirewallStatus")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,43 +116,43 @@ instance
     Prelude.rnf thirdPartyFirewall
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetThirdPartyFirewallAssociationStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.GetThirdPartyFirewallAssociationStatus" ::
+              Data.=# ( "AWSFMS_20180101.GetThirdPartyFirewallAssociationStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetThirdPartyFirewallAssociationStatus
   where
   toJSON GetThirdPartyFirewallAssociationStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ThirdPartyFirewall" Core..= thirdPartyFirewall)
+              ("ThirdPartyFirewall" Data..= thirdPartyFirewall)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetThirdPartyFirewallAssociationStatus
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetThirdPartyFirewallAssociationStatus
   where
   toQuery = Prelude.const Prelude.mempty

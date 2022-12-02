@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,8 +97,8 @@ instance Core.AWSRequest PutProtocolsList where
     Response.receiveJSON
       ( \s h x ->
           PutProtocolsListResponse'
-            Prelude.<$> (x Core..?> "ProtocolsListArn")
-            Prelude.<*> (x Core..?> "ProtocolsList")
+            Prelude.<$> (x Data..?> "ProtocolsListArn")
+            Prelude.<*> (x Data..?> "ProtocolsList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,35 +112,35 @@ instance Prelude.NFData PutProtocolsList where
     Prelude.rnf tagList
       `Prelude.seq` Prelude.rnf protocolsList
 
-instance Core.ToHeaders PutProtocolsList where
+instance Data.ToHeaders PutProtocolsList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.PutProtocolsList" ::
+              Data.=# ( "AWSFMS_20180101.PutProtocolsList" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutProtocolsList where
+instance Data.ToJSON PutProtocolsList where
   toJSON PutProtocolsList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TagList" Core..=) Prelude.<$> tagList,
+          [ ("TagList" Data..=) Prelude.<$> tagList,
             Prelude.Just
-              ("ProtocolsList" Core..= protocolsList)
+              ("ProtocolsList" Data..= protocolsList)
           ]
       )
 
-instance Core.ToPath PutProtocolsList where
+instance Data.ToPath PutProtocolsList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutProtocolsList where
+instance Data.ToQuery PutProtocolsList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutProtocolsListResponse' smart constructor.

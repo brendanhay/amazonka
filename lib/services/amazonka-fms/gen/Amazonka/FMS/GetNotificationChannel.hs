@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -69,8 +70,8 @@ instance Core.AWSRequest GetNotificationChannel where
     Response.receiveJSON
       ( \s h x ->
           GetNotificationChannelResponse'
-            Prelude.<$> (x Core..?> "SnsRoleName")
-            Prelude.<*> (x Core..?> "SnsTopicArn")
+            Prelude.<$> (x Data..?> "SnsRoleName")
+            Prelude.<*> (x Data..?> "SnsTopicArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -81,28 +82,28 @@ instance Prelude.Hashable GetNotificationChannel where
 instance Prelude.NFData GetNotificationChannel where
   rnf _ = ()
 
-instance Core.ToHeaders GetNotificationChannel where
+instance Data.ToHeaders GetNotificationChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.GetNotificationChannel" ::
+              Data.=# ( "AWSFMS_20180101.GetNotificationChannel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetNotificationChannel where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetNotificationChannel where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetNotificationChannel where
+instance Data.ToPath GetNotificationChannel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetNotificationChannel where
+instance Data.ToQuery GetNotificationChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetNotificationChannelResponse' smart constructor.

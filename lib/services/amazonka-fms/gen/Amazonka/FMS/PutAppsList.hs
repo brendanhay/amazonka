@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,8 +95,8 @@ instance Core.AWSRequest PutAppsList where
     Response.receiveJSON
       ( \s h x ->
           PutAppsListResponse'
-            Prelude.<$> (x Core..?> "AppsList")
-            Prelude.<*> (x Core..?> "AppsListArn")
+            Prelude.<$> (x Data..?> "AppsList")
+            Prelude.<*> (x Data..?> "AppsListArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,34 +110,34 @@ instance Prelude.NFData PutAppsList where
     Prelude.rnf tagList
       `Prelude.seq` Prelude.rnf appsList
 
-instance Core.ToHeaders PutAppsList where
+instance Data.ToHeaders PutAppsList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.PutAppsList" ::
+              Data.=# ( "AWSFMS_20180101.PutAppsList" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAppsList where
+instance Data.ToJSON PutAppsList where
   toJSON PutAppsList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TagList" Core..=) Prelude.<$> tagList,
-            Prelude.Just ("AppsList" Core..= appsList)
+          [ ("TagList" Data..=) Prelude.<$> tagList,
+            Prelude.Just ("AppsList" Data..= appsList)
           ]
       )
 
-instance Core.ToPath PutAppsList where
+instance Data.ToPath PutAppsList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutAppsList where
+instance Data.ToQuery PutAppsList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAppsListResponse' smart constructor.

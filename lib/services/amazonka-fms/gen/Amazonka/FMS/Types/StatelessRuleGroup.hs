@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.StatelessRuleGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Network Firewall stateless rule group, used in a
@@ -77,15 +78,15 @@ statelessRuleGroup_ruleGroupName = Lens.lens (\StatelessRuleGroup' {ruleGroupNam
 statelessRuleGroup_priority :: Lens.Lens' StatelessRuleGroup (Prelude.Maybe Prelude.Natural)
 statelessRuleGroup_priority = Lens.lens (\StatelessRuleGroup' {priority} -> priority) (\s@StatelessRuleGroup' {} a -> s {priority = a} :: StatelessRuleGroup)
 
-instance Core.FromJSON StatelessRuleGroup where
+instance Data.FromJSON StatelessRuleGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatelessRuleGroup"
       ( \x ->
           StatelessRuleGroup'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "RuleGroupName")
-            Prelude.<*> (x Core..:? "Priority")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "RuleGroupName")
+            Prelude.<*> (x Data..:? "Priority")
       )
 
 instance Prelude.Hashable StatelessRuleGroup where

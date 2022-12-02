@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.SecurityGroupRuleDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a set of permissions for a security group rule.
@@ -107,18 +108,18 @@ securityGroupRuleDescription_protocol = Lens.lens (\SecurityGroupRuleDescription
 securityGroupRuleDescription_fromPort :: Lens.Lens' SecurityGroupRuleDescription (Prelude.Maybe Prelude.Natural)
 securityGroupRuleDescription_fromPort = Lens.lens (\SecurityGroupRuleDescription' {fromPort} -> fromPort) (\s@SecurityGroupRuleDescription' {} a -> s {fromPort = a} :: SecurityGroupRuleDescription)
 
-instance Core.FromJSON SecurityGroupRuleDescription where
+instance Data.FromJSON SecurityGroupRuleDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityGroupRuleDescription"
       ( \x ->
           SecurityGroupRuleDescription'
-            Prelude.<$> (x Core..:? "IPV4Range")
-            Prelude.<*> (x Core..:? "ToPort")
-            Prelude.<*> (x Core..:? "PrefixListId")
-            Prelude.<*> (x Core..:? "IPV6Range")
-            Prelude.<*> (x Core..:? "Protocol")
-            Prelude.<*> (x Core..:? "FromPort")
+            Prelude.<$> (x Data..:? "IPV4Range")
+            Prelude.<*> (x Data..:? "ToPort")
+            Prelude.<*> (x Data..:? "PrefixListId")
+            Prelude.<*> (x Data..:? "IPV6Range")
+            Prelude.<*> (x Data..:? "Protocol")
+            Prelude.<*> (x Data..:? "FromPort")
       )
 
 instance

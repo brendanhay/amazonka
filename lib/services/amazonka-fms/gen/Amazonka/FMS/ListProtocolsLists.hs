@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,8 +164,8 @@ instance Core.AWSRequest ListProtocolsLists where
     Response.receiveJSON
       ( \s h x ->
           ListProtocolsListsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ProtocolsLists" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ProtocolsLists" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,35 +181,35 @@ instance Prelude.NFData ListProtocolsLists where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListProtocolsLists where
+instance Data.ToHeaders ListProtocolsLists where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.ListProtocolsLists" ::
+              Data.=# ( "AWSFMS_20180101.ListProtocolsLists" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListProtocolsLists where
+instance Data.ToJSON ListProtocolsLists where
   toJSON ListProtocolsLists' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DefaultLists" Core..=) Prelude.<$> defaultLists,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            Prelude.Just ("MaxResults" Core..= maxResults)
+          [ ("DefaultLists" Data..=) Prelude.<$> defaultLists,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            Prelude.Just ("MaxResults" Data..= maxResults)
           ]
       )
 
-instance Core.ToPath ListProtocolsLists where
+instance Data.ToPath ListProtocolsLists where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListProtocolsLists where
+instance Data.ToQuery ListProtocolsLists where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListProtocolsListsResponse' smart constructor.

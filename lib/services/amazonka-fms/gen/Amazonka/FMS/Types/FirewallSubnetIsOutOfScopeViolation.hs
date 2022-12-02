@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.FirewallSubnetIsOutOfScopeViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the firewall subnet that violates the policy
@@ -101,19 +102,19 @@ firewallSubnetIsOutOfScopeViolation_vpcId :: Lens.Lens' FirewallSubnetIsOutOfSco
 firewallSubnetIsOutOfScopeViolation_vpcId = Lens.lens (\FirewallSubnetIsOutOfScopeViolation' {vpcId} -> vpcId) (\s@FirewallSubnetIsOutOfScopeViolation' {} a -> s {vpcId = a} :: FirewallSubnetIsOutOfScopeViolation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FirewallSubnetIsOutOfScopeViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallSubnetIsOutOfScopeViolation"
       ( \x ->
           FirewallSubnetIsOutOfScopeViolation'
-            Prelude.<$> (x Core..:? "SubnetAvailabilityZoneId")
-            Prelude.<*> (x Core..:? "VpcEndpointId")
-            Prelude.<*> (x Core..:? "SubnetAvailabilityZone")
-            Prelude.<*> (x Core..:? "FirewallSubnetId")
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<$> (x Data..:? "SubnetAvailabilityZoneId")
+            Prelude.<*> (x Data..:? "VpcEndpointId")
+            Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
+            Prelude.<*> (x Data..:? "FirewallSubnetId")
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance

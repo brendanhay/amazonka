@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -183,8 +184,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListThirdPartyFirewallFirewallPoliciesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "ThirdPartyFirewallFirewallPolicies"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "ThirdPartyFirewallFirewallPolicies"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -211,45 +212,45 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListThirdPartyFirewallFirewallPolicies
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.ListThirdPartyFirewallFirewallPolicies" ::
+              Data.=# ( "AWSFMS_20180101.ListThirdPartyFirewallFirewallPolicies" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListThirdPartyFirewallFirewallPolicies
   where
   toJSON ListThirdPartyFirewallFirewallPolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
-              ("ThirdPartyFirewall" Core..= thirdPartyFirewall),
-            Prelude.Just ("MaxResults" Core..= maxResults)
+              ("ThirdPartyFirewall" Data..= thirdPartyFirewall),
+            Prelude.Just ("MaxResults" Data..= maxResults)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListThirdPartyFirewallFirewallPolicies
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListThirdPartyFirewallFirewallPolicies
   where
   toQuery = Prelude.const Prelude.mempty

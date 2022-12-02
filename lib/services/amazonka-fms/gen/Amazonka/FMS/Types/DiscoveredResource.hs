@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.DiscoveredResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource in the organization that\'s available to be associated with a
@@ -83,16 +84,16 @@ discoveredResource_uri = Lens.lens (\DiscoveredResource' {uri} -> uri) (\s@Disco
 discoveredResource_accountId :: Lens.Lens' DiscoveredResource (Prelude.Maybe Prelude.Text)
 discoveredResource_accountId = Lens.lens (\DiscoveredResource' {accountId} -> accountId) (\s@DiscoveredResource' {} a -> s {accountId = a} :: DiscoveredResource)
 
-instance Core.FromJSON DiscoveredResource where
+instance Data.FromJSON DiscoveredResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DiscoveredResource"
       ( \x ->
           DiscoveredResource'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "URI")
-            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "URI")
+            Prelude.<*> (x Data..:? "AccountId")
       )
 
 instance Prelude.Hashable DiscoveredResource where

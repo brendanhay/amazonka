@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,8 +101,8 @@ instance Core.AWSRequest DeleteManagedEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DeleteManagedEndpointResponse'
-            Prelude.<$> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "virtualClusterId")
+            Prelude.<$> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "virtualClusterId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,27 +116,27 @@ instance Prelude.NFData DeleteManagedEndpoint where
     Prelude.rnf id
       `Prelude.seq` Prelude.rnf virtualClusterId
 
-instance Core.ToHeaders DeleteManagedEndpoint where
+instance Data.ToHeaders DeleteManagedEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteManagedEndpoint where
+instance Data.ToPath DeleteManagedEndpoint where
   toPath DeleteManagedEndpoint' {..} =
     Prelude.mconcat
       [ "/virtualclusters/",
-        Core.toBS virtualClusterId,
+        Data.toBS virtualClusterId,
         "/endpoints/",
-        Core.toBS id
+        Data.toBS id
       ]
 
-instance Core.ToQuery DeleteManagedEndpoint where
+instance Data.ToQuery DeleteManagedEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteManagedEndpointResponse' smart constructor.

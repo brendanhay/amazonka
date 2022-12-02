@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.ParametricMonitoringConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types.ParametricCloudWatchMonitoringConfiguration
 import Amazonka.EMRContainers.Types.ParametricS3MonitoringConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -77,17 +78,17 @@ parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration :: Lens.Lens
 parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration = Lens.lens (\ParametricMonitoringConfiguration' {cloudWatchMonitoringConfiguration} -> cloudWatchMonitoringConfiguration) (\s@ParametricMonitoringConfiguration' {} a -> s {cloudWatchMonitoringConfiguration = a} :: ParametricMonitoringConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ParametricMonitoringConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParametricMonitoringConfiguration"
       ( \x ->
           ParametricMonitoringConfiguration'
-            Prelude.<$> (x Core..:? "persistentAppUI")
-            Prelude.<*> (x Core..:? "s3MonitoringConfiguration")
-            Prelude.<*> (x Core..:? "cloudWatchMonitoringConfiguration")
+            Prelude.<$> (x Data..:? "persistentAppUI")
+            Prelude.<*> (x Data..:? "s3MonitoringConfiguration")
+            Prelude.<*> (x Data..:? "cloudWatchMonitoringConfiguration")
       )
 
 instance
@@ -111,17 +112,17 @@ instance
       `Prelude.seq` Prelude.rnf cloudWatchMonitoringConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ParametricMonitoringConfiguration
   where
   toJSON ParametricMonitoringConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("persistentAppUI" Core..=)
+          [ ("persistentAppUI" Data..=)
               Prelude.<$> persistentAppUI,
-            ("s3MonitoringConfiguration" Core..=)
+            ("s3MonitoringConfiguration" Data..=)
               Prelude.<$> s3MonitoringConfiguration,
-            ("cloudWatchMonitoringConfiguration" Core..=)
+            ("cloudWatchMonitoringConfiguration" Data..=)
               Prelude.<$> cloudWatchMonitoringConfiguration
           ]
       )

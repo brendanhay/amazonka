@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,9 +130,9 @@ instance Core.AWSRequest CreateVirtualCluster where
     Response.receiveJSON
       ( \s h x ->
           CreateVirtualClusterResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,33 +150,33 @@ instance Prelude.NFData CreateVirtualCluster where
       `Prelude.seq` Prelude.rnf containerProvider
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateVirtualCluster where
+instance Data.ToHeaders CreateVirtualCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVirtualCluster where
+instance Data.ToJSON CreateVirtualCluster where
   toJSON CreateVirtualCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("name" Core..= name),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("containerProvider" Core..= containerProvider),
-            Prelude.Just ("clientToken" Core..= clientToken)
+              ("containerProvider" Data..= containerProvider),
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateVirtualCluster where
+instance Data.ToPath CreateVirtualCluster where
   toPath = Prelude.const "/virtualclusters"
 
-instance Core.ToQuery CreateVirtualCluster where
+instance Data.ToQuery CreateVirtualCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVirtualClusterResponse' smart constructor.

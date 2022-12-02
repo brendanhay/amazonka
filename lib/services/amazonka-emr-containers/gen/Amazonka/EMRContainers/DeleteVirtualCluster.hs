@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DeleteVirtualCluster where
     Response.receiveJSON
       ( \s h x ->
           DeleteVirtualClusterResponse'
-            Prelude.<$> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,22 +100,22 @@ instance Prelude.Hashable DeleteVirtualCluster where
 instance Prelude.NFData DeleteVirtualCluster where
   rnf DeleteVirtualCluster' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteVirtualCluster where
+instance Data.ToHeaders DeleteVirtualCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteVirtualCluster where
+instance Data.ToPath DeleteVirtualCluster where
   toPath DeleteVirtualCluster' {..} =
-    Prelude.mconcat ["/virtualclusters/", Core.toBS id]
+    Prelude.mconcat ["/virtualclusters/", Data.toBS id]
 
-instance Core.ToQuery DeleteVirtualCluster where
+instance Data.ToQuery DeleteVirtualCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVirtualClusterResponse' smart constructor.

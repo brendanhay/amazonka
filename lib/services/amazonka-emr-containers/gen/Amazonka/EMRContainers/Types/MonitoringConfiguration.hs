@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.MonitoringConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration
 import Amazonka.EMRContainers.Types.PersistentAppUI
 import Amazonka.EMRContainers.Types.S3MonitoringConfiguration
@@ -75,15 +76,15 @@ monitoringConfiguration_s3MonitoringConfiguration = Lens.lens (\MonitoringConfig
 monitoringConfiguration_cloudWatchMonitoringConfiguration :: Lens.Lens' MonitoringConfiguration (Prelude.Maybe CloudWatchMonitoringConfiguration)
 monitoringConfiguration_cloudWatchMonitoringConfiguration = Lens.lens (\MonitoringConfiguration' {cloudWatchMonitoringConfiguration} -> cloudWatchMonitoringConfiguration) (\s@MonitoringConfiguration' {} a -> s {cloudWatchMonitoringConfiguration = a} :: MonitoringConfiguration)
 
-instance Core.FromJSON MonitoringConfiguration where
+instance Data.FromJSON MonitoringConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringConfiguration"
       ( \x ->
           MonitoringConfiguration'
-            Prelude.<$> (x Core..:? "persistentAppUI")
-            Prelude.<*> (x Core..:? "s3MonitoringConfiguration")
-            Prelude.<*> (x Core..:? "cloudWatchMonitoringConfiguration")
+            Prelude.<$> (x Data..:? "persistentAppUI")
+            Prelude.<*> (x Data..:? "s3MonitoringConfiguration")
+            Prelude.<*> (x Data..:? "cloudWatchMonitoringConfiguration")
       )
 
 instance Prelude.Hashable MonitoringConfiguration where
@@ -98,15 +99,15 @@ instance Prelude.NFData MonitoringConfiguration where
       `Prelude.seq` Prelude.rnf s3MonitoringConfiguration
       `Prelude.seq` Prelude.rnf cloudWatchMonitoringConfiguration
 
-instance Core.ToJSON MonitoringConfiguration where
+instance Data.ToJSON MonitoringConfiguration where
   toJSON MonitoringConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("persistentAppUI" Core..=)
+          [ ("persistentAppUI" Data..=)
               Prelude.<$> persistentAppUI,
-            ("s3MonitoringConfiguration" Core..=)
+            ("s3MonitoringConfiguration" Data..=)
               Prelude.<$> s3MonitoringConfiguration,
-            ("cloudWatchMonitoringConfiguration" Core..=)
+            ("cloudWatchMonitoringConfiguration" Data..=)
               Prelude.<$> cloudWatchMonitoringConfiguration
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.ContainerInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types.EksInfo
 import qualified Amazonka.Prelude as Prelude
 
@@ -52,12 +53,12 @@ newContainerInfo =
 containerInfo_eksInfo :: Lens.Lens' ContainerInfo (Prelude.Maybe EksInfo)
 containerInfo_eksInfo = Lens.lens (\ContainerInfo' {eksInfo} -> eksInfo) (\s@ContainerInfo' {} a -> s {eksInfo = a} :: ContainerInfo)
 
-instance Core.FromJSON ContainerInfo where
+instance Data.FromJSON ContainerInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerInfo"
       ( \x ->
-          ContainerInfo' Prelude.<$> (x Core..:? "eksInfo")
+          ContainerInfo' Prelude.<$> (x Data..:? "eksInfo")
       )
 
 instance Prelude.Hashable ContainerInfo where
@@ -67,9 +68,9 @@ instance Prelude.Hashable ContainerInfo where
 instance Prelude.NFData ContainerInfo where
   rnf ContainerInfo' {..} = Prelude.rnf eksInfo
 
-instance Core.ToJSON ContainerInfo where
+instance Data.ToJSON ContainerInfo where
   toJSON ContainerInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("eksInfo" Core..=) Prelude.<$> eksInfo]
+          [("eksInfo" Data..=) Prelude.<$> eksInfo]
       )

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,10 +180,10 @@ instance Core.AWSRequest StartJobRun where
     Response.receiveJSON
       ( \s h x ->
           StartJobRunResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "virtualClusterId")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "virtualClusterId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -212,45 +213,45 @@ instance Prelude.NFData StartJobRun where
       `Prelude.seq` Prelude.rnf virtualClusterId
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders StartJobRun where
+instance Data.ToHeaders StartJobRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartJobRun where
+instance Data.ToJSON StartJobRun where
   toJSON StartJobRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("name" Core..=) Prelude.<$> name,
-            ("jobDriver" Core..=) Prelude.<$> jobDriver,
-            ("releaseLabel" Core..=) Prelude.<$> releaseLabel,
-            ("jobTemplateId" Core..=) Prelude.<$> jobTemplateId,
-            ("jobTemplateParameters" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("name" Data..=) Prelude.<$> name,
+            ("jobDriver" Data..=) Prelude.<$> jobDriver,
+            ("releaseLabel" Data..=) Prelude.<$> releaseLabel,
+            ("jobTemplateId" Data..=) Prelude.<$> jobTemplateId,
+            ("jobTemplateParameters" Data..=)
               Prelude.<$> jobTemplateParameters,
-            ("configurationOverrides" Core..=)
+            ("configurationOverrides" Data..=)
               Prelude.<$> configurationOverrides,
-            ("executionRoleArn" Core..=)
+            ("executionRoleArn" Data..=)
               Prelude.<$> executionRoleArn,
-            Prelude.Just ("clientToken" Core..= clientToken)
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath StartJobRun where
+instance Data.ToPath StartJobRun where
   toPath StartJobRun' {..} =
     Prelude.mconcat
       [ "/virtualclusters/",
-        Core.toBS virtualClusterId,
+        Data.toBS virtualClusterId,
         "/jobruns"
       ]
 
-instance Core.ToQuery StartJobRun where
+instance Data.ToQuery StartJobRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartJobRunResponse' smart constructor.

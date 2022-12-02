@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.SparkSqlJobDriver where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The job driver for job type.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSparkSqlJobDriver' smart constructor.
 data SparkSqlJobDriver = SparkSqlJobDriver'
   { -- | The SQL file to be executed.
-    entryPoint :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    entryPoint :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Spark parameters to be included in the Spark SQL command.
-    sparkSqlParameters :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    sparkSqlParameters :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -55,20 +56,20 @@ newSparkSqlJobDriver =
 
 -- | The SQL file to be executed.
 sparkSqlJobDriver_entryPoint :: Lens.Lens' SparkSqlJobDriver (Prelude.Maybe Prelude.Text)
-sparkSqlJobDriver_entryPoint = Lens.lens (\SparkSqlJobDriver' {entryPoint} -> entryPoint) (\s@SparkSqlJobDriver' {} a -> s {entryPoint = a} :: SparkSqlJobDriver) Prelude.. Lens.mapping Core._Sensitive
+sparkSqlJobDriver_entryPoint = Lens.lens (\SparkSqlJobDriver' {entryPoint} -> entryPoint) (\s@SparkSqlJobDriver' {} a -> s {entryPoint = a} :: SparkSqlJobDriver) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Spark parameters to be included in the Spark SQL command.
 sparkSqlJobDriver_sparkSqlParameters :: Lens.Lens' SparkSqlJobDriver (Prelude.Maybe Prelude.Text)
-sparkSqlJobDriver_sparkSqlParameters = Lens.lens (\SparkSqlJobDriver' {sparkSqlParameters} -> sparkSqlParameters) (\s@SparkSqlJobDriver' {} a -> s {sparkSqlParameters = a} :: SparkSqlJobDriver) Prelude.. Lens.mapping Core._Sensitive
+sparkSqlJobDriver_sparkSqlParameters = Lens.lens (\SparkSqlJobDriver' {sparkSqlParameters} -> sparkSqlParameters) (\s@SparkSqlJobDriver' {} a -> s {sparkSqlParameters = a} :: SparkSqlJobDriver) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON SparkSqlJobDriver where
+instance Data.FromJSON SparkSqlJobDriver where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SparkSqlJobDriver"
       ( \x ->
           SparkSqlJobDriver'
-            Prelude.<$> (x Core..:? "entryPoint")
-            Prelude.<*> (x Core..:? "sparkSqlParameters")
+            Prelude.<$> (x Data..:? "entryPoint")
+            Prelude.<*> (x Data..:? "sparkSqlParameters")
       )
 
 instance Prelude.Hashable SparkSqlJobDriver where
@@ -81,12 +82,12 @@ instance Prelude.NFData SparkSqlJobDriver where
     Prelude.rnf entryPoint
       `Prelude.seq` Prelude.rnf sparkSqlParameters
 
-instance Core.ToJSON SparkSqlJobDriver where
+instance Data.ToJSON SparkSqlJobDriver where
   toJSON SparkSqlJobDriver' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("entryPoint" Core..=) Prelude.<$> entryPoint,
-            ("sparkSqlParameters" Core..=)
+          [ ("entryPoint" Data..=) Prelude.<$> entryPoint,
+            ("sparkSqlParameters" Data..=)
               Prelude.<$> sparkSqlParameters
           ]
       )

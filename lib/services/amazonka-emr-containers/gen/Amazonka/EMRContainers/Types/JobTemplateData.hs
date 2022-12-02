@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.JobTemplateData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types.JobDriver
 import Amazonka.EMRContainers.Types.ParametricConfigurationOverrides
 import Amazonka.EMRContainers.Types.TemplateParameterConfiguration
@@ -112,20 +113,20 @@ jobTemplateData_releaseLabel = Lens.lens (\JobTemplateData' {releaseLabel} -> re
 jobTemplateData_jobDriver :: Lens.Lens' JobTemplateData JobDriver
 jobTemplateData_jobDriver = Lens.lens (\JobTemplateData' {jobDriver} -> jobDriver) (\s@JobTemplateData' {} a -> s {jobDriver = a} :: JobTemplateData)
 
-instance Core.FromJSON JobTemplateData where
+instance Data.FromJSON JobTemplateData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobTemplateData"
       ( \x ->
           JobTemplateData'
-            Prelude.<$> (x Core..:? "jobTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "configurationOverrides")
-            Prelude.<*> ( x Core..:? "parameterConfiguration"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "jobTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "configurationOverrides")
+            Prelude.<*> ( x Data..:? "parameterConfiguration"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "executionRoleArn")
-            Prelude.<*> (x Core..: "releaseLabel")
-            Prelude.<*> (x Core..: "jobDriver")
+            Prelude.<*> (x Data..: "executionRoleArn")
+            Prelude.<*> (x Data..: "releaseLabel")
+            Prelude.<*> (x Data..: "jobDriver")
       )
 
 instance Prelude.Hashable JobTemplateData where
@@ -146,18 +147,18 @@ instance Prelude.NFData JobTemplateData where
       `Prelude.seq` Prelude.rnf releaseLabel
       `Prelude.seq` Prelude.rnf jobDriver
 
-instance Core.ToJSON JobTemplateData where
+instance Data.ToJSON JobTemplateData where
   toJSON JobTemplateData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("jobTags" Core..=) Prelude.<$> jobTags,
-            ("configurationOverrides" Core..=)
+          [ ("jobTags" Data..=) Prelude.<$> jobTags,
+            ("configurationOverrides" Data..=)
               Prelude.<$> configurationOverrides,
-            ("parameterConfiguration" Core..=)
+            ("parameterConfiguration" Data..=)
               Prelude.<$> parameterConfiguration,
             Prelude.Just
-              ("executionRoleArn" Core..= executionRoleArn),
-            Prelude.Just ("releaseLabel" Core..= releaseLabel),
-            Prelude.Just ("jobDriver" Core..= jobDriver)
+              ("executionRoleArn" Data..= executionRoleArn),
+            Prelude.Just ("releaseLabel" Data..= releaseLabel),
+            Prelude.Just ("jobDriver" Data..= jobDriver)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.TemplateParameterConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types.TemplateParameterDataType
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,14 +67,14 @@ templateParameterConfiguration_type = Lens.lens (\TemplateParameterConfiguration
 templateParameterConfiguration_defaultValue :: Lens.Lens' TemplateParameterConfiguration (Prelude.Maybe Prelude.Text)
 templateParameterConfiguration_defaultValue = Lens.lens (\TemplateParameterConfiguration' {defaultValue} -> defaultValue) (\s@TemplateParameterConfiguration' {} a -> s {defaultValue = a} :: TemplateParameterConfiguration)
 
-instance Core.FromJSON TemplateParameterConfiguration where
+instance Data.FromJSON TemplateParameterConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateParameterConfiguration"
       ( \x ->
           TemplateParameterConfiguration'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "defaultValue")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "defaultValue")
       )
 
 instance
@@ -94,11 +95,11 @@ instance
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf defaultValue
 
-instance Core.ToJSON TemplateParameterConfiguration where
+instance Data.ToJSON TemplateParameterConfiguration where
   toJSON TemplateParameterConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("defaultValue" Core..=) Prelude.<$> defaultValue
+          [ ("type" Data..=) Prelude.<$> type',
+            ("defaultValue" Data..=) Prelude.<$> defaultValue
           ]
       )

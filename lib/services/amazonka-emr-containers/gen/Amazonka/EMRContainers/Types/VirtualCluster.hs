@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.VirtualCluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types.ContainerProvider
 import Amazonka.EMRContainers.Types.VirtualClusterState
 import qualified Amazonka.Prelude as Prelude
@@ -48,7 +49,7 @@ data VirtualCluster = VirtualCluster'
     -- | The ID of the virtual cluster.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the virtual cluster is created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -112,21 +113,21 @@ virtualCluster_id = Lens.lens (\VirtualCluster' {id} -> id) (\s@VirtualCluster' 
 
 -- | The date and time when the virtual cluster is created.
 virtualCluster_createdAt :: Lens.Lens' VirtualCluster (Prelude.Maybe Prelude.UTCTime)
-virtualCluster_createdAt = Lens.lens (\VirtualCluster' {createdAt} -> createdAt) (\s@VirtualCluster' {} a -> s {createdAt = a} :: VirtualCluster) Prelude.. Lens.mapping Core._Time
+virtualCluster_createdAt = Lens.lens (\VirtualCluster' {createdAt} -> createdAt) (\s@VirtualCluster' {} a -> s {createdAt = a} :: VirtualCluster) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON VirtualCluster where
+instance Data.FromJSON VirtualCluster where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualCluster"
       ( \x ->
           VirtualCluster'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "containerProvider")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "containerProvider")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable VirtualCluster where

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest DescribeJobRun where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobRunResponse'
-            Prelude.<$> (x Core..?> "jobRun")
+            Prelude.<$> (x Data..?> "jobRun")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,27 +114,27 @@ instance Prelude.NFData DescribeJobRun where
     Prelude.rnf id
       `Prelude.seq` Prelude.rnf virtualClusterId
 
-instance Core.ToHeaders DescribeJobRun where
+instance Data.ToHeaders DescribeJobRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeJobRun where
+instance Data.ToPath DescribeJobRun where
   toPath DescribeJobRun' {..} =
     Prelude.mconcat
       [ "/virtualclusters/",
-        Core.toBS virtualClusterId,
+        Data.toBS virtualClusterId,
         "/jobruns/",
-        Core.toBS id
+        Data.toBS id
       ]
 
-instance Core.ToQuery DescribeJobRun where
+instance Data.ToQuery DescribeJobRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeJobRunResponse' smart constructor.

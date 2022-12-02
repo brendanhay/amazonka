@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.JobRun where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types.ConfigurationOverrides
 import Amazonka.EMRContainers.Types.FailureReason
 import Amazonka.EMRContainers.Types.JobDriver
@@ -42,7 +43,7 @@ data JobRun = JobRun'
     -- | Additional details of the job run state.
     stateDetails :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the job run has finished.
-    finishedAt :: Prelude.Maybe Core.POSIX,
+    finishedAt :: Prelude.Maybe Data.POSIX,
     -- | Parameters of job driver for the job run.
     jobDriver :: Prelude.Maybe JobDriver,
     -- | The release version of Amazon EMR.
@@ -63,7 +64,7 @@ data JobRun = JobRun'
     -- | The user who created the job run.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the job run was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The reasons why the job run has failed.
     failureReason :: Prelude.Maybe FailureReason
   }
@@ -149,7 +150,7 @@ jobRun_stateDetails = Lens.lens (\JobRun' {stateDetails} -> stateDetails) (\s@Jo
 
 -- | The date and time when the job run has finished.
 jobRun_finishedAt :: Lens.Lens' JobRun (Prelude.Maybe Prelude.UTCTime)
-jobRun_finishedAt = Lens.lens (\JobRun' {finishedAt} -> finishedAt) (\s@JobRun' {} a -> s {finishedAt = a} :: JobRun) Prelude.. Lens.mapping Core._Time
+jobRun_finishedAt = Lens.lens (\JobRun' {finishedAt} -> finishedAt) (\s@JobRun' {} a -> s {finishedAt = a} :: JobRun) Prelude.. Lens.mapping Data._Time
 
 -- | Parameters of job driver for the job run.
 jobRun_jobDriver :: Lens.Lens' JobRun (Prelude.Maybe JobDriver)
@@ -190,34 +191,34 @@ jobRun_createdBy = Lens.lens (\JobRun' {createdBy} -> createdBy) (\s@JobRun' {} 
 
 -- | The date and time when the job run was created.
 jobRun_createdAt :: Lens.Lens' JobRun (Prelude.Maybe Prelude.UTCTime)
-jobRun_createdAt = Lens.lens (\JobRun' {createdAt} -> createdAt) (\s@JobRun' {} a -> s {createdAt = a} :: JobRun) Prelude.. Lens.mapping Core._Time
+jobRun_createdAt = Lens.lens (\JobRun' {createdAt} -> createdAt) (\s@JobRun' {} a -> s {createdAt = a} :: JobRun) Prelude.. Lens.mapping Data._Time
 
 -- | The reasons why the job run has failed.
 jobRun_failureReason :: Lens.Lens' JobRun (Prelude.Maybe FailureReason)
 jobRun_failureReason = Lens.lens (\JobRun' {failureReason} -> failureReason) (\s@JobRun' {} a -> s {failureReason = a} :: JobRun)
 
-instance Core.FromJSON JobRun where
+instance Data.FromJSON JobRun where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobRun"
       ( \x ->
           JobRun'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "clientToken")
-            Prelude.<*> (x Core..:? "stateDetails")
-            Prelude.<*> (x Core..:? "finishedAt")
-            Prelude.<*> (x Core..:? "jobDriver")
-            Prelude.<*> (x Core..:? "releaseLabel")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "configurationOverrides")
-            Prelude.<*> (x Core..:? "virtualClusterId")
-            Prelude.<*> (x Core..:? "executionRoleArn")
-            Prelude.<*> (x Core..:? "createdBy")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "clientToken")
+            Prelude.<*> (x Data..:? "stateDetails")
+            Prelude.<*> (x Data..:? "finishedAt")
+            Prelude.<*> (x Data..:? "jobDriver")
+            Prelude.<*> (x Data..:? "releaseLabel")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "configurationOverrides")
+            Prelude.<*> (x Data..:? "virtualClusterId")
+            Prelude.<*> (x Data..:? "executionRoleArn")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable JobRun where

@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.ContainerProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types.ContainerInfo
 import Amazonka.EMRContainers.Types.ContainerProviderType
 import qualified Amazonka.Prelude as Prelude
@@ -79,15 +80,15 @@ containerProvider_type = Lens.lens (\ContainerProvider' {type'} -> type') (\s@Co
 containerProvider_id :: Lens.Lens' ContainerProvider Prelude.Text
 containerProvider_id = Lens.lens (\ContainerProvider' {id} -> id) (\s@ContainerProvider' {} a -> s {id = a} :: ContainerProvider)
 
-instance Core.FromJSON ContainerProvider where
+instance Data.FromJSON ContainerProvider where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerProvider"
       ( \x ->
           ContainerProvider'
-            Prelude.<$> (x Core..:? "info")
-            Prelude.<*> (x Core..: "type")
-            Prelude.<*> (x Core..: "id")
+            Prelude.<$> (x Data..:? "info")
+            Prelude.<*> (x Data..: "type")
+            Prelude.<*> (x Data..: "id")
       )
 
 instance Prelude.Hashable ContainerProvider where
@@ -102,12 +103,12 @@ instance Prelude.NFData ContainerProvider where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON ContainerProvider where
+instance Data.ToJSON ContainerProvider where
   toJSON ContainerProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("info" Core..=) Prelude.<$> info,
-            Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("id" Core..= id)
+          [ ("info" Data..=) Prelude.<$> info,
+            Prelude.Just ("type" Data..= type'),
+            Prelude.Just ("id" Data..= id)
           ]
       )

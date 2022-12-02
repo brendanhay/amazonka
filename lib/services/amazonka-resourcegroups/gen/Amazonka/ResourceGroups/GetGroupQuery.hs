@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroups.Types
@@ -101,7 +102,7 @@ instance Core.AWSRequest GetGroupQuery where
     Response.receiveJSON
       ( \s h x ->
           GetGroupQueryResponse'
-            Prelude.<$> (x Core..?> "GroupQuery")
+            Prelude.<$> (x Data..?> "GroupQuery")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,22 +116,22 @@ instance Prelude.NFData GetGroupQuery where
     Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf group'
 
-instance Core.ToHeaders GetGroupQuery where
+instance Data.ToHeaders GetGroupQuery where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetGroupQuery where
+instance Data.ToJSON GetGroupQuery where
   toJSON GetGroupQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GroupName" Core..=) Prelude.<$> groupName,
-            ("Group" Core..=) Prelude.<$> group'
+          [ ("GroupName" Data..=) Prelude.<$> groupName,
+            ("Group" Data..=) Prelude.<$> group'
           ]
       )
 
-instance Core.ToPath GetGroupQuery where
+instance Data.ToPath GetGroupQuery where
   toPath = Prelude.const "/get-group-query"
 
-instance Core.ToQuery GetGroupQuery where
+instance Data.ToQuery GetGroupQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGroupQueryResponse' smart constructor.

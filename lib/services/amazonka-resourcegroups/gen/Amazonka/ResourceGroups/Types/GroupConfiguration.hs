@@ -21,6 +21,7 @@ module Amazonka.ResourceGroups.Types.GroupConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceGroups.Types.GroupConfigurationItem
 import Amazonka.ResourceGroups.Types.GroupConfigurationStatus
@@ -94,18 +95,18 @@ groupConfiguration_status = Lens.lens (\GroupConfiguration' {status} -> status) 
 groupConfiguration_failureReason :: Lens.Lens' GroupConfiguration (Prelude.Maybe Prelude.Text)
 groupConfiguration_failureReason = Lens.lens (\GroupConfiguration' {failureReason} -> failureReason) (\s@GroupConfiguration' {} a -> s {failureReason = a} :: GroupConfiguration)
 
-instance Core.FromJSON GroupConfiguration where
+instance Data.FromJSON GroupConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupConfiguration"
       ( \x ->
           GroupConfiguration'
-            Prelude.<$> ( x Core..:? "ProposedConfiguration"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ProposedConfiguration"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Configuration" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<*> (x Data..:? "Configuration" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable GroupConfiguration where

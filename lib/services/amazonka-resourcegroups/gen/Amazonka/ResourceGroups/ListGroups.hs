@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroups.Types
@@ -217,9 +218,9 @@ instance Core.AWSRequest ListGroups where
     Response.receiveJSON
       ( \s h x ->
           ListGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Groups" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "GroupIdentifiers"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "GroupIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -237,24 +238,24 @@ instance Prelude.NFData ListGroups where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListGroups where
+instance Data.ToHeaders ListGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListGroups where
+instance Data.ToJSON ListGroups where
   toJSON ListGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Filters" Core..=) Prelude.<$> filters]
+          [("Filters" Data..=) Prelude.<$> filters]
       )
 
-instance Core.ToPath ListGroups where
+instance Data.ToPath ListGroups where
   toPath = Prelude.const "/groups-list"
 
-instance Core.ToQuery ListGroups where
+instance Data.ToQuery ListGroups where
   toQuery ListGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListGroupsResponse' smart constructor.

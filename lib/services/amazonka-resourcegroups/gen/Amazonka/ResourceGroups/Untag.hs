@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroups.Types
@@ -103,8 +104,8 @@ instance Core.AWSRequest Untag where
     Response.receiveJSON
       ( \s h x ->
           UntagResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Keys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,22 +118,22 @@ instance Prelude.NFData Untag where
   rnf Untag' {..} =
     Prelude.rnf arn `Prelude.seq` Prelude.rnf keys
 
-instance Core.ToHeaders Untag where
+instance Data.ToHeaders Untag where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON Untag where
+instance Data.ToJSON Untag where
   toJSON Untag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Keys" Core..= keys)]
+          [Prelude.Just ("Keys" Data..= keys)]
       )
 
-instance Core.ToPath Untag where
+instance Data.ToPath Untag where
   toPath Untag' {..} =
     Prelude.mconcat
-      ["/resources/", Core.toBS arn, "/tags"]
+      ["/resources/", Data.toBS arn, "/tags"]
 
-instance Core.ToQuery Untag where
+instance Data.ToQuery Untag where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUntagResponse' smart constructor.

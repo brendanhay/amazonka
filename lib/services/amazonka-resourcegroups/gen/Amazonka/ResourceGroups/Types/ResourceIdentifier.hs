@@ -21,6 +21,7 @@ module Amazonka.ResourceGroups.Types.ResourceIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the ARN of a resource and its resource type.
@@ -61,14 +62,14 @@ resourceIdentifier_resourceType = Lens.lens (\ResourceIdentifier' {resourceType}
 resourceIdentifier_resourceArn :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.Text)
 resourceIdentifier_resourceArn = Lens.lens (\ResourceIdentifier' {resourceArn} -> resourceArn) (\s@ResourceIdentifier' {} a -> s {resourceArn = a} :: ResourceIdentifier)
 
-instance Core.FromJSON ResourceIdentifier where
+instance Data.FromJSON ResourceIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceIdentifier"
       ( \x ->
           ResourceIdentifier'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ResourceArn")
       )
 
 instance Prelude.Hashable ResourceIdentifier where

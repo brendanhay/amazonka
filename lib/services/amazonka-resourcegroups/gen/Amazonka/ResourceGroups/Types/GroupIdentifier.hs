@@ -21,6 +21,7 @@ module Amazonka.ResourceGroups.Types.GroupIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The unique identifiers for a resource group.
@@ -61,14 +62,14 @@ groupIdentifier_groupName = Lens.lens (\GroupIdentifier' {groupName} -> groupNam
 groupIdentifier_groupArn :: Lens.Lens' GroupIdentifier (Prelude.Maybe Prelude.Text)
 groupIdentifier_groupArn = Lens.lens (\GroupIdentifier' {groupArn} -> groupArn) (\s@GroupIdentifier' {} a -> s {groupArn = a} :: GroupIdentifier)
 
-instance Core.FromJSON GroupIdentifier where
+instance Data.FromJSON GroupIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupIdentifier"
       ( \x ->
           GroupIdentifier'
-            Prelude.<$> (x Core..:? "GroupName")
-            Prelude.<*> (x Core..:? "GroupArn")
+            Prelude.<$> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "GroupArn")
       )
 
 instance Prelude.Hashable GroupIdentifier where

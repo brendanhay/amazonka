@@ -21,6 +21,7 @@ module Amazonka.ResourceGroups.Types.ListGroupResourcesItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceGroups.Types.ResourceIdentifier
 import Amazonka.ResourceGroups.Types.ResourceStatus
@@ -76,14 +77,14 @@ listGroupResourcesItem_status = Lens.lens (\ListGroupResourcesItem' {status} -> 
 listGroupResourcesItem_identifier :: Lens.Lens' ListGroupResourcesItem (Prelude.Maybe ResourceIdentifier)
 listGroupResourcesItem_identifier = Lens.lens (\ListGroupResourcesItem' {identifier} -> identifier) (\s@ListGroupResourcesItem' {} a -> s {identifier = a} :: ListGroupResourcesItem)
 
-instance Core.FromJSON ListGroupResourcesItem where
+instance Data.FromJSON ListGroupResourcesItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListGroupResourcesItem"
       ( \x ->
           ListGroupResourcesItem'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Identifier")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Identifier")
       )
 
 instance Prelude.Hashable ListGroupResourcesItem where

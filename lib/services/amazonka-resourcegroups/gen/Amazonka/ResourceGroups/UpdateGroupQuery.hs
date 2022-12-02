@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroups.Types
@@ -125,7 +126,7 @@ instance Core.AWSRequest UpdateGroupQuery where
     Response.receiveJSON
       ( \s h x ->
           UpdateGroupQueryResponse'
-            Prelude.<$> (x Core..?> "GroupQuery")
+            Prelude.<$> (x Data..?> "GroupQuery")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,24 +142,24 @@ instance Prelude.NFData UpdateGroupQuery where
       `Prelude.seq` Prelude.rnf group'
       `Prelude.seq` Prelude.rnf resourceQuery
 
-instance Core.ToHeaders UpdateGroupQuery where
+instance Data.ToHeaders UpdateGroupQuery where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateGroupQuery where
+instance Data.ToJSON UpdateGroupQuery where
   toJSON UpdateGroupQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GroupName" Core..=) Prelude.<$> groupName,
-            ("Group" Core..=) Prelude.<$> group',
+          [ ("GroupName" Data..=) Prelude.<$> groupName,
+            ("Group" Data..=) Prelude.<$> group',
             Prelude.Just
-              ("ResourceQuery" Core..= resourceQuery)
+              ("ResourceQuery" Data..= resourceQuery)
           ]
       )
 
-instance Core.ToPath UpdateGroupQuery where
+instance Data.ToPath UpdateGroupQuery where
   toPath = Prelude.const "/update-group-query"
 
-instance Core.ToQuery UpdateGroupQuery where
+instance Data.ToQuery UpdateGroupQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGroupQueryResponse' smart constructor.

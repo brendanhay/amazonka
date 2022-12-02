@@ -21,6 +21,7 @@ module Amazonka.ResourceGroups.Types.Group where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource group that contains AWS resources. You can assign resources
@@ -86,15 +87,15 @@ group_groupArn = Lens.lens (\Group' {groupArn} -> groupArn) (\s@Group' {} a -> s
 group_name :: Lens.Lens' Group Prelude.Text
 group_name = Lens.lens (\Group' {name} -> name) (\s@Group' {} a -> s {name = a} :: Group)
 
-instance Core.FromJSON Group where
+instance Data.FromJSON Group where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..: "GroupArn")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..: "GroupArn")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Group where

@@ -21,6 +21,7 @@ module Amazonka.ResourceGroups.Types.PendingResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that identifies a resource that is currently pending
@@ -56,13 +57,13 @@ newPendingResource =
 pendingResource_resourceArn :: Lens.Lens' PendingResource (Prelude.Maybe Prelude.Text)
 pendingResource_resourceArn = Lens.lens (\PendingResource' {resourceArn} -> resourceArn) (\s@PendingResource' {} a -> s {resourceArn = a} :: PendingResource)
 
-instance Core.FromJSON PendingResource where
+instance Data.FromJSON PendingResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PendingResource"
       ( \x ->
           PendingResource'
-            Prelude.<$> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Data..:? "ResourceArn")
       )
 
 instance Prelude.Hashable PendingResource where

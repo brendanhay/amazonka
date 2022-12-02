@@ -21,6 +21,7 @@ module Amazonka.ResourceGroups.Types.ResourceQuery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceGroups.Types.QueryType
 
@@ -248,13 +249,13 @@ resourceQuery_type = Lens.lens (\ResourceQuery' {type'} -> type') (\s@ResourceQu
 resourceQuery_searchQuery :: Lens.Lens' ResourceQuery Prelude.Text
 resourceQuery_searchQuery = Lens.lens (\ResourceQuery' {query} -> query) (\s@ResourceQuery' {} a -> s {query = a} :: ResourceQuery)
 
-instance Core.FromJSON ResourceQuery where
+instance Data.FromJSON ResourceQuery where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceQuery"
       ( \x ->
           ResourceQuery'
-            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Query")
+            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Query")
       )
 
 instance Prelude.Hashable ResourceQuery where
@@ -266,11 +267,11 @@ instance Prelude.NFData ResourceQuery where
   rnf ResourceQuery' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf query
 
-instance Core.ToJSON ResourceQuery where
+instance Data.ToJSON ResourceQuery where
   toJSON ResourceQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Query" Core..= query)
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Query" Data..= query)
           ]
       )

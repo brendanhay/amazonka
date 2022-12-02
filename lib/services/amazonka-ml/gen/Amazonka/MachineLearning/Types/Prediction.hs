@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.Prediction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types.DetailsAttributes
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,18 +91,18 @@ prediction_predictedLabel = Lens.lens (\Prediction' {predictedLabel} -> predicte
 prediction_predictedValue :: Lens.Lens' Prediction (Prelude.Maybe Prelude.Double)
 prediction_predictedValue = Lens.lens (\Prediction' {predictedValue} -> predictedValue) (\s@Prediction' {} a -> s {predictedValue = a} :: Prediction)
 
-instance Core.FromJSON Prediction where
+instance Data.FromJSON Prediction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Prediction"
       ( \x ->
           Prediction'
-            Prelude.<$> ( x Core..:? "predictedScores"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "predictedScores"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "details" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "predictedLabel")
-            Prelude.<*> (x Core..:? "predictedValue")
+            Prelude.<*> (x Data..:? "details" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "predictedLabel")
+            Prelude.<*> (x Data..:? "predictedValue")
       )
 
 instance Prelude.Hashable Prediction where

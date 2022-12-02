@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.RedshiftDataSpec where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types.RedshiftDatabase
 import Amazonka.MachineLearning.Types.RedshiftDatabaseCredentials
 import qualified Amazonka.Prelude as Prelude
@@ -504,21 +505,21 @@ instance Prelude.NFData RedshiftDataSpec where
       `Prelude.seq` Prelude.rnf databaseCredentials
       `Prelude.seq` Prelude.rnf s3StagingLocation
 
-instance Core.ToJSON RedshiftDataSpec where
+instance Data.ToJSON RedshiftDataSpec where
   toJSON RedshiftDataSpec' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataRearrangement" Core..=)
+          [ ("DataRearrangement" Data..=)
               Prelude.<$> dataRearrangement,
-            ("DataSchema" Core..=) Prelude.<$> dataSchema,
-            ("DataSchemaUri" Core..=) Prelude.<$> dataSchemaUri,
+            ("DataSchema" Data..=) Prelude.<$> dataSchema,
+            ("DataSchemaUri" Data..=) Prelude.<$> dataSchemaUri,
             Prelude.Just
-              ("DatabaseInformation" Core..= databaseInformation),
+              ("DatabaseInformation" Data..= databaseInformation),
             Prelude.Just
-              ("SelectSqlQuery" Core..= selectSqlQuery),
+              ("SelectSqlQuery" Data..= selectSqlQuery),
             Prelude.Just
-              ("DatabaseCredentials" Core..= databaseCredentials),
+              ("DatabaseCredentials" Data..= databaseCredentials),
             Prelude.Just
-              ("S3StagingLocation" Core..= s3StagingLocation)
+              ("S3StagingLocation" Data..= s3StagingLocation)
           ]
       )

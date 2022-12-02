@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,21 +105,21 @@ instance Core.AWSRequest GetEvaluation where
     Response.receiveJSON
       ( \s h x ->
           GetEvaluationResponse'
-            Prelude.<$> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LastUpdatedAt")
-            Prelude.<*> (x Core..?> "PerformanceMetrics")
-            Prelude.<*> (x Core..?> "FinishedAt")
-            Prelude.<*> (x Core..?> "MLModelId")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "EvaluationDataSourceId")
-            Prelude.<*> (x Core..?> "StartedAt")
-            Prelude.<*> (x Core..?> "LogUri")
-            Prelude.<*> (x Core..?> "ComputeTime")
-            Prelude.<*> (x Core..?> "EvaluationId")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "InputDataLocationS3")
-            Prelude.<*> (x Core..?> "CreatedByIamUser")
+            Prelude.<$> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "LastUpdatedAt")
+            Prelude.<*> (x Data..?> "PerformanceMetrics")
+            Prelude.<*> (x Data..?> "FinishedAt")
+            Prelude.<*> (x Data..?> "MLModelId")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "EvaluationDataSourceId")
+            Prelude.<*> (x Data..?> "StartedAt")
+            Prelude.<*> (x Data..?> "LogUri")
+            Prelude.<*> (x Data..?> "ComputeTime")
+            Prelude.<*> (x Data..?> "EvaluationId")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "InputDataLocationS3")
+            Prelude.<*> (x Data..?> "CreatedByIamUser")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,32 +130,32 @@ instance Prelude.Hashable GetEvaluation where
 instance Prelude.NFData GetEvaluation where
   rnf GetEvaluation' {..} = Prelude.rnf evaluationId
 
-instance Core.ToHeaders GetEvaluation where
+instance Data.ToHeaders GetEvaluation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.GetEvaluation" ::
+              Data.=# ( "AmazonML_20141212.GetEvaluation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEvaluation where
+instance Data.ToJSON GetEvaluation where
   toJSON GetEvaluation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("EvaluationId" Core..= evaluationId)]
+          [Prelude.Just ("EvaluationId" Data..= evaluationId)]
       )
 
-instance Core.ToPath GetEvaluation where
+instance Data.ToPath GetEvaluation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEvaluation where
+instance Data.ToQuery GetEvaluation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetEvaluation@ operation and describes an
@@ -168,7 +169,7 @@ data GetEvaluationResponse = GetEvaluationResponse'
     name :: Prelude.Maybe Prelude.Text,
     -- | The time of the most recent edit to the @Evaluation@. The time is
     -- expressed in epoch time.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | Measurements of how well the @MLModel@ performed using observations
     -- referenced by the @DataSource@. One of the following metric is returned
     -- based on the type of the @MLModel@:
@@ -190,7 +191,7 @@ data GetEvaluationResponse = GetEvaluationResponse'
     -- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as
     -- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
     -- @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
-    finishedAt :: Prelude.Maybe Core.POSIX,
+    finishedAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the @MLModel@ that was the focus of the evaluation.
     mLModelId :: Prelude.Maybe Prelude.Text,
     -- | The status of the evaluation. This element can have one of the following
@@ -213,7 +214,7 @@ data GetEvaluationResponse = GetEvaluationResponse'
     -- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as
     -- @INPROGRESS@. @StartedAt@ isn\'t available if the @Evaluation@ is in the
     -- @PENDING@ state.
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | A link to the file that contains logs of the @CreateEvaluation@
     -- operation.
     logUri :: Prelude.Maybe Prelude.Text,
@@ -226,7 +227,7 @@ data GetEvaluationResponse = GetEvaluationResponse'
     evaluationId :: Prelude.Maybe Prelude.Text,
     -- | The time that the @Evaluation@ was created. The time is expressed in
     -- epoch time.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The location of the data file or directory in Amazon Simple Storage
     -- Service (Amazon S3).
     inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
@@ -355,7 +356,7 @@ getEvaluationResponse_name = Lens.lens (\GetEvaluationResponse' {name} -> name) 
 -- | The time of the most recent edit to the @Evaluation@. The time is
 -- expressed in epoch time.
 getEvaluationResponse_lastUpdatedAt :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.UTCTime)
-getEvaluationResponse_lastUpdatedAt = Lens.lens (\GetEvaluationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetEvaluationResponse' {} a -> s {lastUpdatedAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Core._Time
+getEvaluationResponse_lastUpdatedAt = Lens.lens (\GetEvaluationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetEvaluationResponse' {} a -> s {lastUpdatedAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Measurements of how well the @MLModel@ performed using observations
 -- referenced by the @DataSource@. One of the following metric is returned
@@ -381,7 +382,7 @@ getEvaluationResponse_performanceMetrics = Lens.lens (\GetEvaluationResponse' {p
 -- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
 -- @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
 getEvaluationResponse_finishedAt :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.UTCTime)
-getEvaluationResponse_finishedAt = Lens.lens (\GetEvaluationResponse' {finishedAt} -> finishedAt) (\s@GetEvaluationResponse' {} a -> s {finishedAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Core._Time
+getEvaluationResponse_finishedAt = Lens.lens (\GetEvaluationResponse' {finishedAt} -> finishedAt) (\s@GetEvaluationResponse' {} a -> s {finishedAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the @MLModel@ that was the focus of the evaluation.
 getEvaluationResponse_mLModelId :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
@@ -412,7 +413,7 @@ getEvaluationResponse_evaluationDataSourceId = Lens.lens (\GetEvaluationResponse
 -- @INPROGRESS@. @StartedAt@ isn\'t available if the @Evaluation@ is in the
 -- @PENDING@ state.
 getEvaluationResponse_startedAt :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.UTCTime)
-getEvaluationResponse_startedAt = Lens.lens (\GetEvaluationResponse' {startedAt} -> startedAt) (\s@GetEvaluationResponse' {} a -> s {startedAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Core._Time
+getEvaluationResponse_startedAt = Lens.lens (\GetEvaluationResponse' {startedAt} -> startedAt) (\s@GetEvaluationResponse' {} a -> s {startedAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A link to the file that contains logs of the @CreateEvaluation@
 -- operation.
@@ -433,7 +434,7 @@ getEvaluationResponse_evaluationId = Lens.lens (\GetEvaluationResponse' {evaluat
 -- | The time that the @Evaluation@ was created. The time is expressed in
 -- epoch time.
 getEvaluationResponse_createdAt :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.UTCTime)
-getEvaluationResponse_createdAt = Lens.lens (\GetEvaluationResponse' {createdAt} -> createdAt) (\s@GetEvaluationResponse' {} a -> s {createdAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Core._Time
+getEvaluationResponse_createdAt = Lens.lens (\GetEvaluationResponse' {createdAt} -> createdAt) (\s@GetEvaluationResponse' {} a -> s {createdAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The location of the data file or directory in Amazon Simple Storage
 -- Service (Amazon S3).

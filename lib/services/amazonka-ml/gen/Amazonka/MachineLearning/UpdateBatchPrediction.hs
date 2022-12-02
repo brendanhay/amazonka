@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest UpdateBatchPrediction where
     Response.receiveJSON
       ( \s h x ->
           UpdateBatchPredictionResponse'
-            Prelude.<$> (x Core..?> "BatchPredictionId")
+            Prelude.<$> (x Data..?> "BatchPredictionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,36 +118,36 @@ instance Prelude.NFData UpdateBatchPrediction where
     Prelude.rnf batchPredictionId
       `Prelude.seq` Prelude.rnf batchPredictionName
 
-instance Core.ToHeaders UpdateBatchPrediction where
+instance Data.ToHeaders UpdateBatchPrediction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.UpdateBatchPrediction" ::
+              Data.=# ( "AmazonML_20141212.UpdateBatchPrediction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBatchPrediction where
+instance Data.ToJSON UpdateBatchPrediction where
   toJSON UpdateBatchPrediction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("BatchPredictionId" Core..= batchPredictionId),
+              ("BatchPredictionId" Data..= batchPredictionId),
             Prelude.Just
-              ("BatchPredictionName" Core..= batchPredictionName)
+              ("BatchPredictionName" Data..= batchPredictionName)
           ]
       )
 
-instance Core.ToPath UpdateBatchPrediction where
+instance Data.ToPath UpdateBatchPrediction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateBatchPrediction where
+instance Data.ToQuery UpdateBatchPrediction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @UpdateBatchPrediction@ operation.

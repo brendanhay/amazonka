@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.MLModel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types.Algorithm
 import Amazonka.MachineLearning.Types.EntityStatus
 import Amazonka.MachineLearning.Types.MLModelType
@@ -43,11 +44,11 @@ data MLModel = MLModel'
     trainingDataSourceId :: Prelude.Maybe Prelude.Text,
     -- | The time of the most recent edit to the @ScoreThreshold@. The time is
     -- expressed in epoch time.
-    scoreThresholdLastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    scoreThresholdLastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The time of the most recent edit to the @MLModel@. The time is expressed
     -- in epoch time.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
-    finishedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    finishedAt :: Prelude.Maybe Data.POSIX,
     -- | The ID assigned to the @MLModel@ at creation.
     mLModelId :: Prelude.Maybe Prelude.Text,
     scoreThreshold :: Prelude.Maybe Prelude.Double,
@@ -80,7 +81,7 @@ data MLModel = MLModel'
     -- -   @MULTICLASS@ - Produces one of several possible results. For
     --     example, \"Is this a HIGH-, LOW-, or MEDIUM-risk trade?\".
     mLModelType :: Prelude.Maybe MLModelType,
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     computeTime :: Prelude.Maybe Prelude.Integer,
     sizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The algorithm used to train the @MLModel@. The following algorithm is
@@ -91,7 +92,7 @@ data MLModel = MLModel'
     algorithm :: Prelude.Maybe Algorithm,
     -- | The time that the @MLModel@ was created. The time is expressed in epoch
     -- time.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The location of the data file or directory in Amazon Simple Storage
     -- Service (Amazon S3).
     inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
@@ -302,16 +303,16 @@ mLModel_trainingDataSourceId = Lens.lens (\MLModel' {trainingDataSourceId} -> tr
 -- | The time of the most recent edit to the @ScoreThreshold@. The time is
 -- expressed in epoch time.
 mLModel_scoreThresholdLastUpdatedAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
-mLModel_scoreThresholdLastUpdatedAt = Lens.lens (\MLModel' {scoreThresholdLastUpdatedAt} -> scoreThresholdLastUpdatedAt) (\s@MLModel' {} a -> s {scoreThresholdLastUpdatedAt = a} :: MLModel) Prelude.. Lens.mapping Core._Time
+mLModel_scoreThresholdLastUpdatedAt = Lens.lens (\MLModel' {scoreThresholdLastUpdatedAt} -> scoreThresholdLastUpdatedAt) (\s@MLModel' {} a -> s {scoreThresholdLastUpdatedAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
 
 -- | The time of the most recent edit to the @MLModel@. The time is expressed
 -- in epoch time.
 mLModel_lastUpdatedAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
-mLModel_lastUpdatedAt = Lens.lens (\MLModel' {lastUpdatedAt} -> lastUpdatedAt) (\s@MLModel' {} a -> s {lastUpdatedAt = a} :: MLModel) Prelude.. Lens.mapping Core._Time
+mLModel_lastUpdatedAt = Lens.lens (\MLModel' {lastUpdatedAt} -> lastUpdatedAt) (\s@MLModel' {} a -> s {lastUpdatedAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 mLModel_finishedAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
-mLModel_finishedAt = Lens.lens (\MLModel' {finishedAt} -> finishedAt) (\s@MLModel' {} a -> s {finishedAt = a} :: MLModel) Prelude.. Lens.mapping Core._Time
+mLModel_finishedAt = Lens.lens (\MLModel' {finishedAt} -> finishedAt) (\s@MLModel' {} a -> s {finishedAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
 
 -- | The ID assigned to the @MLModel@ at creation.
 mLModel_mLModelId :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Text)
@@ -358,7 +359,7 @@ mLModel_mLModelType = Lens.lens (\MLModel' {mLModelType} -> mLModelType) (\s@MLM
 
 -- | Undocumented member.
 mLModel_startedAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
-mLModel_startedAt = Lens.lens (\MLModel' {startedAt} -> startedAt) (\s@MLModel' {} a -> s {startedAt = a} :: MLModel) Prelude.. Lens.mapping Core._Time
+mLModel_startedAt = Lens.lens (\MLModel' {startedAt} -> startedAt) (\s@MLModel' {} a -> s {startedAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 mLModel_computeTime :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Integer)
@@ -379,7 +380,7 @@ mLModel_algorithm = Lens.lens (\MLModel' {algorithm} -> algorithm) (\s@MLModel' 
 -- | The time that the @MLModel@ was created. The time is expressed in epoch
 -- time.
 mLModel_createdAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
-mLModel_createdAt = Lens.lens (\MLModel' {createdAt} -> createdAt) (\s@MLModel' {} a -> s {createdAt = a} :: MLModel) Prelude.. Lens.mapping Core._Time
+mLModel_createdAt = Lens.lens (\MLModel' {createdAt} -> createdAt) (\s@MLModel' {} a -> s {createdAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
 
 -- | The location of the data file or directory in Amazon Simple Storage
 -- Service (Amazon S3).
@@ -435,32 +436,32 @@ mLModel_createdByIamUser = Lens.lens (\MLModel' {createdByIamUser} -> createdByI
 mLModel_trainingParameters :: Lens.Lens' MLModel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 mLModel_trainingParameters = Lens.lens (\MLModel' {trainingParameters} -> trainingParameters) (\s@MLModel' {} a -> s {trainingParameters = a} :: MLModel) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON MLModel where
+instance Data.FromJSON MLModel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MLModel"
       ( \x ->
           MLModel'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "TrainingDataSourceId")
-            Prelude.<*> (x Core..:? "ScoreThresholdLastUpdatedAt")
-            Prelude.<*> (x Core..:? "LastUpdatedAt")
-            Prelude.<*> (x Core..:? "FinishedAt")
-            Prelude.<*> (x Core..:? "MLModelId")
-            Prelude.<*> (x Core..:? "ScoreThreshold")
-            Prelude.<*> (x Core..:? "EndpointInfo")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "MLModelType")
-            Prelude.<*> (x Core..:? "StartedAt")
-            Prelude.<*> (x Core..:? "ComputeTime")
-            Prelude.<*> (x Core..:? "SizeInBytes")
-            Prelude.<*> (x Core..:? "Algorithm")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "InputDataLocationS3")
-            Prelude.<*> (x Core..:? "CreatedByIamUser")
-            Prelude.<*> ( x Core..:? "TrainingParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "TrainingDataSourceId")
+            Prelude.<*> (x Data..:? "ScoreThresholdLastUpdatedAt")
+            Prelude.<*> (x Data..:? "LastUpdatedAt")
+            Prelude.<*> (x Data..:? "FinishedAt")
+            Prelude.<*> (x Data..:? "MLModelId")
+            Prelude.<*> (x Data..:? "ScoreThreshold")
+            Prelude.<*> (x Data..:? "EndpointInfo")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "MLModelType")
+            Prelude.<*> (x Data..:? "StartedAt")
+            Prelude.<*> (x Data..:? "ComputeTime")
+            Prelude.<*> (x Data..:? "SizeInBytes")
+            Prelude.<*> (x Data..:? "Algorithm")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "InputDataLocationS3")
+            Prelude.<*> (x Data..:? "CreatedByIamUser")
+            Prelude.<*> ( x Data..:? "TrainingParameters"
+                            Data..!= Prelude.mempty
                         )
       )
 

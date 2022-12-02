@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,7 +152,7 @@ instance Core.AWSRequest CreateEvaluation where
     Response.receiveJSON
       ( \s h x ->
           CreateEvaluationResponse'
-            Prelude.<$> (x Core..?> "EvaluationId")
+            Prelude.<$> (x Data..?> "EvaluationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,40 +170,40 @@ instance Prelude.NFData CreateEvaluation where
       `Prelude.seq` Prelude.rnf mLModelId
       `Prelude.seq` Prelude.rnf evaluationDataSourceId
 
-instance Core.ToHeaders CreateEvaluation where
+instance Data.ToHeaders CreateEvaluation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.CreateEvaluation" ::
+              Data.=# ( "AmazonML_20141212.CreateEvaluation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEvaluation where
+instance Data.ToJSON CreateEvaluation where
   toJSON CreateEvaluation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EvaluationName" Core..=)
+          [ ("EvaluationName" Data..=)
               Prelude.<$> evaluationName,
-            Prelude.Just ("EvaluationId" Core..= evaluationId),
-            Prelude.Just ("MLModelId" Core..= mLModelId),
+            Prelude.Just ("EvaluationId" Data..= evaluationId),
+            Prelude.Just ("MLModelId" Data..= mLModelId),
             Prelude.Just
               ( "EvaluationDataSourceId"
-                  Core..= evaluationDataSourceId
+                  Data..= evaluationDataSourceId
               )
           ]
       )
 
-instance Core.ToPath CreateEvaluation where
+instance Data.ToPath CreateEvaluation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEvaluation where
+instance Data.ToQuery CreateEvaluation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateEvaluation@ operation, and is an

@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,27 +129,27 @@ instance Core.AWSRequest GetMLModel where
     Response.receiveJSON
       ( \s h x ->
           GetMLModelResponse'
-            Prelude.<$> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "TrainingDataSourceId")
-            Prelude.<*> (x Core..?> "ScoreThresholdLastUpdatedAt")
-            Prelude.<*> (x Core..?> "LastUpdatedAt")
-            Prelude.<*> (x Core..?> "FinishedAt")
-            Prelude.<*> (x Core..?> "Recipe")
-            Prelude.<*> (x Core..?> "MLModelId")
-            Prelude.<*> (x Core..?> "ScoreThreshold")
-            Prelude.<*> (x Core..?> "EndpointInfo")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "MLModelType")
-            Prelude.<*> (x Core..?> "StartedAt")
-            Prelude.<*> (x Core..?> "LogUri")
-            Prelude.<*> (x Core..?> "ComputeTime")
-            Prelude.<*> (x Core..?> "SizeInBytes")
-            Prelude.<*> (x Core..?> "Schema")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "InputDataLocationS3")
-            Prelude.<*> (x Core..?> "CreatedByIamUser")
-            Prelude.<*> ( x Core..?> "TrainingParameters"
+            Prelude.<$> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "TrainingDataSourceId")
+            Prelude.<*> (x Data..?> "ScoreThresholdLastUpdatedAt")
+            Prelude.<*> (x Data..?> "LastUpdatedAt")
+            Prelude.<*> (x Data..?> "FinishedAt")
+            Prelude.<*> (x Data..?> "Recipe")
+            Prelude.<*> (x Data..?> "MLModelId")
+            Prelude.<*> (x Data..?> "ScoreThreshold")
+            Prelude.<*> (x Data..?> "EndpointInfo")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "MLModelType")
+            Prelude.<*> (x Data..?> "StartedAt")
+            Prelude.<*> (x Data..?> "LogUri")
+            Prelude.<*> (x Data..?> "ComputeTime")
+            Prelude.<*> (x Data..?> "SizeInBytes")
+            Prelude.<*> (x Data..?> "Schema")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "InputDataLocationS3")
+            Prelude.<*> (x Data..?> "CreatedByIamUser")
+            Prelude.<*> ( x Data..?> "TrainingParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -164,34 +165,34 @@ instance Prelude.NFData GetMLModel where
     Prelude.rnf verbose
       `Prelude.seq` Prelude.rnf mLModelId
 
-instance Core.ToHeaders GetMLModel where
+instance Data.ToHeaders GetMLModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.GetMLModel" ::
+              Data.=# ( "AmazonML_20141212.GetMLModel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMLModel where
+instance Data.ToJSON GetMLModel where
   toJSON GetMLModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Verbose" Core..=) Prelude.<$> verbose,
-            Prelude.Just ("MLModelId" Core..= mLModelId)
+          [ ("Verbose" Data..=) Prelude.<$> verbose,
+            Prelude.Just ("MLModelId" Data..= mLModelId)
           ]
       )
 
-instance Core.ToPath GetMLModel where
+instance Data.ToPath GetMLModel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMLModel where
+instance Data.ToQuery GetMLModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetMLModel@ operation, and provides detailed
@@ -207,14 +208,14 @@ data GetMLModelResponse = GetMLModelResponse'
     trainingDataSourceId :: Prelude.Maybe Prelude.Text,
     -- | The time of the most recent edit to the @ScoreThreshold@. The time is
     -- expressed in epoch time.
-    scoreThresholdLastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    scoreThresholdLastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The time of the most recent edit to the @MLModel@. The time is expressed
     -- in epoch time.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The epoch time when Amazon Machine Learning marked the @MLModel@ as
     -- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
     -- @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
-    finishedAt :: Prelude.Maybe Core.POSIX,
+    finishedAt :: Prelude.Maybe Data.POSIX,
     -- | The recipe to use when training the @MLModel@. The @Recipe@ provides
     -- detailed information about the observation data to use during training,
     -- and manipulations to perform on the observation data during training.
@@ -263,7 +264,7 @@ data GetMLModelResponse = GetMLModelResponse'
     -- | The epoch time when Amazon Machine Learning marked the @MLModel@ as
     -- @INPROGRESS@. @StartedAt@ isn\'t available if the @MLModel@ is in the
     -- @PENDING@ state.
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | A link to the file that contains logs of the @CreateMLModel@ operation.
     logUri :: Prelude.Maybe Prelude.Text,
     -- | The approximate CPU time in milliseconds that Amazon Machine Learning
@@ -278,7 +279,7 @@ data GetMLModelResponse = GetMLModelResponse'
     schema :: Prelude.Maybe Prelude.Text,
     -- | The time that the @MLModel@ was created. The time is expressed in epoch
     -- time.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The location of the data file or directory in Amazon Simple Storage
     -- Service (Amazon S3).
     inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
@@ -517,18 +518,18 @@ getMLModelResponse_trainingDataSourceId = Lens.lens (\GetMLModelResponse' {train
 -- | The time of the most recent edit to the @ScoreThreshold@. The time is
 -- expressed in epoch time.
 getMLModelResponse_scoreThresholdLastUpdatedAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
-getMLModelResponse_scoreThresholdLastUpdatedAt = Lens.lens (\GetMLModelResponse' {scoreThresholdLastUpdatedAt} -> scoreThresholdLastUpdatedAt) (\s@GetMLModelResponse' {} a -> s {scoreThresholdLastUpdatedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
+getMLModelResponse_scoreThresholdLastUpdatedAt = Lens.lens (\GetMLModelResponse' {scoreThresholdLastUpdatedAt} -> scoreThresholdLastUpdatedAt) (\s@GetMLModelResponse' {} a -> s {scoreThresholdLastUpdatedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time of the most recent edit to the @MLModel@. The time is expressed
 -- in epoch time.
 getMLModelResponse_lastUpdatedAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
-getMLModelResponse_lastUpdatedAt = Lens.lens (\GetMLModelResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetMLModelResponse' {} a -> s {lastUpdatedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
+getMLModelResponse_lastUpdatedAt = Lens.lens (\GetMLModelResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetMLModelResponse' {} a -> s {lastUpdatedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The epoch time when Amazon Machine Learning marked the @MLModel@ as
 -- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
 -- @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
 getMLModelResponse_finishedAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
-getMLModelResponse_finishedAt = Lens.lens (\GetMLModelResponse' {finishedAt} -> finishedAt) (\s@GetMLModelResponse' {} a -> s {finishedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
+getMLModelResponse_finishedAt = Lens.lens (\GetMLModelResponse' {finishedAt} -> finishedAt) (\s@GetMLModelResponse' {} a -> s {finishedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The recipe to use when training the @MLModel@. The @Recipe@ provides
 -- detailed information about the observation data to use during training,
@@ -591,7 +592,7 @@ getMLModelResponse_mLModelType = Lens.lens (\GetMLModelResponse' {mLModelType} -
 -- @INPROGRESS@. @StartedAt@ isn\'t available if the @MLModel@ is in the
 -- @PENDING@ state.
 getMLModelResponse_startedAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
-getMLModelResponse_startedAt = Lens.lens (\GetMLModelResponse' {startedAt} -> startedAt) (\s@GetMLModelResponse' {} a -> s {startedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
+getMLModelResponse_startedAt = Lens.lens (\GetMLModelResponse' {startedAt} -> startedAt) (\s@GetMLModelResponse' {} a -> s {startedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A link to the file that contains logs of the @CreateMLModel@ operation.
 getMLModelResponse_logUri :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
@@ -617,7 +618,7 @@ getMLModelResponse_schema = Lens.lens (\GetMLModelResponse' {schema} -> schema) 
 -- | The time that the @MLModel@ was created. The time is expressed in epoch
 -- time.
 getMLModelResponse_createdAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
-getMLModelResponse_createdAt = Lens.lens (\GetMLModelResponse' {createdAt} -> createdAt) (\s@GetMLModelResponse' {} a -> s {createdAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
+getMLModelResponse_createdAt = Lens.lens (\GetMLModelResponse' {createdAt} -> createdAt) (\s@GetMLModelResponse' {} a -> s {createdAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The location of the data file or directory in Amazon Simple Storage
 -- Service (Amazon S3).

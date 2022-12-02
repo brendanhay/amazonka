@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.DataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types.EntityStatus
 import Amazonka.MachineLearning.Types.RDSMetadata
 import Amazonka.MachineLearning.Types.RedshiftMetadata
@@ -49,8 +50,8 @@ data DataSource = DataSource'
     rDSMetadata :: Prelude.Maybe RDSMetadata,
     -- | The time of the most recent edit to the @BatchPrediction@. The time is
     -- expressed in epoch time.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
-    finishedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    finishedAt :: Prelude.Maybe Data.POSIX,
     redshiftMetadata :: Prelude.Maybe RedshiftMetadata,
     -- | A JSON string that represents the splitting and rearrangement
     -- requirement used when this @DataSource@ was created.
@@ -73,14 +74,14 @@ data DataSource = DataSource'
     --
     -- -   DELETED - The @DataSource@ is marked as deleted. It is not usable.
     status :: Prelude.Maybe EntityStatus,
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     computeTime :: Prelude.Maybe Prelude.Integer,
     -- | The parameter is @true@ if statistics need to be generated from the
     -- observation data.
     computeStatistics :: Prelude.Maybe Prelude.Bool,
     -- | The time that the @DataSource@ was created. The time is expressed in
     -- epoch time.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The AWS user account from which the @DataSource@ was created. The
     -- account type can be either an AWS root account or an AWS Identity and
     -- Access Management (IAM) user account.
@@ -210,11 +211,11 @@ dataSource_rDSMetadata = Lens.lens (\DataSource' {rDSMetadata} -> rDSMetadata) (
 -- | The time of the most recent edit to the @BatchPrediction@. The time is
 -- expressed in epoch time.
 dataSource_lastUpdatedAt :: Lens.Lens' DataSource (Prelude.Maybe Prelude.UTCTime)
-dataSource_lastUpdatedAt = Lens.lens (\DataSource' {lastUpdatedAt} -> lastUpdatedAt) (\s@DataSource' {} a -> s {lastUpdatedAt = a} :: DataSource) Prelude.. Lens.mapping Core._Time
+dataSource_lastUpdatedAt = Lens.lens (\DataSource' {lastUpdatedAt} -> lastUpdatedAt) (\s@DataSource' {} a -> s {lastUpdatedAt = a} :: DataSource) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 dataSource_finishedAt :: Lens.Lens' DataSource (Prelude.Maybe Prelude.UTCTime)
-dataSource_finishedAt = Lens.lens (\DataSource' {finishedAt} -> finishedAt) (\s@DataSource' {} a -> s {finishedAt = a} :: DataSource) Prelude.. Lens.mapping Core._Time
+dataSource_finishedAt = Lens.lens (\DataSource' {finishedAt} -> finishedAt) (\s@DataSource' {} a -> s {finishedAt = a} :: DataSource) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 dataSource_redshiftMetadata :: Lens.Lens' DataSource (Prelude.Maybe RedshiftMetadata)
@@ -249,7 +250,7 @@ dataSource_status = Lens.lens (\DataSource' {status} -> status) (\s@DataSource' 
 
 -- | Undocumented member.
 dataSource_startedAt :: Lens.Lens' DataSource (Prelude.Maybe Prelude.UTCTime)
-dataSource_startedAt = Lens.lens (\DataSource' {startedAt} -> startedAt) (\s@DataSource' {} a -> s {startedAt = a} :: DataSource) Prelude.. Lens.mapping Core._Time
+dataSource_startedAt = Lens.lens (\DataSource' {startedAt} -> startedAt) (\s@DataSource' {} a -> s {startedAt = a} :: DataSource) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 dataSource_computeTime :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Integer)
@@ -263,7 +264,7 @@ dataSource_computeStatistics = Lens.lens (\DataSource' {computeStatistics} -> co
 -- | The time that the @DataSource@ was created. The time is expressed in
 -- epoch time.
 dataSource_createdAt :: Lens.Lens' DataSource (Prelude.Maybe Prelude.UTCTime)
-dataSource_createdAt = Lens.lens (\DataSource' {createdAt} -> createdAt) (\s@DataSource' {} a -> s {createdAt = a} :: DataSource) Prelude.. Lens.mapping Core._Time
+dataSource_createdAt = Lens.lens (\DataSource' {createdAt} -> createdAt) (\s@DataSource' {} a -> s {createdAt = a} :: DataSource) Prelude.. Lens.mapping Data._Time
 
 -- | The AWS user account from which the @DataSource@ was created. The
 -- account type can be either an AWS root account or an AWS Identity and
@@ -271,30 +272,30 @@ dataSource_createdAt = Lens.lens (\DataSource' {createdAt} -> createdAt) (\s@Dat
 dataSource_createdByIamUser :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_createdByIamUser = Lens.lens (\DataSource' {createdByIamUser} -> createdByIamUser) (\s@DataSource' {} a -> s {createdByIamUser = a} :: DataSource)
 
-instance Core.FromJSON DataSource where
+instance Data.FromJSON DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSource"
       ( \x ->
           DataSource'
-            Prelude.<$> (x Core..:? "DataSizeInBytes")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RoleARN")
-            Prelude.<*> (x Core..:? "DataSourceId")
-            Prelude.<*> (x Core..:? "NumberOfFiles")
-            Prelude.<*> (x Core..:? "RDSMetadata")
-            Prelude.<*> (x Core..:? "LastUpdatedAt")
-            Prelude.<*> (x Core..:? "FinishedAt")
-            Prelude.<*> (x Core..:? "RedshiftMetadata")
-            Prelude.<*> (x Core..:? "DataRearrangement")
-            Prelude.<*> (x Core..:? "DataLocationS3")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "StartedAt")
-            Prelude.<*> (x Core..:? "ComputeTime")
-            Prelude.<*> (x Core..:? "ComputeStatistics")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "CreatedByIamUser")
+            Prelude.<$> (x Data..:? "DataSizeInBytes")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RoleARN")
+            Prelude.<*> (x Data..:? "DataSourceId")
+            Prelude.<*> (x Data..:? "NumberOfFiles")
+            Prelude.<*> (x Data..:? "RDSMetadata")
+            Prelude.<*> (x Data..:? "LastUpdatedAt")
+            Prelude.<*> (x Data..:? "FinishedAt")
+            Prelude.<*> (x Data..:? "RedshiftMetadata")
+            Prelude.<*> (x Data..:? "DataRearrangement")
+            Prelude.<*> (x Data..:? "DataLocationS3")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "StartedAt")
+            Prelude.<*> (x Data..:? "ComputeTime")
+            Prelude.<*> (x Data..:? "ComputeStatistics")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "CreatedByIamUser")
       )
 
 instance Prelude.Hashable DataSource where

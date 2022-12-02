@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.PerformanceMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Measurements of how well the @MLModel@ performed on known observations.
@@ -65,13 +66,13 @@ newPerformanceMetrics =
 performanceMetrics_properties :: Lens.Lens' PerformanceMetrics (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 performanceMetrics_properties = Lens.lens (\PerformanceMetrics' {properties} -> properties) (\s@PerformanceMetrics' {} a -> s {properties = a} :: PerformanceMetrics) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PerformanceMetrics where
+instance Data.FromJSON PerformanceMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PerformanceMetrics"
       ( \x ->
           PerformanceMetrics'
-            Prelude.<$> (x Core..:? "Properties" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Properties" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PerformanceMetrics where

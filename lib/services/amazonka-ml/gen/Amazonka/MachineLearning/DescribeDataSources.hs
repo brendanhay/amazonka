@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -344,8 +345,8 @@ instance Core.AWSRequest DescribeDataSources where
     Response.receiveJSON
       ( \s h x ->
           DescribeDataSourcesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -377,44 +378,44 @@ instance Prelude.NFData DescribeDataSources where
       `Prelude.seq` Prelude.rnf ne
       `Prelude.seq` Prelude.rnf ge
 
-instance Core.ToHeaders DescribeDataSources where
+instance Data.ToHeaders DescribeDataSources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.DescribeDataSources" ::
+              Data.=# ( "AmazonML_20141212.DescribeDataSources" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDataSources where
+instance Data.ToJSON DescribeDataSources where
   toJSON DescribeDataSources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FilterVariable" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("FilterVariable" Data..=)
               Prelude.<$> filterVariable,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("LE" Core..=) Prelude.<$> le,
-            ("LT" Core..=) Prelude.<$> lt,
-            ("EQ" Core..=) Prelude.<$> eq,
-            ("Prefix" Core..=) Prelude.<$> prefix,
-            ("GT" Core..=) Prelude.<$> gt,
-            ("NE" Core..=) Prelude.<$> ne,
-            ("GE" Core..=) Prelude.<$> ge
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("LE" Data..=) Prelude.<$> le,
+            ("LT" Data..=) Prelude.<$> lt,
+            ("EQ" Data..=) Prelude.<$> eq,
+            ("Prefix" Data..=) Prelude.<$> prefix,
+            ("GT" Data..=) Prelude.<$> gt,
+            ("NE" Data..=) Prelude.<$> ne,
+            ("GE" Data..=) Prelude.<$> ge
           ]
       )
 
-instance Core.ToPath DescribeDataSources where
+instance Data.ToPath DescribeDataSources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDataSources where
+instance Data.ToQuery DescribeDataSources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the query results from a DescribeDataSources operation. The

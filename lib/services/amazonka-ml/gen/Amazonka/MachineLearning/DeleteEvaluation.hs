@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance Core.AWSRequest DeleteEvaluation where
     Response.receiveJSON
       ( \s h x ->
           DeleteEvaluationResponse'
-            Prelude.<$> (x Core..?> "EvaluationId")
+            Prelude.<$> (x Data..?> "EvaluationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,32 +102,32 @@ instance Prelude.Hashable DeleteEvaluation where
 instance Prelude.NFData DeleteEvaluation where
   rnf DeleteEvaluation' {..} = Prelude.rnf evaluationId
 
-instance Core.ToHeaders DeleteEvaluation where
+instance Data.ToHeaders DeleteEvaluation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.DeleteEvaluation" ::
+              Data.=# ( "AmazonML_20141212.DeleteEvaluation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteEvaluation where
+instance Data.ToJSON DeleteEvaluation where
   toJSON DeleteEvaluation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("EvaluationId" Core..= evaluationId)]
+          [Prelude.Just ("EvaluationId" Data..= evaluationId)]
       )
 
-instance Core.ToPath DeleteEvaluation where
+instance Data.ToPath DeleteEvaluation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEvaluation where
+instance Data.ToQuery DeleteEvaluation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DeleteEvaluation@ operation. The output

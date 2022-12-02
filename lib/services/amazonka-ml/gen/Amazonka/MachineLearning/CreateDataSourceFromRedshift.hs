@@ -81,6 +81,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -292,7 +293,7 @@ instance Core.AWSRequest CreateDataSourceFromRedshift where
     Response.receiveJSON
       ( \s h x ->
           CreateDataSourceFromRedshiftResponse'
-            Prelude.<$> (x Core..?> "DataSourceId")
+            Prelude.<$> (x Data..?> "DataSourceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -315,39 +316,39 @@ instance Prelude.NFData CreateDataSourceFromRedshift where
       `Prelude.seq` Prelude.rnf dataSpec
       `Prelude.seq` Prelude.rnf roleARN
 
-instance Core.ToHeaders CreateDataSourceFromRedshift where
+instance Data.ToHeaders CreateDataSourceFromRedshift where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.CreateDataSourceFromRedshift" ::
+              Data.=# ( "AmazonML_20141212.CreateDataSourceFromRedshift" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataSourceFromRedshift where
+instance Data.ToJSON CreateDataSourceFromRedshift where
   toJSON CreateDataSourceFromRedshift' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceName" Core..=)
+          [ ("DataSourceName" Data..=)
               Prelude.<$> dataSourceName,
-            ("ComputeStatistics" Core..=)
+            ("ComputeStatistics" Data..=)
               Prelude.<$> computeStatistics,
-            Prelude.Just ("DataSourceId" Core..= dataSourceId),
-            Prelude.Just ("DataSpec" Core..= dataSpec),
-            Prelude.Just ("RoleARN" Core..= roleARN)
+            Prelude.Just ("DataSourceId" Data..= dataSourceId),
+            Prelude.Just ("DataSpec" Data..= dataSpec),
+            Prelude.Just ("RoleARN" Data..= roleARN)
           ]
       )
 
-instance Core.ToPath CreateDataSourceFromRedshift where
+instance Data.ToPath CreateDataSourceFromRedshift where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDataSourceFromRedshift where
+instance Data.ToQuery CreateDataSourceFromRedshift where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateDataSourceFromRedshift@ operation, and

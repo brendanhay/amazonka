@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.RDSDatabase where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The database details of an Amazon RDS database.
@@ -65,14 +66,14 @@ rDSDatabase_instanceIdentifier = Lens.lens (\RDSDatabase' {instanceIdentifier} -
 rDSDatabase_databaseName :: Lens.Lens' RDSDatabase Prelude.Text
 rDSDatabase_databaseName = Lens.lens (\RDSDatabase' {databaseName} -> databaseName) (\s@RDSDatabase' {} a -> s {databaseName = a} :: RDSDatabase)
 
-instance Core.FromJSON RDSDatabase where
+instance Data.FromJSON RDSDatabase where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RDSDatabase"
       ( \x ->
           RDSDatabase'
-            Prelude.<$> (x Core..: "InstanceIdentifier")
-            Prelude.<*> (x Core..: "DatabaseName")
+            Prelude.<$> (x Data..: "InstanceIdentifier")
+            Prelude.<*> (x Data..: "DatabaseName")
       )
 
 instance Prelude.Hashable RDSDatabase where
@@ -85,12 +86,12 @@ instance Prelude.NFData RDSDatabase where
     Prelude.rnf instanceIdentifier
       `Prelude.seq` Prelude.rnf databaseName
 
-instance Core.ToJSON RDSDatabase where
+instance Data.ToJSON RDSDatabase where
   toJSON RDSDatabase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("InstanceIdentifier" Core..= instanceIdentifier),
-            Prelude.Just ("DatabaseName" Core..= databaseName)
+              ("InstanceIdentifier" Data..= instanceIdentifier),
+            Prelude.Just ("DatabaseName" Data..= databaseName)
           ]
       )

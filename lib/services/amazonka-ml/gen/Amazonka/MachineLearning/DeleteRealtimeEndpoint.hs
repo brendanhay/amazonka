@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,8 +85,8 @@ instance Core.AWSRequest DeleteRealtimeEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DeleteRealtimeEndpointResponse'
-            Prelude.<$> (x Core..?> "RealtimeEndpointInfo")
-            Prelude.<*> (x Core..?> "MLModelId")
+            Prelude.<$> (x Data..?> "RealtimeEndpointInfo")
+            Prelude.<*> (x Data..?> "MLModelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,32 +98,32 @@ instance Prelude.NFData DeleteRealtimeEndpoint where
   rnf DeleteRealtimeEndpoint' {..} =
     Prelude.rnf mLModelId
 
-instance Core.ToHeaders DeleteRealtimeEndpoint where
+instance Data.ToHeaders DeleteRealtimeEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.DeleteRealtimeEndpoint" ::
+              Data.=# ( "AmazonML_20141212.DeleteRealtimeEndpoint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRealtimeEndpoint where
+instance Data.ToJSON DeleteRealtimeEndpoint where
   toJSON DeleteRealtimeEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("MLModelId" Core..= mLModelId)]
+          [Prelude.Just ("MLModelId" Data..= mLModelId)]
       )
 
-instance Core.ToPath DeleteRealtimeEndpoint where
+instance Data.ToPath DeleteRealtimeEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRealtimeEndpoint where
+instance Data.ToQuery DeleteRealtimeEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @DeleteRealtimeEndpoint@ operation.

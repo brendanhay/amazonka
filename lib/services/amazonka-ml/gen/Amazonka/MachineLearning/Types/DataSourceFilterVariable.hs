@@ -31,6 +31,7 @@ module Amazonka.MachineLearning.Types.DataSourceFilterVariable
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of the variables to use in searching or filtering @DataSource@.
@@ -54,7 +55,7 @@ import qualified Amazonka.Prelude as Prelude
 -- @DataSource@.
 newtype DataSourceFilterVariable = DataSourceFilterVariable'
   { fromDataSourceFilterVariable ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -66,18 +67,18 @@ newtype DataSourceFilterVariable = DataSourceFilterVariable'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern DataSourceFilterVariable_CreatedAt :: DataSourceFilterVariable

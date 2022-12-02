@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DocumentAttributeCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ConditionOperator
 import Amazonka.Kendra.Types.DocumentAttributeValue
 import qualified Amazonka.Prelude as Prelude
@@ -128,15 +129,15 @@ documentAttributeCondition_conditionDocumentAttributeKey = Lens.lens (\DocumentA
 documentAttributeCondition_operator :: Lens.Lens' DocumentAttributeCondition ConditionOperator
 documentAttributeCondition_operator = Lens.lens (\DocumentAttributeCondition' {operator} -> operator) (\s@DocumentAttributeCondition' {} a -> s {operator = a} :: DocumentAttributeCondition)
 
-instance Core.FromJSON DocumentAttributeCondition where
+instance Data.FromJSON DocumentAttributeCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentAttributeCondition"
       ( \x ->
           DocumentAttributeCondition'
-            Prelude.<$> (x Core..:? "ConditionOnValue")
-            Prelude.<*> (x Core..: "ConditionDocumentAttributeKey")
-            Prelude.<*> (x Core..: "Operator")
+            Prelude.<$> (x Data..:? "ConditionOnValue")
+            Prelude.<*> (x Data..: "ConditionDocumentAttributeKey")
+            Prelude.<*> (x Data..: "Operator")
       )
 
 instance Prelude.Hashable DocumentAttributeCondition where
@@ -151,16 +152,16 @@ instance Prelude.NFData DocumentAttributeCondition where
       `Prelude.seq` Prelude.rnf conditionDocumentAttributeKey
       `Prelude.seq` Prelude.rnf operator
 
-instance Core.ToJSON DocumentAttributeCondition where
+instance Data.ToJSON DocumentAttributeCondition where
   toJSON DocumentAttributeCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConditionOnValue" Core..=)
+          [ ("ConditionOnValue" Data..=)
               Prelude.<$> conditionOnValue,
             Prelude.Just
               ( "ConditionDocumentAttributeKey"
-                  Core..= conditionDocumentAttributeKey
+                  Data..= conditionDocumentAttributeKey
               ),
-            Prelude.Just ("Operator" Core..= operator)
+            Prelude.Just ("Operator" Data..= operator)
           ]
       )

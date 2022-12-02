@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DocumentAttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value of a document attribute. You can only provide one value for a
@@ -36,7 +37,7 @@ data DocumentAttributeValue = DocumentAttributeValue'
     -- date-time format. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601
     -- date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in
     -- Central European Time.
-    dateValue :: Prelude.Maybe Core.POSIX,
+    dateValue :: Prelude.Maybe Data.POSIX,
     -- | A long integer value.
     longValue :: Prelude.Maybe Prelude.Integer,
     -- | A list of strings.
@@ -86,7 +87,7 @@ documentAttributeValue_stringValue = Lens.lens (\DocumentAttributeValue' {string
 -- date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in
 -- Central European Time.
 documentAttributeValue_dateValue :: Lens.Lens' DocumentAttributeValue (Prelude.Maybe Prelude.UTCTime)
-documentAttributeValue_dateValue = Lens.lens (\DocumentAttributeValue' {dateValue} -> dateValue) (\s@DocumentAttributeValue' {} a -> s {dateValue = a} :: DocumentAttributeValue) Prelude.. Lens.mapping Core._Time
+documentAttributeValue_dateValue = Lens.lens (\DocumentAttributeValue' {dateValue} -> dateValue) (\s@DocumentAttributeValue' {} a -> s {dateValue = a} :: DocumentAttributeValue) Prelude.. Lens.mapping Data._Time
 
 -- | A long integer value.
 documentAttributeValue_longValue :: Lens.Lens' DocumentAttributeValue (Prelude.Maybe Prelude.Integer)
@@ -96,17 +97,17 @@ documentAttributeValue_longValue = Lens.lens (\DocumentAttributeValue' {longValu
 documentAttributeValue_stringListValue :: Lens.Lens' DocumentAttributeValue (Prelude.Maybe [Prelude.Text])
 documentAttributeValue_stringListValue = Lens.lens (\DocumentAttributeValue' {stringListValue} -> stringListValue) (\s@DocumentAttributeValue' {} a -> s {stringListValue = a} :: DocumentAttributeValue) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DocumentAttributeValue where
+instance Data.FromJSON DocumentAttributeValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentAttributeValue"
       ( \x ->
           DocumentAttributeValue'
-            Prelude.<$> (x Core..:? "StringValue")
-            Prelude.<*> (x Core..:? "DateValue")
-            Prelude.<*> (x Core..:? "LongValue")
-            Prelude.<*> ( x Core..:? "StringListValue"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "StringValue")
+            Prelude.<*> (x Data..:? "DateValue")
+            Prelude.<*> (x Data..:? "LongValue")
+            Prelude.<*> ( x Data..:? "StringListValue"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -124,14 +125,14 @@ instance Prelude.NFData DocumentAttributeValue where
       `Prelude.seq` Prelude.rnf longValue
       `Prelude.seq` Prelude.rnf stringListValue
 
-instance Core.ToJSON DocumentAttributeValue where
+instance Data.ToJSON DocumentAttributeValue where
   toJSON DocumentAttributeValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StringValue" Core..=) Prelude.<$> stringValue,
-            ("DateValue" Core..=) Prelude.<$> dateValue,
-            ("LongValue" Core..=) Prelude.<$> longValue,
-            ("StringListValue" Core..=)
+          [ ("StringValue" Data..=) Prelude.<$> stringValue,
+            ("DateValue" Data..=) Prelude.<$> dateValue,
+            ("LongValue" Data..=) Prelude.<$> longValue,
+            ("StringListValue" Data..=)
               Prelude.<$> stringListValue
           ]
       )

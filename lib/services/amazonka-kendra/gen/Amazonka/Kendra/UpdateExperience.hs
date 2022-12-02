@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -167,38 +168,38 @@ instance Prelude.NFData UpdateExperience where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders UpdateExperience where
+instance Data.ToHeaders UpdateExperience where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.UpdateExperience" ::
+              Data.=# ( "AWSKendraFrontendService.UpdateExperience" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateExperience where
+instance Data.ToJSON UpdateExperience where
   toJSON UpdateExperience' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Configuration" Core..=) Prelude.<$> configuration,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Configuration" Data..=) Prelude.<$> configuration,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath UpdateExperience where
+instance Data.ToPath UpdateExperience where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateExperience where
+instance Data.ToQuery UpdateExperience where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateExperienceResponse' smart constructor.

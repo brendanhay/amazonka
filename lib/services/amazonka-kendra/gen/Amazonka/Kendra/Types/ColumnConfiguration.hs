@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ColumnConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -110,17 +111,17 @@ columnConfiguration_documentDataColumnName = Lens.lens (\ColumnConfiguration' {d
 columnConfiguration_changeDetectingColumns :: Lens.Lens' ColumnConfiguration (Prelude.NonEmpty Prelude.Text)
 columnConfiguration_changeDetectingColumns = Lens.lens (\ColumnConfiguration' {changeDetectingColumns} -> changeDetectingColumns) (\s@ColumnConfiguration' {} a -> s {changeDetectingColumns = a} :: ColumnConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON ColumnConfiguration where
+instance Data.FromJSON ColumnConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnConfiguration"
       ( \x ->
           ColumnConfiguration'
-            Prelude.<$> (x Core..:? "FieldMappings")
-            Prelude.<*> (x Core..:? "DocumentTitleColumnName")
-            Prelude.<*> (x Core..: "DocumentIdColumnName")
-            Prelude.<*> (x Core..: "DocumentDataColumnName")
-            Prelude.<*> (x Core..: "ChangeDetectingColumns")
+            Prelude.<$> (x Data..:? "FieldMappings")
+            Prelude.<*> (x Data..:? "DocumentTitleColumnName")
+            Prelude.<*> (x Data..: "DocumentIdColumnName")
+            Prelude.<*> (x Data..: "DocumentDataColumnName")
+            Prelude.<*> (x Data..: "ChangeDetectingColumns")
       )
 
 instance Prelude.Hashable ColumnConfiguration where
@@ -139,24 +140,24 @@ instance Prelude.NFData ColumnConfiguration where
       `Prelude.seq` Prelude.rnf documentDataColumnName
       `Prelude.seq` Prelude.rnf changeDetectingColumns
 
-instance Core.ToJSON ColumnConfiguration where
+instance Data.ToJSON ColumnConfiguration where
   toJSON ColumnConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FieldMappings" Core..=) Prelude.<$> fieldMappings,
-            ("DocumentTitleColumnName" Core..=)
+          [ ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
+            ("DocumentTitleColumnName" Data..=)
               Prelude.<$> documentTitleColumnName,
             Prelude.Just
               ( "DocumentIdColumnName"
-                  Core..= documentIdColumnName
+                  Data..= documentIdColumnName
               ),
             Prelude.Just
               ( "DocumentDataColumnName"
-                  Core..= documentDataColumnName
+                  Data..= documentDataColumnName
               ),
             Prelude.Just
               ( "ChangeDetectingColumns"
-                  Core..= changeDetectingColumns
+                  Data..= changeDetectingColumns
               )
           ]
       )

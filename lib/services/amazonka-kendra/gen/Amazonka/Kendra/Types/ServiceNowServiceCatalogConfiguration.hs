@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ServiceNowServiceCatalogConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -170,24 +171,24 @@ serviceNowServiceCatalogConfiguration_documentDataFieldName :: Lens.Lens' Servic
 serviceNowServiceCatalogConfiguration_documentDataFieldName = Lens.lens (\ServiceNowServiceCatalogConfiguration' {documentDataFieldName} -> documentDataFieldName) (\s@ServiceNowServiceCatalogConfiguration' {} a -> s {documentDataFieldName = a} :: ServiceNowServiceCatalogConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ServiceNowServiceCatalogConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceNowServiceCatalogConfiguration"
       ( \x ->
           ServiceNowServiceCatalogConfiguration'
-            Prelude.<$> ( x Core..:? "IncludeAttachmentFilePatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "IncludeAttachmentFilePatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CrawlAttachments")
-            Prelude.<*> ( x Core..:? "ExcludeAttachmentFilePatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "CrawlAttachments")
+            Prelude.<*> ( x Data..:? "ExcludeAttachmentFilePatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FieldMappings")
-            Prelude.<*> (x Core..:? "DocumentTitleFieldName")
-            Prelude.<*> (x Core..: "DocumentDataFieldName")
+            Prelude.<*> (x Data..:? "FieldMappings")
+            Prelude.<*> (x Data..:? "DocumentTitleFieldName")
+            Prelude.<*> (x Data..: "DocumentDataFieldName")
       )
 
 instance
@@ -218,24 +219,24 @@ instance
       `Prelude.seq` Prelude.rnf documentDataFieldName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ServiceNowServiceCatalogConfiguration
   where
   toJSON ServiceNowServiceCatalogConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IncludeAttachmentFilePatterns" Core..=)
+          [ ("IncludeAttachmentFilePatterns" Data..=)
               Prelude.<$> includeAttachmentFilePatterns,
-            ("CrawlAttachments" Core..=)
+            ("CrawlAttachments" Data..=)
               Prelude.<$> crawlAttachments,
-            ("ExcludeAttachmentFilePatterns" Core..=)
+            ("ExcludeAttachmentFilePatterns" Data..=)
               Prelude.<$> excludeAttachmentFilePatterns,
-            ("FieldMappings" Core..=) Prelude.<$> fieldMappings,
-            ("DocumentTitleFieldName" Core..=)
+            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
+            ("DocumentTitleFieldName" Data..=)
               Prelude.<$> documentTitleFieldName,
             Prelude.Just
               ( "DocumentDataFieldName"
-                  Core..= documentDataFieldName
+                  Data..= documentDataFieldName
               )
           ]
       )

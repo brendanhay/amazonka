@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ServerSideEncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the identifier of the KMS key used to encrypt data indexed by
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
   { -- | The identifier of the KMS key. Amazon Kendra doesn\'t support asymmetric
     -- keys.
-    kmsKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    kmsKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -55,18 +56,18 @@ newServerSideEncryptionConfiguration =
 -- | The identifier of the KMS key. Amazon Kendra doesn\'t support asymmetric
 -- keys.
 serverSideEncryptionConfiguration_kmsKeyId :: Lens.Lens' ServerSideEncryptionConfiguration (Prelude.Maybe Prelude.Text)
-serverSideEncryptionConfiguration_kmsKeyId = Lens.lens (\ServerSideEncryptionConfiguration' {kmsKeyId} -> kmsKeyId) (\s@ServerSideEncryptionConfiguration' {} a -> s {kmsKeyId = a} :: ServerSideEncryptionConfiguration) Prelude.. Lens.mapping Core._Sensitive
+serverSideEncryptionConfiguration_kmsKeyId = Lens.lens (\ServerSideEncryptionConfiguration' {kmsKeyId} -> kmsKeyId) (\s@ServerSideEncryptionConfiguration' {} a -> s {kmsKeyId = a} :: ServerSideEncryptionConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ServerSideEncryptionConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerSideEncryptionConfiguration"
       ( \x ->
           ServerSideEncryptionConfiguration'
-            Prelude.<$> (x Core..:? "KmsKeyId")
+            Prelude.<$> (x Data..:? "KmsKeyId")
       )
 
 instance
@@ -86,11 +87,11 @@ instance
     Prelude.rnf kmsKeyId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ServerSideEncryptionConfiguration
   where
   toJSON ServerSideEncryptionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("KmsKeyId" Core..=) Prelude.<$> kmsKeyId]
+          [("KmsKeyId" Data..=) Prelude.<$> kmsKeyId]
       )

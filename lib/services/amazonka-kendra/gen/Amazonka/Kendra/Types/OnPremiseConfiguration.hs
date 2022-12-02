@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.OnPremiseConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.S3Path
 import qualified Amazonka.Prelude as Prelude
 
@@ -111,15 +112,15 @@ onPremiseConfiguration_organizationName = Lens.lens (\OnPremiseConfiguration' {o
 onPremiseConfiguration_sslCertificateS3Path :: Lens.Lens' OnPremiseConfiguration S3Path
 onPremiseConfiguration_sslCertificateS3Path = Lens.lens (\OnPremiseConfiguration' {sslCertificateS3Path} -> sslCertificateS3Path) (\s@OnPremiseConfiguration' {} a -> s {sslCertificateS3Path = a} :: OnPremiseConfiguration)
 
-instance Core.FromJSON OnPremiseConfiguration where
+instance Data.FromJSON OnPremiseConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OnPremiseConfiguration"
       ( \x ->
           OnPremiseConfiguration'
-            Prelude.<$> (x Core..: "HostUrl")
-            Prelude.<*> (x Core..: "OrganizationName")
-            Prelude.<*> (x Core..: "SslCertificateS3Path")
+            Prelude.<$> (x Data..: "HostUrl")
+            Prelude.<*> (x Data..: "OrganizationName")
+            Prelude.<*> (x Data..: "SslCertificateS3Path")
       )
 
 instance Prelude.Hashable OnPremiseConfiguration where
@@ -134,16 +135,16 @@ instance Prelude.NFData OnPremiseConfiguration where
       `Prelude.seq` Prelude.rnf organizationName
       `Prelude.seq` Prelude.rnf sslCertificateS3Path
 
-instance Core.ToJSON OnPremiseConfiguration where
+instance Data.ToJSON OnPremiseConfiguration where
   toJSON OnPremiseConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("HostUrl" Core..= hostUrl),
+          [ Prelude.Just ("HostUrl" Data..= hostUrl),
             Prelude.Just
-              ("OrganizationName" Core..= organizationName),
+              ("OrganizationName" Data..= organizationName),
             Prelude.Just
               ( "SslCertificateS3Path"
-                  Core..= sslCertificateS3Path
+                  Data..= sslCertificateS3Path
               )
           ]
       )

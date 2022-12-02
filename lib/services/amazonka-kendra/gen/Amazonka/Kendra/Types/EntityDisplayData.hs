@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.EntityDisplayData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the user entity.
@@ -28,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEntityDisplayData' smart constructor.
 data EntityDisplayData = EntityDisplayData'
   { -- | The user name of the user.
-    identifiedUserName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    identifiedUserName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The first name of the user.
-    firstName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the user.
-    userName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    userName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the group.
-    groupName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    groupName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The last name of the user.
-    lastName :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -71,35 +72,35 @@ newEntityDisplayData =
 
 -- | The user name of the user.
 entityDisplayData_identifiedUserName :: Lens.Lens' EntityDisplayData (Prelude.Maybe Prelude.Text)
-entityDisplayData_identifiedUserName = Lens.lens (\EntityDisplayData' {identifiedUserName} -> identifiedUserName) (\s@EntityDisplayData' {} a -> s {identifiedUserName = a} :: EntityDisplayData) Prelude.. Lens.mapping Core._Sensitive
+entityDisplayData_identifiedUserName = Lens.lens (\EntityDisplayData' {identifiedUserName} -> identifiedUserName) (\s@EntityDisplayData' {} a -> s {identifiedUserName = a} :: EntityDisplayData) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The first name of the user.
 entityDisplayData_firstName :: Lens.Lens' EntityDisplayData (Prelude.Maybe Prelude.Text)
-entityDisplayData_firstName = Lens.lens (\EntityDisplayData' {firstName} -> firstName) (\s@EntityDisplayData' {} a -> s {firstName = a} :: EntityDisplayData) Prelude.. Lens.mapping Core._Sensitive
+entityDisplayData_firstName = Lens.lens (\EntityDisplayData' {firstName} -> firstName) (\s@EntityDisplayData' {} a -> s {firstName = a} :: EntityDisplayData) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the user.
 entityDisplayData_userName :: Lens.Lens' EntityDisplayData (Prelude.Maybe Prelude.Text)
-entityDisplayData_userName = Lens.lens (\EntityDisplayData' {userName} -> userName) (\s@EntityDisplayData' {} a -> s {userName = a} :: EntityDisplayData) Prelude.. Lens.mapping Core._Sensitive
+entityDisplayData_userName = Lens.lens (\EntityDisplayData' {userName} -> userName) (\s@EntityDisplayData' {} a -> s {userName = a} :: EntityDisplayData) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the group.
 entityDisplayData_groupName :: Lens.Lens' EntityDisplayData (Prelude.Maybe Prelude.Text)
-entityDisplayData_groupName = Lens.lens (\EntityDisplayData' {groupName} -> groupName) (\s@EntityDisplayData' {} a -> s {groupName = a} :: EntityDisplayData) Prelude.. Lens.mapping Core._Sensitive
+entityDisplayData_groupName = Lens.lens (\EntityDisplayData' {groupName} -> groupName) (\s@EntityDisplayData' {} a -> s {groupName = a} :: EntityDisplayData) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The last name of the user.
 entityDisplayData_lastName :: Lens.Lens' EntityDisplayData (Prelude.Maybe Prelude.Text)
-entityDisplayData_lastName = Lens.lens (\EntityDisplayData' {lastName} -> lastName) (\s@EntityDisplayData' {} a -> s {lastName = a} :: EntityDisplayData) Prelude.. Lens.mapping Core._Sensitive
+entityDisplayData_lastName = Lens.lens (\EntityDisplayData' {lastName} -> lastName) (\s@EntityDisplayData' {} a -> s {lastName = a} :: EntityDisplayData) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON EntityDisplayData where
+instance Data.FromJSON EntityDisplayData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityDisplayData"
       ( \x ->
           EntityDisplayData'
-            Prelude.<$> (x Core..:? "IdentifiedUserName")
-            Prelude.<*> (x Core..:? "FirstName")
-            Prelude.<*> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "GroupName")
-            Prelude.<*> (x Core..:? "LastName")
+            Prelude.<$> (x Data..:? "IdentifiedUserName")
+            Prelude.<*> (x Data..:? "FirstName")
+            Prelude.<*> (x Data..:? "UserName")
+            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "LastName")
       )
 
 instance Prelude.Hashable EntityDisplayData where

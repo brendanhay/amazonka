@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,17 +111,17 @@ instance Core.AWSRequest DescribeExperience where
     Response.receiveJSON
       ( \s h x ->
           DescribeExperienceResponse'
-            Prelude.<$> (x Core..?> "IndexId")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "ErrorMessage")
-            Prelude.<*> (x Core..?> "Configuration")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Endpoints")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<$> (x Data..?> "IndexId")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "Configuration")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Endpoints")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,34 +134,34 @@ instance Prelude.NFData DescribeExperience where
   rnf DescribeExperience' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders DescribeExperience where
+instance Data.ToHeaders DescribeExperience where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DescribeExperience" ::
+              Data.=# ( "AWSKendraFrontendService.DescribeExperience" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeExperience where
+instance Data.ToJSON DescribeExperience where
   toJSON DescribeExperience' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath DescribeExperience where
+instance Data.ToPath DescribeExperience where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeExperience where
+instance Data.ToQuery DescribeExperience where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeExperienceResponse' smart constructor.
@@ -194,9 +195,9 @@ data DescribeExperienceResponse = DescribeExperienceResponse'
     -- | Shows the description for your Amazon Kendra experience.
     description :: Prelude.Maybe Prelude.Text,
     -- | Shows the date-time your Amazon Kendra experience was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Shows the date-time your Amazon Kendra experience was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -312,11 +313,11 @@ describeExperienceResponse_description = Lens.lens (\DescribeExperienceResponse'
 
 -- | Shows the date-time your Amazon Kendra experience was created.
 describeExperienceResponse_createdAt :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.UTCTime)
-describeExperienceResponse_createdAt = Lens.lens (\DescribeExperienceResponse' {createdAt} -> createdAt) (\s@DescribeExperienceResponse' {} a -> s {createdAt = a} :: DescribeExperienceResponse) Prelude.. Lens.mapping Core._Time
+describeExperienceResponse_createdAt = Lens.lens (\DescribeExperienceResponse' {createdAt} -> createdAt) (\s@DescribeExperienceResponse' {} a -> s {createdAt = a} :: DescribeExperienceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Shows the date-time your Amazon Kendra experience was last updated.
 describeExperienceResponse_updatedAt :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.UTCTime)
-describeExperienceResponse_updatedAt = Lens.lens (\DescribeExperienceResponse' {updatedAt} -> updatedAt) (\s@DescribeExperienceResponse' {} a -> s {updatedAt = a} :: DescribeExperienceResponse) Prelude.. Lens.mapping Core._Time
+describeExperienceResponse_updatedAt = Lens.lens (\DescribeExperienceResponse' {updatedAt} -> updatedAt) (\s@DescribeExperienceResponse' {} a -> s {updatedAt = a} :: DescribeExperienceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeExperienceResponse_httpStatus :: Lens.Lens' DescribeExperienceResponse Prelude.Int

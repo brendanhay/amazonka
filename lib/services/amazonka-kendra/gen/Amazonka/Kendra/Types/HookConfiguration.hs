@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.HookConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DocumentAttributeCondition
 import qualified Amazonka.Prelude as Prelude
 
@@ -113,15 +114,15 @@ hookConfiguration_lambdaArn = Lens.lens (\HookConfiguration' {lambdaArn} -> lamb
 hookConfiguration_s3Bucket :: Lens.Lens' HookConfiguration Prelude.Text
 hookConfiguration_s3Bucket = Lens.lens (\HookConfiguration' {s3Bucket} -> s3Bucket) (\s@HookConfiguration' {} a -> s {s3Bucket = a} :: HookConfiguration)
 
-instance Core.FromJSON HookConfiguration where
+instance Data.FromJSON HookConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HookConfiguration"
       ( \x ->
           HookConfiguration'
-            Prelude.<$> (x Core..:? "InvocationCondition")
-            Prelude.<*> (x Core..: "LambdaArn")
-            Prelude.<*> (x Core..: "S3Bucket")
+            Prelude.<$> (x Data..:? "InvocationCondition")
+            Prelude.<*> (x Data..: "LambdaArn")
+            Prelude.<*> (x Data..: "S3Bucket")
       )
 
 instance Prelude.Hashable HookConfiguration where
@@ -136,13 +137,13 @@ instance Prelude.NFData HookConfiguration where
       `Prelude.seq` Prelude.rnf lambdaArn
       `Prelude.seq` Prelude.rnf s3Bucket
 
-instance Core.ToJSON HookConfiguration where
+instance Data.ToJSON HookConfiguration where
   toJSON HookConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InvocationCondition" Core..=)
+          [ ("InvocationCondition" Data..=)
               Prelude.<$> invocationCondition,
-            Prelude.Just ("LambdaArn" Core..= lambdaArn),
-            Prelude.Just ("S3Bucket" Core..= s3Bucket)
+            Prelude.Just ("LambdaArn" Data..= lambdaArn),
+            Prelude.Just ("S3Bucket" Data..= s3Bucket)
           ]
       )

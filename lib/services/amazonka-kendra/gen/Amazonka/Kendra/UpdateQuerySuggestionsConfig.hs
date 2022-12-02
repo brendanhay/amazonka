@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -288,42 +289,42 @@ instance Prelude.NFData UpdateQuerySuggestionsConfig where
       `Prelude.seq` Prelude.rnf includeQueriesWithoutUserInformation
       `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders UpdateQuerySuggestionsConfig where
+instance Data.ToHeaders UpdateQuerySuggestionsConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.UpdateQuerySuggestionsConfig" ::
+              Data.=# ( "AWSKendraFrontendService.UpdateQuerySuggestionsConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateQuerySuggestionsConfig where
+instance Data.ToJSON UpdateQuerySuggestionsConfig where
   toJSON UpdateQuerySuggestionsConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinimumNumberOfQueryingUsers" Core..=)
+          [ ("MinimumNumberOfQueryingUsers" Data..=)
               Prelude.<$> minimumNumberOfQueryingUsers,
-            ("QueryLogLookBackWindowInDays" Core..=)
+            ("QueryLogLookBackWindowInDays" Data..=)
               Prelude.<$> queryLogLookBackWindowInDays,
-            ("Mode" Core..=) Prelude.<$> mode,
-            ("MinimumQueryCount" Core..=)
+            ("Mode" Data..=) Prelude.<$> mode,
+            ("MinimumQueryCount" Data..=)
               Prelude.<$> minimumQueryCount,
-            ("IncludeQueriesWithoutUserInformation" Core..=)
+            ("IncludeQueriesWithoutUserInformation" Data..=)
               Prelude.<$> includeQueriesWithoutUserInformation,
-            Prelude.Just ("IndexId" Core..= indexId)
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath UpdateQuerySuggestionsConfig where
+instance Data.ToPath UpdateQuerySuggestionsConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateQuerySuggestionsConfig where
+instance Data.ToQuery UpdateQuerySuggestionsConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateQuerySuggestionsConfigResponse' smart constructor.

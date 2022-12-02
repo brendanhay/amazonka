@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,36 +123,36 @@ instance
     Prelude.rnf indexId `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteQuerySuggestionsBlockList
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DeleteQuerySuggestionsBlockList" ::
+              Data.=# ( "AWSKendraFrontendService.DeleteQuerySuggestionsBlockList" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteQuerySuggestionsBlockList where
+instance Data.ToJSON DeleteQuerySuggestionsBlockList where
   toJSON DeleteQuerySuggestionsBlockList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Id" Core..= id)
+          [ Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath DeleteQuerySuggestionsBlockList where
+instance Data.ToPath DeleteQuerySuggestionsBlockList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteQuerySuggestionsBlockList where
+instance Data.ToQuery DeleteQuerySuggestionsBlockList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteQuerySuggestionsBlockListResponse' smart constructor.

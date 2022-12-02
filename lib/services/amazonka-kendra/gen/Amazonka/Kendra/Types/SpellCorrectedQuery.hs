@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SpellCorrectedQuery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.Correction
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ spellCorrectedQuery_suggestedQueryText = Lens.lens (\SpellCorrectedQuery' {sugge
 spellCorrectedQuery_corrections :: Lens.Lens' SpellCorrectedQuery (Prelude.Maybe [Correction])
 spellCorrectedQuery_corrections = Lens.lens (\SpellCorrectedQuery' {corrections} -> corrections) (\s@SpellCorrectedQuery' {} a -> s {corrections = a} :: SpellCorrectedQuery) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SpellCorrectedQuery where
+instance Data.FromJSON SpellCorrectedQuery where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SpellCorrectedQuery"
       ( \x ->
           SpellCorrectedQuery'
-            Prelude.<$> (x Core..:? "SuggestedQueryText")
-            Prelude.<*> (x Core..:? "Corrections" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "SuggestedQueryText")
+            Prelude.<*> (x Data..:? "Corrections" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SpellCorrectedQuery where

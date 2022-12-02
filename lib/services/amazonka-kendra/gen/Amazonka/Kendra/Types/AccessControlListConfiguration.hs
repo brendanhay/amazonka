@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.AccessControlListConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Access Control List files for the documents in a data source. For the
@@ -55,13 +56,13 @@ newAccessControlListConfiguration =
 accessControlListConfiguration_keyPath :: Lens.Lens' AccessControlListConfiguration (Prelude.Maybe Prelude.Text)
 accessControlListConfiguration_keyPath = Lens.lens (\AccessControlListConfiguration' {keyPath} -> keyPath) (\s@AccessControlListConfiguration' {} a -> s {keyPath = a} :: AccessControlListConfiguration)
 
-instance Core.FromJSON AccessControlListConfiguration where
+instance Data.FromJSON AccessControlListConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessControlListConfiguration"
       ( \x ->
           AccessControlListConfiguration'
-            Prelude.<$> (x Core..:? "KeyPath")
+            Prelude.<$> (x Data..:? "KeyPath")
       )
 
 instance
@@ -80,9 +81,9 @@ instance
   rnf AccessControlListConfiguration' {..} =
     Prelude.rnf keyPath
 
-instance Core.ToJSON AccessControlListConfiguration where
+instance Data.ToJSON AccessControlListConfiguration where
   toJSON AccessControlListConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("KeyPath" Core..=) Prelude.<$> keyPath]
+          [("KeyPath" Data..=) Prelude.<$> keyPath]
       )

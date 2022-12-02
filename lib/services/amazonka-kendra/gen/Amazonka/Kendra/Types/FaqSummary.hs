@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.FaqSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.FaqFileFormat
 import Amazonka.Kendra.Types.FaqStatus
 import qualified Amazonka.Prelude as Prelude
@@ -44,9 +45,9 @@ data FaqSummary = FaqSummary'
     -- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
     languageCode :: Prelude.Maybe Prelude.Text,
     -- | The UNIX datetime that the FAQ was added to the index.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The UNIX datetime that the FAQ was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The file type used to create the FAQ.
     fileFormat :: Prelude.Maybe FaqFileFormat
   }
@@ -114,29 +115,29 @@ faqSummary_languageCode = Lens.lens (\FaqSummary' {languageCode} -> languageCode
 
 -- | The UNIX datetime that the FAQ was added to the index.
 faqSummary_createdAt :: Lens.Lens' FaqSummary (Prelude.Maybe Prelude.UTCTime)
-faqSummary_createdAt = Lens.lens (\FaqSummary' {createdAt} -> createdAt) (\s@FaqSummary' {} a -> s {createdAt = a} :: FaqSummary) Prelude.. Lens.mapping Core._Time
+faqSummary_createdAt = Lens.lens (\FaqSummary' {createdAt} -> createdAt) (\s@FaqSummary' {} a -> s {createdAt = a} :: FaqSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The UNIX datetime that the FAQ was last updated.
 faqSummary_updatedAt :: Lens.Lens' FaqSummary (Prelude.Maybe Prelude.UTCTime)
-faqSummary_updatedAt = Lens.lens (\FaqSummary' {updatedAt} -> updatedAt) (\s@FaqSummary' {} a -> s {updatedAt = a} :: FaqSummary) Prelude.. Lens.mapping Core._Time
+faqSummary_updatedAt = Lens.lens (\FaqSummary' {updatedAt} -> updatedAt) (\s@FaqSummary' {} a -> s {updatedAt = a} :: FaqSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The file type used to create the FAQ.
 faqSummary_fileFormat :: Lens.Lens' FaqSummary (Prelude.Maybe FaqFileFormat)
 faqSummary_fileFormat = Lens.lens (\FaqSummary' {fileFormat} -> fileFormat) (\s@FaqSummary' {} a -> s {fileFormat = a} :: FaqSummary)
 
-instance Core.FromJSON FaqSummary where
+instance Data.FromJSON FaqSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FaqSummary"
       ( \x ->
           FaqSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "UpdatedAt")
-            Prelude.<*> (x Core..:? "FileFormat")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "UpdatedAt")
+            Prelude.<*> (x Data..:? "FileFormat")
       )
 
 instance Prelude.Hashable FaqSummary where

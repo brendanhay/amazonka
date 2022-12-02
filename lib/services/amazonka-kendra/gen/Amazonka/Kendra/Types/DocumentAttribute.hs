@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DocumentAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DocumentAttributeValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,13 +66,13 @@ documentAttribute_key = Lens.lens (\DocumentAttribute' {key} -> key) (\s@Documen
 documentAttribute_value :: Lens.Lens' DocumentAttribute DocumentAttributeValue
 documentAttribute_value = Lens.lens (\DocumentAttribute' {value} -> value) (\s@DocumentAttribute' {} a -> s {value = a} :: DocumentAttribute)
 
-instance Core.FromJSON DocumentAttribute where
+instance Data.FromJSON DocumentAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentAttribute"
       ( \x ->
           DocumentAttribute'
-            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable DocumentAttribute where
@@ -83,11 +84,11 @@ instance Prelude.NFData DocumentAttribute where
   rnf DocumentAttribute' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON DocumentAttribute where
+instance Data.ToJSON DocumentAttribute where
   toJSON DocumentAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DataSourceSyncJobMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Maps a batch delete document request to a specific data source sync job.
@@ -106,17 +107,17 @@ dataSourceSyncJobMetrics_documentsFailed = Lens.lens (\DataSourceSyncJobMetrics'
 dataSourceSyncJobMetrics_documentsDeleted :: Lens.Lens' DataSourceSyncJobMetrics (Prelude.Maybe Prelude.Text)
 dataSourceSyncJobMetrics_documentsDeleted = Lens.lens (\DataSourceSyncJobMetrics' {documentsDeleted} -> documentsDeleted) (\s@DataSourceSyncJobMetrics' {} a -> s {documentsDeleted = a} :: DataSourceSyncJobMetrics)
 
-instance Core.FromJSON DataSourceSyncJobMetrics where
+instance Data.FromJSON DataSourceSyncJobMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourceSyncJobMetrics"
       ( \x ->
           DataSourceSyncJobMetrics'
-            Prelude.<$> (x Core..:? "DocumentsScanned")
-            Prelude.<*> (x Core..:? "DocumentsAdded")
-            Prelude.<*> (x Core..:? "DocumentsModified")
-            Prelude.<*> (x Core..:? "DocumentsFailed")
-            Prelude.<*> (x Core..:? "DocumentsDeleted")
+            Prelude.<$> (x Data..:? "DocumentsScanned")
+            Prelude.<*> (x Data..:? "DocumentsAdded")
+            Prelude.<*> (x Data..:? "DocumentsModified")
+            Prelude.<*> (x Data..:? "DocumentsFailed")
+            Prelude.<*> (x Data..:? "DocumentsDeleted")
       )
 
 instance Prelude.Hashable DataSourceSyncJobMetrics where

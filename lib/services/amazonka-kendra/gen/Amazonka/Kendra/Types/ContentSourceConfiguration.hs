@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ContentSourceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information for your content sources, such as
@@ -82,15 +83,15 @@ contentSourceConfiguration_faqIds = Lens.lens (\ContentSourceConfiguration' {faq
 contentSourceConfiguration_dataSourceIds :: Lens.Lens' ContentSourceConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 contentSourceConfiguration_dataSourceIds = Lens.lens (\ContentSourceConfiguration' {dataSourceIds} -> dataSourceIds) (\s@ContentSourceConfiguration' {} a -> s {dataSourceIds = a} :: ContentSourceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ContentSourceConfiguration where
+instance Data.FromJSON ContentSourceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContentSourceConfiguration"
       ( \x ->
           ContentSourceConfiguration'
-            Prelude.<$> (x Core..:? "DirectPutContent")
-            Prelude.<*> (x Core..:? "FaqIds")
-            Prelude.<*> (x Core..:? "DataSourceIds")
+            Prelude.<$> (x Data..:? "DirectPutContent")
+            Prelude.<*> (x Data..:? "FaqIds")
+            Prelude.<*> (x Data..:? "DataSourceIds")
       )
 
 instance Prelude.Hashable ContentSourceConfiguration where
@@ -105,13 +106,13 @@ instance Prelude.NFData ContentSourceConfiguration where
       `Prelude.seq` Prelude.rnf faqIds
       `Prelude.seq` Prelude.rnf dataSourceIds
 
-instance Core.ToJSON ContentSourceConfiguration where
+instance Data.ToJSON ContentSourceConfiguration where
   toJSON ContentSourceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DirectPutContent" Core..=)
+          [ ("DirectPutContent" Data..=)
               Prelude.<$> directPutContent,
-            ("FaqIds" Core..=) Prelude.<$> faqIds,
-            ("DataSourceIds" Core..=) Prelude.<$> dataSourceIds
+            ("FaqIds" Data..=) Prelude.<$> faqIds,
+            ("DataSourceIds" Data..=) Prelude.<$> dataSourceIds
           ]
       )

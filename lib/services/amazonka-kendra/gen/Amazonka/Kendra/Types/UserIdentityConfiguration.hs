@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.UserIdentityConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information for the identifiers of your
@@ -75,13 +76,13 @@ newUserIdentityConfiguration =
 userIdentityConfiguration_identityAttributeName :: Lens.Lens' UserIdentityConfiguration (Prelude.Maybe Prelude.Text)
 userIdentityConfiguration_identityAttributeName = Lens.lens (\UserIdentityConfiguration' {identityAttributeName} -> identityAttributeName) (\s@UserIdentityConfiguration' {} a -> s {identityAttributeName = a} :: UserIdentityConfiguration)
 
-instance Core.FromJSON UserIdentityConfiguration where
+instance Data.FromJSON UserIdentityConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserIdentityConfiguration"
       ( \x ->
           UserIdentityConfiguration'
-            Prelude.<$> (x Core..:? "IdentityAttributeName")
+            Prelude.<$> (x Data..:? "IdentityAttributeName")
       )
 
 instance Prelude.Hashable UserIdentityConfiguration where
@@ -92,11 +93,11 @@ instance Prelude.NFData UserIdentityConfiguration where
   rnf UserIdentityConfiguration' {..} =
     Prelude.rnf identityAttributeName
 
-instance Core.ToJSON UserIdentityConfiguration where
+instance Data.ToJSON UserIdentityConfiguration where
   toJSON UserIdentityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IdentityAttributeName" Core..=)
+          [ ("IdentityAttributeName" Data..=)
               Prelude.<$> identityAttributeName
           ]
       )

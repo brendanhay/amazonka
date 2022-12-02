@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.Correction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A corrected misspelled word in a query.
@@ -85,16 +86,16 @@ correction_term = Lens.lens (\Correction' {term} -> term) (\s@Correction' {} a -
 correction_correctedTerm :: Lens.Lens' Correction (Prelude.Maybe Prelude.Text)
 correction_correctedTerm = Lens.lens (\Correction' {correctedTerm} -> correctedTerm) (\s@Correction' {} a -> s {correctedTerm = a} :: Correction)
 
-instance Core.FromJSON Correction where
+instance Data.FromJSON Correction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Correction"
       ( \x ->
           Correction'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "Term")
-            Prelude.<*> (x Core..:? "CorrectedTerm")
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "Term")
+            Prelude.<*> (x Data..:? "CorrectedTerm")
       )
 
 instance Prelude.Hashable Correction where

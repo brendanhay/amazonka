@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.S3DataSourceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.AccessControlListConfiguration
 import Amazonka.Kendra.Types.DocumentsMetadataConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -204,24 +205,24 @@ s3DataSourceConfiguration_exclusionPatterns = Lens.lens (\S3DataSourceConfigurat
 s3DataSourceConfiguration_bucketName :: Lens.Lens' S3DataSourceConfiguration Prelude.Text
 s3DataSourceConfiguration_bucketName = Lens.lens (\S3DataSourceConfiguration' {bucketName} -> bucketName) (\s@S3DataSourceConfiguration' {} a -> s {bucketName = a} :: S3DataSourceConfiguration)
 
-instance Core.FromJSON S3DataSourceConfiguration where
+instance Data.FromJSON S3DataSourceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3DataSourceConfiguration"
       ( \x ->
           S3DataSourceConfiguration'
-            Prelude.<$> ( x Core..:? "InclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "InclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DocumentsMetadataConfiguration")
-            Prelude.<*> (x Core..:? "AccessControlListConfiguration")
-            Prelude.<*> ( x Core..:? "InclusionPrefixes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "DocumentsMetadataConfiguration")
+            Prelude.<*> (x Data..:? "AccessControlListConfiguration")
+            Prelude.<*> ( x Data..:? "InclusionPrefixes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ExclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "BucketName")
+            Prelude.<*> (x Data..: "BucketName")
       )
 
 instance Prelude.Hashable S3DataSourceConfiguration where
@@ -242,20 +243,20 @@ instance Prelude.NFData S3DataSourceConfiguration where
       `Prelude.seq` Prelude.rnf exclusionPatterns
       `Prelude.seq` Prelude.rnf bucketName
 
-instance Core.ToJSON S3DataSourceConfiguration where
+instance Data.ToJSON S3DataSourceConfiguration where
   toJSON S3DataSourceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InclusionPatterns" Core..=)
+          [ ("InclusionPatterns" Data..=)
               Prelude.<$> inclusionPatterns,
-            ("DocumentsMetadataConfiguration" Core..=)
+            ("DocumentsMetadataConfiguration" Data..=)
               Prelude.<$> documentsMetadataConfiguration,
-            ("AccessControlListConfiguration" Core..=)
+            ("AccessControlListConfiguration" Data..=)
               Prelude.<$> accessControlListConfiguration,
-            ("InclusionPrefixes" Core..=)
+            ("InclusionPrefixes" Data..=)
               Prelude.<$> inclusionPrefixes,
-            ("ExclusionPatterns" Core..=)
+            ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
-            Prelude.Just ("BucketName" Core..= bucketName)
+            Prelude.Just ("BucketName" Data..= bucketName)
           ]
       )

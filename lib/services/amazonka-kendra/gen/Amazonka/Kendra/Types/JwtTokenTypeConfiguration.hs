@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.JwtTokenTypeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.KeyLocation
 import qualified Amazonka.Prelude as Prelude
 
@@ -110,19 +111,19 @@ jwtTokenTypeConfiguration_claimRegex = Lens.lens (\JwtTokenTypeConfiguration' {c
 jwtTokenTypeConfiguration_keyLocation :: Lens.Lens' JwtTokenTypeConfiguration KeyLocation
 jwtTokenTypeConfiguration_keyLocation = Lens.lens (\JwtTokenTypeConfiguration' {keyLocation} -> keyLocation) (\s@JwtTokenTypeConfiguration' {} a -> s {keyLocation = a} :: JwtTokenTypeConfiguration)
 
-instance Core.FromJSON JwtTokenTypeConfiguration where
+instance Data.FromJSON JwtTokenTypeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JwtTokenTypeConfiguration"
       ( \x ->
           JwtTokenTypeConfiguration'
-            Prelude.<$> (x Core..:? "Issuer")
-            Prelude.<*> (x Core..:? "UserNameAttributeField")
-            Prelude.<*> (x Core..:? "URL")
-            Prelude.<*> (x Core..:? "GroupAttributeField")
-            Prelude.<*> (x Core..:? "SecretManagerArn")
-            Prelude.<*> (x Core..:? "ClaimRegex")
-            Prelude.<*> (x Core..: "KeyLocation")
+            Prelude.<$> (x Data..:? "Issuer")
+            Prelude.<*> (x Data..:? "UserNameAttributeField")
+            Prelude.<*> (x Data..:? "URL")
+            Prelude.<*> (x Data..:? "GroupAttributeField")
+            Prelude.<*> (x Data..:? "SecretManagerArn")
+            Prelude.<*> (x Data..:? "ClaimRegex")
+            Prelude.<*> (x Data..: "KeyLocation")
       )
 
 instance Prelude.Hashable JwtTokenTypeConfiguration where
@@ -145,19 +146,19 @@ instance Prelude.NFData JwtTokenTypeConfiguration where
       `Prelude.seq` Prelude.rnf claimRegex
       `Prelude.seq` Prelude.rnf keyLocation
 
-instance Core.ToJSON JwtTokenTypeConfiguration where
+instance Data.ToJSON JwtTokenTypeConfiguration where
   toJSON JwtTokenTypeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Issuer" Core..=) Prelude.<$> issuer,
-            ("UserNameAttributeField" Core..=)
+          [ ("Issuer" Data..=) Prelude.<$> issuer,
+            ("UserNameAttributeField" Data..=)
               Prelude.<$> userNameAttributeField,
-            ("URL" Core..=) Prelude.<$> url,
-            ("GroupAttributeField" Core..=)
+            ("URL" Data..=) Prelude.<$> url,
+            ("GroupAttributeField" Data..=)
               Prelude.<$> groupAttributeField,
-            ("SecretManagerArn" Core..=)
+            ("SecretManagerArn" Data..=)
               Prelude.<$> secretManagerArn,
-            ("ClaimRegex" Core..=) Prelude.<$> claimRegex,
-            Prelude.Just ("KeyLocation" Core..= keyLocation)
+            ("ClaimRegex" Data..=) Prelude.<$> claimRegex,
+            Prelude.Just ("KeyLocation" Data..= keyLocation)
           ]
       )

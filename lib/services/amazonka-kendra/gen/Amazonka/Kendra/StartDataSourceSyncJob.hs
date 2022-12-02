@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest StartDataSourceSyncJob where
     Response.receiveJSON
       ( \s h x ->
           StartDataSourceSyncJobResponse'
-            Prelude.<$> (x Core..?> "ExecutionId")
+            Prelude.<$> (x Data..?> "ExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,34 +113,34 @@ instance Prelude.NFData StartDataSourceSyncJob where
   rnf StartDataSourceSyncJob' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders StartDataSourceSyncJob where
+instance Data.ToHeaders StartDataSourceSyncJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.StartDataSourceSyncJob" ::
+              Data.=# ( "AWSKendraFrontendService.StartDataSourceSyncJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartDataSourceSyncJob where
+instance Data.ToJSON StartDataSourceSyncJob where
   toJSON StartDataSourceSyncJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath StartDataSourceSyncJob where
+instance Data.ToPath StartDataSourceSyncJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartDataSourceSyncJob where
+instance Data.ToQuery StartDataSourceSyncJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartDataSourceSyncJobResponse' smart constructor.

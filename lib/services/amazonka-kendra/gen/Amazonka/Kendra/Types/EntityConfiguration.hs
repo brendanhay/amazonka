@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.EntityConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.EntityType
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,11 +82,11 @@ instance Prelude.NFData EntityConfiguration where
     Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf entityType
 
-instance Core.ToJSON EntityConfiguration where
+instance Data.ToJSON EntityConfiguration where
   toJSON EntityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("EntityId" Core..= entityId),
-            Prelude.Just ("EntityType" Core..= entityType)
+          [ Prelude.Just ("EntityId" Data..= entityId),
+            Prelude.Just ("EntityType" Data..= entityType)
           ]
       )

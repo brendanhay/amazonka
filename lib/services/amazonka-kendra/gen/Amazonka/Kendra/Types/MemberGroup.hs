@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.MemberGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The sub groups that belong to a group.
@@ -76,11 +77,11 @@ instance Prelude.NFData MemberGroup where
     Prelude.rnf dataSourceId
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToJSON MemberGroup where
+instance Data.ToJSON MemberGroup where
   toJSON MemberGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceId" Core..=) Prelude.<$> dataSourceId,
-            Prelude.Just ("GroupId" Core..= groupId)
+          [ ("DataSourceId" Data..=) Prelude.<$> dataSourceId,
+            Prelude.Just ("GroupId" Data..= groupId)
           ]
       )

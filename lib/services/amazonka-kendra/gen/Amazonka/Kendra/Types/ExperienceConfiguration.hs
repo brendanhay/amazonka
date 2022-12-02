@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ExperienceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ContentSourceConfiguration
 import Amazonka.Kendra.Types.UserIdentityConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -75,14 +76,14 @@ experienceConfiguration_contentSourceConfiguration = Lens.lens (\ExperienceConfi
 experienceConfiguration_userIdentityConfiguration :: Lens.Lens' ExperienceConfiguration (Prelude.Maybe UserIdentityConfiguration)
 experienceConfiguration_userIdentityConfiguration = Lens.lens (\ExperienceConfiguration' {userIdentityConfiguration} -> userIdentityConfiguration) (\s@ExperienceConfiguration' {} a -> s {userIdentityConfiguration = a} :: ExperienceConfiguration)
 
-instance Core.FromJSON ExperienceConfiguration where
+instance Data.FromJSON ExperienceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperienceConfiguration"
       ( \x ->
           ExperienceConfiguration'
-            Prelude.<$> (x Core..:? "ContentSourceConfiguration")
-            Prelude.<*> (x Core..:? "UserIdentityConfiguration")
+            Prelude.<$> (x Data..:? "ContentSourceConfiguration")
+            Prelude.<*> (x Data..:? "UserIdentityConfiguration")
       )
 
 instance Prelude.Hashable ExperienceConfiguration where
@@ -96,13 +97,13 @@ instance Prelude.NFData ExperienceConfiguration where
     Prelude.rnf contentSourceConfiguration
       `Prelude.seq` Prelude.rnf userIdentityConfiguration
 
-instance Core.ToJSON ExperienceConfiguration where
+instance Data.ToJSON ExperienceConfiguration where
   toJSON ExperienceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContentSourceConfiguration" Core..=)
+          [ ("ContentSourceConfiguration" Data..=)
               Prelude.<$> contentSourceConfiguration,
-            ("UserIdentityConfiguration" Core..=)
+            ("UserIdentityConfiguration" Data..=)
               Prelude.<$> userIdentityConfiguration
           ]
       )

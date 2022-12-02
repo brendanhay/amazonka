@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.GroupOrderingIdSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.PrincipalMappingStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 data GroupOrderingIdSummary = GroupOrderingIdSummary'
   { -- | The last date-time an action was updated. An action can be a @PUT@ or
     -- @DELETE@ action for mapping users to their groups.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The current processing status of actions for mapping users to their
     -- groups. The status can be either @PROCESSING@, @SUCCEEDED@, @DELETING@,
     -- @DELETED@, or @FAILED@.
     status :: Prelude.Maybe PrincipalMappingStatus,
     -- | The date-time an action was received by Amazon Kendra. An action can be
     -- a @PUT@ or @DELETE@ action for mapping users to their groups.
-    receivedAt :: Prelude.Maybe Core.POSIX,
+    receivedAt :: Prelude.Maybe Data.POSIX,
     -- | The order in which actions should complete processing. An action can be
     -- a @PUT@ or @DELETE@ action for mapping users to their groups.
     orderingId :: Prelude.Maybe Prelude.Natural,
@@ -86,7 +87,7 @@ newGroupOrderingIdSummary =
 -- | The last date-time an action was updated. An action can be a @PUT@ or
 -- @DELETE@ action for mapping users to their groups.
 groupOrderingIdSummary_lastUpdatedAt :: Lens.Lens' GroupOrderingIdSummary (Prelude.Maybe Prelude.UTCTime)
-groupOrderingIdSummary_lastUpdatedAt = Lens.lens (\GroupOrderingIdSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@GroupOrderingIdSummary' {} a -> s {lastUpdatedAt = a} :: GroupOrderingIdSummary) Prelude.. Lens.mapping Core._Time
+groupOrderingIdSummary_lastUpdatedAt = Lens.lens (\GroupOrderingIdSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@GroupOrderingIdSummary' {} a -> s {lastUpdatedAt = a} :: GroupOrderingIdSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The current processing status of actions for mapping users to their
 -- groups. The status can be either @PROCESSING@, @SUCCEEDED@, @DELETING@,
@@ -97,7 +98,7 @@ groupOrderingIdSummary_status = Lens.lens (\GroupOrderingIdSummary' {status} -> 
 -- | The date-time an action was received by Amazon Kendra. An action can be
 -- a @PUT@ or @DELETE@ action for mapping users to their groups.
 groupOrderingIdSummary_receivedAt :: Lens.Lens' GroupOrderingIdSummary (Prelude.Maybe Prelude.UTCTime)
-groupOrderingIdSummary_receivedAt = Lens.lens (\GroupOrderingIdSummary' {receivedAt} -> receivedAt) (\s@GroupOrderingIdSummary' {} a -> s {receivedAt = a} :: GroupOrderingIdSummary) Prelude.. Lens.mapping Core._Time
+groupOrderingIdSummary_receivedAt = Lens.lens (\GroupOrderingIdSummary' {receivedAt} -> receivedAt) (\s@GroupOrderingIdSummary' {} a -> s {receivedAt = a} :: GroupOrderingIdSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The order in which actions should complete processing. An action can be
 -- a @PUT@ or @DELETE@ action for mapping users to their groups.
@@ -109,17 +110,17 @@ groupOrderingIdSummary_orderingId = Lens.lens (\GroupOrderingIdSummary' {orderin
 groupOrderingIdSummary_failureReason :: Lens.Lens' GroupOrderingIdSummary (Prelude.Maybe Prelude.Text)
 groupOrderingIdSummary_failureReason = Lens.lens (\GroupOrderingIdSummary' {failureReason} -> failureReason) (\s@GroupOrderingIdSummary' {} a -> s {failureReason = a} :: GroupOrderingIdSummary)
 
-instance Core.FromJSON GroupOrderingIdSummary where
+instance Data.FromJSON GroupOrderingIdSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupOrderingIdSummary"
       ( \x ->
           GroupOrderingIdSummary'
-            Prelude.<$> (x Core..:? "LastUpdatedAt")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ReceivedAt")
-            Prelude.<*> (x Core..:? "OrderingId")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "LastUpdatedAt")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ReceivedAt")
+            Prelude.<*> (x Data..:? "OrderingId")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable GroupOrderingIdSummary where

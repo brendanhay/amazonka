@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ConfluencePageToIndexFieldMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ConfluencePageFieldName
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,17 +88,17 @@ confluencePageToIndexFieldMapping_dateFieldFormat :: Lens.Lens' ConfluencePageTo
 confluencePageToIndexFieldMapping_dateFieldFormat = Lens.lens (\ConfluencePageToIndexFieldMapping' {dateFieldFormat} -> dateFieldFormat) (\s@ConfluencePageToIndexFieldMapping' {} a -> s {dateFieldFormat = a} :: ConfluencePageToIndexFieldMapping)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ConfluencePageToIndexFieldMapping
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfluencePageToIndexFieldMapping"
       ( \x ->
           ConfluencePageToIndexFieldMapping'
-            Prelude.<$> (x Core..:? "DataSourceFieldName")
-            Prelude.<*> (x Core..:? "IndexFieldName")
-            Prelude.<*> (x Core..:? "DateFieldFormat")
+            Prelude.<$> (x Data..:? "DataSourceFieldName")
+            Prelude.<*> (x Data..:? "IndexFieldName")
+            Prelude.<*> (x Data..:? "DateFieldFormat")
       )
 
 instance
@@ -121,17 +122,17 @@ instance
       `Prelude.seq` Prelude.rnf dateFieldFormat
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ConfluencePageToIndexFieldMapping
   where
   toJSON ConfluencePageToIndexFieldMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceFieldName" Core..=)
+          [ ("DataSourceFieldName" Data..=)
               Prelude.<$> dataSourceFieldName,
-            ("IndexFieldName" Core..=)
+            ("IndexFieldName" Data..=)
               Prelude.<$> indexFieldName,
-            ("DateFieldFormat" Core..=)
+            ("DateFieldFormat" Data..=)
               Prelude.<$> dateFieldFormat
           ]
       )

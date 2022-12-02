@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ConfluenceSpaceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ConfluenceSpaceToIndexFieldMapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -150,17 +151,17 @@ confluenceSpaceConfiguration_spaceFieldMappings = Lens.lens (\ConfluenceSpaceCon
 confluenceSpaceConfiguration_includeSpaces :: Lens.Lens' ConfluenceSpaceConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 confluenceSpaceConfiguration_includeSpaces = Lens.lens (\ConfluenceSpaceConfiguration' {includeSpaces} -> includeSpaces) (\s@ConfluenceSpaceConfiguration' {} a -> s {includeSpaces = a} :: ConfluenceSpaceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ConfluenceSpaceConfiguration where
+instance Data.FromJSON ConfluenceSpaceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfluenceSpaceConfiguration"
       ( \x ->
           ConfluenceSpaceConfiguration'
-            Prelude.<$> (x Core..:? "CrawlPersonalSpaces")
-            Prelude.<*> (x Core..:? "CrawlArchivedSpaces")
-            Prelude.<*> (x Core..:? "ExcludeSpaces")
-            Prelude.<*> (x Core..:? "SpaceFieldMappings")
-            Prelude.<*> (x Core..:? "IncludeSpaces")
+            Prelude.<$> (x Data..:? "CrawlPersonalSpaces")
+            Prelude.<*> (x Data..:? "CrawlArchivedSpaces")
+            Prelude.<*> (x Data..:? "ExcludeSpaces")
+            Prelude.<*> (x Data..:? "SpaceFieldMappings")
+            Prelude.<*> (x Data..:? "IncludeSpaces")
       )
 
 instance
@@ -182,17 +183,17 @@ instance Prelude.NFData ConfluenceSpaceConfiguration where
       `Prelude.seq` Prelude.rnf spaceFieldMappings
       `Prelude.seq` Prelude.rnf includeSpaces
 
-instance Core.ToJSON ConfluenceSpaceConfiguration where
+instance Data.ToJSON ConfluenceSpaceConfiguration where
   toJSON ConfluenceSpaceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CrawlPersonalSpaces" Core..=)
+          [ ("CrawlPersonalSpaces" Data..=)
               Prelude.<$> crawlPersonalSpaces,
-            ("CrawlArchivedSpaces" Core..=)
+            ("CrawlArchivedSpaces" Data..=)
               Prelude.<$> crawlArchivedSpaces,
-            ("ExcludeSpaces" Core..=) Prelude.<$> excludeSpaces,
-            ("SpaceFieldMappings" Core..=)
+            ("ExcludeSpaces" Data..=) Prelude.<$> excludeSpaces,
+            ("SpaceFieldMappings" Data..=)
               Prelude.<$> spaceFieldMappings,
-            ("IncludeSpaces" Core..=) Prelude.<$> includeSpaces
+            ("IncludeSpaces" Data..=) Prelude.<$> includeSpaces
           ]
       )

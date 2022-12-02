@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -216,36 +217,36 @@ instance Prelude.NFData DeletePrincipalMapping where
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToHeaders DeletePrincipalMapping where
+instance Data.ToHeaders DeletePrincipalMapping where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DeletePrincipalMapping" ::
+              Data.=# ( "AWSKendraFrontendService.DeletePrincipalMapping" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePrincipalMapping where
+instance Data.ToJSON DeletePrincipalMapping where
   toJSON DeletePrincipalMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceId" Core..=) Prelude.<$> dataSourceId,
-            ("OrderingId" Core..=) Prelude.<$> orderingId,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("GroupId" Core..= groupId)
+          [ ("DataSourceId" Data..=) Prelude.<$> dataSourceId,
+            ("OrderingId" Data..=) Prelude.<$> orderingId,
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("GroupId" Data..= groupId)
           ]
       )
 
-instance Core.ToPath DeletePrincipalMapping where
+instance Data.ToPath DeletePrincipalMapping where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePrincipalMapping where
+instance Data.ToQuery DeletePrincipalMapping where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePrincipalMappingResponse' smart constructor.

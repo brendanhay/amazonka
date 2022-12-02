@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest BatchDeleteDocument where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteDocumentResponse'
-            Prelude.<$> ( x Core..?> "FailedDocuments"
+            Prelude.<$> ( x Data..?> "FailedDocuments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -132,37 +133,37 @@ instance Prelude.NFData BatchDeleteDocument where
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf documentIdList
 
-instance Core.ToHeaders BatchDeleteDocument where
+instance Data.ToHeaders BatchDeleteDocument where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.BatchDeleteDocument" ::
+              Data.=# ( "AWSKendraFrontendService.BatchDeleteDocument" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDeleteDocument where
+instance Data.ToJSON BatchDeleteDocument where
   toJSON BatchDeleteDocument' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceSyncJobMetricTarget" Core..=)
+          [ ("DataSourceSyncJobMetricTarget" Data..=)
               Prelude.<$> dataSourceSyncJobMetricTarget,
-            Prelude.Just ("IndexId" Core..= indexId),
+            Prelude.Just ("IndexId" Data..= indexId),
             Prelude.Just
-              ("DocumentIdList" Core..= documentIdList)
+              ("DocumentIdList" Data..= documentIdList)
           ]
       )
 
-instance Core.ToPath BatchDeleteDocument where
+instance Data.ToPath BatchDeleteDocument where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDeleteDocument where
+instance Data.ToQuery BatchDeleteDocument where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDeleteDocumentResponse' smart constructor.

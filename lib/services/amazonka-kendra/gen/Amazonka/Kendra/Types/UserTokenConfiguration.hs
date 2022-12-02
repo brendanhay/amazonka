@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.UserTokenConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.JsonTokenTypeConfiguration
 import Amazonka.Kendra.Types.JwtTokenTypeConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ userTokenConfiguration_jwtTokenTypeConfiguration = Lens.lens (\UserTokenConfigur
 userTokenConfiguration_jsonTokenTypeConfiguration :: Lens.Lens' UserTokenConfiguration (Prelude.Maybe JsonTokenTypeConfiguration)
 userTokenConfiguration_jsonTokenTypeConfiguration = Lens.lens (\UserTokenConfiguration' {jsonTokenTypeConfiguration} -> jsonTokenTypeConfiguration) (\s@UserTokenConfiguration' {} a -> s {jsonTokenTypeConfiguration = a} :: UserTokenConfiguration)
 
-instance Core.FromJSON UserTokenConfiguration where
+instance Data.FromJSON UserTokenConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserTokenConfiguration"
       ( \x ->
           UserTokenConfiguration'
-            Prelude.<$> (x Core..:? "JwtTokenTypeConfiguration")
-            Prelude.<*> (x Core..:? "JsonTokenTypeConfiguration")
+            Prelude.<$> (x Data..:? "JwtTokenTypeConfiguration")
+            Prelude.<*> (x Data..:? "JsonTokenTypeConfiguration")
       )
 
 instance Prelude.Hashable UserTokenConfiguration where
@@ -85,13 +86,13 @@ instance Prelude.NFData UserTokenConfiguration where
     Prelude.rnf jwtTokenTypeConfiguration
       `Prelude.seq` Prelude.rnf jsonTokenTypeConfiguration
 
-instance Core.ToJSON UserTokenConfiguration where
+instance Data.ToJSON UserTokenConfiguration where
   toJSON UserTokenConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JwtTokenTypeConfiguration" Core..=)
+          [ ("JwtTokenTypeConfiguration" Data..=)
               Prelude.<$> jwtTokenTypeConfiguration,
-            ("JsonTokenTypeConfiguration" Core..=)
+            ("JsonTokenTypeConfiguration" Data..=)
               Prelude.<$> jsonTokenTypeConfiguration
           ]
       )

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,14 +113,14 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAccessControlConfigurationResponse'
-            Prelude.<$> ( x Core..?> "AccessControlList"
+            Prelude.<$> ( x Data..?> "AccessControlList"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Core..?> "ErrorMessage")
-              Prelude.<*> (x Core..?> "Description")
-              Prelude.<*> (x Core..?> "HierarchicalAccessControlList")
+              Prelude.<*> (x Data..?> "ErrorMessage")
+              Prelude.<*> (x Data..?> "Description")
+              Prelude.<*> (x Data..?> "HierarchicalAccessControlList")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "Name")
+              Prelude.<*> (x Data..:> "Name")
       )
 
 instance
@@ -140,43 +141,43 @@ instance
     Prelude.rnf indexId `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeAccessControlConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DescribeAccessControlConfiguration" ::
+              Data.=# ( "AWSKendraFrontendService.DescribeAccessControlConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeAccessControlConfiguration
   where
   toJSON DescribeAccessControlConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Id" Core..= id)
+          [ Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeAccessControlConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeAccessControlConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

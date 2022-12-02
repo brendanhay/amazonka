@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DocumentAttributeTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DocumentAttributeValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -120,15 +121,15 @@ documentAttributeTarget_targetDocumentAttributeKey = Lens.lens (\DocumentAttribu
 documentAttributeTarget_targetDocumentAttributeValueDeletion :: Lens.Lens' DocumentAttributeTarget (Prelude.Maybe Prelude.Bool)
 documentAttributeTarget_targetDocumentAttributeValueDeletion = Lens.lens (\DocumentAttributeTarget' {targetDocumentAttributeValueDeletion} -> targetDocumentAttributeValueDeletion) (\s@DocumentAttributeTarget' {} a -> s {targetDocumentAttributeValueDeletion = a} :: DocumentAttributeTarget)
 
-instance Core.FromJSON DocumentAttributeTarget where
+instance Data.FromJSON DocumentAttributeTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentAttributeTarget"
       ( \x ->
           DocumentAttributeTarget'
-            Prelude.<$> (x Core..:? "TargetDocumentAttributeValue")
-            Prelude.<*> (x Core..:? "TargetDocumentAttributeKey")
-            Prelude.<*> (x Core..:? "TargetDocumentAttributeValueDeletion")
+            Prelude.<$> (x Data..:? "TargetDocumentAttributeValue")
+            Prelude.<*> (x Data..:? "TargetDocumentAttributeKey")
+            Prelude.<*> (x Data..:? "TargetDocumentAttributeValueDeletion")
       )
 
 instance Prelude.Hashable DocumentAttributeTarget where
@@ -144,15 +145,15 @@ instance Prelude.NFData DocumentAttributeTarget where
       `Prelude.seq` Prelude.rnf targetDocumentAttributeKey
       `Prelude.seq` Prelude.rnf targetDocumentAttributeValueDeletion
 
-instance Core.ToJSON DocumentAttributeTarget where
+instance Data.ToJSON DocumentAttributeTarget where
   toJSON DocumentAttributeTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetDocumentAttributeValue" Core..=)
+          [ ("TargetDocumentAttributeValue" Data..=)
               Prelude.<$> targetDocumentAttributeValue,
-            ("TargetDocumentAttributeKey" Core..=)
+            ("TargetDocumentAttributeKey" Data..=)
               Prelude.<$> targetDocumentAttributeKey,
-            ("TargetDocumentAttributeValueDeletion" Core..=)
+            ("TargetDocumentAttributeValueDeletion" Data..=)
               Prelude.<$> targetDocumentAttributeValueDeletion
           ]
       )

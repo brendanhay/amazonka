@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.CustomDocumentEnrichmentConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.HookConfiguration
 import Amazonka.Kendra.Types.InlineCustomDocumentEnrichmentConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -132,20 +133,20 @@ customDocumentEnrichmentConfiguration_preExtractionHookConfiguration :: Lens.Len
 customDocumentEnrichmentConfiguration_preExtractionHookConfiguration = Lens.lens (\CustomDocumentEnrichmentConfiguration' {preExtractionHookConfiguration} -> preExtractionHookConfiguration) (\s@CustomDocumentEnrichmentConfiguration' {} a -> s {preExtractionHookConfiguration = a} :: CustomDocumentEnrichmentConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomDocumentEnrichmentConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomDocumentEnrichmentConfiguration"
       ( \x ->
           CustomDocumentEnrichmentConfiguration'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> ( x Core..:? "InlineConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> ( x Data..:? "InlineConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PostExtractionHookConfiguration")
-            Prelude.<*> (x Core..:? "PreExtractionHookConfiguration")
+            Prelude.<*> (x Data..:? "PostExtractionHookConfiguration")
+            Prelude.<*> (x Data..:? "PreExtractionHookConfiguration")
       )
 
 instance
@@ -171,18 +172,18 @@ instance
       `Prelude.seq` Prelude.rnf preExtractionHookConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CustomDocumentEnrichmentConfiguration
   where
   toJSON CustomDocumentEnrichmentConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("InlineConfigurations" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("InlineConfigurations" Data..=)
               Prelude.<$> inlineConfigurations,
-            ("PostExtractionHookConfiguration" Core..=)
+            ("PostExtractionHookConfiguration" Data..=)
               Prelude.<$> postExtractionHookConfiguration,
-            ("PreExtractionHookConfiguration" Core..=)
+            ("PreExtractionHookConfiguration" Data..=)
               Prelude.<$> preExtractionHookConfiguration
           ]
       )

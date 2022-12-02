@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,7 +175,7 @@ instance Core.AWSRequest CreateThesaurus where
     Response.receiveJSON
       ( \s h x ->
           CreateThesaurusResponse'
-            Prelude.<$> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,39 +199,39 @@ instance Prelude.NFData CreateThesaurus where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf sourceS3Path
 
-instance Core.ToHeaders CreateThesaurus where
+instance Data.ToHeaders CreateThesaurus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.CreateThesaurus" ::
+              Data.=# ( "AWSKendraFrontendService.CreateThesaurus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateThesaurus where
+instance Data.ToJSON CreateThesaurus where
   toJSON CreateThesaurus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("SourceS3Path" Core..= sourceS3Path)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("RoleArn" Data..= roleArn),
+            Prelude.Just ("SourceS3Path" Data..= sourceS3Path)
           ]
       )
 
-instance Core.ToPath CreateThesaurus where
+instance Data.ToPath CreateThesaurus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateThesaurus where
+instance Data.ToQuery CreateThesaurus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateThesaurusResponse' smart constructor.

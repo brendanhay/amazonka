@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.AuthenticationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.BasicAuthenticationConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ newAuthenticationConfiguration =
 authenticationConfiguration_basicAuthentication :: Lens.Lens' AuthenticationConfiguration (Prelude.Maybe [BasicAuthenticationConfiguration])
 authenticationConfiguration_basicAuthentication = Lens.lens (\AuthenticationConfiguration' {basicAuthentication} -> basicAuthentication) (\s@AuthenticationConfiguration' {} a -> s {basicAuthentication = a} :: AuthenticationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AuthenticationConfiguration where
+instance Data.FromJSON AuthenticationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthenticationConfiguration"
       ( \x ->
           AuthenticationConfiguration'
-            Prelude.<$> ( x Core..:? "BasicAuthentication"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "BasicAuthentication"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -83,11 +84,11 @@ instance Prelude.NFData AuthenticationConfiguration where
   rnf AuthenticationConfiguration' {..} =
     Prelude.rnf basicAuthentication
 
-instance Core.ToJSON AuthenticationConfiguration where
+instance Data.ToJSON AuthenticationConfiguration where
   toJSON AuthenticationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BasicAuthentication" Core..=)
+          [ ("BasicAuthentication" Data..=)
               Prelude.<$> basicAuthentication
           ]
       )

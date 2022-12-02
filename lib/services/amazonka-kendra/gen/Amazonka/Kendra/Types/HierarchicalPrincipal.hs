@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.HierarchicalPrincipal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.Principal
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,13 +68,13 @@ newHierarchicalPrincipal =
 hierarchicalPrincipal_principalList :: Lens.Lens' HierarchicalPrincipal [Principal]
 hierarchicalPrincipal_principalList = Lens.lens (\HierarchicalPrincipal' {principalList} -> principalList) (\s@HierarchicalPrincipal' {} a -> s {principalList = a} :: HierarchicalPrincipal) Prelude.. Lens.coerced
 
-instance Core.FromJSON HierarchicalPrincipal where
+instance Data.FromJSON HierarchicalPrincipal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HierarchicalPrincipal"
       ( \x ->
           HierarchicalPrincipal'
-            Prelude.<$> (x Core..:? "PrincipalList" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "PrincipalList" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable HierarchicalPrincipal where
@@ -84,11 +85,11 @@ instance Prelude.NFData HierarchicalPrincipal where
   rnf HierarchicalPrincipal' {..} =
     Prelude.rnf principalList
 
-instance Core.ToJSON HierarchicalPrincipal where
+instance Data.ToJSON HierarchicalPrincipal where
   toJSON HierarchicalPrincipal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PrincipalList" Core..= principalList)
+              ("PrincipalList" Data..= principalList)
           ]
       )

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -171,7 +172,7 @@ instance Core.AWSRequest CreateExperience where
       ( \s h x ->
           CreateExperienceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Id")
+            Prelude.<*> (x Data..:> "Id")
       )
 
 instance Prelude.Hashable CreateExperience where
@@ -192,38 +193,38 @@ instance Prelude.NFData CreateExperience where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders CreateExperience where
+instance Data.ToHeaders CreateExperience where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.CreateExperience" ::
+              Data.=# ( "AWSKendraFrontendService.CreateExperience" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateExperience where
+instance Data.ToJSON CreateExperience where
   toJSON CreateExperience' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Configuration" Core..=) Prelude.<$> configuration,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Configuration" Data..=) Prelude.<$> configuration,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath CreateExperience where
+instance Data.ToPath CreateExperience where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateExperience where
+instance Data.ToQuery CreateExperience where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateExperienceResponse' smart constructor.

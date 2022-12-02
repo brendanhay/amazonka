@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,34 +99,34 @@ instance Prelude.NFData DeleteThesaurus where
   rnf DeleteThesaurus' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders DeleteThesaurus where
+instance Data.ToHeaders DeleteThesaurus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DeleteThesaurus" ::
+              Data.=# ( "AWSKendraFrontendService.DeleteThesaurus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteThesaurus where
+instance Data.ToJSON DeleteThesaurus where
   toJSON DeleteThesaurus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath DeleteThesaurus where
+instance Data.ToPath DeleteThesaurus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteThesaurus where
+instance Data.ToQuery DeleteThesaurus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteThesaurusResponse' smart constructor.

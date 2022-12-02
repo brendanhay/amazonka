@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ThesaurusSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ThesaurusStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,9 +36,9 @@ data ThesaurusSummary = ThesaurusSummary'
     -- | The identifier of the thesaurus.
     id :: Prelude.Maybe Prelude.Text,
     -- | The Unix datetime that the thesaurus was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix datetime that the thesaurus was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,23 +84,23 @@ thesaurusSummary_id = Lens.lens (\ThesaurusSummary' {id} -> id) (\s@ThesaurusSum
 
 -- | The Unix datetime that the thesaurus was created.
 thesaurusSummary_createdAt :: Lens.Lens' ThesaurusSummary (Prelude.Maybe Prelude.UTCTime)
-thesaurusSummary_createdAt = Lens.lens (\ThesaurusSummary' {createdAt} -> createdAt) (\s@ThesaurusSummary' {} a -> s {createdAt = a} :: ThesaurusSummary) Prelude.. Lens.mapping Core._Time
+thesaurusSummary_createdAt = Lens.lens (\ThesaurusSummary' {createdAt} -> createdAt) (\s@ThesaurusSummary' {} a -> s {createdAt = a} :: ThesaurusSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix datetime that the thesaurus was last updated.
 thesaurusSummary_updatedAt :: Lens.Lens' ThesaurusSummary (Prelude.Maybe Prelude.UTCTime)
-thesaurusSummary_updatedAt = Lens.lens (\ThesaurusSummary' {updatedAt} -> updatedAt) (\s@ThesaurusSummary' {} a -> s {updatedAt = a} :: ThesaurusSummary) Prelude.. Lens.mapping Core._Time
+thesaurusSummary_updatedAt = Lens.lens (\ThesaurusSummary' {updatedAt} -> updatedAt) (\s@ThesaurusSummary' {} a -> s {updatedAt = a} :: ThesaurusSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ThesaurusSummary where
+instance Data.FromJSON ThesaurusSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThesaurusSummary"
       ( \x ->
           ThesaurusSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable ThesaurusSummary where

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,18 +104,18 @@ instance Core.AWSRequest DescribeFaq where
     Response.receiveJSON
       ( \s h x ->
           DescribeFaqResponse'
-            Prelude.<$> (x Core..?> "IndexId")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "ErrorMessage")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LanguageCode")
-            Prelude.<*> (x Core..?> "S3Path")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "UpdatedAt")
-            Prelude.<*> (x Core..?> "FileFormat")
+            Prelude.<$> (x Data..?> "IndexId")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LanguageCode")
+            Prelude.<*> (x Data..?> "S3Path")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "UpdatedAt")
+            Prelude.<*> (x Data..?> "FileFormat")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,34 +128,34 @@ instance Prelude.NFData DescribeFaq where
   rnf DescribeFaq' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders DescribeFaq where
+instance Data.ToHeaders DescribeFaq where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DescribeFaq" ::
+              Data.=# ( "AWSKendraFrontendService.DescribeFaq" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFaq where
+instance Data.ToJSON DescribeFaq where
   toJSON DescribeFaq' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath DescribeFaq where
+instance Data.ToPath DescribeFaq where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFaq where
+instance Data.ToQuery DescribeFaq where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFaqResponse' smart constructor.
@@ -182,9 +183,9 @@ data DescribeFaqResponse = DescribeFaqResponse'
     languageCode :: Prelude.Maybe Prelude.Text,
     s3Path :: Prelude.Maybe S3Path,
     -- | The date and time that the FAQ was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the FAQ was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The file format used by the input files for the FAQ.
     fileFormat :: Prelude.Maybe FaqFileFormat,
     -- | The response's http status code.
@@ -294,11 +295,11 @@ describeFaqResponse_s3Path = Lens.lens (\DescribeFaqResponse' {s3Path} -> s3Path
 
 -- | The date and time that the FAQ was created.
 describeFaqResponse_createdAt :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.UTCTime)
-describeFaqResponse_createdAt = Lens.lens (\DescribeFaqResponse' {createdAt} -> createdAt) (\s@DescribeFaqResponse' {} a -> s {createdAt = a} :: DescribeFaqResponse) Prelude.. Lens.mapping Core._Time
+describeFaqResponse_createdAt = Lens.lens (\DescribeFaqResponse' {createdAt} -> createdAt) (\s@DescribeFaqResponse' {} a -> s {createdAt = a} :: DescribeFaqResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the FAQ was last updated.
 describeFaqResponse_updatedAt :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.UTCTime)
-describeFaqResponse_updatedAt = Lens.lens (\DescribeFaqResponse' {updatedAt} -> updatedAt) (\s@DescribeFaqResponse' {} a -> s {updatedAt = a} :: DescribeFaqResponse) Prelude.. Lens.mapping Core._Time
+describeFaqResponse_updatedAt = Lens.lens (\DescribeFaqResponse' {updatedAt} -> updatedAt) (\s@DescribeFaqResponse' {} a -> s {updatedAt = a} :: DescribeFaqResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The file format used by the input files for the FAQ.
 describeFaqResponse_fileFormat :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe FaqFileFormat)

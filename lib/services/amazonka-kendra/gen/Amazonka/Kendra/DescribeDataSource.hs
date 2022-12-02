@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,21 +109,21 @@ instance Core.AWSRequest DescribeDataSource where
     Response.receiveJSON
       ( \s h x ->
           DescribeDataSourceResponse'
-            Prelude.<$> (x Core..?> "Schedule")
-            Prelude.<*> (x Core..?> "VpcConfiguration")
-            Prelude.<*> (x Core..?> "CustomDocumentEnrichmentConfiguration")
-            Prelude.<*> (x Core..?> "IndexId")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "ErrorMessage")
-            Prelude.<*> (x Core..?> "Configuration")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LanguageCode")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<$> (x Data..?> "Schedule")
+            Prelude.<*> (x Data..?> "VpcConfiguration")
+            Prelude.<*> (x Data..?> "CustomDocumentEnrichmentConfiguration")
+            Prelude.<*> (x Data..?> "IndexId")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "Configuration")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LanguageCode")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,34 +136,34 @@ instance Prelude.NFData DescribeDataSource where
   rnf DescribeDataSource' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders DescribeDataSource where
+instance Data.ToHeaders DescribeDataSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DescribeDataSource" ::
+              Data.=# ( "AWSKendraFrontendService.DescribeDataSource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDataSource where
+instance Data.ToJSON DescribeDataSource where
   toJSON DescribeDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath DescribeDataSource where
+instance Data.ToPath DescribeDataSource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDataSource where
+instance Data.ToQuery DescribeDataSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDataSourceResponse' smart constructor.
@@ -212,9 +213,9 @@ data DescribeDataSourceResponse = DescribeDataSourceResponse'
     -- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
     languageCode :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp of when the data source connector was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix timestamp of when the data source connector was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -375,11 +376,11 @@ describeDataSourceResponse_languageCode = Lens.lens (\DescribeDataSourceResponse
 
 -- | The Unix timestamp of when the data source connector was created.
 describeDataSourceResponse_createdAt :: Lens.Lens' DescribeDataSourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeDataSourceResponse_createdAt = Lens.lens (\DescribeDataSourceResponse' {createdAt} -> createdAt) (\s@DescribeDataSourceResponse' {} a -> s {createdAt = a} :: DescribeDataSourceResponse) Prelude.. Lens.mapping Core._Time
+describeDataSourceResponse_createdAt = Lens.lens (\DescribeDataSourceResponse' {createdAt} -> createdAt) (\s@DescribeDataSourceResponse' {} a -> s {createdAt = a} :: DescribeDataSourceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix timestamp of when the data source connector was last updated.
 describeDataSourceResponse_updatedAt :: Lens.Lens' DescribeDataSourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeDataSourceResponse_updatedAt = Lens.lens (\DescribeDataSourceResponse' {updatedAt} -> updatedAt) (\s@DescribeDataSourceResponse' {} a -> s {updatedAt = a} :: DescribeDataSourceResponse) Prelude.. Lens.mapping Core._Time
+describeDataSourceResponse_updatedAt = Lens.lens (\DescribeDataSourceResponse' {updatedAt} -> updatedAt) (\s@DescribeDataSourceResponse' {} a -> s {updatedAt = a} :: DescribeDataSourceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeDataSourceResponse_httpStatus :: Lens.Lens' DescribeDataSourceResponse Prelude.Int

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -213,12 +214,12 @@ instance Core.AWSRequest GetSnapshots where
     Response.receiveJSON
       ( \s h x ->
           GetSnapshotsResponse'
-            Prelude.<$> (x Core..?> "SnapShotTimeFilter")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "SnapshotsDataHeader"
+            Prelude.<$> (x Data..?> "SnapShotTimeFilter")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "SnapshotsDataHeader"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "SnapshotsData" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "SnapshotsData" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -238,37 +239,37 @@ instance Prelude.NFData GetSnapshots where
       `Prelude.seq` Prelude.rnf interval
       `Prelude.seq` Prelude.rnf metricType
 
-instance Core.ToHeaders GetSnapshots where
+instance Data.ToHeaders GetSnapshots where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.GetSnapshots" ::
+              Data.=# ( "AWSKendraFrontendService.GetSnapshots" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSnapshots where
+instance Data.ToJSON GetSnapshots where
   toJSON GetSnapshots' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Interval" Core..= interval),
-            Prelude.Just ("MetricType" Core..= metricType)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Interval" Data..= interval),
+            Prelude.Just ("MetricType" Data..= metricType)
           ]
       )
 
-instance Core.ToPath GetSnapshots where
+instance Data.ToPath GetSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSnapshots where
+instance Data.ToQuery GetSnapshots where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSnapshotsResponse' smart constructor.

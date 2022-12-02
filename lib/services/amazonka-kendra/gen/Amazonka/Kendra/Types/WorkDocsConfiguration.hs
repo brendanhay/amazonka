@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.WorkDocsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -201,22 +202,22 @@ workDocsConfiguration_exclusionPatterns = Lens.lens (\WorkDocsConfiguration' {ex
 workDocsConfiguration_organizationId :: Lens.Lens' WorkDocsConfiguration Prelude.Text
 workDocsConfiguration_organizationId = Lens.lens (\WorkDocsConfiguration' {organizationId} -> organizationId) (\s@WorkDocsConfiguration' {} a -> s {organizationId = a} :: WorkDocsConfiguration)
 
-instance Core.FromJSON WorkDocsConfiguration where
+instance Data.FromJSON WorkDocsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkDocsConfiguration"
       ( \x ->
           WorkDocsConfiguration'
-            Prelude.<$> (x Core..:? "UseChangeLog")
-            Prelude.<*> ( x Core..:? "InclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "UseChangeLog")
+            Prelude.<*> ( x Data..:? "InclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FieldMappings")
-            Prelude.<*> (x Core..:? "CrawlComments")
-            Prelude.<*> ( x Core..:? "ExclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "FieldMappings")
+            Prelude.<*> (x Data..:? "CrawlComments")
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "OrganizationId")
+            Prelude.<*> (x Data..: "OrganizationId")
       )
 
 instance Prelude.Hashable WorkDocsConfiguration where
@@ -237,18 +238,18 @@ instance Prelude.NFData WorkDocsConfiguration where
       `Prelude.seq` Prelude.rnf exclusionPatterns
       `Prelude.seq` Prelude.rnf organizationId
 
-instance Core.ToJSON WorkDocsConfiguration where
+instance Data.ToJSON WorkDocsConfiguration where
   toJSON WorkDocsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UseChangeLog" Core..=) Prelude.<$> useChangeLog,
-            ("InclusionPatterns" Core..=)
+          [ ("UseChangeLog" Data..=) Prelude.<$> useChangeLog,
+            ("InclusionPatterns" Data..=)
               Prelude.<$> inclusionPatterns,
-            ("FieldMappings" Core..=) Prelude.<$> fieldMappings,
-            ("CrawlComments" Core..=) Prelude.<$> crawlComments,
-            ("ExclusionPatterns" Core..=)
+            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
+            ("CrawlComments" Data..=) Prelude.<$> crawlComments,
+            ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )

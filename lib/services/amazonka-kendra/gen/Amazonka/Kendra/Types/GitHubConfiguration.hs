@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.GitHubConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import Amazonka.Kendra.Types.DataSourceVpcConfiguration
 import Amazonka.Kendra.Types.GitHubDocumentCrawlProperties
@@ -537,62 +538,62 @@ gitHubConfiguration_gitHubPullRequestDocumentAttachmentConfigurationFieldMapping
 gitHubConfiguration_secretArn :: Lens.Lens' GitHubConfiguration Prelude.Text
 gitHubConfiguration_secretArn = Lens.lens (\GitHubConfiguration' {secretArn} -> secretArn) (\s@GitHubConfiguration' {} a -> s {secretArn = a} :: GitHubConfiguration)
 
-instance Core.FromJSON GitHubConfiguration where
+instance Data.FromJSON GitHubConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GitHubConfiguration"
       ( \x ->
           GitHubConfiguration'
             Prelude.<$> ( x
-                            Core..:? "GitHubIssueAttachmentConfigurationFieldMappings"
+                            Data..:? "GitHubIssueAttachmentConfigurationFieldMappings"
                         )
-            Prelude.<*> (x Core..:? "UseChangeLog")
-            Prelude.<*> (x Core..:? "VpcConfiguration")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> ( x Core..:? "RepositoryFilter"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "UseChangeLog")
+            Prelude.<*> (x Data..:? "VpcConfiguration")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> ( x Data..:? "RepositoryFilter"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SaaSConfiguration")
+            Prelude.<*> (x Data..:? "SaaSConfiguration")
             Prelude.<*> ( x
-                            Core..:? "GitHubRepositoryConfigurationFieldMappings"
-                        )
-            Prelude.<*> ( x
-                            Core..:? "GitHubPullRequestCommentConfigurationFieldMappings"
+                            Data..:? "GitHubRepositoryConfigurationFieldMappings"
                         )
             Prelude.<*> ( x
-                            Core..:? "GitHubIssueCommentConfigurationFieldMappings"
-                        )
-            Prelude.<*> (x Core..:? "OnPremiseConfiguration")
-            Prelude.<*> (x Core..:? "GitHubCommitConfigurationFieldMappings")
-            Prelude.<*> (x Core..:? "GitHubDocumentCrawlProperties")
-            Prelude.<*> ( x
-                            Core..:? "GitHubPullRequestDocumentConfigurationFieldMappings"
-                        )
-            Prelude.<*> ( x Core..:? "ExclusionFolderNamePatterns"
-                            Core..!= Prelude.mempty
+                            Data..:? "GitHubPullRequestCommentConfigurationFieldMappings"
                         )
             Prelude.<*> ( x
-                            Core..:? "GitHubIssueDocumentConfigurationFieldMappings"
+                            Data..:? "GitHubIssueCommentConfigurationFieldMappings"
                         )
-            Prelude.<*> ( x Core..:? "InclusionFolderNamePatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "OnPremiseConfiguration")
+            Prelude.<*> (x Data..:? "GitHubCommitConfigurationFieldMappings")
+            Prelude.<*> (x Data..:? "GitHubDocumentCrawlProperties")
+            Prelude.<*> ( x
+                            Data..:? "GitHubPullRequestDocumentConfigurationFieldMappings"
                         )
-            Prelude.<*> ( x Core..:? "ExclusionFileTypePatterns"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Core..:? "InclusionFileNamePatterns"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Core..:? "InclusionFileTypePatterns"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Core..:? "ExclusionFileNamePatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ExclusionFolderNamePatterns"
+                            Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x
-                            Core..:? "GitHubPullRequestDocumentAttachmentConfigurationFieldMappings"
+                            Data..:? "GitHubIssueDocumentConfigurationFieldMappings"
                         )
-            Prelude.<*> (x Core..: "SecretArn")
+            Prelude.<*> ( x Data..:? "InclusionFolderNamePatterns"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Data..:? "ExclusionFileTypePatterns"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Data..:? "InclusionFileNamePatterns"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Data..:? "InclusionFileTypePatterns"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Data..:? "ExclusionFileNamePatterns"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "GitHubPullRequestDocumentAttachmentConfigurationFieldMappings"
+                        )
+            Prelude.<*> (x Data..: "SecretArn")
       )
 
 instance Prelude.Hashable GitHubConfiguration where
@@ -659,64 +660,64 @@ instance Prelude.NFData GitHubConfiguration where
         gitHubPullRequestDocumentAttachmentConfigurationFieldMappings
       `Prelude.seq` Prelude.rnf secretArn
 
-instance Core.ToJSON GitHubConfiguration where
+instance Data.ToJSON GitHubConfiguration where
   toJSON GitHubConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ ( "GitHubIssueAttachmentConfigurationFieldMappings"
-                Core..=
+                Data..=
             )
               Prelude.<$> gitHubIssueAttachmentConfigurationFieldMappings,
-            ("UseChangeLog" Core..=) Prelude.<$> useChangeLog,
-            ("VpcConfiguration" Core..=)
+            ("UseChangeLog" Data..=) Prelude.<$> useChangeLog,
+            ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("Type" Core..=) Prelude.<$> type',
-            ("RepositoryFilter" Core..=)
+            ("Type" Data..=) Prelude.<$> type',
+            ("RepositoryFilter" Data..=)
               Prelude.<$> repositoryFilter,
-            ("SaaSConfiguration" Core..=)
+            ("SaaSConfiguration" Data..=)
               Prelude.<$> saaSConfiguration,
             ( "GitHubRepositoryConfigurationFieldMappings"
-                Core..=
+                Data..=
             )
               Prelude.<$> gitHubRepositoryConfigurationFieldMappings,
             ( "GitHubPullRequestCommentConfigurationFieldMappings"
-                Core..=
+                Data..=
             )
               Prelude.<$> gitHubPullRequestCommentConfigurationFieldMappings,
             ( "GitHubIssueCommentConfigurationFieldMappings"
-                Core..=
+                Data..=
             )
               Prelude.<$> gitHubIssueCommentConfigurationFieldMappings,
-            ("OnPremiseConfiguration" Core..=)
+            ("OnPremiseConfiguration" Data..=)
               Prelude.<$> onPremiseConfiguration,
-            ("GitHubCommitConfigurationFieldMappings" Core..=)
+            ("GitHubCommitConfigurationFieldMappings" Data..=)
               Prelude.<$> gitHubCommitConfigurationFieldMappings,
-            ("GitHubDocumentCrawlProperties" Core..=)
+            ("GitHubDocumentCrawlProperties" Data..=)
               Prelude.<$> gitHubDocumentCrawlProperties,
             ( "GitHubPullRequestDocumentConfigurationFieldMappings"
-                Core..=
+                Data..=
             )
               Prelude.<$> gitHubPullRequestDocumentConfigurationFieldMappings,
-            ("ExclusionFolderNamePatterns" Core..=)
+            ("ExclusionFolderNamePatterns" Data..=)
               Prelude.<$> exclusionFolderNamePatterns,
             ( "GitHubIssueDocumentConfigurationFieldMappings"
-                Core..=
+                Data..=
             )
               Prelude.<$> gitHubIssueDocumentConfigurationFieldMappings,
-            ("InclusionFolderNamePatterns" Core..=)
+            ("InclusionFolderNamePatterns" Data..=)
               Prelude.<$> inclusionFolderNamePatterns,
-            ("ExclusionFileTypePatterns" Core..=)
+            ("ExclusionFileTypePatterns" Data..=)
               Prelude.<$> exclusionFileTypePatterns,
-            ("InclusionFileNamePatterns" Core..=)
+            ("InclusionFileNamePatterns" Data..=)
               Prelude.<$> inclusionFileNamePatterns,
-            ("InclusionFileTypePatterns" Core..=)
+            ("InclusionFileTypePatterns" Data..=)
               Prelude.<$> inclusionFileTypePatterns,
-            ("ExclusionFileNamePatterns" Core..=)
+            ("ExclusionFileNamePatterns" Data..=)
               Prelude.<$> exclusionFileNamePatterns,
             ( "GitHubPullRequestDocumentAttachmentConfigurationFieldMappings"
-                Core..=
+                Data..=
             )
               Prelude.<$> gitHubPullRequestDocumentAttachmentConfigurationFieldMappings,
-            Prelude.Just ("SecretArn" Core..= secretArn)
+            Prelude.Just ("SecretArn" Data..= secretArn)
           ]
       )

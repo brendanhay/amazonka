@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,8 +160,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListGroupsOlderThanOrderingIdResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "GroupsSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "GroupsSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -185,37 +186,37 @@ instance Prelude.NFData ListGroupsOlderThanOrderingId where
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf orderingId
 
-instance Core.ToHeaders ListGroupsOlderThanOrderingId where
+instance Data.ToHeaders ListGroupsOlderThanOrderingId where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.ListGroupsOlderThanOrderingId" ::
+              Data.=# ( "AWSKendraFrontendService.ListGroupsOlderThanOrderingId" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListGroupsOlderThanOrderingId where
+instance Data.ToJSON ListGroupsOlderThanOrderingId where
   toJSON ListGroupsOlderThanOrderingId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("DataSourceId" Core..=) Prelude.<$> dataSourceId,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("OrderingId" Core..= orderingId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("DataSourceId" Data..=) Prelude.<$> dataSourceId,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("OrderingId" Data..= orderingId)
           ]
       )
 
-instance Core.ToPath ListGroupsOlderThanOrderingId where
+instance Data.ToPath ListGroupsOlderThanOrderingId where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListGroupsOlderThanOrderingId where
+instance Data.ToQuery ListGroupsOlderThanOrderingId where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListGroupsOlderThanOrderingIdResponse' smart constructor.

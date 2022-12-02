@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.OneDriveUsers where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.S3Path
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,14 +78,14 @@ oneDriveUsers_oneDriveUserList = Lens.lens (\OneDriveUsers' {oneDriveUserList} -
 oneDriveUsers_oneDriveUserS3Path :: Lens.Lens' OneDriveUsers (Prelude.Maybe S3Path)
 oneDriveUsers_oneDriveUserS3Path = Lens.lens (\OneDriveUsers' {oneDriveUserS3Path} -> oneDriveUserS3Path) (\s@OneDriveUsers' {} a -> s {oneDriveUserS3Path = a} :: OneDriveUsers)
 
-instance Core.FromJSON OneDriveUsers where
+instance Data.FromJSON OneDriveUsers where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OneDriveUsers"
       ( \x ->
           OneDriveUsers'
-            Prelude.<$> (x Core..:? "OneDriveUserList")
-            Prelude.<*> (x Core..:? "OneDriveUserS3Path")
+            Prelude.<$> (x Data..:? "OneDriveUserList")
+            Prelude.<*> (x Data..:? "OneDriveUserS3Path")
       )
 
 instance Prelude.Hashable OneDriveUsers where
@@ -97,13 +98,13 @@ instance Prelude.NFData OneDriveUsers where
     Prelude.rnf oneDriveUserList
       `Prelude.seq` Prelude.rnf oneDriveUserS3Path
 
-instance Core.ToJSON OneDriveUsers where
+instance Data.ToJSON OneDriveUsers where
   toJSON OneDriveUsers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OneDriveUserList" Core..=)
+          [ ("OneDriveUserList" Data..=)
               Prelude.<$> oneDriveUserList,
-            ("OneDriveUserS3Path" Core..=)
+            ("OneDriveUserS3Path" Data..=)
               Prelude.<$> oneDriveUserS3Path
           ]
       )

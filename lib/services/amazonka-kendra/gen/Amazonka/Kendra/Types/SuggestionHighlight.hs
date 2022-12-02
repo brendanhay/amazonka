@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SuggestionHighlight where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The text highlights for a single query suggestion.
@@ -64,14 +65,14 @@ suggestionHighlight_beginOffset = Lens.lens (\SuggestionHighlight' {beginOffset}
 suggestionHighlight_endOffset :: Lens.Lens' SuggestionHighlight (Prelude.Maybe Prelude.Int)
 suggestionHighlight_endOffset = Lens.lens (\SuggestionHighlight' {endOffset} -> endOffset) (\s@SuggestionHighlight' {} a -> s {endOffset = a} :: SuggestionHighlight)
 
-instance Core.FromJSON SuggestionHighlight where
+instance Data.FromJSON SuggestionHighlight where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuggestionHighlight"
       ( \x ->
           SuggestionHighlight'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "EndOffset")
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "EndOffset")
       )
 
 instance Prelude.Hashable SuggestionHighlight where

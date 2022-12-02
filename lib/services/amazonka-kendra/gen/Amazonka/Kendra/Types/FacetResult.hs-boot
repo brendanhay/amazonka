@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Kendra.Types.FacetResult where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data FacetResult
@@ -24,7 +24,7 @@ instance Prelude.Show FacetResult
 
 instance Prelude.Generic FacetResult
 
-instance Core.FromJSON FacetResult
+instance Data.FromJSON FacetResult
 
 instance Prelude.NFData FacetResult
 

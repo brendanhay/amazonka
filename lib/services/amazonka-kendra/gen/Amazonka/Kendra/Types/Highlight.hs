@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.Highlight where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.HighlightType
 import qualified Amazonka.Prelude as Prelude
 
@@ -91,16 +92,16 @@ highlight_beginOffset = Lens.lens (\Highlight' {beginOffset} -> beginOffset) (\s
 highlight_endOffset :: Lens.Lens' Highlight Prelude.Int
 highlight_endOffset = Lens.lens (\Highlight' {endOffset} -> endOffset) (\s@Highlight' {} a -> s {endOffset = a} :: Highlight)
 
-instance Core.FromJSON Highlight where
+instance Data.FromJSON Highlight where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Highlight"
       ( \x ->
           Highlight'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "TopAnswer")
-            Prelude.<*> (x Core..: "BeginOffset")
-            Prelude.<*> (x Core..: "EndOffset")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "TopAnswer")
+            Prelude.<*> (x Data..: "BeginOffset")
+            Prelude.<*> (x Data..: "EndOffset")
       )
 
 instance Prelude.Hashable Highlight where

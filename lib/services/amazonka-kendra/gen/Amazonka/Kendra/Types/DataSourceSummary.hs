@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DataSourceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceStatus
 import Amazonka.Kendra.Types.DataSourceType
 import qualified Amazonka.Prelude as Prelude
@@ -45,9 +46,9 @@ data DataSourceSummary = DataSourceSummary'
     -- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
     languageCode :: Prelude.Maybe Prelude.Text,
     -- | The UNIX datetime that the data source was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The UNIX datetime that the data source was lasted updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,25 +116,25 @@ dataSourceSummary_languageCode = Lens.lens (\DataSourceSummary' {languageCode} -
 
 -- | The UNIX datetime that the data source was created.
 dataSourceSummary_createdAt :: Lens.Lens' DataSourceSummary (Prelude.Maybe Prelude.UTCTime)
-dataSourceSummary_createdAt = Lens.lens (\DataSourceSummary' {createdAt} -> createdAt) (\s@DataSourceSummary' {} a -> s {createdAt = a} :: DataSourceSummary) Prelude.. Lens.mapping Core._Time
+dataSourceSummary_createdAt = Lens.lens (\DataSourceSummary' {createdAt} -> createdAt) (\s@DataSourceSummary' {} a -> s {createdAt = a} :: DataSourceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The UNIX datetime that the data source was lasted updated.
 dataSourceSummary_updatedAt :: Lens.Lens' DataSourceSummary (Prelude.Maybe Prelude.UTCTime)
-dataSourceSummary_updatedAt = Lens.lens (\DataSourceSummary' {updatedAt} -> updatedAt) (\s@DataSourceSummary' {} a -> s {updatedAt = a} :: DataSourceSummary) Prelude.. Lens.mapping Core._Time
+dataSourceSummary_updatedAt = Lens.lens (\DataSourceSummary' {updatedAt} -> updatedAt) (\s@DataSourceSummary' {} a -> s {updatedAt = a} :: DataSourceSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DataSourceSummary where
+instance Data.FromJSON DataSourceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourceSummary"
       ( \x ->
           DataSourceSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable DataSourceSummary where

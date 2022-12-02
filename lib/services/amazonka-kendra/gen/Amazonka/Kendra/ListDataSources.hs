@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,8 +119,8 @@ instance Core.AWSRequest ListDataSources where
     Response.receiveJSON
       ( \s h x ->
           ListDataSourcesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SummaryItems" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SummaryItems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,35 +136,35 @@ instance Prelude.NFData ListDataSources where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders ListDataSources where
+instance Data.ToHeaders ListDataSources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.ListDataSources" ::
+              Data.=# ( "AWSKendraFrontendService.ListDataSources" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDataSources where
+instance Data.ToJSON ListDataSources where
   toJSON ListDataSources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath ListDataSources where
+instance Data.ToPath ListDataSources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDataSources where
+instance Data.ToQuery ListDataSources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDataSourcesResponse' smart constructor.

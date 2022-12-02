@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,8 +114,8 @@ instance Core.AWSRequest ListFaqs where
     Response.receiveJSON
       ( \s h x ->
           ListFaqsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "FaqSummaryItems"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "FaqSummaryItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -132,35 +133,35 @@ instance Prelude.NFData ListFaqs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders ListFaqs where
+instance Data.ToHeaders ListFaqs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.ListFaqs" ::
+              Data.=# ( "AWSKendraFrontendService.ListFaqs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFaqs where
+instance Data.ToJSON ListFaqs where
   toJSON ListFaqs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath ListFaqs where
+instance Data.ToPath ListFaqs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListFaqs where
+instance Data.ToQuery ListFaqs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFaqsResponse' smart constructor.

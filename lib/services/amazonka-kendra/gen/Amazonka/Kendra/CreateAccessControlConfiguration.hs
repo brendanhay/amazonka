@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -200,7 +201,7 @@ instance
       ( \s h x ->
           CreateAccessControlConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Id")
+            Prelude.<*> (x Data..:> "Id")
       )
 
 instance
@@ -230,43 +231,43 @@ instance
       `Prelude.seq` Prelude.rnf name
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateAccessControlConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.CreateAccessControlConfiguration" ::
+              Data.=# ( "AWSKendraFrontendService.CreateAccessControlConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAccessControlConfiguration where
+instance Data.ToJSON CreateAccessControlConfiguration where
   toJSON CreateAccessControlConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessControlList" Core..=)
+          [ ("AccessControlList" Data..=)
               Prelude.<$> accessControlList,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Description" Core..=) Prelude.<$> description,
-            ("HierarchicalAccessControlList" Core..=)
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Description" Data..=) Prelude.<$> description,
+            ("HierarchicalAccessControlList" Data..=)
               Prelude.<$> hierarchicalAccessControlList,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateAccessControlConfiguration where
+instance Data.ToPath CreateAccessControlConfiguration where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateAccessControlConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

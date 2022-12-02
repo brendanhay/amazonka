@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ConfluenceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ConfluenceAttachmentConfiguration
 import Amazonka.Kendra.Types.ConfluenceAuthenticationType
 import Amazonka.Kendra.Types.ConfluenceBlogConfiguration
@@ -299,28 +300,28 @@ confluenceConfiguration_secretArn = Lens.lens (\ConfluenceConfiguration' {secret
 confluenceConfiguration_version :: Lens.Lens' ConfluenceConfiguration ConfluenceVersion
 confluenceConfiguration_version = Lens.lens (\ConfluenceConfiguration' {version} -> version) (\s@ConfluenceConfiguration' {} a -> s {version = a} :: ConfluenceConfiguration)
 
-instance Core.FromJSON ConfluenceConfiguration where
+instance Data.FromJSON ConfluenceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfluenceConfiguration"
       ( \x ->
           ConfluenceConfiguration'
-            Prelude.<$> (x Core..:? "VpcConfiguration")
-            Prelude.<*> (x Core..:? "ProxyConfiguration")
-            Prelude.<*> (x Core..:? "PageConfiguration")
-            Prelude.<*> (x Core..:? "AuthenticationType")
-            Prelude.<*> ( x Core..:? "InclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "VpcConfiguration")
+            Prelude.<*> (x Data..:? "ProxyConfiguration")
+            Prelude.<*> (x Data..:? "PageConfiguration")
+            Prelude.<*> (x Data..:? "AuthenticationType")
+            Prelude.<*> ( x Data..:? "InclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SpaceConfiguration")
-            Prelude.<*> (x Core..:? "BlogConfiguration")
-            Prelude.<*> (x Core..:? "AttachmentConfiguration")
-            Prelude.<*> ( x Core..:? "ExclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "SpaceConfiguration")
+            Prelude.<*> (x Data..:? "BlogConfiguration")
+            Prelude.<*> (x Data..:? "AttachmentConfiguration")
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "ServerUrl")
-            Prelude.<*> (x Core..: "SecretArn")
-            Prelude.<*> (x Core..: "Version")
+            Prelude.<*> (x Data..: "ServerUrl")
+            Prelude.<*> (x Data..: "SecretArn")
+            Prelude.<*> (x Data..: "Version")
       )
 
 instance Prelude.Hashable ConfluenceConfiguration where
@@ -353,30 +354,30 @@ instance Prelude.NFData ConfluenceConfiguration where
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON ConfluenceConfiguration where
+instance Data.ToJSON ConfluenceConfiguration where
   toJSON ConfluenceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfiguration" Core..=)
+          [ ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("ProxyConfiguration" Core..=)
+            ("ProxyConfiguration" Data..=)
               Prelude.<$> proxyConfiguration,
-            ("PageConfiguration" Core..=)
+            ("PageConfiguration" Data..=)
               Prelude.<$> pageConfiguration,
-            ("AuthenticationType" Core..=)
+            ("AuthenticationType" Data..=)
               Prelude.<$> authenticationType,
-            ("InclusionPatterns" Core..=)
+            ("InclusionPatterns" Data..=)
               Prelude.<$> inclusionPatterns,
-            ("SpaceConfiguration" Core..=)
+            ("SpaceConfiguration" Data..=)
               Prelude.<$> spaceConfiguration,
-            ("BlogConfiguration" Core..=)
+            ("BlogConfiguration" Data..=)
               Prelude.<$> blogConfiguration,
-            ("AttachmentConfiguration" Core..=)
+            ("AttachmentConfiguration" Data..=)
               Prelude.<$> attachmentConfiguration,
-            ("ExclusionPatterns" Core..=)
+            ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
-            Prelude.Just ("ServerUrl" Core..= serverUrl),
-            Prelude.Just ("SecretArn" Core..= secretArn),
-            Prelude.Just ("Version" Core..= version)
+            Prelude.Just ("ServerUrl" Data..= serverUrl),
+            Prelude.Just ("SecretArn" Data..= secretArn),
+            Prelude.Just ("Version" Data..= version)
           ]
       )

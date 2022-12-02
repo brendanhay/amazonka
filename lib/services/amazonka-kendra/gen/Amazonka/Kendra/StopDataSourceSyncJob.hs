@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,34 +106,34 @@ instance Prelude.NFData StopDataSourceSyncJob where
   rnf StopDataSourceSyncJob' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders StopDataSourceSyncJob where
+instance Data.ToHeaders StopDataSourceSyncJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.StopDataSourceSyncJob" ::
+              Data.=# ( "AWSKendraFrontendService.StopDataSourceSyncJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopDataSourceSyncJob where
+instance Data.ToJSON StopDataSourceSyncJob where
   toJSON StopDataSourceSyncJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath StopDataSourceSyncJob where
+instance Data.ToPath StopDataSourceSyncJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopDataSourceSyncJob where
+instance Data.ToQuery StopDataSourceSyncJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopDataSourceSyncJobResponse' smart constructor.

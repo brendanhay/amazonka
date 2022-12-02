@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DataSourceSyncJobMetricTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Maps a particular data source sync job to a particular data source.
@@ -101,12 +102,12 @@ instance Prelude.NFData DataSourceSyncJobMetricTarget where
     Prelude.rnf dataSourceSyncJobId
       `Prelude.seq` Prelude.rnf dataSourceId
 
-instance Core.ToJSON DataSourceSyncJobMetricTarget where
+instance Data.ToJSON DataSourceSyncJobMetricTarget where
   toJSON DataSourceSyncJobMetricTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceSyncJobId" Core..=)
+          [ ("DataSourceSyncJobId" Data..=)
               Prelude.<$> dataSourceSyncJobId,
-            Prelude.Just ("DataSourceId" Core..= dataSourceId)
+            Prelude.Just ("DataSourceId" Data..= dataSourceId)
           ]
       )

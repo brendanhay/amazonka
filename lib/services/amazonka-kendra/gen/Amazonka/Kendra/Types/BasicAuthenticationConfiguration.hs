@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.BasicAuthenticationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information to connect to websites that
@@ -120,17 +121,17 @@ basicAuthenticationConfiguration_credentials :: Lens.Lens' BasicAuthenticationCo
 basicAuthenticationConfiguration_credentials = Lens.lens (\BasicAuthenticationConfiguration' {credentials} -> credentials) (\s@BasicAuthenticationConfiguration' {} a -> s {credentials = a} :: BasicAuthenticationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BasicAuthenticationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BasicAuthenticationConfiguration"
       ( \x ->
           BasicAuthenticationConfiguration'
-            Prelude.<$> (x Core..: "Host")
-            Prelude.<*> (x Core..: "Port")
-            Prelude.<*> (x Core..: "Credentials")
+            Prelude.<$> (x Data..: "Host")
+            Prelude.<*> (x Data..: "Port")
+            Prelude.<*> (x Data..: "Credentials")
       )
 
 instance
@@ -153,12 +154,12 @@ instance
       `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf credentials
 
-instance Core.ToJSON BasicAuthenticationConfiguration where
+instance Data.ToJSON BasicAuthenticationConfiguration where
   toJSON BasicAuthenticationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Host" Core..= host),
-            Prelude.Just ("Port" Core..= port),
-            Prelude.Just ("Credentials" Core..= credentials)
+          [ Prelude.Just ("Host" Data..= host),
+            Prelude.Just ("Port" Data..= port),
+            Prelude.Just ("Credentials" Data..= credentials)
           ]
       )

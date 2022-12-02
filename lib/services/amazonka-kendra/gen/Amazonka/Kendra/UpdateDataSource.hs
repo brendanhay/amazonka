@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -244,44 +245,44 @@ instance Prelude.NFData UpdateDataSource where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders UpdateDataSource where
+instance Data.ToHeaders UpdateDataSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.UpdateDataSource" ::
+              Data.=# ( "AWSKendraFrontendService.UpdateDataSource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDataSource where
+instance Data.ToJSON UpdateDataSource where
   toJSON UpdateDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Schedule" Core..=) Prelude.<$> schedule,
-            ("VpcConfiguration" Core..=)
+          [ ("Schedule" Data..=) Prelude.<$> schedule,
+            ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("CustomDocumentEnrichmentConfiguration" Core..=)
+            ("CustomDocumentEnrichmentConfiguration" Data..=)
               Prelude.<$> customDocumentEnrichmentConfiguration,
-            ("Name" Core..=) Prelude.<$> name,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Configuration" Core..=) Prelude.<$> configuration,
-            ("Description" Core..=) Prelude.<$> description,
-            ("LanguageCode" Core..=) Prelude.<$> languageCode,
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId)
+            ("Name" Data..=) Prelude.<$> name,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Configuration" Data..=) Prelude.<$> configuration,
+            ("Description" Data..=) Prelude.<$> description,
+            ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath UpdateDataSource where
+instance Data.ToPath UpdateDataSource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDataSource where
+instance Data.ToQuery UpdateDataSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDataSourceResponse' smart constructor.

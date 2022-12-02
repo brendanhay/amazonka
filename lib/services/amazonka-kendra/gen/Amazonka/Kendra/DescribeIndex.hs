@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,24 +98,24 @@ instance Core.AWSRequest DescribeIndex where
     Response.receiveJSON
       ( \s h x ->
           DescribeIndexResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "CapacityUnits")
-            Prelude.<*> (x Core..?> "ErrorMessage")
-            Prelude.<*> (x Core..?> "UserGroupResolutionConfiguration")
-            Prelude.<*> (x Core..?> "ServerSideEncryptionConfiguration")
-            Prelude.<*> (x Core..?> "Edition")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> ( x Core..?> "UserTokenConfigurations"
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "CapacityUnits")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "UserGroupResolutionConfiguration")
+            Prelude.<*> (x Data..?> "ServerSideEncryptionConfiguration")
+            Prelude.<*> (x Data..?> "Edition")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> ( x Data..?> "UserTokenConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "UserContextPolicy")
-            Prelude.<*> (x Core..?> "IndexStatistics")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "UpdatedAt")
-            Prelude.<*> ( x Core..?> "DocumentMetadataConfigurations"
+            Prelude.<*> (x Data..?> "UserContextPolicy")
+            Prelude.<*> (x Data..?> "IndexStatistics")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "UpdatedAt")
+            Prelude.<*> ( x Data..?> "DocumentMetadataConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -127,30 +128,30 @@ instance Prelude.Hashable DescribeIndex where
 instance Prelude.NFData DescribeIndex where
   rnf DescribeIndex' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DescribeIndex where
+instance Data.ToHeaders DescribeIndex where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DescribeIndex" ::
+              Data.=# ( "AWSKendraFrontendService.DescribeIndex" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeIndex where
+instance Data.ToJSON DescribeIndex where
   toJSON DescribeIndex' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("Id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("Id" Data..= id)])
 
-instance Core.ToPath DescribeIndex where
+instance Data.ToPath DescribeIndex where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeIndex where
+instance Data.ToQuery DescribeIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeIndexResponse' smart constructor.
@@ -196,9 +197,9 @@ data DescribeIndexResponse = DescribeIndexResponse'
     -- the number of text documents indexed.
     indexStatistics :: Prelude.Maybe IndexStatistics,
     -- | The Unix datetime that the index was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix datetime that the index was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | Configuration information for document metadata or fields. Document
     -- metadata are fields or attributes associated with your documents. For
     -- example, the company department name associated with each document.
@@ -358,11 +359,11 @@ describeIndexResponse_indexStatistics = Lens.lens (\DescribeIndexResponse' {inde
 
 -- | The Unix datetime that the index was created.
 describeIndexResponse_createdAt :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.UTCTime)
-describeIndexResponse_createdAt = Lens.lens (\DescribeIndexResponse' {createdAt} -> createdAt) (\s@DescribeIndexResponse' {} a -> s {createdAt = a} :: DescribeIndexResponse) Prelude.. Lens.mapping Core._Time
+describeIndexResponse_createdAt = Lens.lens (\DescribeIndexResponse' {createdAt} -> createdAt) (\s@DescribeIndexResponse' {} a -> s {createdAt = a} :: DescribeIndexResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix datetime that the index was last updated.
 describeIndexResponse_updatedAt :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.UTCTime)
-describeIndexResponse_updatedAt = Lens.lens (\DescribeIndexResponse' {updatedAt} -> updatedAt) (\s@DescribeIndexResponse' {} a -> s {updatedAt = a} :: DescribeIndexResponse) Prelude.. Lens.mapping Core._Time
+describeIndexResponse_updatedAt = Lens.lens (\DescribeIndexResponse' {updatedAt} -> updatedAt) (\s@DescribeIndexResponse' {} a -> s {updatedAt = a} :: DescribeIndexResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Configuration information for document metadata or fields. Document
 -- metadata are fields or attributes associated with your documents. For

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,34 +108,34 @@ instance Prelude.NFData DeleteExperience where
   rnf DeleteExperience' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders DeleteExperience where
+instance Data.ToHeaders DeleteExperience where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DeleteExperience" ::
+              Data.=# ( "AWSKendraFrontendService.DeleteExperience" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteExperience where
+instance Data.ToJSON DeleteExperience where
   toJSON DeleteExperience' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath DeleteExperience where
+instance Data.ToPath DeleteExperience where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteExperience where
+instance Data.ToQuery DeleteExperience where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteExperienceResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.Relevance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.Order
 import qualified Amazonka.Prelude as Prelude
 
@@ -193,18 +194,18 @@ relevance_rankOrder = Lens.lens (\Relevance' {rankOrder} -> rankOrder) (\s@Relev
 relevance_valueImportanceMap :: Lens.Lens' Relevance (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Natural))
 relevance_valueImportanceMap = Lens.lens (\Relevance' {valueImportanceMap} -> valueImportanceMap) (\s@Relevance' {} a -> s {valueImportanceMap = a} :: Relevance) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Relevance where
+instance Data.FromJSON Relevance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Relevance"
       ( \x ->
           Relevance'
-            Prelude.<$> (x Core..:? "Importance")
-            Prelude.<*> (x Core..:? "Freshness")
-            Prelude.<*> (x Core..:? "Duration")
-            Prelude.<*> (x Core..:? "RankOrder")
-            Prelude.<*> ( x Core..:? "ValueImportanceMap"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Importance")
+            Prelude.<*> (x Data..:? "Freshness")
+            Prelude.<*> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "RankOrder")
+            Prelude.<*> ( x Data..:? "ValueImportanceMap"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -224,15 +225,15 @@ instance Prelude.NFData Relevance where
       `Prelude.seq` Prelude.rnf rankOrder
       `Prelude.seq` Prelude.rnf valueImportanceMap
 
-instance Core.ToJSON Relevance where
+instance Data.ToJSON Relevance where
   toJSON Relevance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Importance" Core..=) Prelude.<$> importance,
-            ("Freshness" Core..=) Prelude.<$> freshness,
-            ("Duration" Core..=) Prelude.<$> duration,
-            ("RankOrder" Core..=) Prelude.<$> rankOrder,
-            ("ValueImportanceMap" Core..=)
+          [ ("Importance" Data..=) Prelude.<$> importance,
+            ("Freshness" Data..=) Prelude.<$> freshness,
+            ("Duration" Data..=) Prelude.<$> duration,
+            ("RankOrder" Data..=) Prelude.<$> rankOrder,
+            ("ValueImportanceMap" Data..=)
               Prelude.<$> valueImportanceMap
           ]
       )

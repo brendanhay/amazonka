@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.AclConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the column that should be used for filtering
@@ -65,13 +66,13 @@ newAclConfiguration pAllowedGroupsColumnName_ =
 aclConfiguration_allowedGroupsColumnName :: Lens.Lens' AclConfiguration Prelude.Text
 aclConfiguration_allowedGroupsColumnName = Lens.lens (\AclConfiguration' {allowedGroupsColumnName} -> allowedGroupsColumnName) (\s@AclConfiguration' {} a -> s {allowedGroupsColumnName = a} :: AclConfiguration)
 
-instance Core.FromJSON AclConfiguration where
+instance Data.FromJSON AclConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AclConfiguration"
       ( \x ->
           AclConfiguration'
-            Prelude.<$> (x Core..: "AllowedGroupsColumnName")
+            Prelude.<$> (x Data..: "AllowedGroupsColumnName")
       )
 
 instance Prelude.Hashable AclConfiguration where
@@ -83,13 +84,13 @@ instance Prelude.NFData AclConfiguration where
   rnf AclConfiguration' {..} =
     Prelude.rnf allowedGroupsColumnName
 
-instance Core.ToJSON AclConfiguration where
+instance Data.ToJSON AclConfiguration where
   toJSON AclConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "AllowedGroupsColumnName"
-                  Core..= allowedGroupsColumnName
+                  Data..= allowedGroupsColumnName
               )
           ]
       )

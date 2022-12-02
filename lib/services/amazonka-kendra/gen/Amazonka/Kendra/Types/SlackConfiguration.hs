@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SlackConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import Amazonka.Kendra.Types.DataSourceVpcConfiguration
 import Amazonka.Kendra.Types.SlackEntity
@@ -336,34 +337,34 @@ slackConfiguration_slackEntityList = Lens.lens (\SlackConfiguration' {slackEntit
 slackConfiguration_sinceCrawlDate :: Lens.Lens' SlackConfiguration Prelude.Text
 slackConfiguration_sinceCrawlDate = Lens.lens (\SlackConfiguration' {sinceCrawlDate} -> sinceCrawlDate) (\s@SlackConfiguration' {} a -> s {sinceCrawlDate = a} :: SlackConfiguration)
 
-instance Core.FromJSON SlackConfiguration where
+instance Data.FromJSON SlackConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlackConfiguration"
       ( \x ->
           SlackConfiguration'
-            Prelude.<$> (x Core..:? "UseChangeLog")
-            Prelude.<*> (x Core..:? "VpcConfiguration")
-            Prelude.<*> (x Core..:? "CrawlBotMessage")
-            Prelude.<*> ( x Core..:? "InclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "UseChangeLog")
+            Prelude.<*> (x Data..:? "VpcConfiguration")
+            Prelude.<*> (x Data..:? "CrawlBotMessage")
+            Prelude.<*> ( x Data..:? "InclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LookBackPeriod")
-            Prelude.<*> (x Core..:? "ExcludeArchived")
-            Prelude.<*> (x Core..:? "FieldMappings")
-            Prelude.<*> ( x Core..:? "PublicChannelFilter"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "LookBackPeriod")
+            Prelude.<*> (x Data..:? "ExcludeArchived")
+            Prelude.<*> (x Data..:? "FieldMappings")
+            Prelude.<*> ( x Data..:? "PublicChannelFilter"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "PrivateChannelFilter"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "PrivateChannelFilter"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ExclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "TeamId")
-            Prelude.<*> (x Core..: "SecretArn")
-            Prelude.<*> (x Core..: "SlackEntityList")
-            Prelude.<*> (x Core..: "SinceCrawlDate")
+            Prelude.<*> (x Data..: "TeamId")
+            Prelude.<*> (x Data..: "SecretArn")
+            Prelude.<*> (x Data..: "SlackEntityList")
+            Prelude.<*> (x Data..: "SinceCrawlDate")
       )
 
 instance Prelude.Hashable SlackConfiguration where
@@ -400,33 +401,33 @@ instance Prelude.NFData SlackConfiguration where
       `Prelude.seq` Prelude.rnf slackEntityList
       `Prelude.seq` Prelude.rnf sinceCrawlDate
 
-instance Core.ToJSON SlackConfiguration where
+instance Data.ToJSON SlackConfiguration where
   toJSON SlackConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UseChangeLog" Core..=) Prelude.<$> useChangeLog,
-            ("VpcConfiguration" Core..=)
+          [ ("UseChangeLog" Data..=) Prelude.<$> useChangeLog,
+            ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("CrawlBotMessage" Core..=)
+            ("CrawlBotMessage" Data..=)
               Prelude.<$> crawlBotMessage,
-            ("InclusionPatterns" Core..=)
+            ("InclusionPatterns" Data..=)
               Prelude.<$> inclusionPatterns,
-            ("LookBackPeriod" Core..=)
+            ("LookBackPeriod" Data..=)
               Prelude.<$> lookBackPeriod,
-            ("ExcludeArchived" Core..=)
+            ("ExcludeArchived" Data..=)
               Prelude.<$> excludeArchived,
-            ("FieldMappings" Core..=) Prelude.<$> fieldMappings,
-            ("PublicChannelFilter" Core..=)
+            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
+            ("PublicChannelFilter" Data..=)
               Prelude.<$> publicChannelFilter,
-            ("PrivateChannelFilter" Core..=)
+            ("PrivateChannelFilter" Data..=)
               Prelude.<$> privateChannelFilter,
-            ("ExclusionPatterns" Core..=)
+            ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
-            Prelude.Just ("TeamId" Core..= teamId),
-            Prelude.Just ("SecretArn" Core..= secretArn),
+            Prelude.Just ("TeamId" Data..= teamId),
+            Prelude.Just ("SecretArn" Data..= secretArn),
             Prelude.Just
-              ("SlackEntityList" Core..= slackEntityList),
+              ("SlackEntityList" Data..= slackEntityList),
             Prelude.Just
-              ("SinceCrawlDate" Core..= sinceCrawlDate)
+              ("SinceCrawlDate" Data..= sinceCrawlDate)
           ]
       )

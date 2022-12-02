@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.TimeRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a range of time.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTimeRange' smart constructor.
 data TimeRange = TimeRange'
   { -- | The UNIX datetime of the end of the time range.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The UNIX datetime of the beginning of the time range.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,20 +56,20 @@ newTimeRange =
 
 -- | The UNIX datetime of the end of the time range.
 timeRange_endTime :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
-timeRange_endTime = Lens.lens (\TimeRange' {endTime} -> endTime) (\s@TimeRange' {} a -> s {endTime = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
+timeRange_endTime = Lens.lens (\TimeRange' {endTime} -> endTime) (\s@TimeRange' {} a -> s {endTime = a} :: TimeRange) Prelude.. Lens.mapping Data._Time
 
 -- | The UNIX datetime of the beginning of the time range.
 timeRange_startTime :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
-timeRange_startTime = Lens.lens (\TimeRange' {startTime} -> startTime) (\s@TimeRange' {} a -> s {startTime = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
+timeRange_startTime = Lens.lens (\TimeRange' {startTime} -> startTime) (\s@TimeRange' {} a -> s {startTime = a} :: TimeRange) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TimeRange where
+instance Data.FromJSON TimeRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeRange"
       ( \x ->
           TimeRange'
-            Prelude.<$> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable TimeRange where
@@ -81,11 +82,11 @@ instance Prelude.NFData TimeRange where
     Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToJSON TimeRange where
+instance Data.ToJSON TimeRange where
   toJSON TimeRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndTime" Core..=) Prelude.<$> endTime,
-            ("StartTime" Core..=) Prelude.<$> startTime
+          [ ("EndTime" Data..=) Prelude.<$> endTime,
+            ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )

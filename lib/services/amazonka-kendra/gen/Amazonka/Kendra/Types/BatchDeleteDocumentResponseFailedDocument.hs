@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.BatchDeleteDocumentResponseFailedDocument where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,17 +75,17 @@ batchDeleteDocumentResponseFailedDocument_errorCode :: Lens.Lens' BatchDeleteDoc
 batchDeleteDocumentResponseFailedDocument_errorCode = Lens.lens (\BatchDeleteDocumentResponseFailedDocument' {errorCode} -> errorCode) (\s@BatchDeleteDocumentResponseFailedDocument' {} a -> s {errorCode = a} :: BatchDeleteDocumentResponseFailedDocument)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchDeleteDocumentResponseFailedDocument
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDeleteDocumentResponseFailedDocument"
       ( \x ->
           BatchDeleteDocumentResponseFailedDocument'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-              Prelude.<*> (x Core..:? "Id")
-              Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+              Prelude.<*> (x Data..:? "Id")
+              Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,7 +129,7 @@ instance Core.AWSRequest AssociatePersonasToEntities where
     Response.receiveJSON
       ( \s h x ->
           AssociatePersonasToEntitiesResponse'
-            Prelude.<$> (x Core..?> "FailedEntityList")
+            Prelude.<$> (x Data..?> "FailedEntityList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,35 +145,35 @@ instance Prelude.NFData AssociatePersonasToEntities where
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf personas
 
-instance Core.ToHeaders AssociatePersonasToEntities where
+instance Data.ToHeaders AssociatePersonasToEntities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.AssociatePersonasToEntities" ::
+              Data.=# ( "AWSKendraFrontendService.AssociatePersonasToEntities" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociatePersonasToEntities where
+instance Data.ToJSON AssociatePersonasToEntities where
   toJSON AssociatePersonasToEntities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Personas" Core..= personas)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Personas" Data..= personas)
           ]
       )
 
-instance Core.ToPath AssociatePersonasToEntities where
+instance Data.ToPath AssociatePersonasToEntities where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociatePersonasToEntities where
+instance Data.ToQuery AssociatePersonasToEntities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociatePersonasToEntitiesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SalesforceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.SalesforceChatterFeedConfiguration
 import Amazonka.Kendra.Types.SalesforceKnowledgeArticleConfiguration
 import Amazonka.Kendra.Types.SalesforceStandardObjectAttachmentConfiguration
@@ -255,25 +256,25 @@ salesforceConfiguration_serverUrl = Lens.lens (\SalesforceConfiguration' {server
 salesforceConfiguration_secretArn :: Lens.Lens' SalesforceConfiguration Prelude.Text
 salesforceConfiguration_secretArn = Lens.lens (\SalesforceConfiguration' {secretArn} -> secretArn) (\s@SalesforceConfiguration' {} a -> s {secretArn = a} :: SalesforceConfiguration)
 
-instance Core.FromJSON SalesforceConfiguration where
+instance Data.FromJSON SalesforceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SalesforceConfiguration"
       ( \x ->
           SalesforceConfiguration'
-            Prelude.<$> ( x Core..:? "IncludeAttachmentFilePatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "IncludeAttachmentFilePatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CrawlAttachments")
-            Prelude.<*> ( x Core..:? "ExcludeAttachmentFilePatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "CrawlAttachments")
+            Prelude.<*> ( x Data..:? "ExcludeAttachmentFilePatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StandardObjectAttachmentConfiguration")
-            Prelude.<*> (x Core..:? "ChatterFeedConfiguration")
-            Prelude.<*> (x Core..:? "KnowledgeArticleConfiguration")
-            Prelude.<*> (x Core..:? "StandardObjectConfigurations")
-            Prelude.<*> (x Core..: "ServerUrl")
-            Prelude.<*> (x Core..: "SecretArn")
+            Prelude.<*> (x Data..:? "StandardObjectAttachmentConfiguration")
+            Prelude.<*> (x Data..:? "ChatterFeedConfiguration")
+            Prelude.<*> (x Data..:? "KnowledgeArticleConfiguration")
+            Prelude.<*> (x Data..:? "StandardObjectConfigurations")
+            Prelude.<*> (x Data..: "ServerUrl")
+            Prelude.<*> (x Data..: "SecretArn")
       )
 
 instance Prelude.Hashable SalesforceConfiguration where
@@ -301,25 +302,25 @@ instance Prelude.NFData SalesforceConfiguration where
       `Prelude.seq` Prelude.rnf serverUrl
       `Prelude.seq` Prelude.rnf secretArn
 
-instance Core.ToJSON SalesforceConfiguration where
+instance Data.ToJSON SalesforceConfiguration where
   toJSON SalesforceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IncludeAttachmentFilePatterns" Core..=)
+          [ ("IncludeAttachmentFilePatterns" Data..=)
               Prelude.<$> includeAttachmentFilePatterns,
-            ("CrawlAttachments" Core..=)
+            ("CrawlAttachments" Data..=)
               Prelude.<$> crawlAttachments,
-            ("ExcludeAttachmentFilePatterns" Core..=)
+            ("ExcludeAttachmentFilePatterns" Data..=)
               Prelude.<$> excludeAttachmentFilePatterns,
-            ("StandardObjectAttachmentConfiguration" Core..=)
+            ("StandardObjectAttachmentConfiguration" Data..=)
               Prelude.<$> standardObjectAttachmentConfiguration,
-            ("ChatterFeedConfiguration" Core..=)
+            ("ChatterFeedConfiguration" Data..=)
               Prelude.<$> chatterFeedConfiguration,
-            ("KnowledgeArticleConfiguration" Core..=)
+            ("KnowledgeArticleConfiguration" Data..=)
               Prelude.<$> knowledgeArticleConfiguration,
-            ("StandardObjectConfigurations" Core..=)
+            ("StandardObjectConfigurations" Data..=)
               Prelude.<$> standardObjectConfigurations,
-            Prelude.Just ("ServerUrl" Core..= serverUrl),
-            Prelude.Just ("SecretArn" Core..= secretArn)
+            Prelude.Just ("ServerUrl" Data..= serverUrl),
+            Prelude.Just ("SecretArn" Data..= secretArn)
           ]
       )

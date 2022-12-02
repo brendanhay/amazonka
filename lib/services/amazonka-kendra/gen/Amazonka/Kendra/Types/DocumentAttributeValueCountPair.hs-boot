@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Kendra.Types.DocumentAttributeValueCountPair where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data DocumentAttributeValueCountPair
@@ -24,7 +24,7 @@ instance Prelude.Show DocumentAttributeValueCountPair
 
 instance Prelude.Generic DocumentAttributeValueCountPair
 
-instance Core.FromJSON DocumentAttributeValueCountPair
+instance Data.FromJSON DocumentAttributeValueCountPair
 
 instance Prelude.NFData DocumentAttributeValueCountPair
 

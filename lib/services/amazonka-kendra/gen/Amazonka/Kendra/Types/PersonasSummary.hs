@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.PersonasSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.Persona
 import qualified Amazonka.Prelude as Prelude
 
@@ -44,9 +45,9 @@ data PersonasSummary = PersonasSummary'
     -- <https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience Providing access to your search page>.
     persona :: Prelude.Maybe Persona,
     -- | The date-time the summary information was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date-time the summary information was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,22 +96,22 @@ personasSummary_persona = Lens.lens (\PersonasSummary' {persona} -> persona) (\s
 
 -- | The date-time the summary information was created.
 personasSummary_createdAt :: Lens.Lens' PersonasSummary (Prelude.Maybe Prelude.UTCTime)
-personasSummary_createdAt = Lens.lens (\PersonasSummary' {createdAt} -> createdAt) (\s@PersonasSummary' {} a -> s {createdAt = a} :: PersonasSummary) Prelude.. Lens.mapping Core._Time
+personasSummary_createdAt = Lens.lens (\PersonasSummary' {createdAt} -> createdAt) (\s@PersonasSummary' {} a -> s {createdAt = a} :: PersonasSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The date-time the summary information was last updated.
 personasSummary_updatedAt :: Lens.Lens' PersonasSummary (Prelude.Maybe Prelude.UTCTime)
-personasSummary_updatedAt = Lens.lens (\PersonasSummary' {updatedAt} -> updatedAt) (\s@PersonasSummary' {} a -> s {updatedAt = a} :: PersonasSummary) Prelude.. Lens.mapping Core._Time
+personasSummary_updatedAt = Lens.lens (\PersonasSummary' {updatedAt} -> updatedAt) (\s@PersonasSummary' {} a -> s {updatedAt = a} :: PersonasSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON PersonasSummary where
+instance Data.FromJSON PersonasSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PersonasSummary"
       ( \x ->
           PersonasSummary'
-            Prelude.<$> (x Core..:? "EntityId")
-            Prelude.<*> (x Core..:? "Persona")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "EntityId")
+            Prelude.<*> (x Data..:? "Persona")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable PersonasSummary where

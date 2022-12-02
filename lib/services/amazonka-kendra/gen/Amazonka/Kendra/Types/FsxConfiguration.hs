@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.FsxConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import Amazonka.Kendra.Types.DataSourceVpcConfiguration
 import Amazonka.Kendra.Types.FsxFileSystemType
@@ -225,23 +226,23 @@ fsxConfiguration_fileSystemType = Lens.lens (\FsxConfiguration' {fileSystemType}
 fsxConfiguration_vpcConfiguration :: Lens.Lens' FsxConfiguration DataSourceVpcConfiguration
 fsxConfiguration_vpcConfiguration = Lens.lens (\FsxConfiguration' {vpcConfiguration} -> vpcConfiguration) (\s@FsxConfiguration' {} a -> s {vpcConfiguration = a} :: FsxConfiguration)
 
-instance Core.FromJSON FsxConfiguration where
+instance Data.FromJSON FsxConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FsxConfiguration"
       ( \x ->
           FsxConfiguration'
-            Prelude.<$> ( x Core..:? "InclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "InclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FieldMappings")
-            Prelude.<*> (x Core..:? "SecretArn")
-            Prelude.<*> ( x Core..:? "ExclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "FieldMappings")
+            Prelude.<*> (x Data..:? "SecretArn")
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "FileSystemId")
-            Prelude.<*> (x Core..: "FileSystemType")
-            Prelude.<*> (x Core..: "VpcConfiguration")
+            Prelude.<*> (x Data..: "FileSystemId")
+            Prelude.<*> (x Data..: "FileSystemType")
+            Prelude.<*> (x Data..: "VpcConfiguration")
       )
 
 instance Prelude.Hashable FsxConfiguration where
@@ -264,20 +265,20 @@ instance Prelude.NFData FsxConfiguration where
       `Prelude.seq` Prelude.rnf fileSystemType
       `Prelude.seq` Prelude.rnf vpcConfiguration
 
-instance Core.ToJSON FsxConfiguration where
+instance Data.ToJSON FsxConfiguration where
   toJSON FsxConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InclusionPatterns" Core..=)
+          [ ("InclusionPatterns" Data..=)
               Prelude.<$> inclusionPatterns,
-            ("FieldMappings" Core..=) Prelude.<$> fieldMappings,
-            ("SecretArn" Core..=) Prelude.<$> secretArn,
-            ("ExclusionPatterns" Core..=)
+            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
+            ("SecretArn" Data..=) Prelude.<$> secretArn,
+            ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
-            Prelude.Just ("FileSystemId" Core..= fileSystemId),
+            Prelude.Just ("FileSystemId" Data..= fileSystemId),
             Prelude.Just
-              ("FileSystemType" Core..= fileSystemType),
+              ("FileSystemType" Data..= fileSystemType),
             Prelude.Just
-              ("VpcConfiguration" Core..= vpcConfiguration)
+              ("VpcConfiguration" Data..= vpcConfiguration)
           ]
       )

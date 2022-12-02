@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.InlineCustomDocumentEnrichmentConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DocumentAttributeCondition
 import Amazonka.Kendra.Types.DocumentAttributeTarget
 import qualified Amazonka.Prelude as Prelude
@@ -91,17 +92,17 @@ inlineCustomDocumentEnrichmentConfiguration_documentContentDeletion :: Lens.Lens
 inlineCustomDocumentEnrichmentConfiguration_documentContentDeletion = Lens.lens (\InlineCustomDocumentEnrichmentConfiguration' {documentContentDeletion} -> documentContentDeletion) (\s@InlineCustomDocumentEnrichmentConfiguration' {} a -> s {documentContentDeletion = a} :: InlineCustomDocumentEnrichmentConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InlineCustomDocumentEnrichmentConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InlineCustomDocumentEnrichmentConfiguration"
       ( \x ->
           InlineCustomDocumentEnrichmentConfiguration'
-            Prelude.<$> (x Core..:? "Target")
-              Prelude.<*> (x Core..:? "Condition")
-              Prelude.<*> (x Core..:? "DocumentContentDeletion")
+            Prelude.<$> (x Data..:? "Target")
+              Prelude.<*> (x Data..:? "Condition")
+              Prelude.<*> (x Data..:? "DocumentContentDeletion")
       )
 
 instance
@@ -125,16 +126,16 @@ instance
       `Prelude.seq` Prelude.rnf documentContentDeletion
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     InlineCustomDocumentEnrichmentConfiguration
   where
   toJSON
     InlineCustomDocumentEnrichmentConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Target" Core..=) Prelude.<$> target,
-              ("Condition" Core..=) Prelude.<$> condition,
-              ("DocumentContentDeletion" Core..=)
+            [ ("Target" Data..=) Prelude.<$> target,
+              ("Condition" Data..=) Prelude.<$> condition,
+              ("DocumentContentDeletion" Data..=)
                 Prelude.<$> documentContentDeletion
             ]
         )

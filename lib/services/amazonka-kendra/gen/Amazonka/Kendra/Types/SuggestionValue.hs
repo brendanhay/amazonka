@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SuggestionValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.SuggestionTextWithHighlights
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,12 +55,12 @@ newSuggestionValue =
 suggestionValue_text :: Lens.Lens' SuggestionValue (Prelude.Maybe SuggestionTextWithHighlights)
 suggestionValue_text = Lens.lens (\SuggestionValue' {text} -> text) (\s@SuggestionValue' {} a -> s {text = a} :: SuggestionValue)
 
-instance Core.FromJSON SuggestionValue where
+instance Data.FromJSON SuggestionValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuggestionValue"
       ( \x ->
-          SuggestionValue' Prelude.<$> (x Core..:? "Text")
+          SuggestionValue' Prelude.<$> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable SuggestionValue where

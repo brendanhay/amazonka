@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SeedUrlConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.WebCrawlerMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -118,14 +119,14 @@ seedUrlConfiguration_webCrawlerMode = Lens.lens (\SeedUrlConfiguration' {webCraw
 seedUrlConfiguration_seedUrls :: Lens.Lens' SeedUrlConfiguration [Prelude.Text]
 seedUrlConfiguration_seedUrls = Lens.lens (\SeedUrlConfiguration' {seedUrls} -> seedUrls) (\s@SeedUrlConfiguration' {} a -> s {seedUrls = a} :: SeedUrlConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON SeedUrlConfiguration where
+instance Data.FromJSON SeedUrlConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SeedUrlConfiguration"
       ( \x ->
           SeedUrlConfiguration'
-            Prelude.<$> (x Core..:? "WebCrawlerMode")
-            Prelude.<*> (x Core..:? "SeedUrls" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "WebCrawlerMode")
+            Prelude.<*> (x Data..:? "SeedUrls" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SeedUrlConfiguration where
@@ -138,12 +139,12 @@ instance Prelude.NFData SeedUrlConfiguration where
     Prelude.rnf webCrawlerMode
       `Prelude.seq` Prelude.rnf seedUrls
 
-instance Core.ToJSON SeedUrlConfiguration where
+instance Data.ToJSON SeedUrlConfiguration where
   toJSON SeedUrlConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WebCrawlerMode" Core..=)
+          [ ("WebCrawlerMode" Data..=)
               Prelude.<$> webCrawlerMode,
-            Prelude.Just ("SeedUrls" Core..= seedUrls)
+            Prelude.Just ("SeedUrls" Data..= seedUrls)
           ]
       )

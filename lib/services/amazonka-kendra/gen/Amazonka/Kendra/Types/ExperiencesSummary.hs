@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ExperiencesSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ExperienceEndpoint
 import Amazonka.Kendra.Types.ExperienceStatus
 import qualified Amazonka.Prelude as Prelude
@@ -42,7 +43,7 @@ data ExperiencesSummary = ExperiencesSummary'
     -- | The identifier of your Amazon Kendra experience.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date-time your Amazon Kendra experience was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,19 +95,19 @@ experiencesSummary_id = Lens.lens (\ExperiencesSummary' {id} -> id) (\s@Experien
 
 -- | The date-time your Amazon Kendra experience was created.
 experiencesSummary_createdAt :: Lens.Lens' ExperiencesSummary (Prelude.Maybe Prelude.UTCTime)
-experiencesSummary_createdAt = Lens.lens (\ExperiencesSummary' {createdAt} -> createdAt) (\s@ExperiencesSummary' {} a -> s {createdAt = a} :: ExperiencesSummary) Prelude.. Lens.mapping Core._Time
+experiencesSummary_createdAt = Lens.lens (\ExperiencesSummary' {createdAt} -> createdAt) (\s@ExperiencesSummary' {} a -> s {createdAt = a} :: ExperiencesSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ExperiencesSummary where
+instance Data.FromJSON ExperiencesSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperiencesSummary"
       ( \x ->
           ExperiencesSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Endpoints")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Endpoints")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable ExperiencesSummary where

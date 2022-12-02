@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DataSourceSyncJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceSyncJobMetrics
 import Amazonka.Kendra.Types.DataSourceSyncJobStatus
 import Amazonka.Kendra.Types.ErrorCode
@@ -48,14 +49,14 @@ data DataSourceSyncJob = DataSourceSyncJob'
     -- by a data source connector.
     metrics :: Prelude.Maybe DataSourceSyncJobMetrics,
     -- | The UNIX datetime that the synchronization job completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | A unique identifier for the synchronization job.
     executionId :: Prelude.Maybe Prelude.Text,
     -- | If the @Status@ field is set to @FAILED@, the @ErrorCode@ field
     -- indicates the reason the synchronization failed.
     errorCode :: Prelude.Maybe ErrorCode,
     -- | The UNIX datetime that the synchronization job started.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -134,7 +135,7 @@ dataSourceSyncJob_metrics = Lens.lens (\DataSourceSyncJob' {metrics} -> metrics)
 
 -- | The UNIX datetime that the synchronization job completed.
 dataSourceSyncJob_endTime :: Lens.Lens' DataSourceSyncJob (Prelude.Maybe Prelude.UTCTime)
-dataSourceSyncJob_endTime = Lens.lens (\DataSourceSyncJob' {endTime} -> endTime) (\s@DataSourceSyncJob' {} a -> s {endTime = a} :: DataSourceSyncJob) Prelude.. Lens.mapping Core._Time
+dataSourceSyncJob_endTime = Lens.lens (\DataSourceSyncJob' {endTime} -> endTime) (\s@DataSourceSyncJob' {} a -> s {endTime = a} :: DataSourceSyncJob) Prelude.. Lens.mapping Data._Time
 
 -- | A unique identifier for the synchronization job.
 dataSourceSyncJob_executionId :: Lens.Lens' DataSourceSyncJob (Prelude.Maybe Prelude.Text)
@@ -147,22 +148,22 @@ dataSourceSyncJob_errorCode = Lens.lens (\DataSourceSyncJob' {errorCode} -> erro
 
 -- | The UNIX datetime that the synchronization job started.
 dataSourceSyncJob_startTime :: Lens.Lens' DataSourceSyncJob (Prelude.Maybe Prelude.UTCTime)
-dataSourceSyncJob_startTime = Lens.lens (\DataSourceSyncJob' {startTime} -> startTime) (\s@DataSourceSyncJob' {} a -> s {startTime = a} :: DataSourceSyncJob) Prelude.. Lens.mapping Core._Time
+dataSourceSyncJob_startTime = Lens.lens (\DataSourceSyncJob' {startTime} -> startTime) (\s@DataSourceSyncJob' {} a -> s {startTime = a} :: DataSourceSyncJob) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DataSourceSyncJob where
+instance Data.FromJSON DataSourceSyncJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourceSyncJob"
       ( \x ->
           DataSourceSyncJob'
-            Prelude.<$> (x Core..:? "DataSourceErrorCode")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Metrics")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "ExecutionId")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "DataSourceErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Metrics")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "ExecutionId")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable DataSourceSyncJob where

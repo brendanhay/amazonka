@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ConfluencePageConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ConfluencePageToIndexFieldMapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,13 +79,13 @@ newConfluencePageConfiguration =
 confluencePageConfiguration_pageFieldMappings :: Lens.Lens' ConfluencePageConfiguration (Prelude.Maybe (Prelude.NonEmpty ConfluencePageToIndexFieldMapping))
 confluencePageConfiguration_pageFieldMappings = Lens.lens (\ConfluencePageConfiguration' {pageFieldMappings} -> pageFieldMappings) (\s@ConfluencePageConfiguration' {} a -> s {pageFieldMappings = a} :: ConfluencePageConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ConfluencePageConfiguration where
+instance Data.FromJSON ConfluencePageConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfluencePageConfiguration"
       ( \x ->
           ConfluencePageConfiguration'
-            Prelude.<$> (x Core..:? "PageFieldMappings")
+            Prelude.<$> (x Data..:? "PageFieldMappings")
       )
 
 instance Prelude.Hashable ConfluencePageConfiguration where
@@ -95,11 +96,11 @@ instance Prelude.NFData ConfluencePageConfiguration where
   rnf ConfluencePageConfiguration' {..} =
     Prelude.rnf pageFieldMappings
 
-instance Core.ToJSON ConfluencePageConfiguration where
+instance Data.ToJSON ConfluencePageConfiguration where
   toJSON ConfluencePageConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PageFieldMappings" Core..=)
+          [ ("PageFieldMappings" Data..=)
               Prelude.<$> pageFieldMappings
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SalesforceCustomKnowledgeArticleTypeConfiguration w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -112,18 +113,18 @@ salesforceCustomKnowledgeArticleTypeConfiguration_documentDataFieldName :: Lens.
 salesforceCustomKnowledgeArticleTypeConfiguration_documentDataFieldName = Lens.lens (\SalesforceCustomKnowledgeArticleTypeConfiguration' {documentDataFieldName} -> documentDataFieldName) (\s@SalesforceCustomKnowledgeArticleTypeConfiguration' {} a -> s {documentDataFieldName = a} :: SalesforceCustomKnowledgeArticleTypeConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SalesforceCustomKnowledgeArticleTypeConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SalesforceCustomKnowledgeArticleTypeConfiguration"
       ( \x ->
           SalesforceCustomKnowledgeArticleTypeConfiguration'
-            Prelude.<$> (x Core..:? "FieldMappings")
-              Prelude.<*> (x Core..:? "DocumentTitleFieldName")
-              Prelude.<*> (x Core..: "Name")
-              Prelude.<*> (x Core..: "DocumentDataFieldName")
+            Prelude.<$> (x Data..:? "FieldMappings")
+              Prelude.<*> (x Data..:? "DocumentTitleFieldName")
+              Prelude.<*> (x Data..: "Name")
+              Prelude.<*> (x Data..: "DocumentDataFieldName")
       )
 
 instance
@@ -150,20 +151,20 @@ instance
         `Prelude.seq` Prelude.rnf documentDataFieldName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SalesforceCustomKnowledgeArticleTypeConfiguration
   where
   toJSON
     SalesforceCustomKnowledgeArticleTypeConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("FieldMappings" Core..=) Prelude.<$> fieldMappings,
-              ("DocumentTitleFieldName" Core..=)
+            [ ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
+              ("DocumentTitleFieldName" Data..=)
                 Prelude.<$> documentTitleFieldName,
-              Prelude.Just ("Name" Core..= name),
+              Prelude.Just ("Name" Data..= name),
               Prelude.Just
                 ( "DocumentDataFieldName"
-                    Core..= documentDataFieldName
+                    Data..= documentDataFieldName
                 )
             ]
         )

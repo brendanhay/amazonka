@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ProxyConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information for a web proxy to connect to
@@ -117,15 +118,15 @@ proxyConfiguration_host = Lens.lens (\ProxyConfiguration' {host} -> host) (\s@Pr
 proxyConfiguration_port :: Lens.Lens' ProxyConfiguration Prelude.Natural
 proxyConfiguration_port = Lens.lens (\ProxyConfiguration' {port} -> port) (\s@ProxyConfiguration' {} a -> s {port = a} :: ProxyConfiguration)
 
-instance Core.FromJSON ProxyConfiguration where
+instance Data.FromJSON ProxyConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProxyConfiguration"
       ( \x ->
           ProxyConfiguration'
-            Prelude.<$> (x Core..:? "Credentials")
-            Prelude.<*> (x Core..: "Host")
-            Prelude.<*> (x Core..: "Port")
+            Prelude.<$> (x Data..:? "Credentials")
+            Prelude.<*> (x Data..: "Host")
+            Prelude.<*> (x Data..: "Port")
       )
 
 instance Prelude.Hashable ProxyConfiguration where
@@ -140,12 +141,12 @@ instance Prelude.NFData ProxyConfiguration where
       `Prelude.seq` Prelude.rnf host
       `Prelude.seq` Prelude.rnf port
 
-instance Core.ToJSON ProxyConfiguration where
+instance Data.ToJSON ProxyConfiguration where
   toJSON ProxyConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Credentials" Core..=) Prelude.<$> credentials,
-            Prelude.Just ("Host" Core..= host),
-            Prelude.Just ("Port" Core..= port)
+          [ ("Credentials" Data..=) Prelude.<$> credentials,
+            Prelude.Just ("Host" Data..= host),
+            Prelude.Just ("Port" Data..= port)
           ]
       )

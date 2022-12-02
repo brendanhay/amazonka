@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.AdditionalResultAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.AdditionalResultAttributeValue
 import Amazonka.Kendra.Types.AdditionalResultAttributeValueType
 import qualified Amazonka.Prelude as Prelude
@@ -81,15 +82,15 @@ additionalResultAttribute_valueType = Lens.lens (\AdditionalResultAttribute' {va
 additionalResultAttribute_value :: Lens.Lens' AdditionalResultAttribute AdditionalResultAttributeValue
 additionalResultAttribute_value = Lens.lens (\AdditionalResultAttribute' {value} -> value) (\s@AdditionalResultAttribute' {} a -> s {value = a} :: AdditionalResultAttribute)
 
-instance Core.FromJSON AdditionalResultAttribute where
+instance Data.FromJSON AdditionalResultAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdditionalResultAttribute"
       ( \x ->
           AdditionalResultAttribute'
-            Prelude.<$> (x Core..: "Key")
-            Prelude.<*> (x Core..: "ValueType")
-            Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Key")
+            Prelude.<*> (x Data..: "ValueType")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable AdditionalResultAttribute where

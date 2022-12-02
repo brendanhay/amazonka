@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.JiraConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import Amazonka.Kendra.Types.DataSourceVpcConfiguration
 import Amazonka.Kendra.Types.IssueSubEntity
@@ -360,33 +361,33 @@ jiraConfiguration_jiraAccountUrl = Lens.lens (\JiraConfiguration' {jiraAccountUr
 jiraConfiguration_secretArn :: Lens.Lens' JiraConfiguration Prelude.Text
 jiraConfiguration_secretArn = Lens.lens (\JiraConfiguration' {secretArn} -> secretArn) (\s@JiraConfiguration' {} a -> s {secretArn = a} :: JiraConfiguration)
 
-instance Core.FromJSON JiraConfiguration where
+instance Data.FromJSON JiraConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JiraConfiguration"
       ( \x ->
           JiraConfiguration'
-            Prelude.<$> (x Core..:? "UseChangeLog")
-            Prelude.<*> (x Core..:? "VpcConfiguration")
-            Prelude.<*> (x Core..:? "ProjectFieldMappings")
-            Prelude.<*> (x Core..:? "AttachmentFieldMappings")
-            Prelude.<*> (x Core..:? "IssueType" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CommentFieldMappings")
-            Prelude.<*> ( x Core..:? "IssueSubEntityFilter"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "UseChangeLog")
+            Prelude.<*> (x Data..:? "VpcConfiguration")
+            Prelude.<*> (x Data..:? "ProjectFieldMappings")
+            Prelude.<*> (x Data..:? "AttachmentFieldMappings")
+            Prelude.<*> (x Data..:? "IssueType" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CommentFieldMappings")
+            Prelude.<*> ( x Data..:? "IssueSubEntityFilter"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "InclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "InclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Status" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Project" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "WorkLogFieldMappings")
-            Prelude.<*> (x Core..:? "IssueFieldMappings")
-            Prelude.<*> ( x Core..:? "ExclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Status" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Project" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "WorkLogFieldMappings")
+            Prelude.<*> (x Data..:? "IssueFieldMappings")
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "JiraAccountUrl")
-            Prelude.<*> (x Core..: "SecretArn")
+            Prelude.<*> (x Data..: "JiraAccountUrl")
+            Prelude.<*> (x Data..: "SecretArn")
       )
 
 instance Prelude.Hashable JiraConfiguration where
@@ -425,34 +426,34 @@ instance Prelude.NFData JiraConfiguration where
       `Prelude.seq` Prelude.rnf jiraAccountUrl
       `Prelude.seq` Prelude.rnf secretArn
 
-instance Core.ToJSON JiraConfiguration where
+instance Data.ToJSON JiraConfiguration where
   toJSON JiraConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UseChangeLog" Core..=) Prelude.<$> useChangeLog,
-            ("VpcConfiguration" Core..=)
+          [ ("UseChangeLog" Data..=) Prelude.<$> useChangeLog,
+            ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("ProjectFieldMappings" Core..=)
+            ("ProjectFieldMappings" Data..=)
               Prelude.<$> projectFieldMappings,
-            ("AttachmentFieldMappings" Core..=)
+            ("AttachmentFieldMappings" Data..=)
               Prelude.<$> attachmentFieldMappings,
-            ("IssueType" Core..=) Prelude.<$> issueType,
-            ("CommentFieldMappings" Core..=)
+            ("IssueType" Data..=) Prelude.<$> issueType,
+            ("CommentFieldMappings" Data..=)
               Prelude.<$> commentFieldMappings,
-            ("IssueSubEntityFilter" Core..=)
+            ("IssueSubEntityFilter" Data..=)
               Prelude.<$> issueSubEntityFilter,
-            ("InclusionPatterns" Core..=)
+            ("InclusionPatterns" Data..=)
               Prelude.<$> inclusionPatterns,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Project" Core..=) Prelude.<$> project,
-            ("WorkLogFieldMappings" Core..=)
+            ("Status" Data..=) Prelude.<$> status,
+            ("Project" Data..=) Prelude.<$> project,
+            ("WorkLogFieldMappings" Data..=)
               Prelude.<$> workLogFieldMappings,
-            ("IssueFieldMappings" Core..=)
+            ("IssueFieldMappings" Data..=)
               Prelude.<$> issueFieldMappings,
-            ("ExclusionPatterns" Core..=)
+            ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
             Prelude.Just
-              ("JiraAccountUrl" Core..= jiraAccountUrl),
-            Prelude.Just ("SecretArn" Core..= secretArn)
+              ("JiraAccountUrl" Data..= jiraAccountUrl),
+            Prelude.Just ("SecretArn" Data..= secretArn)
           ]
       )

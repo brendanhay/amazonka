@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -340,14 +341,14 @@ instance Core.AWSRequest Query where
     Response.receiveJSON
       ( \s h x ->
           QueryResponse'
-            Prelude.<$> ( x Core..?> "SpellCorrectedQueries"
+            Prelude.<$> ( x Data..?> "SpellCorrectedQueries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "FacetResults" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "QueryId")
-            Prelude.<*> (x Core..?> "ResultItems" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Warnings")
-            Prelude.<*> (x Core..?> "TotalNumberOfResults")
+            Prelude.<*> (x Data..?> "FacetResults" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "QueryId")
+            Prelude.<*> (x Data..?> "ResultItems" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Warnings")
+            Prelude.<*> (x Data..?> "TotalNumberOfResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -384,51 +385,51 @@ instance Prelude.NFData Query where
       `Prelude.seq` Prelude.rnf attributeFilter
       `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders Query where
+instance Data.ToHeaders Query where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.Query" ::
+              Data.=# ( "AWSKendraFrontendService.Query" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Query where
+instance Data.ToJSON Query where
   toJSON Query' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DocumentRelevanceOverrideConfigurations" Core..=)
+          [ ("DocumentRelevanceOverrideConfigurations" Data..=)
               Prelude.<$> documentRelevanceOverrideConfigurations,
-            ("RequestedDocumentAttributes" Core..=)
+            ("RequestedDocumentAttributes" Data..=)
               Prelude.<$> requestedDocumentAttributes,
-            ("UserContext" Core..=) Prelude.<$> userContext,
-            ("QueryText" Core..=) Prelude.<$> queryText,
-            ("QueryResultTypeFilter" Core..=)
+            ("UserContext" Data..=) Prelude.<$> userContext,
+            ("QueryText" Data..=) Prelude.<$> queryText,
+            ("QueryResultTypeFilter" Data..=)
               Prelude.<$> queryResultTypeFilter,
-            ("Facets" Core..=) Prelude.<$> facets,
-            ("PageNumber" Core..=) Prelude.<$> pageNumber,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("SpellCorrectionConfiguration" Core..=)
+            ("Facets" Data..=) Prelude.<$> facets,
+            ("PageNumber" Data..=) Prelude.<$> pageNumber,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("SpellCorrectionConfiguration" Data..=)
               Prelude.<$> spellCorrectionConfiguration,
-            ("SortingConfiguration" Core..=)
+            ("SortingConfiguration" Data..=)
               Prelude.<$> sortingConfiguration,
-            ("VisitorId" Core..=) Prelude.<$> visitorId,
-            ("AttributeFilter" Core..=)
+            ("VisitorId" Data..=) Prelude.<$> visitorId,
+            ("AttributeFilter" Data..=)
               Prelude.<$> attributeFilter,
-            Prelude.Just ("IndexId" Core..= indexId)
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath Query where
+instance Data.ToPath Query where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery Query where
+instance Data.ToQuery Query where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newQueryResponse' smart constructor.

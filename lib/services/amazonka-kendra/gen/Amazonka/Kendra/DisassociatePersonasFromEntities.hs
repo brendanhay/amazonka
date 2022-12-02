@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DisassociatePersonasFromEntitiesResponse'
-            Prelude.<$> (x Core..?> "FailedEntityList")
+            Prelude.<$> (x Data..?> "FailedEntityList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,38 +149,38 @@ instance
       `Prelude.seq` Prelude.rnf entityIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociatePersonasFromEntities
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DisassociatePersonasFromEntities" ::
+              Data.=# ( "AWSKendraFrontendService.DisassociatePersonasFromEntities" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociatePersonasFromEntities where
+instance Data.ToJSON DisassociatePersonasFromEntities where
   toJSON DisassociatePersonasFromEntities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("EntityIds" Core..= entityIds)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("EntityIds" Data..= entityIds)
           ]
       )
 
-instance Core.ToPath DisassociatePersonasFromEntities where
+instance Data.ToPath DisassociatePersonasFromEntities where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociatePersonasFromEntities
   where
   toQuery = Prelude.const Prelude.mempty

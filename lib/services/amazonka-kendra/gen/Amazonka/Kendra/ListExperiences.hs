@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,8 +119,8 @@ instance Core.AWSRequest ListExperiences where
     Response.receiveJSON
       ( \s h x ->
           ListExperiencesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SummaryItems" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SummaryItems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,35 +136,35 @@ instance Prelude.NFData ListExperiences where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders ListExperiences where
+instance Data.ToHeaders ListExperiences where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.ListExperiences" ::
+              Data.=# ( "AWSKendraFrontendService.ListExperiences" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListExperiences where
+instance Data.ToJSON ListExperiences where
   toJSON ListExperiences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath ListExperiences where
+instance Data.ToPath ListExperiences where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListExperiences where
+instance Data.ToQuery ListExperiences where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListExperiencesResponse' smart constructor.

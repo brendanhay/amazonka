@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DocumentRelevanceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.Relevance
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,11 +91,11 @@ instance
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf relevance
 
-instance Core.ToJSON DocumentRelevanceConfiguration where
+instance Data.ToJSON DocumentRelevanceConfiguration where
   toJSON DocumentRelevanceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Relevance" Core..= relevance)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Relevance" Data..= relevance)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.FailedEntity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information on the users or groups in your IAM Identity Center identity
@@ -69,14 +70,14 @@ failedEntity_entityId = Lens.lens (\FailedEntity' {entityId} -> entityId) (\s@Fa
 failedEntity_errorMessage :: Lens.Lens' FailedEntity (Prelude.Maybe Prelude.Text)
 failedEntity_errorMessage = Lens.lens (\FailedEntity' {errorMessage} -> errorMessage) (\s@FailedEntity' {} a -> s {errorMessage = a} :: FailedEntity)
 
-instance Core.FromJSON FailedEntity where
+instance Data.FromJSON FailedEntity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedEntity"
       ( \x ->
           FailedEntity'
-            Prelude.<$> (x Core..:? "EntityId")
-            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Data..:? "EntityId")
+            Prelude.<*> (x Data..:? "ErrorMessage")
       )
 
 instance Prelude.Hashable FailedEntity where

@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.GroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information for groups.
@@ -61,14 +62,14 @@ groupSummary_orderingId = Lens.lens (\GroupSummary' {orderingId} -> orderingId) 
 groupSummary_groupId :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
 groupSummary_groupId = Lens.lens (\GroupSummary' {groupId} -> groupId) (\s@GroupSummary' {} a -> s {groupId = a} :: GroupSummary)
 
-instance Core.FromJSON GroupSummary where
+instance Data.FromJSON GroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupSummary"
       ( \x ->
           GroupSummary'
-            Prelude.<$> (x Core..:? "OrderingId")
-            Prelude.<*> (x Core..:? "GroupId")
+            Prelude.<$> (x Data..:? "OrderingId")
+            Prelude.<*> (x Data..:? "GroupId")
       )
 
 instance Prelude.Hashable GroupSummary where

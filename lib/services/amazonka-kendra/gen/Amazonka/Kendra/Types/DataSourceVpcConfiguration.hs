@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DataSourceVpcConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information to connect to an Amazon VPC.
@@ -81,14 +82,14 @@ dataSourceVpcConfiguration_subnetIds = Lens.lens (\DataSourceVpcConfiguration' {
 dataSourceVpcConfiguration_securityGroupIds :: Lens.Lens' DataSourceVpcConfiguration (Prelude.NonEmpty Prelude.Text)
 dataSourceVpcConfiguration_securityGroupIds = Lens.lens (\DataSourceVpcConfiguration' {securityGroupIds} -> securityGroupIds) (\s@DataSourceVpcConfiguration' {} a -> s {securityGroupIds = a} :: DataSourceVpcConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON DataSourceVpcConfiguration where
+instance Data.FromJSON DataSourceVpcConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourceVpcConfiguration"
       ( \x ->
           DataSourceVpcConfiguration'
-            Prelude.<$> (x Core..: "SubnetIds")
-            Prelude.<*> (x Core..: "SecurityGroupIds")
+            Prelude.<$> (x Data..: "SubnetIds")
+            Prelude.<*> (x Data..: "SecurityGroupIds")
       )
 
 instance Prelude.Hashable DataSourceVpcConfiguration where
@@ -101,12 +102,12 @@ instance Prelude.NFData DataSourceVpcConfiguration where
     Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf securityGroupIds
 
-instance Core.ToJSON DataSourceVpcConfiguration where
+instance Data.ToJSON DataSourceVpcConfiguration where
   toJSON DataSourceVpcConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SubnetIds" Core..= subnetIds),
+          [ Prelude.Just ("SubnetIds" Data..= subnetIds),
             Prelude.Just
-              ("SecurityGroupIds" Core..= securityGroupIds)
+              ("SecurityGroupIds" Data..= securityGroupIds)
           ]
       )

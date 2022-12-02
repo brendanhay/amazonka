@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.IndexStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.FaqStatistics
 import Amazonka.Kendra.Types.TextDocumentStatistics
 import qualified Amazonka.Prelude as Prelude
@@ -70,14 +71,14 @@ indexStatistics_faqStatistics = Lens.lens (\IndexStatistics' {faqStatistics} -> 
 indexStatistics_textDocumentStatistics :: Lens.Lens' IndexStatistics TextDocumentStatistics
 indexStatistics_textDocumentStatistics = Lens.lens (\IndexStatistics' {textDocumentStatistics} -> textDocumentStatistics) (\s@IndexStatistics' {} a -> s {textDocumentStatistics = a} :: IndexStatistics)
 
-instance Core.FromJSON IndexStatistics where
+instance Data.FromJSON IndexStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IndexStatistics"
       ( \x ->
           IndexStatistics'
-            Prelude.<$> (x Core..: "FaqStatistics")
-            Prelude.<*> (x Core..: "TextDocumentStatistics")
+            Prelude.<$> (x Data..: "FaqStatistics")
+            Prelude.<*> (x Data..: "TextDocumentStatistics")
       )
 
 instance Prelude.Hashable IndexStatistics where

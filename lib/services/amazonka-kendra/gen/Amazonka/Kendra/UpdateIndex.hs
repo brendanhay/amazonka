@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -221,45 +222,45 @@ instance Prelude.NFData UpdateIndex where
       `Prelude.seq` Prelude.rnf userContextPolicy
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateIndex where
+instance Data.ToHeaders UpdateIndex where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.UpdateIndex" ::
+              Data.=# ( "AWSKendraFrontendService.UpdateIndex" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateIndex where
+instance Data.ToJSON UpdateIndex where
   toJSON UpdateIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("CapacityUnits" Core..=) Prelude.<$> capacityUnits,
-            ("UserGroupResolutionConfiguration" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("CapacityUnits" Data..=) Prelude.<$> capacityUnits,
+            ("UserGroupResolutionConfiguration" Data..=)
               Prelude.<$> userGroupResolutionConfiguration,
-            ("DocumentMetadataConfigurationUpdates" Core..=)
+            ("DocumentMetadataConfigurationUpdates" Data..=)
               Prelude.<$> documentMetadataConfigurationUpdates,
-            ("Description" Core..=) Prelude.<$> description,
-            ("UserTokenConfigurations" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("UserTokenConfigurations" Data..=)
               Prelude.<$> userTokenConfigurations,
-            ("UserContextPolicy" Core..=)
+            ("UserContextPolicy" Data..=)
               Prelude.<$> userContextPolicy,
-            Prelude.Just ("Id" Core..= id)
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath UpdateIndex where
+instance Data.ToPath UpdateIndex where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateIndex where
+instance Data.ToQuery UpdateIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateIndexResponse' smart constructor.

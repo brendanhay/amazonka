@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,12 +129,12 @@ instance Core.AWSRequest DescribePrincipalMapping where
     Response.receiveJSON
       ( \s h x ->
           DescribePrincipalMappingResponse'
-            Prelude.<$> ( x Core..?> "GroupOrderingIdSummaries"
+            Prelude.<$> ( x Data..?> "GroupOrderingIdSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "IndexId")
-            Prelude.<*> (x Core..?> "DataSourceId")
-            Prelude.<*> (x Core..?> "GroupId")
+            Prelude.<*> (x Data..?> "IndexId")
+            Prelude.<*> (x Data..?> "DataSourceId")
+            Prelude.<*> (x Data..?> "GroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,35 +150,35 @@ instance Prelude.NFData DescribePrincipalMapping where
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToHeaders DescribePrincipalMapping where
+instance Data.ToHeaders DescribePrincipalMapping where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DescribePrincipalMapping" ::
+              Data.=# ( "AWSKendraFrontendService.DescribePrincipalMapping" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePrincipalMapping where
+instance Data.ToJSON DescribePrincipalMapping where
   toJSON DescribePrincipalMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceId" Core..=) Prelude.<$> dataSourceId,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("GroupId" Core..= groupId)
+          [ ("DataSourceId" Data..=) Prelude.<$> dataSourceId,
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("GroupId" Data..= groupId)
           ]
       )
 
-instance Core.ToPath DescribePrincipalMapping where
+instance Data.ToPath DescribePrincipalMapping where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePrincipalMapping where
+instance Data.ToQuery DescribePrincipalMapping where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePrincipalMappingResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.QuerySuggestionsBlockListSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.QuerySuggestionsBlockListStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -45,9 +46,9 @@ data QuerySuggestionsBlockListSummary = QuerySuggestionsBlockListSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | The date-time summary information for a query suggestions block list was
     -- last created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date-time the block list was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,27 +104,27 @@ querySuggestionsBlockListSummary_id = Lens.lens (\QuerySuggestionsBlockListSumma
 -- | The date-time summary information for a query suggestions block list was
 -- last created.
 querySuggestionsBlockListSummary_createdAt :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe Prelude.UTCTime)
-querySuggestionsBlockListSummary_createdAt = Lens.lens (\QuerySuggestionsBlockListSummary' {createdAt} -> createdAt) (\s@QuerySuggestionsBlockListSummary' {} a -> s {createdAt = a} :: QuerySuggestionsBlockListSummary) Prelude.. Lens.mapping Core._Time
+querySuggestionsBlockListSummary_createdAt = Lens.lens (\QuerySuggestionsBlockListSummary' {createdAt} -> createdAt) (\s@QuerySuggestionsBlockListSummary' {} a -> s {createdAt = a} :: QuerySuggestionsBlockListSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The date-time the block list was last updated.
 querySuggestionsBlockListSummary_updatedAt :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe Prelude.UTCTime)
-querySuggestionsBlockListSummary_updatedAt = Lens.lens (\QuerySuggestionsBlockListSummary' {updatedAt} -> updatedAt) (\s@QuerySuggestionsBlockListSummary' {} a -> s {updatedAt = a} :: QuerySuggestionsBlockListSummary) Prelude.. Lens.mapping Core._Time
+querySuggestionsBlockListSummary_updatedAt = Lens.lens (\QuerySuggestionsBlockListSummary' {updatedAt} -> updatedAt) (\s@QuerySuggestionsBlockListSummary' {} a -> s {updatedAt = a} :: QuerySuggestionsBlockListSummary) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     QuerySuggestionsBlockListSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QuerySuggestionsBlockListSummary"
       ( \x ->
           QuerySuggestionsBlockListSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ItemCount")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ItemCount")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance

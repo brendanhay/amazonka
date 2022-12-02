@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.Search where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about how a custom index field is used during a
@@ -101,16 +102,16 @@ search_searchable = Lens.lens (\Search' {searchable} -> searchable) (\s@Search' 
 search_facetable :: Lens.Lens' Search (Prelude.Maybe Prelude.Bool)
 search_facetable = Lens.lens (\Search' {facetable} -> facetable) (\s@Search' {} a -> s {facetable = a} :: Search)
 
-instance Core.FromJSON Search where
+instance Data.FromJSON Search where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Search"
       ( \x ->
           Search'
-            Prelude.<$> (x Core..:? "Displayable")
-            Prelude.<*> (x Core..:? "Sortable")
-            Prelude.<*> (x Core..:? "Searchable")
-            Prelude.<*> (x Core..:? "Facetable")
+            Prelude.<$> (x Data..:? "Displayable")
+            Prelude.<*> (x Data..:? "Sortable")
+            Prelude.<*> (x Data..:? "Searchable")
+            Prelude.<*> (x Data..:? "Facetable")
       )
 
 instance Prelude.Hashable Search where
@@ -127,13 +128,13 @@ instance Prelude.NFData Search where
       `Prelude.seq` Prelude.rnf searchable
       `Prelude.seq` Prelude.rnf facetable
 
-instance Core.ToJSON Search where
+instance Data.ToJSON Search where
   toJSON Search' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Displayable" Core..=) Prelude.<$> displayable,
-            ("Sortable" Core..=) Prelude.<$> sortable,
-            ("Searchable" Core..=) Prelude.<$> searchable,
-            ("Facetable" Core..=) Prelude.<$> facetable
+          [ ("Displayable" Data..=) Prelude.<$> displayable,
+            ("Sortable" Data..=) Prelude.<$> sortable,
+            ("Searchable" Data..=) Prelude.<$> searchable,
+            ("Facetable" Data..=) Prelude.<$> facetable
           ]
       )

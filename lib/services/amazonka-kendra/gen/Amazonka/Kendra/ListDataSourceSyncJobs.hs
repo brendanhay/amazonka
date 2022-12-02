@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,8 +158,8 @@ instance Core.AWSRequest ListDataSourceSyncJobs where
     Response.receiveJSON
       ( \s h x ->
           ListDataSourceSyncJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "History" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "History" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,39 +181,39 @@ instance Prelude.NFData ListDataSourceSyncJobs where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders ListDataSourceSyncJobs where
+instance Data.ToHeaders ListDataSourceSyncJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.ListDataSourceSyncJobs" ::
+              Data.=# ( "AWSKendraFrontendService.ListDataSourceSyncJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDataSourceSyncJobs where
+instance Data.ToJSON ListDataSourceSyncJobs where
   toJSON ListDataSourceSyncJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StartTimeFilter" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StartTimeFilter" Data..=)
               Prelude.<$> startTimeFilter,
-            ("StatusFilter" Core..=) Prelude.<$> statusFilter,
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId)
+            ("StatusFilter" Data..=) Prelude.<$> statusFilter,
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath ListDataSourceSyncJobs where
+instance Data.ToPath ListDataSourceSyncJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDataSourceSyncJobs where
+instance Data.ToQuery ListDataSourceSyncJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDataSourceSyncJobsResponse' smart constructor.

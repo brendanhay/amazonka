@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DocumentDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,8 +102,8 @@ instance Core.AWSRequest ListTagsForResource where
       "ListTagsForResourceResult"
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> ( x Core..@? "TagList" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "Tag")
+            Prelude.<$> ( x Data..@? "TagList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "Tag")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -117,23 +118,23 @@ instance Prelude.NFData ListTagsForResource where
     Prelude.rnf filters
       `Prelude.seq` Prelude.rnf resourceName
 
-instance Core.ToHeaders ListTagsForResource where
+instance Data.ToHeaders ListTagsForResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListTagsForResource where
+instance Data.ToPath ListTagsForResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTagsForResource where
+instance Data.ToQuery ListTagsForResource where
   toQuery ListTagsForResource' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListTagsForResource" :: Prelude.ByteString),
+          Data.=: ("ListTagsForResource" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "ResourceName" Core.=: resourceName
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "ResourceName" Data.=: resourceName
       ]
 
 -- | Represents the output of ListTagsForResource.

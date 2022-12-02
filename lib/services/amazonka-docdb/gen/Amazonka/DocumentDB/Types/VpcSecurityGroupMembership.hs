@@ -21,6 +21,7 @@ module Amazonka.DocumentDB.Types.VpcSecurityGroupMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used as a response element for queries on virtual private cloud (VPC)
@@ -63,11 +64,11 @@ vpcSecurityGroupMembership_status = Lens.lens (\VpcSecurityGroupMembership' {sta
 vpcSecurityGroupMembership_vpcSecurityGroupId :: Lens.Lens' VpcSecurityGroupMembership (Prelude.Maybe Prelude.Text)
 vpcSecurityGroupMembership_vpcSecurityGroupId = Lens.lens (\VpcSecurityGroupMembership' {vpcSecurityGroupId} -> vpcSecurityGroupId) (\s@VpcSecurityGroupMembership' {} a -> s {vpcSecurityGroupId = a} :: VpcSecurityGroupMembership)
 
-instance Core.FromXML VpcSecurityGroupMembership where
+instance Data.FromXML VpcSecurityGroupMembership where
   parseXML x =
     VpcSecurityGroupMembership'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "VpcSecurityGroupId")
+      Prelude.<$> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "VpcSecurityGroupId")
 
 instance Prelude.Hashable VpcSecurityGroupMembership where
   hashWithSalt _salt VpcSecurityGroupMembership' {..} =

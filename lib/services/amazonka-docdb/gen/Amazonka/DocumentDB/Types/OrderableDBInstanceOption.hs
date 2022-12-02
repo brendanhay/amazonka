@@ -21,6 +21,7 @@ module Amazonka.DocumentDB.Types.OrderableDBInstanceOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DocumentDB.Types.AvailabilityZone
 import qualified Amazonka.Prelude as Prelude
 
@@ -99,18 +100,18 @@ orderableDBInstanceOption_engineVersion = Lens.lens (\OrderableDBInstanceOption'
 orderableDBInstanceOption_licenseModel :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
 orderableDBInstanceOption_licenseModel = Lens.lens (\OrderableDBInstanceOption' {licenseModel} -> licenseModel) (\s@OrderableDBInstanceOption' {} a -> s {licenseModel = a} :: OrderableDBInstanceOption)
 
-instance Core.FromXML OrderableDBInstanceOption where
+instance Data.FromXML OrderableDBInstanceOption where
   parseXML x =
     OrderableDBInstanceOption'
-      Prelude.<$> (x Core..@? "DBInstanceClass")
-      Prelude.<*> (x Core..@? "Vpc")
-      Prelude.<*> ( x Core..@? "AvailabilityZones"
+      Prelude.<$> (x Data..@? "DBInstanceClass")
+      Prelude.<*> (x Data..@? "Vpc")
+      Prelude.<*> ( x Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "AvailabilityZone")
+                      Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "LicenseModel")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "LicenseModel")
 
 instance Prelude.Hashable OrderableDBInstanceOption where
   hashWithSalt _salt OrderableDBInstanceOption' {..} =

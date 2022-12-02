@@ -21,6 +21,7 @@ module Amazonka.DocumentDB.Types.DBInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DocumentDB.Types.DBInstanceStatusInfo
 import Amazonka.DocumentDB.Types.DBSubnetGroup
 import Amazonka.DocumentDB.Types.Endpoint
@@ -59,7 +60,7 @@ data DBInstance = DBInstance'
     dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Specifies the latest time to which a database can be restored with
     -- point-in-time restore.
-    latestRestorableTime :: Prelude.Maybe Core.ISO8601,
+    latestRestorableTime :: Prelude.Maybe Data.ISO8601,
     -- | Contains the name of the cluster that the instance is a member of if the
     -- instance is a member of a cluster.
     dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
@@ -68,7 +69,7 @@ data DBInstance = DBInstance'
     -- group.
     dbSubnetGroup :: Prelude.Maybe DBSubnetGroup,
     -- | Provides the date and time that the instance was created.
-    instanceCreateTime :: Prelude.Maybe Core.ISO8601,
+    instanceCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | Specifies the name of the Availability Zone that the instance is located
     -- in.
     availabilityZone :: Prelude.Maybe Prelude.Text,
@@ -275,7 +276,7 @@ dbInstance_dbInstanceIdentifier = Lens.lens (\DBInstance' {dbInstanceIdentifier}
 -- | Specifies the latest time to which a database can be restored with
 -- point-in-time restore.
 dbInstance_latestRestorableTime :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.UTCTime)
-dbInstance_latestRestorableTime = Lens.lens (\DBInstance' {latestRestorableTime} -> latestRestorableTime) (\s@DBInstance' {} a -> s {latestRestorableTime = a} :: DBInstance) Prelude.. Lens.mapping Core._Time
+dbInstance_latestRestorableTime = Lens.lens (\DBInstance' {latestRestorableTime} -> latestRestorableTime) (\s@DBInstance' {} a -> s {latestRestorableTime = a} :: DBInstance) Prelude.. Lens.mapping Data._Time
 
 -- | Contains the name of the cluster that the instance is a member of if the
 -- instance is a member of a cluster.
@@ -290,7 +291,7 @@ dbInstance_dbSubnetGroup = Lens.lens (\DBInstance' {dbSubnetGroup} -> dbSubnetGr
 
 -- | Provides the date and time that the instance was created.
 dbInstance_instanceCreateTime :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.UTCTime)
-dbInstance_instanceCreateTime = Lens.lens (\DBInstance' {instanceCreateTime} -> instanceCreateTime) (\s@DBInstance' {} a -> s {instanceCreateTime = a} :: DBInstance) Prelude.. Lens.mapping Core._Time
+dbInstance_instanceCreateTime = Lens.lens (\DBInstance' {instanceCreateTime} -> instanceCreateTime) (\s@DBInstance' {} a -> s {instanceCreateTime = a} :: DBInstance) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the name of the Availability Zone that the instance is located
 -- in.
@@ -363,44 +364,44 @@ dbInstance_statusInfos = Lens.lens (\DBInstance' {statusInfos} -> statusInfos) (
 dbInstance_vpcSecurityGroups :: Lens.Lens' DBInstance (Prelude.Maybe [VpcSecurityGroupMembership])
 dbInstance_vpcSecurityGroups = Lens.lens (\DBInstance' {vpcSecurityGroups} -> vpcSecurityGroups) (\s@DBInstance' {} a -> s {vpcSecurityGroups = a} :: DBInstance) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML DBInstance where
+instance Data.FromXML DBInstance where
   parseXML x =
     DBInstance'
-      Prelude.<$> (x Core..@? "DBInstanceStatus")
-      Prelude.<*> (x Core..@? "PreferredBackupWindow")
-      Prelude.<*> (x Core..@? "BackupRetentionPeriod")
-      Prelude.<*> (x Core..@? "DBInstanceClass")
-      Prelude.<*> (x Core..@? "CopyTagsToSnapshot")
-      Prelude.<*> (x Core..@? "PromotionTier")
-      Prelude.<*> (x Core..@? "AutoMinorVersionUpgrade")
-      Prelude.<*> (x Core..@? "DBInstanceIdentifier")
-      Prelude.<*> (x Core..@? "LatestRestorableTime")
-      Prelude.<*> (x Core..@? "DBClusterIdentifier")
-      Prelude.<*> (x Core..@? "DBSubnetGroup")
-      Prelude.<*> (x Core..@? "InstanceCreateTime")
-      Prelude.<*> (x Core..@? "AvailabilityZone")
-      Prelude.<*> (x Core..@? "PubliclyAccessible")
-      Prelude.<*> (x Core..@? "DBInstanceArn")
-      Prelude.<*> (x Core..@? "CACertificateIdentifier")
-      Prelude.<*> (x Core..@? "StorageEncrypted")
-      Prelude.<*> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "PendingModifiedValues")
-      Prelude.<*> (x Core..@? "PreferredMaintenanceWindow")
-      Prelude.<*> (x Core..@? "Endpoint")
-      Prelude.<*> (x Core..@? "DbiResourceId")
-      Prelude.<*> ( x Core..@? "EnabledCloudwatchLogsExports"
+      Prelude.<$> (x Data..@? "DBInstanceStatus")
+      Prelude.<*> (x Data..@? "PreferredBackupWindow")
+      Prelude.<*> (x Data..@? "BackupRetentionPeriod")
+      Prelude.<*> (x Data..@? "DBInstanceClass")
+      Prelude.<*> (x Data..@? "CopyTagsToSnapshot")
+      Prelude.<*> (x Data..@? "PromotionTier")
+      Prelude.<*> (x Data..@? "AutoMinorVersionUpgrade")
+      Prelude.<*> (x Data..@? "DBInstanceIdentifier")
+      Prelude.<*> (x Data..@? "LatestRestorableTime")
+      Prelude.<*> (x Data..@? "DBClusterIdentifier")
+      Prelude.<*> (x Data..@? "DBSubnetGroup")
+      Prelude.<*> (x Data..@? "InstanceCreateTime")
+      Prelude.<*> (x Data..@? "AvailabilityZone")
+      Prelude.<*> (x Data..@? "PubliclyAccessible")
+      Prelude.<*> (x Data..@? "DBInstanceArn")
+      Prelude.<*> (x Data..@? "CACertificateIdentifier")
+      Prelude.<*> (x Data..@? "StorageEncrypted")
+      Prelude.<*> (x Data..@? "KmsKeyId")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "PendingModifiedValues")
+      Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
+      Prelude.<*> (x Data..@? "Endpoint")
+      Prelude.<*> (x Data..@? "DbiResourceId")
+      Prelude.<*> ( x Data..@? "EnabledCloudwatchLogsExports"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> ( x Core..@? "StatusInfos" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DBInstanceStatusInfo")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> ( x Data..@? "StatusInfos" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "DBInstanceStatusInfo")
                   )
-      Prelude.<*> ( x Core..@? "VpcSecurityGroups"
+      Prelude.<*> ( x Data..@? "VpcSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "VpcSecurityGroupMembership")
+                        (Data.parseXMLList "VpcSecurityGroupMembership")
                   )
 
 instance Prelude.Hashable DBInstance where

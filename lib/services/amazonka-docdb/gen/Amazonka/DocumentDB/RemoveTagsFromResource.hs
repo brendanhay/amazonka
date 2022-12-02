@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DocumentDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,21 +108,21 @@ instance Prelude.NFData RemoveTagsFromResource where
     Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf tagKeys
 
-instance Core.ToHeaders RemoveTagsFromResource where
+instance Data.ToHeaders RemoveTagsFromResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RemoveTagsFromResource where
+instance Data.ToPath RemoveTagsFromResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveTagsFromResource where
+instance Data.ToQuery RemoveTagsFromResource where
   toQuery RemoveTagsFromResource' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RemoveTagsFromResource" :: Prelude.ByteString),
+          Data.=: ("RemoveTagsFromResource" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "ResourceName" Core.=: resourceName,
-        "TagKeys" Core.=: Core.toQueryList "member" tagKeys
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "ResourceName" Data.=: resourceName,
+        "TagKeys" Data.=: Data.toQueryList "member" tagKeys
       ]
 
 -- | /See:/ 'newRemoveTagsFromResourceResponse' smart constructor.

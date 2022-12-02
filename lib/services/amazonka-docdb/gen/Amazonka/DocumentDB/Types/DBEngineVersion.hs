@@ -21,6 +21,7 @@ module Amazonka.DocumentDB.Types.DBEngineVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DocumentDB.Types.UpgradeTarget
 import qualified Amazonka.Prelude as Prelude
 
@@ -126,23 +127,23 @@ dbEngineVersion_engineVersion = Lens.lens (\DBEngineVersion' {engineVersion} -> 
 dbEngineVersion_dbEngineDescription :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
 dbEngineVersion_dbEngineDescription = Lens.lens (\DBEngineVersion' {dbEngineDescription} -> dbEngineDescription) (\s@DBEngineVersion' {} a -> s {dbEngineDescription = a} :: DBEngineVersion)
 
-instance Core.FromXML DBEngineVersion where
+instance Data.FromXML DBEngineVersion where
   parseXML x =
     DBEngineVersion'
-      Prelude.<$> ( x Core..@? "ValidUpgradeTarget"
+      Prelude.<$> ( x Data..@? "ValidUpgradeTarget"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "UpgradeTarget")
+                      Prelude.>>= Core.may (Data.parseXMLList "UpgradeTarget")
                   )
-      Prelude.<*> ( x Core..@? "ExportableLogTypes"
+      Prelude.<*> ( x Data..@? "ExportableLogTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "DBEngineVersionDescription")
-      Prelude.<*> (x Core..@? "SupportsLogExportsToCloudwatchLogs")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "DBParameterGroupFamily")
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "DBEngineDescription")
+      Prelude.<*> (x Data..@? "DBEngineVersionDescription")
+      Prelude.<*> (x Data..@? "SupportsLogExportsToCloudwatchLogs")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "DBParameterGroupFamily")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "DBEngineDescription")
 
 instance Prelude.Hashable DBEngineVersion where
   hashWithSalt _salt DBEngineVersion' {..} =

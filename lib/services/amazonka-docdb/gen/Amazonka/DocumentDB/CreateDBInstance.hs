@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DocumentDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -358,7 +359,7 @@ instance Core.AWSRequest CreateDBInstance where
       "CreateDBInstanceResult"
       ( \s h x ->
           CreateDBInstanceResponse'
-            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -392,37 +393,37 @@ instance Prelude.NFData CreateDBInstance where
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
-instance Core.ToHeaders CreateDBInstance where
+instance Data.ToHeaders CreateDBInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDBInstance where
+instance Data.ToPath CreateDBInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDBInstance where
+instance Data.ToQuery CreateDBInstance where
   toQuery CreateDBInstance' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDBInstance" :: Prelude.ByteString),
+          Data.=: ("CreateDBInstance" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "PromotionTier" Core.=: promotionTier,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
+        "PromotionTier" Data.=: promotionTier,
         "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
+          Data.=: autoMinorVersionUpgrade,
         "PerformanceInsightsKMSKeyId"
-          Core.=: performanceInsightsKMSKeyId,
-        "AvailabilityZone" Core.=: availabilityZone,
+          Data.=: performanceInsightsKMSKeyId,
+        "AvailabilityZone" Data.=: availabilityZone,
         "EnablePerformanceInsights"
-          Core.=: enablePerformanceInsights,
+          Data.=: enablePerformanceInsights,
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
-        "DBInstanceClass" Core.=: dbInstanceClass,
-        "Engine" Core.=: engine,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier
+          Data.=: preferredMaintenanceWindow,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier,
+        "DBInstanceClass" Data.=: dbInstanceClass,
+        "Engine" Data.=: engine,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newCreateDBInstanceResponse' smart constructor.

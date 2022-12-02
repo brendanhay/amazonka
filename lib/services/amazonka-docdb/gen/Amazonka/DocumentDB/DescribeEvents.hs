@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DocumentDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -78,7 +79,7 @@ data DescribeEvents = DescribeEvents'
     -- ISO 8601 format.
     --
     -- Example: 2009-07-08T18:00Z
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- (marker) is included in the response so that the remaining results can
@@ -121,7 +122,7 @@ data DescribeEvents = DescribeEvents'
     -- ISO 8601 format.
     --
     -- Example: 2009-07-08T18:00Z
-    startTime :: Prelude.Maybe Core.ISO8601
+    startTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -224,7 +225,7 @@ describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceTy
 --
 -- Example: 2009-07-08T18:00Z
 describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
+describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -277,7 +278,7 @@ describeEvents_eventCategories = Lens.lens (\DescribeEvents' {eventCategories} -
 --
 -- Example: 2009-07-08T18:00Z
 describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
+describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager DescribeEvents where
   page rq rs
@@ -309,9 +310,9 @@ instance Core.AWSRequest DescribeEvents where
       "DescribeEventsResult"
       ( \s h x ->
           DescribeEventsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "Events" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "Event")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "Events" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "Event")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -340,34 +341,34 @@ instance Prelude.NFData DescribeEvents where
       `Prelude.seq` Prelude.rnf eventCategories
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders DescribeEvents where
+instance Data.ToHeaders DescribeEvents where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeEvents where
+instance Data.ToPath DescribeEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEvents where
+instance Data.ToQuery DescribeEvents where
   toQuery DescribeEvents' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeEvents" :: Prelude.ByteString),
+          Data.=: ("DescribeEvents" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "SourceType" Core.=: sourceType,
-        "EndTime" Core.=: endTime,
-        "MaxRecords" Core.=: maxRecords,
-        "Duration" Core.=: duration,
-        "SourceIdentifier" Core.=: sourceIdentifier,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "SourceType" Data.=: sourceType,
+        "EndTime" Data.=: endTime,
+        "MaxRecords" Data.=: maxRecords,
+        "Duration" Data.=: duration,
+        "SourceIdentifier" Data.=: sourceIdentifier,
         "EventCategories"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "EventCategory"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "EventCategory"
                 Prelude.<$> eventCategories
             ),
-        "StartTime" Core.=: startTime
+        "StartTime" Data.=: startTime
       ]
 
 -- | Represents the output of DescribeEvents.

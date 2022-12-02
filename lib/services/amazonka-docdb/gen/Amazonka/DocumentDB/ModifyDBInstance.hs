@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DocumentDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -395,7 +396,7 @@ instance Core.AWSRequest ModifyDBInstance where
       "ModifyDBInstanceResult"
       ( \s h x ->
           ModifyDBInstanceResponse'
-            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -427,36 +428,36 @@ instance Prelude.NFData ModifyDBInstance where
       `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
-instance Core.ToHeaders ModifyDBInstance where
+instance Data.ToHeaders ModifyDBInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyDBInstance where
+instance Data.ToPath ModifyDBInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyDBInstance where
+instance Data.ToQuery ModifyDBInstance where
   toQuery ModifyDBInstance' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBInstance" :: Prelude.ByteString),
+          Data.=: ("ModifyDBInstance" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBInstanceClass" Core.=: dbInstanceClass,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "PromotionTier" Core.=: promotionTier,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBInstanceClass" Data.=: dbInstanceClass,
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
+        "PromotionTier" Data.=: promotionTier,
         "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
-        "ApplyImmediately" Core.=: applyImmediately,
+          Data.=: autoMinorVersionUpgrade,
+        "ApplyImmediately" Data.=: applyImmediately,
         "PerformanceInsightsKMSKeyId"
-          Core.=: performanceInsightsKMSKeyId,
+          Data.=: performanceInsightsKMSKeyId,
         "EnablePerformanceInsights"
-          Core.=: enablePerformanceInsights,
+          Data.=: enablePerformanceInsights,
         "CACertificateIdentifier"
-          Core.=: cACertificateIdentifier,
+          Data.=: cACertificateIdentifier,
         "NewDBInstanceIdentifier"
-          Core.=: newDBInstanceIdentifier',
+          Data.=: newDBInstanceIdentifier',
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
+          Data.=: preferredMaintenanceWindow,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newModifyDBInstanceResponse' smart constructor.

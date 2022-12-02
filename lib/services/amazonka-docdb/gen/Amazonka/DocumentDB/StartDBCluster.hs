@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DocumentDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ instance Core.AWSRequest StartDBCluster where
       "StartDBClusterResult"
       ( \s h x ->
           StartDBClusterResponse'
-            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<$> (x Data..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,20 +105,20 @@ instance Prelude.NFData StartDBCluster where
   rnf StartDBCluster' {..} =
     Prelude.rnf dbClusterIdentifier
 
-instance Core.ToHeaders StartDBCluster where
+instance Data.ToHeaders StartDBCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath StartDBCluster where
+instance Data.ToPath StartDBCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartDBCluster where
+instance Data.ToQuery StartDBCluster where
   toQuery StartDBCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("StartDBCluster" :: Prelude.ByteString),
+          Data.=: ("StartDBCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newStartDBClusterResponse' smart constructor.

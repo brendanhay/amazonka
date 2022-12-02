@@ -21,6 +21,7 @@ module Amazonka.DocumentDB.Types.DBClusterParameterGroupNameMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the name of a cluster parameter group.
@@ -84,12 +85,12 @@ dbClusterParameterGroupNameMessage_dbClusterParameterGroupName :: Lens.Lens' DBC
 dbClusterParameterGroupNameMessage_dbClusterParameterGroupName = Lens.lens (\DBClusterParameterGroupNameMessage' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@DBClusterParameterGroupNameMessage' {} a -> s {dbClusterParameterGroupName = a} :: DBClusterParameterGroupNameMessage)
 
 instance
-  Core.FromXML
+  Data.FromXML
     DBClusterParameterGroupNameMessage
   where
   parseXML x =
     DBClusterParameterGroupNameMessage'
-      Prelude.<$> (x Core..@? "DBClusterParameterGroupName")
+      Prelude.<$> (x Data..@? "DBClusterParameterGroupName")
 
 instance
   Prelude.Hashable

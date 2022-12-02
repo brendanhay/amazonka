@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,8 +136,8 @@ instance Core.AWSRequest GetSites where
     Response.receiveJSON
       ( \s h x ->
           GetSitesResponse'
-            Prelude.<$> (x Core..?> "Sites" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Sites" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,33 +155,33 @@ instance Prelude.NFData GetSites where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf globalNetworkId
 
-instance Core.ToHeaders GetSites where
+instance Data.ToHeaders GetSites where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSites where
+instance Data.ToPath GetSites where
   toPath GetSites' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/sites"
       ]
 
-instance Core.ToQuery GetSites where
+instance Data.ToQuery GetSites where
   toQuery GetSites' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
+      [ "nextToken" Data.=: nextToken,
         "siteIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> siteIds),
-        "maxResults" Core.=: maxResults
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> siteIds),
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetSitesResponse' smart constructor.

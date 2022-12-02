@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.TransitGatewayPeering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.Peering
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ transitGatewayPeering_transitGatewayPeeringAttachmentId = Lens.lens (\TransitGat
 transitGatewayPeering_peering :: Lens.Lens' TransitGatewayPeering (Prelude.Maybe Peering)
 transitGatewayPeering_peering = Lens.lens (\TransitGatewayPeering' {peering} -> peering) (\s@TransitGatewayPeering' {} a -> s {peering = a} :: TransitGatewayPeering)
 
-instance Core.FromJSON TransitGatewayPeering where
+instance Data.FromJSON TransitGatewayPeering where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransitGatewayPeering"
       ( \x ->
           TransitGatewayPeering'
-            Prelude.<$> (x Core..:? "TransitGatewayArn")
-            Prelude.<*> (x Core..:? "TransitGatewayPeeringAttachmentId")
-            Prelude.<*> (x Core..:? "Peering")
+            Prelude.<$> (x Data..:? "TransitGatewayArn")
+            Prelude.<*> (x Data..:? "TransitGatewayPeeringAttachmentId")
+            Prelude.<*> (x Data..:? "Peering")
       )
 
 instance Prelude.Hashable TransitGatewayPeering where

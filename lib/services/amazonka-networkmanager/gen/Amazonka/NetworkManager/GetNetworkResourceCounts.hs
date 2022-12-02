@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -238,8 +239,8 @@ instance Core.AWSRequest GetNetworkResourceCounts where
     Response.receiveJSON
       ( \s h x ->
           GetNetworkResourceCountsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "NetworkResourceCounts"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "NetworkResourceCounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -259,31 +260,31 @@ instance Prelude.NFData GetNetworkResourceCounts where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf globalNetworkId
 
-instance Core.ToHeaders GetNetworkResourceCounts where
+instance Data.ToHeaders GetNetworkResourceCounts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetNetworkResourceCounts where
+instance Data.ToPath GetNetworkResourceCounts where
   toPath GetNetworkResourceCounts' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/network-resource-count"
       ]
 
-instance Core.ToQuery GetNetworkResourceCounts where
+instance Data.ToQuery GetNetworkResourceCounts where
   toQuery GetNetworkResourceCounts' {..} =
     Prelude.mconcat
-      [ "resourceType" Core.=: resourceType,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "resourceType" Data.=: resourceType,
+        "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetNetworkResourceCountsResponse' smart constructor.

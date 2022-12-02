@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,8 +146,8 @@ instance Core.AWSRequest GetCoreNetworkChangeEvents where
     Response.receiveJSON
       ( \s h x ->
           GetCoreNetworkChangeEventsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CoreNetworkChangeEvents"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CoreNetworkChangeEvents"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -166,31 +167,31 @@ instance Prelude.NFData GetCoreNetworkChangeEvents where
       `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf policyVersionId
 
-instance Core.ToHeaders GetCoreNetworkChangeEvents where
+instance Data.ToHeaders GetCoreNetworkChangeEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCoreNetworkChangeEvents where
+instance Data.ToPath GetCoreNetworkChangeEvents where
   toPath GetCoreNetworkChangeEvents' {..} =
     Prelude.mconcat
       [ "/core-networks/",
-        Core.toBS coreNetworkId,
+        Data.toBS coreNetworkId,
         "/core-network-change-events/",
-        Core.toBS policyVersionId
+        Data.toBS policyVersionId
       ]
 
-instance Core.ToQuery GetCoreNetworkChangeEvents where
+instance Data.ToQuery GetCoreNetworkChangeEvents where
   toQuery GetCoreNetworkChangeEvents' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetCoreNetworkChangeEventsResponse' smart constructor.

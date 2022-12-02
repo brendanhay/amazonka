@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,7 +136,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AssociateTransitGatewayConnectPeerResponse'
-            Prelude.<$> (x Core..?> "TransitGatewayConnectPeerAssociation")
+            Prelude.<$> (x Data..?> "TransitGatewayConnectPeerAssociation")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,48 +163,48 @@ instance
       `Prelude.seq` Prelude.rnf deviceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociateTransitGatewayConnectPeer
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AssociateTransitGatewayConnectPeer
   where
   toJSON AssociateTransitGatewayConnectPeer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LinkId" Core..=) Prelude.<$> linkId,
+          [ ("LinkId" Data..=) Prelude.<$> linkId,
             Prelude.Just
               ( "TransitGatewayConnectPeerArn"
-                  Core..= transitGatewayConnectPeerArn
+                  Data..= transitGatewayConnectPeerArn
               ),
-            Prelude.Just ("DeviceId" Core..= deviceId)
+            Prelude.Just ("DeviceId" Data..= deviceId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     AssociateTransitGatewayConnectPeer
   where
   toPath AssociateTransitGatewayConnectPeer' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/transit-gateway-connect-peer-associations"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AssociateTransitGatewayConnectPeer
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.CoreNetworkChangeValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a core network change.
@@ -107,21 +108,21 @@ coreNetworkChangeValues_insideCidrBlocks = Lens.lens (\CoreNetworkChangeValues' 
 coreNetworkChangeValues_destinationIdentifier :: Lens.Lens' CoreNetworkChangeValues (Prelude.Maybe Prelude.Text)
 coreNetworkChangeValues_destinationIdentifier = Lens.lens (\CoreNetworkChangeValues' {destinationIdentifier} -> destinationIdentifier) (\s@CoreNetworkChangeValues' {} a -> s {destinationIdentifier = a} :: CoreNetworkChangeValues)
 
-instance Core.FromJSON CoreNetworkChangeValues where
+instance Data.FromJSON CoreNetworkChangeValues where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreNetworkChangeValues"
       ( \x ->
           CoreNetworkChangeValues'
-            Prelude.<$> (x Core..:? "SharedSegments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Cidr")
-            Prelude.<*> (x Core..:? "Asn")
-            Prelude.<*> (x Core..:? "SegmentName")
-            Prelude.<*> (x Core..:? "EdgeLocations" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "InsideCidrBlocks"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SharedSegments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Cidr")
+            Prelude.<*> (x Data..:? "Asn")
+            Prelude.<*> (x Data..:? "SegmentName")
+            Prelude.<*> (x Data..:? "EdgeLocations" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "InsideCidrBlocks"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DestinationIdentifier")
+            Prelude.<*> (x Data..:? "DestinationIdentifier")
       )
 
 instance Prelude.Hashable CoreNetworkChangeValues where

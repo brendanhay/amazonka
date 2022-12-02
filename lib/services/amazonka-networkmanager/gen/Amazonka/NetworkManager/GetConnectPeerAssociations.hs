@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,8 +142,8 @@ instance Core.AWSRequest GetConnectPeerAssociations where
     Response.receiveJSON
       ( \s h x ->
           GetConnectPeerAssociationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ConnectPeerAssociations"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ConnectPeerAssociations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -162,35 +163,35 @@ instance Prelude.NFData GetConnectPeerAssociations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf globalNetworkId
 
-instance Core.ToHeaders GetConnectPeerAssociations where
+instance Data.ToHeaders GetConnectPeerAssociations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetConnectPeerAssociations where
+instance Data.ToPath GetConnectPeerAssociations where
   toPath GetConnectPeerAssociations' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/connect-peer-associations"
       ]
 
-instance Core.ToQuery GetConnectPeerAssociations where
+instance Data.ToQuery GetConnectPeerAssociations where
   toQuery GetConnectPeerAssociations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
+      [ "nextToken" Data.=: nextToken,
         "connectPeerIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> connectPeerIds
             ),
-        "maxResults" Core.=: maxResults
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetConnectPeerAssociationsResponse' smart constructor.

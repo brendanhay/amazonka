@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,7 +128,7 @@ instance Core.AWSRequest AssociateConnectPeer where
     Response.receiveJSON
       ( \s h x ->
           AssociateConnectPeerResponse'
-            Prelude.<$> (x Core..?> "ConnectPeerAssociation")
+            Prelude.<$> (x Data..?> "ConnectPeerAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,36 +146,36 @@ instance Prelude.NFData AssociateConnectPeer where
       `Prelude.seq` Prelude.rnf connectPeerId
       `Prelude.seq` Prelude.rnf deviceId
 
-instance Core.ToHeaders AssociateConnectPeer where
+instance Data.ToHeaders AssociateConnectPeer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateConnectPeer where
+instance Data.ToJSON AssociateConnectPeer where
   toJSON AssociateConnectPeer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LinkId" Core..=) Prelude.<$> linkId,
-            Prelude.Just ("ConnectPeerId" Core..= connectPeerId),
-            Prelude.Just ("DeviceId" Core..= deviceId)
+          [ ("LinkId" Data..=) Prelude.<$> linkId,
+            Prelude.Just ("ConnectPeerId" Data..= connectPeerId),
+            Prelude.Just ("DeviceId" Data..= deviceId)
           ]
       )
 
-instance Core.ToPath AssociateConnectPeer where
+instance Data.ToPath AssociateConnectPeer where
   toPath AssociateConnectPeer' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/connect-peer-associations"
       ]
 
-instance Core.ToQuery AssociateConnectPeer where
+instance Data.ToQuery AssociateConnectPeer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateConnectPeerResponse' smart constructor.

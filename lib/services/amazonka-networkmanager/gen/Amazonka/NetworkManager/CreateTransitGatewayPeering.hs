@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance Core.AWSRequest CreateTransitGatewayPeering where
     Response.receiveJSON
       ( \s h x ->
           CreateTransitGatewayPeeringResponse'
-            Prelude.<$> (x Core..?> "TransitGatewayPeering")
+            Prelude.<$> (x Data..?> "TransitGatewayPeering")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,33 +139,33 @@ instance Prelude.NFData CreateTransitGatewayPeering where
       `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf transitGatewayArn
 
-instance Core.ToHeaders CreateTransitGatewayPeering where
+instance Data.ToHeaders CreateTransitGatewayPeering where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTransitGatewayPeering where
+instance Data.ToJSON CreateTransitGatewayPeering where
   toJSON CreateTransitGatewayPeering' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("CoreNetworkId" Core..= coreNetworkId),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("CoreNetworkId" Data..= coreNetworkId),
             Prelude.Just
-              ("TransitGatewayArn" Core..= transitGatewayArn)
+              ("TransitGatewayArn" Data..= transitGatewayArn)
           ]
       )
 
-instance Core.ToPath CreateTransitGatewayPeering where
+instance Data.ToPath CreateTransitGatewayPeering where
   toPath = Prelude.const "/transit-gateway-peerings"
 
-instance Core.ToQuery CreateTransitGatewayPeering where
+instance Data.ToQuery CreateTransitGatewayPeering where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTransitGatewayPeeringResponse' smart constructor.

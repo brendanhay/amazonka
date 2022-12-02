@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,8 +159,8 @@ instance Core.AWSRequest ListAttachments where
     Response.receiveJSON
       ( \s h x ->
           ListAttachmentsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Attachments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Attachments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,29 +182,29 @@ instance Prelude.NFData ListAttachments where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf attachmentType
 
-instance Core.ToHeaders ListAttachments where
+instance Data.ToHeaders ListAttachments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAttachments where
+instance Data.ToPath ListAttachments where
   toPath = Prelude.const "/attachments"
 
-instance Core.ToQuery ListAttachments where
+instance Data.ToQuery ListAttachments where
   toQuery ListAttachments' {..} =
     Prelude.mconcat
-      [ "coreNetworkId" Core.=: coreNetworkId,
-        "nextToken" Core.=: nextToken,
-        "state" Core.=: state,
-        "edgeLocation" Core.=: edgeLocation,
-        "maxResults" Core.=: maxResults,
-        "attachmentType" Core.=: attachmentType
+      [ "coreNetworkId" Data.=: coreNetworkId,
+        "nextToken" Data.=: nextToken,
+        "state" Data.=: state,
+        "edgeLocation" Data.=: edgeLocation,
+        "maxResults" Data.=: maxResults,
+        "attachmentType" Data.=: attachmentType
       ]
 
 -- | /See:/ 'newListAttachmentsResponse' smart constructor.

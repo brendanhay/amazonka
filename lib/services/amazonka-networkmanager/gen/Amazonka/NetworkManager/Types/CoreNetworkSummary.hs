@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.CoreNetworkSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.CoreNetworkState
 import Amazonka.NetworkManager.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -109,19 +110,19 @@ coreNetworkSummary_coreNetworkArn = Lens.lens (\CoreNetworkSummary' {coreNetwork
 coreNetworkSummary_ownerAccountId :: Lens.Lens' CoreNetworkSummary (Prelude.Maybe Prelude.Text)
 coreNetworkSummary_ownerAccountId = Lens.lens (\CoreNetworkSummary' {ownerAccountId} -> ownerAccountId) (\s@CoreNetworkSummary' {} a -> s {ownerAccountId = a} :: CoreNetworkSummary)
 
-instance Core.FromJSON CoreNetworkSummary where
+instance Data.FromJSON CoreNetworkSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreNetworkSummary"
       ( \x ->
           CoreNetworkSummary'
-            Prelude.<$> (x Core..:? "GlobalNetworkId")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CoreNetworkId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CoreNetworkArn")
-            Prelude.<*> (x Core..:? "OwnerAccountId")
+            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CoreNetworkId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CoreNetworkArn")
+            Prelude.<*> (x Data..:? "OwnerAccountId")
       )
 
 instance Prelude.Hashable CoreNetworkSummary where

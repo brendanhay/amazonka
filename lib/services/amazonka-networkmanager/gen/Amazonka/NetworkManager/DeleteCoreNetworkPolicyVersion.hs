@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteCoreNetworkPolicyVersionResponse'
-            Prelude.<$> (x Core..?> "CoreNetworkPolicy")
+            Prelude.<$> (x Data..?> "CoreNetworkPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,29 +128,29 @@ instance
       `Prelude.seq` Prelude.rnf policyVersionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteCoreNetworkPolicyVersion
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteCoreNetworkPolicyVersion where
+instance Data.ToPath DeleteCoreNetworkPolicyVersion where
   toPath DeleteCoreNetworkPolicyVersion' {..} =
     Prelude.mconcat
       [ "/core-networks/",
-        Core.toBS coreNetworkId,
+        Data.toBS coreNetworkId,
         "/core-network-policy-versions/",
-        Core.toBS policyVersionId
+        Data.toBS policyVersionId
       ]
 
-instance Core.ToQuery DeleteCoreNetworkPolicyVersion where
+instance Data.ToQuery DeleteCoreNetworkPolicyVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCoreNetworkPolicyVersionResponse' smart constructor.

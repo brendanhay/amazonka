@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,7 +152,7 @@ instance Core.AWSRequest CreateConnectAttachment where
     Response.receiveJSON
       ( \s h x ->
           CreateConnectAttachmentResponse'
-            Prelude.<$> (x Core..?> "ConnectAttachment")
+            Prelude.<$> (x Data..?> "ConnectAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,37 +174,37 @@ instance Prelude.NFData CreateConnectAttachment where
       `Prelude.seq` Prelude.rnf transportAttachmentId
       `Prelude.seq` Prelude.rnf options
 
-instance Core.ToHeaders CreateConnectAttachment where
+instance Data.ToHeaders CreateConnectAttachment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConnectAttachment where
+instance Data.ToJSON CreateConnectAttachment where
   toJSON CreateConnectAttachment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("CoreNetworkId" Core..= coreNetworkId),
-            Prelude.Just ("EdgeLocation" Core..= edgeLocation),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("CoreNetworkId" Data..= coreNetworkId),
+            Prelude.Just ("EdgeLocation" Data..= edgeLocation),
             Prelude.Just
               ( "TransportAttachmentId"
-                  Core..= transportAttachmentId
+                  Data..= transportAttachmentId
               ),
-            Prelude.Just ("Options" Core..= options)
+            Prelude.Just ("Options" Data..= options)
           ]
       )
 
-instance Core.ToPath CreateConnectAttachment where
+instance Data.ToPath CreateConnectAttachment where
   toPath = Prelude.const "/connect-attachments"
 
-instance Core.ToQuery CreateConnectAttachment where
+instance Data.ToQuery CreateConnectAttachment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConnectAttachmentResponse' smart constructor.

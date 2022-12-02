@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetVpcAttachment where
     Response.receiveJSON
       ( \s h x ->
           GetVpcAttachmentResponse'
-            Prelude.<$> (x Core..?> "VpcAttachment")
+            Prelude.<$> (x Data..?> "VpcAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,23 +95,23 @@ instance Prelude.Hashable GetVpcAttachment where
 instance Prelude.NFData GetVpcAttachment where
   rnf GetVpcAttachment' {..} = Prelude.rnf attachmentId
 
-instance Core.ToHeaders GetVpcAttachment where
+instance Data.ToHeaders GetVpcAttachment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetVpcAttachment where
+instance Data.ToPath GetVpcAttachment where
   toPath GetVpcAttachment' {..} =
     Prelude.mconcat
-      ["/vpc-attachments/", Core.toBS attachmentId]
+      ["/vpc-attachments/", Data.toBS attachmentId]
 
-instance Core.ToQuery GetVpcAttachment where
+instance Data.ToQuery GetVpcAttachment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetVpcAttachmentResponse' smart constructor.

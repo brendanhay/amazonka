@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest AcceptAttachment where
     Response.receiveJSON
       ( \s h x ->
           AcceptAttachmentResponse'
-            Prelude.<$> (x Core..?> "Attachment")
+            Prelude.<$> (x Data..?> "Attachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,26 +98,26 @@ instance Prelude.Hashable AcceptAttachment where
 instance Prelude.NFData AcceptAttachment where
   rnf AcceptAttachment' {..} = Prelude.rnf attachmentId
 
-instance Core.ToHeaders AcceptAttachment where
+instance Data.ToHeaders AcceptAttachment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AcceptAttachment where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AcceptAttachment where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath AcceptAttachment where
+instance Data.ToPath AcceptAttachment where
   toPath AcceptAttachment' {..} =
     Prelude.mconcat
-      ["/attachments/", Core.toBS attachmentId, "/accept"]
+      ["/attachments/", Data.toBS attachmentId, "/accept"]
 
-instance Core.ToQuery AcceptAttachment where
+instance Data.ToQuery AcceptAttachment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAcceptAttachmentResponse' smart constructor.

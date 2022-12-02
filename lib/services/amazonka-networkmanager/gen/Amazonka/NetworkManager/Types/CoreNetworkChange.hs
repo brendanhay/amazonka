@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.CoreNetworkChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.ChangeAction
 import Amazonka.NetworkManager.Types.ChangeType
 import Amazonka.NetworkManager.Types.CoreNetworkChangeValues
@@ -106,18 +107,18 @@ coreNetworkChange_identifierPath = Lens.lens (\CoreNetworkChange' {identifierPat
 coreNetworkChange_action :: Lens.Lens' CoreNetworkChange (Prelude.Maybe ChangeAction)
 coreNetworkChange_action = Lens.lens (\CoreNetworkChange' {action} -> action) (\s@CoreNetworkChange' {} a -> s {action = a} :: CoreNetworkChange)
 
-instance Core.FromJSON CoreNetworkChange where
+instance Data.FromJSON CoreNetworkChange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreNetworkChange"
       ( \x ->
           CoreNetworkChange'
-            Prelude.<$> (x Core..:? "NewValues")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "PreviousValues")
-            Prelude.<*> (x Core..:? "Identifier")
-            Prelude.<*> (x Core..:? "IdentifierPath")
-            Prelude.<*> (x Core..:? "Action")
+            Prelude.<$> (x Data..:? "NewValues")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "PreviousValues")
+            Prelude.<*> (x Data..:? "Identifier")
+            Prelude.<*> (x Data..:? "IdentifierPath")
+            Prelude.<*> (x Data..:? "Action")
       )
 
 instance Prelude.Hashable CoreNetworkChange where

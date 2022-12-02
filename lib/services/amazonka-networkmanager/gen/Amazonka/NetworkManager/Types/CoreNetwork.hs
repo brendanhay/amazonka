@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.CoreNetwork where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.CoreNetworkEdge
 import Amazonka.NetworkManager.Types.CoreNetworkSegment
 import Amazonka.NetworkManager.Types.CoreNetworkState
@@ -46,7 +47,7 @@ data CoreNetwork = CoreNetwork'
     -- | The ARN of a core network.
     coreNetworkArn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when a core network was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The segments within a core network.
     segments :: Prelude.Maybe [CoreNetworkSegment]
   }
@@ -122,27 +123,27 @@ coreNetwork_coreNetworkArn = Lens.lens (\CoreNetwork' {coreNetworkArn} -> coreNe
 
 -- | The timestamp when a core network was created.
 coreNetwork_createdAt :: Lens.Lens' CoreNetwork (Prelude.Maybe Prelude.UTCTime)
-coreNetwork_createdAt = Lens.lens (\CoreNetwork' {createdAt} -> createdAt) (\s@CoreNetwork' {} a -> s {createdAt = a} :: CoreNetwork) Prelude.. Lens.mapping Core._Time
+coreNetwork_createdAt = Lens.lens (\CoreNetwork' {createdAt} -> createdAt) (\s@CoreNetwork' {} a -> s {createdAt = a} :: CoreNetwork) Prelude.. Lens.mapping Data._Time
 
 -- | The segments within a core network.
 coreNetwork_segments :: Lens.Lens' CoreNetwork (Prelude.Maybe [CoreNetworkSegment])
 coreNetwork_segments = Lens.lens (\CoreNetwork' {segments} -> segments) (\s@CoreNetwork' {} a -> s {segments = a} :: CoreNetwork) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CoreNetwork where
+instance Data.FromJSON CoreNetwork where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreNetwork"
       ( \x ->
           CoreNetwork'
-            Prelude.<$> (x Core..:? "GlobalNetworkId")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Edges" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CoreNetworkId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CoreNetworkArn")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "Segments" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Edges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CoreNetworkId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CoreNetworkArn")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "Segments" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CoreNetwork where

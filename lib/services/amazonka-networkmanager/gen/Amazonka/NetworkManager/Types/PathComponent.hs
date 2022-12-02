@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.PathComponent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.NetworkResourceSummary
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ pathComponent_destinationCidrBlock = Lens.lens (\PathComponent' {destinationCidr
 pathComponent_resource :: Lens.Lens' PathComponent (Prelude.Maybe NetworkResourceSummary)
 pathComponent_resource = Lens.lens (\PathComponent' {resource} -> resource) (\s@PathComponent' {} a -> s {resource = a} :: PathComponent)
 
-instance Core.FromJSON PathComponent where
+instance Data.FromJSON PathComponent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PathComponent"
       ( \x ->
           PathComponent'
-            Prelude.<$> (x Core..:? "Sequence")
-            Prelude.<*> (x Core..:? "DestinationCidrBlock")
-            Prelude.<*> (x Core..:? "Resource")
+            Prelude.<$> (x Data..:? "Sequence")
+            Prelude.<*> (x Data..:? "DestinationCidrBlock")
+            Prelude.<*> (x Data..:? "Resource")
       )
 
 instance Prelude.Hashable PathComponent where

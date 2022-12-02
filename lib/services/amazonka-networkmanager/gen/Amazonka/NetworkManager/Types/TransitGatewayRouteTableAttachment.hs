@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.TransitGatewayRouteTableAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.Attachment
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,17 +74,17 @@ transitGatewayRouteTableAttachment_transitGatewayRouteTableArn :: Lens.Lens' Tra
 transitGatewayRouteTableAttachment_transitGatewayRouteTableArn = Lens.lens (\TransitGatewayRouteTableAttachment' {transitGatewayRouteTableArn} -> transitGatewayRouteTableArn) (\s@TransitGatewayRouteTableAttachment' {} a -> s {transitGatewayRouteTableArn = a} :: TransitGatewayRouteTableAttachment)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     TransitGatewayRouteTableAttachment
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransitGatewayRouteTableAttachment"
       ( \x ->
           TransitGatewayRouteTableAttachment'
-            Prelude.<$> (x Core..:? "Attachment")
-            Prelude.<*> (x Core..:? "PeeringId")
-            Prelude.<*> (x Core..:? "TransitGatewayRouteTableArn")
+            Prelude.<$> (x Data..:? "Attachment")
+            Prelude.<*> (x Data..:? "PeeringId")
+            Prelude.<*> (x Data..:? "TransitGatewayRouteTableArn")
       )
 
 instance

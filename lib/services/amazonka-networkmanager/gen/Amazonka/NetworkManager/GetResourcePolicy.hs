@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           GetResourcePolicyResponse'
-            Prelude.<$> (x Core..?> "PolicyDocument")
+            Prelude.<$> (x Data..?> "PolicyDocument")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,23 +95,23 @@ instance Prelude.Hashable GetResourcePolicy where
 instance Prelude.NFData GetResourcePolicy where
   rnf GetResourcePolicy' {..} = Prelude.rnf resourceArn
 
-instance Core.ToHeaders GetResourcePolicy where
+instance Data.ToHeaders GetResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetResourcePolicy where
+instance Data.ToPath GetResourcePolicy where
   toPath GetResourcePolicy' {..} =
     Prelude.mconcat
-      ["/resource-policy/", Core.toBS resourceArn]
+      ["/resource-policy/", Data.toBS resourceArn]
 
-instance Core.ToQuery GetResourcePolicy where
+instance Data.ToQuery GetResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourcePolicyResponse' smart constructor.

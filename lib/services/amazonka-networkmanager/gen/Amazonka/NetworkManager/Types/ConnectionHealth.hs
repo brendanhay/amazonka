@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.ConnectionHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.ConnectionStatus
 import Amazonka.NetworkManager.Types.ConnectionType
 import qualified Amazonka.Prelude as Prelude
@@ -32,7 +33,7 @@ data ConnectionHealth = ConnectionHealth'
   { -- | The connection type.
     type' :: Prelude.Maybe ConnectionType,
     -- | The time the status was last updated.
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The connection status.
     status :: Prelude.Maybe ConnectionStatus
   }
@@ -66,21 +67,21 @@ connectionHealth_type = Lens.lens (\ConnectionHealth' {type'} -> type') (\s@Conn
 
 -- | The time the status was last updated.
 connectionHealth_timestamp :: Lens.Lens' ConnectionHealth (Prelude.Maybe Prelude.UTCTime)
-connectionHealth_timestamp = Lens.lens (\ConnectionHealth' {timestamp} -> timestamp) (\s@ConnectionHealth' {} a -> s {timestamp = a} :: ConnectionHealth) Prelude.. Lens.mapping Core._Time
+connectionHealth_timestamp = Lens.lens (\ConnectionHealth' {timestamp} -> timestamp) (\s@ConnectionHealth' {} a -> s {timestamp = a} :: ConnectionHealth) Prelude.. Lens.mapping Data._Time
 
 -- | The connection status.
 connectionHealth_status :: Lens.Lens' ConnectionHealth (Prelude.Maybe ConnectionStatus)
 connectionHealth_status = Lens.lens (\ConnectionHealth' {status} -> status) (\s@ConnectionHealth' {} a -> s {status = a} :: ConnectionHealth)
 
-instance Core.FromJSON ConnectionHealth where
+instance Data.FromJSON ConnectionHealth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionHealth"
       ( \x ->
           ConnectionHealth'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ConnectionHealth where

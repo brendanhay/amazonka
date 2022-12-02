@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.NetworkRouteDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the destination of a network route.
@@ -98,18 +99,18 @@ networkRouteDestination_edgeLocation = Lens.lens (\NetworkRouteDestination' {edg
 networkRouteDestination_segmentName :: Lens.Lens' NetworkRouteDestination (Prelude.Maybe Prelude.Text)
 networkRouteDestination_segmentName = Lens.lens (\NetworkRouteDestination' {segmentName} -> segmentName) (\s@NetworkRouteDestination' {} a -> s {segmentName = a} :: NetworkRouteDestination)
 
-instance Core.FromJSON NetworkRouteDestination where
+instance Data.FromJSON NetworkRouteDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkRouteDestination"
       ( \x ->
           NetworkRouteDestination'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "CoreNetworkAttachmentId")
-            Prelude.<*> (x Core..:? "TransitGatewayAttachmentId")
-            Prelude.<*> (x Core..:? "EdgeLocation")
-            Prelude.<*> (x Core..:? "SegmentName")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "CoreNetworkAttachmentId")
+            Prelude.<*> (x Data..:? "TransitGatewayAttachmentId")
+            Prelude.<*> (x Data..:? "EdgeLocation")
+            Prelude.<*> (x Data..:? "SegmentName")
       )
 
 instance Prelude.Hashable NetworkRouteDestination where

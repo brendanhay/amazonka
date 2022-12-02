@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.CoreNetworkSegmentEdgeIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns details about a core network edge.
@@ -72,17 +73,17 @@ coreNetworkSegmentEdgeIdentifier_segmentName :: Lens.Lens' CoreNetworkSegmentEdg
 coreNetworkSegmentEdgeIdentifier_segmentName = Lens.lens (\CoreNetworkSegmentEdgeIdentifier' {segmentName} -> segmentName) (\s@CoreNetworkSegmentEdgeIdentifier' {} a -> s {segmentName = a} :: CoreNetworkSegmentEdgeIdentifier)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CoreNetworkSegmentEdgeIdentifier
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreNetworkSegmentEdgeIdentifier"
       ( \x ->
           CoreNetworkSegmentEdgeIdentifier'
-            Prelude.<$> (x Core..:? "CoreNetworkId")
-            Prelude.<*> (x Core..:? "EdgeLocation")
-            Prelude.<*> (x Core..:? "SegmentName")
+            Prelude.<$> (x Data..:? "CoreNetworkId")
+            Prelude.<*> (x Data..:? "EdgeLocation")
+            Prelude.<*> (x Data..:? "SegmentName")
       )
 
 instance
@@ -105,12 +106,12 @@ instance
       `Prelude.seq` Prelude.rnf edgeLocation
       `Prelude.seq` Prelude.rnf segmentName
 
-instance Core.ToJSON CoreNetworkSegmentEdgeIdentifier where
+instance Data.ToJSON CoreNetworkSegmentEdgeIdentifier where
   toJSON CoreNetworkSegmentEdgeIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CoreNetworkId" Core..=) Prelude.<$> coreNetworkId,
-            ("EdgeLocation" Core..=) Prelude.<$> edgeLocation,
-            ("SegmentName" Core..=) Prelude.<$> segmentName
+          [ ("CoreNetworkId" Data..=) Prelude.<$> coreNetworkId,
+            ("EdgeLocation" Data..=) Prelude.<$> edgeLocation,
+            ("SegmentName" Data..=) Prelude.<$> segmentName
           ]
       )

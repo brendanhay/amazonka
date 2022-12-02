@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetTransitGatewayRouteTableAttachmentResponse'
-            Prelude.<$> (x Core..?> "TransitGatewayRouteTableAttachment")
+            Prelude.<$> (x Data..?> "TransitGatewayRouteTableAttachment")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,31 +113,31 @@ instance
     Prelude.rnf attachmentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetTransitGatewayRouteTableAttachment
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetTransitGatewayRouteTableAttachment
   where
   toPath GetTransitGatewayRouteTableAttachment' {..} =
     Prelude.mconcat
       [ "/transit-gateway-route-table-attachments/",
-        Core.toBS attachmentId
+        Data.toBS attachmentId
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetTransitGatewayRouteTableAttachment
   where
   toQuery = Prelude.const Prelude.mempty

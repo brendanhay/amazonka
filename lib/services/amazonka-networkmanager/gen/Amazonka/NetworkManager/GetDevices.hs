@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,8 +146,8 @@ instance Core.AWSRequest GetDevices where
     Response.receiveJSON
       ( \s h x ->
           GetDevicesResponse'
-            Prelude.<$> (x Core..?> "Devices" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,34 +167,34 @@ instance Prelude.NFData GetDevices where
       `Prelude.seq` Prelude.rnf deviceIds
       `Prelude.seq` Prelude.rnf globalNetworkId
 
-instance Core.ToHeaders GetDevices where
+instance Data.ToHeaders GetDevices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDevices where
+instance Data.ToPath GetDevices where
   toPath GetDevices' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/devices"
       ]
 
-instance Core.ToQuery GetDevices where
+instance Data.ToQuery GetDevices where
   toQuery GetDevices' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "siteId" Core.=: siteId,
-        "maxResults" Core.=: maxResults,
+      [ "nextToken" Data.=: nextToken,
+        "siteId" Data.=: siteId,
+        "maxResults" Data.=: maxResults,
         "deviceIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> deviceIds)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> deviceIds)
       ]
 
 -- | /See:/ 'newGetDevicesResponse' smart constructor.

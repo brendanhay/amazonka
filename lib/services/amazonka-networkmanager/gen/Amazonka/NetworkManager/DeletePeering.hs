@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeletePeering where
     Response.receiveJSON
       ( \s h x ->
           DeletePeeringResponse'
-            Prelude.<$> (x Core..?> "Peering")
+            Prelude.<$> (x Data..?> "Peering")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,22 +95,22 @@ instance Prelude.Hashable DeletePeering where
 instance Prelude.NFData DeletePeering where
   rnf DeletePeering' {..} = Prelude.rnf peeringId
 
-instance Core.ToHeaders DeletePeering where
+instance Data.ToHeaders DeletePeering where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeletePeering where
+instance Data.ToPath DeletePeering where
   toPath DeletePeering' {..} =
-    Prelude.mconcat ["/peerings/", Core.toBS peeringId]
+    Prelude.mconcat ["/peerings/", Data.toBS peeringId]
 
-instance Core.ToQuery DeletePeering where
+instance Data.ToQuery DeletePeering where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePeeringResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest DisassociateCustomerGateway where
     Response.receiveJSON
       ( \s h x ->
           DisassociateCustomerGatewayResponse'
-            Prelude.<$> (x Core..?> "CustomerGatewayAssociation")
+            Prelude.<$> (x Data..?> "CustomerGatewayAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,27 +115,27 @@ instance Prelude.NFData DisassociateCustomerGateway where
     Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf customerGatewayArn
 
-instance Core.ToHeaders DisassociateCustomerGateway where
+instance Data.ToHeaders DisassociateCustomerGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DisassociateCustomerGateway where
+instance Data.ToPath DisassociateCustomerGateway where
   toPath DisassociateCustomerGateway' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/customer-gateway-associations/",
-        Core.toBS customerGatewayArn
+        Data.toBS customerGatewayArn
       ]
 
-instance Core.ToQuery DisassociateCustomerGateway where
+instance Data.ToQuery DisassociateCustomerGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateCustomerGatewayResponse' smart constructor.

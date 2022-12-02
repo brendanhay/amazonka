@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.OrganizationStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.AccountStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -94,18 +95,18 @@ organizationStatus_organizationId = Lens.lens (\OrganizationStatus' {organizatio
 organizationStatus_organizationAwsServiceAccessStatus :: Lens.Lens' OrganizationStatus (Prelude.Maybe Prelude.Text)
 organizationStatus_organizationAwsServiceAccessStatus = Lens.lens (\OrganizationStatus' {organizationAwsServiceAccessStatus} -> organizationAwsServiceAccessStatus) (\s@OrganizationStatus' {} a -> s {organizationAwsServiceAccessStatus = a} :: OrganizationStatus)
 
-instance Core.FromJSON OrganizationStatus where
+instance Data.FromJSON OrganizationStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationStatus"
       ( \x ->
           OrganizationStatus'
-            Prelude.<$> (x Core..:? "SLRDeploymentStatus")
-            Prelude.<*> ( x Core..:? "AccountStatusList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SLRDeploymentStatus")
+            Prelude.<*> ( x Data..:? "AccountStatusList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "OrganizationId")
-            Prelude.<*> (x Core..:? "OrganizationAwsServiceAccessStatus")
+            Prelude.<*> (x Data..:? "OrganizationId")
+            Prelude.<*> (x Data..:? "OrganizationAwsServiceAccessStatus")
       )
 
 instance Prelude.Hashable OrganizationStatus where

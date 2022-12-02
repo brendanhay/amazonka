@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.CoreNetworkEdge where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a core network edge.
@@ -70,16 +71,16 @@ coreNetworkEdge_asn = Lens.lens (\CoreNetworkEdge' {asn} -> asn) (\s@CoreNetwork
 coreNetworkEdge_insideCidrBlocks :: Lens.Lens' CoreNetworkEdge (Prelude.Maybe [Prelude.Text])
 coreNetworkEdge_insideCidrBlocks = Lens.lens (\CoreNetworkEdge' {insideCidrBlocks} -> insideCidrBlocks) (\s@CoreNetworkEdge' {} a -> s {insideCidrBlocks = a} :: CoreNetworkEdge) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CoreNetworkEdge where
+instance Data.FromJSON CoreNetworkEdge where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreNetworkEdge"
       ( \x ->
           CoreNetworkEdge'
-            Prelude.<$> (x Core..:? "EdgeLocation")
-            Prelude.<*> (x Core..:? "Asn")
-            Prelude.<*> ( x Core..:? "InsideCidrBlocks"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EdgeLocation")
+            Prelude.<*> (x Data..:? "Asn")
+            Prelude.<*> ( x Data..:? "InsideCidrBlocks"
+                            Data..!= Prelude.mempty
                         )
       )
 

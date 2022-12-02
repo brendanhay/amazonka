@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           RestoreCoreNetworkPolicyVersionResponse'
-            Prelude.<$> (x Core..?> "CoreNetworkPolicy")
+            Prelude.<$> (x Data..?> "CoreNetworkPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,33 +129,33 @@ instance
       `Prelude.seq` Prelude.rnf policyVersionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RestoreCoreNetworkPolicyVersion
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestoreCoreNetworkPolicyVersion where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON RestoreCoreNetworkPolicyVersion where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath RestoreCoreNetworkPolicyVersion where
+instance Data.ToPath RestoreCoreNetworkPolicyVersion where
   toPath RestoreCoreNetworkPolicyVersion' {..} =
     Prelude.mconcat
       [ "/core-networks/",
-        Core.toBS coreNetworkId,
+        Data.toBS coreNetworkId,
         "/core-network-policy-versions/",
-        Core.toBS policyVersionId,
+        Data.toBS policyVersionId,
         "/restore"
       ]
 
-instance Core.ToQuery RestoreCoreNetworkPolicyVersion where
+instance Data.ToQuery RestoreCoreNetworkPolicyVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreCoreNetworkPolicyVersionResponse' smart constructor.

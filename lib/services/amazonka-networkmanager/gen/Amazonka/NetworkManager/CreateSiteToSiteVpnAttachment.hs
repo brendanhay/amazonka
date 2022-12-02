@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,7 +128,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateSiteToSiteVpnAttachmentResponse'
-            Prelude.<$> (x Core..?> "SiteToSiteVpnAttachment")
+            Prelude.<$> (x Data..?> "SiteToSiteVpnAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,34 +149,34 @@ instance Prelude.NFData CreateSiteToSiteVpnAttachment where
       `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf vpnConnectionArn
 
-instance Core.ToHeaders CreateSiteToSiteVpnAttachment where
+instance Data.ToHeaders CreateSiteToSiteVpnAttachment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSiteToSiteVpnAttachment where
+instance Data.ToJSON CreateSiteToSiteVpnAttachment where
   toJSON CreateSiteToSiteVpnAttachment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("CoreNetworkId" Core..= coreNetworkId),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("CoreNetworkId" Data..= coreNetworkId),
             Prelude.Just
-              ("VpnConnectionArn" Core..= vpnConnectionArn)
+              ("VpnConnectionArn" Data..= vpnConnectionArn)
           ]
       )
 
-instance Core.ToPath CreateSiteToSiteVpnAttachment where
+instance Data.ToPath CreateSiteToSiteVpnAttachment where
   toPath =
     Prelude.const "/site-to-site-vpn-attachments"
 
-instance Core.ToQuery CreateSiteToSiteVpnAttachment where
+instance Data.ToQuery CreateSiteToSiteVpnAttachment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSiteToSiteVpnAttachmentResponse' smart constructor.

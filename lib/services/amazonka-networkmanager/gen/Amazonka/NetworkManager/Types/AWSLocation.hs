@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.AWSLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a location in Amazon Web Services.
@@ -67,14 +68,14 @@ aWSLocation_zone = Lens.lens (\AWSLocation' {zone} -> zone) (\s@AWSLocation' {} 
 aWSLocation_subnetArn :: Lens.Lens' AWSLocation (Prelude.Maybe Prelude.Text)
 aWSLocation_subnetArn = Lens.lens (\AWSLocation' {subnetArn} -> subnetArn) (\s@AWSLocation' {} a -> s {subnetArn = a} :: AWSLocation)
 
-instance Core.FromJSON AWSLocation where
+instance Data.FromJSON AWSLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AWSLocation"
       ( \x ->
           AWSLocation'
-            Prelude.<$> (x Core..:? "Zone")
-            Prelude.<*> (x Core..:? "SubnetArn")
+            Prelude.<$> (x Data..:? "Zone")
+            Prelude.<*> (x Data..:? "SubnetArn")
       )
 
 instance Prelude.Hashable AWSLocation where
@@ -87,11 +88,11 @@ instance Prelude.NFData AWSLocation where
     Prelude.rnf zone
       `Prelude.seq` Prelude.rnf subnetArn
 
-instance Core.ToJSON AWSLocation where
+instance Data.ToJSON AWSLocation where
   toJSON AWSLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Zone" Core..=) Prelude.<$> zone,
-            ("SubnetArn" Core..=) Prelude.<$> subnetArn
+          [ ("Zone" Data..=) Prelude.<$> zone,
+            ("SubnetArn" Data..=) Prelude.<$> subnetArn
           ]
       )

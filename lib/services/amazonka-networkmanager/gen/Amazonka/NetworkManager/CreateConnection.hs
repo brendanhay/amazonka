@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,7 +162,7 @@ instance Core.AWSRequest CreateConnection where
     Response.receiveJSON
       ( \s h x ->
           CreateConnectionResponse'
-            Prelude.<$> (x Core..?> "Connection")
+            Prelude.<$> (x Data..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,41 +186,41 @@ instance Prelude.NFData CreateConnection where
       `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf connectedDeviceId
 
-instance Core.ToHeaders CreateConnection where
+instance Data.ToHeaders CreateConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConnection where
+instance Data.ToJSON CreateConnection where
   toJSON CreateConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("LinkId" Core..=) Prelude.<$> linkId,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ConnectedLinkId" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("LinkId" Data..=) Prelude.<$> linkId,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ConnectedLinkId" Data..=)
               Prelude.<$> connectedLinkId,
-            Prelude.Just ("DeviceId" Core..= deviceId),
+            Prelude.Just ("DeviceId" Data..= deviceId),
             Prelude.Just
-              ("ConnectedDeviceId" Core..= connectedDeviceId)
+              ("ConnectedDeviceId" Data..= connectedDeviceId)
           ]
       )
 
-instance Core.ToPath CreateConnection where
+instance Data.ToPath CreateConnection where
   toPath CreateConnection' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/connections"
       ]
 
-instance Core.ToQuery CreateConnection where
+instance Data.ToQuery CreateConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConnectionResponse' smart constructor.

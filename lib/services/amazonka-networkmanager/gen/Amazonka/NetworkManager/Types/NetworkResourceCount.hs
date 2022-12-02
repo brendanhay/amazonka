@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.NetworkResourceCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a resource count.
@@ -62,14 +63,14 @@ networkResourceCount_resourceType = Lens.lens (\NetworkResourceCount' {resourceT
 networkResourceCount_count :: Lens.Lens' NetworkResourceCount (Prelude.Maybe Prelude.Int)
 networkResourceCount_count = Lens.lens (\NetworkResourceCount' {count} -> count) (\s@NetworkResourceCount' {} a -> s {count = a} :: NetworkResourceCount)
 
-instance Core.FromJSON NetworkResourceCount where
+instance Data.FromJSON NetworkResourceCount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkResourceCount"
       ( \x ->
           NetworkResourceCount'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Count")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Count")
       )
 
 instance Prelude.Hashable NetworkResourceCount where

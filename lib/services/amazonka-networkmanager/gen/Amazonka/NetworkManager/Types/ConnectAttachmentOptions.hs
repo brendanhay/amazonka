@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.ConnectAttachmentOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.TunnelProtocol
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newConnectAttachmentOptions =
 connectAttachmentOptions_protocol :: Lens.Lens' ConnectAttachmentOptions (Prelude.Maybe TunnelProtocol)
 connectAttachmentOptions_protocol = Lens.lens (\ConnectAttachmentOptions' {protocol} -> protocol) (\s@ConnectAttachmentOptions' {} a -> s {protocol = a} :: ConnectAttachmentOptions)
 
-instance Core.FromJSON ConnectAttachmentOptions where
+instance Data.FromJSON ConnectAttachmentOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectAttachmentOptions"
       ( \x ->
           ConnectAttachmentOptions'
-            Prelude.<$> (x Core..:? "Protocol")
+            Prelude.<$> (x Data..:? "Protocol")
       )
 
 instance Prelude.Hashable ConnectAttachmentOptions where
@@ -71,9 +72,9 @@ instance Prelude.NFData ConnectAttachmentOptions where
   rnf ConnectAttachmentOptions' {..} =
     Prelude.rnf protocol
 
-instance Core.ToJSON ConnectAttachmentOptions where
+instance Data.ToJSON ConnectAttachmentOptions where
   toJSON ConnectAttachmentOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Protocol" Core..=) Prelude.<$> protocol]
+          [("Protocol" Data..=) Prelude.<$> protocol]
       )

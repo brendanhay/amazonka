@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.NetworkRoute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.NetworkRouteDestination
 import Amazonka.NetworkManager.Types.RouteState
 import Amazonka.NetworkManager.Types.RouteType
@@ -91,17 +92,17 @@ networkRoute_destinationCidrBlock = Lens.lens (\NetworkRoute' {destinationCidrBl
 networkRoute_destinations :: Lens.Lens' NetworkRoute (Prelude.Maybe [NetworkRouteDestination])
 networkRoute_destinations = Lens.lens (\NetworkRoute' {destinations} -> destinations) (\s@NetworkRoute' {} a -> s {destinations = a} :: NetworkRoute) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON NetworkRoute where
+instance Data.FromJSON NetworkRoute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkRoute"
       ( \x ->
           NetworkRoute'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "PrefixListId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "DestinationCidrBlock")
-            Prelude.<*> (x Core..:? "Destinations" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "PrefixListId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "DestinationCidrBlock")
+            Prelude.<*> (x Data..:? "Destinations" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable NetworkRoute where

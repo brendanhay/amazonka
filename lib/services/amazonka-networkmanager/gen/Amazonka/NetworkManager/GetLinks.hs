@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,8 +170,8 @@ instance Core.AWSRequest GetLinks where
     Response.receiveJSON
       ( \s h x ->
           GetLinksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Links" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Links" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,36 +195,36 @@ instance Prelude.NFData GetLinks where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf globalNetworkId
 
-instance Core.ToHeaders GetLinks where
+instance Data.ToHeaders GetLinks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLinks where
+instance Data.ToPath GetLinks where
   toPath GetLinks' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/links"
       ]
 
-instance Core.ToQuery GetLinks where
+instance Data.ToQuery GetLinks where
   toQuery GetLinks' {..} =
     Prelude.mconcat
       [ "linkIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> linkIds),
-        "nextToken" Core.=: nextToken,
-        "type" Core.=: type',
-        "provider" Core.=: provider,
-        "siteId" Core.=: siteId,
-        "maxResults" Core.=: maxResults
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> linkIds),
+        "nextToken" Data.=: nextToken,
+        "type" Data.=: type',
+        "provider" Data.=: provider,
+        "siteId" Data.=: siteId,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetLinksResponse' smart constructor.

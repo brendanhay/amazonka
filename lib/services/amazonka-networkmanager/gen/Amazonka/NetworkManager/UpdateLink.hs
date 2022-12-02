@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -154,7 +155,7 @@ instance Core.AWSRequest UpdateLink where
     Response.receiveJSON
       ( \s h x ->
           UpdateLinkResponse'
-            Prelude.<$> (x Core..?> "Link")
+            Prelude.<$> (x Data..?> "Link")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,38 +177,38 @@ instance Prelude.NFData UpdateLink where
       `Prelude.seq` Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf linkId
 
-instance Core.ToHeaders UpdateLink where
+instance Data.ToHeaders UpdateLink where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLink where
+instance Data.ToJSON UpdateLink where
   toJSON UpdateLink' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Bandwidth" Core..=) Prelude.<$> bandwidth,
-            ("Provider" Core..=) Prelude.<$> provider,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Bandwidth" Data..=) Prelude.<$> bandwidth,
+            ("Provider" Data..=) Prelude.<$> provider,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateLink where
+instance Data.ToPath UpdateLink where
   toPath UpdateLink' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/links/",
-        Core.toBS linkId
+        Data.toBS linkId
       ]
 
-instance Core.ToQuery UpdateLink where
+instance Data.ToQuery UpdateLink where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLinkResponse' smart constructor.

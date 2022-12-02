@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest UpdateVpcAttachment where
     Response.receiveJSON
       ( \s h x ->
           UpdateVpcAttachmentResponse'
-            Prelude.<$> (x Core..?> "VpcAttachment")
+            Prelude.<$> (x Data..?> "VpcAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,34 +134,34 @@ instance Prelude.NFData UpdateVpcAttachment where
       `Prelude.seq` Prelude.rnf addSubnetArns
       `Prelude.seq` Prelude.rnf attachmentId
 
-instance Core.ToHeaders UpdateVpcAttachment where
+instance Data.ToHeaders UpdateVpcAttachment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVpcAttachment where
+instance Data.ToJSON UpdateVpcAttachment where
   toJSON UpdateVpcAttachment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Options" Core..=) Prelude.<$> options,
-            ("RemoveSubnetArns" Core..=)
+          [ ("Options" Data..=) Prelude.<$> options,
+            ("RemoveSubnetArns" Data..=)
               Prelude.<$> removeSubnetArns,
-            ("AddSubnetArns" Core..=) Prelude.<$> addSubnetArns
+            ("AddSubnetArns" Data..=) Prelude.<$> addSubnetArns
           ]
       )
 
-instance Core.ToPath UpdateVpcAttachment where
+instance Data.ToPath UpdateVpcAttachment where
   toPath UpdateVpcAttachment' {..} =
     Prelude.mconcat
-      ["/vpc-attachments/", Core.toBS attachmentId]
+      ["/vpc-attachments/", Data.toBS attachmentId]
 
-instance Core.ToQuery UpdateVpcAttachment where
+instance Data.ToQuery UpdateVpcAttachment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVpcAttachmentResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.RouteAnalysisPath where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.PathComponent
 import Amazonka.NetworkManager.Types.RouteAnalysisCompletion
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ routeAnalysisPath_path = Lens.lens (\RouteAnalysisPath' {path} -> path) (\s@Rout
 routeAnalysisPath_completionStatus :: Lens.Lens' RouteAnalysisPath (Prelude.Maybe RouteAnalysisCompletion)
 routeAnalysisPath_completionStatus = Lens.lens (\RouteAnalysisPath' {completionStatus} -> completionStatus) (\s@RouteAnalysisPath' {} a -> s {completionStatus = a} :: RouteAnalysisPath)
 
-instance Core.FromJSON RouteAnalysisPath where
+instance Data.FromJSON RouteAnalysisPath where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RouteAnalysisPath"
       ( \x ->
           RouteAnalysisPath'
-            Prelude.<$> (x Core..:? "Path" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CompletionStatus")
+            Prelude.<$> (x Data..:? "Path" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CompletionStatus")
       )
 
 instance Prelude.Hashable RouteAnalysisPath where

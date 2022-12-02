@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,7 +138,7 @@ instance Core.AWSRequest CreateVpcAttachment where
     Response.receiveJSON
       ( \s h x ->
           CreateVpcAttachmentResponse'
-            Prelude.<$> (x Core..?> "VpcAttachment")
+            Prelude.<$> (x Data..?> "VpcAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,34 +160,34 @@ instance Prelude.NFData CreateVpcAttachment where
       `Prelude.seq` Prelude.rnf vpcArn
       `Prelude.seq` Prelude.rnf subnetArns
 
-instance Core.ToHeaders CreateVpcAttachment where
+instance Data.ToHeaders CreateVpcAttachment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVpcAttachment where
+instance Data.ToJSON CreateVpcAttachment where
   toJSON CreateVpcAttachment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Options" Core..=) Prelude.<$> options,
-            Prelude.Just ("CoreNetworkId" Core..= coreNetworkId),
-            Prelude.Just ("VpcArn" Core..= vpcArn),
-            Prelude.Just ("SubnetArns" Core..= subnetArns)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Options" Data..=) Prelude.<$> options,
+            Prelude.Just ("CoreNetworkId" Data..= coreNetworkId),
+            Prelude.Just ("VpcArn" Data..= vpcArn),
+            Prelude.Just ("SubnetArns" Data..= subnetArns)
           ]
       )
 
-instance Core.ToPath CreateVpcAttachment where
+instance Data.ToPath CreateVpcAttachment where
   toPath = Prelude.const "/vpc-attachments"
 
-instance Core.ToQuery CreateVpcAttachment where
+instance Data.ToQuery CreateVpcAttachment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVpcAttachmentResponse' smart constructor.

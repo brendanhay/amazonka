@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,8 +139,8 @@ instance Core.AWSRequest ListConnectPeers where
     Response.receiveJSON
       ( \s h x ->
           ListConnectPeersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ConnectPeers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ConnectPeers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,27 +158,27 @@ instance Prelude.NFData ListConnectPeers where
       `Prelude.seq` Prelude.rnf connectAttachmentId
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListConnectPeers where
+instance Data.ToHeaders ListConnectPeers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListConnectPeers where
+instance Data.ToPath ListConnectPeers where
   toPath = Prelude.const "/connect-peers"
 
-instance Core.ToQuery ListConnectPeers where
+instance Data.ToQuery ListConnectPeers where
   toQuery ListConnectPeers' {..} =
     Prelude.mconcat
-      [ "coreNetworkId" Core.=: coreNetworkId,
-        "nextToken" Core.=: nextToken,
-        "connectAttachmentId" Core.=: connectAttachmentId,
-        "maxResults" Core.=: maxResults
+      [ "coreNetworkId" Data.=: coreNetworkId,
+        "nextToken" Data.=: nextToken,
+        "connectAttachmentId" Data.=: connectAttachmentId,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListConnectPeersResponse' smart constructor.

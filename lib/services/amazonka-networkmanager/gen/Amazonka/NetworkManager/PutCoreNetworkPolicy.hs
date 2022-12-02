@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,7 +133,7 @@ instance Core.AWSRequest PutCoreNetworkPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutCoreNetworkPolicyResponse'
-            Prelude.<$> (x Core..?> "CoreNetworkPolicy")
+            Prelude.<$> (x Data..?> "CoreNetworkPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,39 +153,39 @@ instance Prelude.NFData PutCoreNetworkPolicy where
       `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf policyDocument
 
-instance Core.ToHeaders PutCoreNetworkPolicy where
+instance Data.ToHeaders PutCoreNetworkPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutCoreNetworkPolicy where
+instance Data.ToJSON PutCoreNetworkPolicy where
   toJSON PutCoreNetworkPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("LatestVersionId" Core..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("LatestVersionId" Data..=)
               Prelude.<$> latestVersionId,
-            ("Description" Core..=) Prelude.<$> description,
+            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("PolicyDocument" Core..= policyDocument)
+              ("PolicyDocument" Data..= policyDocument)
           ]
       )
 
-instance Core.ToPath PutCoreNetworkPolicy where
+instance Data.ToPath PutCoreNetworkPolicy where
   toPath PutCoreNetworkPolicy' {..} =
     Prelude.mconcat
       [ "/core-networks/",
-        Core.toBS coreNetworkId,
+        Data.toBS coreNetworkId,
         "/core-network-policy"
       ]
 
-instance Core.ToQuery PutCoreNetworkPolicy where
+instance Data.ToQuery PutCoreNetworkPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutCoreNetworkPolicyResponse' smart constructor.

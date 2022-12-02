@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.VpcOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the VPC options.
@@ -50,12 +51,12 @@ newVpcOptions =
 vpcOptions_ipv6Support :: Lens.Lens' VpcOptions (Prelude.Maybe Prelude.Bool)
 vpcOptions_ipv6Support = Lens.lens (\VpcOptions' {ipv6Support} -> ipv6Support) (\s@VpcOptions' {} a -> s {ipv6Support = a} :: VpcOptions)
 
-instance Core.FromJSON VpcOptions where
+instance Data.FromJSON VpcOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcOptions"
       ( \x ->
-          VpcOptions' Prelude.<$> (x Core..:? "Ipv6Support")
+          VpcOptions' Prelude.<$> (x Data..:? "Ipv6Support")
       )
 
 instance Prelude.Hashable VpcOptions where
@@ -65,9 +66,9 @@ instance Prelude.Hashable VpcOptions where
 instance Prelude.NFData VpcOptions where
   rnf VpcOptions' {..} = Prelude.rnf ipv6Support
 
-instance Core.ToJSON VpcOptions where
+instance Data.ToJSON VpcOptions where
   toJSON VpcOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Ipv6Support" Core..=) Prelude.<$> ipv6Support]
+          [("Ipv6Support" Data..=) Prelude.<$> ipv6Support]
       )

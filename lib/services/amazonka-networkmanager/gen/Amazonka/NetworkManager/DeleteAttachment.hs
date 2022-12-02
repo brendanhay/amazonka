@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteAttachment where
     Response.receiveJSON
       ( \s h x ->
           DeleteAttachmentResponse'
-            Prelude.<$> (x Core..?> "Attachment")
+            Prelude.<$> (x Data..?> "Attachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,23 +95,23 @@ instance Prelude.Hashable DeleteAttachment where
 instance Prelude.NFData DeleteAttachment where
   rnf DeleteAttachment' {..} = Prelude.rnf attachmentId
 
-instance Core.ToHeaders DeleteAttachment where
+instance Data.ToHeaders DeleteAttachment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAttachment where
+instance Data.ToPath DeleteAttachment where
   toPath DeleteAttachment' {..} =
     Prelude.mconcat
-      ["/attachments/", Core.toBS attachmentId]
+      ["/attachments/", Data.toBS attachmentId]
 
-instance Core.ToQuery DeleteAttachment where
+instance Data.ToQuery DeleteAttachment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAttachmentResponse' smart constructor.

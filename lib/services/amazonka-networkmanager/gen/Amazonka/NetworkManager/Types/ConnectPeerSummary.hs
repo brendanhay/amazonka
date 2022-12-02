@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.ConnectPeerSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.ConnectPeerState
 import Amazonka.NetworkManager.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -42,7 +43,7 @@ data ConnectPeerSummary = ConnectPeerSummary'
     -- | The ID of a Connect peer.
     connectPeerId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when a Connect peer was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,21 +107,21 @@ connectPeerSummary_connectPeerId = Lens.lens (\ConnectPeerSummary' {connectPeerI
 
 -- | The timestamp when a Connect peer was created.
 connectPeerSummary_createdAt :: Lens.Lens' ConnectPeerSummary (Prelude.Maybe Prelude.UTCTime)
-connectPeerSummary_createdAt = Lens.lens (\ConnectPeerSummary' {createdAt} -> createdAt) (\s@ConnectPeerSummary' {} a -> s {createdAt = a} :: ConnectPeerSummary) Prelude.. Lens.mapping Core._Time
+connectPeerSummary_createdAt = Lens.lens (\ConnectPeerSummary' {createdAt} -> createdAt) (\s@ConnectPeerSummary' {} a -> s {createdAt = a} :: ConnectPeerSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ConnectPeerSummary where
+instance Data.FromJSON ConnectPeerSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectPeerSummary"
       ( \x ->
           ConnectPeerSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CoreNetworkId")
-            Prelude.<*> (x Core..:? "ConnectAttachmentId")
-            Prelude.<*> (x Core..:? "EdgeLocation")
-            Prelude.<*> (x Core..:? "ConnectPeerState")
-            Prelude.<*> (x Core..:? "ConnectPeerId")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CoreNetworkId")
+            Prelude.<*> (x Data..:? "ConnectAttachmentId")
+            Prelude.<*> (x Data..:? "EdgeLocation")
+            Prelude.<*> (x Data..:? "ConnectPeerState")
+            Prelude.<*> (x Data..:? "ConnectPeerId")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable ConnectPeerSummary where

@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.RouteAnalysisEndpointOptionsSpecification w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a source or a destination.
@@ -82,14 +83,14 @@ instance
       `Prelude.seq` Prelude.rnf ipAddress
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RouteAnalysisEndpointOptionsSpecification
   where
   toJSON RouteAnalysisEndpointOptionsSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TransitGatewayAttachmentArn" Core..=)
+          [ ("TransitGatewayAttachmentArn" Data..=)
               Prelude.<$> transitGatewayAttachmentArn,
-            ("IpAddress" Core..=) Prelude.<$> ipAddress
+            ("IpAddress" Data..=) Prelude.<$> ipAddress
           ]
       )

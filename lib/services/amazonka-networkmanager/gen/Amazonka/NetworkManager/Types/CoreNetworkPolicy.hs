@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.CoreNetworkPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.ChangeSetState
 import Amazonka.NetworkManager.Types.CoreNetworkPolicyAlias
 import Amazonka.NetworkManager.Types.CoreNetworkPolicyError
@@ -46,7 +47,7 @@ data CoreNetworkPolicy = CoreNetworkPolicy'
     -- | Describes a core network policy.
     policyDocument :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when a core network policy was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -119,22 +120,22 @@ coreNetworkPolicy_policyDocument = Lens.lens (\CoreNetworkPolicy' {policyDocumen
 
 -- | The timestamp when a core network policy was created.
 coreNetworkPolicy_createdAt :: Lens.Lens' CoreNetworkPolicy (Prelude.Maybe Prelude.UTCTime)
-coreNetworkPolicy_createdAt = Lens.lens (\CoreNetworkPolicy' {createdAt} -> createdAt) (\s@CoreNetworkPolicy' {} a -> s {createdAt = a} :: CoreNetworkPolicy) Prelude.. Lens.mapping Core._Time
+coreNetworkPolicy_createdAt = Lens.lens (\CoreNetworkPolicy' {createdAt} -> createdAt) (\s@CoreNetworkPolicy' {} a -> s {createdAt = a} :: CoreNetworkPolicy) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CoreNetworkPolicy where
+instance Data.FromJSON CoreNetworkPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreNetworkPolicy"
       ( \x ->
           CoreNetworkPolicy'
-            Prelude.<$> (x Core..:? "Alias")
-            Prelude.<*> (x Core..:? "CoreNetworkId")
-            Prelude.<*> (x Core..:? "ChangeSetState")
-            Prelude.<*> (x Core..:? "PolicyVersionId")
-            Prelude.<*> (x Core..:? "PolicyErrors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "PolicyDocument")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "Alias")
+            Prelude.<*> (x Data..:? "CoreNetworkId")
+            Prelude.<*> (x Data..:? "ChangeSetState")
+            Prelude.<*> (x Data..:? "PolicyVersionId")
+            Prelude.<*> (x Data..:? "PolicyErrors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "PolicyDocument")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable CoreNetworkPolicy where

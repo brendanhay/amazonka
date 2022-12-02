@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.NetworkResourceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a network resource.
@@ -101,18 +102,18 @@ networkResourceSummary_definition = Lens.lens (\NetworkResourceSummary' {definit
 networkResourceSummary_nameTag :: Lens.Lens' NetworkResourceSummary (Prelude.Maybe Prelude.Text)
 networkResourceSummary_nameTag = Lens.lens (\NetworkResourceSummary' {nameTag} -> nameTag) (\s@NetworkResourceSummary' {} a -> s {nameTag = a} :: NetworkResourceSummary)
 
-instance Core.FromJSON NetworkResourceSummary where
+instance Data.FromJSON NetworkResourceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkResourceSummary"
       ( \x ->
           NetworkResourceSummary'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "IsMiddlebox")
-            Prelude.<*> (x Core..:? "RegisteredGatewayArn")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "Definition")
-            Prelude.<*> (x Core..:? "NameTag")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "IsMiddlebox")
+            Prelude.<*> (x Data..:? "RegisteredGatewayArn")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "Definition")
+            Prelude.<*> (x Data..:? "NameTag")
       )
 
 instance Prelude.Hashable NetworkResourceSummary where

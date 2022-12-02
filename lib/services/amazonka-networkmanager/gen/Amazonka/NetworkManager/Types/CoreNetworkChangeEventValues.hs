@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.CoreNetworkChangeEventValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a core network change event.
@@ -83,16 +84,16 @@ coreNetworkChangeEventValues_attachmentId = Lens.lens (\CoreNetworkChangeEventVa
 coreNetworkChangeEventValues_segmentName :: Lens.Lens' CoreNetworkChangeEventValues (Prelude.Maybe Prelude.Text)
 coreNetworkChangeEventValues_segmentName = Lens.lens (\CoreNetworkChangeEventValues' {segmentName} -> segmentName) (\s@CoreNetworkChangeEventValues' {} a -> s {segmentName = a} :: CoreNetworkChangeEventValues)
 
-instance Core.FromJSON CoreNetworkChangeEventValues where
+instance Data.FromJSON CoreNetworkChangeEventValues where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreNetworkChangeEventValues"
       ( \x ->
           CoreNetworkChangeEventValues'
-            Prelude.<$> (x Core..:? "Cidr")
-            Prelude.<*> (x Core..:? "EdgeLocation")
-            Prelude.<*> (x Core..:? "AttachmentId")
-            Prelude.<*> (x Core..:? "SegmentName")
+            Prelude.<$> (x Data..:? "Cidr")
+            Prelude.<*> (x Data..:? "EdgeLocation")
+            Prelude.<*> (x Data..:? "AttachmentId")
+            Prelude.<*> (x Data..:? "SegmentName")
       )
 
 instance

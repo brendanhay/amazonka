@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.Site where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.Location
 import Amazonka.NetworkManager.Types.SiteState
 import Amazonka.NetworkManager.Types.Tag
@@ -43,9 +44,9 @@ data Site = Site'
     -- | The ID of the site.
     siteId :: Prelude.Maybe Prelude.Text,
     -- | The location of the site.
-    location :: Prelude.Maybe (Core.Sensitive Location),
+    location :: Prelude.Maybe (Data.Sensitive Location),
     -- | The date and time that the site was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -112,26 +113,26 @@ site_siteId = Lens.lens (\Site' {siteId} -> siteId) (\s@Site' {} a -> s {siteId 
 
 -- | The location of the site.
 site_location :: Lens.Lens' Site (Prelude.Maybe Location)
-site_location = Lens.lens (\Site' {location} -> location) (\s@Site' {} a -> s {location = a} :: Site) Prelude.. Lens.mapping Core._Sensitive
+site_location = Lens.lens (\Site' {location} -> location) (\s@Site' {} a -> s {location = a} :: Site) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The date and time that the site was created.
 site_createdAt :: Lens.Lens' Site (Prelude.Maybe Prelude.UTCTime)
-site_createdAt = Lens.lens (\Site' {createdAt} -> createdAt) (\s@Site' {} a -> s {createdAt = a} :: Site) Prelude.. Lens.mapping Core._Time
+site_createdAt = Lens.lens (\Site' {createdAt} -> createdAt) (\s@Site' {} a -> s {createdAt = a} :: Site) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Site where
+instance Data.FromJSON Site where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Site"
       ( \x ->
           Site'
-            Prelude.<$> (x Core..:? "GlobalNetworkId")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SiteArn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SiteId")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SiteArn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SiteId")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable Site where

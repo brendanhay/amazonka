@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.GlobalNetwork where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.GlobalNetworkState
 import Amazonka.NetworkManager.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -42,7 +43,7 @@ data GlobalNetwork = GlobalNetwork'
     -- | The Amazon Resource Name (ARN) of the global network.
     globalNetworkArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the global network was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,20 +100,20 @@ globalNetwork_globalNetworkArn = Lens.lens (\GlobalNetwork' {globalNetworkArn} -
 
 -- | The date and time that the global network was created.
 globalNetwork_createdAt :: Lens.Lens' GlobalNetwork (Prelude.Maybe Prelude.UTCTime)
-globalNetwork_createdAt = Lens.lens (\GlobalNetwork' {createdAt} -> createdAt) (\s@GlobalNetwork' {} a -> s {createdAt = a} :: GlobalNetwork) Prelude.. Lens.mapping Core._Time
+globalNetwork_createdAt = Lens.lens (\GlobalNetwork' {createdAt} -> createdAt) (\s@GlobalNetwork' {} a -> s {createdAt = a} :: GlobalNetwork) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON GlobalNetwork where
+instance Data.FromJSON GlobalNetwork where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlobalNetwork"
       ( \x ->
           GlobalNetwork'
-            Prelude.<$> (x Core..:? "GlobalNetworkId")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "GlobalNetworkArn")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "GlobalNetworkArn")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable GlobalNetwork where

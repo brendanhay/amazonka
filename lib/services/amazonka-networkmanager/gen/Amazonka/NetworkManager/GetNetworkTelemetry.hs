@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -287,8 +288,8 @@ instance Core.AWSRequest GetNetworkTelemetry where
     Response.receiveJSON
       ( \s h x ->
           GetNetworkTelemetryResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "NetworkTelemetry"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "NetworkTelemetry"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -318,36 +319,36 @@ instance Prelude.NFData GetNetworkTelemetry where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf globalNetworkId
 
-instance Core.ToHeaders GetNetworkTelemetry where
+instance Data.ToHeaders GetNetworkTelemetry where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetNetworkTelemetry where
+instance Data.ToPath GetNetworkTelemetry where
   toPath GetNetworkTelemetry' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/network-telemetry"
       ]
 
-instance Core.ToQuery GetNetworkTelemetry where
+instance Data.ToQuery GetNetworkTelemetry where
   toQuery GetNetworkTelemetry' {..} =
     Prelude.mconcat
-      [ "resourceType" Core.=: resourceType,
-        "coreNetworkId" Core.=: coreNetworkId,
-        "nextToken" Core.=: nextToken,
-        "accountId" Core.=: accountId,
-        "maxResults" Core.=: maxResults,
-        "registeredGatewayArn" Core.=: registeredGatewayArn,
-        "awsRegion" Core.=: awsRegion,
-        "resourceArn" Core.=: resourceArn
+      [ "resourceType" Data.=: resourceType,
+        "coreNetworkId" Data.=: coreNetworkId,
+        "nextToken" Data.=: nextToken,
+        "accountId" Data.=: accountId,
+        "maxResults" Data.=: maxResults,
+        "registeredGatewayArn" Data.=: registeredGatewayArn,
+        "awsRegion" Data.=: awsRegion,
+        "resourceArn" Data.=: resourceArn
       ]
 
 -- | /See:/ 'newGetNetworkTelemetryResponse' smart constructor.

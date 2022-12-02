@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.ConnectAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.Attachment
 import Amazonka.NetworkManager.Types.ConnectAttachmentOptions
 import qualified Amazonka.Prelude as Prelude
@@ -72,15 +73,15 @@ connectAttachment_transportAttachmentId = Lens.lens (\ConnectAttachment' {transp
 connectAttachment_options :: Lens.Lens' ConnectAttachment (Prelude.Maybe ConnectAttachmentOptions)
 connectAttachment_options = Lens.lens (\ConnectAttachment' {options} -> options) (\s@ConnectAttachment' {} a -> s {options = a} :: ConnectAttachment)
 
-instance Core.FromJSON ConnectAttachment where
+instance Data.FromJSON ConnectAttachment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectAttachment"
       ( \x ->
           ConnectAttachment'
-            Prelude.<$> (x Core..:? "Attachment")
-            Prelude.<*> (x Core..:? "TransportAttachmentId")
-            Prelude.<*> (x Core..:? "Options")
+            Prelude.<$> (x Data..:? "Attachment")
+            Prelude.<*> (x Data..:? "TransportAttachmentId")
+            Prelude.<*> (x Data..:? "Options")
       )
 
 instance Prelude.Hashable ConnectAttachment where

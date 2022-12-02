@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetCoreNetwork where
     Response.receiveJSON
       ( \s h x ->
           GetCoreNetworkResponse'
-            Prelude.<$> (x Core..?> "CoreNetwork")
+            Prelude.<$> (x Data..?> "CoreNetwork")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,23 +95,23 @@ instance Prelude.Hashable GetCoreNetwork where
 instance Prelude.NFData GetCoreNetwork where
   rnf GetCoreNetwork' {..} = Prelude.rnf coreNetworkId
 
-instance Core.ToHeaders GetCoreNetwork where
+instance Data.ToHeaders GetCoreNetwork where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCoreNetwork where
+instance Data.ToPath GetCoreNetwork where
   toPath GetCoreNetwork' {..} =
     Prelude.mconcat
-      ["/core-networks/", Core.toBS coreNetworkId]
+      ["/core-networks/", Data.toBS coreNetworkId]
 
-instance Core.ToQuery GetCoreNetwork where
+instance Data.ToQuery GetCoreNetwork where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCoreNetworkResponse' smart constructor.

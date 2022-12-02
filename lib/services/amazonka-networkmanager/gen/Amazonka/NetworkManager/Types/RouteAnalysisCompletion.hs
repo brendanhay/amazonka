@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.RouteAnalysisCompletion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.RouteAnalysisCompletionReasonCode
 import Amazonka.NetworkManager.Types.RouteAnalysisCompletionResultCode
 import qualified Amazonka.Prelude as Prelude
@@ -157,15 +158,15 @@ routeAnalysisCompletion_reasonCode = Lens.lens (\RouteAnalysisCompletion' {reaso
 routeAnalysisCompletion_reasonContext :: Lens.Lens' RouteAnalysisCompletion (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 routeAnalysisCompletion_reasonContext = Lens.lens (\RouteAnalysisCompletion' {reasonContext} -> reasonContext) (\s@RouteAnalysisCompletion' {} a -> s {reasonContext = a} :: RouteAnalysisCompletion) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RouteAnalysisCompletion where
+instance Data.FromJSON RouteAnalysisCompletion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RouteAnalysisCompletion"
       ( \x ->
           RouteAnalysisCompletion'
-            Prelude.<$> (x Core..:? "ResultCode")
-            Prelude.<*> (x Core..:? "ReasonCode")
-            Prelude.<*> (x Core..:? "ReasonContext" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ResultCode")
+            Prelude.<*> (x Data..:? "ReasonCode")
+            Prelude.<*> (x Data..:? "ReasonContext" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RouteAnalysisCompletion where

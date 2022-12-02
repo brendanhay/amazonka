@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.Device where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.AWSLocation
 import Amazonka.NetworkManager.Types.DeviceState
 import Amazonka.NetworkManager.Types.Location
@@ -50,13 +51,13 @@ data Device = Device'
     -- | The site ID.
     siteId :: Prelude.Maybe Prelude.Text,
     -- | The site location.
-    location :: Prelude.Maybe (Core.Sensitive Location),
+    location :: Prelude.Maybe (Data.Sensitive Location),
     -- | The device serial number.
     serialNumber :: Prelude.Maybe Prelude.Text,
     -- | The device vendor.
     vendor :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the site was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the device.
     deviceArn :: Prelude.Maybe Prelude.Text
   }
@@ -155,7 +156,7 @@ device_siteId = Lens.lens (\Device' {siteId} -> siteId) (\s@Device' {} a -> s {s
 
 -- | The site location.
 device_location :: Lens.Lens' Device (Prelude.Maybe Location)
-device_location = Lens.lens (\Device' {location} -> location) (\s@Device' {} a -> s {location = a} :: Device) Prelude.. Lens.mapping Core._Sensitive
+device_location = Lens.lens (\Device' {location} -> location) (\s@Device' {} a -> s {location = a} :: Device) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The device serial number.
 device_serialNumber :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
@@ -167,32 +168,32 @@ device_vendor = Lens.lens (\Device' {vendor} -> vendor) (\s@Device' {} a -> s {v
 
 -- | The date and time that the site was created.
 device_createdAt :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
-device_createdAt = Lens.lens (\Device' {createdAt} -> createdAt) (\s@Device' {} a -> s {createdAt = a} :: Device) Prelude.. Lens.mapping Core._Time
+device_createdAt = Lens.lens (\Device' {createdAt} -> createdAt) (\s@Device' {} a -> s {createdAt = a} :: Device) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the device.
 device_deviceArn :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_deviceArn = Lens.lens (\Device' {deviceArn} -> deviceArn) (\s@Device' {} a -> s {deviceArn = a} :: Device)
 
-instance Core.FromJSON Device where
+instance Data.FromJSON Device where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> (x Core..:? "GlobalNetworkId")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Model")
-            Prelude.<*> (x Core..:? "AWSLocation")
-            Prelude.<*> (x Core..:? "DeviceId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SiteId")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "SerialNumber")
-            Prelude.<*> (x Core..:? "Vendor")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "DeviceArn")
+            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Model")
+            Prelude.<*> (x Data..:? "AWSLocation")
+            Prelude.<*> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SiteId")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "SerialNumber")
+            Prelude.<*> (x Data..:? "Vendor")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "DeviceArn")
       )
 
 instance Prelude.Hashable Device where

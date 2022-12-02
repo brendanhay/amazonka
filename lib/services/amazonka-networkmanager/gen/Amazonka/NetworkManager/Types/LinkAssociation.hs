@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.LinkAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.LinkAssociationState
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,16 +81,16 @@ linkAssociation_deviceId = Lens.lens (\LinkAssociation' {deviceId} -> deviceId) 
 linkAssociation_linkAssociationState :: Lens.Lens' LinkAssociation (Prelude.Maybe LinkAssociationState)
 linkAssociation_linkAssociationState = Lens.lens (\LinkAssociation' {linkAssociationState} -> linkAssociationState) (\s@LinkAssociation' {} a -> s {linkAssociationState = a} :: LinkAssociation)
 
-instance Core.FromJSON LinkAssociation where
+instance Data.FromJSON LinkAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LinkAssociation"
       ( \x ->
           LinkAssociation'
-            Prelude.<$> (x Core..:? "GlobalNetworkId")
-            Prelude.<*> (x Core..:? "LinkId")
-            Prelude.<*> (x Core..:? "DeviceId")
-            Prelude.<*> (x Core..:? "LinkAssociationState")
+            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "LinkId")
+            Prelude.<*> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "LinkAssociationState")
       )
 
 instance Prelude.Hashable LinkAssociation where

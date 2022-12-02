@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,7 +139,7 @@ instance Core.AWSRequest StartRouteAnalysis where
     Response.receiveJSON
       ( \s h x ->
           StartRouteAnalysisResponse'
-            Prelude.<$> (x Core..?> "RouteAnalysis")
+            Prelude.<$> (x Data..?> "RouteAnalysis")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,39 +159,39 @@ instance Prelude.NFData StartRouteAnalysis where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToHeaders StartRouteAnalysis where
+instance Data.ToHeaders StartRouteAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartRouteAnalysis where
+instance Data.ToJSON StartRouteAnalysis where
   toJSON StartRouteAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IncludeReturnPath" Core..=)
+          [ ("IncludeReturnPath" Data..=)
               Prelude.<$> includeReturnPath,
-            ("UseMiddleboxes" Core..=)
+            ("UseMiddleboxes" Data..=)
               Prelude.<$> useMiddleboxes,
-            Prelude.Just ("Source" Core..= source),
-            Prelude.Just ("Destination" Core..= destination)
+            Prelude.Just ("Source" Data..= source),
+            Prelude.Just ("Destination" Data..= destination)
           ]
       )
 
-instance Core.ToPath StartRouteAnalysis where
+instance Data.ToPath StartRouteAnalysis where
   toPath StartRouteAnalysis' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/route-analyses"
       ]
 
-instance Core.ToQuery StartRouteAnalysis where
+instance Data.ToQuery StartRouteAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartRouteAnalysisResponse' smart constructor.

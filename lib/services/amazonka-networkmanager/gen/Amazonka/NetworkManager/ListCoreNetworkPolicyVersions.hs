@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListCoreNetworkPolicyVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CoreNetworkPolicyVersions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CoreNetworkPolicyVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -156,30 +157,30 @@ instance Prelude.NFData ListCoreNetworkPolicyVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf coreNetworkId
 
-instance Core.ToHeaders ListCoreNetworkPolicyVersions where
+instance Data.ToHeaders ListCoreNetworkPolicyVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListCoreNetworkPolicyVersions where
+instance Data.ToPath ListCoreNetworkPolicyVersions where
   toPath ListCoreNetworkPolicyVersions' {..} =
     Prelude.mconcat
       [ "/core-networks/",
-        Core.toBS coreNetworkId,
+        Data.toBS coreNetworkId,
         "/core-network-policy-versions"
       ]
 
-instance Core.ToQuery ListCoreNetworkPolicyVersions where
+instance Data.ToQuery ListCoreNetworkPolicyVersions where
   toQuery ListCoreNetworkPolicyVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListCoreNetworkPolicyVersionsResponse' smart constructor.

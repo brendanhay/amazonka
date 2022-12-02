@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.TransitGatewayRegistration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.TransitGatewayRegistrationStateReason
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ transitGatewayRegistration_transitGatewayArn = Lens.lens (\TransitGatewayRegistr
 transitGatewayRegistration_state :: Lens.Lens' TransitGatewayRegistration (Prelude.Maybe TransitGatewayRegistrationStateReason)
 transitGatewayRegistration_state = Lens.lens (\TransitGatewayRegistration' {state} -> state) (\s@TransitGatewayRegistration' {} a -> s {state = a} :: TransitGatewayRegistration)
 
-instance Core.FromJSON TransitGatewayRegistration where
+instance Data.FromJSON TransitGatewayRegistration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransitGatewayRegistration"
       ( \x ->
           TransitGatewayRegistration'
-            Prelude.<$> (x Core..:? "GlobalNetworkId")
-            Prelude.<*> (x Core..:? "TransitGatewayArn")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "TransitGatewayArn")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable TransitGatewayRegistration where

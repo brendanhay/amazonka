@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,7 +126,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateTransitGatewayRouteTableAttachmentResponse'
-            Prelude.<$> (x Core..?> "TransitGatewayRouteTableAttachment")
+            Prelude.<$> (x Data..?> "TransitGatewayRouteTableAttachment")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,38 +153,38 @@ instance
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateTransitGatewayRouteTableAttachment
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateTransitGatewayRouteTableAttachment
   where
   toJSON CreateTransitGatewayRouteTableAttachment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("PeeringId" Core..= peeringId),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("PeeringId" Data..= peeringId),
             Prelude.Just
               ( "TransitGatewayRouteTableArn"
-                  Core..= transitGatewayRouteTableArn
+                  Data..= transitGatewayRouteTableArn
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateTransitGatewayRouteTableAttachment
   where
   toPath =
@@ -191,7 +192,7 @@ instance
       "/transit-gateway-route-table-attachments"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateTransitGatewayRouteTableAttachment
   where
   toQuery = Prelude.const Prelude.mempty

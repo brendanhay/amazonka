@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,8 +152,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetTransitGatewayConnectPeerAssociationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "TransitGatewayConnectPeerAssociations"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "TransitGatewayConnectPeerAssociations"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -182,43 +183,43 @@ instance
       `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetTransitGatewayConnectPeerAssociations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetTransitGatewayConnectPeerAssociations
   where
   toPath GetTransitGatewayConnectPeerAssociations' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/transit-gateway-connect-peer-associations"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetTransitGatewayConnectPeerAssociations
   where
   toQuery GetTransitGatewayConnectPeerAssociations' {..} =
     Prelude.mconcat
       [ "transitGatewayConnectPeerArns"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> transitGatewayConnectPeerArns
             ),
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+        "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetTransitGatewayConnectPeerAssociationsResponse' smart constructor.

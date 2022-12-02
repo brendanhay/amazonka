@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.ConnectPeerAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.ConnectPeerAssociationState
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,17 +91,17 @@ connectPeerAssociation_state = Lens.lens (\ConnectPeerAssociation' {state} -> st
 connectPeerAssociation_connectPeerId :: Lens.Lens' ConnectPeerAssociation (Prelude.Maybe Prelude.Text)
 connectPeerAssociation_connectPeerId = Lens.lens (\ConnectPeerAssociation' {connectPeerId} -> connectPeerId) (\s@ConnectPeerAssociation' {} a -> s {connectPeerId = a} :: ConnectPeerAssociation)
 
-instance Core.FromJSON ConnectPeerAssociation where
+instance Data.FromJSON ConnectPeerAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectPeerAssociation"
       ( \x ->
           ConnectPeerAssociation'
-            Prelude.<$> (x Core..:? "GlobalNetworkId")
-            Prelude.<*> (x Core..:? "LinkId")
-            Prelude.<*> (x Core..:? "DeviceId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "ConnectPeerId")
+            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "LinkId")
+            Prelude.<*> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "ConnectPeerId")
       )
 
 instance Prelude.Hashable ConnectPeerAssociation where

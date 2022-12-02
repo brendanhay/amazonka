@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -63,7 +64,7 @@ data UpdateSite = UpdateSite'
     -- -   @Latitude@: The latitude of the site.
     --
     -- -   @Longitude@: The longitude of the site.
-    location :: Prelude.Maybe (Core.Sensitive Location),
+    location :: Prelude.Maybe (Data.Sensitive Location),
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text,
     -- | The ID of your site.
@@ -122,7 +123,7 @@ updateSite_description = Lens.lens (\UpdateSite' {description} -> description) (
 --
 -- -   @Longitude@: The longitude of the site.
 updateSite_location :: Lens.Lens' UpdateSite (Prelude.Maybe Location)
-updateSite_location = Lens.lens (\UpdateSite' {location} -> location) (\s@UpdateSite' {} a -> s {location = a} :: UpdateSite) Prelude.. Lens.mapping Core._Sensitive
+updateSite_location = Lens.lens (\UpdateSite' {location} -> location) (\s@UpdateSite' {} a -> s {location = a} :: UpdateSite) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the global network.
 updateSite_globalNetworkId :: Lens.Lens' UpdateSite Prelude.Text
@@ -140,7 +141,7 @@ instance Core.AWSRequest UpdateSite where
     Response.receiveJSON
       ( \s h x ->
           UpdateSiteResponse'
-            Prelude.<$> (x Core..?> "Site")
+            Prelude.<$> (x Data..?> "Site")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,36 +159,36 @@ instance Prelude.NFData UpdateSite where
       `Prelude.seq` Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf siteId
 
-instance Core.ToHeaders UpdateSite where
+instance Data.ToHeaders UpdateSite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSite where
+instance Data.ToJSON UpdateSite where
   toJSON UpdateSite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("Location" Core..=) Prelude.<$> location
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Location" Data..=) Prelude.<$> location
           ]
       )
 
-instance Core.ToPath UpdateSite where
+instance Data.ToPath UpdateSite where
   toPath UpdateSite' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/sites/",
-        Core.toBS siteId
+        Data.toBS siteId
       ]
 
-instance Core.ToQuery UpdateSite where
+instance Data.ToQuery UpdateSite where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSiteResponse' smart constructor.

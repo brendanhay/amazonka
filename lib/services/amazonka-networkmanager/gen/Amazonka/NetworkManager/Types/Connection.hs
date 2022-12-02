@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.Connection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.ConnectionState
 import Amazonka.NetworkManager.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -50,7 +51,7 @@ data Connection = Connection'
     -- | The ID of the link for the second device in the connection.
     connectedLinkId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the connection was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,25 +143,25 @@ connection_connectedLinkId = Lens.lens (\Connection' {connectedLinkId} -> connec
 
 -- | The date and time that the connection was created.
 connection_createdAt :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
-connection_createdAt = Lens.lens (\Connection' {createdAt} -> createdAt) (\s@Connection' {} a -> s {createdAt = a} :: Connection) Prelude.. Lens.mapping Core._Time
+connection_createdAt = Lens.lens (\Connection' {createdAt} -> createdAt) (\s@Connection' {} a -> s {createdAt = a} :: Connection) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Connection where
+instance Data.FromJSON Connection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> (x Core..:? "GlobalNetworkId")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LinkId")
-            Prelude.<*> (x Core..:? "DeviceId")
-            Prelude.<*> (x Core..:? "ConnectedDeviceId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "ConnectionId")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ConnectionArn")
-            Prelude.<*> (x Core..:? "ConnectedLinkId")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LinkId")
+            Prelude.<*> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "ConnectedDeviceId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "ConnectionId")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ConnectionArn")
+            Prelude.<*> (x Data..:? "ConnectedLinkId")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable Connection where

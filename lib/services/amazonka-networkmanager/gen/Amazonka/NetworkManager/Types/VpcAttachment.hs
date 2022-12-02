@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.VpcAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.Attachment
 import Amazonka.NetworkManager.Types.VpcOptions
 import qualified Amazonka.Prelude as Prelude
@@ -72,15 +73,15 @@ vpcAttachment_subnetArns = Lens.lens (\VpcAttachment' {subnetArns} -> subnetArns
 vpcAttachment_options :: Lens.Lens' VpcAttachment (Prelude.Maybe VpcOptions)
 vpcAttachment_options = Lens.lens (\VpcAttachment' {options} -> options) (\s@VpcAttachment' {} a -> s {options = a} :: VpcAttachment)
 
-instance Core.FromJSON VpcAttachment where
+instance Data.FromJSON VpcAttachment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcAttachment"
       ( \x ->
           VpcAttachment'
-            Prelude.<$> (x Core..:? "Attachment")
-            Prelude.<*> (x Core..:? "SubnetArns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Options")
+            Prelude.<$> (x Data..:? "Attachment")
+            Prelude.<*> (x Data..:? "SubnetArns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Options")
       )
 
 instance Prelude.Hashable VpcAttachment where

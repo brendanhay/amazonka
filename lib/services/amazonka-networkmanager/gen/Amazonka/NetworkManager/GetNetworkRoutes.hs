@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -190,11 +191,11 @@ instance Core.AWSRequest GetNetworkRoutes where
     Response.receiveJSON
       ( \s h x ->
           GetNetworkRoutesResponse'
-            Prelude.<$> (x Core..?> "RouteTableArn")
-            Prelude.<*> (x Core..?> "NetworkRoutes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RouteTableType")
-            Prelude.<*> (x Core..?> "CoreNetworkSegmentEdge")
-            Prelude.<*> (x Core..?> "RouteTableTimestamp")
+            Prelude.<$> (x Data..?> "RouteTableArn")
+            Prelude.<*> (x Data..?> "NetworkRoutes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RouteTableType")
+            Prelude.<*> (x Data..?> "CoreNetworkSegmentEdge")
+            Prelude.<*> (x Data..?> "RouteTableTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -224,50 +225,50 @@ instance Prelude.NFData GetNetworkRoutes where
       `Prelude.seq` Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf routeTableIdentifier
 
-instance Core.ToHeaders GetNetworkRoutes where
+instance Data.ToHeaders GetNetworkRoutes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetNetworkRoutes where
+instance Data.ToJSON GetNetworkRoutes where
   toJSON GetNetworkRoutes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SupernetOfMatches" Core..=)
+          [ ("SupernetOfMatches" Data..=)
               Prelude.<$> supernetOfMatches,
-            ("SubnetOfMatches" Core..=)
+            ("SubnetOfMatches" Data..=)
               Prelude.<$> subnetOfMatches,
-            ("Types" Core..=) Prelude.<$> types,
-            ("ExactCidrMatches" Core..=)
+            ("Types" Data..=) Prelude.<$> types,
+            ("ExactCidrMatches" Data..=)
               Prelude.<$> exactCidrMatches,
-            ("PrefixListIds" Core..=) Prelude.<$> prefixListIds,
-            ("DestinationFilters" Core..=)
+            ("PrefixListIds" Data..=) Prelude.<$> prefixListIds,
+            ("DestinationFilters" Data..=)
               Prelude.<$> destinationFilters,
-            ("LongestPrefixMatches" Core..=)
+            ("LongestPrefixMatches" Data..=)
               Prelude.<$> longestPrefixMatches,
-            ("States" Core..=) Prelude.<$> states,
+            ("States" Data..=) Prelude.<$> states,
             Prelude.Just
               ( "RouteTableIdentifier"
-                  Core..= routeTableIdentifier
+                  Data..= routeTableIdentifier
               )
           ]
       )
 
-instance Core.ToPath GetNetworkRoutes where
+instance Data.ToPath GetNetworkRoutes where
   toPath GetNetworkRoutes' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/network-routes"
       ]
 
-instance Core.ToQuery GetNetworkRoutes where
+instance Data.ToQuery GetNetworkRoutes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetNetworkRoutesResponse' smart constructor.
@@ -281,7 +282,7 @@ data GetNetworkRoutesResponse = GetNetworkRoutesResponse'
     -- | Describes a core network segment edge.
     coreNetworkSegmentEdge :: Prelude.Maybe CoreNetworkSegmentEdgeIdentifier,
     -- | The route table creation time.
-    routeTableTimestamp :: Prelude.Maybe Core.POSIX,
+    routeTableTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -339,7 +340,7 @@ getNetworkRoutesResponse_coreNetworkSegmentEdge = Lens.lens (\GetNetworkRoutesRe
 
 -- | The route table creation time.
 getNetworkRoutesResponse_routeTableTimestamp :: Lens.Lens' GetNetworkRoutesResponse (Prelude.Maybe Prelude.UTCTime)
-getNetworkRoutesResponse_routeTableTimestamp = Lens.lens (\GetNetworkRoutesResponse' {routeTableTimestamp} -> routeTableTimestamp) (\s@GetNetworkRoutesResponse' {} a -> s {routeTableTimestamp = a} :: GetNetworkRoutesResponse) Prelude.. Lens.mapping Core._Time
+getNetworkRoutesResponse_routeTableTimestamp = Lens.lens (\GetNetworkRoutesResponse' {routeTableTimestamp} -> routeTableTimestamp) (\s@GetNetworkRoutesResponse' {} a -> s {routeTableTimestamp = a} :: GetNetworkRoutesResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getNetworkRoutesResponse_httpStatus :: Lens.Lens' GetNetworkRoutesResponse Prelude.Int

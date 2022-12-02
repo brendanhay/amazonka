@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.ResourceMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.PhysicalResourceId
 import Amazonka.ResilienceHub.Types.ResourceMappingType
@@ -164,19 +165,19 @@ resourceMapping_mappingType = Lens.lens (\ResourceMapping' {mappingType} -> mapp
 resourceMapping_physicalResourceId :: Lens.Lens' ResourceMapping PhysicalResourceId
 resourceMapping_physicalResourceId = Lens.lens (\ResourceMapping' {physicalResourceId} -> physicalResourceId) (\s@ResourceMapping' {} a -> s {physicalResourceId = a} :: ResourceMapping)
 
-instance Core.FromJSON ResourceMapping where
+instance Data.FromJSON ResourceMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceMapping"
       ( \x ->
           ResourceMapping'
-            Prelude.<$> (x Core..:? "terraformSourceName")
-            Prelude.<*> (x Core..:? "resourceName")
-            Prelude.<*> (x Core..:? "logicalStackName")
-            Prelude.<*> (x Core..:? "resourceGroupName")
-            Prelude.<*> (x Core..:? "appRegistryAppName")
-            Prelude.<*> (x Core..: "mappingType")
-            Prelude.<*> (x Core..: "physicalResourceId")
+            Prelude.<$> (x Data..:? "terraformSourceName")
+            Prelude.<*> (x Data..:? "resourceName")
+            Prelude.<*> (x Data..:? "logicalStackName")
+            Prelude.<*> (x Data..:? "resourceGroupName")
+            Prelude.<*> (x Data..:? "appRegistryAppName")
+            Prelude.<*> (x Data..: "mappingType")
+            Prelude.<*> (x Data..: "physicalResourceId")
       )
 
 instance Prelude.Hashable ResourceMapping where
@@ -199,21 +200,21 @@ instance Prelude.NFData ResourceMapping where
       `Prelude.seq` Prelude.rnf mappingType
       `Prelude.seq` Prelude.rnf physicalResourceId
 
-instance Core.ToJSON ResourceMapping where
+instance Data.ToJSON ResourceMapping where
   toJSON ResourceMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("terraformSourceName" Core..=)
+          [ ("terraformSourceName" Data..=)
               Prelude.<$> terraformSourceName,
-            ("resourceName" Core..=) Prelude.<$> resourceName,
-            ("logicalStackName" Core..=)
+            ("resourceName" Data..=) Prelude.<$> resourceName,
+            ("logicalStackName" Data..=)
               Prelude.<$> logicalStackName,
-            ("resourceGroupName" Core..=)
+            ("resourceGroupName" Data..=)
               Prelude.<$> resourceGroupName,
-            ("appRegistryAppName" Core..=)
+            ("appRegistryAppName" Data..=)
               Prelude.<$> appRegistryAppName,
-            Prelude.Just ("mappingType" Core..= mappingType),
+            Prelude.Just ("mappingType" Data..= mappingType),
             Prelude.Just
-              ("physicalResourceId" Core..= physicalResourceId)
+              ("physicalResourceId" Data..= physicalResourceId)
           ]
       )

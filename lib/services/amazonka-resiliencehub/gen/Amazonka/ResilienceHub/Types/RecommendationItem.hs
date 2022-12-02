@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.RecommendationItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a recommendation.
@@ -79,16 +80,16 @@ recommendationItem_targetAccountId = Lens.lens (\RecommendationItem' {targetAcco
 recommendationItem_targetRegion :: Lens.Lens' RecommendationItem (Prelude.Maybe Prelude.Text)
 recommendationItem_targetRegion = Lens.lens (\RecommendationItem' {targetRegion} -> targetRegion) (\s@RecommendationItem' {} a -> s {targetRegion = a} :: RecommendationItem)
 
-instance Core.FromJSON RecommendationItem where
+instance Data.FromJSON RecommendationItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationItem"
       ( \x ->
           RecommendationItem'
-            Prelude.<$> (x Core..:? "resourceId")
-            Prelude.<*> (x Core..:? "alreadyImplemented")
-            Prelude.<*> (x Core..:? "targetAccountId")
-            Prelude.<*> (x Core..:? "targetRegion")
+            Prelude.<$> (x Data..:? "resourceId")
+            Prelude.<*> (x Data..:? "alreadyImplemented")
+            Prelude.<*> (x Data..:? "targetAccountId")
+            Prelude.<*> (x Data..:? "targetRegion")
       )
 
 instance Prelude.Hashable RecommendationItem where

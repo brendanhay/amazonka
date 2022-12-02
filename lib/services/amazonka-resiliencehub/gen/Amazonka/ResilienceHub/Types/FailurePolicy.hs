@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.FailurePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a failure policy.
@@ -65,14 +66,14 @@ failurePolicy_rpoInSecs = Lens.lens (\FailurePolicy' {rpoInSecs} -> rpoInSecs) (
 failurePolicy_rtoInSecs :: Lens.Lens' FailurePolicy Prelude.Natural
 failurePolicy_rtoInSecs = Lens.lens (\FailurePolicy' {rtoInSecs} -> rtoInSecs) (\s@FailurePolicy' {} a -> s {rtoInSecs = a} :: FailurePolicy)
 
-instance Core.FromJSON FailurePolicy where
+instance Data.FromJSON FailurePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailurePolicy"
       ( \x ->
           FailurePolicy'
-            Prelude.<$> (x Core..: "rpoInSecs")
-            Prelude.<*> (x Core..: "rtoInSecs")
+            Prelude.<$> (x Data..: "rpoInSecs")
+            Prelude.<*> (x Data..: "rtoInSecs")
       )
 
 instance Prelude.Hashable FailurePolicy where
@@ -85,11 +86,11 @@ instance Prelude.NFData FailurePolicy where
     Prelude.rnf rpoInSecs
       `Prelude.seq` Prelude.rnf rtoInSecs
 
-instance Core.ToJSON FailurePolicy where
+instance Data.ToJSON FailurePolicy where
   toJSON FailurePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("rpoInSecs" Core..= rpoInSecs),
-            Prelude.Just ("rtoInSecs" Core..= rtoInSecs)
+          [ Prelude.Just ("rpoInSecs" Data..= rpoInSecs),
+            Prelude.Just ("rtoInSecs" Data..= rtoInSecs)
           ]
       )

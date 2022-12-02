@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -171,8 +172,8 @@ instance Core.AWSRequest ListRecommendationTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListRecommendationTemplatesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "recommendationTemplates"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "recommendationTemplates"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -199,34 +200,34 @@ instance Prelude.NFData ListRecommendationTemplates where
       `Prelude.seq` Prelude.rnf reverseOrder
       `Prelude.seq` Prelude.rnf assessmentArn
 
-instance Core.ToHeaders ListRecommendationTemplates where
+instance Data.ToHeaders ListRecommendationTemplates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRecommendationTemplates where
+instance Data.ToPath ListRecommendationTemplates where
   toPath =
     Prelude.const "/list-recommendation-templates"
 
-instance Core.ToQuery ListRecommendationTemplates where
+instance Data.ToQuery ListRecommendationTemplates where
   toQuery ListRecommendationTemplates' {..} =
     Prelude.mconcat
       [ "recommendationTemplateArn"
-          Core.=: recommendationTemplateArn,
-        "name" Core.=: name,
-        "nextToken" Core.=: nextToken,
+          Data.=: recommendationTemplateArn,
+        "name" Data.=: name,
+        "nextToken" Data.=: nextToken,
         "status"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> status),
-        "maxResults" Core.=: maxResults,
-        "reverseOrder" Core.=: reverseOrder,
-        "assessmentArn" Core.=: assessmentArn
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> status),
+        "maxResults" Data.=: maxResults,
+        "reverseOrder" Data.=: reverseOrder,
+        "assessmentArn" Data.=: assessmentArn
       ]
 
 -- | /See:/ 'newListRecommendationTemplatesResponse' smart constructor.

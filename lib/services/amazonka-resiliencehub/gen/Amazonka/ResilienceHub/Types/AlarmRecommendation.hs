@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.AlarmRecommendation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.AlarmType
 import Amazonka.ResilienceHub.Types.RecommendationItem
@@ -129,20 +130,20 @@ alarmRecommendation_referenceId = Lens.lens (\AlarmRecommendation' {referenceId}
 alarmRecommendation_type :: Lens.Lens' AlarmRecommendation AlarmType
 alarmRecommendation_type = Lens.lens (\AlarmRecommendation' {type'} -> type') (\s@AlarmRecommendation' {} a -> s {type' = a} :: AlarmRecommendation)
 
-instance Core.FromJSON AlarmRecommendation where
+instance Data.FromJSON AlarmRecommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlarmRecommendation"
       ( \x ->
           AlarmRecommendation'
-            Prelude.<$> (x Core..:? "items" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "prerequisite")
-            Prelude.<*> (x Core..:? "appComponentName")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "recommendationId")
-            Prelude.<*> (x Core..: "referenceId")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "items" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "prerequisite")
+            Prelude.<*> (x Data..:? "appComponentName")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "recommendationId")
+            Prelude.<*> (x Data..: "referenceId")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable AlarmRecommendation where

@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.AppVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The version of the application.
@@ -52,13 +53,13 @@ newAppVersionSummary pAppVersion_ =
 appVersionSummary_appVersion :: Lens.Lens' AppVersionSummary Prelude.Text
 appVersionSummary_appVersion = Lens.lens (\AppVersionSummary' {appVersion} -> appVersion) (\s@AppVersionSummary' {} a -> s {appVersion = a} :: AppVersionSummary)
 
-instance Core.FromJSON AppVersionSummary where
+instance Data.FromJSON AppVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppVersionSummary"
       ( \x ->
           AppVersionSummary'
-            Prelude.<$> (x Core..: "appVersion")
+            Prelude.<$> (x Data..: "appVersion")
       )
 
 instance Prelude.Hashable AppVersionSummary where

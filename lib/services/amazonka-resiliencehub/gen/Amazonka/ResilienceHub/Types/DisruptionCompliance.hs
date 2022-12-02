@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.DisruptionCompliance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.ComplianceStatus
 
@@ -137,22 +138,22 @@ disruptionCompliance_currentRpoInSecs = Lens.lens (\DisruptionCompliance' {curre
 disruptionCompliance_complianceStatus :: Lens.Lens' DisruptionCompliance ComplianceStatus
 disruptionCompliance_complianceStatus = Lens.lens (\DisruptionCompliance' {complianceStatus} -> complianceStatus) (\s@DisruptionCompliance' {} a -> s {complianceStatus = a} :: DisruptionCompliance)
 
-instance Core.FromJSON DisruptionCompliance where
+instance Data.FromJSON DisruptionCompliance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DisruptionCompliance"
       ( \x ->
           DisruptionCompliance'
-            Prelude.<$> (x Core..:? "rpoReferenceId")
-            Prelude.<*> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "achievableRtoInSecs")
-            Prelude.<*> (x Core..:? "rtoDescription")
-            Prelude.<*> (x Core..:? "currentRtoInSecs")
-            Prelude.<*> (x Core..:? "rtoReferenceId")
-            Prelude.<*> (x Core..:? "achievableRpoInSecs")
-            Prelude.<*> (x Core..:? "rpoDescription")
-            Prelude.<*> (x Core..:? "currentRpoInSecs")
-            Prelude.<*> (x Core..: "complianceStatus")
+            Prelude.<$> (x Data..:? "rpoReferenceId")
+            Prelude.<*> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "achievableRtoInSecs")
+            Prelude.<*> (x Data..:? "rtoDescription")
+            Prelude.<*> (x Data..:? "currentRtoInSecs")
+            Prelude.<*> (x Data..:? "rtoReferenceId")
+            Prelude.<*> (x Data..:? "achievableRpoInSecs")
+            Prelude.<*> (x Data..:? "rpoDescription")
+            Prelude.<*> (x Data..:? "currentRpoInSecs")
+            Prelude.<*> (x Data..: "complianceStatus")
       )
 
 instance Prelude.Hashable DisruptionCompliance where

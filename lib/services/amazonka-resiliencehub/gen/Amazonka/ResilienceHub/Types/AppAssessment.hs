@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.AppAssessment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.AssessmentInvoker
 import Amazonka.ResilienceHub.Types.AssessmentStatus
@@ -38,7 +39,7 @@ import Amazonka.ResilienceHub.Types.ResourceErrorsDetails
 data AppAssessment = AppAssessment'
   { -- | The tags assigned to the resource. A tag is a label that you assign to
     -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The resiliency policy.
     policy :: Prelude.Maybe ResiliencyPolicy,
     -- | Error or warning message from the assessment execution
@@ -50,7 +51,7 @@ data AppAssessment = AppAssessment'
     -- | The current status of the compliance for the resiliency policy.
     complianceStatus :: Prelude.Maybe ComplianceStatus,
     -- | The end time for the action.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The version of the application.
     appVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application. The format for this
@@ -62,7 +63,7 @@ data AppAssessment = AppAssessment'
     -- | The cost for the application.
     cost :: Prelude.Maybe Cost,
     -- | The starting time for the action.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The application compliance against the resiliency policy.
     compliance :: Prelude.Maybe (Prelude.HashMap DisruptionType DisruptionCompliance),
     -- | A resource error object containing a list of errors retrieving an
@@ -166,7 +167,7 @@ newAppAssessment
 -- | The tags assigned to the resource. A tag is a label that you assign to
 -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 appAssessment_tags :: Lens.Lens' AppAssessment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-appAssessment_tags = Lens.lens (\AppAssessment' {tags} -> tags) (\s@AppAssessment' {} a -> s {tags = a} :: AppAssessment) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+appAssessment_tags = Lens.lens (\AppAssessment' {tags} -> tags) (\s@AppAssessment' {} a -> s {tags = a} :: AppAssessment) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The resiliency policy.
 appAssessment_policy :: Lens.Lens' AppAssessment (Prelude.Maybe ResiliencyPolicy)
@@ -190,7 +191,7 @@ appAssessment_complianceStatus = Lens.lens (\AppAssessment' {complianceStatus} -
 
 -- | The end time for the action.
 appAssessment_endTime :: Lens.Lens' AppAssessment (Prelude.Maybe Prelude.UTCTime)
-appAssessment_endTime = Lens.lens (\AppAssessment' {endTime} -> endTime) (\s@AppAssessment' {} a -> s {endTime = a} :: AppAssessment) Prelude.. Lens.mapping Core._Time
+appAssessment_endTime = Lens.lens (\AppAssessment' {endTime} -> endTime) (\s@AppAssessment' {} a -> s {endTime = a} :: AppAssessment) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the application.
 appAssessment_appVersion :: Lens.Lens' AppAssessment (Prelude.Maybe Prelude.Text)
@@ -210,7 +211,7 @@ appAssessment_cost = Lens.lens (\AppAssessment' {cost} -> cost) (\s@AppAssessmen
 
 -- | The starting time for the action.
 appAssessment_startTime :: Lens.Lens' AppAssessment (Prelude.Maybe Prelude.UTCTime)
-appAssessment_startTime = Lens.lens (\AppAssessment' {startTime} -> startTime) (\s@AppAssessment' {} a -> s {startTime = a} :: AppAssessment) Prelude.. Lens.mapping Core._Time
+appAssessment_startTime = Lens.lens (\AppAssessment' {startTime} -> startTime) (\s@AppAssessment' {} a -> s {startTime = a} :: AppAssessment) Prelude.. Lens.mapping Data._Time
 
 -- | The application compliance against the resiliency policy.
 appAssessment_compliance :: Lens.Lens' AppAssessment (Prelude.Maybe (Prelude.HashMap DisruptionType DisruptionCompliance))
@@ -238,28 +239,28 @@ appAssessment_assessmentStatus = Lens.lens (\AppAssessment' {assessmentStatus} -
 appAssessment_invoker :: Lens.Lens' AppAssessment AssessmentInvoker
 appAssessment_invoker = Lens.lens (\AppAssessment' {invoker} -> invoker) (\s@AppAssessment' {} a -> s {invoker = a} :: AppAssessment)
 
-instance Core.FromJSON AppAssessment where
+instance Data.FromJSON AppAssessment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppAssessment"
       ( \x ->
           AppAssessment'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "policy")
-            Prelude.<*> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "assessmentName")
-            Prelude.<*> (x Core..:? "resiliencyScore")
-            Prelude.<*> (x Core..:? "complianceStatus")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "appVersion")
-            Prelude.<*> (x Core..:? "appArn")
-            Prelude.<*> (x Core..:? "cost")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "compliance" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceErrorsDetails")
-            Prelude.<*> (x Core..: "assessmentArn")
-            Prelude.<*> (x Core..: "assessmentStatus")
-            Prelude.<*> (x Core..: "invoker")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "policy")
+            Prelude.<*> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "assessmentName")
+            Prelude.<*> (x Data..:? "resiliencyScore")
+            Prelude.<*> (x Data..:? "complianceStatus")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "appVersion")
+            Prelude.<*> (x Data..:? "appArn")
+            Prelude.<*> (x Data..:? "cost")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "compliance" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceErrorsDetails")
+            Prelude.<*> (x Data..: "assessmentArn")
+            Prelude.<*> (x Data..: "assessmentStatus")
+            Prelude.<*> (x Data..: "invoker")
       )
 
 instance Prelude.Hashable AppAssessment where

@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.ConfigRecommendation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.ConfigRecommendationOptimizationType
 import Amazonka.ResilienceHub.Types.Cost
@@ -155,26 +156,26 @@ configRecommendation_optimizationType = Lens.lens (\ConfigRecommendation' {optim
 configRecommendation_referenceId :: Lens.Lens' ConfigRecommendation Prelude.Text
 configRecommendation_referenceId = Lens.lens (\ConfigRecommendation' {referenceId} -> referenceId) (\s@ConfigRecommendation' {} a -> s {referenceId = a} :: ConfigRecommendation)
 
-instance Core.FromJSON ConfigRecommendation where
+instance Data.FromJSON ConfigRecommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigRecommendation"
       ( \x ->
           ConfigRecommendation'
-            Prelude.<$> (x Core..:? "haArchitecture")
-            Prelude.<*> ( x Core..:? "recommendationCompliance"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "haArchitecture")
+            Prelude.<*> ( x Data..:? "recommendationCompliance"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "appComponentName")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "cost")
-            Prelude.<*> (x Core..:? "compliance" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "suggestedChanges"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "appComponentName")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "cost")
+            Prelude.<*> (x Data..:? "compliance" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "suggestedChanges"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "optimizationType")
-            Prelude.<*> (x Core..: "referenceId")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "optimizationType")
+            Prelude.<*> (x Data..: "referenceId")
       )
 
 instance Prelude.Hashable ConfigRecommendation where

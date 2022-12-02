@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.AppComponentCompliance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.ComplianceStatus
 import Amazonka.ResilienceHub.Types.Cost
@@ -106,18 +107,18 @@ appComponentCompliance_cost = Lens.lens (\AppComponentCompliance' {cost} -> cost
 appComponentCompliance_compliance :: Lens.Lens' AppComponentCompliance (Prelude.Maybe (Prelude.HashMap DisruptionType DisruptionCompliance))
 appComponentCompliance_compliance = Lens.lens (\AppComponentCompliance' {compliance} -> compliance) (\s@AppComponentCompliance' {} a -> s {compliance = a} :: AppComponentCompliance) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AppComponentCompliance where
+instance Data.FromJSON AppComponentCompliance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppComponentCompliance"
       ( \x ->
           AppComponentCompliance'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "resiliencyScore")
-            Prelude.<*> (x Core..:? "appComponentName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "cost")
-            Prelude.<*> (x Core..:? "compliance" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "resiliencyScore")
+            Prelude.<*> (x Data..:? "appComponentName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "cost")
+            Prelude.<*> (x Data..:? "compliance" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AppComponentCompliance where

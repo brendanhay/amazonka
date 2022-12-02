@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -96,9 +97,9 @@ instance Core.AWSRequest PublishAppVersion where
     Response.receiveJSON
       ( \s h x ->
           PublishAppVersionResponse'
-            Prelude.<$> (x Core..?> "appVersion")
+            Prelude.<$> (x Data..?> "appVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "appArn")
+            Prelude.<*> (x Data..:> "appArn")
       )
 
 instance Prelude.Hashable PublishAppVersion where
@@ -108,28 +109,28 @@ instance Prelude.Hashable PublishAppVersion where
 instance Prelude.NFData PublishAppVersion where
   rnf PublishAppVersion' {..} = Prelude.rnf appArn
 
-instance Core.ToHeaders PublishAppVersion where
+instance Data.ToHeaders PublishAppVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PublishAppVersion where
+instance Data.ToJSON PublishAppVersion where
   toJSON PublishAppVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("appArn" Core..= appArn)]
+          [Prelude.Just ("appArn" Data..= appArn)]
       )
 
-instance Core.ToPath PublishAppVersion where
+instance Data.ToPath PublishAppVersion where
   toPath = Prelude.const "/publish-app-version"
 
-instance Core.ToQuery PublishAppVersion where
+instance Data.ToQuery PublishAppVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPublishAppVersionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.ResiliencyPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.DataLocationConstraint
 import Amazonka.ResilienceHub.Types.DisruptionType
@@ -34,7 +35,7 @@ import Amazonka.ResilienceHub.Types.ResiliencyPolicyTier
 data ResiliencyPolicy = ResiliencyPolicy'
   { -- | The tags assigned to the resource. A tag is a label that you assign to
     -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name of the policy
     policyName :: Prelude.Maybe Prelude.Text,
     -- | The resiliency policy.
@@ -55,7 +56,7 @@ data ResiliencyPolicy = ResiliencyPolicy'
     -- in the /AWS General Reference/.
     policyArn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp for when the resiliency policy was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The description for the policy.
     policyDescription :: Prelude.Maybe Prelude.Text
   }
@@ -112,7 +113,7 @@ newResiliencyPolicy =
 -- | The tags assigned to the resource. A tag is a label that you assign to
 -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 resiliencyPolicy_tags :: Lens.Lens' ResiliencyPolicy (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-resiliencyPolicy_tags = Lens.lens (\ResiliencyPolicy' {tags} -> tags) (\s@ResiliencyPolicy' {} a -> s {tags = a} :: ResiliencyPolicy) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+resiliencyPolicy_tags = Lens.lens (\ResiliencyPolicy' {tags} -> tags) (\s@ResiliencyPolicy' {} a -> s {tags = a} :: ResiliencyPolicy) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the policy
 resiliencyPolicy_policyName :: Lens.Lens' ResiliencyPolicy (Prelude.Maybe Prelude.Text)
@@ -147,27 +148,27 @@ resiliencyPolicy_policyArn = Lens.lens (\ResiliencyPolicy' {policyArn} -> policy
 
 -- | The timestamp for when the resiliency policy was created.
 resiliencyPolicy_creationTime :: Lens.Lens' ResiliencyPolicy (Prelude.Maybe Prelude.UTCTime)
-resiliencyPolicy_creationTime = Lens.lens (\ResiliencyPolicy' {creationTime} -> creationTime) (\s@ResiliencyPolicy' {} a -> s {creationTime = a} :: ResiliencyPolicy) Prelude.. Lens.mapping Core._Time
+resiliencyPolicy_creationTime = Lens.lens (\ResiliencyPolicy' {creationTime} -> creationTime) (\s@ResiliencyPolicy' {} a -> s {creationTime = a} :: ResiliencyPolicy) Prelude.. Lens.mapping Data._Time
 
 -- | The description for the policy.
 resiliencyPolicy_policyDescription :: Lens.Lens' ResiliencyPolicy (Prelude.Maybe Prelude.Text)
 resiliencyPolicy_policyDescription = Lens.lens (\ResiliencyPolicy' {policyDescription} -> policyDescription) (\s@ResiliencyPolicy' {} a -> s {policyDescription = a} :: ResiliencyPolicy)
 
-instance Core.FromJSON ResiliencyPolicy where
+instance Data.FromJSON ResiliencyPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResiliencyPolicy"
       ( \x ->
           ResiliencyPolicy'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "policyName")
-            Prelude.<*> (x Core..:? "policy" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "dataLocationConstraint")
-            Prelude.<*> (x Core..:? "estimatedCostTier")
-            Prelude.<*> (x Core..:? "tier")
-            Prelude.<*> (x Core..:? "policyArn")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "policyDescription")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "policyName")
+            Prelude.<*> (x Data..:? "policy" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "dataLocationConstraint")
+            Prelude.<*> (x Data..:? "estimatedCostTier")
+            Prelude.<*> (x Data..:? "tier")
+            Prelude.<*> (x Data..:? "policyArn")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "policyDescription")
       )
 
 instance Prelude.Hashable ResiliencyPolicy where

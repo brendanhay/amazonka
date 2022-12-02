@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -144,9 +145,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAppVersionResourceMappingsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "resourceMappings"
+            Prelude.<*> ( x Data..?> "resourceMappings"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -174,35 +175,35 @@ instance
       `Prelude.seq` Prelude.rnf appVersion
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListAppVersionResourceMappings
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAppVersionResourceMappings where
+instance Data.ToJSON ListAppVersionResourceMappings where
   toJSON ListAppVersionResourceMappings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("appArn" Core..= appArn),
-            Prelude.Just ("appVersion" Core..= appVersion)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("appArn" Data..= appArn),
+            Prelude.Just ("appVersion" Data..= appVersion)
           ]
       )
 
-instance Core.ToPath ListAppVersionResourceMappings where
+instance Data.ToPath ListAppVersionResourceMappings where
   toPath =
     Prelude.const "/list-app-version-resource-mappings"
 
-instance Core.ToQuery ListAppVersionResourceMappings where
+instance Data.ToQuery ListAppVersionResourceMappings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAppVersionResourceMappingsResponse' smart constructor.

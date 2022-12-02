@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -148,12 +149,12 @@ instance Core.AWSRequest ListAppVersionResources where
     Response.receiveJSON
       ( \s h x ->
           ListAppVersionResourcesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "physicalResources"
+            Prelude.<*> ( x Data..?> "physicalResources"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..:> "resolutionId")
+            Prelude.<*> (x Data..:> "resolutionId")
       )
 
 instance Prelude.Hashable ListAppVersionResources where
@@ -172,33 +173,33 @@ instance Prelude.NFData ListAppVersionResources where
       `Prelude.seq` Prelude.rnf appArn
       `Prelude.seq` Prelude.rnf appVersion
 
-instance Core.ToHeaders ListAppVersionResources where
+instance Data.ToHeaders ListAppVersionResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAppVersionResources where
+instance Data.ToJSON ListAppVersionResources where
   toJSON ListAppVersionResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("resolutionId" Core..=) Prelude.<$> resolutionId,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("appArn" Core..= appArn),
-            Prelude.Just ("appVersion" Core..= appVersion)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("resolutionId" Data..=) Prelude.<$> resolutionId,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("appArn" Data..= appArn),
+            Prelude.Just ("appVersion" Data..= appVersion)
           ]
       )
 
-instance Core.ToPath ListAppVersionResources where
+instance Data.ToPath ListAppVersionResources where
   toPath = Prelude.const "/list-app-version-resources"
 
-instance Core.ToQuery ListAppVersionResources where
+instance Data.ToQuery ListAppVersionResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAppVersionResourcesResponse' smart constructor.

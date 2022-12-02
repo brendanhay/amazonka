@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.ResiliencyScore where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.DisruptionType
 
@@ -65,16 +66,16 @@ resiliencyScore_disruptionScore = Lens.lens (\ResiliencyScore' {disruptionScore}
 resiliencyScore_score :: Lens.Lens' ResiliencyScore Prelude.Double
 resiliencyScore_score = Lens.lens (\ResiliencyScore' {score} -> score) (\s@ResiliencyScore' {} a -> s {score = a} :: ResiliencyScore)
 
-instance Core.FromJSON ResiliencyScore where
+instance Data.FromJSON ResiliencyScore where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResiliencyScore"
       ( \x ->
           ResiliencyScore'
-            Prelude.<$> ( x Core..:? "disruptionScore"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "disruptionScore"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "score")
+            Prelude.<*> (x Data..: "score")
       )
 
 instance Prelude.Hashable ResiliencyScore where

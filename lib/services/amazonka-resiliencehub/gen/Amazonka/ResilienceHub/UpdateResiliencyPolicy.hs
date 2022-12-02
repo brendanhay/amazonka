@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -161,7 +162,7 @@ instance Core.AWSRequest UpdateResiliencyPolicy where
       ( \s h x ->
           UpdateResiliencyPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "policy")
+            Prelude.<*> (x Data..:> "policy")
       )
 
 instance Prelude.Hashable UpdateResiliencyPolicy where
@@ -182,36 +183,36 @@ instance Prelude.NFData UpdateResiliencyPolicy where
       `Prelude.seq` Prelude.rnf policyDescription
       `Prelude.seq` Prelude.rnf policyArn
 
-instance Core.ToHeaders UpdateResiliencyPolicy where
+instance Data.ToHeaders UpdateResiliencyPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateResiliencyPolicy where
+instance Data.ToJSON UpdateResiliencyPolicy where
   toJSON UpdateResiliencyPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("policyName" Core..=) Prelude.<$> policyName,
-            ("policy" Core..=) Prelude.<$> policy,
-            ("dataLocationConstraint" Core..=)
+          [ ("policyName" Data..=) Prelude.<$> policyName,
+            ("policy" Data..=) Prelude.<$> policy,
+            ("dataLocationConstraint" Data..=)
               Prelude.<$> dataLocationConstraint,
-            ("tier" Core..=) Prelude.<$> tier,
-            ("policyDescription" Core..=)
+            ("tier" Data..=) Prelude.<$> tier,
+            ("policyDescription" Data..=)
               Prelude.<$> policyDescription,
-            Prelude.Just ("policyArn" Core..= policyArn)
+            Prelude.Just ("policyArn" Data..= policyArn)
           ]
       )
 
-instance Core.ToPath UpdateResiliencyPolicy where
+instance Data.ToPath UpdateResiliencyPolicy where
   toPath = Prelude.const "/update-resiliency-policy"
 
-instance Core.ToQuery UpdateResiliencyPolicy where
+instance Data.ToQuery UpdateResiliencyPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateResiliencyPolicyResponse' smart constructor.

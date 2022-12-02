@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.RecommendationTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.RecommendationTemplateStatus
 import Amazonka.ResilienceHub.Types.RenderRecommendationType
@@ -34,13 +35,13 @@ import Amazonka.ResilienceHub.Types.TemplateFormat
 data RecommendationTemplate = RecommendationTemplate'
   { -- | The tags assigned to the resource. A tag is a label that you assign to
     -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The message for the recommendation template.
     message :: Prelude.Maybe Prelude.Text,
     -- | Indicates if replacements are needed.
     needsReplacements :: Prelude.Maybe Prelude.Bool,
     -- | The end time for the action.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Identifiers for the recommendations used in the recommendation template.
     recommendationIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The file location of the template.
@@ -52,7 +53,7 @@ data RecommendationTemplate = RecommendationTemplate'
     -- in the /AWS General Reference/.
     appArn :: Prelude.Maybe Prelude.Text,
     -- | The start time for the action.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the assessment. The format for this
     -- ARN is:
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
@@ -193,7 +194,7 @@ newRecommendationTemplate
 -- | The tags assigned to the resource. A tag is a label that you assign to
 -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 recommendationTemplate_tags :: Lens.Lens' RecommendationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-recommendationTemplate_tags = Lens.lens (\RecommendationTemplate' {tags} -> tags) (\s@RecommendationTemplate' {} a -> s {tags = a} :: RecommendationTemplate) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+recommendationTemplate_tags = Lens.lens (\RecommendationTemplate' {tags} -> tags) (\s@RecommendationTemplate' {} a -> s {tags = a} :: RecommendationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The message for the recommendation template.
 recommendationTemplate_message :: Lens.Lens' RecommendationTemplate (Prelude.Maybe Prelude.Text)
@@ -205,7 +206,7 @@ recommendationTemplate_needsReplacements = Lens.lens (\RecommendationTemplate' {
 
 -- | The end time for the action.
 recommendationTemplate_endTime :: Lens.Lens' RecommendationTemplate (Prelude.Maybe Prelude.UTCTime)
-recommendationTemplate_endTime = Lens.lens (\RecommendationTemplate' {endTime} -> endTime) (\s@RecommendationTemplate' {} a -> s {endTime = a} :: RecommendationTemplate) Prelude.. Lens.mapping Core._Time
+recommendationTemplate_endTime = Lens.lens (\RecommendationTemplate' {endTime} -> endTime) (\s@RecommendationTemplate' {} a -> s {endTime = a} :: RecommendationTemplate) Prelude.. Lens.mapping Data._Time
 
 -- | Identifiers for the recommendations used in the recommendation template.
 recommendationTemplate_recommendationIds :: Lens.Lens' RecommendationTemplate (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -225,7 +226,7 @@ recommendationTemplate_appArn = Lens.lens (\RecommendationTemplate' {appArn} -> 
 
 -- | The start time for the action.
 recommendationTemplate_startTime :: Lens.Lens' RecommendationTemplate (Prelude.Maybe Prelude.UTCTime)
-recommendationTemplate_startTime = Lens.lens (\RecommendationTemplate' {startTime} -> startTime) (\s@RecommendationTemplate' {} a -> s {startTime = a} :: RecommendationTemplate) Prelude.. Lens.mapping Core._Time
+recommendationTemplate_startTime = Lens.lens (\RecommendationTemplate' {startTime} -> startTime) (\s@RecommendationTemplate' {} a -> s {startTime = a} :: RecommendationTemplate) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -272,26 +273,26 @@ recommendationTemplate_recommendationTypes = Lens.lens (\RecommendationTemplate'
 recommendationTemplate_status :: Lens.Lens' RecommendationTemplate RecommendationTemplateStatus
 recommendationTemplate_status = Lens.lens (\RecommendationTemplate' {status} -> status) (\s@RecommendationTemplate' {} a -> s {status = a} :: RecommendationTemplate)
 
-instance Core.FromJSON RecommendationTemplate where
+instance Data.FromJSON RecommendationTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationTemplate"
       ( \x ->
           RecommendationTemplate'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "needsReplacements")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "recommendationIds")
-            Prelude.<*> (x Core..:? "templatesLocation")
-            Prelude.<*> (x Core..:? "appArn")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..: "assessmentArn")
-            Prelude.<*> (x Core..: "format")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "recommendationTemplateArn")
-            Prelude.<*> (x Core..: "recommendationTypes")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "needsReplacements")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "recommendationIds")
+            Prelude.<*> (x Data..:? "templatesLocation")
+            Prelude.<*> (x Data..:? "appArn")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..: "assessmentArn")
+            Prelude.<*> (x Data..: "format")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "recommendationTemplateArn")
+            Prelude.<*> (x Data..: "recommendationTypes")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable RecommendationTemplate where

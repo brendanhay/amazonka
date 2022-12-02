@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -56,7 +57,7 @@ import qualified Amazonka.Response as Response
 data CreateResiliencyPolicy = CreateResiliencyPolicy'
   { -- | The tags assigned to the resource. A tag is a label that you assign to
     -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Specifies a high-level geographical location constraint for where your
     -- resilience policy data can be stored.
     dataLocationConstraint :: Prelude.Maybe DataLocationConstraint,
@@ -124,7 +125,7 @@ newCreateResiliencyPolicy pPolicyName_ pTier_ =
 -- | The tags assigned to the resource. A tag is a label that you assign to
 -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 createResiliencyPolicy_tags :: Lens.Lens' CreateResiliencyPolicy (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createResiliencyPolicy_tags = Lens.lens (\CreateResiliencyPolicy' {tags} -> tags) (\s@CreateResiliencyPolicy' {} a -> s {tags = a} :: CreateResiliencyPolicy) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createResiliencyPolicy_tags = Lens.lens (\CreateResiliencyPolicy' {tags} -> tags) (\s@CreateResiliencyPolicy' {} a -> s {tags = a} :: CreateResiliencyPolicy) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Specifies a high-level geographical location constraint for where your
 -- resilience policy data can be stored.
@@ -166,7 +167,7 @@ instance Core.AWSRequest CreateResiliencyPolicy where
       ( \s h x ->
           CreateResiliencyPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "policy")
+            Prelude.<*> (x Data..:> "policy")
       )
 
 instance Prelude.Hashable CreateResiliencyPolicy where
@@ -189,37 +190,37 @@ instance Prelude.NFData CreateResiliencyPolicy where
       `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf tier
 
-instance Core.ToHeaders CreateResiliencyPolicy where
+instance Data.ToHeaders CreateResiliencyPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateResiliencyPolicy where
+instance Data.ToJSON CreateResiliencyPolicy where
   toJSON CreateResiliencyPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("dataLocationConstraint" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("dataLocationConstraint" Data..=)
               Prelude.<$> dataLocationConstraint,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("policyDescription" Core..=)
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("policyDescription" Data..=)
               Prelude.<$> policyDescription,
-            Prelude.Just ("policy" Core..= policy),
-            Prelude.Just ("policyName" Core..= policyName),
-            Prelude.Just ("tier" Core..= tier)
+            Prelude.Just ("policy" Data..= policy),
+            Prelude.Just ("policyName" Data..= policyName),
+            Prelude.Just ("tier" Data..= tier)
           ]
       )
 
-instance Core.ToPath CreateResiliencyPolicy where
+instance Data.ToPath CreateResiliencyPolicy where
   toPath = Prelude.const "/create-resiliency-policy"
 
-instance Core.ToQuery CreateResiliencyPolicy where
+instance Data.ToQuery CreateResiliencyPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResiliencyPolicyResponse' smart constructor.

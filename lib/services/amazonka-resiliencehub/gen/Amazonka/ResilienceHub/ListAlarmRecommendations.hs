@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -128,9 +129,9 @@ instance Core.AWSRequest ListAlarmRecommendations where
     Response.receiveJSON
       ( \s h x ->
           ListAlarmRecommendationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "alarmRecommendations"
+            Prelude.<*> ( x Data..?> "alarmRecommendations"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -147,32 +148,32 @@ instance Prelude.NFData ListAlarmRecommendations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf assessmentArn
 
-instance Core.ToHeaders ListAlarmRecommendations where
+instance Data.ToHeaders ListAlarmRecommendations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAlarmRecommendations where
+instance Data.ToJSON ListAlarmRecommendations where
   toJSON ListAlarmRecommendations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("assessmentArn" Core..= assessmentArn)
+              ("assessmentArn" Data..= assessmentArn)
           ]
       )
 
-instance Core.ToPath ListAlarmRecommendations where
+instance Data.ToPath ListAlarmRecommendations where
   toPath = Prelude.const "/list-alarm-recommendations"
 
-instance Core.ToQuery ListAlarmRecommendations where
+instance Data.ToQuery ListAlarmRecommendations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAlarmRecommendationsResponse' smart constructor.

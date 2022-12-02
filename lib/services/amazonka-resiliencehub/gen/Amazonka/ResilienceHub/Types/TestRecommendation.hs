@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.TestRecommendation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.RecommendationItem
 import Amazonka.ResilienceHub.Types.TestRisk
@@ -150,23 +151,23 @@ testRecommendation_intent = Lens.lens (\TestRecommendation' {intent} -> intent) 
 testRecommendation_referenceId :: Lens.Lens' TestRecommendation Prelude.Text
 testRecommendation_referenceId = Lens.lens (\TestRecommendation' {referenceId} -> referenceId) (\s@TestRecommendation' {} a -> s {referenceId = a} :: TestRecommendation)
 
-instance Core.FromJSON TestRecommendation where
+instance Data.FromJSON TestRecommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TestRecommendation"
       ( \x ->
           TestRecommendation'
-            Prelude.<$> (x Core..:? "items" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "dependsOnAlarms")
-            Prelude.<*> (x Core..:? "prerequisite")
-            Prelude.<*> (x Core..:? "risk")
-            Prelude.<*> (x Core..:? "recommendationId")
-            Prelude.<*> (x Core..:? "appComponentName")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "intent")
-            Prelude.<*> (x Core..: "referenceId")
+            Prelude.<$> (x Data..:? "items" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "dependsOnAlarms")
+            Prelude.<*> (x Data..:? "prerequisite")
+            Prelude.<*> (x Data..:? "risk")
+            Prelude.<*> (x Data..:? "recommendationId")
+            Prelude.<*> (x Data..:? "appComponentName")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "intent")
+            Prelude.<*> (x Data..: "referenceId")
       )
 
 instance Prelude.Hashable TestRecommendation where

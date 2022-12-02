@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.ComponentRecommendation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.ConfigRecommendation
 import Amazonka.ResilienceHub.Types.RecommendationComplianceStatus
@@ -81,17 +82,17 @@ componentRecommendation_configRecommendations = Lens.lens (\ComponentRecommendat
 componentRecommendation_recommendationStatus :: Lens.Lens' ComponentRecommendation RecommendationComplianceStatus
 componentRecommendation_recommendationStatus = Lens.lens (\ComponentRecommendation' {recommendationStatus} -> recommendationStatus) (\s@ComponentRecommendation' {} a -> s {recommendationStatus = a} :: ComponentRecommendation)
 
-instance Core.FromJSON ComponentRecommendation where
+instance Data.FromJSON ComponentRecommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentRecommendation"
       ( \x ->
           ComponentRecommendation'
-            Prelude.<$> (x Core..: "appComponentName")
-            Prelude.<*> ( x Core..:? "configRecommendations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "appComponentName")
+            Prelude.<*> ( x Data..:? "configRecommendations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "recommendationStatus")
+            Prelude.<*> (x Data..: "recommendationStatus")
       )
 
 instance Prelude.Hashable ComponentRecommendation where

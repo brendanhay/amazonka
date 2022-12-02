@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.AppSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.AppAssessmentScheduleType
 import Amazonka.ResilienceHub.Types.AppComplianceStatusType
@@ -47,7 +48,7 @@ data AppSummary = AppSummary'
     -- in the /AWS General Reference/.
     appArn :: Prelude.Text,
     -- | The timestamp for when the app was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The name of the application.
     name :: Prelude.Text
   }
@@ -96,7 +97,7 @@ newAppSummary pAppArn_ pCreationTime_ pName_ =
       description = Prelude.Nothing,
       assessmentSchedule = Prelude.Nothing,
       appArn = pAppArn_,
-      creationTime = Core._Time Lens.# pCreationTime_,
+      creationTime = Data._Time Lens.# pCreationTime_,
       name = pName_
     }
 
@@ -130,26 +131,26 @@ appSummary_appArn = Lens.lens (\AppSummary' {appArn} -> appArn) (\s@AppSummary' 
 
 -- | The timestamp for when the app was created.
 appSummary_creationTime :: Lens.Lens' AppSummary Prelude.UTCTime
-appSummary_creationTime = Lens.lens (\AppSummary' {creationTime} -> creationTime) (\s@AppSummary' {} a -> s {creationTime = a} :: AppSummary) Prelude.. Core._Time
+appSummary_creationTime = Lens.lens (\AppSummary' {creationTime} -> creationTime) (\s@AppSummary' {} a -> s {creationTime = a} :: AppSummary) Prelude.. Data._Time
 
 -- | The name of the application.
 appSummary_name :: Lens.Lens' AppSummary Prelude.Text
 appSummary_name = Lens.lens (\AppSummary' {name} -> name) (\s@AppSummary' {} a -> s {name = a} :: AppSummary)
 
-instance Core.FromJSON AppSummary where
+instance Data.FromJSON AppSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppSummary"
       ( \x ->
           AppSummary'
-            Prelude.<$> (x Core..:? "resiliencyScore")
-            Prelude.<*> (x Core..:? "complianceStatus")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "assessmentSchedule")
-            Prelude.<*> (x Core..: "appArn")
-            Prelude.<*> (x Core..: "creationTime")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "resiliencyScore")
+            Prelude.<*> (x Data..:? "complianceStatus")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "assessmentSchedule")
+            Prelude.<*> (x Data..: "appArn")
+            Prelude.<*> (x Data..: "creationTime")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable AppSummary where

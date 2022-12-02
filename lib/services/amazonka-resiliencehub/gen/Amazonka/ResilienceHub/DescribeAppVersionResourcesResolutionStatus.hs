@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -132,12 +133,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAppVersionResourcesResolutionStatusResponse'
-            Prelude.<$> (x Core..?> "errorMessage")
+            Prelude.<$> (x Data..?> "errorMessage")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "appArn")
-              Prelude.<*> (x Core..:> "appVersion")
-              Prelude.<*> (x Core..:> "resolutionId")
-              Prelude.<*> (x Core..:> "status")
+              Prelude.<*> (x Data..:> "appArn")
+              Prelude.<*> (x Data..:> "appVersion")
+              Prelude.<*> (x Data..:> "resolutionId")
+              Prelude.<*> (x Data..:> "status")
       )
 
 instance
@@ -161,35 +162,35 @@ instance
       `Prelude.seq` Prelude.rnf appVersion
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeAppVersionResourcesResolutionStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeAppVersionResourcesResolutionStatus
   where
   toJSON
     DescribeAppVersionResourcesResolutionStatus' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("resolutionId" Core..=) Prelude.<$> resolutionId,
-              Prelude.Just ("appArn" Core..= appArn),
-              Prelude.Just ("appVersion" Core..= appVersion)
+            [ ("resolutionId" Data..=) Prelude.<$> resolutionId,
+              Prelude.Just ("appArn" Data..= appArn),
+              Prelude.Just ("appVersion" Data..= appVersion)
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeAppVersionResourcesResolutionStatus
   where
   toPath =
@@ -197,7 +198,7 @@ instance
       "/describe-app-version-resources-resolution-status"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeAppVersionResourcesResolutionStatus
   where
   toQuery = Prelude.const Prelude.mempty

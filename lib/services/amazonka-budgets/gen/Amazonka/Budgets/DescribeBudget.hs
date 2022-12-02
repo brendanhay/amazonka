@@ -48,6 +48,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,7 +108,7 @@ instance Core.AWSRequest DescribeBudget where
     Response.receiveJSON
       ( \s h x ->
           DescribeBudgetResponse'
-            Prelude.<$> (x Core..?> "Budget")
+            Prelude.<$> (x Data..?> "Budget")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,34 +122,34 @@ instance Prelude.NFData DescribeBudget where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf budgetName
 
-instance Core.ToHeaders DescribeBudget where
+instance Data.ToHeaders DescribeBudget where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.DescribeBudget" ::
+              Data.=# ( "AWSBudgetServiceGateway.DescribeBudget" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeBudget where
+instance Data.ToJSON DescribeBudget where
   toJSON DescribeBudget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Core..= accountId),
-            Prelude.Just ("BudgetName" Core..= budgetName)
+          [ Prelude.Just ("AccountId" Data..= accountId),
+            Prelude.Just ("BudgetName" Data..= budgetName)
           ]
       )
 
-instance Core.ToPath DescribeBudget where
+instance Data.ToPath DescribeBudget where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeBudget where
+instance Data.ToQuery DescribeBudget where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response of DescribeBudget

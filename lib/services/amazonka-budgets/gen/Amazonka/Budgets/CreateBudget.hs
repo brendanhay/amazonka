@@ -50,6 +50,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,36 +143,36 @@ instance Prelude.NFData CreateBudget where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf budget
 
-instance Core.ToHeaders CreateBudget where
+instance Data.ToHeaders CreateBudget where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.CreateBudget" ::
+              Data.=# ( "AWSBudgetServiceGateway.CreateBudget" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBudget where
+instance Data.ToJSON CreateBudget where
   toJSON CreateBudget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NotificationsWithSubscribers" Core..=)
+          [ ("NotificationsWithSubscribers" Data..=)
               Prelude.<$> notificationsWithSubscribers,
-            Prelude.Just ("AccountId" Core..= accountId),
-            Prelude.Just ("Budget" Core..= budget)
+            Prelude.Just ("AccountId" Data..= accountId),
+            Prelude.Just ("Budget" Data..= budget)
           ]
       )
 
-instance Core.ToPath CreateBudget where
+instance Data.ToPath CreateBudget where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateBudget where
+instance Data.ToQuery CreateBudget where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response of CreateBudget

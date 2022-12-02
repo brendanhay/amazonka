@@ -47,6 +47,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,9 +134,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeBudgetActionsForAccountResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Actions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Actions" Core..!@ Prelude.mempty)
       )
 
 instance
@@ -159,37 +160,37 @@ instance
       `Prelude.seq` Prelude.rnf accountId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeBudgetActionsForAccount
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.DescribeBudgetActionsForAccount" ::
+              Data.=# ( "AWSBudgetServiceGateway.DescribeBudgetActionsForAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeBudgetActionsForAccount where
+instance Data.ToJSON DescribeBudgetActionsForAccount where
   toJSON DescribeBudgetActionsForAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("AccountId" Core..= accountId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("AccountId" Data..= accountId)
           ]
       )
 
-instance Core.ToPath DescribeBudgetActionsForAccount where
+instance Data.ToPath DescribeBudgetActionsForAccount where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeBudgetActionsForAccount where
+instance Data.ToQuery DescribeBudgetActionsForAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBudgetActionsForAccountResponse' smart constructor.

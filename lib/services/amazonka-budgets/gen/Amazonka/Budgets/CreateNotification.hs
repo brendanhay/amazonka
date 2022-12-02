@@ -45,6 +45,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,36 +157,36 @@ instance Prelude.NFData CreateNotification where
       `Prelude.seq` Prelude.rnf notification
       `Prelude.seq` Prelude.rnf subscribers
 
-instance Core.ToHeaders CreateNotification where
+instance Data.ToHeaders CreateNotification where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.CreateNotification" ::
+              Data.=# ( "AWSBudgetServiceGateway.CreateNotification" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNotification where
+instance Data.ToJSON CreateNotification where
   toJSON CreateNotification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Core..= accountId),
-            Prelude.Just ("BudgetName" Core..= budgetName),
-            Prelude.Just ("Notification" Core..= notification),
-            Prelude.Just ("Subscribers" Core..= subscribers)
+          [ Prelude.Just ("AccountId" Data..= accountId),
+            Prelude.Just ("BudgetName" Data..= budgetName),
+            Prelude.Just ("Notification" Data..= notification),
+            Prelude.Just ("Subscribers" Data..= subscribers)
           ]
       )
 
-instance Core.ToPath CreateNotification where
+instance Data.ToPath CreateNotification where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateNotification where
+instance Data.ToQuery CreateNotification where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response of CreateNotification

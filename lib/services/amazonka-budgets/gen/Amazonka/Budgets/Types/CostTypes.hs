@@ -21,6 +21,7 @@ module Amazonka.Budgets.Types.CostTypes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The types of cost that are included in a @COST@ budget, such as tax and
@@ -215,23 +216,23 @@ costTypes_includeUpfront = Lens.lens (\CostTypes' {includeUpfront} -> includeUpf
 costTypes_includeCredit :: Lens.Lens' CostTypes (Prelude.Maybe Prelude.Bool)
 costTypes_includeCredit = Lens.lens (\CostTypes' {includeCredit} -> includeCredit) (\s@CostTypes' {} a -> s {includeCredit = a} :: CostTypes)
 
-instance Core.FromJSON CostTypes where
+instance Data.FromJSON CostTypes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CostTypes"
       ( \x ->
           CostTypes'
-            Prelude.<$> (x Core..:? "IncludeSupport")
-            Prelude.<*> (x Core..:? "IncludeDiscount")
-            Prelude.<*> (x Core..:? "UseAmortized")
-            Prelude.<*> (x Core..:? "IncludeTax")
-            Prelude.<*> (x Core..:? "IncludeOtherSubscription")
-            Prelude.<*> (x Core..:? "IncludeRefund")
-            Prelude.<*> (x Core..:? "IncludeSubscription")
-            Prelude.<*> (x Core..:? "UseBlended")
-            Prelude.<*> (x Core..:? "IncludeRecurring")
-            Prelude.<*> (x Core..:? "IncludeUpfront")
-            Prelude.<*> (x Core..:? "IncludeCredit")
+            Prelude.<$> (x Data..:? "IncludeSupport")
+            Prelude.<*> (x Data..:? "IncludeDiscount")
+            Prelude.<*> (x Data..:? "UseAmortized")
+            Prelude.<*> (x Data..:? "IncludeTax")
+            Prelude.<*> (x Data..:? "IncludeOtherSubscription")
+            Prelude.<*> (x Data..:? "IncludeRefund")
+            Prelude.<*> (x Data..:? "IncludeSubscription")
+            Prelude.<*> (x Data..:? "UseBlended")
+            Prelude.<*> (x Data..:? "IncludeRecurring")
+            Prelude.<*> (x Data..:? "IncludeUpfront")
+            Prelude.<*> (x Data..:? "IncludeCredit")
       )
 
 instance Prelude.Hashable CostTypes where
@@ -262,26 +263,26 @@ instance Prelude.NFData CostTypes where
       `Prelude.seq` Prelude.rnf includeUpfront
       `Prelude.seq` Prelude.rnf includeCredit
 
-instance Core.ToJSON CostTypes where
+instance Data.ToJSON CostTypes where
   toJSON CostTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IncludeSupport" Core..=)
+          [ ("IncludeSupport" Data..=)
               Prelude.<$> includeSupport,
-            ("IncludeDiscount" Core..=)
+            ("IncludeDiscount" Data..=)
               Prelude.<$> includeDiscount,
-            ("UseAmortized" Core..=) Prelude.<$> useAmortized,
-            ("IncludeTax" Core..=) Prelude.<$> includeTax,
-            ("IncludeOtherSubscription" Core..=)
+            ("UseAmortized" Data..=) Prelude.<$> useAmortized,
+            ("IncludeTax" Data..=) Prelude.<$> includeTax,
+            ("IncludeOtherSubscription" Data..=)
               Prelude.<$> includeOtherSubscription,
-            ("IncludeRefund" Core..=) Prelude.<$> includeRefund,
-            ("IncludeSubscription" Core..=)
+            ("IncludeRefund" Data..=) Prelude.<$> includeRefund,
+            ("IncludeSubscription" Data..=)
               Prelude.<$> includeSubscription,
-            ("UseBlended" Core..=) Prelude.<$> useBlended,
-            ("IncludeRecurring" Core..=)
+            ("UseBlended" Data..=) Prelude.<$> useBlended,
+            ("IncludeRecurring" Data..=)
               Prelude.<$> includeRecurring,
-            ("IncludeUpfront" Core..=)
+            ("IncludeUpfront" Data..=)
               Prelude.<$> includeUpfront,
-            ("IncludeCredit" Core..=) Prelude.<$> includeCredit
+            ("IncludeCredit" Data..=) Prelude.<$> includeCredit
           ]
       )

@@ -46,6 +46,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,9 +114,9 @@ instance Core.AWSRequest DeleteBudgetAction where
       ( \s h x ->
           DeleteBudgetActionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "AccountId")
-            Prelude.<*> (x Core..:> "BudgetName")
-            Prelude.<*> (x Core..:> "Action")
+            Prelude.<*> (x Data..:> "AccountId")
+            Prelude.<*> (x Data..:> "BudgetName")
+            Prelude.<*> (x Data..:> "Action")
       )
 
 instance Prelude.Hashable DeleteBudgetAction where
@@ -130,35 +131,35 @@ instance Prelude.NFData DeleteBudgetAction where
       `Prelude.seq` Prelude.rnf budgetName
       `Prelude.seq` Prelude.rnf actionId
 
-instance Core.ToHeaders DeleteBudgetAction where
+instance Data.ToHeaders DeleteBudgetAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.DeleteBudgetAction" ::
+              Data.=# ( "AWSBudgetServiceGateway.DeleteBudgetAction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBudgetAction where
+instance Data.ToJSON DeleteBudgetAction where
   toJSON DeleteBudgetAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Core..= accountId),
-            Prelude.Just ("BudgetName" Core..= budgetName),
-            Prelude.Just ("ActionId" Core..= actionId)
+          [ Prelude.Just ("AccountId" Data..= accountId),
+            Prelude.Just ("BudgetName" Data..= budgetName),
+            Prelude.Just ("ActionId" Data..= actionId)
           ]
       )
 
-instance Core.ToPath DeleteBudgetAction where
+instance Data.ToPath DeleteBudgetAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteBudgetAction where
+instance Data.ToQuery DeleteBudgetAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBudgetActionResponse' smart constructor.

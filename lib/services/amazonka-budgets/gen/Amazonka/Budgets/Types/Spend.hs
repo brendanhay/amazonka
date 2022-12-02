@@ -21,6 +21,7 @@ module Amazonka.Budgets.Types.Spend where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of cost or usage that\'s measured for a budget.
@@ -75,13 +76,13 @@ spend_amount = Lens.lens (\Spend' {amount} -> amount) (\s@Spend' {} a -> s {amou
 spend_unit :: Lens.Lens' Spend Prelude.Text
 spend_unit = Lens.lens (\Spend' {unit} -> unit) (\s@Spend' {} a -> s {unit = a} :: Spend)
 
-instance Core.FromJSON Spend where
+instance Data.FromJSON Spend where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Spend"
       ( \x ->
           Spend'
-            Prelude.<$> (x Core..: "Amount") Prelude.<*> (x Core..: "Unit")
+            Prelude.<$> (x Data..: "Amount") Prelude.<*> (x Data..: "Unit")
       )
 
 instance Prelude.Hashable Spend where
@@ -93,11 +94,11 @@ instance Prelude.NFData Spend where
   rnf Spend' {..} =
     Prelude.rnf amount `Prelude.seq` Prelude.rnf unit
 
-instance Core.ToJSON Spend where
+instance Data.ToJSON Spend where
   toJSON Spend' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Amount" Core..= amount),
-            Prelude.Just ("Unit" Core..= unit)
+          [ Prelude.Just ("Amount" Data..= amount),
+            Prelude.Just ("Unit" Data..= unit)
           ]
       )

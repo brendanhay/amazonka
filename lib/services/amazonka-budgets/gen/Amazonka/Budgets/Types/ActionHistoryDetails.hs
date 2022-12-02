@@ -22,6 +22,7 @@ module Amazonka.Budgets.Types.ActionHistoryDetails where
 import Amazonka.Budgets.Types.Action
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the details for the event.
@@ -65,14 +66,14 @@ actionHistoryDetails_message = Lens.lens (\ActionHistoryDetails' {message} -> me
 actionHistoryDetails_action :: Lens.Lens' ActionHistoryDetails Action
 actionHistoryDetails_action = Lens.lens (\ActionHistoryDetails' {action} -> action) (\s@ActionHistoryDetails' {} a -> s {action = a} :: ActionHistoryDetails)
 
-instance Core.FromJSON ActionHistoryDetails where
+instance Data.FromJSON ActionHistoryDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionHistoryDetails"
       ( \x ->
           ActionHistoryDetails'
-            Prelude.<$> (x Core..: "Message")
-            Prelude.<*> (x Core..: "Action")
+            Prelude.<$> (x Data..: "Message")
+            Prelude.<*> (x Data..: "Action")
       )
 
 instance Prelude.Hashable ActionHistoryDetails where

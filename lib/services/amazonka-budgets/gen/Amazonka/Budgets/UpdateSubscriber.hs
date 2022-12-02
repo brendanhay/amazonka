@@ -45,6 +45,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,38 +162,38 @@ instance Prelude.NFData UpdateSubscriber where
       `Prelude.seq` Prelude.rnf oldSubscriber
       `Prelude.seq` Prelude.rnf newSubscriber'
 
-instance Core.ToHeaders UpdateSubscriber where
+instance Data.ToHeaders UpdateSubscriber where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.UpdateSubscriber" ::
+              Data.=# ( "AWSBudgetServiceGateway.UpdateSubscriber" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSubscriber where
+instance Data.ToJSON UpdateSubscriber where
   toJSON UpdateSubscriber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Core..= accountId),
-            Prelude.Just ("BudgetName" Core..= budgetName),
-            Prelude.Just ("Notification" Core..= notification),
-            Prelude.Just ("OldSubscriber" Core..= oldSubscriber),
+          [ Prelude.Just ("AccountId" Data..= accountId),
+            Prelude.Just ("BudgetName" Data..= budgetName),
+            Prelude.Just ("Notification" Data..= notification),
+            Prelude.Just ("OldSubscriber" Data..= oldSubscriber),
             Prelude.Just
-              ("NewSubscriber" Core..= newSubscriber')
+              ("NewSubscriber" Data..= newSubscriber')
           ]
       )
 
-instance Core.ToPath UpdateSubscriber where
+instance Data.ToPath UpdateSubscriber where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSubscriber where
+instance Data.ToQuery UpdateSubscriber where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response of UpdateSubscriber

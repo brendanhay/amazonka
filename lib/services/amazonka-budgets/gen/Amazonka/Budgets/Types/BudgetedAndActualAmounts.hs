@@ -23,6 +23,7 @@ import Amazonka.Budgets.Types.Spend
 import Amazonka.Budgets.Types.TimePeriod
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of cost or usage that you created the budget for, compared to
@@ -74,15 +75,15 @@ budgetedAndActualAmounts_timePeriod = Lens.lens (\BudgetedAndActualAmounts' {tim
 budgetedAndActualAmounts_actualAmount :: Lens.Lens' BudgetedAndActualAmounts (Prelude.Maybe Spend)
 budgetedAndActualAmounts_actualAmount = Lens.lens (\BudgetedAndActualAmounts' {actualAmount} -> actualAmount) (\s@BudgetedAndActualAmounts' {} a -> s {actualAmount = a} :: BudgetedAndActualAmounts)
 
-instance Core.FromJSON BudgetedAndActualAmounts where
+instance Data.FromJSON BudgetedAndActualAmounts where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BudgetedAndActualAmounts"
       ( \x ->
           BudgetedAndActualAmounts'
-            Prelude.<$> (x Core..:? "BudgetedAmount")
-            Prelude.<*> (x Core..:? "TimePeriod")
-            Prelude.<*> (x Core..:? "ActualAmount")
+            Prelude.<$> (x Data..:? "BudgetedAmount")
+            Prelude.<*> (x Data..:? "TimePeriod")
+            Prelude.<*> (x Data..:? "ActualAmount")
       )
 
 instance Prelude.Hashable BudgetedAndActualAmounts where

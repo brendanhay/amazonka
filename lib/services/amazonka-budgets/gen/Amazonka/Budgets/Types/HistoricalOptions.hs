@@ -21,6 +21,7 @@ module Amazonka.Budgets.Types.HistoricalOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters that define or describe the historical data that your
@@ -134,14 +135,14 @@ historicalOptions_lookBackAvailablePeriods = Lens.lens (\HistoricalOptions' {loo
 historicalOptions_budgetAdjustmentPeriod :: Lens.Lens' HistoricalOptions Prelude.Natural
 historicalOptions_budgetAdjustmentPeriod = Lens.lens (\HistoricalOptions' {budgetAdjustmentPeriod} -> budgetAdjustmentPeriod) (\s@HistoricalOptions' {} a -> s {budgetAdjustmentPeriod = a} :: HistoricalOptions)
 
-instance Core.FromJSON HistoricalOptions where
+instance Data.FromJSON HistoricalOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HistoricalOptions"
       ( \x ->
           HistoricalOptions'
-            Prelude.<$> (x Core..:? "LookBackAvailablePeriods")
-            Prelude.<*> (x Core..: "BudgetAdjustmentPeriod")
+            Prelude.<$> (x Data..:? "LookBackAvailablePeriods")
+            Prelude.<*> (x Data..: "BudgetAdjustmentPeriod")
       )
 
 instance Prelude.Hashable HistoricalOptions where
@@ -155,15 +156,15 @@ instance Prelude.NFData HistoricalOptions where
     Prelude.rnf lookBackAvailablePeriods
       `Prelude.seq` Prelude.rnf budgetAdjustmentPeriod
 
-instance Core.ToJSON HistoricalOptions where
+instance Data.ToJSON HistoricalOptions where
   toJSON HistoricalOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LookBackAvailablePeriods" Core..=)
+          [ ("LookBackAvailablePeriods" Data..=)
               Prelude.<$> lookBackAvailablePeriods,
             Prelude.Just
               ( "BudgetAdjustmentPeriod"
-                  Core..= budgetAdjustmentPeriod
+                  Data..= budgetAdjustmentPeriod
               )
           ]
       )

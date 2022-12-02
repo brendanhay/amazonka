@@ -50,6 +50,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,8 +162,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeBudgetPerformanceHistoryResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "BudgetPerformanceHistory")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "BudgetPerformanceHistory")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,40 +192,40 @@ instance
       `Prelude.seq` Prelude.rnf budgetName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeBudgetPerformanceHistory
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.DescribeBudgetPerformanceHistory" ::
+              Data.=# ( "AWSBudgetServiceGateway.DescribeBudgetPerformanceHistory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeBudgetPerformanceHistory where
+instance Data.ToJSON DescribeBudgetPerformanceHistory where
   toJSON DescribeBudgetPerformanceHistory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("TimePeriod" Core..=) Prelude.<$> timePeriod,
-            Prelude.Just ("AccountId" Core..= accountId),
-            Prelude.Just ("BudgetName" Core..= budgetName)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("TimePeriod" Data..=) Prelude.<$> timePeriod,
+            Prelude.Just ("AccountId" Data..= accountId),
+            Prelude.Just ("BudgetName" Data..= budgetName)
           ]
       )
 
-instance Core.ToPath DescribeBudgetPerformanceHistory where
+instance Data.ToPath DescribeBudgetPerformanceHistory where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeBudgetPerformanceHistory
   where
   toQuery = Prelude.const Prelude.mempty

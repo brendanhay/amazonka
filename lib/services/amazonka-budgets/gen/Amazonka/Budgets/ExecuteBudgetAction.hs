@@ -48,6 +48,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,10 +128,10 @@ instance Core.AWSRequest ExecuteBudgetAction where
       ( \s h x ->
           ExecuteBudgetActionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "AccountId")
-            Prelude.<*> (x Core..:> "BudgetName")
-            Prelude.<*> (x Core..:> "ActionId")
-            Prelude.<*> (x Core..:> "ExecutionType")
+            Prelude.<*> (x Data..:> "AccountId")
+            Prelude.<*> (x Data..:> "BudgetName")
+            Prelude.<*> (x Data..:> "ActionId")
+            Prelude.<*> (x Data..:> "ExecutionType")
       )
 
 instance Prelude.Hashable ExecuteBudgetAction where
@@ -147,37 +148,37 @@ instance Prelude.NFData ExecuteBudgetAction where
       `Prelude.seq` Prelude.rnf actionId
       `Prelude.seq` Prelude.rnf executionType
 
-instance Core.ToHeaders ExecuteBudgetAction where
+instance Data.ToHeaders ExecuteBudgetAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.ExecuteBudgetAction" ::
+              Data.=# ( "AWSBudgetServiceGateway.ExecuteBudgetAction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExecuteBudgetAction where
+instance Data.ToJSON ExecuteBudgetAction where
   toJSON ExecuteBudgetAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Core..= accountId),
-            Prelude.Just ("BudgetName" Core..= budgetName),
-            Prelude.Just ("ActionId" Core..= actionId),
+          [ Prelude.Just ("AccountId" Data..= accountId),
+            Prelude.Just ("BudgetName" Data..= budgetName),
+            Prelude.Just ("ActionId" Data..= actionId),
             Prelude.Just
-              ("ExecutionType" Core..= executionType)
+              ("ExecutionType" Data..= executionType)
           ]
       )
 
-instance Core.ToPath ExecuteBudgetAction where
+instance Data.ToPath ExecuteBudgetAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExecuteBudgetAction where
+instance Data.ToQuery ExecuteBudgetAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExecuteBudgetActionResponse' smart constructor.

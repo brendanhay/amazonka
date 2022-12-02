@@ -24,13 +24,14 @@ import Amazonka.Budgets.Types.ActionStatus
 import Amazonka.Budgets.Types.EventType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The historical records for a budget action.
 --
 -- /See:/ 'newActionHistory' smart constructor.
 data ActionHistory = ActionHistory'
-  { timestamp :: Core.POSIX,
+  { timestamp :: Data.POSIX,
     -- | The status of action at the time of the event.
     status :: ActionStatus,
     -- | This distinguishes between whether the events are triggered by the user
@@ -74,7 +75,7 @@ newActionHistory
   pActionHistoryDetails_ =
     ActionHistory'
       { timestamp =
-          Core._Time Lens.# pTimestamp_,
+          Data._Time Lens.# pTimestamp_,
         status = pStatus_,
         eventType = pEventType_,
         actionHistoryDetails = pActionHistoryDetails_
@@ -82,7 +83,7 @@ newActionHistory
 
 -- | Undocumented member.
 actionHistory_timestamp :: Lens.Lens' ActionHistory Prelude.UTCTime
-actionHistory_timestamp = Lens.lens (\ActionHistory' {timestamp} -> timestamp) (\s@ActionHistory' {} a -> s {timestamp = a} :: ActionHistory) Prelude.. Core._Time
+actionHistory_timestamp = Lens.lens (\ActionHistory' {timestamp} -> timestamp) (\s@ActionHistory' {} a -> s {timestamp = a} :: ActionHistory) Prelude.. Data._Time
 
 -- | The status of action at the time of the event.
 actionHistory_status :: Lens.Lens' ActionHistory ActionStatus
@@ -97,16 +98,16 @@ actionHistory_eventType = Lens.lens (\ActionHistory' {eventType} -> eventType) (
 actionHistory_actionHistoryDetails :: Lens.Lens' ActionHistory ActionHistoryDetails
 actionHistory_actionHistoryDetails = Lens.lens (\ActionHistory' {actionHistoryDetails} -> actionHistoryDetails) (\s@ActionHistory' {} a -> s {actionHistoryDetails = a} :: ActionHistory)
 
-instance Core.FromJSON ActionHistory where
+instance Data.FromJSON ActionHistory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionHistory"
       ( \x ->
           ActionHistory'
-            Prelude.<$> (x Core..: "Timestamp")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "EventType")
-            Prelude.<*> (x Core..: "ActionHistoryDetails")
+            Prelude.<$> (x Data..: "Timestamp")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "EventType")
+            Prelude.<*> (x Data..: "ActionHistoryDetails")
       )
 
 instance Prelude.Hashable ActionHistory where

@@ -22,6 +22,7 @@ module Amazonka.Budgets.Types.SsmActionDefinition where
 import Amazonka.Budgets.Types.ActionSubType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Web Services Systems Manager (SSM) action definition details.
@@ -81,15 +82,15 @@ ssmActionDefinition_region = Lens.lens (\SsmActionDefinition' {region} -> region
 ssmActionDefinition_instanceIds :: Lens.Lens' SsmActionDefinition (Prelude.NonEmpty Prelude.Text)
 ssmActionDefinition_instanceIds = Lens.lens (\SsmActionDefinition' {instanceIds} -> instanceIds) (\s@SsmActionDefinition' {} a -> s {instanceIds = a} :: SsmActionDefinition) Prelude.. Lens.coerced
 
-instance Core.FromJSON SsmActionDefinition where
+instance Data.FromJSON SsmActionDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SsmActionDefinition"
       ( \x ->
           SsmActionDefinition'
-            Prelude.<$> (x Core..: "ActionSubType")
-            Prelude.<*> (x Core..: "Region")
-            Prelude.<*> (x Core..: "InstanceIds")
+            Prelude.<$> (x Data..: "ActionSubType")
+            Prelude.<*> (x Data..: "Region")
+            Prelude.<*> (x Data..: "InstanceIds")
       )
 
 instance Prelude.Hashable SsmActionDefinition where
@@ -104,13 +105,13 @@ instance Prelude.NFData SsmActionDefinition where
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf instanceIds
 
-instance Core.ToJSON SsmActionDefinition where
+instance Data.ToJSON SsmActionDefinition where
   toJSON SsmActionDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ActionSubType" Core..= actionSubType),
-            Prelude.Just ("Region" Core..= region),
-            Prelude.Just ("InstanceIds" Core..= instanceIds)
+              ("ActionSubType" Data..= actionSubType),
+            Prelude.Just ("Region" Data..= region),
+            Prelude.Just ("InstanceIds" Data..= instanceIds)
           ]
       )

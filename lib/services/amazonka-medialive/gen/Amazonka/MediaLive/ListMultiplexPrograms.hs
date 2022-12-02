@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,8 +133,8 @@ instance Core.AWSRequest ListMultiplexPrograms where
     Response.receiveJSON
       ( \s h x ->
           ListMultiplexProgramsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "multiplexPrograms"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "multiplexPrograms"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -151,30 +152,30 @@ instance Prelude.NFData ListMultiplexPrograms where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf multiplexId
 
-instance Core.ToHeaders ListMultiplexPrograms where
+instance Data.ToHeaders ListMultiplexPrograms where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListMultiplexPrograms where
+instance Data.ToPath ListMultiplexPrograms where
   toPath ListMultiplexPrograms' {..} =
     Prelude.mconcat
       [ "/prod/multiplexes/",
-        Core.toBS multiplexId,
+        Data.toBS multiplexId,
         "/programs"
       ]
 
-instance Core.ToQuery ListMultiplexPrograms where
+instance Data.ToQuery ListMultiplexPrograms where
   toQuery ListMultiplexPrograms' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Placeholder documentation for ListMultiplexProgramsResponse

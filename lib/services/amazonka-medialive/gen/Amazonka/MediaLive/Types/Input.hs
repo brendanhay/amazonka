@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Input where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputClass
 import Amazonka.MediaLive.Types.InputDestination
 import Amazonka.MediaLive.Types.InputDeviceSettings
@@ -226,34 +227,34 @@ input_inputPartnerIds = Lens.lens (\Input' {inputPartnerIds} -> inputPartnerIds)
 input_inputClass :: Lens.Lens' Input (Prelude.Maybe InputClass)
 input_inputClass = Lens.lens (\Input' {inputClass} -> inputClass) (\s@Input' {} a -> s {inputClass = a} :: Input)
 
-instance Core.FromJSON Input where
+instance Data.FromJSON Input where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Input"
       ( \x ->
           Input'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "sources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "inputDevices" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "mediaConnectFlows"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "sources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "inputDevices" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "mediaConnectFlows"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "securityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "attachedChannels"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "securityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "attachedChannels"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "inputSourceType")
-            Prelude.<*> (x Core..:? "destinations" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "inputPartnerIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "inputSourceType")
+            Prelude.<*> (x Data..:? "destinations" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "inputPartnerIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "inputClass")
+            Prelude.<*> (x Data..:? "inputClass")
       )
 
 instance Prelude.Hashable Input where

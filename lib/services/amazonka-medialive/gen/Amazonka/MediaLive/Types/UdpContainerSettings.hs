@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.UdpContainerSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.M2tsSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -53,13 +54,13 @@ newUdpContainerSettings =
 udpContainerSettings_m2tsSettings :: Lens.Lens' UdpContainerSettings (Prelude.Maybe M2tsSettings)
 udpContainerSettings_m2tsSettings = Lens.lens (\UdpContainerSettings' {m2tsSettings} -> m2tsSettings) (\s@UdpContainerSettings' {} a -> s {m2tsSettings = a} :: UdpContainerSettings)
 
-instance Core.FromJSON UdpContainerSettings where
+instance Data.FromJSON UdpContainerSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UdpContainerSettings"
       ( \x ->
           UdpContainerSettings'
-            Prelude.<$> (x Core..:? "m2tsSettings")
+            Prelude.<$> (x Data..:? "m2tsSettings")
       )
 
 instance Prelude.Hashable UdpContainerSettings where
@@ -70,9 +71,9 @@ instance Prelude.NFData UdpContainerSettings where
   rnf UdpContainerSettings' {..} =
     Prelude.rnf m2tsSettings
 
-instance Core.ToJSON UdpContainerSettings where
+instance Data.ToJSON UdpContainerSettings where
   toJSON UdpContainerSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("m2tsSettings" Core..=) Prelude.<$> m2tsSettings]
+          [("m2tsSettings" Data..=) Prelude.<$> m2tsSettings]
       )

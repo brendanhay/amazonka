@@ -27,6 +27,7 @@ module Amazonka.MediaLive.Types.LastFrameClippingBehavior
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If you specify a StopTimecode in an input (in order to clip the file),
@@ -34,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 -- the frame specified by the timecode.
 newtype LastFrameClippingBehavior = LastFrameClippingBehavior'
   { fromLastFrameClippingBehavior ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -46,18 +47,18 @@ newtype LastFrameClippingBehavior = LastFrameClippingBehavior'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern LastFrameClippingBehavior_EXCLUDE_LAST_FRAME :: LastFrameClippingBehavior

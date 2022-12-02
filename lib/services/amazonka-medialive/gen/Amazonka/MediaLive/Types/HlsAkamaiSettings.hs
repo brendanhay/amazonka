@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.HlsAkamaiSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.HlsAkamaiHttpTransferMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -122,19 +123,19 @@ hlsAkamaiSettings_filecacheDuration = Lens.lens (\HlsAkamaiSettings' {filecacheD
 hlsAkamaiSettings_token :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Text)
 hlsAkamaiSettings_token = Lens.lens (\HlsAkamaiSettings' {token} -> token) (\s@HlsAkamaiSettings' {} a -> s {token = a} :: HlsAkamaiSettings)
 
-instance Core.FromJSON HlsAkamaiSettings where
+instance Data.FromJSON HlsAkamaiSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsAkamaiSettings"
       ( \x ->
           HlsAkamaiSettings'
-            Prelude.<$> (x Core..:? "salt")
-            Prelude.<*> (x Core..:? "numRetries")
-            Prelude.<*> (x Core..:? "connectionRetryInterval")
-            Prelude.<*> (x Core..:? "httpTransferMode")
-            Prelude.<*> (x Core..:? "restartDelay")
-            Prelude.<*> (x Core..:? "filecacheDuration")
-            Prelude.<*> (x Core..:? "token")
+            Prelude.<$> (x Data..:? "salt")
+            Prelude.<*> (x Data..:? "numRetries")
+            Prelude.<*> (x Data..:? "connectionRetryInterval")
+            Prelude.<*> (x Data..:? "httpTransferMode")
+            Prelude.<*> (x Data..:? "restartDelay")
+            Prelude.<*> (x Data..:? "filecacheDuration")
+            Prelude.<*> (x Data..:? "token")
       )
 
 instance Prelude.Hashable HlsAkamaiSettings where
@@ -157,19 +158,19 @@ instance Prelude.NFData HlsAkamaiSettings where
       `Prelude.seq` Prelude.rnf filecacheDuration
       `Prelude.seq` Prelude.rnf token
 
-instance Core.ToJSON HlsAkamaiSettings where
+instance Data.ToJSON HlsAkamaiSettings where
   toJSON HlsAkamaiSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("salt" Core..=) Prelude.<$> salt,
-            ("numRetries" Core..=) Prelude.<$> numRetries,
-            ("connectionRetryInterval" Core..=)
+          [ ("salt" Data..=) Prelude.<$> salt,
+            ("numRetries" Data..=) Prelude.<$> numRetries,
+            ("connectionRetryInterval" Data..=)
               Prelude.<$> connectionRetryInterval,
-            ("httpTransferMode" Core..=)
+            ("httpTransferMode" Data..=)
               Prelude.<$> httpTransferMode,
-            ("restartDelay" Core..=) Prelude.<$> restartDelay,
-            ("filecacheDuration" Core..=)
+            ("restartDelay" Data..=) Prelude.<$> restartDelay,
+            ("filecacheDuration" Data..=)
               Prelude.<$> filecacheDuration,
-            ("token" Core..=) Prelude.<$> token
+            ("token" Data..=) Prelude.<$> token
           ]
       )

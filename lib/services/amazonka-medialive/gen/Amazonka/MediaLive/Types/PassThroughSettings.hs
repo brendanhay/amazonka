@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.PassThroughSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Pass Through Settings
@@ -39,9 +40,9 @@ newPassThroughSettings ::
   PassThroughSettings
 newPassThroughSettings = PassThroughSettings'
 
-instance Core.FromJSON PassThroughSettings where
+instance Data.FromJSON PassThroughSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PassThroughSettings"
       (\x -> Prelude.pure PassThroughSettings')
 
@@ -52,5 +53,5 @@ instance Prelude.Hashable PassThroughSettings where
 instance Prelude.NFData PassThroughSettings where
   rnf _ = ()
 
-instance Core.ToJSON PassThroughSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON PassThroughSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

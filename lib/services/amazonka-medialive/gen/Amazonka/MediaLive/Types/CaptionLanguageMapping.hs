@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.CaptionLanguageMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Maps a caption channel to an ISO 693-2 language code
@@ -91,15 +92,15 @@ captionLanguageMapping_languageDescription = Lens.lens (\CaptionLanguageMapping'
 captionLanguageMapping_captionChannel :: Lens.Lens' CaptionLanguageMapping Prelude.Natural
 captionLanguageMapping_captionChannel = Lens.lens (\CaptionLanguageMapping' {captionChannel} -> captionChannel) (\s@CaptionLanguageMapping' {} a -> s {captionChannel = a} :: CaptionLanguageMapping)
 
-instance Core.FromJSON CaptionLanguageMapping where
+instance Data.FromJSON CaptionLanguageMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptionLanguageMapping"
       ( \x ->
           CaptionLanguageMapping'
-            Prelude.<$> (x Core..: "languageCode")
-            Prelude.<*> (x Core..: "languageDescription")
-            Prelude.<*> (x Core..: "captionChannel")
+            Prelude.<$> (x Data..: "languageCode")
+            Prelude.<*> (x Data..: "languageDescription")
+            Prelude.<*> (x Data..: "captionChannel")
       )
 
 instance Prelude.Hashable CaptionLanguageMapping where
@@ -114,14 +115,14 @@ instance Prelude.NFData CaptionLanguageMapping where
       `Prelude.seq` Prelude.rnf languageDescription
       `Prelude.seq` Prelude.rnf captionChannel
 
-instance Core.ToJSON CaptionLanguageMapping where
+instance Data.ToJSON CaptionLanguageMapping where
   toJSON CaptionLanguageMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("languageCode" Core..= languageCode),
+          [ Prelude.Just ("languageCode" Data..= languageCode),
             Prelude.Just
-              ("languageDescription" Core..= languageDescription),
+              ("languageDescription" Data..= languageDescription),
             Prelude.Just
-              ("captionChannel" Core..= captionChannel)
+              ("captionChannel" Data..= captionChannel)
           ]
       )

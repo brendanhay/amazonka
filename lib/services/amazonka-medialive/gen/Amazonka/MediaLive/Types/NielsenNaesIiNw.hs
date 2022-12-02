@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.NielsenNaesIiNw where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Nielsen Naes Ii Nw
@@ -66,14 +67,14 @@ nielsenNaesIiNw_checkDigitString = Lens.lens (\NielsenNaesIiNw' {checkDigitStrin
 nielsenNaesIiNw_sid :: Lens.Lens' NielsenNaesIiNw Prelude.Double
 nielsenNaesIiNw_sid = Lens.lens (\NielsenNaesIiNw' {sid} -> sid) (\s@NielsenNaesIiNw' {} a -> s {sid = a} :: NielsenNaesIiNw)
 
-instance Core.FromJSON NielsenNaesIiNw where
+instance Data.FromJSON NielsenNaesIiNw where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NielsenNaesIiNw"
       ( \x ->
           NielsenNaesIiNw'
-            Prelude.<$> (x Core..: "checkDigitString")
-            Prelude.<*> (x Core..: "sid")
+            Prelude.<$> (x Data..: "checkDigitString")
+            Prelude.<*> (x Data..: "sid")
       )
 
 instance Prelude.Hashable NielsenNaesIiNw where
@@ -86,12 +87,12 @@ instance Prelude.NFData NielsenNaesIiNw where
     Prelude.rnf checkDigitString
       `Prelude.seq` Prelude.rnf sid
 
-instance Core.ToJSON NielsenNaesIiNw where
+instance Data.ToJSON NielsenNaesIiNw where
   toJSON NielsenNaesIiNw' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("checkDigitString" Core..= checkDigitString),
-            Prelude.Just ("sid" Core..= sid)
+              ("checkDigitString" Data..= checkDigitString),
+            Prelude.Just ("sid" Data..= sid)
           ]
       )

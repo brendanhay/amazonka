@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MediaPackageGroupSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.OutputLocationRef
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newMediaPackageGroupSettings pDestination_ =
 mediaPackageGroupSettings_destination :: Lens.Lens' MediaPackageGroupSettings OutputLocationRef
 mediaPackageGroupSettings_destination = Lens.lens (\MediaPackageGroupSettings' {destination} -> destination) (\s@MediaPackageGroupSettings' {} a -> s {destination = a} :: MediaPackageGroupSettings)
 
-instance Core.FromJSON MediaPackageGroupSettings where
+instance Data.FromJSON MediaPackageGroupSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MediaPackageGroupSettings"
       ( \x ->
           MediaPackageGroupSettings'
-            Prelude.<$> (x Core..: "destination")
+            Prelude.<$> (x Data..: "destination")
       )
 
 instance Prelude.Hashable MediaPackageGroupSettings where
@@ -73,9 +74,9 @@ instance Prelude.NFData MediaPackageGroupSettings where
   rnf MediaPackageGroupSettings' {..} =
     Prelude.rnf destination
 
-instance Core.ToJSON MediaPackageGroupSettings where
+instance Data.ToJSON MediaPackageGroupSettings where
   toJSON MediaPackageGroupSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("destination" Core..= destination)]
+          [Prelude.Just ("destination" Data..= destination)]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Scte35SpliceInsert where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior
 import Amazonka.MediaLive.Types.Scte35SpliceInsertWebDeliveryAllowedBehavior
 import qualified Amazonka.Prelude as Prelude
@@ -85,15 +86,15 @@ scte35SpliceInsert_noRegionalBlackoutFlag = Lens.lens (\Scte35SpliceInsert' {noR
 scte35SpliceInsert_adAvailOffset :: Lens.Lens' Scte35SpliceInsert (Prelude.Maybe Prelude.Int)
 scte35SpliceInsert_adAvailOffset = Lens.lens (\Scte35SpliceInsert' {adAvailOffset} -> adAvailOffset) (\s@Scte35SpliceInsert' {} a -> s {adAvailOffset = a} :: Scte35SpliceInsert)
 
-instance Core.FromJSON Scte35SpliceInsert where
+instance Data.FromJSON Scte35SpliceInsert where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scte35SpliceInsert"
       ( \x ->
           Scte35SpliceInsert'
-            Prelude.<$> (x Core..:? "webDeliveryAllowedFlag")
-            Prelude.<*> (x Core..:? "noRegionalBlackoutFlag")
-            Prelude.<*> (x Core..:? "adAvailOffset")
+            Prelude.<$> (x Data..:? "webDeliveryAllowedFlag")
+            Prelude.<*> (x Data..:? "noRegionalBlackoutFlag")
+            Prelude.<*> (x Data..:? "adAvailOffset")
       )
 
 instance Prelude.Hashable Scte35SpliceInsert where
@@ -108,14 +109,14 @@ instance Prelude.NFData Scte35SpliceInsert where
       `Prelude.seq` Prelude.rnf noRegionalBlackoutFlag
       `Prelude.seq` Prelude.rnf adAvailOffset
 
-instance Core.ToJSON Scte35SpliceInsert where
+instance Data.ToJSON Scte35SpliceInsert where
   toJSON Scte35SpliceInsert' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("webDeliveryAllowedFlag" Core..=)
+          [ ("webDeliveryAllowedFlag" Data..=)
               Prelude.<$> webDeliveryAllowedFlag,
-            ("noRegionalBlackoutFlag" Core..=)
+            ("noRegionalBlackoutFlag" Data..=)
               Prelude.<$> noRegionalBlackoutFlag,
-            ("adAvailOffset" Core..=) Prelude.<$> adAvailOffset
+            ("adAvailOffset" Data..=) Prelude.<$> adAvailOffset
           ]
       )

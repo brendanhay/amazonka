@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,28 +103,28 @@ instance Core.AWSRequest DescribeChannel where
     Response.receiveJSON
       ( \s h x ->
           DescribeChannelResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "maintenance")
-            Prelude.<*> (x Core..?> "roleArn")
-            Prelude.<*> (x Core..?> "vpc")
-            Prelude.<*> (x Core..?> "logLevel")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "inputSpecification")
-            Prelude.<*> (x Core..?> "channelClass")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> ( x Core..?> "pipelineDetails"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "maintenance")
+            Prelude.<*> (x Data..?> "roleArn")
+            Prelude.<*> (x Data..?> "vpc")
+            Prelude.<*> (x Data..?> "logLevel")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "inputSpecification")
+            Prelude.<*> (x Data..?> "channelClass")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> ( x Data..?> "pipelineDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "cdiInputSpecification")
-            Prelude.<*> ( x Core..?> "inputAttachments"
+            Prelude.<*> (x Data..?> "cdiInputSpecification")
+            Prelude.<*> ( x Data..?> "inputAttachments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "pipelinesRunningCount")
-            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "encoderSettings")
-            Prelude.<*> ( x Core..?> "egressEndpoints"
+            Prelude.<*> (x Data..?> "pipelinesRunningCount")
+            Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "encoderSettings")
+            Prelude.<*> ( x Data..?> "egressEndpoints"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -136,23 +137,23 @@ instance Prelude.Hashable DescribeChannel where
 instance Prelude.NFData DescribeChannel where
   rnf DescribeChannel' {..} = Prelude.rnf channelId
 
-instance Core.ToHeaders DescribeChannel where
+instance Data.ToHeaders DescribeChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeChannel where
+instance Data.ToPath DescribeChannel where
   toPath DescribeChannel' {..} =
     Prelude.mconcat
-      ["/prod/channels/", Core.toBS channelId]
+      ["/prod/channels/", Data.toBS channelId]
 
-instance Core.ToQuery DescribeChannel where
+instance Data.ToQuery DescribeChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DescribeChannelResponse

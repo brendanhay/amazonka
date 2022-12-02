@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MsSmoothGroupSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputLossActionForMsSmoothOut
 import Amazonka.MediaLive.Types.OutputLocationRef
 import Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl
@@ -317,31 +318,31 @@ msSmoothGroupSettings_streamManifestBehavior = Lens.lens (\MsSmoothGroupSettings
 msSmoothGroupSettings_destination :: Lens.Lens' MsSmoothGroupSettings OutputLocationRef
 msSmoothGroupSettings_destination = Lens.lens (\MsSmoothGroupSettings' {destination} -> destination) (\s@MsSmoothGroupSettings' {} a -> s {destination = a} :: MsSmoothGroupSettings)
 
-instance Core.FromJSON MsSmoothGroupSettings where
+instance Data.FromJSON MsSmoothGroupSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MsSmoothGroupSettings"
       ( \x ->
           MsSmoothGroupSettings'
-            Prelude.<$> (x Core..:? "inputLossAction")
-            Prelude.<*> (x Core..:? "timestampOffset")
-            Prelude.<*> (x Core..:? "numRetries")
-            Prelude.<*> (x Core..:? "eventIdMode")
-            Prelude.<*> (x Core..:? "connectionRetryInterval")
-            Prelude.<*> (x Core..:? "timestampOffsetMode")
-            Prelude.<*> (x Core..:? "acquisitionPointId")
-            Prelude.<*> (x Core..:? "eventStopBehavior")
-            Prelude.<*> (x Core..:? "segmentationMode")
-            Prelude.<*> (x Core..:? "sendDelayMs")
-            Prelude.<*> (x Core..:? "sparseTrackType")
-            Prelude.<*> (x Core..:? "eventId")
-            Prelude.<*> (x Core..:? "fragmentLength")
-            Prelude.<*> (x Core..:? "audioOnlyTimecodeControl")
-            Prelude.<*> (x Core..:? "restartDelay")
-            Prelude.<*> (x Core..:? "filecacheDuration")
-            Prelude.<*> (x Core..:? "certificateMode")
-            Prelude.<*> (x Core..:? "streamManifestBehavior")
-            Prelude.<*> (x Core..: "destination")
+            Prelude.<$> (x Data..:? "inputLossAction")
+            Prelude.<*> (x Data..:? "timestampOffset")
+            Prelude.<*> (x Data..:? "numRetries")
+            Prelude.<*> (x Data..:? "eventIdMode")
+            Prelude.<*> (x Data..:? "connectionRetryInterval")
+            Prelude.<*> (x Data..:? "timestampOffsetMode")
+            Prelude.<*> (x Data..:? "acquisitionPointId")
+            Prelude.<*> (x Data..:? "eventStopBehavior")
+            Prelude.<*> (x Data..:? "segmentationMode")
+            Prelude.<*> (x Data..:? "sendDelayMs")
+            Prelude.<*> (x Data..:? "sparseTrackType")
+            Prelude.<*> (x Data..:? "eventId")
+            Prelude.<*> (x Data..:? "fragmentLength")
+            Prelude.<*> (x Data..:? "audioOnlyTimecodeControl")
+            Prelude.<*> (x Data..:? "restartDelay")
+            Prelude.<*> (x Data..:? "filecacheDuration")
+            Prelude.<*> (x Data..:? "certificateMode")
+            Prelude.<*> (x Data..:? "streamManifestBehavior")
+            Prelude.<*> (x Data..: "destination")
       )
 
 instance Prelude.Hashable MsSmoothGroupSettings where
@@ -388,41 +389,41 @@ instance Prelude.NFData MsSmoothGroupSettings where
       `Prelude.seq` Prelude.rnf streamManifestBehavior
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToJSON MsSmoothGroupSettings where
+instance Data.ToJSON MsSmoothGroupSettings where
   toJSON MsSmoothGroupSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inputLossAction" Core..=)
+          [ ("inputLossAction" Data..=)
               Prelude.<$> inputLossAction,
-            ("timestampOffset" Core..=)
+            ("timestampOffset" Data..=)
               Prelude.<$> timestampOffset,
-            ("numRetries" Core..=) Prelude.<$> numRetries,
-            ("eventIdMode" Core..=) Prelude.<$> eventIdMode,
-            ("connectionRetryInterval" Core..=)
+            ("numRetries" Data..=) Prelude.<$> numRetries,
+            ("eventIdMode" Data..=) Prelude.<$> eventIdMode,
+            ("connectionRetryInterval" Data..=)
               Prelude.<$> connectionRetryInterval,
-            ("timestampOffsetMode" Core..=)
+            ("timestampOffsetMode" Data..=)
               Prelude.<$> timestampOffsetMode,
-            ("acquisitionPointId" Core..=)
+            ("acquisitionPointId" Data..=)
               Prelude.<$> acquisitionPointId,
-            ("eventStopBehavior" Core..=)
+            ("eventStopBehavior" Data..=)
               Prelude.<$> eventStopBehavior,
-            ("segmentationMode" Core..=)
+            ("segmentationMode" Data..=)
               Prelude.<$> segmentationMode,
-            ("sendDelayMs" Core..=) Prelude.<$> sendDelayMs,
-            ("sparseTrackType" Core..=)
+            ("sendDelayMs" Data..=) Prelude.<$> sendDelayMs,
+            ("sparseTrackType" Data..=)
               Prelude.<$> sparseTrackType,
-            ("eventId" Core..=) Prelude.<$> eventId,
-            ("fragmentLength" Core..=)
+            ("eventId" Data..=) Prelude.<$> eventId,
+            ("fragmentLength" Data..=)
               Prelude.<$> fragmentLength,
-            ("audioOnlyTimecodeControl" Core..=)
+            ("audioOnlyTimecodeControl" Data..=)
               Prelude.<$> audioOnlyTimecodeControl,
-            ("restartDelay" Core..=) Prelude.<$> restartDelay,
-            ("filecacheDuration" Core..=)
+            ("restartDelay" Data..=) Prelude.<$> restartDelay,
+            ("filecacheDuration" Data..=)
               Prelude.<$> filecacheDuration,
-            ("certificateMode" Core..=)
+            ("certificateMode" Data..=)
               Prelude.<$> certificateMode,
-            ("streamManifestBehavior" Core..=)
+            ("streamManifestBehavior" Data..=)
               Prelude.<$> streamManifestBehavior,
-            Prelude.Just ("destination" Core..= destination)
+            Prelude.Just ("destination" Data..= destination)
           ]
       )

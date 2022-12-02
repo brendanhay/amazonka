@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.OutputGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Output
 import Amazonka.MediaLive.Types.OutputGroupSettings
 import qualified Amazonka.Prelude as Prelude
@@ -74,15 +75,15 @@ outputGroup_outputs = Lens.lens (\OutputGroup' {outputs} -> outputs) (\s@OutputG
 outputGroup_outputGroupSettings :: Lens.Lens' OutputGroup OutputGroupSettings
 outputGroup_outputGroupSettings = Lens.lens (\OutputGroup' {outputGroupSettings} -> outputGroupSettings) (\s@OutputGroup' {} a -> s {outputGroupSettings = a} :: OutputGroup)
 
-instance Core.FromJSON OutputGroup where
+instance Data.FromJSON OutputGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputGroup"
       ( \x ->
           OutputGroup'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "outputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "outputGroupSettings")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "outputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "outputGroupSettings")
       )
 
 instance Prelude.Hashable OutputGroup where
@@ -97,13 +98,13 @@ instance Prelude.NFData OutputGroup where
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf outputGroupSettings
 
-instance Core.ToJSON OutputGroup where
+instance Data.ToJSON OutputGroup where
   toJSON OutputGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            Prelude.Just ("outputs" Core..= outputs),
+          [ ("name" Data..=) Prelude.<$> name,
+            Prelude.Just ("outputs" Data..= outputs),
             Prelude.Just
-              ("outputGroupSettings" Core..= outputGroupSettings)
+              ("outputGroupSettings" Data..= outputGroupSettings)
           ]
       )

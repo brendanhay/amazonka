@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Mpeg2Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AfdSignaling
 import Amazonka.MediaLive.Types.FixedAfd
 import Amazonka.MediaLive.Types.Mpeg2AdaptiveQuantization
@@ -339,28 +340,28 @@ mpeg2Settings_framerateNumerator = Lens.lens (\Mpeg2Settings' {framerateNumerato
 mpeg2Settings_framerateDenominator :: Lens.Lens' Mpeg2Settings Prelude.Natural
 mpeg2Settings_framerateDenominator = Lens.lens (\Mpeg2Settings' {framerateDenominator} -> framerateDenominator) (\s@Mpeg2Settings' {} a -> s {framerateDenominator = a} :: Mpeg2Settings)
 
-instance Core.FromJSON Mpeg2Settings where
+instance Data.FromJSON Mpeg2Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Mpeg2Settings"
       ( \x ->
           Mpeg2Settings'
-            Prelude.<$> (x Core..:? "gopSizeUnits")
-            Prelude.<*> (x Core..:? "afdSignaling")
-            Prelude.<*> (x Core..:? "fixedAfd")
-            Prelude.<*> (x Core..:? "colorSpace")
-            Prelude.<*> (x Core..:? "scanType")
-            Prelude.<*> (x Core..:? "subgopLength")
-            Prelude.<*> (x Core..:? "gopClosedCadence")
-            Prelude.<*> (x Core..:? "timecodeInsertion")
-            Prelude.<*> (x Core..:? "filterSettings")
-            Prelude.<*> (x Core..:? "colorMetadata")
-            Prelude.<*> (x Core..:? "gopNumBFrames")
-            Prelude.<*> (x Core..:? "displayAspectRatio")
-            Prelude.<*> (x Core..:? "adaptiveQuantization")
-            Prelude.<*> (x Core..:? "gopSize")
-            Prelude.<*> (x Core..: "framerateNumerator")
-            Prelude.<*> (x Core..: "framerateDenominator")
+            Prelude.<$> (x Data..:? "gopSizeUnits")
+            Prelude.<*> (x Data..:? "afdSignaling")
+            Prelude.<*> (x Data..:? "fixedAfd")
+            Prelude.<*> (x Data..:? "colorSpace")
+            Prelude.<*> (x Data..:? "scanType")
+            Prelude.<*> (x Data..:? "subgopLength")
+            Prelude.<*> (x Data..:? "gopClosedCadence")
+            Prelude.<*> (x Data..:? "timecodeInsertion")
+            Prelude.<*> (x Data..:? "filterSettings")
+            Prelude.<*> (x Data..:? "colorMetadata")
+            Prelude.<*> (x Data..:? "gopNumBFrames")
+            Prelude.<*> (x Data..:? "displayAspectRatio")
+            Prelude.<*> (x Data..:? "adaptiveQuantization")
+            Prelude.<*> (x Data..:? "gopSize")
+            Prelude.<*> (x Data..: "framerateNumerator")
+            Prelude.<*> (x Data..: "framerateDenominator")
       )
 
 instance Prelude.Hashable Mpeg2Settings where
@@ -401,34 +402,34 @@ instance Prelude.NFData Mpeg2Settings where
       `Prelude.seq` Prelude.rnf framerateNumerator
       `Prelude.seq` Prelude.rnf framerateDenominator
 
-instance Core.ToJSON Mpeg2Settings where
+instance Data.ToJSON Mpeg2Settings where
   toJSON Mpeg2Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("gopSizeUnits" Core..=) Prelude.<$> gopSizeUnits,
-            ("afdSignaling" Core..=) Prelude.<$> afdSignaling,
-            ("fixedAfd" Core..=) Prelude.<$> fixedAfd,
-            ("colorSpace" Core..=) Prelude.<$> colorSpace,
-            ("scanType" Core..=) Prelude.<$> scanType,
-            ("subgopLength" Core..=) Prelude.<$> subgopLength,
-            ("gopClosedCadence" Core..=)
+          [ ("gopSizeUnits" Data..=) Prelude.<$> gopSizeUnits,
+            ("afdSignaling" Data..=) Prelude.<$> afdSignaling,
+            ("fixedAfd" Data..=) Prelude.<$> fixedAfd,
+            ("colorSpace" Data..=) Prelude.<$> colorSpace,
+            ("scanType" Data..=) Prelude.<$> scanType,
+            ("subgopLength" Data..=) Prelude.<$> subgopLength,
+            ("gopClosedCadence" Data..=)
               Prelude.<$> gopClosedCadence,
-            ("timecodeInsertion" Core..=)
+            ("timecodeInsertion" Data..=)
               Prelude.<$> timecodeInsertion,
-            ("filterSettings" Core..=)
+            ("filterSettings" Data..=)
               Prelude.<$> filterSettings,
-            ("colorMetadata" Core..=) Prelude.<$> colorMetadata,
-            ("gopNumBFrames" Core..=) Prelude.<$> gopNumBFrames,
-            ("displayAspectRatio" Core..=)
+            ("colorMetadata" Data..=) Prelude.<$> colorMetadata,
+            ("gopNumBFrames" Data..=) Prelude.<$> gopNumBFrames,
+            ("displayAspectRatio" Data..=)
               Prelude.<$> displayAspectRatio,
-            ("adaptiveQuantization" Core..=)
+            ("adaptiveQuantization" Data..=)
               Prelude.<$> adaptiveQuantization,
-            ("gopSize" Core..=) Prelude.<$> gopSize,
+            ("gopSize" Data..=) Prelude.<$> gopSize,
             Prelude.Just
-              ("framerateNumerator" Core..= framerateNumerator),
+              ("framerateNumerator" Data..= framerateNumerator),
             Prelude.Just
               ( "framerateDenominator"
-                  Core..= framerateDenominator
+                  Data..= framerateDenominator
               )
           ]
       )

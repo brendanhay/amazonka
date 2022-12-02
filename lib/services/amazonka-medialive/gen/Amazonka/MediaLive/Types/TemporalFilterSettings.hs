@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.TemporalFilterSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.TemporalFilterPostFilterSharpening
 import Amazonka.MediaLive.Types.TemporalFilterStrength
 import qualified Amazonka.Prelude as Prelude
@@ -81,14 +82,14 @@ temporalFilterSettings_strength = Lens.lens (\TemporalFilterSettings' {strength}
 temporalFilterSettings_postFilterSharpening :: Lens.Lens' TemporalFilterSettings (Prelude.Maybe TemporalFilterPostFilterSharpening)
 temporalFilterSettings_postFilterSharpening = Lens.lens (\TemporalFilterSettings' {postFilterSharpening} -> postFilterSharpening) (\s@TemporalFilterSettings' {} a -> s {postFilterSharpening = a} :: TemporalFilterSettings)
 
-instance Core.FromJSON TemporalFilterSettings where
+instance Data.FromJSON TemporalFilterSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemporalFilterSettings"
       ( \x ->
           TemporalFilterSettings'
-            Prelude.<$> (x Core..:? "strength")
-            Prelude.<*> (x Core..:? "postFilterSharpening")
+            Prelude.<$> (x Data..:? "strength")
+            Prelude.<*> (x Data..:? "postFilterSharpening")
       )
 
 instance Prelude.Hashable TemporalFilterSettings where
@@ -101,12 +102,12 @@ instance Prelude.NFData TemporalFilterSettings where
     Prelude.rnf strength
       `Prelude.seq` Prelude.rnf postFilterSharpening
 
-instance Core.ToJSON TemporalFilterSettings where
+instance Data.ToJSON TemporalFilterSettings where
   toJSON TemporalFilterSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("strength" Core..=) Prelude.<$> strength,
-            ("postFilterSharpening" Core..=)
+          [ ("strength" Data..=) Prelude.<$> strength,
+            ("postFilterSharpening" Data..=)
               Prelude.<$> postFilterSharpening
           ]
       )

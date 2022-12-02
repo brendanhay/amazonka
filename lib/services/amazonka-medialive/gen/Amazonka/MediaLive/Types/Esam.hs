@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Esam where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for the Esam
@@ -134,18 +135,18 @@ esam_acquisitionPointId = Lens.lens (\Esam' {acquisitionPointId} -> acquisitionP
 esam_poisEndpoint :: Lens.Lens' Esam Prelude.Text
 esam_poisEndpoint = Lens.lens (\Esam' {poisEndpoint} -> poisEndpoint) (\s@Esam' {} a -> s {poisEndpoint = a} :: Esam)
 
-instance Core.FromJSON Esam where
+instance Data.FromJSON Esam where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Esam"
       ( \x ->
           Esam'
-            Prelude.<$> (x Core..:? "username")
-            Prelude.<*> (x Core..:? "passwordParam")
-            Prelude.<*> (x Core..:? "zoneIdentity")
-            Prelude.<*> (x Core..:? "adAvailOffset")
-            Prelude.<*> (x Core..: "acquisitionPointId")
-            Prelude.<*> (x Core..: "poisEndpoint")
+            Prelude.<$> (x Data..:? "username")
+            Prelude.<*> (x Data..:? "passwordParam")
+            Prelude.<*> (x Data..:? "zoneIdentity")
+            Prelude.<*> (x Data..:? "adAvailOffset")
+            Prelude.<*> (x Data..: "acquisitionPointId")
+            Prelude.<*> (x Data..: "poisEndpoint")
       )
 
 instance Prelude.Hashable Esam where
@@ -166,16 +167,16 @@ instance Prelude.NFData Esam where
       `Prelude.seq` Prelude.rnf acquisitionPointId
       `Prelude.seq` Prelude.rnf poisEndpoint
 
-instance Core.ToJSON Esam where
+instance Data.ToJSON Esam where
   toJSON Esam' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("username" Core..=) Prelude.<$> username,
-            ("passwordParam" Core..=) Prelude.<$> passwordParam,
-            ("zoneIdentity" Core..=) Prelude.<$> zoneIdentity,
-            ("adAvailOffset" Core..=) Prelude.<$> adAvailOffset,
+          [ ("username" Data..=) Prelude.<$> username,
+            ("passwordParam" Data..=) Prelude.<$> passwordParam,
+            ("zoneIdentity" Data..=) Prelude.<$> zoneIdentity,
+            ("adAvailOffset" Data..=) Prelude.<$> adAvailOffset,
             Prelude.Just
-              ("acquisitionPointId" Core..= acquisitionPointId),
-            Prelude.Just ("poisEndpoint" Core..= poisEndpoint)
+              ("acquisitionPointId" Data..= acquisitionPointId),
+            Prelude.Just ("poisEndpoint" Data..= poisEndpoint)
           ]
       )

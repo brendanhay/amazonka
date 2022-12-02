@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,10 +107,10 @@ instance Core.AWSRequest DescribeInputDeviceThumbnail where
     Response.receiveBody
       ( \s h x ->
           DescribeInputDeviceThumbnailResponse'
-            Prelude.<$> (h Core..#? "Content-Length")
-            Prelude.<*> (h Core..#? "Last-Modified")
-            Prelude.<*> (h Core..#? "ETag")
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<$> (h Data..#? "Content-Length")
+            Prelude.<*> (h Data..#? "Last-Modified")
+            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -127,23 +128,23 @@ instance Prelude.NFData DescribeInputDeviceThumbnail where
     Prelude.rnf inputDeviceId
       `Prelude.seq` Prelude.rnf accept
 
-instance Core.ToHeaders DescribeInputDeviceThumbnail where
+instance Data.ToHeaders DescribeInputDeviceThumbnail where
   toHeaders DescribeInputDeviceThumbnail' {..} =
     Prelude.mconcat
-      [ "accept" Core.=# accept,
+      [ "accept" Data.=# accept,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DescribeInputDeviceThumbnail where
+instance Data.ToPath DescribeInputDeviceThumbnail where
   toPath DescribeInputDeviceThumbnail' {..} =
     Prelude.mconcat
       [ "/prod/inputDevices/",
-        Core.toBS inputDeviceId,
+        Data.toBS inputDeviceId,
         "/thumbnailData"
       ]
 
-instance Core.ToQuery DescribeInputDeviceThumbnail where
+instance Data.ToQuery DescribeInputDeviceThumbnail where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DescribeInputDeviceThumbnailResponse
@@ -153,7 +154,7 @@ data DescribeInputDeviceThumbnailResponse = DescribeInputDeviceThumbnailResponse
   { -- | The length of the content.
     contentLength :: Prelude.Maybe Prelude.Integer,
     -- | The date and time the thumbnail was last updated at the device.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | The unique, cacheable version of this thumbnail.
     eTag :: Prelude.Maybe Prelude.Text,
     -- | Specifies the media type of the thumbnail.
@@ -162,7 +163,7 @@ data DescribeInputDeviceThumbnailResponse = DescribeInputDeviceThumbnailResponse
     httpStatus :: Prelude.Int,
     -- | The binary data for the thumbnail that the Link device has most recently
     -- sent to MediaLive.
-    body :: Core.ResponseBody
+    body :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -190,7 +191,7 @@ newDescribeInputDeviceThumbnailResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'body'
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   DescribeInputDeviceThumbnailResponse
 newDescribeInputDeviceThumbnailResponse
   pHttpStatus_
@@ -211,7 +212,7 @@ describeInputDeviceThumbnailResponse_contentLength = Lens.lens (\DescribeInputDe
 
 -- | The date and time the thumbnail was last updated at the device.
 describeInputDeviceThumbnailResponse_lastModified :: Lens.Lens' DescribeInputDeviceThumbnailResponse (Prelude.Maybe Prelude.UTCTime)
-describeInputDeviceThumbnailResponse_lastModified = Lens.lens (\DescribeInputDeviceThumbnailResponse' {lastModified} -> lastModified) (\s@DescribeInputDeviceThumbnailResponse' {} a -> s {lastModified = a} :: DescribeInputDeviceThumbnailResponse) Prelude.. Lens.mapping Core._Time
+describeInputDeviceThumbnailResponse_lastModified = Lens.lens (\DescribeInputDeviceThumbnailResponse' {lastModified} -> lastModified) (\s@DescribeInputDeviceThumbnailResponse' {} a -> s {lastModified = a} :: DescribeInputDeviceThumbnailResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The unique, cacheable version of this thumbnail.
 describeInputDeviceThumbnailResponse_eTag :: Lens.Lens' DescribeInputDeviceThumbnailResponse (Prelude.Maybe Prelude.Text)
@@ -227,5 +228,5 @@ describeInputDeviceThumbnailResponse_httpStatus = Lens.lens (\DescribeInputDevic
 
 -- | The binary data for the thumbnail that the Link device has most recently
 -- sent to MediaLive.
-describeInputDeviceThumbnailResponse_body :: Lens.Lens' DescribeInputDeviceThumbnailResponse Core.ResponseBody
+describeInputDeviceThumbnailResponse_body :: Lens.Lens' DescribeInputDeviceThumbnailResponse Data.ResponseBody
 describeInputDeviceThumbnailResponse_body = Lens.lens (\DescribeInputDeviceThumbnailResponse' {body} -> body) (\s@DescribeInputDeviceThumbnailResponse' {} a -> s {body = a} :: DescribeInputDeviceThumbnailResponse)

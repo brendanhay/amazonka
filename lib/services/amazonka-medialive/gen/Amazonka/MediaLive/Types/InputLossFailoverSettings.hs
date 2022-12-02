@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputLossFailoverSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | MediaLive will perform a failover if content is not detected in this
@@ -57,13 +58,13 @@ newInputLossFailoverSettings =
 inputLossFailoverSettings_inputLossThresholdMsec :: Lens.Lens' InputLossFailoverSettings (Prelude.Maybe Prelude.Natural)
 inputLossFailoverSettings_inputLossThresholdMsec = Lens.lens (\InputLossFailoverSettings' {inputLossThresholdMsec} -> inputLossThresholdMsec) (\s@InputLossFailoverSettings' {} a -> s {inputLossThresholdMsec = a} :: InputLossFailoverSettings)
 
-instance Core.FromJSON InputLossFailoverSettings where
+instance Data.FromJSON InputLossFailoverSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputLossFailoverSettings"
       ( \x ->
           InputLossFailoverSettings'
-            Prelude.<$> (x Core..:? "inputLossThresholdMsec")
+            Prelude.<$> (x Data..:? "inputLossThresholdMsec")
       )
 
 instance Prelude.Hashable InputLossFailoverSettings where
@@ -74,11 +75,11 @@ instance Prelude.NFData InputLossFailoverSettings where
   rnf InputLossFailoverSettings' {..} =
     Prelude.rnf inputLossThresholdMsec
 
-instance Core.ToJSON InputLossFailoverSettings where
+instance Data.ToJSON InputLossFailoverSettings where
   toJSON InputLossFailoverSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inputLossThresholdMsec" Core..=)
+          [ ("inputLossThresholdMsec" Data..=)
               Prelude.<$> inputLossThresholdMsec
           ]
       )

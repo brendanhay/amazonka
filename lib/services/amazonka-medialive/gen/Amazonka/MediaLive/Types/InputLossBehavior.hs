@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputLossBehavior where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputLocation
 import Amazonka.MediaLive.Types.InputLossImageType
 import qualified Amazonka.Prelude as Prelude
@@ -100,17 +101,17 @@ inputLossBehavior_inputLossImageColor = Lens.lens (\InputLossBehavior' {inputLos
 inputLossBehavior_repeatFrameMsec :: Lens.Lens' InputLossBehavior (Prelude.Maybe Prelude.Natural)
 inputLossBehavior_repeatFrameMsec = Lens.lens (\InputLossBehavior' {repeatFrameMsec} -> repeatFrameMsec) (\s@InputLossBehavior' {} a -> s {repeatFrameMsec = a} :: InputLossBehavior)
 
-instance Core.FromJSON InputLossBehavior where
+instance Data.FromJSON InputLossBehavior where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputLossBehavior"
       ( \x ->
           InputLossBehavior'
-            Prelude.<$> (x Core..:? "inputLossImageSlate")
-            Prelude.<*> (x Core..:? "inputLossImageType")
-            Prelude.<*> (x Core..:? "blackFrameMsec")
-            Prelude.<*> (x Core..:? "inputLossImageColor")
-            Prelude.<*> (x Core..:? "repeatFrameMsec")
+            Prelude.<$> (x Data..:? "inputLossImageSlate")
+            Prelude.<*> (x Data..:? "inputLossImageType")
+            Prelude.<*> (x Data..:? "blackFrameMsec")
+            Prelude.<*> (x Data..:? "inputLossImageColor")
+            Prelude.<*> (x Data..:? "repeatFrameMsec")
       )
 
 instance Prelude.Hashable InputLossBehavior where
@@ -129,19 +130,19 @@ instance Prelude.NFData InputLossBehavior where
       `Prelude.seq` Prelude.rnf inputLossImageColor
       `Prelude.seq` Prelude.rnf repeatFrameMsec
 
-instance Core.ToJSON InputLossBehavior where
+instance Data.ToJSON InputLossBehavior where
   toJSON InputLossBehavior' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inputLossImageSlate" Core..=)
+          [ ("inputLossImageSlate" Data..=)
               Prelude.<$> inputLossImageSlate,
-            ("inputLossImageType" Core..=)
+            ("inputLossImageType" Data..=)
               Prelude.<$> inputLossImageType,
-            ("blackFrameMsec" Core..=)
+            ("blackFrameMsec" Data..=)
               Prelude.<$> blackFrameMsec,
-            ("inputLossImageColor" Core..=)
+            ("inputLossImageColor" Data..=)
               Prelude.<$> inputLossImageColor,
-            ("repeatFrameMsec" Core..=)
+            ("repeatFrameMsec" Data..=)
               Prelude.<$> repeatFrameMsec
           ]
       )

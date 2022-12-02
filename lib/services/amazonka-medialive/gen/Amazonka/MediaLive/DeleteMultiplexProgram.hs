@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,13 +105,13 @@ instance Core.AWSRequest DeleteMultiplexProgram where
     Response.receiveJSON
       ( \s h x ->
           DeleteMultiplexProgramResponse'
-            Prelude.<$> (x Core..?> "programName")
-            Prelude.<*> (x Core..?> "packetIdentifiersMap")
-            Prelude.<*> ( x Core..?> "pipelineDetails"
+            Prelude.<$> (x Data..?> "programName")
+            Prelude.<*> (x Data..?> "packetIdentifiersMap")
+            Prelude.<*> ( x Data..?> "pipelineDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "multiplexProgramSettings")
-            Prelude.<*> (x Core..?> "channelId")
+            Prelude.<*> (x Data..?> "multiplexProgramSettings")
+            Prelude.<*> (x Data..?> "channelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,27 +125,27 @@ instance Prelude.NFData DeleteMultiplexProgram where
     Prelude.rnf multiplexId
       `Prelude.seq` Prelude.rnf programName
 
-instance Core.ToHeaders DeleteMultiplexProgram where
+instance Data.ToHeaders DeleteMultiplexProgram where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteMultiplexProgram where
+instance Data.ToPath DeleteMultiplexProgram where
   toPath DeleteMultiplexProgram' {..} =
     Prelude.mconcat
       [ "/prod/multiplexes/",
-        Core.toBS multiplexId,
+        Data.toBS multiplexId,
         "/programs/",
-        Core.toBS programName
+        Data.toBS programName
       ]
 
-instance Core.ToQuery DeleteMultiplexProgram where
+instance Data.ToQuery DeleteMultiplexProgram where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DeleteMultiplexProgramResponse

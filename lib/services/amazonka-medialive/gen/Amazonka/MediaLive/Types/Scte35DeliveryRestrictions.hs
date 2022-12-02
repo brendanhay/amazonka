@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Scte35DeliveryRestrictions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Scte35ArchiveAllowedFlag
 import Amazonka.MediaLive.Types.Scte35DeviceRestrictions
 import Amazonka.MediaLive.Types.Scte35NoRegionalBlackoutFlag
@@ -101,16 +102,16 @@ scte35DeliveryRestrictions_webDeliveryAllowedFlag = Lens.lens (\Scte35DeliveryRe
 scte35DeliveryRestrictions_noRegionalBlackoutFlag :: Lens.Lens' Scte35DeliveryRestrictions Scte35NoRegionalBlackoutFlag
 scte35DeliveryRestrictions_noRegionalBlackoutFlag = Lens.lens (\Scte35DeliveryRestrictions' {noRegionalBlackoutFlag} -> noRegionalBlackoutFlag) (\s@Scte35DeliveryRestrictions' {} a -> s {noRegionalBlackoutFlag = a} :: Scte35DeliveryRestrictions)
 
-instance Core.FromJSON Scte35DeliveryRestrictions where
+instance Data.FromJSON Scte35DeliveryRestrictions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scte35DeliveryRestrictions"
       ( \x ->
           Scte35DeliveryRestrictions'
-            Prelude.<$> (x Core..: "deviceRestrictions")
-            Prelude.<*> (x Core..: "archiveAllowedFlag")
-            Prelude.<*> (x Core..: "webDeliveryAllowedFlag")
-            Prelude.<*> (x Core..: "noRegionalBlackoutFlag")
+            Prelude.<$> (x Data..: "deviceRestrictions")
+            Prelude.<*> (x Data..: "archiveAllowedFlag")
+            Prelude.<*> (x Data..: "webDeliveryAllowedFlag")
+            Prelude.<*> (x Data..: "noRegionalBlackoutFlag")
       )
 
 instance Prelude.Hashable Scte35DeliveryRestrictions where
@@ -127,21 +128,21 @@ instance Prelude.NFData Scte35DeliveryRestrictions where
       `Prelude.seq` Prelude.rnf webDeliveryAllowedFlag
       `Prelude.seq` Prelude.rnf noRegionalBlackoutFlag
 
-instance Core.ToJSON Scte35DeliveryRestrictions where
+instance Data.ToJSON Scte35DeliveryRestrictions where
   toJSON Scte35DeliveryRestrictions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("deviceRestrictions" Core..= deviceRestrictions),
+              ("deviceRestrictions" Data..= deviceRestrictions),
             Prelude.Just
-              ("archiveAllowedFlag" Core..= archiveAllowedFlag),
+              ("archiveAllowedFlag" Data..= archiveAllowedFlag),
             Prelude.Just
               ( "webDeliveryAllowedFlag"
-                  Core..= webDeliveryAllowedFlag
+                  Data..= webDeliveryAllowedFlag
               ),
             Prelude.Just
               ( "noRegionalBlackoutFlag"
-                  Core..= noRegionalBlackoutFlag
+                  Data..= noRegionalBlackoutFlag
               )
           ]
       )

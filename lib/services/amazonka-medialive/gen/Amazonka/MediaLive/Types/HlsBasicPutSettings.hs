@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.HlsBasicPutSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Hls Basic Put Settings
@@ -88,16 +89,16 @@ hlsBasicPutSettings_restartDelay = Lens.lens (\HlsBasicPutSettings' {restartDela
 hlsBasicPutSettings_filecacheDuration :: Lens.Lens' HlsBasicPutSettings (Prelude.Maybe Prelude.Natural)
 hlsBasicPutSettings_filecacheDuration = Lens.lens (\HlsBasicPutSettings' {filecacheDuration} -> filecacheDuration) (\s@HlsBasicPutSettings' {} a -> s {filecacheDuration = a} :: HlsBasicPutSettings)
 
-instance Core.FromJSON HlsBasicPutSettings where
+instance Data.FromJSON HlsBasicPutSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsBasicPutSettings"
       ( \x ->
           HlsBasicPutSettings'
-            Prelude.<$> (x Core..:? "numRetries")
-            Prelude.<*> (x Core..:? "connectionRetryInterval")
-            Prelude.<*> (x Core..:? "restartDelay")
-            Prelude.<*> (x Core..:? "filecacheDuration")
+            Prelude.<$> (x Data..:? "numRetries")
+            Prelude.<*> (x Data..:? "connectionRetryInterval")
+            Prelude.<*> (x Data..:? "restartDelay")
+            Prelude.<*> (x Data..:? "filecacheDuration")
       )
 
 instance Prelude.Hashable HlsBasicPutSettings where
@@ -114,15 +115,15 @@ instance Prelude.NFData HlsBasicPutSettings where
       `Prelude.seq` Prelude.rnf restartDelay
       `Prelude.seq` Prelude.rnf filecacheDuration
 
-instance Core.ToJSON HlsBasicPutSettings where
+instance Data.ToJSON HlsBasicPutSettings where
   toJSON HlsBasicPutSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("numRetries" Core..=) Prelude.<$> numRetries,
-            ("connectionRetryInterval" Core..=)
+          [ ("numRetries" Data..=) Prelude.<$> numRetries,
+            ("connectionRetryInterval" Data..=)
               Prelude.<$> connectionRetryInterval,
-            ("restartDelay" Core..=) Prelude.<$> restartDelay,
-            ("filecacheDuration" Core..=)
+            ("restartDelay" Data..=) Prelude.<$> restartDelay,
+            ("filecacheDuration" Data..=)
               Prelude.<$> filecacheDuration
           ]
       )

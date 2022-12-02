@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.BatchFailedResultModel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details from a failed operation
@@ -79,16 +80,16 @@ batchFailedResultModel_arn = Lens.lens (\BatchFailedResultModel' {arn} -> arn) (
 batchFailedResultModel_id :: Lens.Lens' BatchFailedResultModel (Prelude.Maybe Prelude.Text)
 batchFailedResultModel_id = Lens.lens (\BatchFailedResultModel' {id} -> id) (\s@BatchFailedResultModel' {} a -> s {id = a} :: BatchFailedResultModel)
 
-instance Core.FromJSON BatchFailedResultModel where
+instance Data.FromJSON BatchFailedResultModel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchFailedResultModel"
       ( \x ->
           BatchFailedResultModel'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable BatchFailedResultModel where

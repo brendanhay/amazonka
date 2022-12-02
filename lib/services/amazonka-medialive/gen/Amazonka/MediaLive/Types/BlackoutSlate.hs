@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.BlackoutSlate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.BlackoutSlateNetworkEndBlackout
 import Amazonka.MediaLive.Types.BlackoutSlateState
 import Amazonka.MediaLive.Types.InputLocation
@@ -119,17 +120,17 @@ blackoutSlate_networkEndBlackout = Lens.lens (\BlackoutSlate' {networkEndBlackou
 blackoutSlate_networkId :: Lens.Lens' BlackoutSlate (Prelude.Maybe Prelude.Text)
 blackoutSlate_networkId = Lens.lens (\BlackoutSlate' {networkId} -> networkId) (\s@BlackoutSlate' {} a -> s {networkId = a} :: BlackoutSlate)
 
-instance Core.FromJSON BlackoutSlate where
+instance Data.FromJSON BlackoutSlate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlackoutSlate"
       ( \x ->
           BlackoutSlate'
-            Prelude.<$> (x Core..:? "blackoutSlateImage")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "networkEndBlackoutImage")
-            Prelude.<*> (x Core..:? "networkEndBlackout")
-            Prelude.<*> (x Core..:? "networkId")
+            Prelude.<$> (x Data..:? "blackoutSlateImage")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "networkEndBlackoutImage")
+            Prelude.<*> (x Data..:? "networkEndBlackout")
+            Prelude.<*> (x Data..:? "networkId")
       )
 
 instance Prelude.Hashable BlackoutSlate where
@@ -148,17 +149,17 @@ instance Prelude.NFData BlackoutSlate where
       `Prelude.seq` Prelude.rnf networkEndBlackout
       `Prelude.seq` Prelude.rnf networkId
 
-instance Core.ToJSON BlackoutSlate where
+instance Data.ToJSON BlackoutSlate where
   toJSON BlackoutSlate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("blackoutSlateImage" Core..=)
+          [ ("blackoutSlateImage" Data..=)
               Prelude.<$> blackoutSlateImage,
-            ("state" Core..=) Prelude.<$> state,
-            ("networkEndBlackoutImage" Core..=)
+            ("state" Data..=) Prelude.<$> state,
+            ("networkEndBlackoutImage" Data..=)
               Prelude.<$> networkEndBlackoutImage,
-            ("networkEndBlackout" Core..=)
+            ("networkEndBlackout" Data..=)
               Prelude.<$> networkEndBlackout,
-            ("networkId" Core..=) Prelude.<$> networkId
+            ("networkId" Data..=) Prelude.<$> networkId
           ]
       )

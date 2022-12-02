@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for a SCTE-35 return_to_network message.
@@ -60,15 +61,15 @@ scte35ReturnToNetworkScheduleActionSettings_spliceEventId :: Lens.Lens' Scte35Re
 scte35ReturnToNetworkScheduleActionSettings_spliceEventId = Lens.lens (\Scte35ReturnToNetworkScheduleActionSettings' {spliceEventId} -> spliceEventId) (\s@Scte35ReturnToNetworkScheduleActionSettings' {} a -> s {spliceEventId = a} :: Scte35ReturnToNetworkScheduleActionSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     Scte35ReturnToNetworkScheduleActionSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scte35ReturnToNetworkScheduleActionSettings"
       ( \x ->
           Scte35ReturnToNetworkScheduleActionSettings'
-            Prelude.<$> (x Core..: "spliceEventId")
+            Prelude.<$> (x Data..: "spliceEventId")
       )
 
 instance
@@ -88,14 +89,14 @@ instance
     Prelude.rnf spliceEventId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     Scte35ReturnToNetworkScheduleActionSettings
   where
   toJSON
     Scte35ReturnToNetworkScheduleActionSettings' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
             [ Prelude.Just
-                ("spliceEventId" Core..= spliceEventId)
+                ("spliceEventId" Data..= spliceEventId)
             ]
         )

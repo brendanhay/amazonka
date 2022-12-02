@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.NielsenWatermarksSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.NielsenCBET
 import Amazonka.MediaLive.Types.NielsenNaesIiNw
 import Amazonka.MediaLive.Types.NielsenWatermarksDistributionTypes
@@ -83,15 +84,15 @@ nielsenWatermarksSettings_nielsenNaesIiNwSettings = Lens.lens (\NielsenWatermark
 nielsenWatermarksSettings_nielsenCbetSettings :: Lens.Lens' NielsenWatermarksSettings (Prelude.Maybe NielsenCBET)
 nielsenWatermarksSettings_nielsenCbetSettings = Lens.lens (\NielsenWatermarksSettings' {nielsenCbetSettings} -> nielsenCbetSettings) (\s@NielsenWatermarksSettings' {} a -> s {nielsenCbetSettings = a} :: NielsenWatermarksSettings)
 
-instance Core.FromJSON NielsenWatermarksSettings where
+instance Data.FromJSON NielsenWatermarksSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NielsenWatermarksSettings"
       ( \x ->
           NielsenWatermarksSettings'
-            Prelude.<$> (x Core..:? "nielsenDistributionType")
-            Prelude.<*> (x Core..:? "nielsenNaesIiNwSettings")
-            Prelude.<*> (x Core..:? "nielsenCbetSettings")
+            Prelude.<$> (x Data..:? "nielsenDistributionType")
+            Prelude.<*> (x Data..:? "nielsenNaesIiNwSettings")
+            Prelude.<*> (x Data..:? "nielsenCbetSettings")
       )
 
 instance Prelude.Hashable NielsenWatermarksSettings where
@@ -107,15 +108,15 @@ instance Prelude.NFData NielsenWatermarksSettings where
       `Prelude.seq` Prelude.rnf nielsenNaesIiNwSettings
       `Prelude.seq` Prelude.rnf nielsenCbetSettings
 
-instance Core.ToJSON NielsenWatermarksSettings where
+instance Data.ToJSON NielsenWatermarksSettings where
   toJSON NielsenWatermarksSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nielsenDistributionType" Core..=)
+          [ ("nielsenDistributionType" Data..=)
               Prelude.<$> nielsenDistributionType,
-            ("nielsenNaesIiNwSettings" Core..=)
+            ("nielsenNaesIiNwSettings" Data..=)
               Prelude.<$> nielsenNaesIiNwSettings,
-            ("nielsenCbetSettings" Core..=)
+            ("nielsenCbetSettings" Data..=)
               Prelude.<$> nielsenCbetSettings
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.CaptionDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AribDestinationSettings
 import Amazonka.MediaLive.Types.BurnInDestinationSettings
 import Amazonka.MediaLive.Types.DvbSubDestinationSettings
@@ -164,25 +165,25 @@ captionDestinationSettings_ebuTtDDestinationSettings = Lens.lens (\CaptionDestin
 captionDestinationSettings_rtmpCaptionInfoDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe RtmpCaptionInfoDestinationSettings)
 captionDestinationSettings_rtmpCaptionInfoDestinationSettings = Lens.lens (\CaptionDestinationSettings' {rtmpCaptionInfoDestinationSettings} -> rtmpCaptionInfoDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {rtmpCaptionInfoDestinationSettings = a} :: CaptionDestinationSettings)
 
-instance Core.FromJSON CaptionDestinationSettings where
+instance Data.FromJSON CaptionDestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptionDestinationSettings"
       ( \x ->
           CaptionDestinationSettings'
-            Prelude.<$> (x Core..:? "teletextDestinationSettings")
-            Prelude.<*> (x Core..:? "embeddedPlusScte20DestinationSettings")
-            Prelude.<*> (x Core..:? "scte20PlusEmbeddedDestinationSettings")
-            Prelude.<*> (x Core..:? "aribDestinationSettings")
-            Prelude.<*> (x Core..:? "webvttDestinationSettings")
-            Prelude.<*> (x Core..:? "ttmlDestinationSettings")
-            Prelude.<*> (x Core..:? "embeddedDestinationSettings")
-            Prelude.<*> (x Core..:? "smpteTtDestinationSettings")
-            Prelude.<*> (x Core..:? "scte27DestinationSettings")
-            Prelude.<*> (x Core..:? "burnInDestinationSettings")
-            Prelude.<*> (x Core..:? "dvbSubDestinationSettings")
-            Prelude.<*> (x Core..:? "ebuTtDDestinationSettings")
-            Prelude.<*> (x Core..:? "rtmpCaptionInfoDestinationSettings")
+            Prelude.<$> (x Data..:? "teletextDestinationSettings")
+            Prelude.<*> (x Data..:? "embeddedPlusScte20DestinationSettings")
+            Prelude.<*> (x Data..:? "scte20PlusEmbeddedDestinationSettings")
+            Prelude.<*> (x Data..:? "aribDestinationSettings")
+            Prelude.<*> (x Data..:? "webvttDestinationSettings")
+            Prelude.<*> (x Data..:? "ttmlDestinationSettings")
+            Prelude.<*> (x Data..:? "embeddedDestinationSettings")
+            Prelude.<*> (x Data..:? "smpteTtDestinationSettings")
+            Prelude.<*> (x Data..:? "scte27DestinationSettings")
+            Prelude.<*> (x Data..:? "burnInDestinationSettings")
+            Prelude.<*> (x Data..:? "dvbSubDestinationSettings")
+            Prelude.<*> (x Data..:? "ebuTtDDestinationSettings")
+            Prelude.<*> (x Data..:? "rtmpCaptionInfoDestinationSettings")
       )
 
 instance Prelude.Hashable CaptionDestinationSettings where
@@ -219,35 +220,35 @@ instance Prelude.NFData CaptionDestinationSettings where
       `Prelude.seq` Prelude.rnf
         rtmpCaptionInfoDestinationSettings
 
-instance Core.ToJSON CaptionDestinationSettings where
+instance Data.ToJSON CaptionDestinationSettings where
   toJSON CaptionDestinationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("teletextDestinationSettings" Core..=)
+          [ ("teletextDestinationSettings" Data..=)
               Prelude.<$> teletextDestinationSettings,
-            ("embeddedPlusScte20DestinationSettings" Core..=)
+            ("embeddedPlusScte20DestinationSettings" Data..=)
               Prelude.<$> embeddedPlusScte20DestinationSettings,
-            ("scte20PlusEmbeddedDestinationSettings" Core..=)
+            ("scte20PlusEmbeddedDestinationSettings" Data..=)
               Prelude.<$> scte20PlusEmbeddedDestinationSettings,
-            ("aribDestinationSettings" Core..=)
+            ("aribDestinationSettings" Data..=)
               Prelude.<$> aribDestinationSettings,
-            ("webvttDestinationSettings" Core..=)
+            ("webvttDestinationSettings" Data..=)
               Prelude.<$> webvttDestinationSettings,
-            ("ttmlDestinationSettings" Core..=)
+            ("ttmlDestinationSettings" Data..=)
               Prelude.<$> ttmlDestinationSettings,
-            ("embeddedDestinationSettings" Core..=)
+            ("embeddedDestinationSettings" Data..=)
               Prelude.<$> embeddedDestinationSettings,
-            ("smpteTtDestinationSettings" Core..=)
+            ("smpteTtDestinationSettings" Data..=)
               Prelude.<$> smpteTtDestinationSettings,
-            ("scte27DestinationSettings" Core..=)
+            ("scte27DestinationSettings" Data..=)
               Prelude.<$> scte27DestinationSettings,
-            ("burnInDestinationSettings" Core..=)
+            ("burnInDestinationSettings" Data..=)
               Prelude.<$> burnInDestinationSettings,
-            ("dvbSubDestinationSettings" Core..=)
+            ("dvbSubDestinationSettings" Data..=)
               Prelude.<$> dvbSubDestinationSettings,
-            ("ebuTtDDestinationSettings" Core..=)
+            ("ebuTtDDestinationSettings" Data..=)
               Prelude.<$> ebuTtDDestinationSettings,
-            ("rtmpCaptionInfoDestinationSettings" Core..=)
+            ("rtmpCaptionInfoDestinationSettings" Data..=)
               Prelude.<$> rtmpCaptionInfoDestinationSettings
           ]
       )

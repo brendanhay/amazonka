@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,8 +109,8 @@ instance Core.AWSRequest BatchUpdateSchedule where
     Response.receiveJSON
       ( \s h x ->
           BatchUpdateScheduleResponse'
-            Prelude.<$> (x Core..?> "creates")
-            Prelude.<*> (x Core..?> "deletes")
+            Prelude.<$> (x Data..?> "creates")
+            Prelude.<*> (x Data..?> "deletes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,32 +126,32 @@ instance Prelude.NFData BatchUpdateSchedule where
       `Prelude.seq` Prelude.rnf deletes
       `Prelude.seq` Prelude.rnf channelId
 
-instance Core.ToHeaders BatchUpdateSchedule where
+instance Data.ToHeaders BatchUpdateSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchUpdateSchedule where
+instance Data.ToJSON BatchUpdateSchedule where
   toJSON BatchUpdateSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("creates" Core..=) Prelude.<$> creates,
-            ("deletes" Core..=) Prelude.<$> deletes
+          [ ("creates" Data..=) Prelude.<$> creates,
+            ("deletes" Data..=) Prelude.<$> deletes
           ]
       )
 
-instance Core.ToPath BatchUpdateSchedule where
+instance Data.ToPath BatchUpdateSchedule where
   toPath BatchUpdateSchedule' {..} =
     Prelude.mconcat
-      ["/prod/channels/", Core.toBS channelId, "/schedule"]
+      ["/prod/channels/", Data.toBS channelId, "/schedule"]
 
-instance Core.ToQuery BatchUpdateSchedule where
+instance Data.ToQuery BatchUpdateSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for BatchUpdateScheduleResponse

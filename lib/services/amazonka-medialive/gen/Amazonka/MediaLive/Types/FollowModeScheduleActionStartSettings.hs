@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.FollowModeScheduleActionStartSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.FollowPoint
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,16 +74,16 @@ followModeScheduleActionStartSettings_followPoint :: Lens.Lens' FollowModeSchedu
 followModeScheduleActionStartSettings_followPoint = Lens.lens (\FollowModeScheduleActionStartSettings' {followPoint} -> followPoint) (\s@FollowModeScheduleActionStartSettings' {} a -> s {followPoint = a} :: FollowModeScheduleActionStartSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FollowModeScheduleActionStartSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FollowModeScheduleActionStartSettings"
       ( \x ->
           FollowModeScheduleActionStartSettings'
-            Prelude.<$> (x Core..: "referenceActionName")
-            Prelude.<*> (x Core..: "followPoint")
+            Prelude.<$> (x Data..: "referenceActionName")
+            Prelude.<*> (x Data..: "followPoint")
       )
 
 instance
@@ -104,14 +105,14 @@ instance
       `Prelude.seq` Prelude.rnf followPoint
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     FollowModeScheduleActionStartSettings
   where
   toJSON FollowModeScheduleActionStartSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("referenceActionName" Core..= referenceActionName),
-            Prelude.Just ("followPoint" Core..= followPoint)
+              ("referenceActionName" Data..= referenceActionName),
+            Prelude.Just ("followPoint" Data..= followPoint)
           ]
       )

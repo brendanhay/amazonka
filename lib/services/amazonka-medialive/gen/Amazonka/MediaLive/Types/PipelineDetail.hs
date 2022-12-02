@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.PipelineDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Runtime details of a pipeline when a channel is running.
@@ -104,17 +105,17 @@ pipelineDetail_activeMotionGraphicsActionName = Lens.lens (\PipelineDetail' {act
 pipelineDetail_activeInputSwitchActionName :: Lens.Lens' PipelineDetail (Prelude.Maybe Prelude.Text)
 pipelineDetail_activeInputSwitchActionName = Lens.lens (\PipelineDetail' {activeInputSwitchActionName} -> activeInputSwitchActionName) (\s@PipelineDetail' {} a -> s {activeInputSwitchActionName = a} :: PipelineDetail)
 
-instance Core.FromJSON PipelineDetail where
+instance Data.FromJSON PipelineDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineDetail"
       ( \x ->
           PipelineDetail'
-            Prelude.<$> (x Core..:? "activeMotionGraphicsUri")
-            Prelude.<*> (x Core..:? "pipelineId")
-            Prelude.<*> (x Core..:? "activeInputAttachmentName")
-            Prelude.<*> (x Core..:? "activeMotionGraphicsActionName")
-            Prelude.<*> (x Core..:? "activeInputSwitchActionName")
+            Prelude.<$> (x Data..:? "activeMotionGraphicsUri")
+            Prelude.<*> (x Data..:? "pipelineId")
+            Prelude.<*> (x Data..:? "activeInputAttachmentName")
+            Prelude.<*> (x Data..:? "activeMotionGraphicsActionName")
+            Prelude.<*> (x Data..:? "activeInputSwitchActionName")
       )
 
 instance Prelude.Hashable PipelineDetail where

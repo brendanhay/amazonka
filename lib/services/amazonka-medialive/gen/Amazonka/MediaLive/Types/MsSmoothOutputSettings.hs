@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MsSmoothOutputSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.MsSmoothH265PackagingType
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,14 +73,14 @@ msSmoothOutputSettings_nameModifier = Lens.lens (\MsSmoothOutputSettings' {nameM
 msSmoothOutputSettings_h265PackagingType :: Lens.Lens' MsSmoothOutputSettings (Prelude.Maybe MsSmoothH265PackagingType)
 msSmoothOutputSettings_h265PackagingType = Lens.lens (\MsSmoothOutputSettings' {h265PackagingType} -> h265PackagingType) (\s@MsSmoothOutputSettings' {} a -> s {h265PackagingType = a} :: MsSmoothOutputSettings)
 
-instance Core.FromJSON MsSmoothOutputSettings where
+instance Data.FromJSON MsSmoothOutputSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MsSmoothOutputSettings"
       ( \x ->
           MsSmoothOutputSettings'
-            Prelude.<$> (x Core..:? "nameModifier")
-            Prelude.<*> (x Core..:? "h265PackagingType")
+            Prelude.<$> (x Data..:? "nameModifier")
+            Prelude.<*> (x Data..:? "h265PackagingType")
       )
 
 instance Prelude.Hashable MsSmoothOutputSettings where
@@ -92,12 +93,12 @@ instance Prelude.NFData MsSmoothOutputSettings where
     Prelude.rnf nameModifier
       `Prelude.seq` Prelude.rnf h265PackagingType
 
-instance Core.ToJSON MsSmoothOutputSettings where
+instance Data.ToJSON MsSmoothOutputSettings where
   toJSON MsSmoothOutputSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nameModifier" Core..=) Prelude.<$> nameModifier,
-            ("h265PackagingType" Core..=)
+          [ ("nameModifier" Data..=) Prelude.<$> nameModifier,
+            ("h265PackagingType" Data..=)
               Prelude.<$> h265PackagingType
           ]
       )

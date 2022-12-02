@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.CaptionRectangle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Caption Rectangle
@@ -172,16 +173,16 @@ captionRectangle_width = Lens.lens (\CaptionRectangle' {width} -> width) (\s@Cap
 captionRectangle_leftOffset :: Lens.Lens' CaptionRectangle Prelude.Double
 captionRectangle_leftOffset = Lens.lens (\CaptionRectangle' {leftOffset} -> leftOffset) (\s@CaptionRectangle' {} a -> s {leftOffset = a} :: CaptionRectangle)
 
-instance Core.FromJSON CaptionRectangle where
+instance Data.FromJSON CaptionRectangle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptionRectangle"
       ( \x ->
           CaptionRectangle'
-            Prelude.<$> (x Core..: "topOffset")
-            Prelude.<*> (x Core..: "height")
-            Prelude.<*> (x Core..: "width")
-            Prelude.<*> (x Core..: "leftOffset")
+            Prelude.<$> (x Data..: "topOffset")
+            Prelude.<*> (x Data..: "height")
+            Prelude.<*> (x Data..: "width")
+            Prelude.<*> (x Data..: "leftOffset")
       )
 
 instance Prelude.Hashable CaptionRectangle where
@@ -198,13 +199,13 @@ instance Prelude.NFData CaptionRectangle where
       `Prelude.seq` Prelude.rnf width
       `Prelude.seq` Prelude.rnf leftOffset
 
-instance Core.ToJSON CaptionRectangle where
+instance Data.ToJSON CaptionRectangle where
   toJSON CaptionRectangle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("topOffset" Core..= topOffset),
-            Prelude.Just ("height" Core..= height),
-            Prelude.Just ("width" Core..= width),
-            Prelude.Just ("leftOffset" Core..= leftOffset)
+          [ Prelude.Just ("topOffset" Data..= topOffset),
+            Prelude.Just ("height" Data..= height),
+            Prelude.Just ("width" Data..= width),
+            Prelude.Just ("leftOffset" Data..= leftOffset)
           ]
       )

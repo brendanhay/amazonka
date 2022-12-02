@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Ac3Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Ac3BitstreamMode
 import Amazonka.MediaLive.Types.Ac3CodingMode
 import Amazonka.MediaLive.Types.Ac3DrcProfile
@@ -135,19 +136,19 @@ ac3Settings_metadataControl = Lens.lens (\Ac3Settings' {metadataControl} -> meta
 ac3Settings_lfeFilter :: Lens.Lens' Ac3Settings (Prelude.Maybe Ac3LfeFilter)
 ac3Settings_lfeFilter = Lens.lens (\Ac3Settings' {lfeFilter} -> lfeFilter) (\s@Ac3Settings' {} a -> s {lfeFilter = a} :: Ac3Settings)
 
-instance Core.FromJSON Ac3Settings where
+instance Data.FromJSON Ac3Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Ac3Settings"
       ( \x ->
           Ac3Settings'
-            Prelude.<$> (x Core..:? "bitstreamMode")
-            Prelude.<*> (x Core..:? "drcProfile")
-            Prelude.<*> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "dialnorm")
-            Prelude.<*> (x Core..:? "codingMode")
-            Prelude.<*> (x Core..:? "metadataControl")
-            Prelude.<*> (x Core..:? "lfeFilter")
+            Prelude.<$> (x Data..:? "bitstreamMode")
+            Prelude.<*> (x Data..:? "drcProfile")
+            Prelude.<*> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "dialnorm")
+            Prelude.<*> (x Data..:? "codingMode")
+            Prelude.<*> (x Data..:? "metadataControl")
+            Prelude.<*> (x Data..:? "lfeFilter")
       )
 
 instance Prelude.Hashable Ac3Settings where
@@ -170,17 +171,17 @@ instance Prelude.NFData Ac3Settings where
       `Prelude.seq` Prelude.rnf metadataControl
       `Prelude.seq` Prelude.rnf lfeFilter
 
-instance Core.ToJSON Ac3Settings where
+instance Data.ToJSON Ac3Settings where
   toJSON Ac3Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bitstreamMode" Core..=) Prelude.<$> bitstreamMode,
-            ("drcProfile" Core..=) Prelude.<$> drcProfile,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("dialnorm" Core..=) Prelude.<$> dialnorm,
-            ("codingMode" Core..=) Prelude.<$> codingMode,
-            ("metadataControl" Core..=)
+          [ ("bitstreamMode" Data..=) Prelude.<$> bitstreamMode,
+            ("drcProfile" Data..=) Prelude.<$> drcProfile,
+            ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("dialnorm" Data..=) Prelude.<$> dialnorm,
+            ("codingMode" Data..=) Prelude.<$> codingMode,
+            ("metadataControl" Data..=)
               Prelude.<$> metadataControl,
-            ("lfeFilter" Core..=) Prelude.<$> lfeFilter
+            ("lfeFilter" Data..=) Prelude.<$> lfeFilter
           ]
       )

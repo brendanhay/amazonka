@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Scte27SourceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Scte27OcrLanguage
 import qualified Amazonka.Prelude as Prelude
 
@@ -86,14 +87,14 @@ scte27SourceSettings_pid = Lens.lens (\Scte27SourceSettings' {pid} -> pid) (\s@S
 scte27SourceSettings_ocrLanguage :: Lens.Lens' Scte27SourceSettings (Prelude.Maybe Scte27OcrLanguage)
 scte27SourceSettings_ocrLanguage = Lens.lens (\Scte27SourceSettings' {ocrLanguage} -> ocrLanguage) (\s@Scte27SourceSettings' {} a -> s {ocrLanguage = a} :: Scte27SourceSettings)
 
-instance Core.FromJSON Scte27SourceSettings where
+instance Data.FromJSON Scte27SourceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scte27SourceSettings"
       ( \x ->
           Scte27SourceSettings'
-            Prelude.<$> (x Core..:? "pid")
-            Prelude.<*> (x Core..:? "ocrLanguage")
+            Prelude.<$> (x Data..:? "pid")
+            Prelude.<*> (x Data..:? "ocrLanguage")
       )
 
 instance Prelude.Hashable Scte27SourceSettings where
@@ -106,11 +107,11 @@ instance Prelude.NFData Scte27SourceSettings where
     Prelude.rnf pid
       `Prelude.seq` Prelude.rnf ocrLanguage
 
-instance Core.ToJSON Scte27SourceSettings where
+instance Data.ToJSON Scte27SourceSettings where
   toJSON Scte27SourceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("pid" Core..=) Prelude.<$> pid,
-            ("ocrLanguage" Core..=) Prelude.<$> ocrLanguage
+          [ ("pid" Data..=) Prelude.<$> pid,
+            ("ocrLanguage" Data..=) Prelude.<$> ocrLanguage
           ]
       )

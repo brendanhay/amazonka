@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputDeviceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.DeviceSettingsSyncState
 import Amazonka.MediaLive.Types.DeviceUpdateStatus
 import Amazonka.MediaLive.Types.InputDeviceConnectionState
@@ -170,24 +171,24 @@ inputDeviceSummary_macAddress = Lens.lens (\InputDeviceSummary' {macAddress} -> 
 inputDeviceSummary_serialNumber :: Lens.Lens' InputDeviceSummary (Prelude.Maybe Prelude.Text)
 inputDeviceSummary_serialNumber = Lens.lens (\InputDeviceSummary' {serialNumber} -> serialNumber) (\s@InputDeviceSummary' {} a -> s {serialNumber = a} :: InputDeviceSummary)
 
-instance Core.FromJSON InputDeviceSummary where
+instance Data.FromJSON InputDeviceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDeviceSummary"
       ( \x ->
           InputDeviceSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "deviceSettingsSyncState")
-            Prelude.<*> (x Core..:? "networkSettings")
-            Prelude.<*> (x Core..:? "uhdDeviceSettings")
-            Prelude.<*> (x Core..:? "connectionState")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "hdDeviceSettings")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "deviceUpdateStatus")
-            Prelude.<*> (x Core..:? "macAddress")
-            Prelude.<*> (x Core..:? "serialNumber")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "deviceSettingsSyncState")
+            Prelude.<*> (x Data..:? "networkSettings")
+            Prelude.<*> (x Data..:? "uhdDeviceSettings")
+            Prelude.<*> (x Data..:? "connectionState")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "hdDeviceSettings")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "deviceUpdateStatus")
+            Prelude.<*> (x Data..:? "macAddress")
+            Prelude.<*> (x Data..:? "serialNumber")
       )
 
 instance Prelude.Hashable InputDeviceSummary where

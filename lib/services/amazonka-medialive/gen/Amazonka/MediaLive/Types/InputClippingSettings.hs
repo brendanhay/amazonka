@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputClippingSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputTimecodeSource
 import Amazonka.MediaLive.Types.StartTimecode
 import Amazonka.MediaLive.Types.StopTimecode
@@ -77,15 +78,15 @@ inputClippingSettings_startTimecode = Lens.lens (\InputClippingSettings' {startT
 inputClippingSettings_inputTimecodeSource :: Lens.Lens' InputClippingSettings InputTimecodeSource
 inputClippingSettings_inputTimecodeSource = Lens.lens (\InputClippingSettings' {inputTimecodeSource} -> inputTimecodeSource) (\s@InputClippingSettings' {} a -> s {inputTimecodeSource = a} :: InputClippingSettings)
 
-instance Core.FromJSON InputClippingSettings where
+instance Data.FromJSON InputClippingSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputClippingSettings"
       ( \x ->
           InputClippingSettings'
-            Prelude.<$> (x Core..:? "stopTimecode")
-            Prelude.<*> (x Core..:? "startTimecode")
-            Prelude.<*> (x Core..: "inputTimecodeSource")
+            Prelude.<$> (x Data..:? "stopTimecode")
+            Prelude.<*> (x Data..:? "startTimecode")
+            Prelude.<*> (x Data..: "inputTimecodeSource")
       )
 
 instance Prelude.Hashable InputClippingSettings where
@@ -100,13 +101,13 @@ instance Prelude.NFData InputClippingSettings where
       `Prelude.seq` Prelude.rnf startTimecode
       `Prelude.seq` Prelude.rnf inputTimecodeSource
 
-instance Core.ToJSON InputClippingSettings where
+instance Data.ToJSON InputClippingSettings where
   toJSON InputClippingSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("stopTimecode" Core..=) Prelude.<$> stopTimecode,
-            ("startTimecode" Core..=) Prelude.<$> startTimecode,
+          [ ("stopTimecode" Data..=) Prelude.<$> stopTimecode,
+            ("startTimecode" Data..=) Prelude.<$> startTimecode,
             Prelude.Just
-              ("inputTimecodeSource" Core..= inputTimecodeSource)
+              ("inputTimecodeSource" Data..= inputTimecodeSource)
           ]
       )

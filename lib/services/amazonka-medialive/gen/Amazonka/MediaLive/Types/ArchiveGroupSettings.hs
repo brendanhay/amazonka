@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.ArchiveGroupSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.ArchiveCdnSettings
 import Amazonka.MediaLive.Types.OutputLocationRef
 import qualified Amazonka.Prelude as Prelude
@@ -78,15 +79,15 @@ archiveGroupSettings_rolloverInterval = Lens.lens (\ArchiveGroupSettings' {rollo
 archiveGroupSettings_destination :: Lens.Lens' ArchiveGroupSettings OutputLocationRef
 archiveGroupSettings_destination = Lens.lens (\ArchiveGroupSettings' {destination} -> destination) (\s@ArchiveGroupSettings' {} a -> s {destination = a} :: ArchiveGroupSettings)
 
-instance Core.FromJSON ArchiveGroupSettings where
+instance Data.FromJSON ArchiveGroupSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArchiveGroupSettings"
       ( \x ->
           ArchiveGroupSettings'
-            Prelude.<$> (x Core..:? "archiveCdnSettings")
-            Prelude.<*> (x Core..:? "rolloverInterval")
-            Prelude.<*> (x Core..: "destination")
+            Prelude.<$> (x Data..:? "archiveCdnSettings")
+            Prelude.<*> (x Data..:? "rolloverInterval")
+            Prelude.<*> (x Data..: "destination")
       )
 
 instance Prelude.Hashable ArchiveGroupSettings where
@@ -101,14 +102,14 @@ instance Prelude.NFData ArchiveGroupSettings where
       `Prelude.seq` Prelude.rnf rolloverInterval
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToJSON ArchiveGroupSettings where
+instance Data.ToJSON ArchiveGroupSettings where
   toJSON ArchiveGroupSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("archiveCdnSettings" Core..=)
+          [ ("archiveCdnSettings" Data..=)
               Prelude.<$> archiveCdnSettings,
-            ("rolloverInterval" Core..=)
+            ("rolloverInterval" Data..=)
               Prelude.<$> rolloverInterval,
-            Prelude.Just ("destination" Core..= destination)
+            Prelude.Just ("destination" Data..= destination)
           ]
       )

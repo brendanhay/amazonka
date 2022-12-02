@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputCodec
 import Amazonka.MediaLive.Types.InputMaximumBitrate
 import Amazonka.MediaLive.Types.InputResolution
@@ -73,15 +74,15 @@ inputSpecification_maximumBitrate = Lens.lens (\InputSpecification' {maximumBitr
 inputSpecification_resolution :: Lens.Lens' InputSpecification (Prelude.Maybe InputResolution)
 inputSpecification_resolution = Lens.lens (\InputSpecification' {resolution} -> resolution) (\s@InputSpecification' {} a -> s {resolution = a} :: InputSpecification)
 
-instance Core.FromJSON InputSpecification where
+instance Data.FromJSON InputSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputSpecification"
       ( \x ->
           InputSpecification'
-            Prelude.<$> (x Core..:? "codec")
-            Prelude.<*> (x Core..:? "maximumBitrate")
-            Prelude.<*> (x Core..:? "resolution")
+            Prelude.<$> (x Data..:? "codec")
+            Prelude.<*> (x Data..:? "maximumBitrate")
+            Prelude.<*> (x Data..:? "resolution")
       )
 
 instance Prelude.Hashable InputSpecification where
@@ -96,13 +97,13 @@ instance Prelude.NFData InputSpecification where
       `Prelude.seq` Prelude.rnf maximumBitrate
       `Prelude.seq` Prelude.rnf resolution
 
-instance Core.ToJSON InputSpecification where
+instance Data.ToJSON InputSpecification where
   toJSON InputSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("codec" Core..=) Prelude.<$> codec,
-            ("maximumBitrate" Core..=)
+          [ ("codec" Data..=) Prelude.<$> codec,
+            ("maximumBitrate" Data..=)
               Prelude.<$> maximumBitrate,
-            ("resolution" Core..=) Prelude.<$> resolution
+            ("resolution" Data..=) Prelude.<$> resolution
           ]
       )

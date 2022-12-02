@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.HlsS3Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.S3CannedAcl
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,12 +52,12 @@ newHlsS3Settings =
 hlsS3Settings_cannedAcl :: Lens.Lens' HlsS3Settings (Prelude.Maybe S3CannedAcl)
 hlsS3Settings_cannedAcl = Lens.lens (\HlsS3Settings' {cannedAcl} -> cannedAcl) (\s@HlsS3Settings' {} a -> s {cannedAcl = a} :: HlsS3Settings)
 
-instance Core.FromJSON HlsS3Settings where
+instance Data.FromJSON HlsS3Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsS3Settings"
       ( \x ->
-          HlsS3Settings' Prelude.<$> (x Core..:? "cannedAcl")
+          HlsS3Settings' Prelude.<$> (x Data..:? "cannedAcl")
       )
 
 instance Prelude.Hashable HlsS3Settings where
@@ -66,9 +67,9 @@ instance Prelude.Hashable HlsS3Settings where
 instance Prelude.NFData HlsS3Settings where
   rnf HlsS3Settings' {..} = Prelude.rnf cannedAcl
 
-instance Core.ToJSON HlsS3Settings where
+instance Data.ToJSON HlsS3Settings where
   toJSON HlsS3Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("cannedAcl" Core..=) Prelude.<$> cannedAcl]
+          [("cannedAcl" Data..=) Prelude.<$> cannedAcl]
       )

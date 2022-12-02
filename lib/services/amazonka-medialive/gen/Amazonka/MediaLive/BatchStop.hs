@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,8 +95,8 @@ instance Core.AWSRequest BatchStop' where
     Response.receiveJSON
       ( \s h x ->
           BatchStopResponse'
-            Prelude.<$> (x Core..?> "failed" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "successful" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failed" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "successful" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,30 +110,30 @@ instance Prelude.NFData BatchStop' where
     Prelude.rnf multiplexIds
       `Prelude.seq` Prelude.rnf channelIds
 
-instance Core.ToHeaders BatchStop' where
+instance Data.ToHeaders BatchStop' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchStop' where
+instance Data.ToJSON BatchStop' where
   toJSON BatchStop'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("multiplexIds" Core..=) Prelude.<$> multiplexIds,
-            ("channelIds" Core..=) Prelude.<$> channelIds
+          [ ("multiplexIds" Data..=) Prelude.<$> multiplexIds,
+            ("channelIds" Data..=) Prelude.<$> channelIds
           ]
       )
 
-instance Core.ToPath BatchStop' where
+instance Data.ToPath BatchStop' where
   toPath = Prelude.const "/prod/batch/stop"
 
-instance Core.ToQuery BatchStop' where
+instance Data.ToQuery BatchStop' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for BatchStopResponse

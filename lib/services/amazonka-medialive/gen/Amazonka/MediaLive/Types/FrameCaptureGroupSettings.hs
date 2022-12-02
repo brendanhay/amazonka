@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.FrameCaptureGroupSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.FrameCaptureCdnSettings
 import Amazonka.MediaLive.Types.OutputLocationRef
 import qualified Amazonka.Prelude as Prelude
@@ -90,14 +91,14 @@ frameCaptureGroupSettings_frameCaptureCdnSettings = Lens.lens (\FrameCaptureGrou
 frameCaptureGroupSettings_destination :: Lens.Lens' FrameCaptureGroupSettings OutputLocationRef
 frameCaptureGroupSettings_destination = Lens.lens (\FrameCaptureGroupSettings' {destination} -> destination) (\s@FrameCaptureGroupSettings' {} a -> s {destination = a} :: FrameCaptureGroupSettings)
 
-instance Core.FromJSON FrameCaptureGroupSettings where
+instance Data.FromJSON FrameCaptureGroupSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FrameCaptureGroupSettings"
       ( \x ->
           FrameCaptureGroupSettings'
-            Prelude.<$> (x Core..:? "frameCaptureCdnSettings")
-            Prelude.<*> (x Core..: "destination")
+            Prelude.<$> (x Data..:? "frameCaptureCdnSettings")
+            Prelude.<*> (x Data..: "destination")
       )
 
 instance Prelude.Hashable FrameCaptureGroupSettings where
@@ -111,12 +112,12 @@ instance Prelude.NFData FrameCaptureGroupSettings where
     Prelude.rnf frameCaptureCdnSettings
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToJSON FrameCaptureGroupSettings where
+instance Data.ToJSON FrameCaptureGroupSettings where
   toJSON FrameCaptureGroupSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("frameCaptureCdnSettings" Core..=)
+          [ ("frameCaptureCdnSettings" Data..=)
               Prelude.<$> frameCaptureCdnSettings,
-            Prelude.Just ("destination" Core..= destination)
+            Prelude.Just ("destination" Data..= destination)
           ]
       )

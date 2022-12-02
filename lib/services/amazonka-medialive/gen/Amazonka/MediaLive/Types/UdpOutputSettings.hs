@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.UdpOutputSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.FecOutputSettings
 import Amazonka.MediaLive.Types.OutputLocationRef
 import Amazonka.MediaLive.Types.UdpContainerSettings
@@ -109,16 +110,16 @@ udpOutputSettings_destination = Lens.lens (\UdpOutputSettings' {destination} -> 
 udpOutputSettings_containerSettings :: Lens.Lens' UdpOutputSettings UdpContainerSettings
 udpOutputSettings_containerSettings = Lens.lens (\UdpOutputSettings' {containerSettings} -> containerSettings) (\s@UdpOutputSettings' {} a -> s {containerSettings = a} :: UdpOutputSettings)
 
-instance Core.FromJSON UdpOutputSettings where
+instance Data.FromJSON UdpOutputSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UdpOutputSettings"
       ( \x ->
           UdpOutputSettings'
-            Prelude.<$> (x Core..:? "fecOutputSettings")
-            Prelude.<*> (x Core..:? "bufferMsec")
-            Prelude.<*> (x Core..: "destination")
-            Prelude.<*> (x Core..: "containerSettings")
+            Prelude.<$> (x Data..:? "fecOutputSettings")
+            Prelude.<*> (x Data..:? "bufferMsec")
+            Prelude.<*> (x Data..: "destination")
+            Prelude.<*> (x Data..: "containerSettings")
       )
 
 instance Prelude.Hashable UdpOutputSettings where
@@ -135,15 +136,15 @@ instance Prelude.NFData UdpOutputSettings where
       `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf containerSettings
 
-instance Core.ToJSON UdpOutputSettings where
+instance Data.ToJSON UdpOutputSettings where
   toJSON UdpOutputSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fecOutputSettings" Core..=)
+          [ ("fecOutputSettings" Data..=)
               Prelude.<$> fecOutputSettings,
-            ("bufferMsec" Core..=) Prelude.<$> bufferMsec,
-            Prelude.Just ("destination" Core..= destination),
+            ("bufferMsec" Data..=) Prelude.<$> bufferMsec,
+            Prelude.Just ("destination" Data..= destination),
             Prelude.Just
-              ("containerSettings" Core..= containerSettings)
+              ("containerSettings" Data..= containerSettings)
           ]
       )

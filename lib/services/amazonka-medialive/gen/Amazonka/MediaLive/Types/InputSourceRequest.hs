@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputSourceRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for for a PULL type input.
@@ -82,12 +83,12 @@ instance Prelude.NFData InputSourceRequest where
       `Prelude.seq` Prelude.rnf passwordParam
       `Prelude.seq` Prelude.rnf url
 
-instance Core.ToJSON InputSourceRequest where
+instance Data.ToJSON InputSourceRequest where
   toJSON InputSourceRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("username" Core..=) Prelude.<$> username,
-            ("passwordParam" Core..=) Prelude.<$> passwordParam,
-            ("url" Core..=) Prelude.<$> url
+          [ ("username" Data..=) Prelude.<$> username,
+            ("passwordParam" Data..=) Prelude.<$> passwordParam,
+            ("url" Data..=) Prelude.<$> url
           ]
       )

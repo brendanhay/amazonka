@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Scte35TimeSignalApos where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Scte35AposNoRegionalBlackoutBehavior
 import Amazonka.MediaLive.Types.Scte35AposWebDeliveryAllowedBehavior
 import qualified Amazonka.Prelude as Prelude
@@ -85,15 +86,15 @@ scte35TimeSignalApos_noRegionalBlackoutFlag = Lens.lens (\Scte35TimeSignalApos' 
 scte35TimeSignalApos_adAvailOffset :: Lens.Lens' Scte35TimeSignalApos (Prelude.Maybe Prelude.Int)
 scte35TimeSignalApos_adAvailOffset = Lens.lens (\Scte35TimeSignalApos' {adAvailOffset} -> adAvailOffset) (\s@Scte35TimeSignalApos' {} a -> s {adAvailOffset = a} :: Scte35TimeSignalApos)
 
-instance Core.FromJSON Scte35TimeSignalApos where
+instance Data.FromJSON Scte35TimeSignalApos where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scte35TimeSignalApos"
       ( \x ->
           Scte35TimeSignalApos'
-            Prelude.<$> (x Core..:? "webDeliveryAllowedFlag")
-            Prelude.<*> (x Core..:? "noRegionalBlackoutFlag")
-            Prelude.<*> (x Core..:? "adAvailOffset")
+            Prelude.<$> (x Data..:? "webDeliveryAllowedFlag")
+            Prelude.<*> (x Data..:? "noRegionalBlackoutFlag")
+            Prelude.<*> (x Data..:? "adAvailOffset")
       )
 
 instance Prelude.Hashable Scte35TimeSignalApos where
@@ -108,14 +109,14 @@ instance Prelude.NFData Scte35TimeSignalApos where
       `Prelude.seq` Prelude.rnf noRegionalBlackoutFlag
       `Prelude.seq` Prelude.rnf adAvailOffset
 
-instance Core.ToJSON Scte35TimeSignalApos where
+instance Data.ToJSON Scte35TimeSignalApos where
   toJSON Scte35TimeSignalApos' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("webDeliveryAllowedFlag" Core..=)
+          [ ("webDeliveryAllowedFlag" Data..=)
               Prelude.<$> webDeliveryAllowedFlag,
-            ("noRegionalBlackoutFlag" Core..=)
+            ("noRegionalBlackoutFlag" Data..=)
               Prelude.<$> noRegionalBlackoutFlag,
-            ("adAvailOffset" Core..=) Prelude.<$> adAvailOffset
+            ("adAvailOffset" Data..=) Prelude.<$> adAvailOffset
           ]
       )

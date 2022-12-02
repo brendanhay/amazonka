@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AudioSelector
 import Amazonka.MediaLive.Types.CaptionSelector
 import Amazonka.MediaLive.Types.InputDeblockFilter
@@ -188,25 +189,25 @@ inputSettings_videoSelector = Lens.lens (\InputSettings' {videoSelector} -> vide
 inputSettings_smpte2038DataPreference :: Lens.Lens' InputSettings (Prelude.Maybe Smpte2038DataPreference)
 inputSettings_smpte2038DataPreference = Lens.lens (\InputSettings' {smpte2038DataPreference} -> smpte2038DataPreference) (\s@InputSettings' {} a -> s {smpte2038DataPreference = a} :: InputSettings)
 
-instance Core.FromJSON InputSettings where
+instance Data.FromJSON InputSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputSettings"
       ( \x ->
           InputSettings'
-            Prelude.<$> (x Core..:? "deblockFilter")
-            Prelude.<*> ( x Core..:? "captionSelectors"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "deblockFilter")
+            Prelude.<*> ( x Data..:? "captionSelectors"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "filterStrength")
-            Prelude.<*> (x Core..:? "networkInputSettings")
-            Prelude.<*> (x Core..:? "inputFilter")
-            Prelude.<*> (x Core..:? "audioSelectors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "sourceEndBehavior")
-            Prelude.<*> (x Core..:? "scte35Pid")
-            Prelude.<*> (x Core..:? "denoiseFilter")
-            Prelude.<*> (x Core..:? "videoSelector")
-            Prelude.<*> (x Core..:? "smpte2038DataPreference")
+            Prelude.<*> (x Data..:? "filterStrength")
+            Prelude.<*> (x Data..:? "networkInputSettings")
+            Prelude.<*> (x Data..:? "inputFilter")
+            Prelude.<*> (x Data..:? "audioSelectors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "sourceEndBehavior")
+            Prelude.<*> (x Data..:? "scte35Pid")
+            Prelude.<*> (x Data..:? "denoiseFilter")
+            Prelude.<*> (x Data..:? "videoSelector")
+            Prelude.<*> (x Data..:? "smpte2038DataPreference")
       )
 
 instance Prelude.Hashable InputSettings where
@@ -237,26 +238,26 @@ instance Prelude.NFData InputSettings where
       `Prelude.seq` Prelude.rnf videoSelector
       `Prelude.seq` Prelude.rnf smpte2038DataPreference
 
-instance Core.ToJSON InputSettings where
+instance Data.ToJSON InputSettings where
   toJSON InputSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deblockFilter" Core..=) Prelude.<$> deblockFilter,
-            ("captionSelectors" Core..=)
+          [ ("deblockFilter" Data..=) Prelude.<$> deblockFilter,
+            ("captionSelectors" Data..=)
               Prelude.<$> captionSelectors,
-            ("filterStrength" Core..=)
+            ("filterStrength" Data..=)
               Prelude.<$> filterStrength,
-            ("networkInputSettings" Core..=)
+            ("networkInputSettings" Data..=)
               Prelude.<$> networkInputSettings,
-            ("inputFilter" Core..=) Prelude.<$> inputFilter,
-            ("audioSelectors" Core..=)
+            ("inputFilter" Data..=) Prelude.<$> inputFilter,
+            ("audioSelectors" Data..=)
               Prelude.<$> audioSelectors,
-            ("sourceEndBehavior" Core..=)
+            ("sourceEndBehavior" Data..=)
               Prelude.<$> sourceEndBehavior,
-            ("scte35Pid" Core..=) Prelude.<$> scte35Pid,
-            ("denoiseFilter" Core..=) Prelude.<$> denoiseFilter,
-            ("videoSelector" Core..=) Prelude.<$> videoSelector,
-            ("smpte2038DataPreference" Core..=)
+            ("scte35Pid" Data..=) Prelude.<$> scte35Pid,
+            ("denoiseFilter" Data..=) Prelude.<$> denoiseFilter,
+            ("videoSelector" Data..=) Prelude.<$> videoSelector,
+            ("smpte2038DataPreference" Data..=)
               Prelude.<$> smpte2038DataPreference
           ]
       )

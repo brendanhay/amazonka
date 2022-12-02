@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.M3u8Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.M3u8NielsenId3Behavior
 import Amazonka.MediaLive.Types.M3u8PcrControl
 import Amazonka.MediaLive.Types.M3u8Scte35Behavior
@@ -269,29 +270,29 @@ m3u8Settings_pmtPid = Lens.lens (\M3u8Settings' {pmtPid} -> pmtPid) (\s@M3u8Sett
 m3u8Settings_audioPids :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Text)
 m3u8Settings_audioPids = Lens.lens (\M3u8Settings' {audioPids} -> audioPids) (\s@M3u8Settings' {} a -> s {audioPids = a} :: M3u8Settings)
 
-instance Core.FromJSON M3u8Settings where
+instance Data.FromJSON M3u8Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "M3u8Settings"
       ( \x ->
           M3u8Settings'
-            Prelude.<$> (x Core..:? "transportStreamId")
-            Prelude.<*> (x Core..:? "pcrControl")
-            Prelude.<*> (x Core..:? "pcrPid")
-            Prelude.<*> (x Core..:? "programNum")
-            Prelude.<*> (x Core..:? "patInterval")
-            Prelude.<*> (x Core..:? "timedMetadataPid")
-            Prelude.<*> (x Core..:? "audioFramesPerPes")
-            Prelude.<*> (x Core..:? "pcrPeriod")
-            Prelude.<*> (x Core..:? "videoPid")
-            Prelude.<*> (x Core..:? "pmtInterval")
-            Prelude.<*> (x Core..:? "ecmPid")
-            Prelude.<*> (x Core..:? "scte35Behavior")
-            Prelude.<*> (x Core..:? "scte35Pid")
-            Prelude.<*> (x Core..:? "nielsenId3Behavior")
-            Prelude.<*> (x Core..:? "timedMetadataBehavior")
-            Prelude.<*> (x Core..:? "pmtPid")
-            Prelude.<*> (x Core..:? "audioPids")
+            Prelude.<$> (x Data..:? "transportStreamId")
+            Prelude.<*> (x Data..:? "pcrControl")
+            Prelude.<*> (x Data..:? "pcrPid")
+            Prelude.<*> (x Data..:? "programNum")
+            Prelude.<*> (x Data..:? "patInterval")
+            Prelude.<*> (x Data..:? "timedMetadataPid")
+            Prelude.<*> (x Data..:? "audioFramesPerPes")
+            Prelude.<*> (x Data..:? "pcrPeriod")
+            Prelude.<*> (x Data..:? "videoPid")
+            Prelude.<*> (x Data..:? "pmtInterval")
+            Prelude.<*> (x Data..:? "ecmPid")
+            Prelude.<*> (x Data..:? "scte35Behavior")
+            Prelude.<*> (x Data..:? "scte35Pid")
+            Prelude.<*> (x Data..:? "nielsenId3Behavior")
+            Prelude.<*> (x Data..:? "timedMetadataBehavior")
+            Prelude.<*> (x Data..:? "pmtPid")
+            Prelude.<*> (x Data..:? "audioPids")
       )
 
 instance Prelude.Hashable M3u8Settings where
@@ -334,32 +335,32 @@ instance Prelude.NFData M3u8Settings where
       `Prelude.seq` Prelude.rnf pmtPid
       `Prelude.seq` Prelude.rnf audioPids
 
-instance Core.ToJSON M3u8Settings where
+instance Data.ToJSON M3u8Settings where
   toJSON M3u8Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("transportStreamId" Core..=)
+          [ ("transportStreamId" Data..=)
               Prelude.<$> transportStreamId,
-            ("pcrControl" Core..=) Prelude.<$> pcrControl,
-            ("pcrPid" Core..=) Prelude.<$> pcrPid,
-            ("programNum" Core..=) Prelude.<$> programNum,
-            ("patInterval" Core..=) Prelude.<$> patInterval,
-            ("timedMetadataPid" Core..=)
+            ("pcrControl" Data..=) Prelude.<$> pcrControl,
+            ("pcrPid" Data..=) Prelude.<$> pcrPid,
+            ("programNum" Data..=) Prelude.<$> programNum,
+            ("patInterval" Data..=) Prelude.<$> patInterval,
+            ("timedMetadataPid" Data..=)
               Prelude.<$> timedMetadataPid,
-            ("audioFramesPerPes" Core..=)
+            ("audioFramesPerPes" Data..=)
               Prelude.<$> audioFramesPerPes,
-            ("pcrPeriod" Core..=) Prelude.<$> pcrPeriod,
-            ("videoPid" Core..=) Prelude.<$> videoPid,
-            ("pmtInterval" Core..=) Prelude.<$> pmtInterval,
-            ("ecmPid" Core..=) Prelude.<$> ecmPid,
-            ("scte35Behavior" Core..=)
+            ("pcrPeriod" Data..=) Prelude.<$> pcrPeriod,
+            ("videoPid" Data..=) Prelude.<$> videoPid,
+            ("pmtInterval" Data..=) Prelude.<$> pmtInterval,
+            ("ecmPid" Data..=) Prelude.<$> ecmPid,
+            ("scte35Behavior" Data..=)
               Prelude.<$> scte35Behavior,
-            ("scte35Pid" Core..=) Prelude.<$> scte35Pid,
-            ("nielsenId3Behavior" Core..=)
+            ("scte35Pid" Data..=) Prelude.<$> scte35Pid,
+            ("nielsenId3Behavior" Data..=)
               Prelude.<$> nielsenId3Behavior,
-            ("timedMetadataBehavior" Core..=)
+            ("timedMetadataBehavior" Data..=)
               Prelude.<$> timedMetadataBehavior,
-            ("pmtPid" Core..=) Prelude.<$> pmtPid,
-            ("audioPids" Core..=) Prelude.<$> audioPids
+            ("pmtPid" Data..=) Prelude.<$> pmtPid,
+            ("audioPids" Data..=) Prelude.<$> audioPids
           ]
       )

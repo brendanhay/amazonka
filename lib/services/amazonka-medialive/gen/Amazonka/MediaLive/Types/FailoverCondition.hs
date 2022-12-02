@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.FailoverCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.FailoverConditionSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,13 +56,13 @@ newFailoverCondition =
 failoverCondition_failoverConditionSettings :: Lens.Lens' FailoverCondition (Prelude.Maybe FailoverConditionSettings)
 failoverCondition_failoverConditionSettings = Lens.lens (\FailoverCondition' {failoverConditionSettings} -> failoverConditionSettings) (\s@FailoverCondition' {} a -> s {failoverConditionSettings = a} :: FailoverCondition)
 
-instance Core.FromJSON FailoverCondition where
+instance Data.FromJSON FailoverCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailoverCondition"
       ( \x ->
           FailoverCondition'
-            Prelude.<$> (x Core..:? "failoverConditionSettings")
+            Prelude.<$> (x Data..:? "failoverConditionSettings")
       )
 
 instance Prelude.Hashable FailoverCondition where
@@ -73,11 +74,11 @@ instance Prelude.NFData FailoverCondition where
   rnf FailoverCondition' {..} =
     Prelude.rnf failoverConditionSettings
 
-instance Core.ToJSON FailoverCondition where
+instance Data.ToJSON FailoverCondition where
   toJSON FailoverCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("failoverConditionSettings" Core..=)
+          [ ("failoverConditionSettings" Data..=)
               Prelude.<$> failoverConditionSettings
           ]
       )

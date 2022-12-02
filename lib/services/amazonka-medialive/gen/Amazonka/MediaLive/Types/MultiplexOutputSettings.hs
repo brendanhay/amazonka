@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MultiplexOutputSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.OutputLocationRef
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newMultiplexOutputSettings pDestination_ =
 multiplexOutputSettings_destination :: Lens.Lens' MultiplexOutputSettings OutputLocationRef
 multiplexOutputSettings_destination = Lens.lens (\MultiplexOutputSettings' {destination} -> destination) (\s@MultiplexOutputSettings' {} a -> s {destination = a} :: MultiplexOutputSettings)
 
-instance Core.FromJSON MultiplexOutputSettings where
+instance Data.FromJSON MultiplexOutputSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiplexOutputSettings"
       ( \x ->
           MultiplexOutputSettings'
-            Prelude.<$> (x Core..: "destination")
+            Prelude.<$> (x Data..: "destination")
       )
 
 instance Prelude.Hashable MultiplexOutputSettings where
@@ -73,9 +74,9 @@ instance Prelude.NFData MultiplexOutputSettings where
   rnf MultiplexOutputSettings' {..} =
     Prelude.rnf destination
 
-instance Core.ToJSON MultiplexOutputSettings where
+instance Data.ToJSON MultiplexOutputSettings where
   toJSON MultiplexOutputSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("destination" Core..= destination)]
+          [Prelude.Just ("destination" Data..= destination)]
       )

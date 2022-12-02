@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Eac3AtmosSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Eac3AtmosCodingMode
 import Amazonka.MediaLive.Types.Eac3AtmosDrcLine
 import Amazonka.MediaLive.Types.Eac3AtmosDrcRf
@@ -130,19 +131,19 @@ eac3AtmosSettings_codingMode = Lens.lens (\Eac3AtmosSettings' {codingMode} -> co
 eac3AtmosSettings_surroundTrim :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Prelude.Double)
 eac3AtmosSettings_surroundTrim = Lens.lens (\Eac3AtmosSettings' {surroundTrim} -> surroundTrim) (\s@Eac3AtmosSettings' {} a -> s {surroundTrim = a} :: Eac3AtmosSettings)
 
-instance Core.FromJSON Eac3AtmosSettings where
+instance Data.FromJSON Eac3AtmosSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Eac3AtmosSettings"
       ( \x ->
           Eac3AtmosSettings'
-            Prelude.<$> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "drcLine")
-            Prelude.<*> (x Core..:? "drcRf")
-            Prelude.<*> (x Core..:? "heightTrim")
-            Prelude.<*> (x Core..:? "dialnorm")
-            Prelude.<*> (x Core..:? "codingMode")
-            Prelude.<*> (x Core..:? "surroundTrim")
+            Prelude.<$> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "drcLine")
+            Prelude.<*> (x Data..:? "drcRf")
+            Prelude.<*> (x Data..:? "heightTrim")
+            Prelude.<*> (x Data..:? "dialnorm")
+            Prelude.<*> (x Data..:? "codingMode")
+            Prelude.<*> (x Data..:? "surroundTrim")
       )
 
 instance Prelude.Hashable Eac3AtmosSettings where
@@ -165,16 +166,16 @@ instance Prelude.NFData Eac3AtmosSettings where
       `Prelude.seq` Prelude.rnf codingMode
       `Prelude.seq` Prelude.rnf surroundTrim
 
-instance Core.ToJSON Eac3AtmosSettings where
+instance Data.ToJSON Eac3AtmosSettings where
   toJSON Eac3AtmosSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("drcLine" Core..=) Prelude.<$> drcLine,
-            ("drcRf" Core..=) Prelude.<$> drcRf,
-            ("heightTrim" Core..=) Prelude.<$> heightTrim,
-            ("dialnorm" Core..=) Prelude.<$> dialnorm,
-            ("codingMode" Core..=) Prelude.<$> codingMode,
-            ("surroundTrim" Core..=) Prelude.<$> surroundTrim
+          [ ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("drcLine" Data..=) Prelude.<$> drcLine,
+            ("drcRf" Data..=) Prelude.<$> drcRf,
+            ("heightTrim" Data..=) Prelude.<$> heightTrim,
+            ("dialnorm" Data..=) Prelude.<$> dialnorm,
+            ("codingMode" Data..=) Prelude.<$> codingMode,
+            ("surroundTrim" Data..=) Prelude.<$> surroundTrim
           ]
       )

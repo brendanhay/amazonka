@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ instance Core.AWSRequest UpdateInputSecurityGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateInputSecurityGroupResponse'
-            Prelude.<$> (x Core..?> "securityGroup")
+            Prelude.<$> (x Data..?> "securityGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,35 +125,35 @@ instance Prelude.NFData UpdateInputSecurityGroup where
       `Prelude.seq` Prelude.rnf whitelistRules
       `Prelude.seq` Prelude.rnf inputSecurityGroupId
 
-instance Core.ToHeaders UpdateInputSecurityGroup where
+instance Data.ToHeaders UpdateInputSecurityGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateInputSecurityGroup where
+instance Data.ToJSON UpdateInputSecurityGroup where
   toJSON UpdateInputSecurityGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("whitelistRules" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("whitelistRules" Data..=)
               Prelude.<$> whitelistRules
           ]
       )
 
-instance Core.ToPath UpdateInputSecurityGroup where
+instance Data.ToPath UpdateInputSecurityGroup where
   toPath UpdateInputSecurityGroup' {..} =
     Prelude.mconcat
       [ "/prod/inputSecurityGroups/",
-        Core.toBS inputSecurityGroupId
+        Data.toBS inputSecurityGroupId
       ]
 
-instance Core.ToQuery UpdateInputSecurityGroup where
+instance Data.ToQuery UpdateInputSecurityGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for UpdateInputSecurityGroupResponse

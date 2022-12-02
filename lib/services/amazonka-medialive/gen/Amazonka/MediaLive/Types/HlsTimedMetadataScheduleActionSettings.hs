@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.HlsTimedMetadataScheduleActionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for the action to emit HLS metadata
@@ -59,15 +60,15 @@ hlsTimedMetadataScheduleActionSettings_id3 :: Lens.Lens' HlsTimedMetadataSchedul
 hlsTimedMetadataScheduleActionSettings_id3 = Lens.lens (\HlsTimedMetadataScheduleActionSettings' {id3} -> id3) (\s@HlsTimedMetadataScheduleActionSettings' {} a -> s {id3 = a} :: HlsTimedMetadataScheduleActionSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     HlsTimedMetadataScheduleActionSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsTimedMetadataScheduleActionSettings"
       ( \x ->
           HlsTimedMetadataScheduleActionSettings'
-            Prelude.<$> (x Core..: "id3")
+            Prelude.<$> (x Data..: "id3")
       )
 
 instance
@@ -87,11 +88,11 @@ instance
     Prelude.rnf id3
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     HlsTimedMetadataScheduleActionSettings
   where
   toJSON HlsTimedMetadataScheduleActionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("id3" Core..= id3)]
+          [Prelude.Just ("id3" Data..= id3)]
       )

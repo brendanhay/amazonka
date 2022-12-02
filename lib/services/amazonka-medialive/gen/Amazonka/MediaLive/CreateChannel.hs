@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -222,7 +223,7 @@ instance Core.AWSRequest CreateChannel' where
     Response.receiveJSON
       ( \s h x ->
           CreateChannelResponse'
-            Prelude.<$> (x Core..?> "channel")
+            Prelude.<$> (x Data..?> "channel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -260,46 +261,46 @@ instance Prelude.NFData CreateChannel' where
       `Prelude.seq` Prelude.rnf reserved
       `Prelude.seq` Prelude.rnf encoderSettings
 
-instance Core.ToHeaders CreateChannel' where
+instance Data.ToHeaders CreateChannel' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateChannel' where
+instance Data.ToJSON CreateChannel' where
   toJSON CreateChannel'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("name" Core..=) Prelude.<$> name,
-            ("maintenance" Core..=) Prelude.<$> maintenance,
-            ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("vpc" Core..=) Prelude.<$> vpc,
-            ("logLevel" Core..=) Prelude.<$> logLevel,
-            ("requestId" Core..=) Prelude.<$> requestId,
-            ("inputSpecification" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("name" Data..=) Prelude.<$> name,
+            ("maintenance" Data..=) Prelude.<$> maintenance,
+            ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("vpc" Data..=) Prelude.<$> vpc,
+            ("logLevel" Data..=) Prelude.<$> logLevel,
+            ("requestId" Data..=) Prelude.<$> requestId,
+            ("inputSpecification" Data..=)
               Prelude.<$> inputSpecification,
-            ("channelClass" Core..=) Prelude.<$> channelClass,
-            ("cdiInputSpecification" Core..=)
+            ("channelClass" Data..=) Prelude.<$> channelClass,
+            ("cdiInputSpecification" Data..=)
               Prelude.<$> cdiInputSpecification,
-            ("inputAttachments" Core..=)
+            ("inputAttachments" Data..=)
               Prelude.<$> inputAttachments,
-            ("destinations" Core..=) Prelude.<$> destinations,
-            ("reserved" Core..=) Prelude.<$> reserved,
-            ("encoderSettings" Core..=)
+            ("destinations" Data..=) Prelude.<$> destinations,
+            ("reserved" Data..=) Prelude.<$> reserved,
+            ("encoderSettings" Data..=)
               Prelude.<$> encoderSettings
           ]
       )
 
-instance Core.ToPath CreateChannel' where
+instance Data.ToPath CreateChannel' where
   toPath = Prelude.const "/prod/channels"
 
-instance Core.ToQuery CreateChannel' where
+instance Data.ToQuery CreateChannel' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for CreateChannelResponse

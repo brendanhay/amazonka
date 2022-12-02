@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MultiplexProgramPacketIdentifiersMap where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Packet identifiers map for a given Multiplex program.
@@ -149,27 +150,27 @@ multiplexProgramPacketIdentifiersMap_dvbSubPids :: Lens.Lens' MultiplexProgramPa
 multiplexProgramPacketIdentifiersMap_dvbSubPids = Lens.lens (\MultiplexProgramPacketIdentifiersMap' {dvbSubPids} -> dvbSubPids) (\s@MultiplexProgramPacketIdentifiersMap' {} a -> s {dvbSubPids = a} :: MultiplexProgramPacketIdentifiersMap) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MultiplexProgramPacketIdentifiersMap
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiplexProgramPacketIdentifiersMap"
       ( \x ->
           MultiplexProgramPacketIdentifiersMap'
-            Prelude.<$> (x Core..:? "pcrPid")
-            Prelude.<*> (x Core..:? "etvSignalPid")
-            Prelude.<*> (x Core..:? "klvDataPids" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "etvPlatformPid")
-            Prelude.<*> (x Core..:? "timedMetadataPid")
-            Prelude.<*> (x Core..:? "scte27Pids" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "videoPid")
-            Prelude.<*> (x Core..:? "privateMetadataPid")
-            Prelude.<*> (x Core..:? "scte35Pid")
-            Prelude.<*> (x Core..:? "dvbTeletextPid")
-            Prelude.<*> (x Core..:? "pmtPid")
-            Prelude.<*> (x Core..:? "audioPids" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "dvbSubPids" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "pcrPid")
+            Prelude.<*> (x Data..:? "etvSignalPid")
+            Prelude.<*> (x Data..:? "klvDataPids" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "etvPlatformPid")
+            Prelude.<*> (x Data..:? "timedMetadataPid")
+            Prelude.<*> (x Data..:? "scte27Pids" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "videoPid")
+            Prelude.<*> (x Data..:? "privateMetadataPid")
+            Prelude.<*> (x Data..:? "scte35Pid")
+            Prelude.<*> (x Data..:? "dvbTeletextPid")
+            Prelude.<*> (x Data..:? "pmtPid")
+            Prelude.<*> (x Data..:? "audioPids" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "dvbSubPids" Data..!= Prelude.mempty)
       )
 
 instance

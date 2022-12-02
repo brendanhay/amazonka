@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputDeviceNetworkSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputDeviceIpScheme
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,17 +97,17 @@ inputDeviceNetworkSettings_subnetMask = Lens.lens (\InputDeviceNetworkSettings' 
 inputDeviceNetworkSettings_ipAddress :: Lens.Lens' InputDeviceNetworkSettings (Prelude.Maybe Prelude.Text)
 inputDeviceNetworkSettings_ipAddress = Lens.lens (\InputDeviceNetworkSettings' {ipAddress} -> ipAddress) (\s@InputDeviceNetworkSettings' {} a -> s {ipAddress = a} :: InputDeviceNetworkSettings)
 
-instance Core.FromJSON InputDeviceNetworkSettings where
+instance Data.FromJSON InputDeviceNetworkSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDeviceNetworkSettings"
       ( \x ->
           InputDeviceNetworkSettings'
-            Prelude.<$> (x Core..:? "gateway")
-            Prelude.<*> (x Core..:? "ipScheme")
-            Prelude.<*> (x Core..:? "dnsAddresses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "subnetMask")
-            Prelude.<*> (x Core..:? "ipAddress")
+            Prelude.<$> (x Data..:? "gateway")
+            Prelude.<*> (x Data..:? "ipScheme")
+            Prelude.<*> (x Data..:? "dnsAddresses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "subnetMask")
+            Prelude.<*> (x Data..:? "ipAddress")
       )
 
 instance Prelude.Hashable InputDeviceNetworkSettings where

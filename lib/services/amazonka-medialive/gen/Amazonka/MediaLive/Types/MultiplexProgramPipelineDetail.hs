@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MultiplexProgramPipelineDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current source for one of the pipelines in the multiplex.
@@ -65,14 +66,14 @@ multiplexProgramPipelineDetail_activeChannelPipeline = Lens.lens (\MultiplexProg
 multiplexProgramPipelineDetail_pipelineId :: Lens.Lens' MultiplexProgramPipelineDetail (Prelude.Maybe Prelude.Text)
 multiplexProgramPipelineDetail_pipelineId = Lens.lens (\MultiplexProgramPipelineDetail' {pipelineId} -> pipelineId) (\s@MultiplexProgramPipelineDetail' {} a -> s {pipelineId = a} :: MultiplexProgramPipelineDetail)
 
-instance Core.FromJSON MultiplexProgramPipelineDetail where
+instance Data.FromJSON MultiplexProgramPipelineDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiplexProgramPipelineDetail"
       ( \x ->
           MultiplexProgramPipelineDetail'
-            Prelude.<$> (x Core..:? "activeChannelPipeline")
-            Prelude.<*> (x Core..:? "pipelineId")
+            Prelude.<$> (x Data..:? "activeChannelPipeline")
+            Prelude.<*> (x Data..:? "pipelineId")
       )
 
 instance

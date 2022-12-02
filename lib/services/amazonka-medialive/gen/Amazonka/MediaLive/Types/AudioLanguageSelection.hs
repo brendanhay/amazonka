@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AudioLanguageSelection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy
 import qualified Amazonka.Prelude as Prelude
 
@@ -86,14 +87,14 @@ audioLanguageSelection_languageSelectionPolicy = Lens.lens (\AudioLanguageSelect
 audioLanguageSelection_languageCode :: Lens.Lens' AudioLanguageSelection Prelude.Text
 audioLanguageSelection_languageCode = Lens.lens (\AudioLanguageSelection' {languageCode} -> languageCode) (\s@AudioLanguageSelection' {} a -> s {languageCode = a} :: AudioLanguageSelection)
 
-instance Core.FromJSON AudioLanguageSelection where
+instance Data.FromJSON AudioLanguageSelection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioLanguageSelection"
       ( \x ->
           AudioLanguageSelection'
-            Prelude.<$> (x Core..:? "languageSelectionPolicy")
-            Prelude.<*> (x Core..: "languageCode")
+            Prelude.<$> (x Data..:? "languageSelectionPolicy")
+            Prelude.<*> (x Data..: "languageCode")
       )
 
 instance Prelude.Hashable AudioLanguageSelection where
@@ -107,12 +108,12 @@ instance Prelude.NFData AudioLanguageSelection where
     Prelude.rnf languageSelectionPolicy
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToJSON AudioLanguageSelection where
+instance Data.ToJSON AudioLanguageSelection where
   toJSON AudioLanguageSelection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("languageSelectionPolicy" Core..=)
+          [ ("languageSelectionPolicy" Data..=)
               Prelude.<$> languageSelectionPolicy,
-            Prelude.Just ("languageCode" Core..= languageCode)
+            Prelude.Just ("languageCode" Data..= languageCode)
           ]
       )

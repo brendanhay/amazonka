@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputWhitelistRuleCidr where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An IPv4 CIDR to whitelist.
@@ -57,9 +58,9 @@ instance Prelude.Hashable InputWhitelistRuleCidr where
 instance Prelude.NFData InputWhitelistRuleCidr where
   rnf InputWhitelistRuleCidr' {..} = Prelude.rnf cidr
 
-instance Core.ToJSON InputWhitelistRuleCidr where
+instance Data.ToJSON InputWhitelistRuleCidr where
   toJSON InputWhitelistRuleCidr' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("cidr" Core..=) Prelude.<$> cidr]
+          [("cidr" Data..=) Prelude.<$> cidr]
       )

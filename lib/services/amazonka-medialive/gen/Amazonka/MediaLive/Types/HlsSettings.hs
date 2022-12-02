@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.HlsSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AudioOnlyHlsSettings
 import Amazonka.MediaLive.Types.Fmp4HlsSettings
 import Amazonka.MediaLive.Types.FrameCaptureHlsSettings
@@ -80,16 +81,16 @@ hlsSettings_fmp4HlsSettings = Lens.lens (\HlsSettings' {fmp4HlsSettings} -> fmp4
 hlsSettings_standardHlsSettings :: Lens.Lens' HlsSettings (Prelude.Maybe StandardHlsSettings)
 hlsSettings_standardHlsSettings = Lens.lens (\HlsSettings' {standardHlsSettings} -> standardHlsSettings) (\s@HlsSettings' {} a -> s {standardHlsSettings = a} :: HlsSettings)
 
-instance Core.FromJSON HlsSettings where
+instance Data.FromJSON HlsSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsSettings"
       ( \x ->
           HlsSettings'
-            Prelude.<$> (x Core..:? "frameCaptureHlsSettings")
-            Prelude.<*> (x Core..:? "audioOnlyHlsSettings")
-            Prelude.<*> (x Core..:? "fmp4HlsSettings")
-            Prelude.<*> (x Core..:? "standardHlsSettings")
+            Prelude.<$> (x Data..:? "frameCaptureHlsSettings")
+            Prelude.<*> (x Data..:? "audioOnlyHlsSettings")
+            Prelude.<*> (x Data..:? "fmp4HlsSettings")
+            Prelude.<*> (x Data..:? "standardHlsSettings")
       )
 
 instance Prelude.Hashable HlsSettings where
@@ -107,17 +108,17 @@ instance Prelude.NFData HlsSettings where
       `Prelude.seq` Prelude.rnf fmp4HlsSettings
       `Prelude.seq` Prelude.rnf standardHlsSettings
 
-instance Core.ToJSON HlsSettings where
+instance Data.ToJSON HlsSettings where
   toJSON HlsSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("frameCaptureHlsSettings" Core..=)
+          [ ("frameCaptureHlsSettings" Data..=)
               Prelude.<$> frameCaptureHlsSettings,
-            ("audioOnlyHlsSettings" Core..=)
+            ("audioOnlyHlsSettings" Data..=)
               Prelude.<$> audioOnlyHlsSettings,
-            ("fmp4HlsSettings" Core..=)
+            ("fmp4HlsSettings" Data..=)
               Prelude.<$> fmp4HlsSettings,
-            ("standardHlsSettings" Core..=)
+            ("standardHlsSettings" Data..=)
               Prelude.<$> standardHlsSettings
           ]
       )

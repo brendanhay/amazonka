@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AncillarySourceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Ancillary Source Settings
@@ -68,13 +69,13 @@ newAncillarySourceSettings =
 ancillarySourceSettings_sourceAncillaryChannelNumber :: Lens.Lens' AncillarySourceSettings (Prelude.Maybe Prelude.Natural)
 ancillarySourceSettings_sourceAncillaryChannelNumber = Lens.lens (\AncillarySourceSettings' {sourceAncillaryChannelNumber} -> sourceAncillaryChannelNumber) (\s@AncillarySourceSettings' {} a -> s {sourceAncillaryChannelNumber = a} :: AncillarySourceSettings)
 
-instance Core.FromJSON AncillarySourceSettings where
+instance Data.FromJSON AncillarySourceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AncillarySourceSettings"
       ( \x ->
           AncillarySourceSettings'
-            Prelude.<$> (x Core..:? "sourceAncillaryChannelNumber")
+            Prelude.<$> (x Data..:? "sourceAncillaryChannelNumber")
       )
 
 instance Prelude.Hashable AncillarySourceSettings where
@@ -86,11 +87,11 @@ instance Prelude.NFData AncillarySourceSettings where
   rnf AncillarySourceSettings' {..} =
     Prelude.rnf sourceAncillaryChannelNumber
 
-instance Core.ToJSON AncillarySourceSettings where
+instance Data.ToJSON AncillarySourceSettings where
   toJSON AncillarySourceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sourceAncillaryChannelNumber" Core..=)
+          [ ("sourceAncillaryChannelNumber" Data..=)
               Prelude.<$> sourceAncillaryChannelNumber
           ]
       )

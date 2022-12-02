@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -177,7 +178,7 @@ instance Core.AWSRequest UpdateInput' where
     Response.receiveJSON
       ( \s h x ->
           UpdateInputResponse'
-            Prelude.<$> (x Core..?> "input")
+            Prelude.<$> (x Data..?> "input")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,39 +204,39 @@ instance Prelude.NFData UpdateInput' where
       `Prelude.seq` Prelude.rnf destinations
       `Prelude.seq` Prelude.rnf inputId
 
-instance Core.ToHeaders UpdateInput' where
+instance Data.ToHeaders UpdateInput' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateInput' where
+instance Data.ToJSON UpdateInput' where
   toJSON UpdateInput'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inputSecurityGroups" Core..=)
+          [ ("inputSecurityGroups" Data..=)
               Prelude.<$> inputSecurityGroups,
-            ("sources" Core..=) Prelude.<$> sources,
-            ("name" Core..=) Prelude.<$> name,
-            ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("inputDevices" Core..=) Prelude.<$> inputDevices,
-            ("mediaConnectFlows" Core..=)
+            ("sources" Data..=) Prelude.<$> sources,
+            ("name" Data..=) Prelude.<$> name,
+            ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("inputDevices" Data..=) Prelude.<$> inputDevices,
+            ("mediaConnectFlows" Data..=)
               Prelude.<$> mediaConnectFlows,
-            ("destinations" Core..=) Prelude.<$> destinations
+            ("destinations" Data..=) Prelude.<$> destinations
           ]
       )
 
-instance Core.ToPath UpdateInput' where
+instance Data.ToPath UpdateInput' where
   toPath UpdateInput'' {..} =
     Prelude.mconcat
-      ["/prod/inputs/", Core.toBS inputId]
+      ["/prod/inputs/", Data.toBS inputId]
 
-instance Core.ToQuery UpdateInput' where
+instance Data.ToQuery UpdateInput' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for UpdateInputResponse

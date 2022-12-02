@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.HlsGroupSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.CaptionLanguageMapping
 import Amazonka.MediaLive.Types.HlsAdMarkers
 import Amazonka.MediaLive.Types.HlsCaptionLanguageSetting
@@ -800,57 +801,57 @@ hlsGroupSettings_segmentsPerSubdirectory = Lens.lens (\HlsGroupSettings' {segmen
 hlsGroupSettings_destination :: Lens.Lens' HlsGroupSettings OutputLocationRef
 hlsGroupSettings_destination = Lens.lens (\HlsGroupSettings' {destination} -> destination) (\s@HlsGroupSettings' {} a -> s {destination = a} :: HlsGroupSettings)
 
-instance Core.FromJSON HlsGroupSettings where
+instance Data.FromJSON HlsGroupSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsGroupSettings"
       ( \x ->
           HlsGroupSettings'
-            Prelude.<$> (x Core..:? "inputLossAction")
-            Prelude.<*> (x Core..:? "indexNSegments")
-            Prelude.<*> (x Core..:? "ivInManifest")
-            Prelude.<*> (x Core..:? "baseUrlContent1")
-            Prelude.<*> (x Core..:? "hlsId3SegmentTagging")
-            Prelude.<*> (x Core..:? "baseUrlManifest")
-            Prelude.<*> (x Core..:? "programDateTimeClock")
-            Prelude.<*> (x Core..:? "streamInfResolution")
-            Prelude.<*> (x Core..:? "redundantManifest")
-            Prelude.<*> (x Core..:? "programDateTime")
-            Prelude.<*> (x Core..:? "manifestCompression")
-            Prelude.<*> (x Core..:? "baseUrlManifest1")
-            Prelude.<*> (x Core..:? "minSegmentLength")
-            Prelude.<*> (x Core..:? "incompleteSegmentBehavior")
-            Prelude.<*> ( x Core..:? "captionLanguageMappings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "inputLossAction")
+            Prelude.<*> (x Data..:? "indexNSegments")
+            Prelude.<*> (x Data..:? "ivInManifest")
+            Prelude.<*> (x Data..:? "baseUrlContent1")
+            Prelude.<*> (x Data..:? "hlsId3SegmentTagging")
+            Prelude.<*> (x Data..:? "baseUrlManifest")
+            Prelude.<*> (x Data..:? "programDateTimeClock")
+            Prelude.<*> (x Data..:? "streamInfResolution")
+            Prelude.<*> (x Data..:? "redundantManifest")
+            Prelude.<*> (x Data..:? "programDateTime")
+            Prelude.<*> (x Data..:? "manifestCompression")
+            Prelude.<*> (x Data..:? "baseUrlManifest1")
+            Prelude.<*> (x Data..:? "minSegmentLength")
+            Prelude.<*> (x Data..:? "incompleteSegmentBehavior")
+            Prelude.<*> ( x Data..:? "captionLanguageMappings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "directoryStructure")
-            Prelude.<*> (x Core..:? "programDateTimePeriod")
-            Prelude.<*> (x Core..:? "segmentLength")
-            Prelude.<*> (x Core..:? "codecSpecification")
-            Prelude.<*> (x Core..:? "ivSource")
-            Prelude.<*> (x Core..:? "outputSelection")
-            Prelude.<*> (x Core..:? "segmentationMode")
-            Prelude.<*> (x Core..:? "hlsCdnSettings")
-            Prelude.<*> (x Core..:? "keyFormat")
-            Prelude.<*> (x Core..:? "adMarkers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "constantIv")
-            Prelude.<*> (x Core..:? "manifestDurationFormat")
-            Prelude.<*> (x Core..:? "timedMetadataId3Frame")
-            Prelude.<*> (x Core..:? "captionLanguageSetting")
-            Prelude.<*> (x Core..:? "encryptionType")
-            Prelude.<*> (x Core..:? "keepSegments")
-            Prelude.<*> (x Core..:? "mode")
-            Prelude.<*> (x Core..:? "discontinuityTags")
-            Prelude.<*> (x Core..:? "tsFileMode")
-            Prelude.<*> (x Core..:? "iFrameOnlyPlaylists")
-            Prelude.<*> (x Core..:? "clientCache")
-            Prelude.<*> (x Core..:? "baseUrlContent")
-            Prelude.<*> (x Core..:? "timedMetadataId3Period")
-            Prelude.<*> (x Core..:? "keyFormatVersions")
-            Prelude.<*> (x Core..:? "timestampDeltaMilliseconds")
-            Prelude.<*> (x Core..:? "keyProviderSettings")
-            Prelude.<*> (x Core..:? "segmentsPerSubdirectory")
-            Prelude.<*> (x Core..: "destination")
+            Prelude.<*> (x Data..:? "directoryStructure")
+            Prelude.<*> (x Data..:? "programDateTimePeriod")
+            Prelude.<*> (x Data..:? "segmentLength")
+            Prelude.<*> (x Data..:? "codecSpecification")
+            Prelude.<*> (x Data..:? "ivSource")
+            Prelude.<*> (x Data..:? "outputSelection")
+            Prelude.<*> (x Data..:? "segmentationMode")
+            Prelude.<*> (x Data..:? "hlsCdnSettings")
+            Prelude.<*> (x Data..:? "keyFormat")
+            Prelude.<*> (x Data..:? "adMarkers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "constantIv")
+            Prelude.<*> (x Data..:? "manifestDurationFormat")
+            Prelude.<*> (x Data..:? "timedMetadataId3Frame")
+            Prelude.<*> (x Data..:? "captionLanguageSetting")
+            Prelude.<*> (x Data..:? "encryptionType")
+            Prelude.<*> (x Data..:? "keepSegments")
+            Prelude.<*> (x Data..:? "mode")
+            Prelude.<*> (x Data..:? "discontinuityTags")
+            Prelude.<*> (x Data..:? "tsFileMode")
+            Prelude.<*> (x Data..:? "iFrameOnlyPlaylists")
+            Prelude.<*> (x Data..:? "clientCache")
+            Prelude.<*> (x Data..:? "baseUrlContent")
+            Prelude.<*> (x Data..:? "timedMetadataId3Period")
+            Prelude.<*> (x Data..:? "keyFormatVersions")
+            Prelude.<*> (x Data..:? "timestampDeltaMilliseconds")
+            Prelude.<*> (x Data..:? "keyProviderSettings")
+            Prelude.<*> (x Data..:? "segmentsPerSubdirectory")
+            Prelude.<*> (x Data..: "destination")
       )
 
 instance Prelude.Hashable HlsGroupSettings where
@@ -966,84 +967,84 @@ instance Prelude.NFData HlsGroupSettings where
       `Prelude.seq` Prelude.rnf
         destination
 
-instance Core.ToJSON HlsGroupSettings where
+instance Data.ToJSON HlsGroupSettings where
   toJSON HlsGroupSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inputLossAction" Core..=)
+          [ ("inputLossAction" Data..=)
               Prelude.<$> inputLossAction,
-            ("indexNSegments" Core..=)
+            ("indexNSegments" Data..=)
               Prelude.<$> indexNSegments,
-            ("ivInManifest" Core..=) Prelude.<$> ivInManifest,
-            ("baseUrlContent1" Core..=)
+            ("ivInManifest" Data..=) Prelude.<$> ivInManifest,
+            ("baseUrlContent1" Data..=)
               Prelude.<$> baseUrlContent1,
-            ("hlsId3SegmentTagging" Core..=)
+            ("hlsId3SegmentTagging" Data..=)
               Prelude.<$> hlsId3SegmentTagging,
-            ("baseUrlManifest" Core..=)
+            ("baseUrlManifest" Data..=)
               Prelude.<$> baseUrlManifest,
-            ("programDateTimeClock" Core..=)
+            ("programDateTimeClock" Data..=)
               Prelude.<$> programDateTimeClock,
-            ("streamInfResolution" Core..=)
+            ("streamInfResolution" Data..=)
               Prelude.<$> streamInfResolution,
-            ("redundantManifest" Core..=)
+            ("redundantManifest" Data..=)
               Prelude.<$> redundantManifest,
-            ("programDateTime" Core..=)
+            ("programDateTime" Data..=)
               Prelude.<$> programDateTime,
-            ("manifestCompression" Core..=)
+            ("manifestCompression" Data..=)
               Prelude.<$> manifestCompression,
-            ("baseUrlManifest1" Core..=)
+            ("baseUrlManifest1" Data..=)
               Prelude.<$> baseUrlManifest1,
-            ("minSegmentLength" Core..=)
+            ("minSegmentLength" Data..=)
               Prelude.<$> minSegmentLength,
-            ("incompleteSegmentBehavior" Core..=)
+            ("incompleteSegmentBehavior" Data..=)
               Prelude.<$> incompleteSegmentBehavior,
-            ("captionLanguageMappings" Core..=)
+            ("captionLanguageMappings" Data..=)
               Prelude.<$> captionLanguageMappings,
-            ("directoryStructure" Core..=)
+            ("directoryStructure" Data..=)
               Prelude.<$> directoryStructure,
-            ("programDateTimePeriod" Core..=)
+            ("programDateTimePeriod" Data..=)
               Prelude.<$> programDateTimePeriod,
-            ("segmentLength" Core..=) Prelude.<$> segmentLength,
-            ("codecSpecification" Core..=)
+            ("segmentLength" Data..=) Prelude.<$> segmentLength,
+            ("codecSpecification" Data..=)
               Prelude.<$> codecSpecification,
-            ("ivSource" Core..=) Prelude.<$> ivSource,
-            ("outputSelection" Core..=)
+            ("ivSource" Data..=) Prelude.<$> ivSource,
+            ("outputSelection" Data..=)
               Prelude.<$> outputSelection,
-            ("segmentationMode" Core..=)
+            ("segmentationMode" Data..=)
               Prelude.<$> segmentationMode,
-            ("hlsCdnSettings" Core..=)
+            ("hlsCdnSettings" Data..=)
               Prelude.<$> hlsCdnSettings,
-            ("keyFormat" Core..=) Prelude.<$> keyFormat,
-            ("adMarkers" Core..=) Prelude.<$> adMarkers,
-            ("constantIv" Core..=) Prelude.<$> constantIv,
-            ("manifestDurationFormat" Core..=)
+            ("keyFormat" Data..=) Prelude.<$> keyFormat,
+            ("adMarkers" Data..=) Prelude.<$> adMarkers,
+            ("constantIv" Data..=) Prelude.<$> constantIv,
+            ("manifestDurationFormat" Data..=)
               Prelude.<$> manifestDurationFormat,
-            ("timedMetadataId3Frame" Core..=)
+            ("timedMetadataId3Frame" Data..=)
               Prelude.<$> timedMetadataId3Frame,
-            ("captionLanguageSetting" Core..=)
+            ("captionLanguageSetting" Data..=)
               Prelude.<$> captionLanguageSetting,
-            ("encryptionType" Core..=)
+            ("encryptionType" Data..=)
               Prelude.<$> encryptionType,
-            ("keepSegments" Core..=) Prelude.<$> keepSegments,
-            ("mode" Core..=) Prelude.<$> mode,
-            ("discontinuityTags" Core..=)
+            ("keepSegments" Data..=) Prelude.<$> keepSegments,
+            ("mode" Data..=) Prelude.<$> mode,
+            ("discontinuityTags" Data..=)
               Prelude.<$> discontinuityTags,
-            ("tsFileMode" Core..=) Prelude.<$> tsFileMode,
-            ("iFrameOnlyPlaylists" Core..=)
+            ("tsFileMode" Data..=) Prelude.<$> tsFileMode,
+            ("iFrameOnlyPlaylists" Data..=)
               Prelude.<$> iFrameOnlyPlaylists,
-            ("clientCache" Core..=) Prelude.<$> clientCache,
-            ("baseUrlContent" Core..=)
+            ("clientCache" Data..=) Prelude.<$> clientCache,
+            ("baseUrlContent" Data..=)
               Prelude.<$> baseUrlContent,
-            ("timedMetadataId3Period" Core..=)
+            ("timedMetadataId3Period" Data..=)
               Prelude.<$> timedMetadataId3Period,
-            ("keyFormatVersions" Core..=)
+            ("keyFormatVersions" Data..=)
               Prelude.<$> keyFormatVersions,
-            ("timestampDeltaMilliseconds" Core..=)
+            ("timestampDeltaMilliseconds" Data..=)
               Prelude.<$> timestampDeltaMilliseconds,
-            ("keyProviderSettings" Core..=)
+            ("keyProviderSettings" Data..=)
               Prelude.<$> keyProviderSettings,
-            ("segmentsPerSubdirectory" Core..=)
+            ("segmentsPerSubdirectory" Data..=)
               Prelude.<$> segmentsPerSubdirectory,
-            Prelude.Just ("destination" Core..= destination)
+            Prelude.Just ("destination" Data..= destination)
           ]
       )

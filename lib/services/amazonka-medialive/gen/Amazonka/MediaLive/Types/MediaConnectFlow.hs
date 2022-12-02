@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MediaConnectFlow where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for a MediaConnect Flow.
@@ -50,12 +51,12 @@ newMediaConnectFlow =
 mediaConnectFlow_flowArn :: Lens.Lens' MediaConnectFlow (Prelude.Maybe Prelude.Text)
 mediaConnectFlow_flowArn = Lens.lens (\MediaConnectFlow' {flowArn} -> flowArn) (\s@MediaConnectFlow' {} a -> s {flowArn = a} :: MediaConnectFlow)
 
-instance Core.FromJSON MediaConnectFlow where
+instance Data.FromJSON MediaConnectFlow where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MediaConnectFlow"
       ( \x ->
-          MediaConnectFlow' Prelude.<$> (x Core..:? "flowArn")
+          MediaConnectFlow' Prelude.<$> (x Data..:? "flowArn")
       )
 
 instance Prelude.Hashable MediaConnectFlow where

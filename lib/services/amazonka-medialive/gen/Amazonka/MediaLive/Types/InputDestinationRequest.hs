@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputDestinationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Endpoint settings for a PUSH type input.
@@ -61,9 +62,9 @@ instance Prelude.NFData InputDestinationRequest where
   rnf InputDestinationRequest' {..} =
     Prelude.rnf streamName
 
-instance Core.ToJSON InputDestinationRequest where
+instance Data.ToJSON InputDestinationRequest where
   toJSON InputDestinationRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("streamName" Core..=) Prelude.<$> streamName]
+          [("streamName" Data..=) Prelude.<$> streamName]
       )

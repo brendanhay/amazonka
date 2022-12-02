@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,17 +96,17 @@ instance Core.AWSRequest DescribeOffering where
     Response.receiveJSON
       ( \s h x ->
           DescribeOfferingResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "resourceSpecification")
-            Prelude.<*> (x Core..?> "offeringType")
-            Prelude.<*> (x Core..?> "durationUnits")
-            Prelude.<*> (x Core..?> "duration")
-            Prelude.<*> (x Core..?> "currencyCode")
-            Prelude.<*> (x Core..?> "region")
-            Prelude.<*> (x Core..?> "offeringId")
-            Prelude.<*> (x Core..?> "offeringDescription")
-            Prelude.<*> (x Core..?> "fixedPrice")
-            Prelude.<*> (x Core..?> "usagePrice")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "resourceSpecification")
+            Prelude.<*> (x Data..?> "offeringType")
+            Prelude.<*> (x Data..?> "durationUnits")
+            Prelude.<*> (x Data..?> "duration")
+            Prelude.<*> (x Data..?> "currencyCode")
+            Prelude.<*> (x Data..?> "region")
+            Prelude.<*> (x Data..?> "offeringId")
+            Prelude.<*> (x Data..?> "offeringDescription")
+            Prelude.<*> (x Data..?> "fixedPrice")
+            Prelude.<*> (x Data..?> "usagePrice")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,23 +117,23 @@ instance Prelude.Hashable DescribeOffering where
 instance Prelude.NFData DescribeOffering where
   rnf DescribeOffering' {..} = Prelude.rnf offeringId
 
-instance Core.ToHeaders DescribeOffering where
+instance Data.ToHeaders DescribeOffering where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeOffering where
+instance Data.ToPath DescribeOffering where
   toPath DescribeOffering' {..} =
     Prelude.mconcat
-      ["/prod/offerings/", Core.toBS offeringId]
+      ["/prod/offerings/", Data.toBS offeringId]
 
-instance Core.ToQuery DescribeOffering where
+instance Data.ToQuery DescribeOffering where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DescribeOfferingResponse

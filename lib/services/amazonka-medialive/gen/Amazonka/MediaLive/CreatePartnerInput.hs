@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance Core.AWSRequest CreatePartnerInput' where
     Response.receiveJSON
       ( \s h x ->
           CreatePartnerInputResponse'
-            Prelude.<$> (x Core..?> "input")
+            Prelude.<$> (x Data..?> "input")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,32 +127,32 @@ instance Prelude.NFData CreatePartnerInput' where
       `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf inputId
 
-instance Core.ToHeaders CreatePartnerInput' where
+instance Data.ToHeaders CreatePartnerInput' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePartnerInput' where
+instance Data.ToJSON CreatePartnerInput' where
   toJSON CreatePartnerInput'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("requestId" Core..=) Prelude.<$> requestId
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("requestId" Data..=) Prelude.<$> requestId
           ]
       )
 
-instance Core.ToPath CreatePartnerInput' where
+instance Data.ToPath CreatePartnerInput' where
   toPath CreatePartnerInput'' {..} =
     Prelude.mconcat
-      ["/prod/inputs/", Core.toBS inputId, "/partners"]
+      ["/prod/inputs/", Data.toBS inputId, "/partners"]
 
-instance Core.ToQuery CreatePartnerInput' where
+instance Data.ToQuery CreatePartnerInput' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for CreatePartnerInputResponse

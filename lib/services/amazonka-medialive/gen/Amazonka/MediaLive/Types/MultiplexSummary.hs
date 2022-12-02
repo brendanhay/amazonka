@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MultiplexSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.MultiplexSettingsSummary
 import Amazonka.MediaLive.Types.MultiplexState
 import qualified Amazonka.Prelude as Prelude
@@ -126,23 +127,23 @@ multiplexSummary_pipelinesRunningCount = Lens.lens (\MultiplexSummary' {pipeline
 multiplexSummary_programCount :: Lens.Lens' MultiplexSummary (Prelude.Maybe Prelude.Int)
 multiplexSummary_programCount = Lens.lens (\MultiplexSummary' {programCount} -> programCount) (\s@MultiplexSummary' {} a -> s {programCount = a} :: MultiplexSummary)
 
-instance Core.FromJSON MultiplexSummary where
+instance Data.FromJSON MultiplexSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiplexSummary"
       ( \x ->
           MultiplexSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> ( x Core..:? "availabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> ( x Data..:? "availabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "multiplexSettings")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "pipelinesRunningCount")
-            Prelude.<*> (x Core..:? "programCount")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "multiplexSettings")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "pipelinesRunningCount")
+            Prelude.<*> (x Data..:? "programCount")
       )
 
 instance Prelude.Hashable MultiplexSummary where

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.BatchScheduleActionDeleteRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of schedule actions to delete.
@@ -69,9 +70,9 @@ instance
   rnf BatchScheduleActionDeleteRequest' {..} =
     Prelude.rnf actionNames
 
-instance Core.ToJSON BatchScheduleActionDeleteRequest where
+instance Data.ToJSON BatchScheduleActionDeleteRequest where
   toJSON BatchScheduleActionDeleteRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("actionNames" Core..= actionNames)]
+          [Prelude.Just ("actionNames" Data..= actionNames)]
       )

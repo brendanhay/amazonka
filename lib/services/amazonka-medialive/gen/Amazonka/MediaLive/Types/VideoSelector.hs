@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.VideoSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.VideoSelectorColorSpace
 import Amazonka.MediaLive.Types.VideoSelectorColorSpaceSettings
 import Amazonka.MediaLive.Types.VideoSelectorColorSpaceUsage
@@ -114,16 +115,16 @@ videoSelector_selectorSettings = Lens.lens (\VideoSelector' {selectorSettings} -
 videoSelector_colorSpaceSettings :: Lens.Lens' VideoSelector (Prelude.Maybe VideoSelectorColorSpaceSettings)
 videoSelector_colorSpaceSettings = Lens.lens (\VideoSelector' {colorSpaceSettings} -> colorSpaceSettings) (\s@VideoSelector' {} a -> s {colorSpaceSettings = a} :: VideoSelector)
 
-instance Core.FromJSON VideoSelector where
+instance Data.FromJSON VideoSelector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoSelector"
       ( \x ->
           VideoSelector'
-            Prelude.<$> (x Core..:? "colorSpace")
-            Prelude.<*> (x Core..:? "colorSpaceUsage")
-            Prelude.<*> (x Core..:? "selectorSettings")
-            Prelude.<*> (x Core..:? "colorSpaceSettings")
+            Prelude.<$> (x Data..:? "colorSpace")
+            Prelude.<*> (x Data..:? "colorSpaceUsage")
+            Prelude.<*> (x Data..:? "selectorSettings")
+            Prelude.<*> (x Data..:? "colorSpaceSettings")
       )
 
 instance Prelude.Hashable VideoSelector where
@@ -140,16 +141,16 @@ instance Prelude.NFData VideoSelector where
       `Prelude.seq` Prelude.rnf selectorSettings
       `Prelude.seq` Prelude.rnf colorSpaceSettings
 
-instance Core.ToJSON VideoSelector where
+instance Data.ToJSON VideoSelector where
   toJSON VideoSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("colorSpace" Core..=) Prelude.<$> colorSpace,
-            ("colorSpaceUsage" Core..=)
+          [ ("colorSpace" Data..=) Prelude.<$> colorSpace,
+            ("colorSpaceUsage" Data..=)
               Prelude.<$> colorSpaceUsage,
-            ("selectorSettings" Core..=)
+            ("selectorSettings" Data..=)
               Prelude.<$> selectorSettings,
-            ("colorSpaceSettings" Core..=)
+            ("colorSpaceSettings" Data..=)
               Prelude.<$> colorSpaceSettings
           ]
       )

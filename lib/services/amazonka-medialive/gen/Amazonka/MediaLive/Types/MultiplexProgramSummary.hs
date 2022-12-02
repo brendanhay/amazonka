@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MultiplexProgramSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Placeholder documentation for MultiplexProgramSummary
@@ -62,14 +63,14 @@ multiplexProgramSummary_programName = Lens.lens (\MultiplexProgramSummary' {prog
 multiplexProgramSummary_channelId :: Lens.Lens' MultiplexProgramSummary (Prelude.Maybe Prelude.Text)
 multiplexProgramSummary_channelId = Lens.lens (\MultiplexProgramSummary' {channelId} -> channelId) (\s@MultiplexProgramSummary' {} a -> s {channelId = a} :: MultiplexProgramSummary)
 
-instance Core.FromJSON MultiplexProgramSummary where
+instance Data.FromJSON MultiplexProgramSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiplexProgramSummary"
       ( \x ->
           MultiplexProgramSummary'
-            Prelude.<$> (x Core..:? "programName")
-            Prelude.<*> (x Core..:? "channelId")
+            Prelude.<$> (x Data..:? "programName")
+            Prelude.<*> (x Data..:? "channelId")
       )
 
 instance Prelude.Hashable MultiplexProgramSummary where

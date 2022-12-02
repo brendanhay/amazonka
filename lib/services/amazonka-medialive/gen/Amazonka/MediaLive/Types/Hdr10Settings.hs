@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Hdr10Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Hdr10 Settings
@@ -73,14 +74,14 @@ hdr10Settings_maxCll = Lens.lens (\Hdr10Settings' {maxCll} -> maxCll) (\s@Hdr10S
 hdr10Settings_maxFall :: Lens.Lens' Hdr10Settings (Prelude.Maybe Prelude.Natural)
 hdr10Settings_maxFall = Lens.lens (\Hdr10Settings' {maxFall} -> maxFall) (\s@Hdr10Settings' {} a -> s {maxFall = a} :: Hdr10Settings)
 
-instance Core.FromJSON Hdr10Settings where
+instance Data.FromJSON Hdr10Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Hdr10Settings"
       ( \x ->
           Hdr10Settings'
-            Prelude.<$> (x Core..:? "maxCll")
-            Prelude.<*> (x Core..:? "maxFall")
+            Prelude.<$> (x Data..:? "maxCll")
+            Prelude.<*> (x Data..:? "maxFall")
       )
 
 instance Prelude.Hashable Hdr10Settings where
@@ -93,11 +94,11 @@ instance Prelude.NFData Hdr10Settings where
     Prelude.rnf maxCll
       `Prelude.seq` Prelude.rnf maxFall
 
-instance Core.ToJSON Hdr10Settings where
+instance Data.ToJSON Hdr10Settings where
   toJSON Hdr10Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maxCll" Core..=) Prelude.<$> maxCll,
-            ("maxFall" Core..=) Prelude.<$> maxFall
+          [ ("maxCll" Data..=) Prelude.<$> maxCll,
+            ("maxFall" Data..=) Prelude.<$> maxFall
           ]
       )

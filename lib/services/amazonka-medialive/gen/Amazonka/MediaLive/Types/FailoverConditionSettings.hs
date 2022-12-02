@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.FailoverConditionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AudioSilenceFailoverSettings
 import Amazonka.MediaLive.Types.InputLossFailoverSettings
 import Amazonka.MediaLive.Types.VideoBlackFailoverSettings
@@ -83,15 +84,15 @@ failoverConditionSettings_videoBlackSettings = Lens.lens (\FailoverConditionSett
 failoverConditionSettings_inputLossSettings :: Lens.Lens' FailoverConditionSettings (Prelude.Maybe InputLossFailoverSettings)
 failoverConditionSettings_inputLossSettings = Lens.lens (\FailoverConditionSettings' {inputLossSettings} -> inputLossSettings) (\s@FailoverConditionSettings' {} a -> s {inputLossSettings = a} :: FailoverConditionSettings)
 
-instance Core.FromJSON FailoverConditionSettings where
+instance Data.FromJSON FailoverConditionSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailoverConditionSettings"
       ( \x ->
           FailoverConditionSettings'
-            Prelude.<$> (x Core..:? "audioSilenceSettings")
-            Prelude.<*> (x Core..:? "videoBlackSettings")
-            Prelude.<*> (x Core..:? "inputLossSettings")
+            Prelude.<$> (x Data..:? "audioSilenceSettings")
+            Prelude.<*> (x Data..:? "videoBlackSettings")
+            Prelude.<*> (x Data..:? "inputLossSettings")
       )
 
 instance Prelude.Hashable FailoverConditionSettings where
@@ -106,15 +107,15 @@ instance Prelude.NFData FailoverConditionSettings where
       `Prelude.seq` Prelude.rnf videoBlackSettings
       `Prelude.seq` Prelude.rnf inputLossSettings
 
-instance Core.ToJSON FailoverConditionSettings where
+instance Data.ToJSON FailoverConditionSettings where
   toJSON FailoverConditionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("audioSilenceSettings" Core..=)
+          [ ("audioSilenceSettings" Data..=)
               Prelude.<$> audioSilenceSettings,
-            ("videoBlackSettings" Core..=)
+            ("videoBlackSettings" Data..=)
               Prelude.<$> videoBlackSettings,
-            ("inputLossSettings" Core..=)
+            ("inputLossSettings" Data..=)
               Prelude.<$> inputLossSettings
           ]
       )

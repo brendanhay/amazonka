@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.BatchScheduleActionCreateResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.ScheduleAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,16 +56,16 @@ batchScheduleActionCreateResult_scheduleActions :: Lens.Lens' BatchScheduleActio
 batchScheduleActionCreateResult_scheduleActions = Lens.lens (\BatchScheduleActionCreateResult' {scheduleActions} -> scheduleActions) (\s@BatchScheduleActionCreateResult' {} a -> s {scheduleActions = a} :: BatchScheduleActionCreateResult) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchScheduleActionCreateResult
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchScheduleActionCreateResult"
       ( \x ->
           BatchScheduleActionCreateResult'
-            Prelude.<$> ( x Core..:? "scheduleActions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "scheduleActions"
+                            Data..!= Prelude.mempty
                         )
       )
 

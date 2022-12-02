@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.FrameCaptureHlsSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Frame Capture Hls Settings
@@ -39,9 +40,9 @@ newFrameCaptureHlsSettings ::
   FrameCaptureHlsSettings
 newFrameCaptureHlsSettings = FrameCaptureHlsSettings'
 
-instance Core.FromJSON FrameCaptureHlsSettings where
+instance Data.FromJSON FrameCaptureHlsSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FrameCaptureHlsSettings"
       (\x -> Prelude.pure FrameCaptureHlsSettings')
 
@@ -52,5 +53,5 @@ instance Prelude.Hashable FrameCaptureHlsSettings where
 instance Prelude.NFData FrameCaptureHlsSettings where
   rnf _ = ()
 
-instance Core.ToJSON FrameCaptureHlsSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON FrameCaptureHlsSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

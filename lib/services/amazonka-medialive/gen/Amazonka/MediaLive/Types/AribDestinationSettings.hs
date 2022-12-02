@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AribDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Arib Destination Settings
@@ -39,9 +40,9 @@ newAribDestinationSettings ::
   AribDestinationSettings
 newAribDestinationSettings = AribDestinationSettings'
 
-instance Core.FromJSON AribDestinationSettings where
+instance Data.FromJSON AribDestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AribDestinationSettings"
       (\x -> Prelude.pure AribDestinationSettings')
 
@@ -52,5 +53,5 @@ instance Prelude.Hashable AribDestinationSettings where
 instance Prelude.NFData AribDestinationSettings where
   rnf _ = ()
 
-instance Core.ToJSON AribDestinationSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AribDestinationSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

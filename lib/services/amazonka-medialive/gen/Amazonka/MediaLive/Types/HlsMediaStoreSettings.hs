@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.HlsMediaStoreSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.HlsMediaStoreStorageClass
 import qualified Amazonka.Prelude as Prelude
 
@@ -102,17 +103,17 @@ hlsMediaStoreSettings_restartDelay = Lens.lens (\HlsMediaStoreSettings' {restart
 hlsMediaStoreSettings_filecacheDuration :: Lens.Lens' HlsMediaStoreSettings (Prelude.Maybe Prelude.Natural)
 hlsMediaStoreSettings_filecacheDuration = Lens.lens (\HlsMediaStoreSettings' {filecacheDuration} -> filecacheDuration) (\s@HlsMediaStoreSettings' {} a -> s {filecacheDuration = a} :: HlsMediaStoreSettings)
 
-instance Core.FromJSON HlsMediaStoreSettings where
+instance Data.FromJSON HlsMediaStoreSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsMediaStoreSettings"
       ( \x ->
           HlsMediaStoreSettings'
-            Prelude.<$> (x Core..:? "numRetries")
-            Prelude.<*> (x Core..:? "connectionRetryInterval")
-            Prelude.<*> (x Core..:? "mediaStoreStorageClass")
-            Prelude.<*> (x Core..:? "restartDelay")
-            Prelude.<*> (x Core..:? "filecacheDuration")
+            Prelude.<$> (x Data..:? "numRetries")
+            Prelude.<*> (x Data..:? "connectionRetryInterval")
+            Prelude.<*> (x Data..:? "mediaStoreStorageClass")
+            Prelude.<*> (x Data..:? "restartDelay")
+            Prelude.<*> (x Data..:? "filecacheDuration")
       )
 
 instance Prelude.Hashable HlsMediaStoreSettings where
@@ -131,17 +132,17 @@ instance Prelude.NFData HlsMediaStoreSettings where
       `Prelude.seq` Prelude.rnf restartDelay
       `Prelude.seq` Prelude.rnf filecacheDuration
 
-instance Core.ToJSON HlsMediaStoreSettings where
+instance Data.ToJSON HlsMediaStoreSettings where
   toJSON HlsMediaStoreSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("numRetries" Core..=) Prelude.<$> numRetries,
-            ("connectionRetryInterval" Core..=)
+          [ ("numRetries" Data..=) Prelude.<$> numRetries,
+            ("connectionRetryInterval" Data..=)
               Prelude.<$> connectionRetryInterval,
-            ("mediaStoreStorageClass" Core..=)
+            ("mediaStoreStorageClass" Data..=)
               Prelude.<$> mediaStoreStorageClass,
-            ("restartDelay" Core..=) Prelude.<$> restartDelay,
-            ("filecacheDuration" Core..=)
+            ("restartDelay" Data..=) Prelude.<$> restartDelay,
+            ("filecacheDuration" Data..=)
               Prelude.<$> filecacheDuration
           ]
       )

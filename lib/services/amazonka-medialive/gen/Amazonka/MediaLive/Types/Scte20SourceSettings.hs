@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Scte20SourceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Scte20Convert608To708
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,14 +73,14 @@ scte20SourceSettings_source608ChannelNumber = Lens.lens (\Scte20SourceSettings' 
 scte20SourceSettings_convert608To708 :: Lens.Lens' Scte20SourceSettings (Prelude.Maybe Scte20Convert608To708)
 scte20SourceSettings_convert608To708 = Lens.lens (\Scte20SourceSettings' {convert608To708} -> convert608To708) (\s@Scte20SourceSettings' {} a -> s {convert608To708 = a} :: Scte20SourceSettings)
 
-instance Core.FromJSON Scte20SourceSettings where
+instance Data.FromJSON Scte20SourceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scte20SourceSettings"
       ( \x ->
           Scte20SourceSettings'
-            Prelude.<$> (x Core..:? "source608ChannelNumber")
-            Prelude.<*> (x Core..:? "convert608To708")
+            Prelude.<$> (x Data..:? "source608ChannelNumber")
+            Prelude.<*> (x Data..:? "convert608To708")
       )
 
 instance Prelude.Hashable Scte20SourceSettings where
@@ -92,13 +93,13 @@ instance Prelude.NFData Scte20SourceSettings where
     Prelude.rnf source608ChannelNumber
       `Prelude.seq` Prelude.rnf convert608To708
 
-instance Core.ToJSON Scte20SourceSettings where
+instance Data.ToJSON Scte20SourceSettings where
   toJSON Scte20SourceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("source608ChannelNumber" Core..=)
+          [ ("source608ChannelNumber" Data..=)
               Prelude.<$> source608ChannelNumber,
-            ("convert608To708" Core..=)
+            ("convert608To708" Data..=)
               Prelude.<$> convert608To708
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.FrameCaptureSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.FrameCaptureIntervalUnit
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ frameCaptureSettings_captureIntervalUnits = Lens.lens (\FrameCaptureSettings' {c
 frameCaptureSettings_captureInterval :: Lens.Lens' FrameCaptureSettings (Prelude.Maybe Prelude.Natural)
 frameCaptureSettings_captureInterval = Lens.lens (\FrameCaptureSettings' {captureInterval} -> captureInterval) (\s@FrameCaptureSettings' {} a -> s {captureInterval = a} :: FrameCaptureSettings)
 
-instance Core.FromJSON FrameCaptureSettings where
+instance Data.FromJSON FrameCaptureSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FrameCaptureSettings"
       ( \x ->
           FrameCaptureSettings'
-            Prelude.<$> (x Core..:? "captureIntervalUnits")
-            Prelude.<*> (x Core..:? "captureInterval")
+            Prelude.<$> (x Data..:? "captureIntervalUnits")
+            Prelude.<*> (x Data..:? "captureInterval")
       )
 
 instance Prelude.Hashable FrameCaptureSettings where
@@ -89,13 +90,13 @@ instance Prelude.NFData FrameCaptureSettings where
     Prelude.rnf captureIntervalUnits
       `Prelude.seq` Prelude.rnf captureInterval
 
-instance Core.ToJSON FrameCaptureSettings where
+instance Data.ToJSON FrameCaptureSettings where
   toJSON FrameCaptureSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("captureIntervalUnits" Core..=)
+          [ ("captureIntervalUnits" Data..=)
               Prelude.<$> captureIntervalUnits,
-            ("captureInterval" Core..=)
+            ("captureInterval" Data..=)
               Prelude.<$> captureInterval
           ]
       )

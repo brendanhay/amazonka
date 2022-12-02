@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,38 +122,38 @@ instance
     Prelude.rnf inputDeviceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartInputDeviceMaintenanceWindow
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StartInputDeviceMaintenanceWindow
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
 instance
-  Core.ToPath
+  Data.ToPath
     StartInputDeviceMaintenanceWindow
   where
   toPath StartInputDeviceMaintenanceWindow' {..} =
     Prelude.mconcat
       [ "/prod/inputDevices/",
-        Core.toBS inputDeviceId,
+        Data.toBS inputDeviceId,
         "/startInputDeviceMaintenanceWindow"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartInputDeviceMaintenanceWindow
   where
   toQuery = Prelude.const Prelude.mempty

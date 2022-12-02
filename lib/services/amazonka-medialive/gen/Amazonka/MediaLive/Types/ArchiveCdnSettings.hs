@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.ArchiveCdnSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.ArchiveS3Settings
 import qualified Amazonka.Prelude as Prelude
 
@@ -53,13 +54,13 @@ newArchiveCdnSettings =
 archiveCdnSettings_archiveS3Settings :: Lens.Lens' ArchiveCdnSettings (Prelude.Maybe ArchiveS3Settings)
 archiveCdnSettings_archiveS3Settings = Lens.lens (\ArchiveCdnSettings' {archiveS3Settings} -> archiveS3Settings) (\s@ArchiveCdnSettings' {} a -> s {archiveS3Settings = a} :: ArchiveCdnSettings)
 
-instance Core.FromJSON ArchiveCdnSettings where
+instance Data.FromJSON ArchiveCdnSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArchiveCdnSettings"
       ( \x ->
           ArchiveCdnSettings'
-            Prelude.<$> (x Core..:? "archiveS3Settings")
+            Prelude.<$> (x Data..:? "archiveS3Settings")
       )
 
 instance Prelude.Hashable ArchiveCdnSettings where
@@ -70,11 +71,11 @@ instance Prelude.NFData ArchiveCdnSettings where
   rnf ArchiveCdnSettings' {..} =
     Prelude.rnf archiveS3Settings
 
-instance Core.ToJSON ArchiveCdnSettings where
+instance Data.ToJSON ArchiveCdnSettings where
   toJSON ArchiveCdnSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("archiveS3Settings" Core..=)
+          [ ("archiveS3Settings" Data..=)
               Prelude.<$> archiveS3Settings
           ]
       )

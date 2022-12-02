@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.ScheduleActionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings
 import Amazonka.MediaLive.Types.HlsTimedMetadataScheduleActionSettings
 import Amazonka.MediaLive.Types.InputPrepareScheduleActionSettings
@@ -176,25 +177,25 @@ scheduleActionSettings_scte35ReturnToNetworkSettings = Lens.lens (\ScheduleActio
 scheduleActionSettings_motionGraphicsImageActivateSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe MotionGraphicsActivateScheduleActionSettings)
 scheduleActionSettings_motionGraphicsImageActivateSettings = Lens.lens (\ScheduleActionSettings' {motionGraphicsImageActivateSettings} -> motionGraphicsImageActivateSettings) (\s@ScheduleActionSettings' {} a -> s {motionGraphicsImageActivateSettings = a} :: ScheduleActionSettings)
 
-instance Core.FromJSON ScheduleActionSettings where
+instance Data.FromJSON ScheduleActionSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduleActionSettings"
       ( \x ->
           ScheduleActionSettings'
-            Prelude.<$> (x Core..:? "hlsTimedMetadataSettings")
-            Prelude.<*> (x Core..:? "inputPrepareSettings")
-            Prelude.<*> (x Core..:? "staticImageActivateSettings")
-            Prelude.<*> (x Core..:? "inputSwitchSettings")
-            Prelude.<*> (x Core..:? "scte35InputSettings")
-            Prelude.<*> (x Core..:? "hlsId3SegmentTaggingSettings")
-            Prelude.<*> (x Core..:? "motionGraphicsImageDeactivateSettings")
-            Prelude.<*> (x Core..:? "scte35SpliceInsertSettings")
-            Prelude.<*> (x Core..:? "staticImageDeactivateSettings")
-            Prelude.<*> (x Core..:? "scte35TimeSignalSettings")
-            Prelude.<*> (x Core..:? "pauseStateSettings")
-            Prelude.<*> (x Core..:? "scte35ReturnToNetworkSettings")
-            Prelude.<*> (x Core..:? "motionGraphicsImageActivateSettings")
+            Prelude.<$> (x Data..:? "hlsTimedMetadataSettings")
+            Prelude.<*> (x Data..:? "inputPrepareSettings")
+            Prelude.<*> (x Data..:? "staticImageActivateSettings")
+            Prelude.<*> (x Data..:? "inputSwitchSettings")
+            Prelude.<*> (x Data..:? "scte35InputSettings")
+            Prelude.<*> (x Data..:? "hlsId3SegmentTaggingSettings")
+            Prelude.<*> (x Data..:? "motionGraphicsImageDeactivateSettings")
+            Prelude.<*> (x Data..:? "scte35SpliceInsertSettings")
+            Prelude.<*> (x Data..:? "staticImageDeactivateSettings")
+            Prelude.<*> (x Data..:? "scte35TimeSignalSettings")
+            Prelude.<*> (x Data..:? "pauseStateSettings")
+            Prelude.<*> (x Data..:? "scte35ReturnToNetworkSettings")
+            Prelude.<*> (x Data..:? "motionGraphicsImageActivateSettings")
       )
 
 instance Prelude.Hashable ScheduleActionSettings where
@@ -231,35 +232,35 @@ instance Prelude.NFData ScheduleActionSettings where
       `Prelude.seq` Prelude.rnf
         motionGraphicsImageActivateSettings
 
-instance Core.ToJSON ScheduleActionSettings where
+instance Data.ToJSON ScheduleActionSettings where
   toJSON ScheduleActionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("hlsTimedMetadataSettings" Core..=)
+          [ ("hlsTimedMetadataSettings" Data..=)
               Prelude.<$> hlsTimedMetadataSettings,
-            ("inputPrepareSettings" Core..=)
+            ("inputPrepareSettings" Data..=)
               Prelude.<$> inputPrepareSettings,
-            ("staticImageActivateSettings" Core..=)
+            ("staticImageActivateSettings" Data..=)
               Prelude.<$> staticImageActivateSettings,
-            ("inputSwitchSettings" Core..=)
+            ("inputSwitchSettings" Data..=)
               Prelude.<$> inputSwitchSettings,
-            ("scte35InputSettings" Core..=)
+            ("scte35InputSettings" Data..=)
               Prelude.<$> scte35InputSettings,
-            ("hlsId3SegmentTaggingSettings" Core..=)
+            ("hlsId3SegmentTaggingSettings" Data..=)
               Prelude.<$> hlsId3SegmentTaggingSettings,
-            ("motionGraphicsImageDeactivateSettings" Core..=)
+            ("motionGraphicsImageDeactivateSettings" Data..=)
               Prelude.<$> motionGraphicsImageDeactivateSettings,
-            ("scte35SpliceInsertSettings" Core..=)
+            ("scte35SpliceInsertSettings" Data..=)
               Prelude.<$> scte35SpliceInsertSettings,
-            ("staticImageDeactivateSettings" Core..=)
+            ("staticImageDeactivateSettings" Data..=)
               Prelude.<$> staticImageDeactivateSettings,
-            ("scte35TimeSignalSettings" Core..=)
+            ("scte35TimeSignalSettings" Data..=)
               Prelude.<$> scte35TimeSignalSettings,
-            ("pauseStateSettings" Core..=)
+            ("pauseStateSettings" Data..=)
               Prelude.<$> pauseStateSettings,
-            ("scte35ReturnToNetworkSettings" Core..=)
+            ("scte35ReturnToNetworkSettings" Data..=)
               Prelude.<$> scte35ReturnToNetworkSettings,
-            ("motionGraphicsImageActivateSettings" Core..=)
+            ("motionGraphicsImageActivateSettings" Data..=)
               Prelude.<$> motionGraphicsImageActivateSettings
           ]
       )

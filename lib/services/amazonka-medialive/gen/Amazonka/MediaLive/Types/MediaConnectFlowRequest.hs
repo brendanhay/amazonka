@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MediaConnectFlowRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for a MediaConnect Flow.
@@ -58,9 +59,9 @@ instance Prelude.NFData MediaConnectFlowRequest where
   rnf MediaConnectFlowRequest' {..} =
     Prelude.rnf flowArn
 
-instance Core.ToJSON MediaConnectFlowRequest where
+instance Data.ToJSON MediaConnectFlowRequest where
   toJSON MediaConnectFlowRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("flowArn" Core..=) Prelude.<$> flowArn]
+          [("flowArn" Data..=) Prelude.<$> flowArn]
       )

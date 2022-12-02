@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.StopTimecode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.LastFrameClippingBehavior
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,14 +76,14 @@ stopTimecode_lastFrameClippingBehavior = Lens.lens (\StopTimecode' {lastFrameCli
 stopTimecode_timecode :: Lens.Lens' StopTimecode (Prelude.Maybe Prelude.Text)
 stopTimecode_timecode = Lens.lens (\StopTimecode' {timecode} -> timecode) (\s@StopTimecode' {} a -> s {timecode = a} :: StopTimecode)
 
-instance Core.FromJSON StopTimecode where
+instance Data.FromJSON StopTimecode where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StopTimecode"
       ( \x ->
           StopTimecode'
-            Prelude.<$> (x Core..:? "lastFrameClippingBehavior")
-            Prelude.<*> (x Core..:? "timecode")
+            Prelude.<$> (x Data..:? "lastFrameClippingBehavior")
+            Prelude.<*> (x Data..:? "timecode")
       )
 
 instance Prelude.Hashable StopTimecode where
@@ -96,12 +97,12 @@ instance Prelude.NFData StopTimecode where
     Prelude.rnf lastFrameClippingBehavior
       `Prelude.seq` Prelude.rnf timecode
 
-instance Core.ToJSON StopTimecode where
+instance Data.ToJSON StopTimecode where
   toJSON StopTimecode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("lastFrameClippingBehavior" Core..=)
+          [ ("lastFrameClippingBehavior" Data..=)
               Prelude.<$> lastFrameClippingBehavior,
-            ("timecode" Core..=) Prelude.<$> timecode
+            ("timecode" Data..=) Prelude.<$> timecode
           ]
       )

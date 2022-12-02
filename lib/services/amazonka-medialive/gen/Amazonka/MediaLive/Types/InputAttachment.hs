@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AutomaticInputFailoverSettings
 import Amazonka.MediaLive.Types.InputSettings
 import qualified Amazonka.Prelude as Prelude
@@ -87,16 +88,16 @@ inputAttachment_inputAttachmentName = Lens.lens (\InputAttachment' {inputAttachm
 inputAttachment_inputSettings :: Lens.Lens' InputAttachment (Prelude.Maybe InputSettings)
 inputAttachment_inputSettings = Lens.lens (\InputAttachment' {inputSettings} -> inputSettings) (\s@InputAttachment' {} a -> s {inputSettings = a} :: InputAttachment)
 
-instance Core.FromJSON InputAttachment where
+instance Data.FromJSON InputAttachment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputAttachment"
       ( \x ->
           InputAttachment'
-            Prelude.<$> (x Core..:? "inputId")
-            Prelude.<*> (x Core..:? "automaticInputFailoverSettings")
-            Prelude.<*> (x Core..:? "inputAttachmentName")
-            Prelude.<*> (x Core..:? "inputSettings")
+            Prelude.<$> (x Data..:? "inputId")
+            Prelude.<*> (x Data..:? "automaticInputFailoverSettings")
+            Prelude.<*> (x Data..:? "inputAttachmentName")
+            Prelude.<*> (x Data..:? "inputSettings")
       )
 
 instance Prelude.Hashable InputAttachment where
@@ -113,15 +114,15 @@ instance Prelude.NFData InputAttachment where
       `Prelude.seq` Prelude.rnf inputAttachmentName
       `Prelude.seq` Prelude.rnf inputSettings
 
-instance Core.ToJSON InputAttachment where
+instance Data.ToJSON InputAttachment where
   toJSON InputAttachment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inputId" Core..=) Prelude.<$> inputId,
-            ("automaticInputFailoverSettings" Core..=)
+          [ ("inputId" Data..=) Prelude.<$> inputId,
+            ("automaticInputFailoverSettings" Data..=)
               Prelude.<$> automaticInputFailoverSettings,
-            ("inputAttachmentName" Core..=)
+            ("inputAttachmentName" Data..=)
               Prelude.<$> inputAttachmentName,
-            ("inputSettings" Core..=) Prelude.<$> inputSettings
+            ("inputSettings" Data..=) Prelude.<$> inputSettings
           ]
       )

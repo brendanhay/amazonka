@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MotionGraphicsDeactivateScheduleActionSettings w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings to specify the ending of rendering motion graphics into the
@@ -42,11 +43,11 @@ newMotionGraphicsDeactivateScheduleActionSettings =
   MotionGraphicsDeactivateScheduleActionSettings'
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MotionGraphicsDeactivateScheduleActionSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MotionGraphicsDeactivateScheduleActionSettings"
       ( \x ->
           Prelude.pure
@@ -67,7 +68,7 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MotionGraphicsDeactivateScheduleActionSettings
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

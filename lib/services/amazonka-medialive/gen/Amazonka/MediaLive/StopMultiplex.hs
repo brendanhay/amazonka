@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,18 +96,18 @@ instance Core.AWSRequest StopMultiplex where
     Response.receiveJSON
       ( \s h x ->
           StopMultiplexResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> ( x Core..?> "availabilityZones"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> ( x Data..?> "availabilityZones"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "multiplexSettings")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "pipelinesRunningCount")
-            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "programCount")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "multiplexSettings")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "pipelinesRunningCount")
+            Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "programCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,29 +118,29 @@ instance Prelude.Hashable StopMultiplex where
 instance Prelude.NFData StopMultiplex where
   rnf StopMultiplex' {..} = Prelude.rnf multiplexId
 
-instance Core.ToHeaders StopMultiplex where
+instance Data.ToHeaders StopMultiplex where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopMultiplex where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopMultiplex where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopMultiplex where
+instance Data.ToPath StopMultiplex where
   toPath StopMultiplex' {..} =
     Prelude.mconcat
       [ "/prod/multiplexes/",
-        Core.toBS multiplexId,
+        Data.toBS multiplexId,
         "/stop"
       ]
 
-instance Core.ToQuery StopMultiplex where
+instance Data.ToQuery StopMultiplex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for StopMultiplexResponse

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.CaptionSelectorSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AncillarySourceSettings
 import Amazonka.MediaLive.Types.AribSourceSettings
 import Amazonka.MediaLive.Types.DvbSubSourceSettings
@@ -107,19 +108,19 @@ captionSelectorSettings_aribSourceSettings = Lens.lens (\CaptionSelectorSettings
 captionSelectorSettings_scte20SourceSettings :: Lens.Lens' CaptionSelectorSettings (Prelude.Maybe Scte20SourceSettings)
 captionSelectorSettings_scte20SourceSettings = Lens.lens (\CaptionSelectorSettings' {scte20SourceSettings} -> scte20SourceSettings) (\s@CaptionSelectorSettings' {} a -> s {scte20SourceSettings = a} :: CaptionSelectorSettings)
 
-instance Core.FromJSON CaptionSelectorSettings where
+instance Data.FromJSON CaptionSelectorSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptionSelectorSettings"
       ( \x ->
           CaptionSelectorSettings'
-            Prelude.<$> (x Core..:? "ancillarySourceSettings")
-            Prelude.<*> (x Core..:? "dvbSubSourceSettings")
-            Prelude.<*> (x Core..:? "embeddedSourceSettings")
-            Prelude.<*> (x Core..:? "scte27SourceSettings")
-            Prelude.<*> (x Core..:? "teletextSourceSettings")
-            Prelude.<*> (x Core..:? "aribSourceSettings")
-            Prelude.<*> (x Core..:? "scte20SourceSettings")
+            Prelude.<$> (x Data..:? "ancillarySourceSettings")
+            Prelude.<*> (x Data..:? "dvbSubSourceSettings")
+            Prelude.<*> (x Data..:? "embeddedSourceSettings")
+            Prelude.<*> (x Data..:? "scte27SourceSettings")
+            Prelude.<*> (x Data..:? "teletextSourceSettings")
+            Prelude.<*> (x Data..:? "aribSourceSettings")
+            Prelude.<*> (x Data..:? "scte20SourceSettings")
       )
 
 instance Prelude.Hashable CaptionSelectorSettings where
@@ -143,23 +144,23 @@ instance Prelude.NFData CaptionSelectorSettings where
       `Prelude.seq` Prelude.rnf aribSourceSettings
       `Prelude.seq` Prelude.rnf scte20SourceSettings
 
-instance Core.ToJSON CaptionSelectorSettings where
+instance Data.ToJSON CaptionSelectorSettings where
   toJSON CaptionSelectorSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ancillarySourceSettings" Core..=)
+          [ ("ancillarySourceSettings" Data..=)
               Prelude.<$> ancillarySourceSettings,
-            ("dvbSubSourceSettings" Core..=)
+            ("dvbSubSourceSettings" Data..=)
               Prelude.<$> dvbSubSourceSettings,
-            ("embeddedSourceSettings" Core..=)
+            ("embeddedSourceSettings" Data..=)
               Prelude.<$> embeddedSourceSettings,
-            ("scte27SourceSettings" Core..=)
+            ("scte27SourceSettings" Data..=)
               Prelude.<$> scte27SourceSettings,
-            ("teletextSourceSettings" Core..=)
+            ("teletextSourceSettings" Data..=)
               Prelude.<$> teletextSourceSettings,
-            ("aribSourceSettings" Core..=)
+            ("aribSourceSettings" Data..=)
               Prelude.<$> aribSourceSettings,
-            ("scte20SourceSettings" Core..=)
+            ("scte20SourceSettings" Data..=)
               Prelude.<$> scte20SourceSettings
           ]
       )

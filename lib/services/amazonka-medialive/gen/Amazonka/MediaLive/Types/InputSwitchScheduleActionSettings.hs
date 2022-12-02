@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputSwitchScheduleActionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputClippingSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,17 +94,17 @@ inputSwitchScheduleActionSettings_inputAttachmentNameReference :: Lens.Lens' Inp
 inputSwitchScheduleActionSettings_inputAttachmentNameReference = Lens.lens (\InputSwitchScheduleActionSettings' {inputAttachmentNameReference} -> inputAttachmentNameReference) (\s@InputSwitchScheduleActionSettings' {} a -> s {inputAttachmentNameReference = a} :: InputSwitchScheduleActionSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InputSwitchScheduleActionSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputSwitchScheduleActionSettings"
       ( \x ->
           InputSwitchScheduleActionSettings'
-            Prelude.<$> (x Core..:? "inputClippingSettings")
-            Prelude.<*> (x Core..:? "urlPath" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "inputAttachmentNameReference")
+            Prelude.<$> (x Data..:? "inputClippingSettings")
+            Prelude.<*> (x Data..:? "urlPath" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "inputAttachmentNameReference")
       )
 
 instance
@@ -127,18 +128,18 @@ instance
       `Prelude.seq` Prelude.rnf inputAttachmentNameReference
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     InputSwitchScheduleActionSettings
   where
   toJSON InputSwitchScheduleActionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inputClippingSettings" Core..=)
+          [ ("inputClippingSettings" Data..=)
               Prelude.<$> inputClippingSettings,
-            ("urlPath" Core..=) Prelude.<$> urlPath,
+            ("urlPath" Data..=) Prelude.<$> urlPath,
             Prelude.Just
               ( "inputAttachmentNameReference"
-                  Core..= inputAttachmentNameReference
+                  Data..= inputAttachmentNameReference
               )
           ]
       )

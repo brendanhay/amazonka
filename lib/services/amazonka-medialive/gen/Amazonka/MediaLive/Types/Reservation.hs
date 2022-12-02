@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Reservation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.OfferingDurationUnits
 import Amazonka.MediaLive.Types.OfferingType
 import Amazonka.MediaLive.Types.RenewalSettings
@@ -237,31 +238,31 @@ reservation_fixedPrice = Lens.lens (\Reservation' {fixedPrice} -> fixedPrice) (\
 reservation_usagePrice :: Lens.Lens' Reservation (Prelude.Maybe Prelude.Double)
 reservation_usagePrice = Lens.lens (\Reservation' {usagePrice} -> usagePrice) (\s@Reservation' {} a -> s {usagePrice = a} :: Reservation)
 
-instance Core.FromJSON Reservation where
+instance Data.FromJSON Reservation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Reservation"
       ( \x ->
           Reservation'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "renewalSettings")
-            Prelude.<*> (x Core..:? "start")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "resourceSpecification")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "offeringType")
-            Prelude.<*> (x Core..:? "durationUnits")
-            Prelude.<*> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "duration")
-            Prelude.<*> (x Core..:? "currencyCode")
-            Prelude.<*> (x Core..:? "end")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "offeringId")
-            Prelude.<*> (x Core..:? "offeringDescription")
-            Prelude.<*> (x Core..:? "reservationId")
-            Prelude.<*> (x Core..:? "fixedPrice")
-            Prelude.<*> (x Core..:? "usagePrice")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "renewalSettings")
+            Prelude.<*> (x Data..:? "start")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "resourceSpecification")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "offeringType")
+            Prelude.<*> (x Data..:? "durationUnits")
+            Prelude.<*> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "duration")
+            Prelude.<*> (x Data..:? "currencyCode")
+            Prelude.<*> (x Data..:? "end")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "offeringId")
+            Prelude.<*> (x Data..:? "offeringDescription")
+            Prelude.<*> (x Data..:? "reservationId")
+            Prelude.<*> (x Data..:? "fixedPrice")
+            Prelude.<*> (x Data..:? "usagePrice")
       )
 
 instance Prelude.Hashable Reservation where

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.NielsenCBET where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.NielsenWatermarksCbetStepaside
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,15 +85,15 @@ nielsenCBET_cbetStepaside = Lens.lens (\NielsenCBET' {cbetStepaside} -> cbetStep
 nielsenCBET_csid :: Lens.Lens' NielsenCBET Prelude.Text
 nielsenCBET_csid = Lens.lens (\NielsenCBET' {csid} -> csid) (\s@NielsenCBET' {} a -> s {csid = a} :: NielsenCBET)
 
-instance Core.FromJSON NielsenCBET where
+instance Data.FromJSON NielsenCBET where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NielsenCBET"
       ( \x ->
           NielsenCBET'
-            Prelude.<$> (x Core..: "cbetCheckDigitString")
-            Prelude.<*> (x Core..: "cbetStepaside")
-            Prelude.<*> (x Core..: "csid")
+            Prelude.<$> (x Data..: "cbetCheckDigitString")
+            Prelude.<*> (x Data..: "cbetStepaside")
+            Prelude.<*> (x Data..: "csid")
       )
 
 instance Prelude.Hashable NielsenCBET where
@@ -107,15 +108,15 @@ instance Prelude.NFData NielsenCBET where
       `Prelude.seq` Prelude.rnf cbetStepaside
       `Prelude.seq` Prelude.rnf csid
 
-instance Core.ToJSON NielsenCBET where
+instance Data.ToJSON NielsenCBET where
   toJSON NielsenCBET' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "cbetCheckDigitString"
-                  Core..= cbetCheckDigitString
+                  Data..= cbetCheckDigitString
               ),
-            Prelude.Just ("cbetStepaside" Core..= cbetStepaside),
-            Prelude.Just ("csid" Core..= csid)
+            Prelude.Just ("cbetStepaside" Data..= cbetStepaside),
+            Prelude.Just ("csid" Data..= csid)
           ]
       )

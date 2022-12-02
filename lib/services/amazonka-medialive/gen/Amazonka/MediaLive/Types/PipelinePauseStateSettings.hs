@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.PipelinePauseStateSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.PipelineId
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newPipelinePauseStateSettings pPipelineId_ =
 pipelinePauseStateSettings_pipelineId :: Lens.Lens' PipelinePauseStateSettings PipelineId
 pipelinePauseStateSettings_pipelineId = Lens.lens (\PipelinePauseStateSettings' {pipelineId} -> pipelineId) (\s@PipelinePauseStateSettings' {} a -> s {pipelineId = a} :: PipelinePauseStateSettings)
 
-instance Core.FromJSON PipelinePauseStateSettings where
+instance Data.FromJSON PipelinePauseStateSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelinePauseStateSettings"
       ( \x ->
           PipelinePauseStateSettings'
-            Prelude.<$> (x Core..: "pipelineId")
+            Prelude.<$> (x Data..: "pipelineId")
       )
 
 instance Prelude.Hashable PipelinePauseStateSettings where
@@ -73,9 +74,9 @@ instance Prelude.NFData PipelinePauseStateSettings where
   rnf PipelinePauseStateSettings' {..} =
     Prelude.rnf pipelineId
 
-instance Core.ToJSON PipelinePauseStateSettings where
+instance Data.ToJSON PipelinePauseStateSettings where
   toJSON PipelinePauseStateSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("pipelineId" Core..= pipelineId)]
+          [Prelude.Just ("pipelineId" Data..= pipelineId)]
       )

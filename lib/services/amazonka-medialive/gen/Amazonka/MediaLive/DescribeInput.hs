@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,28 +101,28 @@ instance Core.AWSRequest DescribeInput where
     Response.receiveJSON
       ( \s h x ->
           DescribeInputResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "sources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "type")
-            Prelude.<*> (x Core..?> "roleArn")
-            Prelude.<*> (x Core..?> "inputDevices" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "mediaConnectFlows"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "type")
+            Prelude.<*> (x Data..?> "roleArn")
+            Prelude.<*> (x Data..?> "inputDevices" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "mediaConnectFlows"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "securityGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "attachedChannels"
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "securityGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "attachedChannels"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "inputSourceType")
-            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "inputPartnerIds"
+            Prelude.<*> (x Data..?> "inputSourceType")
+            Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "inputPartnerIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "inputClass")
+            Prelude.<*> (x Data..?> "inputClass")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,23 +133,23 @@ instance Prelude.Hashable DescribeInput where
 instance Prelude.NFData DescribeInput where
   rnf DescribeInput' {..} = Prelude.rnf inputId
 
-instance Core.ToHeaders DescribeInput where
+instance Data.ToHeaders DescribeInput where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeInput where
+instance Data.ToPath DescribeInput where
   toPath DescribeInput' {..} =
     Prelude.mconcat
-      ["/prod/inputs/", Core.toBS inputId]
+      ["/prod/inputs/", Data.toBS inputId]
 
-instance Core.ToQuery DescribeInput where
+instance Data.ToQuery DescribeInput where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DescribeInputResponse

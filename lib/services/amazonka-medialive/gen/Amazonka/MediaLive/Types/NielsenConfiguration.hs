@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.NielsenConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.NielsenPcmToId3TaggingState
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ nielsenConfiguration_distributorId = Lens.lens (\NielsenConfiguration' {distribu
 nielsenConfiguration_nielsenPcmToId3Tagging :: Lens.Lens' NielsenConfiguration (Prelude.Maybe NielsenPcmToId3TaggingState)
 nielsenConfiguration_nielsenPcmToId3Tagging = Lens.lens (\NielsenConfiguration' {nielsenPcmToId3Tagging} -> nielsenPcmToId3Tagging) (\s@NielsenConfiguration' {} a -> s {nielsenPcmToId3Tagging = a} :: NielsenConfiguration)
 
-instance Core.FromJSON NielsenConfiguration where
+instance Data.FromJSON NielsenConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NielsenConfiguration"
       ( \x ->
           NielsenConfiguration'
-            Prelude.<$> (x Core..:? "distributorId")
-            Prelude.<*> (x Core..:? "nielsenPcmToId3Tagging")
+            Prelude.<$> (x Data..:? "distributorId")
+            Prelude.<*> (x Data..:? "nielsenPcmToId3Tagging")
       )
 
 instance Prelude.Hashable NielsenConfiguration where
@@ -83,12 +84,12 @@ instance Prelude.NFData NielsenConfiguration where
     Prelude.rnf distributorId
       `Prelude.seq` Prelude.rnf nielsenPcmToId3Tagging
 
-instance Core.ToJSON NielsenConfiguration where
+instance Data.ToJSON NielsenConfiguration where
   toJSON NielsenConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("distributorId" Core..=) Prelude.<$> distributorId,
-            ("nielsenPcmToId3Tagging" Core..=)
+          [ ("distributorId" Data..=) Prelude.<$> distributorId,
+            ("nielsenPcmToId3Tagging" Data..=)
               Prelude.<$> nielsenPcmToId3Tagging
           ]
       )

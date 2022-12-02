@@ -27,6 +27,7 @@ module Amazonka.MediaLive.Types.Scte35ArchiveAllowedFlag
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Corresponds to the archive_allowed parameter. A value of
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- must include all four of them.
 newtype Scte35ArchiveAllowedFlag = Scte35ArchiveAllowedFlag'
   { fromScte35ArchiveAllowedFlag ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype Scte35ArchiveAllowedFlag = Scte35ArchiveAllowedFlag'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern Scte35ArchiveAllowedFlag_ARCHIVE_ALLOWED :: Scte35ArchiveAllowedFlag

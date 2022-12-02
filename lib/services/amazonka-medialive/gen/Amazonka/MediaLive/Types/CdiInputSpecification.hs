@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.CdiInputSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.CdiInputResolution
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newCdiInputSpecification =
 cdiInputSpecification_resolution :: Lens.Lens' CdiInputSpecification (Prelude.Maybe CdiInputResolution)
 cdiInputSpecification_resolution = Lens.lens (\CdiInputSpecification' {resolution} -> resolution) (\s@CdiInputSpecification' {} a -> s {resolution = a} :: CdiInputSpecification)
 
-instance Core.FromJSON CdiInputSpecification where
+instance Data.FromJSON CdiInputSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CdiInputSpecification"
       ( \x ->
           CdiInputSpecification'
-            Prelude.<$> (x Core..:? "resolution")
+            Prelude.<$> (x Data..:? "resolution")
       )
 
 instance Prelude.Hashable CdiInputSpecification where
@@ -71,9 +72,9 @@ instance Prelude.NFData CdiInputSpecification where
   rnf CdiInputSpecification' {..} =
     Prelude.rnf resolution
 
-instance Core.ToJSON CdiInputSpecification where
+instance Data.ToJSON CdiInputSpecification where
   toJSON CdiInputSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("resolution" Core..=) Prelude.<$> resolution]
+          [("resolution" Data..=) Prelude.<$> resolution]
       )

@@ -27,6 +27,7 @@ module Amazonka.MediaLive.Types.Scte35WebDeliveryAllowedFlag
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Corresponds to the web_delivery_allowed_flag parameter. A value of
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- must include all four of them.
 newtype Scte35WebDeliveryAllowedFlag = Scte35WebDeliveryAllowedFlag'
   { fromScte35WebDeliveryAllowedFlag ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype Scte35WebDeliveryAllowedFlag = Scte35WebDeliveryAllowedFlag'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED :: Scte35WebDeliveryAllowedFlag

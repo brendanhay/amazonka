@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Scte35SegmentationDescriptor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Scte35DeliveryRestrictions
 import Amazonka.MediaLive.Types.Scte35SegmentationCancelIndicator
 import qualified Amazonka.Prelude as Prelude
@@ -215,23 +216,23 @@ scte35SegmentationDescriptor_segmentationEventId = Lens.lens (\Scte35Segmentatio
 scte35SegmentationDescriptor_segmentationCancelIndicator :: Lens.Lens' Scte35SegmentationDescriptor Scte35SegmentationCancelIndicator
 scte35SegmentationDescriptor_segmentationCancelIndicator = Lens.lens (\Scte35SegmentationDescriptor' {segmentationCancelIndicator} -> segmentationCancelIndicator) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentationCancelIndicator = a} :: Scte35SegmentationDescriptor)
 
-instance Core.FromJSON Scte35SegmentationDescriptor where
+instance Data.FromJSON Scte35SegmentationDescriptor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scte35SegmentationDescriptor"
       ( \x ->
           Scte35SegmentationDescriptor'
-            Prelude.<$> (x Core..:? "subSegmentsExpected")
-            Prelude.<*> (x Core..:? "segmentationDuration")
-            Prelude.<*> (x Core..:? "segmentationTypeId")
-            Prelude.<*> (x Core..:? "segmentationUpidType")
-            Prelude.<*> (x Core..:? "segmentNum")
-            Prelude.<*> (x Core..:? "segmentationUpid")
-            Prelude.<*> (x Core..:? "subSegmentNum")
-            Prelude.<*> (x Core..:? "deliveryRestrictions")
-            Prelude.<*> (x Core..:? "segmentsExpected")
-            Prelude.<*> (x Core..: "segmentationEventId")
-            Prelude.<*> (x Core..: "segmentationCancelIndicator")
+            Prelude.<$> (x Data..:? "subSegmentsExpected")
+            Prelude.<*> (x Data..:? "segmentationDuration")
+            Prelude.<*> (x Data..:? "segmentationTypeId")
+            Prelude.<*> (x Data..:? "segmentationUpidType")
+            Prelude.<*> (x Data..:? "segmentNum")
+            Prelude.<*> (x Data..:? "segmentationUpid")
+            Prelude.<*> (x Data..:? "subSegmentNum")
+            Prelude.<*> (x Data..:? "deliveryRestrictions")
+            Prelude.<*> (x Data..:? "segmentsExpected")
+            Prelude.<*> (x Data..: "segmentationEventId")
+            Prelude.<*> (x Data..: "segmentationCancelIndicator")
       )
 
 instance
@@ -265,31 +266,31 @@ instance Prelude.NFData Scte35SegmentationDescriptor where
       `Prelude.seq` Prelude.rnf segmentationEventId
       `Prelude.seq` Prelude.rnf segmentationCancelIndicator
 
-instance Core.ToJSON Scte35SegmentationDescriptor where
+instance Data.ToJSON Scte35SegmentationDescriptor where
   toJSON Scte35SegmentationDescriptor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("subSegmentsExpected" Core..=)
+          [ ("subSegmentsExpected" Data..=)
               Prelude.<$> subSegmentsExpected,
-            ("segmentationDuration" Core..=)
+            ("segmentationDuration" Data..=)
               Prelude.<$> segmentationDuration,
-            ("segmentationTypeId" Core..=)
+            ("segmentationTypeId" Data..=)
               Prelude.<$> segmentationTypeId,
-            ("segmentationUpidType" Core..=)
+            ("segmentationUpidType" Data..=)
               Prelude.<$> segmentationUpidType,
-            ("segmentNum" Core..=) Prelude.<$> segmentNum,
-            ("segmentationUpid" Core..=)
+            ("segmentNum" Data..=) Prelude.<$> segmentNum,
+            ("segmentationUpid" Data..=)
               Prelude.<$> segmentationUpid,
-            ("subSegmentNum" Core..=) Prelude.<$> subSegmentNum,
-            ("deliveryRestrictions" Core..=)
+            ("subSegmentNum" Data..=) Prelude.<$> subSegmentNum,
+            ("deliveryRestrictions" Data..=)
               Prelude.<$> deliveryRestrictions,
-            ("segmentsExpected" Core..=)
+            ("segmentsExpected" Data..=)
               Prelude.<$> segmentsExpected,
             Prelude.Just
-              ("segmentationEventId" Core..= segmentationEventId),
+              ("segmentationEventId" Data..= segmentationEventId),
             Prelude.Just
               ( "segmentationCancelIndicator"
-                  Core..= segmentationCancelIndicator
+                  Data..= segmentationCancelIndicator
               )
           ]
       )

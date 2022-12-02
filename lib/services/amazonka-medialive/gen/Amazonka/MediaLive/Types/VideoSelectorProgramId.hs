@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.VideoSelectorProgramId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Video Selector Program Id
@@ -59,13 +60,13 @@ newVideoSelectorProgramId =
 videoSelectorProgramId_programId :: Lens.Lens' VideoSelectorProgramId (Prelude.Maybe Prelude.Natural)
 videoSelectorProgramId_programId = Lens.lens (\VideoSelectorProgramId' {programId} -> programId) (\s@VideoSelectorProgramId' {} a -> s {programId = a} :: VideoSelectorProgramId)
 
-instance Core.FromJSON VideoSelectorProgramId where
+instance Data.FromJSON VideoSelectorProgramId where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoSelectorProgramId"
       ( \x ->
           VideoSelectorProgramId'
-            Prelude.<$> (x Core..:? "programId")
+            Prelude.<$> (x Data..:? "programId")
       )
 
 instance Prelude.Hashable VideoSelectorProgramId where
@@ -76,9 +77,9 @@ instance Prelude.NFData VideoSelectorProgramId where
   rnf VideoSelectorProgramId' {..} =
     Prelude.rnf programId
 
-instance Core.ToJSON VideoSelectorProgramId where
+instance Data.ToJSON VideoSelectorProgramId where
   toJSON VideoSelectorProgramId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("programId" Core..=) Prelude.<$> programId]
+          [("programId" Data..=) Prelude.<$> programId]
       )

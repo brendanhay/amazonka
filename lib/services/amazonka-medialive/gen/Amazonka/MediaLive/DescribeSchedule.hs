@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,8 +131,8 @@ instance Core.AWSRequest DescribeSchedule where
     Response.receiveJSON
       ( \s h x ->
           DescribeScheduleResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "scheduleActions"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "scheduleActions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -149,27 +150,27 @@ instance Prelude.NFData DescribeSchedule where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf channelId
 
-instance Core.ToHeaders DescribeSchedule where
+instance Data.ToHeaders DescribeSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeSchedule where
+instance Data.ToPath DescribeSchedule where
   toPath DescribeSchedule' {..} =
     Prelude.mconcat
-      ["/prod/channels/", Core.toBS channelId, "/schedule"]
+      ["/prod/channels/", Data.toBS channelId, "/schedule"]
 
-instance Core.ToQuery DescribeSchedule where
+instance Data.ToQuery DescribeSchedule where
   toQuery DescribeSchedule' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Placeholder documentation for DescribeScheduleResponse

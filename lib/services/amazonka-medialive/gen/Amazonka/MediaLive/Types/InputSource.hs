@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for a PULL type input.
@@ -70,15 +71,15 @@ inputSource_passwordParam = Lens.lens (\InputSource' {passwordParam} -> password
 inputSource_url :: Lens.Lens' InputSource (Prelude.Maybe Prelude.Text)
 inputSource_url = Lens.lens (\InputSource' {url} -> url) (\s@InputSource' {} a -> s {url = a} :: InputSource)
 
-instance Core.FromJSON InputSource where
+instance Data.FromJSON InputSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputSource"
       ( \x ->
           InputSource'
-            Prelude.<$> (x Core..:? "username")
-            Prelude.<*> (x Core..:? "passwordParam")
-            Prelude.<*> (x Core..:? "url")
+            Prelude.<$> (x Data..:? "username")
+            Prelude.<*> (x Data..:? "passwordParam")
+            Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable InputSource where

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for the action to insert a user-defined ID3 tag in each HLS
@@ -66,15 +67,15 @@ hlsId3SegmentTaggingScheduleActionSettings_tag :: Lens.Lens' HlsId3SegmentTaggin
 hlsId3SegmentTaggingScheduleActionSettings_tag = Lens.lens (\HlsId3SegmentTaggingScheduleActionSettings' {tag} -> tag) (\s@HlsId3SegmentTaggingScheduleActionSettings' {} a -> s {tag = a} :: HlsId3SegmentTaggingScheduleActionSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     HlsId3SegmentTaggingScheduleActionSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsId3SegmentTaggingScheduleActionSettings"
       ( \x ->
           HlsId3SegmentTaggingScheduleActionSettings'
-            Prelude.<$> (x Core..: "tag")
+            Prelude.<$> (x Data..: "tag")
       )
 
 instance
@@ -94,12 +95,12 @@ instance
     Prelude.rnf tag
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     HlsId3SegmentTaggingScheduleActionSettings
   where
   toJSON
     HlsId3SegmentTaggingScheduleActionSettings' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [Prelude.Just ("tag" Core..= tag)]
+            [Prelude.Just ("tag" Data..= tag)]
         )

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MultiplexProgramSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.MultiplexProgramServiceDescriptor
 import Amazonka.MediaLive.Types.MultiplexVideoSettings
 import Amazonka.MediaLive.Types.PreferredChannelPipeline
@@ -91,16 +92,16 @@ multiplexProgramSettings_serviceDescriptor = Lens.lens (\MultiplexProgramSetting
 multiplexProgramSettings_programNumber :: Lens.Lens' MultiplexProgramSettings Prelude.Natural
 multiplexProgramSettings_programNumber = Lens.lens (\MultiplexProgramSettings' {programNumber} -> programNumber) (\s@MultiplexProgramSettings' {} a -> s {programNumber = a} :: MultiplexProgramSettings)
 
-instance Core.FromJSON MultiplexProgramSettings where
+instance Data.FromJSON MultiplexProgramSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiplexProgramSettings"
       ( \x ->
           MultiplexProgramSettings'
-            Prelude.<$> (x Core..:? "videoSettings")
-            Prelude.<*> (x Core..:? "preferredChannelPipeline")
-            Prelude.<*> (x Core..:? "serviceDescriptor")
-            Prelude.<*> (x Core..: "programNumber")
+            Prelude.<$> (x Data..:? "videoSettings")
+            Prelude.<*> (x Data..:? "preferredChannelPipeline")
+            Prelude.<*> (x Data..:? "serviceDescriptor")
+            Prelude.<*> (x Data..: "programNumber")
       )
 
 instance Prelude.Hashable MultiplexProgramSettings where
@@ -117,16 +118,16 @@ instance Prelude.NFData MultiplexProgramSettings where
       `Prelude.seq` Prelude.rnf serviceDescriptor
       `Prelude.seq` Prelude.rnf programNumber
 
-instance Core.ToJSON MultiplexProgramSettings where
+instance Data.ToJSON MultiplexProgramSettings where
   toJSON MultiplexProgramSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("videoSettings" Core..=) Prelude.<$> videoSettings,
-            ("preferredChannelPipeline" Core..=)
+          [ ("videoSettings" Data..=) Prelude.<$> videoSettings,
+            ("preferredChannelPipeline" Data..=)
               Prelude.<$> preferredChannelPipeline,
-            ("serviceDescriptor" Core..=)
+            ("serviceDescriptor" Data..=)
               Prelude.<$> serviceDescriptor,
             Prelude.Just
-              ("programNumber" Core..= programNumber)
+              ("programNumber" Data..= programNumber)
           ]
       )

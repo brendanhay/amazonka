@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.TransferringInputDeviceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputDeviceTransferType
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,16 +82,16 @@ transferringInputDeviceSummary_transferType = Lens.lens (\TransferringInputDevic
 transferringInputDeviceSummary_id :: Lens.Lens' TransferringInputDeviceSummary (Prelude.Maybe Prelude.Text)
 transferringInputDeviceSummary_id = Lens.lens (\TransferringInputDeviceSummary' {id} -> id) (\s@TransferringInputDeviceSummary' {} a -> s {id = a} :: TransferringInputDeviceSummary)
 
-instance Core.FromJSON TransferringInputDeviceSummary where
+instance Data.FromJSON TransferringInputDeviceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransferringInputDeviceSummary"
       ( \x ->
           TransferringInputDeviceSummary'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "targetCustomerId")
-            Prelude.<*> (x Core..:? "transferType")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "targetCustomerId")
+            Prelude.<*> (x Data..:? "transferType")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance

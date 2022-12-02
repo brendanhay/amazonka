@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,20 +174,20 @@ instance Prelude.NFData Publish where
       `Prelude.seq` Prelude.rnf qos
       `Prelude.seq` Prelude.rnf topic
 
-instance Core.ToBody Publish where
-  toBody Publish' {..} = Core.toBody payload
+instance Data.ToBody Publish where
+  toBody Publish' {..} = Data.toBody payload
 
-instance Core.ToHeaders Publish where
+instance Data.ToHeaders Publish where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath Publish where
+instance Data.ToPath Publish where
   toPath Publish' {..} =
-    Prelude.mconcat ["/topics/", Core.toBS topic]
+    Prelude.mconcat ["/topics/", Data.toBS topic]
 
-instance Core.ToQuery Publish where
+instance Data.ToQuery Publish where
   toQuery Publish' {..} =
     Prelude.mconcat
-      ["retain" Core.=: retain, "qos" Core.=: qos]
+      ["retain" Data.=: retain, "qos" Data.=: qos]
 
 -- | /See:/ 'newPublishResponse' smart constructor.
 data PublishResponse = PublishResponse'

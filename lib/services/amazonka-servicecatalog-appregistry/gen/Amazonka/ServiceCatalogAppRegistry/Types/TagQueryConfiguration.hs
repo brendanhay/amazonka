@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalogAppRegistry.Types.TagQueryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The definition of @tagQuery@. Specifies which resources are associated
@@ -51,13 +52,13 @@ newTagQueryConfiguration =
 tagQueryConfiguration_tagKey :: Lens.Lens' TagQueryConfiguration (Prelude.Maybe Prelude.Text)
 tagQueryConfiguration_tagKey = Lens.lens (\TagQueryConfiguration' {tagKey} -> tagKey) (\s@TagQueryConfiguration' {} a -> s {tagKey = a} :: TagQueryConfiguration)
 
-instance Core.FromJSON TagQueryConfiguration where
+instance Data.FromJSON TagQueryConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagQueryConfiguration"
       ( \x ->
           TagQueryConfiguration'
-            Prelude.<$> (x Core..:? "tagKey")
+            Prelude.<$> (x Data..:? "tagKey")
       )
 
 instance Prelude.Hashable TagQueryConfiguration where
@@ -67,9 +68,9 @@ instance Prelude.Hashable TagQueryConfiguration where
 instance Prelude.NFData TagQueryConfiguration where
   rnf TagQueryConfiguration' {..} = Prelude.rnf tagKey
 
-instance Core.ToJSON TagQueryConfiguration where
+instance Data.ToJSON TagQueryConfiguration where
   toJSON TagQueryConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("tagKey" Core..=) Prelude.<$> tagKey]
+          [("tagKey" Data..=) Prelude.<$> tagKey]
       )

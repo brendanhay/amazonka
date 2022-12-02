@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalogAppRegistry.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations
 
@@ -35,7 +36,7 @@ data Resource = Resource'
     -- | The Amazon resource name (ARN) of the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time the resource was associated with the application.
-    associationTime :: Prelude.Maybe Core.POSIX
+    associationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,18 +79,18 @@ resource_arn = Lens.lens (\Resource' {arn} -> arn) (\s@Resource' {} a -> s {arn 
 
 -- | The time the resource was associated with the application.
 resource_associationTime :: Lens.Lens' Resource (Prelude.Maybe Prelude.UTCTime)
-resource_associationTime = Lens.lens (\Resource' {associationTime} -> associationTime) (\s@Resource' {} a -> s {associationTime = a} :: Resource) Prelude.. Lens.mapping Core._Time
+resource_associationTime = Lens.lens (\Resource' {associationTime} -> associationTime) (\s@Resource' {} a -> s {associationTime = a} :: Resource) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "integrations")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "associationTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "integrations")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "associationTime")
       )
 
 instance Prelude.Hashable Resource where

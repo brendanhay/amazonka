@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalogAppRegistry.Types.Integrations where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup
 
@@ -51,13 +52,13 @@ newIntegrations =
 integrations_resourceGroup :: Lens.Lens' Integrations (Prelude.Maybe ResourceGroup)
 integrations_resourceGroup = Lens.lens (\Integrations' {resourceGroup} -> resourceGroup) (\s@Integrations' {} a -> s {resourceGroup = a} :: Integrations)
 
-instance Core.FromJSON Integrations where
+instance Data.FromJSON Integrations where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Integrations"
       ( \x ->
           Integrations'
-            Prelude.<$> (x Core..:? "resourceGroup")
+            Prelude.<$> (x Data..:? "resourceGroup")
       )
 
 instance Prelude.Hashable Integrations where

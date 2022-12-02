@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,15 +98,15 @@ instance Core.AWSRequest GetApplication where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "integrations")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "lastUpdateTime")
-            Prelude.<*> (x Core..?> "associatedResourceCount")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "integrations")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "lastUpdateTime")
+            Prelude.<*> (x Data..?> "associatedResourceCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,23 +117,23 @@ instance Prelude.Hashable GetApplication where
 instance Prelude.NFData GetApplication where
   rnf GetApplication' {..} = Prelude.rnf application
 
-instance Core.ToHeaders GetApplication where
+instance Data.ToHeaders GetApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetApplication where
+instance Data.ToPath GetApplication where
   toPath GetApplication' {..} =
     Prelude.mconcat
-      ["/applications/", Core.toBS application]
+      ["/applications/", Data.toBS application]
 
-instance Core.ToQuery GetApplication where
+instance Data.ToQuery GetApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApplicationResponse' smart constructor.
@@ -154,10 +155,10 @@ data GetApplicationResponse = GetApplicationResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 formatted timestamp of the moment when the application was
     -- created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ISO-8601 formatted timestamp of the moment when the application was
     -- last updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The number of top-level resources that were registered as part of this
     -- application.
     associatedResourceCount :: Prelude.Maybe Prelude.Natural,
@@ -247,12 +248,12 @@ getApplicationResponse_id = Lens.lens (\GetApplicationResponse' {id} -> id) (\s@
 -- | The ISO-8601 formatted timestamp of the moment when the application was
 -- created.
 getApplicationResponse_creationTime :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.UTCTime)
-getApplicationResponse_creationTime = Lens.lens (\GetApplicationResponse' {creationTime} -> creationTime) (\s@GetApplicationResponse' {} a -> s {creationTime = a} :: GetApplicationResponse) Prelude.. Lens.mapping Core._Time
+getApplicationResponse_creationTime = Lens.lens (\GetApplicationResponse' {creationTime} -> creationTime) (\s@GetApplicationResponse' {} a -> s {creationTime = a} :: GetApplicationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO-8601 formatted timestamp of the moment when the application was
 -- last updated.
 getApplicationResponse_lastUpdateTime :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.UTCTime)
-getApplicationResponse_lastUpdateTime = Lens.lens (\GetApplicationResponse' {lastUpdateTime} -> lastUpdateTime) (\s@GetApplicationResponse' {} a -> s {lastUpdateTime = a} :: GetApplicationResponse) Prelude.. Lens.mapping Core._Time
+getApplicationResponse_lastUpdateTime = Lens.lens (\GetApplicationResponse' {lastUpdateTime} -> lastUpdateTime) (\s@GetApplicationResponse' {} a -> s {lastUpdateTime = a} :: GetApplicationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The number of top-level resources that were registered as part of this
 -- application.

@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalogAppRegistry.Types.AppRegistryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalogAppRegistry.Types.TagQueryConfiguration
 
@@ -54,13 +55,13 @@ newAppRegistryConfiguration =
 appRegistryConfiguration_tagQueryConfiguration :: Lens.Lens' AppRegistryConfiguration (Prelude.Maybe TagQueryConfiguration)
 appRegistryConfiguration_tagQueryConfiguration = Lens.lens (\AppRegistryConfiguration' {tagQueryConfiguration} -> tagQueryConfiguration) (\s@AppRegistryConfiguration' {} a -> s {tagQueryConfiguration = a} :: AppRegistryConfiguration)
 
-instance Core.FromJSON AppRegistryConfiguration where
+instance Data.FromJSON AppRegistryConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppRegistryConfiguration"
       ( \x ->
           AppRegistryConfiguration'
-            Prelude.<$> (x Core..:? "tagQueryConfiguration")
+            Prelude.<$> (x Data..:? "tagQueryConfiguration")
       )
 
 instance Prelude.Hashable AppRegistryConfiguration where
@@ -71,11 +72,11 @@ instance Prelude.NFData AppRegistryConfiguration where
   rnf AppRegistryConfiguration' {..} =
     Prelude.rnf tagQueryConfiguration
 
-instance Core.ToJSON AppRegistryConfiguration where
+instance Data.ToJSON AppRegistryConfiguration where
   toJSON AppRegistryConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tagQueryConfiguration" Core..=)
+          [ ("tagQueryConfiguration" Data..=)
               Prelude.<$> tagQueryConfiguration
           ]
       )

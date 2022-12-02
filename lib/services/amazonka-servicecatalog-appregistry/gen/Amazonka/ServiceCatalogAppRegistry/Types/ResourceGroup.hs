@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState
 
@@ -113,15 +114,15 @@ resourceGroup_arn = Lens.lens (\ResourceGroup' {arn} -> arn) (\s@ResourceGroup' 
 resourceGroup_state :: Lens.Lens' ResourceGroup (Prelude.Maybe ResourceGroupState)
 resourceGroup_state = Lens.lens (\ResourceGroup' {state} -> state) (\s@ResourceGroup' {} a -> s {state = a} :: ResourceGroup)
 
-instance Core.FromJSON ResourceGroup where
+instance Data.FromJSON ResourceGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceGroup"
       ( \x ->
           ResourceGroup'
-            Prelude.<$> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
       )
 
 instance Prelude.Hashable ResourceGroup where

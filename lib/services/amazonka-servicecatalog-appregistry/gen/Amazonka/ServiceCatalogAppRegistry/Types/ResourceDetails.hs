@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalogAppRegistry.Types.ResourceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details related to the resource.
@@ -50,12 +51,12 @@ newResourceDetails =
 resourceDetails_tagValue :: Lens.Lens' ResourceDetails (Prelude.Maybe Prelude.Text)
 resourceDetails_tagValue = Lens.lens (\ResourceDetails' {tagValue} -> tagValue) (\s@ResourceDetails' {} a -> s {tagValue = a} :: ResourceDetails)
 
-instance Core.FromJSON ResourceDetails where
+instance Data.FromJSON ResourceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceDetails"
       ( \x ->
-          ResourceDetails' Prelude.<$> (x Core..:? "tagValue")
+          ResourceDetails' Prelude.<$> (x Data..:? "tagValue")
       )
 
 instance Prelude.Hashable ResourceDetails where

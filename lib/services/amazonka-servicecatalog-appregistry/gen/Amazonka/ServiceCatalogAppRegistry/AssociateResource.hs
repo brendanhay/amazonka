@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,8 +118,8 @@ instance Core.AWSRequest AssociateResource where
     Response.receiveJSON
       ( \s h x ->
           AssociateResourceResponse'
-            Prelude.<$> (x Core..?> "applicationArn")
-            Prelude.<*> (x Core..?> "resourceArn")
+            Prelude.<$> (x Data..?> "applicationArn")
+            Prelude.<*> (x Data..?> "resourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,32 +135,32 @@ instance Prelude.NFData AssociateResource where
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resource
 
-instance Core.ToHeaders AssociateResource where
+instance Data.ToHeaders AssociateResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateResource where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AssociateResource where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath AssociateResource where
+instance Data.ToPath AssociateResource where
   toPath AssociateResource' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS application,
+        Data.toBS application,
         "/resources/",
-        Core.toBS resourceType,
+        Data.toBS resourceType,
         "/",
-        Core.toBS resource
+        Data.toBS resource
       ]
 
-instance Core.ToQuery AssociateResource where
+instance Data.ToQuery AssociateResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateResourceResponse' smart constructor.

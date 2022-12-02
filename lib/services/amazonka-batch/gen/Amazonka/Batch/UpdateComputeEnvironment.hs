@@ -48,6 +48,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -285,8 +286,8 @@ instance Core.AWSRequest UpdateComputeEnvironment where
     Response.receiveJSON
       ( \s h x ->
           UpdateComputeEnvironmentResponse'
-            Prelude.<$> (x Core..?> "computeEnvironmentArn")
-            Prelude.<*> (x Core..?> "computeEnvironmentName")
+            Prelude.<$> (x Data..?> "computeEnvironmentArn")
+            Prelude.<*> (x Data..?> "computeEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -308,37 +309,37 @@ instance Prelude.NFData UpdateComputeEnvironment where
       `Prelude.seq` Prelude.rnf unmanagedvCpus
       `Prelude.seq` Prelude.rnf computeEnvironment
 
-instance Core.ToHeaders UpdateComputeEnvironment where
+instance Data.ToHeaders UpdateComputeEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateComputeEnvironment where
+instance Data.ToJSON UpdateComputeEnvironment where
   toJSON UpdateComputeEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("state" Core..=) Prelude.<$> state,
-            ("serviceRole" Core..=) Prelude.<$> serviceRole,
-            ("updatePolicy" Core..=) Prelude.<$> updatePolicy,
-            ("computeResources" Core..=)
+          [ ("state" Data..=) Prelude.<$> state,
+            ("serviceRole" Data..=) Prelude.<$> serviceRole,
+            ("updatePolicy" Data..=) Prelude.<$> updatePolicy,
+            ("computeResources" Data..=)
               Prelude.<$> computeResources,
-            ("unmanagedvCpus" Core..=)
+            ("unmanagedvCpus" Data..=)
               Prelude.<$> unmanagedvCpus,
             Prelude.Just
-              ("computeEnvironment" Core..= computeEnvironment)
+              ("computeEnvironment" Data..= computeEnvironment)
           ]
       )
 
-instance Core.ToPath UpdateComputeEnvironment where
+instance Data.ToPath UpdateComputeEnvironment where
   toPath = Prelude.const "/v1/updatecomputeenvironment"
 
-instance Core.ToQuery UpdateComputeEnvironment where
+instance Data.ToQuery UpdateComputeEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateComputeEnvironmentResponse' smart constructor.

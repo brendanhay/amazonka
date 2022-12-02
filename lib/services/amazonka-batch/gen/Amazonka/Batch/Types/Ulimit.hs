@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.Ulimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @ulimit@ settings to pass to the container.
@@ -79,15 +80,15 @@ ulimit_name = Lens.lens (\Ulimit' {name} -> name) (\s@Ulimit' {} a -> s {name = 
 ulimit_softLimit :: Lens.Lens' Ulimit Prelude.Int
 ulimit_softLimit = Lens.lens (\Ulimit' {softLimit} -> softLimit) (\s@Ulimit' {} a -> s {softLimit = a} :: Ulimit)
 
-instance Core.FromJSON Ulimit where
+instance Data.FromJSON Ulimit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Ulimit"
       ( \x ->
           Ulimit'
-            Prelude.<$> (x Core..: "hardLimit")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "softLimit")
+            Prelude.<$> (x Data..: "hardLimit")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "softLimit")
       )
 
 instance Prelude.Hashable Ulimit where
@@ -102,12 +103,12 @@ instance Prelude.NFData Ulimit where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf softLimit
 
-instance Core.ToJSON Ulimit where
+instance Data.ToJSON Ulimit where
   toJSON Ulimit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("hardLimit" Core..= hardLimit),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("softLimit" Core..= softLimit)
+          [ Prelude.Just ("hardLimit" Data..= hardLimit),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("softLimit" Data..= softLimit)
           ]
       )

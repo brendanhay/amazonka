@@ -43,6 +43,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,28 +97,28 @@ instance Prelude.Hashable DeleteSchedulingPolicy where
 instance Prelude.NFData DeleteSchedulingPolicy where
   rnf DeleteSchedulingPolicy' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteSchedulingPolicy where
+instance Data.ToHeaders DeleteSchedulingPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSchedulingPolicy where
+instance Data.ToJSON DeleteSchedulingPolicy where
   toJSON DeleteSchedulingPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath DeleteSchedulingPolicy where
+instance Data.ToPath DeleteSchedulingPolicy where
   toPath = Prelude.const "/v1/deleteschedulingpolicy"
 
-instance Core.ToQuery DeleteSchedulingPolicy where
+instance Data.ToQuery DeleteSchedulingPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSchedulingPolicyResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.EksAttemptContainerDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the details for an attempt for a job attempt
@@ -69,14 +70,14 @@ eksAttemptContainerDetail_reason = Lens.lens (\EksAttemptContainerDetail' {reaso
 eksAttemptContainerDetail_exitCode :: Lens.Lens' EksAttemptContainerDetail (Prelude.Maybe Prelude.Int)
 eksAttemptContainerDetail_exitCode = Lens.lens (\EksAttemptContainerDetail' {exitCode} -> exitCode) (\s@EksAttemptContainerDetail' {} a -> s {exitCode = a} :: EksAttemptContainerDetail)
 
-instance Core.FromJSON EksAttemptContainerDetail where
+instance Data.FromJSON EksAttemptContainerDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksAttemptContainerDetail"
       ( \x ->
           EksAttemptContainerDetail'
-            Prelude.<$> (x Core..:? "reason")
-            Prelude.<*> (x Core..:? "exitCode")
+            Prelude.<$> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "exitCode")
       )
 
 instance Prelude.Hashable EksAttemptContainerDetail where

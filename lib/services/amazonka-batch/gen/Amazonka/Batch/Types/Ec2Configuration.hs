@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.Ec2Configuration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information used to select Amazon Machine Images (AMIs) for
@@ -244,15 +245,15 @@ ec2Configuration_imageKubernetesVersion = Lens.lens (\Ec2Configuration' {imageKu
 ec2Configuration_imageType :: Lens.Lens' Ec2Configuration Prelude.Text
 ec2Configuration_imageType = Lens.lens (\Ec2Configuration' {imageType} -> imageType) (\s@Ec2Configuration' {} a -> s {imageType = a} :: Ec2Configuration)
 
-instance Core.FromJSON Ec2Configuration where
+instance Data.FromJSON Ec2Configuration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Ec2Configuration"
       ( \x ->
           Ec2Configuration'
-            Prelude.<$> (x Core..:? "imageIdOverride")
-            Prelude.<*> (x Core..:? "imageKubernetesVersion")
-            Prelude.<*> (x Core..: "imageType")
+            Prelude.<$> (x Data..:? "imageIdOverride")
+            Prelude.<*> (x Data..:? "imageKubernetesVersion")
+            Prelude.<*> (x Data..: "imageType")
       )
 
 instance Prelude.Hashable Ec2Configuration where
@@ -267,14 +268,14 @@ instance Prelude.NFData Ec2Configuration where
       `Prelude.seq` Prelude.rnf imageKubernetesVersion
       `Prelude.seq` Prelude.rnf imageType
 
-instance Core.ToJSON Ec2Configuration where
+instance Data.ToJSON Ec2Configuration where
   toJSON Ec2Configuration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("imageIdOverride" Core..=)
+          [ ("imageIdOverride" Data..=)
               Prelude.<$> imageIdOverride,
-            ("imageKubernetesVersion" Core..=)
+            ("imageKubernetesVersion" Data..=)
               Prelude.<$> imageKubernetesVersion,
-            Prelude.Just ("imageType" Core..= imageType)
+            Prelude.Just ("imageType" Data..= imageType)
           ]
       )

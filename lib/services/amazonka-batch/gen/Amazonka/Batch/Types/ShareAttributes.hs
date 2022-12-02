@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.ShareAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the weights for the fair share identifiers for the fair share
@@ -119,14 +120,14 @@ shareAttributes_weightFactor = Lens.lens (\ShareAttributes' {weightFactor} -> we
 shareAttributes_shareIdentifier :: Lens.Lens' ShareAttributes Prelude.Text
 shareAttributes_shareIdentifier = Lens.lens (\ShareAttributes' {shareIdentifier} -> shareIdentifier) (\s@ShareAttributes' {} a -> s {shareIdentifier = a} :: ShareAttributes)
 
-instance Core.FromJSON ShareAttributes where
+instance Data.FromJSON ShareAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShareAttributes"
       ( \x ->
           ShareAttributes'
-            Prelude.<$> (x Core..:? "weightFactor")
-            Prelude.<*> (x Core..: "shareIdentifier")
+            Prelude.<$> (x Data..:? "weightFactor")
+            Prelude.<*> (x Data..: "shareIdentifier")
       )
 
 instance Prelude.Hashable ShareAttributes where
@@ -139,12 +140,12 @@ instance Prelude.NFData ShareAttributes where
     Prelude.rnf weightFactor
       `Prelude.seq` Prelude.rnf shareIdentifier
 
-instance Core.ToJSON ShareAttributes where
+instance Data.ToJSON ShareAttributes where
   toJSON ShareAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("weightFactor" Core..=) Prelude.<$> weightFactor,
+          [ ("weightFactor" Data..=) Prelude.<$> weightFactor,
             Prelude.Just
-              ("shareIdentifier" Core..= shareIdentifier)
+              ("shareIdentifier" Data..= shareIdentifier)
           ]
       )

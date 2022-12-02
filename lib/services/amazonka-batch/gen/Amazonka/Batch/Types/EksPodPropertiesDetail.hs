@@ -23,6 +23,7 @@ import Amazonka.Batch.Types.EksContainerDetail
 import Amazonka.Batch.Types.EksVolume
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details for the pod.
@@ -208,19 +209,19 @@ eksPodPropertiesDetail_dnsPolicy = Lens.lens (\EksPodPropertiesDetail' {dnsPolic
 eksPodPropertiesDetail_hostNetwork :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe Prelude.Bool)
 eksPodPropertiesDetail_hostNetwork = Lens.lens (\EksPodPropertiesDetail' {hostNetwork} -> hostNetwork) (\s@EksPodPropertiesDetail' {} a -> s {hostNetwork = a} :: EksPodPropertiesDetail)
 
-instance Core.FromJSON EksPodPropertiesDetail where
+instance Data.FromJSON EksPodPropertiesDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksPodPropertiesDetail"
       ( \x ->
           EksPodPropertiesDetail'
-            Prelude.<$> (x Core..:? "containers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "serviceAccountName")
-            Prelude.<*> (x Core..:? "podName")
-            Prelude.<*> (x Core..:? "volumes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "nodeName")
-            Prelude.<*> (x Core..:? "dnsPolicy")
-            Prelude.<*> (x Core..:? "hostNetwork")
+            Prelude.<$> (x Data..:? "containers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "serviceAccountName")
+            Prelude.<*> (x Data..:? "podName")
+            Prelude.<*> (x Data..:? "volumes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "nodeName")
+            Prelude.<*> (x Data..:? "dnsPolicy")
+            Prelude.<*> (x Data..:? "hostNetwork")
       )
 
 instance Prelude.Hashable EksPodPropertiesDetail where

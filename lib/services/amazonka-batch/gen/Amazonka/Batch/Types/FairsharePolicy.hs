@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.FairsharePolicy where
 import Amazonka.Batch.Types.ShareAttributes
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The fair share policy for a scheduling policy.
@@ -138,17 +139,17 @@ fairsharePolicy_shareDecaySeconds = Lens.lens (\FairsharePolicy' {shareDecaySeco
 fairsharePolicy_computeReservation :: Lens.Lens' FairsharePolicy (Prelude.Maybe Prelude.Int)
 fairsharePolicy_computeReservation = Lens.lens (\FairsharePolicy' {computeReservation} -> computeReservation) (\s@FairsharePolicy' {} a -> s {computeReservation = a} :: FairsharePolicy)
 
-instance Core.FromJSON FairsharePolicy where
+instance Data.FromJSON FairsharePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FairsharePolicy"
       ( \x ->
           FairsharePolicy'
-            Prelude.<$> ( x Core..:? "shareDistribution"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "shareDistribution"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "shareDecaySeconds")
-            Prelude.<*> (x Core..:? "computeReservation")
+            Prelude.<*> (x Data..:? "shareDecaySeconds")
+            Prelude.<*> (x Data..:? "computeReservation")
       )
 
 instance Prelude.Hashable FairsharePolicy where
@@ -163,15 +164,15 @@ instance Prelude.NFData FairsharePolicy where
       `Prelude.seq` Prelude.rnf shareDecaySeconds
       `Prelude.seq` Prelude.rnf computeReservation
 
-instance Core.ToJSON FairsharePolicy where
+instance Data.ToJSON FairsharePolicy where
   toJSON FairsharePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("shareDistribution" Core..=)
+          [ ("shareDistribution" Data..=)
               Prelude.<$> shareDistribution,
-            ("shareDecaySeconds" Core..=)
+            ("shareDecaySeconds" Data..=)
               Prelude.<$> shareDecaySeconds,
-            ("computeReservation" Core..=)
+            ("computeReservation" Data..=)
               Prelude.<$> computeReservation
           ]
       )

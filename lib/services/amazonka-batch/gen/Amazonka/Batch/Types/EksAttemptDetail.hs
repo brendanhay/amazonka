@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.EksAttemptDetail where
 import Amazonka.Batch.Types.EksAttemptContainerDetail
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the details of a job attempt for a job attempt
@@ -114,18 +115,18 @@ eksAttemptDetail_nodeName = Lens.lens (\EksAttemptDetail' {nodeName} -> nodeName
 eksAttemptDetail_stoppedAt :: Lens.Lens' EksAttemptDetail (Prelude.Maybe Prelude.Integer)
 eksAttemptDetail_stoppedAt = Lens.lens (\EksAttemptDetail' {stoppedAt} -> stoppedAt) (\s@EksAttemptDetail' {} a -> s {stoppedAt = a} :: EksAttemptDetail)
 
-instance Core.FromJSON EksAttemptDetail where
+instance Data.FromJSON EksAttemptDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksAttemptDetail"
       ( \x ->
           EksAttemptDetail'
-            Prelude.<$> (x Core..:? "containers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "podName")
-            Prelude.<*> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..:? "nodeName")
-            Prelude.<*> (x Core..:? "stoppedAt")
+            Prelude.<$> (x Data..:? "containers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "podName")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "nodeName")
+            Prelude.<*> (x Data..:? "stoppedAt")
       )
 
 instance Prelude.Hashable EksAttemptDetail where

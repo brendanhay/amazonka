@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.Tmpfs where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The container path, mount options, and size of the @tmpfs@ mount.
@@ -110,15 +111,15 @@ tmpfs_containerPath = Lens.lens (\Tmpfs' {containerPath} -> containerPath) (\s@T
 tmpfs_size :: Lens.Lens' Tmpfs Prelude.Int
 tmpfs_size = Lens.lens (\Tmpfs' {size} -> size) (\s@Tmpfs' {} a -> s {size = a} :: Tmpfs)
 
-instance Core.FromJSON Tmpfs where
+instance Data.FromJSON Tmpfs where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Tmpfs"
       ( \x ->
           Tmpfs'
-            Prelude.<$> (x Core..:? "mountOptions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "containerPath")
-            Prelude.<*> (x Core..: "size")
+            Prelude.<$> (x Data..:? "mountOptions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "containerPath")
+            Prelude.<*> (x Data..: "size")
       )
 
 instance Prelude.Hashable Tmpfs where
@@ -133,12 +134,12 @@ instance Prelude.NFData Tmpfs where
       `Prelude.seq` Prelude.rnf containerPath
       `Prelude.seq` Prelude.rnf size
 
-instance Core.ToJSON Tmpfs where
+instance Data.ToJSON Tmpfs where
   toJSON Tmpfs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("mountOptions" Core..=) Prelude.<$> mountOptions,
-            Prelude.Just ("containerPath" Core..= containerPath),
-            Prelude.Just ("size" Core..= size)
+          [ ("mountOptions" Data..=) Prelude.<$> mountOptions,
+            Prelude.Just ("containerPath" Data..= containerPath),
+            Prelude.Just ("size" Data..= size)
           ]
       )

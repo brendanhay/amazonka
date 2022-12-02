@@ -23,6 +23,7 @@ import Amazonka.Batch.Types.EksContainer
 import Amazonka.Batch.Types.EksVolume
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties for the pod.
@@ -165,17 +166,17 @@ eksPodProperties_dnsPolicy = Lens.lens (\EksPodProperties' {dnsPolicy} -> dnsPol
 eksPodProperties_hostNetwork :: Lens.Lens' EksPodProperties (Prelude.Maybe Prelude.Bool)
 eksPodProperties_hostNetwork = Lens.lens (\EksPodProperties' {hostNetwork} -> hostNetwork) (\s@EksPodProperties' {} a -> s {hostNetwork = a} :: EksPodProperties)
 
-instance Core.FromJSON EksPodProperties where
+instance Data.FromJSON EksPodProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksPodProperties"
       ( \x ->
           EksPodProperties'
-            Prelude.<$> (x Core..:? "containers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "serviceAccountName")
-            Prelude.<*> (x Core..:? "volumes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "dnsPolicy")
-            Prelude.<*> (x Core..:? "hostNetwork")
+            Prelude.<$> (x Data..:? "containers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "serviceAccountName")
+            Prelude.<*> (x Data..:? "volumes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "dnsPolicy")
+            Prelude.<*> (x Data..:? "hostNetwork")
       )
 
 instance Prelude.Hashable EksPodProperties where
@@ -194,15 +195,15 @@ instance Prelude.NFData EksPodProperties where
       `Prelude.seq` Prelude.rnf dnsPolicy
       `Prelude.seq` Prelude.rnf hostNetwork
 
-instance Core.ToJSON EksPodProperties where
+instance Data.ToJSON EksPodProperties where
   toJSON EksPodProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("containers" Core..=) Prelude.<$> containers,
-            ("serviceAccountName" Core..=)
+          [ ("containers" Data..=) Prelude.<$> containers,
+            ("serviceAccountName" Data..=)
               Prelude.<$> serviceAccountName,
-            ("volumes" Core..=) Prelude.<$> volumes,
-            ("dnsPolicy" Core..=) Prelude.<$> dnsPolicy,
-            ("hostNetwork" Core..=) Prelude.<$> hostNetwork
+            ("volumes" Data..=) Prelude.<$> volumes,
+            ("dnsPolicy" Data..=) Prelude.<$> dnsPolicy,
+            ("hostNetwork" Data..=) Prelude.<$> hostNetwork
           ]
       )

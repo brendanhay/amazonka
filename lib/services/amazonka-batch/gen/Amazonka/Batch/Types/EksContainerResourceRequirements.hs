@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.EksContainerResourceRequirements where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type and amount of resources to assign to a container. The supported
@@ -253,16 +254,16 @@ eksContainerResourceRequirements_requests :: Lens.Lens' EksContainerResourceRequ
 eksContainerResourceRequirements_requests = Lens.lens (\EksContainerResourceRequirements' {requests} -> requests) (\s@EksContainerResourceRequirements' {} a -> s {requests = a} :: EksContainerResourceRequirements) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EksContainerResourceRequirements
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksContainerResourceRequirements"
       ( \x ->
           EksContainerResourceRequirements'
-            Prelude.<$> (x Core..:? "limits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "requests" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "limits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "requests" Data..!= Prelude.mempty)
       )
 
 instance
@@ -283,11 +284,11 @@ instance
     Prelude.rnf limits
       `Prelude.seq` Prelude.rnf requests
 
-instance Core.ToJSON EksContainerResourceRequirements where
+instance Data.ToJSON EksContainerResourceRequirements where
   toJSON EksContainerResourceRequirements' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("limits" Core..=) Prelude.<$> limits,
-            ("requests" Core..=) Prelude.<$> requests
+          [ ("limits" Data..=) Prelude.<$> limits,
+            ("requests" Data..=) Prelude.<$> requests
           ]
       )

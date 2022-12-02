@@ -25,6 +25,7 @@ import Amazonka.Batch.Types.Ec2Configuration
 import Amazonka.Batch.Types.LaunchTemplateSpecification
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents an Batch compute resource. For more
@@ -789,33 +790,33 @@ computeResource_maxvCpus = Lens.lens (\ComputeResource' {maxvCpus} -> maxvCpus) 
 computeResource_subnets :: Lens.Lens' ComputeResource [Prelude.Text]
 computeResource_subnets = Lens.lens (\ComputeResource' {subnets} -> subnets) (\s@ComputeResource' {} a -> s {subnets = a} :: ComputeResource) Prelude.. Lens.coerced
 
-instance Core.FromJSON ComputeResource where
+instance Data.FromJSON ComputeResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComputeResource"
       ( \x ->
           ComputeResource'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ec2KeyPair")
-            Prelude.<*> ( x Core..:? "ec2Configuration"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ec2KeyPair")
+            Prelude.<*> ( x Data..:? "ec2Configuration"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "minvCpus")
-            Prelude.<*> (x Core..:? "instanceTypes" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "securityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "minvCpus")
+            Prelude.<*> (x Data..:? "instanceTypes" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "securityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "desiredvCpus")
-            Prelude.<*> (x Core..:? "launchTemplate")
-            Prelude.<*> (x Core..:? "bidPercentage")
-            Prelude.<*> (x Core..:? "spotIamFleetRole")
-            Prelude.<*> (x Core..:? "instanceRole")
-            Prelude.<*> (x Core..:? "allocationStrategy")
-            Prelude.<*> (x Core..:? "placementGroup")
-            Prelude.<*> (x Core..:? "imageId")
-            Prelude.<*> (x Core..: "type")
-            Prelude.<*> (x Core..: "maxvCpus")
-            Prelude.<*> (x Core..:? "subnets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "desiredvCpus")
+            Prelude.<*> (x Data..:? "launchTemplate")
+            Prelude.<*> (x Data..:? "bidPercentage")
+            Prelude.<*> (x Data..:? "spotIamFleetRole")
+            Prelude.<*> (x Data..:? "instanceRole")
+            Prelude.<*> (x Data..:? "allocationStrategy")
+            Prelude.<*> (x Data..:? "placementGroup")
+            Prelude.<*> (x Data..:? "imageId")
+            Prelude.<*> (x Data..: "type")
+            Prelude.<*> (x Data..: "maxvCpus")
+            Prelude.<*> (x Data..:? "subnets" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ComputeResource where
@@ -858,32 +859,32 @@ instance Prelude.NFData ComputeResource where
       `Prelude.seq` Prelude.rnf maxvCpus
       `Prelude.seq` Prelude.rnf subnets
 
-instance Core.ToJSON ComputeResource where
+instance Data.ToJSON ComputeResource where
   toJSON ComputeResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("ec2KeyPair" Core..=) Prelude.<$> ec2KeyPair,
-            ("ec2Configuration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("ec2KeyPair" Data..=) Prelude.<$> ec2KeyPair,
+            ("ec2Configuration" Data..=)
               Prelude.<$> ec2Configuration,
-            ("minvCpus" Core..=) Prelude.<$> minvCpus,
-            ("instanceTypes" Core..=) Prelude.<$> instanceTypes,
-            ("securityGroupIds" Core..=)
+            ("minvCpus" Data..=) Prelude.<$> minvCpus,
+            ("instanceTypes" Data..=) Prelude.<$> instanceTypes,
+            ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("desiredvCpus" Core..=) Prelude.<$> desiredvCpus,
-            ("launchTemplate" Core..=)
+            ("desiredvCpus" Data..=) Prelude.<$> desiredvCpus,
+            ("launchTemplate" Data..=)
               Prelude.<$> launchTemplate,
-            ("bidPercentage" Core..=) Prelude.<$> bidPercentage,
-            ("spotIamFleetRole" Core..=)
+            ("bidPercentage" Data..=) Prelude.<$> bidPercentage,
+            ("spotIamFleetRole" Data..=)
               Prelude.<$> spotIamFleetRole,
-            ("instanceRole" Core..=) Prelude.<$> instanceRole,
-            ("allocationStrategy" Core..=)
+            ("instanceRole" Data..=) Prelude.<$> instanceRole,
+            ("allocationStrategy" Data..=)
               Prelude.<$> allocationStrategy,
-            ("placementGroup" Core..=)
+            ("placementGroup" Data..=)
               Prelude.<$> placementGroup,
-            ("imageId" Core..=) Prelude.<$> imageId,
-            Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("maxvCpus" Core..= maxvCpus),
-            Prelude.Just ("subnets" Core..= subnets)
+            ("imageId" Data..=) Prelude.<$> imageId,
+            Prelude.Just ("type" Data..= type'),
+            Prelude.Just ("maxvCpus" Data..= maxvCpus),
+            Prelude.Just ("subnets" Data..= subnets)
           ]
       )

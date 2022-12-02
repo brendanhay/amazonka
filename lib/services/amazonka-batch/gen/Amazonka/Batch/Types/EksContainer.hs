@@ -25,6 +25,7 @@ import Amazonka.Batch.Types.EksContainerSecurityContext
 import Amazonka.Batch.Types.EksContainerVolumeMount
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | EKS container properties are used in job definitions for Amazon EKS
@@ -304,21 +305,21 @@ eksContainer_volumeMounts = Lens.lens (\EksContainer' {volumeMounts} -> volumeMo
 eksContainer_image :: Lens.Lens' EksContainer Prelude.Text
 eksContainer_image = Lens.lens (\EksContainer' {image} -> image) (\s@EksContainer' {} a -> s {image = a} :: EksContainer)
 
-instance Core.FromJSON EksContainer where
+instance Data.FromJSON EksContainer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksContainer"
       ( \x ->
           EksContainer'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "imagePullPolicy")
-            Prelude.<*> (x Core..:? "securityContext")
-            Prelude.<*> (x Core..:? "resources")
-            Prelude.<*> (x Core..:? "args" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "env" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "volumeMounts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "image")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "command" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "imagePullPolicy")
+            Prelude.<*> (x Data..:? "securityContext")
+            Prelude.<*> (x Data..:? "resources")
+            Prelude.<*> (x Data..:? "args" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "env" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "volumeMounts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "image")
       )
 
 instance Prelude.Hashable EksContainer where
@@ -345,20 +346,20 @@ instance Prelude.NFData EksContainer where
       `Prelude.seq` Prelude.rnf volumeMounts
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToJSON EksContainer where
+instance Data.ToJSON EksContainer where
   toJSON EksContainer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("command" Core..=) Prelude.<$> command,
-            ("imagePullPolicy" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("command" Data..=) Prelude.<$> command,
+            ("imagePullPolicy" Data..=)
               Prelude.<$> imagePullPolicy,
-            ("securityContext" Core..=)
+            ("securityContext" Data..=)
               Prelude.<$> securityContext,
-            ("resources" Core..=) Prelude.<$> resources,
-            ("args" Core..=) Prelude.<$> args,
-            ("env" Core..=) Prelude.<$> env,
-            ("volumeMounts" Core..=) Prelude.<$> volumeMounts,
-            Prelude.Just ("image" Core..= image)
+            ("resources" Data..=) Prelude.<$> resources,
+            ("args" Data..=) Prelude.<$> args,
+            ("env" Data..=) Prelude.<$> env,
+            ("volumeMounts" Data..=) Prelude.<$> volumeMounts,
+            Prelude.Just ("image" Data..= image)
           ]
       )

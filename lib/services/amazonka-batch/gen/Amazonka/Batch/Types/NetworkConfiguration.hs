@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.NetworkConfiguration where
 import Amazonka.Batch.Types.AssignPublicIp
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The network configuration for jobs that are running on Fargate
@@ -77,13 +78,13 @@ newNetworkConfiguration =
 networkConfiguration_assignPublicIp :: Lens.Lens' NetworkConfiguration (Prelude.Maybe AssignPublicIp)
 networkConfiguration_assignPublicIp = Lens.lens (\NetworkConfiguration' {assignPublicIp} -> assignPublicIp) (\s@NetworkConfiguration' {} a -> s {assignPublicIp = a} :: NetworkConfiguration)
 
-instance Core.FromJSON NetworkConfiguration where
+instance Data.FromJSON NetworkConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkConfiguration"
       ( \x ->
           NetworkConfiguration'
-            Prelude.<$> (x Core..:? "assignPublicIp")
+            Prelude.<$> (x Data..:? "assignPublicIp")
       )
 
 instance Prelude.Hashable NetworkConfiguration where
@@ -94,11 +95,11 @@ instance Prelude.NFData NetworkConfiguration where
   rnf NetworkConfiguration' {..} =
     Prelude.rnf assignPublicIp
 
-instance Core.ToJSON NetworkConfiguration where
+instance Data.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("assignPublicIp" Core..=)
+          [ ("assignPublicIp" Data..=)
               Prelude.<$> assignPublicIp
           ]
       )

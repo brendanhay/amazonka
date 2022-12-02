@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.ContainerSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents summary details of a container within a job.
@@ -64,14 +65,14 @@ containerSummary_reason = Lens.lens (\ContainerSummary' {reason} -> reason) (\s@
 containerSummary_exitCode :: Lens.Lens' ContainerSummary (Prelude.Maybe Prelude.Int)
 containerSummary_exitCode = Lens.lens (\ContainerSummary' {exitCode} -> exitCode) (\s@ContainerSummary' {} a -> s {exitCode = a} :: ContainerSummary)
 
-instance Core.FromJSON ContainerSummary where
+instance Data.FromJSON ContainerSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerSummary"
       ( \x ->
           ContainerSummary'
-            Prelude.<$> (x Core..:? "reason")
-            Prelude.<*> (x Core..:? "exitCode")
+            Prelude.<$> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "exitCode")
       )
 
 instance Prelude.Hashable ContainerSummary where

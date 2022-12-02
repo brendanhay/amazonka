@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.NodeProperties where
 import Amazonka.Batch.Types.NodeRangeProperty
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the node properties of a multi-node parallel
@@ -85,16 +86,16 @@ nodeProperties_mainNode = Lens.lens (\NodeProperties' {mainNode} -> mainNode) (\
 nodeProperties_nodeRangeProperties :: Lens.Lens' NodeProperties [NodeRangeProperty]
 nodeProperties_nodeRangeProperties = Lens.lens (\NodeProperties' {nodeRangeProperties} -> nodeRangeProperties) (\s@NodeProperties' {} a -> s {nodeRangeProperties = a} :: NodeProperties) Prelude.. Lens.coerced
 
-instance Core.FromJSON NodeProperties where
+instance Data.FromJSON NodeProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeProperties"
       ( \x ->
           NodeProperties'
-            Prelude.<$> (x Core..: "numNodes")
-            Prelude.<*> (x Core..: "mainNode")
-            Prelude.<*> ( x Core..:? "nodeRangeProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "numNodes")
+            Prelude.<*> (x Data..: "mainNode")
+            Prelude.<*> ( x Data..:? "nodeRangeProperties"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -110,13 +111,13 @@ instance Prelude.NFData NodeProperties where
       `Prelude.seq` Prelude.rnf mainNode
       `Prelude.seq` Prelude.rnf nodeRangeProperties
 
-instance Core.ToJSON NodeProperties where
+instance Data.ToJSON NodeProperties where
   toJSON NodeProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("numNodes" Core..= numNodes),
-            Prelude.Just ("mainNode" Core..= mainNode),
+          [ Prelude.Just ("numNodes" Data..= numNodes),
+            Prelude.Just ("mainNode" Data..= mainNode),
             Prelude.Just
-              ("nodeRangeProperties" Core..= nodeRangeProperties)
+              ("nodeRangeProperties" Data..= nodeRangeProperties)
           ]
       )

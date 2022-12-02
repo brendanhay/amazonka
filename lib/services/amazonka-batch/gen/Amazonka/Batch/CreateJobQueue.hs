@@ -56,6 +56,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -248,8 +249,8 @@ instance Core.AWSRequest CreateJobQueue where
       ( \s h x ->
           CreateJobQueueResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "jobQueueName")
-            Prelude.<*> (x Core..:> "jobQueueArn")
+            Prelude.<*> (x Data..:> "jobQueueName")
+            Prelude.<*> (x Data..:> "jobQueueArn")
       )
 
 instance Prelude.Hashable CreateJobQueue where
@@ -270,38 +271,38 @@ instance Prelude.NFData CreateJobQueue where
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf computeEnvironmentOrder
 
-instance Core.ToHeaders CreateJobQueue where
+instance Data.ToHeaders CreateJobQueue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateJobQueue where
+instance Data.ToJSON CreateJobQueue where
   toJSON CreateJobQueue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("state" Core..=) Prelude.<$> state,
-            ("schedulingPolicyArn" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("state" Data..=) Prelude.<$> state,
+            ("schedulingPolicyArn" Data..=)
               Prelude.<$> schedulingPolicyArn,
-            Prelude.Just ("jobQueueName" Core..= jobQueueName),
-            Prelude.Just ("priority" Core..= priority),
+            Prelude.Just ("jobQueueName" Data..= jobQueueName),
+            Prelude.Just ("priority" Data..= priority),
             Prelude.Just
               ( "computeEnvironmentOrder"
-                  Core..= computeEnvironmentOrder
+                  Data..= computeEnvironmentOrder
               )
           ]
       )
 
-instance Core.ToPath CreateJobQueue where
+instance Data.ToPath CreateJobQueue where
   toPath = Prelude.const "/v1/createjobqueue"
 
-instance Core.ToQuery CreateJobQueue where
+instance Data.ToQuery CreateJobQueue where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateJobQueueResponse' smart constructor.

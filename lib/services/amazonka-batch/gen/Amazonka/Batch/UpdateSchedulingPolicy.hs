@@ -42,6 +42,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,31 +111,31 @@ instance Prelude.NFData UpdateSchedulingPolicy where
     Prelude.rnf fairsharePolicy
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdateSchedulingPolicy where
+instance Data.ToHeaders UpdateSchedulingPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSchedulingPolicy where
+instance Data.ToJSON UpdateSchedulingPolicy where
   toJSON UpdateSchedulingPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fairsharePolicy" Core..=)
+          [ ("fairsharePolicy" Data..=)
               Prelude.<$> fairsharePolicy,
-            Prelude.Just ("arn" Core..= arn)
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdateSchedulingPolicy where
+instance Data.ToPath UpdateSchedulingPolicy where
   toPath = Prelude.const "/v1/updateschedulingpolicy"
 
-instance Core.ToQuery UpdateSchedulingPolicy where
+instance Data.ToQuery UpdateSchedulingPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSchedulingPolicyResponse' smart constructor.

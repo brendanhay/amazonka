@@ -47,6 +47,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -175,8 +176,8 @@ instance Core.AWSRequest DescribeJobQueues where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobQueuesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "jobQueues" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "jobQueues" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,31 +193,31 @@ instance Prelude.NFData DescribeJobQueues where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobQueues
 
-instance Core.ToHeaders DescribeJobQueues where
+instance Data.ToHeaders DescribeJobQueues where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeJobQueues where
+instance Data.ToJSON DescribeJobQueues where
   toJSON DescribeJobQueues' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("jobQueues" Core..=) Prelude.<$> jobQueues
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("jobQueues" Data..=) Prelude.<$> jobQueues
           ]
       )
 
-instance Core.ToPath DescribeJobQueues where
+instance Data.ToPath DescribeJobQueues where
   toPath = Prelude.const "/v1/describejobqueues"
 
-instance Core.ToQuery DescribeJobQueues where
+instance Data.ToQuery DescribeJobQueues where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeJobQueuesResponse' smart constructor.

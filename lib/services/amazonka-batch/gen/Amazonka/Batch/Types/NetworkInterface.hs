@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.NetworkInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the elastic network interface for a multi-node
@@ -71,15 +72,15 @@ networkInterface_ipv6Address = Lens.lens (\NetworkInterface' {ipv6Address} -> ip
 networkInterface_privateIpv4Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_privateIpv4Address = Lens.lens (\NetworkInterface' {privateIpv4Address} -> privateIpv4Address) (\s@NetworkInterface' {} a -> s {privateIpv4Address = a} :: NetworkInterface)
 
-instance Core.FromJSON NetworkInterface where
+instance Data.FromJSON NetworkInterface where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Core..:? "attachmentId")
-            Prelude.<*> (x Core..:? "ipv6Address")
-            Prelude.<*> (x Core..:? "privateIpv4Address")
+            Prelude.<$> (x Data..:? "attachmentId")
+            Prelude.<*> (x Data..:? "ipv6Address")
+            Prelude.<*> (x Data..:? "privateIpv4Address")
       )
 
 instance Prelude.Hashable NetworkInterface where

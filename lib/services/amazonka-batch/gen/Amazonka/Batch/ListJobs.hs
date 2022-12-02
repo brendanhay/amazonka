@@ -62,6 +62,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -360,9 +361,9 @@ instance Core.AWSRequest ListJobs where
     Response.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "jobSummaryList"
+            Prelude.<*> ( x Data..?> "jobSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -387,36 +388,36 @@ instance Prelude.NFData ListJobs where
       `Prelude.seq` Prelude.rnf jobQueue
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListJobs where
+instance Data.ToHeaders ListJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListJobs where
+instance Data.ToJSON ListJobs where
   toJSON ListJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("jobStatus" Core..=) Prelude.<$> jobStatus,
-            ("multiNodeJobId" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("jobStatus" Data..=) Prelude.<$> jobStatus,
+            ("multiNodeJobId" Data..=)
               Prelude.<$> multiNodeJobId,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("arrayJobId" Core..=) Prelude.<$> arrayJobId,
-            ("jobQueue" Core..=) Prelude.<$> jobQueue,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("filters" Data..=) Prelude.<$> filters,
+            ("arrayJobId" Data..=) Prelude.<$> arrayJobId,
+            ("jobQueue" Data..=) Prelude.<$> jobQueue,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListJobs where
+instance Data.ToPath ListJobs where
   toPath = Prelude.const "/v1/listjobs"
 
-instance Core.ToQuery ListJobs where
+instance Data.ToQuery ListJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListJobsResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.EFSAuthorizationConfig where
 import Amazonka.Batch.Types.EFSAuthorizationConfigIAM
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The authorization configuration details for the Amazon EFS file system.
@@ -101,14 +102,14 @@ eFSAuthorizationConfig_iam = Lens.lens (\EFSAuthorizationConfig' {iam} -> iam) (
 eFSAuthorizationConfig_accessPointId :: Lens.Lens' EFSAuthorizationConfig (Prelude.Maybe Prelude.Text)
 eFSAuthorizationConfig_accessPointId = Lens.lens (\EFSAuthorizationConfig' {accessPointId} -> accessPointId) (\s@EFSAuthorizationConfig' {} a -> s {accessPointId = a} :: EFSAuthorizationConfig)
 
-instance Core.FromJSON EFSAuthorizationConfig where
+instance Data.FromJSON EFSAuthorizationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EFSAuthorizationConfig"
       ( \x ->
           EFSAuthorizationConfig'
-            Prelude.<$> (x Core..:? "iam")
-            Prelude.<*> (x Core..:? "accessPointId")
+            Prelude.<$> (x Data..:? "iam")
+            Prelude.<*> (x Data..:? "accessPointId")
       )
 
 instance Prelude.Hashable EFSAuthorizationConfig where
@@ -121,11 +122,11 @@ instance Prelude.NFData EFSAuthorizationConfig where
     Prelude.rnf iam
       `Prelude.seq` Prelude.rnf accessPointId
 
-instance Core.ToJSON EFSAuthorizationConfig where
+instance Data.ToJSON EFSAuthorizationConfig where
   toJSON EFSAuthorizationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("iam" Core..=) Prelude.<$> iam,
-            ("accessPointId" Core..=) Prelude.<$> accessPointId
+          [ ("iam" Data..=) Prelude.<$> iam,
+            ("accessPointId" Data..=) Prelude.<$> accessPointId
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.RetryStrategy where
 import Amazonka.Batch.Types.EvaluateOnExit
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The retry strategy that\'s associated with a job. For more information,
@@ -83,14 +84,14 @@ retryStrategy_evaluateOnExit = Lens.lens (\RetryStrategy' {evaluateOnExit} -> ev
 retryStrategy_attempts :: Lens.Lens' RetryStrategy (Prelude.Maybe Prelude.Int)
 retryStrategy_attempts = Lens.lens (\RetryStrategy' {attempts} -> attempts) (\s@RetryStrategy' {} a -> s {attempts = a} :: RetryStrategy)
 
-instance Core.FromJSON RetryStrategy where
+instance Data.FromJSON RetryStrategy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RetryStrategy"
       ( \x ->
           RetryStrategy'
-            Prelude.<$> (x Core..:? "evaluateOnExit" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "attempts")
+            Prelude.<$> (x Data..:? "evaluateOnExit" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "attempts")
       )
 
 instance Prelude.Hashable RetryStrategy where
@@ -103,12 +104,12 @@ instance Prelude.NFData RetryStrategy where
     Prelude.rnf evaluateOnExit
       `Prelude.seq` Prelude.rnf attempts
 
-instance Core.ToJSON RetryStrategy where
+instance Data.ToJSON RetryStrategy where
   toJSON RetryStrategy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("evaluateOnExit" Core..=)
+          [ ("evaluateOnExit" Data..=)
               Prelude.<$> evaluateOnExit,
-            ("attempts" Core..=) Prelude.<$> attempts
+            ("attempts" Data..=) Prelude.<$> attempts
           ]
       )

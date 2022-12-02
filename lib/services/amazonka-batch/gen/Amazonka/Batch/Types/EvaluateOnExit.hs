@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.EvaluateOnExit where
 import Amazonka.Batch.Types.RetryAction
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an array of up to 5 conditions to be met, and an action to
@@ -133,16 +134,16 @@ evaluateOnExit_onStatusReason = Lens.lens (\EvaluateOnExit' {onStatusReason} -> 
 evaluateOnExit_action :: Lens.Lens' EvaluateOnExit RetryAction
 evaluateOnExit_action = Lens.lens (\EvaluateOnExit' {action} -> action) (\s@EvaluateOnExit' {} a -> s {action = a} :: EvaluateOnExit)
 
-instance Core.FromJSON EvaluateOnExit where
+instance Data.FromJSON EvaluateOnExit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluateOnExit"
       ( \x ->
           EvaluateOnExit'
-            Prelude.<$> (x Core..:? "onReason")
-            Prelude.<*> (x Core..:? "onExitCode")
-            Prelude.<*> (x Core..:? "onStatusReason")
-            Prelude.<*> (x Core..: "action")
+            Prelude.<$> (x Data..:? "onReason")
+            Prelude.<*> (x Data..:? "onExitCode")
+            Prelude.<*> (x Data..:? "onStatusReason")
+            Prelude.<*> (x Data..: "action")
       )
 
 instance Prelude.Hashable EvaluateOnExit where
@@ -159,14 +160,14 @@ instance Prelude.NFData EvaluateOnExit where
       `Prelude.seq` Prelude.rnf onStatusReason
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON EvaluateOnExit where
+instance Data.ToJSON EvaluateOnExit where
   toJSON EvaluateOnExit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("onReason" Core..=) Prelude.<$> onReason,
-            ("onExitCode" Core..=) Prelude.<$> onExitCode,
-            ("onStatusReason" Core..=)
+          [ ("onReason" Data..=) Prelude.<$> onReason,
+            ("onExitCode" Data..=) Prelude.<$> onExitCode,
+            ("onStatusReason" Data..=)
               Prelude.<$> onStatusReason,
-            Prelude.Just ("action" Core..= action)
+            Prelude.Just ("action" Data..= action)
           ]
       )

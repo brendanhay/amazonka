@@ -32,6 +32,7 @@ import Amazonka.Batch.Types.Ulimit
 import Amazonka.Batch.Types.Volume
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the details of a container that\'s part of a
@@ -605,41 +606,41 @@ containerDetail_linuxParameters = Lens.lens (\ContainerDetail' {linuxParameters}
 containerDetail_networkInterfaces :: Lens.Lens' ContainerDetail (Prelude.Maybe [NetworkInterface])
 containerDetail_networkInterfaces = Lens.lens (\ContainerDetail' {networkInterfaces} -> networkInterfaces) (\s@ContainerDetail' {} a -> s {networkInterfaces = a} :: ContainerDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ContainerDetail where
+instance Data.FromJSON ContainerDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerDetail"
       ( \x ->
           ContainerDetail'
-            Prelude.<$> (x Core..:? "readonlyRootFilesystem")
-            Prelude.<*> (x Core..:? "environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "logConfiguration")
-            Prelude.<*> ( x Core..:? "resourceRequirements"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "readonlyRootFilesystem")
+            Prelude.<*> (x Data..:? "environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "logConfiguration")
+            Prelude.<*> ( x Data..:? "resourceRequirements"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "memory")
-            Prelude.<*> (x Core..:? "user")
-            Prelude.<*> (x Core..:? "taskArn")
-            Prelude.<*> (x Core..:? "ulimits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "jobRoleArn")
-            Prelude.<*> (x Core..:? "fargatePlatformConfiguration")
-            Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "networkConfiguration")
-            Prelude.<*> (x Core..:? "secrets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "instanceType")
-            Prelude.<*> (x Core..:? "volumes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "privileged")
-            Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..:? "containerInstanceArn")
-            Prelude.<*> (x Core..:? "vcpus")
-            Prelude.<*> (x Core..:? "exitCode")
-            Prelude.<*> (x Core..:? "executionRoleArn")
-            Prelude.<*> (x Core..:? "mountPoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "logStreamName")
-            Prelude.<*> (x Core..:? "image")
-            Prelude.<*> (x Core..:? "linuxParameters")
-            Prelude.<*> ( x Core..:? "networkInterfaces"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "memory")
+            Prelude.<*> (x Data..:? "user")
+            Prelude.<*> (x Data..:? "taskArn")
+            Prelude.<*> (x Data..:? "ulimits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "jobRoleArn")
+            Prelude.<*> (x Data..:? "fargatePlatformConfiguration")
+            Prelude.<*> (x Data..:? "command" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "networkConfiguration")
+            Prelude.<*> (x Data..:? "secrets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "instanceType")
+            Prelude.<*> (x Data..:? "volumes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "privileged")
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "containerInstanceArn")
+            Prelude.<*> (x Data..:? "vcpus")
+            Prelude.<*> (x Data..:? "exitCode")
+            Prelude.<*> (x Data..:? "executionRoleArn")
+            Prelude.<*> (x Data..:? "mountPoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "logStreamName")
+            Prelude.<*> (x Data..:? "image")
+            Prelude.<*> (x Data..:? "linuxParameters")
+            Prelude.<*> ( x Data..:? "networkInterfaces"
+                            Data..!= Prelude.mempty
                         )
       )
 

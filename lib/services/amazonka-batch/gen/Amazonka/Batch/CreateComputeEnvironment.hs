@@ -139,6 +139,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -446,8 +447,8 @@ instance Core.AWSRequest CreateComputeEnvironment where
     Response.receiveJSON
       ( \s h x ->
           CreateComputeEnvironmentResponse'
-            Prelude.<$> (x Core..?> "computeEnvironmentArn")
-            Prelude.<*> (x Core..?> "computeEnvironmentName")
+            Prelude.<$> (x Data..?> "computeEnvironmentArn")
+            Prelude.<*> (x Data..?> "computeEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -473,42 +474,42 @@ instance Prelude.NFData CreateComputeEnvironment where
       `Prelude.seq` Prelude.rnf computeEnvironmentName
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateComputeEnvironment where
+instance Data.ToHeaders CreateComputeEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateComputeEnvironment where
+instance Data.ToJSON CreateComputeEnvironment where
   toJSON CreateComputeEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("state" Core..=) Prelude.<$> state,
-            ("serviceRole" Core..=) Prelude.<$> serviceRole,
-            ("eksConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("state" Data..=) Prelude.<$> state,
+            ("serviceRole" Data..=) Prelude.<$> serviceRole,
+            ("eksConfiguration" Data..=)
               Prelude.<$> eksConfiguration,
-            ("computeResources" Core..=)
+            ("computeResources" Data..=)
               Prelude.<$> computeResources,
-            ("unmanagedvCpus" Core..=)
+            ("unmanagedvCpus" Data..=)
               Prelude.<$> unmanagedvCpus,
             Prelude.Just
               ( "computeEnvironmentName"
-                  Core..= computeEnvironmentName
+                  Data..= computeEnvironmentName
               ),
-            Prelude.Just ("type" Core..= type')
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateComputeEnvironment where
+instance Data.ToPath CreateComputeEnvironment where
   toPath = Prelude.const "/v1/createcomputeenvironment"
 
-instance Core.ToQuery CreateComputeEnvironment where
+instance Data.ToQuery CreateComputeEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateComputeEnvironmentResponse' smart constructor.

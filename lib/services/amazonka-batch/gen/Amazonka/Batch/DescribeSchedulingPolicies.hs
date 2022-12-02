@@ -42,6 +42,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest DescribeSchedulingPolicies where
     Response.receiveJSON
       ( \s h x ->
           DescribeSchedulingPoliciesResponse'
-            Prelude.<$> ( x Core..?> "schedulingPolicies"
+            Prelude.<$> ( x Data..?> "schedulingPolicies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -100,29 +101,29 @@ instance Prelude.NFData DescribeSchedulingPolicies where
   rnf DescribeSchedulingPolicies' {..} =
     Prelude.rnf arns
 
-instance Core.ToHeaders DescribeSchedulingPolicies where
+instance Data.ToHeaders DescribeSchedulingPolicies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSchedulingPolicies where
+instance Data.ToJSON DescribeSchedulingPolicies where
   toJSON DescribeSchedulingPolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arns" Core..= arns)]
+          [Prelude.Just ("arns" Data..= arns)]
       )
 
-instance Core.ToPath DescribeSchedulingPolicies where
+instance Data.ToPath DescribeSchedulingPolicies where
   toPath =
     Prelude.const "/v1/describeschedulingpolicies"
 
-instance Core.ToQuery DescribeSchedulingPolicies where
+instance Data.ToQuery DescribeSchedulingPolicies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSchedulingPoliciesResponse' smart constructor.

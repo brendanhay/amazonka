@@ -45,6 +45,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,8 +146,8 @@ instance Core.AWSRequest CreateSchedulingPolicy where
       ( \s h x ->
           CreateSchedulingPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable CreateSchedulingPolicy where
@@ -161,32 +162,32 @@ instance Prelude.NFData CreateSchedulingPolicy where
       `Prelude.seq` Prelude.rnf fairsharePolicy
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateSchedulingPolicy where
+instance Data.ToHeaders CreateSchedulingPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSchedulingPolicy where
+instance Data.ToJSON CreateSchedulingPolicy where
   toJSON CreateSchedulingPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("fairsharePolicy" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("fairsharePolicy" Data..=)
               Prelude.<$> fairsharePolicy,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateSchedulingPolicy where
+instance Data.ToPath CreateSchedulingPolicy where
   toPath = Prelude.const "/v1/createschedulingpolicy"
 
-instance Core.ToQuery CreateSchedulingPolicy where
+instance Data.ToQuery CreateSchedulingPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSchedulingPolicyResponse' smart constructor.

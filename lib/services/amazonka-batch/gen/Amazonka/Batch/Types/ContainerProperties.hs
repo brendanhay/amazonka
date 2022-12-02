@@ -31,6 +31,7 @@ import Amazonka.Batch.Types.Ulimit
 import Amazonka.Batch.Types.Volume
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Container properties are used for Amazon ECS based job definitions.
@@ -719,34 +720,34 @@ containerProperties_image = Lens.lens (\ContainerProperties' {image} -> image) (
 containerProperties_linuxParameters :: Lens.Lens' ContainerProperties (Prelude.Maybe LinuxParameters)
 containerProperties_linuxParameters = Lens.lens (\ContainerProperties' {linuxParameters} -> linuxParameters) (\s@ContainerProperties' {} a -> s {linuxParameters = a} :: ContainerProperties)
 
-instance Core.FromJSON ContainerProperties where
+instance Data.FromJSON ContainerProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerProperties"
       ( \x ->
           ContainerProperties'
-            Prelude.<$> (x Core..:? "readonlyRootFilesystem")
-            Prelude.<*> (x Core..:? "environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "logConfiguration")
-            Prelude.<*> ( x Core..:? "resourceRequirements"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "readonlyRootFilesystem")
+            Prelude.<*> (x Data..:? "environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "logConfiguration")
+            Prelude.<*> ( x Data..:? "resourceRequirements"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "memory")
-            Prelude.<*> (x Core..:? "user")
-            Prelude.<*> (x Core..:? "ulimits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "jobRoleArn")
-            Prelude.<*> (x Core..:? "fargatePlatformConfiguration")
-            Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "networkConfiguration")
-            Prelude.<*> (x Core..:? "secrets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "instanceType")
-            Prelude.<*> (x Core..:? "volumes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "privileged")
-            Prelude.<*> (x Core..:? "vcpus")
-            Prelude.<*> (x Core..:? "executionRoleArn")
-            Prelude.<*> (x Core..:? "mountPoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "image")
-            Prelude.<*> (x Core..:? "linuxParameters")
+            Prelude.<*> (x Data..:? "memory")
+            Prelude.<*> (x Data..:? "user")
+            Prelude.<*> (x Data..:? "ulimits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "jobRoleArn")
+            Prelude.<*> (x Data..:? "fargatePlatformConfiguration")
+            Prelude.<*> (x Data..:? "command" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "networkConfiguration")
+            Prelude.<*> (x Data..:? "secrets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "instanceType")
+            Prelude.<*> (x Data..:? "volumes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "privileged")
+            Prelude.<*> (x Data..:? "vcpus")
+            Prelude.<*> (x Data..:? "executionRoleArn")
+            Prelude.<*> (x Data..:? "mountPoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "image")
+            Prelude.<*> (x Data..:? "linuxParameters")
       )
 
 instance Prelude.Hashable ContainerProperties where
@@ -795,36 +796,36 @@ instance Prelude.NFData ContainerProperties where
       `Prelude.seq` Prelude.rnf image
       `Prelude.seq` Prelude.rnf linuxParameters
 
-instance Core.ToJSON ContainerProperties where
+instance Data.ToJSON ContainerProperties where
   toJSON ContainerProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("readonlyRootFilesystem" Core..=)
+          [ ("readonlyRootFilesystem" Data..=)
               Prelude.<$> readonlyRootFilesystem,
-            ("environment" Core..=) Prelude.<$> environment,
-            ("logConfiguration" Core..=)
+            ("environment" Data..=) Prelude.<$> environment,
+            ("logConfiguration" Data..=)
               Prelude.<$> logConfiguration,
-            ("resourceRequirements" Core..=)
+            ("resourceRequirements" Data..=)
               Prelude.<$> resourceRequirements,
-            ("memory" Core..=) Prelude.<$> memory,
-            ("user" Core..=) Prelude.<$> user,
-            ("ulimits" Core..=) Prelude.<$> ulimits,
-            ("jobRoleArn" Core..=) Prelude.<$> jobRoleArn,
-            ("fargatePlatformConfiguration" Core..=)
+            ("memory" Data..=) Prelude.<$> memory,
+            ("user" Data..=) Prelude.<$> user,
+            ("ulimits" Data..=) Prelude.<$> ulimits,
+            ("jobRoleArn" Data..=) Prelude.<$> jobRoleArn,
+            ("fargatePlatformConfiguration" Data..=)
               Prelude.<$> fargatePlatformConfiguration,
-            ("command" Core..=) Prelude.<$> command,
-            ("networkConfiguration" Core..=)
+            ("command" Data..=) Prelude.<$> command,
+            ("networkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
-            ("secrets" Core..=) Prelude.<$> secrets,
-            ("instanceType" Core..=) Prelude.<$> instanceType,
-            ("volumes" Core..=) Prelude.<$> volumes,
-            ("privileged" Core..=) Prelude.<$> privileged,
-            ("vcpus" Core..=) Prelude.<$> vcpus,
-            ("executionRoleArn" Core..=)
+            ("secrets" Data..=) Prelude.<$> secrets,
+            ("instanceType" Data..=) Prelude.<$> instanceType,
+            ("volumes" Data..=) Prelude.<$> volumes,
+            ("privileged" Data..=) Prelude.<$> privileged,
+            ("vcpus" Data..=) Prelude.<$> vcpus,
+            ("executionRoleArn" Data..=)
               Prelude.<$> executionRoleArn,
-            ("mountPoints" Core..=) Prelude.<$> mountPoints,
-            ("image" Core..=) Prelude.<$> image,
-            ("linuxParameters" Core..=)
+            ("mountPoints" Data..=) Prelude.<$> mountPoints,
+            ("image" Data..=) Prelude.<$> image,
+            ("linuxParameters" Data..=)
               Prelude.<$> linuxParameters
           ]
       )

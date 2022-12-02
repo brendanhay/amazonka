@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.AttemptDetail where
 import Amazonka.Batch.Types.AttemptContainerDetail
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a job attempt.
@@ -95,16 +96,16 @@ attemptDetail_container = Lens.lens (\AttemptDetail' {container} -> container) (
 attemptDetail_stoppedAt :: Lens.Lens' AttemptDetail (Prelude.Maybe Prelude.Integer)
 attemptDetail_stoppedAt = Lens.lens (\AttemptDetail' {stoppedAt} -> stoppedAt) (\s@AttemptDetail' {} a -> s {stoppedAt = a} :: AttemptDetail)
 
-instance Core.FromJSON AttemptDetail where
+instance Data.FromJSON AttemptDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttemptDetail"
       ( \x ->
           AttemptDetail'
-            Prelude.<$> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..:? "container")
-            Prelude.<*> (x Core..:? "stoppedAt")
+            Prelude.<$> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "container")
+            Prelude.<*> (x Data..:? "stoppedAt")
       )
 
 instance Prelude.Hashable AttemptDetail where

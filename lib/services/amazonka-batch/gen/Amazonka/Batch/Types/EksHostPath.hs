@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.EksHostPath where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration of a Kubernetes @hostPath@ volume. A
@@ -56,11 +57,11 @@ newEksHostPath = EksHostPath' {path = Prelude.Nothing}
 eksHostPath_path :: Lens.Lens' EksHostPath (Prelude.Maybe Prelude.Text)
 eksHostPath_path = Lens.lens (\EksHostPath' {path} -> path) (\s@EksHostPath' {} a -> s {path = a} :: EksHostPath)
 
-instance Core.FromJSON EksHostPath where
+instance Data.FromJSON EksHostPath where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksHostPath"
-      (\x -> EksHostPath' Prelude.<$> (x Core..:? "path"))
+      (\x -> EksHostPath' Prelude.<$> (x Data..:? "path"))
 
 instance Prelude.Hashable EksHostPath where
   hashWithSalt _salt EksHostPath' {..} =
@@ -69,9 +70,9 @@ instance Prelude.Hashable EksHostPath where
 instance Prelude.NFData EksHostPath where
   rnf EksHostPath' {..} = Prelude.rnf path
 
-instance Core.ToJSON EksHostPath where
+instance Data.ToJSON EksHostPath where
   toJSON EksHostPath' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("path" Core..=) Prelude.<$> path]
+          [("path" Data..=) Prelude.<$> path]
       )

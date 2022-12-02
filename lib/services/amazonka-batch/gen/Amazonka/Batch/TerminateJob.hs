@@ -45,6 +45,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,30 +115,30 @@ instance Prelude.NFData TerminateJob where
   rnf TerminateJob' {..} =
     Prelude.rnf jobId `Prelude.seq` Prelude.rnf reason
 
-instance Core.ToHeaders TerminateJob where
+instance Data.ToHeaders TerminateJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TerminateJob where
+instance Data.ToJSON TerminateJob where
   toJSON TerminateJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("jobId" Core..= jobId),
-            Prelude.Just ("reason" Core..= reason)
+          [ Prelude.Just ("jobId" Data..= jobId),
+            Prelude.Just ("reason" Data..= reason)
           ]
       )
 
-instance Core.ToPath TerminateJob where
+instance Data.ToPath TerminateJob where
   toPath = Prelude.const "/v1/terminatejob"
 
-instance Core.ToQuery TerminateJob where
+instance Data.ToQuery TerminateJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTerminateJobResponse' smart constructor.

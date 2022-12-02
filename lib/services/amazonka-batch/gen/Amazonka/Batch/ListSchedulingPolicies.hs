@@ -46,6 +46,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -166,8 +167,8 @@ instance Core.AWSRequest ListSchedulingPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListSchedulingPoliciesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "schedulingPolicies"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "schedulingPolicies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -183,30 +184,30 @@ instance Prelude.NFData ListSchedulingPolicies where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListSchedulingPolicies where
+instance Data.ToHeaders ListSchedulingPolicies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSchedulingPolicies where
+instance Data.ToJSON ListSchedulingPolicies where
   toJSON ListSchedulingPolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListSchedulingPolicies where
+instance Data.ToPath ListSchedulingPolicies where
   toPath = Prelude.const "/v1/listschedulingpolicies"
 
-instance Core.ToQuery ListSchedulingPolicies where
+instance Data.ToQuery ListSchedulingPolicies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSchedulingPoliciesResponse' smart constructor.

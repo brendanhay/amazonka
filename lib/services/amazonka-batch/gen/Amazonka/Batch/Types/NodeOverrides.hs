@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.NodeOverrides where
 import Amazonka.Batch.Types.NodePropertyOverride
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents any node overrides to a job definition that\'s
@@ -113,12 +114,12 @@ instance Prelude.NFData NodeOverrides where
     Prelude.rnf numNodes
       `Prelude.seq` Prelude.rnf nodePropertyOverrides
 
-instance Core.ToJSON NodeOverrides where
+instance Data.ToJSON NodeOverrides where
   toJSON NodeOverrides' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("numNodes" Core..=) Prelude.<$> numNodes,
-            ("nodePropertyOverrides" Core..=)
+          [ ("numNodes" Data..=) Prelude.<$> numNodes,
+            ("nodePropertyOverrides" Data..=)
               Prelude.<$> nodePropertyOverrides
           ]
       )

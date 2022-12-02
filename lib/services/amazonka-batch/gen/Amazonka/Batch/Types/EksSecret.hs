@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.EksSecret where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration of a Kubernetes @secret@ volume. For more
@@ -75,14 +76,14 @@ eksSecret_optional = Lens.lens (\EksSecret' {optional} -> optional) (\s@EksSecre
 eksSecret_secretName :: Lens.Lens' EksSecret Prelude.Text
 eksSecret_secretName = Lens.lens (\EksSecret' {secretName} -> secretName) (\s@EksSecret' {} a -> s {secretName = a} :: EksSecret)
 
-instance Core.FromJSON EksSecret where
+instance Data.FromJSON EksSecret where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksSecret"
       ( \x ->
           EksSecret'
-            Prelude.<$> (x Core..:? "optional")
-            Prelude.<*> (x Core..: "secretName")
+            Prelude.<$> (x Data..:? "optional")
+            Prelude.<*> (x Data..: "secretName")
       )
 
 instance Prelude.Hashable EksSecret where
@@ -95,11 +96,11 @@ instance Prelude.NFData EksSecret where
     Prelude.rnf optional
       `Prelude.seq` Prelude.rnf secretName
 
-instance Core.ToJSON EksSecret where
+instance Data.ToJSON EksSecret where
   toJSON EksSecret' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("optional" Core..=) Prelude.<$> optional,
-            Prelude.Just ("secretName" Core..= secretName)
+          [ ("optional" Data..=) Prelude.<$> optional,
+            Prelude.Just ("secretName" Data..= secretName)
           ]
       )

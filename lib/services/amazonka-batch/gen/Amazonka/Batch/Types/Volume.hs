@@ -23,6 +23,7 @@ import Amazonka.Batch.Types.EFSVolumeConfiguration
 import Amazonka.Batch.Types.Host
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A data volume that\'s used in a job\'s container properties.
@@ -108,15 +109,15 @@ volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = 
 volume_host :: Lens.Lens' Volume (Prelude.Maybe Host)
 volume_host = Lens.lens (\Volume' {host} -> host) (\s@Volume' {} a -> s {host = a} :: Volume)
 
-instance Core.FromJSON Volume where
+instance Data.FromJSON Volume where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Volume"
       ( \x ->
           Volume'
-            Prelude.<$> (x Core..:? "efsVolumeConfiguration")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "host")
+            Prelude.<$> (x Data..:? "efsVolumeConfiguration")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "host")
       )
 
 instance Prelude.Hashable Volume where
@@ -131,13 +132,13 @@ instance Prelude.NFData Volume where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf host
 
-instance Core.ToJSON Volume where
+instance Data.ToJSON Volume where
   toJSON Volume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("efsVolumeConfiguration" Core..=)
+          [ ("efsVolumeConfiguration" Data..=)
               Prelude.<$> efsVolumeConfiguration,
-            ("name" Core..=) Prelude.<$> name,
-            ("host" Core..=) Prelude.<$> host
+            ("name" Data..=) Prelude.<$> name,
+            ("host" Data..=) Prelude.<$> host
           ]
       )

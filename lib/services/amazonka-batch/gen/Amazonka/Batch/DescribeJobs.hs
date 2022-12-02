@@ -42,6 +42,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,7 +82,7 @@ instance Core.AWSRequest DescribeJobs where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobsResponse'
-            Prelude.<$> (x Core..?> "jobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "jobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -92,28 +93,28 @@ instance Prelude.Hashable DescribeJobs where
 instance Prelude.NFData DescribeJobs where
   rnf DescribeJobs' {..} = Prelude.rnf jobs
 
-instance Core.ToHeaders DescribeJobs where
+instance Data.ToHeaders DescribeJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeJobs where
+instance Data.ToJSON DescribeJobs where
   toJSON DescribeJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("jobs" Core..= jobs)]
+          [Prelude.Just ("jobs" Data..= jobs)]
       )
 
-instance Core.ToPath DescribeJobs where
+instance Data.ToPath DescribeJobs where
   toPath = Prelude.const "/v1/describejobs"
 
-instance Core.ToQuery DescribeJobs where
+instance Data.ToQuery DescribeJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeJobsResponse' smart constructor.

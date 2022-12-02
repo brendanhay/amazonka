@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.NodeDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the details of a multi-node parallel job node.
@@ -70,14 +71,14 @@ nodeDetails_isMainNode = Lens.lens (\NodeDetails' {isMainNode} -> isMainNode) (\
 nodeDetails_nodeIndex :: Lens.Lens' NodeDetails (Prelude.Maybe Prelude.Int)
 nodeDetails_nodeIndex = Lens.lens (\NodeDetails' {nodeIndex} -> nodeIndex) (\s@NodeDetails' {} a -> s {nodeIndex = a} :: NodeDetails)
 
-instance Core.FromJSON NodeDetails where
+instance Data.FromJSON NodeDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeDetails"
       ( \x ->
           NodeDetails'
-            Prelude.<$> (x Core..:? "isMainNode")
-            Prelude.<*> (x Core..:? "nodeIndex")
+            Prelude.<$> (x Data..:? "isMainNode")
+            Prelude.<*> (x Data..:? "nodeIndex")
       )
 
 instance Prelude.Hashable NodeDetails where

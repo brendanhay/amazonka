@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.EksPodPropertiesOverride where
 import Amazonka.Batch.Types.EksContainerOverride
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains overrides for the Kubernetes pod properties of a
@@ -63,9 +64,9 @@ instance Prelude.NFData EksPodPropertiesOverride where
   rnf EksPodPropertiesOverride' {..} =
     Prelude.rnf containers
 
-instance Core.ToJSON EksPodPropertiesOverride where
+instance Data.ToJSON EksPodPropertiesOverride where
   toJSON EksPodPropertiesOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("containers" Core..=) Prelude.<$> containers]
+          [("containers" Data..=) Prelude.<$> containers]
       )

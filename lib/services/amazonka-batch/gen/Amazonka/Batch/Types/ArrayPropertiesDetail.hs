@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.ArrayPropertiesDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the array properties of a job.
@@ -79,15 +80,15 @@ arrayPropertiesDetail_size = Lens.lens (\ArrayPropertiesDetail' {size} -> size) 
 arrayPropertiesDetail_statusSummary :: Lens.Lens' ArrayPropertiesDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
 arrayPropertiesDetail_statusSummary = Lens.lens (\ArrayPropertiesDetail' {statusSummary} -> statusSummary) (\s@ArrayPropertiesDetail' {} a -> s {statusSummary = a} :: ArrayPropertiesDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ArrayPropertiesDetail where
+instance Data.FromJSON ArrayPropertiesDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArrayPropertiesDetail"
       ( \x ->
           ArrayPropertiesDetail'
-            Prelude.<$> (x Core..:? "index")
-            Prelude.<*> (x Core..:? "size")
-            Prelude.<*> (x Core..:? "statusSummary" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "index")
+            Prelude.<*> (x Data..:? "size")
+            Prelude.<*> (x Data..:? "statusSummary" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ArrayPropertiesDetail where

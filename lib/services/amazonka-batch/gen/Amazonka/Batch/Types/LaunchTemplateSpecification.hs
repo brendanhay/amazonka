@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.LaunchTemplateSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a launch template that\'s associated with a
@@ -138,15 +139,15 @@ launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {
 launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
 
-instance Core.FromJSON LaunchTemplateSpecification where
+instance Data.FromJSON LaunchTemplateSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchTemplateSpecification"
       ( \x ->
           LaunchTemplateSpecification'
-            Prelude.<$> (x Core..:? "launchTemplateId")
-            Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "launchTemplateName")
+            Prelude.<$> (x Data..:? "launchTemplateId")
+            Prelude.<*> (x Data..:? "version")
+            Prelude.<*> (x Data..:? "launchTemplateName")
       )
 
 instance Prelude.Hashable LaunchTemplateSpecification where
@@ -161,14 +162,14 @@ instance Prelude.NFData LaunchTemplateSpecification where
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf launchTemplateName
 
-instance Core.ToJSON LaunchTemplateSpecification where
+instance Data.ToJSON LaunchTemplateSpecification where
   toJSON LaunchTemplateSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("launchTemplateId" Core..=)
+          [ ("launchTemplateId" Data..=)
               Prelude.<$> launchTemplateId,
-            ("version" Core..=) Prelude.<$> version,
-            ("launchTemplateName" Core..=)
+            ("version" Data..=) Prelude.<$> version,
+            ("launchTemplateName" Data..=)
               Prelude.<$> launchTemplateName
           ]
       )

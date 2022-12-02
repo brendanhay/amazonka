@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.AttemptContainerDetail where
 import Amazonka.Batch.Types.NetworkInterface
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the details of a container that\'s part of a
@@ -123,19 +124,19 @@ attemptContainerDetail_logStreamName = Lens.lens (\AttemptContainerDetail' {logS
 attemptContainerDetail_networkInterfaces :: Lens.Lens' AttemptContainerDetail (Prelude.Maybe [NetworkInterface])
 attemptContainerDetail_networkInterfaces = Lens.lens (\AttemptContainerDetail' {networkInterfaces} -> networkInterfaces) (\s@AttemptContainerDetail' {} a -> s {networkInterfaces = a} :: AttemptContainerDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AttemptContainerDetail where
+instance Data.FromJSON AttemptContainerDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttemptContainerDetail"
       ( \x ->
           AttemptContainerDetail'
-            Prelude.<$> (x Core..:? "taskArn")
-            Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..:? "containerInstanceArn")
-            Prelude.<*> (x Core..:? "exitCode")
-            Prelude.<*> (x Core..:? "logStreamName")
-            Prelude.<*> ( x Core..:? "networkInterfaces"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "taskArn")
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "containerInstanceArn")
+            Prelude.<*> (x Data..:? "exitCode")
+            Prelude.<*> (x Data..:? "logStreamName")
+            Prelude.<*> ( x Data..:? "networkInterfaces"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -23,6 +23,7 @@ import Amazonka.Batch.Types.KeyValuePair
 import Amazonka.Batch.Types.ResourceRequirement
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The overrides that should be sent to a container.
@@ -222,16 +223,16 @@ instance Prelude.NFData ContainerOverrides where
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf vcpus
 
-instance Core.ToJSON ContainerOverrides where
+instance Data.ToJSON ContainerOverrides where
   toJSON ContainerOverrides' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("environment" Core..=) Prelude.<$> environment,
-            ("resourceRequirements" Core..=)
+          [ ("environment" Data..=) Prelude.<$> environment,
+            ("resourceRequirements" Data..=)
               Prelude.<$> resourceRequirements,
-            ("memory" Core..=) Prelude.<$> memory,
-            ("command" Core..=) Prelude.<$> command,
-            ("instanceType" Core..=) Prelude.<$> instanceType,
-            ("vcpus" Core..=) Prelude.<$> vcpus
+            ("memory" Data..=) Prelude.<$> memory,
+            ("command" Data..=) Prelude.<$> command,
+            ("instanceType" Data..=) Prelude.<$> instanceType,
+            ("vcpus" Data..=) Prelude.<$> vcpus
           ]
       )

@@ -51,6 +51,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -183,8 +184,8 @@ instance Core.AWSRequest DescribeComputeEnvironments where
     Response.receiveJSON
       ( \s h x ->
           DescribeComputeEnvironmentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "computeEnvironments"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "computeEnvironments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -202,33 +203,33 @@ instance Prelude.NFData DescribeComputeEnvironments where
       `Prelude.seq` Prelude.rnf computeEnvironments
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeComputeEnvironments where
+instance Data.ToHeaders DescribeComputeEnvironments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeComputeEnvironments where
+instance Data.ToJSON DescribeComputeEnvironments where
   toJSON DescribeComputeEnvironments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("computeEnvironments" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("computeEnvironments" Data..=)
               Prelude.<$> computeEnvironments,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeComputeEnvironments where
+instance Data.ToPath DescribeComputeEnvironments where
   toPath =
     Prelude.const "/v1/describecomputeenvironments"
 
-instance Core.ToQuery DescribeComputeEnvironments where
+instance Data.ToQuery DescribeComputeEnvironments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeComputeEnvironmentsResponse' smart constructor.

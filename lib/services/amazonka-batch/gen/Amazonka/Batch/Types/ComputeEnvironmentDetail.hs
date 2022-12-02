@@ -28,6 +28,7 @@ import Amazonka.Batch.Types.OrchestrationType
 import Amazonka.Batch.Types.UpdatePolicy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents an Batch compute environment.
@@ -293,27 +294,27 @@ computeEnvironmentDetail_computeEnvironmentName = Lens.lens (\ComputeEnvironment
 computeEnvironmentDetail_computeEnvironmentArn :: Lens.Lens' ComputeEnvironmentDetail Prelude.Text
 computeEnvironmentDetail_computeEnvironmentArn = Lens.lens (\ComputeEnvironmentDetail' {computeEnvironmentArn} -> computeEnvironmentArn) (\s@ComputeEnvironmentDetail' {} a -> s {computeEnvironmentArn = a} :: ComputeEnvironmentDetail)
 
-instance Core.FromJSON ComputeEnvironmentDetail where
+instance Data.FromJSON ComputeEnvironmentDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComputeEnvironmentDetail"
       ( \x ->
           ComputeEnvironmentDetail'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "ecsClusterArn")
-            Prelude.<*> (x Core..:? "containerOrchestrationType")
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "uuid")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "serviceRole")
-            Prelude.<*> (x Core..:? "updatePolicy")
-            Prelude.<*> (x Core..:? "eksConfiguration")
-            Prelude.<*> (x Core..:? "computeResources")
-            Prelude.<*> (x Core..:? "unmanagedvCpus")
-            Prelude.<*> (x Core..: "computeEnvironmentName")
-            Prelude.<*> (x Core..: "computeEnvironmentArn")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "ecsClusterArn")
+            Prelude.<*> (x Data..:? "containerOrchestrationType")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "uuid")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "serviceRole")
+            Prelude.<*> (x Data..:? "updatePolicy")
+            Prelude.<*> (x Data..:? "eksConfiguration")
+            Prelude.<*> (x Data..:? "computeResources")
+            Prelude.<*> (x Data..:? "unmanagedvCpus")
+            Prelude.<*> (x Data..: "computeEnvironmentName")
+            Prelude.<*> (x Data..: "computeEnvironmentArn")
       )
 
 instance Prelude.Hashable ComputeEnvironmentDetail where

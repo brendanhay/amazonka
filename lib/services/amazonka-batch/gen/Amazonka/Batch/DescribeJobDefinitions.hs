@@ -50,6 +50,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -203,8 +204,8 @@ instance Core.AWSRequest DescribeJobDefinitions where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobDefinitionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "jobDefinitions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "jobDefinitions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -224,35 +225,35 @@ instance Prelude.NFData DescribeJobDefinitions where
       `Prelude.seq` Prelude.rnf jobDefinitions
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeJobDefinitions where
+instance Data.ToHeaders DescribeJobDefinitions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeJobDefinitions where
+instance Data.ToJSON DescribeJobDefinitions where
   toJSON DescribeJobDefinitions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("jobDefinitionName" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("jobDefinitionName" Data..=)
               Prelude.<$> jobDefinitionName,
-            ("status" Core..=) Prelude.<$> status,
-            ("jobDefinitions" Core..=)
+            ("status" Data..=) Prelude.<$> status,
+            ("jobDefinitions" Data..=)
               Prelude.<$> jobDefinitions,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeJobDefinitions where
+instance Data.ToPath DescribeJobDefinitions where
   toPath = Prelude.const "/v1/describejobdefinitions"
 
-instance Core.ToQuery DescribeJobDefinitions where
+instance Data.ToQuery DescribeJobDefinitions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeJobDefinitionsResponse' smart constructor.

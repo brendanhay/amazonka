@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.EksContainerEnvironmentVariable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An environment variable.
@@ -65,15 +66,15 @@ eksContainerEnvironmentVariable_name :: Lens.Lens' EksContainerEnvironmentVariab
 eksContainerEnvironmentVariable_name = Lens.lens (\EksContainerEnvironmentVariable' {name} -> name) (\s@EksContainerEnvironmentVariable' {} a -> s {name = a} :: EksContainerEnvironmentVariable)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EksContainerEnvironmentVariable
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksContainerEnvironmentVariable"
       ( \x ->
           EksContainerEnvironmentVariable'
-            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "value") Prelude.<*> (x Data..: "name")
       )
 
 instance
@@ -93,11 +94,11 @@ instance
   rnf EksContainerEnvironmentVariable' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON EksContainerEnvironmentVariable where
+instance Data.ToJSON EksContainerEnvironmentVariable where
   toJSON EksContainerEnvironmentVariable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            Prelude.Just ("name" Core..= name)
+          [ ("value" Data..=) Prelude.<$> value,
+            Prelude.Just ("name" Data..= name)
           ]
       )

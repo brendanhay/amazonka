@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.JobDependency where
 import Amazonka.Batch.Types.ArrayJobDependency
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents an Batch job dependency.
@@ -62,13 +63,13 @@ jobDependency_type = Lens.lens (\JobDependency' {type'} -> type') (\s@JobDepende
 jobDependency_jobId :: Lens.Lens' JobDependency (Prelude.Maybe Prelude.Text)
 jobDependency_jobId = Lens.lens (\JobDependency' {jobId} -> jobId) (\s@JobDependency' {} a -> s {jobId = a} :: JobDependency)
 
-instance Core.FromJSON JobDependency where
+instance Data.FromJSON JobDependency where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobDependency"
       ( \x ->
           JobDependency'
-            Prelude.<$> (x Core..:? "type") Prelude.<*> (x Core..:? "jobId")
+            Prelude.<$> (x Data..:? "type") Prelude.<*> (x Data..:? "jobId")
       )
 
 instance Prelude.Hashable JobDependency where
@@ -80,11 +81,11 @@ instance Prelude.NFData JobDependency where
   rnf JobDependency' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToJSON JobDependency where
+instance Data.ToJSON JobDependency where
   toJSON JobDependency' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("jobId" Core..=) Prelude.<$> jobId
+          [ ("type" Data..=) Prelude.<$> type',
+            ("jobId" Data..=) Prelude.<$> jobId
           ]
       )

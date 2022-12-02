@@ -45,6 +45,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,8 +115,8 @@ instance Core.AWSRequest ListGitHubAccountTokenNames where
     Response.receiveJSON
       ( \s h x ->
           ListGitHubAccountTokenNamesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "tokenNameList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "tokenNameList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,32 +128,32 @@ instance Prelude.NFData ListGitHubAccountTokenNames where
   rnf ListGitHubAccountTokenNames' {..} =
     Prelude.rnf nextToken
 
-instance Core.ToHeaders ListGitHubAccountTokenNames where
+instance Data.ToHeaders ListGitHubAccountTokenNames where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.ListGitHubAccountTokenNames" ::
+              Data.=# ( "CodeDeploy_20141006.ListGitHubAccountTokenNames" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListGitHubAccountTokenNames where
+instance Data.ToJSON ListGitHubAccountTokenNames where
   toJSON ListGitHubAccountTokenNames' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("nextToken" Core..=) Prelude.<$> nextToken]
+          [("nextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath ListGitHubAccountTokenNames where
+instance Data.ToPath ListGitHubAccountTokenNames where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListGitHubAccountTokenNames where
+instance Data.ToQuery ListGitHubAccountTokenNames where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @ListGitHubAccountTokenNames@ operation.

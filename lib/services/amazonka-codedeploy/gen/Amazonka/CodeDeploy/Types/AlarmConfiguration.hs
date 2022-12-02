@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.AlarmConfiguration where
 import Amazonka.CodeDeploy.Types.Alarm
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about alarms associated with a deployment or deployment
@@ -99,15 +100,15 @@ alarmConfiguration_ignorePollAlarmFailure = Lens.lens (\AlarmConfiguration' {ign
 alarmConfiguration_enabled :: Lens.Lens' AlarmConfiguration (Prelude.Maybe Prelude.Bool)
 alarmConfiguration_enabled = Lens.lens (\AlarmConfiguration' {enabled} -> enabled) (\s@AlarmConfiguration' {} a -> s {enabled = a} :: AlarmConfiguration)
 
-instance Core.FromJSON AlarmConfiguration where
+instance Data.FromJSON AlarmConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlarmConfiguration"
       ( \x ->
           AlarmConfiguration'
-            Prelude.<$> (x Core..:? "alarms" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ignorePollAlarmFailure")
-            Prelude.<*> (x Core..:? "enabled")
+            Prelude.<$> (x Data..:? "alarms" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ignorePollAlarmFailure")
+            Prelude.<*> (x Data..:? "enabled")
       )
 
 instance Prelude.Hashable AlarmConfiguration where
@@ -122,13 +123,13 @@ instance Prelude.NFData AlarmConfiguration where
       `Prelude.seq` Prelude.rnf ignorePollAlarmFailure
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON AlarmConfiguration where
+instance Data.ToJSON AlarmConfiguration where
   toJSON AlarmConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("alarms" Core..=) Prelude.<$> alarms,
-            ("ignorePollAlarmFailure" Core..=)
+          [ ("alarms" Data..=) Prelude.<$> alarms,
+            ("ignorePollAlarmFailure" Data..=)
               Prelude.<$> ignorePollAlarmFailure,
-            ("enabled" Core..=) Prelude.<$> enabled
+            ("enabled" Data..=) Prelude.<$> enabled
           ]
       )

@@ -42,6 +42,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance Core.AWSRequest GetDeploymentConfig where
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentConfigResponse'
-            Prelude.<$> (x Core..?> "deploymentConfigInfo")
+            Prelude.<$> (x Data..?> "deploymentConfigInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,36 +104,36 @@ instance Prelude.NFData GetDeploymentConfig where
   rnf GetDeploymentConfig' {..} =
     Prelude.rnf deploymentConfigName
 
-instance Core.ToHeaders GetDeploymentConfig where
+instance Data.ToHeaders GetDeploymentConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.GetDeploymentConfig" ::
+              Data.=# ( "CodeDeploy_20141006.GetDeploymentConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDeploymentConfig where
+instance Data.ToJSON GetDeploymentConfig where
   toJSON GetDeploymentConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "deploymentConfigName"
-                  Core..= deploymentConfigName
+                  Data..= deploymentConfigName
               )
           ]
       )
 
-instance Core.ToPath GetDeploymentConfig where
+instance Data.ToPath GetDeploymentConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDeploymentConfig where
+instance Data.ToQuery GetDeploymentConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetDeploymentConfig@ operation.

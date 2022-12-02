@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.MinimumHealthyHosts where
 import Amazonka.CodeDeploy.Types.MinimumHealthyHostsType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about minimum healthy instance.
@@ -146,13 +147,13 @@ minimumHealthyHosts_type = Lens.lens (\MinimumHealthyHosts' {type'} -> type') (\
 minimumHealthyHosts_value :: Lens.Lens' MinimumHealthyHosts (Prelude.Maybe Prelude.Int)
 minimumHealthyHosts_value = Lens.lens (\MinimumHealthyHosts' {value} -> value) (\s@MinimumHealthyHosts' {} a -> s {value = a} :: MinimumHealthyHosts)
 
-instance Core.FromJSON MinimumHealthyHosts where
+instance Data.FromJSON MinimumHealthyHosts where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MinimumHealthyHosts"
       ( \x ->
           MinimumHealthyHosts'
-            Prelude.<$> (x Core..:? "type") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "type") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable MinimumHealthyHosts where
@@ -164,11 +165,11 @@ instance Prelude.NFData MinimumHealthyHosts where
   rnf MinimumHealthyHosts' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON MinimumHealthyHosts where
+instance Data.ToJSON MinimumHealthyHosts where
   toJSON MinimumHealthyHosts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("value" Core..=) Prelude.<$> value
+          [ ("type" Data..=) Prelude.<$> type',
+            ("value" Data..=) Prelude.<$> value
           ]
       )

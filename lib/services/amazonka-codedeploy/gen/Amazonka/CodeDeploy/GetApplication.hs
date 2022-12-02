@@ -42,6 +42,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance Core.AWSRequest GetApplication where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationResponse'
-            Prelude.<$> (x Core..?> "application")
+            Prelude.<$> (x Data..?> "application")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,34 +103,34 @@ instance Prelude.Hashable GetApplication where
 instance Prelude.NFData GetApplication where
   rnf GetApplication' {..} = Prelude.rnf applicationName
 
-instance Core.ToHeaders GetApplication where
+instance Data.ToHeaders GetApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.GetApplication" ::
+              Data.=# ( "CodeDeploy_20141006.GetApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetApplication where
+instance Data.ToJSON GetApplication where
   toJSON GetApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("applicationName" Core..= applicationName)
+              ("applicationName" Data..= applicationName)
           ]
       )
 
-instance Core.ToPath GetApplication where
+instance Data.ToPath GetApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetApplication where
+instance Data.ToQuery GetApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetApplication@ operation.

@@ -47,6 +47,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -155,8 +156,8 @@ instance Core.AWSRequest ListDeploymentTargets where
     Response.receiveJSON
       ( \s h x ->
           ListDeploymentTargetsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "targetIds" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "targetIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,35 +173,35 @@ instance Prelude.NFData ListDeploymentTargets where
       `Prelude.seq` Prelude.rnf targetFilters
       `Prelude.seq` Prelude.rnf deploymentId
 
-instance Core.ToHeaders ListDeploymentTargets where
+instance Data.ToHeaders ListDeploymentTargets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.ListDeploymentTargets" ::
+              Data.=# ( "CodeDeploy_20141006.ListDeploymentTargets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDeploymentTargets where
+instance Data.ToJSON ListDeploymentTargets where
   toJSON ListDeploymentTargets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("targetFilters" Core..=) Prelude.<$> targetFilters,
-            ("deploymentId" Core..=) Prelude.<$> deploymentId
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("targetFilters" Data..=) Prelude.<$> targetFilters,
+            ("deploymentId" Data..=) Prelude.<$> deploymentId
           ]
       )
 
-instance Core.ToPath ListDeploymentTargets where
+instance Data.ToPath ListDeploymentTargets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDeploymentTargets where
+instance Data.ToQuery ListDeploymentTargets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDeploymentTargetsResponse' smart constructor.

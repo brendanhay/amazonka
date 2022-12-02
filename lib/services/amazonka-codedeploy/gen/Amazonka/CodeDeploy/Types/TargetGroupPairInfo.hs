@@ -23,6 +23,7 @@ import Amazonka.CodeDeploy.Types.TargetGroupInfo
 import Amazonka.CodeDeploy.Types.TrafficRoute
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about two target groups and how traffic is routed during an
@@ -89,15 +90,15 @@ targetGroupPairInfo_prodTrafficRoute = Lens.lens (\TargetGroupPairInfo' {prodTra
 targetGroupPairInfo_targetGroups :: Lens.Lens' TargetGroupPairInfo (Prelude.Maybe [TargetGroupInfo])
 targetGroupPairInfo_targetGroups = Lens.lens (\TargetGroupPairInfo' {targetGroups} -> targetGroups) (\s@TargetGroupPairInfo' {} a -> s {targetGroups = a} :: TargetGroupPairInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TargetGroupPairInfo where
+instance Data.FromJSON TargetGroupPairInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetGroupPairInfo"
       ( \x ->
           TargetGroupPairInfo'
-            Prelude.<$> (x Core..:? "testTrafficRoute")
-            Prelude.<*> (x Core..:? "prodTrafficRoute")
-            Prelude.<*> (x Core..:? "targetGroups" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "testTrafficRoute")
+            Prelude.<*> (x Data..:? "prodTrafficRoute")
+            Prelude.<*> (x Data..:? "targetGroups" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TargetGroupPairInfo where
@@ -112,14 +113,14 @@ instance Prelude.NFData TargetGroupPairInfo where
       `Prelude.seq` Prelude.rnf prodTrafficRoute
       `Prelude.seq` Prelude.rnf targetGroups
 
-instance Core.ToJSON TargetGroupPairInfo where
+instance Data.ToJSON TargetGroupPairInfo where
   toJSON TargetGroupPairInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("testTrafficRoute" Core..=)
+          [ ("testTrafficRoute" Data..=)
               Prelude.<$> testTrafficRoute,
-            ("prodTrafficRoute" Core..=)
+            ("prodTrafficRoute" Data..=)
               Prelude.<$> prodTrafficRoute,
-            ("targetGroups" Core..=) Prelude.<$> targetGroups
+            ("targetGroups" Data..=) Prelude.<$> targetGroups
           ]
       )

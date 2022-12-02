@@ -37,6 +37,7 @@ import Amazonka.CodeDeploy.Types.TagFilter
 import Amazonka.CodeDeploy.Types.TriggerConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a deployment group.
@@ -348,40 +349,40 @@ deploymentGroupInfo_deploymentConfigName = Lens.lens (\DeploymentGroupInfo' {dep
 deploymentGroupInfo_applicationName :: Lens.Lens' DeploymentGroupInfo (Prelude.Maybe Prelude.Text)
 deploymentGroupInfo_applicationName = Lens.lens (\DeploymentGroupInfo' {applicationName} -> applicationName) (\s@DeploymentGroupInfo' {} a -> s {applicationName = a} :: DeploymentGroupInfo)
 
-instance Core.FromJSON DeploymentGroupInfo where
+instance Data.FromJSON DeploymentGroupInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentGroupInfo"
       ( \x ->
           DeploymentGroupInfo'
-            Prelude.<$> (x Core..:? "targetRevision")
-            Prelude.<*> (x Core..:? "loadBalancerInfo")
-            Prelude.<*> ( x Core..:? "autoScalingGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "targetRevision")
+            Prelude.<*> (x Data..:? "loadBalancerInfo")
+            Prelude.<*> ( x Data..:? "autoScalingGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "serviceRoleArn")
-            Prelude.<*> (x Core..:? "lastSuccessfulDeployment")
-            Prelude.<*> ( x Core..:? "triggerConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "serviceRoleArn")
+            Prelude.<*> (x Data..:? "lastSuccessfulDeployment")
+            Prelude.<*> ( x Data..:? "triggerConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "deploymentGroupName")
-            Prelude.<*> (x Core..:? "computePlatform")
-            Prelude.<*> (x Core..:? "ec2TagFilters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "autoRollbackConfiguration")
-            Prelude.<*> (x Core..:? "deploymentStyle")
-            Prelude.<*> (x Core..:? "blueGreenDeploymentConfiguration")
-            Prelude.<*> (x Core..:? "alarmConfiguration")
-            Prelude.<*> (x Core..:? "ecsServices" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "onPremisesTagSet")
-            Prelude.<*> (x Core..:? "outdatedInstancesStrategy")
-            Prelude.<*> ( x Core..:? "onPremisesInstanceTagFilters"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "deploymentGroupName")
+            Prelude.<*> (x Data..:? "computePlatform")
+            Prelude.<*> (x Data..:? "ec2TagFilters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "autoRollbackConfiguration")
+            Prelude.<*> (x Data..:? "deploymentStyle")
+            Prelude.<*> (x Data..:? "blueGreenDeploymentConfiguration")
+            Prelude.<*> (x Data..:? "alarmConfiguration")
+            Prelude.<*> (x Data..:? "ecsServices" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "onPremisesTagSet")
+            Prelude.<*> (x Data..:? "outdatedInstancesStrategy")
+            Prelude.<*> ( x Data..:? "onPremisesInstanceTagFilters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ec2TagSet")
-            Prelude.<*> (x Core..:? "deploymentGroupId")
-            Prelude.<*> (x Core..:? "lastAttemptedDeployment")
-            Prelude.<*> (x Core..:? "deploymentConfigName")
-            Prelude.<*> (x Core..:? "applicationName")
+            Prelude.<*> (x Data..:? "ec2TagSet")
+            Prelude.<*> (x Data..:? "deploymentGroupId")
+            Prelude.<*> (x Data..:? "lastAttemptedDeployment")
+            Prelude.<*> (x Data..:? "deploymentConfigName")
+            Prelude.<*> (x Data..:? "applicationName")
       )
 
 instance Prelude.Hashable DeploymentGroupInfo where

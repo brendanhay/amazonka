@@ -47,6 +47,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ instance Core.AWSRequest GetDeployment where
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentResponse'
-            Prelude.<$> (x Core..?> "deploymentInfo")
+            Prelude.<$> (x Data..?> "deploymentInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,32 +105,32 @@ instance Prelude.Hashable GetDeployment where
 instance Prelude.NFData GetDeployment where
   rnf GetDeployment' {..} = Prelude.rnf deploymentId
 
-instance Core.ToHeaders GetDeployment where
+instance Data.ToHeaders GetDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.GetDeployment" ::
+              Data.=# ( "CodeDeploy_20141006.GetDeployment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDeployment where
+instance Data.ToJSON GetDeployment where
   toJSON GetDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("deploymentId" Core..= deploymentId)]
+          [Prelude.Just ("deploymentId" Data..= deploymentId)]
       )
 
-instance Core.ToPath GetDeployment where
+instance Data.ToPath GetDeployment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDeployment where
+instance Data.ToQuery GetDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetDeployment@ operation.

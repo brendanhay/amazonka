@@ -51,6 +51,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -162,8 +163,8 @@ instance Core.AWSRequest ListOnPremisesInstances where
     Response.receiveJSON
       ( \s h x ->
           ListOnPremisesInstancesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "instanceNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "instanceNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,36 +180,36 @@ instance Prelude.NFData ListOnPremisesInstances where
       `Prelude.seq` Prelude.rnf registrationStatus
       `Prelude.seq` Prelude.rnf tagFilters
 
-instance Core.ToHeaders ListOnPremisesInstances where
+instance Data.ToHeaders ListOnPremisesInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.ListOnPremisesInstances" ::
+              Data.=# ( "CodeDeploy_20141006.ListOnPremisesInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListOnPremisesInstances where
+instance Data.ToJSON ListOnPremisesInstances where
   toJSON ListOnPremisesInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("registrationStatus" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("registrationStatus" Data..=)
               Prelude.<$> registrationStatus,
-            ("tagFilters" Core..=) Prelude.<$> tagFilters
+            ("tagFilters" Data..=) Prelude.<$> tagFilters
           ]
       )
 
-instance Core.ToPath ListOnPremisesInstances where
+instance Data.ToPath ListOnPremisesInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListOnPremisesInstances where
+instance Data.ToQuery ListOnPremisesInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of the list on-premises instances operation.

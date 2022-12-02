@@ -40,6 +40,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,36 +127,36 @@ instance Prelude.NFData RegisterApplicationRevision where
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf revision
 
-instance Core.ToHeaders RegisterApplicationRevision where
+instance Data.ToHeaders RegisterApplicationRevision where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.RegisterApplicationRevision" ::
+              Data.=# ( "CodeDeploy_20141006.RegisterApplicationRevision" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterApplicationRevision where
+instance Data.ToJSON RegisterApplicationRevision where
   toJSON RegisterApplicationRevision' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("applicationName" Core..= applicationName),
-            Prelude.Just ("revision" Core..= revision)
+              ("applicationName" Data..= applicationName),
+            Prelude.Just ("revision" Data..= revision)
           ]
       )
 
-instance Core.ToPath RegisterApplicationRevision where
+instance Data.ToPath RegisterApplicationRevision where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterApplicationRevision where
+instance Data.ToQuery RegisterApplicationRevision where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterApplicationRevisionResponse' smart constructor.

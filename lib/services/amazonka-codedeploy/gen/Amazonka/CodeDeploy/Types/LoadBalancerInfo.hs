@@ -24,6 +24,7 @@ import Amazonka.CodeDeploy.Types.TargetGroupInfo
 import Amazonka.CodeDeploy.Types.TargetGroupPairInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the Elastic Load Balancing load balancer or target
@@ -102,18 +103,18 @@ loadBalancerInfo_elbInfoList = Lens.lens (\LoadBalancerInfo' {elbInfoList} -> el
 loadBalancerInfo_targetGroupInfoList :: Lens.Lens' LoadBalancerInfo (Prelude.Maybe [TargetGroupInfo])
 loadBalancerInfo_targetGroupInfoList = Lens.lens (\LoadBalancerInfo' {targetGroupInfoList} -> targetGroupInfoList) (\s@LoadBalancerInfo' {} a -> s {targetGroupInfoList = a} :: LoadBalancerInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LoadBalancerInfo where
+instance Data.FromJSON LoadBalancerInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoadBalancerInfo"
       ( \x ->
           LoadBalancerInfo'
-            Prelude.<$> ( x Core..:? "targetGroupPairInfoList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "targetGroupPairInfoList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "elbInfoList" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "targetGroupInfoList"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "elbInfoList" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "targetGroupInfoList"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -130,14 +131,14 @@ instance Prelude.NFData LoadBalancerInfo where
       `Prelude.seq` Prelude.rnf elbInfoList
       `Prelude.seq` Prelude.rnf targetGroupInfoList
 
-instance Core.ToJSON LoadBalancerInfo where
+instance Data.ToJSON LoadBalancerInfo where
   toJSON LoadBalancerInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetGroupPairInfoList" Core..=)
+          [ ("targetGroupPairInfoList" Data..=)
               Prelude.<$> targetGroupPairInfoList,
-            ("elbInfoList" Core..=) Prelude.<$> elbInfoList,
-            ("targetGroupInfoList" Core..=)
+            ("elbInfoList" Data..=) Prelude.<$> elbInfoList,
+            ("targetGroupInfoList" Data..=)
               Prelude.<$> targetGroupInfoList
           ]
       )

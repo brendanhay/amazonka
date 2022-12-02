@@ -51,6 +51,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -275,8 +276,8 @@ instance Core.AWSRequest ListApplicationRevisions where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationRevisionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "revisions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "revisions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -300,40 +301,40 @@ instance Prelude.NFData ListApplicationRevisions where
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders ListApplicationRevisions where
+instance Data.ToHeaders ListApplicationRevisions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.ListApplicationRevisions" ::
+              Data.=# ( "CodeDeploy_20141006.ListApplicationRevisions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListApplicationRevisions where
+instance Data.ToJSON ListApplicationRevisions where
   toJSON ListApplicationRevisions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-            ("s3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("deployed" Core..=) Prelude.<$> deployed,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
+          [ ("s3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
+            ("s3Bucket" Data..=) Prelude.<$> s3Bucket,
+            ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("deployed" Data..=) Prelude.<$> deployed,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
             Prelude.Just
-              ("applicationName" Core..= applicationName)
+              ("applicationName" Data..= applicationName)
           ]
       )
 
-instance Core.ToPath ListApplicationRevisions where
+instance Data.ToPath ListApplicationRevisions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListApplicationRevisions where
+instance Data.ToQuery ListApplicationRevisions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @ListApplicationRevisions@ operation.

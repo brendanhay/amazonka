@@ -43,6 +43,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ instance Core.AWSRequest GetDeploymentTarget where
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentTargetResponse'
-            Prelude.<$> (x Core..?> "deploymentTarget")
+            Prelude.<$> (x Data..?> "deploymentTarget")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,34 +108,34 @@ instance Prelude.NFData GetDeploymentTarget where
     Prelude.rnf targetId
       `Prelude.seq` Prelude.rnf deploymentId
 
-instance Core.ToHeaders GetDeploymentTarget where
+instance Data.ToHeaders GetDeploymentTarget where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.GetDeploymentTarget" ::
+              Data.=# ( "CodeDeploy_20141006.GetDeploymentTarget" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDeploymentTarget where
+instance Data.ToJSON GetDeploymentTarget where
   toJSON GetDeploymentTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetId" Core..=) Prelude.<$> targetId,
-            ("deploymentId" Core..=) Prelude.<$> deploymentId
+          [ ("targetId" Data..=) Prelude.<$> targetId,
+            ("deploymentId" Data..=) Prelude.<$> deploymentId
           ]
       )
 
-instance Core.ToPath GetDeploymentTarget where
+instance Data.ToPath GetDeploymentTarget where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDeploymentTarget where
+instance Data.ToQuery GetDeploymentTarget where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeploymentTargetResponse' smart constructor.

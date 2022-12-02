@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.RollbackInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a deployment rollback.
@@ -79,15 +80,15 @@ rollbackInfo_rollbackDeploymentId = Lens.lens (\RollbackInfo' {rollbackDeploymen
 rollbackInfo_rollbackTriggeringDeploymentId :: Lens.Lens' RollbackInfo (Prelude.Maybe Prelude.Text)
 rollbackInfo_rollbackTriggeringDeploymentId = Lens.lens (\RollbackInfo' {rollbackTriggeringDeploymentId} -> rollbackTriggeringDeploymentId) (\s@RollbackInfo' {} a -> s {rollbackTriggeringDeploymentId = a} :: RollbackInfo)
 
-instance Core.FromJSON RollbackInfo where
+instance Data.FromJSON RollbackInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RollbackInfo"
       ( \x ->
           RollbackInfo'
-            Prelude.<$> (x Core..:? "rollbackMessage")
-            Prelude.<*> (x Core..:? "rollbackDeploymentId")
-            Prelude.<*> (x Core..:? "rollbackTriggeringDeploymentId")
+            Prelude.<$> (x Data..:? "rollbackMessage")
+            Prelude.<*> (x Data..:? "rollbackDeploymentId")
+            Prelude.<*> (x Data..:? "rollbackTriggeringDeploymentId")
       )
 
 instance Prelude.Hashable RollbackInfo where

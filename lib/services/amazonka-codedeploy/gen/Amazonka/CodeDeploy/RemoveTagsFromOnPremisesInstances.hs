@@ -39,6 +39,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,44 +115,44 @@ instance
       `Prelude.seq` Prelude.rnf instanceNames
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RemoveTagsFromOnPremisesInstances
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.RemoveTagsFromOnPremisesInstances" ::
+              Data.=# ( "CodeDeploy_20141006.RemoveTagsFromOnPremisesInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RemoveTagsFromOnPremisesInstances
   where
   toJSON RemoveTagsFromOnPremisesInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("tags" Core..= tags),
+          [ Prelude.Just ("tags" Data..= tags),
             Prelude.Just
-              ("instanceNames" Core..= instanceNames)
+              ("instanceNames" Data..= instanceNames)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     RemoveTagsFromOnPremisesInstances
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     RemoveTagsFromOnPremisesInstances
   where
   toQuery = Prelude.const Prelude.mempty

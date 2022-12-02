@@ -43,6 +43,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,7 +91,7 @@ instance Core.AWSRequest BatchGetDeployments where
     Response.receiveJSON
       ( \s h x ->
           BatchGetDeploymentsResponse'
-            Prelude.<$> ( x Core..?> "deploymentsInfo"
+            Prelude.<$> ( x Data..?> "deploymentsInfo"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -104,34 +105,34 @@ instance Prelude.NFData BatchGetDeployments where
   rnf BatchGetDeployments' {..} =
     Prelude.rnf deploymentIds
 
-instance Core.ToHeaders BatchGetDeployments where
+instance Data.ToHeaders BatchGetDeployments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.BatchGetDeployments" ::
+              Data.=# ( "CodeDeploy_20141006.BatchGetDeployments" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetDeployments where
+instance Data.ToJSON BatchGetDeployments where
   toJSON BatchGetDeployments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("deploymentIds" Core..= deploymentIds)
+              ("deploymentIds" Data..= deploymentIds)
           ]
       )
 
-instance Core.ToPath BatchGetDeployments where
+instance Data.ToPath BatchGetDeployments where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetDeployments where
+instance Data.ToQuery BatchGetDeployments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @BatchGetDeployments@ operation.

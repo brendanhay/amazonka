@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.TagFilter where
 import Amazonka.CodeDeploy.Types.TagFilterType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an on-premises instance tag filter.
@@ -89,15 +90,15 @@ tagFilter_type = Lens.lens (\TagFilter' {type'} -> type') (\s@TagFilter' {} a ->
 tagFilter_value :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
 tagFilter_value = Lens.lens (\TagFilter' {value} -> value) (\s@TagFilter' {} a -> s {value = a} :: TagFilter)
 
-instance Core.FromJSON TagFilter where
+instance Data.FromJSON TagFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagFilter"
       ( \x ->
           TagFilter'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable TagFilter where
@@ -112,12 +113,12 @@ instance Prelude.NFData TagFilter where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON TagFilter where
+instance Data.ToJSON TagFilter where
   toJSON TagFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

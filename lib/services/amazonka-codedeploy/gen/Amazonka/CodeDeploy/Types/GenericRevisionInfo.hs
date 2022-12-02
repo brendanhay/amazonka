@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.GenericRevisionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an application revision.
@@ -30,13 +31,13 @@ data GenericRevisionInfo = GenericRevisionInfo'
   { -- | The deployment groups for which this is the current target revision.
     deploymentGroups :: Prelude.Maybe [Prelude.Text],
     -- | When the revision was registered with CodeDeploy.
-    registerTime :: Prelude.Maybe Core.POSIX,
+    registerTime :: Prelude.Maybe Data.POSIX,
     -- | A comment about the revision.
     description :: Prelude.Maybe Prelude.Text,
     -- | When the revision was first used by CodeDeploy.
-    firstUsedTime :: Prelude.Maybe Core.POSIX,
+    firstUsedTime :: Prelude.Maybe Data.POSIX,
     -- | When the revision was last used by CodeDeploy.
-    lastUsedTime :: Prelude.Maybe Core.POSIX
+    lastUsedTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,7 +76,7 @@ genericRevisionInfo_deploymentGroups = Lens.lens (\GenericRevisionInfo' {deploym
 
 -- | When the revision was registered with CodeDeploy.
 genericRevisionInfo_registerTime :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe Prelude.UTCTime)
-genericRevisionInfo_registerTime = Lens.lens (\GenericRevisionInfo' {registerTime} -> registerTime) (\s@GenericRevisionInfo' {} a -> s {registerTime = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Core._Time
+genericRevisionInfo_registerTime = Lens.lens (\GenericRevisionInfo' {registerTime} -> registerTime) (\s@GenericRevisionInfo' {} a -> s {registerTime = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Data._Time
 
 -- | A comment about the revision.
 genericRevisionInfo_description :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe Prelude.Text)
@@ -83,25 +84,25 @@ genericRevisionInfo_description = Lens.lens (\GenericRevisionInfo' {description}
 
 -- | When the revision was first used by CodeDeploy.
 genericRevisionInfo_firstUsedTime :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe Prelude.UTCTime)
-genericRevisionInfo_firstUsedTime = Lens.lens (\GenericRevisionInfo' {firstUsedTime} -> firstUsedTime) (\s@GenericRevisionInfo' {} a -> s {firstUsedTime = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Core._Time
+genericRevisionInfo_firstUsedTime = Lens.lens (\GenericRevisionInfo' {firstUsedTime} -> firstUsedTime) (\s@GenericRevisionInfo' {} a -> s {firstUsedTime = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Data._Time
 
 -- | When the revision was last used by CodeDeploy.
 genericRevisionInfo_lastUsedTime :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe Prelude.UTCTime)
-genericRevisionInfo_lastUsedTime = Lens.lens (\GenericRevisionInfo' {lastUsedTime} -> lastUsedTime) (\s@GenericRevisionInfo' {} a -> s {lastUsedTime = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Core._Time
+genericRevisionInfo_lastUsedTime = Lens.lens (\GenericRevisionInfo' {lastUsedTime} -> lastUsedTime) (\s@GenericRevisionInfo' {} a -> s {lastUsedTime = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON GenericRevisionInfo where
+instance Data.FromJSON GenericRevisionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GenericRevisionInfo"
       ( \x ->
           GenericRevisionInfo'
-            Prelude.<$> ( x Core..:? "deploymentGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "deploymentGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "registerTime")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "firstUsedTime")
-            Prelude.<*> (x Core..:? "lastUsedTime")
+            Prelude.<*> (x Data..:? "registerTime")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "firstUsedTime")
+            Prelude.<*> (x Data..:? "lastUsedTime")
       )
 
 instance Prelude.Hashable GenericRevisionInfo where

@@ -43,6 +43,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,35 +120,35 @@ instance Prelude.NFData RegisterOnPremisesInstance where
       `Prelude.seq` Prelude.rnf iamUserArn
       `Prelude.seq` Prelude.rnf instanceName
 
-instance Core.ToHeaders RegisterOnPremisesInstance where
+instance Data.ToHeaders RegisterOnPremisesInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.RegisterOnPremisesInstance" ::
+              Data.=# ( "CodeDeploy_20141006.RegisterOnPremisesInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterOnPremisesInstance where
+instance Data.ToJSON RegisterOnPremisesInstance where
   toJSON RegisterOnPremisesInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("iamSessionArn" Core..=) Prelude.<$> iamSessionArn,
-            ("iamUserArn" Core..=) Prelude.<$> iamUserArn,
-            Prelude.Just ("instanceName" Core..= instanceName)
+          [ ("iamSessionArn" Data..=) Prelude.<$> iamSessionArn,
+            ("iamUserArn" Data..=) Prelude.<$> iamUserArn,
+            Prelude.Just ("instanceName" Data..= instanceName)
           ]
       )
 
-instance Core.ToPath RegisterOnPremisesInstance where
+instance Data.ToPath RegisterOnPremisesInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterOnPremisesInstance where
+instance Data.ToQuery RegisterOnPremisesInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterOnPremisesInstanceResponse' smart constructor.

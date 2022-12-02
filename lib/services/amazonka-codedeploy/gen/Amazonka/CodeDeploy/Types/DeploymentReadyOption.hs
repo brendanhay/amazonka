@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.DeploymentReadyOption where
 import Amazonka.CodeDeploy.Types.DeploymentReadyAction
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about how traffic is rerouted to instances in a replacement
@@ -100,14 +101,14 @@ deploymentReadyOption_waitTimeInMinutes = Lens.lens (\DeploymentReadyOption' {wa
 deploymentReadyOption_actionOnTimeout :: Lens.Lens' DeploymentReadyOption (Prelude.Maybe DeploymentReadyAction)
 deploymentReadyOption_actionOnTimeout = Lens.lens (\DeploymentReadyOption' {actionOnTimeout} -> actionOnTimeout) (\s@DeploymentReadyOption' {} a -> s {actionOnTimeout = a} :: DeploymentReadyOption)
 
-instance Core.FromJSON DeploymentReadyOption where
+instance Data.FromJSON DeploymentReadyOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentReadyOption"
       ( \x ->
           DeploymentReadyOption'
-            Prelude.<$> (x Core..:? "waitTimeInMinutes")
-            Prelude.<*> (x Core..:? "actionOnTimeout")
+            Prelude.<$> (x Data..:? "waitTimeInMinutes")
+            Prelude.<*> (x Data..:? "actionOnTimeout")
       )
 
 instance Prelude.Hashable DeploymentReadyOption where
@@ -120,13 +121,13 @@ instance Prelude.NFData DeploymentReadyOption where
     Prelude.rnf waitTimeInMinutes
       `Prelude.seq` Prelude.rnf actionOnTimeout
 
-instance Core.ToJSON DeploymentReadyOption where
+instance Data.ToJSON DeploymentReadyOption where
   toJSON DeploymentReadyOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("waitTimeInMinutes" Core..=)
+          [ ("waitTimeInMinutes" Data..=)
               Prelude.<$> waitTimeInMinutes,
-            ("actionOnTimeout" Core..=)
+            ("actionOnTimeout" Data..=)
               Prelude.<$> actionOnTimeout
           ]
       )

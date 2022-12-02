@@ -52,6 +52,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -371,7 +372,7 @@ instance Core.AWSRequest CreateDeployment where
     Response.receiveJSON
       ( \s h x ->
           CreateDeploymentResponse'
-            Prelude.<$> (x Core..?> "deploymentId")
+            Prelude.<$> (x Data..?> "deploymentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -404,52 +405,52 @@ instance Prelude.NFData CreateDeployment where
       `Prelude.seq` Prelude.rnf deploymentConfigName
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders CreateDeployment where
+instance Data.ToHeaders CreateDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.CreateDeployment" ::
+              Data.=# ( "CodeDeploy_20141006.CreateDeployment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDeployment where
+instance Data.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("overrideAlarmConfiguration" Core..=)
+          [ ("overrideAlarmConfiguration" Data..=)
               Prelude.<$> overrideAlarmConfiguration,
-            ("deploymentGroupName" Core..=)
+            ("deploymentGroupName" Data..=)
               Prelude.<$> deploymentGroupName,
-            ("fileExistsBehavior" Core..=)
+            ("fileExistsBehavior" Data..=)
               Prelude.<$> fileExistsBehavior,
-            ("revision" Core..=) Prelude.<$> revision,
-            ("description" Core..=) Prelude.<$> description,
-            ("updateOutdatedInstancesOnly" Core..=)
+            ("revision" Data..=) Prelude.<$> revision,
+            ("description" Data..=) Prelude.<$> description,
+            ("updateOutdatedInstancesOnly" Data..=)
               Prelude.<$> updateOutdatedInstancesOnly,
-            ("autoRollbackConfiguration" Core..=)
+            ("autoRollbackConfiguration" Data..=)
               Prelude.<$> autoRollbackConfiguration,
-            ("targetInstances" Core..=)
+            ("targetInstances" Data..=)
               Prelude.<$> targetInstances,
-            ("ignoreApplicationStopFailures" Core..=)
+            ("ignoreApplicationStopFailures" Data..=)
               Prelude.<$> ignoreApplicationStopFailures,
-            ("deploymentConfigName" Core..=)
+            ("deploymentConfigName" Data..=)
               Prelude.<$> deploymentConfigName,
             Prelude.Just
-              ("applicationName" Core..= applicationName)
+              ("applicationName" Data..= applicationName)
           ]
       )
 
-instance Core.ToPath CreateDeployment where
+instance Data.ToPath CreateDeployment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDeployment where
+instance Data.ToQuery CreateDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateDeployment@ operation.

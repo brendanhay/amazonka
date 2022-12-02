@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.TimeBasedCanary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration that shifts traffic from one version of a Lambda
@@ -71,14 +72,14 @@ timeBasedCanary_canaryPercentage = Lens.lens (\TimeBasedCanary' {canaryPercentag
 timeBasedCanary_canaryInterval :: Lens.Lens' TimeBasedCanary (Prelude.Maybe Prelude.Int)
 timeBasedCanary_canaryInterval = Lens.lens (\TimeBasedCanary' {canaryInterval} -> canaryInterval) (\s@TimeBasedCanary' {} a -> s {canaryInterval = a} :: TimeBasedCanary)
 
-instance Core.FromJSON TimeBasedCanary where
+instance Data.FromJSON TimeBasedCanary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeBasedCanary"
       ( \x ->
           TimeBasedCanary'
-            Prelude.<$> (x Core..:? "canaryPercentage")
-            Prelude.<*> (x Core..:? "canaryInterval")
+            Prelude.<$> (x Data..:? "canaryPercentage")
+            Prelude.<*> (x Data..:? "canaryInterval")
       )
 
 instance Prelude.Hashable TimeBasedCanary where
@@ -91,13 +92,13 @@ instance Prelude.NFData TimeBasedCanary where
     Prelude.rnf canaryPercentage
       `Prelude.seq` Prelude.rnf canaryInterval
 
-instance Core.ToJSON TimeBasedCanary where
+instance Data.ToJSON TimeBasedCanary where
   toJSON TimeBasedCanary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("canaryPercentage" Core..=)
+          [ ("canaryPercentage" Data..=)
               Prelude.<$> canaryPercentage,
-            ("canaryInterval" Core..=)
+            ("canaryInterval" Data..=)
               Prelude.<$> canaryInterval
           ]
       )

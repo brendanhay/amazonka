@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.RelatedDeployments where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about deployments related to the specified deployment.
@@ -66,18 +67,18 @@ relatedDeployments_autoUpdateOutdatedInstancesDeploymentIds = Lens.lens (\Relate
 relatedDeployments_autoUpdateOutdatedInstancesRootDeploymentId :: Lens.Lens' RelatedDeployments (Prelude.Maybe Prelude.Text)
 relatedDeployments_autoUpdateOutdatedInstancesRootDeploymentId = Lens.lens (\RelatedDeployments' {autoUpdateOutdatedInstancesRootDeploymentId} -> autoUpdateOutdatedInstancesRootDeploymentId) (\s@RelatedDeployments' {} a -> s {autoUpdateOutdatedInstancesRootDeploymentId = a} :: RelatedDeployments)
 
-instance Core.FromJSON RelatedDeployments where
+instance Data.FromJSON RelatedDeployments where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelatedDeployments"
       ( \x ->
           RelatedDeployments'
             Prelude.<$> ( x
-                            Core..:? "autoUpdateOutdatedInstancesDeploymentIds"
-                            Core..!= Prelude.mempty
+                            Data..:? "autoUpdateOutdatedInstancesDeploymentIds"
+                            Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x
-                            Core..:? "autoUpdateOutdatedInstancesRootDeploymentId"
+                            Data..:? "autoUpdateOutdatedInstancesRootDeploymentId"
                         )
       )
 

@@ -38,6 +38,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,34 +95,34 @@ instance Prelude.NFData DeleteApplication where
   rnf DeleteApplication' {..} =
     Prelude.rnf applicationName
 
-instance Core.ToHeaders DeleteApplication where
+instance Data.ToHeaders DeleteApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.DeleteApplication" ::
+              Data.=# ( "CodeDeploy_20141006.DeleteApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteApplication where
+instance Data.ToJSON DeleteApplication where
   toJSON DeleteApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("applicationName" Core..= applicationName)
+              ("applicationName" Data..= applicationName)
           ]
       )
 
-instance Core.ToPath DeleteApplication where
+instance Data.ToPath DeleteApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteApplication where
+instance Data.ToQuery DeleteApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteApplicationResponse' smart constructor.

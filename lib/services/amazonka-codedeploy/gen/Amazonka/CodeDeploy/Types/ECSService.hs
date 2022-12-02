@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.ECSService where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the service and cluster names used to identify an Amazon ECS
@@ -62,14 +63,14 @@ eCSService_serviceName = Lens.lens (\ECSService' {serviceName} -> serviceName) (
 eCSService_clusterName :: Lens.Lens' ECSService (Prelude.Maybe Prelude.Text)
 eCSService_clusterName = Lens.lens (\ECSService' {clusterName} -> clusterName) (\s@ECSService' {} a -> s {clusterName = a} :: ECSService)
 
-instance Core.FromJSON ECSService where
+instance Data.FromJSON ECSService where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ECSService"
       ( \x ->
           ECSService'
-            Prelude.<$> (x Core..:? "serviceName")
-            Prelude.<*> (x Core..:? "clusterName")
+            Prelude.<$> (x Data..:? "serviceName")
+            Prelude.<*> (x Data..:? "clusterName")
       )
 
 instance Prelude.Hashable ECSService where
@@ -82,11 +83,11 @@ instance Prelude.NFData ECSService where
     Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf clusterName
 
-instance Core.ToJSON ECSService where
+instance Data.ToJSON ECSService where
   toJSON ECSService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("serviceName" Core..=) Prelude.<$> serviceName,
-            ("clusterName" Core..=) Prelude.<$> clusterName
+          [ ("serviceName" Data..=) Prelude.<$> serviceName,
+            ("clusterName" Data..=) Prelude.<$> clusterName
           ]
       )

@@ -36,6 +36,7 @@ import Amazonka.CodeDeploy.Types.RollbackInfo
 import Amazonka.CodeDeploy.Types.TargetInstances
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a deployment.
@@ -84,7 +85,7 @@ data DeploymentInfo = DeploymentInfo'
     -- application revision are to be deployed to.
     updateOutdatedInstancesOnly :: Prelude.Maybe Prelude.Bool,
     -- | A timestamp that indicates when the deployment was complete.
-    completeTime :: Prelude.Maybe Core.POSIX,
+    completeTime :: Prelude.Maybe Data.POSIX,
     -- | Messages that contain information about the status of a deployment.
     deploymentStatusMessages :: Prelude.Maybe [Prelude.Text],
     -- | Information about the automatic rollback configuration associated with
@@ -103,7 +104,7 @@ data DeploymentInfo = DeploymentInfo'
     -- environment in a blue\/green deployment.
     targetInstances :: Prelude.Maybe TargetInstances,
     -- | A timestamp that indicates when the deployment was created.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | Provides information about the results of a deployment, such as whether
     -- instances in the original environment in a blue\/green deployment were
     -- not terminated.
@@ -128,7 +129,7 @@ data DeploymentInfo = DeploymentInfo'
     -- In some cases, the reported value of the start time might be later than
     -- the complete time. This is due to differences in the clock settings of
     -- backend servers that participate in the deployment process.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | If true, then if an @ApplicationStop@, @BeforeBlockTraffic@, or
     -- @AfterBlockTraffic@ deployment lifecycle event to an instance fails,
     -- then the deployment continues to the next deployment lifecycle event.
@@ -407,7 +408,7 @@ deploymentInfo_updateOutdatedInstancesOnly = Lens.lens (\DeploymentInfo' {update
 
 -- | A timestamp that indicates when the deployment was complete.
 deploymentInfo_completeTime :: Lens.Lens' DeploymentInfo (Prelude.Maybe Prelude.UTCTime)
-deploymentInfo_completeTime = Lens.lens (\DeploymentInfo' {completeTime} -> completeTime) (\s@DeploymentInfo' {} a -> s {completeTime = a} :: DeploymentInfo) Prelude.. Lens.mapping Core._Time
+deploymentInfo_completeTime = Lens.lens (\DeploymentInfo' {completeTime} -> completeTime) (\s@DeploymentInfo' {} a -> s {completeTime = a} :: DeploymentInfo) Prelude.. Lens.mapping Data._Time
 
 -- | Messages that contain information about the status of a deployment.
 deploymentInfo_deploymentStatusMessages :: Lens.Lens' DeploymentInfo (Prelude.Maybe [Prelude.Text])
@@ -443,7 +444,7 @@ deploymentInfo_targetInstances = Lens.lens (\DeploymentInfo' {targetInstances} -
 
 -- | A timestamp that indicates when the deployment was created.
 deploymentInfo_createTime :: Lens.Lens' DeploymentInfo (Prelude.Maybe Prelude.UTCTime)
-deploymentInfo_createTime = Lens.lens (\DeploymentInfo' {createTime} -> createTime) (\s@DeploymentInfo' {} a -> s {createTime = a} :: DeploymentInfo) Prelude.. Lens.mapping Core._Time
+deploymentInfo_createTime = Lens.lens (\DeploymentInfo' {createTime} -> createTime) (\s@DeploymentInfo' {} a -> s {createTime = a} :: DeploymentInfo) Prelude.. Lens.mapping Data._Time
 
 -- | Provides information about the results of a deployment, such as whether
 -- instances in the original environment in a blue\/green deployment were
@@ -476,7 +477,7 @@ deploymentInfo_previousRevision = Lens.lens (\DeploymentInfo' {previousRevision}
 -- the complete time. This is due to differences in the clock settings of
 -- backend servers that participate in the deployment process.
 deploymentInfo_startTime :: Lens.Lens' DeploymentInfo (Prelude.Maybe Prelude.UTCTime)
-deploymentInfo_startTime = Lens.lens (\DeploymentInfo' {startTime} -> startTime) (\s@DeploymentInfo' {} a -> s {startTime = a} :: DeploymentInfo) Prelude.. Lens.mapping Core._Time
+deploymentInfo_startTime = Lens.lens (\DeploymentInfo' {startTime} -> startTime) (\s@DeploymentInfo' {} a -> s {startTime = a} :: DeploymentInfo) Prelude.. Lens.mapping Data._Time
 
 -- | If true, then if an @ApplicationStop@, @BeforeBlockTraffic@, or
 -- @AfterBlockTraffic@ deployment lifecycle event to an instance fails,
@@ -522,44 +523,44 @@ deploymentInfo_deploymentConfigName = Lens.lens (\DeploymentInfo' {deploymentCon
 deploymentInfo_applicationName :: Lens.Lens' DeploymentInfo (Prelude.Maybe Prelude.Text)
 deploymentInfo_applicationName = Lens.lens (\DeploymentInfo' {applicationName} -> applicationName) (\s@DeploymentInfo' {} a -> s {applicationName = a} :: DeploymentInfo)
 
-instance Core.FromJSON DeploymentInfo where
+instance Data.FromJSON DeploymentInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentInfo"
       ( \x ->
           DeploymentInfo'
-            Prelude.<$> (x Core..:? "overrideAlarmConfiguration")
-            Prelude.<*> (x Core..:? "loadBalancerInfo")
-            Prelude.<*> (x Core..:? "deploymentGroupName")
-            Prelude.<*> (x Core..:? "deploymentId")
-            Prelude.<*> (x Core..:? "fileExistsBehavior")
-            Prelude.<*> (x Core..:? "deploymentOverview")
-            Prelude.<*> (x Core..:? "revision")
-            Prelude.<*> (x Core..:? "rollbackInfo")
-            Prelude.<*> (x Core..:? "externalId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "computePlatform")
-            Prelude.<*> (x Core..:? "updateOutdatedInstancesOnly")
-            Prelude.<*> (x Core..:? "completeTime")
-            Prelude.<*> ( x Core..:? "deploymentStatusMessages"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "overrideAlarmConfiguration")
+            Prelude.<*> (x Data..:? "loadBalancerInfo")
+            Prelude.<*> (x Data..:? "deploymentGroupName")
+            Prelude.<*> (x Data..:? "deploymentId")
+            Prelude.<*> (x Data..:? "fileExistsBehavior")
+            Prelude.<*> (x Data..:? "deploymentOverview")
+            Prelude.<*> (x Data..:? "revision")
+            Prelude.<*> (x Data..:? "rollbackInfo")
+            Prelude.<*> (x Data..:? "externalId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "computePlatform")
+            Prelude.<*> (x Data..:? "updateOutdatedInstancesOnly")
+            Prelude.<*> (x Data..:? "completeTime")
+            Prelude.<*> ( x Data..:? "deploymentStatusMessages"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "autoRollbackConfiguration")
-            Prelude.<*> (x Core..:? "deploymentStyle")
-            Prelude.<*> (x Core..:? "blueGreenDeploymentConfiguration")
-            Prelude.<*> (x Core..:? "errorInformation")
-            Prelude.<*> (x Core..:? "relatedDeployments")
-            Prelude.<*> (x Core..:? "targetInstances")
-            Prelude.<*> (x Core..:? "createTime")
-            Prelude.<*> (x Core..:? "additionalDeploymentStatusInfo")
-            Prelude.<*> (x Core..:? "creator")
-            Prelude.<*> (x Core..:? "previousRevision")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "ignoreApplicationStopFailures")
-            Prelude.<*> (x Core..:? "instanceTerminationWaitTimeStarted")
-            Prelude.<*> (x Core..:? "deploymentConfigName")
-            Prelude.<*> (x Core..:? "applicationName")
+            Prelude.<*> (x Data..:? "autoRollbackConfiguration")
+            Prelude.<*> (x Data..:? "deploymentStyle")
+            Prelude.<*> (x Data..:? "blueGreenDeploymentConfiguration")
+            Prelude.<*> (x Data..:? "errorInformation")
+            Prelude.<*> (x Data..:? "relatedDeployments")
+            Prelude.<*> (x Data..:? "targetInstances")
+            Prelude.<*> (x Data..:? "createTime")
+            Prelude.<*> (x Data..:? "additionalDeploymentStatusInfo")
+            Prelude.<*> (x Data..:? "creator")
+            Prelude.<*> (x Data..:? "previousRevision")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "ignoreApplicationStopFailures")
+            Prelude.<*> (x Data..:? "instanceTerminationWaitTimeStarted")
+            Prelude.<*> (x Data..:? "deploymentConfigName")
+            Prelude.<*> (x Data..:? "applicationName")
       )
 
 instance Prelude.Hashable DeploymentInfo where

@@ -24,6 +24,7 @@ import Amazonka.CodeDeploy.Types.MinimumHealthyHosts
 import Amazonka.CodeDeploy.Types.TrafficRoutingConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a deployment configuration.
@@ -39,7 +40,7 @@ data DeploymentConfigInfo = DeploymentConfigInfo'
     -- Used for deployments with a Lambda or Amazon ECS compute platform only.
     trafficRoutingConfig :: Prelude.Maybe TrafficRoutingConfig,
     -- | The time at which the deployment configuration was created.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | Information about the number or percentage of minimum healthy instance.
     minimumHealthyHosts :: Prelude.Maybe MinimumHealthyHosts,
     -- | The deployment configuration name.
@@ -97,7 +98,7 @@ deploymentConfigInfo_trafficRoutingConfig = Lens.lens (\DeploymentConfigInfo' {t
 
 -- | The time at which the deployment configuration was created.
 deploymentConfigInfo_createTime :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe Prelude.UTCTime)
-deploymentConfigInfo_createTime = Lens.lens (\DeploymentConfigInfo' {createTime} -> createTime) (\s@DeploymentConfigInfo' {} a -> s {createTime = a} :: DeploymentConfigInfo) Prelude.. Lens.mapping Core._Time
+deploymentConfigInfo_createTime = Lens.lens (\DeploymentConfigInfo' {createTime} -> createTime) (\s@DeploymentConfigInfo' {} a -> s {createTime = a} :: DeploymentConfigInfo) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the number or percentage of minimum healthy instance.
 deploymentConfigInfo_minimumHealthyHosts :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe MinimumHealthyHosts)
@@ -107,18 +108,18 @@ deploymentConfigInfo_minimumHealthyHosts = Lens.lens (\DeploymentConfigInfo' {mi
 deploymentConfigInfo_deploymentConfigName :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe Prelude.Text)
 deploymentConfigInfo_deploymentConfigName = Lens.lens (\DeploymentConfigInfo' {deploymentConfigName} -> deploymentConfigName) (\s@DeploymentConfigInfo' {} a -> s {deploymentConfigName = a} :: DeploymentConfigInfo)
 
-instance Core.FromJSON DeploymentConfigInfo where
+instance Data.FromJSON DeploymentConfigInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentConfigInfo"
       ( \x ->
           DeploymentConfigInfo'
-            Prelude.<$> (x Core..:? "deploymentConfigId")
-            Prelude.<*> (x Core..:? "computePlatform")
-            Prelude.<*> (x Core..:? "trafficRoutingConfig")
-            Prelude.<*> (x Core..:? "createTime")
-            Prelude.<*> (x Core..:? "minimumHealthyHosts")
-            Prelude.<*> (x Core..:? "deploymentConfigName")
+            Prelude.<$> (x Data..:? "deploymentConfigId")
+            Prelude.<*> (x Data..:? "computePlatform")
+            Prelude.<*> (x Data..:? "trafficRoutingConfig")
+            Prelude.<*> (x Data..:? "createTime")
+            Prelude.<*> (x Data..:? "minimumHealthyHosts")
+            Prelude.<*> (x Data..:? "deploymentConfigName")
       )
 
 instance Prelude.Hashable DeploymentConfigInfo where

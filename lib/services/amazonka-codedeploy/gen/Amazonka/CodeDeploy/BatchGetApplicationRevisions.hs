@@ -46,6 +46,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,9 +111,9 @@ instance Core.AWSRequest BatchGetApplicationRevisions where
     Response.receiveJSON
       ( \s h x ->
           BatchGetApplicationRevisionsResponse'
-            Prelude.<$> (x Core..?> "errorMessage")
-            Prelude.<*> (x Core..?> "revisions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "applicationName")
+            Prelude.<$> (x Data..?> "errorMessage")
+            Prelude.<*> (x Data..?> "revisions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "applicationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,35 +130,35 @@ instance Prelude.NFData BatchGetApplicationRevisions where
     Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf revisions
 
-instance Core.ToHeaders BatchGetApplicationRevisions where
+instance Data.ToHeaders BatchGetApplicationRevisions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.BatchGetApplicationRevisions" ::
+              Data.=# ( "CodeDeploy_20141006.BatchGetApplicationRevisions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetApplicationRevisions where
+instance Data.ToJSON BatchGetApplicationRevisions where
   toJSON BatchGetApplicationRevisions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("applicationName" Core..= applicationName),
-            Prelude.Just ("revisions" Core..= revisions)
+              ("applicationName" Data..= applicationName),
+            Prelude.Just ("revisions" Data..= revisions)
           ]
       )
 
-instance Core.ToPath BatchGetApplicationRevisions where
+instance Data.ToPath BatchGetApplicationRevisions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetApplicationRevisions where
+instance Data.ToQuery BatchGetApplicationRevisions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @BatchGetApplicationRevisions@ operation.

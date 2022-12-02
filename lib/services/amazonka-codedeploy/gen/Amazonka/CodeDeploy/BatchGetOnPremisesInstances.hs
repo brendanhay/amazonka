@@ -43,6 +43,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,7 +91,7 @@ instance Core.AWSRequest BatchGetOnPremisesInstances where
     Response.receiveJSON
       ( \s h x ->
           BatchGetOnPremisesInstancesResponse'
-            Prelude.<$> (x Core..?> "instanceInfos" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "instanceInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,34 +103,34 @@ instance Prelude.NFData BatchGetOnPremisesInstances where
   rnf BatchGetOnPremisesInstances' {..} =
     Prelude.rnf instanceNames
 
-instance Core.ToHeaders BatchGetOnPremisesInstances where
+instance Data.ToHeaders BatchGetOnPremisesInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.BatchGetOnPremisesInstances" ::
+              Data.=# ( "CodeDeploy_20141006.BatchGetOnPremisesInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetOnPremisesInstances where
+instance Data.ToJSON BatchGetOnPremisesInstances where
   toJSON BatchGetOnPremisesInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("instanceNames" Core..= instanceNames)
+              ("instanceNames" Data..= instanceNames)
           ]
       )
 
-instance Core.ToPath BatchGetOnPremisesInstances where
+instance Data.ToPath BatchGetOnPremisesInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetOnPremisesInstances where
+instance Data.ToQuery BatchGetOnPremisesInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @BatchGetOnPremisesInstances@ operation.

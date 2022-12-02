@@ -24,6 +24,7 @@ import Amazonka.CodeDeploy.Types.LifecycleEvent
 import Amazonka.CodeDeploy.Types.TargetStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the target of an Amazon ECS deployment.
@@ -37,7 +38,7 @@ data ECSTarget = ECSTarget'
     lifecycleEvents :: Prelude.Maybe [LifecycleEvent],
     -- | The date and time when the target Amazon ECS application was updated by
     -- a deployment.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The unique ID of a deployment.
     deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the target.
@@ -97,7 +98,7 @@ eCSTarget_lifecycleEvents = Lens.lens (\ECSTarget' {lifecycleEvents} -> lifecycl
 -- | The date and time when the target Amazon ECS application was updated by
 -- a deployment.
 eCSTarget_lastUpdatedAt :: Lens.Lens' ECSTarget (Prelude.Maybe Prelude.UTCTime)
-eCSTarget_lastUpdatedAt = Lens.lens (\ECSTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@ECSTarget' {} a -> s {lastUpdatedAt = a} :: ECSTarget) Prelude.. Lens.mapping Core._Time
+eCSTarget_lastUpdatedAt = Lens.lens (\ECSTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@ECSTarget' {} a -> s {lastUpdatedAt = a} :: ECSTarget) Prelude.. Lens.mapping Data._Time
 
 -- | The unique ID of a deployment.
 eCSTarget_deploymentId :: Lens.Lens' ECSTarget (Prelude.Maybe Prelude.Text)
@@ -115,21 +116,21 @@ eCSTarget_status = Lens.lens (\ECSTarget' {status} -> status) (\s@ECSTarget' {} 
 eCSTarget_taskSetsInfo :: Lens.Lens' ECSTarget (Prelude.Maybe [ECSTaskSet])
 eCSTarget_taskSetsInfo = Lens.lens (\ECSTarget' {taskSetsInfo} -> taskSetsInfo) (\s@ECSTarget' {} a -> s {taskSetsInfo = a} :: ECSTarget) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ECSTarget where
+instance Data.FromJSON ECSTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ECSTarget"
       ( \x ->
           ECSTarget'
-            Prelude.<$> (x Core..:? "targetId")
-            Prelude.<*> ( x Core..:? "lifecycleEvents"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "targetId")
+            Prelude.<*> ( x Data..:? "lifecycleEvents"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "deploymentId")
-            Prelude.<*> (x Core..:? "targetArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "taskSetsInfo" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "deploymentId")
+            Prelude.<*> (x Data..:? "targetArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "taskSetsInfo" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ECSTarget where

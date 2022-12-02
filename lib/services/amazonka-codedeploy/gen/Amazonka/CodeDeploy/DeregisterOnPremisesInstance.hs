@@ -38,6 +38,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,32 +96,32 @@ instance Prelude.NFData DeregisterOnPremisesInstance where
   rnf DeregisterOnPremisesInstance' {..} =
     Prelude.rnf instanceName
 
-instance Core.ToHeaders DeregisterOnPremisesInstance where
+instance Data.ToHeaders DeregisterOnPremisesInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.DeregisterOnPremisesInstance" ::
+              Data.=# ( "CodeDeploy_20141006.DeregisterOnPremisesInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterOnPremisesInstance where
+instance Data.ToJSON DeregisterOnPremisesInstance where
   toJSON DeregisterOnPremisesInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("instanceName" Core..= instanceName)]
+          [Prelude.Just ("instanceName" Data..= instanceName)]
       )
 
-instance Core.ToPath DeregisterOnPremisesInstance where
+instance Data.ToPath DeregisterOnPremisesInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterOnPremisesInstance where
+instance Data.ToQuery DeregisterOnPremisesInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterOnPremisesInstanceResponse' smart constructor.

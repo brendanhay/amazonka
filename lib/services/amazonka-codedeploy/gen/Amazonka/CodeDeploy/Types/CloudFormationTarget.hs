@@ -23,6 +23,7 @@ import Amazonka.CodeDeploy.Types.LifecycleEvent
 import Amazonka.CodeDeploy.Types.TargetStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the target to be updated by an CloudFormation
@@ -41,7 +42,7 @@ data CloudFormationTarget = CloudFormationTarget'
     lifecycleEvents :: Prelude.Maybe [LifecycleEvent],
     -- | The date and time when the target application was updated by an
     -- CloudFormation blue\/green deployment.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The percentage of production traffic that the target version of an
     -- CloudFormation blue\/green deployment receives.
     targetVersionWeight :: Prelude.Maybe Prelude.Double,
@@ -110,7 +111,7 @@ cloudFormationTarget_lifecycleEvents = Lens.lens (\CloudFormationTarget' {lifecy
 -- | The date and time when the target application was updated by an
 -- CloudFormation blue\/green deployment.
 cloudFormationTarget_lastUpdatedAt :: Lens.Lens' CloudFormationTarget (Prelude.Maybe Prelude.UTCTime)
-cloudFormationTarget_lastUpdatedAt = Lens.lens (\CloudFormationTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@CloudFormationTarget' {} a -> s {lastUpdatedAt = a} :: CloudFormationTarget) Prelude.. Lens.mapping Core._Time
+cloudFormationTarget_lastUpdatedAt = Lens.lens (\CloudFormationTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@CloudFormationTarget' {} a -> s {lastUpdatedAt = a} :: CloudFormationTarget) Prelude.. Lens.mapping Data._Time
 
 -- | The percentage of production traffic that the target version of an
 -- CloudFormation blue\/green deployment receives.
@@ -126,21 +127,21 @@ cloudFormationTarget_deploymentId = Lens.lens (\CloudFormationTarget' {deploymen
 cloudFormationTarget_status :: Lens.Lens' CloudFormationTarget (Prelude.Maybe TargetStatus)
 cloudFormationTarget_status = Lens.lens (\CloudFormationTarget' {status} -> status) (\s@CloudFormationTarget' {} a -> s {status = a} :: CloudFormationTarget)
 
-instance Core.FromJSON CloudFormationTarget where
+instance Data.FromJSON CloudFormationTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudFormationTarget"
       ( \x ->
           CloudFormationTarget'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "targetId")
-            Prelude.<*> ( x Core..:? "lifecycleEvents"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "targetId")
+            Prelude.<*> ( x Data..:? "lifecycleEvents"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "targetVersionWeight")
-            Prelude.<*> (x Core..:? "deploymentId")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "targetVersionWeight")
+            Prelude.<*> (x Data..:? "deploymentId")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable CloudFormationTarget where

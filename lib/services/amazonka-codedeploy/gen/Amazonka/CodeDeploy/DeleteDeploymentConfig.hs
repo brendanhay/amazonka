@@ -41,6 +41,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,36 +99,36 @@ instance Prelude.NFData DeleteDeploymentConfig where
   rnf DeleteDeploymentConfig' {..} =
     Prelude.rnf deploymentConfigName
 
-instance Core.ToHeaders DeleteDeploymentConfig where
+instance Data.ToHeaders DeleteDeploymentConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.DeleteDeploymentConfig" ::
+              Data.=# ( "CodeDeploy_20141006.DeleteDeploymentConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDeploymentConfig where
+instance Data.ToJSON DeleteDeploymentConfig where
   toJSON DeleteDeploymentConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "deploymentConfigName"
-                  Core..= deploymentConfigName
+                  Data..= deploymentConfigName
               )
           ]
       )
 
-instance Core.ToPath DeleteDeploymentConfig where
+instance Data.ToPath DeleteDeploymentConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDeploymentConfig where
+instance Data.ToQuery DeleteDeploymentConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeploymentConfigResponse' smart constructor.

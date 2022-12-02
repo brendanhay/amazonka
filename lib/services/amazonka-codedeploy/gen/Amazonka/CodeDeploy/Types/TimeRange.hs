@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.TimeRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a time range.
@@ -30,11 +31,11 @@ data TimeRange = TimeRange'
   { -- | The start time of the time range.
     --
     -- Specify null to leave the start time open-ended.
-    start :: Prelude.Maybe Core.POSIX,
+    start :: Prelude.Maybe Data.POSIX,
     -- | The end time of the time range.
     --
     -- Specify null to leave the end time open-ended.
-    end :: Prelude.Maybe Core.POSIX
+    end :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,13 +66,13 @@ newTimeRange =
 --
 -- Specify null to leave the start time open-ended.
 timeRange_start :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
-timeRange_start = Lens.lens (\TimeRange' {start} -> start) (\s@TimeRange' {} a -> s {start = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
+timeRange_start = Lens.lens (\TimeRange' {start} -> start) (\s@TimeRange' {} a -> s {start = a} :: TimeRange) Prelude.. Lens.mapping Data._Time
 
 -- | The end time of the time range.
 --
 -- Specify null to leave the end time open-ended.
 timeRange_end :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
-timeRange_end = Lens.lens (\TimeRange' {end} -> end) (\s@TimeRange' {} a -> s {end = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
+timeRange_end = Lens.lens (\TimeRange' {end} -> end) (\s@TimeRange' {} a -> s {end = a} :: TimeRange) Prelude.. Lens.mapping Data._Time
 
 instance Prelude.Hashable TimeRange where
   hashWithSalt _salt TimeRange' {..} =
@@ -82,11 +83,11 @@ instance Prelude.NFData TimeRange where
   rnf TimeRange' {..} =
     Prelude.rnf start `Prelude.seq` Prelude.rnf end
 
-instance Core.ToJSON TimeRange where
+instance Data.ToJSON TimeRange where
   toJSON TimeRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("start" Core..=) Prelude.<$> start,
-            ("end" Core..=) Prelude.<$> end
+          [ ("start" Data..=) Prelude.<$> start,
+            ("end" Data..=) Prelude.<$> end
           ]
       )

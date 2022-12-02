@@ -46,6 +46,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,8 +116,8 @@ instance Core.AWSRequest ListDeploymentConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListDeploymentConfigsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "deploymentConfigsList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "deploymentConfigsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,32 +131,32 @@ instance Prelude.NFData ListDeploymentConfigs where
   rnf ListDeploymentConfigs' {..} =
     Prelude.rnf nextToken
 
-instance Core.ToHeaders ListDeploymentConfigs where
+instance Data.ToHeaders ListDeploymentConfigs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.ListDeploymentConfigs" ::
+              Data.=# ( "CodeDeploy_20141006.ListDeploymentConfigs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDeploymentConfigs where
+instance Data.ToJSON ListDeploymentConfigs where
   toJSON ListDeploymentConfigs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("nextToken" Core..=) Prelude.<$> nextToken]
+          [("nextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath ListDeploymentConfigs where
+instance Data.ToPath ListDeploymentConfigs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDeploymentConfigs where
+instance Data.ToQuery ListDeploymentConfigs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @ListDeploymentConfigs@ operation.

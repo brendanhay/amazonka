@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.AppSpecContent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A revision for an Lambda or Amazon ECS deployment that is a
@@ -103,14 +104,14 @@ appSpecContent_sha256 = Lens.lens (\AppSpecContent' {sha256} -> sha256) (\s@AppS
 appSpecContent_content :: Lens.Lens' AppSpecContent (Prelude.Maybe Prelude.Text)
 appSpecContent_content = Lens.lens (\AppSpecContent' {content} -> content) (\s@AppSpecContent' {} a -> s {content = a} :: AppSpecContent)
 
-instance Core.FromJSON AppSpecContent where
+instance Data.FromJSON AppSpecContent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppSpecContent"
       ( \x ->
           AppSpecContent'
-            Prelude.<$> (x Core..:? "sha256")
-            Prelude.<*> (x Core..:? "content")
+            Prelude.<$> (x Data..:? "sha256")
+            Prelude.<*> (x Data..:? "content")
       )
 
 instance Prelude.Hashable AppSpecContent where
@@ -123,11 +124,11 @@ instance Prelude.NFData AppSpecContent where
     Prelude.rnf sha256
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToJSON AppSpecContent where
+instance Data.ToJSON AppSpecContent where
   toJSON AppSpecContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sha256" Core..=) Prelude.<$> sha256,
-            ("content" Core..=) Prelude.<$> content
+          [ ("sha256" Data..=) Prelude.<$> sha256,
+            ("content" Data..=) Prelude.<$> content
           ]
       )

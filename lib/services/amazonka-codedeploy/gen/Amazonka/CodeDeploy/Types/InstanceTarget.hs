@@ -24,6 +24,7 @@ import Amazonka.CodeDeploy.Types.TargetLabel
 import Amazonka.CodeDeploy.Types.TargetStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A target Amazon EC2 or on-premises instance during a deployment that
@@ -40,7 +41,7 @@ data InstanceTarget = InstanceTarget'
     -- | The lifecycle events of the deployment to this target instance.
     lifecycleEvents :: Prelude.Maybe [LifecycleEvent],
     -- | The date and time when the target instance was updated by a deployment.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The unique ID of a deployment.
     deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the target.
@@ -102,7 +103,7 @@ instanceTarget_lifecycleEvents = Lens.lens (\InstanceTarget' {lifecycleEvents} -
 
 -- | The date and time when the target instance was updated by a deployment.
 instanceTarget_lastUpdatedAt :: Lens.Lens' InstanceTarget (Prelude.Maybe Prelude.UTCTime)
-instanceTarget_lastUpdatedAt = Lens.lens (\InstanceTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@InstanceTarget' {} a -> s {lastUpdatedAt = a} :: InstanceTarget) Prelude.. Lens.mapping Core._Time
+instanceTarget_lastUpdatedAt = Lens.lens (\InstanceTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@InstanceTarget' {} a -> s {lastUpdatedAt = a} :: InstanceTarget) Prelude.. Lens.mapping Data._Time
 
 -- | The unique ID of a deployment.
 instanceTarget_deploymentId :: Lens.Lens' InstanceTarget (Prelude.Maybe Prelude.Text)
@@ -116,21 +117,21 @@ instanceTarget_targetArn = Lens.lens (\InstanceTarget' {targetArn} -> targetArn)
 instanceTarget_status :: Lens.Lens' InstanceTarget (Prelude.Maybe TargetStatus)
 instanceTarget_status = Lens.lens (\InstanceTarget' {status} -> status) (\s@InstanceTarget' {} a -> s {status = a} :: InstanceTarget)
 
-instance Core.FromJSON InstanceTarget where
+instance Data.FromJSON InstanceTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceTarget"
       ( \x ->
           InstanceTarget'
-            Prelude.<$> (x Core..:? "targetId")
-            Prelude.<*> (x Core..:? "instanceLabel")
-            Prelude.<*> ( x Core..:? "lifecycleEvents"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "targetId")
+            Prelude.<*> (x Data..:? "instanceLabel")
+            Prelude.<*> ( x Data..:? "lifecycleEvents"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "deploymentId")
-            Prelude.<*> (x Core..:? "targetArn")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "deploymentId")
+            Prelude.<*> (x Data..:? "targetArn")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable InstanceTarget where

@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.TimeToLive where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types.TimeToLiveStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,11 +62,11 @@ newTimeToLive pStatus_ =
 timeToLive_status :: Lens.Lens' TimeToLive TimeToLiveStatus
 timeToLive_status = Lens.lens (\TimeToLive' {status} -> status) (\s@TimeToLive' {} a -> s {status = a} :: TimeToLive)
 
-instance Core.FromJSON TimeToLive where
+instance Data.FromJSON TimeToLive where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeToLive"
-      (\x -> TimeToLive' Prelude.<$> (x Core..: "status"))
+      (\x -> TimeToLive' Prelude.<$> (x Data..: "status"))
 
 instance Prelude.Hashable TimeToLive where
   hashWithSalt _salt TimeToLive' {..} =
@@ -74,9 +75,9 @@ instance Prelude.Hashable TimeToLive where
 instance Prelude.NFData TimeToLive where
   rnf TimeToLive' {..} = Prelude.rnf status
 
-instance Core.ToJSON TimeToLive where
+instance Data.ToJSON TimeToLive where
   toJSON TimeToLive' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("status" Core..= status)]
+          [Prelude.Just ("status" Data..= status)]
       )

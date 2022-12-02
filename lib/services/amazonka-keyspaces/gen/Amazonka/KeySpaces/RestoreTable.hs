@@ -93,6 +93,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,7 +138,7 @@ data RestoreTable = RestoreTable'
     -- in the /Amazon Keyspaces Developer Guide/.
     tagsOverride :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The restore timestamp in ISO 8601 format.
-    restoreTimestamp :: Prelude.Maybe Core.POSIX,
+    restoreTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Specifies the @pointInTimeRecovery@ settings for the target table. The
     -- options are:
     --
@@ -300,7 +301,7 @@ restoreTable_tagsOverride = Lens.lens (\RestoreTable' {tagsOverride} -> tagsOver
 
 -- | The restore timestamp in ISO 8601 format.
 restoreTable_restoreTimestamp :: Lens.Lens' RestoreTable (Prelude.Maybe Prelude.UTCTime)
-restoreTable_restoreTimestamp = Lens.lens (\RestoreTable' {restoreTimestamp} -> restoreTimestamp) (\s@RestoreTable' {} a -> s {restoreTimestamp = a} :: RestoreTable) Prelude.. Lens.mapping Core._Time
+restoreTable_restoreTimestamp = Lens.lens (\RestoreTable' {restoreTimestamp} -> restoreTimestamp) (\s@RestoreTable' {} a -> s {restoreTimestamp = a} :: RestoreTable) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the @pointInTimeRecovery@ settings for the target table. The
 -- options are:
@@ -342,7 +343,7 @@ instance Core.AWSRequest RestoreTable where
       ( \s h x ->
           RestoreTableResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "restoredTableARN")
+            Prelude.<*> (x Data..:> "restoredTableARN")
       )
 
 instance Prelude.Hashable RestoreTable where
@@ -370,49 +371,49 @@ instance Prelude.NFData RestoreTable where
       `Prelude.seq` Prelude.rnf targetKeyspaceName
       `Prelude.seq` Prelude.rnf targetTableName
 
-instance Core.ToHeaders RestoreTable where
+instance Data.ToHeaders RestoreTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KeyspacesService.RestoreTable" ::
+              Data.=# ( "KeyspacesService.RestoreTable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestoreTable where
+instance Data.ToJSON RestoreTable where
   toJSON RestoreTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionSpecificationOverride" Core..=)
+          [ ("encryptionSpecificationOverride" Data..=)
               Prelude.<$> encryptionSpecificationOverride,
-            ("capacitySpecificationOverride" Core..=)
+            ("capacitySpecificationOverride" Data..=)
               Prelude.<$> capacitySpecificationOverride,
-            ("tagsOverride" Core..=) Prelude.<$> tagsOverride,
-            ("restoreTimestamp" Core..=)
+            ("tagsOverride" Data..=) Prelude.<$> tagsOverride,
+            ("restoreTimestamp" Data..=)
               Prelude.<$> restoreTimestamp,
-            ("pointInTimeRecoveryOverride" Core..=)
+            ("pointInTimeRecoveryOverride" Data..=)
               Prelude.<$> pointInTimeRecoveryOverride,
             Prelude.Just
-              ("sourceKeyspaceName" Core..= sourceKeyspaceName),
+              ("sourceKeyspaceName" Data..= sourceKeyspaceName),
             Prelude.Just
-              ("sourceTableName" Core..= sourceTableName),
+              ("sourceTableName" Data..= sourceTableName),
             Prelude.Just
-              ("targetKeyspaceName" Core..= targetKeyspaceName),
+              ("targetKeyspaceName" Data..= targetKeyspaceName),
             Prelude.Just
-              ("targetTableName" Core..= targetTableName)
+              ("targetTableName" Data..= targetTableName)
           ]
       )
 
-instance Core.ToPath RestoreTable where
+instance Data.ToPath RestoreTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreTable where
+instance Data.ToQuery RestoreTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreTableResponse' smart constructor.

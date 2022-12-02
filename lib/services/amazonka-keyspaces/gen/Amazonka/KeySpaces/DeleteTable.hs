@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,34 +115,34 @@ instance Prelude.NFData DeleteTable where
     Prelude.rnf keyspaceName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToHeaders DeleteTable where
+instance Data.ToHeaders DeleteTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KeyspacesService.DeleteTable" ::
+              Data.=# ( "KeyspacesService.DeleteTable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteTable where
+instance Data.ToJSON DeleteTable where
   toJSON DeleteTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("keyspaceName" Core..= keyspaceName),
-            Prelude.Just ("tableName" Core..= tableName)
+          [ Prelude.Just ("keyspaceName" Data..= keyspaceName),
+            Prelude.Just ("tableName" Data..= tableName)
           ]
       )
 
-instance Core.ToPath DeleteTable where
+instance Data.ToPath DeleteTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteTable where
+instance Data.ToQuery DeleteTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTableResponse' smart constructor.

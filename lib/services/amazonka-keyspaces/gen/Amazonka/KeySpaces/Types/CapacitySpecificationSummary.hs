@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.CapacitySpecificationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types.ThroughputMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -41,7 +42,7 @@ data CapacitySpecificationSummary = CapacitySpecificationSummary'
     readCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The timestamp of the last operation that changed the provisioned
     -- throughput capacity of a table.
-    lastUpdateToPayPerRequestTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdateToPayPerRequestTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The throughput capacity specified for @write@ operations defined in
     -- @write capacity units@ @(WCUs)@.
     writeCapacityUnits :: Prelude.Maybe Prelude.Natural,
@@ -112,7 +113,7 @@ capacitySpecificationSummary_readCapacityUnits = Lens.lens (\CapacitySpecificati
 -- | The timestamp of the last operation that changed the provisioned
 -- throughput capacity of a table.
 capacitySpecificationSummary_lastUpdateToPayPerRequestTimestamp :: Lens.Lens' CapacitySpecificationSummary (Prelude.Maybe Prelude.UTCTime)
-capacitySpecificationSummary_lastUpdateToPayPerRequestTimestamp = Lens.lens (\CapacitySpecificationSummary' {lastUpdateToPayPerRequestTimestamp} -> lastUpdateToPayPerRequestTimestamp) (\s@CapacitySpecificationSummary' {} a -> s {lastUpdateToPayPerRequestTimestamp = a} :: CapacitySpecificationSummary) Prelude.. Lens.mapping Core._Time
+capacitySpecificationSummary_lastUpdateToPayPerRequestTimestamp = Lens.lens (\CapacitySpecificationSummary' {lastUpdateToPayPerRequestTimestamp} -> lastUpdateToPayPerRequestTimestamp) (\s@CapacitySpecificationSummary' {} a -> s {lastUpdateToPayPerRequestTimestamp = a} :: CapacitySpecificationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The throughput capacity specified for @write@ operations defined in
 -- @write capacity units@ @(WCUs)@.
@@ -134,16 +135,16 @@ capacitySpecificationSummary_writeCapacityUnits = Lens.lens (\CapacitySpecificat
 capacitySpecificationSummary_throughputMode :: Lens.Lens' CapacitySpecificationSummary ThroughputMode
 capacitySpecificationSummary_throughputMode = Lens.lens (\CapacitySpecificationSummary' {throughputMode} -> throughputMode) (\s@CapacitySpecificationSummary' {} a -> s {throughputMode = a} :: CapacitySpecificationSummary)
 
-instance Core.FromJSON CapacitySpecificationSummary where
+instance Data.FromJSON CapacitySpecificationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CapacitySpecificationSummary"
       ( \x ->
           CapacitySpecificationSummary'
-            Prelude.<$> (x Core..:? "readCapacityUnits")
-            Prelude.<*> (x Core..:? "lastUpdateToPayPerRequestTimestamp")
-            Prelude.<*> (x Core..:? "writeCapacityUnits")
-            Prelude.<*> (x Core..: "throughputMode")
+            Prelude.<$> (x Data..:? "readCapacityUnits")
+            Prelude.<*> (x Data..:? "lastUpdateToPayPerRequestTimestamp")
+            Prelude.<*> (x Data..:? "writeCapacityUnits")
+            Prelude.<*> (x Data..: "throughputMode")
       )
 
 instance

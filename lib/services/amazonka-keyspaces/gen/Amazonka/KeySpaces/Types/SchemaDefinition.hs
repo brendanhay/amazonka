@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.SchemaDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types.ClusteringKey
 import Amazonka.KeySpaces.Types.ColumnDefinition
 import Amazonka.KeySpaces.Types.PartitionKey
@@ -90,16 +91,16 @@ schemaDefinition_allColumns = Lens.lens (\SchemaDefinition' {allColumns} -> allC
 schemaDefinition_partitionKeys :: Lens.Lens' SchemaDefinition (Prelude.NonEmpty PartitionKey)
 schemaDefinition_partitionKeys = Lens.lens (\SchemaDefinition' {partitionKeys} -> partitionKeys) (\s@SchemaDefinition' {} a -> s {partitionKeys = a} :: SchemaDefinition) Prelude.. Lens.coerced
 
-instance Core.FromJSON SchemaDefinition where
+instance Data.FromJSON SchemaDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaDefinition"
       ( \x ->
           SchemaDefinition'
-            Prelude.<$> (x Core..:? "clusteringKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "staticColumns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "allColumns")
-            Prelude.<*> (x Core..: "partitionKeys")
+            Prelude.<$> (x Data..:? "clusteringKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "staticColumns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "allColumns")
+            Prelude.<*> (x Data..: "partitionKeys")
       )
 
 instance Prelude.Hashable SchemaDefinition where
@@ -116,15 +117,15 @@ instance Prelude.NFData SchemaDefinition where
       `Prelude.seq` Prelude.rnf allColumns
       `Prelude.seq` Prelude.rnf partitionKeys
 
-instance Core.ToJSON SchemaDefinition where
+instance Data.ToJSON SchemaDefinition where
   toJSON SchemaDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clusteringKeys" Core..=)
+          [ ("clusteringKeys" Data..=)
               Prelude.<$> clusteringKeys,
-            ("staticColumns" Core..=) Prelude.<$> staticColumns,
-            Prelude.Just ("allColumns" Core..= allColumns),
+            ("staticColumns" Data..=) Prelude.<$> staticColumns,
+            Prelude.Just ("allColumns" Data..= allColumns),
             Prelude.Just
-              ("partitionKeys" Core..= partitionKeys)
+              ("partitionKeys" Data..= partitionKeys)
           ]
       )

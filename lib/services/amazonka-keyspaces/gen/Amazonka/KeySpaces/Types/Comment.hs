@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.Comment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An optional comment that describes the table.
@@ -51,11 +52,11 @@ newComment pMessage_ = Comment' {message = pMessage_}
 comment_message :: Lens.Lens' Comment Prelude.Text
 comment_message = Lens.lens (\Comment' {message} -> message) (\s@Comment' {} a -> s {message = a} :: Comment)
 
-instance Core.FromJSON Comment where
+instance Data.FromJSON Comment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Comment"
-      (\x -> Comment' Prelude.<$> (x Core..: "message"))
+      (\x -> Comment' Prelude.<$> (x Data..: "message"))
 
 instance Prelude.Hashable Comment where
   hashWithSalt _salt Comment' {..} =
@@ -64,9 +65,9 @@ instance Prelude.Hashable Comment where
 instance Prelude.NFData Comment where
   rnf Comment' {..} = Prelude.rnf message
 
-instance Core.ToJSON Comment where
+instance Data.ToJSON Comment where
   toJSON Comment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("message" Core..= message)]
+          [Prelude.Just ("message" Data..= message)]
       )

@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.KeyspaceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the properties of a keyspace.
@@ -68,14 +69,14 @@ keyspaceSummary_keyspaceName = Lens.lens (\KeyspaceSummary' {keyspaceName} -> ke
 keyspaceSummary_resourceArn :: Lens.Lens' KeyspaceSummary Prelude.Text
 keyspaceSummary_resourceArn = Lens.lens (\KeyspaceSummary' {resourceArn} -> resourceArn) (\s@KeyspaceSummary' {} a -> s {resourceArn = a} :: KeyspaceSummary)
 
-instance Core.FromJSON KeyspaceSummary where
+instance Data.FromJSON KeyspaceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeyspaceSummary"
       ( \x ->
           KeyspaceSummary'
-            Prelude.<$> (x Core..: "keyspaceName")
-            Prelude.<*> (x Core..: "resourceArn")
+            Prelude.<$> (x Data..: "keyspaceName")
+            Prelude.<*> (x Data..: "resourceArn")
       )
 
 instance Prelude.Hashable KeyspaceSummary where

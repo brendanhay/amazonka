@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.TableSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the name of the specified table, the keyspace it is stored in,
@@ -84,15 +85,15 @@ tableSummary_tableName = Lens.lens (\TableSummary' {tableName} -> tableName) (\s
 tableSummary_resourceArn :: Lens.Lens' TableSummary Prelude.Text
 tableSummary_resourceArn = Lens.lens (\TableSummary' {resourceArn} -> resourceArn) (\s@TableSummary' {} a -> s {resourceArn = a} :: TableSummary)
 
-instance Core.FromJSON TableSummary where
+instance Data.FromJSON TableSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableSummary"
       ( \x ->
           TableSummary'
-            Prelude.<$> (x Core..: "keyspaceName")
-            Prelude.<*> (x Core..: "tableName")
-            Prelude.<*> (x Core..: "resourceArn")
+            Prelude.<$> (x Data..: "keyspaceName")
+            Prelude.<*> (x Data..: "tableName")
+            Prelude.<*> (x Data..: "resourceArn")
       )
 
 instance Prelude.Hashable TableSummary where

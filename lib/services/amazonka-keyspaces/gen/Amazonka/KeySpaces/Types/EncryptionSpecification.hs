@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.EncryptionSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types.EncryptionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -128,14 +129,14 @@ encryptionSpecification_kmsKeyIdentifier = Lens.lens (\EncryptionSpecification' 
 encryptionSpecification_type :: Lens.Lens' EncryptionSpecification EncryptionType
 encryptionSpecification_type = Lens.lens (\EncryptionSpecification' {type'} -> type') (\s@EncryptionSpecification' {} a -> s {type' = a} :: EncryptionSpecification)
 
-instance Core.FromJSON EncryptionSpecification where
+instance Data.FromJSON EncryptionSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionSpecification"
       ( \x ->
           EncryptionSpecification'
-            Prelude.<$> (x Core..:? "kmsKeyIdentifier")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "kmsKeyIdentifier")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable EncryptionSpecification where
@@ -148,12 +149,12 @@ instance Prelude.NFData EncryptionSpecification where
     Prelude.rnf kmsKeyIdentifier
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON EncryptionSpecification where
+instance Data.ToJSON EncryptionSpecification where
   toJSON EncryptionSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyIdentifier" Core..=)
+          [ ("kmsKeyIdentifier" Data..=)
               Prelude.<$> kmsKeyIdentifier,
-            Prelude.Just ("type" Core..= type')
+            Prelude.Just ("type" Data..= type')
           ]
       )

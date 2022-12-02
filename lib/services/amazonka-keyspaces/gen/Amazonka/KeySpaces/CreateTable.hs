@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -459,7 +460,7 @@ instance Core.AWSRequest CreateTable where
       ( \s h x ->
           CreateTableResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "resourceArn")
+            Prelude.<*> (x Data..:> "resourceArn")
       )
 
 instance Prelude.Hashable CreateTable where
@@ -488,47 +489,47 @@ instance Prelude.NFData CreateTable where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf schemaDefinition
 
-instance Core.ToHeaders CreateTable where
+instance Data.ToHeaders CreateTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KeyspacesService.CreateTable" ::
+              Data.=# ( "KeyspacesService.CreateTable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTable where
+instance Data.ToJSON CreateTable where
   toJSON CreateTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("ttl" Core..=) Prelude.<$> ttl,
-            ("pointInTimeRecovery" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("ttl" Data..=) Prelude.<$> ttl,
+            ("pointInTimeRecovery" Data..=)
               Prelude.<$> pointInTimeRecovery,
-            ("capacitySpecification" Core..=)
+            ("capacitySpecification" Data..=)
               Prelude.<$> capacitySpecification,
-            ("encryptionSpecification" Core..=)
+            ("encryptionSpecification" Data..=)
               Prelude.<$> encryptionSpecification,
-            ("comment" Core..=) Prelude.<$> comment,
-            ("defaultTimeToLive" Core..=)
+            ("comment" Data..=) Prelude.<$> comment,
+            ("defaultTimeToLive" Data..=)
               Prelude.<$> defaultTimeToLive,
-            Prelude.Just ("keyspaceName" Core..= keyspaceName),
-            Prelude.Just ("tableName" Core..= tableName),
+            Prelude.Just ("keyspaceName" Data..= keyspaceName),
+            Prelude.Just ("tableName" Data..= tableName),
             Prelude.Just
-              ("schemaDefinition" Core..= schemaDefinition)
+              ("schemaDefinition" Data..= schemaDefinition)
           ]
       )
 
-instance Core.ToPath CreateTable where
+instance Data.ToPath CreateTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTable where
+instance Data.ToQuery CreateTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTableResponse' smart constructor.

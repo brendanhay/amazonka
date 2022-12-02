@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,7 +119,7 @@ instance Core.AWSRequest CreateKeyspace where
       ( \s h x ->
           CreateKeyspaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "resourceArn")
+            Prelude.<*> (x Data..:> "resourceArn")
       )
 
 instance Prelude.Hashable CreateKeyspace where
@@ -131,34 +132,34 @@ instance Prelude.NFData CreateKeyspace where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf keyspaceName
 
-instance Core.ToHeaders CreateKeyspace where
+instance Data.ToHeaders CreateKeyspace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KeyspacesService.CreateKeyspace" ::
+              Data.=# ( "KeyspacesService.CreateKeyspace" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateKeyspace where
+instance Data.ToJSON CreateKeyspace where
   toJSON CreateKeyspace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("keyspaceName" Core..= keyspaceName)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("keyspaceName" Data..= keyspaceName)
           ]
       )
 
-instance Core.ToPath CreateKeyspace where
+instance Data.ToPath CreateKeyspace where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateKeyspace where
+instance Data.ToQuery CreateKeyspace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateKeyspaceResponse' smart constructor.

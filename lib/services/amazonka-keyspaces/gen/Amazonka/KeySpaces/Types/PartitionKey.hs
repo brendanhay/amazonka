@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.PartitionKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The partition key portion of the primary key is required and determines
@@ -53,11 +54,11 @@ newPartitionKey pName_ = PartitionKey' {name = pName_}
 partitionKey_name :: Lens.Lens' PartitionKey Prelude.Text
 partitionKey_name = Lens.lens (\PartitionKey' {name} -> name) (\s@PartitionKey' {} a -> s {name = a} :: PartitionKey)
 
-instance Core.FromJSON PartitionKey where
+instance Data.FromJSON PartitionKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PartitionKey"
-      (\x -> PartitionKey' Prelude.<$> (x Core..: "name"))
+      (\x -> PartitionKey' Prelude.<$> (x Data..: "name"))
 
 instance Prelude.Hashable PartitionKey where
   hashWithSalt _salt PartitionKey' {..} =
@@ -66,9 +67,9 @@ instance Prelude.Hashable PartitionKey where
 instance Prelude.NFData PartitionKey where
   rnf PartitionKey' {..} = Prelude.rnf name
 
-instance Core.ToJSON PartitionKey where
+instance Data.ToJSON PartitionKey where
   toJSON PartitionKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )

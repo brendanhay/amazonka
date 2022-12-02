@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,32 +93,32 @@ instance Prelude.Hashable DeleteKeyspace where
 instance Prelude.NFData DeleteKeyspace where
   rnf DeleteKeyspace' {..} = Prelude.rnf keyspaceName
 
-instance Core.ToHeaders DeleteKeyspace where
+instance Data.ToHeaders DeleteKeyspace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KeyspacesService.DeleteKeyspace" ::
+              Data.=# ( "KeyspacesService.DeleteKeyspace" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteKeyspace where
+instance Data.ToJSON DeleteKeyspace where
   toJSON DeleteKeyspace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("keyspaceName" Core..= keyspaceName)]
+          [Prelude.Just ("keyspaceName" Data..= keyspaceName)]
       )
 
-instance Core.ToPath DeleteKeyspace where
+instance Data.ToPath DeleteKeyspace where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteKeyspace where
+instance Data.ToQuery DeleteKeyspace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteKeyspaceResponse' smart constructor.

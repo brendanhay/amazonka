@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.PointInTimeRecovery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types.PointInTimeRecoveryStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,9 +79,9 @@ instance Prelude.Hashable PointInTimeRecovery where
 instance Prelude.NFData PointInTimeRecovery where
   rnf PointInTimeRecovery' {..} = Prelude.rnf status
 
-instance Core.ToJSON PointInTimeRecovery where
+instance Data.ToJSON PointInTimeRecovery where
   toJSON PointInTimeRecovery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("status" Core..= status)]
+          [Prelude.Just ("status" Data..= status)]
       )

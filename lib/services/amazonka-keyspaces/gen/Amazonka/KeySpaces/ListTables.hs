@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,8 +138,8 @@ instance Core.AWSRequest ListTables where
     Response.receiveJSON
       ( \s h x ->
           ListTablesResponse'
-            Prelude.<$> (x Core..?> "tables" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "tables" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,35 +155,35 @@ instance Prelude.NFData ListTables where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf keyspaceName
 
-instance Core.ToHeaders ListTables where
+instance Data.ToHeaders ListTables where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KeyspacesService.ListTables" ::
+              Data.=# ( "KeyspacesService.ListTables" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTables where
+instance Data.ToJSON ListTables where
   toJSON ListTables' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("keyspaceName" Core..= keyspaceName)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("keyspaceName" Data..= keyspaceName)
           ]
       )
 
-instance Core.ToPath ListTables where
+instance Data.ToPath ListTables where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTables where
+instance Data.ToQuery ListTables where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTablesResponse' smart constructor.

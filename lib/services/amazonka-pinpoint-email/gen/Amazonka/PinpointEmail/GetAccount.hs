@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,11 +74,11 @@ instance Core.AWSRequest GetAccount where
     Response.receiveJSON
       ( \s h x ->
           GetAccountResponse'
-            Prelude.<$> (x Core..?> "SendingEnabled")
-            Prelude.<*> (x Core..?> "EnforcementStatus")
-            Prelude.<*> (x Core..?> "ProductionAccessEnabled")
-            Prelude.<*> (x Core..?> "DedicatedIpAutoWarmupEnabled")
-            Prelude.<*> (x Core..?> "SendQuota")
+            Prelude.<$> (x Data..?> "SendingEnabled")
+            Prelude.<*> (x Data..?> "EnforcementStatus")
+            Prelude.<*> (x Data..?> "ProductionAccessEnabled")
+            Prelude.<*> (x Data..?> "DedicatedIpAutoWarmupEnabled")
+            Prelude.<*> (x Data..?> "SendQuota")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -88,21 +89,21 @@ instance Prelude.Hashable GetAccount where
 instance Prelude.NFData GetAccount where
   rnf _ = ()
 
-instance Core.ToHeaders GetAccount where
+instance Data.ToHeaders GetAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAccount where
+instance Data.ToPath GetAccount where
   toPath = Prelude.const "/v1/email/account"
 
-instance Core.ToQuery GetAccount where
+instance Data.ToQuery GetAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A list of details about the email-sending capabilities of your Amazon

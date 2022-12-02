@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.TrackingOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that defines the tracking options for a configuration set.
@@ -63,13 +64,13 @@ newTrackingOptions pCustomRedirectDomain_ =
 trackingOptions_customRedirectDomain :: Lens.Lens' TrackingOptions Prelude.Text
 trackingOptions_customRedirectDomain = Lens.lens (\TrackingOptions' {customRedirectDomain} -> customRedirectDomain) (\s@TrackingOptions' {} a -> s {customRedirectDomain = a} :: TrackingOptions)
 
-instance Core.FromJSON TrackingOptions where
+instance Data.FromJSON TrackingOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrackingOptions"
       ( \x ->
           TrackingOptions'
-            Prelude.<$> (x Core..: "CustomRedirectDomain")
+            Prelude.<$> (x Data..: "CustomRedirectDomain")
       )
 
 instance Prelude.Hashable TrackingOptions where
@@ -80,13 +81,13 @@ instance Prelude.NFData TrackingOptions where
   rnf TrackingOptions' {..} =
     Prelude.rnf customRedirectDomain
 
-instance Core.ToJSON TrackingOptions where
+instance Data.ToJSON TrackingOptions where
   toJSON TrackingOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "CustomRedirectDomain"
-                  Core..= customRedirectDomain
+                  Data..= customRedirectDomain
               )
           ]
       )

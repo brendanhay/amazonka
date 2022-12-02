@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.DkimAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types.DkimStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -156,15 +157,15 @@ dkimAttributes_status = Lens.lens (\DkimAttributes' {status} -> status) (\s@Dkim
 dkimAttributes_signingEnabled :: Lens.Lens' DkimAttributes (Prelude.Maybe Prelude.Bool)
 dkimAttributes_signingEnabled = Lens.lens (\DkimAttributes' {signingEnabled} -> signingEnabled) (\s@DkimAttributes' {} a -> s {signingEnabled = a} :: DkimAttributes)
 
-instance Core.FromJSON DkimAttributes where
+instance Data.FromJSON DkimAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DkimAttributes"
       ( \x ->
           DkimAttributes'
-            Prelude.<$> (x Core..:? "Tokens" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "SigningEnabled")
+            Prelude.<$> (x Data..:? "Tokens" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SigningEnabled")
       )
 
 instance Prelude.Hashable DkimAttributes where

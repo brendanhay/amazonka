@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.EventDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types.CloudWatchDestination
 import Amazonka.PinpointEmail.Types.EventType
 import Amazonka.PinpointEmail.Types.KinesisFirehoseDestination
@@ -164,20 +165,20 @@ eventDestination_name = Lens.lens (\EventDestination' {name} -> name) (\s@EventD
 eventDestination_matchingEventTypes :: Lens.Lens' EventDestination [EventType]
 eventDestination_matchingEventTypes = Lens.lens (\EventDestination' {matchingEventTypes} -> matchingEventTypes) (\s@EventDestination' {} a -> s {matchingEventTypes = a} :: EventDestination) Prelude.. Lens.coerced
 
-instance Core.FromJSON EventDestination where
+instance Data.FromJSON EventDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventDestination"
       ( \x ->
           EventDestination'
-            Prelude.<$> (x Core..:? "PinpointDestination")
-            Prelude.<*> (x Core..:? "SnsDestination")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "CloudWatchDestination")
-            Prelude.<*> (x Core..:? "KinesisFirehoseDestination")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> ( x Core..:? "MatchingEventTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "PinpointDestination")
+            Prelude.<*> (x Data..:? "SnsDestination")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "CloudWatchDestination")
+            Prelude.<*> (x Data..:? "KinesisFirehoseDestination")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> ( x Data..:? "MatchingEventTypes"
+                            Data..!= Prelude.mempty
                         )
       )
 

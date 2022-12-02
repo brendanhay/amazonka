@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,25 +105,25 @@ instance Prelude.NFData DeleteConfigurationSet where
   rnf DeleteConfigurationSet' {..} =
     Prelude.rnf configurationSetName
 
-instance Core.ToHeaders DeleteConfigurationSet where
+instance Data.ToHeaders DeleteConfigurationSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteConfigurationSet where
+instance Data.ToPath DeleteConfigurationSet where
   toPath DeleteConfigurationSet' {..} =
     Prelude.mconcat
       [ "/v1/email/configuration-sets/",
-        Core.toBS configurationSetName
+        Data.toBS configurationSetName
       ]
 
-instance Core.ToQuery DeleteConfigurationSet where
+instance Data.ToQuery DeleteConfigurationSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

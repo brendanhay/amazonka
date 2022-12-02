@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.OverallVolume where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types.DomainIspPlacement
 import Amazonka.PinpointEmail.Types.VolumeStatistics
 import qualified Amazonka.Prelude as Prelude
@@ -82,16 +83,16 @@ overallVolume_readRatePercent = Lens.lens (\OverallVolume' {readRatePercent} -> 
 overallVolume_domainIspPlacements :: Lens.Lens' OverallVolume (Prelude.Maybe [DomainIspPlacement])
 overallVolume_domainIspPlacements = Lens.lens (\OverallVolume' {domainIspPlacements} -> domainIspPlacements) (\s@OverallVolume' {} a -> s {domainIspPlacements = a} :: OverallVolume) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON OverallVolume where
+instance Data.FromJSON OverallVolume where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OverallVolume"
       ( \x ->
           OverallVolume'
-            Prelude.<$> (x Core..:? "VolumeStatistics")
-            Prelude.<*> (x Core..:? "ReadRatePercent")
-            Prelude.<*> ( x Core..:? "DomainIspPlacements"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "VolumeStatistics")
+            Prelude.<*> (x Data..:? "ReadRatePercent")
+            Prelude.<*> ( x Data..:? "DomainIspPlacements"
+                            Data..!= Prelude.mempty
                         )
       )
 

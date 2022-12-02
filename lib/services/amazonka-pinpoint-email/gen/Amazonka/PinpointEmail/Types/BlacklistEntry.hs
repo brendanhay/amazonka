@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.BlacklistEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about a blacklisting event that
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data BlacklistEntry = BlacklistEntry'
   { -- | The time when the blacklisting event occurred, shown in Unix time
     -- format.
-    listingTime :: Prelude.Maybe Core.POSIX,
+    listingTime :: Prelude.Maybe Data.POSIX,
     -- | Additional information about the blacklisting event, as provided by the
     -- blacklist maintainer.
     description :: Prelude.Maybe Prelude.Text,
@@ -67,7 +68,7 @@ newBlacklistEntry =
 -- | The time when the blacklisting event occurred, shown in Unix time
 -- format.
 blacklistEntry_listingTime :: Lens.Lens' BlacklistEntry (Prelude.Maybe Prelude.UTCTime)
-blacklistEntry_listingTime = Lens.lens (\BlacklistEntry' {listingTime} -> listingTime) (\s@BlacklistEntry' {} a -> s {listingTime = a} :: BlacklistEntry) Prelude.. Lens.mapping Core._Time
+blacklistEntry_listingTime = Lens.lens (\BlacklistEntry' {listingTime} -> listingTime) (\s@BlacklistEntry' {} a -> s {listingTime = a} :: BlacklistEntry) Prelude.. Lens.mapping Data._Time
 
 -- | Additional information about the blacklisting event, as provided by the
 -- blacklist maintainer.
@@ -78,15 +79,15 @@ blacklistEntry_description = Lens.lens (\BlacklistEntry' {description} -> descri
 blacklistEntry_rblName :: Lens.Lens' BlacklistEntry (Prelude.Maybe Prelude.Text)
 blacklistEntry_rblName = Lens.lens (\BlacklistEntry' {rblName} -> rblName) (\s@BlacklistEntry' {} a -> s {rblName = a} :: BlacklistEntry)
 
-instance Core.FromJSON BlacklistEntry where
+instance Data.FromJSON BlacklistEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlacklistEntry"
       ( \x ->
           BlacklistEntry'
-            Prelude.<$> (x Core..:? "ListingTime")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "RblName")
+            Prelude.<$> (x Data..:? "ListingTime")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "RblName")
       )
 
 instance Prelude.Hashable BlacklistEntry where

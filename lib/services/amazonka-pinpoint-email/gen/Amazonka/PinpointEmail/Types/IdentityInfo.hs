@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.IdentityInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types.IdentityType
 import qualified Amazonka.Prelude as Prelude
 
@@ -104,15 +105,15 @@ identityInfo_identityName = Lens.lens (\IdentityInfo' {identityName} -> identity
 identityInfo_identityType :: Lens.Lens' IdentityInfo (Prelude.Maybe IdentityType)
 identityInfo_identityType = Lens.lens (\IdentityInfo' {identityType} -> identityType) (\s@IdentityInfo' {} a -> s {identityType = a} :: IdentityInfo)
 
-instance Core.FromJSON IdentityInfo where
+instance Data.FromJSON IdentityInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityInfo"
       ( \x ->
           IdentityInfo'
-            Prelude.<$> (x Core..:? "SendingEnabled")
-            Prelude.<*> (x Core..:? "IdentityName")
-            Prelude.<*> (x Core..:? "IdentityType")
+            Prelude.<$> (x Data..:? "SendingEnabled")
+            Prelude.<*> (x Data..:? "IdentityName")
+            Prelude.<*> (x Data..:? "IdentityType")
       )
 
 instance Prelude.Hashable IdentityInfo where

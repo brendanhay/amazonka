@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.InboxPlacementTrackingOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about the inbox placement data
@@ -68,14 +69,14 @@ inboxPlacementTrackingOption_trackedIsps = Lens.lens (\InboxPlacementTrackingOpt
 inboxPlacementTrackingOption_global :: Lens.Lens' InboxPlacementTrackingOption (Prelude.Maybe Prelude.Bool)
 inboxPlacementTrackingOption_global = Lens.lens (\InboxPlacementTrackingOption' {global} -> global) (\s@InboxPlacementTrackingOption' {} a -> s {global = a} :: InboxPlacementTrackingOption)
 
-instance Core.FromJSON InboxPlacementTrackingOption where
+instance Data.FromJSON InboxPlacementTrackingOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InboxPlacementTrackingOption"
       ( \x ->
           InboxPlacementTrackingOption'
-            Prelude.<$> (x Core..:? "TrackedIsps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Global")
+            Prelude.<$> (x Data..:? "TrackedIsps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Global")
       )
 
 instance
@@ -91,11 +92,11 @@ instance Prelude.NFData InboxPlacementTrackingOption where
     Prelude.rnf trackedIsps
       `Prelude.seq` Prelude.rnf global
 
-instance Core.ToJSON InboxPlacementTrackingOption where
+instance Data.ToJSON InboxPlacementTrackingOption where
   toJSON InboxPlacementTrackingOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TrackedIsps" Core..=) Prelude.<$> trackedIsps,
-            ("Global" Core..=) Prelude.<$> global
+          [ ("TrackedIsps" Data..=) Prelude.<$> trackedIsps,
+            ("Global" Data..=) Prelude.<$> global
           ]
       )

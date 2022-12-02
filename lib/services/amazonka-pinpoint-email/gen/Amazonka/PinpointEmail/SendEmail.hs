@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -182,7 +183,7 @@ instance Core.AWSRequest SendEmail where
     Response.receiveJSON
       ( \s h x ->
           SendEmailResponse'
-            Prelude.<$> (x Core..?> "MessageId")
+            Prelude.<$> (x Data..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,39 +207,39 @@ instance Prelude.NFData SendEmail where
       `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToHeaders SendEmail where
+instance Data.ToHeaders SendEmail where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendEmail where
+instance Data.ToJSON SendEmail where
   toJSON SendEmail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReplyToAddresses" Core..=)
+          [ ("ReplyToAddresses" Data..=)
               Prelude.<$> replyToAddresses,
-            ("EmailTags" Core..=) Prelude.<$> emailTags,
-            ("FromEmailAddress" Core..=)
+            ("EmailTags" Data..=) Prelude.<$> emailTags,
+            ("FromEmailAddress" Data..=)
               Prelude.<$> fromEmailAddress,
-            ("ConfigurationSetName" Core..=)
+            ("ConfigurationSetName" Data..=)
               Prelude.<$> configurationSetName,
-            ("FeedbackForwardingEmailAddress" Core..=)
+            ("FeedbackForwardingEmailAddress" Data..=)
               Prelude.<$> feedbackForwardingEmailAddress,
-            Prelude.Just ("Destination" Core..= destination),
-            Prelude.Just ("Content" Core..= content)
+            Prelude.Just ("Destination" Data..= destination),
+            Prelude.Just ("Content" Data..= content)
           ]
       )
 
-instance Core.ToPath SendEmail where
+instance Data.ToPath SendEmail where
   toPath = Prelude.const "/v1/email/outbound-emails"
 
-instance Core.ToQuery SendEmail where
+instance Data.ToQuery SendEmail where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A unique message ID that you receive when Amazon Pinpoint accepts an

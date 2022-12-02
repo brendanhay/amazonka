@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.RawMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The raw email message.
@@ -48,7 +49,7 @@ data RawMessage = RawMessage'
     -- -   The length of any single line of text in the message can\'t exceed
     --     1,000 characters. This restriction is defined in
     --     <https://tools.ietf.org/html/rfc5321 RFC 5321>.
-    data' :: Core.Base64
+    data' :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,7 +91,7 @@ newRawMessage ::
   Prelude.ByteString ->
   RawMessage
 newRawMessage pData_ =
-  RawMessage' {data' = Core._Base64 Lens.# pData_}
+  RawMessage' {data' = Data._Base64 Lens.# pData_}
 
 -- | The raw email message. The message has to meet the following criteria:
 --
@@ -118,7 +119,7 @@ newRawMessage pData_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 rawMessage_data :: Lens.Lens' RawMessage Prelude.ByteString
-rawMessage_data = Lens.lens (\RawMessage' {data'} -> data') (\s@RawMessage' {} a -> s {data' = a} :: RawMessage) Prelude.. Core._Base64
+rawMessage_data = Lens.lens (\RawMessage' {data'} -> data') (\s@RawMessage' {} a -> s {data' = a} :: RawMessage) Prelude.. Data._Base64
 
 instance Prelude.Hashable RawMessage where
   hashWithSalt _salt RawMessage' {..} =
@@ -127,9 +128,9 @@ instance Prelude.Hashable RawMessage where
 instance Prelude.NFData RawMessage where
   rnf RawMessage' {..} = Prelude.rnf data'
 
-instance Core.ToJSON RawMessage where
+instance Data.ToJSON RawMessage where
   toJSON RawMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Data" Core..= data')]
+          [Prelude.Just ("Data" Data..= data')]
       )

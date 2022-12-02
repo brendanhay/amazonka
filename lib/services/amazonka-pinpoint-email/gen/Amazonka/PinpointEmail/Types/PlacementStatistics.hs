@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.PlacementStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains inbox placement data for an email provider.
@@ -104,17 +105,17 @@ placementStatistics_spamPercentage = Lens.lens (\PlacementStatistics' {spamPerce
 placementStatistics_inboxPercentage :: Lens.Lens' PlacementStatistics (Prelude.Maybe Prelude.Double)
 placementStatistics_inboxPercentage = Lens.lens (\PlacementStatistics' {inboxPercentage} -> inboxPercentage) (\s@PlacementStatistics' {} a -> s {inboxPercentage = a} :: PlacementStatistics)
 
-instance Core.FromJSON PlacementStatistics where
+instance Data.FromJSON PlacementStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlacementStatistics"
       ( \x ->
           PlacementStatistics'
-            Prelude.<$> (x Core..:? "MissingPercentage")
-            Prelude.<*> (x Core..:? "DkimPercentage")
-            Prelude.<*> (x Core..:? "SpfPercentage")
-            Prelude.<*> (x Core..:? "SpamPercentage")
-            Prelude.<*> (x Core..:? "InboxPercentage")
+            Prelude.<$> (x Data..:? "MissingPercentage")
+            Prelude.<*> (x Data..:? "DkimPercentage")
+            Prelude.<*> (x Data..:? "SpfPercentage")
+            Prelude.<*> (x Data..:? "SpamPercentage")
+            Prelude.<*> (x Data..:? "InboxPercentage")
       )
 
 instance Prelude.Hashable PlacementStatistics where

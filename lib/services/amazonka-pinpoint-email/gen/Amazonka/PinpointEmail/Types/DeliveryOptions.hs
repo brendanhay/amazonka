@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.DeliveryOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types.TlsPolicy
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,14 +78,14 @@ deliveryOptions_tlsPolicy = Lens.lens (\DeliveryOptions' {tlsPolicy} -> tlsPolic
 deliveryOptions_sendingPoolName :: Lens.Lens' DeliveryOptions (Prelude.Maybe Prelude.Text)
 deliveryOptions_sendingPoolName = Lens.lens (\DeliveryOptions' {sendingPoolName} -> sendingPoolName) (\s@DeliveryOptions' {} a -> s {sendingPoolName = a} :: DeliveryOptions)
 
-instance Core.FromJSON DeliveryOptions where
+instance Data.FromJSON DeliveryOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeliveryOptions"
       ( \x ->
           DeliveryOptions'
-            Prelude.<$> (x Core..:? "TlsPolicy")
-            Prelude.<*> (x Core..:? "SendingPoolName")
+            Prelude.<$> (x Data..:? "TlsPolicy")
+            Prelude.<*> (x Data..:? "SendingPoolName")
       )
 
 instance Prelude.Hashable DeliveryOptions where
@@ -97,12 +98,12 @@ instance Prelude.NFData DeliveryOptions where
     Prelude.rnf tlsPolicy
       `Prelude.seq` Prelude.rnf sendingPoolName
 
-instance Core.ToJSON DeliveryOptions where
+instance Data.ToJSON DeliveryOptions where
   toJSON DeliveryOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TlsPolicy" Core..=) Prelude.<$> tlsPolicy,
-            ("SendingPoolName" Core..=)
+          [ ("TlsPolicy" Data..=) Prelude.<$> tlsPolicy,
+            ("SendingPoolName" Data..=)
               Prelude.<$> sendingPoolName
           ]
       )

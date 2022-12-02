@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.Body where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types.Content
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,11 +84,11 @@ instance Prelude.NFData Body where
   rnf Body' {..} =
     Prelude.rnf html `Prelude.seq` Prelude.rnf text
 
-instance Core.ToJSON Body where
+instance Data.ToJSON Body where
   toJSON Body' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Html" Core..=) Prelude.<$> html,
-            ("Text" Core..=) Prelude.<$> text
+          [ ("Html" Data..=) Prelude.<$> html,
+            ("Text" Data..=) Prelude.<$> text
           ]
       )

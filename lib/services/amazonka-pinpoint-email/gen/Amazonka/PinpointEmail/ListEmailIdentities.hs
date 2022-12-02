@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,8 +148,8 @@ instance Core.AWSRequest ListEmailIdentities where
     Response.receiveJSON
       ( \s h x ->
           ListEmailIdentitiesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "EmailIdentities"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "EmailIdentities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -164,25 +165,25 @@ instance Prelude.NFData ListEmailIdentities where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pageSize
 
-instance Core.ToHeaders ListEmailIdentities where
+instance Data.ToHeaders ListEmailIdentities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListEmailIdentities where
+instance Data.ToPath ListEmailIdentities where
   toPath = Prelude.const "/v1/email/identities"
 
-instance Core.ToQuery ListEmailIdentities where
+instance Data.ToQuery ListEmailIdentities where
   toQuery ListEmailIdentities' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "PageSize" Core.=: pageSize
+      [ "NextToken" Data.=: nextToken,
+        "PageSize" Data.=: pageSize
       ]
 
 -- | A list of all of the identities that you\'ve attempted to verify for use

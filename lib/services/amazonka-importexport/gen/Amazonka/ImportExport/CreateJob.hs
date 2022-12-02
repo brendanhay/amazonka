@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImportExport.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,13 +136,13 @@ instance Core.AWSRequest CreateJob where
       "CreateJobResult"
       ( \s h x ->
           CreateJobResponse'
-            Prelude.<$> (x Core..@? "JobId")
-            Prelude.<*> (x Core..@? "WarningMessage")
-            Prelude.<*> (x Core..@? "Signature")
-            Prelude.<*> (x Core..@? "SignatureFileContents")
-            Prelude.<*> (x Core..@? "JobType")
-            Prelude.<*> ( x Core..@? "ArtifactList" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "JobId")
+            Prelude.<*> (x Data..@? "WarningMessage")
+            Prelude.<*> (x Data..@? "Signature")
+            Prelude.<*> (x Data..@? "SignatureFileContents")
+            Prelude.<*> (x Data..@? "JobType")
+            Prelude.<*> ( x Data..@? "ArtifactList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -162,24 +163,24 @@ instance Prelude.NFData CreateJob where
       `Prelude.seq` Prelude.rnf manifest
       `Prelude.seq` Prelude.rnf validateOnly
 
-instance Core.ToHeaders CreateJob where
+instance Data.ToHeaders CreateJob where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateJob where
+instance Data.ToPath CreateJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateJob where
+instance Data.ToQuery CreateJob where
   toQuery CreateJob' {..} =
     Prelude.mconcat
       [ "Operation=CreateJob",
-        "Action" Core.=: ("CreateJob" :: Prelude.ByteString),
+        "Action" Data.=: ("CreateJob" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-06-01" :: Prelude.ByteString),
-        "APIVersion" Core.=: aPIVersion,
-        "ManifestAddendum" Core.=: manifestAddendum,
-        "JobType" Core.=: jobType,
-        "Manifest" Core.=: manifest,
-        "ValidateOnly" Core.=: validateOnly
+          Data.=: ("2010-06-01" :: Prelude.ByteString),
+        "APIVersion" Data.=: aPIVersion,
+        "ManifestAddendum" Data.=: manifestAddendum,
+        "JobType" Data.=: jobType,
+        "Manifest" Data.=: manifest,
+        "ValidateOnly" Data.=: validateOnly
       ]
 
 -- | Output structure for the CreateJob operation.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImportExport.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,10 +138,10 @@ instance Core.AWSRequest UpdateJob where
       "UpdateJobResult"
       ( \s h x ->
           UpdateJobResponse'
-            Prelude.<$> (x Core..@? "WarningMessage")
-            Prelude.<*> (x Core..@? "Success")
-            Prelude.<*> ( x Core..@? "ArtifactList" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "WarningMessage")
+            Prelude.<*> (x Data..@? "Success")
+            Prelude.<*> ( x Data..@? "ArtifactList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -161,24 +162,24 @@ instance Prelude.NFData UpdateJob where
       `Prelude.seq` Prelude.rnf jobType
       `Prelude.seq` Prelude.rnf validateOnly
 
-instance Core.ToHeaders UpdateJob where
+instance Data.ToHeaders UpdateJob where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateJob where
+instance Data.ToPath UpdateJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateJob where
+instance Data.ToQuery UpdateJob where
   toQuery UpdateJob' {..} =
     Prelude.mconcat
       [ "Operation=UpdateJob",
-        "Action" Core.=: ("UpdateJob" :: Prelude.ByteString),
+        "Action" Data.=: ("UpdateJob" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-06-01" :: Prelude.ByteString),
-        "APIVersion" Core.=: aPIVersion,
-        "JobId" Core.=: jobId,
-        "Manifest" Core.=: manifest,
-        "JobType" Core.=: jobType,
-        "ValidateOnly" Core.=: validateOnly
+          Data.=: ("2010-06-01" :: Prelude.ByteString),
+        "APIVersion" Data.=: aPIVersion,
+        "JobId" Data.=: jobId,
+        "Manifest" Data.=: manifest,
+        "JobType" Data.=: jobType,
+        "ValidateOnly" Data.=: validateOnly
       ]
 
 -- | Output structure for the UpateJob operation.

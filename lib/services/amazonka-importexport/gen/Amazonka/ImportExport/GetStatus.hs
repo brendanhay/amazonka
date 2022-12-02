@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImportExport.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,23 +113,23 @@ instance Core.AWSRequest GetStatus where
       "GetStatusResult"
       ( \s h x ->
           GetStatusResponse'
-            Prelude.<$> (x Core..@? "LogKey")
-            Prelude.<*> (x Core..@? "ProgressMessage")
-            Prelude.<*> (x Core..@? "LocationMessage")
-            Prelude.<*> (x Core..@? "ErrorCount")
-            Prelude.<*> (x Core..@? "CurrentManifest")
-            Prelude.<*> (x Core..@? "ProgressCode")
-            Prelude.<*> (x Core..@? "Carrier")
-            Prelude.<*> (x Core..@? "CreationDate")
-            Prelude.<*> (x Core..@? "JobId")
-            Prelude.<*> (x Core..@? "LogBucket")
-            Prelude.<*> (x Core..@? "TrackingNumber")
-            Prelude.<*> (x Core..@? "Signature")
-            Prelude.<*> (x Core..@? "SignatureFileContents")
-            Prelude.<*> (x Core..@? "LocationCode")
-            Prelude.<*> (x Core..@? "JobType")
-            Prelude.<*> ( x Core..@? "ArtifactList" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "LogKey")
+            Prelude.<*> (x Data..@? "ProgressMessage")
+            Prelude.<*> (x Data..@? "LocationMessage")
+            Prelude.<*> (x Data..@? "ErrorCount")
+            Prelude.<*> (x Data..@? "CurrentManifest")
+            Prelude.<*> (x Data..@? "ProgressCode")
+            Prelude.<*> (x Data..@? "Carrier")
+            Prelude.<*> (x Data..@? "CreationDate")
+            Prelude.<*> (x Data..@? "JobId")
+            Prelude.<*> (x Data..@? "LogBucket")
+            Prelude.<*> (x Data..@? "TrackingNumber")
+            Prelude.<*> (x Data..@? "Signature")
+            Prelude.<*> (x Data..@? "SignatureFileContents")
+            Prelude.<*> (x Data..@? "LocationCode")
+            Prelude.<*> (x Data..@? "JobType")
+            Prelude.<*> ( x Data..@? "ArtifactList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -143,21 +144,21 @@ instance Prelude.NFData GetStatus where
     Prelude.rnf aPIVersion
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetStatus where
+instance Data.ToHeaders GetStatus where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetStatus where
+instance Data.ToPath GetStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetStatus where
+instance Data.ToQuery GetStatus where
   toQuery GetStatus' {..} =
     Prelude.mconcat
       [ "Operation=GetStatus",
-        "Action" Core.=: ("GetStatus" :: Prelude.ByteString),
+        "Action" Data.=: ("GetStatus" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-06-01" :: Prelude.ByteString),
-        "APIVersion" Core.=: aPIVersion,
-        "JobId" Core.=: jobId
+          Data.=: ("2010-06-01" :: Prelude.ByteString),
+        "APIVersion" Data.=: aPIVersion,
+        "JobId" Data.=: jobId
       ]
 
 -- | Output structure for the GetStatus operation.
@@ -171,7 +172,7 @@ data GetStatusResponse = GetStatusResponse'
     currentManifest :: Prelude.Maybe Prelude.Text,
     progressCode :: Prelude.Maybe Prelude.Text,
     carrier :: Prelude.Maybe Prelude.Text,
-    creationDate :: Prelude.Maybe Core.ISO8601,
+    creationDate :: Prelude.Maybe Data.ISO8601,
     jobId :: Prelude.Maybe Prelude.Text,
     logBucket :: Prelude.Maybe Prelude.Text,
     trackingNumber :: Prelude.Maybe Prelude.Text,
@@ -281,7 +282,7 @@ getStatusResponse_carrier = Lens.lens (\GetStatusResponse' {carrier} -> carrier)
 
 -- | Undocumented member.
 getStatusResponse_creationDate :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getStatusResponse_creationDate = Lens.lens (\GetStatusResponse' {creationDate} -> creationDate) (\s@GetStatusResponse' {} a -> s {creationDate = a} :: GetStatusResponse) Prelude.. Lens.mapping Core._Time
+getStatusResponse_creationDate = Lens.lens (\GetStatusResponse' {creationDate} -> creationDate) (\s@GetStatusResponse' {} a -> s {creationDate = a} :: GetStatusResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 getStatusResponse_jobId :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImportExport.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,9 +132,9 @@ instance Core.AWSRequest ListJobs where
       "ListJobsResult"
       ( \s h x ->
           ListJobsResponse'
-            Prelude.<$> (x Core..@? "IsTruncated")
-            Prelude.<*> ( x Core..@? "Jobs" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "IsTruncated")
+            Prelude.<*> ( x Data..@? "Jobs" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -150,22 +151,22 @@ instance Prelude.NFData ListJobs where
       `Prelude.seq` Prelude.rnf aPIVersion
       `Prelude.seq` Prelude.rnf maxJobs
 
-instance Core.ToHeaders ListJobs where
+instance Data.ToHeaders ListJobs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListJobs where
+instance Data.ToPath ListJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListJobs where
+instance Data.ToQuery ListJobs where
   toQuery ListJobs' {..} =
     Prelude.mconcat
       [ "Operation=ListJobs",
-        "Action" Core.=: ("ListJobs" :: Prelude.ByteString),
+        "Action" Data.=: ("ListJobs" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-06-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "APIVersion" Core.=: aPIVersion,
-        "MaxJobs" Core.=: maxJobs
+          Data.=: ("2010-06-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "APIVersion" Data.=: aPIVersion,
+        "MaxJobs" Data.=: maxJobs
       ]
 
 -- | Output structure for the ListJobs operation.

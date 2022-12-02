@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImportExport.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -185,8 +186,8 @@ instance Core.AWSRequest GetShippingLabel where
       "GetShippingLabelResult"
       ( \s h x ->
           GetShippingLabelResponse'
-            Prelude.<$> (x Core..@? "Warning")
-            Prelude.<*> (x Core..@? "ShippingLabelURL")
+            Prelude.<$> (x Data..@? "Warning")
+            Prelude.<*> (x Data..@? "ShippingLabelURL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -220,32 +221,32 @@ instance Prelude.NFData GetShippingLabel where
       `Prelude.seq` Prelude.rnf street2
       `Prelude.seq` Prelude.rnf jobIds
 
-instance Core.ToHeaders GetShippingLabel where
+instance Data.ToHeaders GetShippingLabel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetShippingLabel where
+instance Data.ToPath GetShippingLabel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetShippingLabel where
+instance Data.ToQuery GetShippingLabel where
   toQuery GetShippingLabel' {..} =
     Prelude.mconcat
       [ "Operation=GetShippingLabel",
         "Action"
-          Core.=: ("GetShippingLabel" :: Prelude.ByteString),
+          Data.=: ("GetShippingLabel" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-06-01" :: Prelude.ByteString),
-        "stateOrProvince" Core.=: stateOrProvince,
-        "street1" Core.=: street1,
-        "name" Core.=: name,
-        "postalCode" Core.=: postalCode,
-        "company" Core.=: company,
-        "street3" Core.=: street3,
-        "APIVersion" Core.=: aPIVersion,
-        "country" Core.=: country,
-        "city" Core.=: city,
-        "phoneNumber" Core.=: phoneNumber,
-        "street2" Core.=: street2,
-        "jobIds" Core.=: Core.toQueryList "member" jobIds
+          Data.=: ("2010-06-01" :: Prelude.ByteString),
+        "stateOrProvince" Data.=: stateOrProvince,
+        "street1" Data.=: street1,
+        "name" Data.=: name,
+        "postalCode" Data.=: postalCode,
+        "company" Data.=: company,
+        "street3" Data.=: street3,
+        "APIVersion" Data.=: aPIVersion,
+        "country" Data.=: country,
+        "city" Data.=: city,
+        "phoneNumber" Data.=: phoneNumber,
+        "street2" Data.=: street2,
+        "jobIds" Data.=: Data.toQueryList "member" jobIds
       ]
 
 -- | /See:/ 'newGetShippingLabelResponse' smart constructor.

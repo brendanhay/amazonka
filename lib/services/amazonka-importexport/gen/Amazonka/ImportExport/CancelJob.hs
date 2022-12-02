@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImportExport.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance Core.AWSRequest CancelJob where
       "CancelJobResult"
       ( \s h x ->
           CancelJobResponse'
-            Prelude.<$> (x Core..@? "Success")
+            Prelude.<$> (x Data..@? "Success")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,21 +110,21 @@ instance Prelude.NFData CancelJob where
     Prelude.rnf aPIVersion
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders CancelJob where
+instance Data.ToHeaders CancelJob where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CancelJob where
+instance Data.ToPath CancelJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelJob where
+instance Data.ToQuery CancelJob where
   toQuery CancelJob' {..} =
     Prelude.mconcat
       [ "Operation=CancelJob",
-        "Action" Core.=: ("CancelJob" :: Prelude.ByteString),
+        "Action" Data.=: ("CancelJob" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-06-01" :: Prelude.ByteString),
-        "APIVersion" Core.=: aPIVersion,
-        "JobId" Core.=: jobId
+          Data.=: ("2010-06-01" :: Prelude.ByteString),
+        "APIVersion" Data.=: aPIVersion,
+        "JobId" Data.=: jobId
       ]
 
 -- | Output structure for the CancelJob operation.

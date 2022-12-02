@@ -21,6 +21,7 @@ module Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The identifier that identifies the batch of Records you are retrieving
@@ -83,15 +84,15 @@ batchGetRecordIdentifier_featureGroupName = Lens.lens (\BatchGetRecordIdentifier
 batchGetRecordIdentifier_recordIdentifiersValueAsString :: Lens.Lens' BatchGetRecordIdentifier (Prelude.NonEmpty Prelude.Text)
 batchGetRecordIdentifier_recordIdentifiersValueAsString = Lens.lens (\BatchGetRecordIdentifier' {recordIdentifiersValueAsString} -> recordIdentifiersValueAsString) (\s@BatchGetRecordIdentifier' {} a -> s {recordIdentifiersValueAsString = a} :: BatchGetRecordIdentifier) Prelude.. Lens.coerced
 
-instance Core.FromJSON BatchGetRecordIdentifier where
+instance Data.FromJSON BatchGetRecordIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetRecordIdentifier"
       ( \x ->
           BatchGetRecordIdentifier'
-            Prelude.<$> (x Core..:? "FeatureNames")
-            Prelude.<*> (x Core..: "FeatureGroupName")
-            Prelude.<*> (x Core..: "RecordIdentifiersValueAsString")
+            Prelude.<$> (x Data..:? "FeatureNames")
+            Prelude.<*> (x Data..: "FeatureGroupName")
+            Prelude.<*> (x Data..: "RecordIdentifiersValueAsString")
       )
 
 instance Prelude.Hashable BatchGetRecordIdentifier where
@@ -106,16 +107,16 @@ instance Prelude.NFData BatchGetRecordIdentifier where
       `Prelude.seq` Prelude.rnf featureGroupName
       `Prelude.seq` Prelude.rnf recordIdentifiersValueAsString
 
-instance Core.ToJSON BatchGetRecordIdentifier where
+instance Data.ToJSON BatchGetRecordIdentifier where
   toJSON BatchGetRecordIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FeatureNames" Core..=) Prelude.<$> featureNames,
+          [ ("FeatureNames" Data..=) Prelude.<$> featureNames,
             Prelude.Just
-              ("FeatureGroupName" Core..= featureGroupName),
+              ("FeatureGroupName" Data..= featureGroupName),
             Prelude.Just
               ( "RecordIdentifiersValueAsString"
-                  Core..= recordIdentifiersValueAsString
+                  Data..= recordIdentifiersValueAsString
               )
           ]
       )

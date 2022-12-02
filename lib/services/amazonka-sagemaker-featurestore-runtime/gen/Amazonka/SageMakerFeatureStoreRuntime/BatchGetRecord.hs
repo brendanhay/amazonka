@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,9 +96,9 @@ instance Core.AWSRequest BatchGetRecord where
       ( \s h x ->
           BatchGetRecordResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Records" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "UnprocessedIdentifiers"
+            Prelude.<*> (x Data..?> "Records" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "UnprocessedIdentifiers"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -109,28 +110,28 @@ instance Prelude.Hashable BatchGetRecord where
 instance Prelude.NFData BatchGetRecord where
   rnf BatchGetRecord' {..} = Prelude.rnf identifiers
 
-instance Core.ToHeaders BatchGetRecord where
+instance Data.ToHeaders BatchGetRecord where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetRecord where
+instance Data.ToJSON BatchGetRecord where
   toJSON BatchGetRecord' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Identifiers" Core..= identifiers)]
+          [Prelude.Just ("Identifiers" Data..= identifiers)]
       )
 
-instance Core.ToPath BatchGetRecord where
+instance Data.ToPath BatchGetRecord where
   toPath = Prelude.const "/BatchGetRecord"
 
-instance Core.ToQuery BatchGetRecord where
+instance Data.ToQuery BatchGetRecord where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetRecordResponse' smart constructor.

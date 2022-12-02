@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,28 +127,28 @@ instance Prelude.NFData DeleteRecord where
       `Prelude.seq` Prelude.rnf recordIdentifierValueAsString
       `Prelude.seq` Prelude.rnf eventTime
 
-instance Core.ToHeaders DeleteRecord where
+instance Data.ToHeaders DeleteRecord where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteRecord where
+instance Data.ToPath DeleteRecord where
   toPath DeleteRecord' {..} =
     Prelude.mconcat
-      ["/FeatureGroup/", Core.toBS featureGroupName]
+      ["/FeatureGroup/", Data.toBS featureGroupName]
 
-instance Core.ToQuery DeleteRecord where
+instance Data.ToQuery DeleteRecord where
   toQuery DeleteRecord' {..} =
     Prelude.mconcat
       [ "RecordIdentifierValueAsString"
-          Core.=: recordIdentifierValueAsString,
-        "EventTime" Core.=: eventTime
+          Data.=: recordIdentifierValueAsString,
+        "EventTime" Data.=: eventTime
       ]
 
 -- | /See:/ 'newDeleteRecordResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.BackupStorage.Types.BackupObject where
 import Amazonka.BackupStorage.Types.SummaryChecksumAlgorithm
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object
@@ -110,18 +111,18 @@ backupObject_objectChecksumAlgorithm = Lens.lens (\BackupObject' {objectChecksum
 backupObject_objectToken :: Lens.Lens' BackupObject Prelude.Text
 backupObject_objectToken = Lens.lens (\BackupObject' {objectToken} -> objectToken) (\s@BackupObject' {} a -> s {objectToken = a} :: BackupObject)
 
-instance Core.FromJSON BackupObject where
+instance Data.FromJSON BackupObject where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupObject"
       ( \x ->
           BackupObject'
-            Prelude.<$> (x Core..:? "ChunksCount")
-            Prelude.<*> (x Core..:? "MetadataString")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "ObjectChecksum")
-            Prelude.<*> (x Core..: "ObjectChecksumAlgorithm")
-            Prelude.<*> (x Core..: "ObjectToken")
+            Prelude.<$> (x Data..:? "ChunksCount")
+            Prelude.<*> (x Data..:? "MetadataString")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "ObjectChecksum")
+            Prelude.<*> (x Data..: "ObjectChecksumAlgorithm")
+            Prelude.<*> (x Data..: "ObjectToken")
       )
 
 instance Prelude.Hashable BackupObject where

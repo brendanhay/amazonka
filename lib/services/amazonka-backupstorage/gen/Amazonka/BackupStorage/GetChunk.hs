@@ -46,6 +46,7 @@ where
 import Amazonka.BackupStorage.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,9 +100,9 @@ instance Core.AWSRequest GetChunk where
       ( \s h x ->
           GetChunkResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (h Core..# "x-amz-data-length")
-            Prelude.<*> (h Core..# "x-amz-checksum")
-            Prelude.<*> (h Core..# "x-amz-checksum-algorithm")
+            Prelude.<*> (h Data..# "x-amz-data-length")
+            Prelude.<*> (h Data..# "x-amz-checksum")
+            Prelude.<*> (h Data..# "x-amz-checksum-algorithm")
             Prelude.<*> (Prelude.pure x)
       )
 
@@ -115,27 +116,27 @@ instance Prelude.NFData GetChunk where
     Prelude.rnf storageJobId
       `Prelude.seq` Prelude.rnf chunkToken
 
-instance Core.ToHeaders GetChunk where
+instance Data.ToHeaders GetChunk where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetChunk where
+instance Data.ToPath GetChunk where
   toPath GetChunk' {..} =
     Prelude.mconcat
       [ "/restore-jobs/",
-        Core.toBS storageJobId,
+        Data.toBS storageJobId,
         "/chunk/",
-        Core.toBS chunkToken
+        Data.toBS chunkToken
       ]
 
-instance Core.ToQuery GetChunk where
+instance Data.ToQuery GetChunk where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetChunkResponse' smart constructor.
@@ -149,7 +150,7 @@ data GetChunkResponse = GetChunkResponse'
     -- | Checksum algorithm
     checksumAlgorithm :: DataChecksumAlgorithm,
     -- | Chunk data
-    data' :: Core.ResponseBody
+    data' :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -180,7 +181,7 @@ newGetChunkResponse ::
   -- | 'checksumAlgorithm'
   DataChecksumAlgorithm ->
   -- | 'data''
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   GetChunkResponse
 newGetChunkResponse
   pHttpStatus_
@@ -213,5 +214,5 @@ getChunkResponse_checksumAlgorithm :: Lens.Lens' GetChunkResponse DataChecksumAl
 getChunkResponse_checksumAlgorithm = Lens.lens (\GetChunkResponse' {checksumAlgorithm} -> checksumAlgorithm) (\s@GetChunkResponse' {} a -> s {checksumAlgorithm = a} :: GetChunkResponse)
 
 -- | Chunk data
-getChunkResponse_data :: Lens.Lens' GetChunkResponse Core.ResponseBody
+getChunkResponse_data :: Lens.Lens' GetChunkResponse Data.ResponseBody
 getChunkResponse_data = Lens.lens (\GetChunkResponse' {data'} -> data') (\s@GetChunkResponse' {} a -> s {data' = a} :: GetChunkResponse)

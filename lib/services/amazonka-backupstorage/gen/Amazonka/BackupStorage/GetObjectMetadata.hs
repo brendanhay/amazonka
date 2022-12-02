@@ -47,6 +47,7 @@ where
 import Amazonka.BackupStorage.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,10 +102,10 @@ instance Core.AWSRequest GetObjectMetadata where
     Response.receiveBody
       ( \s h x ->
           GetObjectMetadataResponse'
-            Prelude.<$> (h Core..#? "x-amz-metadata-string")
-            Prelude.<*> (h Core..#? "x-amz-checksum")
-            Prelude.<*> (h Core..#? "x-amz-checksum-algorithm")
-            Prelude.<*> (h Core..#? "x-amz-data-length")
+            Prelude.<$> (h Data..#? "x-amz-metadata-string")
+            Prelude.<*> (h Data..#? "x-amz-checksum")
+            Prelude.<*> (h Data..#? "x-amz-checksum-algorithm")
+            Prelude.<*> (h Data..#? "x-amz-data-length")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -119,28 +120,28 @@ instance Prelude.NFData GetObjectMetadata where
     Prelude.rnf storageJobId
       `Prelude.seq` Prelude.rnf objectToken
 
-instance Core.ToHeaders GetObjectMetadata where
+instance Data.ToHeaders GetObjectMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetObjectMetadata where
+instance Data.ToPath GetObjectMetadata where
   toPath GetObjectMetadata' {..} =
     Prelude.mconcat
       [ "/restore-jobs/",
-        Core.toBS storageJobId,
+        Data.toBS storageJobId,
         "/object/",
-        Core.toBS objectToken,
+        Data.toBS objectToken,
         "/metadata"
       ]
 
-instance Core.ToQuery GetObjectMetadata where
+instance Data.ToQuery GetObjectMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetObjectMetadataResponse' smart constructor.
@@ -156,7 +157,7 @@ data GetObjectMetadataResponse = GetObjectMetadataResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Metadata blob.
-    metadataBlob :: Core.ResponseBody
+    metadataBlob :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -183,7 +184,7 @@ newGetObjectMetadataResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'metadataBlob'
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   GetObjectMetadataResponse
 newGetObjectMetadataResponse
   pHttpStatus_
@@ -219,5 +220,5 @@ getObjectMetadataResponse_httpStatus :: Lens.Lens' GetObjectMetadataResponse Pre
 getObjectMetadataResponse_httpStatus = Lens.lens (\GetObjectMetadataResponse' {httpStatus} -> httpStatus) (\s@GetObjectMetadataResponse' {} a -> s {httpStatus = a} :: GetObjectMetadataResponse)
 
 -- | Metadata blob.
-getObjectMetadataResponse_metadataBlob :: Lens.Lens' GetObjectMetadataResponse Core.ResponseBody
+getObjectMetadataResponse_metadataBlob :: Lens.Lens' GetObjectMetadataResponse Data.ResponseBody
 getObjectMetadataResponse_metadataBlob = Lens.lens (\GetObjectMetadataResponse' {metadataBlob} -> metadataBlob) (\s@GetObjectMetadataResponse' {} a -> s {metadataBlob = a} :: GetObjectMetadataResponse)

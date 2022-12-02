@@ -55,6 +55,7 @@ where
 import Amazonka.BackupStorage.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,7 +82,7 @@ data PutObject = PutObject'
     -- | The name of the Object to be uploaded.
     objectName :: Prelude.Text,
     -- | Inline chunk data to be uploaded.
-    inlineChunk :: Core.HashedBody
+    inlineChunk :: Data.HashedBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -119,7 +120,7 @@ newPutObject ::
   -- | 'objectName'
   Prelude.Text ->
   -- | 'inlineChunk'
-  Core.HashedBody ->
+  Data.HashedBody ->
   PutObject
 newPutObject pBackupJobId_ pObjectName_ pInlineChunk_ =
   PutObject'
@@ -173,7 +174,7 @@ putObject_objectName :: Lens.Lens' PutObject Prelude.Text
 putObject_objectName = Lens.lens (\PutObject' {objectName} -> objectName) (\s@PutObject' {} a -> s {objectName = a} :: PutObject)
 
 -- | Inline chunk data to be uploaded.
-putObject_inlineChunk :: Lens.Lens' PutObject Core.HashedBody
+putObject_inlineChunk :: Lens.Lens' PutObject Data.HashedBody
 putObject_inlineChunk = Lens.lens (\PutObject' {inlineChunk} -> inlineChunk) (\s@PutObject' {} a -> s {inlineChunk = a} :: PutObject)
 
 instance Core.AWSRequest PutObject where
@@ -185,48 +186,48 @@ instance Core.AWSRequest PutObject where
       ( \s h x ->
           PutObjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "InlineChunkChecksum")
-            Prelude.<*> (x Core..:> "InlineChunkChecksumAlgorithm")
-            Prelude.<*> (x Core..:> "ObjectChecksum")
-            Prelude.<*> (x Core..:> "ObjectChecksumAlgorithm")
+            Prelude.<*> (x Data..:> "InlineChunkChecksum")
+            Prelude.<*> (x Data..:> "InlineChunkChecksumAlgorithm")
+            Prelude.<*> (x Data..:> "ObjectChecksum")
+            Prelude.<*> (x Data..:> "ObjectChecksumAlgorithm")
       )
 
-instance Core.ToBody PutObject where
-  toBody PutObject' {..} = Core.toBody inlineChunk
+instance Data.ToBody PutObject where
+  toBody PutObject' {..} = Data.toBody inlineChunk
 
-instance Core.ToHeaders PutObject where
+instance Data.ToHeaders PutObject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath PutObject where
+instance Data.ToPath PutObject where
   toPath PutObject' {..} =
     Prelude.mconcat
       [ "/backup-jobs/",
-        Core.toBS backupJobId,
+        Data.toBS backupJobId,
         "/object/",
-        Core.toBS objectName,
+        Data.toBS objectName,
         "/put-object"
       ]
 
-instance Core.ToQuery PutObject where
+instance Data.ToQuery PutObject where
   toQuery PutObject' {..} =
     Prelude.mconcat
-      [ "object-checksum" Core.=: objectChecksum,
-        "metadata-string" Core.=: metadataString,
+      [ "object-checksum" Data.=: objectChecksum,
+        "metadata-string" Data.=: metadataString,
         "checksum-algorithm"
-          Core.=: inlineChunkChecksumAlgorithm,
-        "length" Core.=: inlineChunkLength,
-        "checksum" Core.=: inlineChunkChecksum,
-        "throwOnDuplicate" Core.=: throwOnDuplicate,
+          Data.=: inlineChunkChecksumAlgorithm,
+        "length" Data.=: inlineChunkLength,
+        "checksum" Data.=: inlineChunkChecksum,
+        "throwOnDuplicate" Data.=: throwOnDuplicate,
         "object-checksum-algorithm"
-          Core.=: objectChecksumAlgorithm
+          Data.=: objectChecksumAlgorithm
       ]
 
 -- | /See:/ 'newPutObjectResponse' smart constructor.

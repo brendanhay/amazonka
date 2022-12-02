@@ -44,6 +44,7 @@ where
 import Amazonka.BackupStorage.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest StartObject where
       ( \s h x ->
           StartObjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "UploadId")
+            Prelude.<*> (x Data..:> "UploadId")
       )
 
 instance Prelude.Hashable StartObject where
@@ -121,36 +122,36 @@ instance Prelude.NFData StartObject where
       `Prelude.seq` Prelude.rnf backupJobId
       `Prelude.seq` Prelude.rnf objectName
 
-instance Core.ToHeaders StartObject where
+instance Data.ToHeaders StartObject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartObject where
+instance Data.ToJSON StartObject where
   toJSON StartObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ThrowOnDuplicate" Core..=)
+          [ ("ThrowOnDuplicate" Data..=)
               Prelude.<$> throwOnDuplicate
           ]
       )
 
-instance Core.ToPath StartObject where
+instance Data.ToPath StartObject where
   toPath StartObject' {..} =
     Prelude.mconcat
       [ "/backup-jobs/",
-        Core.toBS backupJobId,
+        Data.toBS backupJobId,
         "/object/",
-        Core.toBS objectName
+        Data.toBS objectName
       ]
 
-instance Core.ToQuery StartObject where
+instance Data.ToQuery StartObject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartObjectResponse' smart constructor.

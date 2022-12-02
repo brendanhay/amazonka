@@ -46,6 +46,7 @@ where
 import Amazonka.BackupStorage.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,9 +117,9 @@ instance Core.AWSRequest ListChunks where
     Response.receiveJSON
       ( \s h x ->
           ListChunksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "ChunkList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ChunkList" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListChunks where
@@ -135,32 +136,32 @@ instance Prelude.NFData ListChunks where
       `Prelude.seq` Prelude.rnf storageJobId
       `Prelude.seq` Prelude.rnf objectToken
 
-instance Core.ToHeaders ListChunks where
+instance Data.ToHeaders ListChunks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListChunks where
+instance Data.ToPath ListChunks where
   toPath ListChunks' {..} =
     Prelude.mconcat
       [ "/restore-jobs/",
-        Core.toBS storageJobId,
+        Data.toBS storageJobId,
         "/chunks/",
-        Core.toBS objectToken,
+        Data.toBS objectToken,
         "/list"
       ]
 
-instance Core.ToQuery ListChunks where
+instance Data.ToQuery ListChunks where
   toQuery ListChunks' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListChunksResponse' smart constructor.

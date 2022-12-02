@@ -52,6 +52,7 @@ where
 import Amazonka.CloudControl.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -206,8 +207,8 @@ instance Core.AWSRequest GetResource where
     Response.receiveJSON
       ( \s h x ->
           GetResourceResponse'
-            Prelude.<$> (x Core..?> "TypeName")
-            Prelude.<*> (x Core..?> "ResourceDescription")
+            Prelude.<$> (x Data..?> "TypeName")
+            Prelude.<*> (x Data..?> "ResourceDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -225,36 +226,36 @@ instance Prelude.NFData GetResource where
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf identifier
 
-instance Core.ToHeaders GetResource where
+instance Data.ToHeaders GetResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudApiService.GetResource" ::
+              Data.=# ( "CloudApiService.GetResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResource where
+instance Data.ToJSON GetResource where
   toJSON GetResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("TypeVersionId" Core..=) Prelude.<$> typeVersionId,
-            Prelude.Just ("TypeName" Core..= typeName),
-            Prelude.Just ("Identifier" Core..= identifier)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("TypeVersionId" Data..=) Prelude.<$> typeVersionId,
+            Prelude.Just ("TypeName" Data..= typeName),
+            Prelude.Just ("Identifier" Data..= identifier)
           ]
       )
 
-instance Core.ToPath GetResource where
+instance Data.ToPath GetResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetResource where
+instance Data.ToQuery GetResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourceResponse' smart constructor.

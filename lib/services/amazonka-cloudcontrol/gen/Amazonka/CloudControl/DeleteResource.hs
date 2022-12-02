@@ -54,6 +54,7 @@ where
 import Amazonka.CloudControl.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -261,7 +262,7 @@ instance Core.AWSRequest DeleteResource where
     Response.receiveJSON
       ( \s h x ->
           DeleteResourceResponse'
-            Prelude.<$> (x Core..?> "ProgressEvent")
+            Prelude.<$> (x Data..?> "ProgressEvent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -281,37 +282,37 @@ instance Prelude.NFData DeleteResource where
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf identifier
 
-instance Core.ToHeaders DeleteResource where
+instance Data.ToHeaders DeleteResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudApiService.DeleteResource" ::
+              Data.=# ( "CloudApiService.DeleteResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteResource where
+instance Data.ToJSON DeleteResource where
   toJSON DeleteResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("TypeVersionId" Core..=) Prelude.<$> typeVersionId,
-            Prelude.Just ("TypeName" Core..= typeName),
-            Prelude.Just ("Identifier" Core..= identifier)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("TypeVersionId" Data..=) Prelude.<$> typeVersionId,
+            Prelude.Just ("TypeName" Data..= typeName),
+            Prelude.Just ("Identifier" Data..= identifier)
           ]
       )
 
-instance Core.ToPath DeleteResource where
+instance Data.ToPath DeleteResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteResource where
+instance Data.ToQuery DeleteResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourceResponse' smart constructor.

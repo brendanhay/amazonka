@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.StreamProcessorDataSharingPreference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Allows you to opt in or opt out to share data with Rekognition to
@@ -62,15 +63,15 @@ streamProcessorDataSharingPreference_optIn :: Lens.Lens' StreamProcessorDataShar
 streamProcessorDataSharingPreference_optIn = Lens.lens (\StreamProcessorDataSharingPreference' {optIn} -> optIn) (\s@StreamProcessorDataSharingPreference' {} a -> s {optIn = a} :: StreamProcessorDataSharingPreference)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StreamProcessorDataSharingPreference
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamProcessorDataSharingPreference"
       ( \x ->
           StreamProcessorDataSharingPreference'
-            Prelude.<$> (x Core..: "OptIn")
+            Prelude.<$> (x Data..: "OptIn")
       )
 
 instance
@@ -90,11 +91,11 @@ instance
     Prelude.rnf optIn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StreamProcessorDataSharingPreference
   where
   toJSON StreamProcessorDataSharingPreference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("OptIn" Core..= optIn)]
+          [Prelude.Just ("OptIn" Data..= optIn)]
       )

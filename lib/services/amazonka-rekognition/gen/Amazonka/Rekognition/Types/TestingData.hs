@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.TestingData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.Asset
 
@@ -73,14 +74,14 @@ testingData_assets = Lens.lens (\TestingData' {assets} -> assets) (\s@TestingDat
 testingData_autoCreate :: Lens.Lens' TestingData (Prelude.Maybe Prelude.Bool)
 testingData_autoCreate = Lens.lens (\TestingData' {autoCreate} -> autoCreate) (\s@TestingData' {} a -> s {autoCreate = a} :: TestingData)
 
-instance Core.FromJSON TestingData where
+instance Data.FromJSON TestingData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TestingData"
       ( \x ->
           TestingData'
-            Prelude.<$> (x Core..:? "Assets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AutoCreate")
+            Prelude.<$> (x Data..:? "Assets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AutoCreate")
       )
 
 instance Prelude.Hashable TestingData where
@@ -93,11 +94,11 @@ instance Prelude.NFData TestingData where
     Prelude.rnf assets
       `Prelude.seq` Prelude.rnf autoCreate
 
-instance Core.ToJSON TestingData where
+instance Data.ToJSON TestingData where
   toJSON TestingData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Assets" Core..=) Prelude.<$> assets,
-            ("AutoCreate" Core..=) Prelude.<$> autoCreate
+          [ ("Assets" Data..=) Prelude.<$> assets,
+            ("AutoCreate" Data..=) Prelude.<$> autoCreate
           ]
       )

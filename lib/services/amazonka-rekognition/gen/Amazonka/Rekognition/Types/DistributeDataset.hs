@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DistributeDataset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A training dataset or a test dataset used in a dataset distribution
@@ -60,9 +61,9 @@ instance Prelude.Hashable DistributeDataset where
 instance Prelude.NFData DistributeDataset where
   rnf DistributeDataset' {..} = Prelude.rnf arn
 
-instance Core.ToJSON DistributeDataset where
+instance Data.ToJSON DistributeDataset where
   toJSON DistributeDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Arn" Core..= arn)]
+          [Prelude.Just ("Arn" Data..= arn)]
       )

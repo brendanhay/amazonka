@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Label where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.Instance
 import Amazonka.Rekognition.Types.LabelAlias
@@ -114,18 +115,18 @@ label_parents = Lens.lens (\Label' {parents} -> parents) (\s@Label' {} a -> s {p
 label_categories :: Lens.Lens' Label (Prelude.Maybe [LabelCategory])
 label_categories = Lens.lens (\Label' {categories} -> categories) (\s@Label' {} a -> s {categories = a} :: Label) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Label where
+instance Data.FromJSON Label where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Label"
       ( \x ->
           Label'
-            Prelude.<$> (x Core..:? "Instances" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Aliases" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Parents" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Categories" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Instances" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Aliases" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Parents" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Categories" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Label where

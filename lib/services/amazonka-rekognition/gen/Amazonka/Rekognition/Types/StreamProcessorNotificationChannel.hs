@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.StreamProcessorNotificationChannel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Simple Notification Service topic to which Amazon Rekognition
@@ -74,15 +75,15 @@ streamProcessorNotificationChannel_sNSTopicArn :: Lens.Lens' StreamProcessorNoti
 streamProcessorNotificationChannel_sNSTopicArn = Lens.lens (\StreamProcessorNotificationChannel' {sNSTopicArn} -> sNSTopicArn) (\s@StreamProcessorNotificationChannel' {} a -> s {sNSTopicArn = a} :: StreamProcessorNotificationChannel)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StreamProcessorNotificationChannel
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamProcessorNotificationChannel"
       ( \x ->
           StreamProcessorNotificationChannel'
-            Prelude.<$> (x Core..: "SNSTopicArn")
+            Prelude.<$> (x Data..: "SNSTopicArn")
       )
 
 instance
@@ -102,11 +103,11 @@ instance
     Prelude.rnf sNSTopicArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StreamProcessorNotificationChannel
   where
   toJSON StreamProcessorNotificationChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SNSTopicArn" Core..= sNSTopicArn)]
+          [Prelude.Just ("SNSTopicArn" Data..= sNSTopicArn)]
       )

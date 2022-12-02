@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ShotSegment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a shot detection segment detected in a video. For more
@@ -65,14 +66,14 @@ shotSegment_index = Lens.lens (\ShotSegment' {index} -> index) (\s@ShotSegment' 
 shotSegment_confidence :: Lens.Lens' ShotSegment (Prelude.Maybe Prelude.Double)
 shotSegment_confidence = Lens.lens (\ShotSegment' {confidence} -> confidence) (\s@ShotSegment' {} a -> s {confidence = a} :: ShotSegment)
 
-instance Core.FromJSON ShotSegment where
+instance Data.FromJSON ShotSegment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShotSegment"
       ( \x ->
           ShotSegment'
-            Prelude.<$> (x Core..:? "Index")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Data..:? "Index")
+            Prelude.<*> (x Data..:? "Confidence")
       )
 
 instance Prelude.Hashable ShotSegment where

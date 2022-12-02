@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.TechnicalCueSegment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.TechnicalCueType
 
@@ -66,14 +67,14 @@ technicalCueSegment_type = Lens.lens (\TechnicalCueSegment' {type'} -> type') (\
 technicalCueSegment_confidence :: Lens.Lens' TechnicalCueSegment (Prelude.Maybe Prelude.Double)
 technicalCueSegment_confidence = Lens.lens (\TechnicalCueSegment' {confidence} -> confidence) (\s@TechnicalCueSegment' {} a -> s {confidence = a} :: TechnicalCueSegment)
 
-instance Core.FromJSON TechnicalCueSegment where
+instance Data.FromJSON TechnicalCueSegment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TechnicalCueSegment"
       ( \x ->
           TechnicalCueSegment'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Confidence")
       )
 
 instance Prelude.Hashable TechnicalCueSegment where

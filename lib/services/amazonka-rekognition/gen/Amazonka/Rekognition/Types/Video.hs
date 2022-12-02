@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Video where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.S3Object
 
@@ -59,9 +60,9 @@ instance Prelude.Hashable Video where
 instance Prelude.NFData Video where
   rnf Video' {..} = Prelude.rnf s3Object
 
-instance Core.ToJSON Video where
+instance Data.ToJSON Video where
   toJSON Video' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("S3Object" Core..=) Prelude.<$> s3Object]
+          [("S3Object" Data..=) Prelude.<$> s3Object]
       )

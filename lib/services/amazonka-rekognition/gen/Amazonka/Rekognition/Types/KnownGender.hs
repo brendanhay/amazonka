@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.KnownGender where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.KnownGenderType
 
@@ -53,11 +54,11 @@ newKnownGender =
 knownGender_type :: Lens.Lens' KnownGender (Prelude.Maybe KnownGenderType)
 knownGender_type = Lens.lens (\KnownGender' {type'} -> type') (\s@KnownGender' {} a -> s {type' = a} :: KnownGender)
 
-instance Core.FromJSON KnownGender where
+instance Data.FromJSON KnownGender where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KnownGender"
-      (\x -> KnownGender' Prelude.<$> (x Core..:? "Type"))
+      (\x -> KnownGender' Prelude.<$> (x Data..:? "Type"))
 
 instance Prelude.Hashable KnownGender where
   hashWithSalt _salt KnownGender' {..} =

@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Instance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.BoundingBox
 import Amazonka.Rekognition.Types.DominantColor
@@ -76,16 +77,16 @@ instance_boundingBox = Lens.lens (\Instance' {boundingBox} -> boundingBox) (\s@I
 instance_dominantColors :: Lens.Lens' Instance (Prelude.Maybe [DominantColor])
 instance_dominantColors = Lens.lens (\Instance' {dominantColors} -> dominantColors) (\s@Instance' {} a -> s {dominantColors = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Instance where
+instance Data.FromJSON Instance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "BoundingBox")
-            Prelude.<*> ( x Core..:? "DominantColors"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "BoundingBox")
+            Prelude.<*> ( x Data..:? "DominantColors"
+                            Data..!= Prelude.mempty
                         )
       )
 

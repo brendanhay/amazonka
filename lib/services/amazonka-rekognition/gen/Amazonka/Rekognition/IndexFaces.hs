@@ -146,6 +146,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -370,10 +371,10 @@ instance Core.AWSRequest IndexFaces where
     Response.receiveJSON
       ( \s h x ->
           IndexFacesResponse'
-            Prelude.<$> (x Core..?> "UnindexedFaces" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "FaceRecords" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "OrientationCorrection")
-            Prelude.<*> (x Core..?> "FaceModelVersion")
+            Prelude.<$> (x Data..?> "UnindexedFaces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "FaceRecords" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "OrientationCorrection")
+            Prelude.<*> (x Data..?> "FaceModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -395,40 +396,40 @@ instance Prelude.NFData IndexFaces where
       `Prelude.seq` Prelude.rnf collectionId
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToHeaders IndexFaces where
+instance Data.ToHeaders IndexFaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.IndexFaces" ::
+              Data.=# ( "RekognitionService.IndexFaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON IndexFaces where
+instance Data.ToJSON IndexFaces where
   toJSON IndexFaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QualityFilter" Core..=) Prelude.<$> qualityFilter,
-            ("DetectionAttributes" Core..=)
+          [ ("QualityFilter" Data..=) Prelude.<$> qualityFilter,
+            ("DetectionAttributes" Data..=)
               Prelude.<$> detectionAttributes,
-            ("ExternalImageId" Core..=)
+            ("ExternalImageId" Data..=)
               Prelude.<$> externalImageId,
-            ("MaxFaces" Core..=) Prelude.<$> maxFaces,
-            Prelude.Just ("CollectionId" Core..= collectionId),
-            Prelude.Just ("Image" Core..= image)
+            ("MaxFaces" Data..=) Prelude.<$> maxFaces,
+            Prelude.Just ("CollectionId" Data..= collectionId),
+            Prelude.Just ("Image" Data..= image)
           ]
       )
 
-instance Core.ToPath IndexFaces where
+instance Data.ToPath IndexFaces where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery IndexFaces where
+instance Data.ToQuery IndexFaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newIndexFacesResponse' smart constructor.

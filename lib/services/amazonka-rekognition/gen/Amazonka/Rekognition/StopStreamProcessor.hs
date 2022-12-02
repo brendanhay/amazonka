@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -93,32 +94,32 @@ instance Prelude.Hashable StopStreamProcessor where
 instance Prelude.NFData StopStreamProcessor where
   rnf StopStreamProcessor' {..} = Prelude.rnf name
 
-instance Core.ToHeaders StopStreamProcessor where
+instance Data.ToHeaders StopStreamProcessor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.StopStreamProcessor" ::
+              Data.=# ( "RekognitionService.StopStreamProcessor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopStreamProcessor where
+instance Data.ToJSON StopStreamProcessor where
   toJSON StopStreamProcessor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath StopStreamProcessor where
+instance Data.ToPath StopStreamProcessor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopStreamProcessor where
+instance Data.ToQuery StopStreamProcessor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopStreamProcessorResponse' smart constructor.

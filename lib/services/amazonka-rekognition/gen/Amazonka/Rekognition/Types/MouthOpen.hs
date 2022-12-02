@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.MouthOpen where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether or not the mouth on the face is open, and the
@@ -65,14 +66,14 @@ mouthOpen_confidence = Lens.lens (\MouthOpen' {confidence} -> confidence) (\s@Mo
 mouthOpen_value :: Lens.Lens' MouthOpen (Prelude.Maybe Prelude.Bool)
 mouthOpen_value = Lens.lens (\MouthOpen' {value} -> value) (\s@MouthOpen' {} a -> s {value = a} :: MouthOpen)
 
-instance Core.FromJSON MouthOpen where
+instance Data.FromJSON MouthOpen where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MouthOpen"
       ( \x ->
           MouthOpen'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable MouthOpen where

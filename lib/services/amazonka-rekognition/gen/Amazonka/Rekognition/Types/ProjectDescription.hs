@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ProjectDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.DatasetMetadata
 import Amazonka.Rekognition.Types.ProjectStatus
@@ -35,7 +36,7 @@ data ProjectDescription = ProjectDescription'
     -- | The current status of the project.
     status :: Prelude.Maybe ProjectStatus,
     -- | The Unix timestamp for the date and time that the project was created.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the project.
     projectArn :: Prelude.Maybe Prelude.Text
   }
@@ -76,22 +77,22 @@ projectDescription_status = Lens.lens (\ProjectDescription' {status} -> status) 
 
 -- | The Unix timestamp for the date and time that the project was created.
 projectDescription_creationTimestamp :: Lens.Lens' ProjectDescription (Prelude.Maybe Prelude.UTCTime)
-projectDescription_creationTimestamp = Lens.lens (\ProjectDescription' {creationTimestamp} -> creationTimestamp) (\s@ProjectDescription' {} a -> s {creationTimestamp = a} :: ProjectDescription) Prelude.. Lens.mapping Core._Time
+projectDescription_creationTimestamp = Lens.lens (\ProjectDescription' {creationTimestamp} -> creationTimestamp) (\s@ProjectDescription' {} a -> s {creationTimestamp = a} :: ProjectDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the project.
 projectDescription_projectArn :: Lens.Lens' ProjectDescription (Prelude.Maybe Prelude.Text)
 projectDescription_projectArn = Lens.lens (\ProjectDescription' {projectArn} -> projectArn) (\s@ProjectDescription' {} a -> s {projectArn = a} :: ProjectDescription)
 
-instance Core.FromJSON ProjectDescription where
+instance Data.FromJSON ProjectDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectDescription"
       ( \x ->
           ProjectDescription'
-            Prelude.<$> (x Core..:? "Datasets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "ProjectArn")
+            Prelude.<$> (x Data..:? "Datasets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "ProjectArn")
       )
 
 instance Prelude.Hashable ProjectDescription where

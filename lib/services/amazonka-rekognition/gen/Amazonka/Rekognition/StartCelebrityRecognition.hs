@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -164,7 +165,7 @@ instance Core.AWSRequest StartCelebrityRecognition where
     Response.receiveJSON
       ( \s h x ->
           StartCelebrityRecognitionResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,38 +183,38 @@ instance Prelude.NFData StartCelebrityRecognition where
       `Prelude.seq` Prelude.rnf notificationChannel
       `Prelude.seq` Prelude.rnf video
 
-instance Core.ToHeaders StartCelebrityRecognition where
+instance Data.ToHeaders StartCelebrityRecognition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.StartCelebrityRecognition" ::
+              Data.=# ( "RekognitionService.StartCelebrityRecognition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartCelebrityRecognition where
+instance Data.ToJSON StartCelebrityRecognition where
   toJSON StartCelebrityRecognition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
-            ("NotificationChannel" Core..=)
+            ("JobTag" Data..=) Prelude.<$> jobTag,
+            ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
-            Prelude.Just ("Video" Core..= video)
+            Prelude.Just ("Video" Data..= video)
           ]
       )
 
-instance Core.ToPath StartCelebrityRecognition where
+instance Data.ToPath StartCelebrityRecognition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartCelebrityRecognition where
+instance Data.ToQuery StartCelebrityRecognition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartCelebrityRecognitionResponse' smart constructor.

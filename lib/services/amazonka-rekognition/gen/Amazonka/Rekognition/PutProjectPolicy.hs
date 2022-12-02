@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -163,7 +164,7 @@ instance Core.AWSRequest PutProjectPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutProjectPolicyResponse'
-            Prelude.<$> (x Core..?> "PolicyRevisionId")
+            Prelude.<$> (x Data..?> "PolicyRevisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,38 +182,38 @@ instance Prelude.NFData PutProjectPolicy where
       `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyDocument
 
-instance Core.ToHeaders PutProjectPolicy where
+instance Data.ToHeaders PutProjectPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.PutProjectPolicy" ::
+              Data.=# ( "RekognitionService.PutProjectPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutProjectPolicy where
+instance Data.ToJSON PutProjectPolicy where
   toJSON PutProjectPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PolicyRevisionId" Core..=)
+          [ ("PolicyRevisionId" Data..=)
               Prelude.<$> policyRevisionId,
-            Prelude.Just ("ProjectArn" Core..= projectArn),
-            Prelude.Just ("PolicyName" Core..= policyName),
+            Prelude.Just ("ProjectArn" Data..= projectArn),
+            Prelude.Just ("PolicyName" Data..= policyName),
             Prelude.Just
-              ("PolicyDocument" Core..= policyDocument)
+              ("PolicyDocument" Data..= policyDocument)
           ]
       )
 
-instance Core.ToPath PutProjectPolicy where
+instance Data.ToPath PutProjectPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutProjectPolicy where
+instance Data.ToQuery PutProjectPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutProjectPolicyResponse' smart constructor.

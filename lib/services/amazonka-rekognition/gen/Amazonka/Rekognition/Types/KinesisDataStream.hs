@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.KinesisDataStream where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Kinesis data stream Amazon Rekognition to which the analysis results
@@ -53,12 +54,12 @@ newKinesisDataStream =
 kinesisDataStream_arn :: Lens.Lens' KinesisDataStream (Prelude.Maybe Prelude.Text)
 kinesisDataStream_arn = Lens.lens (\KinesisDataStream' {arn} -> arn) (\s@KinesisDataStream' {} a -> s {arn = a} :: KinesisDataStream)
 
-instance Core.FromJSON KinesisDataStream where
+instance Data.FromJSON KinesisDataStream where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisDataStream"
       ( \x ->
-          KinesisDataStream' Prelude.<$> (x Core..:? "Arn")
+          KinesisDataStream' Prelude.<$> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable KinesisDataStream where
@@ -68,7 +69,7 @@ instance Prelude.Hashable KinesisDataStream where
 instance Prelude.NFData KinesisDataStream where
   rnf KinesisDataStream' {..} = Prelude.rnf arn
 
-instance Core.ToJSON KinesisDataStream where
+instance Data.ToJSON KinesisDataStream where
   toJSON KinesisDataStream' {..} =
-    Core.object
-      (Prelude.catMaybes [("Arn" Core..=) Prelude.<$> arn])
+    Data.object
+      (Prelude.catMaybes [("Arn" Data..=) Prelude.<$> arn])

@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ComparedSourceImageFace where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.BoundingBox
 
@@ -67,14 +68,14 @@ comparedSourceImageFace_confidence = Lens.lens (\ComparedSourceImageFace' {confi
 comparedSourceImageFace_boundingBox :: Lens.Lens' ComparedSourceImageFace (Prelude.Maybe BoundingBox)
 comparedSourceImageFace_boundingBox = Lens.lens (\ComparedSourceImageFace' {boundingBox} -> boundingBox) (\s@ComparedSourceImageFace' {} a -> s {boundingBox = a} :: ComparedSourceImageFace)
 
-instance Core.FromJSON ComparedSourceImageFace where
+instance Data.FromJSON ComparedSourceImageFace where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComparedSourceImageFace"
       ( \x ->
           ComparedSourceImageFace'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "BoundingBox")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "BoundingBox")
       )
 
 instance Prelude.Hashable ComparedSourceImageFace where

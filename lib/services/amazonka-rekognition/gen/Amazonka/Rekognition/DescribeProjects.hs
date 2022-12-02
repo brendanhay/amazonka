@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -152,8 +153,8 @@ instance Core.AWSRequest DescribeProjects where
     Response.receiveJSON
       ( \s h x ->
           DescribeProjectsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ProjectDescriptions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ProjectDescriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -171,35 +172,35 @@ instance Prelude.NFData DescribeProjects where
       `Prelude.seq` Prelude.rnf projectNames
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeProjects where
+instance Data.ToHeaders DescribeProjects where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.DescribeProjects" ::
+              Data.=# ( "RekognitionService.DescribeProjects" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeProjects where
+instance Data.ToJSON DescribeProjects where
   toJSON DescribeProjects' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ProjectNames" Core..=) Prelude.<$> projectNames,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ProjectNames" Data..=) Prelude.<$> projectNames,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeProjects where
+instance Data.ToPath DescribeProjects where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeProjects where
+instance Data.ToQuery DescribeProjects where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProjectsResponse' smart constructor.

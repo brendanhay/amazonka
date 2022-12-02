@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ProjectPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a project policy in the response from ListProjectPolicies.
@@ -30,9 +31,9 @@ data ProjectPolicy = ProjectPolicy'
   { -- | The name of the project policy.
     policyName :: Prelude.Maybe Prelude.Text,
     -- | The Unix datetime for when the project policy was last updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The Unix datetime for the creation of the project policy.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The revision ID of the project policy.
     policyRevisionId :: Prelude.Maybe Prelude.Text,
     -- | The JSON document for the project policy.
@@ -81,11 +82,11 @@ projectPolicy_policyName = Lens.lens (\ProjectPolicy' {policyName} -> policyName
 
 -- | The Unix datetime for when the project policy was last updated.
 projectPolicy_lastUpdatedTimestamp :: Lens.Lens' ProjectPolicy (Prelude.Maybe Prelude.UTCTime)
-projectPolicy_lastUpdatedTimestamp = Lens.lens (\ProjectPolicy' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ProjectPolicy' {} a -> s {lastUpdatedTimestamp = a} :: ProjectPolicy) Prelude.. Lens.mapping Core._Time
+projectPolicy_lastUpdatedTimestamp = Lens.lens (\ProjectPolicy' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ProjectPolicy' {} a -> s {lastUpdatedTimestamp = a} :: ProjectPolicy) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix datetime for the creation of the project policy.
 projectPolicy_creationTimestamp :: Lens.Lens' ProjectPolicy (Prelude.Maybe Prelude.UTCTime)
-projectPolicy_creationTimestamp = Lens.lens (\ProjectPolicy' {creationTimestamp} -> creationTimestamp) (\s@ProjectPolicy' {} a -> s {creationTimestamp = a} :: ProjectPolicy) Prelude.. Lens.mapping Core._Time
+projectPolicy_creationTimestamp = Lens.lens (\ProjectPolicy' {creationTimestamp} -> creationTimestamp) (\s@ProjectPolicy' {} a -> s {creationTimestamp = a} :: ProjectPolicy) Prelude.. Lens.mapping Data._Time
 
 -- | The revision ID of the project policy.
 projectPolicy_policyRevisionId :: Lens.Lens' ProjectPolicy (Prelude.Maybe Prelude.Text)
@@ -100,18 +101,18 @@ projectPolicy_policyDocument = Lens.lens (\ProjectPolicy' {policyDocument} -> po
 projectPolicy_projectArn :: Lens.Lens' ProjectPolicy (Prelude.Maybe Prelude.Text)
 projectPolicy_projectArn = Lens.lens (\ProjectPolicy' {projectArn} -> projectArn) (\s@ProjectPolicy' {} a -> s {projectArn = a} :: ProjectPolicy)
 
-instance Core.FromJSON ProjectPolicy where
+instance Data.FromJSON ProjectPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectPolicy"
       ( \x ->
           ProjectPolicy'
-            Prelude.<$> (x Core..:? "PolicyName")
-            Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "PolicyRevisionId")
-            Prelude.<*> (x Core..:? "PolicyDocument")
-            Prelude.<*> (x Core..:? "ProjectArn")
+            Prelude.<$> (x Data..:? "PolicyName")
+            Prelude.<*> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "PolicyRevisionId")
+            Prelude.<*> (x Data..:? "PolicyDocument")
+            Prelude.<*> (x Data..:? "ProjectArn")
       )
 
 instance Prelude.Hashable ProjectPolicy where

@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.CelebrityDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.BoundingBox
 import Amazonka.Rekognition.Types.FaceDetail
@@ -112,19 +113,19 @@ celebrityDetail_boundingBox = Lens.lens (\CelebrityDetail' {boundingBox} -> boun
 celebrityDetail_urls :: Lens.Lens' CelebrityDetail (Prelude.Maybe [Prelude.Text])
 celebrityDetail_urls = Lens.lens (\CelebrityDetail' {urls} -> urls) (\s@CelebrityDetail' {} a -> s {urls = a} :: CelebrityDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CelebrityDetail where
+instance Data.FromJSON CelebrityDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CelebrityDetail"
       ( \x ->
           CelebrityDetail'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "KnownGender")
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Face")
-            Prelude.<*> (x Core..:? "BoundingBox")
-            Prelude.<*> (x Core..:? "Urls" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "KnownGender")
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Face")
+            Prelude.<*> (x Data..:? "BoundingBox")
+            Prelude.<*> (x Data..:? "Urls" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CelebrityDetail where

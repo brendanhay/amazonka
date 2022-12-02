@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.VideoMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.VideoColorRange
 
@@ -112,19 +113,19 @@ videoMetadata_frameWidth = Lens.lens (\VideoMetadata' {frameWidth} -> frameWidth
 videoMetadata_frameRate :: Lens.Lens' VideoMetadata (Prelude.Maybe Prelude.Double)
 videoMetadata_frameRate = Lens.lens (\VideoMetadata' {frameRate} -> frameRate) (\s@VideoMetadata' {} a -> s {frameRate = a} :: VideoMetadata)
 
-instance Core.FromJSON VideoMetadata where
+instance Data.FromJSON VideoMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoMetadata"
       ( \x ->
           VideoMetadata'
-            Prelude.<$> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "FrameHeight")
-            Prelude.<*> (x Core..:? "Codec")
-            Prelude.<*> (x Core..:? "ColorRange")
-            Prelude.<*> (x Core..:? "DurationMillis")
-            Prelude.<*> (x Core..:? "FrameWidth")
-            Prelude.<*> (x Core..:? "FrameRate")
+            Prelude.<$> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "FrameHeight")
+            Prelude.<*> (x Data..:? "Codec")
+            Prelude.<*> (x Data..:? "ColorRange")
+            Prelude.<*> (x Data..:? "DurationMillis")
+            Prelude.<*> (x Data..:? "FrameWidth")
+            Prelude.<*> (x Data..:? "FrameRate")
       )
 
 instance Prelude.Hashable VideoMetadata where

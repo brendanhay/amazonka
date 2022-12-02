@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.CelebrityRecognition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.CelebrityDetail
 
@@ -70,14 +71,14 @@ celebrityRecognition_timestamp = Lens.lens (\CelebrityRecognition' {timestamp} -
 celebrityRecognition_celebrity :: Lens.Lens' CelebrityRecognition (Prelude.Maybe CelebrityDetail)
 celebrityRecognition_celebrity = Lens.lens (\CelebrityRecognition' {celebrity} -> celebrity) (\s@CelebrityRecognition' {} a -> s {celebrity = a} :: CelebrityRecognition)
 
-instance Core.FromJSON CelebrityRecognition where
+instance Data.FromJSON CelebrityRecognition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CelebrityRecognition"
       ( \x ->
           CelebrityRecognition'
-            Prelude.<$> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "Celebrity")
+            Prelude.<$> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "Celebrity")
       )
 
 instance Prelude.Hashable CelebrityRecognition where

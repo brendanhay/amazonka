@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.BoundingBox where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies the bounding box around the label, face, text, object of
@@ -101,16 +102,16 @@ boundingBox_left = Lens.lens (\BoundingBox' {left} -> left) (\s@BoundingBox' {} 
 boundingBox_height :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
 boundingBox_height = Lens.lens (\BoundingBox' {height} -> height) (\s@BoundingBox' {} a -> s {height = a} :: BoundingBox)
 
-instance Core.FromJSON BoundingBox where
+instance Data.FromJSON BoundingBox where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BoundingBox"
       ( \x ->
           BoundingBox'
-            Prelude.<$> (x Core..:? "Width")
-            Prelude.<*> (x Core..:? "Top")
-            Prelude.<*> (x Core..:? "Left")
-            Prelude.<*> (x Core..:? "Height")
+            Prelude.<$> (x Data..:? "Width")
+            Prelude.<*> (x Data..:? "Top")
+            Prelude.<*> (x Data..:? "Left")
+            Prelude.<*> (x Data..:? "Height")
       )
 
 instance Prelude.Hashable BoundingBox where
@@ -127,13 +128,13 @@ instance Prelude.NFData BoundingBox where
       `Prelude.seq` Prelude.rnf left
       `Prelude.seq` Prelude.rnf height
 
-instance Core.ToJSON BoundingBox where
+instance Data.ToJSON BoundingBox where
   toJSON BoundingBox' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Width" Core..=) Prelude.<$> width,
-            ("Top" Core..=) Prelude.<$> top,
-            ("Left" Core..=) Prelude.<$> left,
-            ("Height" Core..=) Prelude.<$> height
+          [ ("Width" Data..=) Prelude.<$> width,
+            ("Top" Data..=) Prelude.<$> top,
+            ("Left" Data..=) Prelude.<$> left,
+            ("Height" Data..=) Prelude.<$> height
           ]
       )

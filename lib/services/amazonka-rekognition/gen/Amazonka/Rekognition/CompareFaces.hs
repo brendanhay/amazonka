@@ -108,6 +108,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -251,11 +252,11 @@ instance Core.AWSRequest CompareFaces where
     Response.receiveJSON
       ( \s h x ->
           CompareFacesResponse'
-            Prelude.<$> (x Core..?> "TargetImageOrientationCorrection")
-            Prelude.<*> (x Core..?> "SourceImageOrientationCorrection")
-            Prelude.<*> (x Core..?> "FaceMatches" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "UnmatchedFaces" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "SourceImageFace")
+            Prelude.<$> (x Data..?> "TargetImageOrientationCorrection")
+            Prelude.<*> (x Data..?> "SourceImageOrientationCorrection")
+            Prelude.<*> (x Data..?> "FaceMatches" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "UnmatchedFaces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "SourceImageFace")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -273,37 +274,37 @@ instance Prelude.NFData CompareFaces where
       `Prelude.seq` Prelude.rnf sourceImage
       `Prelude.seq` Prelude.rnf targetImage
 
-instance Core.ToHeaders CompareFaces where
+instance Data.ToHeaders CompareFaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.CompareFaces" ::
+              Data.=# ( "RekognitionService.CompareFaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CompareFaces where
+instance Data.ToJSON CompareFaces where
   toJSON CompareFaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QualityFilter" Core..=) Prelude.<$> qualityFilter,
-            ("SimilarityThreshold" Core..=)
+          [ ("QualityFilter" Data..=) Prelude.<$> qualityFilter,
+            ("SimilarityThreshold" Data..=)
               Prelude.<$> similarityThreshold,
-            Prelude.Just ("SourceImage" Core..= sourceImage),
-            Prelude.Just ("TargetImage" Core..= targetImage)
+            Prelude.Just ("SourceImage" Data..= sourceImage),
+            Prelude.Just ("TargetImage" Data..= targetImage)
           ]
       )
 
-instance Core.ToPath CompareFaces where
+instance Data.ToPath CompareFaces where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CompareFaces where
+instance Data.ToQuery CompareFaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCompareFacesResponse' smart constructor.

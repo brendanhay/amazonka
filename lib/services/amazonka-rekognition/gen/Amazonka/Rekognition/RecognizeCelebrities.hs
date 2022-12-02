@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -136,11 +137,11 @@ instance Core.AWSRequest RecognizeCelebrities where
     Response.receiveJSON
       ( \s h x ->
           RecognizeCelebritiesResponse'
-            Prelude.<$> ( x Core..?> "UnrecognizedFaces"
+            Prelude.<$> ( x Data..?> "UnrecognizedFaces"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "CelebrityFaces" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "OrientationCorrection")
+            Prelude.<*> (x Data..?> "CelebrityFaces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "OrientationCorrection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,32 +152,32 @@ instance Prelude.Hashable RecognizeCelebrities where
 instance Prelude.NFData RecognizeCelebrities where
   rnf RecognizeCelebrities' {..} = Prelude.rnf image
 
-instance Core.ToHeaders RecognizeCelebrities where
+instance Data.ToHeaders RecognizeCelebrities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.RecognizeCelebrities" ::
+              Data.=# ( "RekognitionService.RecognizeCelebrities" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RecognizeCelebrities where
+instance Data.ToJSON RecognizeCelebrities where
   toJSON RecognizeCelebrities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Image" Core..= image)]
+          [Prelude.Just ("Image" Data..= image)]
       )
 
-instance Core.ToPath RecognizeCelebrities where
+instance Data.ToPath RecognizeCelebrities where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RecognizeCelebrities where
+instance Data.ToQuery RecognizeCelebrities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRecognizeCelebritiesResponse' smart constructor.

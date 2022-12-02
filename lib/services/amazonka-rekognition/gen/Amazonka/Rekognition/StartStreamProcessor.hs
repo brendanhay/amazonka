@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -146,7 +147,7 @@ instance Core.AWSRequest StartStreamProcessor where
     Response.receiveJSON
       ( \s h x ->
           StartStreamProcessorResponse'
-            Prelude.<$> (x Core..?> "SessionId")
+            Prelude.<$> (x Data..?> "SessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,35 +163,35 @@ instance Prelude.NFData StartStreamProcessor where
       `Prelude.seq` Prelude.rnf stopSelector
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders StartStreamProcessor where
+instance Data.ToHeaders StartStreamProcessor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.StartStreamProcessor" ::
+              Data.=# ( "RekognitionService.StartStreamProcessor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartStreamProcessor where
+instance Data.ToJSON StartStreamProcessor where
   toJSON StartStreamProcessor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StartSelector" Core..=) Prelude.<$> startSelector,
-            ("StopSelector" Core..=) Prelude.<$> stopSelector,
-            Prelude.Just ("Name" Core..= name)
+          [ ("StartSelector" Data..=) Prelude.<$> startSelector,
+            ("StopSelector" Data..=) Prelude.<$> stopSelector,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath StartStreamProcessor where
+instance Data.ToPath StartStreamProcessor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartStreamProcessor where
+instance Data.ToQuery StartStreamProcessor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartStreamProcessorResponse' smart constructor.

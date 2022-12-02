@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -96,32 +97,32 @@ instance Prelude.Hashable DeleteStreamProcessor where
 instance Prelude.NFData DeleteStreamProcessor where
   rnf DeleteStreamProcessor' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteStreamProcessor where
+instance Data.ToHeaders DeleteStreamProcessor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.DeleteStreamProcessor" ::
+              Data.=# ( "RekognitionService.DeleteStreamProcessor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteStreamProcessor where
+instance Data.ToJSON DeleteStreamProcessor where
   toJSON DeleteStreamProcessor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteStreamProcessor where
+instance Data.ToPath DeleteStreamProcessor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteStreamProcessor where
+instance Data.ToQuery DeleteStreamProcessor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStreamProcessorResponse' smart constructor.

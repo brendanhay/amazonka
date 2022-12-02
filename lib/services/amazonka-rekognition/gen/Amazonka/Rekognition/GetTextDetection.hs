@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -156,12 +157,12 @@ instance Core.AWSRequest GetTextDetection where
     Response.receiveJSON
       ( \s h x ->
           GetTextDetectionResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "TextDetections" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "VideoMetadata")
-            Prelude.<*> (x Core..?> "TextModelVersion")
-            Prelude.<*> (x Core..?> "StatusMessage")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "TextDetections" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "VideoMetadata")
+            Prelude.<*> (x Data..?> "TextModelVersion")
+            Prelude.<*> (x Data..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,35 +178,35 @@ instance Prelude.NFData GetTextDetection where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetTextDetection where
+instance Data.ToHeaders GetTextDetection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.GetTextDetection" ::
+              Data.=# ( "RekognitionService.GetTextDetection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTextDetection where
+instance Data.ToJSON GetTextDetection where
   toJSON GetTextDetection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("JobId" Core..= jobId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("JobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath GetTextDetection where
+instance Data.ToPath GetTextDetection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTextDetection where
+instance Data.ToQuery GetTextDetection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTextDetectionResponse' smart constructor.

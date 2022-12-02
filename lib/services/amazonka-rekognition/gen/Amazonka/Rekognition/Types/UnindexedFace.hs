@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.UnindexedFace where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.FaceDetail
 import Amazonka.Rekognition.Types.Reason
@@ -112,14 +113,14 @@ unindexedFace_faceDetail = Lens.lens (\UnindexedFace' {faceDetail} -> faceDetail
 unindexedFace_reasons :: Lens.Lens' UnindexedFace (Prelude.Maybe [Reason])
 unindexedFace_reasons = Lens.lens (\UnindexedFace' {reasons} -> reasons) (\s@UnindexedFace' {} a -> s {reasons = a} :: UnindexedFace) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON UnindexedFace where
+instance Data.FromJSON UnindexedFace where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnindexedFace"
       ( \x ->
           UnindexedFace'
-            Prelude.<$> (x Core..:? "FaceDetail")
-            Prelude.<*> (x Core..:? "Reasons" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "FaceDetail")
+            Prelude.<*> (x Data..:? "Reasons" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UnindexedFace where

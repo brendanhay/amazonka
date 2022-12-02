@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.StreamProcessorOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.KinesisDataStream
 import Amazonka.Rekognition.Types.S3Destination
@@ -73,14 +74,14 @@ streamProcessorOutput_s3Destination = Lens.lens (\StreamProcessorOutput' {s3Dest
 streamProcessorOutput_kinesisDataStream :: Lens.Lens' StreamProcessorOutput (Prelude.Maybe KinesisDataStream)
 streamProcessorOutput_kinesisDataStream = Lens.lens (\StreamProcessorOutput' {kinesisDataStream} -> kinesisDataStream) (\s@StreamProcessorOutput' {} a -> s {kinesisDataStream = a} :: StreamProcessorOutput)
 
-instance Core.FromJSON StreamProcessorOutput where
+instance Data.FromJSON StreamProcessorOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamProcessorOutput"
       ( \x ->
           StreamProcessorOutput'
-            Prelude.<$> (x Core..:? "S3Destination")
-            Prelude.<*> (x Core..:? "KinesisDataStream")
+            Prelude.<$> (x Data..:? "S3Destination")
+            Prelude.<*> (x Data..:? "KinesisDataStream")
       )
 
 instance Prelude.Hashable StreamProcessorOutput where
@@ -93,12 +94,12 @@ instance Prelude.NFData StreamProcessorOutput where
     Prelude.rnf s3Destination
       `Prelude.seq` Prelude.rnf kinesisDataStream
 
-instance Core.ToJSON StreamProcessorOutput where
+instance Data.ToJSON StreamProcessorOutput where
   toJSON StreamProcessorOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Destination" Core..=) Prelude.<$> s3Destination,
-            ("KinesisDataStream" Core..=)
+          [ ("S3Destination" Data..=) Prelude.<$> s3Destination,
+            ("KinesisDataStream" Data..=)
               Prelude.<$> kinesisDataStream
           ]
       )

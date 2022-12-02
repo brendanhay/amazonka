@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DatasetChanges where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes updates or additions to a dataset. A Single update or addition
@@ -41,7 +42,7 @@ data DatasetChanges = DatasetChanges'
     -- For example JSON lines, see Image-Level labels in manifest files and and
     -- Object localization in manifest files in the /Amazon Rekognition Custom
     -- Labels Developer Guide/.
-    groundTruth :: Core.Base64
+    groundTruth :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,7 +74,7 @@ newDatasetChanges ::
 newDatasetChanges pGroundTruth_ =
   DatasetChanges'
     { groundTruth =
-        Core._Base64 Lens.# pGroundTruth_
+        Data._Base64 Lens.# pGroundTruth_
     }
 
 -- | A Base64-encoded binary data object containing one or JSON lines that
@@ -90,7 +91,7 @@ newDatasetChanges pGroundTruth_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 datasetChanges_groundTruth :: Lens.Lens' DatasetChanges Prelude.ByteString
-datasetChanges_groundTruth = Lens.lens (\DatasetChanges' {groundTruth} -> groundTruth) (\s@DatasetChanges' {} a -> s {groundTruth = a} :: DatasetChanges) Prelude.. Core._Base64
+datasetChanges_groundTruth = Lens.lens (\DatasetChanges' {groundTruth} -> groundTruth) (\s@DatasetChanges' {} a -> s {groundTruth = a} :: DatasetChanges) Prelude.. Data._Base64
 
 instance Prelude.Hashable DatasetChanges where
   hashWithSalt _salt DatasetChanges' {..} =
@@ -99,9 +100,9 @@ instance Prelude.Hashable DatasetChanges where
 instance Prelude.NFData DatasetChanges where
   rnf DatasetChanges' {..} = Prelude.rnf groundTruth
 
-instance Core.ToJSON DatasetChanges where
+instance Data.ToJSON DatasetChanges where
   toJSON DatasetChanges' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GroundTruth" Core..= groundTruth)]
+          [Prelude.Just ("GroundTruth" Data..= groundTruth)]
       )

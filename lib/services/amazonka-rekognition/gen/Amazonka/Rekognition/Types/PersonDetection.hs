@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.PersonDetection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.PersonDetail
 
@@ -77,14 +78,14 @@ personDetection_person = Lens.lens (\PersonDetection' {person} -> person) (\s@Pe
 personDetection_timestamp :: Lens.Lens' PersonDetection (Prelude.Maybe Prelude.Integer)
 personDetection_timestamp = Lens.lens (\PersonDetection' {timestamp} -> timestamp) (\s@PersonDetection' {} a -> s {timestamp = a} :: PersonDetection)
 
-instance Core.FromJSON PersonDetection where
+instance Data.FromJSON PersonDetection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PersonDetection"
       ( \x ->
           PersonDetection'
-            Prelude.<$> (x Core..:? "Person")
-            Prelude.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Data..:? "Person")
+            Prelude.<*> (x Data..:? "Timestamp")
       )
 
 instance Prelude.Hashable PersonDetection where

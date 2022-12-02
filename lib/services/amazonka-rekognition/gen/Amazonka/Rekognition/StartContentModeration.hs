@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -199,7 +200,7 @@ instance Core.AWSRequest StartContentModeration where
     Response.receiveJSON
       ( \s h x ->
           StartContentModerationResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,39 +220,39 @@ instance Prelude.NFData StartContentModeration where
       `Prelude.seq` Prelude.rnf notificationChannel
       `Prelude.seq` Prelude.rnf video
 
-instance Core.ToHeaders StartContentModeration where
+instance Data.ToHeaders StartContentModeration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.StartContentModeration" ::
+              Data.=# ( "RekognitionService.StartContentModeration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartContentModeration where
+instance Data.ToJSON StartContentModeration where
   toJSON StartContentModeration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("MinConfidence" Core..=) Prelude.<$> minConfidence,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
-            ("NotificationChannel" Core..=)
+            ("MinConfidence" Data..=) Prelude.<$> minConfidence,
+            ("JobTag" Data..=) Prelude.<$> jobTag,
+            ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
-            Prelude.Just ("Video" Core..= video)
+            Prelude.Just ("Video" Data..= video)
           ]
       )
 
-instance Core.ToPath StartContentModeration where
+instance Data.ToPath StartContentModeration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartContentModeration where
+instance Data.ToQuery StartContentModeration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartContentModerationResponse' smart constructor.

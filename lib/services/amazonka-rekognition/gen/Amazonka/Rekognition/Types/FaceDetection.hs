@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.FaceDetection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.FaceDetail
 
@@ -69,14 +70,14 @@ faceDetection_timestamp = Lens.lens (\FaceDetection' {timestamp} -> timestamp) (
 faceDetection_face :: Lens.Lens' FaceDetection (Prelude.Maybe FaceDetail)
 faceDetection_face = Lens.lens (\FaceDetection' {face} -> face) (\s@FaceDetection' {} a -> s {face = a} :: FaceDetection)
 
-instance Core.FromJSON FaceDetection where
+instance Data.FromJSON FaceDetection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FaceDetection"
       ( \x ->
           FaceDetection'
-            Prelude.<$> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "Face")
+            Prelude.<$> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "Face")
       )
 
 instance Prelude.Hashable FaceDetection where

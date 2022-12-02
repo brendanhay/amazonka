@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ImageQuality where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies face image brightness and sharpness.
@@ -73,14 +74,14 @@ imageQuality_sharpness = Lens.lens (\ImageQuality' {sharpness} -> sharpness) (\s
 imageQuality_brightness :: Lens.Lens' ImageQuality (Prelude.Maybe Prelude.Double)
 imageQuality_brightness = Lens.lens (\ImageQuality' {brightness} -> brightness) (\s@ImageQuality' {} a -> s {brightness = a} :: ImageQuality)
 
-instance Core.FromJSON ImageQuality where
+instance Data.FromJSON ImageQuality where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageQuality"
       ( \x ->
           ImageQuality'
-            Prelude.<$> (x Core..:? "Sharpness")
-            Prelude.<*> (x Core..:? "Brightness")
+            Prelude.<$> (x Data..:? "Sharpness")
+            Prelude.<*> (x Data..:? "Brightness")
       )
 
 instance Prelude.Hashable ImageQuality where

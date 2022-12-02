@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Gender where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.GenderType
 
@@ -78,14 +79,14 @@ gender_confidence = Lens.lens (\Gender' {confidence} -> confidence) (\s@Gender' 
 gender_value :: Lens.Lens' Gender (Prelude.Maybe GenderType)
 gender_value = Lens.lens (\Gender' {value} -> value) (\s@Gender' {} a -> s {value = a} :: Gender)
 
-instance Core.FromJSON Gender where
+instance Data.FromJSON Gender where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Gender"
       ( \x ->
           Gender'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Gender where

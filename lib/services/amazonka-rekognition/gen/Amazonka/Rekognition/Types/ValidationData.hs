@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ValidationData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.Asset
 
@@ -64,13 +65,13 @@ newValidationData =
 validationData_assets :: Lens.Lens' ValidationData (Prelude.Maybe [Asset])
 validationData_assets = Lens.lens (\ValidationData' {assets} -> assets) (\s@ValidationData' {} a -> s {assets = a} :: ValidationData) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ValidationData where
+instance Data.FromJSON ValidationData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValidationData"
       ( \x ->
           ValidationData'
-            Prelude.<$> (x Core..:? "Assets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Assets" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ValidationData where

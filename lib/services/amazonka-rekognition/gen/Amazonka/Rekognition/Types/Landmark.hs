@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Landmark where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.LandmarkType
 
@@ -89,15 +90,15 @@ landmark_x = Lens.lens (\Landmark' {x} -> x) (\s@Landmark' {} a -> s {x = a} :: 
 landmark_y :: Lens.Lens' Landmark (Prelude.Maybe Prelude.Double)
 landmark_y = Lens.lens (\Landmark' {y} -> y) (\s@Landmark' {} a -> s {y = a} :: Landmark)
 
-instance Core.FromJSON Landmark where
+instance Data.FromJSON Landmark where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Landmark"
       ( \x ->
           Landmark'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "X")
-            Prelude.<*> (x Core..:? "Y")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "X")
+            Prelude.<*> (x Data..:? "Y")
       )
 
 instance Prelude.Hashable Landmark where

@@ -85,6 +85,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -271,7 +272,7 @@ instance Core.AWSRequest CreateProjectVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateProjectVersionResponse'
-            Prelude.<$> (x Core..?> "ProjectVersionArn")
+            Prelude.<$> (x Data..?> "ProjectVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -295,39 +296,39 @@ instance Prelude.NFData CreateProjectVersion where
       `Prelude.seq` Prelude.rnf versionName
       `Prelude.seq` Prelude.rnf outputConfig
 
-instance Core.ToHeaders CreateProjectVersion where
+instance Data.ToHeaders CreateProjectVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.CreateProjectVersion" ::
+              Data.=# ( "RekognitionService.CreateProjectVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProjectVersion where
+instance Data.ToJSON CreateProjectVersion where
   toJSON CreateProjectVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("TestingData" Core..=) Prelude.<$> testingData,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("TrainingData" Core..=) Prelude.<$> trainingData,
-            Prelude.Just ("ProjectArn" Core..= projectArn),
-            Prelude.Just ("VersionName" Core..= versionName),
-            Prelude.Just ("OutputConfig" Core..= outputConfig)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("TestingData" Data..=) Prelude.<$> testingData,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("TrainingData" Data..=) Prelude.<$> trainingData,
+            Prelude.Just ("ProjectArn" Data..= projectArn),
+            Prelude.Just ("VersionName" Data..= versionName),
+            Prelude.Just ("OutputConfig" Data..= outputConfig)
           ]
       )
 
-instance Core.ToPath CreateProjectVersion where
+instance Data.ToPath CreateProjectVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateProjectVersion where
+instance Data.ToQuery CreateProjectVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProjectVersionResponse' smart constructor.

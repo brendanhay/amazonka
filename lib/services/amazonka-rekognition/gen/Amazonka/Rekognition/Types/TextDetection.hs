@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.TextDetection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.Geometry
 import Amazonka.Rekognition.Types.TextTypes
@@ -131,18 +132,18 @@ textDetection_id = Lens.lens (\TextDetection' {id} -> id) (\s@TextDetection' {} 
 textDetection_geometry :: Lens.Lens' TextDetection (Prelude.Maybe Geometry)
 textDetection_geometry = Lens.lens (\TextDetection' {geometry} -> geometry) (\s@TextDetection' {} a -> s {geometry = a} :: TextDetection)
 
-instance Core.FromJSON TextDetection where
+instance Data.FromJSON TextDetection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TextDetection"
       ( \x ->
           TextDetection'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "ParentId")
-            Prelude.<*> (x Core..:? "DetectedText")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Geometry")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "ParentId")
+            Prelude.<*> (x Data..:? "DetectedText")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Geometry")
       )
 
 instance Prelude.Hashable TextDetection where

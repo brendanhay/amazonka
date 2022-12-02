@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ProjectVersionDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.EvaluationResult
 import Amazonka.Rekognition.Types.GroundTruthManifest
@@ -34,7 +35,7 @@ import Amazonka.Rekognition.Types.TrainingDataResult
 -- /See:/ 'newProjectVersionDescription' smart constructor.
 data ProjectVersionDescription = ProjectVersionDescription'
   { -- | The Unix date and time that training of the model ended.
-    trainingEndTimestamp :: Prelude.Maybe Core.POSIX,
+    trainingEndTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The minimum number of inference units used by the model. For more
     -- information, see StartProjectVersion.
     minInferenceUnits :: Prelude.Maybe Prelude.Natural,
@@ -46,7 +47,7 @@ data ProjectVersionDescription = ProjectVersionDescription'
     -- | Contains information about the testing results.
     testingDataResult :: Prelude.Maybe TestingDataResult,
     -- | The Unix datetime for the date and time that training started.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The location of the summary manifest. The summary manifest provides
     -- aggregate data validation results for the training and test datasets.
     manifestSummary :: Prelude.Maybe GroundTruthManifest,
@@ -145,7 +146,7 @@ newProjectVersionDescription =
 
 -- | The Unix date and time that training of the model ended.
 projectVersionDescription_trainingEndTimestamp :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.UTCTime)
-projectVersionDescription_trainingEndTimestamp = Lens.lens (\ProjectVersionDescription' {trainingEndTimestamp} -> trainingEndTimestamp) (\s@ProjectVersionDescription' {} a -> s {trainingEndTimestamp = a} :: ProjectVersionDescription) Prelude.. Lens.mapping Core._Time
+projectVersionDescription_trainingEndTimestamp = Lens.lens (\ProjectVersionDescription' {trainingEndTimestamp} -> trainingEndTimestamp) (\s@ProjectVersionDescription' {} a -> s {trainingEndTimestamp = a} :: ProjectVersionDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The minimum number of inference units used by the model. For more
 -- information, see StartProjectVersion.
@@ -167,7 +168,7 @@ projectVersionDescription_testingDataResult = Lens.lens (\ProjectVersionDescript
 
 -- | The Unix datetime for the date and time that training started.
 projectVersionDescription_creationTimestamp :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.UTCTime)
-projectVersionDescription_creationTimestamp = Lens.lens (\ProjectVersionDescription' {creationTimestamp} -> creationTimestamp) (\s@ProjectVersionDescription' {} a -> s {creationTimestamp = a} :: ProjectVersionDescription) Prelude.. Lens.mapping Core._Time
+projectVersionDescription_creationTimestamp = Lens.lens (\ProjectVersionDescription' {creationTimestamp} -> creationTimestamp) (\s@ProjectVersionDescription' {} a -> s {creationTimestamp = a} :: ProjectVersionDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The location of the summary manifest. The summary manifest provides
 -- aggregate data validation results for the training and test datasets.
@@ -212,27 +213,27 @@ projectVersionDescription_statusMessage = Lens.lens (\ProjectVersionDescription'
 projectVersionDescription_outputConfig :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe OutputConfig)
 projectVersionDescription_outputConfig = Lens.lens (\ProjectVersionDescription' {outputConfig} -> outputConfig) (\s@ProjectVersionDescription' {} a -> s {outputConfig = a} :: ProjectVersionDescription)
 
-instance Core.FromJSON ProjectVersionDescription where
+instance Data.FromJSON ProjectVersionDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectVersionDescription"
       ( \x ->
           ProjectVersionDescription'
-            Prelude.<$> (x Core..:? "TrainingEndTimestamp")
-            Prelude.<*> (x Core..:? "MinInferenceUnits")
-            Prelude.<*> (x Core..:? "SourceProjectVersionArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "TestingDataResult")
-            Prelude.<*> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "ManifestSummary")
-            Prelude.<*> (x Core..:? "TrainingDataResult")
-            Prelude.<*> (x Core..:? "EvaluationResult")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "ProjectVersionArn")
-            Prelude.<*> (x Core..:? "MaxInferenceUnits")
-            Prelude.<*> (x Core..:? "BillableTrainingTimeInSeconds")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "OutputConfig")
+            Prelude.<$> (x Data..:? "TrainingEndTimestamp")
+            Prelude.<*> (x Data..:? "MinInferenceUnits")
+            Prelude.<*> (x Data..:? "SourceProjectVersionArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "TestingDataResult")
+            Prelude.<*> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "ManifestSummary")
+            Prelude.<*> (x Data..:? "TrainingDataResult")
+            Prelude.<*> (x Data..:? "EvaluationResult")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "ProjectVersionArn")
+            Prelude.<*> (x Data..:? "MaxInferenceUnits")
+            Prelude.<*> (x Data..:? "BillableTrainingTimeInSeconds")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "OutputConfig")
       )
 
 instance Prelude.Hashable ProjectVersionDescription where

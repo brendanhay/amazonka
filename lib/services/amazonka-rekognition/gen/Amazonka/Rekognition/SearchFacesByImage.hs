@@ -92,6 +92,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -238,10 +239,10 @@ instance Core.AWSRequest SearchFacesByImage where
     Response.receiveJSON
       ( \s h x ->
           SearchFacesByImageResponse'
-            Prelude.<$> (x Core..?> "SearchedFaceConfidence")
-            Prelude.<*> (x Core..?> "FaceMatches" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "SearchedFaceBoundingBox")
-            Prelude.<*> (x Core..?> "FaceModelVersion")
+            Prelude.<$> (x Data..?> "SearchedFaceConfidence")
+            Prelude.<*> (x Data..?> "FaceMatches" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "SearchedFaceBoundingBox")
+            Prelude.<*> (x Data..?> "FaceModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -261,38 +262,38 @@ instance Prelude.NFData SearchFacesByImage where
       `Prelude.seq` Prelude.rnf collectionId
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToHeaders SearchFacesByImage where
+instance Data.ToHeaders SearchFacesByImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.SearchFacesByImage" ::
+              Data.=# ( "RekognitionService.SearchFacesByImage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchFacesByImage where
+instance Data.ToJSON SearchFacesByImage where
   toJSON SearchFacesByImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QualityFilter" Core..=) Prelude.<$> qualityFilter,
-            ("FaceMatchThreshold" Core..=)
+          [ ("QualityFilter" Data..=) Prelude.<$> qualityFilter,
+            ("FaceMatchThreshold" Data..=)
               Prelude.<$> faceMatchThreshold,
-            ("MaxFaces" Core..=) Prelude.<$> maxFaces,
-            Prelude.Just ("CollectionId" Core..= collectionId),
-            Prelude.Just ("Image" Core..= image)
+            ("MaxFaces" Data..=) Prelude.<$> maxFaces,
+            Prelude.Just ("CollectionId" Data..= collectionId),
+            Prelude.Just ("Image" Data..= image)
           ]
       )
 
-instance Core.ToPath SearchFacesByImage where
+instance Data.ToPath SearchFacesByImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SearchFacesByImage where
+instance Data.ToQuery SearchFacesByImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchFacesByImageResponse' smart constructor.

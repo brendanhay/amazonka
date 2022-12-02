@@ -84,6 +84,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -323,7 +324,7 @@ instance Core.AWSRequest CreateStreamProcessor where
     Response.receiveJSON
       ( \s h x ->
           CreateStreamProcessorResponse'
-            Prelude.<$> (x Core..?> "StreamProcessorArn")
+            Prelude.<$> (x Data..?> "StreamProcessorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -353,45 +354,45 @@ instance Prelude.NFData CreateStreamProcessor where
       `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateStreamProcessor where
+instance Data.ToHeaders CreateStreamProcessor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.CreateStreamProcessor" ::
+              Data.=# ( "RekognitionService.CreateStreamProcessor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStreamProcessor where
+instance Data.ToJSON CreateStreamProcessor where
   toJSON CreateStreamProcessor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("RegionsOfInterest" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("RegionsOfInterest" Data..=)
               Prelude.<$> regionsOfInterest,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("DataSharingPreference" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("DataSharingPreference" Data..=)
               Prelude.<$> dataSharingPreference,
-            ("NotificationChannel" Core..=)
+            ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
-            Prelude.Just ("Input" Core..= input),
-            Prelude.Just ("Output" Core..= output),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Settings" Core..= settings),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("Input" Data..= input),
+            Prelude.Just ("Output" Data..= output),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Settings" Data..= settings),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateStreamProcessor where
+instance Data.ToPath CreateStreamProcessor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStreamProcessor where
+instance Data.ToQuery CreateStreamProcessor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStreamProcessorResponse' smart constructor.

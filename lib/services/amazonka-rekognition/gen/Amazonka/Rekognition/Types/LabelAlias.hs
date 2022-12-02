@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.LabelAlias where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A potential alias of for a given label.
@@ -49,11 +50,11 @@ newLabelAlias = LabelAlias' {name = Prelude.Nothing}
 labelAlias_name :: Lens.Lens' LabelAlias (Prelude.Maybe Prelude.Text)
 labelAlias_name = Lens.lens (\LabelAlias' {name} -> name) (\s@LabelAlias' {} a -> s {name = a} :: LabelAlias)
 
-instance Core.FromJSON LabelAlias where
+instance Data.FromJSON LabelAlias where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelAlias"
-      (\x -> LabelAlias' Prelude.<$> (x Core..:? "Name"))
+      (\x -> LabelAlias' Prelude.<$> (x Data..:? "Name"))
 
 instance Prelude.Hashable LabelAlias where
   hashWithSalt _salt LabelAlias' {..} =

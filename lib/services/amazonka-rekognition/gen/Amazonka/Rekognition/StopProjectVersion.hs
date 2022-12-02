@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest StopProjectVersion where
     Response.receiveJSON
       ( \s h x ->
           StopProjectVersionResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,34 +112,34 @@ instance Prelude.NFData StopProjectVersion where
   rnf StopProjectVersion' {..} =
     Prelude.rnf projectVersionArn
 
-instance Core.ToHeaders StopProjectVersion where
+instance Data.ToHeaders StopProjectVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.StopProjectVersion" ::
+              Data.=# ( "RekognitionService.StopProjectVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopProjectVersion where
+instance Data.ToJSON StopProjectVersion where
   toJSON StopProjectVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ProjectVersionArn" Core..= projectVersionArn)
+              ("ProjectVersionArn" Data..= projectVersionArn)
           ]
       )
 
-instance Core.ToPath StopProjectVersion where
+instance Data.ToPath StopProjectVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopProjectVersion where
+instance Data.ToQuery StopProjectVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopProjectVersionResponse' smart constructor.

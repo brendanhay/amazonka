@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -157,7 +158,7 @@ instance Core.AWSRequest StartProjectVersion where
     Response.receiveJSON
       ( \s h x ->
           StartProjectVersionResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,38 +174,38 @@ instance Prelude.NFData StartProjectVersion where
       `Prelude.seq` Prelude.rnf projectVersionArn
       `Prelude.seq` Prelude.rnf minInferenceUnits
 
-instance Core.ToHeaders StartProjectVersion where
+instance Data.ToHeaders StartProjectVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.StartProjectVersion" ::
+              Data.=# ( "RekognitionService.StartProjectVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartProjectVersion where
+instance Data.ToJSON StartProjectVersion where
   toJSON StartProjectVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxInferenceUnits" Core..=)
+          [ ("MaxInferenceUnits" Data..=)
               Prelude.<$> maxInferenceUnits,
             Prelude.Just
-              ("ProjectVersionArn" Core..= projectVersionArn),
+              ("ProjectVersionArn" Data..= projectVersionArn),
             Prelude.Just
-              ("MinInferenceUnits" Core..= minInferenceUnits)
+              ("MinInferenceUnits" Data..= minInferenceUnits)
           ]
       )
 
-instance Core.ToPath StartProjectVersion where
+instance Data.ToPath StartProjectVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartProjectVersion where
+instance Data.ToQuery StartProjectVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartProjectVersionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Eyeglasses where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether or not the face is wearing eye glasses, and the
@@ -65,14 +66,14 @@ eyeglasses_confidence = Lens.lens (\Eyeglasses' {confidence} -> confidence) (\s@
 eyeglasses_value :: Lens.Lens' Eyeglasses (Prelude.Maybe Prelude.Bool)
 eyeglasses_value = Lens.lens (\Eyeglasses' {value} -> value) (\s@Eyeglasses' {} a -> s {value = a} :: Eyeglasses)
 
-instance Core.FromJSON Eyeglasses where
+instance Data.FromJSON Eyeglasses where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Eyeglasses"
       ( \x ->
           Eyeglasses'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Eyeglasses where

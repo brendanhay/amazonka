@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -248,7 +249,7 @@ instance Core.AWSRequest CopyProjectVersion where
     Response.receiveJSON
       ( \s h x ->
           CopyProjectVersionResponse'
-            Prelude.<$> (x Core..?> "ProjectVersionArn")
+            Prelude.<$> (x Data..?> "ProjectVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -272,46 +273,46 @@ instance Prelude.NFData CopyProjectVersion where
       `Prelude.seq` Prelude.rnf versionName
       `Prelude.seq` Prelude.rnf outputConfig
 
-instance Core.ToHeaders CopyProjectVersion where
+instance Data.ToHeaders CopyProjectVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.CopyProjectVersion" ::
+              Data.=# ( "RekognitionService.CopyProjectVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CopyProjectVersion where
+instance Data.ToJSON CopyProjectVersion where
   toJSON CopyProjectVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             Prelude.Just
-              ("SourceProjectArn" Core..= sourceProjectArn),
+              ("SourceProjectArn" Data..= sourceProjectArn),
             Prelude.Just
               ( "SourceProjectVersionArn"
-                  Core..= sourceProjectVersionArn
+                  Data..= sourceProjectVersionArn
               ),
             Prelude.Just
               ( "DestinationProjectArn"
-                  Core..= destinationProjectArn
+                  Data..= destinationProjectArn
               ),
-            Prelude.Just ("VersionName" Core..= versionName),
-            Prelude.Just ("OutputConfig" Core..= outputConfig)
+            Prelude.Just ("VersionName" Data..= versionName),
+            Prelude.Just ("OutputConfig" Data..= outputConfig)
           ]
       )
 
-instance Core.ToPath CopyProjectVersion where
+instance Data.ToPath CopyProjectVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopyProjectVersion where
+instance Data.ToQuery CopyProjectVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCopyProjectVersionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DatasetStats where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides statistics about a dataset. For more information, see
@@ -80,16 +81,16 @@ datasetStats_totalLabels = Lens.lens (\DatasetStats' {totalLabels} -> totalLabel
 datasetStats_labeledEntries :: Lens.Lens' DatasetStats (Prelude.Maybe Prelude.Natural)
 datasetStats_labeledEntries = Lens.lens (\DatasetStats' {labeledEntries} -> labeledEntries) (\s@DatasetStats' {} a -> s {labeledEntries = a} :: DatasetStats)
 
-instance Core.FromJSON DatasetStats where
+instance Data.FromJSON DatasetStats where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetStats"
       ( \x ->
           DatasetStats'
-            Prelude.<$> (x Core..:? "ErrorEntries")
-            Prelude.<*> (x Core..:? "TotalEntries")
-            Prelude.<*> (x Core..:? "TotalLabels")
-            Prelude.<*> (x Core..:? "LabeledEntries")
+            Prelude.<$> (x Data..:? "ErrorEntries")
+            Prelude.<*> (x Data..:? "TotalEntries")
+            Prelude.<*> (x Data..:? "TotalLabels")
+            Prelude.<*> (x Data..:? "LabeledEntries")
       )
 
 instance Prelude.Hashable DatasetStats where

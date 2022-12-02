@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Parent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A parent label for a label. A label can have 0, 1, or more parents.
@@ -49,11 +50,11 @@ newParent = Parent' {name = Prelude.Nothing}
 parent_name :: Lens.Lens' Parent (Prelude.Maybe Prelude.Text)
 parent_name = Lens.lens (\Parent' {name} -> name) (\s@Parent' {} a -> s {name = a} :: Parent)
 
-instance Core.FromJSON Parent where
+instance Data.FromJSON Parent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Parent"
-      (\x -> Parent' Prelude.<$> (x Core..:? "Name"))
+      (\x -> Parent' Prelude.<$> (x Data..:? "Name"))
 
 instance Prelude.Hashable Parent where
   hashWithSalt _salt Parent' {..} =

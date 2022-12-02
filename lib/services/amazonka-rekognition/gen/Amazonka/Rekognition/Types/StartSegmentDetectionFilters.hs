@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.StartSegmentDetectionFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.StartShotDetectionFilter
 import Amazonka.Rekognition.Types.StartTechnicalCueDetectionFilter
@@ -78,12 +79,12 @@ instance Prelude.NFData StartSegmentDetectionFilters where
     Prelude.rnf technicalCueFilter
       `Prelude.seq` Prelude.rnf shotFilter
 
-instance Core.ToJSON StartSegmentDetectionFilters where
+instance Data.ToJSON StartSegmentDetectionFilters where
   toJSON StartSegmentDetectionFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TechnicalCueFilter" Core..=)
+          [ ("TechnicalCueFilter" Data..=)
               Prelude.<$> technicalCueFilter,
-            ("ShotFilter" Core..=) Prelude.<$> shotFilter
+            ("ShotFilter" Data..=) Prelude.<$> shotFilter
           ]
       )

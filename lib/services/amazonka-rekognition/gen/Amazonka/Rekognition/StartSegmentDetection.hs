@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -192,7 +193,7 @@ instance Core.AWSRequest StartSegmentDetection where
     Response.receiveJSON
       ( \s h x ->
           StartSegmentDetectionResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -214,40 +215,40 @@ instance Prelude.NFData StartSegmentDetection where
       `Prelude.seq` Prelude.rnf video
       `Prelude.seq` Prelude.rnf segmentTypes
 
-instance Core.ToHeaders StartSegmentDetection where
+instance Data.ToHeaders StartSegmentDetection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.StartSegmentDetection" ::
+              Data.=# ( "RekognitionService.StartSegmentDetection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartSegmentDetection where
+instance Data.ToJSON StartSegmentDetection where
   toJSON StartSegmentDetection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
-            ("NotificationChannel" Core..=)
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("JobTag" Data..=) Prelude.<$> jobTag,
+            ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
-            Prelude.Just ("Video" Core..= video),
-            Prelude.Just ("SegmentTypes" Core..= segmentTypes)
+            Prelude.Just ("Video" Data..= video),
+            Prelude.Just ("SegmentTypes" Data..= segmentTypes)
           ]
       )
 
-instance Core.ToPath StartSegmentDetection where
+instance Data.ToPath StartSegmentDetection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartSegmentDetection where
+instance Data.ToQuery StartSegmentDetection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartSegmentDetectionResponse' smart constructor.

@@ -99,6 +99,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -195,11 +196,11 @@ instance Core.AWSRequest GetCelebrityRecognition where
     Response.receiveJSON
       ( \s h x ->
           GetCelebrityRecognitionResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "Celebrities" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "VideoMetadata")
-            Prelude.<*> (x Core..?> "StatusMessage")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "Celebrities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "VideoMetadata")
+            Prelude.<*> (x Data..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -217,36 +218,36 @@ instance Prelude.NFData GetCelebrityRecognition where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetCelebrityRecognition where
+instance Data.ToHeaders GetCelebrityRecognition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.GetCelebrityRecognition" ::
+              Data.=# ( "RekognitionService.GetCelebrityRecognition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCelebrityRecognition where
+instance Data.ToJSON GetCelebrityRecognition where
   toJSON GetCelebrityRecognition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("JobId" Core..= jobId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("JobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath GetCelebrityRecognition where
+instance Data.ToPath GetCelebrityRecognition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCelebrityRecognition where
+instance Data.ToQuery GetCelebrityRecognition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCelebrityRecognitionResponse' smart constructor.

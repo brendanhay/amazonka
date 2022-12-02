@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.CustomLabel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.Geometry
 
@@ -83,15 +84,15 @@ customLabel_confidence = Lens.lens (\CustomLabel' {confidence} -> confidence) (\
 customLabel_geometry :: Lens.Lens' CustomLabel (Prelude.Maybe Geometry)
 customLabel_geometry = Lens.lens (\CustomLabel' {geometry} -> geometry) (\s@CustomLabel' {} a -> s {geometry = a} :: CustomLabel)
 
-instance Core.FromJSON CustomLabel where
+instance Data.FromJSON CustomLabel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomLabel"
       ( \x ->
           CustomLabel'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Geometry")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Geometry")
       )
 
 instance Prelude.Hashable CustomLabel where

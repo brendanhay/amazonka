@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.LabelDetection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.Label
 
@@ -69,14 +70,14 @@ labelDetection_label = Lens.lens (\LabelDetection' {label} -> label) (\s@LabelDe
 labelDetection_timestamp :: Lens.Lens' LabelDetection (Prelude.Maybe Prelude.Integer)
 labelDetection_timestamp = Lens.lens (\LabelDetection' {timestamp} -> timestamp) (\s@LabelDetection' {} a -> s {timestamp = a} :: LabelDetection)
 
-instance Core.FromJSON LabelDetection where
+instance Data.FromJSON LabelDetection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelDetection"
       ( \x ->
           LabelDetection'
-            Prelude.<$> (x Core..:? "Label")
-            Prelude.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Data..:? "Label")
+            Prelude.<*> (x Data..:? "Timestamp")
       )
 
 instance Prelude.Hashable LabelDetection where

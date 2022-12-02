@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -167,41 +168,41 @@ instance Prelude.NFData UpdateStreamProcessor where
       `Prelude.seq` Prelude.rnf parametersToDelete
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateStreamProcessor where
+instance Data.ToHeaders UpdateStreamProcessor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.UpdateStreamProcessor" ::
+              Data.=# ( "RekognitionService.UpdateStreamProcessor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateStreamProcessor where
+instance Data.ToJSON UpdateStreamProcessor where
   toJSON UpdateStreamProcessor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSharingPreferenceForUpdate" Core..=)
+          [ ("DataSharingPreferenceForUpdate" Data..=)
               Prelude.<$> dataSharingPreferenceForUpdate,
-            ("SettingsForUpdate" Core..=)
+            ("SettingsForUpdate" Data..=)
               Prelude.<$> settingsForUpdate,
-            ("RegionsOfInterestForUpdate" Core..=)
+            ("RegionsOfInterestForUpdate" Data..=)
               Prelude.<$> regionsOfInterestForUpdate,
-            ("ParametersToDelete" Core..=)
+            ("ParametersToDelete" Data..=)
               Prelude.<$> parametersToDelete,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateStreamProcessor where
+instance Data.ToPath UpdateStreamProcessor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateStreamProcessor where
+instance Data.ToQuery UpdateStreamProcessor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStreamProcessorResponse' smart constructor.

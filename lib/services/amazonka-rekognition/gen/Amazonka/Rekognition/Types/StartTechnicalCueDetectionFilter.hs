@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.StartTechnicalCueDetectionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.BlackFrame
 
@@ -121,12 +122,12 @@ instance
     Prelude.rnf minSegmentConfidence
       `Prelude.seq` Prelude.rnf blackFrame
 
-instance Core.ToJSON StartTechnicalCueDetectionFilter where
+instance Data.ToJSON StartTechnicalCueDetectionFilter where
   toJSON StartTechnicalCueDetectionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinSegmentConfidence" Core..=)
+          [ ("MinSegmentConfidence" Data..=)
               Prelude.<$> minSegmentConfidence,
-            ("BlackFrame" Core..=) Prelude.<$> blackFrame
+            ("BlackFrame" Data..=) Prelude.<$> blackFrame
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DetectLabelsSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.DetectLabelsImagePropertiesSettings
 import Amazonka.Rekognition.Types.GeneralLabelsSettings
@@ -78,12 +79,12 @@ instance Prelude.NFData DetectLabelsSettings where
     Prelude.rnf generalLabels
       `Prelude.seq` Prelude.rnf imageProperties
 
-instance Core.ToJSON DetectLabelsSettings where
+instance Data.ToJSON DetectLabelsSettings where
   toJSON DetectLabelsSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GeneralLabels" Core..=) Prelude.<$> generalLabels,
-            ("ImageProperties" Core..=)
+          [ ("GeneralLabels" Data..=) Prelude.<$> generalLabels,
+            ("ImageProperties" Data..=)
               Prelude.<$> imageProperties
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.AgeRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure containing the estimated age range, in years, for a face.
@@ -66,13 +67,13 @@ ageRange_low = Lens.lens (\AgeRange' {low} -> low) (\s@AgeRange' {} a -> s {low 
 ageRange_high :: Lens.Lens' AgeRange (Prelude.Maybe Prelude.Natural)
 ageRange_high = Lens.lens (\AgeRange' {high} -> high) (\s@AgeRange' {} a -> s {high = a} :: AgeRange)
 
-instance Core.FromJSON AgeRange where
+instance Data.FromJSON AgeRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AgeRange"
       ( \x ->
           AgeRange'
-            Prelude.<$> (x Core..:? "Low") Prelude.<*> (x Core..:? "High")
+            Prelude.<$> (x Data..:? "Low") Prelude.<*> (x Data..:? "High")
       )
 
 instance Prelude.Hashable AgeRange where

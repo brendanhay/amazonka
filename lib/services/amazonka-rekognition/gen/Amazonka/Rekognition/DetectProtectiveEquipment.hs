@@ -84,6 +84,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -144,9 +145,9 @@ instance Core.AWSRequest DetectProtectiveEquipment where
     Response.receiveJSON
       ( \s h x ->
           DetectProtectiveEquipmentResponse'
-            Prelude.<$> (x Core..?> "ProtectiveEquipmentModelVersion")
-            Prelude.<*> (x Core..?> "Summary")
-            Prelude.<*> (x Core..?> "Persons" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ProtectiveEquipmentModelVersion")
+            Prelude.<*> (x Data..?> "Summary")
+            Prelude.<*> (x Data..?> "Persons" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,35 +162,35 @@ instance Prelude.NFData DetectProtectiveEquipment where
     Prelude.rnf summarizationAttributes
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToHeaders DetectProtectiveEquipment where
+instance Data.ToHeaders DetectProtectiveEquipment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.DetectProtectiveEquipment" ::
+              Data.=# ( "RekognitionService.DetectProtectiveEquipment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DetectProtectiveEquipment where
+instance Data.ToJSON DetectProtectiveEquipment where
   toJSON DetectProtectiveEquipment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SummarizationAttributes" Core..=)
+          [ ("SummarizationAttributes" Data..=)
               Prelude.<$> summarizationAttributes,
-            Prelude.Just ("Image" Core..= image)
+            Prelude.Just ("Image" Data..= image)
           ]
       )
 
-instance Core.ToPath DetectProtectiveEquipment where
+instance Data.ToPath DetectProtectiveEquipment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectProtectiveEquipment where
+instance Data.ToQuery DetectProtectiveEquipment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectProtectiveEquipmentResponse' smart constructor.

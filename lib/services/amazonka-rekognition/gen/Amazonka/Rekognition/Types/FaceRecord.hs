@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.FaceRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.Face
 import Amazonka.Rekognition.Types.FaceDetail
@@ -68,14 +69,14 @@ faceRecord_faceDetail = Lens.lens (\FaceRecord' {faceDetail} -> faceDetail) (\s@
 faceRecord_face :: Lens.Lens' FaceRecord (Prelude.Maybe Face)
 faceRecord_face = Lens.lens (\FaceRecord' {face} -> face) (\s@FaceRecord' {} a -> s {face = a} :: FaceRecord)
 
-instance Core.FromJSON FaceRecord where
+instance Data.FromJSON FaceRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FaceRecord"
       ( \x ->
           FaceRecord'
-            Prelude.<$> (x Core..:? "FaceDetail")
-            Prelude.<*> (x Core..:? "Face")
+            Prelude.<$> (x Data..:? "FaceDetail")
+            Prelude.<*> (x Data..:? "Face")
       )
 
 instance Prelude.Hashable FaceRecord where

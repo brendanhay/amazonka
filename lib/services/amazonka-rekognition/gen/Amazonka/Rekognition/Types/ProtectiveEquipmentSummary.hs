@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ProtectiveEquipmentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information for required items of personal protective equipment
@@ -101,20 +102,20 @@ protectiveEquipmentSummary_personsWithoutRequiredEquipment = Lens.lens (\Protect
 protectiveEquipmentSummary_personsIndeterminate :: Lens.Lens' ProtectiveEquipmentSummary (Prelude.Maybe [Prelude.Natural])
 protectiveEquipmentSummary_personsIndeterminate = Lens.lens (\ProtectiveEquipmentSummary' {personsIndeterminate} -> personsIndeterminate) (\s@ProtectiveEquipmentSummary' {} a -> s {personsIndeterminate = a} :: ProtectiveEquipmentSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ProtectiveEquipmentSummary where
+instance Data.FromJSON ProtectiveEquipmentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProtectiveEquipmentSummary"
       ( \x ->
           ProtectiveEquipmentSummary'
-            Prelude.<$> ( x Core..:? "PersonsWithRequiredEquipment"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "PersonsWithRequiredEquipment"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "PersonsWithoutRequiredEquipment"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "PersonsWithoutRequiredEquipment"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "PersonsIndeterminate"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "PersonsIndeterminate"
+                            Data..!= Prelude.mempty
                         )
       )
 

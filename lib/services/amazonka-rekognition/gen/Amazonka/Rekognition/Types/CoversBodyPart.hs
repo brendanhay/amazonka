@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.CoversBodyPart where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an item of Personal Protective Equipment covering a
@@ -63,14 +64,14 @@ coversBodyPart_confidence = Lens.lens (\CoversBodyPart' {confidence} -> confiden
 coversBodyPart_value :: Lens.Lens' CoversBodyPart (Prelude.Maybe Prelude.Bool)
 coversBodyPart_value = Lens.lens (\CoversBodyPart' {value} -> value) (\s@CoversBodyPart' {} a -> s {value = a} :: CoversBodyPart)
 
-instance Core.FromJSON CoversBodyPart where
+instance Data.FromJSON CoversBodyPart where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoversBodyPart"
       ( \x ->
           CoversBodyPart'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable CoversBodyPart where

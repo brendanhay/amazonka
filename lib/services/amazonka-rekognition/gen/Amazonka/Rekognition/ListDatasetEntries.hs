@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -234,8 +235,8 @@ instance Core.AWSRequest ListDatasetEntries where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetEntriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "DatasetEntries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "DatasetEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -259,41 +260,41 @@ instance Prelude.NFData ListDatasetEntries where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf datasetArn
 
-instance Core.ToHeaders ListDatasetEntries where
+instance Data.ToHeaders ListDatasetEntries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.ListDatasetEntries" ::
+              Data.=# ( "RekognitionService.ListDatasetEntries" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDatasetEntries where
+instance Data.ToJSON ListDatasetEntries where
   toJSON ListDatasetEntries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Labeled" Core..=) Prelude.<$> labeled,
-            ("ContainsLabels" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Labeled" Data..=) Prelude.<$> labeled,
+            ("ContainsLabels" Data..=)
               Prelude.<$> containsLabels,
-            ("SourceRefContains" Core..=)
+            ("SourceRefContains" Data..=)
               Prelude.<$> sourceRefContains,
-            ("HasErrors" Core..=) Prelude.<$> hasErrors,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("DatasetArn" Core..= datasetArn)
+            ("HasErrors" Data..=) Prelude.<$> hasErrors,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("DatasetArn" Data..= datasetArn)
           ]
       )
 
-instance Core.ToPath ListDatasetEntries where
+instance Data.ToPath ListDatasetEntries where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDatasetEntries where
+instance Data.ToQuery ListDatasetEntries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDatasetEntriesResponse' smart constructor.

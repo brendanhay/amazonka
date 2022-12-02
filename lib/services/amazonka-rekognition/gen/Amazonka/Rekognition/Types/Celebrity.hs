@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Celebrity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.ComparedFace
 import Amazonka.Rekognition.Types.KnownGender
@@ -111,18 +112,18 @@ celebrity_face = Lens.lens (\Celebrity' {face} -> face) (\s@Celebrity' {} a -> s
 celebrity_urls :: Lens.Lens' Celebrity (Prelude.Maybe [Prelude.Text])
 celebrity_urls = Lens.lens (\Celebrity' {urls} -> urls) (\s@Celebrity' {} a -> s {urls = a} :: Celebrity) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Celebrity where
+instance Data.FromJSON Celebrity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Celebrity"
       ( \x ->
           Celebrity'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "MatchConfidence")
-            Prelude.<*> (x Core..:? "KnownGender")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Face")
-            Prelude.<*> (x Core..:? "Urls" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "MatchConfidence")
+            Prelude.<*> (x Data..:? "KnownGender")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Face")
+            Prelude.<*> (x Data..:? "Urls" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Celebrity where

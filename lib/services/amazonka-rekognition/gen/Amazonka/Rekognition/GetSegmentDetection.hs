@@ -83,6 +83,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -160,15 +161,15 @@ instance Core.AWSRequest GetSegmentDetection where
     Response.receiveJSON
       ( \s h x ->
           GetSegmentDetectionResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "VideoMetadata" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "SelectedSegmentTypes"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "VideoMetadata" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "SelectedSegmentTypes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "StatusMessage")
-            Prelude.<*> (x Core..?> "Segments" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "AudioMetadata" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "Segments" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "AudioMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,35 +185,35 @@ instance Prelude.NFData GetSegmentDetection where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetSegmentDetection where
+instance Data.ToHeaders GetSegmentDetection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.GetSegmentDetection" ::
+              Data.=# ( "RekognitionService.GetSegmentDetection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSegmentDetection where
+instance Data.ToJSON GetSegmentDetection where
   toJSON GetSegmentDetection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("JobId" Core..= jobId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("JobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath GetSegmentDetection where
+instance Data.ToPath GetSegmentDetection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSegmentDetection where
+instance Data.ToQuery GetSegmentDetection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSegmentDetectionResponse' smart constructor.

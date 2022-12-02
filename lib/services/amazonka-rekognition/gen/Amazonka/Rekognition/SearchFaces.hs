@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -145,9 +146,9 @@ instance Core.AWSRequest SearchFaces where
     Response.receiveJSON
       ( \s h x ->
           SearchFacesResponse'
-            Prelude.<$> (x Core..?> "FaceMatches" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "SearchedFaceId")
-            Prelude.<*> (x Core..?> "FaceModelVersion")
+            Prelude.<$> (x Data..?> "FaceMatches" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "SearchedFaceId")
+            Prelude.<*> (x Data..?> "FaceModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,37 +166,37 @@ instance Prelude.NFData SearchFaces where
       `Prelude.seq` Prelude.rnf collectionId
       `Prelude.seq` Prelude.rnf faceId
 
-instance Core.ToHeaders SearchFaces where
+instance Data.ToHeaders SearchFaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.SearchFaces" ::
+              Data.=# ( "RekognitionService.SearchFaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchFaces where
+instance Data.ToJSON SearchFaces where
   toJSON SearchFaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FaceMatchThreshold" Core..=)
+          [ ("FaceMatchThreshold" Data..=)
               Prelude.<$> faceMatchThreshold,
-            ("MaxFaces" Core..=) Prelude.<$> maxFaces,
-            Prelude.Just ("CollectionId" Core..= collectionId),
-            Prelude.Just ("FaceId" Core..= faceId)
+            ("MaxFaces" Data..=) Prelude.<$> maxFaces,
+            Prelude.Just ("CollectionId" Data..= collectionId),
+            Prelude.Just ("FaceId" Data..= faceId)
           ]
       )
 
-instance Core.ToPath SearchFaces where
+instance Data.ToPath SearchFaces where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SearchFaces where
+instance Data.ToQuery SearchFaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchFacesResponse' smart constructor.

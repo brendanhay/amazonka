@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.TextDetectionResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.TextDetection
 
@@ -70,14 +71,14 @@ textDetectionResult_timestamp = Lens.lens (\TextDetectionResult' {timestamp} -> 
 textDetectionResult_textDetection :: Lens.Lens' TextDetectionResult (Prelude.Maybe TextDetection)
 textDetectionResult_textDetection = Lens.lens (\TextDetectionResult' {textDetection} -> textDetection) (\s@TextDetectionResult' {} a -> s {textDetection = a} :: TextDetectionResult)
 
-instance Core.FromJSON TextDetectionResult where
+instance Data.FromJSON TextDetectionResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TextDetectionResult"
       ( \x ->
           TextDetectionResult'
-            Prelude.<$> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "TextDetection")
+            Prelude.<$> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "TextDetection")
       )
 
 instance Prelude.Hashable TextDetectionResult where

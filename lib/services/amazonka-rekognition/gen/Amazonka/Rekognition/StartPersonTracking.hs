@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -159,7 +160,7 @@ instance Core.AWSRequest StartPersonTracking where
     Response.receiveJSON
       ( \s h x ->
           StartPersonTrackingResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,38 +178,38 @@ instance Prelude.NFData StartPersonTracking where
       `Prelude.seq` Prelude.rnf notificationChannel
       `Prelude.seq` Prelude.rnf video
 
-instance Core.ToHeaders StartPersonTracking where
+instance Data.ToHeaders StartPersonTracking where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.StartPersonTracking" ::
+              Data.=# ( "RekognitionService.StartPersonTracking" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartPersonTracking where
+instance Data.ToJSON StartPersonTracking where
   toJSON StartPersonTracking' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
-            ("NotificationChannel" Core..=)
+            ("JobTag" Data..=) Prelude.<$> jobTag,
+            ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
-            Prelude.Just ("Video" Core..= video)
+            Prelude.Just ("Video" Data..= video)
           ]
       )
 
-instance Core.ToPath StartPersonTracking where
+instance Data.ToPath StartPersonTracking where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartPersonTracking where
+instance Data.ToQuery StartPersonTracking where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartPersonTrackingResponse' smart constructor.

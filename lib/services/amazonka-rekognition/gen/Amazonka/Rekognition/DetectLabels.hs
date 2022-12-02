@@ -161,6 +161,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -299,10 +300,10 @@ instance Core.AWSRequest DetectLabels where
     Response.receiveJSON
       ( \s h x ->
           DetectLabelsResponse'
-            Prelude.<$> (x Core..?> "LabelModelVersion")
-            Prelude.<*> (x Core..?> "OrientationCorrection")
-            Prelude.<*> (x Core..?> "Labels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ImageProperties")
+            Prelude.<$> (x Data..?> "LabelModelVersion")
+            Prelude.<*> (x Data..?> "OrientationCorrection")
+            Prelude.<*> (x Data..?> "Labels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ImageProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -322,37 +323,37 @@ instance Prelude.NFData DetectLabels where
       `Prelude.seq` Prelude.rnf minConfidence
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToHeaders DetectLabels where
+instance Data.ToHeaders DetectLabels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.DetectLabels" ::
+              Data.=# ( "RekognitionService.DetectLabels" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DetectLabels where
+instance Data.ToJSON DetectLabels where
   toJSON DetectLabels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxLabels" Core..=) Prelude.<$> maxLabels,
-            ("Features" Core..=) Prelude.<$> features,
-            ("Settings" Core..=) Prelude.<$> settings,
-            ("MinConfidence" Core..=) Prelude.<$> minConfidence,
-            Prelude.Just ("Image" Core..= image)
+          [ ("MaxLabels" Data..=) Prelude.<$> maxLabels,
+            ("Features" Data..=) Prelude.<$> features,
+            ("Settings" Data..=) Prelude.<$> settings,
+            ("MinConfidence" Data..=) Prelude.<$> minConfidence,
+            Prelude.Just ("Image" Data..= image)
           ]
       )
 
-instance Core.ToPath DetectLabels where
+instance Data.ToPath DetectLabels where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectLabels where
+instance Data.ToQuery DetectLabels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectLabelsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.GeneralLabelsSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains filters for the object labels returned by DetectLabels. Filters
@@ -103,17 +104,17 @@ instance Prelude.NFData GeneralLabelsSettings where
       `Prelude.seq` Prelude.rnf labelInclusionFilters
       `Prelude.seq` Prelude.rnf labelCategoryExclusionFilters
 
-instance Core.ToJSON GeneralLabelsSettings where
+instance Data.ToJSON GeneralLabelsSettings where
   toJSON GeneralLabelsSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LabelCategoryInclusionFilters" Core..=)
+          [ ("LabelCategoryInclusionFilters" Data..=)
               Prelude.<$> labelCategoryInclusionFilters,
-            ("LabelExclusionFilters" Core..=)
+            ("LabelExclusionFilters" Data..=)
               Prelude.<$> labelExclusionFilters,
-            ("LabelInclusionFilters" Core..=)
+            ("LabelInclusionFilters" Data..=)
               Prelude.<$> labelInclusionFilters,
-            ("LabelCategoryExclusionFilters" Core..=)
+            ("LabelCategoryExclusionFilters" Data..=)
               Prelude.<$> labelCategoryExclusionFilters
           ]
       )

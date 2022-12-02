@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -142,9 +143,9 @@ instance Core.AWSRequest ListFaces where
     Response.receiveJSON
       ( \s h x ->
           ListFacesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Faces" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "FaceModelVersion")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Faces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "FaceModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,35 +161,35 @@ instance Prelude.NFData ListFaces where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf collectionId
 
-instance Core.ToHeaders ListFaces where
+instance Data.ToHeaders ListFaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.ListFaces" ::
+              Data.=# ( "RekognitionService.ListFaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFaces where
+instance Data.ToJSON ListFaces where
   toJSON ListFaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("CollectionId" Core..= collectionId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("CollectionId" Data..= collectionId)
           ]
       )
 
-instance Core.ToPath ListFaces where
+instance Data.ToPath ListFaces where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListFaces where
+instance Data.ToQuery ListFaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFacesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Mustache where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether or not the face has a mustache, and the confidence
@@ -62,14 +63,14 @@ mustache_confidence = Lens.lens (\Mustache' {confidence} -> confidence) (\s@Must
 mustache_value :: Lens.Lens' Mustache (Prelude.Maybe Prelude.Bool)
 mustache_value = Lens.lens (\Mustache' {value} -> value) (\s@Mustache' {} a -> s {value = a} :: Mustache)
 
-instance Core.FromJSON Mustache where
+instance Data.FromJSON Mustache where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Mustache"
       ( \x ->
           Mustache'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Mustache where

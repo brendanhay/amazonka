@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.FaceSearchSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Input face recognition parameters for an Amazon Rekognition stream
@@ -74,14 +75,14 @@ faceSearchSettings_faceMatchThreshold = Lens.lens (\FaceSearchSettings' {faceMat
 faceSearchSettings_collectionId :: Lens.Lens' FaceSearchSettings (Prelude.Maybe Prelude.Text)
 faceSearchSettings_collectionId = Lens.lens (\FaceSearchSettings' {collectionId} -> collectionId) (\s@FaceSearchSettings' {} a -> s {collectionId = a} :: FaceSearchSettings)
 
-instance Core.FromJSON FaceSearchSettings where
+instance Data.FromJSON FaceSearchSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FaceSearchSettings"
       ( \x ->
           FaceSearchSettings'
-            Prelude.<$> (x Core..:? "FaceMatchThreshold")
-            Prelude.<*> (x Core..:? "CollectionId")
+            Prelude.<$> (x Data..:? "FaceMatchThreshold")
+            Prelude.<*> (x Data..:? "CollectionId")
       )
 
 instance Prelude.Hashable FaceSearchSettings where
@@ -94,12 +95,12 @@ instance Prelude.NFData FaceSearchSettings where
     Prelude.rnf faceMatchThreshold
       `Prelude.seq` Prelude.rnf collectionId
 
-instance Core.ToJSON FaceSearchSettings where
+instance Data.ToJSON FaceSearchSettings where
   toJSON FaceSearchSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FaceMatchThreshold" Core..=)
+          [ ("FaceMatchThreshold" Data..=)
               Prelude.<$> faceMatchThreshold,
-            ("CollectionId" Core..=) Prelude.<$> collectionId
+            ("CollectionId" Data..=) Prelude.<$> collectionId
           ]
       )

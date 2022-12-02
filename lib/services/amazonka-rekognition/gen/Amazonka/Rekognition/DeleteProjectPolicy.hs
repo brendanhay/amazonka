@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -129,36 +130,36 @@ instance Prelude.NFData DeleteProjectPolicy where
       `Prelude.seq` Prelude.rnf projectArn
       `Prelude.seq` Prelude.rnf policyName
 
-instance Core.ToHeaders DeleteProjectPolicy where
+instance Data.ToHeaders DeleteProjectPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.DeleteProjectPolicy" ::
+              Data.=# ( "RekognitionService.DeleteProjectPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteProjectPolicy where
+instance Data.ToJSON DeleteProjectPolicy where
   toJSON DeleteProjectPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PolicyRevisionId" Core..=)
+          [ ("PolicyRevisionId" Data..=)
               Prelude.<$> policyRevisionId,
-            Prelude.Just ("ProjectArn" Core..= projectArn),
-            Prelude.Just ("PolicyName" Core..= policyName)
+            Prelude.Just ("ProjectArn" Data..= projectArn),
+            Prelude.Just ("PolicyName" Data..= policyName)
           ]
       )
 
-instance Core.ToPath DeleteProjectPolicy where
+instance Data.ToPath DeleteProjectPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteProjectPolicy where
+instance Data.ToQuery DeleteProjectPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProjectPolicyResponse' smart constructor.

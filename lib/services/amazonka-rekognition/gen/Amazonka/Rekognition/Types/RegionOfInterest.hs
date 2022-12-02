@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.RegionOfInterest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.BoundingBox
 import Amazonka.Rekognition.Types.Point
@@ -73,14 +74,14 @@ regionOfInterest_polygon = Lens.lens (\RegionOfInterest' {polygon} -> polygon) (
 regionOfInterest_boundingBox :: Lens.Lens' RegionOfInterest (Prelude.Maybe BoundingBox)
 regionOfInterest_boundingBox = Lens.lens (\RegionOfInterest' {boundingBox} -> boundingBox) (\s@RegionOfInterest' {} a -> s {boundingBox = a} :: RegionOfInterest)
 
-instance Core.FromJSON RegionOfInterest where
+instance Data.FromJSON RegionOfInterest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegionOfInterest"
       ( \x ->
           RegionOfInterest'
-            Prelude.<$> (x Core..:? "Polygon" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BoundingBox")
+            Prelude.<$> (x Data..:? "Polygon" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "BoundingBox")
       )
 
 instance Prelude.Hashable RegionOfInterest where
@@ -93,11 +94,11 @@ instance Prelude.NFData RegionOfInterest where
     Prelude.rnf polygon
       `Prelude.seq` Prelude.rnf boundingBox
 
-instance Core.ToJSON RegionOfInterest where
+instance Data.ToJSON RegionOfInterest where
   toJSON RegionOfInterest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Polygon" Core..=) Prelude.<$> polygon,
-            ("BoundingBox" Core..=) Prelude.<$> boundingBox
+          [ ("Polygon" Data..=) Prelude.<$> polygon,
+            ("BoundingBox" Data..=) Prelude.<$> boundingBox
           ]
       )

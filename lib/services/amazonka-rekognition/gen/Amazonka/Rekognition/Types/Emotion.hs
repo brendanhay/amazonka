@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Emotion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.EmotionName
 
@@ -67,14 +68,14 @@ emotion_type = Lens.lens (\Emotion' {type'} -> type') (\s@Emotion' {} a -> s {ty
 emotion_confidence :: Lens.Lens' Emotion (Prelude.Maybe Prelude.Double)
 emotion_confidence = Lens.lens (\Emotion' {confidence} -> confidence) (\s@Emotion' {} a -> s {confidence = a} :: Emotion)
 
-instance Core.FromJSON Emotion where
+instance Data.FromJSON Emotion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Emotion"
       ( \x ->
           Emotion'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Confidence")
       )
 
 instance Prelude.Hashable Emotion where

@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DominantColor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of the dominant colors in an image.
@@ -106,19 +107,19 @@ dominantColor_blue = Lens.lens (\DominantColor' {blue} -> blue) (\s@DominantColo
 dominantColor_red :: Lens.Lens' DominantColor (Prelude.Maybe Prelude.Natural)
 dominantColor_red = Lens.lens (\DominantColor' {red} -> red) (\s@DominantColor' {} a -> s {red = a} :: DominantColor)
 
-instance Core.FromJSON DominantColor where
+instance Data.FromJSON DominantColor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DominantColor"
       ( \x ->
           DominantColor'
-            Prelude.<$> (x Core..:? "SimplifiedColor")
-            Prelude.<*> (x Core..:? "HexCode")
-            Prelude.<*> (x Core..:? "PixelPercent")
-            Prelude.<*> (x Core..:? "Green")
-            Prelude.<*> (x Core..:? "CSSColor")
-            Prelude.<*> (x Core..:? "Blue")
-            Prelude.<*> (x Core..:? "Red")
+            Prelude.<$> (x Data..:? "SimplifiedColor")
+            Prelude.<*> (x Data..:? "HexCode")
+            Prelude.<*> (x Data..:? "PixelPercent")
+            Prelude.<*> (x Data..:? "Green")
+            Prelude.<*> (x Data..:? "CSSColor")
+            Prelude.<*> (x Data..:? "Blue")
+            Prelude.<*> (x Data..:? "Red")
       )
 
 instance Prelude.Hashable DominantColor where

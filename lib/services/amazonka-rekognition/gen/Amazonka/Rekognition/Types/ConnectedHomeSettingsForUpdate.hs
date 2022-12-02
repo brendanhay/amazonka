@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ConnectedHomeSettingsForUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The label detection settings you want to use in your stream processor.
@@ -88,11 +89,11 @@ instance
     Prelude.rnf minConfidence
       `Prelude.seq` Prelude.rnf labels
 
-instance Core.ToJSON ConnectedHomeSettingsForUpdate where
+instance Data.ToJSON ConnectedHomeSettingsForUpdate where
   toJSON ConnectedHomeSettingsForUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinConfidence" Core..=) Prelude.<$> minConfidence,
-            ("Labels" Core..=) Prelude.<$> labels
+          [ ("MinConfidence" Data..=) Prelude.<$> minConfidence,
+            ("Labels" Data..=) Prelude.<$> labels
           ]
       )

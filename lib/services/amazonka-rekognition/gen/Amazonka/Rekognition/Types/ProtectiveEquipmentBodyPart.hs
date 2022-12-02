@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ProtectiveEquipmentBodyPart where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.BodyPart
 import Amazonka.Rekognition.Types.EquipmentDetection
@@ -81,16 +82,16 @@ protectiveEquipmentBodyPart_confidence = Lens.lens (\ProtectiveEquipmentBodyPart
 protectiveEquipmentBodyPart_equipmentDetections :: Lens.Lens' ProtectiveEquipmentBodyPart (Prelude.Maybe [EquipmentDetection])
 protectiveEquipmentBodyPart_equipmentDetections = Lens.lens (\ProtectiveEquipmentBodyPart' {equipmentDetections} -> equipmentDetections) (\s@ProtectiveEquipmentBodyPart' {} a -> s {equipmentDetections = a} :: ProtectiveEquipmentBodyPart) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ProtectiveEquipmentBodyPart where
+instance Data.FromJSON ProtectiveEquipmentBodyPart where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProtectiveEquipmentBodyPart"
       ( \x ->
           ProtectiveEquipmentBodyPart'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> ( x Core..:? "EquipmentDetections"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> ( x Data..:? "EquipmentDetections"
+                            Data..!= Prelude.mempty
                         )
       )
 

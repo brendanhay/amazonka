@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -120,32 +121,32 @@ instance Prelude.NFData DistributeDatasetEntries where
   rnf DistributeDatasetEntries' {..} =
     Prelude.rnf datasets
 
-instance Core.ToHeaders DistributeDatasetEntries where
+instance Data.ToHeaders DistributeDatasetEntries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.DistributeDatasetEntries" ::
+              Data.=# ( "RekognitionService.DistributeDatasetEntries" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DistributeDatasetEntries where
+instance Data.ToJSON DistributeDatasetEntries where
   toJSON DistributeDatasetEntries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Datasets" Core..= datasets)]
+          [Prelude.Just ("Datasets" Data..= datasets)]
       )
 
-instance Core.ToPath DistributeDatasetEntries where
+instance Data.ToPath DistributeDatasetEntries where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DistributeDatasetEntries where
+instance Data.ToQuery DistributeDatasetEntries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDistributeDatasetEntriesResponse' smart constructor.

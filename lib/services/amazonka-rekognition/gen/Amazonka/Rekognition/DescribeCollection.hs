@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -91,10 +92,10 @@ instance Core.AWSRequest DescribeCollection where
     Response.receiveJSON
       ( \s h x ->
           DescribeCollectionResponse'
-            Prelude.<$> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "FaceCount")
-            Prelude.<*> (x Core..?> "FaceModelVersion")
-            Prelude.<*> (x Core..?> "CollectionARN")
+            Prelude.<$> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "FaceCount")
+            Prelude.<*> (x Data..?> "FaceModelVersion")
+            Prelude.<*> (x Data..?> "CollectionARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,32 +107,32 @@ instance Prelude.NFData DescribeCollection where
   rnf DescribeCollection' {..} =
     Prelude.rnf collectionId
 
-instance Core.ToHeaders DescribeCollection where
+instance Data.ToHeaders DescribeCollection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.DescribeCollection" ::
+              Data.=# ( "RekognitionService.DescribeCollection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCollection where
+instance Data.ToJSON DescribeCollection where
   toJSON DescribeCollection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("CollectionId" Core..= collectionId)]
+          [Prelude.Just ("CollectionId" Data..= collectionId)]
       )
 
-instance Core.ToPath DescribeCollection where
+instance Data.ToPath DescribeCollection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCollection where
+instance Data.ToQuery DescribeCollection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCollectionResponse' smart constructor.
@@ -139,7 +140,7 @@ data DescribeCollectionResponse = DescribeCollectionResponse'
   { -- | The number of milliseconds since the Unix epoch time until the creation
     -- of the collection. The Unix epoch time is 00:00:00 Coordinated Universal
     -- Time (UTC), Thursday, 1 January 1970.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The number of faces that are indexed into the collection. To index faces
     -- into a collection, use IndexFaces.
     faceCount :: Prelude.Maybe Prelude.Natural,
@@ -198,7 +199,7 @@ newDescribeCollectionResponse pHttpStatus_ =
 -- of the collection. The Unix epoch time is 00:00:00 Coordinated Universal
 -- Time (UTC), Thursday, 1 January 1970.
 describeCollectionResponse_creationTimestamp :: Lens.Lens' DescribeCollectionResponse (Prelude.Maybe Prelude.UTCTime)
-describeCollectionResponse_creationTimestamp = Lens.lens (\DescribeCollectionResponse' {creationTimestamp} -> creationTimestamp) (\s@DescribeCollectionResponse' {} a -> s {creationTimestamp = a} :: DescribeCollectionResponse) Prelude.. Lens.mapping Core._Time
+describeCollectionResponse_creationTimestamp = Lens.lens (\DescribeCollectionResponse' {creationTimestamp} -> creationTimestamp) (\s@DescribeCollectionResponse' {} a -> s {creationTimestamp = a} :: DescribeCollectionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The number of faces that are indexed into the collection. To index faces
 -- into a collection, use IndexFaces.

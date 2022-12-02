@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ProtectiveEquipmentSummarizationAttributes whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.ProtectiveEquipmentType
 
@@ -134,18 +135,18 @@ instance
       `Prelude.seq` Prelude.rnf requiredEquipmentTypes
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ProtectiveEquipmentSummarizationAttributes
   where
   toJSON
     ProtectiveEquipmentSummarizationAttributes' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
             [ Prelude.Just
-                ("MinConfidence" Core..= minConfidence),
+                ("MinConfidence" Data..= minConfidence),
               Prelude.Just
                 ( "RequiredEquipmentTypes"
-                    Core..= requiredEquipmentTypes
+                    Data..= requiredEquipmentTypes
                 )
             ]
         )

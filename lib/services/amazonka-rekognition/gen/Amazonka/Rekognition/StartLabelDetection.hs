@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -198,7 +199,7 @@ instance Core.AWSRequest StartLabelDetection where
     Response.receiveJSON
       ( \s h x ->
           StartLabelDetectionResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,39 +219,39 @@ instance Prelude.NFData StartLabelDetection where
       `Prelude.seq` Prelude.rnf notificationChannel
       `Prelude.seq` Prelude.rnf video
 
-instance Core.ToHeaders StartLabelDetection where
+instance Data.ToHeaders StartLabelDetection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.StartLabelDetection" ::
+              Data.=# ( "RekognitionService.StartLabelDetection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartLabelDetection where
+instance Data.ToJSON StartLabelDetection where
   toJSON StartLabelDetection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("MinConfidence" Core..=) Prelude.<$> minConfidence,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
-            ("NotificationChannel" Core..=)
+            ("MinConfidence" Data..=) Prelude.<$> minConfidence,
+            ("JobTag" Data..=) Prelude.<$> jobTag,
+            ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
-            Prelude.Just ("Video" Core..= video)
+            Prelude.Just ("Video" Data..= video)
           ]
       )
 
-instance Core.ToPath StartLabelDetection where
+instance Data.ToPath StartLabelDetection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartLabelDetection where
+instance Data.ToQuery StartLabelDetection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartLabelDetectionResponse' smart constructor.

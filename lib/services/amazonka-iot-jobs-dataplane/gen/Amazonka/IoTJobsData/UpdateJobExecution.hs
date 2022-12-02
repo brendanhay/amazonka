@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTJobsData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -228,8 +229,8 @@ instance Core.AWSRequest UpdateJobExecution where
     Response.receiveJSON
       ( \s h x ->
           UpdateJobExecutionResponse'
-            Prelude.<$> (x Core..?> "jobDocument")
-            Prelude.<*> (x Core..?> "executionState")
+            Prelude.<$> (x Data..?> "jobDocument")
+            Prelude.<*> (x Data..?> "executionState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -258,38 +259,38 @@ instance Prelude.NFData UpdateJobExecution where
       `Prelude.seq` Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToHeaders UpdateJobExecution where
+instance Data.ToHeaders UpdateJobExecution where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateJobExecution where
+instance Data.ToJSON UpdateJobExecution where
   toJSON UpdateJobExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("includeJobExecutionState" Core..=)
+          [ ("includeJobExecutionState" Data..=)
               Prelude.<$> includeJobExecutionState,
-            ("executionNumber" Core..=)
+            ("executionNumber" Data..=)
               Prelude.<$> executionNumber,
-            ("statusDetails" Core..=) Prelude.<$> statusDetails,
-            ("stepTimeoutInMinutes" Core..=)
+            ("statusDetails" Data..=) Prelude.<$> statusDetails,
+            ("stepTimeoutInMinutes" Data..=)
               Prelude.<$> stepTimeoutInMinutes,
-            ("includeJobDocument" Core..=)
+            ("includeJobDocument" Data..=)
               Prelude.<$> includeJobDocument,
-            ("expectedVersion" Core..=)
+            ("expectedVersion" Data..=)
               Prelude.<$> expectedVersion,
-            Prelude.Just ("status" Core..= status)
+            Prelude.Just ("status" Data..= status)
           ]
       )
 
-instance Core.ToPath UpdateJobExecution where
+instance Data.ToPath UpdateJobExecution where
   toPath UpdateJobExecution' {..} =
     Prelude.mconcat
       [ "/things/",
-        Core.toBS thingName,
+        Data.toBS thingName,
         "/jobs/",
-        Core.toBS jobId
+        Data.toBS jobId
       ]
 
-instance Core.ToQuery UpdateJobExecution where
+instance Data.ToQuery UpdateJobExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateJobExecutionResponse' smart constructor.

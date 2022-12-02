@@ -21,6 +21,7 @@ module Amazonka.IoTJobsData.Types.JobExecutionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a subset of information about a job execution.
@@ -113,18 +114,18 @@ jobExecutionSummary_versionNumber = Lens.lens (\JobExecutionSummary' {versionNum
 jobExecutionSummary_queuedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.Integer)
 jobExecutionSummary_queuedAt = Lens.lens (\JobExecutionSummary' {queuedAt} -> queuedAt) (\s@JobExecutionSummary' {} a -> s {queuedAt = a} :: JobExecutionSummary)
 
-instance Core.FromJSON JobExecutionSummary where
+instance Data.FromJSON JobExecutionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobExecutionSummary"
       ( \x ->
           JobExecutionSummary'
-            Prelude.<$> (x Core..:? "executionNumber")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..:? "versionNumber")
-            Prelude.<*> (x Core..:? "queuedAt")
+            Prelude.<$> (x Data..:? "executionNumber")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "versionNumber")
+            Prelude.<*> (x Data..:? "queuedAt")
       )
 
 instance Prelude.Hashable JobExecutionSummary where

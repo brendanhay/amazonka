@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTJobsData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,7 +135,7 @@ instance Core.AWSRequest StartNextPendingJobExecution where
     Response.receiveJSON
       ( \s h x ->
           StartNextPendingJobExecutionResponse'
-            Prelude.<$> (x Core..?> "execution")
+            Prelude.<$> (x Data..?> "execution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,25 +154,25 @@ instance Prelude.NFData StartNextPendingJobExecution where
       `Prelude.seq` Prelude.rnf stepTimeoutInMinutes
       `Prelude.seq` Prelude.rnf thingName
 
-instance Core.ToHeaders StartNextPendingJobExecution where
+instance Data.ToHeaders StartNextPendingJobExecution where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON StartNextPendingJobExecution where
+instance Data.ToJSON StartNextPendingJobExecution where
   toJSON StartNextPendingJobExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("statusDetails" Core..=) Prelude.<$> statusDetails,
-            ("stepTimeoutInMinutes" Core..=)
+          [ ("statusDetails" Data..=) Prelude.<$> statusDetails,
+            ("stepTimeoutInMinutes" Data..=)
               Prelude.<$> stepTimeoutInMinutes
           ]
       )
 
-instance Core.ToPath StartNextPendingJobExecution where
+instance Data.ToPath StartNextPendingJobExecution where
   toPath StartNextPendingJobExecution' {..} =
     Prelude.mconcat
-      ["/things/", Core.toBS thingName, "/jobs/$next"]
+      ["/things/", Data.toBS thingName, "/jobs/$next"]
 
-instance Core.ToQuery StartNextPendingJobExecution where
+instance Data.ToQuery StartNextPendingJobExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartNextPendingJobExecutionResponse' smart constructor.

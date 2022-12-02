@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.CloudwatchAlarmAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action that updates a CloudWatch alarm.
@@ -94,16 +95,16 @@ cloudwatchAlarmAction_stateReason = Lens.lens (\CloudwatchAlarmAction' {stateRea
 cloudwatchAlarmAction_stateValue :: Lens.Lens' CloudwatchAlarmAction Prelude.Text
 cloudwatchAlarmAction_stateValue = Lens.lens (\CloudwatchAlarmAction' {stateValue} -> stateValue) (\s@CloudwatchAlarmAction' {} a -> s {stateValue = a} :: CloudwatchAlarmAction)
 
-instance Core.FromJSON CloudwatchAlarmAction where
+instance Data.FromJSON CloudwatchAlarmAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudwatchAlarmAction"
       ( \x ->
           CloudwatchAlarmAction'
-            Prelude.<$> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "alarmName")
-            Prelude.<*> (x Core..: "stateReason")
-            Prelude.<*> (x Core..: "stateValue")
+            Prelude.<$> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "alarmName")
+            Prelude.<*> (x Data..: "stateReason")
+            Prelude.<*> (x Data..: "stateValue")
       )
 
 instance Prelude.Hashable CloudwatchAlarmAction where
@@ -120,13 +121,13 @@ instance Prelude.NFData CloudwatchAlarmAction where
       `Prelude.seq` Prelude.rnf stateReason
       `Prelude.seq` Prelude.rnf stateValue
 
-instance Core.ToJSON CloudwatchAlarmAction where
+instance Data.ToJSON CloudwatchAlarmAction where
   toJSON CloudwatchAlarmAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("alarmName" Core..= alarmName),
-            Prelude.Just ("stateReason" Core..= stateReason),
-            Prelude.Just ("stateValue" Core..= stateValue)
+          [ Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("alarmName" Data..= alarmName),
+            Prelude.Just ("stateReason" Data..= stateReason),
+            Prelude.Just ("stateValue" Data..= stateValue)
           ]
       )

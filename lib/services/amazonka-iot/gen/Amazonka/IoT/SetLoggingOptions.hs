@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,17 +99,17 @@ instance Prelude.NFData SetLoggingOptions where
   rnf SetLoggingOptions' {..} =
     Prelude.rnf loggingOptionsPayload
 
-instance Core.ToHeaders SetLoggingOptions where
+instance Data.ToHeaders SetLoggingOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON SetLoggingOptions where
+instance Data.ToJSON SetLoggingOptions where
   toJSON SetLoggingOptions' {..} =
-    Core.toJSON loggingOptionsPayload
+    Data.toJSON loggingOptionsPayload
 
-instance Core.ToPath SetLoggingOptions where
+instance Data.ToPath SetLoggingOptions where
   toPath = Prelude.const "/loggingOptions"
 
-instance Core.ToQuery SetLoggingOptions where
+instance Data.ToQuery SetLoggingOptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetLoggingOptionsResponse' smart constructor.

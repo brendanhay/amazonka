@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.CodeSigning where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.CustomCodeSigning
 import Amazonka.IoT.Types.StartSigningJobParameter
 import qualified Amazonka.Prelude as Prelude
@@ -72,15 +73,15 @@ codeSigning_startSigningJobParameter = Lens.lens (\CodeSigning' {startSigningJob
 codeSigning_customCodeSigning :: Lens.Lens' CodeSigning (Prelude.Maybe CustomCodeSigning)
 codeSigning_customCodeSigning = Lens.lens (\CodeSigning' {customCodeSigning} -> customCodeSigning) (\s@CodeSigning' {} a -> s {customCodeSigning = a} :: CodeSigning)
 
-instance Core.FromJSON CodeSigning where
+instance Data.FromJSON CodeSigning where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeSigning"
       ( \x ->
           CodeSigning'
-            Prelude.<$> (x Core..:? "awsSignerJobId")
-            Prelude.<*> (x Core..:? "startSigningJobParameter")
-            Prelude.<*> (x Core..:? "customCodeSigning")
+            Prelude.<$> (x Data..:? "awsSignerJobId")
+            Prelude.<*> (x Data..:? "startSigningJobParameter")
+            Prelude.<*> (x Data..:? "customCodeSigning")
       )
 
 instance Prelude.Hashable CodeSigning where
@@ -95,15 +96,15 @@ instance Prelude.NFData CodeSigning where
       `Prelude.seq` Prelude.rnf startSigningJobParameter
       `Prelude.seq` Prelude.rnf customCodeSigning
 
-instance Core.ToJSON CodeSigning where
+instance Data.ToJSON CodeSigning where
   toJSON CodeSigning' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("awsSignerJobId" Core..=)
+          [ ("awsSignerJobId" Data..=)
               Prelude.<$> awsSignerJobId,
-            ("startSigningJobParameter" Core..=)
+            ("startSigningJobParameter" Data..=)
               Prelude.<$> startSigningJobParameter,
-            ("customCodeSigning" Core..=)
+            ("customCodeSigning" Data..=)
               Prelude.<$> customCodeSigning
           ]
       )

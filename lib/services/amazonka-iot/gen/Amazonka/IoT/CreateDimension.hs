@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,8 +163,8 @@ instance Core.AWSRequest CreateDimension where
     Response.receiveJSON
       ( \s h x ->
           CreateDimensionResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "arn")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,26 +184,26 @@ instance Prelude.NFData CreateDimension where
       `Prelude.seq` Prelude.rnf stringValues
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders CreateDimension where
+instance Data.ToHeaders CreateDimension where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateDimension where
+instance Data.ToJSON CreateDimension where
   toJSON CreateDimension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("stringValues" Core..= stringValues),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("type" Data..= type'),
+            Prelude.Just ("stringValues" Data..= stringValues),
             Prelude.Just
-              ("clientRequestToken" Core..= clientRequestToken)
+              ("clientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath CreateDimension where
+instance Data.ToPath CreateDimension where
   toPath CreateDimension' {..} =
-    Prelude.mconcat ["/dimensions/", Core.toBS name]
+    Prelude.mconcat ["/dimensions/", Data.toBS name]
 
-instance Core.ToQuery CreateDimension where
+instance Data.ToQuery CreateDimension where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDimensionResponse' smart constructor.

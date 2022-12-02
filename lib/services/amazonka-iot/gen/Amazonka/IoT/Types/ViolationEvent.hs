@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ViolationEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.Behavior
 import Amazonka.IoT.Types.MetricValue
 import Amazonka.IoT.Types.VerificationState
@@ -35,7 +36,7 @@ data ViolationEvent = ViolationEvent'
   { -- | The name of the thing responsible for the violation event.
     thingName :: Prelude.Maybe Prelude.Text,
     -- | The time the violation event occurred.
-    violationEventTime :: Prelude.Maybe Core.POSIX,
+    violationEventTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the violation event.
     violationId :: Prelude.Maybe Prelude.Text,
     -- | The value of the metric (the measurement).
@@ -104,7 +105,7 @@ violationEvent_thingName = Lens.lens (\ViolationEvent' {thingName} -> thingName)
 
 -- | The time the violation event occurred.
 violationEvent_violationEventTime :: Lens.Lens' ViolationEvent (Prelude.Maybe Prelude.UTCTime)
-violationEvent_violationEventTime = Lens.lens (\ViolationEvent' {violationEventTime} -> violationEventTime) (\s@ViolationEvent' {} a -> s {violationEventTime = a} :: ViolationEvent) Prelude.. Lens.mapping Core._Time
+violationEvent_violationEventTime = Lens.lens (\ViolationEvent' {violationEventTime} -> violationEventTime) (\s@ViolationEvent' {} a -> s {violationEventTime = a} :: ViolationEvent) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the violation event.
 violationEvent_violationId :: Lens.Lens' ViolationEvent (Prelude.Maybe Prelude.Text)
@@ -138,22 +139,22 @@ violationEvent_violationEventType = Lens.lens (\ViolationEvent' {violationEventT
 violationEvent_behavior :: Lens.Lens' ViolationEvent (Prelude.Maybe Behavior)
 violationEvent_behavior = Lens.lens (\ViolationEvent' {behavior} -> behavior) (\s@ViolationEvent' {} a -> s {behavior = a} :: ViolationEvent)
 
-instance Core.FromJSON ViolationEvent where
+instance Data.FromJSON ViolationEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ViolationEvent"
       ( \x ->
           ViolationEvent'
-            Prelude.<$> (x Core..:? "thingName")
-            Prelude.<*> (x Core..:? "violationEventTime")
-            Prelude.<*> (x Core..:? "violationId")
-            Prelude.<*> (x Core..:? "metricValue")
-            Prelude.<*> (x Core..:? "violationEventAdditionalInfo")
-            Prelude.<*> (x Core..:? "securityProfileName")
-            Prelude.<*> (x Core..:? "verificationStateDescription")
-            Prelude.<*> (x Core..:? "verificationState")
-            Prelude.<*> (x Core..:? "violationEventType")
-            Prelude.<*> (x Core..:? "behavior")
+            Prelude.<$> (x Data..:? "thingName")
+            Prelude.<*> (x Data..:? "violationEventTime")
+            Prelude.<*> (x Data..:? "violationId")
+            Prelude.<*> (x Data..:? "metricValue")
+            Prelude.<*> (x Data..:? "violationEventAdditionalInfo")
+            Prelude.<*> (x Data..:? "securityProfileName")
+            Prelude.<*> (x Data..:? "verificationStateDescription")
+            Prelude.<*> (x Data..:? "verificationState")
+            Prelude.<*> (x Data..:? "violationEventType")
+            Prelude.<*> (x Data..:? "behavior")
       )
 
 instance Prelude.Hashable ViolationEvent where

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.CloudwatchMetricAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action that captures a CloudWatch metric.
@@ -122,18 +123,18 @@ cloudwatchMetricAction_metricValue = Lens.lens (\CloudwatchMetricAction' {metric
 cloudwatchMetricAction_metricUnit :: Lens.Lens' CloudwatchMetricAction Prelude.Text
 cloudwatchMetricAction_metricUnit = Lens.lens (\CloudwatchMetricAction' {metricUnit} -> metricUnit) (\s@CloudwatchMetricAction' {} a -> s {metricUnit = a} :: CloudwatchMetricAction)
 
-instance Core.FromJSON CloudwatchMetricAction where
+instance Data.FromJSON CloudwatchMetricAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudwatchMetricAction"
       ( \x ->
           CloudwatchMetricAction'
-            Prelude.<$> (x Core..:? "metricTimestamp")
-            Prelude.<*> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "metricNamespace")
-            Prelude.<*> (x Core..: "metricName")
-            Prelude.<*> (x Core..: "metricValue")
-            Prelude.<*> (x Core..: "metricUnit")
+            Prelude.<$> (x Data..:? "metricTimestamp")
+            Prelude.<*> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "metricNamespace")
+            Prelude.<*> (x Data..: "metricName")
+            Prelude.<*> (x Data..: "metricValue")
+            Prelude.<*> (x Data..: "metricUnit")
       )
 
 instance Prelude.Hashable CloudwatchMetricAction where
@@ -154,17 +155,17 @@ instance Prelude.NFData CloudwatchMetricAction where
       `Prelude.seq` Prelude.rnf metricValue
       `Prelude.seq` Prelude.rnf metricUnit
 
-instance Core.ToJSON CloudwatchMetricAction where
+instance Data.ToJSON CloudwatchMetricAction where
   toJSON CloudwatchMetricAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("metricTimestamp" Core..=)
+          [ ("metricTimestamp" Data..=)
               Prelude.<$> metricTimestamp,
-            Prelude.Just ("roleArn" Core..= roleArn),
+            Prelude.Just ("roleArn" Data..= roleArn),
             Prelude.Just
-              ("metricNamespace" Core..= metricNamespace),
-            Prelude.Just ("metricName" Core..= metricName),
-            Prelude.Just ("metricValue" Core..= metricValue),
-            Prelude.Just ("metricUnit" Core..= metricUnit)
+              ("metricNamespace" Data..= metricNamespace),
+            Prelude.Just ("metricName" Data..= metricName),
+            Prelude.Just ("metricValue" Data..= metricValue),
+            Prelude.Just ("metricUnit" Data..= metricUnit)
           ]
       )

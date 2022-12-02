@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,13 +95,13 @@ instance Core.AWSRequest GetPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetPolicyResponse'
-            Prelude.<$> (x Core..?> "policyName")
-            Prelude.<*> (x Core..?> "defaultVersionId")
-            Prelude.<*> (x Core..?> "lastModifiedDate")
-            Prelude.<*> (x Core..?> "creationDate")
-            Prelude.<*> (x Core..?> "policyDocument")
-            Prelude.<*> (x Core..?> "policyArn")
-            Prelude.<*> (x Core..?> "generationId")
+            Prelude.<$> (x Data..?> "policyName")
+            Prelude.<*> (x Data..?> "defaultVersionId")
+            Prelude.<*> (x Data..?> "lastModifiedDate")
+            Prelude.<*> (x Data..?> "creationDate")
+            Prelude.<*> (x Data..?> "policyDocument")
+            Prelude.<*> (x Data..?> "policyArn")
+            Prelude.<*> (x Data..?> "generationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,15 +112,15 @@ instance Prelude.Hashable GetPolicy where
 instance Prelude.NFData GetPolicy where
   rnf GetPolicy' {..} = Prelude.rnf policyName
 
-instance Core.ToHeaders GetPolicy where
+instance Data.ToHeaders GetPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPolicy where
+instance Data.ToPath GetPolicy where
   toPath GetPolicy' {..} =
     Prelude.mconcat
-      ["/policies/", Core.toBS policyName]
+      ["/policies/", Data.toBS policyName]
 
-instance Core.ToQuery GetPolicy where
+instance Data.ToQuery GetPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the GetPolicy operation.
@@ -131,9 +132,9 @@ data GetPolicyResponse = GetPolicyResponse'
     -- | The default policy version ID.
     defaultVersionId :: Prelude.Maybe Prelude.Text,
     -- | The date the policy was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The date the policy was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The JSON document that describes the policy.
     policyDocument :: Prelude.Maybe Prelude.Text,
     -- | The policy ARN.
@@ -194,11 +195,11 @@ getPolicyResponse_defaultVersionId = Lens.lens (\GetPolicyResponse' {defaultVers
 
 -- | The date the policy was last modified.
 getPolicyResponse_lastModifiedDate :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.UTCTime)
-getPolicyResponse_lastModifiedDate = Lens.lens (\GetPolicyResponse' {lastModifiedDate} -> lastModifiedDate) (\s@GetPolicyResponse' {} a -> s {lastModifiedDate = a} :: GetPolicyResponse) Prelude.. Lens.mapping Core._Time
+getPolicyResponse_lastModifiedDate = Lens.lens (\GetPolicyResponse' {lastModifiedDate} -> lastModifiedDate) (\s@GetPolicyResponse' {} a -> s {lastModifiedDate = a} :: GetPolicyResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date the policy was created.
 getPolicyResponse_creationDate :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.UTCTime)
-getPolicyResponse_creationDate = Lens.lens (\GetPolicyResponse' {creationDate} -> creationDate) (\s@GetPolicyResponse' {} a -> s {creationDate = a} :: GetPolicyResponse) Prelude.. Lens.mapping Core._Time
+getPolicyResponse_creationDate = Lens.lens (\GetPolicyResponse' {creationDate} -> creationDate) (\s@GetPolicyResponse' {} a -> s {creationDate = a} :: GetPolicyResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The JSON document that describes the policy.
 getPolicyResponse_policyDocument :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)

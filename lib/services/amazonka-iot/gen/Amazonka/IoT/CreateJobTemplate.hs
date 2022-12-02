@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -227,8 +228,8 @@ instance Core.AWSRequest CreateJobTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateJobTemplateResponse'
-            Prelude.<$> (x Core..?> "jobTemplateArn")
-            Prelude.<*> (x Core..?> "jobTemplateId")
+            Prelude.<$> (x Data..?> "jobTemplateArn")
+            Prelude.<*> (x Data..?> "jobTemplateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -260,36 +261,36 @@ instance Prelude.NFData CreateJobTemplate where
       `Prelude.seq` Prelude.rnf jobTemplateId
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToHeaders CreateJobTemplate where
+instance Data.ToHeaders CreateJobTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateJobTemplate where
+instance Data.ToJSON CreateJobTemplate where
   toJSON CreateJobTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("jobExecutionsRolloutConfig" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("jobExecutionsRolloutConfig" Data..=)
               Prelude.<$> jobExecutionsRolloutConfig,
-            ("documentSource" Core..=)
+            ("documentSource" Data..=)
               Prelude.<$> documentSource,
-            ("abortConfig" Core..=) Prelude.<$> abortConfig,
-            ("presignedUrlConfig" Core..=)
+            ("abortConfig" Data..=) Prelude.<$> abortConfig,
+            ("presignedUrlConfig" Data..=)
               Prelude.<$> presignedUrlConfig,
-            ("document" Core..=) Prelude.<$> document,
-            ("jobArn" Core..=) Prelude.<$> jobArn,
-            ("jobExecutionsRetryConfig" Core..=)
+            ("document" Data..=) Prelude.<$> document,
+            ("jobArn" Data..=) Prelude.<$> jobArn,
+            ("jobExecutionsRetryConfig" Data..=)
               Prelude.<$> jobExecutionsRetryConfig,
-            ("timeoutConfig" Core..=) Prelude.<$> timeoutConfig,
-            Prelude.Just ("description" Core..= description)
+            ("timeoutConfig" Data..=) Prelude.<$> timeoutConfig,
+            Prelude.Just ("description" Data..= description)
           ]
       )
 
-instance Core.ToPath CreateJobTemplate where
+instance Data.ToPath CreateJobTemplate where
   toPath CreateJobTemplate' {..} =
     Prelude.mconcat
-      ["/job-templates/", Core.toBS jobTemplateId]
+      ["/job-templates/", Data.toBS jobTemplateId]
 
-instance Core.ToQuery CreateJobTemplate where
+instance Data.ToQuery CreateJobTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateJobTemplateResponse' smart constructor.

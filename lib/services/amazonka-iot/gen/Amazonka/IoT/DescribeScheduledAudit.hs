@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,14 +96,14 @@ instance Core.AWSRequest DescribeScheduledAudit where
     Response.receiveJSON
       ( \s h x ->
           DescribeScheduledAuditResponse'
-            Prelude.<$> ( x Core..?> "targetCheckNames"
+            Prelude.<$> ( x Data..?> "targetCheckNames"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "frequency")
-            Prelude.<*> (x Core..?> "dayOfWeek")
-            Prelude.<*> (x Core..?> "dayOfMonth")
-            Prelude.<*> (x Core..?> "scheduledAuditArn")
-            Prelude.<*> (x Core..?> "scheduledAuditName")
+            Prelude.<*> (x Data..?> "frequency")
+            Prelude.<*> (x Data..?> "dayOfWeek")
+            Prelude.<*> (x Data..?> "dayOfMonth")
+            Prelude.<*> (x Data..?> "scheduledAuditArn")
+            Prelude.<*> (x Data..?> "scheduledAuditName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,17 +115,17 @@ instance Prelude.NFData DescribeScheduledAudit where
   rnf DescribeScheduledAudit' {..} =
     Prelude.rnf scheduledAuditName
 
-instance Core.ToHeaders DescribeScheduledAudit where
+instance Data.ToHeaders DescribeScheduledAudit where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeScheduledAudit where
+instance Data.ToPath DescribeScheduledAudit where
   toPath DescribeScheduledAudit' {..} =
     Prelude.mconcat
       [ "/audit/scheduledaudits/",
-        Core.toBS scheduledAuditName
+        Data.toBS scheduledAuditName
       ]
 
-instance Core.ToQuery DescribeScheduledAudit where
+instance Data.ToQuery DescribeScheduledAudit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeScheduledAuditResponse' smart constructor.

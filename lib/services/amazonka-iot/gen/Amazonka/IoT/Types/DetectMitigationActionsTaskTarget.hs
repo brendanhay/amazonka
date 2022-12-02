@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.DetectMitigationActionsTaskTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The target of a mitigation action task.
@@ -72,17 +73,17 @@ detectMitigationActionsTaskTarget_securityProfileName :: Lens.Lens' DetectMitiga
 detectMitigationActionsTaskTarget_securityProfileName = Lens.lens (\DetectMitigationActionsTaskTarget' {securityProfileName} -> securityProfileName) (\s@DetectMitigationActionsTaskTarget' {} a -> s {securityProfileName = a} :: DetectMitigationActionsTaskTarget)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DetectMitigationActionsTaskTarget
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectMitigationActionsTaskTarget"
       ( \x ->
           DetectMitigationActionsTaskTarget'
-            Prelude.<$> (x Core..:? "behaviorName")
-            Prelude.<*> (x Core..:? "violationIds")
-            Prelude.<*> (x Core..:? "securityProfileName")
+            Prelude.<$> (x Data..:? "behaviorName")
+            Prelude.<*> (x Data..:? "violationIds")
+            Prelude.<*> (x Data..:? "securityProfileName")
       )
 
 instance
@@ -106,15 +107,15 @@ instance
       `Prelude.seq` Prelude.rnf securityProfileName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DetectMitigationActionsTaskTarget
   where
   toJSON DetectMitigationActionsTaskTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("behaviorName" Core..=) Prelude.<$> behaviorName,
-            ("violationIds" Core..=) Prelude.<$> violationIds,
-            ("securityProfileName" Core..=)
+          [ ("behaviorName" Data..=) Prelude.<$> behaviorName,
+            ("violationIds" Data..=) Prelude.<$> violationIds,
+            ("securityProfileName" Data..=)
               Prelude.<$> securityProfileName
           ]
       )

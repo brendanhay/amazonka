@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,15 +106,15 @@ instance Prelude.NFData DeleteCACertificate where
   rnf DeleteCACertificate' {..} =
     Prelude.rnf certificateId
 
-instance Core.ToHeaders DeleteCACertificate where
+instance Data.ToHeaders DeleteCACertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteCACertificate where
+instance Data.ToPath DeleteCACertificate where
   toPath DeleteCACertificate' {..} =
     Prelude.mconcat
-      ["/cacertificate/", Core.toBS certificateId]
+      ["/cacertificate/", Data.toBS certificateId]
 
-instance Core.ToQuery DeleteCACertificate where
+instance Data.ToQuery DeleteCACertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the DeleteCACertificate operation.

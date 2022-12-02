@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,12 +93,12 @@ instance Core.AWSRequest DescribeCustomMetric where
     Response.receiveJSON
       ( \s h x ->
           DescribeCustomMetricResponse'
-            Prelude.<$> (x Core..?> "metricArn")
-            Prelude.<*> (x Core..?> "lastModifiedDate")
-            Prelude.<*> (x Core..?> "displayName")
-            Prelude.<*> (x Core..?> "creationDate")
-            Prelude.<*> (x Core..?> "metricType")
-            Prelude.<*> (x Core..?> "metricName")
+            Prelude.<$> (x Data..?> "metricArn")
+            Prelude.<*> (x Data..?> "lastModifiedDate")
+            Prelude.<*> (x Data..?> "displayName")
+            Prelude.<*> (x Data..?> "creationDate")
+            Prelude.<*> (x Data..?> "metricType")
+            Prelude.<*> (x Data..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,15 +110,15 @@ instance Prelude.NFData DescribeCustomMetric where
   rnf DescribeCustomMetric' {..} =
     Prelude.rnf metricName
 
-instance Core.ToHeaders DescribeCustomMetric where
+instance Data.ToHeaders DescribeCustomMetric where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeCustomMetric where
+instance Data.ToPath DescribeCustomMetric where
   toPath DescribeCustomMetric' {..} =
     Prelude.mconcat
-      ["/custom-metric/", Core.toBS metricName]
+      ["/custom-metric/", Data.toBS metricName]
 
-instance Core.ToQuery DescribeCustomMetric where
+instance Data.ToQuery DescribeCustomMetric where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCustomMetricResponse' smart constructor.
@@ -126,13 +127,13 @@ data DescribeCustomMetricResponse = DescribeCustomMetricResponse'
     metricArn :: Prelude.Maybe Prelude.Text,
     -- | The time the custom metric was last modified in milliseconds since
     -- epoch.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | Field represents a friendly name in the console for the custom metric;
     -- doesn\'t have to be unique. Don\'t use this name as the metric
     -- identifier in the device metric report. Can be updated.
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The creation date of the custom metric in milliseconds since epoch.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The type of the custom metric.
     --
     -- The type @number@ only takes a single metric value as an input, but
@@ -197,7 +198,7 @@ describeCustomMetricResponse_metricArn = Lens.lens (\DescribeCustomMetricRespons
 -- | The time the custom metric was last modified in milliseconds since
 -- epoch.
 describeCustomMetricResponse_lastModifiedDate :: Lens.Lens' DescribeCustomMetricResponse (Prelude.Maybe Prelude.UTCTime)
-describeCustomMetricResponse_lastModifiedDate = Lens.lens (\DescribeCustomMetricResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeCustomMetricResponse' {} a -> s {lastModifiedDate = a} :: DescribeCustomMetricResponse) Prelude.. Lens.mapping Core._Time
+describeCustomMetricResponse_lastModifiedDate = Lens.lens (\DescribeCustomMetricResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeCustomMetricResponse' {} a -> s {lastModifiedDate = a} :: DescribeCustomMetricResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Field represents a friendly name in the console for the custom metric;
 -- doesn\'t have to be unique. Don\'t use this name as the metric
@@ -207,7 +208,7 @@ describeCustomMetricResponse_displayName = Lens.lens (\DescribeCustomMetricRespo
 
 -- | The creation date of the custom metric in milliseconds since epoch.
 describeCustomMetricResponse_creationDate :: Lens.Lens' DescribeCustomMetricResponse (Prelude.Maybe Prelude.UTCTime)
-describeCustomMetricResponse_creationDate = Lens.lens (\DescribeCustomMetricResponse' {creationDate} -> creationDate) (\s@DescribeCustomMetricResponse' {} a -> s {creationDate = a} :: DescribeCustomMetricResponse) Prelude.. Lens.mapping Core._Time
+describeCustomMetricResponse_creationDate = Lens.lens (\DescribeCustomMetricResponse' {creationDate} -> creationDate) (\s@DescribeCustomMetricResponse' {} a -> s {creationDate = a} :: DescribeCustomMetricResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The type of the custom metric.
 --

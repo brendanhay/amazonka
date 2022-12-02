@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TopicRuleDestinationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.HttpUrlDestinationConfiguration
 import Amazonka.IoT.Types.VpcDestinationConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -83,15 +84,15 @@ instance
       `Prelude.seq` Prelude.rnf httpUrlConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     TopicRuleDestinationConfiguration
   where
   toJSON TopicRuleDestinationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("vpcConfiguration" Core..=)
+          [ ("vpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("httpUrlConfiguration" Core..=)
+            ("httpUrlConfiguration" Data..=)
               Prelude.<$> httpUrlConfiguration
           ]
       )

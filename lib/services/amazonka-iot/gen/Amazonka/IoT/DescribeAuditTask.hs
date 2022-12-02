@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,12 +93,12 @@ instance Core.AWSRequest DescribeAuditTask where
     Response.receiveJSON
       ( \s h x ->
           DescribeAuditTaskResponse'
-            Prelude.<$> (x Core..?> "taskStartTime")
-            Prelude.<*> (x Core..?> "taskStatus")
-            Prelude.<*> (x Core..?> "taskType")
-            Prelude.<*> (x Core..?> "taskStatistics")
-            Prelude.<*> (x Core..?> "auditDetails" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "scheduledAuditName")
+            Prelude.<$> (x Data..?> "taskStartTime")
+            Prelude.<*> (x Data..?> "taskStatus")
+            Prelude.<*> (x Data..?> "taskType")
+            Prelude.<*> (x Data..?> "taskStatistics")
+            Prelude.<*> (x Data..?> "auditDetails" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "scheduledAuditName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,20 +109,20 @@ instance Prelude.Hashable DescribeAuditTask where
 instance Prelude.NFData DescribeAuditTask where
   rnf DescribeAuditTask' {..} = Prelude.rnf taskId
 
-instance Core.ToHeaders DescribeAuditTask where
+instance Data.ToHeaders DescribeAuditTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAuditTask where
+instance Data.ToPath DescribeAuditTask where
   toPath DescribeAuditTask' {..} =
-    Prelude.mconcat ["/audit/tasks/", Core.toBS taskId]
+    Prelude.mconcat ["/audit/tasks/", Data.toBS taskId]
 
-instance Core.ToQuery DescribeAuditTask where
+instance Data.ToQuery DescribeAuditTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAuditTaskResponse' smart constructor.
 data DescribeAuditTaskResponse = DescribeAuditTaskResponse'
   { -- | The time the audit started.
-    taskStartTime :: Prelude.Maybe Core.POSIX,
+    taskStartTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the audit: one of \"IN_PROGRESS\", \"COMPLETED\",
     -- \"FAILED\", or \"CANCELED\".
     taskStatus :: Prelude.Maybe AuditTaskStatus,
@@ -180,7 +181,7 @@ newDescribeAuditTaskResponse pHttpStatus_ =
 
 -- | The time the audit started.
 describeAuditTaskResponse_taskStartTime :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeAuditTaskResponse_taskStartTime = Lens.lens (\DescribeAuditTaskResponse' {taskStartTime} -> taskStartTime) (\s@DescribeAuditTaskResponse' {} a -> s {taskStartTime = a} :: DescribeAuditTaskResponse) Prelude.. Lens.mapping Core._Time
+describeAuditTaskResponse_taskStartTime = Lens.lens (\DescribeAuditTaskResponse' {taskStartTime} -> taskStartTime) (\s@DescribeAuditTaskResponse' {} a -> s {taskStartTime = a} :: DescribeAuditTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the audit: one of \"IN_PROGRESS\", \"COMPLETED\",
 -- \"FAILED\", or \"CANCELED\".

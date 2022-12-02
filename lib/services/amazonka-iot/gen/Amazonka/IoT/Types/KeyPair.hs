@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.KeyPair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a key pair.
@@ -30,7 +31,7 @@ data KeyPair = KeyPair'
   { -- | The public key.
     publicKey :: Prelude.Maybe Prelude.Text,
     -- | The private key.
-    privateKey :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    privateKey :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -59,16 +60,16 @@ keyPair_publicKey = Lens.lens (\KeyPair' {publicKey} -> publicKey) (\s@KeyPair' 
 
 -- | The private key.
 keyPair_privateKey :: Lens.Lens' KeyPair (Prelude.Maybe Prelude.Text)
-keyPair_privateKey = Lens.lens (\KeyPair' {privateKey} -> privateKey) (\s@KeyPair' {} a -> s {privateKey = a} :: KeyPair) Prelude.. Lens.mapping Core._Sensitive
+keyPair_privateKey = Lens.lens (\KeyPair' {privateKey} -> privateKey) (\s@KeyPair' {} a -> s {privateKey = a} :: KeyPair) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON KeyPair where
+instance Data.FromJSON KeyPair where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeyPair"
       ( \x ->
           KeyPair'
-            Prelude.<$> (x Core..:? "PublicKey")
-            Prelude.<*> (x Core..:? "PrivateKey")
+            Prelude.<$> (x Data..:? "PublicKey")
+            Prelude.<*> (x Data..:? "PrivateKey")
       )
 
 instance Prelude.Hashable KeyPair where

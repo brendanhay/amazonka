@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AuditMitigationActionsTaskMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AuditMitigationActionsTaskStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data AuditMitigationActionsTaskMetadata = AuditMitigationActionsTaskMetadata'
     -- | The current state of the audit mitigation actions task.
     taskStatus :: Prelude.Maybe AuditMitigationActionsTaskStatus,
     -- | The time at which the audit mitigation actions task was started.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,20 +72,20 @@ auditMitigationActionsTaskMetadata_taskStatus = Lens.lens (\AuditMitigationActio
 
 -- | The time at which the audit mitigation actions task was started.
 auditMitigationActionsTaskMetadata_startTime :: Lens.Lens' AuditMitigationActionsTaskMetadata (Prelude.Maybe Prelude.UTCTime)
-auditMitigationActionsTaskMetadata_startTime = Lens.lens (\AuditMitigationActionsTaskMetadata' {startTime} -> startTime) (\s@AuditMitigationActionsTaskMetadata' {} a -> s {startTime = a} :: AuditMitigationActionsTaskMetadata) Prelude.. Lens.mapping Core._Time
+auditMitigationActionsTaskMetadata_startTime = Lens.lens (\AuditMitigationActionsTaskMetadata' {startTime} -> startTime) (\s@AuditMitigationActionsTaskMetadata' {} a -> s {startTime = a} :: AuditMitigationActionsTaskMetadata) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AuditMitigationActionsTaskMetadata
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuditMitigationActionsTaskMetadata"
       ( \x ->
           AuditMitigationActionsTaskMetadata'
-            Prelude.<$> (x Core..:? "taskId")
-            Prelude.<*> (x Core..:? "taskStatus")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Data..:? "taskId")
+            Prelude.<*> (x Data..:? "taskStatus")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance

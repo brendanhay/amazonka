@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ThingIndexingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.DeviceDefenderIndexingMode
 import Amazonka.IoT.Types.Field
 import Amazonka.IoT.Types.IndexingFilter
@@ -221,19 +222,19 @@ thingIndexingConfiguration_customFields = Lens.lens (\ThingIndexingConfiguration
 thingIndexingConfiguration_thingIndexingMode :: Lens.Lens' ThingIndexingConfiguration ThingIndexingMode
 thingIndexingConfiguration_thingIndexingMode = Lens.lens (\ThingIndexingConfiguration' {thingIndexingMode} -> thingIndexingMode) (\s@ThingIndexingConfiguration' {} a -> s {thingIndexingMode = a} :: ThingIndexingConfiguration)
 
-instance Core.FromJSON ThingIndexingConfiguration where
+instance Data.FromJSON ThingIndexingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThingIndexingConfiguration"
       ( \x ->
           ThingIndexingConfiguration'
-            Prelude.<$> (x Core..:? "deviceDefenderIndexingMode")
-            Prelude.<*> (x Core..:? "filter")
-            Prelude.<*> (x Core..:? "thingConnectivityIndexingMode")
-            Prelude.<*> (x Core..:? "managedFields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "namedShadowIndexingMode")
-            Prelude.<*> (x Core..:? "customFields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "thingIndexingMode")
+            Prelude.<$> (x Data..:? "deviceDefenderIndexingMode")
+            Prelude.<*> (x Data..:? "filter")
+            Prelude.<*> (x Data..:? "thingConnectivityIndexingMode")
+            Prelude.<*> (x Data..:? "managedFields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "namedShadowIndexingMode")
+            Prelude.<*> (x Data..:? "customFields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "thingIndexingMode")
       )
 
 instance Prelude.Hashable ThingIndexingConfiguration where
@@ -257,20 +258,20 @@ instance Prelude.NFData ThingIndexingConfiguration where
       `Prelude.seq` Prelude.rnf customFields
       `Prelude.seq` Prelude.rnf thingIndexingMode
 
-instance Core.ToJSON ThingIndexingConfiguration where
+instance Data.ToJSON ThingIndexingConfiguration where
   toJSON ThingIndexingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deviceDefenderIndexingMode" Core..=)
+          [ ("deviceDefenderIndexingMode" Data..=)
               Prelude.<$> deviceDefenderIndexingMode,
-            ("filter" Core..=) Prelude.<$> filter',
-            ("thingConnectivityIndexingMode" Core..=)
+            ("filter" Data..=) Prelude.<$> filter',
+            ("thingConnectivityIndexingMode" Data..=)
               Prelude.<$> thingConnectivityIndexingMode,
-            ("managedFields" Core..=) Prelude.<$> managedFields,
-            ("namedShadowIndexingMode" Core..=)
+            ("managedFields" Data..=) Prelude.<$> managedFields,
+            ("namedShadowIndexingMode" Data..=)
               Prelude.<$> namedShadowIndexingMode,
-            ("customFields" Core..=) Prelude.<$> customFields,
+            ("customFields" Data..=) Prelude.<$> customFields,
             Prelude.Just
-              ("thingIndexingMode" Core..= thingIndexingMode)
+              ("thingIndexingMode" Data..= thingIndexingMode)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.MitigationAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.MitigationActionParams
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,16 +85,16 @@ mitigationAction_id = Lens.lens (\MitigationAction' {id} -> id) (\s@MitigationAc
 mitigationAction_actionParams :: Lens.Lens' MitigationAction (Prelude.Maybe MitigationActionParams)
 mitigationAction_actionParams = Lens.lens (\MitigationAction' {actionParams} -> actionParams) (\s@MitigationAction' {} a -> s {actionParams = a} :: MitigationAction)
 
-instance Core.FromJSON MitigationAction where
+instance Data.FromJSON MitigationAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MitigationAction"
       ( \x ->
           MitigationAction'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "actionParams")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "actionParams")
       )
 
 instance Prelude.Hashable MitigationAction where

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -75,9 +76,9 @@ data ListAuditTasks = ListAuditTasks'
     -- | The beginning of the time period. Audit information is retained for a
     -- limited time (90 days). Requesting a start time prior to what is
     -- retained results in an \"InvalidRequestException\".
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end of the time period.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -117,8 +118,8 @@ newListAuditTasks pStartTime_ pEndTime_ =
       taskStatus = Prelude.Nothing,
       taskType = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      startTime = Core._Time Lens.# pStartTime_,
-      endTime = Core._Time Lens.# pEndTime_
+      startTime = Data._Time Lens.# pStartTime_,
+      endTime = Data._Time Lens.# pEndTime_
     }
 
 -- | The token for the next set of results.
@@ -144,11 +145,11 @@ listAuditTasks_maxResults = Lens.lens (\ListAuditTasks' {maxResults} -> maxResul
 -- limited time (90 days). Requesting a start time prior to what is
 -- retained results in an \"InvalidRequestException\".
 listAuditTasks_startTime :: Lens.Lens' ListAuditTasks Prelude.UTCTime
-listAuditTasks_startTime = Lens.lens (\ListAuditTasks' {startTime} -> startTime) (\s@ListAuditTasks' {} a -> s {startTime = a} :: ListAuditTasks) Prelude.. Core._Time
+listAuditTasks_startTime = Lens.lens (\ListAuditTasks' {startTime} -> startTime) (\s@ListAuditTasks' {} a -> s {startTime = a} :: ListAuditTasks) Prelude.. Data._Time
 
 -- | The end of the time period.
 listAuditTasks_endTime :: Lens.Lens' ListAuditTasks Prelude.UTCTime
-listAuditTasks_endTime = Lens.lens (\ListAuditTasks' {endTime} -> endTime) (\s@ListAuditTasks' {} a -> s {endTime = a} :: ListAuditTasks) Prelude.. Core._Time
+listAuditTasks_endTime = Lens.lens (\ListAuditTasks' {endTime} -> endTime) (\s@ListAuditTasks' {} a -> s {endTime = a} :: ListAuditTasks) Prelude.. Data._Time
 
 instance Core.AWSPager ListAuditTasks where
   page rq rs
@@ -180,8 +181,8 @@ instance Core.AWSRequest ListAuditTasks where
     Response.receiveJSON
       ( \s h x ->
           ListAuditTasksResponse'
-            Prelude.<$> (x Core..?> "tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "tasks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,21 +204,21 @@ instance Prelude.NFData ListAuditTasks where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToHeaders ListAuditTasks where
+instance Data.ToHeaders ListAuditTasks where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAuditTasks where
+instance Data.ToPath ListAuditTasks where
   toPath = Prelude.const "/audit/tasks"
 
-instance Core.ToQuery ListAuditTasks where
+instance Data.ToQuery ListAuditTasks where
   toQuery ListAuditTasks' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "taskStatus" Core.=: taskStatus,
-        "taskType" Core.=: taskType,
-        "maxResults" Core.=: maxResults,
-        "startTime" Core.=: startTime,
-        "endTime" Core.=: endTime
+      [ "nextToken" Data.=: nextToken,
+        "taskStatus" Data.=: taskStatus,
+        "taskType" Data.=: taskType,
+        "maxResults" Data.=: maxResults,
+        "startTime" Data.=: startTime,
+        "endTime" Data.=: endTime
       ]
 
 -- | /See:/ 'newListAuditTasksResponse' smart constructor.

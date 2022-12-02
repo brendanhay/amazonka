@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.Job where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AbortConfig
 import Amazonka.IoT.Types.JobExecutionsRetryConfig
 import Amazonka.IoT.Types.JobExecutionsRolloutConfig
@@ -40,7 +41,7 @@ data Job = Job'
     -- | Configuration for criteria to abort the job.
     abortConfig :: Prelude.Maybe AbortConfig,
     -- | The time, in seconds since the epoch, when the job was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | A key-value map that pairs the patterns that need to be replaced in a
     -- managed template job document schema. You can use the description of
     -- each key as a guidance to specify the inputs during runtime when
@@ -103,7 +104,7 @@ data Job = Job'
     -- | Details about the job process.
     jobProcessDetails :: Prelude.Maybe JobProcessDetails,
     -- | The time, in seconds since the epoch, when the job was completed.
-    completedAt :: Prelude.Maybe Core.POSIX,
+    completedAt :: Prelude.Maybe Data.POSIX,
     -- | Specifies the amount of time each device has to finish its execution of
     -- the job. A timer is started when the job execution status is set to
     -- @IN_PROGRESS@. If the job execution status is not set to another
@@ -111,7 +112,7 @@ data Job = Job'
     -- @TIMED_OUT@.
     timeoutConfig :: Prelude.Maybe TimeoutConfig,
     -- | The time, in seconds since the epoch, when the job was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -237,7 +238,7 @@ job_abortConfig = Lens.lens (\Job' {abortConfig} -> abortConfig) (\s@Job' {} a -
 
 -- | The time, in seconds since the epoch, when the job was last updated.
 job_lastUpdatedAt :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
-job_lastUpdatedAt = Lens.lens (\Job' {lastUpdatedAt} -> lastUpdatedAt) (\s@Job' {} a -> s {lastUpdatedAt = a} :: Job) Prelude.. Lens.mapping Core._Time
+job_lastUpdatedAt = Lens.lens (\Job' {lastUpdatedAt} -> lastUpdatedAt) (\s@Job' {} a -> s {lastUpdatedAt = a} :: Job) Prelude.. Lens.mapping Data._Time
 
 -- | A key-value map that pairs the patterns that need to be replaced in a
 -- managed template job document schema. You can use the description of
@@ -334,7 +335,7 @@ job_jobProcessDetails = Lens.lens (\Job' {jobProcessDetails} -> jobProcessDetail
 
 -- | The time, in seconds since the epoch, when the job was completed.
 job_completedAt :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
-job_completedAt = Lens.lens (\Job' {completedAt} -> completedAt) (\s@Job' {} a -> s {completedAt = a} :: Job) Prelude.. Lens.mapping Core._Time
+job_completedAt = Lens.lens (\Job' {completedAt} -> completedAt) (\s@Job' {} a -> s {completedAt = a} :: Job) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the amount of time each device has to finish its execution of
 -- the job. A timer is started when the job execution status is set to
@@ -346,38 +347,38 @@ job_timeoutConfig = Lens.lens (\Job' {timeoutConfig} -> timeoutConfig) (\s@Job' 
 
 -- | The time, in seconds since the epoch, when the job was created.
 job_createdAt :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
-job_createdAt = Lens.lens (\Job' {createdAt} -> createdAt) (\s@Job' {} a -> s {createdAt = a} :: Job) Prelude.. Lens.mapping Core._Time
+job_createdAt = Lens.lens (\Job' {createdAt} -> createdAt) (\s@Job' {} a -> s {createdAt = a} :: Job) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Job where
+instance Data.FromJSON Job where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Core..:? "jobExecutionsRolloutConfig")
-            Prelude.<*> (x Core..:? "abortConfig")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> ( x Core..:? "documentParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "jobExecutionsRolloutConfig")
+            Prelude.<*> (x Data..:? "abortConfig")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> ( x Data..:? "documentParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "isConcurrent")
-            Prelude.<*> (x Core..:? "jobTemplateArn")
-            Prelude.<*> (x Core..:? "targetSelection")
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "forceCanceled")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "targets")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "comment")
-            Prelude.<*> (x Core..:? "presignedUrlConfig")
-            Prelude.<*> (x Core..:? "reasonCode")
-            Prelude.<*> (x Core..:? "namespaceId")
-            Prelude.<*> (x Core..:? "jobArn")
-            Prelude.<*> (x Core..:? "jobExecutionsRetryConfig")
-            Prelude.<*> (x Core..:? "jobProcessDetails")
-            Prelude.<*> (x Core..:? "completedAt")
-            Prelude.<*> (x Core..:? "timeoutConfig")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Data..:? "isConcurrent")
+            Prelude.<*> (x Data..:? "jobTemplateArn")
+            Prelude.<*> (x Data..:? "targetSelection")
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "forceCanceled")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "targets")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "comment")
+            Prelude.<*> (x Data..:? "presignedUrlConfig")
+            Prelude.<*> (x Data..:? "reasonCode")
+            Prelude.<*> (x Data..:? "namespaceId")
+            Prelude.<*> (x Data..:? "jobArn")
+            Prelude.<*> (x Data..:? "jobExecutionsRetryConfig")
+            Prelude.<*> (x Data..:? "jobProcessDetails")
+            Prelude.<*> (x Data..:? "completedAt")
+            Prelude.<*> (x Data..:? "timeoutConfig")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable Job where

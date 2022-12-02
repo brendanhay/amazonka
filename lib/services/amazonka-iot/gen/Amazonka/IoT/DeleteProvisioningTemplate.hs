@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,15 +101,15 @@ instance Prelude.NFData DeleteProvisioningTemplate where
   rnf DeleteProvisioningTemplate' {..} =
     Prelude.rnf templateName
 
-instance Core.ToHeaders DeleteProvisioningTemplate where
+instance Data.ToHeaders DeleteProvisioningTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteProvisioningTemplate where
+instance Data.ToPath DeleteProvisioningTemplate where
   toPath DeleteProvisioningTemplate' {..} =
     Prelude.mconcat
-      ["/provisioning-templates/", Core.toBS templateName]
+      ["/provisioning-templates/", Data.toBS templateName]
 
-instance Core.ToQuery DeleteProvisioningTemplate where
+instance Data.ToQuery DeleteProvisioningTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProvisioningTemplateResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -65,10 +66,10 @@ data ListDetectMitigationActionsTasks = ListDetectMitigationActionsTasks'
     -- | A filter to limit results to those found after the specified time. You
     -- must specify either the startTime and endTime or the taskId, but not
     -- both.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end of the time period for which ML Detect mitigation actions tasks
     -- are returned.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,8 +104,8 @@ newListDetectMitigationActionsTasks
       { nextToken =
           Prelude.Nothing,
         maxResults = Prelude.Nothing,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_
       }
 
 -- | The token for the next set of results.
@@ -119,12 +120,12 @@ listDetectMitigationActionsTasks_maxResults = Lens.lens (\ListDetectMitigationAc
 -- must specify either the startTime and endTime or the taskId, but not
 -- both.
 listDetectMitigationActionsTasks_startTime :: Lens.Lens' ListDetectMitigationActionsTasks Prelude.UTCTime
-listDetectMitigationActionsTasks_startTime = Lens.lens (\ListDetectMitigationActionsTasks' {startTime} -> startTime) (\s@ListDetectMitigationActionsTasks' {} a -> s {startTime = a} :: ListDetectMitigationActionsTasks) Prelude.. Core._Time
+listDetectMitigationActionsTasks_startTime = Lens.lens (\ListDetectMitigationActionsTasks' {startTime} -> startTime) (\s@ListDetectMitigationActionsTasks' {} a -> s {startTime = a} :: ListDetectMitigationActionsTasks) Prelude.. Data._Time
 
 -- | The end of the time period for which ML Detect mitigation actions tasks
 -- are returned.
 listDetectMitigationActionsTasks_endTime :: Lens.Lens' ListDetectMitigationActionsTasks Prelude.UTCTime
-listDetectMitigationActionsTasks_endTime = Lens.lens (\ListDetectMitigationActionsTasks' {endTime} -> endTime) (\s@ListDetectMitigationActionsTasks' {} a -> s {endTime = a} :: ListDetectMitigationActionsTasks) Prelude.. Core._Time
+listDetectMitigationActionsTasks_endTime = Lens.lens (\ListDetectMitigationActionsTasks' {endTime} -> endTime) (\s@ListDetectMitigationActionsTasks' {} a -> s {endTime = a} :: ListDetectMitigationActionsTasks) Prelude.. Data._Time
 
 instance
   Core.AWSPager
@@ -164,8 +165,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDetectMitigationActionsTasksResponse'
-            Prelude.<$> (x Core..?> "tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "tasks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,25 +193,25 @@ instance
       `Prelude.seq` Prelude.rnf endTime
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListDetectMitigationActionsTasks
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListDetectMitigationActionsTasks where
+instance Data.ToPath ListDetectMitigationActionsTasks where
   toPath =
     Prelude.const "/detect/mitigationactions/tasks"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListDetectMitigationActionsTasks
   where
   toQuery ListDetectMitigationActionsTasks' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "startTime" Core.=: startTime,
-        "endTime" Core.=: endTime
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "startTime" Data.=: startTime,
+        "endTime" Data.=: endTime
       ]
 
 -- | /See:/ 'newListDetectMitigationActionsTasksResponse' smart constructor.

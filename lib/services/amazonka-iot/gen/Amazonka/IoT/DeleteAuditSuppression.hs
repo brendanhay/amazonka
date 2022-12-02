@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,23 +114,23 @@ instance Prelude.NFData DeleteAuditSuppression where
     Prelude.rnf checkName
       `Prelude.seq` Prelude.rnf resourceIdentifier
 
-instance Core.ToHeaders DeleteAuditSuppression where
+instance Data.ToHeaders DeleteAuditSuppression where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DeleteAuditSuppression where
+instance Data.ToJSON DeleteAuditSuppression where
   toJSON DeleteAuditSuppression' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("checkName" Core..= checkName),
+          [ Prelude.Just ("checkName" Data..= checkName),
             Prelude.Just
-              ("resourceIdentifier" Core..= resourceIdentifier)
+              ("resourceIdentifier" Data..= resourceIdentifier)
           ]
       )
 
-instance Core.ToPath DeleteAuditSuppression where
+instance Data.ToPath DeleteAuditSuppression where
   toPath = Prelude.const "/audit/suppressions/delete"
 
-instance Core.ToQuery DeleteAuditSuppression where
+instance Data.ToQuery DeleteAuditSuppression where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAuditSuppressionResponse' smart constructor.

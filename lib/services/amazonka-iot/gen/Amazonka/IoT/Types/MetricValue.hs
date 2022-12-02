@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.MetricValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value to be compared with the @metric@.
@@ -106,18 +107,18 @@ metricValue_count = Lens.lens (\MetricValue' {count} -> count) (\s@MetricValue' 
 metricValue_strings :: Lens.Lens' MetricValue (Prelude.Maybe [Prelude.Text])
 metricValue_strings = Lens.lens (\MetricValue' {strings} -> strings) (\s@MetricValue' {} a -> s {strings = a} :: MetricValue) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON MetricValue where
+instance Data.FromJSON MetricValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricValue"
       ( \x ->
           MetricValue'
-            Prelude.<$> (x Core..:? "numbers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "number")
-            Prelude.<*> (x Core..:? "ports" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "cidrs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "strings" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "numbers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "number")
+            Prelude.<*> (x Data..:? "ports" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "cidrs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "strings" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable MetricValue where
@@ -138,15 +139,15 @@ instance Prelude.NFData MetricValue where
       `Prelude.seq` Prelude.rnf count
       `Prelude.seq` Prelude.rnf strings
 
-instance Core.ToJSON MetricValue where
+instance Data.ToJSON MetricValue where
   toJSON MetricValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("numbers" Core..=) Prelude.<$> numbers,
-            ("number" Core..=) Prelude.<$> number,
-            ("ports" Core..=) Prelude.<$> ports,
-            ("cidrs" Core..=) Prelude.<$> cidrs,
-            ("count" Core..=) Prelude.<$> count,
-            ("strings" Core..=) Prelude.<$> strings
+          [ ("numbers" Data..=) Prelude.<$> numbers,
+            ("number" Data..=) Prelude.<$> number,
+            ("ports" Data..=) Prelude.<$> ports,
+            ("cidrs" Data..=) Prelude.<$> cidrs,
+            ("count" Data..=) Prelude.<$> count,
+            ("strings" Data..=) Prelude.<$> strings
           ]
       )

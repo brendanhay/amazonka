@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.LocationAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.LocationTimestamp
 import qualified Amazonka.Prelude as Prelude
 
@@ -129,18 +130,18 @@ locationAction_latitude = Lens.lens (\LocationAction' {latitude} -> latitude) (\
 locationAction_longitude :: Lens.Lens' LocationAction Prelude.Text
 locationAction_longitude = Lens.lens (\LocationAction' {longitude} -> longitude) (\s@LocationAction' {} a -> s {longitude = a} :: LocationAction)
 
-instance Core.FromJSON LocationAction where
+instance Data.FromJSON LocationAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LocationAction"
       ( \x ->
           LocationAction'
-            Prelude.<$> (x Core..:? "timestamp")
-            Prelude.<*> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "trackerName")
-            Prelude.<*> (x Core..: "deviceId")
-            Prelude.<*> (x Core..: "latitude")
-            Prelude.<*> (x Core..: "longitude")
+            Prelude.<$> (x Data..:? "timestamp")
+            Prelude.<*> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "trackerName")
+            Prelude.<*> (x Data..: "deviceId")
+            Prelude.<*> (x Data..: "latitude")
+            Prelude.<*> (x Data..: "longitude")
       )
 
 instance Prelude.Hashable LocationAction where
@@ -161,15 +162,15 @@ instance Prelude.NFData LocationAction where
       `Prelude.seq` Prelude.rnf latitude
       `Prelude.seq` Prelude.rnf longitude
 
-instance Core.ToJSON LocationAction where
+instance Data.ToJSON LocationAction where
   toJSON LocationAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timestamp" Core..=) Prelude.<$> timestamp,
-            Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("trackerName" Core..= trackerName),
-            Prelude.Just ("deviceId" Core..= deviceId),
-            Prelude.Just ("latitude" Core..= latitude),
-            Prelude.Just ("longitude" Core..= longitude)
+          [ ("timestamp" Data..=) Prelude.<$> timestamp,
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("trackerName" Data..= trackerName),
+            Prelude.Just ("deviceId" Data..= deviceId),
+            Prelude.Just ("latitude" Data..= latitude),
+            Prelude.Just ("longitude" Data..= longitude)
           ]
       )

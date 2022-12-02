@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TopicRuleDestinationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.HttpUrlDestinationSummary
 import Amazonka.IoT.Types.TopicRuleDestinationStatus
 import Amazonka.IoT.Types.VpcDestinationSummary
@@ -35,7 +36,7 @@ data TopicRuleDestinationSummary = TopicRuleDestinationSummary'
     -- | Information about the HTTP URL.
     httpUrlSummary :: Prelude.Maybe HttpUrlDestinationSummary,
     -- | The date and time when the topic rule destination was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The topic rule destination ARN.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The reason the topic rule destination is in the current status.
@@ -68,7 +69,7 @@ data TopicRuleDestinationSummary = TopicRuleDestinationSummary'
     --     endpoint.
     status :: Prelude.Maybe TopicRuleDestinationStatus,
     -- | The date and time when the topic rule destination was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,7 +143,7 @@ topicRuleDestinationSummary_httpUrlSummary = Lens.lens (\TopicRuleDestinationSum
 
 -- | The date and time when the topic rule destination was last updated.
 topicRuleDestinationSummary_lastUpdatedAt :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.UTCTime)
-topicRuleDestinationSummary_lastUpdatedAt = Lens.lens (\TopicRuleDestinationSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@TopicRuleDestinationSummary' {} a -> s {lastUpdatedAt = a} :: TopicRuleDestinationSummary) Prelude.. Lens.mapping Core._Time
+topicRuleDestinationSummary_lastUpdatedAt = Lens.lens (\TopicRuleDestinationSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@TopicRuleDestinationSummary' {} a -> s {lastUpdatedAt = a} :: TopicRuleDestinationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The topic rule destination ARN.
 topicRuleDestinationSummary_arn :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.Text)
@@ -183,21 +184,21 @@ topicRuleDestinationSummary_status = Lens.lens (\TopicRuleDestinationSummary' {s
 
 -- | The date and time when the topic rule destination was created.
 topicRuleDestinationSummary_createdAt :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.UTCTime)
-topicRuleDestinationSummary_createdAt = Lens.lens (\TopicRuleDestinationSummary' {createdAt} -> createdAt) (\s@TopicRuleDestinationSummary' {} a -> s {createdAt = a} :: TopicRuleDestinationSummary) Prelude.. Lens.mapping Core._Time
+topicRuleDestinationSummary_createdAt = Lens.lens (\TopicRuleDestinationSummary' {createdAt} -> createdAt) (\s@TopicRuleDestinationSummary' {} a -> s {createdAt = a} :: TopicRuleDestinationSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TopicRuleDestinationSummary where
+instance Data.FromJSON TopicRuleDestinationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TopicRuleDestinationSummary"
       ( \x ->
           TopicRuleDestinationSummary'
-            Prelude.<$> (x Core..:? "vpcDestinationSummary")
-            Prelude.<*> (x Core..:? "httpUrlSummary")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "vpcDestinationSummary")
+            Prelude.<*> (x Data..:? "httpUrlSummary")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable TopicRuleDestinationSummary where

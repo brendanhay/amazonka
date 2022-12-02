@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.OutgoingCertificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A certificate that has been transferred but not yet accepted.
@@ -28,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOutgoingCertificate' smart constructor.
 data OutgoingCertificate = OutgoingCertificate'
   { -- | The date the transfer was initiated.
-    transferDate :: Prelude.Maybe Core.POSIX,
+    transferDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account to which the transfer was made.
     transferredTo :: Prelude.Maybe Prelude.Text,
     -- | The transfer message.
     transferMessage :: Prelude.Maybe Prelude.Text,
     -- | The certificate creation date.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The certificate ARN.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The certificate ID.
@@ -76,7 +77,7 @@ newOutgoingCertificate =
 
 -- | The date the transfer was initiated.
 outgoingCertificate_transferDate :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.UTCTime)
-outgoingCertificate_transferDate = Lens.lens (\OutgoingCertificate' {transferDate} -> transferDate) (\s@OutgoingCertificate' {} a -> s {transferDate = a} :: OutgoingCertificate) Prelude.. Lens.mapping Core._Time
+outgoingCertificate_transferDate = Lens.lens (\OutgoingCertificate' {transferDate} -> transferDate) (\s@OutgoingCertificate' {} a -> s {transferDate = a} :: OutgoingCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account to which the transfer was made.
 outgoingCertificate_transferredTo :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.Text)
@@ -88,7 +89,7 @@ outgoingCertificate_transferMessage = Lens.lens (\OutgoingCertificate' {transfer
 
 -- | The certificate creation date.
 outgoingCertificate_creationDate :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.UTCTime)
-outgoingCertificate_creationDate = Lens.lens (\OutgoingCertificate' {creationDate} -> creationDate) (\s@OutgoingCertificate' {} a -> s {creationDate = a} :: OutgoingCertificate) Prelude.. Lens.mapping Core._Time
+outgoingCertificate_creationDate = Lens.lens (\OutgoingCertificate' {creationDate} -> creationDate) (\s@OutgoingCertificate' {} a -> s {creationDate = a} :: OutgoingCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | The certificate ARN.
 outgoingCertificate_certificateArn :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.Text)
@@ -98,18 +99,18 @@ outgoingCertificate_certificateArn = Lens.lens (\OutgoingCertificate' {certifica
 outgoingCertificate_certificateId :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.Text)
 outgoingCertificate_certificateId = Lens.lens (\OutgoingCertificate' {certificateId} -> certificateId) (\s@OutgoingCertificate' {} a -> s {certificateId = a} :: OutgoingCertificate)
 
-instance Core.FromJSON OutgoingCertificate where
+instance Data.FromJSON OutgoingCertificate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutgoingCertificate"
       ( \x ->
           OutgoingCertificate'
-            Prelude.<$> (x Core..:? "transferDate")
-            Prelude.<*> (x Core..:? "transferredTo")
-            Prelude.<*> (x Core..:? "transferMessage")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "certificateId")
+            Prelude.<$> (x Data..:? "transferDate")
+            Prelude.<*> (x Data..:? "transferredTo")
+            Prelude.<*> (x Data..:? "transferMessage")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "certificateArn")
+            Prelude.<*> (x Data..:? "certificateId")
       )
 
 instance Prelude.Hashable OutgoingCertificate where

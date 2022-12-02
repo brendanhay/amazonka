@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ThingConnectivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connectivity status of the thing.
@@ -85,15 +86,15 @@ thingConnectivity_connected = Lens.lens (\ThingConnectivity' {connected} -> conn
 thingConnectivity_disconnectReason :: Lens.Lens' ThingConnectivity (Prelude.Maybe Prelude.Text)
 thingConnectivity_disconnectReason = Lens.lens (\ThingConnectivity' {disconnectReason} -> disconnectReason) (\s@ThingConnectivity' {} a -> s {disconnectReason = a} :: ThingConnectivity)
 
-instance Core.FromJSON ThingConnectivity where
+instance Data.FromJSON ThingConnectivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThingConnectivity"
       ( \x ->
           ThingConnectivity'
-            Prelude.<$> (x Core..:? "timestamp")
-            Prelude.<*> (x Core..:? "connected")
-            Prelude.<*> (x Core..:? "disconnectReason")
+            Prelude.<$> (x Data..:? "timestamp")
+            Prelude.<*> (x Data..:? "connected")
+            Prelude.<*> (x Data..:? "disconnectReason")
       )
 
 instance Prelude.Hashable ThingConnectivity where

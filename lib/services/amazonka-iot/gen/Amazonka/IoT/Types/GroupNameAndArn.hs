@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.GroupNameAndArn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name and ARN of a group.
@@ -61,14 +62,14 @@ groupNameAndArn_groupName = Lens.lens (\GroupNameAndArn' {groupName} -> groupNam
 groupNameAndArn_groupArn :: Lens.Lens' GroupNameAndArn (Prelude.Maybe Prelude.Text)
 groupNameAndArn_groupArn = Lens.lens (\GroupNameAndArn' {groupArn} -> groupArn) (\s@GroupNameAndArn' {} a -> s {groupArn = a} :: GroupNameAndArn)
 
-instance Core.FromJSON GroupNameAndArn where
+instance Data.FromJSON GroupNameAndArn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupNameAndArn"
       ( \x ->
           GroupNameAndArn'
-            Prelude.<$> (x Core..:? "groupName")
-            Prelude.<*> (x Core..:? "groupArn")
+            Prelude.<$> (x Data..:? "groupName")
+            Prelude.<*> (x Data..:? "groupArn")
       )
 
 instance Prelude.Hashable GroupNameAndArn where

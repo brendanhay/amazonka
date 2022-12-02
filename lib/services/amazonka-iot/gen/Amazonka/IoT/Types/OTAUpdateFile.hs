@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.OTAUpdateFile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.CodeSigning
 import Amazonka.IoT.Types.FileLocation
 import qualified Amazonka.Prelude as Prelude
@@ -102,18 +103,18 @@ oTAUpdateFile_fileType = Lens.lens (\OTAUpdateFile' {fileType} -> fileType) (\s@
 oTAUpdateFile_codeSigning :: Lens.Lens' OTAUpdateFile (Prelude.Maybe CodeSigning)
 oTAUpdateFile_codeSigning = Lens.lens (\OTAUpdateFile' {codeSigning} -> codeSigning) (\s@OTAUpdateFile' {} a -> s {codeSigning = a} :: OTAUpdateFile)
 
-instance Core.FromJSON OTAUpdateFile where
+instance Data.FromJSON OTAUpdateFile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OTAUpdateFile"
       ( \x ->
           OTAUpdateFile'
-            Prelude.<$> (x Core..:? "fileVersion")
-            Prelude.<*> (x Core..:? "fileName")
-            Prelude.<*> (x Core..:? "fileLocation")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "fileType")
-            Prelude.<*> (x Core..:? "codeSigning")
+            Prelude.<$> (x Data..:? "fileVersion")
+            Prelude.<*> (x Data..:? "fileName")
+            Prelude.<*> (x Data..:? "fileLocation")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "fileType")
+            Prelude.<*> (x Data..:? "codeSigning")
       )
 
 instance Prelude.Hashable OTAUpdateFile where
@@ -134,15 +135,15 @@ instance Prelude.NFData OTAUpdateFile where
       `Prelude.seq` Prelude.rnf fileType
       `Prelude.seq` Prelude.rnf codeSigning
 
-instance Core.ToJSON OTAUpdateFile where
+instance Data.ToJSON OTAUpdateFile where
   toJSON OTAUpdateFile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fileVersion" Core..=) Prelude.<$> fileVersion,
-            ("fileName" Core..=) Prelude.<$> fileName,
-            ("fileLocation" Core..=) Prelude.<$> fileLocation,
-            ("attributes" Core..=) Prelude.<$> attributes,
-            ("fileType" Core..=) Prelude.<$> fileType,
-            ("codeSigning" Core..=) Prelude.<$> codeSigning
+          [ ("fileVersion" Data..=) Prelude.<$> fileVersion,
+            ("fileName" Data..=) Prelude.<$> fileName,
+            ("fileLocation" Data..=) Prelude.<$> fileLocation,
+            ("attributes" Data..=) Prelude.<$> attributes,
+            ("fileType" Data..=) Prelude.<$> fileType,
+            ("codeSigning" Data..=) Prelude.<$> codeSigning
           ]
       )

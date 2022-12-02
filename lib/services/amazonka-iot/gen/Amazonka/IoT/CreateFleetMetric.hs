@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -205,8 +206,8 @@ instance Core.AWSRequest CreateFleetMetric where
     Response.receiveJSON
       ( \s h x ->
           CreateFleetMetricResponse'
-            Prelude.<$> (x Core..?> "metricArn")
-            Prelude.<*> (x Core..?> "metricName")
+            Prelude.<$> (x Data..?> "metricArn")
+            Prelude.<*> (x Data..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -236,33 +237,33 @@ instance Prelude.NFData CreateFleetMetric where
       `Prelude.seq` Prelude.rnf period
       `Prelude.seq` Prelude.rnf aggregationField
 
-instance Core.ToHeaders CreateFleetMetric where
+instance Data.ToHeaders CreateFleetMetric where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateFleetMetric where
+instance Data.ToJSON CreateFleetMetric where
   toJSON CreateFleetMetric' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            ("indexName" Core..=) Prelude.<$> indexName,
-            ("queryVersion" Core..=) Prelude.<$> queryVersion,
-            ("unit" Core..=) Prelude.<$> unit,
-            Prelude.Just ("queryString" Core..= queryString),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            ("indexName" Data..=) Prelude.<$> indexName,
+            ("queryVersion" Data..=) Prelude.<$> queryVersion,
+            ("unit" Data..=) Prelude.<$> unit,
+            Prelude.Just ("queryString" Data..= queryString),
             Prelude.Just
-              ("aggregationType" Core..= aggregationType),
-            Prelude.Just ("period" Core..= period),
+              ("aggregationType" Data..= aggregationType),
+            Prelude.Just ("period" Data..= period),
             Prelude.Just
-              ("aggregationField" Core..= aggregationField)
+              ("aggregationField" Data..= aggregationField)
           ]
       )
 
-instance Core.ToPath CreateFleetMetric where
+instance Data.ToPath CreateFleetMetric where
   toPath CreateFleetMetric' {..} =
     Prelude.mconcat
-      ["/fleet-metric/", Core.toBS metricName]
+      ["/fleet-metric/", Data.toBS metricName]
 
-instance Core.ToQuery CreateFleetMetric where
+instance Data.ToQuery CreateFleetMetric where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFleetMetricResponse' smart constructor.

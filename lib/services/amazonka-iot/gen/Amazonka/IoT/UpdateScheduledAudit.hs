@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -167,7 +168,7 @@ instance Core.AWSRequest UpdateScheduledAudit where
     Response.receiveJSON
       ( \s h x ->
           UpdateScheduledAuditResponse'
-            Prelude.<$> (x Core..?> "scheduledAuditArn")
+            Prelude.<$> (x Data..?> "scheduledAuditArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,29 +188,29 @@ instance Prelude.NFData UpdateScheduledAudit where
       `Prelude.seq` Prelude.rnf dayOfMonth
       `Prelude.seq` Prelude.rnf scheduledAuditName
 
-instance Core.ToHeaders UpdateScheduledAudit where
+instance Data.ToHeaders UpdateScheduledAudit where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateScheduledAudit where
+instance Data.ToJSON UpdateScheduledAudit where
   toJSON UpdateScheduledAudit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetCheckNames" Core..=)
+          [ ("targetCheckNames" Data..=)
               Prelude.<$> targetCheckNames,
-            ("frequency" Core..=) Prelude.<$> frequency,
-            ("dayOfWeek" Core..=) Prelude.<$> dayOfWeek,
-            ("dayOfMonth" Core..=) Prelude.<$> dayOfMonth
+            ("frequency" Data..=) Prelude.<$> frequency,
+            ("dayOfWeek" Data..=) Prelude.<$> dayOfWeek,
+            ("dayOfMonth" Data..=) Prelude.<$> dayOfMonth
           ]
       )
 
-instance Core.ToPath UpdateScheduledAudit where
+instance Data.ToPath UpdateScheduledAudit where
   toPath UpdateScheduledAudit' {..} =
     Prelude.mconcat
       [ "/audit/scheduledaudits/",
-        Core.toBS scheduledAuditName
+        Data.toBS scheduledAuditName
       ]
 
-instance Core.ToQuery UpdateScheduledAudit where
+instance Data.ToQuery UpdateScheduledAudit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateScheduledAuditResponse' smart constructor.

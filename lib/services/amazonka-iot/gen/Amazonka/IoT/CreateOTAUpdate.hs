@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -265,11 +266,11 @@ instance Core.AWSRequest CreateOTAUpdate where
     Response.receiveJSON
       ( \s h x ->
           CreateOTAUpdateResponse'
-            Prelude.<$> (x Core..?> "awsIotJobId")
-            Prelude.<*> (x Core..?> "awsIotJobArn")
-            Prelude.<*> (x Core..?> "otaUpdateStatus")
-            Prelude.<*> (x Core..?> "otaUpdateArn")
-            Prelude.<*> (x Core..?> "otaUpdateId")
+            Prelude.<$> (x Data..?> "awsIotJobId")
+            Prelude.<*> (x Data..?> "awsIotJobArn")
+            Prelude.<*> (x Data..?> "otaUpdateStatus")
+            Prelude.<*> (x Data..?> "otaUpdateArn")
+            Prelude.<*> (x Data..?> "otaUpdateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -305,40 +306,40 @@ instance Prelude.NFData CreateOTAUpdate where
       `Prelude.seq` Prelude.rnf files
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateOTAUpdate where
+instance Data.ToHeaders CreateOTAUpdate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateOTAUpdate where
+instance Data.ToJSON CreateOTAUpdate where
   toJSON CreateOTAUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("awsJobExecutionsRolloutConfig" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("awsJobExecutionsRolloutConfig" Data..=)
               Prelude.<$> awsJobExecutionsRolloutConfig,
-            ("targetSelection" Core..=)
+            ("targetSelection" Data..=)
               Prelude.<$> targetSelection,
-            ("protocols" Core..=) Prelude.<$> protocols,
-            ("description" Core..=) Prelude.<$> description,
-            ("additionalParameters" Core..=)
+            ("protocols" Data..=) Prelude.<$> protocols,
+            ("description" Data..=) Prelude.<$> description,
+            ("additionalParameters" Data..=)
               Prelude.<$> additionalParameters,
-            ("awsJobAbortConfig" Core..=)
+            ("awsJobAbortConfig" Data..=)
               Prelude.<$> awsJobAbortConfig,
-            ("awsJobTimeoutConfig" Core..=)
+            ("awsJobTimeoutConfig" Data..=)
               Prelude.<$> awsJobTimeoutConfig,
-            ("awsJobPresignedUrlConfig" Core..=)
+            ("awsJobPresignedUrlConfig" Data..=)
               Prelude.<$> awsJobPresignedUrlConfig,
-            Prelude.Just ("targets" Core..= targets),
-            Prelude.Just ("files" Core..= files),
-            Prelude.Just ("roleArn" Core..= roleArn)
+            Prelude.Just ("targets" Data..= targets),
+            Prelude.Just ("files" Data..= files),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateOTAUpdate where
+instance Data.ToPath CreateOTAUpdate where
   toPath CreateOTAUpdate' {..} =
     Prelude.mconcat
-      ["/otaUpdates/", Core.toBS otaUpdateId]
+      ["/otaUpdates/", Data.toBS otaUpdateId]
 
-instance Core.ToQuery CreateOTAUpdate where
+instance Data.ToQuery CreateOTAUpdate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOTAUpdateResponse' smart constructor.

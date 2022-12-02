@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -221,8 +222,8 @@ instance Core.AWSRequest RegisterCACertificate where
     Response.receiveJSON
       ( \s h x ->
           RegisterCACertificateResponse'
-            Prelude.<$> (x Core..?> "certificateArn")
-            Prelude.<*> (x Core..?> "certificateId")
+            Prelude.<$> (x Data..?> "certificateArn")
+            Prelude.<*> (x Data..?> "certificateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -246,34 +247,34 @@ instance Prelude.NFData RegisterCACertificate where
       `Prelude.seq` Prelude.rnf certificateMode
       `Prelude.seq` Prelude.rnf caCertificate
 
-instance Core.ToHeaders RegisterCACertificate where
+instance Data.ToHeaders RegisterCACertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON RegisterCACertificate where
+instance Data.ToJSON RegisterCACertificate where
   toJSON RegisterCACertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("registrationConfig" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("registrationConfig" Data..=)
               Prelude.<$> registrationConfig,
-            ("verificationCertificate" Core..=)
+            ("verificationCertificate" Data..=)
               Prelude.<$> verificationCertificate,
-            ("certificateMode" Core..=)
+            ("certificateMode" Data..=)
               Prelude.<$> certificateMode,
             Prelude.Just
-              ("caCertificate" Core..= caCertificate)
+              ("caCertificate" Data..= caCertificate)
           ]
       )
 
-instance Core.ToPath RegisterCACertificate where
+instance Data.ToPath RegisterCACertificate where
   toPath = Prelude.const "/cacertificate"
 
-instance Core.ToQuery RegisterCACertificate where
+instance Data.ToQuery RegisterCACertificate where
   toQuery RegisterCACertificate' {..} =
     Prelude.mconcat
       [ "allowAutoRegistration"
-          Core.=: allowAutoRegistration,
-        "setAsActive" Core.=: setAsActive
+          Data.=: allowAutoRegistration,
+        "setAsActive" Data.=: setAsActive
       ]
 
 -- | The output from the RegisterCACertificateResponse operation.

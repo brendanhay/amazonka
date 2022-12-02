@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.BillingGroupProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties of a billing group.
@@ -53,13 +54,13 @@ newBillingGroupProperties =
 billingGroupProperties_billingGroupDescription :: Lens.Lens' BillingGroupProperties (Prelude.Maybe Prelude.Text)
 billingGroupProperties_billingGroupDescription = Lens.lens (\BillingGroupProperties' {billingGroupDescription} -> billingGroupDescription) (\s@BillingGroupProperties' {} a -> s {billingGroupDescription = a} :: BillingGroupProperties)
 
-instance Core.FromJSON BillingGroupProperties where
+instance Data.FromJSON BillingGroupProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BillingGroupProperties"
       ( \x ->
           BillingGroupProperties'
-            Prelude.<$> (x Core..:? "billingGroupDescription")
+            Prelude.<$> (x Data..:? "billingGroupDescription")
       )
 
 instance Prelude.Hashable BillingGroupProperties where
@@ -71,11 +72,11 @@ instance Prelude.NFData BillingGroupProperties where
   rnf BillingGroupProperties' {..} =
     Prelude.rnf billingGroupDescription
 
-instance Core.ToJSON BillingGroupProperties where
+instance Data.ToJSON BillingGroupProperties where
   toJSON BillingGroupProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("billingGroupDescription" Core..=)
+          [ ("billingGroupDescription" Data..=)
               Prelude.<$> billingGroupDescription
           ]
       )

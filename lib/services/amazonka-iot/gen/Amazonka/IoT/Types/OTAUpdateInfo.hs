@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.OTAUpdateInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AwsJobExecutionsRolloutConfig
 import Amazonka.IoT.Types.AwsJobPresignedUrlConfig
 import Amazonka.IoT.Types.ErrorInfo
@@ -39,7 +40,7 @@ data OTAUpdateInfo = OTAUpdateInfo'
     -- | Configuration for the rollout of OTA updates.
     awsJobExecutionsRolloutConfig :: Prelude.Maybe AwsJobExecutionsRolloutConfig,
     -- | The date when the OTA update was last updated.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the OTA update will continue to run (CONTINUOUS), or
     -- will be complete after all those things specified as targets have
     -- completed the OTA update (SNAPSHOT). If continuous, the OTA update may
@@ -49,7 +50,7 @@ data OTAUpdateInfo = OTAUpdateInfo'
     -- originally in the group.
     targetSelection :: Prelude.Maybe TargetSelection,
     -- | The date when the OTA update was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The IoT job ARN associated with the OTA update.
     awsIotJobArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the OTA update.
@@ -158,7 +159,7 @@ oTAUpdateInfo_awsJobExecutionsRolloutConfig = Lens.lens (\OTAUpdateInfo' {awsJob
 
 -- | The date when the OTA update was last updated.
 oTAUpdateInfo_lastModifiedDate :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe Prelude.UTCTime)
-oTAUpdateInfo_lastModifiedDate = Lens.lens (\OTAUpdateInfo' {lastModifiedDate} -> lastModifiedDate) (\s@OTAUpdateInfo' {} a -> s {lastModifiedDate = a} :: OTAUpdateInfo) Prelude.. Lens.mapping Core._Time
+oTAUpdateInfo_lastModifiedDate = Lens.lens (\OTAUpdateInfo' {lastModifiedDate} -> lastModifiedDate) (\s@OTAUpdateInfo' {} a -> s {lastModifiedDate = a} :: OTAUpdateInfo) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the OTA update will continue to run (CONTINUOUS), or
 -- will be complete after all those things specified as targets have
@@ -172,7 +173,7 @@ oTAUpdateInfo_targetSelection = Lens.lens (\OTAUpdateInfo' {targetSelection} -> 
 
 -- | The date when the OTA update was created.
 oTAUpdateInfo_creationDate :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe Prelude.UTCTime)
-oTAUpdateInfo_creationDate = Lens.lens (\OTAUpdateInfo' {creationDate} -> creationDate) (\s@OTAUpdateInfo' {} a -> s {creationDate = a} :: OTAUpdateInfo) Prelude.. Lens.mapping Core._Time
+oTAUpdateInfo_creationDate = Lens.lens (\OTAUpdateInfo' {creationDate} -> creationDate) (\s@OTAUpdateInfo' {} a -> s {creationDate = a} :: OTAUpdateInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The IoT job ARN associated with the OTA update.
 oTAUpdateInfo_awsIotJobArn :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe Prelude.Text)
@@ -221,30 +222,30 @@ oTAUpdateInfo_errorInfo = Lens.lens (\OTAUpdateInfo' {errorInfo} -> errorInfo) (
 oTAUpdateInfo_otaUpdateId :: Lens.Lens' OTAUpdateInfo (Prelude.Maybe Prelude.Text)
 oTAUpdateInfo_otaUpdateId = Lens.lens (\OTAUpdateInfo' {otaUpdateId} -> otaUpdateId) (\s@OTAUpdateInfo' {} a -> s {otaUpdateId = a} :: OTAUpdateInfo)
 
-instance Core.FromJSON OTAUpdateInfo where
+instance Data.FromJSON OTAUpdateInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OTAUpdateInfo"
       ( \x ->
           OTAUpdateInfo'
-            Prelude.<$> (x Core..:? "awsIotJobId")
-            Prelude.<*> (x Core..:? "awsJobExecutionsRolloutConfig")
-            Prelude.<*> (x Core..:? "lastModifiedDate")
-            Prelude.<*> (x Core..:? "targetSelection")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "awsIotJobArn")
-            Prelude.<*> (x Core..:? "otaUpdateStatus")
-            Prelude.<*> (x Core..:? "protocols")
-            Prelude.<*> (x Core..:? "targets")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> ( x Core..:? "additionalParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "awsIotJobId")
+            Prelude.<*> (x Data..:? "awsJobExecutionsRolloutConfig")
+            Prelude.<*> (x Data..:? "lastModifiedDate")
+            Prelude.<*> (x Data..:? "targetSelection")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "awsIotJobArn")
+            Prelude.<*> (x Data..:? "otaUpdateStatus")
+            Prelude.<*> (x Data..:? "protocols")
+            Prelude.<*> (x Data..:? "targets")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> ( x Data..:? "additionalParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "otaUpdateFiles")
-            Prelude.<*> (x Core..:? "otaUpdateArn")
-            Prelude.<*> (x Core..:? "awsJobPresignedUrlConfig")
-            Prelude.<*> (x Core..:? "errorInfo")
-            Prelude.<*> (x Core..:? "otaUpdateId")
+            Prelude.<*> (x Data..:? "otaUpdateFiles")
+            Prelude.<*> (x Data..:? "otaUpdateArn")
+            Prelude.<*> (x Data..:? "awsJobPresignedUrlConfig")
+            Prelude.<*> (x Data..:? "errorInfo")
+            Prelude.<*> (x Data..:? "otaUpdateId")
       )
 
 instance Prelude.Hashable OTAUpdateInfo where

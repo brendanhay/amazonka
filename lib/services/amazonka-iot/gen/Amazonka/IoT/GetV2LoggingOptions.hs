@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,9 +74,9 @@ instance Core.AWSRequest GetV2LoggingOptions where
     Response.receiveJSON
       ( \s h x ->
           GetV2LoggingOptionsResponse'
-            Prelude.<$> (x Core..?> "roleArn")
-            Prelude.<*> (x Core..?> "disableAllLogs")
-            Prelude.<*> (x Core..?> "defaultLogLevel")
+            Prelude.<$> (x Data..?> "roleArn")
+            Prelude.<*> (x Data..?> "disableAllLogs")
+            Prelude.<*> (x Data..?> "defaultLogLevel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -86,13 +87,13 @@ instance Prelude.Hashable GetV2LoggingOptions where
 instance Prelude.NFData GetV2LoggingOptions where
   rnf _ = ()
 
-instance Core.ToHeaders GetV2LoggingOptions where
+instance Data.ToHeaders GetV2LoggingOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetV2LoggingOptions where
+instance Data.ToPath GetV2LoggingOptions where
   toPath = Prelude.const "/v2LoggingOptions"
 
-instance Core.ToQuery GetV2LoggingOptions where
+instance Data.ToQuery GetV2LoggingOptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetV2LoggingOptionsResponse' smart constructor.

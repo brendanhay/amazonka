@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -186,8 +187,8 @@ instance Core.AWSRequest CreateSecurityProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateSecurityProfileResponse'
-            Prelude.<$> (x Core..?> "securityProfileName")
-            Prelude.<*> (x Core..?> "securityProfileArn")
+            Prelude.<$> (x Data..?> "securityProfileName")
+            Prelude.<*> (x Data..?> "securityProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,33 +212,33 @@ instance Prelude.NFData CreateSecurityProfile where
       `Prelude.seq` Prelude.rnf behaviors
       `Prelude.seq` Prelude.rnf securityProfileName
 
-instance Core.ToHeaders CreateSecurityProfile where
+instance Data.ToHeaders CreateSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateSecurityProfile where
+instance Data.ToJSON CreateSecurityProfile where
   toJSON CreateSecurityProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("alertTargets" Core..=) Prelude.<$> alertTargets,
-            ("securityProfileDescription" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("alertTargets" Data..=) Prelude.<$> alertTargets,
+            ("securityProfileDescription" Data..=)
               Prelude.<$> securityProfileDescription,
-            ("additionalMetricsToRetainV2" Core..=)
+            ("additionalMetricsToRetainV2" Data..=)
               Prelude.<$> additionalMetricsToRetainV2,
-            ("additionalMetricsToRetain" Core..=)
+            ("additionalMetricsToRetain" Data..=)
               Prelude.<$> additionalMetricsToRetain,
-            ("behaviors" Core..=) Prelude.<$> behaviors
+            ("behaviors" Data..=) Prelude.<$> behaviors
           ]
       )
 
-instance Core.ToPath CreateSecurityProfile where
+instance Data.ToPath CreateSecurityProfile where
   toPath CreateSecurityProfile' {..} =
     Prelude.mconcat
       [ "/security-profiles/",
-        Core.toBS securityProfileName
+        Data.toBS securityProfileName
       ]
 
-instance Core.ToQuery CreateSecurityProfile where
+instance Data.ToQuery CreateSecurityProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSecurityProfileResponse' smart constructor.

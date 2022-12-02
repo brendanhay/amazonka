@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,22 +119,22 @@ instance Prelude.NFData DetachSecurityProfile where
     Prelude.rnf securityProfileName
       `Prelude.seq` Prelude.rnf securityProfileTargetArn
 
-instance Core.ToHeaders DetachSecurityProfile where
+instance Data.ToHeaders DetachSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DetachSecurityProfile where
+instance Data.ToPath DetachSecurityProfile where
   toPath DetachSecurityProfile' {..} =
     Prelude.mconcat
       [ "/security-profiles/",
-        Core.toBS securityProfileName,
+        Data.toBS securityProfileName,
         "/targets"
       ]
 
-instance Core.ToQuery DetachSecurityProfile where
+instance Data.ToQuery DetachSecurityProfile where
   toQuery DetachSecurityProfile' {..} =
     Prelude.mconcat
       [ "securityProfileTargetArn"
-          Core.=: securityProfileTargetArn
+          Data.=: securityProfileTargetArn
       ]
 
 -- | /See:/ 'newDetachSecurityProfileResponse' smart constructor.

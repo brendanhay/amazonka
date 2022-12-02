@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.DocumentParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A map of key-value pairs containing the patterns that need to be
@@ -110,17 +111,17 @@ documentParameter_description = Lens.lens (\DocumentParameter' {description} -> 
 documentParameter_optional :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Bool)
 documentParameter_optional = Lens.lens (\DocumentParameter' {optional} -> optional) (\s@DocumentParameter' {} a -> s {optional = a} :: DocumentParameter)
 
-instance Core.FromJSON DocumentParameter where
+instance Data.FromJSON DocumentParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentParameter"
       ( \x ->
           DocumentParameter'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "example")
-            Prelude.<*> (x Core..:? "regex")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "optional")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "example")
+            Prelude.<*> (x Data..:? "regex")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "optional")
       )
 
 instance Prelude.Hashable DocumentParameter where

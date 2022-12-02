@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListAuthorizers where
     Response.receiveJSON
       ( \s h x ->
           ListAuthorizersResponse'
-            Prelude.<$> (x Core..?> "authorizers" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextMarker")
+            Prelude.<$> (x Data..?> "authorizers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,19 +162,19 @@ instance Prelude.NFData ListAuthorizers where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf ascendingOrder
 
-instance Core.ToHeaders ListAuthorizers where
+instance Data.ToHeaders ListAuthorizers where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAuthorizers where
+instance Data.ToPath ListAuthorizers where
   toPath = Prelude.const "/authorizers/"
 
-instance Core.ToQuery ListAuthorizers where
+instance Data.ToQuery ListAuthorizers where
   toQuery ListAuthorizers' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "status" Core.=: status,
-        "pageSize" Core.=: pageSize,
-        "isAscendingOrder" Core.=: ascendingOrder
+      [ "marker" Data.=: marker,
+        "status" Data.=: status,
+        "pageSize" Data.=: pageSize,
+        "isAscendingOrder" Data.=: ascendingOrder
       ]
 
 -- | /See:/ 'newListAuthorizersResponse' smart constructor.

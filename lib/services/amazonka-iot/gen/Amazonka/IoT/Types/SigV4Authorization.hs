@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.SigV4Authorization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For more information, see
@@ -81,15 +82,15 @@ sigV4Authorization_serviceName = Lens.lens (\SigV4Authorization' {serviceName} -
 sigV4Authorization_roleArn :: Lens.Lens' SigV4Authorization Prelude.Text
 sigV4Authorization_roleArn = Lens.lens (\SigV4Authorization' {roleArn} -> roleArn) (\s@SigV4Authorization' {} a -> s {roleArn = a} :: SigV4Authorization)
 
-instance Core.FromJSON SigV4Authorization where
+instance Data.FromJSON SigV4Authorization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SigV4Authorization"
       ( \x ->
           SigV4Authorization'
-            Prelude.<$> (x Core..: "signingRegion")
-            Prelude.<*> (x Core..: "serviceName")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Data..: "signingRegion")
+            Prelude.<*> (x Data..: "serviceName")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance Prelude.Hashable SigV4Authorization where
@@ -104,13 +105,13 @@ instance Prelude.NFData SigV4Authorization where
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON SigV4Authorization where
+instance Data.ToJSON SigV4Authorization where
   toJSON SigV4Authorization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("signingRegion" Core..= signingRegion),
-            Prelude.Just ("serviceName" Core..= serviceName),
-            Prelude.Just ("roleArn" Core..= roleArn)
+              ("signingRegion" Data..= signingRegion),
+            Prelude.Just ("serviceName" Data..= serviceName),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.OpenSearchAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action that writes data to an Amazon OpenSearch Service
@@ -104,17 +105,17 @@ openSearchAction_type = Lens.lens (\OpenSearchAction' {type'} -> type') (\s@Open
 openSearchAction_id :: Lens.Lens' OpenSearchAction Prelude.Text
 openSearchAction_id = Lens.lens (\OpenSearchAction' {id} -> id) (\s@OpenSearchAction' {} a -> s {id = a} :: OpenSearchAction)
 
-instance Core.FromJSON OpenSearchAction where
+instance Data.FromJSON OpenSearchAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpenSearchAction"
       ( \x ->
           OpenSearchAction'
-            Prelude.<$> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "endpoint")
-            Prelude.<*> (x Core..: "index")
-            Prelude.<*> (x Core..: "type")
-            Prelude.<*> (x Core..: "id")
+            Prelude.<$> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "endpoint")
+            Prelude.<*> (x Data..: "index")
+            Prelude.<*> (x Data..: "type")
+            Prelude.<*> (x Data..: "id")
       )
 
 instance Prelude.Hashable OpenSearchAction where
@@ -133,14 +134,14 @@ instance Prelude.NFData OpenSearchAction where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON OpenSearchAction where
+instance Data.ToJSON OpenSearchAction where
   toJSON OpenSearchAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("endpoint" Core..= endpoint),
-            Prelude.Just ("index" Core..= index),
-            Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("id" Core..= id)
+          [ Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("endpoint" Data..= endpoint),
+            Prelude.Just ("index" Data..= index),
+            Prelude.Just ("type" Data..= type'),
+            Prelude.Just ("id" Data..= id)
           ]
       )

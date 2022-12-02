@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,8 +145,8 @@ instance Core.AWSRequest ListPrincipalThings where
     Response.receiveJSON
       ( \s h x ->
           ListPrincipalThingsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "things" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "things" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,19 +162,19 @@ instance Prelude.NFData ListPrincipalThings where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf principal
 
-instance Core.ToHeaders ListPrincipalThings where
+instance Data.ToHeaders ListPrincipalThings where
   toHeaders ListPrincipalThings' {..} =
     Prelude.mconcat
-      ["x-amzn-principal" Core.=# principal]
+      ["x-amzn-principal" Data.=# principal]
 
-instance Core.ToPath ListPrincipalThings where
+instance Data.ToPath ListPrincipalThings where
   toPath = Prelude.const "/principals/things"
 
-instance Core.ToQuery ListPrincipalThings where
+instance Data.ToQuery ListPrincipalThings where
   toQuery ListPrincipalThings' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | The output from the ListPrincipalThings operation.

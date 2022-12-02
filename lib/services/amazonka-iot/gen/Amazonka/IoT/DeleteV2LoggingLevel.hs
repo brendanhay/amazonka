@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,17 +110,17 @@ instance Prelude.NFData DeleteV2LoggingLevel where
     Prelude.rnf targetType
       `Prelude.seq` Prelude.rnf targetName
 
-instance Core.ToHeaders DeleteV2LoggingLevel where
+instance Data.ToHeaders DeleteV2LoggingLevel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteV2LoggingLevel where
+instance Data.ToPath DeleteV2LoggingLevel where
   toPath = Prelude.const "/v2LoggingLevel"
 
-instance Core.ToQuery DeleteV2LoggingLevel where
+instance Data.ToQuery DeleteV2LoggingLevel where
   toQuery DeleteV2LoggingLevel' {..} =
     Prelude.mconcat
-      [ "targetType" Core.=: targetType,
-        "targetName" Core.=: targetName
+      [ "targetType" Data.=: targetType,
+        "targetName" Data.=: targetName
       ]
 
 -- | /See:/ 'newDeleteV2LoggingLevelResponse' smart constructor.

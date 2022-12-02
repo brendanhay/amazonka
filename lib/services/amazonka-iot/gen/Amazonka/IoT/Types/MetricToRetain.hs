@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.MetricToRetain where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.MetricDimension
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ metricToRetain_metricDimension = Lens.lens (\MetricToRetain' {metricDimension} -
 metricToRetain_metric :: Lens.Lens' MetricToRetain Prelude.Text
 metricToRetain_metric = Lens.lens (\MetricToRetain' {metric} -> metric) (\s@MetricToRetain' {} a -> s {metric = a} :: MetricToRetain)
 
-instance Core.FromJSON MetricToRetain where
+instance Data.FromJSON MetricToRetain where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricToRetain"
       ( \x ->
           MetricToRetain'
-            Prelude.<$> (x Core..:? "metricDimension")
-            Prelude.<*> (x Core..: "metric")
+            Prelude.<$> (x Data..:? "metricDimension")
+            Prelude.<*> (x Data..: "metric")
       )
 
 instance Prelude.Hashable MetricToRetain where
@@ -84,12 +85,12 @@ instance Prelude.NFData MetricToRetain where
     Prelude.rnf metricDimension
       `Prelude.seq` Prelude.rnf metric
 
-instance Core.ToJSON MetricToRetain where
+instance Data.ToJSON MetricToRetain where
   toJSON MetricToRetain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("metricDimension" Core..=)
+          [ ("metricDimension" Data..=)
               Prelude.<$> metricDimension,
-            Prelude.Just ("metric" Core..= metric)
+            Prelude.Just ("metric" Data..= metric)
           ]
       )

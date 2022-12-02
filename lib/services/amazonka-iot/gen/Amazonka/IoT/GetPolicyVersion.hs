@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,14 +111,14 @@ instance Core.AWSRequest GetPolicyVersion where
     Response.receiveJSON
       ( \s h x ->
           GetPolicyVersionResponse'
-            Prelude.<$> (x Core..?> "policyName")
-            Prelude.<*> (x Core..?> "isDefaultVersion")
-            Prelude.<*> (x Core..?> "lastModifiedDate")
-            Prelude.<*> (x Core..?> "creationDate")
-            Prelude.<*> (x Core..?> "policyVersionId")
-            Prelude.<*> (x Core..?> "policyDocument")
-            Prelude.<*> (x Core..?> "policyArn")
-            Prelude.<*> (x Core..?> "generationId")
+            Prelude.<$> (x Data..?> "policyName")
+            Prelude.<*> (x Data..?> "isDefaultVersion")
+            Prelude.<*> (x Data..?> "lastModifiedDate")
+            Prelude.<*> (x Data..?> "creationDate")
+            Prelude.<*> (x Data..?> "policyVersionId")
+            Prelude.<*> (x Data..?> "policyDocument")
+            Prelude.<*> (x Data..?> "policyArn")
+            Prelude.<*> (x Data..?> "generationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,19 +132,19 @@ instance Prelude.NFData GetPolicyVersion where
     Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyVersionId
 
-instance Core.ToHeaders GetPolicyVersion where
+instance Data.ToHeaders GetPolicyVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPolicyVersion where
+instance Data.ToPath GetPolicyVersion where
   toPath GetPolicyVersion' {..} =
     Prelude.mconcat
       [ "/policies/",
-        Core.toBS policyName,
+        Data.toBS policyName,
         "/version/",
-        Core.toBS policyVersionId
+        Data.toBS policyVersionId
       ]
 
-instance Core.ToQuery GetPolicyVersion where
+instance Data.ToQuery GetPolicyVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the GetPolicyVersion operation.
@@ -155,9 +156,9 @@ data GetPolicyVersionResponse = GetPolicyVersionResponse'
     -- | Specifies whether the policy version is the default.
     isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The date the policy was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The date the policy was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The policy version ID.
     policyVersionId :: Prelude.Maybe Prelude.Text,
     -- | The JSON document that describes the policy.
@@ -224,11 +225,11 @@ getPolicyVersionResponse_isDefaultVersion = Lens.lens (\GetPolicyVersionResponse
 
 -- | The date the policy was last modified.
 getPolicyVersionResponse_lastModifiedDate :: Lens.Lens' GetPolicyVersionResponse (Prelude.Maybe Prelude.UTCTime)
-getPolicyVersionResponse_lastModifiedDate = Lens.lens (\GetPolicyVersionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@GetPolicyVersionResponse' {} a -> s {lastModifiedDate = a} :: GetPolicyVersionResponse) Prelude.. Lens.mapping Core._Time
+getPolicyVersionResponse_lastModifiedDate = Lens.lens (\GetPolicyVersionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@GetPolicyVersionResponse' {} a -> s {lastModifiedDate = a} :: GetPolicyVersionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date the policy was created.
 getPolicyVersionResponse_creationDate :: Lens.Lens' GetPolicyVersionResponse (Prelude.Maybe Prelude.UTCTime)
-getPolicyVersionResponse_creationDate = Lens.lens (\GetPolicyVersionResponse' {creationDate} -> creationDate) (\s@GetPolicyVersionResponse' {} a -> s {creationDate = a} :: GetPolicyVersionResponse) Prelude.. Lens.mapping Core._Time
+getPolicyVersionResponse_creationDate = Lens.lens (\GetPolicyVersionResponse' {creationDate} -> creationDate) (\s@GetPolicyVersionResponse' {} a -> s {creationDate = a} :: GetPolicyVersionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The policy version ID.
 getPolicyVersionResponse_policyVersionId :: Lens.Lens' GetPolicyVersionResponse (Prelude.Maybe Prelude.Text)

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,20 +110,20 @@ instance Prelude.NFData CancelCertificateTransfer where
   rnf CancelCertificateTransfer' {..} =
     Prelude.rnf certificateId
 
-instance Core.ToHeaders CancelCertificateTransfer where
+instance Data.ToHeaders CancelCertificateTransfer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CancelCertificateTransfer where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CancelCertificateTransfer where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CancelCertificateTransfer where
+instance Data.ToPath CancelCertificateTransfer where
   toPath CancelCertificateTransfer' {..} =
     Prelude.mconcat
       [ "/cancel-certificate-transfer/",
-        Core.toBS certificateId
+        Data.toBS certificateId
       ]
 
-instance Core.ToQuery CancelCertificateTransfer where
+instance Data.ToQuery CancelCertificateTransfer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelCertificateTransferResponse' smart constructor.

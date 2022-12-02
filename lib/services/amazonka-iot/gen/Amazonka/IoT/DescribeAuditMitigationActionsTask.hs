@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,17 +99,17 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAuditMitigationActionsTaskResponse'
-            Prelude.<$> ( x Core..?> "auditCheckToActionsMapping"
+            Prelude.<$> ( x Data..?> "auditCheckToActionsMapping"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Core..?> "taskStatus")
-              Prelude.<*> (x Core..?> "target")
-              Prelude.<*> (x Core..?> "endTime")
-              Prelude.<*> ( x Core..?> "actionsDefinition"
+              Prelude.<*> (x Data..?> "taskStatus")
+              Prelude.<*> (x Data..?> "target")
+              Prelude.<*> (x Data..?> "endTime")
+              Prelude.<*> ( x Data..?> "actionsDefinition"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> (x Core..?> "taskStatistics" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "startTime")
+              Prelude.<*> (x Data..?> "taskStatistics" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "startTime")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,21 +130,21 @@ instance
     Prelude.rnf taskId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeAuditMitigationActionsTask
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeAuditMitigationActionsTask
   where
   toPath DescribeAuditMitigationActionsTask' {..} =
     Prelude.mconcat
-      ["/audit/mitigationactions/tasks/", Core.toBS taskId]
+      ["/audit/mitigationactions/tasks/", Data.toBS taskId]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeAuditMitigationActionsTask
   where
   toQuery = Prelude.const Prelude.mempty
@@ -159,7 +160,7 @@ data DescribeAuditMitigationActionsTaskResponse = DescribeAuditMitigationActions
     -- This can be by audit checks, by audit task, or a set of findings.
     target :: Prelude.Maybe AuditMitigationActionsTaskTarget,
     -- | The date and time when the task was completed or canceled.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies the mitigation actions and their parameters that are applied
     -- as part of this task.
     actionsDefinition :: Prelude.Maybe [MitigationAction],
@@ -167,7 +168,7 @@ data DescribeAuditMitigationActionsTaskResponse = DescribeAuditMitigationActions
     -- to the findings for this audit mitigation actions task.
     taskStatistics :: Prelude.Maybe (Prelude.HashMap Prelude.Text TaskStatisticsForAuditCheck),
     -- | The date and time when the task was started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -236,7 +237,7 @@ describeAuditMitigationActionsTaskResponse_target = Lens.lens (\DescribeAuditMit
 
 -- | The date and time when the task was completed or canceled.
 describeAuditMitigationActionsTaskResponse_endTime :: Lens.Lens' DescribeAuditMitigationActionsTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeAuditMitigationActionsTaskResponse_endTime = Lens.lens (\DescribeAuditMitigationActionsTaskResponse' {endTime} -> endTime) (\s@DescribeAuditMitigationActionsTaskResponse' {} a -> s {endTime = a} :: DescribeAuditMitigationActionsTaskResponse) Prelude.. Lens.mapping Core._Time
+describeAuditMitigationActionsTaskResponse_endTime = Lens.lens (\DescribeAuditMitigationActionsTaskResponse' {endTime} -> endTime) (\s@DescribeAuditMitigationActionsTaskResponse' {} a -> s {endTime = a} :: DescribeAuditMitigationActionsTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the mitigation actions and their parameters that are applied
 -- as part of this task.
@@ -250,7 +251,7 @@ describeAuditMitigationActionsTaskResponse_taskStatistics = Lens.lens (\Describe
 
 -- | The date and time when the task was started.
 describeAuditMitigationActionsTaskResponse_startTime :: Lens.Lens' DescribeAuditMitigationActionsTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeAuditMitigationActionsTaskResponse_startTime = Lens.lens (\DescribeAuditMitigationActionsTaskResponse' {startTime} -> startTime) (\s@DescribeAuditMitigationActionsTaskResponse' {} a -> s {startTime = a} :: DescribeAuditMitigationActionsTaskResponse) Prelude.. Lens.mapping Core._Time
+describeAuditMitigationActionsTaskResponse_startTime = Lens.lens (\DescribeAuditMitigationActionsTaskResponse' {startTime} -> startTime) (\s@DescribeAuditMitigationActionsTaskResponse' {} a -> s {startTime = a} :: DescribeAuditMitigationActionsTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeAuditMitigationActionsTaskResponse_httpStatus :: Lens.Lens' DescribeAuditMitigationActionsTaskResponse Prelude.Int

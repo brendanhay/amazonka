@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -77,10 +78,10 @@ data ListAuditMitigationActionsTasks = ListAuditMitigationActionsTasks'
     findingId :: Prelude.Maybe Prelude.Text,
     -- | Specify this filter to limit results to tasks that began on or after a
     -- specific date and time.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | Specify this filter to limit results to tasks that were completed or
     -- canceled on or before a specific date and time.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -126,8 +127,8 @@ newListAuditMitigationActionsTasks
         maxResults = Prelude.Nothing,
         auditTaskId = Prelude.Nothing,
         findingId = Prelude.Nothing,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_
       }
 
 -- | The token for the next set of results.
@@ -156,12 +157,12 @@ listAuditMitigationActionsTasks_findingId = Lens.lens (\ListAuditMitigationActio
 -- | Specify this filter to limit results to tasks that began on or after a
 -- specific date and time.
 listAuditMitigationActionsTasks_startTime :: Lens.Lens' ListAuditMitigationActionsTasks Prelude.UTCTime
-listAuditMitigationActionsTasks_startTime = Lens.lens (\ListAuditMitigationActionsTasks' {startTime} -> startTime) (\s@ListAuditMitigationActionsTasks' {} a -> s {startTime = a} :: ListAuditMitigationActionsTasks) Prelude.. Core._Time
+listAuditMitigationActionsTasks_startTime = Lens.lens (\ListAuditMitigationActionsTasks' {startTime} -> startTime) (\s@ListAuditMitigationActionsTasks' {} a -> s {startTime = a} :: ListAuditMitigationActionsTasks) Prelude.. Data._Time
 
 -- | Specify this filter to limit results to tasks that were completed or
 -- canceled on or before a specific date and time.
 listAuditMitigationActionsTasks_endTime :: Lens.Lens' ListAuditMitigationActionsTasks Prelude.UTCTime
-listAuditMitigationActionsTasks_endTime = Lens.lens (\ListAuditMitigationActionsTasks' {endTime} -> endTime) (\s@ListAuditMitigationActionsTasks' {} a -> s {endTime = a} :: ListAuditMitigationActionsTasks) Prelude.. Core._Time
+listAuditMitigationActionsTasks_endTime = Lens.lens (\ListAuditMitigationActionsTasks' {endTime} -> endTime) (\s@ListAuditMitigationActionsTasks' {} a -> s {endTime = a} :: ListAuditMitigationActionsTasks) Prelude.. Data._Time
 
 instance
   Core.AWSPager
@@ -201,8 +202,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAuditMitigationActionsTasksResponse'
-            Prelude.<$> (x Core..?> "tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "tasks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -235,25 +236,25 @@ instance
       `Prelude.seq` Prelude.rnf endTime
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListAuditMitigationActionsTasks
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAuditMitigationActionsTasks where
+instance Data.ToPath ListAuditMitigationActionsTasks where
   toPath =
     Prelude.const "/audit/mitigationactions/tasks"
 
-instance Core.ToQuery ListAuditMitigationActionsTasks where
+instance Data.ToQuery ListAuditMitigationActionsTasks where
   toQuery ListAuditMitigationActionsTasks' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "taskStatus" Core.=: taskStatus,
-        "maxResults" Core.=: maxResults,
-        "auditTaskId" Core.=: auditTaskId,
-        "findingId" Core.=: findingId,
-        "startTime" Core.=: startTime,
-        "endTime" Core.=: endTime
+      [ "nextToken" Data.=: nextToken,
+        "taskStatus" Data.=: taskStatus,
+        "maxResults" Data.=: maxResults,
+        "auditTaskId" Data.=: auditTaskId,
+        "findingId" Data.=: findingId,
+        "startTime" Data.=: startTime,
+        "endTime" Data.=: endTime
       ]
 
 -- | /See:/ 'newListAuditMitigationActionsTasksResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.CustomCodeSigning where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.CodeSigningCertificateChain
 import Amazonka.IoT.Types.CodeSigningSignature
 import qualified Amazonka.Prelude as Prelude
@@ -111,16 +112,16 @@ customCodeSigning_certificateChain = Lens.lens (\CustomCodeSigning' {certificate
 customCodeSigning_signature :: Lens.Lens' CustomCodeSigning (Prelude.Maybe CodeSigningSignature)
 customCodeSigning_signature = Lens.lens (\CustomCodeSigning' {signature} -> signature) (\s@CustomCodeSigning' {} a -> s {signature = a} :: CustomCodeSigning)
 
-instance Core.FromJSON CustomCodeSigning where
+instance Data.FromJSON CustomCodeSigning where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomCodeSigning"
       ( \x ->
           CustomCodeSigning'
-            Prelude.<$> (x Core..:? "hashAlgorithm")
-            Prelude.<*> (x Core..:? "signatureAlgorithm")
-            Prelude.<*> (x Core..:? "certificateChain")
-            Prelude.<*> (x Core..:? "signature")
+            Prelude.<$> (x Data..:? "hashAlgorithm")
+            Prelude.<*> (x Data..:? "signatureAlgorithm")
+            Prelude.<*> (x Data..:? "certificateChain")
+            Prelude.<*> (x Data..:? "signature")
       )
 
 instance Prelude.Hashable CustomCodeSigning where
@@ -137,15 +138,15 @@ instance Prelude.NFData CustomCodeSigning where
       `Prelude.seq` Prelude.rnf certificateChain
       `Prelude.seq` Prelude.rnf signature
 
-instance Core.ToJSON CustomCodeSigning where
+instance Data.ToJSON CustomCodeSigning where
   toJSON CustomCodeSigning' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("hashAlgorithm" Core..=) Prelude.<$> hashAlgorithm,
-            ("signatureAlgorithm" Core..=)
+          [ ("hashAlgorithm" Data..=) Prelude.<$> hashAlgorithm,
+            ("signatureAlgorithm" Data..=)
               Prelude.<$> signatureAlgorithm,
-            ("certificateChain" Core..=)
+            ("certificateChain" Data..=)
               Prelude.<$> certificateChain,
-            ("signature" Core..=) Prelude.<$> signature
+            ("signature" Data..=) Prelude.<$> signature
           ]
       )

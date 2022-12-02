@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,8 +140,8 @@ instance Core.AWSRequest ListThingRegistrationTasks where
     Response.receiveJSON
       ( \s h x ->
           ListThingRegistrationTasksResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "taskIds" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "taskIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,18 +157,18 @@ instance Prelude.NFData ListThingRegistrationTasks where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListThingRegistrationTasks where
+instance Data.ToHeaders ListThingRegistrationTasks where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListThingRegistrationTasks where
+instance Data.ToPath ListThingRegistrationTasks where
   toPath = Prelude.const "/thing-registration-tasks"
 
-instance Core.ToQuery ListThingRegistrationTasks where
+instance Data.ToQuery ListThingRegistrationTasks where
   toQuery ListThingRegistrationTasks' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "status" Core.=: status,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "status" Data.=: status,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListThingRegistrationTasksResponse' smart constructor.

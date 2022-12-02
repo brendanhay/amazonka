@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,8 +157,8 @@ instance Core.AWSRequest ListAuditSuppressions where
     Response.receiveJSON
       ( \s h x ->
           ListAuditSuppressionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "suppressions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "suppressions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,27 +178,27 @@ instance Prelude.NFData ListAuditSuppressions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf ascendingOrder
 
-instance Core.ToHeaders ListAuditSuppressions where
+instance Data.ToHeaders ListAuditSuppressions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListAuditSuppressions where
+instance Data.ToJSON ListAuditSuppressions where
   toJSON ListAuditSuppressions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("checkName" Core..=) Prelude.<$> checkName,
-            ("resourceIdentifier" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("checkName" Data..=) Prelude.<$> checkName,
+            ("resourceIdentifier" Data..=)
               Prelude.<$> resourceIdentifier,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("ascendingOrder" Core..=)
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("ascendingOrder" Data..=)
               Prelude.<$> ascendingOrder
           ]
       )
 
-instance Core.ToPath ListAuditSuppressions where
+instance Data.ToPath ListAuditSuppressions where
   toPath = Prelude.const "/audit/suppressions/list"
 
-instance Core.ToQuery ListAuditSuppressions where
+instance Data.ToQuery ListAuditSuppressions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAuditSuppressionsResponse' smart constructor.

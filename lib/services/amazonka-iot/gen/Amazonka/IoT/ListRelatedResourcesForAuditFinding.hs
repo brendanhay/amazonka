@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,10 +141,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListRelatedResourcesForAuditFindingResponse'
-            Prelude.<$> ( x Core..?> "relatedResources"
+            Prelude.<$> ( x Data..?> "relatedResources"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Core..?> "nextToken")
+              Prelude.<*> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,26 +169,26 @@ instance
       `Prelude.seq` Prelude.rnf findingId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListRelatedResourcesForAuditFinding
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListRelatedResourcesForAuditFinding
   where
   toPath = Prelude.const "/audit/relatedResources"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListRelatedResourcesForAuditFinding
   where
   toQuery ListRelatedResourcesForAuditFinding' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "findingId" Core.=: findingId
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "findingId" Data.=: findingId
       ]
 
 -- | /See:/ 'newListRelatedResourcesForAuditFindingResponse' smart constructor.

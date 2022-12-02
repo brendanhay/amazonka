@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance Core.AWSRequest DescribeCertificate where
     Response.receiveJSON
       ( \s h x ->
           DescribeCertificateResponse'
-            Prelude.<$> (x Core..?> "certificateDescription")
+            Prelude.<$> (x Data..?> "certificateDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,15 +108,15 @@ instance Prelude.NFData DescribeCertificate where
   rnf DescribeCertificate' {..} =
     Prelude.rnf certificateId
 
-instance Core.ToHeaders DescribeCertificate where
+instance Data.ToHeaders DescribeCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeCertificate where
+instance Data.ToPath DescribeCertificate where
   toPath DescribeCertificate' {..} =
     Prelude.mconcat
-      ["/certificates/", Core.toBS certificateId]
+      ["/certificates/", Data.toBS certificateId]
 
-instance Core.ToQuery DescribeCertificate where
+instance Data.ToQuery DescribeCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output of the DescribeCertificate operation.

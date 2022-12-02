@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,17 +101,17 @@ instance Core.AWSRequest DescribeProvisioningTemplate where
     Response.receiveJSON
       ( \s h x ->
           DescribeProvisioningTemplateResponse'
-            Prelude.<$> (x Core..?> "templateName")
-            Prelude.<*> (x Core..?> "type")
-            Prelude.<*> (x Core..?> "defaultVersionId")
-            Prelude.<*> (x Core..?> "lastModifiedDate")
-            Prelude.<*> (x Core..?> "preProvisioningHook")
-            Prelude.<*> (x Core..?> "templateBody")
-            Prelude.<*> (x Core..?> "creationDate")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "enabled")
-            Prelude.<*> (x Core..?> "templateArn")
-            Prelude.<*> (x Core..?> "provisioningRoleArn")
+            Prelude.<$> (x Data..?> "templateName")
+            Prelude.<*> (x Data..?> "type")
+            Prelude.<*> (x Data..?> "defaultVersionId")
+            Prelude.<*> (x Data..?> "lastModifiedDate")
+            Prelude.<*> (x Data..?> "preProvisioningHook")
+            Prelude.<*> (x Data..?> "templateBody")
+            Prelude.<*> (x Data..?> "creationDate")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "enabled")
+            Prelude.<*> (x Data..?> "templateArn")
+            Prelude.<*> (x Data..?> "provisioningRoleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,15 +126,15 @@ instance Prelude.NFData DescribeProvisioningTemplate where
   rnf DescribeProvisioningTemplate' {..} =
     Prelude.rnf templateName
 
-instance Core.ToHeaders DescribeProvisioningTemplate where
+instance Data.ToHeaders DescribeProvisioningTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeProvisioningTemplate where
+instance Data.ToPath DescribeProvisioningTemplate where
   toPath DescribeProvisioningTemplate' {..} =
     Prelude.mconcat
-      ["/provisioning-templates/", Core.toBS templateName]
+      ["/provisioning-templates/", Data.toBS templateName]
 
-instance Core.ToQuery DescribeProvisioningTemplate where
+instance Data.ToQuery DescribeProvisioningTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProvisioningTemplateResponse' smart constructor.
@@ -149,13 +150,13 @@ data DescribeProvisioningTemplateResponse = DescribeProvisioningTemplateResponse
     -- | The default fleet template version ID.
     defaultVersionId :: Prelude.Maybe Prelude.Int,
     -- | The date when the provisioning template was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | Gets information about a pre-provisioned hook.
     preProvisioningHook :: Prelude.Maybe ProvisioningHook,
     -- | The JSON formatted contents of the provisioning template.
     templateBody :: Prelude.Maybe Prelude.Text,
     -- | The date when the provisioning template was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The description of the provisioning template.
     description :: Prelude.Maybe Prelude.Text,
     -- | True if the provisioning template is enabled, otherwise false.
@@ -245,7 +246,7 @@ describeProvisioningTemplateResponse_defaultVersionId = Lens.lens (\DescribeProv
 
 -- | The date when the provisioning template was last modified.
 describeProvisioningTemplateResponse_lastModifiedDate :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-describeProvisioningTemplateResponse_lastModifiedDate = Lens.lens (\DescribeProvisioningTemplateResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeProvisioningTemplateResponse' {} a -> s {lastModifiedDate = a} :: DescribeProvisioningTemplateResponse) Prelude.. Lens.mapping Core._Time
+describeProvisioningTemplateResponse_lastModifiedDate = Lens.lens (\DescribeProvisioningTemplateResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeProvisioningTemplateResponse' {} a -> s {lastModifiedDate = a} :: DescribeProvisioningTemplateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Gets information about a pre-provisioned hook.
 describeProvisioningTemplateResponse_preProvisioningHook :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe ProvisioningHook)
@@ -257,7 +258,7 @@ describeProvisioningTemplateResponse_templateBody = Lens.lens (\DescribeProvisio
 
 -- | The date when the provisioning template was created.
 describeProvisioningTemplateResponse_creationDate :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-describeProvisioningTemplateResponse_creationDate = Lens.lens (\DescribeProvisioningTemplateResponse' {creationDate} -> creationDate) (\s@DescribeProvisioningTemplateResponse' {} a -> s {creationDate = a} :: DescribeProvisioningTemplateResponse) Prelude.. Lens.mapping Core._Time
+describeProvisioningTemplateResponse_creationDate = Lens.lens (\DescribeProvisioningTemplateResponse' {creationDate} -> creationDate) (\s@DescribeProvisioningTemplateResponse' {} a -> s {creationDate = a} :: DescribeProvisioningTemplateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the provisioning template.
 describeProvisioningTemplateResponse_description :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.Text)

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ThingDocument where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.ThingConnectivity
 import qualified Amazonka.Prelude as Prelude
 
@@ -137,22 +138,22 @@ thingDocument_attributes = Lens.lens (\ThingDocument' {attributes} -> attributes
 thingDocument_connectivity :: Lens.Lens' ThingDocument (Prelude.Maybe ThingConnectivity)
 thingDocument_connectivity = Lens.lens (\ThingDocument' {connectivity} -> connectivity) (\s@ThingDocument' {} a -> s {connectivity = a} :: ThingDocument)
 
-instance Core.FromJSON ThingDocument where
+instance Data.FromJSON ThingDocument where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThingDocument"
       ( \x ->
           ThingDocument'
-            Prelude.<$> (x Core..:? "thingName")
-            Prelude.<*> (x Core..:? "thingId")
-            Prelude.<*> (x Core..:? "deviceDefender")
-            Prelude.<*> (x Core..:? "shadow")
-            Prelude.<*> (x Core..:? "thingTypeName")
-            Prelude.<*> ( x Core..:? "thingGroupNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "thingName")
+            Prelude.<*> (x Data..:? "thingId")
+            Prelude.<*> (x Data..:? "deviceDefender")
+            Prelude.<*> (x Data..:? "shadow")
+            Prelude.<*> (x Data..:? "thingTypeName")
+            Prelude.<*> ( x Data..:? "thingGroupNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "connectivity")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "connectivity")
       )
 
 instance Prelude.Hashable ThingDocument where

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,8 +157,8 @@ instance Core.AWSRequest ListAttachedPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListAttachedPoliciesResponse'
-            Prelude.<$> (x Core..?> "policies" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextMarker")
+            Prelude.<$> (x Data..?> "policies" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,23 +176,23 @@ instance Prelude.NFData ListAttachedPolicies where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf target
 
-instance Core.ToHeaders ListAttachedPolicies where
+instance Data.ToHeaders ListAttachedPolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListAttachedPolicies where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ListAttachedPolicies where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ListAttachedPolicies where
+instance Data.ToPath ListAttachedPolicies where
   toPath ListAttachedPolicies' {..} =
     Prelude.mconcat
-      ["/attached-policies/", Core.toBS target]
+      ["/attached-policies/", Data.toBS target]
 
-instance Core.ToQuery ListAttachedPolicies where
+instance Data.ToQuery ListAttachedPolicies where
   toQuery ListAttachedPolicies' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "recursive" Core.=: recursive,
-        "pageSize" Core.=: pageSize
+      [ "marker" Data.=: marker,
+        "recursive" Data.=: recursive,
+        "pageSize" Data.=: pageSize
       ]
 
 -- | /See:/ 'newListAttachedPoliciesResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,20 +145,20 @@ instance Prelude.NFData UpdateCertificate where
     Prelude.rnf certificateId
       `Prelude.seq` Prelude.rnf newStatus'
 
-instance Core.ToHeaders UpdateCertificate where
+instance Data.ToHeaders UpdateCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateCertificate where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON UpdateCertificate where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath UpdateCertificate where
+instance Data.ToPath UpdateCertificate where
   toPath UpdateCertificate' {..} =
     Prelude.mconcat
-      ["/certificates/", Core.toBS certificateId]
+      ["/certificates/", Data.toBS certificateId]
 
-instance Core.ToQuery UpdateCertificate where
+instance Data.ToQuery UpdateCertificate where
   toQuery UpdateCertificate' {..} =
-    Prelude.mconcat ["newStatus" Core.=: newStatus']
+    Prelude.mconcat ["newStatus" Data.=: newStatus']
 
 -- | /See:/ 'newUpdateCertificateResponse' smart constructor.
 data UpdateCertificateResponse = UpdateCertificateResponse'

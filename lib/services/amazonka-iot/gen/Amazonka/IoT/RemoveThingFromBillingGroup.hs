@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,28 +138,28 @@ instance Prelude.NFData RemoveThingFromBillingGroup where
       `Prelude.seq` Prelude.rnf billingGroupArn
       `Prelude.seq` Prelude.rnf thingArn
 
-instance Core.ToHeaders RemoveThingFromBillingGroup where
+instance Data.ToHeaders RemoveThingFromBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON RemoveThingFromBillingGroup where
+instance Data.ToJSON RemoveThingFromBillingGroup where
   toJSON RemoveThingFromBillingGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("billingGroupName" Core..=)
+          [ ("billingGroupName" Data..=)
               Prelude.<$> billingGroupName,
-            ("thingName" Core..=) Prelude.<$> thingName,
-            ("billingGroupArn" Core..=)
+            ("thingName" Data..=) Prelude.<$> thingName,
+            ("billingGroupArn" Data..=)
               Prelude.<$> billingGroupArn,
-            ("thingArn" Core..=) Prelude.<$> thingArn
+            ("thingArn" Data..=) Prelude.<$> thingArn
           ]
       )
 
-instance Core.ToPath RemoveThingFromBillingGroup where
+instance Data.ToPath RemoveThingFromBillingGroup where
   toPath =
     Prelude.const
       "/billing-groups/removeThingFromBillingGroup"
 
-instance Core.ToQuery RemoveThingFromBillingGroup where
+instance Data.ToQuery RemoveThingFromBillingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveThingFromBillingGroupResponse' smart constructor.

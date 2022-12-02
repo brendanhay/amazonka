@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,14 +98,14 @@ instance Core.AWSRequest DescribeMitigationAction where
     Response.receiveJSON
       ( \s h x ->
           DescribeMitigationActionResponse'
-            Prelude.<$> (x Core..?> "actionName")
-            Prelude.<*> (x Core..?> "roleArn")
-            Prelude.<*> (x Core..?> "actionType")
-            Prelude.<*> (x Core..?> "lastModifiedDate")
-            Prelude.<*> (x Core..?> "creationDate")
-            Prelude.<*> (x Core..?> "actionParams")
-            Prelude.<*> (x Core..?> "actionId")
-            Prelude.<*> (x Core..?> "actionArn")
+            Prelude.<$> (x Data..?> "actionName")
+            Prelude.<*> (x Data..?> "roleArn")
+            Prelude.<*> (x Data..?> "actionType")
+            Prelude.<*> (x Data..?> "lastModifiedDate")
+            Prelude.<*> (x Data..?> "creationDate")
+            Prelude.<*> (x Data..?> "actionParams")
+            Prelude.<*> (x Data..?> "actionId")
+            Prelude.<*> (x Data..?> "actionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,15 +117,15 @@ instance Prelude.NFData DescribeMitigationAction where
   rnf DescribeMitigationAction' {..} =
     Prelude.rnf actionName
 
-instance Core.ToHeaders DescribeMitigationAction where
+instance Data.ToHeaders DescribeMitigationAction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeMitigationAction where
+instance Data.ToPath DescribeMitigationAction where
   toPath DescribeMitigationAction' {..} =
     Prelude.mconcat
-      ["/mitigationactions/actions/", Core.toBS actionName]
+      ["/mitigationactions/actions/", Data.toBS actionName]
 
-instance Core.ToQuery DescribeMitigationAction where
+instance Data.ToQuery DescribeMitigationAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeMitigationActionResponse' smart constructor.
@@ -136,10 +137,10 @@ data DescribeMitigationActionResponse = DescribeMitigationActionResponse'
     -- | The type of mitigation action.
     actionType :: Prelude.Maybe MitigationActionType,
     -- | The date and time when the mitigation action was last changed.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the mitigation action was added to your Amazon
     -- Web Services accounts.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | Parameters that control how the mitigation action is applied, specific
     -- to the type of mitigation action.
     actionParams :: Prelude.Maybe MitigationActionParams,
@@ -211,12 +212,12 @@ describeMitigationActionResponse_actionType = Lens.lens (\DescribeMitigationActi
 
 -- | The date and time when the mitigation action was last changed.
 describeMitigationActionResponse_lastModifiedDate :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.UTCTime)
-describeMitigationActionResponse_lastModifiedDate = Lens.lens (\DescribeMitigationActionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeMitigationActionResponse' {} a -> s {lastModifiedDate = a} :: DescribeMitigationActionResponse) Prelude.. Lens.mapping Core._Time
+describeMitigationActionResponse_lastModifiedDate = Lens.lens (\DescribeMitigationActionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeMitigationActionResponse' {} a -> s {lastModifiedDate = a} :: DescribeMitigationActionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the mitigation action was added to your Amazon
 -- Web Services accounts.
 describeMitigationActionResponse_creationDate :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.UTCTime)
-describeMitigationActionResponse_creationDate = Lens.lens (\DescribeMitigationActionResponse' {creationDate} -> creationDate) (\s@DescribeMitigationActionResponse' {} a -> s {creationDate = a} :: DescribeMitigationActionResponse) Prelude.. Lens.mapping Core._Time
+describeMitigationActionResponse_creationDate = Lens.lens (\DescribeMitigationActionResponse' {creationDate} -> creationDate) (\s@DescribeMitigationActionResponse' {} a -> s {creationDate = a} :: DescribeMitigationActionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Parameters that control how the mitigation action is applied, specific
 -- to the type of mitigation action.

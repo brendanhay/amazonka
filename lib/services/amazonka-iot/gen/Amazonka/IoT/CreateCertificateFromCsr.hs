@@ -95,6 +95,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -153,9 +154,9 @@ instance Core.AWSRequest CreateCertificateFromCsr where
     Response.receiveJSON
       ( \s h x ->
           CreateCertificateFromCsrResponse'
-            Prelude.<$> (x Core..?> "certificateArn")
-            Prelude.<*> (x Core..?> "certificateId")
-            Prelude.<*> (x Core..?> "certificatePem")
+            Prelude.<$> (x Data..?> "certificateArn")
+            Prelude.<*> (x Data..?> "certificateId")
+            Prelude.<*> (x Data..?> "certificatePem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,26 +170,26 @@ instance Prelude.NFData CreateCertificateFromCsr where
     Prelude.rnf setAsActive
       `Prelude.seq` Prelude.rnf certificateSigningRequest
 
-instance Core.ToHeaders CreateCertificateFromCsr where
+instance Data.ToHeaders CreateCertificateFromCsr where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateCertificateFromCsr where
+instance Data.ToJSON CreateCertificateFromCsr where
   toJSON CreateCertificateFromCsr' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "certificateSigningRequest"
-                  Core..= certificateSigningRequest
+                  Data..= certificateSigningRequest
               )
           ]
       )
 
-instance Core.ToPath CreateCertificateFromCsr where
+instance Data.ToPath CreateCertificateFromCsr where
   toPath = Prelude.const "/certificates"
 
-instance Core.ToQuery CreateCertificateFromCsr where
+instance Data.ToQuery CreateCertificateFromCsr where
   toQuery CreateCertificateFromCsr' {..} =
-    Prelude.mconcat ["setAsActive" Core.=: setAsActive]
+    Prelude.mconcat ["setAsActive" Data.=: setAsActive]
 
 -- | The output from the CreateCertificateFromCsr operation.
 --

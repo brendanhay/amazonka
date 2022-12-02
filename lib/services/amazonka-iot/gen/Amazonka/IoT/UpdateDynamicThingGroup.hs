@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,7 +160,7 @@ instance Core.AWSRequest UpdateDynamicThingGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateDynamicThingGroupResponse'
-            Prelude.<$> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,31 +182,31 @@ instance Prelude.NFData UpdateDynamicThingGroup where
       `Prelude.seq` Prelude.rnf thingGroupName
       `Prelude.seq` Prelude.rnf thingGroupProperties
 
-instance Core.ToHeaders UpdateDynamicThingGroup where
+instance Data.ToHeaders UpdateDynamicThingGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateDynamicThingGroup where
+instance Data.ToJSON UpdateDynamicThingGroup where
   toJSON UpdateDynamicThingGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("indexName" Core..=) Prelude.<$> indexName,
-            ("queryVersion" Core..=) Prelude.<$> queryVersion,
-            ("queryString" Core..=) Prelude.<$> queryString,
-            ("expectedVersion" Core..=)
+          [ ("indexName" Data..=) Prelude.<$> indexName,
+            ("queryVersion" Data..=) Prelude.<$> queryVersion,
+            ("queryString" Data..=) Prelude.<$> queryString,
+            ("expectedVersion" Data..=)
               Prelude.<$> expectedVersion,
             Prelude.Just
               ( "thingGroupProperties"
-                  Core..= thingGroupProperties
+                  Data..= thingGroupProperties
               )
           ]
       )
 
-instance Core.ToPath UpdateDynamicThingGroup where
+instance Data.ToPath UpdateDynamicThingGroup where
   toPath UpdateDynamicThingGroup' {..} =
     Prelude.mconcat
-      ["/dynamic-thing-groups/", Core.toBS thingGroupName]
+      ["/dynamic-thing-groups/", Data.toBS thingGroupName]
 
-instance Core.ToQuery UpdateDynamicThingGroup where
+instance Data.ToQuery UpdateDynamicThingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDynamicThingGroupResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AuthorizerSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The authorizer summary.
@@ -61,14 +62,14 @@ authorizerSummary_authorizerArn = Lens.lens (\AuthorizerSummary' {authorizerArn}
 authorizerSummary_authorizerName :: Lens.Lens' AuthorizerSummary (Prelude.Maybe Prelude.Text)
 authorizerSummary_authorizerName = Lens.lens (\AuthorizerSummary' {authorizerName} -> authorizerName) (\s@AuthorizerSummary' {} a -> s {authorizerName = a} :: AuthorizerSummary)
 
-instance Core.FromJSON AuthorizerSummary where
+instance Data.FromJSON AuthorizerSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthorizerSummary"
       ( \x ->
           AuthorizerSummary'
-            Prelude.<$> (x Core..:? "authorizerArn")
-            Prelude.<*> (x Core..:? "authorizerName")
+            Prelude.<$> (x Data..:? "authorizerArn")
+            Prelude.<*> (x Data..:? "authorizerName")
       )
 
 instance Prelude.Hashable AuthorizerSummary where

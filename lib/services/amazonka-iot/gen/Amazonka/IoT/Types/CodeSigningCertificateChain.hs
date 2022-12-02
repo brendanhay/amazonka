@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.CodeSigningCertificateChain where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the certificate chain being used when code signing a file.
@@ -65,14 +66,14 @@ codeSigningCertificateChain_certificateName = Lens.lens (\CodeSigningCertificate
 codeSigningCertificateChain_inlineDocument :: Lens.Lens' CodeSigningCertificateChain (Prelude.Maybe Prelude.Text)
 codeSigningCertificateChain_inlineDocument = Lens.lens (\CodeSigningCertificateChain' {inlineDocument} -> inlineDocument) (\s@CodeSigningCertificateChain' {} a -> s {inlineDocument = a} :: CodeSigningCertificateChain)
 
-instance Core.FromJSON CodeSigningCertificateChain where
+instance Data.FromJSON CodeSigningCertificateChain where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeSigningCertificateChain"
       ( \x ->
           CodeSigningCertificateChain'
-            Prelude.<$> (x Core..:? "certificateName")
-            Prelude.<*> (x Core..:? "inlineDocument")
+            Prelude.<$> (x Data..:? "certificateName")
+            Prelude.<*> (x Data..:? "inlineDocument")
       )
 
 instance Prelude.Hashable CodeSigningCertificateChain where
@@ -85,13 +86,13 @@ instance Prelude.NFData CodeSigningCertificateChain where
     Prelude.rnf certificateName
       `Prelude.seq` Prelude.rnf inlineDocument
 
-instance Core.ToJSON CodeSigningCertificateChain where
+instance Data.ToJSON CodeSigningCertificateChain where
   toJSON CodeSigningCertificateChain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("certificateName" Core..=)
+          [ ("certificateName" Data..=)
               Prelude.<$> certificateName,
-            ("inlineDocument" Core..=)
+            ("inlineDocument" Data..=)
               Prelude.<$> inlineDocument
           ]
       )

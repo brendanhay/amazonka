@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -188,22 +189,22 @@ instance Prelude.NFData UpdateTopicRuleDestination where
   rnf UpdateTopicRuleDestination' {..} =
     Prelude.rnf arn `Prelude.seq` Prelude.rnf status
 
-instance Core.ToHeaders UpdateTopicRuleDestination where
+instance Data.ToHeaders UpdateTopicRuleDestination where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateTopicRuleDestination where
+instance Data.ToJSON UpdateTopicRuleDestination where
   toJSON UpdateTopicRuleDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("arn" Core..= arn),
-            Prelude.Just ("status" Core..= status)
+          [ Prelude.Just ("arn" Data..= arn),
+            Prelude.Just ("status" Data..= status)
           ]
       )
 
-instance Core.ToPath UpdateTopicRuleDestination where
+instance Data.ToPath UpdateTopicRuleDestination where
   toPath = Prelude.const "/destinations"
 
-instance Core.ToQuery UpdateTopicRuleDestination where
+instance Data.ToQuery UpdateTopicRuleDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTopicRuleDestinationResponse' smart constructor.

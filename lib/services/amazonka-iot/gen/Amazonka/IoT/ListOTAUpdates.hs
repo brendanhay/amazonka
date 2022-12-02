@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,8 +132,8 @@ instance Core.AWSRequest ListOTAUpdates where
     Response.receiveJSON
       ( \s h x ->
           ListOTAUpdatesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "otaUpdates" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "otaUpdates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,18 +149,18 @@ instance Prelude.NFData ListOTAUpdates where
       `Prelude.seq` Prelude.rnf otaUpdateStatus
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListOTAUpdates where
+instance Data.ToHeaders ListOTAUpdates where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListOTAUpdates where
+instance Data.ToPath ListOTAUpdates where
   toPath = Prelude.const "/otaUpdates"
 
-instance Core.ToQuery ListOTAUpdates where
+instance Data.ToQuery ListOTAUpdates where
   toQuery ListOTAUpdates' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "otaUpdateStatus" Core.=: otaUpdateStatus,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "otaUpdateStatus" Data.=: otaUpdateStatus,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListOTAUpdatesResponse' smart constructor.

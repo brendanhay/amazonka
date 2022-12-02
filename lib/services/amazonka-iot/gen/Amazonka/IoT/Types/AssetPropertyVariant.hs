@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AssetPropertyVariant where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an asset property value (of a single type).
@@ -92,16 +93,16 @@ assetPropertyVariant_booleanValue = Lens.lens (\AssetPropertyVariant' {booleanVa
 assetPropertyVariant_stringValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
 assetPropertyVariant_stringValue = Lens.lens (\AssetPropertyVariant' {stringValue} -> stringValue) (\s@AssetPropertyVariant' {} a -> s {stringValue = a} :: AssetPropertyVariant)
 
-instance Core.FromJSON AssetPropertyVariant where
+instance Data.FromJSON AssetPropertyVariant where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetPropertyVariant"
       ( \x ->
           AssetPropertyVariant'
-            Prelude.<$> (x Core..:? "integerValue")
-            Prelude.<*> (x Core..:? "doubleValue")
-            Prelude.<*> (x Core..:? "booleanValue")
-            Prelude.<*> (x Core..:? "stringValue")
+            Prelude.<$> (x Data..:? "integerValue")
+            Prelude.<*> (x Data..:? "doubleValue")
+            Prelude.<*> (x Data..:? "booleanValue")
+            Prelude.<*> (x Data..:? "stringValue")
       )
 
 instance Prelude.Hashable AssetPropertyVariant where
@@ -118,13 +119,13 @@ instance Prelude.NFData AssetPropertyVariant where
       `Prelude.seq` Prelude.rnf booleanValue
       `Prelude.seq` Prelude.rnf stringValue
 
-instance Core.ToJSON AssetPropertyVariant where
+instance Data.ToJSON AssetPropertyVariant where
   toJSON AssetPropertyVariant' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("integerValue" Core..=) Prelude.<$> integerValue,
-            ("doubleValue" Core..=) Prelude.<$> doubleValue,
-            ("booleanValue" Core..=) Prelude.<$> booleanValue,
-            ("stringValue" Core..=) Prelude.<$> stringValue
+          [ ("integerValue" Data..=) Prelude.<$> integerValue,
+            ("doubleValue" Data..=) Prelude.<$> doubleValue,
+            ("booleanValue" Data..=) Prelude.<$> booleanValue,
+            ("stringValue" Data..=) Prelude.<$> stringValue
           ]
       )

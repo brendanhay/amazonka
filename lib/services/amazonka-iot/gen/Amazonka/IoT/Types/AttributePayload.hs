@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AttributePayload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The attribute payload.
@@ -94,14 +95,14 @@ attributePayload_merge = Lens.lens (\AttributePayload' {merge} -> merge) (\s@Att
 attributePayload_attributes :: Lens.Lens' AttributePayload (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 attributePayload_attributes = Lens.lens (\AttributePayload' {attributes} -> attributes) (\s@AttributePayload' {} a -> s {attributes = a} :: AttributePayload) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AttributePayload where
+instance Data.FromJSON AttributePayload where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttributePayload"
       ( \x ->
           AttributePayload'
-            Prelude.<$> (x Core..:? "merge")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "merge")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AttributePayload where
@@ -114,11 +115,11 @@ instance Prelude.NFData AttributePayload where
     Prelude.rnf merge
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToJSON AttributePayload where
+instance Data.ToJSON AttributePayload where
   toJSON AttributePayload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("merge" Core..=) Prelude.<$> merge,
-            ("attributes" Core..=) Prelude.<$> attributes
+          [ ("merge" Data..=) Prelude.<$> merge,
+            ("attributes" Data..=) Prelude.<$> attributes
           ]
       )

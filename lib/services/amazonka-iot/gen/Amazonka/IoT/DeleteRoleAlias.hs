@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,15 +97,15 @@ instance Prelude.Hashable DeleteRoleAlias where
 instance Prelude.NFData DeleteRoleAlias where
   rnf DeleteRoleAlias' {..} = Prelude.rnf roleAlias
 
-instance Core.ToHeaders DeleteRoleAlias where
+instance Data.ToHeaders DeleteRoleAlias where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteRoleAlias where
+instance Data.ToPath DeleteRoleAlias where
   toPath DeleteRoleAlias' {..} =
     Prelude.mconcat
-      ["/role-aliases/", Core.toBS roleAlias]
+      ["/role-aliases/", Data.toBS roleAlias]
 
-instance Core.ToQuery DeleteRoleAlias where
+instance Data.ToQuery DeleteRoleAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRoleAliasResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,18 +122,18 @@ instance Prelude.NFData DeleteBillingGroup where
     Prelude.rnf expectedVersion
       `Prelude.seq` Prelude.rnf billingGroupName
 
-instance Core.ToHeaders DeleteBillingGroup where
+instance Data.ToHeaders DeleteBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteBillingGroup where
+instance Data.ToPath DeleteBillingGroup where
   toPath DeleteBillingGroup' {..} =
     Prelude.mconcat
-      ["/billing-groups/", Core.toBS billingGroupName]
+      ["/billing-groups/", Data.toBS billingGroupName]
 
-instance Core.ToQuery DeleteBillingGroup where
+instance Data.ToQuery DeleteBillingGroup where
   toQuery DeleteBillingGroup' {..} =
     Prelude.mconcat
-      ["expectedVersion" Core.=: expectedVersion]
+      ["expectedVersion" Data.=: expectedVersion]
 
 -- | /See:/ 'newDeleteBillingGroupResponse' smart constructor.
 data DeleteBillingGroupResponse = DeleteBillingGroupResponse'

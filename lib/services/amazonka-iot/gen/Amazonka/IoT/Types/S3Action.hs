@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.S3Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.CannedAccessControlList
 import qualified Amazonka.Prelude as Prelude
 
@@ -95,16 +96,16 @@ s3Action_bucketName = Lens.lens (\S3Action' {bucketName} -> bucketName) (\s@S3Ac
 s3Action_key :: Lens.Lens' S3Action Prelude.Text
 s3Action_key = Lens.lens (\S3Action' {key} -> key) (\s@S3Action' {} a -> s {key = a} :: S3Action)
 
-instance Core.FromJSON S3Action where
+instance Data.FromJSON S3Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Action"
       ( \x ->
           S3Action'
-            Prelude.<$> (x Core..:? "cannedAcl")
-            Prelude.<*> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "bucketName")
-            Prelude.<*> (x Core..: "key")
+            Prelude.<$> (x Data..:? "cannedAcl")
+            Prelude.<*> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "bucketName")
+            Prelude.<*> (x Data..: "key")
       )
 
 instance Prelude.Hashable S3Action where
@@ -121,13 +122,13 @@ instance Prelude.NFData S3Action where
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON S3Action where
+instance Data.ToJSON S3Action where
   toJSON S3Action' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cannedAcl" Core..=) Prelude.<$> cannedAcl,
-            Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("bucketName" Core..= bucketName),
-            Prelude.Just ("key" Core..= key)
+          [ ("cannedAcl" Data..=) Prelude.<$> cannedAcl,
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("bucketName" Data..= bucketName),
+            Prelude.Just ("key" Data..= key)
           ]
       )

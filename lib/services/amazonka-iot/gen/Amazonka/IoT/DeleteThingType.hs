@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,15 +103,15 @@ instance Prelude.Hashable DeleteThingType where
 instance Prelude.NFData DeleteThingType where
   rnf DeleteThingType' {..} = Prelude.rnf thingTypeName
 
-instance Core.ToHeaders DeleteThingType where
+instance Data.ToHeaders DeleteThingType where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteThingType where
+instance Data.ToPath DeleteThingType where
   toPath DeleteThingType' {..} =
     Prelude.mconcat
-      ["/thing-types/", Core.toBS thingTypeName]
+      ["/thing-types/", Data.toBS thingTypeName]
 
-instance Core.ToQuery DeleteThingType where
+instance Data.ToQuery DeleteThingType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the DeleteThingType operation.

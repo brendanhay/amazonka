@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetTopicRuleDestination where
     Response.receiveJSON
       ( \s h x ->
           GetTopicRuleDestinationResponse'
-            Prelude.<$> (x Core..?> "topicRuleDestination")
+            Prelude.<$> (x Data..?> "topicRuleDestination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,14 +99,14 @@ instance Prelude.Hashable GetTopicRuleDestination where
 instance Prelude.NFData GetTopicRuleDestination where
   rnf GetTopicRuleDestination' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetTopicRuleDestination where
+instance Data.ToHeaders GetTopicRuleDestination where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetTopicRuleDestination where
+instance Data.ToPath GetTopicRuleDestination where
   toPath GetTopicRuleDestination' {..} =
-    Prelude.mconcat ["/destinations/", Core.toBS arn]
+    Prelude.mconcat ["/destinations/", Data.toBS arn]
 
-instance Core.ToQuery GetTopicRuleDestination where
+instance Data.ToQuery GetTopicRuleDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTopicRuleDestinationResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,7 +94,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDetectMitigationActionsTaskResponse'
-            Prelude.<$> (x Core..?> "taskSummary")
+            Prelude.<$> (x Data..?> "taskSummary")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,23 +115,23 @@ instance
     Prelude.rnf taskId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeDetectMitigationActionsTask
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeDetectMitigationActionsTask
   where
   toPath DescribeDetectMitigationActionsTask' {..} =
     Prelude.mconcat
       [ "/detect/mitigationactions/tasks/",
-        Core.toBS taskId
+        Data.toBS taskId
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeDetectMitigationActionsTask
   where
   toQuery = Prelude.const Prelude.mempty

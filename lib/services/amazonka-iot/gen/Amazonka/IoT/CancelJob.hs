@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,9 +141,9 @@ instance Core.AWSRequest CancelJob where
     Response.receiveJSON
       ( \s h x ->
           CancelJobResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "jobArn")
+            Prelude.<$> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "jobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,26 +161,26 @@ instance Prelude.NFData CancelJob where
       `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders CancelJob where
+instance Data.ToHeaders CancelJob where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CancelJob where
+instance Data.ToJSON CancelJob where
   toJSON CancelJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("comment" Core..=) Prelude.<$> comment,
-            ("reasonCode" Core..=) Prelude.<$> reasonCode
+          [ ("comment" Data..=) Prelude.<$> comment,
+            ("reasonCode" Data..=) Prelude.<$> reasonCode
           ]
       )
 
-instance Core.ToPath CancelJob where
+instance Data.ToPath CancelJob where
   toPath CancelJob' {..} =
     Prelude.mconcat
-      ["/jobs/", Core.toBS jobId, "/cancel"]
+      ["/jobs/", Data.toBS jobId, "/cancel"]
 
-instance Core.ToQuery CancelJob where
+instance Data.ToQuery CancelJob where
   toQuery CancelJob' {..} =
-    Prelude.mconcat ["force" Core.=: force]
+    Prelude.mconcat ["force" Data.=: force]
 
 -- | /See:/ 'newCancelJobResponse' smart constructor.
 data CancelJobResponse = CancelJobResponse'

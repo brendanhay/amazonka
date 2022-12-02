@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AuditCheckDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AuditCheckRunStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -126,19 +127,19 @@ auditCheckDetails_checkRunStatus = Lens.lens (\AuditCheckDetails' {checkRunStatu
 auditCheckDetails_suppressedNonCompliantResourcesCount :: Lens.Lens' AuditCheckDetails (Prelude.Maybe Prelude.Integer)
 auditCheckDetails_suppressedNonCompliantResourcesCount = Lens.lens (\AuditCheckDetails' {suppressedNonCompliantResourcesCount} -> suppressedNonCompliantResourcesCount) (\s@AuditCheckDetails' {} a -> s {suppressedNonCompliantResourcesCount = a} :: AuditCheckDetails)
 
-instance Core.FromJSON AuditCheckDetails where
+instance Data.FromJSON AuditCheckDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuditCheckDetails"
       ( \x ->
           AuditCheckDetails'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "totalResourcesCount")
-            Prelude.<*> (x Core..:? "checkCompliant")
-            Prelude.<*> (x Core..:? "nonCompliantResourcesCount")
-            Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "checkRunStatus")
-            Prelude.<*> (x Core..:? "suppressedNonCompliantResourcesCount")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "totalResourcesCount")
+            Prelude.<*> (x Data..:? "checkCompliant")
+            Prelude.<*> (x Data..:? "nonCompliantResourcesCount")
+            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "checkRunStatus")
+            Prelude.<*> (x Data..:? "suppressedNonCompliantResourcesCount")
       )
 
 instance Prelude.Hashable AuditCheckDetails where

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,13 +73,13 @@ data ListDetectMitigationActionsExecutions = ListDetectMitigationActionsExecutio
     taskId :: Prelude.Maybe Prelude.Text,
     -- | The end of the time period for which ML Detect mitigation actions
     -- executions are returned.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of results to return at one time. The default is 25.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter to limit results to those found after the specified time. You
     -- must specify either the startTime and endTime or the taskId, but not
     -- both.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -139,7 +140,7 @@ listDetectMitigationActionsExecutions_taskId = Lens.lens (\ListDetectMitigationA
 -- | The end of the time period for which ML Detect mitigation actions
 -- executions are returned.
 listDetectMitigationActionsExecutions_endTime :: Lens.Lens' ListDetectMitigationActionsExecutions (Prelude.Maybe Prelude.UTCTime)
-listDetectMitigationActionsExecutions_endTime = Lens.lens (\ListDetectMitigationActionsExecutions' {endTime} -> endTime) (\s@ListDetectMitigationActionsExecutions' {} a -> s {endTime = a} :: ListDetectMitigationActionsExecutions) Prelude.. Lens.mapping Core._Time
+listDetectMitigationActionsExecutions_endTime = Lens.lens (\ListDetectMitigationActionsExecutions' {endTime} -> endTime) (\s@ListDetectMitigationActionsExecutions' {} a -> s {endTime = a} :: ListDetectMitigationActionsExecutions) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of results to return at one time. The default is 25.
 listDetectMitigationActionsExecutions_maxResults :: Lens.Lens' ListDetectMitigationActionsExecutions (Prelude.Maybe Prelude.Natural)
@@ -149,7 +150,7 @@ listDetectMitigationActionsExecutions_maxResults = Lens.lens (\ListDetectMitigat
 -- must specify either the startTime and endTime or the taskId, but not
 -- both.
 listDetectMitigationActionsExecutions_startTime :: Lens.Lens' ListDetectMitigationActionsExecutions (Prelude.Maybe Prelude.UTCTime)
-listDetectMitigationActionsExecutions_startTime = Lens.lens (\ListDetectMitigationActionsExecutions' {startTime} -> startTime) (\s@ListDetectMitigationActionsExecutions' {} a -> s {startTime = a} :: ListDetectMitigationActionsExecutions) Prelude.. Lens.mapping Core._Time
+listDetectMitigationActionsExecutions_startTime = Lens.lens (\ListDetectMitigationActionsExecutions' {startTime} -> startTime) (\s@ListDetectMitigationActionsExecutions' {} a -> s {startTime = a} :: ListDetectMitigationActionsExecutions) Prelude.. Lens.mapping Data._Time
 
 instance
   Core.AWSPager
@@ -190,8 +191,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDetectMitigationActionsExecutionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-              Prelude.<*> ( x Core..?> "actionsExecutions"
+            Prelude.<$> (x Data..?> "nextToken")
+              Prelude.<*> ( x Data..?> "actionsExecutions"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -226,13 +227,13 @@ instance
       `Prelude.seq` Prelude.rnf startTime
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListDetectMitigationActionsExecutions
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListDetectMitigationActionsExecutions
   where
   toPath =
@@ -240,18 +241,18 @@ instance
       "/detect/mitigationactions/executions"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListDetectMitigationActionsExecutions
   where
   toQuery ListDetectMitigationActionsExecutions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "thingName" Core.=: thingName,
-        "violationId" Core.=: violationId,
-        "taskId" Core.=: taskId,
-        "endTime" Core.=: endTime,
-        "maxResults" Core.=: maxResults,
-        "startTime" Core.=: startTime
+      [ "nextToken" Data.=: nextToken,
+        "thingName" Data.=: thingName,
+        "violationId" Data.=: violationId,
+        "taskId" Data.=: taskId,
+        "endTime" Data.=: endTime,
+        "maxResults" Data.=: maxResults,
+        "startTime" Data.=: startTime
       ]
 
 -- | /See:/ 'newListDetectMitigationActionsExecutionsResponse' smart constructor.

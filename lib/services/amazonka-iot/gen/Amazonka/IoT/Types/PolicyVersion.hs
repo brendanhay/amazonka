@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.PolicyVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a policy version.
@@ -30,7 +31,7 @@ data PolicyVersion = PolicyVersion'
   { -- | Specifies whether the policy version is the default.
     isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The date and time the policy was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | The policy version ID.
     versionId :: Prelude.Maybe Prelude.Text
   }
@@ -64,21 +65,21 @@ policyVersion_isDefaultVersion = Lens.lens (\PolicyVersion' {isDefaultVersion} -
 
 -- | The date and time the policy was created.
 policyVersion_createDate :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.UTCTime)
-policyVersion_createDate = Lens.lens (\PolicyVersion' {createDate} -> createDate) (\s@PolicyVersion' {} a -> s {createDate = a} :: PolicyVersion) Prelude.. Lens.mapping Core._Time
+policyVersion_createDate = Lens.lens (\PolicyVersion' {createDate} -> createDate) (\s@PolicyVersion' {} a -> s {createDate = a} :: PolicyVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The policy version ID.
 policyVersion_versionId :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Text)
 policyVersion_versionId = Lens.lens (\PolicyVersion' {versionId} -> versionId) (\s@PolicyVersion' {} a -> s {versionId = a} :: PolicyVersion)
 
-instance Core.FromJSON PolicyVersion where
+instance Data.FromJSON PolicyVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PolicyVersion"
       ( \x ->
           PolicyVersion'
-            Prelude.<$> (x Core..:? "isDefaultVersion")
-            Prelude.<*> (x Core..:? "createDate")
-            Prelude.<*> (x Core..:? "versionId")
+            Prelude.<$> (x Data..:? "isDefaultVersion")
+            Prelude.<*> (x Data..:? "createDate")
+            Prelude.<*> (x Data..:? "versionId")
       )
 
 instance Prelude.Hashable PolicyVersion where

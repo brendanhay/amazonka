@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ThingAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties of the thing, including thing name, thing type name, and
@@ -92,17 +93,17 @@ thingAttribute_attributes = Lens.lens (\ThingAttribute' {attributes} -> attribut
 thingAttribute_version :: Lens.Lens' ThingAttribute (Prelude.Maybe Prelude.Integer)
 thingAttribute_version = Lens.lens (\ThingAttribute' {version} -> version) (\s@ThingAttribute' {} a -> s {version = a} :: ThingAttribute)
 
-instance Core.FromJSON ThingAttribute where
+instance Data.FromJSON ThingAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThingAttribute"
       ( \x ->
           ThingAttribute'
-            Prelude.<$> (x Core..:? "thingName")
-            Prelude.<*> (x Core..:? "thingArn")
-            Prelude.<*> (x Core..:? "thingTypeName")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "thingName")
+            Prelude.<*> (x Data..:? "thingArn")
+            Prelude.<*> (x Data..:? "thingTypeName")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable ThingAttribute where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,9 +120,9 @@ instance Core.AWSRequest CreateThingType where
     Response.receiveJSON
       ( \s h x ->
           CreateThingTypeResponse'
-            Prelude.<$> (x Core..?> "thingTypeId")
-            Prelude.<*> (x Core..?> "thingTypeName")
-            Prelude.<*> (x Core..?> "thingTypeArn")
+            Prelude.<$> (x Data..?> "thingTypeId")
+            Prelude.<*> (x Data..?> "thingTypeName")
+            Prelude.<*> (x Data..?> "thingTypeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,25 +138,25 @@ instance Prelude.NFData CreateThingType where
       `Prelude.seq` Prelude.rnf thingTypeProperties
       `Prelude.seq` Prelude.rnf thingTypeName
 
-instance Core.ToHeaders CreateThingType where
+instance Data.ToHeaders CreateThingType where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateThingType where
+instance Data.ToJSON CreateThingType where
   toJSON CreateThingType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("thingTypeProperties" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("thingTypeProperties" Data..=)
               Prelude.<$> thingTypeProperties
           ]
       )
 
-instance Core.ToPath CreateThingType where
+instance Data.ToPath CreateThingType where
   toPath CreateThingType' {..} =
     Prelude.mconcat
-      ["/thing-types/", Core.toBS thingTypeName]
+      ["/thing-types/", Data.toBS thingTypeName]
 
-instance Core.ToQuery CreateThingType where
+instance Data.ToQuery CreateThingType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output of the CreateThingType operation.

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.DomainConfigurationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.ServiceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,15 +86,15 @@ domainConfigurationSummary_serviceType = Lens.lens (\DomainConfigurationSummary'
 domainConfigurationSummary_domainConfigurationName :: Lens.Lens' DomainConfigurationSummary (Prelude.Maybe Prelude.Text)
 domainConfigurationSummary_domainConfigurationName = Lens.lens (\DomainConfigurationSummary' {domainConfigurationName} -> domainConfigurationName) (\s@DomainConfigurationSummary' {} a -> s {domainConfigurationName = a} :: DomainConfigurationSummary)
 
-instance Core.FromJSON DomainConfigurationSummary where
+instance Data.FromJSON DomainConfigurationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainConfigurationSummary"
       ( \x ->
           DomainConfigurationSummary'
-            Prelude.<$> (x Core..:? "domainConfigurationArn")
-            Prelude.<*> (x Core..:? "serviceType")
-            Prelude.<*> (x Core..:? "domainConfigurationName")
+            Prelude.<$> (x Data..:? "domainConfigurationArn")
+            Prelude.<*> (x Data..:? "serviceType")
+            Prelude.<*> (x Data..:? "domainConfigurationName")
       )
 
 instance Prelude.Hashable DomainConfigurationSummary where

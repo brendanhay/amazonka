@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AwsJobExecutionsRolloutConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AwsJobExponentialRolloutRate
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,14 +67,14 @@ awsJobExecutionsRolloutConfig_maximumPerMinute = Lens.lens (\AwsJobExecutionsRol
 awsJobExecutionsRolloutConfig_exponentialRate :: Lens.Lens' AwsJobExecutionsRolloutConfig (Prelude.Maybe AwsJobExponentialRolloutRate)
 awsJobExecutionsRolloutConfig_exponentialRate = Lens.lens (\AwsJobExecutionsRolloutConfig' {exponentialRate} -> exponentialRate) (\s@AwsJobExecutionsRolloutConfig' {} a -> s {exponentialRate = a} :: AwsJobExecutionsRolloutConfig)
 
-instance Core.FromJSON AwsJobExecutionsRolloutConfig where
+instance Data.FromJSON AwsJobExecutionsRolloutConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsJobExecutionsRolloutConfig"
       ( \x ->
           AwsJobExecutionsRolloutConfig'
-            Prelude.<$> (x Core..:? "maximumPerMinute")
-            Prelude.<*> (x Core..:? "exponentialRate")
+            Prelude.<$> (x Data..:? "maximumPerMinute")
+            Prelude.<*> (x Data..:? "exponentialRate")
       )
 
 instance
@@ -89,13 +90,13 @@ instance Prelude.NFData AwsJobExecutionsRolloutConfig where
     Prelude.rnf maximumPerMinute
       `Prelude.seq` Prelude.rnf exponentialRate
 
-instance Core.ToJSON AwsJobExecutionsRolloutConfig where
+instance Data.ToJSON AwsJobExecutionsRolloutConfig where
   toJSON AwsJobExecutionsRolloutConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maximumPerMinute" Core..=)
+          [ ("maximumPerMinute" Data..=)
               Prelude.<$> maximumPerMinute,
-            ("exponentialRate" Core..=)
+            ("exponentialRate" Data..=)
               Prelude.<$> exponentialRate
           ]
       )

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,12 +96,12 @@ instance Core.AWSRequest DescribeBillingGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeBillingGroupResponse'
-            Prelude.<$> (x Core..?> "billingGroupProperties")
-            Prelude.<*> (x Core..?> "billingGroupName")
-            Prelude.<*> (x Core..?> "billingGroupArn")
-            Prelude.<*> (x Core..?> "billingGroupMetadata")
-            Prelude.<*> (x Core..?> "billingGroupId")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "billingGroupProperties")
+            Prelude.<*> (x Data..?> "billingGroupName")
+            Prelude.<*> (x Data..?> "billingGroupArn")
+            Prelude.<*> (x Data..?> "billingGroupMetadata")
+            Prelude.<*> (x Data..?> "billingGroupId")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,15 +113,15 @@ instance Prelude.NFData DescribeBillingGroup where
   rnf DescribeBillingGroup' {..} =
     Prelude.rnf billingGroupName
 
-instance Core.ToHeaders DescribeBillingGroup where
+instance Data.ToHeaders DescribeBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeBillingGroup where
+instance Data.ToPath DescribeBillingGroup where
   toPath DescribeBillingGroup' {..} =
     Prelude.mconcat
-      ["/billing-groups/", Core.toBS billingGroupName]
+      ["/billing-groups/", Data.toBS billingGroupName]
 
-instance Core.ToQuery DescribeBillingGroup where
+instance Data.ToQuery DescribeBillingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBillingGroupResponse' smart constructor.

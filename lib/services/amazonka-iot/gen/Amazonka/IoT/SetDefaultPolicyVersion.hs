@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,22 +115,22 @@ instance Prelude.NFData SetDefaultPolicyVersion where
     Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyVersionId
 
-instance Core.ToHeaders SetDefaultPolicyVersion where
+instance Data.ToHeaders SetDefaultPolicyVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON SetDefaultPolicyVersion where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON SetDefaultPolicyVersion where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath SetDefaultPolicyVersion where
+instance Data.ToPath SetDefaultPolicyVersion where
   toPath SetDefaultPolicyVersion' {..} =
     Prelude.mconcat
       [ "/policies/",
-        Core.toBS policyName,
+        Data.toBS policyName,
         "/version/",
-        Core.toBS policyVersionId
+        Data.toBS policyVersionId
       ]
 
-instance Core.ToQuery SetDefaultPolicyVersion where
+instance Data.ToQuery SetDefaultPolicyVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetDefaultPolicyVersionResponse' smart constructor.

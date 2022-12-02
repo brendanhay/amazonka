@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -154,8 +155,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListSecurityProfilesForTargetResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "securityProfileTargetMappings"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "securityProfileTargetMappings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -178,21 +179,21 @@ instance Prelude.NFData ListSecurityProfilesForTarget where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf securityProfileTargetArn
 
-instance Core.ToHeaders ListSecurityProfilesForTarget where
+instance Data.ToHeaders ListSecurityProfilesForTarget where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListSecurityProfilesForTarget where
+instance Data.ToPath ListSecurityProfilesForTarget where
   toPath =
     Prelude.const "/security-profiles-for-target"
 
-instance Core.ToQuery ListSecurityProfilesForTarget where
+instance Data.ToQuery ListSecurityProfilesForTarget where
   toQuery ListSecurityProfilesForTarget' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "recursive" Core.=: recursive,
-        "maxResults" Core.=: maxResults,
+      [ "nextToken" Data.=: nextToken,
+        "recursive" Data.=: recursive,
+        "maxResults" Data.=: maxResults,
         "securityProfileTargetArn"
-          Core.=: securityProfileTargetArn
+          Data.=: securityProfileTargetArn
       ]
 
 -- | /See:/ 'newListSecurityProfilesForTargetResponse' smart constructor.

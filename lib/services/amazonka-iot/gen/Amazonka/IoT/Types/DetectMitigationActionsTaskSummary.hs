@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.DetectMitigationActionsTaskSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.DetectMitigationActionsTaskStatistics
 import Amazonka.IoT.Types.DetectMitigationActionsTaskStatus
 import Amazonka.IoT.Types.DetectMitigationActionsTaskTarget
@@ -35,7 +36,7 @@ data DetectMitigationActionsTaskSummary = DetectMitigationActionsTaskSummary'
   { -- | Includes suppressed alerts.
     suppressedAlertsIncluded :: Prelude.Maybe Prelude.Bool,
     -- | The date the task started.
-    taskStartTime :: Prelude.Maybe Core.POSIX,
+    taskStartTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the task.
     taskId :: Prelude.Maybe Prelude.Text,
     -- | The status of the task.
@@ -52,7 +53,7 @@ data DetectMitigationActionsTaskSummary = DetectMitigationActionsTaskSummary'
     -- | The statistics of a mitigation action task.
     taskStatistics :: Prelude.Maybe DetectMitigationActionsTaskStatistics,
     -- | The date the task ended.
-    taskEndTime :: Prelude.Maybe Core.POSIX
+    taskEndTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,7 +110,7 @@ detectMitigationActionsTaskSummary_suppressedAlertsIncluded = Lens.lens (\Detect
 
 -- | The date the task started.
 detectMitigationActionsTaskSummary_taskStartTime :: Lens.Lens' DetectMitigationActionsTaskSummary (Prelude.Maybe Prelude.UTCTime)
-detectMitigationActionsTaskSummary_taskStartTime = Lens.lens (\DetectMitigationActionsTaskSummary' {taskStartTime} -> taskStartTime) (\s@DetectMitigationActionsTaskSummary' {} a -> s {taskStartTime = a} :: DetectMitigationActionsTaskSummary) Prelude.. Lens.mapping Core._Time
+detectMitigationActionsTaskSummary_taskStartTime = Lens.lens (\DetectMitigationActionsTaskSummary' {taskStartTime} -> taskStartTime) (\s@DetectMitigationActionsTaskSummary' {} a -> s {taskStartTime = a} :: DetectMitigationActionsTaskSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the task.
 detectMitigationActionsTaskSummary_taskId :: Lens.Lens' DetectMitigationActionsTaskSummary (Prelude.Maybe Prelude.Text)
@@ -142,29 +143,29 @@ detectMitigationActionsTaskSummary_taskStatistics = Lens.lens (\DetectMitigation
 
 -- | The date the task ended.
 detectMitigationActionsTaskSummary_taskEndTime :: Lens.Lens' DetectMitigationActionsTaskSummary (Prelude.Maybe Prelude.UTCTime)
-detectMitigationActionsTaskSummary_taskEndTime = Lens.lens (\DetectMitigationActionsTaskSummary' {taskEndTime} -> taskEndTime) (\s@DetectMitigationActionsTaskSummary' {} a -> s {taskEndTime = a} :: DetectMitigationActionsTaskSummary) Prelude.. Lens.mapping Core._Time
+detectMitigationActionsTaskSummary_taskEndTime = Lens.lens (\DetectMitigationActionsTaskSummary' {taskEndTime} -> taskEndTime) (\s@DetectMitigationActionsTaskSummary' {} a -> s {taskEndTime = a} :: DetectMitigationActionsTaskSummary) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DetectMitigationActionsTaskSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectMitigationActionsTaskSummary"
       ( \x ->
           DetectMitigationActionsTaskSummary'
-            Prelude.<$> (x Core..:? "suppressedAlertsIncluded")
-            Prelude.<*> (x Core..:? "taskStartTime")
-            Prelude.<*> (x Core..:? "taskId")
-            Prelude.<*> (x Core..:? "taskStatus")
-            Prelude.<*> (x Core..:? "target")
-            Prelude.<*> ( x Core..:? "actionsDefinition"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "suppressedAlertsIncluded")
+            Prelude.<*> (x Data..:? "taskStartTime")
+            Prelude.<*> (x Data..:? "taskId")
+            Prelude.<*> (x Data..:? "taskStatus")
+            Prelude.<*> (x Data..:? "target")
+            Prelude.<*> ( x Data..:? "actionsDefinition"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "onlyActiveViolationsIncluded")
-            Prelude.<*> (x Core..:? "violationEventOccurrenceRange")
-            Prelude.<*> (x Core..:? "taskStatistics")
-            Prelude.<*> (x Core..:? "taskEndTime")
+            Prelude.<*> (x Data..:? "onlyActiveViolationsIncluded")
+            Prelude.<*> (x Data..:? "violationEventOccurrenceRange")
+            Prelude.<*> (x Data..:? "taskStatistics")
+            Prelude.<*> (x Data..:? "taskEndTime")
       )
 
 instance

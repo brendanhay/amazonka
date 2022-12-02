@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.StreamSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of a stream.
@@ -79,16 +80,16 @@ streamSummary_streamVersion = Lens.lens (\StreamSummary' {streamVersion} -> stre
 streamSummary_streamArn :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Text)
 streamSummary_streamArn = Lens.lens (\StreamSummary' {streamArn} -> streamArn) (\s@StreamSummary' {} a -> s {streamArn = a} :: StreamSummary)
 
-instance Core.FromJSON StreamSummary where
+instance Data.FromJSON StreamSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamSummary"
       ( \x ->
           StreamSummary'
-            Prelude.<$> (x Core..:? "streamId")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "streamVersion")
-            Prelude.<*> (x Core..:? "streamArn")
+            Prelude.<$> (x Data..:? "streamId")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "streamVersion")
+            Prelude.<*> (x Data..:? "streamArn")
       )
 
 instance Prelude.Hashable StreamSummary where

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TimeoutConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the amount of time each device has to finish its execution of
@@ -75,13 +76,13 @@ newTimeoutConfig =
 timeoutConfig_inProgressTimeoutInMinutes :: Lens.Lens' TimeoutConfig (Prelude.Maybe Prelude.Integer)
 timeoutConfig_inProgressTimeoutInMinutes = Lens.lens (\TimeoutConfig' {inProgressTimeoutInMinutes} -> inProgressTimeoutInMinutes) (\s@TimeoutConfig' {} a -> s {inProgressTimeoutInMinutes = a} :: TimeoutConfig)
 
-instance Core.FromJSON TimeoutConfig where
+instance Data.FromJSON TimeoutConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeoutConfig"
       ( \x ->
           TimeoutConfig'
-            Prelude.<$> (x Core..:? "inProgressTimeoutInMinutes")
+            Prelude.<$> (x Data..:? "inProgressTimeoutInMinutes")
       )
 
 instance Prelude.Hashable TimeoutConfig where
@@ -93,11 +94,11 @@ instance Prelude.NFData TimeoutConfig where
   rnf TimeoutConfig' {..} =
     Prelude.rnf inProgressTimeoutInMinutes
 
-instance Core.ToJSON TimeoutConfig where
+instance Data.ToJSON TimeoutConfig where
   toJSON TimeoutConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inProgressTimeoutInMinutes" Core..=)
+          [ ("inProgressTimeoutInMinutes" Data..=)
               Prelude.<$> inProgressTimeoutInMinutes
           ]
       )

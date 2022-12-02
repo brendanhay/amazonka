@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AuthInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.ActionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ authInfo_actionType = Lens.lens (\AuthInfo' {actionType} -> actionType) (\s@Auth
 authInfo_resources :: Lens.Lens' AuthInfo [Prelude.Text]
 authInfo_resources = Lens.lens (\AuthInfo' {resources} -> resources) (\s@AuthInfo' {} a -> s {resources = a} :: AuthInfo) Prelude.. Lens.coerced
 
-instance Core.FromJSON AuthInfo where
+instance Data.FromJSON AuthInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthInfo"
       ( \x ->
           AuthInfo'
-            Prelude.<$> (x Core..:? "actionType")
-            Prelude.<*> (x Core..:? "resources" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "actionType")
+            Prelude.<*> (x Data..:? "resources" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AuthInfo where
@@ -85,11 +86,11 @@ instance Prelude.NFData AuthInfo where
     Prelude.rnf actionType
       `Prelude.seq` Prelude.rnf resources
 
-instance Core.ToJSON AuthInfo where
+instance Data.ToJSON AuthInfo where
   toJSON AuthInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("actionType" Core..=) Prelude.<$> actionType,
-            Prelude.Just ("resources" Core..= resources)
+          [ ("actionType" Data..=) Prelude.<$> actionType,
+            Prelude.Just ("resources" Data..= resources)
           ]
       )

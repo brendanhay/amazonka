@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,15 +108,15 @@ instance Prelude.NFData ConfirmTopicRuleDestination where
   rnf ConfirmTopicRuleDestination' {..} =
     Prelude.rnf confirmationToken
 
-instance Core.ToHeaders ConfirmTopicRuleDestination where
+instance Data.ToHeaders ConfirmTopicRuleDestination where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ConfirmTopicRuleDestination where
+instance Data.ToPath ConfirmTopicRuleDestination where
   toPath ConfirmTopicRuleDestination' {..} =
     Prelude.mconcat
-      ["/confirmdestination/", Core.toBS confirmationToken]
+      ["/confirmdestination/", Data.toBS confirmationToken]
 
-instance Core.ToQuery ConfirmTopicRuleDestination where
+instance Data.ToQuery ConfirmTopicRuleDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newConfirmTopicRuleDestinationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ThingTypeMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The ThingTypeMetadata contains additional information about the thing
@@ -33,9 +34,9 @@ data ThingTypeMetadata = ThingTypeMetadata'
     -- be associated with this type.
     deprecated :: Prelude.Maybe Prelude.Bool,
     -- | The date and time when the thing type was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the thing type was deprecated.
-    deprecationDate :: Prelude.Maybe Core.POSIX
+    deprecationDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,21 +70,21 @@ thingTypeMetadata_deprecated = Lens.lens (\ThingTypeMetadata' {deprecated} -> de
 
 -- | The date and time when the thing type was created.
 thingTypeMetadata_creationDate :: Lens.Lens' ThingTypeMetadata (Prelude.Maybe Prelude.UTCTime)
-thingTypeMetadata_creationDate = Lens.lens (\ThingTypeMetadata' {creationDate} -> creationDate) (\s@ThingTypeMetadata' {} a -> s {creationDate = a} :: ThingTypeMetadata) Prelude.. Lens.mapping Core._Time
+thingTypeMetadata_creationDate = Lens.lens (\ThingTypeMetadata' {creationDate} -> creationDate) (\s@ThingTypeMetadata' {} a -> s {creationDate = a} :: ThingTypeMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the thing type was deprecated.
 thingTypeMetadata_deprecationDate :: Lens.Lens' ThingTypeMetadata (Prelude.Maybe Prelude.UTCTime)
-thingTypeMetadata_deprecationDate = Lens.lens (\ThingTypeMetadata' {deprecationDate} -> deprecationDate) (\s@ThingTypeMetadata' {} a -> s {deprecationDate = a} :: ThingTypeMetadata) Prelude.. Lens.mapping Core._Time
+thingTypeMetadata_deprecationDate = Lens.lens (\ThingTypeMetadata' {deprecationDate} -> deprecationDate) (\s@ThingTypeMetadata' {} a -> s {deprecationDate = a} :: ThingTypeMetadata) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ThingTypeMetadata where
+instance Data.FromJSON ThingTypeMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThingTypeMetadata"
       ( \x ->
           ThingTypeMetadata'
-            Prelude.<$> (x Core..:? "deprecated")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "deprecationDate")
+            Prelude.<$> (x Data..:? "deprecated")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "deprecationDate")
       )
 
 instance Prelude.Hashable ThingTypeMetadata where

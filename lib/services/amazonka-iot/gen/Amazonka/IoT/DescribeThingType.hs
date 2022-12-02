@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,11 +94,11 @@ instance Core.AWSRequest DescribeThingType where
     Response.receiveJSON
       ( \s h x ->
           DescribeThingTypeResponse'
-            Prelude.<$> (x Core..?> "thingTypeMetadata")
-            Prelude.<*> (x Core..?> "thingTypeId")
-            Prelude.<*> (x Core..?> "thingTypeName")
-            Prelude.<*> (x Core..?> "thingTypeArn")
-            Prelude.<*> (x Core..?> "thingTypeProperties")
+            Prelude.<$> (x Data..?> "thingTypeMetadata")
+            Prelude.<*> (x Data..?> "thingTypeId")
+            Prelude.<*> (x Data..?> "thingTypeName")
+            Prelude.<*> (x Data..?> "thingTypeArn")
+            Prelude.<*> (x Data..?> "thingTypeProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,15 +110,15 @@ instance Prelude.NFData DescribeThingType where
   rnf DescribeThingType' {..} =
     Prelude.rnf thingTypeName
 
-instance Core.ToHeaders DescribeThingType where
+instance Data.ToHeaders DescribeThingType where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeThingType where
+instance Data.ToPath DescribeThingType where
   toPath DescribeThingType' {..} =
     Prelude.mconcat
-      ["/thing-types/", Core.toBS thingTypeName]
+      ["/thing-types/", Data.toBS thingTypeName]
 
-instance Core.ToQuery DescribeThingType where
+instance Data.ToQuery DescribeThingType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the DescribeThingType operation.

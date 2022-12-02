@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AlertTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing the alert target ARN and the role ARN.
@@ -71,14 +72,14 @@ alertTarget_alertTargetArn = Lens.lens (\AlertTarget' {alertTargetArn} -> alertT
 alertTarget_roleArn :: Lens.Lens' AlertTarget Prelude.Text
 alertTarget_roleArn = Lens.lens (\AlertTarget' {roleArn} -> roleArn) (\s@AlertTarget' {} a -> s {roleArn = a} :: AlertTarget)
 
-instance Core.FromJSON AlertTarget where
+instance Data.FromJSON AlertTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlertTarget"
       ( \x ->
           AlertTarget'
-            Prelude.<$> (x Core..: "alertTargetArn")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Data..: "alertTargetArn")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance Prelude.Hashable AlertTarget where
@@ -91,12 +92,12 @@ instance Prelude.NFData AlertTarget where
     Prelude.rnf alertTargetArn
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON AlertTarget where
+instance Data.ToJSON AlertTarget where
   toJSON AlertTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("alertTargetArn" Core..= alertTargetArn),
-            Prelude.Just ("roleArn" Core..= roleArn)
+              ("alertTargetArn" Data..= alertTargetArn),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

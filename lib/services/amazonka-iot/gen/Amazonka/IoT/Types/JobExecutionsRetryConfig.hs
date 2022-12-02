@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.JobExecutionsRetryConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.RetryCriteria
 import qualified Amazonka.Prelude as Prelude
 
@@ -60,13 +61,13 @@ newJobExecutionsRetryConfig pCriteriaList_ =
 jobExecutionsRetryConfig_criteriaList :: Lens.Lens' JobExecutionsRetryConfig (Prelude.NonEmpty RetryCriteria)
 jobExecutionsRetryConfig_criteriaList = Lens.lens (\JobExecutionsRetryConfig' {criteriaList} -> criteriaList) (\s@JobExecutionsRetryConfig' {} a -> s {criteriaList = a} :: JobExecutionsRetryConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON JobExecutionsRetryConfig where
+instance Data.FromJSON JobExecutionsRetryConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobExecutionsRetryConfig"
       ( \x ->
           JobExecutionsRetryConfig'
-            Prelude.<$> (x Core..: "criteriaList")
+            Prelude.<$> (x Data..: "criteriaList")
       )
 
 instance Prelude.Hashable JobExecutionsRetryConfig where
@@ -77,9 +78,9 @@ instance Prelude.NFData JobExecutionsRetryConfig where
   rnf JobExecutionsRetryConfig' {..} =
     Prelude.rnf criteriaList
 
-instance Core.ToJSON JobExecutionsRetryConfig where
+instance Data.ToJSON JobExecutionsRetryConfig where
   toJSON JobExecutionsRetryConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("criteriaList" Core..= criteriaList)]
+          [Prelude.Just ("criteriaList" Data..= criteriaList)]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ScheduledAuditMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AuditFrequency
 import Amazonka.IoT.Types.DayOfWeek
 import qualified Amazonka.Prelude as Prelude
@@ -103,17 +104,17 @@ scheduledAuditMetadata_scheduledAuditArn = Lens.lens (\ScheduledAuditMetadata' {
 scheduledAuditMetadata_scheduledAuditName :: Lens.Lens' ScheduledAuditMetadata (Prelude.Maybe Prelude.Text)
 scheduledAuditMetadata_scheduledAuditName = Lens.lens (\ScheduledAuditMetadata' {scheduledAuditName} -> scheduledAuditName) (\s@ScheduledAuditMetadata' {} a -> s {scheduledAuditName = a} :: ScheduledAuditMetadata)
 
-instance Core.FromJSON ScheduledAuditMetadata where
+instance Data.FromJSON ScheduledAuditMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduledAuditMetadata"
       ( \x ->
           ScheduledAuditMetadata'
-            Prelude.<$> (x Core..:? "frequency")
-            Prelude.<*> (x Core..:? "dayOfWeek")
-            Prelude.<*> (x Core..:? "dayOfMonth")
-            Prelude.<*> (x Core..:? "scheduledAuditArn")
-            Prelude.<*> (x Core..:? "scheduledAuditName")
+            Prelude.<$> (x Data..:? "frequency")
+            Prelude.<*> (x Data..:? "dayOfWeek")
+            Prelude.<*> (x Data..:? "dayOfMonth")
+            Prelude.<*> (x Data..:? "scheduledAuditArn")
+            Prelude.<*> (x Data..:? "scheduledAuditName")
       )
 
 instance Prelude.Hashable ScheduledAuditMetadata where

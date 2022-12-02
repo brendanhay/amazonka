@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.KafkaAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon
@@ -93,18 +94,18 @@ kafkaAction_topic = Lens.lens (\KafkaAction' {topic} -> topic) (\s@KafkaAction' 
 kafkaAction_clientProperties :: Lens.Lens' KafkaAction (Prelude.HashMap Prelude.Text Prelude.Text)
 kafkaAction_clientProperties = Lens.lens (\KafkaAction' {clientProperties} -> clientProperties) (\s@KafkaAction' {} a -> s {clientProperties = a} :: KafkaAction) Prelude.. Lens.coerced
 
-instance Core.FromJSON KafkaAction where
+instance Data.FromJSON KafkaAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KafkaAction"
       ( \x ->
           KafkaAction'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "partition")
-            Prelude.<*> (x Core..: "destinationArn")
-            Prelude.<*> (x Core..: "topic")
-            Prelude.<*> ( x Core..:? "clientProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "partition")
+            Prelude.<*> (x Data..: "destinationArn")
+            Prelude.<*> (x Data..: "topic")
+            Prelude.<*> ( x Data..:? "clientProperties"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -124,16 +125,16 @@ instance Prelude.NFData KafkaAction where
       `Prelude.seq` Prelude.rnf topic
       `Prelude.seq` Prelude.rnf clientProperties
 
-instance Core.ToJSON KafkaAction where
+instance Data.ToJSON KafkaAction where
   toJSON KafkaAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("partition" Core..=) Prelude.<$> partition,
+          [ ("key" Data..=) Prelude.<$> key,
+            ("partition" Data..=) Prelude.<$> partition,
             Prelude.Just
-              ("destinationArn" Core..= destinationArn),
-            Prelude.Just ("topic" Core..= topic),
+              ("destinationArn" Data..= destinationArn),
+            Prelude.Just ("topic" Data..= topic),
             Prelude.Just
-              ("clientProperties" Core..= clientProperties)
+              ("clientProperties" Data..= clientProperties)
           ]
       )

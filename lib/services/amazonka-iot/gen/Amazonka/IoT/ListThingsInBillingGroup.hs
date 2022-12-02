@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,8 +142,8 @@ instance Core.AWSRequest ListThingsInBillingGroup where
     Response.receiveJSON
       ( \s h x ->
           ListThingsInBillingGroupResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "things" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "things" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,22 +159,22 @@ instance Prelude.NFData ListThingsInBillingGroup where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf billingGroupName
 
-instance Core.ToHeaders ListThingsInBillingGroup where
+instance Data.ToHeaders ListThingsInBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListThingsInBillingGroup where
+instance Data.ToPath ListThingsInBillingGroup where
   toPath ListThingsInBillingGroup' {..} =
     Prelude.mconcat
       [ "/billing-groups/",
-        Core.toBS billingGroupName,
+        Data.toBS billingGroupName,
         "/things"
       ]
 
-instance Core.ToQuery ListThingsInBillingGroup where
+instance Data.ToQuery ListThingsInBillingGroup where
   toQuery ListThingsInBillingGroup' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListThingsInBillingGroupResponse' smart constructor.

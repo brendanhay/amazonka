@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -176,7 +177,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartDetectMitigationActionsTaskResponse'
-            Prelude.<$> (x Core..?> "taskId")
+            Prelude.<$> (x Data..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,37 +211,37 @@ instance
       `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartDetectMitigationActionsTask
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON StartDetectMitigationActionsTask where
+instance Data.ToJSON StartDetectMitigationActionsTask where
   toJSON StartDetectMitigationActionsTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("includeOnlyActiveViolations" Core..=)
+          [ ("includeOnlyActiveViolations" Data..=)
               Prelude.<$> includeOnlyActiveViolations,
-            ("violationEventOccurrenceRange" Core..=)
+            ("violationEventOccurrenceRange" Data..=)
               Prelude.<$> violationEventOccurrenceRange,
-            ("includeSuppressedAlerts" Core..=)
+            ("includeSuppressedAlerts" Data..=)
               Prelude.<$> includeSuppressedAlerts,
-            Prelude.Just ("target" Core..= target),
-            Prelude.Just ("actions" Core..= actions),
+            Prelude.Just ("target" Data..= target),
+            Prelude.Just ("actions" Data..= actions),
             Prelude.Just
-              ("clientRequestToken" Core..= clientRequestToken)
+              ("clientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath StartDetectMitigationActionsTask where
+instance Data.ToPath StartDetectMitigationActionsTask where
   toPath StartDetectMitigationActionsTask' {..} =
     Prelude.mconcat
       [ "/detect/mitigationactions/tasks/",
-        Core.toBS taskId
+        Data.toBS taskId
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartDetectMitigationActionsTask
   where
   toQuery = Prelude.const Prelude.mempty

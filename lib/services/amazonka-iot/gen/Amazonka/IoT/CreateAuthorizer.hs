@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -215,8 +216,8 @@ instance Core.AWSRequest CreateAuthorizer where
     Response.receiveJSON
       ( \s h x ->
           CreateAuthorizerResponse'
-            Prelude.<$> (x Core..?> "authorizerArn")
-            Prelude.<*> (x Core..?> "authorizerName")
+            Prelude.<$> (x Data..?> "authorizerArn")
+            Prelude.<*> (x Data..?> "authorizerName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -242,35 +243,35 @@ instance Prelude.NFData CreateAuthorizer where
       `Prelude.seq` Prelude.rnf authorizerName
       `Prelude.seq` Prelude.rnf authorizerFunctionArn
 
-instance Core.ToHeaders CreateAuthorizer where
+instance Data.ToHeaders CreateAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateAuthorizer where
+instance Data.ToJSON CreateAuthorizer where
   toJSON CreateAuthorizer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("tokenKeyName" Core..=) Prelude.<$> tokenKeyName,
-            ("status" Core..=) Prelude.<$> status,
-            ("signingDisabled" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("tokenKeyName" Data..=) Prelude.<$> tokenKeyName,
+            ("status" Data..=) Prelude.<$> status,
+            ("signingDisabled" Data..=)
               Prelude.<$> signingDisabled,
-            ("tokenSigningPublicKeys" Core..=)
+            ("tokenSigningPublicKeys" Data..=)
               Prelude.<$> tokenSigningPublicKeys,
-            ("enableCachingForHttp" Core..=)
+            ("enableCachingForHttp" Data..=)
               Prelude.<$> enableCachingForHttp,
             Prelude.Just
               ( "authorizerFunctionArn"
-                  Core..= authorizerFunctionArn
+                  Data..= authorizerFunctionArn
               )
           ]
       )
 
-instance Core.ToPath CreateAuthorizer where
+instance Data.ToPath CreateAuthorizer where
   toPath CreateAuthorizer' {..} =
     Prelude.mconcat
-      ["/authorizer/", Core.toBS authorizerName]
+      ["/authorizer/", Data.toBS authorizerName]
 
-instance Core.ToQuery CreateAuthorizer where
+instance Data.ToQuery CreateAuthorizer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAuthorizerResponse' smart constructor.

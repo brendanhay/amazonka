@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.BehaviorCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.ComparisonOperator
 import Amazonka.IoT.Types.MachineLearningDetectionConfig
 import Amazonka.IoT.Types.MetricValue
@@ -183,19 +184,19 @@ behaviorCriteria_comparisonOperator = Lens.lens (\BehaviorCriteria' {comparisonO
 behaviorCriteria_value :: Lens.Lens' BehaviorCriteria (Prelude.Maybe MetricValue)
 behaviorCriteria_value = Lens.lens (\BehaviorCriteria' {value} -> value) (\s@BehaviorCriteria' {} a -> s {value = a} :: BehaviorCriteria)
 
-instance Core.FromJSON BehaviorCriteria where
+instance Data.FromJSON BehaviorCriteria where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BehaviorCriteria"
       ( \x ->
           BehaviorCriteria'
-            Prelude.<$> (x Core..:? "consecutiveDatapointsToClear")
-            Prelude.<*> (x Core..:? "consecutiveDatapointsToAlarm")
-            Prelude.<*> (x Core..:? "durationSeconds")
-            Prelude.<*> (x Core..:? "mlDetectionConfig")
-            Prelude.<*> (x Core..:? "statisticalThreshold")
-            Prelude.<*> (x Core..:? "comparisonOperator")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "consecutiveDatapointsToClear")
+            Prelude.<*> (x Data..:? "consecutiveDatapointsToAlarm")
+            Prelude.<*> (x Data..:? "durationSeconds")
+            Prelude.<*> (x Data..:? "mlDetectionConfig")
+            Prelude.<*> (x Data..:? "statisticalThreshold")
+            Prelude.<*> (x Data..:? "comparisonOperator")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable BehaviorCriteria where
@@ -219,22 +220,22 @@ instance Prelude.NFData BehaviorCriteria where
       `Prelude.seq` Prelude.rnf comparisonOperator
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON BehaviorCriteria where
+instance Data.ToJSON BehaviorCriteria where
   toJSON BehaviorCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("consecutiveDatapointsToClear" Core..=)
+          [ ("consecutiveDatapointsToClear" Data..=)
               Prelude.<$> consecutiveDatapointsToClear,
-            ("consecutiveDatapointsToAlarm" Core..=)
+            ("consecutiveDatapointsToAlarm" Data..=)
               Prelude.<$> consecutiveDatapointsToAlarm,
-            ("durationSeconds" Core..=)
+            ("durationSeconds" Data..=)
               Prelude.<$> durationSeconds,
-            ("mlDetectionConfig" Core..=)
+            ("mlDetectionConfig" Data..=)
               Prelude.<$> mlDetectionConfig,
-            ("statisticalThreshold" Core..=)
+            ("statisticalThreshold" Data..=)
               Prelude.<$> statisticalThreshold,
-            ("comparisonOperator" Core..=)
+            ("comparisonOperator" Data..=)
               Prelude.<$> comparisonOperator,
-            ("value" Core..=) Prelude.<$> value
+            ("value" Data..=) Prelude.<$> value
           ]
       )

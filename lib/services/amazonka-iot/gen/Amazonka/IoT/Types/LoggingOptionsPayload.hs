@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.LoggingOptionsPayload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.LogLevel
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,11 +75,11 @@ instance Prelude.NFData LoggingOptionsPayload where
     Prelude.rnf logLevel
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON LoggingOptionsPayload where
+instance Data.ToJSON LoggingOptionsPayload where
   toJSON LoggingOptionsPayload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("logLevel" Core..=) Prelude.<$> logLevel,
-            Prelude.Just ("roleArn" Core..= roleArn)
+          [ ("logLevel" Data..=) Prelude.<$> logLevel,
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

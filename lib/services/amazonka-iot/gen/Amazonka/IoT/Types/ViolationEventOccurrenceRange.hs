@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ViolationEventOccurrenceRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the time period of which violation events occurred between.
@@ -29,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data ViolationEventOccurrenceRange = ViolationEventOccurrenceRange'
   { -- | The start date and time of a time period in which violation events
     -- occurred.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end date and time of a time period in which violation events
     -- occurred.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,28 +61,28 @@ newViolationEventOccurrenceRange
   pEndTime_ =
     ViolationEventOccurrenceRange'
       { startTime =
-          Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_
+          Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_
       }
 
 -- | The start date and time of a time period in which violation events
 -- occurred.
 violationEventOccurrenceRange_startTime :: Lens.Lens' ViolationEventOccurrenceRange Prelude.UTCTime
-violationEventOccurrenceRange_startTime = Lens.lens (\ViolationEventOccurrenceRange' {startTime} -> startTime) (\s@ViolationEventOccurrenceRange' {} a -> s {startTime = a} :: ViolationEventOccurrenceRange) Prelude.. Core._Time
+violationEventOccurrenceRange_startTime = Lens.lens (\ViolationEventOccurrenceRange' {startTime} -> startTime) (\s@ViolationEventOccurrenceRange' {} a -> s {startTime = a} :: ViolationEventOccurrenceRange) Prelude.. Data._Time
 
 -- | The end date and time of a time period in which violation events
 -- occurred.
 violationEventOccurrenceRange_endTime :: Lens.Lens' ViolationEventOccurrenceRange Prelude.UTCTime
-violationEventOccurrenceRange_endTime = Lens.lens (\ViolationEventOccurrenceRange' {endTime} -> endTime) (\s@ViolationEventOccurrenceRange' {} a -> s {endTime = a} :: ViolationEventOccurrenceRange) Prelude.. Core._Time
+violationEventOccurrenceRange_endTime = Lens.lens (\ViolationEventOccurrenceRange' {endTime} -> endTime) (\s@ViolationEventOccurrenceRange' {} a -> s {endTime = a} :: ViolationEventOccurrenceRange) Prelude.. Data._Time
 
-instance Core.FromJSON ViolationEventOccurrenceRange where
+instance Data.FromJSON ViolationEventOccurrenceRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ViolationEventOccurrenceRange"
       ( \x ->
           ViolationEventOccurrenceRange'
-            Prelude.<$> (x Core..: "startTime")
-            Prelude.<*> (x Core..: "endTime")
+            Prelude.<$> (x Data..: "startTime")
+            Prelude.<*> (x Data..: "endTime")
       )
 
 instance
@@ -97,11 +98,11 @@ instance Prelude.NFData ViolationEventOccurrenceRange where
     Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToJSON ViolationEventOccurrenceRange where
+instance Data.ToJSON ViolationEventOccurrenceRange where
   toJSON ViolationEventOccurrenceRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("startTime" Core..= startTime),
-            Prelude.Just ("endTime" Core..= endTime)
+          [ Prelude.Just ("startTime" Data..= startTime),
+            Prelude.Just ("endTime" Data..= endTime)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ActiveViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.Behavior
 import Amazonka.IoT.Types.MetricValue
 import Amazonka.IoT.Types.VerificationState
@@ -39,12 +40,12 @@ data ActiveViolation = ActiveViolation'
     -- | The details of a violation event.
     violationEventAdditionalInfo :: Prelude.Maybe ViolationEventAdditionalInfo,
     -- | The time the most recent violation occurred.
-    lastViolationTime :: Prelude.Maybe Core.POSIX,
+    lastViolationTime :: Prelude.Maybe Data.POSIX,
     -- | The value of the metric (the measurement) that caused the most recent
     -- violation.
     lastViolationValue :: Prelude.Maybe MetricValue,
     -- | The time the violation started.
-    violationStartTime :: Prelude.Maybe Core.POSIX,
+    violationStartTime :: Prelude.Maybe Data.POSIX,
     -- | The security profile with the behavior is in violation.
     securityProfileName :: Prelude.Maybe Prelude.Text,
     -- | The description of the verification state of the violation.
@@ -114,7 +115,7 @@ activeViolation_violationEventAdditionalInfo = Lens.lens (\ActiveViolation' {vio
 
 -- | The time the most recent violation occurred.
 activeViolation_lastViolationTime :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.UTCTime)
-activeViolation_lastViolationTime = Lens.lens (\ActiveViolation' {lastViolationTime} -> lastViolationTime) (\s@ActiveViolation' {} a -> s {lastViolationTime = a} :: ActiveViolation) Prelude.. Lens.mapping Core._Time
+activeViolation_lastViolationTime = Lens.lens (\ActiveViolation' {lastViolationTime} -> lastViolationTime) (\s@ActiveViolation' {} a -> s {lastViolationTime = a} :: ActiveViolation) Prelude.. Lens.mapping Data._Time
 
 -- | The value of the metric (the measurement) that caused the most recent
 -- violation.
@@ -123,7 +124,7 @@ activeViolation_lastViolationValue = Lens.lens (\ActiveViolation' {lastViolation
 
 -- | The time the violation started.
 activeViolation_violationStartTime :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.UTCTime)
-activeViolation_violationStartTime = Lens.lens (\ActiveViolation' {violationStartTime} -> violationStartTime) (\s@ActiveViolation' {} a -> s {violationStartTime = a} :: ActiveViolation) Prelude.. Lens.mapping Core._Time
+activeViolation_violationStartTime = Lens.lens (\ActiveViolation' {violationStartTime} -> violationStartTime) (\s@ActiveViolation' {} a -> s {violationStartTime = a} :: ActiveViolation) Prelude.. Lens.mapping Data._Time
 
 -- | The security profile with the behavior is in violation.
 activeViolation_securityProfileName :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.Text)
@@ -141,22 +142,22 @@ activeViolation_verificationState = Lens.lens (\ActiveViolation' {verificationSt
 activeViolation_behavior :: Lens.Lens' ActiveViolation (Prelude.Maybe Behavior)
 activeViolation_behavior = Lens.lens (\ActiveViolation' {behavior} -> behavior) (\s@ActiveViolation' {} a -> s {behavior = a} :: ActiveViolation)
 
-instance Core.FromJSON ActiveViolation where
+instance Data.FromJSON ActiveViolation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActiveViolation"
       ( \x ->
           ActiveViolation'
-            Prelude.<$> (x Core..:? "thingName")
-            Prelude.<*> (x Core..:? "violationId")
-            Prelude.<*> (x Core..:? "violationEventAdditionalInfo")
-            Prelude.<*> (x Core..:? "lastViolationTime")
-            Prelude.<*> (x Core..:? "lastViolationValue")
-            Prelude.<*> (x Core..:? "violationStartTime")
-            Prelude.<*> (x Core..:? "securityProfileName")
-            Prelude.<*> (x Core..:? "verificationStateDescription")
-            Prelude.<*> (x Core..:? "verificationState")
-            Prelude.<*> (x Core..:? "behavior")
+            Prelude.<$> (x Data..:? "thingName")
+            Prelude.<*> (x Data..:? "violationId")
+            Prelude.<*> (x Data..:? "violationEventAdditionalInfo")
+            Prelude.<*> (x Data..:? "lastViolationTime")
+            Prelude.<*> (x Data..:? "lastViolationValue")
+            Prelude.<*> (x Data..:? "violationStartTime")
+            Prelude.<*> (x Data..:? "securityProfileName")
+            Prelude.<*> (x Data..:? "verificationStateDescription")
+            Prelude.<*> (x Data..:? "verificationState")
+            Prelude.<*> (x Data..:? "behavior")
       )
 
 instance Prelude.Hashable ActiveViolation where

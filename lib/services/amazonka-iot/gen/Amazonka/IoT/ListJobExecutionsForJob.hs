@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,8 +146,8 @@ instance Core.AWSRequest ListJobExecutionsForJob where
     Response.receiveJSON
       ( \s h x ->
           ListJobExecutionsForJobResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "executionSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "executionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -166,20 +167,20 @@ instance Prelude.NFData ListJobExecutionsForJob where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders ListJobExecutionsForJob where
+instance Data.ToHeaders ListJobExecutionsForJob where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListJobExecutionsForJob where
+instance Data.ToPath ListJobExecutionsForJob where
   toPath ListJobExecutionsForJob' {..} =
     Prelude.mconcat
-      ["/jobs/", Core.toBS jobId, "/things"]
+      ["/jobs/", Data.toBS jobId, "/things"]
 
-instance Core.ToQuery ListJobExecutionsForJob where
+instance Data.ToQuery ListJobExecutionsForJob where
   toQuery ListJobExecutionsForJob' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "status" Core.=: status,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "status" Data.=: status,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListJobExecutionsForJobResponse' smart constructor.

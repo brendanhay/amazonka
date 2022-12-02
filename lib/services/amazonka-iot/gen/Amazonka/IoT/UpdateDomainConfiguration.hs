@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,8 +125,8 @@ instance Core.AWSRequest UpdateDomainConfiguration where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainConfigurationResponse'
-            Prelude.<$> (x Core..?> "domainConfigurationArn")
-            Prelude.<*> (x Core..?> "domainConfigurationName")
+            Prelude.<$> (x Data..?> "domainConfigurationArn")
+            Prelude.<*> (x Data..?> "domainConfigurationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,30 +144,30 @@ instance Prelude.NFData UpdateDomainConfiguration where
       `Prelude.seq` Prelude.rnf removeAuthorizerConfig
       `Prelude.seq` Prelude.rnf domainConfigurationName
 
-instance Core.ToHeaders UpdateDomainConfiguration where
+instance Data.ToHeaders UpdateDomainConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateDomainConfiguration where
+instance Data.ToJSON UpdateDomainConfiguration where
   toJSON UpdateDomainConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("authorizerConfig" Core..=)
+          [ ("authorizerConfig" Data..=)
               Prelude.<$> authorizerConfig,
-            ("domainConfigurationStatus" Core..=)
+            ("domainConfigurationStatus" Data..=)
               Prelude.<$> domainConfigurationStatus,
-            ("removeAuthorizerConfig" Core..=)
+            ("removeAuthorizerConfig" Data..=)
               Prelude.<$> removeAuthorizerConfig
           ]
       )
 
-instance Core.ToPath UpdateDomainConfiguration where
+instance Data.ToPath UpdateDomainConfiguration where
   toPath UpdateDomainConfiguration' {..} =
     Prelude.mconcat
       [ "/domainConfigurations/",
-        Core.toBS domainConfigurationName
+        Data.toBS domainConfigurationName
       ]
 
-instance Core.ToQuery UpdateDomainConfiguration where
+instance Data.ToQuery UpdateDomainConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDomainConfigurationResponse' smart constructor.

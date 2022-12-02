@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,8 +89,8 @@ instance Core.AWSRequest GetTopicRule where
     Response.receiveJSON
       ( \s h x ->
           GetTopicRuleResponse'
-            Prelude.<$> (x Core..?> "ruleArn")
-            Prelude.<*> (x Core..?> "rule")
+            Prelude.<$> (x Data..?> "ruleArn")
+            Prelude.<*> (x Data..?> "rule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,14 +101,14 @@ instance Prelude.Hashable GetTopicRule where
 instance Prelude.NFData GetTopicRule where
   rnf GetTopicRule' {..} = Prelude.rnf ruleName
 
-instance Core.ToHeaders GetTopicRule where
+instance Data.ToHeaders GetTopicRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetTopicRule where
+instance Data.ToPath GetTopicRule where
   toPath GetTopicRule' {..} =
-    Prelude.mconcat ["/rules/", Core.toBS ruleName]
+    Prelude.mconcat ["/rules/", Data.toBS ruleName]
 
-instance Core.ToQuery GetTopicRule where
+instance Data.ToQuery GetTopicRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the GetTopicRule operation.

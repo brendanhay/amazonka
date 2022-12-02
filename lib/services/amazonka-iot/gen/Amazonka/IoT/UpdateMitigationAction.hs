@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,8 +117,8 @@ instance Core.AWSRequest UpdateMitigationAction where
     Response.receiveJSON
       ( \s h x ->
           UpdateMitigationActionResponse'
-            Prelude.<$> (x Core..?> "actionId")
-            Prelude.<*> (x Core..?> "actionArn")
+            Prelude.<$> (x Data..?> "actionId")
+            Prelude.<*> (x Data..?> "actionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,24 +134,24 @@ instance Prelude.NFData UpdateMitigationAction where
       `Prelude.seq` Prelude.rnf actionParams
       `Prelude.seq` Prelude.rnf actionName
 
-instance Core.ToHeaders UpdateMitigationAction where
+instance Data.ToHeaders UpdateMitigationAction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateMitigationAction where
+instance Data.ToJSON UpdateMitigationAction where
   toJSON UpdateMitigationAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("actionParams" Core..=) Prelude.<$> actionParams
+          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("actionParams" Data..=) Prelude.<$> actionParams
           ]
       )
 
-instance Core.ToPath UpdateMitigationAction where
+instance Data.ToPath UpdateMitigationAction where
   toPath UpdateMitigationAction' {..} =
     Prelude.mconcat
-      ["/mitigationactions/actions/", Core.toBS actionName]
+      ["/mitigationactions/actions/", Data.toBS actionName]
 
-instance Core.ToQuery UpdateMitigationAction where
+instance Data.ToQuery UpdateMitigationAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMitigationActionResponse' smart constructor.

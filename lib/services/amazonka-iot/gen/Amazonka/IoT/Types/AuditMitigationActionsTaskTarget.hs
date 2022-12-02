@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AuditMitigationActionsTaskTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used in MitigationActionParams, this information identifies the target
@@ -86,19 +87,19 @@ auditMitigationActionsTaskTarget_findingIds :: Lens.Lens' AuditMitigationActions
 auditMitigationActionsTaskTarget_findingIds = Lens.lens (\AuditMitigationActionsTaskTarget' {findingIds} -> findingIds) (\s@AuditMitigationActionsTaskTarget' {} a -> s {findingIds = a} :: AuditMitigationActionsTaskTarget) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AuditMitigationActionsTaskTarget
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuditMitigationActionsTaskTarget"
       ( \x ->
           AuditMitigationActionsTaskTarget'
-            Prelude.<$> ( x Core..:? "auditCheckToReasonCodeFilter"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "auditCheckToReasonCodeFilter"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "auditTaskId")
-            Prelude.<*> (x Core..:? "findingIds")
+            Prelude.<*> (x Data..:? "auditTaskId")
+            Prelude.<*> (x Data..:? "findingIds")
       )
 
 instance
@@ -122,13 +123,13 @@ instance
       `Prelude.seq` Prelude.rnf auditTaskId
       `Prelude.seq` Prelude.rnf findingIds
 
-instance Core.ToJSON AuditMitigationActionsTaskTarget where
+instance Data.ToJSON AuditMitigationActionsTaskTarget where
   toJSON AuditMitigationActionsTaskTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("auditCheckToReasonCodeFilter" Core..=)
+          [ ("auditCheckToReasonCodeFilter" Data..=)
               Prelude.<$> auditCheckToReasonCodeFilter,
-            ("auditTaskId" Core..=) Prelude.<$> auditTaskId,
-            ("findingIds" Core..=) Prelude.<$> findingIds
+            ("auditTaskId" Data..=) Prelude.<$> auditTaskId,
+            ("findingIds" Data..=) Prelude.<$> findingIds
           ]
       )

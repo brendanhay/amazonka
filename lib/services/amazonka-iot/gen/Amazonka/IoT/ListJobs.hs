@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -221,8 +222,8 @@ instance Core.AWSRequest ListJobs where
     Response.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "jobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "jobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -246,22 +247,22 @@ instance Prelude.NFData ListJobs where
       `Prelude.seq` Prelude.rnf namespaceId
       `Prelude.seq` Prelude.rnf thingGroupId
 
-instance Core.ToHeaders ListJobs where
+instance Data.ToHeaders ListJobs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListJobs where
+instance Data.ToPath ListJobs where
   toPath = Prelude.const "/jobs"
 
-instance Core.ToQuery ListJobs where
+instance Data.ToQuery ListJobs where
   toQuery ListJobs' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "targetSelection" Core.=: targetSelection,
-        "thingGroupName" Core.=: thingGroupName,
-        "status" Core.=: status,
-        "maxResults" Core.=: maxResults,
-        "namespaceId" Core.=: namespaceId,
-        "thingGroupId" Core.=: thingGroupId
+      [ "nextToken" Data.=: nextToken,
+        "targetSelection" Data.=: targetSelection,
+        "thingGroupName" Data.=: thingGroupName,
+        "status" Data.=: status,
+        "maxResults" Data.=: maxResults,
+        "namespaceId" Data.=: namespaceId,
+        "thingGroupId" Data.=: thingGroupId
       ]
 
 -- | /See:/ 'newListJobsResponse' smart constructor.

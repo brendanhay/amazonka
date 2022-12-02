@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,25 +129,25 @@ instance
       `Prelude.seq` Prelude.rnf versionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteProvisioningTemplateVersion
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteProvisioningTemplateVersion
   where
   toPath DeleteProvisioningTemplateVersion' {..} =
     Prelude.mconcat
       [ "/provisioning-templates/",
-        Core.toBS templateName,
+        Data.toBS templateName,
         "/versions/",
-        Core.toBS versionId
+        Data.toBS versionId
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteProvisioningTemplateVersion
   where
   toQuery = Prelude.const Prelude.mempty

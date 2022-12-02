@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,30 +142,30 @@ instance
       `Prelude.seq` Prelude.rnf verificationState
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutVerificationStateOnViolation
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutVerificationStateOnViolation where
+instance Data.ToJSON PutVerificationStateOnViolation where
   toJSON PutVerificationStateOnViolation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("verificationStateDescription" Core..=)
+          [ ("verificationStateDescription" Data..=)
               Prelude.<$> verificationStateDescription,
             Prelude.Just
-              ("verificationState" Core..= verificationState)
+              ("verificationState" Data..= verificationState)
           ]
       )
 
-instance Core.ToPath PutVerificationStateOnViolation where
+instance Data.ToPath PutVerificationStateOnViolation where
   toPath PutVerificationStateOnViolation' {..} =
     Prelude.mconcat
       [ "/violations/verification-state/",
-        Core.toBS violationId
+        Data.toBS violationId
       ]
 
-instance Core.ToQuery PutVerificationStateOnViolation where
+instance Data.ToQuery PutVerificationStateOnViolation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutVerificationStateOnViolationResponse' smart constructor.

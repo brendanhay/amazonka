@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,9 +83,9 @@ data ListViolationEvents = ListViolationEvents'
     -- | The verification state of the violation (detect alarm).
     verificationState :: Prelude.Maybe VerificationState,
     -- | The start time for the alerts to be listed.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end time for the alerts to be listed.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -130,8 +131,8 @@ newListViolationEvents pStartTime_ pEndTime_ =
       securityProfileName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       verificationState = Prelude.Nothing,
-      startTime = Core._Time Lens.# pStartTime_,
-      endTime = Core._Time Lens.# pEndTime_
+      startTime = Data._Time Lens.# pStartTime_,
+      endTime = Data._Time Lens.# pEndTime_
     }
 
 -- | A list of all suppressed alerts.
@@ -165,11 +166,11 @@ listViolationEvents_verificationState = Lens.lens (\ListViolationEvents' {verifi
 
 -- | The start time for the alerts to be listed.
 listViolationEvents_startTime :: Lens.Lens' ListViolationEvents Prelude.UTCTime
-listViolationEvents_startTime = Lens.lens (\ListViolationEvents' {startTime} -> startTime) (\s@ListViolationEvents' {} a -> s {startTime = a} :: ListViolationEvents) Prelude.. Core._Time
+listViolationEvents_startTime = Lens.lens (\ListViolationEvents' {startTime} -> startTime) (\s@ListViolationEvents' {} a -> s {startTime = a} :: ListViolationEvents) Prelude.. Data._Time
 
 -- | The end time for the alerts to be listed.
 listViolationEvents_endTime :: Lens.Lens' ListViolationEvents Prelude.UTCTime
-listViolationEvents_endTime = Lens.lens (\ListViolationEvents' {endTime} -> endTime) (\s@ListViolationEvents' {} a -> s {endTime = a} :: ListViolationEvents) Prelude.. Core._Time
+listViolationEvents_endTime = Lens.lens (\ListViolationEvents' {endTime} -> endTime) (\s@ListViolationEvents' {} a -> s {endTime = a} :: ListViolationEvents) Prelude.. Data._Time
 
 instance Core.AWSPager ListViolationEvents where
   page rq rs
@@ -203,8 +204,8 @@ instance Core.AWSRequest ListViolationEvents where
     Response.receiveJSON
       ( \s h x ->
           ListViolationEventsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "violationEvents"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "violationEvents"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -234,24 +235,24 @@ instance Prelude.NFData ListViolationEvents where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToHeaders ListViolationEvents where
+instance Data.ToHeaders ListViolationEvents where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListViolationEvents where
+instance Data.ToPath ListViolationEvents where
   toPath = Prelude.const "/violation-events"
 
-instance Core.ToQuery ListViolationEvents where
+instance Data.ToQuery ListViolationEvents where
   toQuery ListViolationEvents' {..} =
     Prelude.mconcat
-      [ "listSuppressedAlerts" Core.=: listSuppressedAlerts,
-        "behaviorCriteriaType" Core.=: behaviorCriteriaType,
-        "nextToken" Core.=: nextToken,
-        "thingName" Core.=: thingName,
-        "securityProfileName" Core.=: securityProfileName,
-        "maxResults" Core.=: maxResults,
-        "verificationState" Core.=: verificationState,
-        "startTime" Core.=: startTime,
-        "endTime" Core.=: endTime
+      [ "listSuppressedAlerts" Data.=: listSuppressedAlerts,
+        "behaviorCriteriaType" Data.=: behaviorCriteriaType,
+        "nextToken" Data.=: nextToken,
+        "thingName" Data.=: thingName,
+        "securityProfileName" Data.=: securityProfileName,
+        "maxResults" Data.=: maxResults,
+        "verificationState" Data.=: verificationState,
+        "startTime" Data.=: startTime,
+        "endTime" Data.=: endTime
       ]
 
 -- | /See:/ 'newListViolationEventsResponse' smart constructor.

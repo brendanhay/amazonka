@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,22 +99,22 @@ instance Prelude.NFData UpdateEventConfigurations where
   rnf UpdateEventConfigurations' {..} =
     Prelude.rnf eventConfigurations
 
-instance Core.ToHeaders UpdateEventConfigurations where
+instance Data.ToHeaders UpdateEventConfigurations where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateEventConfigurations where
+instance Data.ToJSON UpdateEventConfigurations where
   toJSON UpdateEventConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("eventConfigurations" Core..=)
+          [ ("eventConfigurations" Data..=)
               Prelude.<$> eventConfigurations
           ]
       )
 
-instance Core.ToPath UpdateEventConfigurations where
+instance Data.ToPath UpdateEventConfigurations where
   toPath = Prelude.const "/event-configurations"
 
-instance Core.ToQuery UpdateEventConfigurations where
+instance Data.ToQuery UpdateEventConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEventConfigurationsResponse' smart constructor.

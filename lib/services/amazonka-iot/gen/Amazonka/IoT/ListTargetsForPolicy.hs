@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest ListTargetsForPolicy where
     Response.receiveJSON
       ( \s h x ->
           ListTargetsForPolicyResponse'
-            Prelude.<$> (x Core..?> "targets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextMarker")
+            Prelude.<$> (x Data..?> "targets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,22 +152,22 @@ instance Prelude.NFData ListTargetsForPolicy where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf policyName
 
-instance Core.ToHeaders ListTargetsForPolicy where
+instance Data.ToHeaders ListTargetsForPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListTargetsForPolicy where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ListTargetsForPolicy where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ListTargetsForPolicy where
+instance Data.ToPath ListTargetsForPolicy where
   toPath ListTargetsForPolicy' {..} =
     Prelude.mconcat
-      ["/policy-targets/", Core.toBS policyName]
+      ["/policy-targets/", Data.toBS policyName]
 
-instance Core.ToQuery ListTargetsForPolicy where
+instance Data.ToQuery ListTargetsForPolicy where
   toQuery ListTargetsForPolicy' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "pageSize" Core.=: pageSize
+      [ "marker" Data.=: marker,
+        "pageSize" Data.=: pageSize
       ]
 
 -- | /See:/ 'newListTargetsForPolicyResponse' smart constructor.

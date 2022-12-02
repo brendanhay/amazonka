@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,10 +104,10 @@ instance Core.AWSRequest CreateKeysAndCertificate where
     Response.receiveJSON
       ( \s h x ->
           CreateKeysAndCertificateResponse'
-            Prelude.<$> (x Core..?> "keyPair")
-            Prelude.<*> (x Core..?> "certificateArn")
-            Prelude.<*> (x Core..?> "certificateId")
-            Prelude.<*> (x Core..?> "certificatePem")
+            Prelude.<$> (x Data..?> "keyPair")
+            Prelude.<*> (x Data..?> "certificateArn")
+            Prelude.<*> (x Data..?> "certificateId")
+            Prelude.<*> (x Data..?> "certificatePem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,18 +119,18 @@ instance Prelude.NFData CreateKeysAndCertificate where
   rnf CreateKeysAndCertificate' {..} =
     Prelude.rnf setAsActive
 
-instance Core.ToHeaders CreateKeysAndCertificate where
+instance Data.ToHeaders CreateKeysAndCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateKeysAndCertificate where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CreateKeysAndCertificate where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CreateKeysAndCertificate where
+instance Data.ToPath CreateKeysAndCertificate where
   toPath = Prelude.const "/keys-and-certificate"
 
-instance Core.ToQuery CreateKeysAndCertificate where
+instance Data.ToQuery CreateKeysAndCertificate where
   toQuery CreateKeysAndCertificate' {..} =
-    Prelude.mconcat ["setAsActive" Core.=: setAsActive]
+    Prelude.mconcat ["setAsActive" Data.=: setAsActive]
 
 -- | The output of the CreateKeysAndCertificate operation.
 --

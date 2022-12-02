@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -183,28 +184,28 @@ instance Prelude.NFData UpdateThing where
       `Prelude.seq` Prelude.rnf expectedVersion
       `Prelude.seq` Prelude.rnf thingName
 
-instance Core.ToHeaders UpdateThing where
+instance Data.ToHeaders UpdateThing where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateThing where
+instance Data.ToJSON UpdateThing where
   toJSON UpdateThing' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("thingTypeName" Core..=) Prelude.<$> thingTypeName,
-            ("removeThingType" Core..=)
+          [ ("thingTypeName" Data..=) Prelude.<$> thingTypeName,
+            ("removeThingType" Data..=)
               Prelude.<$> removeThingType,
-            ("attributePayload" Core..=)
+            ("attributePayload" Data..=)
               Prelude.<$> attributePayload,
-            ("expectedVersion" Core..=)
+            ("expectedVersion" Data..=)
               Prelude.<$> expectedVersion
           ]
       )
 
-instance Core.ToPath UpdateThing where
+instance Data.ToPath UpdateThing where
   toPath UpdateThing' {..} =
-    Prelude.mconcat ["/things/", Core.toBS thingName]
+    Prelude.mconcat ["/things/", Data.toBS thingName]
 
-instance Core.ToQuery UpdateThing where
+instance Data.ToQuery UpdateThing where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the UpdateThing operation.

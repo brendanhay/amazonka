@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,16 +100,16 @@ instance Core.AWSRequest DescribeThingGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeThingGroupResponse'
-            Prelude.<$> (x Core..?> "thingGroupProperties")
-            Prelude.<*> (x Core..?> "thingGroupName")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "indexName")
-            Prelude.<*> (x Core..?> "thingGroupMetadata")
-            Prelude.<*> (x Core..?> "queryVersion")
-            Prelude.<*> (x Core..?> "thingGroupArn")
-            Prelude.<*> (x Core..?> "queryString")
-            Prelude.<*> (x Core..?> "thingGroupId")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "thingGroupProperties")
+            Prelude.<*> (x Data..?> "thingGroupName")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "indexName")
+            Prelude.<*> (x Data..?> "thingGroupMetadata")
+            Prelude.<*> (x Data..?> "queryVersion")
+            Prelude.<*> (x Data..?> "thingGroupArn")
+            Prelude.<*> (x Data..?> "queryString")
+            Prelude.<*> (x Data..?> "thingGroupId")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,15 +121,15 @@ instance Prelude.NFData DescribeThingGroup where
   rnf DescribeThingGroup' {..} =
     Prelude.rnf thingGroupName
 
-instance Core.ToHeaders DescribeThingGroup where
+instance Data.ToHeaders DescribeThingGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeThingGroup where
+instance Data.ToPath DescribeThingGroup where
   toPath DescribeThingGroup' {..} =
     Prelude.mconcat
-      ["/thing-groups/", Core.toBS thingGroupName]
+      ["/thing-groups/", Data.toBS thingGroupName]
 
-instance Core.ToQuery DescribeThingGroup where
+instance Data.ToQuery DescribeThingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeThingGroupResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,14 +97,14 @@ instance Core.AWSRequest DescribeThing where
     Response.receiveJSON
       ( \s h x ->
           DescribeThingResponse'
-            Prelude.<$> (x Core..?> "billingGroupName")
-            Prelude.<*> (x Core..?> "thingName")
-            Prelude.<*> (x Core..?> "thingId")
-            Prelude.<*> (x Core..?> "thingArn")
-            Prelude.<*> (x Core..?> "thingTypeName")
-            Prelude.<*> (x Core..?> "defaultClientId")
-            Prelude.<*> (x Core..?> "attributes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "billingGroupName")
+            Prelude.<*> (x Data..?> "thingName")
+            Prelude.<*> (x Data..?> "thingId")
+            Prelude.<*> (x Data..?> "thingArn")
+            Prelude.<*> (x Data..?> "thingTypeName")
+            Prelude.<*> (x Data..?> "defaultClientId")
+            Prelude.<*> (x Data..?> "attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,14 +115,14 @@ instance Prelude.Hashable DescribeThing where
 instance Prelude.NFData DescribeThing where
   rnf DescribeThing' {..} = Prelude.rnf thingName
 
-instance Core.ToHeaders DescribeThing where
+instance Data.ToHeaders DescribeThing where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeThing where
+instance Data.ToPath DescribeThing where
   toPath DescribeThing' {..} =
-    Prelude.mconcat ["/things/", Core.toBS thingName]
+    Prelude.mconcat ["/things/", Data.toBS thingName]
 
-instance Core.ToQuery DescribeThing where
+instance Data.ToQuery DescribeThing where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the DescribeThing operation.

@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,9 +150,9 @@ instance Core.AWSRequest CreateThing where
     Response.receiveJSON
       ( \s h x ->
           CreateThingResponse'
-            Prelude.<$> (x Core..?> "thingName")
-            Prelude.<*> (x Core..?> "thingId")
-            Prelude.<*> (x Core..?> "thingArn")
+            Prelude.<$> (x Data..?> "thingName")
+            Prelude.<*> (x Data..?> "thingId")
+            Prelude.<*> (x Data..?> "thingArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,26 +170,26 @@ instance Prelude.NFData CreateThing where
       `Prelude.seq` Prelude.rnf attributePayload
       `Prelude.seq` Prelude.rnf thingName
 
-instance Core.ToHeaders CreateThing where
+instance Data.ToHeaders CreateThing where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateThing where
+instance Data.ToJSON CreateThing where
   toJSON CreateThing' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("billingGroupName" Core..=)
+          [ ("billingGroupName" Data..=)
               Prelude.<$> billingGroupName,
-            ("thingTypeName" Core..=) Prelude.<$> thingTypeName,
-            ("attributePayload" Core..=)
+            ("thingTypeName" Data..=) Prelude.<$> thingTypeName,
+            ("attributePayload" Data..=)
               Prelude.<$> attributePayload
           ]
       )
 
-instance Core.ToPath CreateThing where
+instance Data.ToPath CreateThing where
   toPath CreateThing' {..} =
-    Prelude.mconcat ["/things/", Core.toBS thingName]
+    Prelude.mconcat ["/things/", Data.toBS thingName]
 
-instance Core.ToQuery CreateThing where
+instance Data.ToQuery CreateThing where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output of the CreateThing operation.

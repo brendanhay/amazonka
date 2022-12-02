@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,9 +126,9 @@ instance Core.AWSRequest CreateThingGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateThingGroupResponse'
-            Prelude.<$> (x Core..?> "thingGroupName")
-            Prelude.<*> (x Core..?> "thingGroupArn")
-            Prelude.<*> (x Core..?> "thingGroupId")
+            Prelude.<$> (x Data..?> "thingGroupName")
+            Prelude.<*> (x Data..?> "thingGroupArn")
+            Prelude.<*> (x Data..?> "thingGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,27 +146,27 @@ instance Prelude.NFData CreateThingGroup where
       `Prelude.seq` Prelude.rnf parentGroupName
       `Prelude.seq` Prelude.rnf thingGroupName
 
-instance Core.ToHeaders CreateThingGroup where
+instance Data.ToHeaders CreateThingGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateThingGroup where
+instance Data.ToJSON CreateThingGroup where
   toJSON CreateThingGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("thingGroupProperties" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("thingGroupProperties" Data..=)
               Prelude.<$> thingGroupProperties,
-            ("parentGroupName" Core..=)
+            ("parentGroupName" Data..=)
               Prelude.<$> parentGroupName
           ]
       )
 
-instance Core.ToPath CreateThingGroup where
+instance Data.ToPath CreateThingGroup where
   toPath CreateThingGroup' {..} =
     Prelude.mconcat
-      ["/thing-groups/", Core.toBS thingGroupName]
+      ["/thing-groups/", Data.toBS thingGroupName]
 
-instance Core.ToQuery CreateThingGroup where
+instance Data.ToQuery CreateThingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateThingGroupResponse' smart constructor.

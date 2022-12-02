@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,7 +140,7 @@ instance Core.AWSRequest GetPercentiles where
     Response.receiveJSON
       ( \s h x ->
           GetPercentilesResponse'
-            Prelude.<$> (x Core..?> "percentiles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "percentiles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,26 +160,26 @@ instance Prelude.NFData GetPercentiles where
       `Prelude.seq` Prelude.rnf queryVersion
       `Prelude.seq` Prelude.rnf queryString
 
-instance Core.ToHeaders GetPercentiles where
+instance Data.ToHeaders GetPercentiles where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetPercentiles where
+instance Data.ToJSON GetPercentiles where
   toJSON GetPercentiles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("aggregationField" Core..=)
+          [ ("aggregationField" Data..=)
               Prelude.<$> aggregationField,
-            ("percents" Core..=) Prelude.<$> percents,
-            ("indexName" Core..=) Prelude.<$> indexName,
-            ("queryVersion" Core..=) Prelude.<$> queryVersion,
-            Prelude.Just ("queryString" Core..= queryString)
+            ("percents" Data..=) Prelude.<$> percents,
+            ("indexName" Data..=) Prelude.<$> indexName,
+            ("queryVersion" Data..=) Prelude.<$> queryVersion,
+            Prelude.Just ("queryString" Data..= queryString)
           ]
       )
 
-instance Core.ToPath GetPercentiles where
+instance Data.ToPath GetPercentiles where
   toPath = Prelude.const "/indices/percentiles"
 
-instance Core.ToQuery GetPercentiles where
+instance Data.ToQuery GetPercentiles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPercentilesResponse' smart constructor.

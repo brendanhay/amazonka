@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.MitigationActionParams where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AddThingsToThingGroupParams
 import Amazonka.IoT.Types.EnableIoTLoggingParams
 import Amazonka.IoT.Types.PublishFindingToSnsParams
@@ -130,18 +131,18 @@ mitigationActionParams_enableIoTLoggingParams = Lens.lens (\MitigationActionPara
 mitigationActionParams_addThingsToThingGroupParams :: Lens.Lens' MitigationActionParams (Prelude.Maybe AddThingsToThingGroupParams)
 mitigationActionParams_addThingsToThingGroupParams = Lens.lens (\MitigationActionParams' {addThingsToThingGroupParams} -> addThingsToThingGroupParams) (\s@MitigationActionParams' {} a -> s {addThingsToThingGroupParams = a} :: MitigationActionParams)
 
-instance Core.FromJSON MitigationActionParams where
+instance Data.FromJSON MitigationActionParams where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MitigationActionParams"
       ( \x ->
           MitigationActionParams'
-            Prelude.<$> (x Core..:? "replaceDefaultPolicyVersionParams")
-            Prelude.<*> (x Core..:? "updateDeviceCertificateParams")
-            Prelude.<*> (x Core..:? "publishFindingToSnsParams")
-            Prelude.<*> (x Core..:? "updateCACertificateParams")
-            Prelude.<*> (x Core..:? "enableIoTLoggingParams")
-            Prelude.<*> (x Core..:? "addThingsToThingGroupParams")
+            Prelude.<$> (x Data..:? "replaceDefaultPolicyVersionParams")
+            Prelude.<*> (x Data..:? "updateDeviceCertificateParams")
+            Prelude.<*> (x Data..:? "publishFindingToSnsParams")
+            Prelude.<*> (x Data..:? "updateCACertificateParams")
+            Prelude.<*> (x Data..:? "enableIoTLoggingParams")
+            Prelude.<*> (x Data..:? "addThingsToThingGroupParams")
       )
 
 instance Prelude.Hashable MitigationActionParams where
@@ -163,21 +164,21 @@ instance Prelude.NFData MitigationActionParams where
       `Prelude.seq` Prelude.rnf enableIoTLoggingParams
       `Prelude.seq` Prelude.rnf addThingsToThingGroupParams
 
-instance Core.ToJSON MitigationActionParams where
+instance Data.ToJSON MitigationActionParams where
   toJSON MitigationActionParams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("replaceDefaultPolicyVersionParams" Core..=)
+          [ ("replaceDefaultPolicyVersionParams" Data..=)
               Prelude.<$> replaceDefaultPolicyVersionParams,
-            ("updateDeviceCertificateParams" Core..=)
+            ("updateDeviceCertificateParams" Data..=)
               Prelude.<$> updateDeviceCertificateParams,
-            ("publishFindingToSnsParams" Core..=)
+            ("publishFindingToSnsParams" Data..=)
               Prelude.<$> publishFindingToSnsParams,
-            ("updateCACertificateParams" Core..=)
+            ("updateCACertificateParams" Data..=)
               Prelude.<$> updateCACertificateParams,
-            ("enableIoTLoggingParams" Core..=)
+            ("enableIoTLoggingParams" Data..=)
               Prelude.<$> enableIoTLoggingParams,
-            ("addThingsToThingGroupParams" Core..=)
+            ("addThingsToThingGroupParams" Data..=)
               Prelude.<$> addThingsToThingGroupParams
           ]
       )

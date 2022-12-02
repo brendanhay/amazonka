@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ProvisioningTemplateVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of information about a fleet provision template version.
@@ -31,7 +32,7 @@ data ProvisioningTemplateVersionSummary = ProvisioningTemplateVersionSummary'
     -- otherwise false.
     isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The date when the provisioning template version was created
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The ID of the fleet provisioning template version.
     versionId :: Prelude.Maybe Prelude.Int
   }
@@ -68,24 +69,24 @@ provisioningTemplateVersionSummary_isDefaultVersion = Lens.lens (\ProvisioningTe
 
 -- | The date when the provisioning template version was created
 provisioningTemplateVersionSummary_creationDate :: Lens.Lens' ProvisioningTemplateVersionSummary (Prelude.Maybe Prelude.UTCTime)
-provisioningTemplateVersionSummary_creationDate = Lens.lens (\ProvisioningTemplateVersionSummary' {creationDate} -> creationDate) (\s@ProvisioningTemplateVersionSummary' {} a -> s {creationDate = a} :: ProvisioningTemplateVersionSummary) Prelude.. Lens.mapping Core._Time
+provisioningTemplateVersionSummary_creationDate = Lens.lens (\ProvisioningTemplateVersionSummary' {creationDate} -> creationDate) (\s@ProvisioningTemplateVersionSummary' {} a -> s {creationDate = a} :: ProvisioningTemplateVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the fleet provisioning template version.
 provisioningTemplateVersionSummary_versionId :: Lens.Lens' ProvisioningTemplateVersionSummary (Prelude.Maybe Prelude.Int)
 provisioningTemplateVersionSummary_versionId = Lens.lens (\ProvisioningTemplateVersionSummary' {versionId} -> versionId) (\s@ProvisioningTemplateVersionSummary' {} a -> s {versionId = a} :: ProvisioningTemplateVersionSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ProvisioningTemplateVersionSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisioningTemplateVersionSummary"
       ( \x ->
           ProvisioningTemplateVersionSummary'
-            Prelude.<$> (x Core..:? "isDefaultVersion")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "versionId")
+            Prelude.<$> (x Data..:? "isDefaultVersion")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "versionId")
       )
 
 instance

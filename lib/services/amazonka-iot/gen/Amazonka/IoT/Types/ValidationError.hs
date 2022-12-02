@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ValidationError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an error found in a behavior specification.
@@ -50,13 +51,13 @@ newValidationError =
 validationError_errorMessage :: Lens.Lens' ValidationError (Prelude.Maybe Prelude.Text)
 validationError_errorMessage = Lens.lens (\ValidationError' {errorMessage} -> errorMessage) (\s@ValidationError' {} a -> s {errorMessage = a} :: ValidationError)
 
-instance Core.FromJSON ValidationError where
+instance Data.FromJSON ValidationError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValidationError"
       ( \x ->
           ValidationError'
-            Prelude.<$> (x Core..:? "errorMessage")
+            Prelude.<$> (x Data..:? "errorMessage")
       )
 
 instance Prelude.Hashable ValidationError where

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -177,8 +178,8 @@ instance Core.AWSRequest ListActiveViolations where
     Response.receiveJSON
       ( \s h x ->
           ListActiveViolationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "activeViolations"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "activeViolations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -204,22 +205,22 @@ instance Prelude.NFData ListActiveViolations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf verificationState
 
-instance Core.ToHeaders ListActiveViolations where
+instance Data.ToHeaders ListActiveViolations where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListActiveViolations where
+instance Data.ToPath ListActiveViolations where
   toPath = Prelude.const "/active-violations"
 
-instance Core.ToQuery ListActiveViolations where
+instance Data.ToQuery ListActiveViolations where
   toQuery ListActiveViolations' {..} =
     Prelude.mconcat
-      [ "listSuppressedAlerts" Core.=: listSuppressedAlerts,
-        "behaviorCriteriaType" Core.=: behaviorCriteriaType,
-        "nextToken" Core.=: nextToken,
-        "thingName" Core.=: thingName,
-        "securityProfileName" Core.=: securityProfileName,
-        "maxResults" Core.=: maxResults,
-        "verificationState" Core.=: verificationState
+      [ "listSuppressedAlerts" Data.=: listSuppressedAlerts,
+        "behaviorCriteriaType" Data.=: behaviorCriteriaType,
+        "nextToken" Data.=: nextToken,
+        "thingName" Data.=: thingName,
+        "securityProfileName" Data.=: securityProfileName,
+        "maxResults" Data.=: maxResults,
+        "verificationState" Data.=: verificationState
       ]
 
 -- | /See:/ 'newListActiveViolationsResponse' smart constructor.

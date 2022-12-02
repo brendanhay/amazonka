@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance Core.AWSRequest ListPolicyVersions where
     Response.receiveJSON
       ( \s h x ->
           ListPolicyVersionsResponse'
-            Prelude.<$> (x Core..?> "policyVersions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "policyVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,15 +102,15 @@ instance Prelude.Hashable ListPolicyVersions where
 instance Prelude.NFData ListPolicyVersions where
   rnf ListPolicyVersions' {..} = Prelude.rnf policyName
 
-instance Core.ToHeaders ListPolicyVersions where
+instance Data.ToHeaders ListPolicyVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPolicyVersions where
+instance Data.ToPath ListPolicyVersions where
   toPath ListPolicyVersions' {..} =
     Prelude.mconcat
-      ["/policies/", Core.toBS policyName, "/version"]
+      ["/policies/", Data.toBS policyName, "/version"]
 
-instance Core.ToQuery ListPolicyVersions where
+instance Data.ToQuery ListPolicyVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the ListPolicyVersions operation.

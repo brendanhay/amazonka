@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AuthorizerDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AuthorizerStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAuthorizerDescription' smart constructor.
 data AuthorizerDescription = AuthorizerDescription'
   { -- | The UNIX timestamp of when the authorizer was last updated.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The key used to extract the token from the HTTP headers.
     tokenKeyName :: Prelude.Maybe Prelude.Text,
     -- | The UNIX timestamp of when the authorizer was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the authorizer.
     status :: Prelude.Maybe AuthorizerStatus,
     -- | The authorizer\'s Lambda function ARN.
@@ -105,7 +106,7 @@ newAuthorizerDescription =
 
 -- | The UNIX timestamp of when the authorizer was last updated.
 authorizerDescription_lastModifiedDate :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.UTCTime)
-authorizerDescription_lastModifiedDate = Lens.lens (\AuthorizerDescription' {lastModifiedDate} -> lastModifiedDate) (\s@AuthorizerDescription' {} a -> s {lastModifiedDate = a} :: AuthorizerDescription) Prelude.. Lens.mapping Core._Time
+authorizerDescription_lastModifiedDate = Lens.lens (\AuthorizerDescription' {lastModifiedDate} -> lastModifiedDate) (\s@AuthorizerDescription' {} a -> s {lastModifiedDate = a} :: AuthorizerDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The key used to extract the token from the HTTP headers.
 authorizerDescription_tokenKeyName :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.Text)
@@ -113,7 +114,7 @@ authorizerDescription_tokenKeyName = Lens.lens (\AuthorizerDescription' {tokenKe
 
 -- | The UNIX timestamp of when the authorizer was created.
 authorizerDescription_creationDate :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.UTCTime)
-authorizerDescription_creationDate = Lens.lens (\AuthorizerDescription' {creationDate} -> creationDate) (\s@AuthorizerDescription' {} a -> s {creationDate = a} :: AuthorizerDescription) Prelude.. Lens.mapping Core._Time
+authorizerDescription_creationDate = Lens.lens (\AuthorizerDescription' {creationDate} -> creationDate) (\s@AuthorizerDescription' {} a -> s {creationDate = a} :: AuthorizerDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the authorizer.
 authorizerDescription_status :: Lens.Lens' AuthorizerDescription (Prelude.Maybe AuthorizerStatus)
@@ -147,24 +148,24 @@ authorizerDescription_enableCachingForHttp = Lens.lens (\AuthorizerDescription' 
 authorizerDescription_authorizerName :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.Text)
 authorizerDescription_authorizerName = Lens.lens (\AuthorizerDescription' {authorizerName} -> authorizerName) (\s@AuthorizerDescription' {} a -> s {authorizerName = a} :: AuthorizerDescription)
 
-instance Core.FromJSON AuthorizerDescription where
+instance Data.FromJSON AuthorizerDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthorizerDescription"
       ( \x ->
           AuthorizerDescription'
-            Prelude.<$> (x Core..:? "lastModifiedDate")
-            Prelude.<*> (x Core..:? "tokenKeyName")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "authorizerFunctionArn")
-            Prelude.<*> (x Core..:? "signingDisabled")
-            Prelude.<*> ( x Core..:? "tokenSigningPublicKeys"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "lastModifiedDate")
+            Prelude.<*> (x Data..:? "tokenKeyName")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "authorizerFunctionArn")
+            Prelude.<*> (x Data..:? "signingDisabled")
+            Prelude.<*> ( x Data..:? "tokenSigningPublicKeys"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "authorizerArn")
-            Prelude.<*> (x Core..:? "enableCachingForHttp")
-            Prelude.<*> (x Core..:? "authorizerName")
+            Prelude.<*> (x Data..:? "authorizerArn")
+            Prelude.<*> (x Data..:? "enableCachingForHttp")
+            Prelude.<*> (x Data..:? "authorizerName")
       )
 
 instance Prelude.Hashable AuthorizerDescription where

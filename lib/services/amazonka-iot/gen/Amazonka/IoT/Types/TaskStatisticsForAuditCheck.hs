@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TaskStatisticsForAuditCheck where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary counts of how many tasks for findings are in a
@@ -103,17 +104,17 @@ taskStatisticsForAuditCheck_skippedFindingsCount = Lens.lens (\TaskStatisticsFor
 taskStatisticsForAuditCheck_succeededFindingsCount :: Lens.Lens' TaskStatisticsForAuditCheck (Prelude.Maybe Prelude.Integer)
 taskStatisticsForAuditCheck_succeededFindingsCount = Lens.lens (\TaskStatisticsForAuditCheck' {succeededFindingsCount} -> succeededFindingsCount) (\s@TaskStatisticsForAuditCheck' {} a -> s {succeededFindingsCount = a} :: TaskStatisticsForAuditCheck)
 
-instance Core.FromJSON TaskStatisticsForAuditCheck where
+instance Data.FromJSON TaskStatisticsForAuditCheck where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskStatisticsForAuditCheck"
       ( \x ->
           TaskStatisticsForAuditCheck'
-            Prelude.<$> (x Core..:? "totalFindingsCount")
-            Prelude.<*> (x Core..:? "failedFindingsCount")
-            Prelude.<*> (x Core..:? "canceledFindingsCount")
-            Prelude.<*> (x Core..:? "skippedFindingsCount")
-            Prelude.<*> (x Core..:? "succeededFindingsCount")
+            Prelude.<$> (x Data..:? "totalFindingsCount")
+            Prelude.<*> (x Data..:? "failedFindingsCount")
+            Prelude.<*> (x Data..:? "canceledFindingsCount")
+            Prelude.<*> (x Data..:? "skippedFindingsCount")
+            Prelude.<*> (x Data..:? "succeededFindingsCount")
       )
 
 instance Prelude.Hashable TaskStatisticsForAuditCheck where

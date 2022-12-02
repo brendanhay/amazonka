@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.RetryCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.RetryableFailureType
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,14 +68,14 @@ retryCriteria_failureType = Lens.lens (\RetryCriteria' {failureType} -> failureT
 retryCriteria_numberOfRetries :: Lens.Lens' RetryCriteria Prelude.Natural
 retryCriteria_numberOfRetries = Lens.lens (\RetryCriteria' {numberOfRetries} -> numberOfRetries) (\s@RetryCriteria' {} a -> s {numberOfRetries = a} :: RetryCriteria)
 
-instance Core.FromJSON RetryCriteria where
+instance Data.FromJSON RetryCriteria where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RetryCriteria"
       ( \x ->
           RetryCriteria'
-            Prelude.<$> (x Core..: "failureType")
-            Prelude.<*> (x Core..: "numberOfRetries")
+            Prelude.<$> (x Data..: "failureType")
+            Prelude.<*> (x Data..: "numberOfRetries")
       )
 
 instance Prelude.Hashable RetryCriteria where
@@ -87,12 +88,12 @@ instance Prelude.NFData RetryCriteria where
     Prelude.rnf failureType
       `Prelude.seq` Prelude.rnf numberOfRetries
 
-instance Core.ToJSON RetryCriteria where
+instance Data.ToJSON RetryCriteria where
   toJSON RetryCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("failureType" Core..= failureType),
+          [ Prelude.Just ("failureType" Data..= failureType),
             Prelude.Just
-              ("numberOfRetries" Core..= numberOfRetries)
+              ("numberOfRetries" Data..= numberOfRetries)
           ]
       )

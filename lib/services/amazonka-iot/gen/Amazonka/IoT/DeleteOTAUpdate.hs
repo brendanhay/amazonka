@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,19 +140,19 @@ instance Prelude.NFData DeleteOTAUpdate where
       `Prelude.seq` Prelude.rnf deleteStream
       `Prelude.seq` Prelude.rnf otaUpdateId
 
-instance Core.ToHeaders DeleteOTAUpdate where
+instance Data.ToHeaders DeleteOTAUpdate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteOTAUpdate where
+instance Data.ToPath DeleteOTAUpdate where
   toPath DeleteOTAUpdate' {..} =
     Prelude.mconcat
-      ["/otaUpdates/", Core.toBS otaUpdateId]
+      ["/otaUpdates/", Data.toBS otaUpdateId]
 
-instance Core.ToQuery DeleteOTAUpdate where
+instance Data.ToQuery DeleteOTAUpdate where
   toQuery DeleteOTAUpdate' {..} =
     Prelude.mconcat
-      [ "forceDeleteAWSJob" Core.=: forceDeleteAWSJob,
-        "deleteStream" Core.=: deleteStream
+      [ "forceDeleteAWSJob" Data.=: forceDeleteAWSJob,
+        "deleteStream" Data.=: deleteStream
       ]
 
 -- | /See:/ 'newDeleteOTAUpdateResponse' smart constructor.

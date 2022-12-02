@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.FleetMetricNameAndArn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name and ARN of a fleet metric.
@@ -61,14 +62,14 @@ fleetMetricNameAndArn_metricArn = Lens.lens (\FleetMetricNameAndArn' {metricArn}
 fleetMetricNameAndArn_metricName :: Lens.Lens' FleetMetricNameAndArn (Prelude.Maybe Prelude.Text)
 fleetMetricNameAndArn_metricName = Lens.lens (\FleetMetricNameAndArn' {metricName} -> metricName) (\s@FleetMetricNameAndArn' {} a -> s {metricName = a} :: FleetMetricNameAndArn)
 
-instance Core.FromJSON FleetMetricNameAndArn where
+instance Data.FromJSON FleetMetricNameAndArn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FleetMetricNameAndArn"
       ( \x ->
           FleetMetricNameAndArn'
-            Prelude.<$> (x Core..:? "metricArn")
-            Prelude.<*> (x Core..:? "metricName")
+            Prelude.<$> (x Data..:? "metricArn")
+            Prelude.<*> (x Data..:? "metricName")
       )
 
 instance Prelude.Hashable FleetMetricNameAndArn where

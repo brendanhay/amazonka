@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ThingTypeProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The ThingTypeProperties contains information about the thing type
@@ -64,16 +65,16 @@ thingTypeProperties_searchableAttributes = Lens.lens (\ThingTypeProperties' {sea
 thingTypeProperties_thingTypeDescription :: Lens.Lens' ThingTypeProperties (Prelude.Maybe Prelude.Text)
 thingTypeProperties_thingTypeDescription = Lens.lens (\ThingTypeProperties' {thingTypeDescription} -> thingTypeDescription) (\s@ThingTypeProperties' {} a -> s {thingTypeDescription = a} :: ThingTypeProperties)
 
-instance Core.FromJSON ThingTypeProperties where
+instance Data.FromJSON ThingTypeProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThingTypeProperties"
       ( \x ->
           ThingTypeProperties'
-            Prelude.<$> ( x Core..:? "searchableAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "searchableAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "thingTypeDescription")
+            Prelude.<*> (x Data..:? "thingTypeDescription")
       )
 
 instance Prelude.Hashable ThingTypeProperties where
@@ -86,13 +87,13 @@ instance Prelude.NFData ThingTypeProperties where
     Prelude.rnf searchableAttributes
       `Prelude.seq` Prelude.rnf thingTypeDescription
 
-instance Core.ToJSON ThingTypeProperties where
+instance Data.ToJSON ThingTypeProperties where
   toJSON ThingTypeProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("searchableAttributes" Core..=)
+          [ ("searchableAttributes" Data..=)
               Prelude.<$> searchableAttributes,
-            ("thingTypeDescription" Core..=)
+            ("thingTypeDescription" Data..=)
               Prelude.<$> thingTypeDescription
           ]
       )

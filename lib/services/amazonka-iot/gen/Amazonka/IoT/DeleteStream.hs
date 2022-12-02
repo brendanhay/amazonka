@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,14 +95,14 @@ instance Prelude.Hashable DeleteStream where
 instance Prelude.NFData DeleteStream where
   rnf DeleteStream' {..} = Prelude.rnf streamId
 
-instance Core.ToHeaders DeleteStream where
+instance Data.ToHeaders DeleteStream where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteStream where
+instance Data.ToPath DeleteStream where
   toPath DeleteStream' {..} =
-    Prelude.mconcat ["/streams/", Core.toBS streamId]
+    Prelude.mconcat ["/streams/", Data.toBS streamId]
 
-instance Core.ToQuery DeleteStream where
+instance Data.ToQuery DeleteStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStreamResponse' smart constructor.

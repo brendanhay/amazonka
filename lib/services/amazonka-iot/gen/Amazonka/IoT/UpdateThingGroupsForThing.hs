@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,29 +144,29 @@ instance Prelude.NFData UpdateThingGroupsForThing where
       `Prelude.seq` Prelude.rnf thingGroupsToRemove
       `Prelude.seq` Prelude.rnf thingGroupsToAdd
 
-instance Core.ToHeaders UpdateThingGroupsForThing where
+instance Data.ToHeaders UpdateThingGroupsForThing where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateThingGroupsForThing where
+instance Data.ToJSON UpdateThingGroupsForThing where
   toJSON UpdateThingGroupsForThing' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("overrideDynamicGroups" Core..=)
+          [ ("overrideDynamicGroups" Data..=)
               Prelude.<$> overrideDynamicGroups,
-            ("thingName" Core..=) Prelude.<$> thingName,
-            ("thingGroupsToRemove" Core..=)
+            ("thingName" Data..=) Prelude.<$> thingName,
+            ("thingGroupsToRemove" Data..=)
               Prelude.<$> thingGroupsToRemove,
-            ("thingGroupsToAdd" Core..=)
+            ("thingGroupsToAdd" Data..=)
               Prelude.<$> thingGroupsToAdd
           ]
       )
 
-instance Core.ToPath UpdateThingGroupsForThing where
+instance Data.ToPath UpdateThingGroupsForThing where
   toPath =
     Prelude.const
       "/thing-groups/updateThingGroupsForThing"
 
-instance Core.ToQuery UpdateThingGroupsForThing where
+instance Data.ToQuery UpdateThingGroupsForThing where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateThingGroupsForThingResponse' smart constructor.

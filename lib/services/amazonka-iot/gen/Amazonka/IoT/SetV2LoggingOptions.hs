@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,25 +115,25 @@ instance Prelude.NFData SetV2LoggingOptions where
       `Prelude.seq` Prelude.rnf disableAllLogs
       `Prelude.seq` Prelude.rnf defaultLogLevel
 
-instance Core.ToHeaders SetV2LoggingOptions where
+instance Data.ToHeaders SetV2LoggingOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON SetV2LoggingOptions where
+instance Data.ToJSON SetV2LoggingOptions where
   toJSON SetV2LoggingOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("disableAllLogs" Core..=)
+          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("disableAllLogs" Data..=)
               Prelude.<$> disableAllLogs,
-            ("defaultLogLevel" Core..=)
+            ("defaultLogLevel" Data..=)
               Prelude.<$> defaultLogLevel
           ]
       )
 
-instance Core.ToPath SetV2LoggingOptions where
+instance Data.ToPath SetV2LoggingOptions where
   toPath = Prelude.const "/v2LoggingOptions"
 
-instance Core.ToQuery SetV2LoggingOptions where
+instance Data.ToQuery SetV2LoggingOptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetV2LoggingOptionsResponse' smart constructor.

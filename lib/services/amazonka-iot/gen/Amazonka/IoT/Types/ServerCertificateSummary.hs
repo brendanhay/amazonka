@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ServerCertificateSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.ServerCertificateStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ serverCertificateSummary_serverCertificateStatus = Lens.lens (\ServerCertificate
 serverCertificateSummary_serverCertificateStatusDetail :: Lens.Lens' ServerCertificateSummary (Prelude.Maybe Prelude.Text)
 serverCertificateSummary_serverCertificateStatusDetail = Lens.lens (\ServerCertificateSummary' {serverCertificateStatusDetail} -> serverCertificateStatusDetail) (\s@ServerCertificateSummary' {} a -> s {serverCertificateStatusDetail = a} :: ServerCertificateSummary)
 
-instance Core.FromJSON ServerCertificateSummary where
+instance Data.FromJSON ServerCertificateSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerCertificateSummary"
       ( \x ->
           ServerCertificateSummary'
-            Prelude.<$> (x Core..:? "serverCertificateArn")
-            Prelude.<*> (x Core..:? "serverCertificateStatus")
-            Prelude.<*> (x Core..:? "serverCertificateStatusDetail")
+            Prelude.<$> (x Data..:? "serverCertificateArn")
+            Prelude.<*> (x Data..:? "serverCertificateStatus")
+            Prelude.<*> (x Data..:? "serverCertificateStatusDetail")
       )
 
 instance Prelude.Hashable ServerCertificateSummary where

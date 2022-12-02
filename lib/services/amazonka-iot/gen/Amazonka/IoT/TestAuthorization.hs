@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,7 +160,7 @@ instance Core.AWSRequest TestAuthorization where
     Response.receiveJSON
       ( \s h x ->
           TestAuthorizationResponse'
-            Prelude.<$> (x Core..?> "authResults" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "authResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,30 +182,30 @@ instance Prelude.NFData TestAuthorization where
       `Prelude.seq` Prelude.rnf cognitoIdentityPoolId
       `Prelude.seq` Prelude.rnf authInfos
 
-instance Core.ToHeaders TestAuthorization where
+instance Data.ToHeaders TestAuthorization where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON TestAuthorization where
+instance Data.ToJSON TestAuthorization where
   toJSON TestAuthorization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("principal" Core..=) Prelude.<$> principal,
-            ("policyNamesToSkip" Core..=)
+          [ ("principal" Data..=) Prelude.<$> principal,
+            ("policyNamesToSkip" Data..=)
               Prelude.<$> policyNamesToSkip,
-            ("policyNamesToAdd" Core..=)
+            ("policyNamesToAdd" Data..=)
               Prelude.<$> policyNamesToAdd,
-            ("cognitoIdentityPoolId" Core..=)
+            ("cognitoIdentityPoolId" Data..=)
               Prelude.<$> cognitoIdentityPoolId,
-            Prelude.Just ("authInfos" Core..= authInfos)
+            Prelude.Just ("authInfos" Data..= authInfos)
           ]
       )
 
-instance Core.ToPath TestAuthorization where
+instance Data.ToPath TestAuthorization where
   toPath = Prelude.const "/test-authorization"
 
-instance Core.ToQuery TestAuthorization where
+instance Data.ToQuery TestAuthorization where
   toQuery TestAuthorization' {..} =
-    Prelude.mconcat ["clientId" Core.=: clientId]
+    Prelude.mconcat ["clientId" Data.=: clientId]
 
 -- | /See:/ 'newTestAuthorizationResponse' smart constructor.
 data TestAuthorizationResponse = TestAuthorizationResponse'

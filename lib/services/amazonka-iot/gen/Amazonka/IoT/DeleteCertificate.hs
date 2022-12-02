@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,17 +118,17 @@ instance Prelude.NFData DeleteCertificate where
     Prelude.rnf forceDelete
       `Prelude.seq` Prelude.rnf certificateId
 
-instance Core.ToHeaders DeleteCertificate where
+instance Data.ToHeaders DeleteCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteCertificate where
+instance Data.ToPath DeleteCertificate where
   toPath DeleteCertificate' {..} =
     Prelude.mconcat
-      ["/certificates/", Core.toBS certificateId]
+      ["/certificates/", Data.toBS certificateId]
 
-instance Core.ToQuery DeleteCertificate where
+instance Data.ToQuery DeleteCertificate where
   toQuery DeleteCertificate' {..} =
-    Prelude.mconcat ["forceDelete" Core.=: forceDelete]
+    Prelude.mconcat ["forceDelete" Data.=: forceDelete]
 
 -- | /See:/ 'newDeleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse = DeleteCertificateResponse'

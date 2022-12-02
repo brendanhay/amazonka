@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.PercentPair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the percentile and percentile value.
@@ -61,14 +62,14 @@ percentPair_percent = Lens.lens (\PercentPair' {percent} -> percent) (\s@Percent
 percentPair_value :: Lens.Lens' PercentPair (Prelude.Maybe Prelude.Double)
 percentPair_value = Lens.lens (\PercentPair' {value} -> value) (\s@PercentPair' {} a -> s {value = a} :: PercentPair)
 
-instance Core.FromJSON PercentPair where
+instance Data.FromJSON PercentPair where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PercentPair"
       ( \x ->
           PercentPair'
-            Prelude.<$> (x Core..:? "percent")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "percent")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable PercentPair where

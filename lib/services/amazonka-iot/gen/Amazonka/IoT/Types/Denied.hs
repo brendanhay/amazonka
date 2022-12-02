@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.Denied where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.ExplicitDeny
 import Amazonka.IoT.Types.ImplicitDeny
 import qualified Amazonka.Prelude as Prelude
@@ -69,14 +70,14 @@ denied_explicitDeny = Lens.lens (\Denied' {explicitDeny} -> explicitDeny) (\s@De
 denied_implicitDeny :: Lens.Lens' Denied (Prelude.Maybe ImplicitDeny)
 denied_implicitDeny = Lens.lens (\Denied' {implicitDeny} -> implicitDeny) (\s@Denied' {} a -> s {implicitDeny = a} :: Denied)
 
-instance Core.FromJSON Denied where
+instance Data.FromJSON Denied where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Denied"
       ( \x ->
           Denied'
-            Prelude.<$> (x Core..:? "explicitDeny")
-            Prelude.<*> (x Core..:? "implicitDeny")
+            Prelude.<$> (x Data..:? "explicitDeny")
+            Prelude.<*> (x Data..:? "implicitDeny")
       )
 
 instance Prelude.Hashable Denied where

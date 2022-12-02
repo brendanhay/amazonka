@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.JobProcessDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The job process details.
@@ -137,23 +138,23 @@ jobProcessDetails_numberOfRemovedThings = Lens.lens (\JobProcessDetails' {number
 jobProcessDetails_numberOfQueuedThings :: Lens.Lens' JobProcessDetails (Prelude.Maybe Prelude.Int)
 jobProcessDetails_numberOfQueuedThings = Lens.lens (\JobProcessDetails' {numberOfQueuedThings} -> numberOfQueuedThings) (\s@JobProcessDetails' {} a -> s {numberOfQueuedThings = a} :: JobProcessDetails)
 
-instance Core.FromJSON JobProcessDetails where
+instance Data.FromJSON JobProcessDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobProcessDetails"
       ( \x ->
           JobProcessDetails'
-            Prelude.<$> (x Core..:? "numberOfSucceededThings")
-            Prelude.<*> (x Core..:? "numberOfFailedThings")
-            Prelude.<*> (x Core..:? "numberOfRejectedThings")
-            Prelude.<*> (x Core..:? "numberOfTimedOutThings")
-            Prelude.<*> (x Core..:? "numberOfCanceledThings")
-            Prelude.<*> (x Core..:? "numberOfInProgressThings")
-            Prelude.<*> ( x Core..:? "processingTargets"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "numberOfSucceededThings")
+            Prelude.<*> (x Data..:? "numberOfFailedThings")
+            Prelude.<*> (x Data..:? "numberOfRejectedThings")
+            Prelude.<*> (x Data..:? "numberOfTimedOutThings")
+            Prelude.<*> (x Data..:? "numberOfCanceledThings")
+            Prelude.<*> (x Data..:? "numberOfInProgressThings")
+            Prelude.<*> ( x Data..:? "processingTargets"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "numberOfRemovedThings")
-            Prelude.<*> (x Core..:? "numberOfQueuedThings")
+            Prelude.<*> (x Data..:? "numberOfRemovedThings")
+            Prelude.<*> (x Data..:? "numberOfQueuedThings")
       )
 
 instance Prelude.Hashable JobProcessDetails where

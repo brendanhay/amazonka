@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,8 +137,8 @@ instance Core.AWSRequest ListMitigationActions where
     Response.receiveJSON
       ( \s h x ->
           ListMitigationActionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "actionIdentifiers"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "actionIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -155,18 +156,18 @@ instance Prelude.NFData ListMitigationActions where
       `Prelude.seq` Prelude.rnf actionType
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListMitigationActions where
+instance Data.ToHeaders ListMitigationActions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListMitigationActions where
+instance Data.ToPath ListMitigationActions where
   toPath = Prelude.const "/mitigationactions/actions"
 
-instance Core.ToQuery ListMitigationActions where
+instance Data.ToQuery ListMitigationActions where
   toQuery ListMitigationActions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "actionType" Core.=: actionType,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "actionType" Data.=: actionType,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListMitigationActionsResponse' smart constructor.

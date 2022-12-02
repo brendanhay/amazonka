@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AbortCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AbortAction
 import Amazonka.IoT.Types.JobExecutionFailureType
 import qualified Amazonka.Prelude as Prelude
@@ -109,16 +110,16 @@ abortCriteria_thresholdPercentage = Lens.lens (\AbortCriteria' {thresholdPercent
 abortCriteria_minNumberOfExecutedThings :: Lens.Lens' AbortCriteria Prelude.Natural
 abortCriteria_minNumberOfExecutedThings = Lens.lens (\AbortCriteria' {minNumberOfExecutedThings} -> minNumberOfExecutedThings) (\s@AbortCriteria' {} a -> s {minNumberOfExecutedThings = a} :: AbortCriteria)
 
-instance Core.FromJSON AbortCriteria where
+instance Data.FromJSON AbortCriteria where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AbortCriteria"
       ( \x ->
           AbortCriteria'
-            Prelude.<$> (x Core..: "failureType")
-            Prelude.<*> (x Core..: "action")
-            Prelude.<*> (x Core..: "thresholdPercentage")
-            Prelude.<*> (x Core..: "minNumberOfExecutedThings")
+            Prelude.<$> (x Data..: "failureType")
+            Prelude.<*> (x Data..: "action")
+            Prelude.<*> (x Data..: "thresholdPercentage")
+            Prelude.<*> (x Data..: "minNumberOfExecutedThings")
       )
 
 instance Prelude.Hashable AbortCriteria where
@@ -135,17 +136,17 @@ instance Prelude.NFData AbortCriteria where
       `Prelude.seq` Prelude.rnf thresholdPercentage
       `Prelude.seq` Prelude.rnf minNumberOfExecutedThings
 
-instance Core.ToJSON AbortCriteria where
+instance Data.ToJSON AbortCriteria where
   toJSON AbortCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("failureType" Core..= failureType),
-            Prelude.Just ("action" Core..= action),
+          [ Prelude.Just ("failureType" Data..= failureType),
+            Prelude.Just ("action" Data..= action),
             Prelude.Just
-              ("thresholdPercentage" Core..= thresholdPercentage),
+              ("thresholdPercentage" Data..= thresholdPercentage),
             Prelude.Just
               ( "minNumberOfExecutedThings"
-                  Core..= minNumberOfExecutedThings
+                  Data..= minNumberOfExecutedThings
               )
           ]
       )

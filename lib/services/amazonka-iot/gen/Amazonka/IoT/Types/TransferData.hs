@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TransferData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Data used to transfer a certificate to an Amazon Web Services account.
@@ -28,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTransferData' smart constructor.
 data TransferData = TransferData'
   { -- | The date the transfer took place.
-    transferDate :: Prelude.Maybe Core.POSIX,
+    transferDate :: Prelude.Maybe Data.POSIX,
     -- | The reason why the transfer was rejected.
     rejectReason :: Prelude.Maybe Prelude.Text,
     -- | The transfer message.
     transferMessage :: Prelude.Maybe Prelude.Text,
     -- | The date the transfer was rejected.
-    rejectDate :: Prelude.Maybe Core.POSIX,
+    rejectDate :: Prelude.Maybe Data.POSIX,
     -- | The date the transfer was accepted.
-    acceptDate :: Prelude.Maybe Core.POSIX
+    acceptDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,7 +71,7 @@ newTransferData =
 
 -- | The date the transfer took place.
 transferData_transferDate :: Lens.Lens' TransferData (Prelude.Maybe Prelude.UTCTime)
-transferData_transferDate = Lens.lens (\TransferData' {transferDate} -> transferDate) (\s@TransferData' {} a -> s {transferDate = a} :: TransferData) Prelude.. Lens.mapping Core._Time
+transferData_transferDate = Lens.lens (\TransferData' {transferDate} -> transferDate) (\s@TransferData' {} a -> s {transferDate = a} :: TransferData) Prelude.. Lens.mapping Data._Time
 
 -- | The reason why the transfer was rejected.
 transferData_rejectReason :: Lens.Lens' TransferData (Prelude.Maybe Prelude.Text)
@@ -82,23 +83,23 @@ transferData_transferMessage = Lens.lens (\TransferData' {transferMessage} -> tr
 
 -- | The date the transfer was rejected.
 transferData_rejectDate :: Lens.Lens' TransferData (Prelude.Maybe Prelude.UTCTime)
-transferData_rejectDate = Lens.lens (\TransferData' {rejectDate} -> rejectDate) (\s@TransferData' {} a -> s {rejectDate = a} :: TransferData) Prelude.. Lens.mapping Core._Time
+transferData_rejectDate = Lens.lens (\TransferData' {rejectDate} -> rejectDate) (\s@TransferData' {} a -> s {rejectDate = a} :: TransferData) Prelude.. Lens.mapping Data._Time
 
 -- | The date the transfer was accepted.
 transferData_acceptDate :: Lens.Lens' TransferData (Prelude.Maybe Prelude.UTCTime)
-transferData_acceptDate = Lens.lens (\TransferData' {acceptDate} -> acceptDate) (\s@TransferData' {} a -> s {acceptDate = a} :: TransferData) Prelude.. Lens.mapping Core._Time
+transferData_acceptDate = Lens.lens (\TransferData' {acceptDate} -> acceptDate) (\s@TransferData' {} a -> s {acceptDate = a} :: TransferData) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TransferData where
+instance Data.FromJSON TransferData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransferData"
       ( \x ->
           TransferData'
-            Prelude.<$> (x Core..:? "transferDate")
-            Prelude.<*> (x Core..:? "rejectReason")
-            Prelude.<*> (x Core..:? "transferMessage")
-            Prelude.<*> (x Core..:? "rejectDate")
-            Prelude.<*> (x Core..:? "acceptDate")
+            Prelude.<$> (x Data..:? "transferDate")
+            Prelude.<*> (x Data..:? "rejectReason")
+            Prelude.<*> (x Data..:? "transferMessage")
+            Prelude.<*> (x Data..:? "rejectDate")
+            Prelude.<*> (x Data..:? "acceptDate")
       )
 
 instance Prelude.Hashable TransferData where

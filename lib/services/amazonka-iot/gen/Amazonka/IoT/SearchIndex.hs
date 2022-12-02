@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,9 +139,9 @@ instance Core.AWSRequest SearchIndex where
     Response.receiveJSON
       ( \s h x ->
           SearchIndexResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "thingGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "things" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "thingGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "things" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,25 +161,25 @@ instance Prelude.NFData SearchIndex where
       `Prelude.seq` Prelude.rnf queryVersion
       `Prelude.seq` Prelude.rnf queryString
 
-instance Core.ToHeaders SearchIndex where
+instance Data.ToHeaders SearchIndex where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON SearchIndex where
+instance Data.ToJSON SearchIndex where
   toJSON SearchIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("indexName" Core..=) Prelude.<$> indexName,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("queryVersion" Core..=) Prelude.<$> queryVersion,
-            Prelude.Just ("queryString" Core..= queryString)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("indexName" Data..=) Prelude.<$> indexName,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("queryVersion" Data..=) Prelude.<$> queryVersion,
+            Prelude.Just ("queryString" Data..= queryString)
           ]
       )
 
-instance Core.ToPath SearchIndex where
+instance Data.ToPath SearchIndex where
   toPath = Prelude.const "/indices/search"
 
-instance Core.ToQuery SearchIndex where
+instance Data.ToQuery SearchIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchIndexResponse' smart constructor.

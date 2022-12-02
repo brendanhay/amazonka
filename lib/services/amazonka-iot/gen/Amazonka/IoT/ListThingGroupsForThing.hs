@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,8 +142,8 @@ instance Core.AWSRequest ListThingGroupsForThing where
     Response.receiveJSON
       ( \s h x ->
           ListThingGroupsForThingResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "thingGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "thingGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,19 +159,19 @@ instance Prelude.NFData ListThingGroupsForThing where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf thingName
 
-instance Core.ToHeaders ListThingGroupsForThing where
+instance Data.ToHeaders ListThingGroupsForThing where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListThingGroupsForThing where
+instance Data.ToPath ListThingGroupsForThing where
   toPath ListThingGroupsForThing' {..} =
     Prelude.mconcat
-      ["/things/", Core.toBS thingName, "/thing-groups"]
+      ["/things/", Data.toBS thingName, "/thing-groups"]
 
-instance Core.ToQuery ListThingGroupsForThing where
+instance Data.ToQuery ListThingGroupsForThing where
   toQuery ListThingGroupsForThing' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListThingGroupsForThingResponse' smart constructor.

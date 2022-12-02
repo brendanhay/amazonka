@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.DynamoDBAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.DynamoKeyType
 import qualified Amazonka.Prelude as Prelude
 
@@ -169,22 +170,22 @@ dynamoDBAction_hashKeyField = Lens.lens (\DynamoDBAction' {hashKeyField} -> hash
 dynamoDBAction_hashKeyValue :: Lens.Lens' DynamoDBAction Prelude.Text
 dynamoDBAction_hashKeyValue = Lens.lens (\DynamoDBAction' {hashKeyValue} -> hashKeyValue) (\s@DynamoDBAction' {} a -> s {hashKeyValue = a} :: DynamoDBAction)
 
-instance Core.FromJSON DynamoDBAction where
+instance Data.FromJSON DynamoDBAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DynamoDBAction"
       ( \x ->
           DynamoDBAction'
-            Prelude.<$> (x Core..:? "rangeKeyType")
-            Prelude.<*> (x Core..:? "rangeKeyValue")
-            Prelude.<*> (x Core..:? "hashKeyType")
-            Prelude.<*> (x Core..:? "rangeKeyField")
-            Prelude.<*> (x Core..:? "operation")
-            Prelude.<*> (x Core..:? "payloadField")
-            Prelude.<*> (x Core..: "tableName")
-            Prelude.<*> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "hashKeyField")
-            Prelude.<*> (x Core..: "hashKeyValue")
+            Prelude.<$> (x Data..:? "rangeKeyType")
+            Prelude.<*> (x Data..:? "rangeKeyValue")
+            Prelude.<*> (x Data..:? "hashKeyType")
+            Prelude.<*> (x Data..:? "rangeKeyField")
+            Prelude.<*> (x Data..:? "operation")
+            Prelude.<*> (x Data..:? "payloadField")
+            Prelude.<*> (x Data..: "tableName")
+            Prelude.<*> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "hashKeyField")
+            Prelude.<*> (x Data..: "hashKeyValue")
       )
 
 instance Prelude.Hashable DynamoDBAction where
@@ -213,19 +214,19 @@ instance Prelude.NFData DynamoDBAction where
       `Prelude.seq` Prelude.rnf hashKeyField
       `Prelude.seq` Prelude.rnf hashKeyValue
 
-instance Core.ToJSON DynamoDBAction where
+instance Data.ToJSON DynamoDBAction where
   toJSON DynamoDBAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("rangeKeyType" Core..=) Prelude.<$> rangeKeyType,
-            ("rangeKeyValue" Core..=) Prelude.<$> rangeKeyValue,
-            ("hashKeyType" Core..=) Prelude.<$> hashKeyType,
-            ("rangeKeyField" Core..=) Prelude.<$> rangeKeyField,
-            ("operation" Core..=) Prelude.<$> operation,
-            ("payloadField" Core..=) Prelude.<$> payloadField,
-            Prelude.Just ("tableName" Core..= tableName),
-            Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("hashKeyField" Core..= hashKeyField),
-            Prelude.Just ("hashKeyValue" Core..= hashKeyValue)
+          [ ("rangeKeyType" Data..=) Prelude.<$> rangeKeyType,
+            ("rangeKeyValue" Data..=) Prelude.<$> rangeKeyValue,
+            ("hashKeyType" Data..=) Prelude.<$> hashKeyType,
+            ("rangeKeyField" Data..=) Prelude.<$> rangeKeyField,
+            ("operation" Data..=) Prelude.<$> operation,
+            ("payloadField" Data..=) Prelude.<$> payloadField,
+            Prelude.Just ("tableName" Data..= tableName),
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("hashKeyField" Data..= hashKeyField),
+            Prelude.Just ("hashKeyValue" Data..= hashKeyValue)
           ]
       )

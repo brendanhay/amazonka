@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.HttpAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.HttpActionHeader
 import Amazonka.IoT.Types.HttpAuthorization
 import qualified Amazonka.Prelude as Prelude
@@ -107,16 +108,16 @@ httpAction_auth = Lens.lens (\HttpAction' {auth} -> auth) (\s@HttpAction' {} a -
 httpAction_url :: Lens.Lens' HttpAction Prelude.Text
 httpAction_url = Lens.lens (\HttpAction' {url} -> url) (\s@HttpAction' {} a -> s {url = a} :: HttpAction)
 
-instance Core.FromJSON HttpAction where
+instance Data.FromJSON HttpAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpAction"
       ( \x ->
           HttpAction'
-            Prelude.<$> (x Core..:? "confirmationUrl")
-            Prelude.<*> (x Core..:? "headers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "auth")
-            Prelude.<*> (x Core..: "url")
+            Prelude.<$> (x Data..:? "confirmationUrl")
+            Prelude.<*> (x Data..:? "headers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "auth")
+            Prelude.<*> (x Data..: "url")
       )
 
 instance Prelude.Hashable HttpAction where
@@ -133,14 +134,14 @@ instance Prelude.NFData HttpAction where
       `Prelude.seq` Prelude.rnf auth
       `Prelude.seq` Prelude.rnf url
 
-instance Core.ToJSON HttpAction where
+instance Data.ToJSON HttpAction where
   toJSON HttpAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("confirmationUrl" Core..=)
+          [ ("confirmationUrl" Data..=)
               Prelude.<$> confirmationUrl,
-            ("headers" Core..=) Prelude.<$> headers,
-            ("auth" Core..=) Prelude.<$> auth,
-            Prelude.Just ("url" Core..= url)
+            ("headers" Data..=) Prelude.<$> headers,
+            ("auth" Data..=) Prelude.<$> auth,
+            Prelude.Just ("url" Data..= url)
           ]
       )

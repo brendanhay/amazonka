@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.PutAssetPropertyValueEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AssetPropertyValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -120,17 +121,17 @@ putAssetPropertyValueEntry_propertyId = Lens.lens (\PutAssetPropertyValueEntry' 
 putAssetPropertyValueEntry_propertyValues :: Lens.Lens' PutAssetPropertyValueEntry (Prelude.NonEmpty AssetPropertyValue)
 putAssetPropertyValueEntry_propertyValues = Lens.lens (\PutAssetPropertyValueEntry' {propertyValues} -> propertyValues) (\s@PutAssetPropertyValueEntry' {} a -> s {propertyValues = a} :: PutAssetPropertyValueEntry) Prelude.. Lens.coerced
 
-instance Core.FromJSON PutAssetPropertyValueEntry where
+instance Data.FromJSON PutAssetPropertyValueEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PutAssetPropertyValueEntry"
       ( \x ->
           PutAssetPropertyValueEntry'
-            Prelude.<$> (x Core..:? "propertyAlias")
-            Prelude.<*> (x Core..:? "assetId")
-            Prelude.<*> (x Core..:? "entryId")
-            Prelude.<*> (x Core..:? "propertyId")
-            Prelude.<*> (x Core..: "propertyValues")
+            Prelude.<$> (x Data..:? "propertyAlias")
+            Prelude.<*> (x Data..:? "assetId")
+            Prelude.<*> (x Data..:? "entryId")
+            Prelude.<*> (x Data..:? "propertyId")
+            Prelude.<*> (x Data..: "propertyValues")
       )
 
 instance Prelude.Hashable PutAssetPropertyValueEntry where
@@ -149,15 +150,15 @@ instance Prelude.NFData PutAssetPropertyValueEntry where
       `Prelude.seq` Prelude.rnf propertyId
       `Prelude.seq` Prelude.rnf propertyValues
 
-instance Core.ToJSON PutAssetPropertyValueEntry where
+instance Data.ToJSON PutAssetPropertyValueEntry where
   toJSON PutAssetPropertyValueEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("propertyAlias" Core..=) Prelude.<$> propertyAlias,
-            ("assetId" Core..=) Prelude.<$> assetId,
-            ("entryId" Core..=) Prelude.<$> entryId,
-            ("propertyId" Core..=) Prelude.<$> propertyId,
+          [ ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
+            ("assetId" Data..=) Prelude.<$> assetId,
+            ("entryId" Data..=) Prelude.<$> entryId,
+            ("propertyId" Data..=) Prelude.<$> propertyId,
             Prelude.Just
-              ("propertyValues" Core..= propertyValues)
+              ("propertyValues" Data..= propertyValues)
           ]
       )

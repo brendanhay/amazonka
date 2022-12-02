@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.SnsAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.MessageFormat
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,15 +94,15 @@ snsAction_targetArn = Lens.lens (\SnsAction' {targetArn} -> targetArn) (\s@SnsAc
 snsAction_roleArn :: Lens.Lens' SnsAction Prelude.Text
 snsAction_roleArn = Lens.lens (\SnsAction' {roleArn} -> roleArn) (\s@SnsAction' {} a -> s {roleArn = a} :: SnsAction)
 
-instance Core.FromJSON SnsAction where
+instance Data.FromJSON SnsAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SnsAction"
       ( \x ->
           SnsAction'
-            Prelude.<$> (x Core..:? "messageFormat")
-            Prelude.<*> (x Core..: "targetArn")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Data..:? "messageFormat")
+            Prelude.<*> (x Data..: "targetArn")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance Prelude.Hashable SnsAction where
@@ -116,12 +117,12 @@ instance Prelude.NFData SnsAction where
       `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON SnsAction where
+instance Data.ToJSON SnsAction where
   toJSON SnsAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("messageFormat" Core..=) Prelude.<$> messageFormat,
-            Prelude.Just ("targetArn" Core..= targetArn),
-            Prelude.Just ("roleArn" Core..= roleArn)
+          [ ("messageFormat" Data..=) Prelude.<$> messageFormat,
+            Prelude.Just ("targetArn" Data..= targetArn),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

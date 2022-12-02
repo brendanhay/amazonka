@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.JobTemplateSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about the job template.
@@ -34,7 +35,7 @@ data JobTemplateSummary = JobTemplateSummary'
     -- | A description of the job template.
     description :: Prelude.Maybe Prelude.Text,
     -- | The time, in seconds since the epoch, when the job template was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,18 +79,18 @@ jobTemplateSummary_description = Lens.lens (\JobTemplateSummary' {description} -
 
 -- | The time, in seconds since the epoch, when the job template was created.
 jobTemplateSummary_createdAt :: Lens.Lens' JobTemplateSummary (Prelude.Maybe Prelude.UTCTime)
-jobTemplateSummary_createdAt = Lens.lens (\JobTemplateSummary' {createdAt} -> createdAt) (\s@JobTemplateSummary' {} a -> s {createdAt = a} :: JobTemplateSummary) Prelude.. Lens.mapping Core._Time
+jobTemplateSummary_createdAt = Lens.lens (\JobTemplateSummary' {createdAt} -> createdAt) (\s@JobTemplateSummary' {} a -> s {createdAt = a} :: JobTemplateSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON JobTemplateSummary where
+instance Data.FromJSON JobTemplateSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobTemplateSummary"
       ( \x ->
           JobTemplateSummary'
-            Prelude.<$> (x Core..:? "jobTemplateArn")
-            Prelude.<*> (x Core..:? "jobTemplateId")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "jobTemplateArn")
+            Prelude.<*> (x Data..:? "jobTemplateId")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable JobTemplateSummary where

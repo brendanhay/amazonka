@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AwsJobAbortConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AwsJobAbortCriteria
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,11 +65,11 @@ instance Prelude.NFData AwsJobAbortConfig where
   rnf AwsJobAbortConfig' {..} =
     Prelude.rnf abortCriteriaList
 
-instance Core.ToJSON AwsJobAbortConfig where
+instance Data.ToJSON AwsJobAbortConfig where
   toJSON AwsJobAbortConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("abortCriteriaList" Core..= abortCriteriaList)
+              ("abortCriteriaList" Data..= abortCriteriaList)
           ]
       )

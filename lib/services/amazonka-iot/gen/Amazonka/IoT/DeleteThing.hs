@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,17 +122,17 @@ instance Prelude.NFData DeleteThing where
     Prelude.rnf expectedVersion
       `Prelude.seq` Prelude.rnf thingName
 
-instance Core.ToHeaders DeleteThing where
+instance Data.ToHeaders DeleteThing where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteThing where
+instance Data.ToPath DeleteThing where
   toPath DeleteThing' {..} =
-    Prelude.mconcat ["/things/", Core.toBS thingName]
+    Prelude.mconcat ["/things/", Data.toBS thingName]
 
-instance Core.ToQuery DeleteThing where
+instance Data.ToQuery DeleteThing where
   toQuery DeleteThing' {..} =
     Prelude.mconcat
-      ["expectedVersion" Core.=: expectedVersion]
+      ["expectedVersion" Data.=: expectedVersion]
 
 -- | The output of the DeleteThing operation.
 --

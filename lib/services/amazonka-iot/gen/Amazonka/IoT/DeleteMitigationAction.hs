@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,15 +99,15 @@ instance Prelude.NFData DeleteMitigationAction where
   rnf DeleteMitigationAction' {..} =
     Prelude.rnf actionName
 
-instance Core.ToHeaders DeleteMitigationAction where
+instance Data.ToHeaders DeleteMitigationAction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteMitigationAction where
+instance Data.ToPath DeleteMitigationAction where
   toPath DeleteMitigationAction' {..} =
     Prelude.mconcat
-      ["/mitigationactions/actions/", Core.toBS actionName]
+      ["/mitigationactions/actions/", Data.toBS actionName]
 
-instance Core.ToQuery DeleteMitigationAction where
+instance Data.ToQuery DeleteMitigationAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMitigationActionResponse' smart constructor.

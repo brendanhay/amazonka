@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.PolicyVersionIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the version of the policy associated with the
@@ -63,14 +64,14 @@ policyVersionIdentifier_policyName = Lens.lens (\PolicyVersionIdentifier' {polic
 policyVersionIdentifier_policyVersionId :: Lens.Lens' PolicyVersionIdentifier (Prelude.Maybe Prelude.Text)
 policyVersionIdentifier_policyVersionId = Lens.lens (\PolicyVersionIdentifier' {policyVersionId} -> policyVersionId) (\s@PolicyVersionIdentifier' {} a -> s {policyVersionId = a} :: PolicyVersionIdentifier)
 
-instance Core.FromJSON PolicyVersionIdentifier where
+instance Data.FromJSON PolicyVersionIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PolicyVersionIdentifier"
       ( \x ->
           PolicyVersionIdentifier'
-            Prelude.<$> (x Core..:? "policyName")
-            Prelude.<*> (x Core..:? "policyVersionId")
+            Prelude.<$> (x Data..:? "policyName")
+            Prelude.<*> (x Data..:? "policyVersionId")
       )
 
 instance Prelude.Hashable PolicyVersionIdentifier where
@@ -83,12 +84,12 @@ instance Prelude.NFData PolicyVersionIdentifier where
     Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyVersionId
 
-instance Core.ToJSON PolicyVersionIdentifier where
+instance Data.ToJSON PolicyVersionIdentifier where
   toJSON PolicyVersionIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("policyName" Core..=) Prelude.<$> policyName,
-            ("policyVersionId" Core..=)
+          [ ("policyName" Data..=) Prelude.<$> policyName,
+            ("policyVersionId" Data..=)
               Prelude.<$> policyVersionId
           ]
       )

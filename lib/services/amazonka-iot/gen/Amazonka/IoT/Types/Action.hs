@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.CloudwatchAlarmAction
 import Amazonka.IoT.Types.CloudwatchLogsAction
 import Amazonka.IoT.Types.CloudwatchMetricAction
@@ -312,35 +313,35 @@ action_elasticsearch = Lens.lens (\Action' {elasticsearch} -> elasticsearch) (\s
 action_iotAnalytics :: Lens.Lens' Action (Prelude.Maybe IotAnalyticsAction)
 action_iotAnalytics = Lens.lens (\Action' {iotAnalytics} -> iotAnalytics) (\s@Action' {} a -> s {iotAnalytics = a} :: Action)
 
-instance Core.FromJSON Action where
+instance Data.FromJSON Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..:? "kinesis")
-            Prelude.<*> (x Core..:? "cloudwatchAlarm")
-            Prelude.<*> (x Core..:? "http")
-            Prelude.<*> (x Core..:? "firehose")
-            Prelude.<*> (x Core..:? "cloudwatchLogs")
-            Prelude.<*> (x Core..:? "s3")
-            Prelude.<*> (x Core..:? "salesforce")
-            Prelude.<*> (x Core..:? "dynamoDBv2")
-            Prelude.<*> (x Core..:? "kafka")
-            Prelude.<*> (x Core..:? "dynamoDB")
-            Prelude.<*> (x Core..:? "cloudwatchMetric")
-            Prelude.<*> (x Core..:? "republish")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "timestream")
-            Prelude.<*> (x Core..:? "lambda")
-            Prelude.<*> (x Core..:? "iotEvents")
-            Prelude.<*> (x Core..:? "sqs")
-            Prelude.<*> (x Core..:? "iotSiteWise")
-            Prelude.<*> (x Core..:? "stepFunctions")
-            Prelude.<*> (x Core..:? "sns")
-            Prelude.<*> (x Core..:? "openSearch")
-            Prelude.<*> (x Core..:? "elasticsearch")
-            Prelude.<*> (x Core..:? "iotAnalytics")
+            Prelude.<$> (x Data..:? "kinesis")
+            Prelude.<*> (x Data..:? "cloudwatchAlarm")
+            Prelude.<*> (x Data..:? "http")
+            Prelude.<*> (x Data..:? "firehose")
+            Prelude.<*> (x Data..:? "cloudwatchLogs")
+            Prelude.<*> (x Data..:? "s3")
+            Prelude.<*> (x Data..:? "salesforce")
+            Prelude.<*> (x Data..:? "dynamoDBv2")
+            Prelude.<*> (x Data..:? "kafka")
+            Prelude.<*> (x Data..:? "dynamoDB")
+            Prelude.<*> (x Data..:? "cloudwatchMetric")
+            Prelude.<*> (x Data..:? "republish")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "timestream")
+            Prelude.<*> (x Data..:? "lambda")
+            Prelude.<*> (x Data..:? "iotEvents")
+            Prelude.<*> (x Data..:? "sqs")
+            Prelude.<*> (x Data..:? "iotSiteWise")
+            Prelude.<*> (x Data..:? "stepFunctions")
+            Prelude.<*> (x Data..:? "sns")
+            Prelude.<*> (x Data..:? "openSearch")
+            Prelude.<*> (x Data..:? "elasticsearch")
+            Prelude.<*> (x Data..:? "iotAnalytics")
       )
 
 instance Prelude.Hashable Action where
@@ -395,35 +396,35 @@ instance Prelude.NFData Action where
       `Prelude.seq` Prelude.rnf elasticsearch
       `Prelude.seq` Prelude.rnf iotAnalytics
 
-instance Core.ToJSON Action where
+instance Data.ToJSON Action where
   toJSON Action' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kinesis" Core..=) Prelude.<$> kinesis,
-            ("cloudwatchAlarm" Core..=)
+          [ ("kinesis" Data..=) Prelude.<$> kinesis,
+            ("cloudwatchAlarm" Data..=)
               Prelude.<$> cloudwatchAlarm,
-            ("http" Core..=) Prelude.<$> http,
-            ("firehose" Core..=) Prelude.<$> firehose,
-            ("cloudwatchLogs" Core..=)
+            ("http" Data..=) Prelude.<$> http,
+            ("firehose" Data..=) Prelude.<$> firehose,
+            ("cloudwatchLogs" Data..=)
               Prelude.<$> cloudwatchLogs,
-            ("s3" Core..=) Prelude.<$> s3,
-            ("salesforce" Core..=) Prelude.<$> salesforce,
-            ("dynamoDBv2" Core..=) Prelude.<$> dynamoDBv2,
-            ("kafka" Core..=) Prelude.<$> kafka,
-            ("dynamoDB" Core..=) Prelude.<$> dynamoDB,
-            ("cloudwatchMetric" Core..=)
+            ("s3" Data..=) Prelude.<$> s3,
+            ("salesforce" Data..=) Prelude.<$> salesforce,
+            ("dynamoDBv2" Data..=) Prelude.<$> dynamoDBv2,
+            ("kafka" Data..=) Prelude.<$> kafka,
+            ("dynamoDB" Data..=) Prelude.<$> dynamoDB,
+            ("cloudwatchMetric" Data..=)
               Prelude.<$> cloudwatchMetric,
-            ("republish" Core..=) Prelude.<$> republish,
-            ("location" Core..=) Prelude.<$> location,
-            ("timestream" Core..=) Prelude.<$> timestream,
-            ("lambda" Core..=) Prelude.<$> lambda,
-            ("iotEvents" Core..=) Prelude.<$> iotEvents,
-            ("sqs" Core..=) Prelude.<$> sqs,
-            ("iotSiteWise" Core..=) Prelude.<$> iotSiteWise,
-            ("stepFunctions" Core..=) Prelude.<$> stepFunctions,
-            ("sns" Core..=) Prelude.<$> sns,
-            ("openSearch" Core..=) Prelude.<$> openSearch,
-            ("elasticsearch" Core..=) Prelude.<$> elasticsearch,
-            ("iotAnalytics" Core..=) Prelude.<$> iotAnalytics
+            ("republish" Data..=) Prelude.<$> republish,
+            ("location" Data..=) Prelude.<$> location,
+            ("timestream" Data..=) Prelude.<$> timestream,
+            ("lambda" Data..=) Prelude.<$> lambda,
+            ("iotEvents" Data..=) Prelude.<$> iotEvents,
+            ("sqs" Data..=) Prelude.<$> sqs,
+            ("iotSiteWise" Data..=) Prelude.<$> iotSiteWise,
+            ("stepFunctions" Data..=) Prelude.<$> stepFunctions,
+            ("sns" Data..=) Prelude.<$> sns,
+            ("openSearch" Data..=) Prelude.<$> openSearch,
+            ("elasticsearch" Data..=) Prelude.<$> elasticsearch,
+            ("iotAnalytics" Data..=) Prelude.<$> iotAnalytics
           ]
       )

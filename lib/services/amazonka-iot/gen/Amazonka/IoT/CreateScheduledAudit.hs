@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -176,7 +177,7 @@ instance Core.AWSRequest CreateScheduledAudit where
     Response.receiveJSON
       ( \s h x ->
           CreateScheduledAuditResponse'
-            Prelude.<$> (x Core..?> "scheduledAuditArn")
+            Prelude.<$> (x Data..?> "scheduledAuditArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,30 +199,30 @@ instance Prelude.NFData CreateScheduledAudit where
       `Prelude.seq` Prelude.rnf targetCheckNames
       `Prelude.seq` Prelude.rnf scheduledAuditName
 
-instance Core.ToHeaders CreateScheduledAudit where
+instance Data.ToHeaders CreateScheduledAudit where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateScheduledAudit where
+instance Data.ToJSON CreateScheduledAudit where
   toJSON CreateScheduledAudit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("dayOfWeek" Core..=) Prelude.<$> dayOfWeek,
-            ("dayOfMonth" Core..=) Prelude.<$> dayOfMonth,
-            Prelude.Just ("frequency" Core..= frequency),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("dayOfWeek" Data..=) Prelude.<$> dayOfWeek,
+            ("dayOfMonth" Data..=) Prelude.<$> dayOfMonth,
+            Prelude.Just ("frequency" Data..= frequency),
             Prelude.Just
-              ("targetCheckNames" Core..= targetCheckNames)
+              ("targetCheckNames" Data..= targetCheckNames)
           ]
       )
 
-instance Core.ToPath CreateScheduledAudit where
+instance Data.ToPath CreateScheduledAudit where
   toPath CreateScheduledAudit' {..} =
     Prelude.mconcat
       [ "/audit/scheduledaudits/",
-        Core.toBS scheduledAuditName
+        Data.toBS scheduledAuditName
       ]
 
-instance Core.ToQuery CreateScheduledAudit where
+instance Data.ToQuery CreateScheduledAudit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateScheduledAuditResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.Statistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A map of key-value pairs for all supported statistics. For issues with
@@ -120,20 +121,20 @@ statistics_variance = Lens.lens (\Statistics' {variance} -> variance) (\s@Statis
 statistics_maximum :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
 statistics_maximum = Lens.lens (\Statistics' {maximum} -> maximum) (\s@Statistics' {} a -> s {maximum = a} :: Statistics)
 
-instance Core.FromJSON Statistics where
+instance Data.FromJSON Statistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Statistics"
       ( \x ->
           Statistics'
-            Prelude.<$> (x Core..:? "minimum")
-            Prelude.<*> (x Core..:? "average")
-            Prelude.<*> (x Core..:? "sumOfSquares")
-            Prelude.<*> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "stdDeviation")
-            Prelude.<*> (x Core..:? "sum")
-            Prelude.<*> (x Core..:? "variance")
-            Prelude.<*> (x Core..:? "maximum")
+            Prelude.<$> (x Data..:? "minimum")
+            Prelude.<*> (x Data..:? "average")
+            Prelude.<*> (x Data..:? "sumOfSquares")
+            Prelude.<*> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "stdDeviation")
+            Prelude.<*> (x Data..:? "sum")
+            Prelude.<*> (x Data..:? "variance")
+            Prelude.<*> (x Data..:? "maximum")
       )
 
 instance Prelude.Hashable Statistics where

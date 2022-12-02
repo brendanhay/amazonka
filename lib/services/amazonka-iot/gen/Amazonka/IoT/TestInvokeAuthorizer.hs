@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,13 +150,13 @@ instance Core.AWSRequest TestInvokeAuthorizer where
     Response.receiveJSON
       ( \s h x ->
           TestInvokeAuthorizerResponse'
-            Prelude.<$> (x Core..?> "refreshAfterInSeconds")
-            Prelude.<*> (x Core..?> "isAuthenticated")
-            Prelude.<*> (x Core..?> "principalId")
-            Prelude.<*> ( x Core..?> "policyDocuments"
+            Prelude.<$> (x Data..?> "refreshAfterInSeconds")
+            Prelude.<*> (x Data..?> "isAuthenticated")
+            Prelude.<*> (x Data..?> "principalId")
+            Prelude.<*> ( x Data..?> "policyDocuments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "disconnectAfterInSeconds")
+            Prelude.<*> (x Data..?> "disconnectAfterInSeconds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,28 +178,28 @@ instance Prelude.NFData TestInvokeAuthorizer where
       `Prelude.seq` Prelude.rnf token
       `Prelude.seq` Prelude.rnf authorizerName
 
-instance Core.ToHeaders TestInvokeAuthorizer where
+instance Data.ToHeaders TestInvokeAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON TestInvokeAuthorizer where
+instance Data.ToJSON TestInvokeAuthorizer where
   toJSON TestInvokeAuthorizer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("mqttContext" Core..=) Prelude.<$> mqttContext,
-            ("httpContext" Core..=) Prelude.<$> httpContext,
-            ("tlsContext" Core..=) Prelude.<$> tlsContext,
-            ("tokenSignature" Core..=)
+          [ ("mqttContext" Data..=) Prelude.<$> mqttContext,
+            ("httpContext" Data..=) Prelude.<$> httpContext,
+            ("tlsContext" Data..=) Prelude.<$> tlsContext,
+            ("tokenSignature" Data..=)
               Prelude.<$> tokenSignature,
-            ("token" Core..=) Prelude.<$> token
+            ("token" Data..=) Prelude.<$> token
           ]
       )
 
-instance Core.ToPath TestInvokeAuthorizer where
+instance Data.ToPath TestInvokeAuthorizer where
   toPath TestInvokeAuthorizer' {..} =
     Prelude.mconcat
-      ["/authorizer/", Core.toBS authorizerName, "/test"]
+      ["/authorizer/", Data.toBS authorizerName, "/test"]
 
-instance Core.ToQuery TestInvokeAuthorizer where
+instance Data.ToQuery TestInvokeAuthorizer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTestInvokeAuthorizerResponse' smart constructor.

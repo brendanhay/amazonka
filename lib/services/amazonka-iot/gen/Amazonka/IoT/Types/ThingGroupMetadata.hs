@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ThingGroupMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.GroupNameAndArn
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ data ThingGroupMetadata = ThingGroupMetadata'
   { -- | The root parent thing group.
     rootToParentThingGroups :: Prelude.Maybe [GroupNameAndArn],
     -- | The UNIX timestamp of when the thing group was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The parent thing group name.
     parentGroupName :: Prelude.Maybe Prelude.Text
   }
@@ -66,23 +67,23 @@ thingGroupMetadata_rootToParentThingGroups = Lens.lens (\ThingGroupMetadata' {ro
 
 -- | The UNIX timestamp of when the thing group was created.
 thingGroupMetadata_creationDate :: Lens.Lens' ThingGroupMetadata (Prelude.Maybe Prelude.UTCTime)
-thingGroupMetadata_creationDate = Lens.lens (\ThingGroupMetadata' {creationDate} -> creationDate) (\s@ThingGroupMetadata' {} a -> s {creationDate = a} :: ThingGroupMetadata) Prelude.. Lens.mapping Core._Time
+thingGroupMetadata_creationDate = Lens.lens (\ThingGroupMetadata' {creationDate} -> creationDate) (\s@ThingGroupMetadata' {} a -> s {creationDate = a} :: ThingGroupMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The parent thing group name.
 thingGroupMetadata_parentGroupName :: Lens.Lens' ThingGroupMetadata (Prelude.Maybe Prelude.Text)
 thingGroupMetadata_parentGroupName = Lens.lens (\ThingGroupMetadata' {parentGroupName} -> parentGroupName) (\s@ThingGroupMetadata' {} a -> s {parentGroupName = a} :: ThingGroupMetadata)
 
-instance Core.FromJSON ThingGroupMetadata where
+instance Data.FromJSON ThingGroupMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThingGroupMetadata"
       ( \x ->
           ThingGroupMetadata'
-            Prelude.<$> ( x Core..:? "rootToParentThingGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "rootToParentThingGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "parentGroupName")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "parentGroupName")
       )
 
 instance Prelude.Hashable ThingGroupMetadata where

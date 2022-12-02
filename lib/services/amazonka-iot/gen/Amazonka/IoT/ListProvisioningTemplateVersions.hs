@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,8 +142,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListProvisioningTemplateVersionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "versions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,27 +168,27 @@ instance
       `Prelude.seq` Prelude.rnf templateName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListProvisioningTemplateVersions
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListProvisioningTemplateVersions where
+instance Data.ToPath ListProvisioningTemplateVersions where
   toPath ListProvisioningTemplateVersions' {..} =
     Prelude.mconcat
       [ "/provisioning-templates/",
-        Core.toBS templateName,
+        Data.toBS templateName,
         "/versions"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListProvisioningTemplateVersions
   where
   toQuery ListProvisioningTemplateVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListProvisioningTemplateVersionsResponse' smart constructor.

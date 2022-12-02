@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.StreamInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.StreamFile
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data StreamInfo = StreamInfo'
     -- | An IAM role IoT assumes to access your S3 files.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The date when the stream was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The stream ID.
     streamId :: Prelude.Maybe Prelude.Text,
     -- | The description of the stream.
@@ -43,7 +44,7 @@ data StreamInfo = StreamInfo'
     -- | The stream ARN.
     streamArn :: Prelude.Maybe Prelude.Text,
     -- | The date when the stream was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,7 +95,7 @@ streamInfo_roleArn = Lens.lens (\StreamInfo' {roleArn} -> roleArn) (\s@StreamInf
 
 -- | The date when the stream was last updated.
 streamInfo_lastUpdatedAt :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.UTCTime)
-streamInfo_lastUpdatedAt = Lens.lens (\StreamInfo' {lastUpdatedAt} -> lastUpdatedAt) (\s@StreamInfo' {} a -> s {lastUpdatedAt = a} :: StreamInfo) Prelude.. Lens.mapping Core._Time
+streamInfo_lastUpdatedAt = Lens.lens (\StreamInfo' {lastUpdatedAt} -> lastUpdatedAt) (\s@StreamInfo' {} a -> s {lastUpdatedAt = a} :: StreamInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The stream ID.
 streamInfo_streamId :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.Text)
@@ -114,22 +115,22 @@ streamInfo_streamArn = Lens.lens (\StreamInfo' {streamArn} -> streamArn) (\s@Str
 
 -- | The date when the stream was created.
 streamInfo_createdAt :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.UTCTime)
-streamInfo_createdAt = Lens.lens (\StreamInfo' {createdAt} -> createdAt) (\s@StreamInfo' {} a -> s {createdAt = a} :: StreamInfo) Prelude.. Lens.mapping Core._Time
+streamInfo_createdAt = Lens.lens (\StreamInfo' {createdAt} -> createdAt) (\s@StreamInfo' {} a -> s {createdAt = a} :: StreamInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON StreamInfo where
+instance Data.FromJSON StreamInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamInfo"
       ( \x ->
           StreamInfo'
-            Prelude.<$> (x Core..:? "files")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "streamId")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "streamVersion")
-            Prelude.<*> (x Core..:? "streamArn")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "files")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "streamId")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "streamVersion")
+            Prelude.<*> (x Data..:? "streamArn")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable StreamInfo where

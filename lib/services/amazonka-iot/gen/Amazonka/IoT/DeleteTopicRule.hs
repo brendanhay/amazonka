@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,14 +92,14 @@ instance Prelude.Hashable DeleteTopicRule where
 instance Prelude.NFData DeleteTopicRule where
   rnf DeleteTopicRule' {..} = Prelude.rnf ruleName
 
-instance Core.ToHeaders DeleteTopicRule where
+instance Data.ToHeaders DeleteTopicRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteTopicRule where
+instance Data.ToPath DeleteTopicRule where
   toPath DeleteTopicRule' {..} =
-    Prelude.mconcat ["/rules/", Core.toBS ruleName]
+    Prelude.mconcat ["/rules/", Data.toBS ruleName]
 
-instance Core.ToQuery DeleteTopicRule where
+instance Data.ToQuery DeleteTopicRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTopicRuleResponse' smart constructor.

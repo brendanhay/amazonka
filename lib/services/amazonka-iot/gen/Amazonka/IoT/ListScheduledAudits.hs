@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,8 +123,8 @@ instance Core.AWSRequest ListScheduledAudits where
     Response.receiveJSON
       ( \s h x ->
           ListScheduledAuditsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "scheduledAudits"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "scheduledAudits"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -139,17 +140,17 @@ instance Prelude.NFData ListScheduledAudits where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListScheduledAudits where
+instance Data.ToHeaders ListScheduledAudits where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListScheduledAudits where
+instance Data.ToPath ListScheduledAudits where
   toPath = Prelude.const "/audit/scheduledaudits"
 
-instance Core.ToQuery ListScheduledAudits where
+instance Data.ToQuery ListScheduledAudits where
   toQuery ListScheduledAudits' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListScheduledAuditsResponse' smart constructor.

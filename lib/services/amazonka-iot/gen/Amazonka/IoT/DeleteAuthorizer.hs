@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,15 +101,15 @@ instance Prelude.NFData DeleteAuthorizer where
   rnf DeleteAuthorizer' {..} =
     Prelude.rnf authorizerName
 
-instance Core.ToHeaders DeleteAuthorizer where
+instance Data.ToHeaders DeleteAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAuthorizer where
+instance Data.ToPath DeleteAuthorizer where
   toPath DeleteAuthorizer' {..} =
     Prelude.mconcat
-      ["/authorizer/", Core.toBS authorizerName]
+      ["/authorizer/", Data.toBS authorizerName]
 
-instance Core.ToQuery DeleteAuthorizer where
+instance Data.ToQuery DeleteAuthorizer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAuthorizerResponse' smart constructor.

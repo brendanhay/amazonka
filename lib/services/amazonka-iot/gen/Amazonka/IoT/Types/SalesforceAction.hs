@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.SalesforceAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action to write a message to a Salesforce IoT Cloud Input
@@ -75,13 +76,13 @@ salesforceAction_token = Lens.lens (\SalesforceAction' {token} -> token) (\s@Sal
 salesforceAction_url :: Lens.Lens' SalesforceAction Prelude.Text
 salesforceAction_url = Lens.lens (\SalesforceAction' {url} -> url) (\s@SalesforceAction' {} a -> s {url = a} :: SalesforceAction)
 
-instance Core.FromJSON SalesforceAction where
+instance Data.FromJSON SalesforceAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SalesforceAction"
       ( \x ->
           SalesforceAction'
-            Prelude.<$> (x Core..: "token") Prelude.<*> (x Core..: "url")
+            Prelude.<$> (x Data..: "token") Prelude.<*> (x Data..: "url")
       )
 
 instance Prelude.Hashable SalesforceAction where
@@ -93,11 +94,11 @@ instance Prelude.NFData SalesforceAction where
   rnf SalesforceAction' {..} =
     Prelude.rnf token `Prelude.seq` Prelude.rnf url
 
-instance Core.ToJSON SalesforceAction where
+instance Data.ToJSON SalesforceAction where
   toJSON SalesforceAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("token" Core..= token),
-            Prelude.Just ("url" Core..= url)
+          [ Prelude.Just ("token" Data..= token),
+            Prelude.Just ("url" Data..= url)
           ]
       )

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,7 +119,7 @@ instance Core.AWSRequest GetEffectivePolicies where
     Response.receiveJSON
       ( \s h x ->
           GetEffectivePoliciesResponse'
-            Prelude.<$> ( x Core..?> "effectivePolicies"
+            Prelude.<$> ( x Data..?> "effectivePolicies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -136,25 +137,25 @@ instance Prelude.NFData GetEffectivePolicies where
       `Prelude.seq` Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf cognitoIdentityPoolId
 
-instance Core.ToHeaders GetEffectivePolicies where
+instance Data.ToHeaders GetEffectivePolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetEffectivePolicies where
+instance Data.ToJSON GetEffectivePolicies where
   toJSON GetEffectivePolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("principal" Core..=) Prelude.<$> principal,
-            ("cognitoIdentityPoolId" Core..=)
+          [ ("principal" Data..=) Prelude.<$> principal,
+            ("cognitoIdentityPoolId" Data..=)
               Prelude.<$> cognitoIdentityPoolId
           ]
       )
 
-instance Core.ToPath GetEffectivePolicies where
+instance Data.ToPath GetEffectivePolicies where
   toPath = Prelude.const "/effective-policies"
 
-instance Core.ToQuery GetEffectivePolicies where
+instance Data.ToQuery GetEffectivePolicies where
   toQuery GetEffectivePolicies' {..} =
-    Prelude.mconcat ["thingName" Core.=: thingName]
+    Prelude.mconcat ["thingName" Data.=: thingName]
 
 -- | /See:/ 'newGetEffectivePoliciesResponse' smart constructor.
 data GetEffectivePoliciesResponse = GetEffectivePoliciesResponse'

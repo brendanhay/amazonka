@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,8 +96,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ValidateSecurityProfileBehaviorsResponse'
-            Prelude.<$> (x Core..?> "valid")
-            Prelude.<*> ( x Core..?> "validationErrors"
+            Prelude.<$> (x Data..?> "valid")
+            Prelude.<*> ( x Data..?> "validationErrors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -119,25 +120,25 @@ instance
     Prelude.rnf behaviors
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ValidateSecurityProfileBehaviors
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ValidateSecurityProfileBehaviors where
+instance Data.ToJSON ValidateSecurityProfileBehaviors where
   toJSON ValidateSecurityProfileBehaviors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("behaviors" Core..= behaviors)]
+          [Prelude.Just ("behaviors" Data..= behaviors)]
       )
 
-instance Core.ToPath ValidateSecurityProfileBehaviors where
+instance Data.ToPath ValidateSecurityProfileBehaviors where
   toPath =
     Prelude.const
       "/security-profile-behaviors/validate"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ValidateSecurityProfileBehaviors
   where
   toQuery = Prelude.const Prelude.mempty

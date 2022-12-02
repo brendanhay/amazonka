@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,10 +149,10 @@ instance Core.AWSRequest CreatePolicy where
     Response.receiveJSON
       ( \s h x ->
           CreatePolicyResponse'
-            Prelude.<$> (x Core..?> "policyName")
-            Prelude.<*> (x Core..?> "policyVersionId")
-            Prelude.<*> (x Core..?> "policyDocument")
-            Prelude.<*> (x Core..?> "policyArn")
+            Prelude.<$> (x Data..?> "policyName")
+            Prelude.<*> (x Data..?> "policyVersionId")
+            Prelude.<*> (x Data..?> "policyDocument")
+            Prelude.<*> (x Data..?> "policyArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,25 +168,25 @@ instance Prelude.NFData CreatePolicy where
       `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyDocument
 
-instance Core.ToHeaders CreatePolicy where
+instance Data.ToHeaders CreatePolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreatePolicy where
+instance Data.ToJSON CreatePolicy where
   toJSON CreatePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("policyDocument" Core..= policyDocument)
+              ("policyDocument" Data..= policyDocument)
           ]
       )
 
-instance Core.ToPath CreatePolicy where
+instance Data.ToPath CreatePolicy where
   toPath CreatePolicy' {..} =
     Prelude.mconcat
-      ["/policies/", Core.toBS policyName]
+      ["/policies/", Data.toBS policyName]
 
-instance Core.ToQuery CreatePolicy where
+instance Data.ToQuery CreatePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the CreatePolicy operation.

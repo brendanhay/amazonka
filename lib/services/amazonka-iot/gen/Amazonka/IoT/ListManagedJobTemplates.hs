@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,8 +112,8 @@ instance Core.AWSRequest ListManagedJobTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListManagedJobTemplatesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "managedJobTemplates"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "managedJobTemplates"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,18 +131,18 @@ instance Prelude.NFData ListManagedJobTemplates where
       `Prelude.seq` Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListManagedJobTemplates where
+instance Data.ToHeaders ListManagedJobTemplates where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListManagedJobTemplates where
+instance Data.ToPath ListManagedJobTemplates where
   toPath = Prelude.const "/managed-job-templates"
 
-instance Core.ToQuery ListManagedJobTemplates where
+instance Data.ToQuery ListManagedJobTemplates where
   toQuery ListManagedJobTemplates' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "templateName" Core.=: templateName,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "templateName" Data.=: templateName,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListManagedJobTemplatesResponse' smart constructor.

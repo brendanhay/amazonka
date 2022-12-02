@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ThingGroupIndexingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.Field
 import Amazonka.IoT.Types.ThingGroupIndexingMode
 import qualified Amazonka.Prelude as Prelude
@@ -93,17 +94,17 @@ thingGroupIndexingConfiguration_thingGroupIndexingMode :: Lens.Lens' ThingGroupI
 thingGroupIndexingConfiguration_thingGroupIndexingMode = Lens.lens (\ThingGroupIndexingConfiguration' {thingGroupIndexingMode} -> thingGroupIndexingMode) (\s@ThingGroupIndexingConfiguration' {} a -> s {thingGroupIndexingMode = a} :: ThingGroupIndexingConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ThingGroupIndexingConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThingGroupIndexingConfiguration"
       ( \x ->
           ThingGroupIndexingConfiguration'
-            Prelude.<$> (x Core..:? "managedFields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "customFields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "thingGroupIndexingMode")
+            Prelude.<$> (x Data..:? "managedFields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "customFields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "thingGroupIndexingMode")
       )
 
 instance
@@ -126,15 +127,15 @@ instance
       `Prelude.seq` Prelude.rnf customFields
       `Prelude.seq` Prelude.rnf thingGroupIndexingMode
 
-instance Core.ToJSON ThingGroupIndexingConfiguration where
+instance Data.ToJSON ThingGroupIndexingConfiguration where
   toJSON ThingGroupIndexingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("managedFields" Core..=) Prelude.<$> managedFields,
-            ("customFields" Core..=) Prelude.<$> customFields,
+          [ ("managedFields" Data..=) Prelude.<$> managedFields,
+            ("customFields" Data..=) Prelude.<$> customFields,
             Prelude.Just
               ( "thingGroupIndexingMode"
-                  Core..= thingGroupIndexingMode
+                  Data..= thingGroupIndexingMode
               )
           ]
       )

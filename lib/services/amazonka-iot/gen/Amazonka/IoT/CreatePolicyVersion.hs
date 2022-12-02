@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,10 +139,10 @@ instance Core.AWSRequest CreatePolicyVersion where
     Response.receiveJSON
       ( \s h x ->
           CreatePolicyVersionResponse'
-            Prelude.<$> (x Core..?> "isDefaultVersion")
-            Prelude.<*> (x Core..?> "policyVersionId")
-            Prelude.<*> (x Core..?> "policyDocument")
-            Prelude.<*> (x Core..?> "policyArn")
+            Prelude.<$> (x Data..?> "isDefaultVersion")
+            Prelude.<*> (x Data..?> "policyVersionId")
+            Prelude.<*> (x Data..?> "policyDocument")
+            Prelude.<*> (x Data..?> "policyArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,27 +158,27 @@ instance Prelude.NFData CreatePolicyVersion where
       `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyDocument
 
-instance Core.ToHeaders CreatePolicyVersion where
+instance Data.ToHeaders CreatePolicyVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreatePolicyVersion where
+instance Data.ToJSON CreatePolicyVersion where
   toJSON CreatePolicyVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("policyDocument" Core..= policyDocument)
+              ("policyDocument" Data..= policyDocument)
           ]
       )
 
-instance Core.ToPath CreatePolicyVersion where
+instance Data.ToPath CreatePolicyVersion where
   toPath CreatePolicyVersion' {..} =
     Prelude.mconcat
-      ["/policies/", Core.toBS policyName, "/version"]
+      ["/policies/", Data.toBS policyName, "/version"]
 
-instance Core.ToQuery CreatePolicyVersion where
+instance Data.ToQuery CreatePolicyVersion where
   toQuery CreatePolicyVersion' {..} =
     Prelude.mconcat
-      ["setAsDefault" Core.=: setAsDefault]
+      ["setAsDefault" Data.=: setAsDefault]
 
 -- | The output of the CreatePolicyVersion operation.
 --

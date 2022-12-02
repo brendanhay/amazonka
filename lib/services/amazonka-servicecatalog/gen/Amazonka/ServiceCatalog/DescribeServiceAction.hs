@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,7 +115,7 @@ instance Core.AWSRequest DescribeServiceAction where
     Response.receiveJSON
       ( \s h x ->
           DescribeServiceActionResponse'
-            Prelude.<$> (x Core..?> "ServiceActionDetail")
+            Prelude.<$> (x Data..?> "ServiceActionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,35 +129,35 @@ instance Prelude.NFData DescribeServiceAction where
     Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DescribeServiceAction where
+instance Data.ToHeaders DescribeServiceAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DescribeServiceAction" ::
+              Data.=# ( "AWS242ServiceCatalogService.DescribeServiceAction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeServiceAction where
+instance Data.ToJSON DescribeServiceAction where
   toJSON DescribeServiceAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Core..= id)
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath DescribeServiceAction where
+instance Data.ToPath DescribeServiceAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeServiceAction where
+instance Data.ToQuery DescribeServiceAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeServiceActionResponse' smart constructor.

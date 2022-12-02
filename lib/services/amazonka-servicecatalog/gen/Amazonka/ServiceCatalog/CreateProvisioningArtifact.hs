@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,9 +159,9 @@ instance Core.AWSRequest CreateProvisioningArtifact where
     Response.receiveJSON
       ( \s h x ->
           CreateProvisioningArtifactResponse'
-            Prelude.<$> (x Core..?> "Info" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ProvisioningArtifactDetail")
+            Prelude.<$> (x Data..?> "Info" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ProvisioningArtifactDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,38 +179,38 @@ instance Prelude.NFData CreateProvisioningArtifact where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf idempotencyToken
 
-instance Core.ToHeaders CreateProvisioningArtifact where
+instance Data.ToHeaders CreateProvisioningArtifact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.CreateProvisioningArtifact" ::
+              Data.=# ( "AWS242ServiceCatalogService.CreateProvisioningArtifact" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProvisioningArtifact where
+instance Data.ToJSON CreateProvisioningArtifact where
   toJSON CreateProvisioningArtifact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("ProductId" Core..= productId),
-            Prelude.Just ("Parameters" Core..= parameters),
+            Prelude.Just ("ProductId" Data..= productId),
+            Prelude.Just ("Parameters" Data..= parameters),
             Prelude.Just
-              ("IdempotencyToken" Core..= idempotencyToken)
+              ("IdempotencyToken" Data..= idempotencyToken)
           ]
       )
 
-instance Core.ToPath CreateProvisioningArtifact where
+instance Data.ToPath CreateProvisioningArtifact where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateProvisioningArtifact where
+instance Data.ToQuery CreateProvisioningArtifact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProvisioningArtifactResponse' smart constructor.

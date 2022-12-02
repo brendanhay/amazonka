@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ListRecordHistorySearchFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The search filter to use when listing history records.
@@ -92,11 +93,11 @@ instance Prelude.NFData ListRecordHistorySearchFilter where
   rnf ListRecordHistorySearchFilter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ListRecordHistorySearchFilter where
+instance Data.ToJSON ListRecordHistorySearchFilter where
   toJSON ListRecordHistorySearchFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

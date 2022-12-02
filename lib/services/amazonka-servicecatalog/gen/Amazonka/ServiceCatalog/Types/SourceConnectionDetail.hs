@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.SourceConnectionDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.LastSync
 import Amazonka.ServiceCatalog.Types.SourceConnectionParameters
@@ -106,15 +107,15 @@ sourceConnectionDetail_type = Lens.lens (\SourceConnectionDetail' {type'} -> typ
 sourceConnectionDetail_connectionParameters :: Lens.Lens' SourceConnectionDetail (Prelude.Maybe SourceConnectionParameters)
 sourceConnectionDetail_connectionParameters = Lens.lens (\SourceConnectionDetail' {connectionParameters} -> connectionParameters) (\s@SourceConnectionDetail' {} a -> s {connectionParameters = a} :: SourceConnectionDetail)
 
-instance Core.FromJSON SourceConnectionDetail where
+instance Data.FromJSON SourceConnectionDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceConnectionDetail"
       ( \x ->
           SourceConnectionDetail'
-            Prelude.<$> (x Core..:? "LastSync")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ConnectionParameters")
+            Prelude.<$> (x Data..:? "LastSync")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ConnectionParameters")
       )
 
 instance Prelude.Hashable SourceConnectionDetail where

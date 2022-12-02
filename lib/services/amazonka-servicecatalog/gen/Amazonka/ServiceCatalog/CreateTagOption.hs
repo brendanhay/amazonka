@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,7 +95,7 @@ instance Core.AWSRequest CreateTagOption where
     Response.receiveJSON
       ( \s h x ->
           CreateTagOptionResponse'
-            Prelude.<$> (x Core..?> "TagOptionDetail")
+            Prelude.<$> (x Data..?> "TagOptionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,34 +108,34 @@ instance Prelude.NFData CreateTagOption where
   rnf CreateTagOption' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToHeaders CreateTagOption where
+instance Data.ToHeaders CreateTagOption where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.CreateTagOption" ::
+              Data.=# ( "AWS242ServiceCatalogService.CreateTagOption" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTagOption where
+instance Data.ToJSON CreateTagOption where
   toJSON CreateTagOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value)
           ]
       )
 
-instance Core.ToPath CreateTagOption where
+instance Data.ToPath CreateTagOption where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTagOption where
+instance Data.ToQuery CreateTagOption where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTagOptionResponse' smart constructor.

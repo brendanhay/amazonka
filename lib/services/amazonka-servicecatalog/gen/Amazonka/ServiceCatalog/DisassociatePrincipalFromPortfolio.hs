@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -184,46 +185,46 @@ instance
       `Prelude.seq` Prelude.rnf principalARN
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociatePrincipalFromPortfolio
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DisassociatePrincipalFromPortfolio" ::
+              Data.=# ( "AWS242ServiceCatalogService.DisassociatePrincipalFromPortfolio" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DisassociatePrincipalFromPortfolio
   where
   toJSON DisassociatePrincipalFromPortfolio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PrincipalType" Core..=) Prelude.<$> principalType,
-            ("AcceptLanguage" Core..=)
+          [ ("PrincipalType" Data..=) Prelude.<$> principalType,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Core..= portfolioId),
-            Prelude.Just ("PrincipalARN" Core..= principalARN)
+            Prelude.Just ("PortfolioId" Data..= portfolioId),
+            Prelude.Just ("PrincipalARN" Data..= principalARN)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociatePrincipalFromPortfolio
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociatePrincipalFromPortfolio
   where
   toQuery = Prelude.const Prelude.mempty

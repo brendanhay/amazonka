@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,11 +160,11 @@ instance Core.AWSRequest SearchProducts where
     Response.receiveJSON
       ( \s h x ->
           SearchProductsResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> ( x Core..?> "ProductViewSummaries"
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> ( x Data..?> "ProductViewSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "ProductViewAggregations"
+            Prelude.<*> ( x Data..?> "ProductViewAggregations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -187,39 +188,39 @@ instance Prelude.NFData SearchProducts where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf acceptLanguage
 
-instance Core.ToHeaders SearchProducts where
+instance Data.ToHeaders SearchProducts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.SearchProducts" ::
+              Data.=# ( "AWS242ServiceCatalogService.SearchProducts" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchProducts where
+instance Data.ToJSON SearchProducts where
   toJSON SearchProducts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage
           ]
       )
 
-instance Core.ToPath SearchProducts where
+instance Data.ToPath SearchProducts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SearchProducts where
+instance Data.ToQuery SearchProducts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchProductsResponse' smart constructor.

@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,9 +153,9 @@ instance Core.AWSRequest DescribeRecord where
     Response.receiveJSON
       ( \s h x ->
           DescribeRecordResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> (x Core..?> "RecordDetail")
-            Prelude.<*> (x Core..?> "RecordOutputs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> (x Data..?> "RecordDetail")
+            Prelude.<*> (x Data..?> "RecordOutputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,37 +173,37 @@ instance Prelude.NFData DescribeRecord where
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DescribeRecord where
+instance Data.ToHeaders DescribeRecord where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DescribeRecord" ::
+              Data.=# ( "AWS242ServiceCatalogService.DescribeRecord" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRecord where
+instance Data.ToJSON DescribeRecord where
   toJSON DescribeRecord' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+          [ ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Core..= id)
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath DescribeRecord where
+instance Data.ToPath DescribeRecord where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRecord where
+instance Data.ToQuery DescribeRecord where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRecordResponse' smart constructor.

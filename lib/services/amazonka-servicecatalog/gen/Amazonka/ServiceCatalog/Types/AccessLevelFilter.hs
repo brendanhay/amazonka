@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.AccessLevelFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.AccessLevelFilterKey
 
@@ -95,11 +96,11 @@ instance Prelude.NFData AccessLevelFilter where
   rnf AccessLevelFilter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON AccessLevelFilter where
+instance Data.ToJSON AccessLevelFilter where
   toJSON AccessLevelFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

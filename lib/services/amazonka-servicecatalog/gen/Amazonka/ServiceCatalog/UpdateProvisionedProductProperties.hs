@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -233,12 +234,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateProvisionedProductPropertiesResponse'
-            Prelude.<$> ( x Core..?> "ProvisionedProductProperties"
+            Prelude.<$> ( x Data..?> "ProvisionedProductProperties"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Core..?> "RecordId")
-              Prelude.<*> (x Core..?> "Status")
-              Prelude.<*> (x Core..?> "ProvisionedProductId")
+              Prelude.<*> (x Data..?> "RecordId")
+              Prelude.<*> (x Data..?> "Status")
+              Prelude.<*> (x Data..?> "ProvisionedProductId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -265,53 +266,53 @@ instance
       `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateProvisionedProductProperties
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.UpdateProvisionedProductProperties" ::
+              Data.=# ( "AWS242ServiceCatalogService.UpdateProvisionedProductProperties" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateProvisionedProductProperties
   where
   toJSON UpdateProvisionedProductProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
             Prelude.Just
               ( "ProvisionedProductId"
-                  Core..= provisionedProductId
+                  Data..= provisionedProductId
               ),
             Prelude.Just
               ( "ProvisionedProductProperties"
-                  Core..= provisionedProductProperties
+                  Data..= provisionedProductProperties
               ),
             Prelude.Just
-              ("IdempotencyToken" Core..= idempotencyToken)
+              ("IdempotencyToken" Data..= idempotencyToken)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateProvisionedProductProperties
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateProvisionedProductProperties
   where
   toQuery = Prelude.const Prelude.mempty

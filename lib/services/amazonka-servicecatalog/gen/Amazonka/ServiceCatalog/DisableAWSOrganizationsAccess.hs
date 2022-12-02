@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,28 +102,28 @@ instance
 instance Prelude.NFData DisableAWSOrganizationsAccess where
   rnf _ = ()
 
-instance Core.ToHeaders DisableAWSOrganizationsAccess where
+instance Data.ToHeaders DisableAWSOrganizationsAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DisableAWSOrganizationsAccess" ::
+              Data.=# ( "AWS242ServiceCatalogService.DisableAWSOrganizationsAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableAWSOrganizationsAccess where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DisableAWSOrganizationsAccess where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DisableAWSOrganizationsAccess where
+instance Data.ToPath DisableAWSOrganizationsAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableAWSOrganizationsAccess where
+instance Data.ToQuery DisableAWSOrganizationsAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableAWSOrganizationsAccessResponse' smart constructor.

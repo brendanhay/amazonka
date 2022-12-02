@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ShareError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Errors that occurred during the portfolio share operation.
@@ -70,15 +71,15 @@ shareError_accounts = Lens.lens (\ShareError' {accounts} -> accounts) (\s@ShareE
 shareError_error :: Lens.Lens' ShareError (Prelude.Maybe Prelude.Text)
 shareError_error = Lens.lens (\ShareError' {error} -> error) (\s@ShareError' {} a -> s {error = a} :: ShareError)
 
-instance Core.FromJSON ShareError where
+instance Data.FromJSON ShareError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShareError"
       ( \x ->
           ShareError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Accounts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Accounts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Error")
       )
 
 instance Prelude.Hashable ShareError where

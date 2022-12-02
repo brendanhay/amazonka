@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,8 +171,8 @@ instance Core.AWSRequest ListRecordHistory where
     Response.receiveJSON
       ( \s h x ->
           ListRecordHistoryResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> (x Core..?> "RecordDetails" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> (x Data..?> "RecordDetails" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,39 +192,39 @@ instance Prelude.NFData ListRecordHistory where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf acceptLanguage
 
-instance Core.ToHeaders ListRecordHistory where
+instance Data.ToHeaders ListRecordHistory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ListRecordHistory" ::
+              Data.=# ( "AWS242ServiceCatalogService.ListRecordHistory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRecordHistory where
+instance Data.ToJSON ListRecordHistory where
   toJSON ListRecordHistory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessLevelFilter" Core..=)
+          [ ("AccessLevelFilter" Data..=)
               Prelude.<$> accessLevelFilter,
-            ("SearchFilter" Core..=) Prelude.<$> searchFilter,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+            ("SearchFilter" Data..=) Prelude.<$> searchFilter,
+            ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage
           ]
       )
 
-instance Core.ToPath ListRecordHistory where
+instance Data.ToPath ListRecordHistory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRecordHistory where
+instance Data.ToQuery ListRecordHistory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRecordHistoryResponse' smart constructor.

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -166,8 +167,8 @@ instance Core.AWSRequest UpdatePortfolio where
     Response.receiveJSON
       ( \s h x ->
           UpdatePortfolioResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PortfolioDetail")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PortfolioDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,40 +192,40 @@ instance Prelude.NFData UpdatePortfolio where
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdatePortfolio where
+instance Data.ToHeaders UpdatePortfolio where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.UpdatePortfolio" ::
+              Data.=# ( "AWS242ServiceCatalogService.UpdatePortfolio" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePortfolio where
+instance Data.ToJSON UpdatePortfolio where
   toJSON UpdatePortfolio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AddTags" Core..=) Prelude.<$> addTags,
-            ("RemoveTags" Core..=) Prelude.<$> removeTags,
-            ("ProviderName" Core..=) Prelude.<$> providerName,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Description" Core..=) Prelude.<$> description,
-            ("AcceptLanguage" Core..=)
+          [ ("AddTags" Data..=) Prelude.<$> addTags,
+            ("RemoveTags" Data..=) Prelude.<$> removeTags,
+            ("ProviderName" Data..=) Prelude.<$> providerName,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("Description" Data..=) Prelude.<$> description,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Core..= id)
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath UpdatePortfolio where
+instance Data.ToPath UpdatePortfolio where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdatePortfolio where
+instance Data.ToQuery UpdatePortfolio where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePortfolioResponse' smart constructor.

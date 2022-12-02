@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.RecordOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The output for the product created as the result of a request. For
@@ -72,15 +73,15 @@ recordOutput_description = Lens.lens (\RecordOutput' {description} -> descriptio
 recordOutput_outputValue :: Lens.Lens' RecordOutput (Prelude.Maybe Prelude.Text)
 recordOutput_outputValue = Lens.lens (\RecordOutput' {outputValue} -> outputValue) (\s@RecordOutput' {} a -> s {outputValue = a} :: RecordOutput)
 
-instance Core.FromJSON RecordOutput where
+instance Data.FromJSON RecordOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecordOutput"
       ( \x ->
           RecordOutput'
-            Prelude.<$> (x Core..:? "OutputKey")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "OutputValue")
+            Prelude.<$> (x Data..:? "OutputKey")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "OutputValue")
       )
 
 instance Prelude.Hashable RecordOutput where

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,10 +120,10 @@ instance Core.AWSRequest DescribePortfolio where
     Response.receiveJSON
       ( \s h x ->
           DescribePortfolioResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PortfolioDetail")
-            Prelude.<*> (x Core..?> "Budgets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TagOptions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PortfolioDetail")
+            Prelude.<*> (x Data..?> "Budgets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TagOptions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,35 +137,35 @@ instance Prelude.NFData DescribePortfolio where
     Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DescribePortfolio where
+instance Data.ToHeaders DescribePortfolio where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DescribePortfolio" ::
+              Data.=# ( "AWS242ServiceCatalogService.DescribePortfolio" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePortfolio where
+instance Data.ToJSON DescribePortfolio where
   toJSON DescribePortfolio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Core..= id)
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath DescribePortfolio where
+instance Data.ToPath DescribePortfolio where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePortfolio where
+instance Data.ToQuery DescribePortfolio where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePortfolioResponse' smart constructor.

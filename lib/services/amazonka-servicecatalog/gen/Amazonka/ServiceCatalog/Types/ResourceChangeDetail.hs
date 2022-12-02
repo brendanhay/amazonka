@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ResourceChangeDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.EvaluationType
 import Amazonka.ServiceCatalog.Types.ResourceTargetDefinition
@@ -78,15 +79,15 @@ resourceChangeDetail_evaluation = Lens.lens (\ResourceChangeDetail' {evaluation}
 resourceChangeDetail_causingEntity :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe Prelude.Text)
 resourceChangeDetail_causingEntity = Lens.lens (\ResourceChangeDetail' {causingEntity} -> causingEntity) (\s@ResourceChangeDetail' {} a -> s {causingEntity = a} :: ResourceChangeDetail)
 
-instance Core.FromJSON ResourceChangeDetail where
+instance Data.FromJSON ResourceChangeDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceChangeDetail"
       ( \x ->
           ResourceChangeDetail'
-            Prelude.<$> (x Core..:? "Target")
-            Prelude.<*> (x Core..:? "Evaluation")
-            Prelude.<*> (x Core..:? "CausingEntity")
+            Prelude.<$> (x Data..:? "Target")
+            Prelude.<*> (x Data..:? "Evaluation")
+            Prelude.<*> (x Data..:? "CausingEntity")
       )
 
 instance Prelude.Hashable ResourceChangeDetail where

@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -267,7 +268,7 @@ instance Core.AWSRequest ProvisionProduct where
     Response.receiveJSON
       ( \s h x ->
           ProvisionProductResponse'
-            Prelude.<$> (x Core..?> "RecordDetail")
+            Prelude.<$> (x Data..?> "RecordDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -303,55 +304,55 @@ instance Prelude.NFData ProvisionProduct where
       `Prelude.seq` Prelude.rnf provisionedProductName
       `Prelude.seq` Prelude.rnf provisionToken
 
-instance Core.ToHeaders ProvisionProduct where
+instance Data.ToHeaders ProvisionProduct where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ProvisionProduct" ::
+              Data.=# ( "AWS242ServiceCatalogService.ProvisionProduct" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ProvisionProduct where
+instance Data.ToJSON ProvisionProduct where
   toJSON ProvisionProduct' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ProductName" Core..=) Prelude.<$> productName,
-            ("PathId" Core..=) Prelude.<$> pathId,
-            ("NotificationArns" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ProductName" Data..=) Prelude.<$> productName,
+            ("PathId" Data..=) Prelude.<$> pathId,
+            ("NotificationArns" Data..=)
               Prelude.<$> notificationArns,
-            ("ProductId" Core..=) Prelude.<$> productId,
-            ("PathName" Core..=) Prelude.<$> pathName,
-            ("ProvisioningParameters" Core..=)
+            ("ProductId" Data..=) Prelude.<$> productId,
+            ("PathName" Data..=) Prelude.<$> pathName,
+            ("ProvisioningParameters" Data..=)
               Prelude.<$> provisioningParameters,
-            ("ProvisioningPreferences" Core..=)
+            ("ProvisioningPreferences" Data..=)
               Prelude.<$> provisioningPreferences,
-            ("ProvisioningArtifactName" Core..=)
+            ("ProvisioningArtifactName" Data..=)
               Prelude.<$> provisioningArtifactName,
-            ("ProvisioningArtifactId" Core..=)
+            ("ProvisioningArtifactId" Data..=)
               Prelude.<$> provisioningArtifactId,
-            ("AcceptLanguage" Core..=)
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
             Prelude.Just
               ( "ProvisionedProductName"
-                  Core..= provisionedProductName
+                  Data..= provisionedProductName
               ),
             Prelude.Just
-              ("ProvisionToken" Core..= provisionToken)
+              ("ProvisionToken" Data..= provisionToken)
           ]
       )
 
-instance Core.ToPath ProvisionProduct where
+instance Data.ToPath ProvisionProduct where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ProvisionProduct where
+instance Data.ToQuery ProvisionProduct where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newProvisionProductResponse' smart constructor.

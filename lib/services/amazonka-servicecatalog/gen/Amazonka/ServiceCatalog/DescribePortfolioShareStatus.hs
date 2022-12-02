@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,11 +96,11 @@ instance Core.AWSRequest DescribePortfolioShareStatus where
     Response.receiveJSON
       ( \s h x ->
           DescribePortfolioShareStatusResponse'
-            Prelude.<$> (x Core..?> "PortfolioId")
-            Prelude.<*> (x Core..?> "ShareDetails")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "PortfolioShareToken")
-            Prelude.<*> (x Core..?> "OrganizationNodeValue")
+            Prelude.<$> (x Data..?> "PortfolioId")
+            Prelude.<*> (x Data..?> "ShareDetails")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "PortfolioShareToken")
+            Prelude.<*> (x Data..?> "OrganizationNodeValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,34 +115,34 @@ instance Prelude.NFData DescribePortfolioShareStatus where
   rnf DescribePortfolioShareStatus' {..} =
     Prelude.rnf portfolioShareToken
 
-instance Core.ToHeaders DescribePortfolioShareStatus where
+instance Data.ToHeaders DescribePortfolioShareStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DescribePortfolioShareStatus" ::
+              Data.=# ( "AWS242ServiceCatalogService.DescribePortfolioShareStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePortfolioShareStatus where
+instance Data.ToJSON DescribePortfolioShareStatus where
   toJSON DescribePortfolioShareStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PortfolioShareToken" Core..= portfolioShareToken)
+              ("PortfolioShareToken" Data..= portfolioShareToken)
           ]
       )
 
-instance Core.ToPath DescribePortfolioShareStatus where
+instance Data.ToPath DescribePortfolioShareStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePortfolioShareStatus where
+instance Data.ToQuery DescribePortfolioShareStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePortfolioShareStatusResponse' smart constructor.

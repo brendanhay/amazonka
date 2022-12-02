@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,10 +134,10 @@ instance Core.AWSRequest ListTagOptions where
     Response.receiveJSON
       ( \s h x ->
           ListTagOptionsResponse'
-            Prelude.<$> ( x Core..?> "TagOptionDetails"
+            Prelude.<$> ( x Data..?> "TagOptionDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "PageToken")
+            Prelude.<*> (x Data..?> "PageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,35 +153,35 @@ instance Prelude.NFData ListTagOptions where
       `Prelude.seq` Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf pageSize
 
-instance Core.ToHeaders ListTagOptions where
+instance Data.ToHeaders ListTagOptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ListTagOptions" ::
+              Data.=# ( "AWS242ServiceCatalogService.ListTagOptions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTagOptions where
+instance Data.ToJSON ListTagOptions where
   toJSON ListTagOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize
           ]
       )
 
-instance Core.ToPath ListTagOptions where
+instance Data.ToPath ListTagOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTagOptions where
+instance Data.ToQuery ListTagOptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTagOptionsResponse' smart constructor.

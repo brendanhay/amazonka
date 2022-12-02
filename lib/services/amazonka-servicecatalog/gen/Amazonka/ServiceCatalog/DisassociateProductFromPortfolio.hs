@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,39 +157,39 @@ instance
       `Prelude.seq` Prelude.rnf portfolioId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateProductFromPortfolio
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DisassociateProductFromPortfolio" ::
+              Data.=# ( "AWS242ServiceCatalogService.DisassociateProductFromPortfolio" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateProductFromPortfolio where
+instance Data.ToJSON DisassociateProductFromPortfolio where
   toJSON DisassociateProductFromPortfolio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("ProductId" Core..= productId),
-            Prelude.Just ("PortfolioId" Core..= portfolioId)
+            Prelude.Just ("ProductId" Data..= productId),
+            Prelude.Just ("PortfolioId" Data..= portfolioId)
           ]
       )
 
-instance Core.ToPath DisassociateProductFromPortfolio where
+instance Data.ToPath DisassociateProductFromPortfolio where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateProductFromPortfolio
   where
   toQuery = Prelude.const Prelude.mempty

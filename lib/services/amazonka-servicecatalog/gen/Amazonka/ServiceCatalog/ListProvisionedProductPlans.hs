@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,8 +172,8 @@ instance Core.AWSRequest ListProvisionedProductPlans where
     Response.receiveJSON
       ( \s h x ->
           ListProvisionedProductPlansResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> ( x Core..?> "ProvisionedProductPlans"
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> ( x Data..?> "ProvisionedProductPlans"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -194,40 +195,40 @@ instance Prelude.NFData ListProvisionedProductPlans where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf acceptLanguage
 
-instance Core.ToHeaders ListProvisionedProductPlans where
+instance Data.ToHeaders ListProvisionedProductPlans where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ListProvisionedProductPlans" ::
+              Data.=# ( "AWS242ServiceCatalogService.ListProvisionedProductPlans" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListProvisionedProductPlans where
+instance Data.ToJSON ListProvisionedProductPlans where
   toJSON ListProvisionedProductPlans' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessLevelFilter" Core..=)
+          [ ("AccessLevelFilter" Data..=)
               Prelude.<$> accessLevelFilter,
-            ("ProvisionProductId" Core..=)
+            ("ProvisionProductId" Data..=)
               Prelude.<$> provisionProductId,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+            ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage
           ]
       )
 
-instance Core.ToPath ListProvisionedProductPlans where
+instance Data.ToPath ListProvisionedProductPlans where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListProvisionedProductPlans where
+instance Data.ToQuery ListProvisionedProductPlans where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListProvisionedProductPlansResponse' smart constructor.

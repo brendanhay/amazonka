@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,9 +143,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeProvisionedProductPlanResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> (x Core..?> "ProvisionedProductPlanDetails")
-            Prelude.<*> ( x Core..?> "ResourceChanges"
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> (x Data..?> "ProvisionedProductPlanDetails")
+            Prelude.<*> ( x Data..?> "ResourceChanges"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -173,39 +174,39 @@ instance
       `Prelude.seq` Prelude.rnf planId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeProvisionedProductPlan
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DescribeProvisionedProductPlan" ::
+              Data.=# ( "AWS242ServiceCatalogService.DescribeProvisionedProductPlan" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeProvisionedProductPlan where
+instance Data.ToJSON DescribeProvisionedProductPlan where
   toJSON DescribeProvisionedProductPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+          [ ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("PlanId" Core..= planId)
+            Prelude.Just ("PlanId" Data..= planId)
           ]
       )
 
-instance Core.ToPath DescribeProvisionedProductPlan where
+instance Data.ToPath DescribeProvisionedProductPlan where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeProvisionedProductPlan where
+instance Data.ToQuery DescribeProvisionedProductPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProvisionedProductPlanResponse' smart constructor.

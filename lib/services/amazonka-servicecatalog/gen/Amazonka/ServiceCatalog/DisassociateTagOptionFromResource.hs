@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,43 +125,43 @@ instance
       `Prelude.seq` Prelude.rnf tagOptionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateTagOptionFromResource
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DisassociateTagOptionFromResource" ::
+              Data.=# ( "AWS242ServiceCatalogService.DisassociateTagOptionFromResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DisassociateTagOptionFromResource
   where
   toJSON DisassociateTagOptionFromResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceId" Core..= resourceId),
-            Prelude.Just ("TagOptionId" Core..= tagOptionId)
+          [ Prelude.Just ("ResourceId" Data..= resourceId),
+            Prelude.Just ("TagOptionId" Data..= tagOptionId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateTagOptionFromResource
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateTagOptionFromResource
   where
   toQuery = Prelude.const Prelude.mempty

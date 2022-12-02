@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.FailedServiceActionAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ServiceActionAssociationErrorCode
 
@@ -94,17 +95,17 @@ failedServiceActionAssociation_errorCode = Lens.lens (\FailedServiceActionAssoci
 failedServiceActionAssociation_provisioningArtifactId :: Lens.Lens' FailedServiceActionAssociation (Prelude.Maybe Prelude.Text)
 failedServiceActionAssociation_provisioningArtifactId = Lens.lens (\FailedServiceActionAssociation' {provisioningArtifactId} -> provisioningArtifactId) (\s@FailedServiceActionAssociation' {} a -> s {provisioningArtifactId = a} :: FailedServiceActionAssociation)
 
-instance Core.FromJSON FailedServiceActionAssociation where
+instance Data.FromJSON FailedServiceActionAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedServiceActionAssociation"
       ( \x ->
           FailedServiceActionAssociation'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ProductId")
-            Prelude.<*> (x Core..:? "ServiceActionId")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "ProvisioningArtifactId")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ProductId")
+            Prelude.<*> (x Data..:? "ServiceActionId")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ProvisioningArtifactId")
       )
 
 instance

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,39 +150,39 @@ instance Prelude.NFData DeleteProvisioningArtifact where
       `Prelude.seq` Prelude.rnf productId
       `Prelude.seq` Prelude.rnf provisioningArtifactId
 
-instance Core.ToHeaders DeleteProvisioningArtifact where
+instance Data.ToHeaders DeleteProvisioningArtifact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DeleteProvisioningArtifact" ::
+              Data.=# ( "AWS242ServiceCatalogService.DeleteProvisioningArtifact" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteProvisioningArtifact where
+instance Data.ToJSON DeleteProvisioningArtifact where
   toJSON DeleteProvisioningArtifact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("ProductId" Core..= productId),
+            Prelude.Just ("ProductId" Data..= productId),
             Prelude.Just
               ( "ProvisioningArtifactId"
-                  Core..= provisioningArtifactId
+                  Data..= provisioningArtifactId
               )
           ]
       )
 
-instance Core.ToPath DeleteProvisioningArtifact where
+instance Data.ToPath DeleteProvisioningArtifact where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteProvisioningArtifact where
+instance Data.ToQuery DeleteProvisioningArtifact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProvisioningArtifactResponse' smart constructor.

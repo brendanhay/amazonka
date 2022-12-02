@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -198,21 +199,21 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeProvisioningParametersResponse'
-            Prelude.<$> ( x Core..?> "ConstraintSummaries"
+            Prelude.<$> ( x Data..?> "ConstraintSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "UsageInstructions"
+            Prelude.<*> ( x Data..?> "UsageInstructions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "ProvisioningArtifactOutputs"
+            Prelude.<*> ( x Data..?> "ProvisioningArtifactOutputs"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "TagOptions" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "ProvisioningArtifactParameters"
+            Prelude.<*> (x Data..?> "TagOptions" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "ProvisioningArtifactParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ProvisioningArtifactPreferences")
-            Prelude.<*> ( x Core..?> "ProvisioningArtifactOutputKeys"
+            Prelude.<*> (x Data..?> "ProvisioningArtifactPreferences")
+            Prelude.<*> ( x Data..?> "ProvisioningArtifactOutputKeys"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -247,44 +248,44 @@ instance
       `Prelude.seq` Prelude.rnf acceptLanguage
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeProvisioningParameters
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DescribeProvisioningParameters" ::
+              Data.=# ( "AWS242ServiceCatalogService.DescribeProvisioningParameters" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeProvisioningParameters where
+instance Data.ToJSON DescribeProvisioningParameters where
   toJSON DescribeProvisioningParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProductName" Core..=) Prelude.<$> productName,
-            ("PathId" Core..=) Prelude.<$> pathId,
-            ("ProductId" Core..=) Prelude.<$> productId,
-            ("PathName" Core..=) Prelude.<$> pathName,
-            ("ProvisioningArtifactName" Core..=)
+          [ ("ProductName" Data..=) Prelude.<$> productName,
+            ("PathId" Data..=) Prelude.<$> pathId,
+            ("ProductId" Data..=) Prelude.<$> productId,
+            ("PathName" Data..=) Prelude.<$> pathName,
+            ("ProvisioningArtifactName" Data..=)
               Prelude.<$> provisioningArtifactName,
-            ("ProvisioningArtifactId" Core..=)
+            ("ProvisioningArtifactId" Data..=)
               Prelude.<$> provisioningArtifactId,
-            ("AcceptLanguage" Core..=)
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage
           ]
       )
 
-instance Core.ToPath DescribeProvisioningParameters where
+instance Data.ToPath DescribeProvisioningParameters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeProvisioningParameters where
+instance Data.ToQuery DescribeProvisioningParameters where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProvisioningParametersResponse' smart constructor.

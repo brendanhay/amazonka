@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,7 +140,7 @@ instance Core.AWSRequest DeletePortfolioShare where
     Response.receiveJSON
       ( \s h x ->
           DeletePortfolioShareResponse'
-            Prelude.<$> (x Core..?> "PortfolioShareToken")
+            Prelude.<$> (x Data..?> "PortfolioShareToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,38 +158,38 @@ instance Prelude.NFData DeletePortfolioShare where
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf portfolioId
 
-instance Core.ToHeaders DeletePortfolioShare where
+instance Data.ToHeaders DeletePortfolioShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DeletePortfolioShare" ::
+              Data.=# ( "AWS242ServiceCatalogService.DeletePortfolioShare" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePortfolioShare where
+instance Data.ToJSON DeletePortfolioShare where
   toJSON DeletePortfolioShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccountId" Core..=) Prelude.<$> accountId,
-            ("OrganizationNode" Core..=)
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
+            ("OrganizationNode" Data..=)
               Prelude.<$> organizationNode,
-            ("AcceptLanguage" Core..=)
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Core..= portfolioId)
+            Prelude.Just ("PortfolioId" Data..= portfolioId)
           ]
       )
 
-instance Core.ToPath DeletePortfolioShare where
+instance Data.ToPath DeletePortfolioShare where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePortfolioShare where
+instance Data.ToQuery DeletePortfolioShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePortfolioShareResponse' smart constructor.

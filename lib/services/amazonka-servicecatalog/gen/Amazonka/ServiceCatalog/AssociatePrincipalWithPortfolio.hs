@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -211,40 +212,40 @@ instance
       `Prelude.seq` Prelude.rnf principalType
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociatePrincipalWithPortfolio
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.AssociatePrincipalWithPortfolio" ::
+              Data.=# ( "AWS242ServiceCatalogService.AssociatePrincipalWithPortfolio" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociatePrincipalWithPortfolio where
+instance Data.ToJSON AssociatePrincipalWithPortfolio where
   toJSON AssociatePrincipalWithPortfolio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Core..= portfolioId),
-            Prelude.Just ("PrincipalARN" Core..= principalARN),
+            Prelude.Just ("PortfolioId" Data..= portfolioId),
+            Prelude.Just ("PrincipalARN" Data..= principalARN),
             Prelude.Just
-              ("PrincipalType" Core..= principalType)
+              ("PrincipalType" Data..= principalType)
           ]
       )
 
-instance Core.ToPath AssociatePrincipalWithPortfolio where
+instance Data.ToPath AssociatePrincipalWithPortfolio where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociatePrincipalWithPortfolio where
+instance Data.ToQuery AssociatePrincipalWithPortfolio where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociatePrincipalWithPortfolioResponse' smart constructor.

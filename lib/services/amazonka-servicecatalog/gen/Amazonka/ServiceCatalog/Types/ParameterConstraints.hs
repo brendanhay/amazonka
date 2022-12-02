@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ParameterConstraints where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The constraints that the administrator has put on the parameter.
@@ -157,19 +158,19 @@ parameterConstraints_maxValue = Lens.lens (\ParameterConstraints' {maxValue} -> 
 parameterConstraints_constraintDescription :: Lens.Lens' ParameterConstraints (Prelude.Maybe Prelude.Text)
 parameterConstraints_constraintDescription = Lens.lens (\ParameterConstraints' {constraintDescription} -> constraintDescription) (\s@ParameterConstraints' {} a -> s {constraintDescription = a} :: ParameterConstraints)
 
-instance Core.FromJSON ParameterConstraints where
+instance Data.FromJSON ParameterConstraints where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterConstraints"
       ( \x ->
           ParameterConstraints'
-            Prelude.<$> (x Core..:? "MaxLength")
-            Prelude.<*> (x Core..:? "AllowedPattern")
-            Prelude.<*> (x Core..:? "MinValue")
-            Prelude.<*> (x Core..:? "MinLength")
-            Prelude.<*> (x Core..:? "AllowedValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MaxValue")
-            Prelude.<*> (x Core..:? "ConstraintDescription")
+            Prelude.<$> (x Data..:? "MaxLength")
+            Prelude.<*> (x Data..:? "AllowedPattern")
+            Prelude.<*> (x Data..:? "MinValue")
+            Prelude.<*> (x Data..:? "MinLength")
+            Prelude.<*> (x Data..:? "AllowedValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MaxValue")
+            Prelude.<*> (x Data..:? "ConstraintDescription")
       )
 
 instance Prelude.Hashable ParameterConstraints where

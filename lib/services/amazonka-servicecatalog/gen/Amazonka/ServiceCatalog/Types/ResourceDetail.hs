@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ResourceDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a resource.
@@ -30,7 +31,7 @@ data ResourceDetail = ResourceDetail'
   { -- | The name of the resource.
     name :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the resource.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the resource.
@@ -74,7 +75,7 @@ resourceDetail_name = Lens.lens (\ResourceDetail' {name} -> name) (\s@ResourceDe
 
 -- | The creation time of the resource.
 resourceDetail_createdTime :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.UTCTime)
-resourceDetail_createdTime = Lens.lens (\ResourceDetail' {createdTime} -> createdTime) (\s@ResourceDetail' {} a -> s {createdTime = a} :: ResourceDetail) Prelude.. Lens.mapping Core._Time
+resourceDetail_createdTime = Lens.lens (\ResourceDetail' {createdTime} -> createdTime) (\s@ResourceDetail' {} a -> s {createdTime = a} :: ResourceDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the resource.
 resourceDetail_arn :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.Text)
@@ -88,17 +89,17 @@ resourceDetail_id = Lens.lens (\ResourceDetail' {id} -> id) (\s@ResourceDetail' 
 resourceDetail_description :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.Text)
 resourceDetail_description = Lens.lens (\ResourceDetail' {description} -> description) (\s@ResourceDetail' {} a -> s {description = a} :: ResourceDetail)
 
-instance Core.FromJSON ResourceDetail where
+instance Data.FromJSON ResourceDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceDetail"
       ( \x ->
           ResourceDetail'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable ResourceDetail where

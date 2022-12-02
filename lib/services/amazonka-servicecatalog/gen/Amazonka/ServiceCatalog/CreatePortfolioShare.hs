@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -222,7 +223,7 @@ instance Core.AWSRequest CreatePortfolioShare where
     Response.receiveJSON
       ( \s h x ->
           CreatePortfolioShareResponse'
-            Prelude.<$> (x Core..?> "PortfolioShareToken")
+            Prelude.<$> (x Data..?> "PortfolioShareToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -244,42 +245,42 @@ instance Prelude.NFData CreatePortfolioShare where
       `Prelude.seq` Prelude.rnf shareTagOptions
       `Prelude.seq` Prelude.rnf portfolioId
 
-instance Core.ToHeaders CreatePortfolioShare where
+instance Data.ToHeaders CreatePortfolioShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.CreatePortfolioShare" ::
+              Data.=# ( "AWS242ServiceCatalogService.CreatePortfolioShare" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePortfolioShare where
+instance Data.ToJSON CreatePortfolioShare where
   toJSON CreatePortfolioShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccountId" Core..=) Prelude.<$> accountId,
-            ("OrganizationNode" Core..=)
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
+            ("OrganizationNode" Data..=)
               Prelude.<$> organizationNode,
-            ("SharePrincipals" Core..=)
+            ("SharePrincipals" Data..=)
               Prelude.<$> sharePrincipals,
-            ("AcceptLanguage" Core..=)
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            ("ShareTagOptions" Core..=)
+            ("ShareTagOptions" Data..=)
               Prelude.<$> shareTagOptions,
-            Prelude.Just ("PortfolioId" Core..= portfolioId)
+            Prelude.Just ("PortfolioId" Data..= portfolioId)
           ]
       )
 
-instance Core.ToPath CreatePortfolioShare where
+instance Data.ToPath CreatePortfolioShare where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePortfolioShare where
+instance Data.ToQuery CreatePortfolioShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePortfolioShareResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -165,10 +166,10 @@ instance Core.AWSRequest DescribePortfolioShares where
     Response.receiveJSON
       ( \s h x ->
           DescribePortfolioSharesResponse'
-            Prelude.<$> ( x Core..?> "PortfolioShareDetails"
+            Prelude.<$> ( x Data..?> "PortfolioShareDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextPageToken")
+            Prelude.<*> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,36 +187,36 @@ instance Prelude.NFData DescribePortfolioShares where
       `Prelude.seq` Prelude.rnf portfolioId
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders DescribePortfolioShares where
+instance Data.ToHeaders DescribePortfolioShares where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DescribePortfolioShares" ::
+              Data.=# ( "AWS242ServiceCatalogService.DescribePortfolioShares" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePortfolioShares where
+instance Data.ToJSON DescribePortfolioShares where
   toJSON DescribePortfolioShares' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            Prelude.Just ("PortfolioId" Core..= portfolioId),
-            Prelude.Just ("Type" Core..= type')
+          [ ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            Prelude.Just ("PortfolioId" Data..= portfolioId),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath DescribePortfolioShares where
+instance Data.ToPath DescribePortfolioShares where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePortfolioShares where
+instance Data.ToQuery DescribePortfolioShares where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePortfolioSharesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProvisioningArtifactSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a provisioning artifact (also known as a
@@ -31,7 +32,7 @@ data ProvisioningArtifactSummary = ProvisioningArtifactSummary'
   { -- | The name of the provisioning artifact.
     name :: Prelude.Maybe Prelude.Text,
     -- | The UTC time stamp of the creation time.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the provisioning artifact.
     id :: Prelude.Maybe Prelude.Text,
     -- | The description of the provisioning artifact.
@@ -78,7 +79,7 @@ provisioningArtifactSummary_name = Lens.lens (\ProvisioningArtifactSummary' {nam
 
 -- | The UTC time stamp of the creation time.
 provisioningArtifactSummary_createdTime :: Lens.Lens' ProvisioningArtifactSummary (Prelude.Maybe Prelude.UTCTime)
-provisioningArtifactSummary_createdTime = Lens.lens (\ProvisioningArtifactSummary' {createdTime} -> createdTime) (\s@ProvisioningArtifactSummary' {} a -> s {createdTime = a} :: ProvisioningArtifactSummary) Prelude.. Lens.mapping Core._Time
+provisioningArtifactSummary_createdTime = Lens.lens (\ProvisioningArtifactSummary' {createdTime} -> createdTime) (\s@ProvisioningArtifactSummary' {} a -> s {createdTime = a} :: ProvisioningArtifactSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the provisioning artifact.
 provisioningArtifactSummary_id :: Lens.Lens' ProvisioningArtifactSummary (Prelude.Maybe Prelude.Text)
@@ -93,18 +94,18 @@ provisioningArtifactSummary_description = Lens.lens (\ProvisioningArtifactSummar
 provisioningArtifactSummary_provisioningArtifactMetadata :: Lens.Lens' ProvisioningArtifactSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 provisioningArtifactSummary_provisioningArtifactMetadata = Lens.lens (\ProvisioningArtifactSummary' {provisioningArtifactMetadata} -> provisioningArtifactMetadata) (\s@ProvisioningArtifactSummary' {} a -> s {provisioningArtifactMetadata = a} :: ProvisioningArtifactSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ProvisioningArtifactSummary where
+instance Data.FromJSON ProvisioningArtifactSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisioningArtifactSummary"
       ( \x ->
           ProvisioningArtifactSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> ( x Core..:? "ProvisioningArtifactMetadata"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> ( x Data..:? "ProvisioningArtifactMetadata"
+                            Data..!= Prelude.mempty
                         )
       )
 

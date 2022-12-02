@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -169,8 +170,8 @@ instance Core.AWSRequest CreatePortfolio where
     Response.receiveJSON
       ( \s h x ->
           CreatePortfolioResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PortfolioDetail")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PortfolioDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,40 +193,40 @@ instance Prelude.NFData CreatePortfolio where
       `Prelude.seq` Prelude.rnf providerName
       `Prelude.seq` Prelude.rnf idempotencyToken
 
-instance Core.ToHeaders CreatePortfolio where
+instance Data.ToHeaders CreatePortfolio where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.CreatePortfolio" ::
+              Data.=# ( "AWS242ServiceCatalogService.CreatePortfolio" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePortfolio where
+instance Data.ToJSON CreatePortfolio where
   toJSON CreatePortfolio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("AcceptLanguage" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("DisplayName" Core..= displayName),
-            Prelude.Just ("ProviderName" Core..= providerName),
+            Prelude.Just ("DisplayName" Data..= displayName),
+            Prelude.Just ("ProviderName" Data..= providerName),
             Prelude.Just
-              ("IdempotencyToken" Core..= idempotencyToken)
+              ("IdempotencyToken" Data..= idempotencyToken)
           ]
       )
 
-instance Core.ToPath CreatePortfolio where
+instance Data.ToPath CreatePortfolio where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePortfolio where
+instance Data.ToQuery CreatePortfolio where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePortfolioResponse' smart constructor.

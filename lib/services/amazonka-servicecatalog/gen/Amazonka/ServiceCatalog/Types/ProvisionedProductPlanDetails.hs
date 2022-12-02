@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProvisionedProductPlanDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ProvisionedProductPlanStatus
 import Amazonka.ServiceCatalog.Types.ProvisionedProductPlanType
@@ -38,7 +39,7 @@ data ProvisionedProductPlanDetails = ProvisionedProductPlanDetails'
     -- one path. To list the paths for a product, use ListLaunchPaths.
     pathId :: Prelude.Maybe Prelude.Text,
     -- | The UTC time stamp of the creation time.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The plan identifier.
     planId :: Prelude.Maybe Prelude.Text,
     -- | The product identifier.
@@ -64,7 +65,7 @@ data ProvisionedProductPlanDetails = ProvisionedProductPlanDetails'
     -- | The user-friendly name of the provisioned product.
     provisionProductName :: Prelude.Maybe Prelude.Text,
     -- | The UTC time stamp when the plan was last updated.
-    updatedTime :: Prelude.Maybe Core.POSIX
+    updatedTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -143,7 +144,7 @@ provisionedProductPlanDetails_pathId = Lens.lens (\ProvisionedProductPlanDetails
 
 -- | The UTC time stamp of the creation time.
 provisionedProductPlanDetails_createdTime :: Lens.Lens' ProvisionedProductPlanDetails (Prelude.Maybe Prelude.UTCTime)
-provisionedProductPlanDetails_createdTime = Lens.lens (\ProvisionedProductPlanDetails' {createdTime} -> createdTime) (\s@ProvisionedProductPlanDetails' {} a -> s {createdTime = a} :: ProvisionedProductPlanDetails) Prelude.. Lens.mapping Core._Time
+provisionedProductPlanDetails_createdTime = Lens.lens (\ProvisionedProductPlanDetails' {createdTime} -> createdTime) (\s@ProvisionedProductPlanDetails' {} a -> s {createdTime = a} :: ProvisionedProductPlanDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The plan identifier.
 provisionedProductPlanDetails_planId :: Lens.Lens' ProvisionedProductPlanDetails (Prelude.Maybe Prelude.Text)
@@ -193,33 +194,33 @@ provisionedProductPlanDetails_provisionProductName = Lens.lens (\ProvisionedProd
 
 -- | The UTC time stamp when the plan was last updated.
 provisionedProductPlanDetails_updatedTime :: Lens.Lens' ProvisionedProductPlanDetails (Prelude.Maybe Prelude.UTCTime)
-provisionedProductPlanDetails_updatedTime = Lens.lens (\ProvisionedProductPlanDetails' {updatedTime} -> updatedTime) (\s@ProvisionedProductPlanDetails' {} a -> s {updatedTime = a} :: ProvisionedProductPlanDetails) Prelude.. Lens.mapping Core._Time
+provisionedProductPlanDetails_updatedTime = Lens.lens (\ProvisionedProductPlanDetails' {updatedTime} -> updatedTime) (\s@ProvisionedProductPlanDetails' {} a -> s {updatedTime = a} :: ProvisionedProductPlanDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ProvisionedProductPlanDetails where
+instance Data.FromJSON ProvisionedProductPlanDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisionedProductPlanDetails"
       ( \x ->
           ProvisionedProductPlanDetails'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PathId")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "PlanId")
-            Prelude.<*> (x Core..:? "ProvisionProductId")
-            Prelude.<*> (x Core..:? "PlanType")
-            Prelude.<*> ( x Core..:? "NotificationArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PathId")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "PlanId")
+            Prelude.<*> (x Data..:? "ProvisionProductId")
+            Prelude.<*> (x Data..:? "PlanType")
+            Prelude.<*> ( x Data..:? "NotificationArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PlanName")
-            Prelude.<*> (x Core..:? "ProductId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> ( x Core..:? "ProvisioningParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "PlanName")
+            Prelude.<*> (x Data..:? "ProductId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> ( x Data..:? "ProvisioningParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ProvisioningArtifactId")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "ProvisionProductName")
-            Prelude.<*> (x Core..:? "UpdatedTime")
+            Prelude.<*> (x Data..:? "ProvisioningArtifactId")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "ProvisionProductName")
+            Prelude.<*> (x Data..:? "UpdatedTime")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProductViewDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ProductViewSummary
 import Amazonka.ServiceCatalog.Types.RequestStatus
@@ -31,7 +32,7 @@ import Amazonka.ServiceCatalog.Types.SourceConnectionDetail
 -- /See:/ 'newProductViewDetail' smart constructor.
 data ProductViewDetail = ProductViewDetail'
   { -- | The UTC time stamp of the creation time.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the product.
     --
     -- -   @AVAILABLE@ - The product is ready for use.
@@ -97,7 +98,7 @@ newProductViewDetail =
 
 -- | The UTC time stamp of the creation time.
 productViewDetail_createdTime :: Lens.Lens' ProductViewDetail (Prelude.Maybe Prelude.UTCTime)
-productViewDetail_createdTime = Lens.lens (\ProductViewDetail' {createdTime} -> createdTime) (\s@ProductViewDetail' {} a -> s {createdTime = a} :: ProductViewDetail) Prelude.. Lens.mapping Core._Time
+productViewDetail_createdTime = Lens.lens (\ProductViewDetail' {createdTime} -> createdTime) (\s@ProductViewDetail' {} a -> s {createdTime = a} :: ProductViewDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the product.
 --
@@ -127,17 +128,17 @@ productViewDetail_productARN = Lens.lens (\ProductViewDetail' {productARN} -> pr
 productViewDetail_sourceConnection :: Lens.Lens' ProductViewDetail (Prelude.Maybe SourceConnectionDetail)
 productViewDetail_sourceConnection = Lens.lens (\ProductViewDetail' {sourceConnection} -> sourceConnection) (\s@ProductViewDetail' {} a -> s {sourceConnection = a} :: ProductViewDetail)
 
-instance Core.FromJSON ProductViewDetail where
+instance Data.FromJSON ProductViewDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProductViewDetail"
       ( \x ->
           ProductViewDetail'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ProductViewSummary")
-            Prelude.<*> (x Core..:? "ProductARN")
-            Prelude.<*> (x Core..:? "SourceConnection")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ProductViewSummary")
+            Prelude.<*> (x Data..:? "ProductARN")
+            Prelude.<*> (x Data..:? "SourceConnection")
       )
 
 instance Prelude.Hashable ProductViewDetail where

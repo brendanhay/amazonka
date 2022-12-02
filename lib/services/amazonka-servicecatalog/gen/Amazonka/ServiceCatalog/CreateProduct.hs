@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -275,9 +276,9 @@ instance Core.AWSRequest CreateProduct where
     Response.receiveJSON
       ( \s h x ->
           CreateProductResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ProductViewDetail")
-            Prelude.<*> (x Core..?> "ProvisioningArtifactDetail")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ProductViewDetail")
+            Prelude.<*> (x Data..?> "ProvisioningArtifactDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -313,50 +314,50 @@ instance Prelude.NFData CreateProduct where
       `Prelude.seq` Prelude.rnf productType
       `Prelude.seq` Prelude.rnf idempotencyToken
 
-instance Core.ToHeaders CreateProduct where
+instance Data.ToHeaders CreateProduct where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.CreateProduct" ::
+              Data.=# ( "AWS242ServiceCatalogService.CreateProduct" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProduct where
+instance Data.ToJSON CreateProduct where
   toJSON CreateProduct' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SupportDescription" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SupportDescription" Data..=)
               Prelude.<$> supportDescription,
-            ("SupportEmail" Core..=) Prelude.<$> supportEmail,
-            ("SupportUrl" Core..=) Prelude.<$> supportUrl,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ProvisioningArtifactParameters" Core..=)
+            ("SupportEmail" Data..=) Prelude.<$> supportEmail,
+            ("SupportUrl" Data..=) Prelude.<$> supportUrl,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ProvisioningArtifactParameters" Data..=)
               Prelude.<$> provisioningArtifactParameters,
-            ("Distributor" Core..=) Prelude.<$> distributor,
-            ("SourceConnection" Core..=)
+            ("Distributor" Data..=) Prelude.<$> distributor,
+            ("SourceConnection" Data..=)
               Prelude.<$> sourceConnection,
-            ("AcceptLanguage" Core..=)
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Owner" Core..= owner),
-            Prelude.Just ("ProductType" Core..= productType),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Owner" Data..= owner),
+            Prelude.Just ("ProductType" Data..= productType),
             Prelude.Just
-              ("IdempotencyToken" Core..= idempotencyToken)
+              ("IdempotencyToken" Data..= idempotencyToken)
           ]
       )
 
-instance Core.ToPath CreateProduct where
+instance Data.ToPath CreateProduct where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateProduct where
+instance Data.ToQuery CreateProduct where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProductResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,7 +137,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeServiceActionExecutionParametersResponse'
-            Prelude.<$> ( x Core..?> "ServiceActionParameters"
+            Prelude.<$> ( x Data..?> "ServiceActionParameters"
                             Core..!@ Prelude.mempty
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,49 +164,49 @@ instance
       `Prelude.seq` Prelude.rnf serviceActionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeServiceActionExecutionParameters
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters" ::
+              Data.=# ( "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeServiceActionExecutionParameters
   where
   toJSON DescribeServiceActionExecutionParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
             Prelude.Just
               ( "ProvisionedProductId"
-                  Core..= provisionedProductId
+                  Data..= provisionedProductId
               ),
             Prelude.Just
-              ("ServiceActionId" Core..= serviceActionId)
+              ("ServiceActionId" Data..= serviceActionId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeServiceActionExecutionParameters
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeServiceActionExecutionParameters
   where
   toQuery = Prelude.const Prelude.mempty

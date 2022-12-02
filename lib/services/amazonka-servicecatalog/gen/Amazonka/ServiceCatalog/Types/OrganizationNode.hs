@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.OrganizationNode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.OrganizationNodeType
 
@@ -62,13 +63,13 @@ organizationNode_type = Lens.lens (\OrganizationNode' {type'} -> type') (\s@Orga
 organizationNode_value :: Lens.Lens' OrganizationNode (Prelude.Maybe Prelude.Text)
 organizationNode_value = Lens.lens (\OrganizationNode' {value} -> value) (\s@OrganizationNode' {} a -> s {value = a} :: OrganizationNode)
 
-instance Core.FromJSON OrganizationNode where
+instance Data.FromJSON OrganizationNode where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationNode"
       ( \x ->
           OrganizationNode'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable OrganizationNode where
@@ -80,11 +81,11 @@ instance Prelude.NFData OrganizationNode where
   rnf OrganizationNode' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON OrganizationNode where
+instance Data.ToJSON OrganizationNode where
   toJSON OrganizationNode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

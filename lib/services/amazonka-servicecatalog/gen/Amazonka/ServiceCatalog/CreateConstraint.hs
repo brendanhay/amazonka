@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -390,9 +391,9 @@ instance Core.AWSRequest CreateConstraint where
     Response.receiveJSON
       ( \s h x ->
           CreateConstraintResponse'
-            Prelude.<$> (x Core..?> "ConstraintDetail")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ConstraintParameters")
+            Prelude.<$> (x Data..?> "ConstraintDetail")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ConstraintParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -416,41 +417,41 @@ instance Prelude.NFData CreateConstraint where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf idempotencyToken
 
-instance Core.ToHeaders CreateConstraint where
+instance Data.ToHeaders CreateConstraint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.CreateConstraint" ::
+              Data.=# ( "AWS242ServiceCatalogService.CreateConstraint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConstraint where
+instance Data.ToJSON CreateConstraint where
   toJSON CreateConstraint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("AcceptLanguage" Core..=)
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Core..= portfolioId),
-            Prelude.Just ("ProductId" Core..= productId),
-            Prelude.Just ("Parameters" Core..= parameters),
-            Prelude.Just ("Type" Core..= type'),
+            Prelude.Just ("PortfolioId" Data..= portfolioId),
+            Prelude.Just ("ProductId" Data..= productId),
+            Prelude.Just ("Parameters" Data..= parameters),
+            Prelude.Just ("Type" Data..= type'),
             Prelude.Just
-              ("IdempotencyToken" Core..= idempotencyToken)
+              ("IdempotencyToken" Data..= idempotencyToken)
           ]
       )
 
-instance Core.ToPath CreateConstraint where
+instance Data.ToPath CreateConstraint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateConstraint where
+instance Data.ToQuery CreateConstraint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConstraintResponse' smart constructor.

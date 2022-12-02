@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,10 +125,10 @@ instance Core.AWSRequest DescribeProduct where
     Response.receiveJSON
       ( \s h x ->
           DescribeProductResponse'
-            Prelude.<$> (x Core..?> "Budgets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "LaunchPaths" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ProductViewSummary")
-            Prelude.<*> ( x Core..?> "ProvisioningArtifacts"
+            Prelude.<$> (x Data..?> "Budgets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LaunchPaths" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ProductViewSummary")
+            Prelude.<*> ( x Data..?> "ProvisioningArtifacts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -145,36 +146,36 @@ instance Prelude.NFData DescribeProduct where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf acceptLanguage
 
-instance Core.ToHeaders DescribeProduct where
+instance Data.ToHeaders DescribeProduct where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DescribeProduct" ::
+              Data.=# ( "AWS242ServiceCatalogService.DescribeProduct" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeProduct where
+instance Data.ToJSON DescribeProduct where
   toJSON DescribeProduct' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Id" Core..=) Prelude.<$> id,
-            ("AcceptLanguage" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Id" Data..=) Prelude.<$> id,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage
           ]
       )
 
-instance Core.ToPath DescribeProduct where
+instance Data.ToPath DescribeProduct where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeProduct where
+instance Data.ToQuery DescribeProduct where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProductResponse' smart constructor.

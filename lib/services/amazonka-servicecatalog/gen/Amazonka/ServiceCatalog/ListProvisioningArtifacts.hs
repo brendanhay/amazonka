@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,8 +117,8 @@ instance Core.AWSRequest ListProvisioningArtifacts where
     Response.receiveJSON
       ( \s h x ->
           ListProvisioningArtifactsResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> ( x Core..?> "ProvisioningArtifactDetails"
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> ( x Data..?> "ProvisioningArtifactDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -133,35 +134,35 @@ instance Prelude.NFData ListProvisioningArtifacts where
     Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf productId
 
-instance Core.ToHeaders ListProvisioningArtifacts where
+instance Data.ToHeaders ListProvisioningArtifacts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ListProvisioningArtifacts" ::
+              Data.=# ( "AWS242ServiceCatalogService.ListProvisioningArtifacts" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListProvisioningArtifacts where
+instance Data.ToJSON ListProvisioningArtifacts where
   toJSON ListProvisioningArtifacts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("ProductId" Core..= productId)
+            Prelude.Just ("ProductId" Data..= productId)
           ]
       )
 
-instance Core.ToPath ListProvisioningArtifacts where
+instance Data.ToPath ListProvisioningArtifacts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListProvisioningArtifacts where
+instance Data.ToQuery ListProvisioningArtifacts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListProvisioningArtifactsResponse' smart constructor.

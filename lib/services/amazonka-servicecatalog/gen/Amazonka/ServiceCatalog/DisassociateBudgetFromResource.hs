@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,36 +128,36 @@ instance
       `Prelude.seq` Prelude.rnf resourceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateBudgetFromResource
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DisassociateBudgetFromResource" ::
+              Data.=# ( "AWS242ServiceCatalogService.DisassociateBudgetFromResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateBudgetFromResource where
+instance Data.ToJSON DisassociateBudgetFromResource where
   toJSON DisassociateBudgetFromResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("BudgetName" Core..= budgetName),
-            Prelude.Just ("ResourceId" Core..= resourceId)
+          [ Prelude.Just ("BudgetName" Data..= budgetName),
+            Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
 
-instance Core.ToPath DisassociateBudgetFromResource where
+instance Data.ToPath DisassociateBudgetFromResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateBudgetFromResource where
+instance Data.ToQuery DisassociateBudgetFromResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateBudgetFromResourceResponse' smart constructor.

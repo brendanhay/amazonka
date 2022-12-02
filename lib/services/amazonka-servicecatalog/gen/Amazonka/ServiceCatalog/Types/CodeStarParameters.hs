@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.CodeStarParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The subtype containing details about the Codestar connection @Type@.
@@ -101,16 +102,16 @@ codeStarParameters_branch = Lens.lens (\CodeStarParameters' {branch} -> branch) 
 codeStarParameters_artifactPath :: Lens.Lens' CodeStarParameters Prelude.Text
 codeStarParameters_artifactPath = Lens.lens (\CodeStarParameters' {artifactPath} -> artifactPath) (\s@CodeStarParameters' {} a -> s {artifactPath = a} :: CodeStarParameters)
 
-instance Core.FromJSON CodeStarParameters where
+instance Data.FromJSON CodeStarParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeStarParameters"
       ( \x ->
           CodeStarParameters'
-            Prelude.<$> (x Core..: "ConnectionArn")
-            Prelude.<*> (x Core..: "Repository")
-            Prelude.<*> (x Core..: "Branch")
-            Prelude.<*> (x Core..: "ArtifactPath")
+            Prelude.<$> (x Data..: "ConnectionArn")
+            Prelude.<*> (x Data..: "Repository")
+            Prelude.<*> (x Data..: "Branch")
+            Prelude.<*> (x Data..: "ArtifactPath")
       )
 
 instance Prelude.Hashable CodeStarParameters where
@@ -127,14 +128,14 @@ instance Prelude.NFData CodeStarParameters where
       `Prelude.seq` Prelude.rnf branch
       `Prelude.seq` Prelude.rnf artifactPath
 
-instance Core.ToJSON CodeStarParameters where
+instance Data.ToJSON CodeStarParameters where
   toJSON CodeStarParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ConnectionArn" Core..= connectionArn),
-            Prelude.Just ("Repository" Core..= repository),
-            Prelude.Just ("Branch" Core..= branch),
-            Prelude.Just ("ArtifactPath" Core..= artifactPath)
+              ("ConnectionArn" Data..= connectionArn),
+            Prelude.Just ("Repository" Data..= repository),
+            Prelude.Just ("Branch" Data..= branch),
+            Prelude.Just ("ArtifactPath" Data..= artifactPath)
           ]
       )

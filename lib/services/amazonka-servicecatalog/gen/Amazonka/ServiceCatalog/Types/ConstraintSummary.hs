@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ConstraintSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a constraint.
@@ -85,14 +86,14 @@ constraintSummary_type = Lens.lens (\ConstraintSummary' {type'} -> type') (\s@Co
 constraintSummary_description :: Lens.Lens' ConstraintSummary (Prelude.Maybe Prelude.Text)
 constraintSummary_description = Lens.lens (\ConstraintSummary' {description} -> description) (\s@ConstraintSummary' {} a -> s {description = a} :: ConstraintSummary)
 
-instance Core.FromJSON ConstraintSummary where
+instance Data.FromJSON ConstraintSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConstraintSummary"
       ( \x ->
           ConstraintSummary'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable ConstraintSummary where

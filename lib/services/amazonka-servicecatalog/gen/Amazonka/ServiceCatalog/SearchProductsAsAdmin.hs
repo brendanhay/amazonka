@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -204,8 +205,8 @@ instance Core.AWSRequest SearchProductsAsAdmin where
     Response.receiveJSON
       ( \s h x ->
           SearchProductsAsAdminResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> ( x Core..?> "ProductViewDetails"
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> ( x Data..?> "ProductViewDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -233,41 +234,41 @@ instance Prelude.NFData SearchProductsAsAdmin where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf acceptLanguage
 
-instance Core.ToHeaders SearchProductsAsAdmin where
+instance Data.ToHeaders SearchProductsAsAdmin where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.SearchProductsAsAdmin" ::
+              Data.=# ( "AWS242ServiceCatalogService.SearchProductsAsAdmin" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchProductsAsAdmin where
+instance Data.ToJSON SearchProductsAsAdmin where
   toJSON SearchProductsAsAdmin' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PortfolioId" Core..=) Prelude.<$> portfolioId,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("ProductSource" Core..=) Prelude.<$> productSource,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+          [ ("PortfolioId" Data..=) Prelude.<$> portfolioId,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("ProductSource" Data..=) Prelude.<$> productSource,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage
           ]
       )
 
-instance Core.ToPath SearchProductsAsAdmin where
+instance Data.ToPath SearchProductsAsAdmin where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SearchProductsAsAdmin where
+instance Data.ToQuery SearchProductsAsAdmin where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchProductsAsAdminResponse' smart constructor.

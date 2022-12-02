@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest UpdateTagOption where
     Response.receiveJSON
       ( \s h x ->
           UpdateTagOptionResponse'
-            Prelude.<$> (x Core..?> "TagOptionDetail")
+            Prelude.<$> (x Data..?> "TagOptionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,35 +122,35 @@ instance Prelude.NFData UpdateTagOption where
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateTagOption where
+instance Data.ToHeaders UpdateTagOption where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.UpdateTagOption" ::
+              Data.=# ( "AWS242ServiceCatalogService.UpdateTagOption" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTagOption where
+instance Data.ToJSON UpdateTagOption where
   toJSON UpdateTagOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Active" Core..=) Prelude.<$> active,
-            ("Value" Core..=) Prelude.<$> value,
-            Prelude.Just ("Id" Core..= id)
+          [ ("Active" Data..=) Prelude.<$> active,
+            ("Value" Data..=) Prelude.<$> value,
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath UpdateTagOption where
+instance Data.ToPath UpdateTagOption where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTagOption where
+instance Data.ToQuery UpdateTagOption where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTagOptionResponse' smart constructor.

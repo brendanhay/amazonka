@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProvisioningPreferences where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user-defined preferences that will be applied when updating a
@@ -336,21 +337,21 @@ instance Prelude.NFData ProvisioningPreferences where
       `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyCount
       `Prelude.seq` Prelude.rnf stackSetFailureTolerancePercentage
 
-instance Core.ToJSON ProvisioningPreferences where
+instance Data.ToJSON ProvisioningPreferences where
   toJSON ProvisioningPreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StackSetRegions" Core..=)
+          [ ("StackSetRegions" Data..=)
               Prelude.<$> stackSetRegions,
-            ("StackSetFailureToleranceCount" Core..=)
+            ("StackSetFailureToleranceCount" Data..=)
               Prelude.<$> stackSetFailureToleranceCount,
-            ("StackSetMaxConcurrencyPercentage" Core..=)
+            ("StackSetMaxConcurrencyPercentage" Data..=)
               Prelude.<$> stackSetMaxConcurrencyPercentage,
-            ("StackSetAccounts" Core..=)
+            ("StackSetAccounts" Data..=)
               Prelude.<$> stackSetAccounts,
-            ("StackSetMaxConcurrencyCount" Core..=)
+            ("StackSetMaxConcurrencyCount" Data..=)
               Prelude.<$> stackSetMaxConcurrencyCount,
-            ("StackSetFailureTolerancePercentage" Core..=)
+            ("StackSetFailureTolerancePercentage" Data..=)
               Prelude.<$> stackSetFailureTolerancePercentage
           ]
       )

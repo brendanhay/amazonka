@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -235,8 +236,8 @@ instance Core.AWSRequest UpdateProduct where
     Response.receiveJSON
       ( \s h x ->
           UpdateProductResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ProductViewDetail")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ProductViewDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -270,47 +271,47 @@ instance Prelude.NFData UpdateProduct where
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateProduct where
+instance Data.ToHeaders UpdateProduct where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.UpdateProduct" ::
+              Data.=# ( "AWS242ServiceCatalogService.UpdateProduct" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateProduct where
+instance Data.ToJSON UpdateProduct where
   toJSON UpdateProduct' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AddTags" Core..=) Prelude.<$> addTags,
-            ("RemoveTags" Core..=) Prelude.<$> removeTags,
-            ("SupportDescription" Core..=)
+          [ ("AddTags" Data..=) Prelude.<$> addTags,
+            ("RemoveTags" Data..=) Prelude.<$> removeTags,
+            ("SupportDescription" Data..=)
               Prelude.<$> supportDescription,
-            ("Name" Core..=) Prelude.<$> name,
-            ("SupportEmail" Core..=) Prelude.<$> supportEmail,
-            ("SupportUrl" Core..=) Prelude.<$> supportUrl,
-            ("Owner" Core..=) Prelude.<$> owner,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Distributor" Core..=) Prelude.<$> distributor,
-            ("SourceConnection" Core..=)
+            ("Name" Data..=) Prelude.<$> name,
+            ("SupportEmail" Data..=) Prelude.<$> supportEmail,
+            ("SupportUrl" Data..=) Prelude.<$> supportUrl,
+            ("Owner" Data..=) Prelude.<$> owner,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Distributor" Data..=) Prelude.<$> distributor,
+            ("SourceConnection" Data..=)
               Prelude.<$> sourceConnection,
-            ("AcceptLanguage" Core..=)
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Core..= id)
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath UpdateProduct where
+instance Data.ToPath UpdateProduct where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateProduct where
+instance Data.ToQuery UpdateProduct where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProductResponse' smart constructor.

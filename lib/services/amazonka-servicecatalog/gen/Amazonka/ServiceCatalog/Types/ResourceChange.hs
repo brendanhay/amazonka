@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ResourceChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ChangeAction
 import Amazonka.ServiceCatalog.Types.Replacement
@@ -114,19 +115,19 @@ resourceChange_action = Lens.lens (\ResourceChange' {action} -> action) (\s@Reso
 resourceChange_physicalResourceId :: Lens.Lens' ResourceChange (Prelude.Maybe Prelude.Text)
 resourceChange_physicalResourceId = Lens.lens (\ResourceChange' {physicalResourceId} -> physicalResourceId) (\s@ResourceChange' {} a -> s {physicalResourceId = a} :: ResourceChange)
 
-instance Core.FromJSON ResourceChange where
+instance Data.FromJSON ResourceChange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceChange"
       ( \x ->
           ResourceChange'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Replacement")
-            Prelude.<*> (x Core..:? "Details" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LogicalResourceId")
-            Prelude.<*> (x Core..:? "Scope" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "PhysicalResourceId")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Replacement")
+            Prelude.<*> (x Data..:? "Details" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LogicalResourceId")
+            Prelude.<*> (x Data..:? "Scope" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "PhysicalResourceId")
       )
 
 instance Prelude.Hashable ResourceChange where

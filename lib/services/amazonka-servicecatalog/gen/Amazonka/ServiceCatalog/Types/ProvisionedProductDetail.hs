@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProvisionedProductDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ProvisionedProductStatus
 
@@ -34,7 +35,7 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
     -- and @CFN_STACKSET@.
     type' :: Prelude.Maybe Prelude.Text,
     -- | The UTC time stamp of the creation time.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The record identifier of the last successful request performed on this
     -- provisioned product of the following types:
     --
@@ -218,7 +219,7 @@ provisionedProductDetail_type = Lens.lens (\ProvisionedProductDetail' {type'} ->
 
 -- | The UTC time stamp of the creation time.
 provisionedProductDetail_createdTime :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.UTCTime)
-provisionedProductDetail_createdTime = Lens.lens (\ProvisionedProductDetail' {createdTime} -> createdTime) (\s@ProvisionedProductDetail' {} a -> s {createdTime = a} :: ProvisionedProductDetail) Prelude.. Lens.mapping Core._Time
+provisionedProductDetail_createdTime = Lens.lens (\ProvisionedProductDetail' {createdTime} -> createdTime) (\s@ProvisionedProductDetail' {} a -> s {createdTime = a} :: ProvisionedProductDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The record identifier of the last successful request performed on this
 -- provisioned product of the following types:
@@ -309,26 +310,26 @@ provisionedProductDetail_provisioningArtifactId = Lens.lens (\ProvisionedProduct
 provisionedProductDetail_statusMessage :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
 provisionedProductDetail_statusMessage = Lens.lens (\ProvisionedProductDetail' {statusMessage} -> statusMessage) (\s@ProvisionedProductDetail' {} a -> s {statusMessage = a} :: ProvisionedProductDetail)
 
-instance Core.FromJSON ProvisionedProductDetail where
+instance Data.FromJSON ProvisionedProductDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisionedProductDetail"
       ( \x ->
           ProvisionedProductDetail'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "LastSuccessfulProvisioningRecordId")
-            Prelude.<*> (x Core..:? "LastRecordId")
-            Prelude.<*> (x Core..:? "IdempotencyToken")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "ProductId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "LaunchRoleArn")
-            Prelude.<*> (x Core..:? "LastProvisioningRecordId")
-            Prelude.<*> (x Core..:? "ProvisioningArtifactId")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "LastSuccessfulProvisioningRecordId")
+            Prelude.<*> (x Data..:? "LastRecordId")
+            Prelude.<*> (x Data..:? "IdempotencyToken")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "ProductId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "LaunchRoleArn")
+            Prelude.<*> (x Data..:? "LastProvisioningRecordId")
+            Prelude.<*> (x Data..:? "ProvisioningArtifactId")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable ProvisionedProductDetail where

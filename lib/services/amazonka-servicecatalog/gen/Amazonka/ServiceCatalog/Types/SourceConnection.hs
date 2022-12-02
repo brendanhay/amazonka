@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.SourceConnection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.SourceConnectionParameters
 import Amazonka.ServiceCatalog.Types.SourceType
@@ -80,14 +81,14 @@ instance Prelude.NFData SourceConnection where
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf connectionParameters
 
-instance Core.ToJSON SourceConnection where
+instance Data.ToJSON SourceConnection where
   toJSON SourceConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
+          [ ("Type" Data..=) Prelude.<$> type',
             Prelude.Just
               ( "ConnectionParameters"
-                  Core..= connectionParameters
+                  Data..= connectionParameters
               )
           ]
       )

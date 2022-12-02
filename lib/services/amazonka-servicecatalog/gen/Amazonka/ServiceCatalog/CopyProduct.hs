@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -194,7 +195,7 @@ instance Core.AWSRequest CopyProduct where
     Response.receiveJSON
       ( \s h x ->
           CopyProductResponse'
-            Prelude.<$> (x Core..?> "CopyProductToken")
+            Prelude.<$> (x Data..?> "CopyProductToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,45 +219,45 @@ instance Prelude.NFData CopyProduct where
       `Prelude.seq` Prelude.rnf sourceProductArn
       `Prelude.seq` Prelude.rnf idempotencyToken
 
-instance Core.ToHeaders CopyProduct where
+instance Data.ToHeaders CopyProduct where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.CopyProduct" ::
+              Data.=# ( "AWS242ServiceCatalogService.CopyProduct" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CopyProduct where
+instance Data.ToJSON CopyProduct where
   toJSON CopyProduct' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetProductName" Core..=)
+          [ ("TargetProductName" Data..=)
               Prelude.<$> targetProductName,
-            ("TargetProductId" Core..=)
+            ("TargetProductId" Data..=)
               Prelude.<$> targetProductId,
-            ("CopyOptions" Core..=) Prelude.<$> copyOptions,
-            ("AcceptLanguage" Core..=)
+            ("CopyOptions" Data..=) Prelude.<$> copyOptions,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            ("SourceProvisioningArtifactIdentifiers" Core..=)
+            ("SourceProvisioningArtifactIdentifiers" Data..=)
               Prelude.<$> sourceProvisioningArtifactIdentifiers,
             Prelude.Just
-              ("SourceProductArn" Core..= sourceProductArn),
+              ("SourceProductArn" Data..= sourceProductArn),
             Prelude.Just
-              ("IdempotencyToken" Core..= idempotencyToken)
+              ("IdempotencyToken" Data..= idempotencyToken)
           ]
       )
 
-instance Core.ToPath CopyProduct where
+instance Data.ToPath CopyProduct where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopyProduct where
+instance Data.ToQuery CopyProduct where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCopyProductResponse' smart constructor.

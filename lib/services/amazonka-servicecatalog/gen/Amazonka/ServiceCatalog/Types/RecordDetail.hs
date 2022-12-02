@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.RecordDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.RecordError
 import Amazonka.ServiceCatalog.Types.RecordStatus
@@ -33,7 +34,7 @@ data RecordDetail = RecordDetail'
   { -- | The path identifier.
     pathId :: Prelude.Maybe Prelude.Text,
     -- | The UTC time stamp of the creation time.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the record.
     recordId :: Prelude.Maybe Prelude.Text,
     -- | The type of provisioned product. The supported values are @CFN_STACK@
@@ -76,7 +77,7 @@ data RecordDetail = RecordDetail'
     -- | The identifier of the provisioning artifact.
     provisioningArtifactId :: Prelude.Maybe Prelude.Text,
     -- | The time when the record was last updated.
-    updatedTime :: Prelude.Maybe Core.POSIX,
+    updatedTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the provisioned product.
     provisionedProductId :: Prelude.Maybe Prelude.Text
   }
@@ -164,7 +165,7 @@ recordDetail_pathId = Lens.lens (\RecordDetail' {pathId} -> pathId) (\s@RecordDe
 
 -- | The UTC time stamp of the creation time.
 recordDetail_createdTime :: Lens.Lens' RecordDetail (Prelude.Maybe Prelude.UTCTime)
-recordDetail_createdTime = Lens.lens (\RecordDetail' {createdTime} -> createdTime) (\s@RecordDetail' {} a -> s {createdTime = a} :: RecordDetail) Prelude.. Lens.mapping Core._Time
+recordDetail_createdTime = Lens.lens (\RecordDetail' {createdTime} -> createdTime) (\s@RecordDetail' {} a -> s {createdTime = a} :: RecordDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the record.
 recordDetail_recordId :: Lens.Lens' RecordDetail (Prelude.Maybe Prelude.Text)
@@ -229,32 +230,32 @@ recordDetail_provisioningArtifactId = Lens.lens (\RecordDetail' {provisioningArt
 
 -- | The time when the record was last updated.
 recordDetail_updatedTime :: Lens.Lens' RecordDetail (Prelude.Maybe Prelude.UTCTime)
-recordDetail_updatedTime = Lens.lens (\RecordDetail' {updatedTime} -> updatedTime) (\s@RecordDetail' {} a -> s {updatedTime = a} :: RecordDetail) Prelude.. Lens.mapping Core._Time
+recordDetail_updatedTime = Lens.lens (\RecordDetail' {updatedTime} -> updatedTime) (\s@RecordDetail' {} a -> s {updatedTime = a} :: RecordDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the provisioned product.
 recordDetail_provisionedProductId :: Lens.Lens' RecordDetail (Prelude.Maybe Prelude.Text)
 recordDetail_provisionedProductId = Lens.lens (\RecordDetail' {provisionedProductId} -> provisionedProductId) (\s@RecordDetail' {} a -> s {provisionedProductId = a} :: RecordDetail)
 
-instance Core.FromJSON RecordDetail where
+instance Data.FromJSON RecordDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecordDetail"
       ( \x ->
           RecordDetail'
-            Prelude.<$> (x Core..:? "PathId")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "RecordId")
-            Prelude.<*> (x Core..:? "ProvisionedProductType")
-            Prelude.<*> (x Core..:? "ProductId")
-            Prelude.<*> (x Core..:? "ProvisionedProductName")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "RecordType")
-            Prelude.<*> (x Core..:? "LaunchRoleArn")
-            Prelude.<*> (x Core..:? "RecordTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RecordErrors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ProvisioningArtifactId")
-            Prelude.<*> (x Core..:? "UpdatedTime")
-            Prelude.<*> (x Core..:? "ProvisionedProductId")
+            Prelude.<$> (x Data..:? "PathId")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "RecordId")
+            Prelude.<*> (x Data..:? "ProvisionedProductType")
+            Prelude.<*> (x Data..:? "ProductId")
+            Prelude.<*> (x Data..:? "ProvisionedProductName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "RecordType")
+            Prelude.<*> (x Data..:? "LaunchRoleArn")
+            Prelude.<*> (x Data..:? "RecordTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RecordErrors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ProvisioningArtifactId")
+            Prelude.<*> (x Data..:? "UpdatedTime")
+            Prelude.<*> (x Data..:? "ProvisionedProductId")
       )
 
 instance Prelude.Hashable RecordDetail where

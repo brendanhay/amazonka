@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.StackInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.StackInstanceStatus
 
@@ -130,15 +131,15 @@ stackInstance_account = Lens.lens (\StackInstance' {account} -> account) (\s@Sta
 stackInstance_region :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
 stackInstance_region = Lens.lens (\StackInstance' {region} -> region) (\s@StackInstance' {} a -> s {region = a} :: StackInstance)
 
-instance Core.FromJSON StackInstance where
+instance Data.FromJSON StackInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StackInstance"
       ( \x ->
           StackInstance'
-            Prelude.<$> (x Core..:? "StackInstanceStatus")
-            Prelude.<*> (x Core..:? "Account")
-            Prelude.<*> (x Core..:? "Region")
+            Prelude.<$> (x Data..:? "StackInstanceStatus")
+            Prelude.<*> (x Data..:? "Account")
+            Prelude.<*> (x Data..:? "Region")
       )
 
 instance Prelude.Hashable StackInstance where

@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProvisioningArtifactOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provisioning artifact output.
@@ -61,14 +62,14 @@ provisioningArtifactOutput_key = Lens.lens (\ProvisioningArtifactOutput' {key} -
 provisioningArtifactOutput_description :: Lens.Lens' ProvisioningArtifactOutput (Prelude.Maybe Prelude.Text)
 provisioningArtifactOutput_description = Lens.lens (\ProvisioningArtifactOutput' {description} -> description) (\s@ProvisioningArtifactOutput' {} a -> s {description = a} :: ProvisioningArtifactOutput)
 
-instance Core.FromJSON ProvisioningArtifactOutput where
+instance Data.FromJSON ProvisioningArtifactOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisioningArtifactOutput"
       ( \x ->
           ProvisioningArtifactOutput'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable ProvisioningArtifactOutput where

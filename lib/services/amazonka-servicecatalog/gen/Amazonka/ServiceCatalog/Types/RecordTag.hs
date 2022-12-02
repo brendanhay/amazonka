@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.RecordTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a tag, which is a key-value pair.
@@ -61,13 +62,13 @@ recordTag_key = Lens.lens (\RecordTag' {key} -> key) (\s@RecordTag' {} a -> s {k
 recordTag_value :: Lens.Lens' RecordTag (Prelude.Maybe Prelude.Text)
 recordTag_value = Lens.lens (\RecordTag' {value} -> value) (\s@RecordTag' {} a -> s {value = a} :: RecordTag)
 
-instance Core.FromJSON RecordTag where
+instance Data.FromJSON RecordTag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecordTag"
       ( \x ->
           RecordTag'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable RecordTag where

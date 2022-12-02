@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.PortfolioDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a portfolio.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPortfolioDetail' smart constructor.
 data PortfolioDetail = PortfolioDetail'
   { -- | The UTC time stamp of the creation time.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the portfolio provider.
     providerName :: Prelude.Maybe Prelude.Text,
     -- | The ARN assigned to the portfolio.
@@ -75,7 +76,7 @@ newPortfolioDetail =
 
 -- | The UTC time stamp of the creation time.
 portfolioDetail_createdTime :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.UTCTime)
-portfolioDetail_createdTime = Lens.lens (\PortfolioDetail' {createdTime} -> createdTime) (\s@PortfolioDetail' {} a -> s {createdTime = a} :: PortfolioDetail) Prelude.. Lens.mapping Core._Time
+portfolioDetail_createdTime = Lens.lens (\PortfolioDetail' {createdTime} -> createdTime) (\s@PortfolioDetail' {} a -> s {createdTime = a} :: PortfolioDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the portfolio provider.
 portfolioDetail_providerName :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
@@ -97,18 +98,18 @@ portfolioDetail_id = Lens.lens (\PortfolioDetail' {id} -> id) (\s@PortfolioDetai
 portfolioDetail_description :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
 portfolioDetail_description = Lens.lens (\PortfolioDetail' {description} -> description) (\s@PortfolioDetail' {} a -> s {description = a} :: PortfolioDetail)
 
-instance Core.FromJSON PortfolioDetail where
+instance Data.FromJSON PortfolioDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortfolioDetail"
       ( \x ->
           PortfolioDetail'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "ProviderName")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "ProviderName")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable PortfolioDetail where

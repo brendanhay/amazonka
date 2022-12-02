@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.TagOptionDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a TagOption.
@@ -91,17 +92,17 @@ tagOptionDetail_id = Lens.lens (\TagOptionDetail' {id} -> id) (\s@TagOptionDetai
 tagOptionDetail_value :: Lens.Lens' TagOptionDetail (Prelude.Maybe Prelude.Text)
 tagOptionDetail_value = Lens.lens (\TagOptionDetail' {value} -> value) (\s@TagOptionDetail' {} a -> s {value = a} :: TagOptionDetail)
 
-instance Core.FromJSON TagOptionDetail where
+instance Data.FromJSON TagOptionDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagOptionDetail"
       ( \x ->
           TagOptionDetail'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Active")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Active")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable TagOptionDetail where

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -162,38 +163,38 @@ instance Prelude.NFData AssociateProductWithPortfolio where
       `Prelude.seq` Prelude.rnf productId
       `Prelude.seq` Prelude.rnf portfolioId
 
-instance Core.ToHeaders AssociateProductWithPortfolio where
+instance Data.ToHeaders AssociateProductWithPortfolio where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.AssociateProductWithPortfolio" ::
+              Data.=# ( "AWS242ServiceCatalogService.AssociateProductWithPortfolio" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateProductWithPortfolio where
+instance Data.ToJSON AssociateProductWithPortfolio where
   toJSON AssociateProductWithPortfolio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourcePortfolioId" Core..=)
+          [ ("SourcePortfolioId" Data..=)
               Prelude.<$> sourcePortfolioId,
-            ("AcceptLanguage" Core..=)
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("ProductId" Core..= productId),
-            Prelude.Just ("PortfolioId" Core..= portfolioId)
+            Prelude.Just ("ProductId" Data..= productId),
+            Prelude.Just ("PortfolioId" Data..= portfolioId)
           ]
       )
 
-instance Core.ToPath AssociateProductWithPortfolio where
+instance Data.ToPath AssociateProductWithPortfolio where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateProductWithPortfolio where
+instance Data.ToQuery AssociateProductWithPortfolio where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateProductWithPortfolioResponse' smart constructor.

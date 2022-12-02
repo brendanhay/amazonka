@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProductViewSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ProductType
 
@@ -168,23 +169,23 @@ productViewSummary_distributor = Lens.lens (\ProductViewSummary' {distributor} -
 productViewSummary_hasDefaultPath :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Bool)
 productViewSummary_hasDefaultPath = Lens.lens (\ProductViewSummary' {hasDefaultPath} -> hasDefaultPath) (\s@ProductViewSummary' {} a -> s {hasDefaultPath = a} :: ProductViewSummary)
 
-instance Core.FromJSON ProductViewSummary where
+instance Data.FromJSON ProductViewSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProductViewSummary"
       ( \x ->
           ProductViewSummary'
-            Prelude.<$> (x Core..:? "SupportDescription")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ShortDescription")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "SupportEmail")
-            Prelude.<*> (x Core..:? "SupportUrl")
-            Prelude.<*> (x Core..:? "ProductId")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Distributor")
-            Prelude.<*> (x Core..:? "HasDefaultPath")
+            Prelude.<$> (x Data..:? "SupportDescription")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ShortDescription")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "SupportEmail")
+            Prelude.<*> (x Data..:? "SupportUrl")
+            Prelude.<*> (x Data..:? "ProductId")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Distributor")
+            Prelude.<*> (x Data..:? "HasDefaultPath")
       )
 
 instance Prelude.Hashable ProductViewSummary where

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EBS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -155,7 +156,7 @@ instance Core.AWSRequest CompleteSnapshot where
     Response.receiveJSON
       ( \s h x ->
           CompleteSnapshotResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,29 +176,29 @@ instance Prelude.NFData CompleteSnapshot where
       `Prelude.seq` Prelude.rnf snapshotId
       `Prelude.seq` Prelude.rnf changedBlocksCount
 
-instance Core.ToHeaders CompleteSnapshot where
+instance Data.ToHeaders CompleteSnapshot where
   toHeaders CompleteSnapshot' {..} =
     Prelude.mconcat
       [ "x-amz-Checksum-Algorithm"
-          Core.=# checksumAlgorithm,
+          Data.=# checksumAlgorithm,
         "x-amz-Checksum-Aggregation-Method"
-          Core.=# checksumAggregationMethod,
-        "x-amz-Checksum" Core.=# checksum,
+          Data.=# checksumAggregationMethod,
+        "x-amz-Checksum" Data.=# checksum,
         "x-amz-ChangedBlocksCount"
-          Core.=# changedBlocksCount,
+          Data.=# changedBlocksCount,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CompleteSnapshot where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CompleteSnapshot where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CompleteSnapshot where
+instance Data.ToPath CompleteSnapshot where
   toPath CompleteSnapshot' {..} =
     Prelude.mconcat
-      ["/snapshots/completion/", Core.toBS snapshotId]
+      ["/snapshots/completion/", Data.toBS snapshotId]
 
-instance Core.ToQuery CompleteSnapshot where
+instance Data.ToQuery CompleteSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCompleteSnapshotResponse' smart constructor.

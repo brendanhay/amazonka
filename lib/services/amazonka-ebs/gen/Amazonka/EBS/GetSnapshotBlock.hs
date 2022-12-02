@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EBS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,9 +152,9 @@ instance Core.AWSRequest GetSnapshotBlock where
     Response.receiveBody
       ( \s h x ->
           GetSnapshotBlockResponse'
-            Prelude.<$> (h Core..#? "x-amz-Checksum-Algorithm")
-            Prelude.<*> (h Core..#? "x-amz-Checksum")
-            Prelude.<*> (h Core..#? "x-amz-Data-Length")
+            Prelude.<$> (h Data..#? "x-amz-Checksum-Algorithm")
+            Prelude.<*> (h Data..#? "x-amz-Checksum")
+            Prelude.<*> (h Data..#? "x-amz-Data-Length")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -170,29 +171,29 @@ instance Prelude.NFData GetSnapshotBlock where
       `Prelude.seq` Prelude.rnf blockIndex
       `Prelude.seq` Prelude.rnf blockToken
 
-instance Core.ToHeaders GetSnapshotBlock where
+instance Data.ToHeaders GetSnapshotBlock where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSnapshotBlock where
+instance Data.ToPath GetSnapshotBlock where
   toPath GetSnapshotBlock' {..} =
     Prelude.mconcat
       [ "/snapshots/",
-        Core.toBS snapshotId,
+        Data.toBS snapshotId,
         "/blocks/",
-        Core.toBS blockIndex
+        Data.toBS blockIndex
       ]
 
-instance Core.ToQuery GetSnapshotBlock where
+instance Data.ToQuery GetSnapshotBlock where
   toQuery GetSnapshotBlock' {..} =
-    Prelude.mconcat ["blockToken" Core.=: blockToken]
+    Prelude.mconcat ["blockToken" Data.=: blockToken]
 
 -- | /See:/ 'newGetSnapshotBlockResponse' smart constructor.
 data GetSnapshotBlockResponse = GetSnapshotBlockResponse'
@@ -206,7 +207,7 @@ data GetSnapshotBlockResponse = GetSnapshotBlockResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The data content of the block.
-    blockData :: Core.ResponseBody
+    blockData :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -232,7 +233,7 @@ newGetSnapshotBlockResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'blockData'
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   GetSnapshotBlockResponse
 newGetSnapshotBlockResponse pHttpStatus_ pBlockData_ =
   GetSnapshotBlockResponse'
@@ -262,5 +263,5 @@ getSnapshotBlockResponse_httpStatus :: Lens.Lens' GetSnapshotBlockResponse Prelu
 getSnapshotBlockResponse_httpStatus = Lens.lens (\GetSnapshotBlockResponse' {httpStatus} -> httpStatus) (\s@GetSnapshotBlockResponse' {} a -> s {httpStatus = a} :: GetSnapshotBlockResponse)
 
 -- | The data content of the block.
-getSnapshotBlockResponse_blockData :: Lens.Lens' GetSnapshotBlockResponse Core.ResponseBody
+getSnapshotBlockResponse_blockData :: Lens.Lens' GetSnapshotBlockResponse Data.ResponseBody
 getSnapshotBlockResponse_blockData = Lens.lens (\GetSnapshotBlockResponse' {blockData} -> blockData) (\s@GetSnapshotBlockResponse' {} a -> s {blockData = a} :: GetSnapshotBlockResponse)

@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EBS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,7 +112,7 @@ data StartSnapshot = StartSnapshot'
     -- key. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapi-permissions.html#ebsapi-kms-permissions Permissions to use Key Management Service keys>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    kmsKeyArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    kmsKeyArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the parent snapshot. If there is no parent snapshot, or if you
     -- are creating the first snapshot for an on-premises volume, omit this
     -- parameter.
@@ -320,7 +321,7 @@ startSnapshot_description = Lens.lens (\StartSnapshot' {description} -> descript
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapi-permissions.html#ebsapi-kms-permissions Permissions to use Key Management Service keys>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 startSnapshot_kmsKeyArn :: Lens.Lens' StartSnapshot (Prelude.Maybe Prelude.Text)
-startSnapshot_kmsKeyArn = Lens.lens (\StartSnapshot' {kmsKeyArn} -> kmsKeyArn) (\s@StartSnapshot' {} a -> s {kmsKeyArn = a} :: StartSnapshot) Prelude.. Lens.mapping Core._Sensitive
+startSnapshot_kmsKeyArn = Lens.lens (\StartSnapshot' {kmsKeyArn} -> kmsKeyArn) (\s@StartSnapshot' {} a -> s {kmsKeyArn = a} :: StartSnapshot) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the parent snapshot. If there is no parent snapshot, or if you
 -- are creating the first snapshot for an on-premises volume, omit this
@@ -382,16 +383,16 @@ instance Core.AWSRequest StartSnapshot where
     Response.receiveJSON
       ( \s h x ->
           StartSnapshotResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "OwnerId")
-            Prelude.<*> (x Core..?> "SnapshotId")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "VolumeSize")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "KmsKeyArn")
-            Prelude.<*> (x Core..?> "ParentSnapshotId")
-            Prelude.<*> (x Core..?> "BlockSize")
-            Prelude.<*> (x Core..?> "StartTime")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "OwnerId")
+            Prelude.<*> (x Data..?> "SnapshotId")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "VolumeSize")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "KmsKeyArn")
+            Prelude.<*> (x Data..?> "ParentSnapshotId")
+            Prelude.<*> (x Data..?> "BlockSize")
+            Prelude.<*> (x Data..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -417,37 +418,37 @@ instance Prelude.NFData StartSnapshot where
       `Prelude.seq` Prelude.rnf encrypted
       `Prelude.seq` Prelude.rnf volumeSize
 
-instance Core.ToHeaders StartSnapshot where
+instance Data.ToHeaders StartSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartSnapshot where
+instance Data.ToJSON StartSnapshot where
   toJSON StartSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Description" Core..=) Prelude.<$> description,
-            ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("ParentSnapshotId" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Timeout" Data..=) Prelude.<$> timeout,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Description" Data..=) Prelude.<$> description,
+            ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("ParentSnapshotId" Data..=)
               Prelude.<$> parentSnapshotId,
-            ("Encrypted" Core..=) Prelude.<$> encrypted,
-            Prelude.Just ("VolumeSize" Core..= volumeSize)
+            ("Encrypted" Data..=) Prelude.<$> encrypted,
+            Prelude.Just ("VolumeSize" Data..= volumeSize)
           ]
       )
 
-instance Core.ToPath StartSnapshot where
+instance Data.ToPath StartSnapshot where
   toPath = Prelude.const "/snapshots"
 
-instance Core.ToQuery StartSnapshot where
+instance Data.ToQuery StartSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartSnapshotResponse' smart constructor.
@@ -469,13 +470,13 @@ data StartSnapshotResponse = StartSnapshotResponse'
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) key
     -- used to encrypt the snapshot.
-    kmsKeyArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    kmsKeyArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the parent snapshot.
     parentSnapshotId :: Prelude.Maybe Prelude.Text,
     -- | The size of the blocks in the snapshot, in bytes.
     blockSize :: Prelude.Maybe Prelude.Int,
     -- | The timestamp when the snapshot was created.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -563,7 +564,7 @@ startSnapshotResponse_description = Lens.lens (\StartSnapshotResponse' {descript
 -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) key
 -- used to encrypt the snapshot.
 startSnapshotResponse_kmsKeyArn :: Lens.Lens' StartSnapshotResponse (Prelude.Maybe Prelude.Text)
-startSnapshotResponse_kmsKeyArn = Lens.lens (\StartSnapshotResponse' {kmsKeyArn} -> kmsKeyArn) (\s@StartSnapshotResponse' {} a -> s {kmsKeyArn = a} :: StartSnapshotResponse) Prelude.. Lens.mapping Core._Sensitive
+startSnapshotResponse_kmsKeyArn = Lens.lens (\StartSnapshotResponse' {kmsKeyArn} -> kmsKeyArn) (\s@StartSnapshotResponse' {} a -> s {kmsKeyArn = a} :: StartSnapshotResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the parent snapshot.
 startSnapshotResponse_parentSnapshotId :: Lens.Lens' StartSnapshotResponse (Prelude.Maybe Prelude.Text)
@@ -575,7 +576,7 @@ startSnapshotResponse_blockSize = Lens.lens (\StartSnapshotResponse' {blockSize}
 
 -- | The timestamp when the snapshot was created.
 startSnapshotResponse_startTime :: Lens.Lens' StartSnapshotResponse (Prelude.Maybe Prelude.UTCTime)
-startSnapshotResponse_startTime = Lens.lens (\StartSnapshotResponse' {startTime} -> startTime) (\s@StartSnapshotResponse' {} a -> s {startTime = a} :: StartSnapshotResponse) Prelude.. Lens.mapping Core._Time
+startSnapshotResponse_startTime = Lens.lens (\StartSnapshotResponse' {startTime} -> startTime) (\s@StartSnapshotResponse' {} a -> s {startTime = a} :: StartSnapshotResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 startSnapshotResponse_httpStatus :: Lens.Lens' StartSnapshotResponse Prelude.Int

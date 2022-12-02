@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EBS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -194,11 +195,11 @@ instance Core.AWSRequest ListChangedBlocks where
     Response.receiveJSON
       ( \s h x ->
           ListChangedBlocksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ExpiryTime")
-            Prelude.<*> (x Core..?> "VolumeSize")
-            Prelude.<*> (x Core..?> "ChangedBlocks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "BlockSize")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ExpiryTime")
+            Prelude.<*> (x Data..?> "VolumeSize")
+            Prelude.<*> (x Data..?> "ChangedBlocks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "BlockSize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,32 +219,32 @@ instance Prelude.NFData ListChangedBlocks where
       `Prelude.seq` Prelude.rnf firstSnapshotId
       `Prelude.seq` Prelude.rnf secondSnapshotId
 
-instance Core.ToHeaders ListChangedBlocks where
+instance Data.ToHeaders ListChangedBlocks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListChangedBlocks where
+instance Data.ToPath ListChangedBlocks where
   toPath ListChangedBlocks' {..} =
     Prelude.mconcat
       [ "/snapshots/",
-        Core.toBS secondSnapshotId,
+        Data.toBS secondSnapshotId,
         "/changedblocks"
       ]
 
-instance Core.ToQuery ListChangedBlocks where
+instance Data.ToQuery ListChangedBlocks where
   toQuery ListChangedBlocks' {..} =
     Prelude.mconcat
-      [ "pageToken" Core.=: nextToken,
-        "startingBlockIndex" Core.=: startingBlockIndex,
-        "maxResults" Core.=: maxResults,
-        "firstSnapshotId" Core.=: firstSnapshotId
+      [ "pageToken" Data.=: nextToken,
+        "startingBlockIndex" Data.=: startingBlockIndex,
+        "maxResults" Data.=: maxResults,
+        "firstSnapshotId" Data.=: firstSnapshotId
       ]
 
 -- | /See:/ 'newListChangedBlocksResponse' smart constructor.
@@ -252,11 +253,11 @@ data ListChangedBlocksResponse = ListChangedBlocksResponse'
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The time when the @BlockToken@ expires.
-    expiryTime :: Prelude.Maybe Core.POSIX,
+    expiryTime :: Prelude.Maybe Data.POSIX,
     -- | The size of the volume in GB.
     volumeSize :: Prelude.Maybe Prelude.Natural,
     -- | An array of objects containing information about the changed blocks.
-    changedBlocks :: Prelude.Maybe [Core.Sensitive ChangedBlock],
+    changedBlocks :: Prelude.Maybe [Data.Sensitive ChangedBlock],
     -- | The size of the blocks in the snapshot, in bytes.
     blockSize :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
@@ -306,7 +307,7 @@ listChangedBlocksResponse_nextToken = Lens.lens (\ListChangedBlocksResponse' {ne
 
 -- | The time when the @BlockToken@ expires.
 listChangedBlocksResponse_expiryTime :: Lens.Lens' ListChangedBlocksResponse (Prelude.Maybe Prelude.UTCTime)
-listChangedBlocksResponse_expiryTime = Lens.lens (\ListChangedBlocksResponse' {expiryTime} -> expiryTime) (\s@ListChangedBlocksResponse' {} a -> s {expiryTime = a} :: ListChangedBlocksResponse) Prelude.. Lens.mapping Core._Time
+listChangedBlocksResponse_expiryTime = Lens.lens (\ListChangedBlocksResponse' {expiryTime} -> expiryTime) (\s@ListChangedBlocksResponse' {} a -> s {expiryTime = a} :: ListChangedBlocksResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The size of the volume in GB.
 listChangedBlocksResponse_volumeSize :: Lens.Lens' ListChangedBlocksResponse (Prelude.Maybe Prelude.Natural)

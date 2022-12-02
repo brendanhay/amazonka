@@ -18,6 +18,7 @@ module Amazonka.Schemas.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Schemas.DescribeCodeBinding
 import Amazonka.Schemas.Lens
@@ -36,21 +37,21 @@ newCodeBindingExists =
             Core.AcceptSuccess
             ( describeCodeBindingResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_IN_PROGRESS"
             Core.AcceptRetry
             ( describeCodeBindingResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED"
             Core.AcceptFailure
             ( describeCodeBindingResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "NotFoundException"

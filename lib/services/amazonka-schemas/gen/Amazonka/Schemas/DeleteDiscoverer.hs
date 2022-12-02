@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,23 +86,23 @@ instance Prelude.Hashable DeleteDiscoverer where
 instance Prelude.NFData DeleteDiscoverer where
   rnf DeleteDiscoverer' {..} = Prelude.rnf discovererId
 
-instance Core.ToHeaders DeleteDiscoverer where
+instance Data.ToHeaders DeleteDiscoverer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDiscoverer where
+instance Data.ToPath DeleteDiscoverer where
   toPath DeleteDiscoverer' {..} =
     Prelude.mconcat
-      ["/v1/discoverers/id/", Core.toBS discovererId]
+      ["/v1/discoverers/id/", Data.toBS discovererId]
 
-instance Core.ToQuery DeleteDiscoverer where
+instance Data.ToQuery DeleteDiscoverer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDiscovererResponse' smart constructor.

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,14 +153,14 @@ instance Core.AWSRequest CreateSchema where
     Response.receiveJSON
       ( \s h x ->
           CreateSchemaResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "SchemaName")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "SchemaArn")
-            Prelude.<*> (x Core..?> "LastModified")
-            Prelude.<*> (x Core..?> "SchemaVersion")
-            Prelude.<*> (x Core..?> "VersionCreatedDate")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "SchemaName")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "SchemaArn")
+            Prelude.<*> (x Data..?> "LastModified")
+            Prelude.<*> (x Data..?> "SchemaVersion")
+            Prelude.<*> (x Data..?> "VersionCreatedDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,38 +182,38 @@ instance Prelude.NFData CreateSchema where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToHeaders CreateSchema where
+instance Data.ToHeaders CreateSchema where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSchema where
+instance Data.ToJSON CreateSchema where
   toJSON CreateSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Content" Core..= content)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Content" Data..= content)
           ]
       )
 
-instance Core.ToPath CreateSchema where
+instance Data.ToPath CreateSchema where
   toPath CreateSchema' {..} =
     Prelude.mconcat
       [ "/v1/registries/name/",
-        Core.toBS registryName,
+        Data.toBS registryName,
         "/schemas/name/",
-        Core.toBS schemaName
+        Data.toBS schemaName
       ]
 
-instance Core.ToQuery CreateSchema where
+instance Data.ToQuery CreateSchema where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSchemaResponse' smart constructor.
@@ -227,11 +228,11 @@ data CreateSchemaResponse = CreateSchemaResponse'
     -- | The ARN of the schema.
     schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that schema was modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | The version number of the schema
     schemaVersion :: Prelude.Maybe Prelude.Text,
     -- | The date the schema version was created.
-    versionCreatedDate :: Prelude.Maybe Core.POSIX,
+    versionCreatedDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -301,7 +302,7 @@ createSchemaResponse_schemaArn = Lens.lens (\CreateSchemaResponse' {schemaArn} -
 
 -- | The date and time that schema was modified.
 createSchemaResponse_lastModified :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.UTCTime)
-createSchemaResponse_lastModified = Lens.lens (\CreateSchemaResponse' {lastModified} -> lastModified) (\s@CreateSchemaResponse' {} a -> s {lastModified = a} :: CreateSchemaResponse) Prelude.. Lens.mapping Core._Time
+createSchemaResponse_lastModified = Lens.lens (\CreateSchemaResponse' {lastModified} -> lastModified) (\s@CreateSchemaResponse' {} a -> s {lastModified = a} :: CreateSchemaResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The version number of the schema
 createSchemaResponse_schemaVersion :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
@@ -309,7 +310,7 @@ createSchemaResponse_schemaVersion = Lens.lens (\CreateSchemaResponse' {schemaVe
 
 -- | The date the schema version was created.
 createSchemaResponse_versionCreatedDate :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.UTCTime)
-createSchemaResponse_versionCreatedDate = Lens.lens (\CreateSchemaResponse' {versionCreatedDate} -> versionCreatedDate) (\s@CreateSchemaResponse' {} a -> s {versionCreatedDate = a} :: CreateSchemaResponse) Prelude.. Lens.mapping Core._Time
+createSchemaResponse_versionCreatedDate = Lens.lens (\CreateSchemaResponse' {versionCreatedDate} -> versionCreatedDate) (\s@CreateSchemaResponse' {} a -> s {versionCreatedDate = a} :: CreateSchemaResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createSchemaResponse_httpStatus :: Lens.Lens' CreateSchemaResponse Prelude.Int

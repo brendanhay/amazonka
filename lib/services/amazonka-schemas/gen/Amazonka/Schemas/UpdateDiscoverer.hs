@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,13 +115,13 @@ instance Core.AWSRequest UpdateDiscoverer where
     Response.receiveJSON
       ( \s h x ->
           UpdateDiscovererResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "DiscovererId")
-            Prelude.<*> (x Core..?> "SourceArn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "CrossAccount")
-            Prelude.<*> (x Core..?> "DiscovererArn")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "DiscovererId")
+            Prelude.<*> (x Data..?> "SourceArn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "CrossAccount")
+            Prelude.<*> (x Data..?> "DiscovererArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,32 +137,32 @@ instance Prelude.NFData UpdateDiscoverer where
       `Prelude.seq` Prelude.rnf crossAccount
       `Prelude.seq` Prelude.rnf discovererId
 
-instance Core.ToHeaders UpdateDiscoverer where
+instance Data.ToHeaders UpdateDiscoverer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDiscoverer where
+instance Data.ToJSON UpdateDiscoverer where
   toJSON UpdateDiscoverer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("CrossAccount" Core..=) Prelude.<$> crossAccount
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("CrossAccount" Data..=) Prelude.<$> crossAccount
           ]
       )
 
-instance Core.ToPath UpdateDiscoverer where
+instance Data.ToPath UpdateDiscoverer where
   toPath UpdateDiscoverer' {..} =
     Prelude.mconcat
-      ["/v1/discoverers/id/", Core.toBS discovererId]
+      ["/v1/discoverers/id/", Data.toBS discovererId]
 
-instance Core.ToQuery UpdateDiscoverer where
+instance Data.ToQuery UpdateDiscoverer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDiscovererResponse' smart constructor.

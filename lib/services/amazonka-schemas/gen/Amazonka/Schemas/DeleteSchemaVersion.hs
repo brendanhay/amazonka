@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,29 +121,29 @@ instance Prelude.NFData DeleteSchemaVersion where
       `Prelude.seq` Prelude.rnf registryName
       `Prelude.seq` Prelude.rnf schemaName
 
-instance Core.ToHeaders DeleteSchemaVersion where
+instance Data.ToHeaders DeleteSchemaVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteSchemaVersion where
+instance Data.ToPath DeleteSchemaVersion where
   toPath DeleteSchemaVersion' {..} =
     Prelude.mconcat
       [ "/v1/registries/name/",
-        Core.toBS registryName,
+        Data.toBS registryName,
         "/schemas/name/",
-        Core.toBS schemaName,
+        Data.toBS schemaName,
         "/version/",
-        Core.toBS schemaVersion
+        Data.toBS schemaVersion
       ]
 
-instance Core.ToQuery DeleteSchemaVersion where
+instance Data.ToQuery DeleteSchemaVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSchemaVersionResponse' smart constructor.

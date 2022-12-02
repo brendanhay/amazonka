@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.Logs where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of information about logs to be enabled for the specified
@@ -65,14 +66,14 @@ logs_general = Lens.lens (\Logs' {general} -> general) (\s@Logs' {} a -> s {gene
 logs_audit :: Lens.Lens' Logs (Prelude.Maybe Prelude.Bool)
 logs_audit = Lens.lens (\Logs' {audit} -> audit) (\s@Logs' {} a -> s {audit = a} :: Logs)
 
-instance Core.FromJSON Logs where
+instance Data.FromJSON Logs where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Logs"
       ( \x ->
           Logs'
-            Prelude.<$> (x Core..:? "general")
-            Prelude.<*> (x Core..:? "audit")
+            Prelude.<$> (x Data..:? "general")
+            Prelude.<*> (x Data..:? "audit")
       )
 
 instance Prelude.Hashable Logs where
@@ -84,11 +85,11 @@ instance Prelude.NFData Logs where
   rnf Logs' {..} =
     Prelude.rnf general `Prelude.seq` Prelude.rnf audit
 
-instance Core.ToJSON Logs where
+instance Data.ToJSON Logs where
   toJSON Logs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("general" Core..=) Prelude.<$> general,
-            ("audit" Core..=) Prelude.<$> audit
+          [ ("general" Data..=) Prelude.<$> general,
+            ("audit" Data..=) Prelude.<$> audit
           ]
       )

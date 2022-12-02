@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,10 +108,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationRevisionResponse'
-            Prelude.<$> (x Core..?> "created")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "configurationId")
-            Prelude.<*> (x Core..?> "data")
+            Prelude.<$> (x Data..?> "created")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "configurationId")
+            Prelude.<*> (x Data..?> "data")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,33 +128,33 @@ instance Prelude.NFData DescribeConfigurationRevision where
     Prelude.rnf configurationRevision
       `Prelude.seq` Prelude.rnf configurationId
 
-instance Core.ToHeaders DescribeConfigurationRevision where
+instance Data.ToHeaders DescribeConfigurationRevision where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeConfigurationRevision where
+instance Data.ToPath DescribeConfigurationRevision where
   toPath DescribeConfigurationRevision' {..} =
     Prelude.mconcat
       [ "/v1/configurations/",
-        Core.toBS configurationId,
+        Data.toBS configurationId,
         "/revisions/",
-        Core.toBS configurationRevision
+        Data.toBS configurationRevision
       ]
 
-instance Core.ToQuery DescribeConfigurationRevision where
+instance Data.ToQuery DescribeConfigurationRevision where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConfigurationRevisionResponse' smart constructor.
 data DescribeConfigurationRevisionResponse = DescribeConfigurationRevisionResponse'
   { -- | Required. The date and time of the configuration.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The description of the configuration.
     description :: Prelude.Maybe Prelude.Text,
     -- | Required. The unique ID that Amazon MQ generates for the configuration.
@@ -198,7 +199,7 @@ newDescribeConfigurationRevisionResponse pHttpStatus_ =
 
 -- | Required. The date and time of the configuration.
 describeConfigurationRevisionResponse_created :: Lens.Lens' DescribeConfigurationRevisionResponse (Prelude.Maybe Prelude.UTCTime)
-describeConfigurationRevisionResponse_created = Lens.lens (\DescribeConfigurationRevisionResponse' {created} -> created) (\s@DescribeConfigurationRevisionResponse' {} a -> s {created = a} :: DescribeConfigurationRevisionResponse) Prelude.. Lens.mapping Core._Time
+describeConfigurationRevisionResponse_created = Lens.lens (\DescribeConfigurationRevisionResponse' {created} -> created) (\s@DescribeConfigurationRevisionResponse' {} a -> s {created = a} :: DescribeConfigurationRevisionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the configuration.
 describeConfigurationRevisionResponse_description :: Lens.Lens' DescribeConfigurationRevisionResponse (Prelude.Maybe Prelude.Text)

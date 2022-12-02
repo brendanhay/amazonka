@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,16 +96,16 @@ instance Core.AWSRequest DescribeConfiguration where
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "latestRevision")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "engineType")
-            Prelude.<*> (x Core..?> "created")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "authenticationStrategy")
-            Prelude.<*> (x Core..?> "engineVersion")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "latestRevision")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "engineType")
+            Prelude.<*> (x Data..?> "created")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "authenticationStrategy")
+            Prelude.<*> (x Data..?> "engineVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,23 +117,23 @@ instance Prelude.NFData DescribeConfiguration where
   rnf DescribeConfiguration' {..} =
     Prelude.rnf configurationId
 
-instance Core.ToHeaders DescribeConfiguration where
+instance Data.ToHeaders DescribeConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeConfiguration where
+instance Data.ToPath DescribeConfiguration where
   toPath DescribeConfiguration' {..} =
     Prelude.mconcat
-      ["/v1/configurations/", Core.toBS configurationId]
+      ["/v1/configurations/", Data.toBS configurationId]
 
-instance Core.ToQuery DescribeConfiguration where
+instance Data.ToQuery DescribeConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConfigurationResponse' smart constructor.
@@ -149,7 +150,7 @@ data DescribeConfigurationResponse = DescribeConfigurationResponse'
     -- ACTIVEMQ and RABBITMQ.
     engineType :: Prelude.Maybe EngineType,
     -- | Required. The date and time of the configuration revision.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | Required. The ARN of the configuration.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Required. The unique ID that Amazon MQ generates for the configuration.
@@ -244,7 +245,7 @@ describeConfigurationResponse_engineType = Lens.lens (\DescribeConfigurationResp
 
 -- | Required. The date and time of the configuration revision.
 describeConfigurationResponse_created :: Lens.Lens' DescribeConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-describeConfigurationResponse_created = Lens.lens (\DescribeConfigurationResponse' {created} -> created) (\s@DescribeConfigurationResponse' {} a -> s {created = a} :: DescribeConfigurationResponse) Prelude.. Lens.mapping Core._Time
+describeConfigurationResponse_created = Lens.lens (\DescribeConfigurationResponse' {created} -> created) (\s@DescribeConfigurationResponse' {} a -> s {created = a} :: DescribeConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Required. The ARN of the configuration.
 describeConfigurationResponse_arn :: Lens.Lens' DescribeConfigurationResponse (Prelude.Maybe Prelude.Text)

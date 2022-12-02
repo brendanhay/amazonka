@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -212,16 +213,16 @@ instance Core.AWSRequest UpdateBroker where
     Response.receiveJSON
       ( \s h x ->
           UpdateBrokerResponse'
-            Prelude.<$> (x Core..?> "autoMinorVersionUpgrade")
-            Prelude.<*> (x Core..?> "ldapServerMetadata")
-            Prelude.<*> (x Core..?> "configuration")
-            Prelude.<*> (x Core..?> "brokerId")
-            Prelude.<*> (x Core..?> "logs")
-            Prelude.<*> (x Core..?> "securityGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "hostInstanceType")
-            Prelude.<*> (x Core..?> "authenticationStrategy")
-            Prelude.<*> (x Core..?> "maintenanceWindowStartTime")
-            Prelude.<*> (x Core..?> "engineVersion")
+            Prelude.<$> (x Data..?> "autoMinorVersionUpgrade")
+            Prelude.<*> (x Data..?> "ldapServerMetadata")
+            Prelude.<*> (x Data..?> "configuration")
+            Prelude.<*> (x Data..?> "brokerId")
+            Prelude.<*> (x Data..?> "logs")
+            Prelude.<*> (x Data..?> "securityGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "hostInstanceType")
+            Prelude.<*> (x Data..?> "authenticationStrategy")
+            Prelude.<*> (x Data..?> "maintenanceWindowStartTime")
+            Prelude.<*> (x Data..?> "engineVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -252,45 +253,45 @@ instance Prelude.NFData UpdateBroker where
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf brokerId
 
-instance Core.ToHeaders UpdateBroker where
+instance Data.ToHeaders UpdateBroker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBroker where
+instance Data.ToJSON UpdateBroker where
   toJSON UpdateBroker' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("autoMinorVersionUpgrade" Core..=)
+          [ ("autoMinorVersionUpgrade" Data..=)
               Prelude.<$> autoMinorVersionUpgrade,
-            ("ldapServerMetadata" Core..=)
+            ("ldapServerMetadata" Data..=)
               Prelude.<$> ldapServerMetadata,
-            ("configuration" Core..=) Prelude.<$> configuration,
-            ("logs" Core..=) Prelude.<$> logs,
-            ("securityGroups" Core..=)
+            ("configuration" Data..=) Prelude.<$> configuration,
+            ("logs" Data..=) Prelude.<$> logs,
+            ("securityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("hostInstanceType" Core..=)
+            ("hostInstanceType" Data..=)
               Prelude.<$> hostInstanceType,
-            ("authenticationStrategy" Core..=)
+            ("authenticationStrategy" Data..=)
               Prelude.<$> authenticationStrategy,
-            ("maintenanceWindowStartTime" Core..=)
+            ("maintenanceWindowStartTime" Data..=)
               Prelude.<$> maintenanceWindowStartTime,
-            ("engineVersion" Core..=) Prelude.<$> engineVersion
+            ("engineVersion" Data..=) Prelude.<$> engineVersion
           ]
       )
 
-instance Core.ToPath UpdateBroker where
+instance Data.ToPath UpdateBroker where
   toPath UpdateBroker' {..} =
     Prelude.mconcat
-      ["/v1/brokers/", Core.toBS brokerId]
+      ["/v1/brokers/", Data.toBS brokerId]
 
-instance Core.ToQuery UpdateBroker where
+instance Data.ToQuery UpdateBroker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBrokerResponse' smart constructor.

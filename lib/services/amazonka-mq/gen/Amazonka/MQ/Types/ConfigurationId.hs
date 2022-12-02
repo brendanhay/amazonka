@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.ConfigurationId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of information about the configuration.
@@ -65,13 +66,13 @@ configurationId_revision = Lens.lens (\ConfigurationId' {revision} -> revision) 
 configurationId_id :: Lens.Lens' ConfigurationId Prelude.Text
 configurationId_id = Lens.lens (\ConfigurationId' {id} -> id) (\s@ConfigurationId' {} a -> s {id = a} :: ConfigurationId)
 
-instance Core.FromJSON ConfigurationId where
+instance Data.FromJSON ConfigurationId where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigurationId"
       ( \x ->
           ConfigurationId'
-            Prelude.<$> (x Core..:? "revision") Prelude.<*> (x Core..: "id")
+            Prelude.<$> (x Data..:? "revision") Prelude.<*> (x Data..: "id")
       )
 
 instance Prelude.Hashable ConfigurationId where
@@ -83,11 +84,11 @@ instance Prelude.NFData ConfigurationId where
   rnf ConfigurationId' {..} =
     Prelude.rnf revision `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON ConfigurationId where
+instance Data.ToJSON ConfigurationId where
   toJSON ConfigurationId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("revision" Core..=) Prelude.<$> revision,
-            Prelude.Just ("id" Core..= id)
+          [ ("revision" Data..=) Prelude.<$> revision,
+            Prelude.Just ("id" Data..= id)
           ]
       )

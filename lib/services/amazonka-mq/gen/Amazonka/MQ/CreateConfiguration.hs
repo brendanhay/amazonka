@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,12 +160,12 @@ instance Core.AWSRequest CreateConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateConfigurationResponse'
-            Prelude.<$> (x Core..?> "latestRevision")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "created")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "authenticationStrategy")
+            Prelude.<$> (x Data..?> "latestRevision")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "created")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "authenticationStrategy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,34 +185,34 @@ instance Prelude.NFData CreateConfiguration where
       `Prelude.seq` Prelude.rnf engineType
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateConfiguration where
+instance Data.ToHeaders CreateConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConfiguration where
+instance Data.ToJSON CreateConfiguration where
   toJSON CreateConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("authenticationStrategy" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("authenticationStrategy" Data..=)
               Prelude.<$> authenticationStrategy,
-            Prelude.Just ("engineVersion" Core..= engineVersion),
-            Prelude.Just ("engineType" Core..= engineType),
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("engineVersion" Data..= engineVersion),
+            Prelude.Just ("engineType" Data..= engineType),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateConfiguration where
+instance Data.ToPath CreateConfiguration where
   toPath = Prelude.const "/v1/configurations"
 
-instance Core.ToQuery CreateConfiguration where
+instance Data.ToQuery CreateConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConfigurationResponse' smart constructor.
@@ -223,7 +224,7 @@ data CreateConfigurationResponse = CreateConfigurationResponse'
     -- ~). This value must be 1-150 characters long.
     name :: Prelude.Maybe Prelude.Text,
     -- | Required. The date and time of the configuration.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | Required. The Amazon Resource Name (ARN) of the configuration.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Required. The unique ID that Amazon MQ generates for the configuration.
@@ -288,7 +289,7 @@ createConfigurationResponse_name = Lens.lens (\CreateConfigurationResponse' {nam
 
 -- | Required. The date and time of the configuration.
 createConfigurationResponse_created :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-createConfigurationResponse_created = Lens.lens (\CreateConfigurationResponse' {created} -> created) (\s@CreateConfigurationResponse' {} a -> s {created = a} :: CreateConfigurationResponse) Prelude.. Lens.mapping Core._Time
+createConfigurationResponse_created = Lens.lens (\CreateConfigurationResponse' {created} -> created) (\s@CreateConfigurationResponse' {} a -> s {created = a} :: CreateConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Required. The Amazon Resource Name (ARN) of the configuration.
 createConfigurationResponse_arn :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.Text)

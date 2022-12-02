@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,11 +113,11 @@ instance Core.AWSRequest DescribeBrokerEngineTypes where
     Response.receiveJSON
       ( \s h x ->
           DescribeBrokerEngineTypesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "brokerEngineTypes"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "brokerEngineTypes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "maxResults")
+            Prelude.<*> (x Data..?> "maxResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,26 +133,26 @@ instance Prelude.NFData DescribeBrokerEngineTypes where
       `Prelude.seq` Prelude.rnf engineType
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeBrokerEngineTypes where
+instance Data.ToHeaders DescribeBrokerEngineTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeBrokerEngineTypes where
+instance Data.ToPath DescribeBrokerEngineTypes where
   toPath = Prelude.const "/v1/broker-engine-types"
 
-instance Core.ToQuery DescribeBrokerEngineTypes where
+instance Data.ToQuery DescribeBrokerEngineTypes where
   toQuery DescribeBrokerEngineTypes' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "engineType" Core.=: engineType,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "engineType" Data.=: engineType,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeBrokerEngineTypesResponse' smart constructor.

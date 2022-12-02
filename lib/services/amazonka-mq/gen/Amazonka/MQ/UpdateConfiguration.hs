@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,12 +115,12 @@ instance Core.AWSRequest UpdateConfiguration where
     Response.receiveJSON
       ( \s h x ->
           UpdateConfigurationResponse'
-            Prelude.<$> (x Core..?> "latestRevision")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "created")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "latestRevision")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "created")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,32 +136,32 @@ instance Prelude.NFData UpdateConfiguration where
       `Prelude.seq` Prelude.rnf configurationId
       `Prelude.seq` Prelude.rnf data'
 
-instance Core.ToHeaders UpdateConfiguration where
+instance Data.ToHeaders UpdateConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateConfiguration where
+instance Data.ToJSON UpdateConfiguration where
   toJSON UpdateConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("data" Core..= data')
+          [ ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("data" Data..= data')
           ]
       )
 
-instance Core.ToPath UpdateConfiguration where
+instance Data.ToPath UpdateConfiguration where
   toPath UpdateConfiguration' {..} =
     Prelude.mconcat
-      ["/v1/configurations/", Core.toBS configurationId]
+      ["/v1/configurations/", Data.toBS configurationId]
 
-instance Core.ToQuery UpdateConfiguration where
+instance Data.ToQuery UpdateConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConfigurationResponse' smart constructor.
@@ -172,7 +173,7 @@ data UpdateConfigurationResponse = UpdateConfigurationResponse'
     -- ~). This value must be 1-150 characters long.
     name :: Prelude.Maybe Prelude.Text,
     -- | Required. The date and time of the configuration.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | Required. The Amazon Resource Name (ARN) of the configuration.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Required. The unique ID that Amazon MQ generates for the configuration.
@@ -237,7 +238,7 @@ updateConfigurationResponse_name = Lens.lens (\UpdateConfigurationResponse' {nam
 
 -- | Required. The date and time of the configuration.
 updateConfigurationResponse_created :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-updateConfigurationResponse_created = Lens.lens (\UpdateConfigurationResponse' {created} -> created) (\s@UpdateConfigurationResponse' {} a -> s {created = a} :: UpdateConfigurationResponse) Prelude.. Lens.mapping Core._Time
+updateConfigurationResponse_created = Lens.lens (\UpdateConfigurationResponse' {created} -> created) (\s@UpdateConfigurationResponse' {} a -> s {created = a} :: UpdateConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Required. The Amazon Resource Name (ARN) of the configuration.
 updateConfigurationResponse_arn :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.Text)

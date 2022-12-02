@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.AvailabilityZone where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Name of the availability zone.
@@ -50,12 +51,12 @@ newAvailabilityZone =
 availabilityZone_name :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_name = Lens.lens (\AvailabilityZone' {name} -> name) (\s@AvailabilityZone' {} a -> s {name = a} :: AvailabilityZone)
 
-instance Core.FromJSON AvailabilityZone where
+instance Data.FromJSON AvailabilityZone where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AvailabilityZone"
       ( \x ->
-          AvailabilityZone' Prelude.<$> (x Core..:? "name")
+          AvailabilityZone' Prelude.<$> (x Data..:? "name")
       )
 
 instance Prelude.Hashable AvailabilityZone where

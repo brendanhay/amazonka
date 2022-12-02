@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.LdapServerMetadataOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Optional. The metadata of the LDAP server used to authenticate and
@@ -225,22 +226,22 @@ ldapServerMetadataOutput_serviceAccountUsername = Lens.lens (\LdapServerMetadata
 ldapServerMetadataOutput_roleBase :: Lens.Lens' LdapServerMetadataOutput Prelude.Text
 ldapServerMetadataOutput_roleBase = Lens.lens (\LdapServerMetadataOutput' {roleBase} -> roleBase) (\s@LdapServerMetadataOutput' {} a -> s {roleBase = a} :: LdapServerMetadataOutput)
 
-instance Core.FromJSON LdapServerMetadataOutput where
+instance Data.FromJSON LdapServerMetadataOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LdapServerMetadataOutput"
       ( \x ->
           LdapServerMetadataOutput'
-            Prelude.<$> (x Core..:? "roleName")
-            Prelude.<*> (x Core..:? "userSearchSubtree")
-            Prelude.<*> (x Core..:? "userRoleName")
-            Prelude.<*> (x Core..:? "roleSearchSubtree")
-            Prelude.<*> (x Core..:? "hosts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "userSearchMatching")
-            Prelude.<*> (x Core..: "userBase")
-            Prelude.<*> (x Core..: "roleSearchMatching")
-            Prelude.<*> (x Core..: "serviceAccountUsername")
-            Prelude.<*> (x Core..: "roleBase")
+            Prelude.<$> (x Data..:? "roleName")
+            Prelude.<*> (x Data..:? "userSearchSubtree")
+            Prelude.<*> (x Data..:? "userRoleName")
+            Prelude.<*> (x Data..:? "roleSearchSubtree")
+            Prelude.<*> (x Data..:? "hosts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "userSearchMatching")
+            Prelude.<*> (x Data..: "userBase")
+            Prelude.<*> (x Data..: "roleSearchMatching")
+            Prelude.<*> (x Data..: "serviceAccountUsername")
+            Prelude.<*> (x Data..: "roleBase")
       )
 
 instance Prelude.Hashable LdapServerMetadataOutput where

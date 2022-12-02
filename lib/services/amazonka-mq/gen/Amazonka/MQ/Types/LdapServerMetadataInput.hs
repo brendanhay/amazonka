@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.LdapServerMetadataInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Optional. The metadata of the LDAP server used to authenticate and
@@ -273,30 +274,30 @@ instance Prelude.NFData LdapServerMetadataInput where
       `Prelude.seq` Prelude.rnf roleBase
       `Prelude.seq` Prelude.rnf serviceAccountPassword
 
-instance Core.ToJSON LdapServerMetadataInput where
+instance Data.ToJSON LdapServerMetadataInput where
   toJSON LdapServerMetadataInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleName" Core..=) Prelude.<$> roleName,
-            ("userSearchSubtree" Core..=)
+          [ ("roleName" Data..=) Prelude.<$> roleName,
+            ("userSearchSubtree" Data..=)
               Prelude.<$> userSearchSubtree,
-            ("userRoleName" Core..=) Prelude.<$> userRoleName,
-            ("roleSearchSubtree" Core..=)
+            ("userRoleName" Data..=) Prelude.<$> userRoleName,
+            ("roleSearchSubtree" Data..=)
               Prelude.<$> roleSearchSubtree,
-            Prelude.Just ("hosts" Core..= hosts),
+            Prelude.Just ("hosts" Data..= hosts),
             Prelude.Just
-              ("userSearchMatching" Core..= userSearchMatching),
-            Prelude.Just ("userBase" Core..= userBase),
+              ("userSearchMatching" Data..= userSearchMatching),
+            Prelude.Just ("userBase" Data..= userBase),
             Prelude.Just
-              ("roleSearchMatching" Core..= roleSearchMatching),
+              ("roleSearchMatching" Data..= roleSearchMatching),
             Prelude.Just
               ( "serviceAccountUsername"
-                  Core..= serviceAccountUsername
+                  Data..= serviceAccountUsername
               ),
-            Prelude.Just ("roleBase" Core..= roleBase),
+            Prelude.Just ("roleBase" Data..= roleBase),
             Prelude.Just
               ( "serviceAccountPassword"
-                  Core..= serviceAccountPassword
+                  Data..= serviceAccountPassword
               )
           ]
       )

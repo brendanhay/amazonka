@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.Configurations where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types.ConfigurationId
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ configurations_current = Lens.lens (\Configurations' {current} -> current) (\s@C
 configurations_pending :: Lens.Lens' Configurations (Prelude.Maybe ConfigurationId)
 configurations_pending = Lens.lens (\Configurations' {pending} -> pending) (\s@Configurations' {} a -> s {pending = a} :: Configurations)
 
-instance Core.FromJSON Configurations where
+instance Data.FromJSON Configurations where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Configurations"
       ( \x ->
           Configurations'
-            Prelude.<$> (x Core..:? "history" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "current")
-            Prelude.<*> (x Core..:? "pending")
+            Prelude.<$> (x Data..:? "history" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "current")
+            Prelude.<*> (x Data..:? "pending")
       )
 
 instance Prelude.Hashable Configurations where

@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.BrokerInstanceOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types.AvailabilityZone
 import Amazonka.MQ.Types.BrokerStorageType
 import Amazonka.MQ.Types.DeploymentMode
@@ -101,23 +102,23 @@ brokerInstanceOption_hostInstanceType = Lens.lens (\BrokerInstanceOption' {hostI
 brokerInstanceOption_supportedEngineVersions :: Lens.Lens' BrokerInstanceOption (Prelude.Maybe [Prelude.Text])
 brokerInstanceOption_supportedEngineVersions = Lens.lens (\BrokerInstanceOption' {supportedEngineVersions} -> supportedEngineVersions) (\s@BrokerInstanceOption' {} a -> s {supportedEngineVersions = a} :: BrokerInstanceOption) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON BrokerInstanceOption where
+instance Data.FromJSON BrokerInstanceOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BrokerInstanceOption"
       ( \x ->
           BrokerInstanceOption'
-            Prelude.<$> (x Core..:? "engineType")
-            Prelude.<*> ( x Core..:? "supportedDeploymentModes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "engineType")
+            Prelude.<*> ( x Data..:? "supportedDeploymentModes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "availabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "availabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "storageType")
-            Prelude.<*> (x Core..:? "hostInstanceType")
-            Prelude.<*> ( x Core..:? "supportedEngineVersions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "storageType")
+            Prelude.<*> (x Data..:? "hostInstanceType")
+            Prelude.<*> ( x Data..:? "supportedEngineVersions"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -166,37 +167,37 @@ instance Prelude.NFData UpdateUser where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf brokerId
 
-instance Core.ToHeaders UpdateUser where
+instance Data.ToHeaders UpdateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUser where
+instance Data.ToJSON UpdateUser where
   toJSON UpdateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("password" Core..=) Prelude.<$> password,
-            ("consoleAccess" Core..=) Prelude.<$> consoleAccess,
-            ("groups" Core..=) Prelude.<$> groups
+          [ ("password" Data..=) Prelude.<$> password,
+            ("consoleAccess" Data..=) Prelude.<$> consoleAccess,
+            ("groups" Data..=) Prelude.<$> groups
           ]
       )
 
-instance Core.ToPath UpdateUser where
+instance Data.ToPath UpdateUser where
   toPath UpdateUser' {..} =
     Prelude.mconcat
       [ "/v1/brokers/",
-        Core.toBS brokerId,
+        Data.toBS brokerId,
         "/users/",
-        Core.toBS username
+        Data.toBS username
       ]
 
-instance Core.ToQuery UpdateUser where
+instance Data.ToQuery UpdateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserResponse' smart constructor.

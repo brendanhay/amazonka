@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.EngineVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Id of the engine version.
@@ -50,12 +51,12 @@ newEngineVersion =
 engineVersion_name :: Lens.Lens' EngineVersion (Prelude.Maybe Prelude.Text)
 engineVersion_name = Lens.lens (\EngineVersion' {name} -> name) (\s@EngineVersion' {} a -> s {name = a} :: EngineVersion)
 
-instance Core.FromJSON EngineVersion where
+instance Data.FromJSON EngineVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EngineVersion"
       ( \x ->
-          EngineVersion' Prelude.<$> (x Core..:? "name")
+          EngineVersion' Prelude.<$> (x Data..:? "name")
       )
 
 instance Prelude.Hashable EngineVersion where

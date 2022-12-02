@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.UserPendingChanges where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types.ChangeType
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,15 +85,15 @@ userPendingChanges_groups = Lens.lens (\UserPendingChanges' {groups} -> groups) 
 userPendingChanges_pendingChange :: Lens.Lens' UserPendingChanges ChangeType
 userPendingChanges_pendingChange = Lens.lens (\UserPendingChanges' {pendingChange} -> pendingChange) (\s@UserPendingChanges' {} a -> s {pendingChange = a} :: UserPendingChanges)
 
-instance Core.FromJSON UserPendingChanges where
+instance Data.FromJSON UserPendingChanges where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserPendingChanges"
       ( \x ->
           UserPendingChanges'
-            Prelude.<$> (x Core..:? "consoleAccess")
-            Prelude.<*> (x Core..:? "groups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "pendingChange")
+            Prelude.<$> (x Data..:? "consoleAccess")
+            Prelude.<*> (x Data..:? "groups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "pendingChange")
       )
 
 instance Prelude.Hashable UserPendingChanges where

@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.BrokerSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types.BrokerState
 import Amazonka.MQ.Types.DeploymentMode
 import Amazonka.MQ.Types.EngineType
@@ -36,7 +37,7 @@ data BrokerSummary = BrokerSummary'
     -- characters, or special characters.
     brokerName :: Prelude.Maybe Prelude.Text,
     -- | The time when the broker was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The broker\'s status.
     brokerState :: Prelude.Maybe BrokerState,
     -- | The unique ID that Amazon MQ generates for the broker.
@@ -105,7 +106,7 @@ brokerSummary_brokerName = Lens.lens (\BrokerSummary' {brokerName} -> brokerName
 
 -- | The time when the broker was created.
 brokerSummary_created :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.UTCTime)
-brokerSummary_created = Lens.lens (\BrokerSummary' {created} -> created) (\s@BrokerSummary' {} a -> s {created = a} :: BrokerSummary) Prelude.. Lens.mapping Core._Time
+brokerSummary_created = Lens.lens (\BrokerSummary' {created} -> created) (\s@BrokerSummary' {} a -> s {created = a} :: BrokerSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The broker\'s status.
 brokerSummary_brokerState :: Lens.Lens' BrokerSummary (Prelude.Maybe BrokerState)
@@ -131,20 +132,20 @@ brokerSummary_deploymentMode = Lens.lens (\BrokerSummary' {deploymentMode} -> de
 brokerSummary_engineType :: Lens.Lens' BrokerSummary EngineType
 brokerSummary_engineType = Lens.lens (\BrokerSummary' {engineType} -> engineType) (\s@BrokerSummary' {} a -> s {engineType = a} :: BrokerSummary)
 
-instance Core.FromJSON BrokerSummary where
+instance Data.FromJSON BrokerSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BrokerSummary"
       ( \x ->
           BrokerSummary'
-            Prelude.<$> (x Core..:? "brokerName")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "brokerState")
-            Prelude.<*> (x Core..:? "brokerId")
-            Prelude.<*> (x Core..:? "hostInstanceType")
-            Prelude.<*> (x Core..:? "brokerArn")
-            Prelude.<*> (x Core..: "deploymentMode")
-            Prelude.<*> (x Core..: "engineType")
+            Prelude.<$> (x Data..:? "brokerName")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "brokerState")
+            Prelude.<*> (x Data..:? "brokerId")
+            Prelude.<*> (x Data..:? "hostInstanceType")
+            Prelude.<*> (x Data..:? "brokerArn")
+            Prelude.<*> (x Data..: "deploymentMode")
+            Prelude.<*> (x Data..: "engineType")
       )
 
 instance Prelude.Hashable BrokerSummary where

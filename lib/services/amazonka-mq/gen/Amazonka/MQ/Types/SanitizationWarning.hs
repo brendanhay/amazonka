@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.SanitizationWarning where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types.SanitizationWarningReason
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,15 +78,15 @@ sanitizationWarning_attributeName = Lens.lens (\SanitizationWarning' {attributeN
 sanitizationWarning_reason :: Lens.Lens' SanitizationWarning SanitizationWarningReason
 sanitizationWarning_reason = Lens.lens (\SanitizationWarning' {reason} -> reason) (\s@SanitizationWarning' {} a -> s {reason = a} :: SanitizationWarning)
 
-instance Core.FromJSON SanitizationWarning where
+instance Data.FromJSON SanitizationWarning where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SanitizationWarning"
       ( \x ->
           SanitizationWarning'
-            Prelude.<$> (x Core..:? "elementName")
-            Prelude.<*> (x Core..:? "attributeName")
-            Prelude.<*> (x Core..: "reason")
+            Prelude.<$> (x Data..:? "elementName")
+            Prelude.<*> (x Data..:? "attributeName")
+            Prelude.<*> (x Data..: "reason")
       )
 
 instance Prelude.Hashable SanitizationWarning where

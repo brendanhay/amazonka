@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.WeeklyStartTime where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types.DayOfWeek
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,15 +80,15 @@ weeklyStartTime_timeOfDay = Lens.lens (\WeeklyStartTime' {timeOfDay} -> timeOfDa
 weeklyStartTime_dayOfWeek :: Lens.Lens' WeeklyStartTime DayOfWeek
 weeklyStartTime_dayOfWeek = Lens.lens (\WeeklyStartTime' {dayOfWeek} -> dayOfWeek) (\s@WeeklyStartTime' {} a -> s {dayOfWeek = a} :: WeeklyStartTime)
 
-instance Core.FromJSON WeeklyStartTime where
+instance Data.FromJSON WeeklyStartTime where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WeeklyStartTime"
       ( \x ->
           WeeklyStartTime'
-            Prelude.<$> (x Core..:? "timeZone")
-            Prelude.<*> (x Core..: "timeOfDay")
-            Prelude.<*> (x Core..: "dayOfWeek")
+            Prelude.<$> (x Data..:? "timeZone")
+            Prelude.<*> (x Data..: "timeOfDay")
+            Prelude.<*> (x Data..: "dayOfWeek")
       )
 
 instance Prelude.Hashable WeeklyStartTime where
@@ -102,12 +103,12 @@ instance Prelude.NFData WeeklyStartTime where
       `Prelude.seq` Prelude.rnf timeOfDay
       `Prelude.seq` Prelude.rnf dayOfWeek
 
-instance Core.ToJSON WeeklyStartTime where
+instance Data.ToJSON WeeklyStartTime where
   toJSON WeeklyStartTime' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeZone" Core..=) Prelude.<$> timeZone,
-            Prelude.Just ("timeOfDay" Core..= timeOfDay),
-            Prelude.Just ("dayOfWeek" Core..= dayOfWeek)
+          [ ("timeZone" Data..=) Prelude.<$> timeZone,
+            Prelude.Just ("timeOfDay" Data..= timeOfDay),
+            Prelude.Just ("dayOfWeek" Data..= dayOfWeek)
           ]
       )

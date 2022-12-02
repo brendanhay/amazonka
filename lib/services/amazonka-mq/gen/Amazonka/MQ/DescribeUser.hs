@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,11 +106,11 @@ instance Core.AWSRequest DescribeUser where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserResponse'
-            Prelude.<$> (x Core..?> "username")
-            Prelude.<*> (x Core..?> "brokerId")
-            Prelude.<*> (x Core..?> "consoleAccess")
-            Prelude.<*> (x Core..?> "groups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "pending")
+            Prelude.<$> (x Data..?> "username")
+            Prelude.<*> (x Data..?> "brokerId")
+            Prelude.<*> (x Data..?> "consoleAccess")
+            Prelude.<*> (x Data..?> "groups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "pending")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,27 +124,27 @@ instance Prelude.NFData DescribeUser where
     Prelude.rnf username
       `Prelude.seq` Prelude.rnf brokerId
 
-instance Core.ToHeaders DescribeUser where
+instance Data.ToHeaders DescribeUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeUser where
+instance Data.ToPath DescribeUser where
   toPath DescribeUser' {..} =
     Prelude.mconcat
       [ "/v1/brokers/",
-        Core.toBS brokerId,
+        Data.toBS brokerId,
         "/users/",
-        Core.toBS username
+        Data.toBS username
       ]
 
-instance Core.ToQuery DescribeUser where
+instance Data.ToQuery DescribeUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeUserResponse' smart constructor.

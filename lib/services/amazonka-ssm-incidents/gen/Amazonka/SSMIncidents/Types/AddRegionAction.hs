@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.AddRegionAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the Amazon Web Services Region and KMS key to add to the
@@ -74,11 +75,11 @@ instance Prelude.NFData AddRegionAction where
     Prelude.rnf sseKmsKeyId
       `Prelude.seq` Prelude.rnf regionName
 
-instance Core.ToJSON AddRegionAction where
+instance Data.ToJSON AddRegionAction where
   toJSON AddRegionAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sseKmsKeyId" Core..=) Prelude.<$> sseKmsKeyId,
-            Prelude.Just ("regionName" Core..= regionName)
+          [ ("sseKmsKeyId" Data..=) Prelude.<$> sseKmsKeyId,
+            Prelude.Just ("regionName" Data..= regionName)
           ]
       )

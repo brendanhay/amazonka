@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -185,7 +186,7 @@ instance Core.AWSRequest CreateResponsePlan where
       ( \s h x ->
           CreateResponsePlanResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable CreateResponsePlan where
@@ -212,38 +213,38 @@ instance Prelude.NFData CreateResponsePlan where
       `Prelude.seq` Prelude.rnf incidentTemplate
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateResponsePlan where
+instance Data.ToHeaders CreateResponsePlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateResponsePlan where
+instance Data.ToJSON CreateResponsePlan where
   toJSON CreateResponsePlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("integrations" Core..=) Prelude.<$> integrations,
-            ("chatChannel" Core..=) Prelude.<$> chatChannel,
-            ("displayName" Core..=) Prelude.<$> displayName,
-            ("engagements" Core..=) Prelude.<$> engagements,
-            ("actions" Core..=) Prelude.<$> actions,
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("integrations" Data..=) Prelude.<$> integrations,
+            ("chatChannel" Data..=) Prelude.<$> chatChannel,
+            ("displayName" Data..=) Prelude.<$> displayName,
+            ("engagements" Data..=) Prelude.<$> engagements,
+            ("actions" Data..=) Prelude.<$> actions,
             Prelude.Just
-              ("incidentTemplate" Core..= incidentTemplate),
-            Prelude.Just ("name" Core..= name)
+              ("incidentTemplate" Data..= incidentTemplate),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateResponsePlan where
+instance Data.ToPath CreateResponsePlan where
   toPath = Prelude.const "/createResponsePlan"
 
-instance Core.ToQuery CreateResponsePlan where
+instance Data.ToQuery CreateResponsePlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResponsePlanResponse' smart constructor.

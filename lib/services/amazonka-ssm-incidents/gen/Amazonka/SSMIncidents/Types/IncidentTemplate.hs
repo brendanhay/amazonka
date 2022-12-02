@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.IncidentTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.NotificationTargetItem
 
@@ -118,20 +119,20 @@ incidentTemplate_impact = Lens.lens (\IncidentTemplate' {impact} -> impact) (\s@
 incidentTemplate_title :: Lens.Lens' IncidentTemplate Prelude.Text
 incidentTemplate_title = Lens.lens (\IncidentTemplate' {title} -> title) (\s@IncidentTemplate' {} a -> s {title = a} :: IncidentTemplate)
 
-instance Core.FromJSON IncidentTemplate where
+instance Data.FromJSON IncidentTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IncidentTemplate"
       ( \x ->
           IncidentTemplate'
-            Prelude.<$> (x Core..:? "incidentTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "summary")
-            Prelude.<*> ( x Core..:? "notificationTargets"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "incidentTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "summary")
+            Prelude.<*> ( x Data..:? "notificationTargets"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "dedupeString")
-            Prelude.<*> (x Core..: "impact")
-            Prelude.<*> (x Core..: "title")
+            Prelude.<*> (x Data..:? "dedupeString")
+            Prelude.<*> (x Data..: "impact")
+            Prelude.<*> (x Data..: "title")
       )
 
 instance Prelude.Hashable IncidentTemplate where
@@ -152,16 +153,16 @@ instance Prelude.NFData IncidentTemplate where
       `Prelude.seq` Prelude.rnf impact
       `Prelude.seq` Prelude.rnf title
 
-instance Core.ToJSON IncidentTemplate where
+instance Data.ToJSON IncidentTemplate where
   toJSON IncidentTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("incidentTags" Core..=) Prelude.<$> incidentTags,
-            ("summary" Core..=) Prelude.<$> summary,
-            ("notificationTargets" Core..=)
+          [ ("incidentTags" Data..=) Prelude.<$> incidentTags,
+            ("summary" Data..=) Prelude.<$> summary,
+            ("notificationTargets" Data..=)
               Prelude.<$> notificationTargets,
-            ("dedupeString" Core..=) Prelude.<$> dedupeString,
-            Prelude.Just ("impact" Core..= impact),
-            Prelude.Just ("title" Core..= title)
+            ("dedupeString" Data..=) Prelude.<$> dedupeString,
+            Prelude.Just ("impact" Data..= impact),
+            Prelude.Just ("title" Data..= title)
           ]
       )

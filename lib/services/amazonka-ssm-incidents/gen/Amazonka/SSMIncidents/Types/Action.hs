@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.SsmAutomation
 
@@ -54,12 +55,12 @@ newAction = Action' {ssmAutomation = Prelude.Nothing}
 action_ssmAutomation :: Lens.Lens' Action (Prelude.Maybe SsmAutomation)
 action_ssmAutomation = Lens.lens (\Action' {ssmAutomation} -> ssmAutomation) (\s@Action' {} a -> s {ssmAutomation = a} :: Action)
 
-instance Core.FromJSON Action where
+instance Data.FromJSON Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Action"
       ( \x ->
-          Action' Prelude.<$> (x Core..:? "ssmAutomation")
+          Action' Prelude.<$> (x Data..:? "ssmAutomation")
       )
 
 instance Prelude.Hashable Action where
@@ -69,11 +70,11 @@ instance Prelude.Hashable Action where
 instance Prelude.NFData Action where
   rnf Action' {..} = Prelude.rnf ssmAutomation
 
-instance Core.ToJSON Action where
+instance Data.ToJSON Action where
   toJSON Action' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ssmAutomation" Core..=)
+          [ ("ssmAutomation" Data..=)
               Prelude.<$> ssmAutomation
           ]
       )

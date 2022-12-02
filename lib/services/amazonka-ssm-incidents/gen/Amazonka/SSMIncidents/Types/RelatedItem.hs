@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.RelatedItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.ItemIdentifier
 
@@ -82,15 +83,15 @@ relatedItem_title = Lens.lens (\RelatedItem' {title} -> title) (\s@RelatedItem' 
 relatedItem_identifier :: Lens.Lens' RelatedItem ItemIdentifier
 relatedItem_identifier = Lens.lens (\RelatedItem' {identifier} -> identifier) (\s@RelatedItem' {} a -> s {identifier = a} :: RelatedItem)
 
-instance Core.FromJSON RelatedItem where
+instance Data.FromJSON RelatedItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelatedItem"
       ( \x ->
           RelatedItem'
-            Prelude.<$> (x Core..:? "generatedId")
-            Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..: "identifier")
+            Prelude.<$> (x Data..:? "generatedId")
+            Prelude.<*> (x Data..:? "title")
+            Prelude.<*> (x Data..: "identifier")
       )
 
 instance Prelude.Hashable RelatedItem where
@@ -105,12 +106,12 @@ instance Prelude.NFData RelatedItem where
       `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf identifier
 
-instance Core.ToJSON RelatedItem where
+instance Data.ToJSON RelatedItem where
   toJSON RelatedItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("generatedId" Core..=) Prelude.<$> generatedId,
-            ("title" Core..=) Prelude.<$> title,
-            Prelude.Just ("identifier" Core..= identifier)
+          [ ("generatedId" Data..=) Prelude.<$> generatedId,
+            ("title" Data..=) Prelude.<$> title,
+            Prelude.Just ("identifier" Data..= identifier)
           ]
       )

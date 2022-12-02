@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.IncidentRecordSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about what created the incident record and when it was created.
@@ -92,16 +93,16 @@ incidentRecordSource_createdBy = Lens.lens (\IncidentRecordSource' {createdBy} -
 incidentRecordSource_source :: Lens.Lens' IncidentRecordSource Prelude.Text
 incidentRecordSource_source = Lens.lens (\IncidentRecordSource' {source} -> source) (\s@IncidentRecordSource' {} a -> s {source = a} :: IncidentRecordSource)
 
-instance Core.FromJSON IncidentRecordSource where
+instance Data.FromJSON IncidentRecordSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IncidentRecordSource"
       ( \x ->
           IncidentRecordSource'
-            Prelude.<$> (x Core..:? "invokedBy")
-            Prelude.<*> (x Core..:? "resourceArn")
-            Prelude.<*> (x Core..: "createdBy")
-            Prelude.<*> (x Core..: "source")
+            Prelude.<$> (x Data..:? "invokedBy")
+            Prelude.<*> (x Data..:? "resourceArn")
+            Prelude.<*> (x Data..: "createdBy")
+            Prelude.<*> (x Data..: "source")
       )
 
 instance Prelude.Hashable IncidentRecordSource where

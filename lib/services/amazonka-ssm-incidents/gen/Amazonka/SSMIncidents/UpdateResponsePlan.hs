@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -321,47 +322,47 @@ instance Prelude.NFData UpdateResponsePlan where
       `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdateResponsePlan where
+instance Data.ToHeaders UpdateResponsePlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateResponsePlan where
+instance Data.ToJSON UpdateResponsePlan where
   toJSON UpdateResponsePlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("integrations" Core..=) Prelude.<$> integrations,
-            ("incidentTemplateDedupeString" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("integrations" Data..=) Prelude.<$> integrations,
+            ("incidentTemplateDedupeString" Data..=)
               Prelude.<$> incidentTemplateDedupeString,
-            ("incidentTemplateNotificationTargets" Core..=)
+            ("incidentTemplateNotificationTargets" Data..=)
               Prelude.<$> incidentTemplateNotificationTargets,
-            ("incidentTemplateTags" Core..=)
+            ("incidentTemplateTags" Data..=)
               Prelude.<$> incidentTemplateTags,
-            ("chatChannel" Core..=) Prelude.<$> chatChannel,
-            ("displayName" Core..=) Prelude.<$> displayName,
-            ("incidentTemplateImpact" Core..=)
+            ("chatChannel" Data..=) Prelude.<$> chatChannel,
+            ("displayName" Data..=) Prelude.<$> displayName,
+            ("incidentTemplateImpact" Data..=)
               Prelude.<$> incidentTemplateImpact,
-            ("incidentTemplateSummary" Core..=)
+            ("incidentTemplateSummary" Data..=)
               Prelude.<$> incidentTemplateSummary,
-            ("engagements" Core..=) Prelude.<$> engagements,
-            ("incidentTemplateTitle" Core..=)
+            ("engagements" Data..=) Prelude.<$> engagements,
+            ("incidentTemplateTitle" Data..=)
               Prelude.<$> incidentTemplateTitle,
-            ("actions" Core..=) Prelude.<$> actions,
-            Prelude.Just ("arn" Core..= arn)
+            ("actions" Data..=) Prelude.<$> actions,
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdateResponsePlan where
+instance Data.ToPath UpdateResponsePlan where
   toPath = Prelude.const "/updateResponsePlan"
 
-instance Core.ToQuery UpdateResponsePlan where
+instance Data.ToQuery UpdateResponsePlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateResponsePlanResponse' smart constructor.

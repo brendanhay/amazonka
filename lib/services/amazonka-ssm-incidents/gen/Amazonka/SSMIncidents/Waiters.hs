@@ -18,6 +18,7 @@ module Amazonka.SSMIncidents.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.GetReplicationSet
 import Amazonka.SSMIncidents.Lens
@@ -40,14 +41,14 @@ newWaitForReplicationSetDeleted =
             Core.AcceptRetry
             ( getReplicationSetResponse_replicationSet
                 Prelude.. replicationSet_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( getReplicationSetResponse_replicationSet
                 Prelude.. replicationSet_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -66,28 +67,28 @@ newWaitForReplicationSetActive =
             Core.AcceptSuccess
             ( getReplicationSetResponse_replicationSet
                 Prelude.. replicationSet_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATING"
             Core.AcceptRetry
             ( getReplicationSetResponse_replicationSet
                 Prelude.. replicationSet_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATING"
             Core.AcceptRetry
             ( getReplicationSetResponse_replicationSet
                 Prelude.. replicationSet_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( getReplicationSetResponse_replicationSet
                 Prelude.. replicationSet_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

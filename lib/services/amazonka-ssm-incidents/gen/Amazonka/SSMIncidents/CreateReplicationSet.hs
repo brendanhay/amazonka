@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,7 +112,7 @@ instance Core.AWSRequest CreateReplicationSet where
       ( \s h x ->
           CreateReplicationSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable CreateReplicationSet where
@@ -126,31 +127,31 @@ instance Prelude.NFData CreateReplicationSet where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf regions
 
-instance Core.ToHeaders CreateReplicationSet where
+instance Data.ToHeaders CreateReplicationSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateReplicationSet where
+instance Data.ToJSON CreateReplicationSet where
   toJSON CreateReplicationSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("regions" Core..= regions)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("regions" Data..= regions)
           ]
       )
 
-instance Core.ToPath CreateReplicationSet where
+instance Data.ToPath CreateReplicationSet where
   toPath = Prelude.const "/createReplicationSet"
 
-instance Core.ToQuery CreateReplicationSet where
+instance Data.ToQuery CreateReplicationSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateReplicationSetResponse' smart constructor.

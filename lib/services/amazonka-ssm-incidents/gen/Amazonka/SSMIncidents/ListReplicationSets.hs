@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,9 +118,9 @@ instance Core.AWSRequest ListReplicationSets where
     Response.receiveJSON
       ( \s h x ->
           ListReplicationSetsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "replicationSetArns"
+            Prelude.<*> ( x Data..?> "replicationSetArns"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -134,30 +135,30 @@ instance Prelude.NFData ListReplicationSets where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListReplicationSets where
+instance Data.ToHeaders ListReplicationSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListReplicationSets where
+instance Data.ToJSON ListReplicationSets where
   toJSON ListReplicationSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListReplicationSets where
+instance Data.ToPath ListReplicationSets where
   toPath = Prelude.const "/listReplicationSets"
 
-instance Core.ToQuery ListReplicationSets where
+instance Data.ToQuery ListReplicationSets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListReplicationSetsResponse' smart constructor.

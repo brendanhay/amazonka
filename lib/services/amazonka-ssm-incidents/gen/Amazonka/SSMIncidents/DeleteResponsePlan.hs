@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,28 +95,28 @@ instance Prelude.Hashable DeleteResponsePlan where
 instance Prelude.NFData DeleteResponsePlan where
   rnf DeleteResponsePlan' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteResponsePlan where
+instance Data.ToHeaders DeleteResponsePlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteResponsePlan where
+instance Data.ToJSON DeleteResponsePlan where
   toJSON DeleteResponsePlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath DeleteResponsePlan where
+instance Data.ToPath DeleteResponsePlan where
   toPath = Prelude.const "/deleteResponsePlan"
 
-instance Core.ToQuery DeleteResponsePlan where
+instance Data.ToQuery DeleteResponsePlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResponsePlanResponse' smart constructor.

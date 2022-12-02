@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -249,37 +250,37 @@ instance Prelude.NFData UpdateIncidentRecord where
       `Prelude.seq` Prelude.rnf notificationTargets
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdateIncidentRecord where
+instance Data.ToHeaders UpdateIncidentRecord where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateIncidentRecord where
+instance Data.ToJSON UpdateIncidentRecord where
   toJSON UpdateIncidentRecord' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("impact" Core..=) Prelude.<$> impact,
-            ("chatChannel" Core..=) Prelude.<$> chatChannel,
-            ("summary" Core..=) Prelude.<$> summary,
-            ("status" Core..=) Prelude.<$> status,
-            ("title" Core..=) Prelude.<$> title,
-            ("notificationTargets" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("impact" Data..=) Prelude.<$> impact,
+            ("chatChannel" Data..=) Prelude.<$> chatChannel,
+            ("summary" Data..=) Prelude.<$> summary,
+            ("status" Data..=) Prelude.<$> status,
+            ("title" Data..=) Prelude.<$> title,
+            ("notificationTargets" Data..=)
               Prelude.<$> notificationTargets,
-            Prelude.Just ("arn" Core..= arn)
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdateIncidentRecord where
+instance Data.ToPath UpdateIncidentRecord where
   toPath = Prelude.const "/updateIncidentRecord"
 
-instance Core.ToQuery UpdateIncidentRecord where
+instance Data.ToQuery UpdateIncidentRecord where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateIncidentRecordResponse' smart constructor.

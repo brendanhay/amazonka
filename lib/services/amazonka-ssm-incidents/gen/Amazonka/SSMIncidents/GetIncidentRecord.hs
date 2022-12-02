@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetIncidentRecord where
       ( \s h x ->
           GetIncidentRecordResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "incidentRecord")
+            Prelude.<*> (x Data..:> "incidentRecord")
       )
 
 instance Prelude.Hashable GetIncidentRecord where
@@ -94,23 +95,23 @@ instance Prelude.Hashable GetIncidentRecord where
 instance Prelude.NFData GetIncidentRecord where
   rnf GetIncidentRecord' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetIncidentRecord where
+instance Data.ToHeaders GetIncidentRecord where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetIncidentRecord where
+instance Data.ToPath GetIncidentRecord where
   toPath = Prelude.const "/getIncidentRecord"
 
-instance Core.ToQuery GetIncidentRecord where
+instance Data.ToQuery GetIncidentRecord where
   toQuery GetIncidentRecord' {..} =
-    Prelude.mconcat ["arn" Core.=: arn]
+    Prelude.mconcat ["arn" Data.=: arn]
 
 -- | /See:/ 'newGetIncidentRecordResponse' smart constructor.
 data GetIncidentRecordResponse = GetIncidentRecordResponse'

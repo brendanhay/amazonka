@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -213,9 +214,9 @@ instance Core.AWSRequest ListTimelineEvents where
     Response.receiveJSON
       ( \s h x ->
           ListTimelineEventsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "eventSummaries"
+            Prelude.<*> ( x Data..?> "eventSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -238,35 +239,35 @@ instance Prelude.NFData ListTimelineEvents where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf incidentRecordArn
 
-instance Core.ToHeaders ListTimelineEvents where
+instance Data.ToHeaders ListTimelineEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTimelineEvents where
+instance Data.ToJSON ListTimelineEvents where
   toJSON ListTimelineEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("incidentRecordArn" Core..= incidentRecordArn)
+              ("incidentRecordArn" Data..= incidentRecordArn)
           ]
       )
 
-instance Core.ToPath ListTimelineEvents where
+instance Data.ToPath ListTimelineEvents where
   toPath = Prelude.const "/listTimelineEvents"
 
-instance Core.ToQuery ListTimelineEvents where
+instance Data.ToQuery ListTimelineEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTimelineEventsResponse' smart constructor.

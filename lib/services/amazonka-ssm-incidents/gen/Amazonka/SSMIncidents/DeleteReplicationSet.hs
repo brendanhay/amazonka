@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,26 +94,26 @@ instance Prelude.Hashable DeleteReplicationSet where
 instance Prelude.NFData DeleteReplicationSet where
   rnf DeleteReplicationSet' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteReplicationSet where
+instance Data.ToHeaders DeleteReplicationSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteReplicationSet where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DeleteReplicationSet where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DeleteReplicationSet where
+instance Data.ToPath DeleteReplicationSet where
   toPath = Prelude.const "/deleteReplicationSet"
 
-instance Core.ToQuery DeleteReplicationSet where
+instance Data.ToQuery DeleteReplicationSet where
   toQuery DeleteReplicationSet' {..} =
-    Prelude.mconcat ["arn" Core.=: arn]
+    Prelude.mconcat ["arn" Data.=: arn]
 
 -- | /See:/ 'newDeleteReplicationSetResponse' smart constructor.
 data DeleteReplicationSetResponse = DeleteReplicationSetResponse'

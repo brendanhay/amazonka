@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.PagerDutyIncidentDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the PagerDuty incident associated with an incident created
@@ -86,15 +87,15 @@ pagerDutyIncidentDetail_autoResolve = Lens.lens (\PagerDutyIncidentDetail' {auto
 pagerDutyIncidentDetail_id :: Lens.Lens' PagerDutyIncidentDetail Prelude.Text
 pagerDutyIncidentDetail_id = Lens.lens (\PagerDutyIncidentDetail' {id} -> id) (\s@PagerDutyIncidentDetail' {} a -> s {id = a} :: PagerDutyIncidentDetail)
 
-instance Core.FromJSON PagerDutyIncidentDetail where
+instance Data.FromJSON PagerDutyIncidentDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PagerDutyIncidentDetail"
       ( \x ->
           PagerDutyIncidentDetail'
-            Prelude.<$> (x Core..:? "secretId")
-            Prelude.<*> (x Core..:? "autoResolve")
-            Prelude.<*> (x Core..: "id")
+            Prelude.<$> (x Data..:? "secretId")
+            Prelude.<*> (x Data..:? "autoResolve")
+            Prelude.<*> (x Data..: "id")
       )
 
 instance Prelude.Hashable PagerDutyIncidentDetail where
@@ -109,12 +110,12 @@ instance Prelude.NFData PagerDutyIncidentDetail where
       `Prelude.seq` Prelude.rnf autoResolve
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON PagerDutyIncidentDetail where
+instance Data.ToJSON PagerDutyIncidentDetail where
   toJSON PagerDutyIncidentDetail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("secretId" Core..=) Prelude.<$> secretId,
-            ("autoResolve" Core..=) Prelude.<$> autoResolve,
-            Prelude.Just ("id" Core..= id)
+          [ ("secretId" Data..=) Prelude.<$> secretId,
+            ("autoResolve" Data..=) Prelude.<$> autoResolve,
+            Prelude.Just ("id" Data..= id)
           ]
       )

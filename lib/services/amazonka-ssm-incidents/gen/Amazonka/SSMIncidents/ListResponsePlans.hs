@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,9 +118,9 @@ instance Core.AWSRequest ListResponsePlans where
     Response.receiveJSON
       ( \s h x ->
           ListResponsePlansResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "responsePlanSummaries"
+            Prelude.<*> ( x Data..?> "responsePlanSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -134,30 +135,30 @@ instance Prelude.NFData ListResponsePlans where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListResponsePlans where
+instance Data.ToHeaders ListResponsePlans where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResponsePlans where
+instance Data.ToJSON ListResponsePlans where
   toJSON ListResponsePlans' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListResponsePlans where
+instance Data.ToPath ListResponsePlans where
   toPath = Prelude.const "/listResponsePlans"
 
-instance Core.ToQuery ListResponsePlans where
+instance Data.ToQuery ListResponsePlans where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResponsePlansResponse' smart constructor.

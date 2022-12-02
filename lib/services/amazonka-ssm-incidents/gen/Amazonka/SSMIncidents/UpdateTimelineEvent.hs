@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,7 +73,7 @@ data UpdateTimelineEvent = UpdateTimelineEvent'
     -- don\'t, this action removes them and enters only new references.
     eventReferences :: Prelude.Maybe [EventReference],
     -- | The time that the event occurred.
-    eventTime :: Prelude.Maybe Core.POSIX,
+    eventTime :: Prelude.Maybe Data.POSIX,
     -- | A short description of the event.
     eventData :: Prelude.Maybe Prelude.Text,
     -- | The ID of the event you are updating. You can find this by using
@@ -162,7 +163,7 @@ updateTimelineEvent_eventReferences = Lens.lens (\UpdateTimelineEvent' {eventRef
 
 -- | The time that the event occurred.
 updateTimelineEvent_eventTime :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.UTCTime)
-updateTimelineEvent_eventTime = Lens.lens (\UpdateTimelineEvent' {eventTime} -> eventTime) (\s@UpdateTimelineEvent' {} a -> s {eventTime = a} :: UpdateTimelineEvent) Prelude.. Lens.mapping Core._Time
+updateTimelineEvent_eventTime = Lens.lens (\UpdateTimelineEvent' {eventTime} -> eventTime) (\s@UpdateTimelineEvent' {} a -> s {eventTime = a} :: UpdateTimelineEvent) Prelude.. Lens.mapping Data._Time
 
 -- | A short description of the event.
 updateTimelineEvent_eventData :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.Text)
@@ -211,37 +212,37 @@ instance Prelude.NFData UpdateTimelineEvent where
       `Prelude.seq` Prelude.rnf eventId
       `Prelude.seq` Prelude.rnf incidentRecordArn
 
-instance Core.ToHeaders UpdateTimelineEvent where
+instance Data.ToHeaders UpdateTimelineEvent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTimelineEvent where
+instance Data.ToJSON UpdateTimelineEvent where
   toJSON UpdateTimelineEvent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("eventType" Core..=) Prelude.<$> eventType,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("eventReferences" Core..=)
+          [ ("eventType" Data..=) Prelude.<$> eventType,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("eventReferences" Data..=)
               Prelude.<$> eventReferences,
-            ("eventTime" Core..=) Prelude.<$> eventTime,
-            ("eventData" Core..=) Prelude.<$> eventData,
-            Prelude.Just ("eventId" Core..= eventId),
+            ("eventTime" Data..=) Prelude.<$> eventTime,
+            ("eventData" Data..=) Prelude.<$> eventData,
+            Prelude.Just ("eventId" Data..= eventId),
             Prelude.Just
-              ("incidentRecordArn" Core..= incidentRecordArn)
+              ("incidentRecordArn" Data..= incidentRecordArn)
           ]
       )
 
-instance Core.ToPath UpdateTimelineEvent where
+instance Data.ToPath UpdateTimelineEvent where
   toPath = Prelude.const "/updateTimelineEvent"
 
-instance Core.ToQuery UpdateTimelineEvent where
+instance Data.ToQuery UpdateTimelineEvent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTimelineEventResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.ItemIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.ItemType
 import Amazonka.SSMIncidents.Types.ItemValue
@@ -64,13 +65,13 @@ itemIdentifier_type = Lens.lens (\ItemIdentifier' {type'} -> type') (\s@ItemIden
 itemIdentifier_value :: Lens.Lens' ItemIdentifier ItemValue
 itemIdentifier_value = Lens.lens (\ItemIdentifier' {value} -> value) (\s@ItemIdentifier' {} a -> s {value = a} :: ItemIdentifier)
 
-instance Core.FromJSON ItemIdentifier where
+instance Data.FromJSON ItemIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ItemIdentifier"
       ( \x ->
           ItemIdentifier'
-            Prelude.<$> (x Core..: "type") Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "type") Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable ItemIdentifier where
@@ -82,11 +83,11 @@ instance Prelude.NFData ItemIdentifier where
   rnf ItemIdentifier' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ItemIdentifier where
+instance Data.ToJSON ItemIdentifier where
   toJSON ItemIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("type" Data..= type'),
+            Prelude.Just ("value" Data..= value)
           ]
       )

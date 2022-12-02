@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -73,7 +74,7 @@ data CreateTimelineEvent = CreateTimelineEvent'
     -- | A short description of the event.
     eventData :: Prelude.Text,
     -- | The time that the event occurred.
-    eventTime :: Core.POSIX,
+    eventTime :: Data.POSIX,
     -- | The type of the event. You can create timeline events of type
     -- @Custom Event@.
     eventType :: Prelude.Text,
@@ -131,7 +132,7 @@ newCreateTimelineEvent
       { clientToken = Prelude.Nothing,
         eventReferences = Prelude.Nothing,
         eventData = pEventData_,
-        eventTime = Core._Time Lens.# pEventTime_,
+        eventTime = Data._Time Lens.# pEventTime_,
         eventType = pEventType_,
         incidentRecordArn = pIncidentRecordArn_
       }
@@ -158,7 +159,7 @@ createTimelineEvent_eventData = Lens.lens (\CreateTimelineEvent' {eventData} -> 
 
 -- | The time that the event occurred.
 createTimelineEvent_eventTime :: Lens.Lens' CreateTimelineEvent Prelude.UTCTime
-createTimelineEvent_eventTime = Lens.lens (\CreateTimelineEvent' {eventTime} -> eventTime) (\s@CreateTimelineEvent' {} a -> s {eventTime = a} :: CreateTimelineEvent) Prelude.. Core._Time
+createTimelineEvent_eventTime = Lens.lens (\CreateTimelineEvent' {eventTime} -> eventTime) (\s@CreateTimelineEvent' {} a -> s {eventTime = a} :: CreateTimelineEvent) Prelude.. Data._Time
 
 -- | The type of the event. You can create timeline events of type
 -- @Custom Event@.
@@ -181,8 +182,8 @@ instance Core.AWSRequest CreateTimelineEvent where
       ( \s h x ->
           CreateTimelineEventResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "eventId")
-            Prelude.<*> (x Core..:> "incidentRecordArn")
+            Prelude.<*> (x Data..:> "eventId")
+            Prelude.<*> (x Data..:> "incidentRecordArn")
       )
 
 instance Prelude.Hashable CreateTimelineEvent where
@@ -203,36 +204,36 @@ instance Prelude.NFData CreateTimelineEvent where
       `Prelude.seq` Prelude.rnf eventType
       `Prelude.seq` Prelude.rnf incidentRecordArn
 
-instance Core.ToHeaders CreateTimelineEvent where
+instance Data.ToHeaders CreateTimelineEvent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTimelineEvent where
+instance Data.ToJSON CreateTimelineEvent where
   toJSON CreateTimelineEvent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("eventReferences" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("eventReferences" Data..=)
               Prelude.<$> eventReferences,
-            Prelude.Just ("eventData" Core..= eventData),
-            Prelude.Just ("eventTime" Core..= eventTime),
-            Prelude.Just ("eventType" Core..= eventType),
+            Prelude.Just ("eventData" Data..= eventData),
+            Prelude.Just ("eventTime" Data..= eventTime),
+            Prelude.Just ("eventType" Data..= eventType),
             Prelude.Just
-              ("incidentRecordArn" Core..= incidentRecordArn)
+              ("incidentRecordArn" Data..= incidentRecordArn)
           ]
       )
 
-instance Core.ToPath CreateTimelineEvent where
+instance Data.ToPath CreateTimelineEvent where
   toPath = Prelude.const "/createTimelineEvent"
 
-instance Core.ToQuery CreateTimelineEvent where
+instance Data.ToQuery CreateTimelineEvent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTimelineEventResponse' smart constructor.

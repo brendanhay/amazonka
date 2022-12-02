@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.AttributeValueList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use the AttributeValueList to filter by string or integer values.
@@ -72,11 +73,11 @@ instance Prelude.NFData AttributeValueList where
     Prelude.rnf integerValues
       `Prelude.seq` Prelude.rnf stringValues
 
-instance Core.ToJSON AttributeValueList where
+instance Data.ToJSON AttributeValueList where
   toJSON AttributeValueList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("integerValues" Core..=) Prelude.<$> integerValues,
-            ("stringValues" Core..=) Prelude.<$> stringValues
+          [ ("integerValues" Data..=) Prelude.<$> integerValues,
+            ("stringValues" Data..=) Prelude.<$> stringValues
           ]
       )

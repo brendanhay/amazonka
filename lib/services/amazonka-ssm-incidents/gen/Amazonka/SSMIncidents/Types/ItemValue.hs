@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.ItemValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.PagerDutyIncidentDetail
 
@@ -86,16 +87,16 @@ itemValue_metricDefinition = Lens.lens (\ItemValue' {metricDefinition} -> metric
 itemValue_pagerDutyIncidentDetail :: Lens.Lens' ItemValue (Prelude.Maybe PagerDutyIncidentDetail)
 itemValue_pagerDutyIncidentDetail = Lens.lens (\ItemValue' {pagerDutyIncidentDetail} -> pagerDutyIncidentDetail) (\s@ItemValue' {} a -> s {pagerDutyIncidentDetail = a} :: ItemValue)
 
-instance Core.FromJSON ItemValue where
+instance Data.FromJSON ItemValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ItemValue"
       ( \x ->
           ItemValue'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "metricDefinition")
-            Prelude.<*> (x Core..:? "pagerDutyIncidentDetail")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "metricDefinition")
+            Prelude.<*> (x Data..:? "pagerDutyIncidentDetail")
       )
 
 instance Prelude.Hashable ItemValue where
@@ -112,15 +113,15 @@ instance Prelude.NFData ItemValue where
       `Prelude.seq` Prelude.rnf metricDefinition
       `Prelude.seq` Prelude.rnf pagerDutyIncidentDetail
 
-instance Core.ToJSON ItemValue where
+instance Data.ToJSON ItemValue where
   toJSON ItemValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("arn" Core..=) Prelude.<$> arn,
-            ("url" Core..=) Prelude.<$> url,
-            ("metricDefinition" Core..=)
+          [ ("arn" Data..=) Prelude.<$> arn,
+            ("url" Data..=) Prelude.<$> url,
+            ("metricDefinition" Data..=)
               Prelude.<$> metricDefinition,
-            ("pagerDutyIncidentDetail" Core..=)
+            ("pagerDutyIncidentDetail" Data..=)
               Prelude.<$> pagerDutyIncidentDetail
           ]
       )

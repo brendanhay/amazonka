@@ -50,6 +50,7 @@ where
 import Amazonka.ConnectParticipant.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,8 +129,8 @@ instance Core.AWSRequest SendMessage where
     Response.receiveJSON
       ( \s h x ->
           SendMessageResponse'
-            Prelude.<$> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "AbsoluteTime")
+            Prelude.<$> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "AbsoluteTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,28 +148,28 @@ instance Prelude.NFData SendMessage where
       `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf connectionToken
 
-instance Core.ToHeaders SendMessage where
+instance Data.ToHeaders SendMessage where
   toHeaders SendMessage' {..} =
     Prelude.mconcat
-      [ "X-Amz-Bearer" Core.=# connectionToken,
+      [ "X-Amz-Bearer" Data.=# connectionToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON SendMessage where
+instance Data.ToJSON SendMessage where
   toJSON SendMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("ContentType" Core..= contentType),
-            Prelude.Just ("Content" Core..= content)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("ContentType" Data..= contentType),
+            Prelude.Just ("Content" Data..= content)
           ]
       )
 
-instance Core.ToPath SendMessage where
+instance Data.ToPath SendMessage where
   toPath = Prelude.const "/participant/message"
 
-instance Core.ToQuery SendMessage where
+instance Data.ToQuery SendMessage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendMessageResponse' smart constructor.

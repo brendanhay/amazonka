@@ -21,6 +21,7 @@ module Amazonka.ConnectParticipant.Types.Websocket where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The websocket for the participant\'s connection.
@@ -70,14 +71,14 @@ websocket_connectionExpiry = Lens.lens (\Websocket' {connectionExpiry} -> connec
 websocket_url :: Lens.Lens' Websocket (Prelude.Maybe Prelude.Text)
 websocket_url = Lens.lens (\Websocket' {url} -> url) (\s@Websocket' {} a -> s {url = a} :: Websocket)
 
-instance Core.FromJSON Websocket where
+instance Data.FromJSON Websocket where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Websocket"
       ( \x ->
           Websocket'
-            Prelude.<$> (x Core..:? "ConnectionExpiry")
-            Prelude.<*> (x Core..:? "Url")
+            Prelude.<$> (x Data..:? "ConnectionExpiry")
+            Prelude.<*> (x Data..:? "Url")
       )
 
 instance Prelude.Hashable Websocket where

@@ -24,6 +24,7 @@ import Amazonka.ConnectParticipant.Types.ChatItemType
 import Amazonka.ConnectParticipant.Types.ParticipantRole
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An item - message or event - that has been sent.
@@ -136,21 +137,21 @@ item_content = Lens.lens (\Item' {content} -> content) (\s@Item' {} a -> s {cont
 item_contentType :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
 item_contentType = Lens.lens (\Item' {contentType} -> contentType) (\s@Item' {} a -> s {contentType = a} :: Item)
 
-instance Core.FromJSON Item where
+instance Data.FromJSON Item where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Item"
       ( \x ->
           Item'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ParticipantId")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "AbsoluteTime")
-            Prelude.<*> (x Core..:? "ParticipantRole")
-            Prelude.<*> (x Core..:? "Attachments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Content")
-            Prelude.<*> (x Core..:? "ContentType")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ParticipantId")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "AbsoluteTime")
+            Prelude.<*> (x Data..:? "ParticipantRole")
+            Prelude.<*> (x Data..:? "Attachments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Content")
+            Prelude.<*> (x Data..:? "ContentType")
       )
 
 instance Prelude.Hashable Item where

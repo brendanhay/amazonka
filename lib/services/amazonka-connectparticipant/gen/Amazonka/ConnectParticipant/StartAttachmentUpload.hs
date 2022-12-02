@@ -51,6 +51,7 @@ where
 import Amazonka.ConnectParticipant.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,8 +153,8 @@ instance Core.AWSRequest StartAttachmentUpload where
     Response.receiveJSON
       ( \s h x ->
           StartAttachmentUploadResponse'
-            Prelude.<$> (x Core..?> "AttachmentId")
-            Prelude.<*> (x Core..?> "UploadMetadata")
+            Prelude.<$> (x Data..?> "AttachmentId")
+            Prelude.<*> (x Data..?> "UploadMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,35 +174,35 @@ instance Prelude.NFData StartAttachmentUpload where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf connectionToken
 
-instance Core.ToHeaders StartAttachmentUpload where
+instance Data.ToHeaders StartAttachmentUpload where
   toHeaders StartAttachmentUpload' {..} =
     Prelude.mconcat
-      [ "X-Amz-Bearer" Core.=# connectionToken,
+      [ "X-Amz-Bearer" Data.=# connectionToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON StartAttachmentUpload where
+instance Data.ToJSON StartAttachmentUpload where
   toJSON StartAttachmentUpload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ContentType" Core..= contentType),
+          [ Prelude.Just ("ContentType" Data..= contentType),
             Prelude.Just
               ( "AttachmentSizeInBytes"
-                  Core..= attachmentSizeInBytes
+                  Data..= attachmentSizeInBytes
               ),
             Prelude.Just
-              ("AttachmentName" Core..= attachmentName),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+              ("AttachmentName" Data..= attachmentName),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath StartAttachmentUpload where
+instance Data.ToPath StartAttachmentUpload where
   toPath =
     Prelude.const
       "/participant/start-attachment-upload"
 
-instance Core.ToQuery StartAttachmentUpload where
+instance Data.ToQuery StartAttachmentUpload where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartAttachmentUploadResponse' smart constructor.

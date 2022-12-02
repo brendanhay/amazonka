@@ -50,6 +50,7 @@ where
 import Amazonka.ConnectParticipant.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,8 +139,8 @@ instance Core.AWSRequest SendEvent where
     Response.receiveJSON
       ( \s h x ->
           SendEventResponse'
-            Prelude.<$> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "AbsoluteTime")
+            Prelude.<$> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "AbsoluteTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,28 +158,28 @@ instance Prelude.NFData SendEvent where
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf connectionToken
 
-instance Core.ToHeaders SendEvent where
+instance Data.ToHeaders SendEvent where
   toHeaders SendEvent' {..} =
     Prelude.mconcat
-      [ "X-Amz-Bearer" Core.=# connectionToken,
+      [ "X-Amz-Bearer" Data.=# connectionToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON SendEvent where
+instance Data.ToJSON SendEvent where
   toJSON SendEvent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Content" Core..=) Prelude.<$> content,
-            Prelude.Just ("ContentType" Core..= contentType)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Content" Data..=) Prelude.<$> content,
+            Prelude.Just ("ContentType" Data..= contentType)
           ]
       )
 
-instance Core.ToPath SendEvent where
+instance Data.ToPath SendEvent where
   toPath = Prelude.const "/participant/event"
 
-instance Core.ToQuery SendEvent where
+instance Data.ToQuery SendEvent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendEventResponse' smart constructor.

@@ -55,6 +55,7 @@ where
 import Amazonka.ConnectParticipant.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,9 +165,9 @@ instance Core.AWSRequest GetTranscript where
     Response.receiveJSON
       ( \s h x ->
           GetTranscriptResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Transcript" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "InitialContactId")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Transcript" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "InitialContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,31 +191,31 @@ instance Prelude.NFData GetTranscript where
       `Prelude.seq` Prelude.rnf scanDirection
       `Prelude.seq` Prelude.rnf connectionToken
 
-instance Core.ToHeaders GetTranscript where
+instance Data.ToHeaders GetTranscript where
   toHeaders GetTranscript' {..} =
     Prelude.mconcat
-      [ "X-Amz-Bearer" Core.=# connectionToken,
+      [ "X-Amz-Bearer" Data.=# connectionToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON GetTranscript where
+instance Data.ToJSON GetTranscript where
   toJSON GetTranscript' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ContactId" Core..=) Prelude.<$> contactId,
-            ("StartPosition" Core..=) Prelude.<$> startPosition,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ScanDirection" Core..=) Prelude.<$> scanDirection
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ContactId" Data..=) Prelude.<$> contactId,
+            ("StartPosition" Data..=) Prelude.<$> startPosition,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ScanDirection" Data..=) Prelude.<$> scanDirection
           ]
       )
 
-instance Core.ToPath GetTranscript where
+instance Data.ToPath GetTranscript where
   toPath = Prelude.const "/participant/transcript"
 
-instance Core.ToQuery GetTranscript where
+instance Data.ToQuery GetTranscript where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTranscriptResponse' smart constructor.

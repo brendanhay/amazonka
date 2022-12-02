@@ -22,6 +22,7 @@ module Amazonka.ConnectParticipant.Types.AttachmentItem where
 import Amazonka.ConnectParticipant.Types.ArtifactStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The case-insensitive input to indicate standard MIME type that describes
@@ -90,16 +91,16 @@ attachmentItem_attachmentName = Lens.lens (\AttachmentItem' {attachmentName} -> 
 attachmentItem_contentType :: Lens.Lens' AttachmentItem (Prelude.Maybe Prelude.Text)
 attachmentItem_contentType = Lens.lens (\AttachmentItem' {contentType} -> contentType) (\s@AttachmentItem' {} a -> s {contentType = a} :: AttachmentItem)
 
-instance Core.FromJSON AttachmentItem where
+instance Data.FromJSON AttachmentItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttachmentItem"
       ( \x ->
           AttachmentItem'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AttachmentId")
-            Prelude.<*> (x Core..:? "AttachmentName")
-            Prelude.<*> (x Core..:? "ContentType")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AttachmentId")
+            Prelude.<*> (x Data..:? "AttachmentName")
+            Prelude.<*> (x Data..:? "ContentType")
       )
 
 instance Prelude.Hashable AttachmentItem where

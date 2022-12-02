@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.UserData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.S3Location
 
@@ -51,12 +52,12 @@ newUserData = UserData' {s3Location = Prelude.Nothing}
 userData_s3Location :: Lens.Lens' UserData (Prelude.Maybe S3Location)
 userData_s3Location = Lens.lens (\UserData' {s3Location} -> s3Location) (\s@UserData' {} a -> s {s3Location = a} :: UserData)
 
-instance Core.FromJSON UserData where
+instance Data.FromJSON UserData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserData"
       ( \x ->
-          UserData' Prelude.<$> (x Core..:? "s3Location")
+          UserData' Prelude.<$> (x Data..:? "s3Location")
       )
 
 instance Prelude.Hashable UserData where
@@ -66,9 +67,9 @@ instance Prelude.Hashable UserData where
 instance Prelude.NFData UserData where
   rnf UserData' {..} = Prelude.rnf s3Location
 
-instance Core.ToJSON UserData where
+instance Data.ToJSON UserData where
   toJSON UserData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("s3Location" Core..=) Prelude.<$> s3Location]
+          [("s3Location" Data..=) Prelude.<$> s3Location]
       )

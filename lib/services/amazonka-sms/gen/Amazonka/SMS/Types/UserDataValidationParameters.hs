@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.UserDataValidationParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.ScriptType
 import Amazonka.SMS.Types.Source
@@ -64,14 +65,14 @@ userDataValidationParameters_source = Lens.lens (\UserDataValidationParameters' 
 userDataValidationParameters_scriptType :: Lens.Lens' UserDataValidationParameters (Prelude.Maybe ScriptType)
 userDataValidationParameters_scriptType = Lens.lens (\UserDataValidationParameters' {scriptType} -> scriptType) (\s@UserDataValidationParameters' {} a -> s {scriptType = a} :: UserDataValidationParameters)
 
-instance Core.FromJSON UserDataValidationParameters where
+instance Data.FromJSON UserDataValidationParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserDataValidationParameters"
       ( \x ->
           UserDataValidationParameters'
-            Prelude.<$> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "scriptType")
+            Prelude.<$> (x Data..:? "source")
+            Prelude.<*> (x Data..:? "scriptType")
       )
 
 instance
@@ -87,11 +88,11 @@ instance Prelude.NFData UserDataValidationParameters where
     Prelude.rnf source
       `Prelude.seq` Prelude.rnf scriptType
 
-instance Core.ToJSON UserDataValidationParameters where
+instance Data.ToJSON UserDataValidationParameters where
   toJSON UserDataValidationParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("source" Core..=) Prelude.<$> source,
-            ("scriptType" Core..=) Prelude.<$> scriptType
+          [ ("source" Data..=) Prelude.<$> source,
+            ("scriptType" Data..=) Prelude.<$> scriptType
           ]
       )

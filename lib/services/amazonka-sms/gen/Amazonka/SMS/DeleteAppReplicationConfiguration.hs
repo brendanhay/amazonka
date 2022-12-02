@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,41 +107,41 @@ instance
     Prelude.rnf appId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteAppReplicationConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteAppReplicationConfiguration
   where
   toJSON DeleteAppReplicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("appId" Core..=) Prelude.<$> appId]
+          [("appId" Data..=) Prelude.<$> appId]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteAppReplicationConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteAppReplicationConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

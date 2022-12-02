@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.ReplicationRunStageDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the current stage of a replication run.
@@ -62,14 +63,14 @@ replicationRunStageDetails_stageProgress = Lens.lens (\ReplicationRunStageDetail
 replicationRunStageDetails_stage :: Lens.Lens' ReplicationRunStageDetails (Prelude.Maybe Prelude.Text)
 replicationRunStageDetails_stage = Lens.lens (\ReplicationRunStageDetails' {stage} -> stage) (\s@ReplicationRunStageDetails' {} a -> s {stage = a} :: ReplicationRunStageDetails)
 
-instance Core.FromJSON ReplicationRunStageDetails where
+instance Data.FromJSON ReplicationRunStageDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationRunStageDetails"
       ( \x ->
           ReplicationRunStageDetails'
-            Prelude.<$> (x Core..:? "stageProgress")
-            Prelude.<*> (x Core..:? "stage")
+            Prelude.<$> (x Data..:? "stageProgress")
+            Prelude.<*> (x Data..:? "stage")
       )
 
 instance Prelude.Hashable ReplicationRunStageDetails where

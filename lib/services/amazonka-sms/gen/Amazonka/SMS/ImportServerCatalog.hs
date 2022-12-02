@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -80,28 +81,28 @@ instance Prelude.Hashable ImportServerCatalog where
 instance Prelude.NFData ImportServerCatalog where
   rnf _ = ()
 
-instance Core.ToHeaders ImportServerCatalog where
+instance Data.ToHeaders ImportServerCatalog where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.ImportServerCatalog" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.ImportServerCatalog" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportServerCatalog where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ImportServerCatalog where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ImportServerCatalog where
+instance Data.ToPath ImportServerCatalog where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportServerCatalog where
+instance Data.ToQuery ImportServerCatalog where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportServerCatalogResponse' smart constructor.

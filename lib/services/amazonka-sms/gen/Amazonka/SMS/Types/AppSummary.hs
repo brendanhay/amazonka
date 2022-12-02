@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.AppSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.AppLaunchConfigurationStatus
 import Amazonka.SMS.Types.AppLaunchStatus
@@ -57,11 +58,11 @@ data AppSummary = AppSummary'
     -- | The description of the application.
     description :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the application\'s most recent successful replication.
-    latestReplicationTime :: Prelude.Maybe Core.POSIX,
+    latestReplicationTime :: Prelude.Maybe Data.POSIX,
     -- | The last modified time of the application.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | The creation time of the application.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Status of the launch configuration.
     launchConfigurationStatus :: Prelude.Maybe AppLaunchConfigurationStatus,
     -- | A message related to the launch status of the application.
@@ -193,15 +194,15 @@ appSummary_description = Lens.lens (\AppSummary' {description} -> description) (
 
 -- | The timestamp of the application\'s most recent successful replication.
 appSummary_latestReplicationTime :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.UTCTime)
-appSummary_latestReplicationTime = Lens.lens (\AppSummary' {latestReplicationTime} -> latestReplicationTime) (\s@AppSummary' {} a -> s {latestReplicationTime = a} :: AppSummary) Prelude.. Lens.mapping Core._Time
+appSummary_latestReplicationTime = Lens.lens (\AppSummary' {latestReplicationTime} -> latestReplicationTime) (\s@AppSummary' {} a -> s {latestReplicationTime = a} :: AppSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The last modified time of the application.
 appSummary_lastModified :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.UTCTime)
-appSummary_lastModified = Lens.lens (\AppSummary' {lastModified} -> lastModified) (\s@AppSummary' {} a -> s {lastModified = a} :: AppSummary) Prelude.. Lens.mapping Core._Time
+appSummary_lastModified = Lens.lens (\AppSummary' {lastModified} -> lastModified) (\s@AppSummary' {} a -> s {lastModified = a} :: AppSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The creation time of the application.
 appSummary_creationTime :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.UTCTime)
-appSummary_creationTime = Lens.lens (\AppSummary' {creationTime} -> creationTime) (\s@AppSummary' {} a -> s {creationTime = a} :: AppSummary) Prelude.. Lens.mapping Core._Time
+appSummary_creationTime = Lens.lens (\AppSummary' {creationTime} -> creationTime) (\s@AppSummary' {} a -> s {creationTime = a} :: AppSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Status of the launch configuration.
 appSummary_launchConfigurationStatus :: Lens.Lens' AppSummary (Prelude.Maybe AppLaunchConfigurationStatus)
@@ -223,31 +224,31 @@ appSummary_statusMessage = Lens.lens (\AppSummary' {statusMessage} -> statusMess
 appSummary_appId :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Text)
 appSummary_appId = Lens.lens (\AppSummary' {appId} -> appId) (\s@AppSummary' {} a -> s {appId = a} :: AppSummary)
 
-instance Core.FromJSON AppSummary where
+instance Data.FromJSON AppSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppSummary"
       ( \x ->
           AppSummary'
-            Prelude.<$> (x Core..:? "launchStatus")
-            Prelude.<*> (x Core..:? "replicationConfigurationStatus")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "roleName")
-            Prelude.<*> (x Core..:? "replicationStatusMessage")
-            Prelude.<*> (x Core..:? "totalServerGroups")
-            Prelude.<*> (x Core..:? "launchDetails")
-            Prelude.<*> (x Core..:? "replicationStatus")
-            Prelude.<*> (x Core..:? "totalServers")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "latestReplicationTime")
-            Prelude.<*> (x Core..:? "lastModified")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "launchConfigurationStatus")
-            Prelude.<*> (x Core..:? "launchStatusMessage")
-            Prelude.<*> (x Core..:? "importedAppId")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "appId")
+            Prelude.<$> (x Data..:? "launchStatus")
+            Prelude.<*> (x Data..:? "replicationConfigurationStatus")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "roleName")
+            Prelude.<*> (x Data..:? "replicationStatusMessage")
+            Prelude.<*> (x Data..:? "totalServerGroups")
+            Prelude.<*> (x Data..:? "launchDetails")
+            Prelude.<*> (x Data..:? "replicationStatus")
+            Prelude.<*> (x Data..:? "totalServers")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "latestReplicationTime")
+            Prelude.<*> (x Data..:? "lastModified")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "launchConfigurationStatus")
+            Prelude.<*> (x Data..:? "launchStatusMessage")
+            Prelude.<*> (x Data..:? "importedAppId")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "appId")
       )
 
 instance Prelude.Hashable AppSummary where

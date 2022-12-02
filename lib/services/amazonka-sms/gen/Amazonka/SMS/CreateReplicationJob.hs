@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ data CreateReplicationJob = CreateReplicationJob'
     -- | The ID of the server.
     serverId :: Prelude.Text,
     -- | The seed replication time.
-    seedReplicationTime :: Core.POSIX
+    seedReplicationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -157,7 +158,7 @@ newCreateReplicationJob
         numberOfRecentAmisToKeep = Prelude.Nothing,
         serverId = pServerId_,
         seedReplicationTime =
-          Core._Time Lens.# pSeedReplicationTime_
+          Data._Time Lens.# pSeedReplicationTime_
       }
 
 -- | The name of the IAM role to be used by the Server Migration Service.
@@ -212,7 +213,7 @@ createReplicationJob_serverId = Lens.lens (\CreateReplicationJob' {serverId} -> 
 
 -- | The seed replication time.
 createReplicationJob_seedReplicationTime :: Lens.Lens' CreateReplicationJob Prelude.UTCTime
-createReplicationJob_seedReplicationTime = Lens.lens (\CreateReplicationJob' {seedReplicationTime} -> seedReplicationTime) (\s@CreateReplicationJob' {} a -> s {seedReplicationTime = a} :: CreateReplicationJob) Prelude.. Core._Time
+createReplicationJob_seedReplicationTime = Lens.lens (\CreateReplicationJob' {seedReplicationTime} -> seedReplicationTime) (\s@CreateReplicationJob' {} a -> s {seedReplicationTime = a} :: CreateReplicationJob) Prelude.. Data._Time
 
 instance Core.AWSRequest CreateReplicationJob where
   type
@@ -224,7 +225,7 @@ instance Core.AWSRequest CreateReplicationJob where
     Response.receiveJSON
       ( \s h x ->
           CreateReplicationJobResponse'
-            Prelude.<$> (x Core..?> "replicationJobId")
+            Prelude.<$> (x Data..?> "replicationJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -254,44 +255,44 @@ instance Prelude.NFData CreateReplicationJob where
       `Prelude.seq` Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf seedReplicationTime
 
-instance Core.ToHeaders CreateReplicationJob where
+instance Data.ToHeaders CreateReplicationJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.CreateReplicationJob" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.CreateReplicationJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateReplicationJob where
+instance Data.ToJSON CreateReplicationJob where
   toJSON CreateReplicationJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleName" Core..=) Prelude.<$> roleName,
-            ("licenseType" Core..=) Prelude.<$> licenseType,
-            ("frequency" Core..=) Prelude.<$> frequency,
-            ("runOnce" Core..=) Prelude.<$> runOnce,
-            ("description" Core..=) Prelude.<$> description,
-            ("encrypted" Core..=) Prelude.<$> encrypted,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("numberOfRecentAmisToKeep" Core..=)
+          [ ("roleName" Data..=) Prelude.<$> roleName,
+            ("licenseType" Data..=) Prelude.<$> licenseType,
+            ("frequency" Data..=) Prelude.<$> frequency,
+            ("runOnce" Data..=) Prelude.<$> runOnce,
+            ("description" Data..=) Prelude.<$> description,
+            ("encrypted" Data..=) Prelude.<$> encrypted,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("numberOfRecentAmisToKeep" Data..=)
               Prelude.<$> numberOfRecentAmisToKeep,
-            Prelude.Just ("serverId" Core..= serverId),
+            Prelude.Just ("serverId" Data..= serverId),
             Prelude.Just
-              ("seedReplicationTime" Core..= seedReplicationTime)
+              ("seedReplicationTime" Data..= seedReplicationTime)
           ]
       )
 
-instance Core.ToPath CreateReplicationJob where
+instance Data.ToPath CreateReplicationJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateReplicationJob where
+instance Data.ToQuery CreateReplicationJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateReplicationJobResponse' smart constructor.

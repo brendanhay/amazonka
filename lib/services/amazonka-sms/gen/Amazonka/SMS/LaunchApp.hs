@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,32 +88,32 @@ instance Prelude.Hashable LaunchApp where
 instance Prelude.NFData LaunchApp where
   rnf LaunchApp' {..} = Prelude.rnf appId
 
-instance Core.ToHeaders LaunchApp where
+instance Data.ToHeaders LaunchApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.LaunchApp" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.LaunchApp" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON LaunchApp where
+instance Data.ToJSON LaunchApp where
   toJSON LaunchApp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("appId" Core..=) Prelude.<$> appId]
+          [("appId" Data..=) Prelude.<$> appId]
       )
 
-instance Core.ToPath LaunchApp where
+instance Data.ToPath LaunchApp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery LaunchApp where
+instance Data.ToQuery LaunchApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newLaunchAppResponse' smart constructor.

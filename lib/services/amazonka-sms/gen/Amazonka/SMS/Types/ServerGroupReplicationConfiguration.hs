@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.ServerGroupReplicationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.ServerReplicationConfiguration
 
@@ -67,18 +68,18 @@ serverGroupReplicationConfiguration_serverGroupId :: Lens.Lens' ServerGroupRepli
 serverGroupReplicationConfiguration_serverGroupId = Lens.lens (\ServerGroupReplicationConfiguration' {serverGroupId} -> serverGroupId) (\s@ServerGroupReplicationConfiguration' {} a -> s {serverGroupId = a} :: ServerGroupReplicationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ServerGroupReplicationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerGroupReplicationConfiguration"
       ( \x ->
           ServerGroupReplicationConfiguration'
-            Prelude.<$> ( x Core..:? "serverReplicationConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "serverReplicationConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "serverGroupId")
+            Prelude.<*> (x Data..:? "serverGroupId")
       )
 
 instance
@@ -101,14 +102,14 @@ instance
       `Prelude.seq` Prelude.rnf serverGroupId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ServerGroupReplicationConfiguration
   where
   toJSON ServerGroupReplicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("serverReplicationConfigurations" Core..=)
+          [ ("serverReplicationConfigurations" Data..=)
               Prelude.<$> serverReplicationConfigurations,
-            ("serverGroupId" Core..=) Prelude.<$> serverGroupId
+            ("serverGroupId" Data..=) Prelude.<$> serverGroupId
           ]
       )

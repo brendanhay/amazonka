@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.VmServerAddress where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a VM server location.
@@ -61,14 +62,14 @@ vmServerAddress_vmManagerId = Lens.lens (\VmServerAddress' {vmManagerId} -> vmMa
 vmServerAddress_vmId :: Lens.Lens' VmServerAddress (Prelude.Maybe Prelude.Text)
 vmServerAddress_vmId = Lens.lens (\VmServerAddress' {vmId} -> vmId) (\s@VmServerAddress' {} a -> s {vmId = a} :: VmServerAddress)
 
-instance Core.FromJSON VmServerAddress where
+instance Data.FromJSON VmServerAddress where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VmServerAddress"
       ( \x ->
           VmServerAddress'
-            Prelude.<$> (x Core..:? "vmManagerId")
-            Prelude.<*> (x Core..:? "vmId")
+            Prelude.<$> (x Data..:? "vmManagerId")
+            Prelude.<*> (x Data..:? "vmId")
       )
 
 instance Prelude.Hashable VmServerAddress where
@@ -81,11 +82,11 @@ instance Prelude.NFData VmServerAddress where
     Prelude.rnf vmManagerId
       `Prelude.seq` Prelude.rnf vmId
 
-instance Core.ToJSON VmServerAddress where
+instance Data.ToJSON VmServerAddress where
   toJSON VmServerAddress' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("vmManagerId" Core..=) Prelude.<$> vmManagerId,
-            ("vmId" Core..=) Prelude.<$> vmId
+          [ ("vmManagerId" Data..=) Prelude.<$> vmManagerId,
+            ("vmId" Data..=) Prelude.<$> vmId
           ]
       )

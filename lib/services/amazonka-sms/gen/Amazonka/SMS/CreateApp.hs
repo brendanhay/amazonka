@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,9 +141,9 @@ instance Core.AWSRequest CreateApp where
     Response.receiveJSON
       ( \s h x ->
           CreateAppResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "appSummary")
-            Prelude.<*> (x Core..?> "serverGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "appSummary")
+            Prelude.<*> (x Data..?> "serverGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,38 +165,38 @@ instance Prelude.NFData CreateApp where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf serverGroups
 
-instance Core.ToHeaders CreateApp where
+instance Data.ToHeaders CreateApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.CreateApp" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.CreateApp" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApp where
+instance Data.ToJSON CreateApp where
   toJSON CreateApp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("name" Core..=) Prelude.<$> name,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("roleName" Core..=) Prelude.<$> roleName,
-            ("description" Core..=) Prelude.<$> description,
-            ("serverGroups" Core..=) Prelude.<$> serverGroups
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("name" Data..=) Prelude.<$> name,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("roleName" Data..=) Prelude.<$> roleName,
+            ("description" Data..=) Prelude.<$> description,
+            ("serverGroups" Data..=) Prelude.<$> serverGroups
           ]
       )
 
-instance Core.ToPath CreateApp where
+instance Data.ToPath CreateApp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateApp where
+instance Data.ToQuery CreateApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAppResponse' smart constructor.

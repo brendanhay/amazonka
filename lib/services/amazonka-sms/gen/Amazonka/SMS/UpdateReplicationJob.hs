@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,7 +83,7 @@ data UpdateReplicationJob = UpdateReplicationJob'
     -- customer\'s default KMS key for Amazon EBS is used.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The start time of the next replication run.
-    nextReplicationRunStartTime :: Prelude.Maybe Core.POSIX,
+    nextReplicationRunStartTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of SMS-created AMIs to retain. The oldest is deleted
     -- after the maximum number is reached and a new AMI is created.
     numberOfRecentAmisToKeep :: Prelude.Maybe Prelude.Int,
@@ -188,7 +189,7 @@ updateReplicationJob_kmsKeyId = Lens.lens (\UpdateReplicationJob' {kmsKeyId} -> 
 
 -- | The start time of the next replication run.
 updateReplicationJob_nextReplicationRunStartTime :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.UTCTime)
-updateReplicationJob_nextReplicationRunStartTime = Lens.lens (\UpdateReplicationJob' {nextReplicationRunStartTime} -> nextReplicationRunStartTime) (\s@UpdateReplicationJob' {} a -> s {nextReplicationRunStartTime = a} :: UpdateReplicationJob) Prelude.. Lens.mapping Core._Time
+updateReplicationJob_nextReplicationRunStartTime = Lens.lens (\UpdateReplicationJob' {nextReplicationRunStartTime} -> nextReplicationRunStartTime) (\s@UpdateReplicationJob' {} a -> s {nextReplicationRunStartTime = a} :: UpdateReplicationJob) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of SMS-created AMIs to retain. The oldest is deleted
 -- after the maximum number is reached and a new AMI is created.
@@ -236,44 +237,44 @@ instance Prelude.NFData UpdateReplicationJob where
       `Prelude.seq` Prelude.rnf numberOfRecentAmisToKeep
       `Prelude.seq` Prelude.rnf replicationJobId
 
-instance Core.ToHeaders UpdateReplicationJob where
+instance Data.ToHeaders UpdateReplicationJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.UpdateReplicationJob" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.UpdateReplicationJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateReplicationJob where
+instance Data.ToJSON UpdateReplicationJob where
   toJSON UpdateReplicationJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleName" Core..=) Prelude.<$> roleName,
-            ("licenseType" Core..=) Prelude.<$> licenseType,
-            ("frequency" Core..=) Prelude.<$> frequency,
-            ("description" Core..=) Prelude.<$> description,
-            ("encrypted" Core..=) Prelude.<$> encrypted,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("nextReplicationRunStartTime" Core..=)
+          [ ("roleName" Data..=) Prelude.<$> roleName,
+            ("licenseType" Data..=) Prelude.<$> licenseType,
+            ("frequency" Data..=) Prelude.<$> frequency,
+            ("description" Data..=) Prelude.<$> description,
+            ("encrypted" Data..=) Prelude.<$> encrypted,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("nextReplicationRunStartTime" Data..=)
               Prelude.<$> nextReplicationRunStartTime,
-            ("numberOfRecentAmisToKeep" Core..=)
+            ("numberOfRecentAmisToKeep" Data..=)
               Prelude.<$> numberOfRecentAmisToKeep,
             Prelude.Just
-              ("replicationJobId" Core..= replicationJobId)
+              ("replicationJobId" Data..= replicationJobId)
           ]
       )
 
-instance Core.ToPath UpdateReplicationJob where
+instance Data.ToPath UpdateReplicationJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateReplicationJob where
+instance Data.ToQuery UpdateReplicationJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateReplicationJobResponse' smart constructor.

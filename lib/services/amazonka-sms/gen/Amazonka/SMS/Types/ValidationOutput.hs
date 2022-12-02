@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.ValidationOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.AppValidationOutput
 import Amazonka.SMS.Types.ServerValidationOutput
@@ -43,7 +44,7 @@ data ValidationOutput = ValidationOutput'
     -- | The status message.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The latest time that the validation was performed.
-    latestValidationTime :: Prelude.Maybe Core.POSIX
+    latestValidationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,21 +108,21 @@ validationOutput_statusMessage = Lens.lens (\ValidationOutput' {statusMessage} -
 
 -- | The latest time that the validation was performed.
 validationOutput_latestValidationTime :: Lens.Lens' ValidationOutput (Prelude.Maybe Prelude.UTCTime)
-validationOutput_latestValidationTime = Lens.lens (\ValidationOutput' {latestValidationTime} -> latestValidationTime) (\s@ValidationOutput' {} a -> s {latestValidationTime = a} :: ValidationOutput) Prelude.. Lens.mapping Core._Time
+validationOutput_latestValidationTime = Lens.lens (\ValidationOutput' {latestValidationTime} -> latestValidationTime) (\s@ValidationOutput' {} a -> s {latestValidationTime = a} :: ValidationOutput) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ValidationOutput where
+instance Data.FromJSON ValidationOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValidationOutput"
       ( \x ->
           ValidationOutput'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "validationId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "serverValidationOutput")
-            Prelude.<*> (x Core..:? "appValidationOutput")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "latestValidationTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "validationId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "serverValidationOutput")
+            Prelude.<*> (x Data..:? "appValidationOutput")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "latestValidationTime")
       )
 
 instance Prelude.Hashable ValidationOutput where

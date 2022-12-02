@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.ServerReplicationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.Server
 import Amazonka.SMS.Types.ServerReplicationParameters
@@ -67,14 +68,14 @@ serverReplicationConfiguration_serverReplicationParameters = Lens.lens (\ServerR
 serverReplicationConfiguration_server :: Lens.Lens' ServerReplicationConfiguration (Prelude.Maybe Server)
 serverReplicationConfiguration_server = Lens.lens (\ServerReplicationConfiguration' {server} -> server) (\s@ServerReplicationConfiguration' {} a -> s {server = a} :: ServerReplicationConfiguration)
 
-instance Core.FromJSON ServerReplicationConfiguration where
+instance Data.FromJSON ServerReplicationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerReplicationConfiguration"
       ( \x ->
           ServerReplicationConfiguration'
-            Prelude.<$> (x Core..:? "serverReplicationParameters")
-            Prelude.<*> (x Core..:? "server")
+            Prelude.<$> (x Data..:? "serverReplicationParameters")
+            Prelude.<*> (x Data..:? "server")
       )
 
 instance
@@ -96,12 +97,12 @@ instance
     Prelude.rnf serverReplicationParameters
       `Prelude.seq` Prelude.rnf server
 
-instance Core.ToJSON ServerReplicationConfiguration where
+instance Data.ToJSON ServerReplicationConfiguration where
   toJSON ServerReplicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("serverReplicationParameters" Core..=)
+          [ ("serverReplicationParameters" Data..=)
               Prelude.<$> serverReplicationParameters,
-            ("server" Core..=) Prelude.<$> server
+            ("server" Data..=) Prelude.<$> server
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.ReplicationJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.LicenseType
 import Amazonka.SMS.Types.ReplicationJobState
@@ -56,7 +57,7 @@ data ReplicationJob = ReplicationJob'
     -- | Indicates whether the replication job should produce encrypted AMIs.
     encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The seed replication time.
-    seedReplicationTime :: Prelude.Maybe Core.POSIX,
+    seedReplicationTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
     -- This value can be any of the following:
     --
@@ -76,7 +77,7 @@ data ReplicationJob = ReplicationJob'
     -- | Information about the VM server.
     vmServer :: Prelude.Maybe VmServer,
     -- | The start time of the next replication run.
-    nextReplicationRunStartTime :: Prelude.Maybe Core.POSIX,
+    nextReplicationRunStartTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the current status of the replication job.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The number of recent AMIs to keep in the customer\'s account for a
@@ -216,7 +217,7 @@ replicationJob_encrypted = Lens.lens (\ReplicationJob' {encrypted} -> encrypted)
 
 -- | The seed replication time.
 replicationJob_seedReplicationTime :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.UTCTime)
-replicationJob_seedReplicationTime = Lens.lens (\ReplicationJob' {seedReplicationTime} -> seedReplicationTime) (\s@ReplicationJob' {} a -> s {seedReplicationTime = a} :: ReplicationJob) Prelude.. Lens.mapping Core._Time
+replicationJob_seedReplicationTime = Lens.lens (\ReplicationJob' {seedReplicationTime} -> seedReplicationTime) (\s@ReplicationJob' {} a -> s {seedReplicationTime = a} :: ReplicationJob) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
 -- This value can be any of the following:
@@ -244,7 +245,7 @@ replicationJob_vmServer = Lens.lens (\ReplicationJob' {vmServer} -> vmServer) (\
 
 -- | The start time of the next replication run.
 replicationJob_nextReplicationRunStartTime :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.UTCTime)
-replicationJob_nextReplicationRunStartTime = Lens.lens (\ReplicationJob' {nextReplicationRunStartTime} -> nextReplicationRunStartTime) (\s@ReplicationJob' {} a -> s {nextReplicationRunStartTime = a} :: ReplicationJob) Prelude.. Lens.mapping Core._Time
+replicationJob_nextReplicationRunStartTime = Lens.lens (\ReplicationJob' {nextReplicationRunStartTime} -> nextReplicationRunStartTime) (\s@ReplicationJob' {} a -> s {nextReplicationRunStartTime = a} :: ReplicationJob) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the current status of the replication job.
 replicationJob_statusMessage :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Text)
@@ -256,32 +257,32 @@ replicationJob_statusMessage = Lens.lens (\ReplicationJob' {statusMessage} -> st
 replicationJob_numberOfRecentAmisToKeep :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Int)
 replicationJob_numberOfRecentAmisToKeep = Lens.lens (\ReplicationJob' {numberOfRecentAmisToKeep} -> numberOfRecentAmisToKeep) (\s@ReplicationJob' {} a -> s {numberOfRecentAmisToKeep = a} :: ReplicationJob)
 
-instance Core.FromJSON ReplicationJob where
+instance Data.FromJSON ReplicationJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationJob"
       ( \x ->
           ReplicationJob'
-            Prelude.<$> ( x Core..:? "replicationRunList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "replicationRunList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "roleName")
-            Prelude.<*> (x Core..:? "licenseType")
-            Prelude.<*> (x Core..:? "frequency")
-            Prelude.<*> (x Core..:? "runOnce")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "latestAmiId")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "serverType")
-            Prelude.<*> (x Core..:? "replicationJobId")
-            Prelude.<*> (x Core..:? "encrypted")
-            Prelude.<*> (x Core..:? "seedReplicationTime")
-            Prelude.<*> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "serverId")
-            Prelude.<*> (x Core..:? "vmServer")
-            Prelude.<*> (x Core..:? "nextReplicationRunStartTime")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "numberOfRecentAmisToKeep")
+            Prelude.<*> (x Data..:? "roleName")
+            Prelude.<*> (x Data..:? "licenseType")
+            Prelude.<*> (x Data..:? "frequency")
+            Prelude.<*> (x Data..:? "runOnce")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "latestAmiId")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "serverType")
+            Prelude.<*> (x Data..:? "replicationJobId")
+            Prelude.<*> (x Data..:? "encrypted")
+            Prelude.<*> (x Data..:? "seedReplicationTime")
+            Prelude.<*> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "serverId")
+            Prelude.<*> (x Data..:? "vmServer")
+            Prelude.<*> (x Data..:? "nextReplicationRunStartTime")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "numberOfRecentAmisToKeep")
       )
 
 instance Prelude.Hashable ReplicationJob where

@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.LaunchDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the latest launch of an application.
@@ -30,7 +31,7 @@ data LaunchDetails = LaunchDetails'
   { -- | The ID of the latest stack launched for this application.
     stackId :: Prelude.Maybe Prelude.Text,
     -- | The latest time that this application was launched successfully.
-    latestLaunchTime :: Prelude.Maybe Core.POSIX,
+    latestLaunchTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the latest stack launched for this application.
     stackName :: Prelude.Maybe Prelude.Text
   }
@@ -64,21 +65,21 @@ launchDetails_stackId = Lens.lens (\LaunchDetails' {stackId} -> stackId) (\s@Lau
 
 -- | The latest time that this application was launched successfully.
 launchDetails_latestLaunchTime :: Lens.Lens' LaunchDetails (Prelude.Maybe Prelude.UTCTime)
-launchDetails_latestLaunchTime = Lens.lens (\LaunchDetails' {latestLaunchTime} -> latestLaunchTime) (\s@LaunchDetails' {} a -> s {latestLaunchTime = a} :: LaunchDetails) Prelude.. Lens.mapping Core._Time
+launchDetails_latestLaunchTime = Lens.lens (\LaunchDetails' {latestLaunchTime} -> latestLaunchTime) (\s@LaunchDetails' {} a -> s {latestLaunchTime = a} :: LaunchDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the latest stack launched for this application.
 launchDetails_stackName :: Lens.Lens' LaunchDetails (Prelude.Maybe Prelude.Text)
 launchDetails_stackName = Lens.lens (\LaunchDetails' {stackName} -> stackName) (\s@LaunchDetails' {} a -> s {stackName = a} :: LaunchDetails)
 
-instance Core.FromJSON LaunchDetails where
+instance Data.FromJSON LaunchDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchDetails"
       ( \x ->
           LaunchDetails'
-            Prelude.<$> (x Core..:? "stackId")
-            Prelude.<*> (x Core..:? "latestLaunchTime")
-            Prelude.<*> (x Core..:? "stackName")
+            Prelude.<$> (x Data..:? "stackId")
+            Prelude.<*> (x Data..:? "latestLaunchTime")
+            Prelude.<*> (x Data..:? "stackName")
       )
 
 instance Prelude.Hashable LaunchDetails where

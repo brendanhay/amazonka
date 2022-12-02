@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,11 +138,11 @@ instance Core.AWSRequest GetReplicationRuns where
     Response.receiveJSON
       ( \s h x ->
           GetReplicationRunsResponse'
-            Prelude.<$> ( x Core..?> "replicationRunList"
+            Prelude.<$> ( x Data..?> "replicationRunList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "replicationJob")
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "replicationJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,36 +158,36 @@ instance Prelude.NFData GetReplicationRuns where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf replicationJobId
 
-instance Core.ToHeaders GetReplicationRuns where
+instance Data.ToHeaders GetReplicationRuns where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.GetReplicationRuns" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.GetReplicationRuns" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetReplicationRuns where
+instance Data.ToJSON GetReplicationRuns where
   toJSON GetReplicationRuns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("replicationJobId" Core..= replicationJobId)
+              ("replicationJobId" Data..= replicationJobId)
           ]
       )
 
-instance Core.ToPath GetReplicationRuns where
+instance Data.ToPath GetReplicationRuns where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetReplicationRuns where
+instance Data.ToQuery GetReplicationRuns where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetReplicationRunsResponse' smart constructor.

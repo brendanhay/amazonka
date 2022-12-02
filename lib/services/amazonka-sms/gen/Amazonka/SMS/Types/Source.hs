@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.Source where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.S3Location
 
@@ -49,12 +50,12 @@ newSource = Source' {s3Location = Prelude.Nothing}
 source_s3Location :: Lens.Lens' Source (Prelude.Maybe S3Location)
 source_s3Location = Lens.lens (\Source' {s3Location} -> s3Location) (\s@Source' {} a -> s {s3Location = a} :: Source)
 
-instance Core.FromJSON Source where
+instance Data.FromJSON Source where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Source"
       ( \x ->
-          Source' Prelude.<$> (x Core..:? "s3Location")
+          Source' Prelude.<$> (x Data..:? "s3Location")
       )
 
 instance Prelude.Hashable Source where
@@ -64,9 +65,9 @@ instance Prelude.Hashable Source where
 instance Prelude.NFData Source where
   rnf Source' {..} = Prelude.rnf s3Location
 
-instance Core.ToJSON Source where
+instance Data.ToJSON Source where
   toJSON Source' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("s3Location" Core..=) Prelude.<$> s3Location]
+          [("s3Location" Data..=) Prelude.<$> s3Location]
       )

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,32 +97,32 @@ instance Prelude.NFData DisassociateConnector where
   rnf DisassociateConnector' {..} =
     Prelude.rnf connectorId
 
-instance Core.ToHeaders DisassociateConnector where
+instance Data.ToHeaders DisassociateConnector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.DisassociateConnector" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.DisassociateConnector" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateConnector where
+instance Data.ToJSON DisassociateConnector where
   toJSON DisassociateConnector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("connectorId" Core..= connectorId)]
+          [Prelude.Just ("connectorId" Data..= connectorId)]
       )
 
-instance Core.ToPath DisassociateConnector where
+instance Data.ToPath DisassociateConnector where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateConnector where
+instance Data.ToQuery DisassociateConnector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateConnectorResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.ServerGroupLaunchConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.ServerLaunchConfiguration
 
@@ -76,17 +77,17 @@ serverGroupLaunchConfiguration_serverLaunchConfigurations = Lens.lens (\ServerGr
 serverGroupLaunchConfiguration_launchOrder :: Lens.Lens' ServerGroupLaunchConfiguration (Prelude.Maybe Prelude.Int)
 serverGroupLaunchConfiguration_launchOrder = Lens.lens (\ServerGroupLaunchConfiguration' {launchOrder} -> launchOrder) (\s@ServerGroupLaunchConfiguration' {} a -> s {launchOrder = a} :: ServerGroupLaunchConfiguration)
 
-instance Core.FromJSON ServerGroupLaunchConfiguration where
+instance Data.FromJSON ServerGroupLaunchConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerGroupLaunchConfiguration"
       ( \x ->
           ServerGroupLaunchConfiguration'
-            Prelude.<$> (x Core..:? "serverGroupId")
-            Prelude.<*> ( x Core..:? "serverLaunchConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "serverGroupId")
+            Prelude.<*> ( x Data..:? "serverLaunchConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "launchOrder")
+            Prelude.<*> (x Data..:? "launchOrder")
       )
 
 instance
@@ -109,13 +110,13 @@ instance
       `Prelude.seq` Prelude.rnf serverLaunchConfigurations
       `Prelude.seq` Prelude.rnf launchOrder
 
-instance Core.ToJSON ServerGroupLaunchConfiguration where
+instance Data.ToJSON ServerGroupLaunchConfiguration where
   toJSON ServerGroupLaunchConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("serverGroupId" Core..=) Prelude.<$> serverGroupId,
-            ("serverLaunchConfigurations" Core..=)
+          [ ("serverGroupId" Data..=) Prelude.<$> serverGroupId,
+            ("serverLaunchConfigurations" Data..=)
               Prelude.<$> serverLaunchConfigurations,
-            ("launchOrder" Core..=) Prelude.<$> launchOrder
+            ("launchOrder" Data..=) Prelude.<$> launchOrder
           ]
       )

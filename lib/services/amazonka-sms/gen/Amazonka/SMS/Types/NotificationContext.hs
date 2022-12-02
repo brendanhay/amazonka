@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.NotificationContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.ValidationStatus
 
@@ -84,12 +85,12 @@ instance Prelude.NFData NotificationContext where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage
 
-instance Core.ToJSON NotificationContext where
+instance Data.ToJSON NotificationContext where
   toJSON NotificationContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("validationId" Core..=) Prelude.<$> validationId,
-            ("status" Core..=) Prelude.<$> status,
-            ("statusMessage" Core..=) Prelude.<$> statusMessage
+          [ ("validationId" Data..=) Prelude.<$> validationId,
+            ("status" Data..=) Prelude.<$> status,
+            ("statusMessage" Data..=) Prelude.<$> statusMessage
           ]
       )

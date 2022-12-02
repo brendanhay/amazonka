@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.VmServer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.VmManagerType
 import Amazonka.SMS.Types.VmServerAddress
@@ -90,17 +91,17 @@ vmServer_vmManagerType = Lens.lens (\VmServer' {vmManagerType} -> vmManagerType)
 vmServer_vmPath :: Lens.Lens' VmServer (Prelude.Maybe Prelude.Text)
 vmServer_vmPath = Lens.lens (\VmServer' {vmPath} -> vmPath) (\s@VmServer' {} a -> s {vmPath = a} :: VmServer)
 
-instance Core.FromJSON VmServer where
+instance Data.FromJSON VmServer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VmServer"
       ( \x ->
           VmServer'
-            Prelude.<$> (x Core..:? "vmServerAddress")
-            Prelude.<*> (x Core..:? "vmManagerName")
-            Prelude.<*> (x Core..:? "vmName")
-            Prelude.<*> (x Core..:? "vmManagerType")
-            Prelude.<*> (x Core..:? "vmPath")
+            Prelude.<$> (x Data..:? "vmServerAddress")
+            Prelude.<*> (x Data..:? "vmManagerName")
+            Prelude.<*> (x Data..:? "vmName")
+            Prelude.<*> (x Data..:? "vmManagerType")
+            Prelude.<*> (x Data..:? "vmPath")
       )
 
 instance Prelude.Hashable VmServer where
@@ -119,15 +120,15 @@ instance Prelude.NFData VmServer where
       `Prelude.seq` Prelude.rnf vmManagerType
       `Prelude.seq` Prelude.rnf vmPath
 
-instance Core.ToJSON VmServer where
+instance Data.ToJSON VmServer where
   toJSON VmServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("vmServerAddress" Core..=)
+          [ ("vmServerAddress" Data..=)
               Prelude.<$> vmServerAddress,
-            ("vmManagerName" Core..=) Prelude.<$> vmManagerName,
-            ("vmName" Core..=) Prelude.<$> vmName,
-            ("vmManagerType" Core..=) Prelude.<$> vmManagerType,
-            ("vmPath" Core..=) Prelude.<$> vmPath
+            ("vmManagerName" Data..=) Prelude.<$> vmManagerName,
+            ("vmName" Data..=) Prelude.<$> vmName,
+            ("vmManagerType" Data..=) Prelude.<$> vmManagerType,
+            ("vmPath" Data..=) Prelude.<$> vmPath
           ]
       )

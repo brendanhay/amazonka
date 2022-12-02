@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ instance Core.AWSRequest GenerateTemplate where
     Response.receiveJSON
       ( \s h x ->
           GenerateTemplateResponse'
-            Prelude.<$> (x Core..?> "s3Location")
+            Prelude.<$> (x Data..?> "s3Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,35 +110,35 @@ instance Prelude.NFData GenerateTemplate where
     Prelude.rnf templateFormat
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders GenerateTemplate where
+instance Data.ToHeaders GenerateTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.GenerateTemplate" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.GenerateTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GenerateTemplate where
+instance Data.ToJSON GenerateTemplate where
   toJSON GenerateTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("templateFormat" Core..=)
+          [ ("templateFormat" Data..=)
               Prelude.<$> templateFormat,
-            ("appId" Core..=) Prelude.<$> appId
+            ("appId" Data..=) Prelude.<$> appId
           ]
       )
 
-instance Core.ToPath GenerateTemplate where
+instance Data.ToPath GenerateTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GenerateTemplate where
+instance Data.ToQuery GenerateTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGenerateTemplateResponse' smart constructor.

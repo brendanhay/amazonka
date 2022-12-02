@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ instance Core.AWSRequest GenerateChangeSet where
     Response.receiveJSON
       ( \s h x ->
           GenerateChangeSetResponse'
-            Prelude.<$> (x Core..?> "s3Location")
+            Prelude.<$> (x Data..?> "s3Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,35 +110,35 @@ instance Prelude.NFData GenerateChangeSet where
     Prelude.rnf changesetFormat
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders GenerateChangeSet where
+instance Data.ToHeaders GenerateChangeSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.GenerateChangeSet" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.GenerateChangeSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GenerateChangeSet where
+instance Data.ToJSON GenerateChangeSet where
   toJSON GenerateChangeSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("changesetFormat" Core..=)
+          [ ("changesetFormat" Data..=)
               Prelude.<$> changesetFormat,
-            ("appId" Core..=) Prelude.<$> appId
+            ("appId" Data..=) Prelude.<$> appId
           ]
       )
 
-instance Core.ToPath GenerateChangeSet where
+instance Data.ToPath GenerateChangeSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GenerateChangeSet where
+instance Data.ToQuery GenerateChangeSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGenerateChangeSetResponse' smart constructor.

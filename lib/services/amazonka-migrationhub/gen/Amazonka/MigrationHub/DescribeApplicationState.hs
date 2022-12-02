@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,8 +91,8 @@ instance Core.AWSRequest DescribeApplicationState where
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicationStateResponse'
-            Prelude.<$> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "ApplicationStatus")
+            Prelude.<$> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "ApplicationStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,40 +104,40 @@ instance Prelude.NFData DescribeApplicationState where
   rnf DescribeApplicationState' {..} =
     Prelude.rnf applicationId
 
-instance Core.ToHeaders DescribeApplicationState where
+instance Data.ToHeaders DescribeApplicationState where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMigrationHub.DescribeApplicationState" ::
+              Data.=# ( "AWSMigrationHub.DescribeApplicationState" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeApplicationState where
+instance Data.ToJSON DescribeApplicationState where
   toJSON DescribeApplicationState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ApplicationId" Core..= applicationId)
+              ("ApplicationId" Data..= applicationId)
           ]
       )
 
-instance Core.ToPath DescribeApplicationState where
+instance Data.ToPath DescribeApplicationState where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeApplicationState where
+instance Data.ToQuery DescribeApplicationState where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeApplicationStateResponse' smart constructor.
 data DescribeApplicationStateResponse = DescribeApplicationStateResponse'
   { -- | The timestamp when the application status was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | Status of the application - Not Started, In-Progress, Complete.
     applicationStatus :: Prelude.Maybe ApplicationStatus,
     -- | The response's http status code.
@@ -171,7 +172,7 @@ newDescribeApplicationStateResponse pHttpStatus_ =
 
 -- | The timestamp when the application status was last updated.
 describeApplicationStateResponse_lastUpdatedTime :: Lens.Lens' DescribeApplicationStateResponse (Prelude.Maybe Prelude.UTCTime)
-describeApplicationStateResponse_lastUpdatedTime = Lens.lens (\DescribeApplicationStateResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeApplicationStateResponse' {} a -> s {lastUpdatedTime = a} :: DescribeApplicationStateResponse) Prelude.. Lens.mapping Core._Time
+describeApplicationStateResponse_lastUpdatedTime = Lens.lens (\DescribeApplicationStateResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeApplicationStateResponse' {} a -> s {lastUpdatedTime = a} :: DescribeApplicationStateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Status of the application - Not Started, In-Progress, Complete.
 describeApplicationStateResponse_applicationStatus :: Lens.Lens' DescribeApplicationStateResponse (Prelude.Maybe ApplicationStatus)

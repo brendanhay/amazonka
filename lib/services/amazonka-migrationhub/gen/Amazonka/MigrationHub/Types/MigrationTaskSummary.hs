@@ -21,6 +21,7 @@ module Amazonka.MigrationHub.Types.MigrationTaskSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types.MigrationStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newMigrationTaskSummary' smart constructor.
 data MigrationTaskSummary = MigrationTaskSummary'
   { -- | The timestamp when the task was gathered.
-    updateDateTime :: Prelude.Maybe Core.POSIX,
+    updateDateTime :: Prelude.Maybe Data.POSIX,
     -- | Unique identifier that references the migration task. /Do not store
     -- personal data in this field./
     migrationTaskName :: Prelude.Maybe Prelude.Text,
@@ -84,7 +85,7 @@ newMigrationTaskSummary =
 
 -- | The timestamp when the task was gathered.
 migrationTaskSummary_updateDateTime :: Lens.Lens' MigrationTaskSummary (Prelude.Maybe Prelude.UTCTime)
-migrationTaskSummary_updateDateTime = Lens.lens (\MigrationTaskSummary' {updateDateTime} -> updateDateTime) (\s@MigrationTaskSummary' {} a -> s {updateDateTime = a} :: MigrationTaskSummary) Prelude.. Lens.mapping Core._Time
+migrationTaskSummary_updateDateTime = Lens.lens (\MigrationTaskSummary' {updateDateTime} -> updateDateTime) (\s@MigrationTaskSummary' {} a -> s {updateDateTime = a} :: MigrationTaskSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Unique identifier that references the migration task. /Do not store
 -- personal data in this field./
@@ -109,18 +110,18 @@ migrationTaskSummary_progressUpdateStream = Lens.lens (\MigrationTaskSummary' {p
 migrationTaskSummary_progressPercent :: Lens.Lens' MigrationTaskSummary (Prelude.Maybe Prelude.Natural)
 migrationTaskSummary_progressPercent = Lens.lens (\MigrationTaskSummary' {progressPercent} -> progressPercent) (\s@MigrationTaskSummary' {} a -> s {progressPercent = a} :: MigrationTaskSummary)
 
-instance Core.FromJSON MigrationTaskSummary where
+instance Data.FromJSON MigrationTaskSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MigrationTaskSummary"
       ( \x ->
           MigrationTaskSummary'
-            Prelude.<$> (x Core..:? "UpdateDateTime")
-            Prelude.<*> (x Core..:? "MigrationTaskName")
-            Prelude.<*> (x Core..:? "StatusDetail")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ProgressUpdateStream")
-            Prelude.<*> (x Core..:? "ProgressPercent")
+            Prelude.<$> (x Data..:? "UpdateDateTime")
+            Prelude.<*> (x Data..:? "MigrationTaskName")
+            Prelude.<*> (x Data..:? "StatusDetail")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ProgressUpdateStream")
+            Prelude.<*> (x Data..:? "ProgressPercent")
       )
 
 instance Prelude.Hashable MigrationTaskSummary where

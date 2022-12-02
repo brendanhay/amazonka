@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,37 +122,37 @@ instance Prelude.NFData CreateProgressUpdateStream where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf progressUpdateStreamName
 
-instance Core.ToHeaders CreateProgressUpdateStream where
+instance Data.ToHeaders CreateProgressUpdateStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMigrationHub.CreateProgressUpdateStream" ::
+              Data.=# ( "AWSMigrationHub.CreateProgressUpdateStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProgressUpdateStream where
+instance Data.ToJSON CreateProgressUpdateStream where
   toJSON CreateProgressUpdateStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DryRun" Core..=) Prelude.<$> dryRun,
+          [ ("DryRun" Data..=) Prelude.<$> dryRun,
             Prelude.Just
               ( "ProgressUpdateStreamName"
-                  Core..= progressUpdateStreamName
+                  Data..= progressUpdateStreamName
               )
           ]
       )
 
-instance Core.ToPath CreateProgressUpdateStream where
+instance Data.ToPath CreateProgressUpdateStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateProgressUpdateStream where
+instance Data.ToQuery CreateProgressUpdateStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProgressUpdateStreamResponse' smart constructor.

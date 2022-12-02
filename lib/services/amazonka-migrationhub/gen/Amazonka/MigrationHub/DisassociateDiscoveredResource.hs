@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,43 +163,43 @@ instance
       `Prelude.seq` Prelude.rnf configurationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateDiscoveredResource
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMigrationHub.DisassociateDiscoveredResource" ::
+              Data.=# ( "AWSMigrationHub.DisassociateDiscoveredResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateDiscoveredResource where
+instance Data.ToJSON DisassociateDiscoveredResource where
   toJSON DisassociateDiscoveredResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DryRun" Core..=) Prelude.<$> dryRun,
+          [ ("DryRun" Data..=) Prelude.<$> dryRun,
             Prelude.Just
               ( "ProgressUpdateStream"
-                  Core..= progressUpdateStream
+                  Data..= progressUpdateStream
               ),
             Prelude.Just
-              ("MigrationTaskName" Core..= migrationTaskName),
+              ("MigrationTaskName" Data..= migrationTaskName),
             Prelude.Just
-              ("ConfigurationId" Core..= configurationId)
+              ("ConfigurationId" Data..= configurationId)
           ]
       )
 
-instance Core.ToPath DisassociateDiscoveredResource where
+instance Data.ToPath DisassociateDiscoveredResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateDiscoveredResource where
+instance Data.ToQuery DisassociateDiscoveredResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateDiscoveredResourceResponse' smart constructor.

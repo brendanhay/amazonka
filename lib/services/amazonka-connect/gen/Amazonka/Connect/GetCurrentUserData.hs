@@ -47,6 +47,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,8 +135,8 @@ instance Core.AWSRequest GetCurrentUserData where
     Response.receiveJSON
       ( \s h x ->
           GetCurrentUserDataResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "UserDataList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "UserDataList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,33 +154,33 @@ instance Prelude.NFData GetCurrentUserData where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToHeaders GetCurrentUserData where
+instance Data.ToHeaders GetCurrentUserData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCurrentUserData where
+instance Data.ToJSON GetCurrentUserData where
   toJSON GetCurrentUserData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Filters" Core..= filters)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Filters" Data..= filters)
           ]
       )
 
-instance Core.ToPath GetCurrentUserData where
+instance Data.ToPath GetCurrentUserData where
   toPath GetCurrentUserData' {..} =
     Prelude.mconcat
-      ["/metrics/userdata/", Core.toBS instanceId]
+      ["/metrics/userdata/", Data.toBS instanceId]
 
-instance Core.ToQuery GetCurrentUserData where
+instance Data.ToQuery GetCurrentUserData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCurrentUserDataResponse' smart constructor.

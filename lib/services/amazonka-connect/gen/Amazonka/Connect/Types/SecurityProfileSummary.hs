@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.SecurityProfileSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a security profile.
@@ -70,15 +71,15 @@ securityProfileSummary_arn = Lens.lens (\SecurityProfileSummary' {arn} -> arn) (
 securityProfileSummary_id :: Lens.Lens' SecurityProfileSummary (Prelude.Maybe Prelude.Text)
 securityProfileSummary_id = Lens.lens (\SecurityProfileSummary' {id} -> id) (\s@SecurityProfileSummary' {} a -> s {id = a} :: SecurityProfileSummary)
 
-instance Core.FromJSON SecurityProfileSummary where
+instance Data.FromJSON SecurityProfileSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityProfileSummary"
       ( \x ->
           SecurityProfileSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable SecurityProfileSummary where

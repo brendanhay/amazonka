@@ -39,6 +39,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,27 +106,27 @@ instance Prelude.NFData DeleteContactFlow where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf contactFlowId
 
-instance Core.ToHeaders DeleteContactFlow where
+instance Data.ToHeaders DeleteContactFlow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteContactFlow where
+instance Data.ToPath DeleteContactFlow where
   toPath DeleteContactFlow' {..} =
     Prelude.mconcat
       [ "/contact-flows/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS contactFlowId
+        Data.toBS contactFlowId
       ]
 
-instance Core.ToQuery DeleteContactFlow where
+instance Data.ToQuery DeleteContactFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteContactFlowResponse' smart constructor.

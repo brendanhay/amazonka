@@ -25,6 +25,7 @@ import Amazonka.Connect.Types.ContactState
 import Amazonka.Connect.Types.QueueReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the
@@ -41,12 +42,12 @@ data AgentContactReference = AgentContactReference'
     -- | The channel of the contact.
     channel :: Prelude.Maybe Channel,
     -- | The time at which the contact was connected to an agent.
-    connectedToAgentTimestamp :: Prelude.Maybe Core.POSIX,
+    connectedToAgentTimestamp :: Prelude.Maybe Data.POSIX,
     -- | How the contact was initiated.
     initiationMethod :: Prelude.Maybe ContactInitiationMethod,
     queue :: Prelude.Maybe QueueReference,
     -- | The epoch timestamp when the contact state started.
-    stateStartTimestamp :: Prelude.Maybe Core.POSIX
+    stateStartTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,7 +102,7 @@ agentContactReference_channel = Lens.lens (\AgentContactReference' {channel} -> 
 
 -- | The time at which the contact was connected to an agent.
 agentContactReference_connectedToAgentTimestamp :: Lens.Lens' AgentContactReference (Prelude.Maybe Prelude.UTCTime)
-agentContactReference_connectedToAgentTimestamp = Lens.lens (\AgentContactReference' {connectedToAgentTimestamp} -> connectedToAgentTimestamp) (\s@AgentContactReference' {} a -> s {connectedToAgentTimestamp = a} :: AgentContactReference) Prelude.. Lens.mapping Core._Time
+agentContactReference_connectedToAgentTimestamp = Lens.lens (\AgentContactReference' {connectedToAgentTimestamp} -> connectedToAgentTimestamp) (\s@AgentContactReference' {} a -> s {connectedToAgentTimestamp = a} :: AgentContactReference) Prelude.. Lens.mapping Data._Time
 
 -- | How the contact was initiated.
 agentContactReference_initiationMethod :: Lens.Lens' AgentContactReference (Prelude.Maybe ContactInitiationMethod)
@@ -113,21 +114,21 @@ agentContactReference_queue = Lens.lens (\AgentContactReference' {queue} -> queu
 
 -- | The epoch timestamp when the contact state started.
 agentContactReference_stateStartTimestamp :: Lens.Lens' AgentContactReference (Prelude.Maybe Prelude.UTCTime)
-agentContactReference_stateStartTimestamp = Lens.lens (\AgentContactReference' {stateStartTimestamp} -> stateStartTimestamp) (\s@AgentContactReference' {} a -> s {stateStartTimestamp = a} :: AgentContactReference) Prelude.. Lens.mapping Core._Time
+agentContactReference_stateStartTimestamp = Lens.lens (\AgentContactReference' {stateStartTimestamp} -> stateStartTimestamp) (\s@AgentContactReference' {} a -> s {stateStartTimestamp = a} :: AgentContactReference) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AgentContactReference where
+instance Data.FromJSON AgentContactReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AgentContactReference"
       ( \x ->
           AgentContactReference'
-            Prelude.<$> (x Core..:? "AgentContactState")
-            Prelude.<*> (x Core..:? "ContactId")
-            Prelude.<*> (x Core..:? "Channel")
-            Prelude.<*> (x Core..:? "ConnectedToAgentTimestamp")
-            Prelude.<*> (x Core..:? "InitiationMethod")
-            Prelude.<*> (x Core..:? "Queue")
-            Prelude.<*> (x Core..:? "StateStartTimestamp")
+            Prelude.<$> (x Data..:? "AgentContactState")
+            Prelude.<*> (x Data..:? "ContactId")
+            Prelude.<*> (x Data..:? "Channel")
+            Prelude.<*> (x Data..:? "ConnectedToAgentTimestamp")
+            Prelude.<*> (x Data..:? "InitiationMethod")
+            Prelude.<*> (x Data..:? "Queue")
+            Prelude.<*> (x Data..:? "StateStartTimestamp")
       )
 
 instance Prelude.Hashable AgentContactReference where

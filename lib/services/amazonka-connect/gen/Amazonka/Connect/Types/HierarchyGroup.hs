@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.HierarchyGroup where
 import Amazonka.Connect.Types.HierarchyPath
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a hierarchy group.
@@ -101,18 +102,18 @@ hierarchyGroup_id = Lens.lens (\HierarchyGroup' {id} -> id) (\s@HierarchyGroup' 
 hierarchyGroup_levelId :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
 hierarchyGroup_levelId = Lens.lens (\HierarchyGroup' {levelId} -> levelId) (\s@HierarchyGroup' {} a -> s {levelId = a} :: HierarchyGroup)
 
-instance Core.FromJSON HierarchyGroup where
+instance Data.FromJSON HierarchyGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HierarchyGroup"
       ( \x ->
           HierarchyGroup'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "HierarchyPath")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "LevelId")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "HierarchyPath")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "LevelId")
       )
 
 instance Prelude.Hashable HierarchyGroup where

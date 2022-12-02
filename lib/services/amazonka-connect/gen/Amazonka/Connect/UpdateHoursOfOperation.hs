@@ -46,6 +46,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,38 +160,38 @@ instance Prelude.NFData UpdateHoursOfOperation where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf hoursOfOperationId
 
-instance Core.ToHeaders UpdateHoursOfOperation where
+instance Data.ToHeaders UpdateHoursOfOperation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateHoursOfOperation where
+instance Data.ToJSON UpdateHoursOfOperation where
   toJSON UpdateHoursOfOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("TimeZone" Core..=) Prelude.<$> timeZone,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Config" Core..=) Prelude.<$> config
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("TimeZone" Data..=) Prelude.<$> timeZone,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Config" Data..=) Prelude.<$> config
           ]
       )
 
-instance Core.ToPath UpdateHoursOfOperation where
+instance Data.ToPath UpdateHoursOfOperation where
   toPath UpdateHoursOfOperation' {..} =
     Prelude.mconcat
       [ "/hours-of-operations/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS hoursOfOperationId
+        Data.toBS hoursOfOperationId
       ]
 
-instance Core.ToQuery UpdateHoursOfOperation where
+instance Data.ToQuery UpdateHoursOfOperation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateHoursOfOperationResponse' smart constructor.

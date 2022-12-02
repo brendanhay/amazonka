@@ -54,6 +54,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -183,9 +184,9 @@ instance Core.AWSRequest SearchSecurityProfiles where
     Response.receiveJSON
       ( \s h x ->
           SearchSecurityProfilesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ApproximateTotalCount")
-            Prelude.<*> ( x Core..?> "SecurityProfiles"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ApproximateTotalCount")
+            Prelude.<*> ( x Data..?> "SecurityProfiles"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -207,34 +208,34 @@ instance Prelude.NFData SearchSecurityProfiles where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders SearchSecurityProfiles where
+instance Data.ToHeaders SearchSecurityProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchSecurityProfiles where
+instance Data.ToJSON SearchSecurityProfiles where
   toJSON SearchSecurityProfiles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SearchCriteria" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SearchCriteria" Data..=)
               Prelude.<$> searchCriteria,
-            ("SearchFilter" Core..=) Prelude.<$> searchFilter,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("InstanceId" Core..= instanceId)
+            ("SearchFilter" Data..=) Prelude.<$> searchFilter,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath SearchSecurityProfiles where
+instance Data.ToPath SearchSecurityProfiles where
   toPath = Prelude.const "/search-security-profiles"
 
-instance Core.ToQuery SearchSecurityProfiles where
+instance Data.ToQuery SearchSecurityProfiles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchSecurityProfilesResponse' smart constructor.

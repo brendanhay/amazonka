@@ -50,6 +50,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,36 +133,36 @@ instance
       `Prelude.seq` Prelude.rnf instanceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociatePhoneNumberContactFlow
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociatePhoneNumberContactFlow
   where
   toPath DisassociatePhoneNumberContactFlow' {..} =
     Prelude.mconcat
       [ "/phone-number/",
-        Core.toBS phoneNumberId,
+        Data.toBS phoneNumberId,
         "/contact-flow"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociatePhoneNumberContactFlow
   where
   toQuery DisassociatePhoneNumberContactFlow' {..} =
-    Prelude.mconcat ["instanceId" Core.=: instanceId]
+    Prelude.mconcat ["instanceId" Data.=: instanceId]
 
 -- | /See:/ 'newDisassociatePhoneNumberContactFlowResponse' smart constructor.
 data DisassociatePhoneNumberContactFlowResponse = DisassociatePhoneNumberContactFlowResponse'

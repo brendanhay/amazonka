@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.StringCondition where
 import Amazonka.Connect.Types.StringComparisonType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A leaf node condition which can be used to specify a string condition.
@@ -85,13 +86,13 @@ instance Prelude.NFData StringCondition where
       `Prelude.seq` Prelude.rnf comparisonType
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON StringCondition where
+instance Data.ToJSON StringCondition where
   toJSON StringCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FieldName" Core..=) Prelude.<$> fieldName,
-            ("ComparisonType" Core..=)
+          [ ("FieldName" Data..=) Prelude.<$> fieldName,
+            ("ComparisonType" Data..=)
               Prelude.<$> comparisonType,
-            ("Value" Core..=) Prelude.<$> value
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

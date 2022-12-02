@@ -44,6 +44,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,27 +108,27 @@ instance Prelude.NFData DeleteUser where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders DeleteUser where
+instance Data.ToHeaders DeleteUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteUser where
+instance Data.ToPath DeleteUser where
   toPath DeleteUser' {..} =
     Prelude.mconcat
       [ "/users/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS userId
+        Data.toBS userId
       ]
 
-instance Core.ToQuery DeleteUser where
+instance Data.ToQuery DeleteUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.UserPhoneConfig where
 import Amazonka.Connect.Types.PhoneType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the phone configuration settings for a user.
@@ -91,16 +92,16 @@ userPhoneConfig_afterContactWorkTimeLimit = Lens.lens (\UserPhoneConfig' {afterC
 userPhoneConfig_phoneType :: Lens.Lens' UserPhoneConfig PhoneType
 userPhoneConfig_phoneType = Lens.lens (\UserPhoneConfig' {phoneType} -> phoneType) (\s@UserPhoneConfig' {} a -> s {phoneType = a} :: UserPhoneConfig)
 
-instance Core.FromJSON UserPhoneConfig where
+instance Data.FromJSON UserPhoneConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserPhoneConfig"
       ( \x ->
           UserPhoneConfig'
-            Prelude.<$> (x Core..:? "AutoAccept")
-            Prelude.<*> (x Core..:? "DeskPhoneNumber")
-            Prelude.<*> (x Core..:? "AfterContactWorkTimeLimit")
-            Prelude.<*> (x Core..: "PhoneType")
+            Prelude.<$> (x Data..:? "AutoAccept")
+            Prelude.<*> (x Data..:? "DeskPhoneNumber")
+            Prelude.<*> (x Data..:? "AfterContactWorkTimeLimit")
+            Prelude.<*> (x Data..: "PhoneType")
       )
 
 instance Prelude.Hashable UserPhoneConfig where
@@ -117,15 +118,15 @@ instance Prelude.NFData UserPhoneConfig where
       `Prelude.seq` Prelude.rnf afterContactWorkTimeLimit
       `Prelude.seq` Prelude.rnf phoneType
 
-instance Core.ToJSON UserPhoneConfig where
+instance Data.ToJSON UserPhoneConfig where
   toJSON UserPhoneConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutoAccept" Core..=) Prelude.<$> autoAccept,
-            ("DeskPhoneNumber" Core..=)
+          [ ("AutoAccept" Data..=) Prelude.<$> autoAccept,
+            ("DeskPhoneNumber" Data..=)
               Prelude.<$> deskPhoneNumber,
-            ("AfterContactWorkTimeLimit" Core..=)
+            ("AfterContactWorkTimeLimit" Data..=)
               Prelude.<$> afterContactWorkTimeLimit,
-            Prelude.Just ("PhoneType" Core..= phoneType)
+            Prelude.Just ("PhoneType" Data..= phoneType)
           ]
       )

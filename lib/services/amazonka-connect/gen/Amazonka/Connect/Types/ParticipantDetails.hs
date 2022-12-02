@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.ParticipantDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The customer\'s details.
@@ -59,9 +60,9 @@ instance Prelude.Hashable ParticipantDetails where
 instance Prelude.NFData ParticipantDetails where
   rnf ParticipantDetails' {..} = Prelude.rnf displayName
 
-instance Core.ToJSON ParticipantDetails where
+instance Data.ToJSON ParticipantDetails where
   toJSON ParticipantDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DisplayName" Core..= displayName)]
+          [Prelude.Just ("DisplayName" Data..= displayName)]
       )

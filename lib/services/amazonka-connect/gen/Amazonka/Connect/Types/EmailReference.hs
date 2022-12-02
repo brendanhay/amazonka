@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.EmailReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a reference when the @referenceType@ is @EMAIL@.
@@ -62,13 +63,13 @@ emailReference_name = Lens.lens (\EmailReference' {name} -> name) (\s@EmailRefer
 emailReference_value :: Lens.Lens' EmailReference (Prelude.Maybe Prelude.Text)
 emailReference_value = Lens.lens (\EmailReference' {value} -> value) (\s@EmailReference' {} a -> s {value = a} :: EmailReference)
 
-instance Core.FromJSON EmailReference where
+instance Data.FromJSON EmailReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmailReference"
       ( \x ->
           EmailReference'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable EmailReference where

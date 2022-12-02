@@ -78,6 +78,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -254,9 +255,9 @@ instance Core.AWSRequest StartChatContact where
     Response.receiveJSON
       ( \s h x ->
           StartChatContactResponse'
-            Prelude.<$> (x Core..?> "ParticipantId")
-            Prelude.<*> (x Core..?> "ContactId")
-            Prelude.<*> (x Core..?> "ParticipantToken")
+            Prelude.<$> (x Data..?> "ParticipantId")
+            Prelude.<*> (x Data..?> "ContactId")
+            Prelude.<*> (x Data..?> "ParticipantToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -282,40 +283,40 @@ instance Prelude.NFData StartChatContact where
       `Prelude.seq` Prelude.rnf contactFlowId
       `Prelude.seq` Prelude.rnf participantDetails
 
-instance Core.ToHeaders StartChatContact where
+instance Data.ToHeaders StartChatContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartChatContact where
+instance Data.ToJSON StartChatContact where
   toJSON StartChatContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("SupportedMessagingContentTypes" Core..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("SupportedMessagingContentTypes" Data..=)
               Prelude.<$> supportedMessagingContentTypes,
-            ("InitialMessage" Core..=)
+            ("InitialMessage" Data..=)
               Prelude.<$> initialMessage,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("ChatDurationInMinutes" Core..=)
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("ChatDurationInMinutes" Data..=)
               Prelude.<$> chatDurationInMinutes,
-            Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("ContactFlowId" Core..= contactFlowId),
+            Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("ContactFlowId" Data..= contactFlowId),
             Prelude.Just
-              ("ParticipantDetails" Core..= participantDetails)
+              ("ParticipantDetails" Data..= participantDetails)
           ]
       )
 
-instance Core.ToPath StartChatContact where
+instance Data.ToPath StartChatContact where
   toPath = Prelude.const "/contact/chat"
 
-instance Core.ToQuery StartChatContact where
+instance Data.ToQuery StartChatContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartChatContactResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,8 +153,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateTrafficDistributionGroupResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,35 +183,35 @@ instance
       `Prelude.seq` Prelude.rnf instanceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateTrafficDistributionGroup
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTrafficDistributionGroup where
+instance Data.ToJSON CreateTrafficDistributionGroup where
   toJSON CreateTrafficDistributionGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("InstanceId" Core..= instanceId)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath CreateTrafficDistributionGroup where
+instance Data.ToPath CreateTrafficDistributionGroup where
   toPath = Prelude.const "/traffic-distribution-group"
 
-instance Core.ToQuery CreateTrafficDistributionGroup where
+instance Data.ToQuery CreateTrafficDistributionGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTrafficDistributionGroupResponse' smart constructor.

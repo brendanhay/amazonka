@@ -47,6 +47,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,35 +134,35 @@ instance Prelude.NFData DismissUserContact where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf contactId
 
-instance Core.ToHeaders DismissUserContact where
+instance Data.ToHeaders DismissUserContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DismissUserContact where
+instance Data.ToJSON DismissUserContact where
   toJSON DismissUserContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ContactId" Core..= contactId)]
+          [Prelude.Just ("ContactId" Data..= contactId)]
       )
 
-instance Core.ToPath DismissUserContact where
+instance Data.ToPath DismissUserContact where
   toPath DismissUserContact' {..} =
     Prelude.mconcat
       [ "/users/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS userId,
+        Data.toBS userId,
         "/contact"
       ]
 
-instance Core.ToQuery DismissUserContact where
+instance Data.ToQuery DismissUserContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDismissUserContactResponse' smart constructor.

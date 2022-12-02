@@ -44,6 +44,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,35 +127,35 @@ instance Prelude.NFData UpdateQueueMaxContacts where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf queueId
 
-instance Core.ToHeaders UpdateQueueMaxContacts where
+instance Data.ToHeaders UpdateQueueMaxContacts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateQueueMaxContacts where
+instance Data.ToJSON UpdateQueueMaxContacts where
   toJSON UpdateQueueMaxContacts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("MaxContacts" Core..=) Prelude.<$> maxContacts]
+          [("MaxContacts" Data..=) Prelude.<$> maxContacts]
       )
 
-instance Core.ToPath UpdateQueueMaxContacts where
+instance Data.ToPath UpdateQueueMaxContacts where
   toPath UpdateQueueMaxContacts' {..} =
     Prelude.mconcat
       [ "/queues/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS queueId,
+        Data.toBS queueId,
         "/max-contacts"
       ]
 
-instance Core.ToQuery UpdateQueueMaxContacts where
+instance Data.ToQuery UpdateQueueMaxContacts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateQueueMaxContactsResponse' smart constructor.

@@ -56,6 +56,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,8 +165,8 @@ instance Core.AWSRequest ClaimPhoneNumber where
     Response.receiveJSON
       ( \s h x ->
           ClaimPhoneNumberResponse'
-            Prelude.<$> (x Core..?> "PhoneNumberArn")
-            Prelude.<*> (x Core..?> "PhoneNumberId")
+            Prelude.<$> (x Data..?> "PhoneNumberArn")
+            Prelude.<*> (x Data..?> "PhoneNumberId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,34 +186,34 @@ instance Prelude.NFData ClaimPhoneNumber where
       `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf phoneNumber
 
-instance Core.ToHeaders ClaimPhoneNumber where
+instance Data.ToHeaders ClaimPhoneNumber where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ClaimPhoneNumber where
+instance Data.ToJSON ClaimPhoneNumber where
   toJSON ClaimPhoneNumber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("PhoneNumberDescription" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("PhoneNumberDescription" Data..=)
               Prelude.<$> phoneNumberDescription,
-            Prelude.Just ("TargetArn" Core..= targetArn),
-            Prelude.Just ("PhoneNumber" Core..= phoneNumber)
+            Prelude.Just ("TargetArn" Data..= targetArn),
+            Prelude.Just ("PhoneNumber" Data..= phoneNumber)
           ]
       )
 
-instance Core.ToPath ClaimPhoneNumber where
+instance Data.ToPath ClaimPhoneNumber where
   toPath = Prelude.const "/phone-number/claim"
 
-instance Core.ToQuery ClaimPhoneNumber where
+instance Data.ToQuery ClaimPhoneNumber where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newClaimPhoneNumberResponse' smart constructor.

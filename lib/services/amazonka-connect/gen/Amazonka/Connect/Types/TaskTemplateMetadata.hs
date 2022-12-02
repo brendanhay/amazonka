@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.TaskTemplateMetadata where
 import Amazonka.Connect.Types.TaskTemplateStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about the task template.
@@ -31,7 +32,7 @@ data TaskTemplateMetadata = TaskTemplateMetadata'
   { -- | The name of the task template.
     name :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the task template was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the task template.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
@@ -44,7 +45,7 @@ data TaskTemplateMetadata = TaskTemplateMetadata'
     -- | The description of the task template.
     description :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the task template was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX
+    lastModifiedTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,7 +92,7 @@ taskTemplateMetadata_name = Lens.lens (\TaskTemplateMetadata' {name} -> name) (\
 
 -- | The timestamp when the task template was created.
 taskTemplateMetadata_createdTime :: Lens.Lens' TaskTemplateMetadata (Prelude.Maybe Prelude.UTCTime)
-taskTemplateMetadata_createdTime = Lens.lens (\TaskTemplateMetadata' {createdTime} -> createdTime) (\s@TaskTemplateMetadata' {} a -> s {createdTime = a} :: TaskTemplateMetadata) Prelude.. Lens.mapping Core._Time
+taskTemplateMetadata_createdTime = Lens.lens (\TaskTemplateMetadata' {createdTime} -> createdTime) (\s@TaskTemplateMetadata' {} a -> s {createdTime = a} :: TaskTemplateMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the task template.
 taskTemplateMetadata_arn :: Lens.Lens' TaskTemplateMetadata (Prelude.Maybe Prelude.Text)
@@ -114,21 +115,21 @@ taskTemplateMetadata_description = Lens.lens (\TaskTemplateMetadata' {descriptio
 
 -- | The timestamp when the task template was last modified.
 taskTemplateMetadata_lastModifiedTime :: Lens.Lens' TaskTemplateMetadata (Prelude.Maybe Prelude.UTCTime)
-taskTemplateMetadata_lastModifiedTime = Lens.lens (\TaskTemplateMetadata' {lastModifiedTime} -> lastModifiedTime) (\s@TaskTemplateMetadata' {} a -> s {lastModifiedTime = a} :: TaskTemplateMetadata) Prelude.. Lens.mapping Core._Time
+taskTemplateMetadata_lastModifiedTime = Lens.lens (\TaskTemplateMetadata' {lastModifiedTime} -> lastModifiedTime) (\s@TaskTemplateMetadata' {} a -> s {lastModifiedTime = a} :: TaskTemplateMetadata) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TaskTemplateMetadata where
+instance Data.FromJSON TaskTemplateMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskTemplateMetadata"
       ( \x ->
           TaskTemplateMetadata'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
       )
 
 instance Prelude.Hashable TaskTemplateMetadata where

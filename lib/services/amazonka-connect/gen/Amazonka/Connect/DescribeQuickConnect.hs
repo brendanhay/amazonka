@@ -43,6 +43,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest DescribeQuickConnect where
     Response.receiveJSON
       ( \s h x ->
           DescribeQuickConnectResponse'
-            Prelude.<$> (x Core..?> "QuickConnect")
+            Prelude.<$> (x Data..?> "QuickConnect")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,27 +115,27 @@ instance Prelude.NFData DescribeQuickConnect where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf quickConnectId
 
-instance Core.ToHeaders DescribeQuickConnect where
+instance Data.ToHeaders DescribeQuickConnect where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeQuickConnect where
+instance Data.ToPath DescribeQuickConnect where
   toPath DescribeQuickConnect' {..} =
     Prelude.mconcat
       [ "/quick-connects/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS quickConnectId
+        Data.toBS quickConnectId
       ]
 
-instance Core.ToQuery DescribeQuickConnect where
+instance Data.ToQuery DescribeQuickConnect where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeQuickConnectResponse' smart constructor.

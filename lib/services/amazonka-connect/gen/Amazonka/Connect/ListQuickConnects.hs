@@ -49,6 +49,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,8 +160,8 @@ instance Core.AWSRequest ListQuickConnects where
     Response.receiveJSON
       ( \s h x ->
           ListQuickConnectsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "QuickConnectSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "QuickConnectSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -180,32 +181,32 @@ instance Prelude.NFData ListQuickConnects where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ListQuickConnects where
+instance Data.ToHeaders ListQuickConnects where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListQuickConnects where
+instance Data.ToPath ListQuickConnects where
   toPath ListQuickConnects' {..} =
     Prelude.mconcat
-      ["/quick-connects/", Core.toBS instanceId]
+      ["/quick-connects/", Data.toBS instanceId]
 
-instance Core.ToQuery ListQuickConnects where
+instance Data.ToQuery ListQuickConnects where
   toQuery ListQuickConnects' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
+      [ "nextToken" Data.=: nextToken,
         "QuickConnectTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> quickConnectTypes
             ),
-        "maxResults" Core.=: maxResults
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListQuickConnectsResponse' smart constructor.

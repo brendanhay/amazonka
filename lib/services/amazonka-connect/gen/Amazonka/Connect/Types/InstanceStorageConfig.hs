@@ -26,6 +26,7 @@ import Amazonka.Connect.Types.S3Config
 import Amazonka.Connect.Types.StorageType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The storage configuration for the instance.
@@ -108,18 +109,18 @@ instanceStorageConfig_kinesisStreamConfig = Lens.lens (\InstanceStorageConfig' {
 instanceStorageConfig_storageType :: Lens.Lens' InstanceStorageConfig StorageType
 instanceStorageConfig_storageType = Lens.lens (\InstanceStorageConfig' {storageType} -> storageType) (\s@InstanceStorageConfig' {} a -> s {storageType = a} :: InstanceStorageConfig)
 
-instance Core.FromJSON InstanceStorageConfig where
+instance Data.FromJSON InstanceStorageConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceStorageConfig"
       ( \x ->
           InstanceStorageConfig'
-            Prelude.<$> (x Core..:? "KinesisVideoStreamConfig")
-            Prelude.<*> (x Core..:? "KinesisFirehoseConfig")
-            Prelude.<*> (x Core..:? "S3Config")
-            Prelude.<*> (x Core..:? "AssociationId")
-            Prelude.<*> (x Core..:? "KinesisStreamConfig")
-            Prelude.<*> (x Core..: "StorageType")
+            Prelude.<$> (x Data..:? "KinesisVideoStreamConfig")
+            Prelude.<*> (x Data..:? "KinesisFirehoseConfig")
+            Prelude.<*> (x Data..:? "S3Config")
+            Prelude.<*> (x Data..:? "AssociationId")
+            Prelude.<*> (x Data..:? "KinesisStreamConfig")
+            Prelude.<*> (x Data..: "StorageType")
       )
 
 instance Prelude.Hashable InstanceStorageConfig where
@@ -141,18 +142,18 @@ instance Prelude.NFData InstanceStorageConfig where
       `Prelude.seq` Prelude.rnf kinesisStreamConfig
       `Prelude.seq` Prelude.rnf storageType
 
-instance Core.ToJSON InstanceStorageConfig where
+instance Data.ToJSON InstanceStorageConfig where
   toJSON InstanceStorageConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KinesisVideoStreamConfig" Core..=)
+          [ ("KinesisVideoStreamConfig" Data..=)
               Prelude.<$> kinesisVideoStreamConfig,
-            ("KinesisFirehoseConfig" Core..=)
+            ("KinesisFirehoseConfig" Data..=)
               Prelude.<$> kinesisFirehoseConfig,
-            ("S3Config" Core..=) Prelude.<$> s3Config,
-            ("AssociationId" Core..=) Prelude.<$> associationId,
-            ("KinesisStreamConfig" Core..=)
+            ("S3Config" Data..=) Prelude.<$> s3Config,
+            ("AssociationId" Data..=) Prelude.<$> associationId,
+            ("KinesisStreamConfig" Data..=)
               Prelude.<$> kinesisStreamConfig,
-            Prelude.Just ("StorageType" Core..= storageType)
+            Prelude.Just ("StorageType" Data..= storageType)
           ]
       )

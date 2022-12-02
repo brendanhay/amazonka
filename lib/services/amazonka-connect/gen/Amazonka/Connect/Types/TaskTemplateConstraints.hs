@@ -24,6 +24,7 @@ import Amazonka.Connect.Types.ReadOnlyFieldInfo
 import Amazonka.Connect.Types.RequiredFieldInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes constraints that apply to the template fields.
@@ -74,18 +75,18 @@ taskTemplateConstraints_readOnlyFields = Lens.lens (\TaskTemplateConstraints' {r
 taskTemplateConstraints_requiredFields :: Lens.Lens' TaskTemplateConstraints (Prelude.Maybe [RequiredFieldInfo])
 taskTemplateConstraints_requiredFields = Lens.lens (\TaskTemplateConstraints' {requiredFields} -> requiredFields) (\s@TaskTemplateConstraints' {} a -> s {requiredFields = a} :: TaskTemplateConstraints) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TaskTemplateConstraints where
+instance Data.FromJSON TaskTemplateConstraints where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskTemplateConstraints"
       ( \x ->
           TaskTemplateConstraints'
-            Prelude.<$> ( x Core..:? "InvisibleFields"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "InvisibleFields"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ReadOnlyFields" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "RequiredFields"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ReadOnlyFields" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "RequiredFields"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -101,15 +102,15 @@ instance Prelude.NFData TaskTemplateConstraints where
       `Prelude.seq` Prelude.rnf readOnlyFields
       `Prelude.seq` Prelude.rnf requiredFields
 
-instance Core.ToJSON TaskTemplateConstraints where
+instance Data.ToJSON TaskTemplateConstraints where
   toJSON TaskTemplateConstraints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InvisibleFields" Core..=)
+          [ ("InvisibleFields" Data..=)
               Prelude.<$> invisibleFields,
-            ("ReadOnlyFields" Core..=)
+            ("ReadOnlyFields" Data..=)
               Prelude.<$> readOnlyFields,
-            ("RequiredFields" Core..=)
+            ("RequiredFields" Data..=)
               Prelude.<$> requiredFields
           ]
       )

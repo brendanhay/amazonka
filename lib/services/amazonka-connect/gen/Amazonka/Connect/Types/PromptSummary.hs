@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.PromptSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the prompt.
@@ -70,15 +71,15 @@ promptSummary_arn = Lens.lens (\PromptSummary' {arn} -> arn) (\s@PromptSummary' 
 promptSummary_id :: Lens.Lens' PromptSummary (Prelude.Maybe Prelude.Text)
 promptSummary_id = Lens.lens (\PromptSummary' {id} -> id) (\s@PromptSummary' {} a -> s {id = a} :: PromptSummary)
 
-instance Core.FromJSON PromptSummary where
+instance Data.FromJSON PromptSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PromptSummary"
       ( \x ->
           PromptSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable PromptSummary where

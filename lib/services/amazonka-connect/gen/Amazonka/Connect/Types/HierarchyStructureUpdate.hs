@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.HierarchyStructureUpdate where
 import Amazonka.Connect.Types.HierarchyLevelUpdate
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the level hierarchy to update.
@@ -106,14 +107,14 @@ instance Prelude.NFData HierarchyStructureUpdate where
       `Prelude.seq` Prelude.rnf levelFive
       `Prelude.seq` Prelude.rnf levelTwo
 
-instance Core.ToJSON HierarchyStructureUpdate where
+instance Data.ToJSON HierarchyStructureUpdate where
   toJSON HierarchyStructureUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LevelThree" Core..=) Prelude.<$> levelThree,
-            ("LevelFour" Core..=) Prelude.<$> levelFour,
-            ("LevelOne" Core..=) Prelude.<$> levelOne,
-            ("LevelFive" Core..=) Prelude.<$> levelFive,
-            ("LevelTwo" Core..=) Prelude.<$> levelTwo
+          [ ("LevelThree" Data..=) Prelude.<$> levelThree,
+            ("LevelFour" Data..=) Prelude.<$> levelFour,
+            ("LevelOne" Data..=) Prelude.<$> levelOne,
+            ("LevelFive" Data..=) Prelude.<$> levelFive,
+            ("LevelTwo" Data..=) Prelude.<$> levelTwo
           ]
       )

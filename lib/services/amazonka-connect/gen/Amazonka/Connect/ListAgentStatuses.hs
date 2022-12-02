@@ -51,6 +51,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,8 +153,8 @@ instance Core.AWSRequest ListAgentStatuses where
     Response.receiveJSON
       ( \s h x ->
           ListAgentStatusesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AgentStatusSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "AgentStatusSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -173,32 +174,32 @@ instance Prelude.NFData ListAgentStatuses where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ListAgentStatuses where
+instance Data.ToHeaders ListAgentStatuses where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAgentStatuses where
+instance Data.ToPath ListAgentStatuses where
   toPath ListAgentStatuses' {..} =
     Prelude.mconcat
-      ["/agent-status/", Core.toBS instanceId]
+      ["/agent-status/", Data.toBS instanceId]
 
-instance Core.ToQuery ListAgentStatuses where
+instance Data.ToQuery ListAgentStatuses where
   toQuery ListAgentStatuses' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
+      [ "nextToken" Data.=: nextToken,
         "AgentStatusTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> agentStatusTypes
             ),
-        "maxResults" Core.=: maxResults
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAgentStatusesResponse' smart constructor.

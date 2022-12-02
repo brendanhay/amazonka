@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.PhoneNumberStatus where
 import Amazonka.Connect.Types.PhoneNumberWorkflowStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of the phone number.
@@ -89,14 +90,14 @@ phoneNumberStatus_message = Lens.lens (\PhoneNumberStatus' {message} -> message)
 phoneNumberStatus_status :: Lens.Lens' PhoneNumberStatus (Prelude.Maybe PhoneNumberWorkflowStatus)
 phoneNumberStatus_status = Lens.lens (\PhoneNumberStatus' {status} -> status) (\s@PhoneNumberStatus' {} a -> s {status = a} :: PhoneNumberStatus)
 
-instance Core.FromJSON PhoneNumberStatus where
+instance Data.FromJSON PhoneNumberStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhoneNumberStatus"
       ( \x ->
           PhoneNumberStatus'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable PhoneNumberStatus where

@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.UrlReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The URL reference.
@@ -61,13 +62,13 @@ urlReference_name = Lens.lens (\UrlReference' {name} -> name) (\s@UrlReference' 
 urlReference_value :: Lens.Lens' UrlReference (Prelude.Maybe Prelude.Text)
 urlReference_value = Lens.lens (\UrlReference' {value} -> value) (\s@UrlReference' {} a -> s {value = a} :: UrlReference)
 
-instance Core.FromJSON UrlReference where
+instance Data.FromJSON UrlReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UrlReference"
       ( \x ->
           UrlReference'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable UrlReference where

@@ -47,6 +47,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,8 +140,8 @@ instance Core.AWSRequest CreateQuickConnect where
     Response.receiveJSON
       ( \s h x ->
           CreateQuickConnectResponse'
-            Prelude.<$> (x Core..?> "QuickConnectARN")
-            Prelude.<*> (x Core..?> "QuickConnectId")
+            Prelude.<$> (x Data..?> "QuickConnectARN")
+            Prelude.<*> (x Data..?> "QuickConnectId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,35 +161,35 @@ instance Prelude.NFData CreateQuickConnect where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf quickConnectConfig
 
-instance Core.ToHeaders CreateQuickConnect where
+instance Data.ToHeaders CreateQuickConnect where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateQuickConnect where
+instance Data.ToJSON CreateQuickConnect where
   toJSON CreateQuickConnect' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("QuickConnectConfig" Core..= quickConnectConfig)
+              ("QuickConnectConfig" Data..= quickConnectConfig)
           ]
       )
 
-instance Core.ToPath CreateQuickConnect where
+instance Data.ToPath CreateQuickConnect where
   toPath CreateQuickConnect' {..} =
     Prelude.mconcat
-      ["/quick-connects/", Core.toBS instanceId]
+      ["/quick-connects/", Data.toBS instanceId]
 
-instance Core.ToQuery CreateQuickConnect where
+instance Data.ToQuery CreateQuickConnect where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateQuickConnectResponse' smart constructor.

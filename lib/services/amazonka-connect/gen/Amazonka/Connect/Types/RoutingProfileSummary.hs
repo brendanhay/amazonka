@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.RoutingProfileSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a routing profile.
@@ -70,15 +71,15 @@ routingProfileSummary_arn = Lens.lens (\RoutingProfileSummary' {arn} -> arn) (\s
 routingProfileSummary_id :: Lens.Lens' RoutingProfileSummary (Prelude.Maybe Prelude.Text)
 routingProfileSummary_id = Lens.lens (\RoutingProfileSummary' {id} -> id) (\s@RoutingProfileSummary' {} a -> s {id = a} :: RoutingProfileSummary)
 
-instance Core.FromJSON RoutingProfileSummary where
+instance Data.FromJSON RoutingProfileSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoutingProfileSummary"
       ( \x ->
           RoutingProfileSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable RoutingProfileSummary where

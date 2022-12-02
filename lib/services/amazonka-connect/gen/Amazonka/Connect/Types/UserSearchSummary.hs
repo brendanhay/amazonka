@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.UserIdentityInfoLite
 import Amazonka.Connect.Types.UserPhoneConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the returned users.
@@ -137,22 +138,22 @@ userSearchSummary_directoryUserId = Lens.lens (\UserSearchSummary' {directoryUse
 userSearchSummary_routingProfileId :: Lens.Lens' UserSearchSummary (Prelude.Maybe Prelude.Text)
 userSearchSummary_routingProfileId = Lens.lens (\UserSearchSummary' {routingProfileId} -> routingProfileId) (\s@UserSearchSummary' {} a -> s {routingProfileId = a} :: UserSearchSummary)
 
-instance Core.FromJSON UserSearchSummary where
+instance Data.FromJSON UserSearchSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserSearchSummary"
       ( \x ->
           UserSearchSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "HierarchyGroupId")
-            Prelude.<*> (x Core..:? "IdentityInfo")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "SecurityProfileIds")
-            Prelude.<*> (x Core..:? "PhoneConfig")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "DirectoryUserId")
-            Prelude.<*> (x Core..:? "RoutingProfileId")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "HierarchyGroupId")
+            Prelude.<*> (x Data..:? "IdentityInfo")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "SecurityProfileIds")
+            Prelude.<*> (x Data..:? "PhoneConfig")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "DirectoryUserId")
+            Prelude.<*> (x Data..:? "RoutingProfileId")
       )
 
 instance Prelude.Hashable UserSearchSummary where

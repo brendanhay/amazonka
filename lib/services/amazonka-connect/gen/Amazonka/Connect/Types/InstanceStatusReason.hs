@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.InstanceStatusReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Relevant details why the instance was not successfully created.
@@ -50,13 +51,13 @@ newInstanceStatusReason =
 instanceStatusReason_message :: Lens.Lens' InstanceStatusReason (Prelude.Maybe Prelude.Text)
 instanceStatusReason_message = Lens.lens (\InstanceStatusReason' {message} -> message) (\s@InstanceStatusReason' {} a -> s {message = a} :: InstanceStatusReason)
 
-instance Core.FromJSON InstanceStatusReason where
+instance Data.FromJSON InstanceStatusReason where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceStatusReason"
       ( \x ->
           InstanceStatusReason'
-            Prelude.<$> (x Core..:? "Message")
+            Prelude.<$> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable InstanceStatusReason where

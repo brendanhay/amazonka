@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.UseCase where
 import Amazonka.Connect.Types.UseCaseType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the use case.
@@ -74,15 +75,15 @@ useCase_useCaseArn = Lens.lens (\UseCase' {useCaseArn} -> useCaseArn) (\s@UseCas
 useCase_useCaseId :: Lens.Lens' UseCase (Prelude.Maybe Prelude.Text)
 useCase_useCaseId = Lens.lens (\UseCase' {useCaseId} -> useCaseId) (\s@UseCase' {} a -> s {useCaseId = a} :: UseCase)
 
-instance Core.FromJSON UseCase where
+instance Data.FromJSON UseCase where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UseCase"
       ( \x ->
           UseCase'
-            Prelude.<$> (x Core..:? "UseCaseType")
-            Prelude.<*> (x Core..:? "UseCaseArn")
-            Prelude.<*> (x Core..:? "UseCaseId")
+            Prelude.<$> (x Data..:? "UseCaseType")
+            Prelude.<*> (x Data..:? "UseCaseArn")
+            Prelude.<*> (x Data..:? "UseCaseId")
       )
 
 instance Prelude.Hashable UseCase where

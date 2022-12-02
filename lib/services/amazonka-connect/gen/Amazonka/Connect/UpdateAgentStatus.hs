@@ -47,6 +47,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -168,40 +169,40 @@ instance Prelude.NFData UpdateAgentStatus where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf agentStatusId
 
-instance Core.ToHeaders UpdateAgentStatus where
+instance Data.ToHeaders UpdateAgentStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAgentStatus where
+instance Data.ToJSON UpdateAgentStatus where
   toJSON UpdateAgentStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("DisplayOrder" Core..=) Prelude.<$> displayOrder,
-            ("State" Core..=) Prelude.<$> state,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ResetOrderNumber" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("DisplayOrder" Data..=) Prelude.<$> displayOrder,
+            ("State" Data..=) Prelude.<$> state,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ResetOrderNumber" Data..=)
               Prelude.<$> resetOrderNumber
           ]
       )
 
-instance Core.ToPath UpdateAgentStatus where
+instance Data.ToPath UpdateAgentStatus where
   toPath UpdateAgentStatus' {..} =
     Prelude.mconcat
       [ "/agent-status/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS agentStatusId
+        Data.toBS agentStatusId
       ]
 
-instance Core.ToQuery UpdateAgentStatus where
+instance Data.ToQuery UpdateAgentStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAgentStatusResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,8 +172,8 @@ instance Core.AWSRequest CreateSecurityProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateSecurityProfileResponse'
-            Prelude.<$> (x Core..?> "SecurityProfileId")
-            Prelude.<*> (x Core..?> "SecurityProfileArn")
+            Prelude.<$> (x Data..?> "SecurityProfileId")
+            Prelude.<*> (x Data..?> "SecurityProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,39 +197,39 @@ instance Prelude.NFData CreateSecurityProfile where
       `Prelude.seq` Prelude.rnf securityProfileName
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders CreateSecurityProfile where
+instance Data.ToHeaders CreateSecurityProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSecurityProfile where
+instance Data.ToJSON CreateSecurityProfile where
   toJSON CreateSecurityProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("AllowedAccessControlTags" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("AllowedAccessControlTags" Data..=)
               Prelude.<$> allowedAccessControlTags,
-            ("Permissions" Core..=) Prelude.<$> permissions,
-            ("Description" Core..=) Prelude.<$> description,
-            ("TagRestrictedResources" Core..=)
+            ("Permissions" Data..=) Prelude.<$> permissions,
+            ("Description" Data..=) Prelude.<$> description,
+            ("TagRestrictedResources" Data..=)
               Prelude.<$> tagRestrictedResources,
             Prelude.Just
-              ("SecurityProfileName" Core..= securityProfileName)
+              ("SecurityProfileName" Data..= securityProfileName)
           ]
       )
 
-instance Core.ToPath CreateSecurityProfile where
+instance Data.ToPath CreateSecurityProfile where
   toPath CreateSecurityProfile' {..} =
     Prelude.mconcat
-      ["/security-profiles/", Core.toBS instanceId]
+      ["/security-profiles/", Data.toBS instanceId]
 
-instance Core.ToQuery CreateSecurityProfile where
+instance Data.ToQuery CreateSecurityProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSecurityProfileResponse' smart constructor.

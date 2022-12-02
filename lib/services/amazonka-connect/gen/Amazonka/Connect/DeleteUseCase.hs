@@ -40,6 +40,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,29 +124,29 @@ instance Prelude.NFData DeleteUseCase where
       `Prelude.seq` Prelude.rnf integrationAssociationId
       `Prelude.seq` Prelude.rnf useCaseId
 
-instance Core.ToHeaders DeleteUseCase where
+instance Data.ToHeaders DeleteUseCase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteUseCase where
+instance Data.ToPath DeleteUseCase where
   toPath DeleteUseCase' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/integration-associations/",
-        Core.toBS integrationAssociationId,
+        Data.toBS integrationAssociationId,
         "/use-cases/",
-        Core.toBS useCaseId
+        Data.toBS useCaseId
       ]
 
-instance Core.ToQuery DeleteUseCase where
+instance Data.ToQuery DeleteUseCase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUseCaseResponse' smart constructor.

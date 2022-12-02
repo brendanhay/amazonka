@@ -46,6 +46,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest DescribeInstanceAttribute where
     Response.receiveJSON
       ( \s h x ->
           DescribeInstanceAttributeResponse'
-            Prelude.<$> (x Core..?> "Attribute")
+            Prelude.<$> (x Data..?> "Attribute")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,27 +121,27 @@ instance Prelude.NFData DescribeInstanceAttribute where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf attributeType
 
-instance Core.ToHeaders DescribeInstanceAttribute where
+instance Data.ToHeaders DescribeInstanceAttribute where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeInstanceAttribute where
+instance Data.ToPath DescribeInstanceAttribute where
   toPath DescribeInstanceAttribute' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/attribute/",
-        Core.toBS attributeType
+        Data.toBS attributeType
       ]
 
-instance Core.ToQuery DescribeInstanceAttribute where
+instance Data.ToQuery DescribeInstanceAttribute where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeInstanceAttributeResponse' smart constructor.

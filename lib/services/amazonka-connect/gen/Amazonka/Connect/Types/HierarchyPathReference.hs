@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.HierarchyPathReference where
 import Amazonka.Connect.Types.HierarchyGroupSummaryReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the levels in the hierarchy group.
@@ -90,17 +91,17 @@ hierarchyPathReference_levelFive = Lens.lens (\HierarchyPathReference' {levelFiv
 hierarchyPathReference_levelTwo :: Lens.Lens' HierarchyPathReference (Prelude.Maybe HierarchyGroupSummaryReference)
 hierarchyPathReference_levelTwo = Lens.lens (\HierarchyPathReference' {levelTwo} -> levelTwo) (\s@HierarchyPathReference' {} a -> s {levelTwo = a} :: HierarchyPathReference)
 
-instance Core.FromJSON HierarchyPathReference where
+instance Data.FromJSON HierarchyPathReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HierarchyPathReference"
       ( \x ->
           HierarchyPathReference'
-            Prelude.<$> (x Core..:? "LevelThree")
-            Prelude.<*> (x Core..:? "LevelFour")
-            Prelude.<*> (x Core..:? "LevelOne")
-            Prelude.<*> (x Core..:? "LevelFive")
-            Prelude.<*> (x Core..:? "LevelTwo")
+            Prelude.<$> (x Data..:? "LevelThree")
+            Prelude.<*> (x Data..:? "LevelFour")
+            Prelude.<*> (x Data..:? "LevelOne")
+            Prelude.<*> (x Data..:? "LevelFive")
+            Prelude.<*> (x Data..:? "LevelTwo")
       )
 
 instance Prelude.Hashable HierarchyPathReference where

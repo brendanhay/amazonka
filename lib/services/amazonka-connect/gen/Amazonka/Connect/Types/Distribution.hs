@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.Distribution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a traffic distribution.
@@ -65,14 +66,14 @@ distribution_region = Lens.lens (\Distribution' {region} -> region) (\s@Distribu
 distribution_percentage :: Lens.Lens' Distribution Prelude.Natural
 distribution_percentage = Lens.lens (\Distribution' {percentage} -> percentage) (\s@Distribution' {} a -> s {percentage = a} :: Distribution)
 
-instance Core.FromJSON Distribution where
+instance Data.FromJSON Distribution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Distribution"
       ( \x ->
           Distribution'
-            Prelude.<$> (x Core..: "Region")
-            Prelude.<*> (x Core..: "Percentage")
+            Prelude.<$> (x Data..: "Region")
+            Prelude.<*> (x Data..: "Percentage")
       )
 
 instance Prelude.Hashable Distribution where
@@ -85,11 +86,11 @@ instance Prelude.NFData Distribution where
     Prelude.rnf region
       `Prelude.seq` Prelude.rnf percentage
 
-instance Core.ToJSON Distribution where
+instance Data.ToJSON Distribution where
   toJSON Distribution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Region" Core..= region),
-            Prelude.Just ("Percentage" Core..= percentage)
+          [ Prelude.Just ("Region" Data..= region),
+            Prelude.Just ("Percentage" Data..= percentage)
           ]
       )

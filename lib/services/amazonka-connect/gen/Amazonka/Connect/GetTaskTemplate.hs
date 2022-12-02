@@ -57,6 +57,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,20 +127,20 @@ instance Core.AWSRequest GetTaskTemplate where
     Response.receiveJSON
       ( \s h x ->
           GetTaskTemplateResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "Constraints")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Fields" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "InstanceId")
-            Prelude.<*> (x Core..?> "Defaults")
-            Prelude.<*> (x Core..?> "ContactFlowId")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "Constraints")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Fields" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "InstanceId")
+            Prelude.<*> (x Data..?> "Defaults")
+            Prelude.<*> (x Data..?> "ContactFlowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Id")
-            Prelude.<*> (x Core..:> "Arn")
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Id")
+            Prelude.<*> (x Data..:> "Arn")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable GetTaskTemplate where
@@ -154,30 +155,30 @@ instance Prelude.NFData GetTaskTemplate where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf taskTemplateId
 
-instance Core.ToHeaders GetTaskTemplate where
+instance Data.ToHeaders GetTaskTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetTaskTemplate where
+instance Data.ToPath GetTaskTemplate where
   toPath GetTaskTemplate' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/task/template/",
-        Core.toBS taskTemplateId
+        Data.toBS taskTemplateId
       ]
 
-instance Core.ToQuery GetTaskTemplate where
+instance Data.ToQuery GetTaskTemplate where
   toQuery GetTaskTemplate' {..} =
     Prelude.mconcat
-      ["snapshotVersion" Core.=: snapshotVersion]
+      ["snapshotVersion" Data.=: snapshotVersion]
 
 -- | /See:/ 'newGetTaskTemplateResponse' smart constructor.
 data GetTaskTemplateResponse = GetTaskTemplateResponse'
@@ -185,7 +186,7 @@ data GetTaskTemplateResponse = GetTaskTemplateResponse'
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The timestamp when the task template was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | Constraints that are applicable to the fields listed.
     constraints :: Prelude.Maybe TaskTemplateConstraints,
     -- | Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
@@ -198,7 +199,7 @@ data GetTaskTemplateResponse = GetTaskTemplateResponse'
     -- | The description of the task template.
     description :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the task template was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
@@ -300,7 +301,7 @@ getTaskTemplateResponse_tags = Lens.lens (\GetTaskTemplateResponse' {tags} -> ta
 
 -- | The timestamp when the task template was created.
 getTaskTemplateResponse_createdTime :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-getTaskTemplateResponse_createdTime = Lens.lens (\GetTaskTemplateResponse' {createdTime} -> createdTime) (\s@GetTaskTemplateResponse' {} a -> s {createdTime = a} :: GetTaskTemplateResponse) Prelude.. Lens.mapping Core._Time
+getTaskTemplateResponse_createdTime = Lens.lens (\GetTaskTemplateResponse' {createdTime} -> createdTime) (\s@GetTaskTemplateResponse' {} a -> s {createdTime = a} :: GetTaskTemplateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Constraints that are applicable to the fields listed.
 getTaskTemplateResponse_constraints :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe TaskTemplateConstraints)
@@ -323,7 +324,7 @@ getTaskTemplateResponse_description = Lens.lens (\GetTaskTemplateResponse' {desc
 
 -- | The timestamp when the task template was last modified.
 getTaskTemplateResponse_lastModifiedTime :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-getTaskTemplateResponse_lastModifiedTime = Lens.lens (\GetTaskTemplateResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetTaskTemplateResponse' {} a -> s {lastModifiedTime = a} :: GetTaskTemplateResponse) Prelude.. Lens.mapping Core._Time
+getTaskTemplateResponse_lastModifiedTime = Lens.lens (\GetTaskTemplateResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetTaskTemplateResponse' {} a -> s {lastModifiedTime = a} :: GetTaskTemplateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.

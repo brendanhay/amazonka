@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.NumberReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a reference when the @referenceType@ is @NUMBER@.
@@ -62,13 +63,13 @@ numberReference_name = Lens.lens (\NumberReference' {name} -> name) (\s@NumberRe
 numberReference_value :: Lens.Lens' NumberReference (Prelude.Maybe Prelude.Text)
 numberReference_value = Lens.lens (\NumberReference' {value} -> value) (\s@NumberReference' {} a -> s {value = a} :: NumberReference)
 
-instance Core.FromJSON NumberReference where
+instance Data.FromJSON NumberReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NumberReference"
       ( \x ->
           NumberReference'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable NumberReference where

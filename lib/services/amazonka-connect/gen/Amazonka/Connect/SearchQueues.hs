@@ -53,6 +53,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,9 +171,9 @@ instance Core.AWSRequest SearchQueues where
     Response.receiveJSON
       ( \s h x ->
           SearchQueuesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ApproximateTotalCount")
-            Prelude.<*> (x Core..?> "Queues" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ApproximateTotalCount")
+            Prelude.<*> (x Data..?> "Queues" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,34 +193,34 @@ instance Prelude.NFData SearchQueues where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders SearchQueues where
+instance Data.ToHeaders SearchQueues where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchQueues where
+instance Data.ToJSON SearchQueues where
   toJSON SearchQueues' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SearchCriteria" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SearchCriteria" Data..=)
               Prelude.<$> searchCriteria,
-            ("SearchFilter" Core..=) Prelude.<$> searchFilter,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("InstanceId" Core..= instanceId)
+            ("SearchFilter" Data..=) Prelude.<$> searchFilter,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath SearchQueues where
+instance Data.ToPath SearchQueues where
   toPath = Prelude.const "/search-queues"
 
-instance Core.ToQuery SearchQueues where
+instance Data.ToQuery SearchQueues where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchQueuesResponse' smart constructor.

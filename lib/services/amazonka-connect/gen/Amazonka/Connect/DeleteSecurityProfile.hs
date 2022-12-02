@@ -42,6 +42,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,27 +111,27 @@ instance Prelude.NFData DeleteSecurityProfile where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf securityProfileId
 
-instance Core.ToHeaders DeleteSecurityProfile where
+instance Data.ToHeaders DeleteSecurityProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteSecurityProfile where
+instance Data.ToPath DeleteSecurityProfile where
   toPath DeleteSecurityProfile' {..} =
     Prelude.mconcat
       [ "/security-profiles/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS securityProfileId
+        Data.toBS securityProfileId
       ]
 
-instance Core.ToQuery DeleteSecurityProfile where
+instance Data.ToQuery DeleteSecurityProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSecurityProfileResponse' smart constructor.

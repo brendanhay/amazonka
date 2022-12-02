@@ -51,6 +51,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,8 +144,8 @@ instance Core.AWSRequest ListApprovedOrigins where
     Response.receiveJSON
       ( \s h x ->
           ListApprovedOriginsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Origins" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Origins" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,30 +161,30 @@ instance Prelude.NFData ListApprovedOrigins where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ListApprovedOrigins where
+instance Data.ToHeaders ListApprovedOrigins where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListApprovedOrigins where
+instance Data.ToPath ListApprovedOrigins where
   toPath ListApprovedOrigins' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/approved-origins"
       ]
 
-instance Core.ToQuery ListApprovedOrigins where
+instance Data.ToQuery ListApprovedOrigins where
   toQuery ListApprovedOrigins' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListApprovedOriginsResponse' smart constructor.

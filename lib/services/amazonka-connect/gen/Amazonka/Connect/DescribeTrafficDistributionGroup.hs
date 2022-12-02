@@ -42,6 +42,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,7 +100,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeTrafficDistributionGroupResponse'
-            Prelude.<$> (x Core..?> "TrafficDistributionGroup")
+            Prelude.<$> (x Data..?> "TrafficDistributionGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,28 +122,28 @@ instance
     Prelude.rnf trafficDistributionGroupId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeTrafficDistributionGroup
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeTrafficDistributionGroup where
+instance Data.ToPath DescribeTrafficDistributionGroup where
   toPath DescribeTrafficDistributionGroup' {..} =
     Prelude.mconcat
       [ "/traffic-distribution-group/",
-        Core.toBS trafficDistributionGroupId
+        Data.toBS trafficDistributionGroupId
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeTrafficDistributionGroup
   where
   toQuery = Prelude.const Prelude.mempty

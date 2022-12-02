@@ -56,6 +56,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ data GetMetricData = GetMetricData'
     --
     -- The start time cannot be earlier than 24 hours before the time of the
     -- request. Historical metrics are available only for 24 hours.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The timestamp, in UNIX Epoch time format, at which to end the reporting
     -- interval for the retrieval of historical metrics data. The time must be
     -- specified using an interval of 5 minutes, such as 11:00, 11:05, 11:10,
@@ -94,7 +95,7 @@ data GetMetricData = GetMetricData'
     --
     -- The time range between the start and end time must be less than 24
     -- hours.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The queues, up to 100, or channels, to use to filter the metrics
     -- returned. Metric data is retrieved only for the resources associated
     -- with the queues or channels included in the filter. You can include both
@@ -456,8 +457,8 @@ newGetMetricData
         nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         instanceId = pInstanceId_,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_,
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         filters = pFilters_,
         historicalMetrics = Prelude.mempty
       }
@@ -495,7 +496,7 @@ getMetricData_instanceId = Lens.lens (\GetMetricData' {instanceId} -> instanceId
 -- The start time cannot be earlier than 24 hours before the time of the
 -- request. Historical metrics are available only for 24 hours.
 getMetricData_startTime :: Lens.Lens' GetMetricData Prelude.UTCTime
-getMetricData_startTime = Lens.lens (\GetMetricData' {startTime} -> startTime) (\s@GetMetricData' {} a -> s {startTime = a} :: GetMetricData) Prelude.. Core._Time
+getMetricData_startTime = Lens.lens (\GetMetricData' {startTime} -> startTime) (\s@GetMetricData' {} a -> s {startTime = a} :: GetMetricData) Prelude.. Data._Time
 
 -- | The timestamp, in UNIX Epoch time format, at which to end the reporting
 -- interval for the retrieval of historical metrics data. The time must be
@@ -505,7 +506,7 @@ getMetricData_startTime = Lens.lens (\GetMetricData' {startTime} -> startTime) (
 -- The time range between the start and end time must be less than 24
 -- hours.
 getMetricData_endTime :: Lens.Lens' GetMetricData Prelude.UTCTime
-getMetricData_endTime = Lens.lens (\GetMetricData' {endTime} -> endTime) (\s@GetMetricData' {} a -> s {endTime = a} :: GetMetricData) Prelude.. Core._Time
+getMetricData_endTime = Lens.lens (\GetMetricData' {endTime} -> endTime) (\s@GetMetricData' {} a -> s {endTime = a} :: GetMetricData) Prelude.. Data._Time
 
 -- | The queues, up to 100, or channels, to use to filter the metrics
 -- returned. Metric data is retrieved only for the resources associated
@@ -690,8 +691,8 @@ instance Core.AWSRequest GetMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetMetricDataResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "MetricResults" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "MetricResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -717,38 +718,38 @@ instance Prelude.NFData GetMetricData where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf historicalMetrics
 
-instance Core.ToHeaders GetMetricData where
+instance Data.ToHeaders GetMetricData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMetricData where
+instance Data.ToJSON GetMetricData where
   toJSON GetMetricData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Groupings" Core..=) Prelude.<$> groupings,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("StartTime" Core..= startTime),
-            Prelude.Just ("EndTime" Core..= endTime),
-            Prelude.Just ("Filters" Core..= filters),
+          [ ("Groupings" Data..=) Prelude.<$> groupings,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("StartTime" Data..= startTime),
+            Prelude.Just ("EndTime" Data..= endTime),
+            Prelude.Just ("Filters" Data..= filters),
             Prelude.Just
-              ("HistoricalMetrics" Core..= historicalMetrics)
+              ("HistoricalMetrics" Data..= historicalMetrics)
           ]
       )
 
-instance Core.ToPath GetMetricData where
+instance Data.ToPath GetMetricData where
   toPath GetMetricData' {..} =
     Prelude.mconcat
-      ["/metrics/historical/", Core.toBS instanceId]
+      ["/metrics/historical/", Data.toBS instanceId]
 
-instance Core.ToQuery GetMetricData where
+instance Data.ToQuery GetMetricData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMetricDataResponse' smart constructor.

@@ -24,6 +24,7 @@ import Amazonka.Connect.Types.PhoneNumberStatus
 import Amazonka.Connect.Types.PhoneNumberType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a phone number that has been claimed to your Amazon
@@ -227,21 +228,21 @@ claimedPhoneNumberSummary_phoneNumberId = Lens.lens (\ClaimedPhoneNumberSummary'
 claimedPhoneNumberSummary_phoneNumber :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe Prelude.Text)
 claimedPhoneNumberSummary_phoneNumber = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumber} -> phoneNumber) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumber = a} :: ClaimedPhoneNumberSummary)
 
-instance Core.FromJSON ClaimedPhoneNumberSummary where
+instance Data.FromJSON ClaimedPhoneNumberSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClaimedPhoneNumberSummary"
       ( \x ->
           ClaimedPhoneNumberSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PhoneNumberCountryCode")
-            Prelude.<*> (x Core..:? "PhoneNumberArn")
-            Prelude.<*> (x Core..:? "PhoneNumberType")
-            Prelude.<*> (x Core..:? "PhoneNumberDescription")
-            Prelude.<*> (x Core..:? "TargetArn")
-            Prelude.<*> (x Core..:? "PhoneNumberStatus")
-            Prelude.<*> (x Core..:? "PhoneNumberId")
-            Prelude.<*> (x Core..:? "PhoneNumber")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PhoneNumberCountryCode")
+            Prelude.<*> (x Data..:? "PhoneNumberArn")
+            Prelude.<*> (x Data..:? "PhoneNumberType")
+            Prelude.<*> (x Data..:? "PhoneNumberDescription")
+            Prelude.<*> (x Data..:? "TargetArn")
+            Prelude.<*> (x Data..:? "PhoneNumberStatus")
+            Prelude.<*> (x Data..:? "PhoneNumberId")
+            Prelude.<*> (x Data..:? "PhoneNumber")
       )
 
 instance Prelude.Hashable ClaimedPhoneNumberSummary where

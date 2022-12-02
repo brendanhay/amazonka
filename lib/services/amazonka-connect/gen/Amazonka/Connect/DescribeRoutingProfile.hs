@@ -43,6 +43,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,7 +103,7 @@ instance Core.AWSRequest DescribeRoutingProfile where
     Response.receiveJSON
       ( \s h x ->
           DescribeRoutingProfileResponse'
-            Prelude.<$> (x Core..?> "RoutingProfile")
+            Prelude.<$> (x Data..?> "RoutingProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,27 +117,27 @@ instance Prelude.NFData DescribeRoutingProfile where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf routingProfileId
 
-instance Core.ToHeaders DescribeRoutingProfile where
+instance Data.ToHeaders DescribeRoutingProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeRoutingProfile where
+instance Data.ToPath DescribeRoutingProfile where
   toPath DescribeRoutingProfile' {..} =
     Prelude.mconcat
       [ "/routing-profiles/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS routingProfileId
+        Data.toBS routingProfileId
       ]
 
-instance Core.ToQuery DescribeRoutingProfile where
+instance Data.ToQuery DescribeRoutingProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRoutingProfileResponse' smart constructor.

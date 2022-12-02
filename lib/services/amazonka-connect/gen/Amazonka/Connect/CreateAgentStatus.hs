@@ -51,6 +51,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +150,8 @@ instance Core.AWSRequest CreateAgentStatus where
     Response.receiveJSON
       ( \s h x ->
           CreateAgentStatusResponse'
-            Prelude.<$> (x Core..?> "AgentStatusId")
-            Prelude.<*> (x Core..?> "AgentStatusARN")
+            Prelude.<$> (x Data..?> "AgentStatusId")
+            Prelude.<*> (x Data..?> "AgentStatusARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,35 +173,35 @@ instance Prelude.NFData CreateAgentStatus where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf state
 
-instance Core.ToHeaders CreateAgentStatus where
+instance Data.ToHeaders CreateAgentStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAgentStatus where
+instance Data.ToJSON CreateAgentStatus where
   toJSON CreateAgentStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DisplayOrder" Core..=) Prelude.<$> displayOrder,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("State" Core..= state)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DisplayOrder" Data..=) Prelude.<$> displayOrder,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("State" Data..= state)
           ]
       )
 
-instance Core.ToPath CreateAgentStatus where
+instance Data.ToPath CreateAgentStatus where
   toPath CreateAgentStatus' {..} =
     Prelude.mconcat
-      ["/agent-status/", Core.toBS instanceId]
+      ["/agent-status/", Data.toBS instanceId]
 
-instance Core.ToQuery CreateAgentStatus where
+instance Data.ToQuery CreateAgentStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAgentStatusResponse' smart constructor.

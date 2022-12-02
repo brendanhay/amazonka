@@ -27,6 +27,7 @@ import Amazonka.Connect.Types.StringReference
 import Amazonka.Connect.Types.UrlReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a reference. @ReferenceSummary@
@@ -123,18 +124,18 @@ referenceSummary_string = Lens.lens (\ReferenceSummary' {string} -> string) (\s@
 referenceSummary_url :: Lens.Lens' ReferenceSummary (Prelude.Maybe UrlReference)
 referenceSummary_url = Lens.lens (\ReferenceSummary' {url} -> url) (\s@ReferenceSummary' {} a -> s {url = a} :: ReferenceSummary)
 
-instance Core.FromJSON ReferenceSummary where
+instance Data.FromJSON ReferenceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReferenceSummary"
       ( \x ->
           ReferenceSummary'
-            Prelude.<$> (x Core..:? "Number")
-            Prelude.<*> (x Core..:? "Attachment")
-            Prelude.<*> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "Date")
-            Prelude.<*> (x Core..:? "String")
-            Prelude.<*> (x Core..:? "Url")
+            Prelude.<$> (x Data..:? "Number")
+            Prelude.<*> (x Data..:? "Attachment")
+            Prelude.<*> (x Data..:? "Email")
+            Prelude.<*> (x Data..:? "Date")
+            Prelude.<*> (x Data..:? "String")
+            Prelude.<*> (x Data..:? "Url")
       )
 
 instance Prelude.Hashable ReferenceSummary where

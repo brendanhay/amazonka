@@ -42,6 +42,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,39 +145,39 @@ instance Prelude.NFData UpdateContactFlowMetadata where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf contactFlowId
 
-instance Core.ToHeaders UpdateContactFlowMetadata where
+instance Data.ToHeaders UpdateContactFlowMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateContactFlowMetadata where
+instance Data.ToJSON UpdateContactFlowMetadata where
   toJSON UpdateContactFlowMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("ContactFlowState" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("ContactFlowState" Data..=)
               Prelude.<$> contactFlowState,
-            ("Description" Core..=) Prelude.<$> description
+            ("Description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateContactFlowMetadata where
+instance Data.ToPath UpdateContactFlowMetadata where
   toPath UpdateContactFlowMetadata' {..} =
     Prelude.mconcat
       [ "/contact-flows/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS contactFlowId,
+        Data.toBS contactFlowId,
         "/metadata"
       ]
 
-instance Core.ToQuery UpdateContactFlowMetadata where
+instance Data.ToQuery UpdateContactFlowMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContactFlowMetadataResponse' smart constructor.

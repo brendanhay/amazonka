@@ -44,6 +44,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,27 +130,27 @@ instance Prelude.NFData DisassociateLexBot where
       `Prelude.seq` Prelude.rnf botName
       `Prelude.seq` Prelude.rnf lexRegion
 
-instance Core.ToHeaders DisassociateLexBot where
+instance Data.ToHeaders DisassociateLexBot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DisassociateLexBot where
+instance Data.ToPath DisassociateLexBot where
   toPath DisassociateLexBot' {..} =
     Prelude.mconcat
-      ["/instance/", Core.toBS instanceId, "/lex-bot"]
+      ["/instance/", Data.toBS instanceId, "/lex-bot"]
 
-instance Core.ToQuery DisassociateLexBot where
+instance Data.ToQuery DisassociateLexBot where
   toQuery DisassociateLexBot' {..} =
     Prelude.mconcat
-      [ "botName" Core.=: botName,
-        "lexRegion" Core.=: lexRegion
+      [ "botName" Data.=: botName,
+        "lexRegion" Data.=: lexRegion
       ]
 
 -- | /See:/ 'newDisassociateLexBotResponse' smart constructor.

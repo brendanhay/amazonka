@@ -56,6 +56,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -160,8 +161,8 @@ instance Core.AWSRequest ListContactFlows where
     Response.receiveJSON
       ( \s h x ->
           ListContactFlowsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ContactFlowSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ContactFlowSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -181,30 +182,30 @@ instance Prelude.NFData ListContactFlows where
       `Prelude.seq` Prelude.rnf contactFlowTypes
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ListContactFlows where
+instance Data.ToHeaders ListContactFlows where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListContactFlows where
+instance Data.ToPath ListContactFlows where
   toPath ListContactFlows' {..} =
     Prelude.mconcat
-      ["/contact-flows-summary/", Core.toBS instanceId]
+      ["/contact-flows-summary/", Data.toBS instanceId]
 
-instance Core.ToQuery ListContactFlows where
+instance Data.ToQuery ListContactFlows where
   toQuery ListContactFlows' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
         "contactFlowTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> contactFlowTypes
             )
       ]

@@ -60,6 +60,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -71,7 +72,7 @@ data CreateInstance = CreateInstance'
     -- | The idempotency token.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The name for your instance.
-    instanceAlias :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    instanceAlias :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The type of identity management for your Amazon Connect users.
     identityManagementType :: DirectoryType,
     -- | Your contact center handles incoming contacts.
@@ -131,7 +132,7 @@ createInstance_clientToken = Lens.lens (\CreateInstance' {clientToken} -> client
 
 -- | The name for your instance.
 createInstance_instanceAlias :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
-createInstance_instanceAlias = Lens.lens (\CreateInstance' {instanceAlias} -> instanceAlias) (\s@CreateInstance' {} a -> s {instanceAlias = a} :: CreateInstance) Prelude.. Lens.mapping Core._Sensitive
+createInstance_instanceAlias = Lens.lens (\CreateInstance' {instanceAlias} -> instanceAlias) (\s@CreateInstance' {} a -> s {instanceAlias = a} :: CreateInstance) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The type of identity management for your Amazon Connect users.
 createInstance_identityManagementType :: Lens.Lens' CreateInstance DirectoryType
@@ -155,8 +156,8 @@ instance Core.AWSRequest CreateInstance where
     Response.receiveJSON
       ( \s h x ->
           CreateInstanceResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,41 +179,41 @@ instance Prelude.NFData CreateInstance where
       `Prelude.seq` Prelude.rnf inboundCallsEnabled
       `Prelude.seq` Prelude.rnf outboundCallsEnabled
 
-instance Core.ToHeaders CreateInstance where
+instance Data.ToHeaders CreateInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateInstance where
+instance Data.ToJSON CreateInstance where
   toJSON CreateInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("InstanceAlias" Core..=) Prelude.<$> instanceAlias,
+          [ ("DirectoryId" Data..=) Prelude.<$> directoryId,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("InstanceAlias" Data..=) Prelude.<$> instanceAlias,
             Prelude.Just
               ( "IdentityManagementType"
-                  Core..= identityManagementType
+                  Data..= identityManagementType
               ),
             Prelude.Just
-              ("InboundCallsEnabled" Core..= inboundCallsEnabled),
+              ("InboundCallsEnabled" Data..= inboundCallsEnabled),
             Prelude.Just
               ( "OutboundCallsEnabled"
-                  Core..= outboundCallsEnabled
+                  Data..= outboundCallsEnabled
               )
           ]
       )
 
-instance Core.ToPath CreateInstance where
+instance Data.ToPath CreateInstance where
   toPath = Prelude.const "/instance"
 
-instance Core.ToQuery CreateInstance where
+instance Data.ToQuery CreateInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateInstanceResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -176,8 +177,8 @@ instance Core.AWSRequest SearchVocabularies where
     Response.receiveJSON
       ( \s h x ->
           SearchVocabulariesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "VocabularySummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "VocabularySummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -201,36 +202,36 @@ instance Prelude.NFData SearchVocabularies where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders SearchVocabularies where
+instance Data.ToHeaders SearchVocabularies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchVocabularies where
+instance Data.ToJSON SearchVocabularies where
   toJSON SearchVocabularies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NameStartsWith" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("NameStartsWith" Data..=)
               Prelude.<$> nameStartsWith,
-            ("State" Core..=) Prelude.<$> state,
-            ("LanguageCode" Core..=) Prelude.<$> languageCode,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("State" Data..=) Prelude.<$> state,
+            ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath SearchVocabularies where
+instance Data.ToPath SearchVocabularies where
   toPath SearchVocabularies' {..} =
     Prelude.mconcat
-      ["/vocabulary-summary/", Core.toBS instanceId]
+      ["/vocabulary-summary/", Data.toBS instanceId]
 
-instance Core.ToQuery SearchVocabularies where
+instance Data.ToQuery SearchVocabularies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchVocabulariesResponse' smart constructor.

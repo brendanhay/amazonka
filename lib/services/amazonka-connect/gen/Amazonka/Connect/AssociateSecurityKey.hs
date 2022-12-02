@@ -46,6 +46,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance Core.AWSRequest AssociateSecurityKey where
     Response.receiveJSON
       ( \s h x ->
           AssociateSecurityKeyResponse'
-            Prelude.<$> (x Core..?> "AssociationId")
+            Prelude.<$> (x Data..?> "AssociationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,30 +118,30 @@ instance Prelude.NFData AssociateSecurityKey where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToHeaders AssociateSecurityKey where
+instance Data.ToHeaders AssociateSecurityKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateSecurityKey where
+instance Data.ToJSON AssociateSecurityKey where
   toJSON AssociateSecurityKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Key" Core..= key)]
+          [Prelude.Just ("Key" Data..= key)]
       )
 
-instance Core.ToPath AssociateSecurityKey where
+instance Data.ToPath AssociateSecurityKey where
   toPath AssociateSecurityKey' {..} =
     Prelude.mconcat
-      ["/instance/", Core.toBS instanceId, "/security-key"]
+      ["/instance/", Data.toBS instanceId, "/security-key"]
 
-instance Core.ToQuery AssociateSecurityKey where
+instance Data.ToQuery AssociateSecurityKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateSecurityKeyResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.RoutingProfile where
 import Amazonka.Connect.Types.MediaConcurrency
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a routing profile.
@@ -143,24 +144,24 @@ routingProfile_defaultOutboundQueueId = Lens.lens (\RoutingProfile' {defaultOutb
 routingProfile_routingProfileId :: Lens.Lens' RoutingProfile (Prelude.Maybe Prelude.Text)
 routingProfile_routingProfileId = Lens.lens (\RoutingProfile' {routingProfileId} -> routingProfileId) (\s@RoutingProfile' {} a -> s {routingProfileId = a} :: RoutingProfile)
 
-instance Core.FromJSON RoutingProfile where
+instance Data.FromJSON RoutingProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoutingProfile"
       ( \x ->
           RoutingProfile'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "NumberOfAssociatedUsers")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> ( x Core..:? "MediaConcurrencies"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "NumberOfAssociatedUsers")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> ( x Data..:? "MediaConcurrencies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "RoutingProfileArn")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "NumberOfAssociatedQueues")
-            Prelude.<*> (x Core..:? "DefaultOutboundQueueId")
-            Prelude.<*> (x Core..:? "RoutingProfileId")
+            Prelude.<*> (x Data..:? "RoutingProfileArn")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "NumberOfAssociatedQueues")
+            Prelude.<*> (x Data..:? "DefaultOutboundQueueId")
+            Prelude.<*> (x Data..:? "RoutingProfileId")
       )
 
 instance Prelude.Hashable RoutingProfile where

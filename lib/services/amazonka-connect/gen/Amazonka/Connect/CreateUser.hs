@@ -57,6 +57,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -244,8 +245,8 @@ instance Core.AWSRequest CreateUser where
     Response.receiveJSON
       ( \s h x ->
           CreateUserResponse'
-            Prelude.<$> (x Core..?> "UserArn")
-            Prelude.<*> (x Core..?> "UserId")
+            Prelude.<$> (x Data..?> "UserArn")
+            Prelude.<*> (x Data..?> "UserId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -275,42 +276,42 @@ instance Prelude.NFData CreateUser where
       `Prelude.seq` Prelude.rnf routingProfileId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders CreateUser where
+instance Data.ToHeaders CreateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUser where
+instance Data.ToJSON CreateUser where
   toJSON CreateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("HierarchyGroupId" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("HierarchyGroupId" Data..=)
               Prelude.<$> hierarchyGroupId,
-            ("IdentityInfo" Core..=) Prelude.<$> identityInfo,
-            ("Password" Core..=) Prelude.<$> password,
-            ("DirectoryUserId" Core..=)
+            ("IdentityInfo" Data..=) Prelude.<$> identityInfo,
+            ("Password" Data..=) Prelude.<$> password,
+            ("DirectoryUserId" Data..=)
               Prelude.<$> directoryUserId,
-            Prelude.Just ("Username" Core..= username),
-            Prelude.Just ("PhoneConfig" Core..= phoneConfig),
+            Prelude.Just ("Username" Data..= username),
+            Prelude.Just ("PhoneConfig" Data..= phoneConfig),
             Prelude.Just
-              ("SecurityProfileIds" Core..= securityProfileIds),
+              ("SecurityProfileIds" Data..= securityProfileIds),
             Prelude.Just
-              ("RoutingProfileId" Core..= routingProfileId)
+              ("RoutingProfileId" Data..= routingProfileId)
           ]
       )
 
-instance Core.ToPath CreateUser where
+instance Data.ToPath CreateUser where
   toPath CreateUser' {..} =
-    Prelude.mconcat ["/users/", Core.toBS instanceId]
+    Prelude.mconcat ["/users/", Data.toBS instanceId]
 
-instance Core.ToQuery CreateUser where
+instance Data.ToQuery CreateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserResponse' smart constructor.

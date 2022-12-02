@@ -43,6 +43,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,37 +128,37 @@ instance Prelude.NFData UpdateQueueHoursOfOperation where
       `Prelude.seq` Prelude.rnf queueId
       `Prelude.seq` Prelude.rnf hoursOfOperationId
 
-instance Core.ToHeaders UpdateQueueHoursOfOperation where
+instance Data.ToHeaders UpdateQueueHoursOfOperation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateQueueHoursOfOperation where
+instance Data.ToJSON UpdateQueueHoursOfOperation where
   toJSON UpdateQueueHoursOfOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("HoursOfOperationId" Core..= hoursOfOperationId)
+              ("HoursOfOperationId" Data..= hoursOfOperationId)
           ]
       )
 
-instance Core.ToPath UpdateQueueHoursOfOperation where
+instance Data.ToPath UpdateQueueHoursOfOperation where
   toPath UpdateQueueHoursOfOperation' {..} =
     Prelude.mconcat
       [ "/queues/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS queueId,
+        Data.toBS queueId,
         "/hours-of-operation"
       ]
 
-instance Core.ToQuery UpdateQueueHoursOfOperation where
+instance Data.ToQuery UpdateQueueHoursOfOperation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateQueueHoursOfOperationResponse' smart constructor.

@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.ContactFlowState
 import Amazonka.Connect.Types.ContactFlowType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a flow.
@@ -126,20 +127,20 @@ contactFlow_description = Lens.lens (\ContactFlow' {description} -> description)
 contactFlow_content :: Lens.Lens' ContactFlow (Prelude.Maybe Prelude.Text)
 contactFlow_content = Lens.lens (\ContactFlow' {content} -> content) (\s@ContactFlow' {} a -> s {content = a} :: ContactFlow)
 
-instance Core.FromJSON ContactFlow where
+instance Data.FromJSON ContactFlow where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactFlow"
       ( \x ->
           ContactFlow'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Content")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Content")
       )
 
 instance Prelude.Hashable ContactFlow where

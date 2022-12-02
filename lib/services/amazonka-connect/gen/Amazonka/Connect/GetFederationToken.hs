@@ -51,6 +51,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,10 +96,10 @@ instance Core.AWSRequest GetFederationToken where
     Response.receiveJSON
       ( \s h x ->
           GetFederationTokenResponse'
-            Prelude.<$> (x Core..?> "SignInUrl")
-            Prelude.<*> (x Core..?> "UserArn")
-            Prelude.<*> (x Core..?> "Credentials")
-            Prelude.<*> (x Core..?> "UserId")
+            Prelude.<$> (x Data..?> "SignInUrl")
+            Prelude.<*> (x Data..?> "UserArn")
+            Prelude.<*> (x Data..?> "Credentials")
+            Prelude.<*> (x Data..?> "UserId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,23 +110,23 @@ instance Prelude.Hashable GetFederationToken where
 instance Prelude.NFData GetFederationToken where
   rnf GetFederationToken' {..} = Prelude.rnf instanceId
 
-instance Core.ToHeaders GetFederationToken where
+instance Data.ToHeaders GetFederationToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetFederationToken where
+instance Data.ToPath GetFederationToken where
   toPath GetFederationToken' {..} =
     Prelude.mconcat
-      ["/user/federate/", Core.toBS instanceId]
+      ["/user/federate/", Data.toBS instanceId]
 
-instance Core.ToQuery GetFederationToken where
+instance Data.ToQuery GetFederationToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFederationTokenResponse' smart constructor.

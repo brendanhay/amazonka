@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.TrafficDistributionGroupSummary where
 import Amazonka.Connect.Types.TrafficDistributionGroupStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about traffic distribution groups.
@@ -172,19 +173,19 @@ trafficDistributionGroupSummary_instanceArn :: Lens.Lens' TrafficDistributionGro
 trafficDistributionGroupSummary_instanceArn = Lens.lens (\TrafficDistributionGroupSummary' {instanceArn} -> instanceArn) (\s@TrafficDistributionGroupSummary' {} a -> s {instanceArn = a} :: TrafficDistributionGroupSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     TrafficDistributionGroupSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrafficDistributionGroupSummary"
       ( \x ->
           TrafficDistributionGroupSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "InstanceArn")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "InstanceArn")
       )
 
 instance

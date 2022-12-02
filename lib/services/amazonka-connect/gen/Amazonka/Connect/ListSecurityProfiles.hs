@@ -52,6 +52,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,8 +148,8 @@ instance Core.AWSRequest ListSecurityProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListSecurityProfilesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "SecurityProfileSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "SecurityProfileSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -166,27 +167,27 @@ instance Prelude.NFData ListSecurityProfiles where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ListSecurityProfiles where
+instance Data.ToHeaders ListSecurityProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSecurityProfiles where
+instance Data.ToPath ListSecurityProfiles where
   toPath ListSecurityProfiles' {..} =
     Prelude.mconcat
-      ["/security-profiles-summary/", Core.toBS instanceId]
+      ["/security-profiles-summary/", Data.toBS instanceId]
 
-instance Core.ToQuery ListSecurityProfiles where
+instance Data.ToQuery ListSecurityProfiles where
   toQuery ListSecurityProfiles' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListSecurityProfilesResponse' smart constructor.

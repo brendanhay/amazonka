@@ -46,6 +46,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,8 +134,8 @@ instance Core.AWSRequest CreateUseCase where
     Response.receiveJSON
       ( \s h x ->
           CreateUseCaseResponse'
-            Prelude.<$> (x Core..?> "UseCaseArn")
-            Prelude.<*> (x Core..?> "UseCaseId")
+            Prelude.<$> (x Data..?> "UseCaseArn")
+            Prelude.<*> (x Data..?> "UseCaseId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,37 +153,37 @@ instance Prelude.NFData CreateUseCase where
       `Prelude.seq` Prelude.rnf integrationAssociationId
       `Prelude.seq` Prelude.rnf useCaseType
 
-instance Core.ToHeaders CreateUseCase where
+instance Data.ToHeaders CreateUseCase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUseCase where
+instance Data.ToJSON CreateUseCase where
   toJSON CreateUseCase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("UseCaseType" Core..= useCaseType)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("UseCaseType" Data..= useCaseType)
           ]
       )
 
-instance Core.ToPath CreateUseCase where
+instance Data.ToPath CreateUseCase where
   toPath CreateUseCase' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/integration-associations/",
-        Core.toBS integrationAssociationId,
+        Data.toBS integrationAssociationId,
         "/use-cases"
       ]
 
-instance Core.ToQuery CreateUseCase where
+instance Data.ToQuery CreateUseCase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUseCaseResponse' smart constructor.

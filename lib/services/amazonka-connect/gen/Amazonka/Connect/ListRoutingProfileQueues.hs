@@ -48,6 +48,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,8 +158,8 @@ instance Core.AWSRequest ListRoutingProfileQueues where
     Response.receiveJSON
       ( \s h x ->
           ListRoutingProfileQueuesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "RoutingProfileQueueConfigSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "RoutingProfileQueueConfigSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -178,32 +179,32 @@ instance Prelude.NFData ListRoutingProfileQueues where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf routingProfileId
 
-instance Core.ToHeaders ListRoutingProfileQueues where
+instance Data.ToHeaders ListRoutingProfileQueues where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRoutingProfileQueues where
+instance Data.ToPath ListRoutingProfileQueues where
   toPath ListRoutingProfileQueues' {..} =
     Prelude.mconcat
       [ "/routing-profiles/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS routingProfileId,
+        Data.toBS routingProfileId,
         "/queues"
       ]
 
-instance Core.ToQuery ListRoutingProfileQueues where
+instance Data.ToQuery ListRoutingProfileQueues where
   toQuery ListRoutingProfileQueues' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListRoutingProfileQueuesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.ChatMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A chat message.
@@ -75,11 +76,11 @@ instance Prelude.NFData ChatMessage where
     Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToJSON ChatMessage where
+instance Data.ToJSON ChatMessage where
   toJSON ChatMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ContentType" Core..= contentType),
-            Prelude.Just ("Content" Core..= content)
+          [ Prelude.Just ("ContentType" Data..= contentType),
+            Prelude.Just ("Content" Data..= content)
           ]
       )

@@ -46,6 +46,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,32 +122,32 @@ instance Prelude.NFData UpdateTrafficDistribution where
     Prelude.rnf telephonyConfig
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateTrafficDistribution where
+instance Data.ToHeaders UpdateTrafficDistribution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTrafficDistribution where
+instance Data.ToJSON UpdateTrafficDistribution where
   toJSON UpdateTrafficDistribution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TelephonyConfig" Core..=)
+          [ ("TelephonyConfig" Data..=)
               Prelude.<$> telephonyConfig
           ]
       )
 
-instance Core.ToPath UpdateTrafficDistribution where
+instance Data.ToPath UpdateTrafficDistribution where
   toPath UpdateTrafficDistribution' {..} =
     Prelude.mconcat
-      ["/traffic-distribution/", Core.toBS id]
+      ["/traffic-distribution/", Data.toBS id]
 
-instance Core.ToQuery UpdateTrafficDistribution where
+instance Data.ToQuery UpdateTrafficDistribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTrafficDistributionResponse' smart constructor.

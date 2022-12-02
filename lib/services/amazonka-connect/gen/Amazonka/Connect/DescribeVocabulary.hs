@@ -43,6 +43,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest DescribeVocabulary where
       ( \s h x ->
           DescribeVocabularyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Vocabulary")
+            Prelude.<*> (x Data..:> "Vocabulary")
       )
 
 instance Prelude.Hashable DescribeVocabulary where
@@ -114,27 +115,27 @@ instance Prelude.NFData DescribeVocabulary where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf vocabularyId
 
-instance Core.ToHeaders DescribeVocabulary where
+instance Data.ToHeaders DescribeVocabulary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeVocabulary where
+instance Data.ToPath DescribeVocabulary where
   toPath DescribeVocabulary' {..} =
     Prelude.mconcat
       [ "/vocabulary/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS vocabularyId
+        Data.toBS vocabularyId
       ]
 
-instance Core.ToQuery DescribeVocabulary where
+instance Data.ToQuery DescribeVocabulary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeVocabularyResponse' smart constructor.

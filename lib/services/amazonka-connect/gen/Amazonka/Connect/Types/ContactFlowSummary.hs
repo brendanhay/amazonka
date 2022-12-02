@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.ContactFlowState
 import Amazonka.Connect.Types.ContactFlowType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a flow.
@@ -93,17 +94,17 @@ contactFlowSummary_id = Lens.lens (\ContactFlowSummary' {id} -> id) (\s@ContactF
 contactFlowSummary_contactFlowType :: Lens.Lens' ContactFlowSummary (Prelude.Maybe ContactFlowType)
 contactFlowSummary_contactFlowType = Lens.lens (\ContactFlowSummary' {contactFlowType} -> contactFlowType) (\s@ContactFlowSummary' {} a -> s {contactFlowType = a} :: ContactFlowSummary)
 
-instance Core.FromJSON ContactFlowSummary where
+instance Data.FromJSON ContactFlowSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactFlowSummary"
       ( \x ->
           ContactFlowSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ContactFlowState")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ContactFlowType")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ContactFlowState")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ContactFlowType")
       )
 
 instance Prelude.Hashable ContactFlowSummary where

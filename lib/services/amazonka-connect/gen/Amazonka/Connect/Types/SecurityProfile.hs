@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.SecurityProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a security profile.
@@ -124,23 +125,23 @@ securityProfile_organizationResourceId = Lens.lens (\SecurityProfile' {organizat
 securityProfile_tagRestrictedResources :: Lens.Lens' SecurityProfile (Prelude.Maybe [Prelude.Text])
 securityProfile_tagRestrictedResources = Lens.lens (\SecurityProfile' {tagRestrictedResources} -> tagRestrictedResources) (\s@SecurityProfile' {} a -> s {tagRestrictedResources = a} :: SecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SecurityProfile where
+instance Data.FromJSON SecurityProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityProfile"
       ( \x ->
           SecurityProfile'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "AllowedAccessControlTags"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "AllowedAccessControlTags"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SecurityProfileName")
-            Prelude.<*> (x Core..:? "OrganizationResourceId")
-            Prelude.<*> ( x Core..:? "TagRestrictedResources"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SecurityProfileName")
+            Prelude.<*> (x Data..:? "OrganizationResourceId")
+            Prelude.<*> ( x Data..:? "TagRestrictedResources"
+                            Data..!= Prelude.mempty
                         )
       )
 

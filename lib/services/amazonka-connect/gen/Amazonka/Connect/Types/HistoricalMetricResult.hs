@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.Dimensions
 import Amazonka.Connect.Types.HistoricalMetricData
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the historical metrics retrieved.
@@ -64,14 +65,14 @@ historicalMetricResult_collections = Lens.lens (\HistoricalMetricResult' {collec
 historicalMetricResult_dimensions :: Lens.Lens' HistoricalMetricResult (Prelude.Maybe Dimensions)
 historicalMetricResult_dimensions = Lens.lens (\HistoricalMetricResult' {dimensions} -> dimensions) (\s@HistoricalMetricResult' {} a -> s {dimensions = a} :: HistoricalMetricResult)
 
-instance Core.FromJSON HistoricalMetricResult where
+instance Data.FromJSON HistoricalMetricResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HistoricalMetricResult"
       ( \x ->
           HistoricalMetricResult'
-            Prelude.<$> (x Core..:? "Collections" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Dimensions")
+            Prelude.<$> (x Data..:? "Collections" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Dimensions")
       )
 
 instance Prelude.Hashable HistoricalMetricResult where

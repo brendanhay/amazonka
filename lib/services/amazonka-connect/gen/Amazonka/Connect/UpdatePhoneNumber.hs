@@ -54,6 +54,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,8 +130,8 @@ instance Core.AWSRequest UpdatePhoneNumber where
     Response.receiveJSON
       ( \s h x ->
           UpdatePhoneNumberResponse'
-            Prelude.<$> (x Core..?> "PhoneNumberArn")
-            Prelude.<*> (x Core..?> "PhoneNumberId")
+            Prelude.<$> (x Data..?> "PhoneNumberArn")
+            Prelude.<*> (x Data..?> "PhoneNumberId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,32 +147,32 @@ instance Prelude.NFData UpdatePhoneNumber where
       `Prelude.seq` Prelude.rnf phoneNumberId
       `Prelude.seq` Prelude.rnf targetArn
 
-instance Core.ToHeaders UpdatePhoneNumber where
+instance Data.ToHeaders UpdatePhoneNumber where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePhoneNumber where
+instance Data.ToJSON UpdatePhoneNumber where
   toJSON UpdatePhoneNumber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("TargetArn" Core..= targetArn)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("TargetArn" Data..= targetArn)
           ]
       )
 
-instance Core.ToPath UpdatePhoneNumber where
+instance Data.ToPath UpdatePhoneNumber where
   toPath UpdatePhoneNumber' {..} =
     Prelude.mconcat
-      ["/phone-number/", Core.toBS phoneNumberId]
+      ["/phone-number/", Data.toBS phoneNumberId]
 
-instance Core.ToQuery UpdatePhoneNumber where
+instance Data.ToQuery UpdatePhoneNumber where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePhoneNumberResponse' smart constructor.

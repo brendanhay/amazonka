@@ -43,6 +43,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,28 +117,28 @@ instance Prelude.NFData DisassociateLambdaFunction where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf functionArn
 
-instance Core.ToHeaders DisassociateLambdaFunction where
+instance Data.ToHeaders DisassociateLambdaFunction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DisassociateLambdaFunction where
+instance Data.ToPath DisassociateLambdaFunction where
   toPath DisassociateLambdaFunction' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/lambda-function"
       ]
 
-instance Core.ToQuery DisassociateLambdaFunction where
+instance Data.ToQuery DisassociateLambdaFunction where
   toQuery DisassociateLambdaFunction' {..} =
-    Prelude.mconcat ["functionArn" Core.=: functionArn]
+    Prelude.mconcat ["functionArn" Data.=: functionArn]
 
 -- | /See:/ 'newDisassociateLambdaFunctionResponse' smart constructor.
 data DisassociateLambdaFunctionResponse = DisassociateLambdaFunctionResponse'

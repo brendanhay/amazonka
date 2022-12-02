@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.HierarchyLevel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a hierarchy level.
@@ -70,15 +71,15 @@ hierarchyLevel_arn = Lens.lens (\HierarchyLevel' {arn} -> arn) (\s@HierarchyLeve
 hierarchyLevel_id :: Lens.Lens' HierarchyLevel (Prelude.Maybe Prelude.Text)
 hierarchyLevel_id = Lens.lens (\HierarchyLevel' {id} -> id) (\s@HierarchyLevel' {} a -> s {id = a} :: HierarchyLevel)
 
-instance Core.FromJSON HierarchyLevel where
+instance Data.FromJSON HierarchyLevel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HierarchyLevel"
       ( \x ->
           HierarchyLevel'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable HierarchyLevel where

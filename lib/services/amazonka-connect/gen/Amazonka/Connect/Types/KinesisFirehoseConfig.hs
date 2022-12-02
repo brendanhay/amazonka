@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.KinesisFirehoseConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information of a Kinesis Data Firehose delivery stream.
@@ -52,13 +53,13 @@ newKinesisFirehoseConfig pFirehoseArn_ =
 kinesisFirehoseConfig_firehoseArn :: Lens.Lens' KinesisFirehoseConfig Prelude.Text
 kinesisFirehoseConfig_firehoseArn = Lens.lens (\KinesisFirehoseConfig' {firehoseArn} -> firehoseArn) (\s@KinesisFirehoseConfig' {} a -> s {firehoseArn = a} :: KinesisFirehoseConfig)
 
-instance Core.FromJSON KinesisFirehoseConfig where
+instance Data.FromJSON KinesisFirehoseConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisFirehoseConfig"
       ( \x ->
           KinesisFirehoseConfig'
-            Prelude.<$> (x Core..: "FirehoseArn")
+            Prelude.<$> (x Data..: "FirehoseArn")
       )
 
 instance Prelude.Hashable KinesisFirehoseConfig where
@@ -69,9 +70,9 @@ instance Prelude.NFData KinesisFirehoseConfig where
   rnf KinesisFirehoseConfig' {..} =
     Prelude.rnf firehoseArn
 
-instance Core.ToJSON KinesisFirehoseConfig where
+instance Data.ToJSON KinesisFirehoseConfig where
   toJSON KinesisFirehoseConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("FirehoseArn" Core..= firehoseArn)]
+          [Prelude.Just ("FirehoseArn" Data..= firehoseArn)]
       )

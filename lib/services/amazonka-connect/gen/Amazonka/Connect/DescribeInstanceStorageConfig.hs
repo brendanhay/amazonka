@@ -48,6 +48,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,7 +127,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeInstanceStorageConfigResponse'
-            Prelude.<$> (x Core..?> "StorageConfig")
+            Prelude.<$> (x Data..?> "StorageConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,30 +146,30 @@ instance Prelude.NFData DescribeInstanceStorageConfig where
       `Prelude.seq` Prelude.rnf associationId
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders DescribeInstanceStorageConfig where
+instance Data.ToHeaders DescribeInstanceStorageConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeInstanceStorageConfig where
+instance Data.ToPath DescribeInstanceStorageConfig where
   toPath DescribeInstanceStorageConfig' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/storage-config/",
-        Core.toBS associationId
+        Data.toBS associationId
       ]
 
-instance Core.ToQuery DescribeInstanceStorageConfig where
+instance Data.ToQuery DescribeInstanceStorageConfig where
   toQuery DescribeInstanceStorageConfig' {..} =
     Prelude.mconcat
-      ["resourceType" Core.=: resourceType]
+      ["resourceType" Data.=: resourceType]
 
 -- | /See:/ 'newDescribeInstanceStorageConfigResponse' smart constructor.
 data DescribeInstanceStorageConfigResponse = DescribeInstanceStorageConfigResponse'

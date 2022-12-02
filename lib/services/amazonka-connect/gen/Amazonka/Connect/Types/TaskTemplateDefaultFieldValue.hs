@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.TaskTemplateDefaultFieldValue where
 import Amazonka.Connect.Types.TaskTemplateFieldIdentifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a default field and its corresponding value.
@@ -63,14 +64,14 @@ taskTemplateDefaultFieldValue_defaultValue = Lens.lens (\TaskTemplateDefaultFiel
 taskTemplateDefaultFieldValue_id :: Lens.Lens' TaskTemplateDefaultFieldValue (Prelude.Maybe TaskTemplateFieldIdentifier)
 taskTemplateDefaultFieldValue_id = Lens.lens (\TaskTemplateDefaultFieldValue' {id} -> id) (\s@TaskTemplateDefaultFieldValue' {} a -> s {id = a} :: TaskTemplateDefaultFieldValue)
 
-instance Core.FromJSON TaskTemplateDefaultFieldValue where
+instance Data.FromJSON TaskTemplateDefaultFieldValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskTemplateDefaultFieldValue"
       ( \x ->
           TaskTemplateDefaultFieldValue'
-            Prelude.<$> (x Core..:? "DefaultValue")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "DefaultValue")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance
@@ -86,11 +87,11 @@ instance Prelude.NFData TaskTemplateDefaultFieldValue where
     Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON TaskTemplateDefaultFieldValue where
+instance Data.ToJSON TaskTemplateDefaultFieldValue where
   toJSON TaskTemplateDefaultFieldValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DefaultValue" Core..=) Prelude.<$> defaultValue,
-            ("Id" Core..=) Prelude.<$> id
+          [ ("DefaultValue" Data..=) Prelude.<$> defaultValue,
+            ("Id" Data..=) Prelude.<$> id
           ]
       )

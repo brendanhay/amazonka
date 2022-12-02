@@ -46,6 +46,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest DescribeSecurityProfile where
     Response.receiveJSON
       ( \s h x ->
           DescribeSecurityProfileResponse'
-            Prelude.<$> (x Core..?> "SecurityProfile")
+            Prelude.<$> (x Data..?> "SecurityProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,27 +121,27 @@ instance Prelude.NFData DescribeSecurityProfile where
     Prelude.rnf securityProfileId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders DescribeSecurityProfile where
+instance Data.ToHeaders DescribeSecurityProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeSecurityProfile where
+instance Data.ToPath DescribeSecurityProfile where
   toPath DescribeSecurityProfile' {..} =
     Prelude.mconcat
       [ "/security-profiles/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS securityProfileId
+        Data.toBS securityProfileId
       ]
 
-instance Core.ToQuery DescribeSecurityProfile where
+instance Data.ToQuery DescribeSecurityProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSecurityProfileResponse' smart constructor.

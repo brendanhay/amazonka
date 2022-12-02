@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.SecurityProfileSearchSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the returned security profiles.
@@ -101,18 +102,18 @@ securityProfileSearchSummary_securityProfileName = Lens.lens (\SecurityProfileSe
 securityProfileSearchSummary_organizationResourceId :: Lens.Lens' SecurityProfileSearchSummary (Prelude.Maybe Prelude.Text)
 securityProfileSearchSummary_organizationResourceId = Lens.lens (\SecurityProfileSearchSummary' {organizationResourceId} -> organizationResourceId) (\s@SecurityProfileSearchSummary' {} a -> s {organizationResourceId = a} :: SecurityProfileSearchSummary)
 
-instance Core.FromJSON SecurityProfileSearchSummary where
+instance Data.FromJSON SecurityProfileSearchSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityProfileSearchSummary"
       ( \x ->
           SecurityProfileSearchSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SecurityProfileName")
-            Prelude.<*> (x Core..:? "OrganizationResourceId")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SecurityProfileName")
+            Prelude.<*> (x Data..:? "OrganizationResourceId")
       )
 
 instance

@@ -46,6 +46,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -172,40 +173,40 @@ instance Prelude.NFData UpdateSecurityProfile where
       `Prelude.seq` Prelude.rnf securityProfileId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders UpdateSecurityProfile where
+instance Data.ToHeaders UpdateSecurityProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSecurityProfile where
+instance Data.ToJSON UpdateSecurityProfile where
   toJSON UpdateSecurityProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllowedAccessControlTags" Core..=)
+          [ ("AllowedAccessControlTags" Data..=)
               Prelude.<$> allowedAccessControlTags,
-            ("Permissions" Core..=) Prelude.<$> permissions,
-            ("Description" Core..=) Prelude.<$> description,
-            ("TagRestrictedResources" Core..=)
+            ("Permissions" Data..=) Prelude.<$> permissions,
+            ("Description" Data..=) Prelude.<$> description,
+            ("TagRestrictedResources" Data..=)
               Prelude.<$> tagRestrictedResources
           ]
       )
 
-instance Core.ToPath UpdateSecurityProfile where
+instance Data.ToPath UpdateSecurityProfile where
   toPath UpdateSecurityProfile' {..} =
     Prelude.mconcat
       [ "/security-profiles/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS securityProfileId
+        Data.toBS securityProfileId
       ]
 
-instance Core.ToQuery UpdateSecurityProfile where
+instance Data.ToQuery UpdateSecurityProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSecurityProfileResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.SelfUserProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a user\'s SSH information.
@@ -79,16 +80,16 @@ selfUserProfile_sshPublicKey = Lens.lens (\SelfUserProfile' {sshPublicKey} -> ss
 selfUserProfile_sshUsername :: Lens.Lens' SelfUserProfile (Prelude.Maybe Prelude.Text)
 selfUserProfile_sshUsername = Lens.lens (\SelfUserProfile' {sshUsername} -> sshUsername) (\s@SelfUserProfile' {} a -> s {sshUsername = a} :: SelfUserProfile)
 
-instance Core.FromJSON SelfUserProfile where
+instance Data.FromJSON SelfUserProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SelfUserProfile"
       ( \x ->
           SelfUserProfile'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "IamUserArn")
-            Prelude.<*> (x Core..:? "SshPublicKey")
-            Prelude.<*> (x Core..:? "SshUsername")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "IamUserArn")
+            Prelude.<*> (x Data..:? "SshPublicKey")
+            Prelude.<*> (x Data..:? "SshUsername")
       )
 
 instance Prelude.Hashable SelfUserProfile where

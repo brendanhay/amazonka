@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.ElasticIp where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Elastic IP address.
@@ -91,17 +92,17 @@ elasticIp_region = Lens.lens (\ElasticIp' {region} -> region) (\s@ElasticIp' {} 
 elasticIp_instanceId :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
 elasticIp_instanceId = Lens.lens (\ElasticIp' {instanceId} -> instanceId) (\s@ElasticIp' {} a -> s {instanceId = a} :: ElasticIp)
 
-instance Core.FromJSON ElasticIp where
+instance Data.FromJSON ElasticIp where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElasticIp"
       ( \x ->
           ElasticIp'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "Ip")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "InstanceId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "Ip")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "InstanceId")
       )
 
 instance Prelude.Hashable ElasticIp where

@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.Recipes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | AWS OpsWorks Stacks supports five lifecycle events: __setup__,
@@ -100,17 +101,17 @@ recipes_shutdown = Lens.lens (\Recipes' {shutdown} -> shutdown) (\s@Recipes' {} 
 recipes_setup :: Lens.Lens' Recipes (Prelude.Maybe [Prelude.Text])
 recipes_setup = Lens.lens (\Recipes' {setup} -> setup) (\s@Recipes' {} a -> s {setup = a} :: Recipes) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Recipes where
+instance Data.FromJSON Recipes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Recipes"
       ( \x ->
           Recipes'
-            Prelude.<$> (x Core..:? "Deploy" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Configure" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Undeploy" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Shutdown" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Setup" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Deploy" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Configure" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Undeploy" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Shutdown" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Setup" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Recipes where
@@ -129,14 +130,14 @@ instance Prelude.NFData Recipes where
       `Prelude.seq` Prelude.rnf shutdown
       `Prelude.seq` Prelude.rnf setup
 
-instance Core.ToJSON Recipes where
+instance Data.ToJSON Recipes where
   toJSON Recipes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Deploy" Core..=) Prelude.<$> deploy,
-            ("Configure" Core..=) Prelude.<$> configure,
-            ("Undeploy" Core..=) Prelude.<$> undeploy,
-            ("Shutdown" Core..=) Prelude.<$> shutdown,
-            ("Setup" Core..=) Prelude.<$> setup
+          [ ("Deploy" Data..=) Prelude.<$> deploy,
+            ("Configure" Data..=) Prelude.<$> configure,
+            ("Undeploy" Data..=) Prelude.<$> undeploy,
+            ("Shutdown" Data..=) Prelude.<$> shutdown,
+            ("Setup" Data..=) Prelude.<$> setup
           ]
       )

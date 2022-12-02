@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance Core.AWSRequest DescribeVolumes where
     Response.receiveJSON
       ( \s h x ->
           DescribeVolumesResponse'
-            Prelude.<$> (x Core..?> "Volumes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Volumes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,36 +155,36 @@ instance Prelude.NFData DescribeVolumes where
       `Prelude.seq` Prelude.rnf raidArrayId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders DescribeVolumes where
+instance Data.ToHeaders DescribeVolumes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DescribeVolumes" ::
+              Data.=# ( "OpsWorks_20130218.DescribeVolumes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeVolumes where
+instance Data.ToJSON DescribeVolumes where
   toJSON DescribeVolumes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Core..=) Prelude.<$> stackId,
-            ("VolumeIds" Core..=) Prelude.<$> volumeIds,
-            ("RaidArrayId" Core..=) Prelude.<$> raidArrayId,
-            ("InstanceId" Core..=) Prelude.<$> instanceId
+          [ ("StackId" Data..=) Prelude.<$> stackId,
+            ("VolumeIds" Data..=) Prelude.<$> volumeIds,
+            ("RaidArrayId" Data..=) Prelude.<$> raidArrayId,
+            ("InstanceId" Data..=) Prelude.<$> instanceId
           ]
       )
 
-instance Core.ToPath DescribeVolumes where
+instance Data.ToPath DescribeVolumes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVolumes where
+instance Data.ToQuery DescribeVolumes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeVolumes@ request.

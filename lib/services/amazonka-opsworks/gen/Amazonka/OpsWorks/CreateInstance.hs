@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -543,7 +544,7 @@ instance Core.AWSRequest CreateInstance where
     Response.receiveJSON
       ( \s h x ->
           CreateInstanceResponse'
-            Prelude.<$> (x Core..?> "InstanceId")
+            Prelude.<$> (x Data..?> "InstanceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -589,56 +590,56 @@ instance Prelude.NFData CreateInstance where
       `Prelude.seq` Prelude.rnf layerIds
       `Prelude.seq` Prelude.rnf instanceType
 
-instance Core.ToHeaders CreateInstance where
+instance Data.ToHeaders CreateInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.CreateInstance" ::
+              Data.=# ( "OpsWorks_20130218.CreateInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateInstance where
+instance Data.ToJSON CreateInstance where
   toJSON CreateInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EbsOptimized" Core..=) Prelude.<$> ebsOptimized,
-            ("Os" Core..=) Prelude.<$> os,
-            ("AmiId" Core..=) Prelude.<$> amiId,
-            ("BlockDeviceMappings" Core..=)
+          [ ("EbsOptimized" Data..=) Prelude.<$> ebsOptimized,
+            ("Os" Data..=) Prelude.<$> os,
+            ("AmiId" Data..=) Prelude.<$> amiId,
+            ("BlockDeviceMappings" Data..=)
               Prelude.<$> blockDeviceMappings,
-            ("AutoScalingType" Core..=)
+            ("AutoScalingType" Data..=)
               Prelude.<$> autoScalingType,
-            ("RootDeviceType" Core..=)
+            ("RootDeviceType" Data..=)
               Prelude.<$> rootDeviceType,
-            ("VirtualizationType" Core..=)
+            ("VirtualizationType" Data..=)
               Prelude.<$> virtualizationType,
-            ("SubnetId" Core..=) Prelude.<$> subnetId,
-            ("AvailabilityZone" Core..=)
+            ("SubnetId" Data..=) Prelude.<$> subnetId,
+            ("AvailabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("Hostname" Core..=) Prelude.<$> hostname,
-            ("SshKeyName" Core..=) Prelude.<$> sshKeyName,
-            ("Architecture" Core..=) Prelude.<$> architecture,
-            ("Tenancy" Core..=) Prelude.<$> tenancy,
-            ("AgentVersion" Core..=) Prelude.<$> agentVersion,
-            ("InstallUpdatesOnBoot" Core..=)
+            ("Hostname" Data..=) Prelude.<$> hostname,
+            ("SshKeyName" Data..=) Prelude.<$> sshKeyName,
+            ("Architecture" Data..=) Prelude.<$> architecture,
+            ("Tenancy" Data..=) Prelude.<$> tenancy,
+            ("AgentVersion" Data..=) Prelude.<$> agentVersion,
+            ("InstallUpdatesOnBoot" Data..=)
               Prelude.<$> installUpdatesOnBoot,
-            Prelude.Just ("StackId" Core..= stackId),
-            Prelude.Just ("LayerIds" Core..= layerIds),
-            Prelude.Just ("InstanceType" Core..= instanceType)
+            Prelude.Just ("StackId" Data..= stackId),
+            Prelude.Just ("LayerIds" Data..= layerIds),
+            Prelude.Just ("InstanceType" Data..= instanceType)
           ]
       )
 
-instance Core.ToPath CreateInstance where
+instance Data.ToPath CreateInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateInstance where
+instance Data.ToQuery CreateInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @CreateInstance@ request.

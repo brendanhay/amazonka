@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -259,44 +260,44 @@ instance Prelude.NFData UpdateApp where
       `Prelude.seq` Prelude.rnf enableSsl
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders UpdateApp where
+instance Data.ToHeaders UpdateApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.UpdateApp" ::
+              Data.=# ( "OpsWorks_20130218.UpdateApp" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApp where
+instance Data.ToJSON UpdateApp where
   toJSON UpdateApp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Domains" Core..=) Prelude.<$> domains,
-            ("AppSource" Core..=) Prelude.<$> appSource,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("DataSources" Core..=) Prelude.<$> dataSources,
-            ("SslConfiguration" Core..=)
+          [ ("Domains" Data..=) Prelude.<$> domains,
+            ("AppSource" Data..=) Prelude.<$> appSource,
+            ("Name" Data..=) Prelude.<$> name,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("DataSources" Data..=) Prelude.<$> dataSources,
+            ("SslConfiguration" Data..=)
               Prelude.<$> sslConfiguration,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("EnableSsl" Core..=) Prelude.<$> enableSsl,
-            Prelude.Just ("AppId" Core..= appId)
+            ("Description" Data..=) Prelude.<$> description,
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("EnableSsl" Data..=) Prelude.<$> enableSsl,
+            Prelude.Just ("AppId" Data..= appId)
           ]
       )
 
-instance Core.ToPath UpdateApp where
+instance Data.ToPath UpdateApp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateApp where
+instance Data.ToQuery UpdateApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAppResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.Permission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes stack or user permissions.
@@ -136,17 +137,17 @@ permission_level = Lens.lens (\Permission' {level} -> level) (\s@Permission' {} 
 permission_allowSsh :: Lens.Lens' Permission (Prelude.Maybe Prelude.Bool)
 permission_allowSsh = Lens.lens (\Permission' {allowSsh} -> allowSsh) (\s@Permission' {} a -> s {allowSsh = a} :: Permission)
 
-instance Core.FromJSON Permission where
+instance Data.FromJSON Permission where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Permission"
       ( \x ->
           Permission'
-            Prelude.<$> (x Core..:? "StackId")
-            Prelude.<*> (x Core..:? "IamUserArn")
-            Prelude.<*> (x Core..:? "AllowSudo")
-            Prelude.<*> (x Core..:? "Level")
-            Prelude.<*> (x Core..:? "AllowSsh")
+            Prelude.<$> (x Data..:? "StackId")
+            Prelude.<*> (x Data..:? "IamUserArn")
+            Prelude.<*> (x Data..:? "AllowSudo")
+            Prelude.<*> (x Data..:? "Level")
+            Prelude.<*> (x Data..:? "AllowSsh")
       )
 
 instance Prelude.Hashable Permission where

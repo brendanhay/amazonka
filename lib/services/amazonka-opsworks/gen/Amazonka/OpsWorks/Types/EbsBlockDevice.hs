@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.EbsBlockDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.VolumeType
 import qualified Amazonka.Prelude as Prelude
 
@@ -123,17 +124,17 @@ ebsBlockDevice_volumeSize = Lens.lens (\EbsBlockDevice' {volumeSize} -> volumeSi
 ebsBlockDevice_iops :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
 ebsBlockDevice_iops = Lens.lens (\EbsBlockDevice' {iops} -> iops) (\s@EbsBlockDevice' {} a -> s {iops = a} :: EbsBlockDevice)
 
-instance Core.FromJSON EbsBlockDevice where
+instance Data.FromJSON EbsBlockDevice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EbsBlockDevice"
       ( \x ->
           EbsBlockDevice'
-            Prelude.<$> (x Core..:? "DeleteOnTermination")
-            Prelude.<*> (x Core..:? "SnapshotId")
-            Prelude.<*> (x Core..:? "VolumeType")
-            Prelude.<*> (x Core..:? "VolumeSize")
-            Prelude.<*> (x Core..:? "Iops")
+            Prelude.<$> (x Data..:? "DeleteOnTermination")
+            Prelude.<*> (x Data..:? "SnapshotId")
+            Prelude.<*> (x Data..:? "VolumeType")
+            Prelude.<*> (x Data..:? "VolumeSize")
+            Prelude.<*> (x Data..:? "Iops")
       )
 
 instance Prelude.Hashable EbsBlockDevice where
@@ -152,15 +153,15 @@ instance Prelude.NFData EbsBlockDevice where
       `Prelude.seq` Prelude.rnf volumeSize
       `Prelude.seq` Prelude.rnf iops
 
-instance Core.ToJSON EbsBlockDevice where
+instance Data.ToJSON EbsBlockDevice where
   toJSON EbsBlockDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeleteOnTermination" Core..=)
+          [ ("DeleteOnTermination" Data..=)
               Prelude.<$> deleteOnTermination,
-            ("SnapshotId" Core..=) Prelude.<$> snapshotId,
-            ("VolumeType" Core..=) Prelude.<$> volumeType,
-            ("VolumeSize" Core..=) Prelude.<$> volumeSize,
-            ("Iops" Core..=) Prelude.<$> iops
+            ("SnapshotId" Data..=) Prelude.<$> snapshotId,
+            ("VolumeType" Data..=) Prelude.<$> volumeType,
+            ("VolumeSize" Data..=) Prelude.<$> volumeSize,
+            ("Iops" Data..=) Prelude.<$> iops
           ]
       )

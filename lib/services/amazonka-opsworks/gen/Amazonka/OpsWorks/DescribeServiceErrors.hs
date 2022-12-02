@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,7 +127,7 @@ instance Core.AWSRequest DescribeServiceErrors where
     Response.receiveJSON
       ( \s h x ->
           DescribeServiceErrorsResponse'
-            Prelude.<$> (x Core..?> "ServiceErrors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ServiceErrors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,36 +143,36 @@ instance Prelude.NFData DescribeServiceErrors where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf serviceErrorIds
 
-instance Core.ToHeaders DescribeServiceErrors where
+instance Data.ToHeaders DescribeServiceErrors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DescribeServiceErrors" ::
+              Data.=# ( "OpsWorks_20130218.DescribeServiceErrors" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeServiceErrors where
+instance Data.ToJSON DescribeServiceErrors where
   toJSON DescribeServiceErrors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Core..=) Prelude.<$> stackId,
-            ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("ServiceErrorIds" Core..=)
+          [ ("StackId" Data..=) Prelude.<$> stackId,
+            ("InstanceId" Data..=) Prelude.<$> instanceId,
+            ("ServiceErrorIds" Data..=)
               Prelude.<$> serviceErrorIds
           ]
       )
 
-instance Core.ToPath DescribeServiceErrors where
+instance Data.ToPath DescribeServiceErrors where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeServiceErrors where
+instance Data.ToQuery DescribeServiceErrors where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeServiceErrors@ request.

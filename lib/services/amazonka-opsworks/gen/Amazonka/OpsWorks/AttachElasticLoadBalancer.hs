@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,37 +126,37 @@ instance Prelude.NFData AttachElasticLoadBalancer where
     Prelude.rnf elasticLoadBalancerName
       `Prelude.seq` Prelude.rnf layerId
 
-instance Core.ToHeaders AttachElasticLoadBalancer where
+instance Data.ToHeaders AttachElasticLoadBalancer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.AttachElasticLoadBalancer" ::
+              Data.=# ( "OpsWorks_20130218.AttachElasticLoadBalancer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AttachElasticLoadBalancer where
+instance Data.ToJSON AttachElasticLoadBalancer where
   toJSON AttachElasticLoadBalancer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ElasticLoadBalancerName"
-                  Core..= elasticLoadBalancerName
+                  Data..= elasticLoadBalancerName
               ),
-            Prelude.Just ("LayerId" Core..= layerId)
+            Prelude.Just ("LayerId" Data..= layerId)
           ]
       )
 
-instance Core.ToPath AttachElasticLoadBalancer where
+instance Data.ToPath AttachElasticLoadBalancer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AttachElasticLoadBalancer where
+instance Data.ToQuery AttachElasticLoadBalancer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAttachElasticLoadBalancerResponse' smart constructor.

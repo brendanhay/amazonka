@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.ServiceError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an AWS OpsWorks Stacks service error.
@@ -97,18 +98,18 @@ serviceError_instanceId = Lens.lens (\ServiceError' {instanceId} -> instanceId) 
 serviceError_createdAt :: Lens.Lens' ServiceError (Prelude.Maybe Prelude.Text)
 serviceError_createdAt = Lens.lens (\ServiceError' {createdAt} -> createdAt) (\s@ServiceError' {} a -> s {createdAt = a} :: ServiceError)
 
-instance Core.FromJSON ServiceError where
+instance Data.FromJSON ServiceError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceError"
       ( \x ->
           ServiceError'
-            Prelude.<$> (x Core..:? "StackId")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ServiceErrorId")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "StackId")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ServiceErrorId")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable ServiceError where

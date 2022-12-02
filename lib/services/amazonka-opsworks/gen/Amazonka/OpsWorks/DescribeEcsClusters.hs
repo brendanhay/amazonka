@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -180,8 +181,8 @@ instance Core.AWSRequest DescribeEcsClusters where
     Response.receiveJSON
       ( \s h x ->
           DescribeEcsClustersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "EcsClusters" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "EcsClusters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,37 +200,37 @@ instance Prelude.NFData DescribeEcsClusters where
       `Prelude.seq` Prelude.rnf ecsClusterArns
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeEcsClusters where
+instance Data.ToHeaders DescribeEcsClusters where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DescribeEcsClusters" ::
+              Data.=# ( "OpsWorks_20130218.DescribeEcsClusters" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEcsClusters where
+instance Data.ToJSON DescribeEcsClusters where
   toJSON DescribeEcsClusters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Core..=) Prelude.<$> stackId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("EcsClusterArns" Core..=)
+          [ ("StackId" Data..=) Prelude.<$> stackId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("EcsClusterArns" Data..=)
               Prelude.<$> ecsClusterArns,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeEcsClusters where
+instance Data.ToPath DescribeEcsClusters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEcsClusters where
+instance Data.ToQuery DescribeEcsClusters where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeEcsClusters@ request.

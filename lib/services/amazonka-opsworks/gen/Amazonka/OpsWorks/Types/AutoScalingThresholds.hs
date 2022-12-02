@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.AutoScalingThresholds where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a load-based auto scaling upscaling or downscaling threshold
@@ -175,19 +176,19 @@ autoScalingThresholds_thresholdsWaitTime = Lens.lens (\AutoScalingThresholds' {t
 autoScalingThresholds_cpuThreshold :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe Prelude.Double)
 autoScalingThresholds_cpuThreshold = Lens.lens (\AutoScalingThresholds' {cpuThreshold} -> cpuThreshold) (\s@AutoScalingThresholds' {} a -> s {cpuThreshold = a} :: AutoScalingThresholds)
 
-instance Core.FromJSON AutoScalingThresholds where
+instance Data.FromJSON AutoScalingThresholds where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingThresholds"
       ( \x ->
           AutoScalingThresholds'
-            Prelude.<$> (x Core..:? "IgnoreMetricsTime")
-            Prelude.<*> (x Core..:? "Alarms" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MemoryThreshold")
-            Prelude.<*> (x Core..:? "InstanceCount")
-            Prelude.<*> (x Core..:? "LoadThreshold")
-            Prelude.<*> (x Core..:? "ThresholdsWaitTime")
-            Prelude.<*> (x Core..:? "CpuThreshold")
+            Prelude.<$> (x Data..:? "IgnoreMetricsTime")
+            Prelude.<*> (x Data..:? "Alarms" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MemoryThreshold")
+            Prelude.<*> (x Data..:? "InstanceCount")
+            Prelude.<*> (x Data..:? "LoadThreshold")
+            Prelude.<*> (x Data..:? "ThresholdsWaitTime")
+            Prelude.<*> (x Data..:? "CpuThreshold")
       )
 
 instance Prelude.Hashable AutoScalingThresholds where
@@ -210,19 +211,19 @@ instance Prelude.NFData AutoScalingThresholds where
       `Prelude.seq` Prelude.rnf thresholdsWaitTime
       `Prelude.seq` Prelude.rnf cpuThreshold
 
-instance Core.ToJSON AutoScalingThresholds where
+instance Data.ToJSON AutoScalingThresholds where
   toJSON AutoScalingThresholds' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IgnoreMetricsTime" Core..=)
+          [ ("IgnoreMetricsTime" Data..=)
               Prelude.<$> ignoreMetricsTime,
-            ("Alarms" Core..=) Prelude.<$> alarms,
-            ("MemoryThreshold" Core..=)
+            ("Alarms" Data..=) Prelude.<$> alarms,
+            ("MemoryThreshold" Data..=)
               Prelude.<$> memoryThreshold,
-            ("InstanceCount" Core..=) Prelude.<$> instanceCount,
-            ("LoadThreshold" Core..=) Prelude.<$> loadThreshold,
-            ("ThresholdsWaitTime" Core..=)
+            ("InstanceCount" Data..=) Prelude.<$> instanceCount,
+            ("LoadThreshold" Data..=) Prelude.<$> loadThreshold,
+            ("ThresholdsWaitTime" Data..=)
               Prelude.<$> thresholdsWaitTime,
-            ("CpuThreshold" Core..=) Prelude.<$> cpuThreshold
+            ("CpuThreshold" Data..=) Prelude.<$> cpuThreshold
           ]
       )

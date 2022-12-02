@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,7 +94,7 @@ instance Core.AWSRequest DescribeTimeBasedAutoScaling where
     Response.receiveJSON
       ( \s h x ->
           DescribeTimeBasedAutoScalingResponse'
-            Prelude.<$> ( x Core..?> "TimeBasedAutoScalingConfigurations"
+            Prelude.<$> ( x Data..?> "TimeBasedAutoScalingConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -110,32 +111,32 @@ instance Prelude.NFData DescribeTimeBasedAutoScaling where
   rnf DescribeTimeBasedAutoScaling' {..} =
     Prelude.rnf instanceIds
 
-instance Core.ToHeaders DescribeTimeBasedAutoScaling where
+instance Data.ToHeaders DescribeTimeBasedAutoScaling where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DescribeTimeBasedAutoScaling" ::
+              Data.=# ( "OpsWorks_20130218.DescribeTimeBasedAutoScaling" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTimeBasedAutoScaling where
+instance Data.ToJSON DescribeTimeBasedAutoScaling where
   toJSON DescribeTimeBasedAutoScaling' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("InstanceIds" Core..= instanceIds)]
+          [Prelude.Just ("InstanceIds" Data..= instanceIds)]
       )
 
-instance Core.ToPath DescribeTimeBasedAutoScaling where
+instance Data.ToPath DescribeTimeBasedAutoScaling where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTimeBasedAutoScaling where
+instance Data.ToQuery DescribeTimeBasedAutoScaling where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeTimeBasedAutoScaling@ request.

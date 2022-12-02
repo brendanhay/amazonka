@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.RaidArray where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance\'s RAID array.
@@ -163,25 +164,25 @@ raidArray_iops = Lens.lens (\RaidArray' {iops} -> iops) (\s@RaidArray' {} a -> s
 raidArray_createdAt :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
 raidArray_createdAt = Lens.lens (\RaidArray' {createdAt} -> createdAt) (\s@RaidArray' {} a -> s {createdAt = a} :: RaidArray)
 
-instance Core.FromJSON RaidArray where
+instance Data.FromJSON RaidArray where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RaidArray"
       ( \x ->
           RaidArray'
-            Prelude.<$> (x Core..:? "StackId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Device")
-            Prelude.<*> (x Core..:? "RaidArrayId")
-            Prelude.<*> (x Core..:? "MountPoint")
-            Prelude.<*> (x Core..:? "Size")
-            Prelude.<*> (x Core..:? "VolumeType")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "NumberOfDisks")
-            Prelude.<*> (x Core..:? "RaidLevel")
-            Prelude.<*> (x Core..:? "Iops")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "StackId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Device")
+            Prelude.<*> (x Data..:? "RaidArrayId")
+            Prelude.<*> (x Data..:? "MountPoint")
+            Prelude.<*> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "VolumeType")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "NumberOfDisks")
+            Prelude.<*> (x Data..:? "RaidLevel")
+            Prelude.<*> (x Data..:? "Iops")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable RaidArray where

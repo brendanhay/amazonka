@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,32 +92,32 @@ instance Prelude.Hashable DeleteLayer where
 instance Prelude.NFData DeleteLayer where
   rnf DeleteLayer' {..} = Prelude.rnf layerId
 
-instance Core.ToHeaders DeleteLayer where
+instance Data.ToHeaders DeleteLayer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DeleteLayer" ::
+              Data.=# ( "OpsWorks_20130218.DeleteLayer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLayer where
+instance Data.ToJSON DeleteLayer where
   toJSON DeleteLayer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LayerId" Core..= layerId)]
+          [Prelude.Just ("LayerId" Data..= layerId)]
       )
 
-instance Core.ToPath DeleteLayer where
+instance Data.ToPath DeleteLayer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLayer where
+instance Data.ToQuery DeleteLayer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLayerResponse' smart constructor.

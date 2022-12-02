@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,35 +118,35 @@ instance Prelude.NFData UpdateVolume where
       `Prelude.seq` Prelude.rnf mountPoint
       `Prelude.seq` Prelude.rnf volumeId
 
-instance Core.ToHeaders UpdateVolume where
+instance Data.ToHeaders UpdateVolume where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.UpdateVolume" ::
+              Data.=# ( "OpsWorks_20130218.UpdateVolume" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVolume where
+instance Data.ToJSON UpdateVolume where
   toJSON UpdateVolume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("MountPoint" Core..=) Prelude.<$> mountPoint,
-            Prelude.Just ("VolumeId" Core..= volumeId)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("MountPoint" Data..=) Prelude.<$> mountPoint,
+            Prelude.Just ("VolumeId" Data..= volumeId)
           ]
       )
 
-instance Core.ToPath UpdateVolume where
+instance Data.ToPath UpdateVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateVolume where
+instance Data.ToQuery UpdateVolume where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVolumeResponse' smart constructor.

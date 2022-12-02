@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.TemporaryCredential where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the data needed by RDP clients such as the Microsoft Remote
@@ -89,16 +90,16 @@ temporaryCredential_validForInMinutes = Lens.lens (\TemporaryCredential' {validF
 temporaryCredential_instanceId :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Text)
 temporaryCredential_instanceId = Lens.lens (\TemporaryCredential' {instanceId} -> instanceId) (\s@TemporaryCredential' {} a -> s {instanceId = a} :: TemporaryCredential)
 
-instance Core.FromJSON TemporaryCredential where
+instance Data.FromJSON TemporaryCredential where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemporaryCredential"
       ( \x ->
           TemporaryCredential'
-            Prelude.<$> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "ValidForInMinutes")
-            Prelude.<*> (x Core..:? "InstanceId")
+            Prelude.<$> (x Data..:? "Password")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "ValidForInMinutes")
+            Prelude.<*> (x Data..:? "InstanceId")
       )
 
 instance Prelude.Hashable TemporaryCredential where

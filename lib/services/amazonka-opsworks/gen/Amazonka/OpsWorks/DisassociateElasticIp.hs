@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,32 +95,32 @@ instance Prelude.NFData DisassociateElasticIp where
   rnf DisassociateElasticIp' {..} =
     Prelude.rnf elasticIp
 
-instance Core.ToHeaders DisassociateElasticIp where
+instance Data.ToHeaders DisassociateElasticIp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DisassociateElasticIp" ::
+              Data.=# ( "OpsWorks_20130218.DisassociateElasticIp" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateElasticIp where
+instance Data.ToJSON DisassociateElasticIp where
   toJSON DisassociateElasticIp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ElasticIp" Core..= elasticIp)]
+          [Prelude.Just ("ElasticIp" Data..= elasticIp)]
       )
 
-instance Core.ToPath DisassociateElasticIp where
+instance Data.ToPath DisassociateElasticIp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateElasticIp where
+instance Data.ToQuery DisassociateElasticIp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateElasticIpResponse' smart constructor.

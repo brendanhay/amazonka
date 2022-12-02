@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.DeploymentCommand where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.DeploymentCommandName
 import qualified Amazonka.Prelude as Prelude
 
@@ -235,14 +236,14 @@ deploymentCommand_args = Lens.lens (\DeploymentCommand' {args} -> args) (\s@Depl
 deploymentCommand_name :: Lens.Lens' DeploymentCommand DeploymentCommandName
 deploymentCommand_name = Lens.lens (\DeploymentCommand' {name} -> name) (\s@DeploymentCommand' {} a -> s {name = a} :: DeploymentCommand)
 
-instance Core.FromJSON DeploymentCommand where
+instance Data.FromJSON DeploymentCommand where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentCommand"
       ( \x ->
           DeploymentCommand'
-            Prelude.<$> (x Core..:? "Args" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Args" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable DeploymentCommand where
@@ -254,11 +255,11 @@ instance Prelude.NFData DeploymentCommand where
   rnf DeploymentCommand' {..} =
     Prelude.rnf args `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON DeploymentCommand where
+instance Data.ToJSON DeploymentCommand where
   toJSON DeploymentCommand' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Args" Core..=) Prelude.<$> args,
-            Prelude.Just ("Name" Core..= name)
+          [ ("Args" Data..=) Prelude.<$> args,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

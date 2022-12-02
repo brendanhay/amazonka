@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.AgentVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.StackConfigurationManager
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ agentVersion_configurationManager = Lens.lens (\AgentVersion' {configurationMana
 agentVersion_version :: Lens.Lens' AgentVersion (Prelude.Maybe Prelude.Text)
 agentVersion_version = Lens.lens (\AgentVersion' {version} -> version) (\s@AgentVersion' {} a -> s {version = a} :: AgentVersion)
 
-instance Core.FromJSON AgentVersion where
+instance Data.FromJSON AgentVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AgentVersion"
       ( \x ->
           AgentVersion'
-            Prelude.<$> (x Core..:? "ConfigurationManager")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "ConfigurationManager")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable AgentVersion where

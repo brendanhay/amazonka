@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,34 +98,34 @@ instance Prelude.NFData DeregisterEcsCluster where
   rnf DeregisterEcsCluster' {..} =
     Prelude.rnf ecsClusterArn
 
-instance Core.ToHeaders DeregisterEcsCluster where
+instance Data.ToHeaders DeregisterEcsCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DeregisterEcsCluster" ::
+              Data.=# ( "OpsWorks_20130218.DeregisterEcsCluster" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterEcsCluster where
+instance Data.ToJSON DeregisterEcsCluster where
   toJSON DeregisterEcsCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("EcsClusterArn" Core..= ecsClusterArn)
+              ("EcsClusterArn" Data..= ecsClusterArn)
           ]
       )
 
-instance Core.ToPath DeregisterEcsCluster where
+instance Data.ToPath DeregisterEcsCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterEcsCluster where
+instance Data.ToQuery DeregisterEcsCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterEcsClusterResponse' smart constructor.

@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -859,7 +860,7 @@ instance Core.AWSRequest CreateStack where
     Response.receiveJSON
       ( \s h x ->
           CreateStackResponse'
-            Prelude.<$> (x Core..?> "StackId")
+            Prelude.<$> (x Data..?> "StackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -908,64 +909,64 @@ instance Prelude.NFData CreateStack where
       `Prelude.seq` Prelude.rnf
         defaultInstanceProfileArn
 
-instance Core.ToHeaders CreateStack where
+instance Data.ToHeaders CreateStack where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.CreateStack" ::
+              Data.=# ( "OpsWorks_20130218.CreateStack" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStack where
+instance Data.ToJSON CreateStack where
   toJSON CreateStack' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HostnameTheme" Core..=) Prelude.<$> hostnameTheme,
-            ("DefaultSshKeyName" Core..=)
+          [ ("HostnameTheme" Data..=) Prelude.<$> hostnameTheme,
+            ("DefaultSshKeyName" Data..=)
               Prelude.<$> defaultSshKeyName,
-            ("CustomJson" Core..=) Prelude.<$> customJson,
-            ("DefaultAvailabilityZone" Core..=)
+            ("CustomJson" Data..=) Prelude.<$> customJson,
+            ("DefaultAvailabilityZone" Data..=)
               Prelude.<$> defaultAvailabilityZone,
-            ("DefaultRootDeviceType" Core..=)
+            ("DefaultRootDeviceType" Data..=)
               Prelude.<$> defaultRootDeviceType,
-            ("ConfigurationManager" Core..=)
+            ("ConfigurationManager" Data..=)
               Prelude.<$> configurationManager,
-            ("DefaultSubnetId" Core..=)
+            ("DefaultSubnetId" Data..=)
               Prelude.<$> defaultSubnetId,
-            ("UseCustomCookbooks" Core..=)
+            ("UseCustomCookbooks" Data..=)
               Prelude.<$> useCustomCookbooks,
-            ("DefaultOs" Core..=) Prelude.<$> defaultOs,
-            ("UseOpsworksSecurityGroups" Core..=)
+            ("DefaultOs" Data..=) Prelude.<$> defaultOs,
+            ("UseOpsworksSecurityGroups" Data..=)
               Prelude.<$> useOpsworksSecurityGroups,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("ChefConfiguration" Core..=)
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("ChefConfiguration" Data..=)
               Prelude.<$> chefConfiguration,
-            ("CustomCookbooksSource" Core..=)
+            ("CustomCookbooksSource" Data..=)
               Prelude.<$> customCookbooksSource,
-            ("AgentVersion" Core..=) Prelude.<$> agentVersion,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Region" Core..= region),
+            ("AgentVersion" Data..=) Prelude.<$> agentVersion,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Region" Data..= region),
             Prelude.Just
-              ("ServiceRoleArn" Core..= serviceRoleArn),
+              ("ServiceRoleArn" Data..= serviceRoleArn),
             Prelude.Just
               ( "DefaultInstanceProfileArn"
-                  Core..= defaultInstanceProfileArn
+                  Data..= defaultInstanceProfileArn
               )
           ]
       )
 
-instance Core.ToPath CreateStack where
+instance Data.ToPath CreateStack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStack where
+instance Data.ToQuery CreateStack where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @CreateStack@ request.

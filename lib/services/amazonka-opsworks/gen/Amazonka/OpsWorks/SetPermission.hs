@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -190,37 +191,37 @@ instance Prelude.NFData SetPermission where
       `Prelude.seq` Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf iamUserArn
 
-instance Core.ToHeaders SetPermission where
+instance Data.ToHeaders SetPermission where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.SetPermission" ::
+              Data.=# ( "OpsWorks_20130218.SetPermission" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetPermission where
+instance Data.ToJSON SetPermission where
   toJSON SetPermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllowSudo" Core..=) Prelude.<$> allowSudo,
-            ("Level" Core..=) Prelude.<$> level,
-            ("AllowSsh" Core..=) Prelude.<$> allowSsh,
-            Prelude.Just ("StackId" Core..= stackId),
-            Prelude.Just ("IamUserArn" Core..= iamUserArn)
+          [ ("AllowSudo" Data..=) Prelude.<$> allowSudo,
+            ("Level" Data..=) Prelude.<$> level,
+            ("AllowSsh" Data..=) Prelude.<$> allowSsh,
+            Prelude.Just ("StackId" Data..= stackId),
+            Prelude.Just ("IamUserArn" Data..= iamUserArn)
           ]
       )
 
-instance Core.ToPath SetPermission where
+instance Data.ToPath SetPermission where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetPermission where
+instance Data.ToQuery SetPermission where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetPermissionResponse' smart constructor.

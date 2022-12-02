@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,36 +119,36 @@ instance Prelude.NFData UpdateRdsDbInstance where
       `Prelude.seq` Prelude.rnf dbUser
       `Prelude.seq` Prelude.rnf rdsDbInstanceArn
 
-instance Core.ToHeaders UpdateRdsDbInstance where
+instance Data.ToHeaders UpdateRdsDbInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.UpdateRdsDbInstance" ::
+              Data.=# ( "OpsWorks_20130218.UpdateRdsDbInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRdsDbInstance where
+instance Data.ToJSON UpdateRdsDbInstance where
   toJSON UpdateRdsDbInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DbPassword" Core..=) Prelude.<$> dbPassword,
-            ("DbUser" Core..=) Prelude.<$> dbUser,
+          [ ("DbPassword" Data..=) Prelude.<$> dbPassword,
+            ("DbUser" Data..=) Prelude.<$> dbUser,
             Prelude.Just
-              ("RdsDbInstanceArn" Core..= rdsDbInstanceArn)
+              ("RdsDbInstanceArn" Data..= rdsDbInstanceArn)
           ]
       )
 
-instance Core.ToPath UpdateRdsDbInstance where
+instance Data.ToPath UpdateRdsDbInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRdsDbInstance where
+instance Data.ToQuery UpdateRdsDbInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRdsDbInstanceResponse' smart constructor.

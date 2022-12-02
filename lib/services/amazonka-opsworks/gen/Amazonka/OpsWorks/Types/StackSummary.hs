@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.StackSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.InstancesCount
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,18 +99,18 @@ stackSummary_appsCount = Lens.lens (\StackSummary' {appsCount} -> appsCount) (\s
 stackSummary_layersCount :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Int)
 stackSummary_layersCount = Lens.lens (\StackSummary' {layersCount} -> layersCount) (\s@StackSummary' {} a -> s {layersCount = a} :: StackSummary)
 
-instance Core.FromJSON StackSummary where
+instance Data.FromJSON StackSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StackSummary"
       ( \x ->
           StackSummary'
-            Prelude.<$> (x Core..:? "StackId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "InstancesCount")
-            Prelude.<*> (x Core..:? "AppsCount")
-            Prelude.<*> (x Core..:? "LayersCount")
+            Prelude.<$> (x Data..:? "StackId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "InstancesCount")
+            Prelude.<*> (x Data..:? "AppsCount")
+            Prelude.<*> (x Data..:? "LayersCount")
       )
 
 instance Prelude.Hashable StackSummary where

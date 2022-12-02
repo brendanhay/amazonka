@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,32 +100,32 @@ instance Prelude.Hashable DeregisterVolume where
 instance Prelude.NFData DeregisterVolume where
   rnf DeregisterVolume' {..} = Prelude.rnf volumeId
 
-instance Core.ToHeaders DeregisterVolume where
+instance Data.ToHeaders DeregisterVolume where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DeregisterVolume" ::
+              Data.=# ( "OpsWorks_20130218.DeregisterVolume" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterVolume where
+instance Data.ToJSON DeregisterVolume where
   toJSON DeregisterVolume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("VolumeId" Core..= volumeId)]
+          [Prelude.Just ("VolumeId" Data..= volumeId)]
       )
 
-instance Core.ToPath DeregisterVolume where
+instance Data.ToPath DeregisterVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterVolume where
+instance Data.ToQuery DeregisterVolume where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterVolumeResponse' smart constructor.

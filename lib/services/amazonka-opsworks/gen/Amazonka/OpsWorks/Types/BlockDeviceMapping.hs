@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.BlockDeviceMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.EbsBlockDevice
 import qualified Amazonka.Prelude as Prelude
 
@@ -101,16 +102,16 @@ blockDeviceMapping_noDevice = Lens.lens (\BlockDeviceMapping' {noDevice} -> noDe
 blockDeviceMapping_virtualName :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
 blockDeviceMapping_virtualName = Lens.lens (\BlockDeviceMapping' {virtualName} -> virtualName) (\s@BlockDeviceMapping' {} a -> s {virtualName = a} :: BlockDeviceMapping)
 
-instance Core.FromJSON BlockDeviceMapping where
+instance Data.FromJSON BlockDeviceMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlockDeviceMapping"
       ( \x ->
           BlockDeviceMapping'
-            Prelude.<$> (x Core..:? "Ebs")
-            Prelude.<*> (x Core..:? "DeviceName")
-            Prelude.<*> (x Core..:? "NoDevice")
-            Prelude.<*> (x Core..:? "VirtualName")
+            Prelude.<$> (x Data..:? "Ebs")
+            Prelude.<*> (x Data..:? "DeviceName")
+            Prelude.<*> (x Data..:? "NoDevice")
+            Prelude.<*> (x Data..:? "VirtualName")
       )
 
 instance Prelude.Hashable BlockDeviceMapping where
@@ -127,13 +128,13 @@ instance Prelude.NFData BlockDeviceMapping where
       `Prelude.seq` Prelude.rnf noDevice
       `Prelude.seq` Prelude.rnf virtualName
 
-instance Core.ToJSON BlockDeviceMapping where
+instance Data.ToJSON BlockDeviceMapping where
   toJSON BlockDeviceMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Ebs" Core..=) Prelude.<$> ebs,
-            ("DeviceName" Core..=) Prelude.<$> deviceName,
-            ("NoDevice" Core..=) Prelude.<$> noDevice,
-            ("VirtualName" Core..=) Prelude.<$> virtualName
+          [ ("Ebs" Data..=) Prelude.<$> ebs,
+            ("DeviceName" Data..=) Prelude.<$> deviceName,
+            ("NoDevice" Data..=) Prelude.<$> noDevice,
+            ("VirtualName" Data..=) Prelude.<$> virtualName
           ]
       )

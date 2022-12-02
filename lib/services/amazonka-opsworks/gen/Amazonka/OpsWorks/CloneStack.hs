@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -852,7 +853,7 @@ instance Core.AWSRequest CloneStack where
     Response.receiveJSON
       ( \s h x ->
           CloneStackResponse'
-            Prelude.<$> (x Core..?> "StackId")
+            Prelude.<$> (x Data..?> "StackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -907,66 +908,66 @@ instance Prelude.NFData CloneStack where
       `Prelude.seq` Prelude.rnf sourceStackId
       `Prelude.seq` Prelude.rnf serviceRoleArn
 
-instance Core.ToHeaders CloneStack where
+instance Data.ToHeaders CloneStack where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.CloneStack" ::
+              Data.=# ( "OpsWorks_20130218.CloneStack" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CloneStack where
+instance Data.ToJSON CloneStack where
   toJSON CloneStack' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CloneAppIds" Core..=) Prelude.<$> cloneAppIds,
-            ("HostnameTheme" Core..=) Prelude.<$> hostnameTheme,
-            ("Name" Core..=) Prelude.<$> name,
-            ("DefaultSshKeyName" Core..=)
+          [ ("CloneAppIds" Data..=) Prelude.<$> cloneAppIds,
+            ("HostnameTheme" Data..=) Prelude.<$> hostnameTheme,
+            ("Name" Data..=) Prelude.<$> name,
+            ("DefaultSshKeyName" Data..=)
               Prelude.<$> defaultSshKeyName,
-            ("CustomJson" Core..=) Prelude.<$> customJson,
-            ("DefaultAvailabilityZone" Core..=)
+            ("CustomJson" Data..=) Prelude.<$> customJson,
+            ("DefaultAvailabilityZone" Data..=)
               Prelude.<$> defaultAvailabilityZone,
-            ("DefaultRootDeviceType" Core..=)
+            ("DefaultRootDeviceType" Data..=)
               Prelude.<$> defaultRootDeviceType,
-            ("DefaultInstanceProfileArn" Core..=)
+            ("DefaultInstanceProfileArn" Data..=)
               Prelude.<$> defaultInstanceProfileArn,
-            ("ClonePermissions" Core..=)
+            ("ClonePermissions" Data..=)
               Prelude.<$> clonePermissions,
-            ("ConfigurationManager" Core..=)
+            ("ConfigurationManager" Data..=)
               Prelude.<$> configurationManager,
-            ("DefaultSubnetId" Core..=)
+            ("DefaultSubnetId" Data..=)
               Prelude.<$> defaultSubnetId,
-            ("Region" Core..=) Prelude.<$> region,
-            ("UseCustomCookbooks" Core..=)
+            ("Region" Data..=) Prelude.<$> region,
+            ("UseCustomCookbooks" Data..=)
               Prelude.<$> useCustomCookbooks,
-            ("DefaultOs" Core..=) Prelude.<$> defaultOs,
-            ("UseOpsworksSecurityGroups" Core..=)
+            ("DefaultOs" Data..=) Prelude.<$> defaultOs,
+            ("UseOpsworksSecurityGroups" Data..=)
               Prelude.<$> useOpsworksSecurityGroups,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("ChefConfiguration" Core..=)
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("ChefConfiguration" Data..=)
               Prelude.<$> chefConfiguration,
-            ("CustomCookbooksSource" Core..=)
+            ("CustomCookbooksSource" Data..=)
               Prelude.<$> customCookbooksSource,
-            ("AgentVersion" Core..=) Prelude.<$> agentVersion,
-            Prelude.Just ("SourceStackId" Core..= sourceStackId),
+            ("AgentVersion" Data..=) Prelude.<$> agentVersion,
+            Prelude.Just ("SourceStackId" Data..= sourceStackId),
             Prelude.Just
-              ("ServiceRoleArn" Core..= serviceRoleArn)
+              ("ServiceRoleArn" Data..= serviceRoleArn)
           ]
       )
 
-instance Core.ToPath CloneStack where
+instance Data.ToPath CloneStack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CloneStack where
+instance Data.ToQuery CloneStack where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @CloneStack@ request.

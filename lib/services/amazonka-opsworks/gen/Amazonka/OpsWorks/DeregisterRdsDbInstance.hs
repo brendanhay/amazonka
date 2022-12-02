@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,34 +97,34 @@ instance Prelude.NFData DeregisterRdsDbInstance where
   rnf DeregisterRdsDbInstance' {..} =
     Prelude.rnf rdsDbInstanceArn
 
-instance Core.ToHeaders DeregisterRdsDbInstance where
+instance Data.ToHeaders DeregisterRdsDbInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DeregisterRdsDbInstance" ::
+              Data.=# ( "OpsWorks_20130218.DeregisterRdsDbInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterRdsDbInstance where
+instance Data.ToJSON DeregisterRdsDbInstance where
   toJSON DeregisterRdsDbInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RdsDbInstanceArn" Core..= rdsDbInstanceArn)
+              ("RdsDbInstanceArn" Data..= rdsDbInstanceArn)
           ]
       )
 
-instance Core.ToPath DeregisterRdsDbInstance where
+instance Data.ToPath DeregisterRdsDbInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterRdsDbInstance where
+instance Data.ToQuery DeregisterRdsDbInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterRdsDbInstanceResponse' smart constructor.

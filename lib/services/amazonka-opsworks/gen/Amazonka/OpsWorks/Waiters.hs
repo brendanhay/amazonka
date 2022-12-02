@@ -18,6 +18,7 @@ module Amazonka.OpsWorks.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.DescribeApps
 import Amazonka.OpsWorks.DescribeDeployments
 import Amazonka.OpsWorks.DescribeInstances
@@ -44,7 +45,7 @@ newInstanceStopped =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "booting"
@@ -57,7 +58,7 @@ newInstanceStopped =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "pending"
@@ -70,7 +71,7 @@ newInstanceStopped =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "rebooting"
@@ -83,7 +84,7 @@ newInstanceStopped =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "requested"
@@ -96,7 +97,7 @@ newInstanceStopped =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "running_setup"
@@ -109,7 +110,7 @@ newInstanceStopped =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "setup_failed"
@@ -122,7 +123,7 @@ newInstanceStopped =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "start_failed"
@@ -135,7 +136,7 @@ newInstanceStopped =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stop_failed"
@@ -148,7 +149,7 @@ newInstanceStopped =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -172,7 +173,7 @@ newInstanceRegistered =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "setup_failed"
@@ -185,7 +186,7 @@ newInstanceRegistered =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "shutting_down"
@@ -198,7 +199,7 @@ newInstanceRegistered =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stopped"
@@ -211,7 +212,7 @@ newInstanceRegistered =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stopping"
@@ -224,7 +225,7 @@ newInstanceRegistered =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "terminating"
@@ -237,7 +238,7 @@ newInstanceRegistered =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "terminated"
@@ -250,7 +251,7 @@ newInstanceRegistered =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stop_failed"
@@ -263,7 +264,7 @@ newInstanceRegistered =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -287,7 +288,7 @@ newInstanceTerminated =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundException"
@@ -303,7 +304,7 @@ newInstanceTerminated =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "online"
@@ -316,7 +317,7 @@ newInstanceTerminated =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "pending"
@@ -329,7 +330,7 @@ newInstanceTerminated =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "rebooting"
@@ -342,7 +343,7 @@ newInstanceTerminated =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "requested"
@@ -355,7 +356,7 @@ newInstanceTerminated =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "running_setup"
@@ -368,7 +369,7 @@ newInstanceTerminated =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "setup_failed"
@@ -381,7 +382,7 @@ newInstanceTerminated =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "start_failed"
@@ -394,7 +395,7 @@ newInstanceTerminated =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -431,7 +432,7 @@ newDeploymentSuccessful =
                 )
                 Prelude.. deployment_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -444,7 +445,7 @@ newDeploymentSuccessful =
                 )
                 Prelude.. deployment_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -468,7 +469,7 @@ newInstanceOnline =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "setup_failed"
@@ -481,7 +482,7 @@ newInstanceOnline =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "shutting_down"
@@ -494,7 +495,7 @@ newInstanceOnline =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "start_failed"
@@ -507,7 +508,7 @@ newInstanceOnline =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stopped"
@@ -520,7 +521,7 @@ newInstanceOnline =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stopping"
@@ -533,7 +534,7 @@ newInstanceOnline =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "terminating"
@@ -546,7 +547,7 @@ newInstanceOnline =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "terminated"
@@ -559,7 +560,7 @@ newInstanceOnline =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stop_failed"
@@ -572,7 +573,7 @@ newInstanceOnline =
                 )
                 Prelude.. instance_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

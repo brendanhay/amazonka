@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.App where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.AppAttributesKeys
 import Amazonka.OpsWorks.Types.AppType
 import Amazonka.OpsWorks.Types.DataSource
@@ -211,26 +212,26 @@ app_createdAt = Lens.lens (\App' {createdAt} -> createdAt) (\s@App' {} a -> s {c
 app_appId :: Lens.Lens' App (Prelude.Maybe Prelude.Text)
 app_appId = Lens.lens (\App' {appId} -> appId) (\s@App' {} a -> s {appId = a} :: App)
 
-instance Core.FromJSON App where
+instance Data.FromJSON App where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "App"
       ( \x ->
           App'
-            Prelude.<$> (x Core..:? "Domains" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StackId")
-            Prelude.<*> (x Core..:? "AppSource")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DataSources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SslConfiguration")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EnableSsl")
-            Prelude.<*> (x Core..:? "Shortname")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "AppId")
+            Prelude.<$> (x Data..:? "Domains" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StackId")
+            Prelude.<*> (x Data..:? "AppSource")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DataSources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SslConfiguration")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EnableSsl")
+            Prelude.<*> (x Data..:? "Shortname")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "AppId")
       )
 
 instance Prelude.Hashable App where

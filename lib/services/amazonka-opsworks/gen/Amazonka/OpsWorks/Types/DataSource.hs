@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.DataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an app\'s data source.
@@ -73,15 +74,15 @@ dataSource_databaseName = Lens.lens (\DataSource' {databaseName} -> databaseName
 dataSource_arn :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_arn = Lens.lens (\DataSource' {arn} -> arn) (\s@DataSource' {} a -> s {arn = a} :: DataSource)
 
-instance Core.FromJSON DataSource where
+instance Data.FromJSON DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSource"
       ( \x ->
           DataSource'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable DataSource where
@@ -96,12 +97,12 @@ instance Prelude.NFData DataSource where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToJSON DataSource where
+instance Data.ToJSON DataSource where
   toJSON DataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("Arn" Core..=) Prelude.<$> arn
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Arn" Data..=) Prelude.<$> arn
           ]
       )

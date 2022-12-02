@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,36 +158,36 @@ instance Prelude.NFData SetLoadBasedAutoScaling where
       `Prelude.seq` Prelude.rnf downScaling
       `Prelude.seq` Prelude.rnf layerId
 
-instance Core.ToHeaders SetLoadBasedAutoScaling where
+instance Data.ToHeaders SetLoadBasedAutoScaling where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.SetLoadBasedAutoScaling" ::
+              Data.=# ( "OpsWorks_20130218.SetLoadBasedAutoScaling" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetLoadBasedAutoScaling where
+instance Data.ToJSON SetLoadBasedAutoScaling where
   toJSON SetLoadBasedAutoScaling' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpScaling" Core..=) Prelude.<$> upScaling,
-            ("Enable" Core..=) Prelude.<$> enable,
-            ("DownScaling" Core..=) Prelude.<$> downScaling,
-            Prelude.Just ("LayerId" Core..= layerId)
+          [ ("UpScaling" Data..=) Prelude.<$> upScaling,
+            ("Enable" Data..=) Prelude.<$> enable,
+            ("DownScaling" Data..=) Prelude.<$> downScaling,
+            Prelude.Just ("LayerId" Data..= layerId)
           ]
       )
 
-instance Core.ToPath SetLoadBasedAutoScaling where
+instance Data.ToPath SetLoadBasedAutoScaling where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetLoadBasedAutoScaling where
+instance Data.ToQuery SetLoadBasedAutoScaling where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetLoadBasedAutoScalingResponse' smart constructor.

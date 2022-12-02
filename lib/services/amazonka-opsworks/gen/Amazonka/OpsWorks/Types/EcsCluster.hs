@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.EcsCluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a registered Amazon ECS cluster.
@@ -79,16 +80,16 @@ ecsCluster_ecsClusterArn = Lens.lens (\EcsCluster' {ecsClusterArn} -> ecsCluster
 ecsCluster_registeredAt :: Lens.Lens' EcsCluster (Prelude.Maybe Prelude.Text)
 ecsCluster_registeredAt = Lens.lens (\EcsCluster' {registeredAt} -> registeredAt) (\s@EcsCluster' {} a -> s {registeredAt = a} :: EcsCluster)
 
-instance Core.FromJSON EcsCluster where
+instance Data.FromJSON EcsCluster where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EcsCluster"
       ( \x ->
           EcsCluster'
-            Prelude.<$> (x Core..:? "EcsClusterName")
-            Prelude.<*> (x Core..:? "StackId")
-            Prelude.<*> (x Core..:? "EcsClusterArn")
-            Prelude.<*> (x Core..:? "RegisteredAt")
+            Prelude.<$> (x Data..:? "EcsClusterName")
+            Prelude.<*> (x Data..:? "StackId")
+            Prelude.<*> (x Data..:? "EcsClusterArn")
+            Prelude.<*> (x Data..:? "RegisteredAt")
       )
 
 instance Prelude.Hashable EcsCluster where

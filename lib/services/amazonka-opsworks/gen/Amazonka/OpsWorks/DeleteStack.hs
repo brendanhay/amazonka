@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,32 +91,32 @@ instance Prelude.Hashable DeleteStack where
 instance Prelude.NFData DeleteStack where
   rnf DeleteStack' {..} = Prelude.rnf stackId
 
-instance Core.ToHeaders DeleteStack where
+instance Data.ToHeaders DeleteStack where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DeleteStack" ::
+              Data.=# ( "OpsWorks_20130218.DeleteStack" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteStack where
+instance Data.ToJSON DeleteStack where
   toJSON DeleteStack' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("StackId" Core..= stackId)]
+          [Prelude.Just ("StackId" Data..= stackId)]
       )
 
-instance Core.ToPath DeleteStack where
+instance Data.ToPath DeleteStack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteStack where
+instance Data.ToQuery DeleteStack where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStackResponse' smart constructor.

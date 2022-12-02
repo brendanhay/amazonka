@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.Deployment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.DeploymentCommand
 import qualified Amazonka.Prelude as Prelude
 
@@ -194,24 +195,24 @@ deployment_createdAt = Lens.lens (\Deployment' {createdAt} -> createdAt) (\s@Dep
 deployment_appId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_appId = Lens.lens (\Deployment' {appId} -> appId) (\s@Deployment' {} a -> s {appId = a} :: Deployment)
 
-instance Core.FromJSON Deployment where
+instance Data.FromJSON Deployment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Deployment"
       ( \x ->
           Deployment'
-            Prelude.<$> (x Core..:? "StackId")
-            Prelude.<*> (x Core..:? "IamUserArn")
-            Prelude.<*> (x Core..:? "CustomJson")
-            Prelude.<*> (x Core..:? "DeploymentId")
-            Prelude.<*> (x Core..:? "Command")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Duration")
-            Prelude.<*> (x Core..:? "Comment")
-            Prelude.<*> (x Core..:? "InstanceIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CompletedAt")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "AppId")
+            Prelude.<$> (x Data..:? "StackId")
+            Prelude.<*> (x Data..:? "IamUserArn")
+            Prelude.<*> (x Data..:? "CustomJson")
+            Prelude.<*> (x Data..:? "DeploymentId")
+            Prelude.<*> (x Data..:? "Command")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "Comment")
+            Prelude.<*> (x Data..:? "InstanceIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CompletedAt")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "AppId")
       )
 
 instance Prelude.Hashable Deployment where

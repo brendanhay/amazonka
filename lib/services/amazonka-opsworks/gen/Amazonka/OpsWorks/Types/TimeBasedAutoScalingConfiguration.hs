@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.TimeBasedAutoScalingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.WeeklyAutoScalingSchedule
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,16 +65,16 @@ timeBasedAutoScalingConfiguration_autoScalingSchedule :: Lens.Lens' TimeBasedAut
 timeBasedAutoScalingConfiguration_autoScalingSchedule = Lens.lens (\TimeBasedAutoScalingConfiguration' {autoScalingSchedule} -> autoScalingSchedule) (\s@TimeBasedAutoScalingConfiguration' {} a -> s {autoScalingSchedule = a} :: TimeBasedAutoScalingConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     TimeBasedAutoScalingConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeBasedAutoScalingConfiguration"
       ( \x ->
           TimeBasedAutoScalingConfiguration'
-            Prelude.<$> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "AutoScalingSchedule")
+            Prelude.<$> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "AutoScalingSchedule")
       )
 
 instance

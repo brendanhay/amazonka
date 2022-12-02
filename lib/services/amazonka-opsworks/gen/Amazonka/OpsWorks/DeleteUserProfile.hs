@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,32 +91,32 @@ instance Prelude.Hashable DeleteUserProfile where
 instance Prelude.NFData DeleteUserProfile where
   rnf DeleteUserProfile' {..} = Prelude.rnf iamUserArn
 
-instance Core.ToHeaders DeleteUserProfile where
+instance Data.ToHeaders DeleteUserProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DeleteUserProfile" ::
+              Data.=# ( "OpsWorks_20130218.DeleteUserProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteUserProfile where
+instance Data.ToJSON DeleteUserProfile where
   toJSON DeleteUserProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("IamUserArn" Core..= iamUserArn)]
+          [Prelude.Just ("IamUserArn" Data..= iamUserArn)]
       )
 
-instance Core.ToPath DeleteUserProfile where
+instance Data.ToPath DeleteUserProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteUserProfile where
+instance Data.ToQuery DeleteUserProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserProfileResponse' smart constructor.

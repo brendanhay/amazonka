@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -372,59 +373,59 @@ instance Prelude.NFData UpdateLayer where
       `Prelude.seq` Prelude.rnf installUpdatesOnBoot
       `Prelude.seq` Prelude.rnf layerId
 
-instance Core.ToHeaders UpdateLayer where
+instance Data.ToHeaders UpdateLayer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.UpdateLayer" ::
+              Data.=# ( "OpsWorks_20130218.UpdateLayer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLayer where
+instance Data.ToJSON UpdateLayer where
   toJSON UpdateLayer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("CustomRecipes" Core..=) Prelude.<$> customRecipes,
-            ("AutoAssignPublicIps" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("CustomRecipes" Data..=) Prelude.<$> customRecipes,
+            ("AutoAssignPublicIps" Data..=)
               Prelude.<$> autoAssignPublicIps,
-            ("CustomJson" Core..=) Prelude.<$> customJson,
-            ("Packages" Core..=) Prelude.<$> packages,
-            ("VolumeConfigurations" Core..=)
+            ("CustomJson" Data..=) Prelude.<$> customJson,
+            ("Packages" Data..=) Prelude.<$> packages,
+            ("VolumeConfigurations" Data..=)
               Prelude.<$> volumeConfigurations,
-            ("EnableAutoHealing" Core..=)
+            ("EnableAutoHealing" Data..=)
               Prelude.<$> enableAutoHealing,
-            ("CustomSecurityGroupIds" Core..=)
+            ("CustomSecurityGroupIds" Data..=)
               Prelude.<$> customSecurityGroupIds,
-            ("AutoAssignElasticIps" Core..=)
+            ("AutoAssignElasticIps" Data..=)
               Prelude.<$> autoAssignElasticIps,
-            ("CloudWatchLogsConfiguration" Core..=)
+            ("CloudWatchLogsConfiguration" Data..=)
               Prelude.<$> cloudWatchLogsConfiguration,
-            ("LifecycleEventConfiguration" Core..=)
+            ("LifecycleEventConfiguration" Data..=)
               Prelude.<$> lifecycleEventConfiguration,
-            ("CustomInstanceProfileArn" Core..=)
+            ("CustomInstanceProfileArn" Data..=)
               Prelude.<$> customInstanceProfileArn,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("Shortname" Core..=) Prelude.<$> shortname,
-            ("UseEbsOptimizedInstances" Core..=)
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("Shortname" Data..=) Prelude.<$> shortname,
+            ("UseEbsOptimizedInstances" Data..=)
               Prelude.<$> useEbsOptimizedInstances,
-            ("InstallUpdatesOnBoot" Core..=)
+            ("InstallUpdatesOnBoot" Data..=)
               Prelude.<$> installUpdatesOnBoot,
-            Prelude.Just ("LayerId" Core..= layerId)
+            Prelude.Just ("LayerId" Data..= layerId)
           ]
       )
 
-instance Core.ToPath UpdateLayer where
+instance Data.ToPath UpdateLayer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateLayer where
+instance Data.ToQuery UpdateLayer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLayerResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,32 +93,32 @@ instance Prelude.Hashable StartInstance where
 instance Prelude.NFData StartInstance where
   rnf StartInstance' {..} = Prelude.rnf instanceId
 
-instance Core.ToHeaders StartInstance where
+instance Data.ToHeaders StartInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.StartInstance" ::
+              Data.=# ( "OpsWorks_20130218.StartInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartInstance where
+instance Data.ToJSON StartInstance where
   toJSON StartInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("InstanceId" Core..= instanceId)]
+          [Prelude.Just ("InstanceId" Data..= instanceId)]
       )
 
-instance Core.ToPath StartInstance where
+instance Data.ToPath StartInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartInstance where
+instance Data.ToQuery StartInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartInstanceResponse' smart constructor.

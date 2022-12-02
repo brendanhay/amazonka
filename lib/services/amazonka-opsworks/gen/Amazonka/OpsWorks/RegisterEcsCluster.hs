@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest RegisterEcsCluster where
     Response.receiveJSON
       ( \s h x ->
           RegisterEcsClusterResponse'
-            Prelude.<$> (x Core..?> "EcsClusterArn")
+            Prelude.<$> (x Data..?> "EcsClusterArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,35 +122,35 @@ instance Prelude.NFData RegisterEcsCluster where
     Prelude.rnf ecsClusterArn
       `Prelude.seq` Prelude.rnf stackId
 
-instance Core.ToHeaders RegisterEcsCluster where
+instance Data.ToHeaders RegisterEcsCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.RegisterEcsCluster" ::
+              Data.=# ( "OpsWorks_20130218.RegisterEcsCluster" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterEcsCluster where
+instance Data.ToJSON RegisterEcsCluster where
   toJSON RegisterEcsCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("EcsClusterArn" Core..= ecsClusterArn),
-            Prelude.Just ("StackId" Core..= stackId)
+              ("EcsClusterArn" Data..= ecsClusterArn),
+            Prelude.Just ("StackId" Data..= stackId)
           ]
       )
 
-instance Core.ToPath RegisterEcsCluster where
+instance Data.ToPath RegisterEcsCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterEcsCluster where
+instance Data.ToQuery RegisterEcsCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @RegisterEcsCluster@ request.

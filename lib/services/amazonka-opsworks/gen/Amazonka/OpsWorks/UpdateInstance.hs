@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -442,46 +443,46 @@ instance Prelude.NFData UpdateInstance where
       `Prelude.seq` Prelude.rnf installUpdatesOnBoot
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders UpdateInstance where
+instance Data.ToHeaders UpdateInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.UpdateInstance" ::
+              Data.=# ( "OpsWorks_20130218.UpdateInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateInstance where
+instance Data.ToJSON UpdateInstance where
   toJSON UpdateInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EbsOptimized" Core..=) Prelude.<$> ebsOptimized,
-            ("Os" Core..=) Prelude.<$> os,
-            ("AmiId" Core..=) Prelude.<$> amiId,
-            ("AutoScalingType" Core..=)
+          [ ("EbsOptimized" Data..=) Prelude.<$> ebsOptimized,
+            ("Os" Data..=) Prelude.<$> os,
+            ("AmiId" Data..=) Prelude.<$> amiId,
+            ("AutoScalingType" Data..=)
               Prelude.<$> autoScalingType,
-            ("Hostname" Core..=) Prelude.<$> hostname,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
-            ("SshKeyName" Core..=) Prelude.<$> sshKeyName,
-            ("LayerIds" Core..=) Prelude.<$> layerIds,
-            ("Architecture" Core..=) Prelude.<$> architecture,
-            ("AgentVersion" Core..=) Prelude.<$> agentVersion,
-            ("InstallUpdatesOnBoot" Core..=)
+            ("Hostname" Data..=) Prelude.<$> hostname,
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("SshKeyName" Data..=) Prelude.<$> sshKeyName,
+            ("LayerIds" Data..=) Prelude.<$> layerIds,
+            ("Architecture" Data..=) Prelude.<$> architecture,
+            ("AgentVersion" Data..=) Prelude.<$> agentVersion,
+            ("InstallUpdatesOnBoot" Data..=)
               Prelude.<$> installUpdatesOnBoot,
-            Prelude.Just ("InstanceId" Core..= instanceId)
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath UpdateInstance where
+instance Data.ToPath UpdateInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateInstance where
+instance Data.ToQuery UpdateInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateInstanceResponse' smart constructor.

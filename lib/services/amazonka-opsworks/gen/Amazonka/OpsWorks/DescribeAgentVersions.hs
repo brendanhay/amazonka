@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,7 +97,7 @@ instance Core.AWSRequest DescribeAgentVersions where
     Response.receiveJSON
       ( \s h x ->
           DescribeAgentVersionsResponse'
-            Prelude.<$> (x Core..?> "AgentVersions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "AgentVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,35 +111,35 @@ instance Prelude.NFData DescribeAgentVersions where
     Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf configurationManager
 
-instance Core.ToHeaders DescribeAgentVersions where
+instance Data.ToHeaders DescribeAgentVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DescribeAgentVersions" ::
+              Data.=# ( "OpsWorks_20130218.DescribeAgentVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAgentVersions where
+instance Data.ToJSON DescribeAgentVersions where
   toJSON DescribeAgentVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Core..=) Prelude.<$> stackId,
-            ("ConfigurationManager" Core..=)
+          [ ("StackId" Data..=) Prelude.<$> stackId,
+            ("ConfigurationManager" Data..=)
               Prelude.<$> configurationManager
           ]
       )
 
-instance Core.ToPath DescribeAgentVersions where
+instance Data.ToPath DescribeAgentVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAgentVersions where
+instance Data.ToQuery DescribeAgentVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeAgentVersions@ request.

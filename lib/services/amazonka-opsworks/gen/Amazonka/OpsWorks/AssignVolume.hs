@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,34 +109,34 @@ instance Prelude.NFData AssignVolume where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf volumeId
 
-instance Core.ToHeaders AssignVolume where
+instance Data.ToHeaders AssignVolume where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.AssignVolume" ::
+              Data.=# ( "OpsWorks_20130218.AssignVolume" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssignVolume where
+instance Data.ToJSON AssignVolume where
   toJSON AssignVolume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
-            Prelude.Just ("VolumeId" Core..= volumeId)
+          [ ("InstanceId" Data..=) Prelude.<$> instanceId,
+            Prelude.Just ("VolumeId" Data..= volumeId)
           ]
       )
 
-instance Core.ToPath AssignVolume where
+instance Data.ToPath AssignVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssignVolume where
+instance Data.ToQuery AssignVolume where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssignVolumeResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.WeeklyAutoScalingSchedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a time-based instance\'s auto scaling schedule. The schedule
@@ -125,19 +126,19 @@ weeklyAutoScalingSchedule_wednesday = Lens.lens (\WeeklyAutoScalingSchedule' {we
 weeklyAutoScalingSchedule_monday :: Lens.Lens' WeeklyAutoScalingSchedule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 weeklyAutoScalingSchedule_monday = Lens.lens (\WeeklyAutoScalingSchedule' {monday} -> monday) (\s@WeeklyAutoScalingSchedule' {} a -> s {monday = a} :: WeeklyAutoScalingSchedule) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON WeeklyAutoScalingSchedule where
+instance Data.FromJSON WeeklyAutoScalingSchedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WeeklyAutoScalingSchedule"
       ( \x ->
           WeeklyAutoScalingSchedule'
-            Prelude.<$> (x Core..:? "Tuesday" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Friday" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Saturday" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Thursday" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Sunday" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Wednesday" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Monday" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Tuesday" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Friday" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Saturday" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Thursday" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Sunday" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Wednesday" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Monday" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable WeeklyAutoScalingSchedule where
@@ -160,16 +161,16 @@ instance Prelude.NFData WeeklyAutoScalingSchedule where
       `Prelude.seq` Prelude.rnf wednesday
       `Prelude.seq` Prelude.rnf monday
 
-instance Core.ToJSON WeeklyAutoScalingSchedule where
+instance Data.ToJSON WeeklyAutoScalingSchedule where
   toJSON WeeklyAutoScalingSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tuesday" Core..=) Prelude.<$> tuesday,
-            ("Friday" Core..=) Prelude.<$> friday,
-            ("Saturday" Core..=) Prelude.<$> saturday,
-            ("Thursday" Core..=) Prelude.<$> thursday,
-            ("Sunday" Core..=) Prelude.<$> sunday,
-            ("Wednesday" Core..=) Prelude.<$> wednesday,
-            ("Monday" Core..=) Prelude.<$> monday
+          [ ("Tuesday" Data..=) Prelude.<$> tuesday,
+            ("Friday" Data..=) Prelude.<$> friday,
+            ("Saturday" Data..=) Prelude.<$> saturday,
+            ("Thursday" Data..=) Prelude.<$> thursday,
+            ("Sunday" Data..=) Prelude.<$> sunday,
+            ("Wednesday" Data..=) Prelude.<$> wednesday,
+            ("Monday" Data..=) Prelude.<$> monday
           ]
       )

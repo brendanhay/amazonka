@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ instance Core.AWSRequest DescribeUserProfiles where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserProfilesResponse'
-            Prelude.<$> (x Core..?> "UserProfiles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "UserProfiles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,32 +105,32 @@ instance Prelude.NFData DescribeUserProfiles where
   rnf DescribeUserProfiles' {..} =
     Prelude.rnf iamUserArns
 
-instance Core.ToHeaders DescribeUserProfiles where
+instance Data.ToHeaders DescribeUserProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DescribeUserProfiles" ::
+              Data.=# ( "OpsWorks_20130218.DescribeUserProfiles" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeUserProfiles where
+instance Data.ToJSON DescribeUserProfiles where
   toJSON DescribeUserProfiles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("IamUserArns" Core..=) Prelude.<$> iamUserArns]
+          [("IamUserArns" Data..=) Prelude.<$> iamUserArns]
       )
 
-instance Core.ToPath DescribeUserProfiles where
+instance Data.ToPath DescribeUserProfiles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUserProfiles where
+instance Data.ToQuery DescribeUserProfiles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeUserProfiles@ request.

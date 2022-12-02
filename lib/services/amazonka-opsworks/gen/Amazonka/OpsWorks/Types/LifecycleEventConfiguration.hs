@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.LifecycleEventConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.ShutdownEventConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newLifecycleEventConfiguration =
 lifecycleEventConfiguration_shutdown :: Lens.Lens' LifecycleEventConfiguration (Prelude.Maybe ShutdownEventConfiguration)
 lifecycleEventConfiguration_shutdown = Lens.lens (\LifecycleEventConfiguration' {shutdown} -> shutdown) (\s@LifecycleEventConfiguration' {} a -> s {shutdown = a} :: LifecycleEventConfiguration)
 
-instance Core.FromJSON LifecycleEventConfiguration where
+instance Data.FromJSON LifecycleEventConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifecycleEventConfiguration"
       ( \x ->
           LifecycleEventConfiguration'
-            Prelude.<$> (x Core..:? "Shutdown")
+            Prelude.<$> (x Data..:? "Shutdown")
       )
 
 instance Prelude.Hashable LifecycleEventConfiguration where
@@ -74,9 +75,9 @@ instance Prelude.NFData LifecycleEventConfiguration where
   rnf LifecycleEventConfiguration' {..} =
     Prelude.rnf shutdown
 
-instance Core.ToJSON LifecycleEventConfiguration where
+instance Data.ToJSON LifecycleEventConfiguration where
   toJSON LifecycleEventConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Shutdown" Core..=) Prelude.<$> shutdown]
+          [("Shutdown" Data..=) Prelude.<$> shutdown]
       )

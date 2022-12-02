@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.Command where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a command.
@@ -229,22 +230,22 @@ command_completedAt = Lens.lens (\Command' {completedAt} -> completedAt) (\s@Com
 command_createdAt :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
 command_createdAt = Lens.lens (\Command' {createdAt} -> createdAt) (\s@Command' {} a -> s {createdAt = a} :: Command)
 
-instance Core.FromJSON Command where
+instance Data.FromJSON Command where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Command"
       ( \x ->
           Command'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DeploymentId")
-            Prelude.<*> (x Core..:? "LogUrl")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CommandId")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "AcknowledgedAt")
-            Prelude.<*> (x Core..:? "ExitCode")
-            Prelude.<*> (x Core..:? "CompletedAt")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DeploymentId")
+            Prelude.<*> (x Data..:? "LogUrl")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CommandId")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "AcknowledgedAt")
+            Prelude.<*> (x Data..:? "ExitCode")
+            Prelude.<*> (x Data..:? "CompletedAt")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable Command where

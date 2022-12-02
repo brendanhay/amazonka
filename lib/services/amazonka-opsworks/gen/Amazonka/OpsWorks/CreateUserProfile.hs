@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,7 +139,7 @@ instance Core.AWSRequest CreateUserProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateUserProfileResponse'
-            Prelude.<$> (x Core..?> "IamUserArn")
+            Prelude.<$> (x Data..?> "IamUserArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,37 +157,37 @@ instance Prelude.NFData CreateUserProfile where
       `Prelude.seq` Prelude.rnf allowSelfManagement
       `Prelude.seq` Prelude.rnf iamUserArn
 
-instance Core.ToHeaders CreateUserProfile where
+instance Data.ToHeaders CreateUserProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.CreateUserProfile" ::
+              Data.=# ( "OpsWorks_20130218.CreateUserProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUserProfile where
+instance Data.ToJSON CreateUserProfile where
   toJSON CreateUserProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SshPublicKey" Core..=) Prelude.<$> sshPublicKey,
-            ("SshUsername" Core..=) Prelude.<$> sshUsername,
-            ("AllowSelfManagement" Core..=)
+          [ ("SshPublicKey" Data..=) Prelude.<$> sshPublicKey,
+            ("SshUsername" Data..=) Prelude.<$> sshUsername,
+            ("AllowSelfManagement" Data..=)
               Prelude.<$> allowSelfManagement,
-            Prelude.Just ("IamUserArn" Core..= iamUserArn)
+            Prelude.Just ("IamUserArn" Data..= iamUserArn)
           ]
       )
 
-instance Core.ToPath CreateUserProfile where
+instance Data.ToPath CreateUserProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUserProfile where
+instance Data.ToQuery CreateUserProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @CreateUserProfile@ request.

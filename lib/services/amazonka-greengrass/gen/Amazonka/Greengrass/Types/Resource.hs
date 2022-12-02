@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.ResourceDataContainer
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,15 +91,15 @@ resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a}
 resource_name :: Lens.Lens' Resource Prelude.Text
 resource_name = Lens.lens (\Resource' {name} -> name) (\s@Resource' {} a -> s {name = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..: "ResourceDataContainer")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..: "ResourceDataContainer")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Resource where
@@ -113,15 +114,15 @@ instance Prelude.NFData Resource where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON Resource where
+instance Data.ToJSON Resource where
   toJSON Resource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ResourceDataContainer"
-                  Core..= resourceDataContainer
+                  Data..= resourceDataContainer
               ),
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("Name" Data..= name)
           ]
       )

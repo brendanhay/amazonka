@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest ListCoreDefinitionVersions where
     Response.receiveJSON
       ( \s h x ->
           ListCoreDefinitionVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,30 +152,30 @@ instance Prelude.NFData ListCoreDefinitionVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf coreDefinitionId
 
-instance Core.ToHeaders ListCoreDefinitionVersions where
+instance Data.ToHeaders ListCoreDefinitionVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListCoreDefinitionVersions where
+instance Data.ToPath ListCoreDefinitionVersions where
   toPath ListCoreDefinitionVersions' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/cores/",
-        Core.toBS coreDefinitionId,
+        Data.toBS coreDefinitionId,
         "/versions"
       ]
 
-instance Core.ToQuery ListCoreDefinitionVersions where
+instance Data.ToQuery ListCoreDefinitionVersions where
   toQuery ListCoreDefinitionVersions' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListCoreDefinitionVersionsResponse' smart constructor.

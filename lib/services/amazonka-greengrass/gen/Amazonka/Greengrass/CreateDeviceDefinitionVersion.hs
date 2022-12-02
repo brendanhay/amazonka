@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,10 +113,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateDeviceDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,30 +135,30 @@ instance Prelude.NFData CreateDeviceDefinitionVersion where
       `Prelude.seq` Prelude.rnf amznClientToken
       `Prelude.seq` Prelude.rnf deviceDefinitionId
 
-instance Core.ToHeaders CreateDeviceDefinitionVersion where
+instance Data.ToHeaders CreateDeviceDefinitionVersion where
   toHeaders CreateDeviceDefinitionVersion' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateDeviceDefinitionVersion where
+instance Data.ToJSON CreateDeviceDefinitionVersion where
   toJSON CreateDeviceDefinitionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Devices" Core..=) Prelude.<$> devices]
+          [("Devices" Data..=) Prelude.<$> devices]
       )
 
-instance Core.ToPath CreateDeviceDefinitionVersion where
+instance Data.ToPath CreateDeviceDefinitionVersion where
   toPath CreateDeviceDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/devices/",
-        Core.toBS deviceDefinitionId,
+        Data.toBS deviceDefinitionId,
         "/versions"
       ]
 
-instance Core.ToQuery CreateDeviceDefinitionVersion where
+instance Data.ToQuery CreateDeviceDefinitionVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDeviceDefinitionVersionResponse' smart constructor.

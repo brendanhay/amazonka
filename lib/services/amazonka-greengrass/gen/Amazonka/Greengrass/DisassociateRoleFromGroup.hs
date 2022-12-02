@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest DisassociateRoleFromGroup where
     Response.receiveJSON
       ( \s h x ->
           DisassociateRoleFromGroupResponse'
-            Prelude.<$> (x Core..?> "DisassociatedAt")
+            Prelude.<$> (x Data..?> "DisassociatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,23 +96,23 @@ instance Prelude.NFData DisassociateRoleFromGroup where
   rnf DisassociateRoleFromGroup' {..} =
     Prelude.rnf groupId
 
-instance Core.ToHeaders DisassociateRoleFromGroup where
+instance Data.ToHeaders DisassociateRoleFromGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DisassociateRoleFromGroup where
+instance Data.ToPath DisassociateRoleFromGroup where
   toPath DisassociateRoleFromGroup' {..} =
     Prelude.mconcat
-      ["/greengrass/groups/", Core.toBS groupId, "/role"]
+      ["/greengrass/groups/", Data.toBS groupId, "/role"]
 
-instance Core.ToQuery DisassociateRoleFromGroup where
+instance Data.ToQuery DisassociateRoleFromGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateRoleFromGroupResponse' smart constructor.

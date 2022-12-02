@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -69,8 +70,8 @@ instance Core.AWSRequest GetServiceRoleForAccount where
     Response.receiveJSON
       ( \s h x ->
           GetServiceRoleForAccountResponse'
-            Prelude.<$> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "AssociatedAt")
+            Prelude.<$> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "AssociatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -81,21 +82,21 @@ instance Prelude.Hashable GetServiceRoleForAccount where
 instance Prelude.NFData GetServiceRoleForAccount where
   rnf _ = ()
 
-instance Core.ToHeaders GetServiceRoleForAccount where
+instance Data.ToHeaders GetServiceRoleForAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetServiceRoleForAccount where
+instance Data.ToPath GetServiceRoleForAccount where
   toPath = Prelude.const "/greengrass/servicerole"
 
-instance Core.ToQuery GetServiceRoleForAccount where
+instance Data.ToQuery GetServiceRoleForAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetServiceRoleForAccountResponse' smart constructor.

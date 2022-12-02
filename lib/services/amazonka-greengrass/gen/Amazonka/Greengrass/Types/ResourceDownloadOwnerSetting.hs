@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.ResourceDownloadOwnerSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.Permission
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,14 +79,14 @@ resourceDownloadOwnerSetting_groupOwner = Lens.lens (\ResourceDownloadOwnerSetti
 resourceDownloadOwnerSetting_groupPermission :: Lens.Lens' ResourceDownloadOwnerSetting Permission
 resourceDownloadOwnerSetting_groupPermission = Lens.lens (\ResourceDownloadOwnerSetting' {groupPermission} -> groupPermission) (\s@ResourceDownloadOwnerSetting' {} a -> s {groupPermission = a} :: ResourceDownloadOwnerSetting)
 
-instance Core.FromJSON ResourceDownloadOwnerSetting where
+instance Data.FromJSON ResourceDownloadOwnerSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceDownloadOwnerSetting"
       ( \x ->
           ResourceDownloadOwnerSetting'
-            Prelude.<$> (x Core..: "GroupOwner")
-            Prelude.<*> (x Core..: "GroupPermission")
+            Prelude.<$> (x Data..: "GroupOwner")
+            Prelude.<*> (x Data..: "GroupPermission")
       )
 
 instance
@@ -101,12 +102,12 @@ instance Prelude.NFData ResourceDownloadOwnerSetting where
     Prelude.rnf groupOwner
       `Prelude.seq` Prelude.rnf groupPermission
 
-instance Core.ToJSON ResourceDownloadOwnerSetting where
+instance Data.ToJSON ResourceDownloadOwnerSetting where
   toJSON ResourceDownloadOwnerSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GroupOwner" Core..= groupOwner),
+          [ Prelude.Just ("GroupOwner" Data..= groupOwner),
             Prelude.Just
-              ("GroupPermission" Core..= groupPermission)
+              ("GroupPermission" Data..= groupPermission)
           ]
       )

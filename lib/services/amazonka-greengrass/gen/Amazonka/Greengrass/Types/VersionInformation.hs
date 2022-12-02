@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.VersionInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a version.
@@ -79,16 +80,16 @@ versionInformation_creationTimestamp = Lens.lens (\VersionInformation' {creation
 versionInformation_version :: Lens.Lens' VersionInformation (Prelude.Maybe Prelude.Text)
 versionInformation_version = Lens.lens (\VersionInformation' {version} -> version) (\s@VersionInformation' {} a -> s {version = a} :: VersionInformation)
 
-instance Core.FromJSON VersionInformation where
+instance Data.FromJSON VersionInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VersionInformation"
       ( \x ->
           VersionInformation'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable VersionInformation where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest ListDeviceDefinitionVersions where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceDefinitionVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,30 +155,30 @@ instance Prelude.NFData ListDeviceDefinitionVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf deviceDefinitionId
 
-instance Core.ToHeaders ListDeviceDefinitionVersions where
+instance Data.ToHeaders ListDeviceDefinitionVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDeviceDefinitionVersions where
+instance Data.ToPath ListDeviceDefinitionVersions where
   toPath ListDeviceDefinitionVersions' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/devices/",
-        Core.toBS deviceDefinitionId,
+        Data.toBS deviceDefinitionId,
         "/versions"
       ]
 
-instance Core.ToQuery ListDeviceDefinitionVersions where
+instance Data.ToQuery ListDeviceDefinitionVersions where
   toQuery ListDeviceDefinitionVersions' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListDeviceDefinitionVersionsResponse' smart constructor.

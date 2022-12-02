@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,11 +92,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetGroupCertificateConfigurationResponse'
-            Prelude.<$> (x Core..?> "CertificateExpiryInMilliseconds")
+            Prelude.<$> (x Data..?> "CertificateExpiryInMilliseconds")
             Prelude.<*> ( x
-                            Core..?> "CertificateAuthorityExpiryInMilliseconds"
+                            Data..?> "CertificateAuthorityExpiryInMilliseconds"
                         )
-            Prelude.<*> (x Core..?> "GroupId")
+            Prelude.<*> (x Data..?> "GroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,29 +117,29 @@ instance
     Prelude.rnf groupId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetGroupCertificateConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetGroupCertificateConfiguration where
+instance Data.ToPath GetGroupCertificateConfiguration where
   toPath GetGroupCertificateConfiguration' {..} =
     Prelude.mconcat
       [ "/greengrass/groups/",
-        Core.toBS groupId,
+        Data.toBS groupId,
         "/certificateauthorities/configuration/expiry"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetGroupCertificateConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,8 +109,8 @@ instance Core.AWSRequest ResetDeployments where
     Response.receiveJSON
       ( \s h x ->
           ResetDeploymentsResponse'
-            Prelude.<$> (x Core..?> "DeploymentId")
-            Prelude.<*> (x Core..?> "DeploymentArn")
+            Prelude.<$> (x Data..?> "DeploymentId")
+            Prelude.<*> (x Data..?> "DeploymentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,30 +126,30 @@ instance Prelude.NFData ResetDeployments where
       `Prelude.seq` Prelude.rnf amznClientToken
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToHeaders ResetDeployments where
+instance Data.ToHeaders ResetDeployments where
   toHeaders ResetDeployments' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON ResetDeployments where
+instance Data.ToJSON ResetDeployments where
   toJSON ResetDeployments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Force" Core..=) Prelude.<$> force]
+          [("Force" Data..=) Prelude.<$> force]
       )
 
-instance Core.ToPath ResetDeployments where
+instance Data.ToPath ResetDeployments where
   toPath ResetDeployments' {..} =
     Prelude.mconcat
       [ "/greengrass/groups/",
-        Core.toBS groupId,
+        Data.toBS groupId,
         "/deployments/$reset"
       ]
 
-instance Core.ToQuery ResetDeployments where
+instance Data.ToQuery ResetDeployments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResetDeploymentsResponse' smart constructor.

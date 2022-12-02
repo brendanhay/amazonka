@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.Device where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a device.
@@ -94,16 +95,16 @@ device_id = Lens.lens (\Device' {id} -> id) (\s@Device' {} a -> s {id = a} :: De
 device_certificateArn :: Lens.Lens' Device Prelude.Text
 device_certificateArn = Lens.lens (\Device' {certificateArn} -> certificateArn) (\s@Device' {} a -> s {certificateArn = a} :: Device)
 
-instance Core.FromJSON Device where
+instance Data.FromJSON Device where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> (x Core..:? "SyncShadow")
-            Prelude.<*> (x Core..: "ThingArn")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "CertificateArn")
+            Prelude.<$> (x Data..:? "SyncShadow")
+            Prelude.<*> (x Data..: "ThingArn")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "CertificateArn")
       )
 
 instance Prelude.Hashable Device where
@@ -120,14 +121,14 @@ instance Prelude.NFData Device where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf certificateArn
 
-instance Core.ToJSON Device where
+instance Data.ToJSON Device where
   toJSON Device' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SyncShadow" Core..=) Prelude.<$> syncShadow,
-            Prelude.Just ("ThingArn" Core..= thingArn),
-            Prelude.Just ("Id" Core..= id),
+          [ ("SyncShadow" Data..=) Prelude.<$> syncShadow,
+            Prelude.Just ("ThingArn" Data..= thingArn),
+            Prelude.Just ("Id" Data..= id),
             Prelude.Just
-              ("CertificateArn" Core..= certificateArn)
+              ("CertificateArn" Data..= certificateArn)
           ]
       )

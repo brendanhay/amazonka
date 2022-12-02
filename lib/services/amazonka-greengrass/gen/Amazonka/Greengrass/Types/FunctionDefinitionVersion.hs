@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.FunctionDefinitionVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.Function
 import Amazonka.Greengrass.Types.FunctionDefaultConfig
 import qualified Amazonka.Prelude as Prelude
@@ -70,14 +71,14 @@ functionDefinitionVersion_functions = Lens.lens (\FunctionDefinitionVersion' {fu
 functionDefinitionVersion_defaultConfig :: Lens.Lens' FunctionDefinitionVersion (Prelude.Maybe FunctionDefaultConfig)
 functionDefinitionVersion_defaultConfig = Lens.lens (\FunctionDefinitionVersion' {defaultConfig} -> defaultConfig) (\s@FunctionDefinitionVersion' {} a -> s {defaultConfig = a} :: FunctionDefinitionVersion)
 
-instance Core.FromJSON FunctionDefinitionVersion where
+instance Data.FromJSON FunctionDefinitionVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FunctionDefinitionVersion"
       ( \x ->
           FunctionDefinitionVersion'
-            Prelude.<$> (x Core..:? "Functions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DefaultConfig")
+            Prelude.<$> (x Data..:? "Functions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DefaultConfig")
       )
 
 instance Prelude.Hashable FunctionDefinitionVersion where
@@ -90,11 +91,11 @@ instance Prelude.NFData FunctionDefinitionVersion where
     Prelude.rnf functions
       `Prelude.seq` Prelude.rnf defaultConfig
 
-instance Core.ToJSON FunctionDefinitionVersion where
+instance Data.ToJSON FunctionDefinitionVersion where
   toJSON FunctionDefinitionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Functions" Core..=) Prelude.<$> functions,
-            ("DefaultConfig" Core..=) Prelude.<$> defaultConfig
+          [ ("Functions" Data..=) Prelude.<$> functions,
+            ("DefaultConfig" Data..=) Prelude.<$> defaultConfig
           ]
       )

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,25 +97,25 @@ instance Prelude.NFData DeleteDeviceDefinition where
   rnf DeleteDeviceDefinition' {..} =
     Prelude.rnf deviceDefinitionId
 
-instance Core.ToHeaders DeleteDeviceDefinition where
+instance Data.ToHeaders DeleteDeviceDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDeviceDefinition where
+instance Data.ToPath DeleteDeviceDefinition where
   toPath DeleteDeviceDefinition' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/devices/",
-        Core.toBS deviceDefinitionId
+        Data.toBS deviceDefinitionId
       ]
 
-instance Core.ToQuery DeleteDeviceDefinition where
+instance Data.ToQuery DeleteDeviceDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeviceDefinitionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.LocalVolumeResourceData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.GroupOwnerSetting
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,15 +79,15 @@ localVolumeResourceData_groupOwnerSetting = Lens.lens (\LocalVolumeResourceData'
 localVolumeResourceData_sourcePath :: Lens.Lens' LocalVolumeResourceData (Prelude.Maybe Prelude.Text)
 localVolumeResourceData_sourcePath = Lens.lens (\LocalVolumeResourceData' {sourcePath} -> sourcePath) (\s@LocalVolumeResourceData' {} a -> s {sourcePath = a} :: LocalVolumeResourceData)
 
-instance Core.FromJSON LocalVolumeResourceData where
+instance Data.FromJSON LocalVolumeResourceData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LocalVolumeResourceData"
       ( \x ->
           LocalVolumeResourceData'
-            Prelude.<$> (x Core..:? "DestinationPath")
-            Prelude.<*> (x Core..:? "GroupOwnerSetting")
-            Prelude.<*> (x Core..:? "SourcePath")
+            Prelude.<$> (x Data..:? "DestinationPath")
+            Prelude.<*> (x Data..:? "GroupOwnerSetting")
+            Prelude.<*> (x Data..:? "SourcePath")
       )
 
 instance Prelude.Hashable LocalVolumeResourceData where
@@ -101,14 +102,14 @@ instance Prelude.NFData LocalVolumeResourceData where
       `Prelude.seq` Prelude.rnf groupOwnerSetting
       `Prelude.seq` Prelude.rnf sourcePath
 
-instance Core.ToJSON LocalVolumeResourceData where
+instance Data.ToJSON LocalVolumeResourceData where
   toJSON LocalVolumeResourceData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DestinationPath" Core..=)
+          [ ("DestinationPath" Data..=)
               Prelude.<$> destinationPath,
-            ("GroupOwnerSetting" Core..=)
+            ("GroupOwnerSetting" Data..=)
               Prelude.<$> groupOwnerSetting,
-            ("SourcePath" Core..=) Prelude.<$> sourcePath
+            ("SourcePath" Data..=) Prelude.<$> sourcePath
           ]
       )

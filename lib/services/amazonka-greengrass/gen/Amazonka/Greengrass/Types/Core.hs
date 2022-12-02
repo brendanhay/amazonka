@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.Core where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a core.
@@ -94,16 +95,16 @@ core_id = Lens.lens (\Core' {id} -> id) (\s@Core' {} a -> s {id = a} :: Core)
 core_certificateArn :: Lens.Lens' Core Prelude.Text
 core_certificateArn = Lens.lens (\Core' {certificateArn} -> certificateArn) (\s@Core' {} a -> s {certificateArn = a} :: Core)
 
-instance Core.FromJSON Core where
+instance Data.FromJSON Core where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Core"
       ( \x ->
           Core'
-            Prelude.<$> (x Core..:? "SyncShadow")
-            Prelude.<*> (x Core..: "ThingArn")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "CertificateArn")
+            Prelude.<$> (x Data..:? "SyncShadow")
+            Prelude.<*> (x Data..: "ThingArn")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "CertificateArn")
       )
 
 instance Prelude.Hashable Core where
@@ -120,14 +121,14 @@ instance Prelude.NFData Core where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf certificateArn
 
-instance Core.ToJSON Core where
+instance Data.ToJSON Core where
   toJSON Core' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SyncShadow" Core..=) Prelude.<$> syncShadow,
-            Prelude.Just ("ThingArn" Core..= thingArn),
-            Prelude.Just ("Id" Core..= id),
+          [ ("SyncShadow" Data..=) Prelude.<$> syncShadow,
+            Prelude.Just ("ThingArn" Data..= thingArn),
+            Prelude.Just ("Id" Data..= id),
             Prelude.Just
-              ("CertificateArn" Core..= certificateArn)
+              ("CertificateArn" Data..= certificateArn)
           ]
       )

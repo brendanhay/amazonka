@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,12 +135,12 @@ instance Core.AWSRequest GetDeviceDefinitionVersion where
     Response.receiveJSON
       ( \s h x ->
           GetDeviceDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
-            Prelude.<*> (x Core..?> "Definition")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
+            Prelude.<*> (x Data..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,29 +156,29 @@ instance Prelude.NFData GetDeviceDefinitionVersion where
       `Prelude.seq` Prelude.rnf deviceDefinitionVersionId
       `Prelude.seq` Prelude.rnf deviceDefinitionId
 
-instance Core.ToHeaders GetDeviceDefinitionVersion where
+instance Data.ToHeaders GetDeviceDefinitionVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDeviceDefinitionVersion where
+instance Data.ToPath GetDeviceDefinitionVersion where
   toPath GetDeviceDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/devices/",
-        Core.toBS deviceDefinitionId,
+        Data.toBS deviceDefinitionId,
         "/versions/",
-        Core.toBS deviceDefinitionVersionId
+        Data.toBS deviceDefinitionVersionId
       ]
 
-instance Core.ToQuery GetDeviceDefinitionVersion where
+instance Data.ToQuery GetDeviceDefinitionVersion where
   toQuery GetDeviceDefinitionVersion' {..} =
-    Prelude.mconcat ["NextToken" Core.=: nextToken]
+    Prelude.mconcat ["NextToken" Data.=: nextToken]
 
 -- | /See:/ 'newGetDeviceDefinitionVersionResponse' smart constructor.
 data GetDeviceDefinitionVersionResponse = GetDeviceDefinitionVersionResponse'

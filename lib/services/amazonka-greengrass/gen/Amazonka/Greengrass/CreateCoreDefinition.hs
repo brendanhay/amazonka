@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,13 +125,13 @@ instance Core.AWSRequest CreateCoreDefinition where
     Response.receiveJSON
       ( \s h x ->
           CreateCoreDefinitionResponse'
-            Prelude.<$> (x Core..?> "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "LatestVersion")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "LatestVersionArn")
+            Prelude.<$> (x Data..?> "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "LatestVersion")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "LatestVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,29 +149,29 @@ instance Prelude.NFData CreateCoreDefinition where
       `Prelude.seq` Prelude.rnf initialVersion
       `Prelude.seq` Prelude.rnf amznClientToken
 
-instance Core.ToHeaders CreateCoreDefinition where
+instance Data.ToHeaders CreateCoreDefinition where
   toHeaders CreateCoreDefinition' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateCoreDefinition where
+instance Data.ToJSON CreateCoreDefinition where
   toJSON CreateCoreDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("InitialVersion" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("InitialVersion" Data..=)
               Prelude.<$> initialVersion
           ]
       )
 
-instance Core.ToPath CreateCoreDefinition where
+instance Data.ToPath CreateCoreDefinition where
   toPath = Prelude.const "/greengrass/definition/cores"
 
-instance Core.ToQuery CreateCoreDefinition where
+instance Data.ToQuery CreateCoreDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCoreDefinitionResponse' smart constructor.

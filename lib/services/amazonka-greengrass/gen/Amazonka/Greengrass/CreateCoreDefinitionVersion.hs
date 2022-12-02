@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,10 +111,10 @@ instance Core.AWSRequest CreateCoreDefinitionVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateCoreDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,30 +130,30 @@ instance Prelude.NFData CreateCoreDefinitionVersion where
       `Prelude.seq` Prelude.rnf amznClientToken
       `Prelude.seq` Prelude.rnf coreDefinitionId
 
-instance Core.ToHeaders CreateCoreDefinitionVersion where
+instance Data.ToHeaders CreateCoreDefinitionVersion where
   toHeaders CreateCoreDefinitionVersion' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateCoreDefinitionVersion where
+instance Data.ToJSON CreateCoreDefinitionVersion where
   toJSON CreateCoreDefinitionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Cores" Core..=) Prelude.<$> cores]
+          [("Cores" Data..=) Prelude.<$> cores]
       )
 
-instance Core.ToPath CreateCoreDefinitionVersion where
+instance Data.ToPath CreateCoreDefinitionVersion where
   toPath CreateCoreDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/cores/",
-        Core.toBS coreDefinitionId,
+        Data.toBS coreDefinitionId,
         "/versions"
       ]
 
-instance Core.ToQuery CreateCoreDefinitionVersion where
+instance Data.ToQuery CreateCoreDefinitionVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCoreDefinitionVersionResponse' smart constructor.

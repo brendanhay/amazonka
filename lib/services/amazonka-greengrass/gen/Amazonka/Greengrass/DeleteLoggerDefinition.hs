@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,25 +97,25 @@ instance Prelude.NFData DeleteLoggerDefinition where
   rnf DeleteLoggerDefinition' {..} =
     Prelude.rnf loggerDefinitionId
 
-instance Core.ToHeaders DeleteLoggerDefinition where
+instance Data.ToHeaders DeleteLoggerDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteLoggerDefinition where
+instance Data.ToPath DeleteLoggerDefinition where
   toPath DeleteLoggerDefinition' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/loggers/",
-        Core.toBS loggerDefinitionId
+        Data.toBS loggerDefinitionId
       ]
 
-instance Core.ToQuery DeleteLoggerDefinition where
+instance Data.ToQuery DeleteLoggerDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLoggerDefinitionResponse' smart constructor.

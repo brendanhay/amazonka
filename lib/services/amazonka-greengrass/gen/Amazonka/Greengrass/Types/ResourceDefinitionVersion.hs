@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.ResourceDefinitionVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.Resource
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newResourceDefinitionVersion =
 resourceDefinitionVersion_resources :: Lens.Lens' ResourceDefinitionVersion (Prelude.Maybe [Resource])
 resourceDefinitionVersion_resources = Lens.lens (\ResourceDefinitionVersion' {resources} -> resources) (\s@ResourceDefinitionVersion' {} a -> s {resources = a} :: ResourceDefinitionVersion) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ResourceDefinitionVersion where
+instance Data.FromJSON ResourceDefinitionVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceDefinitionVersion"
       ( \x ->
           ResourceDefinitionVersion'
-            Prelude.<$> (x Core..:? "Resources" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Resources" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResourceDefinitionVersion where
@@ -71,9 +72,9 @@ instance Prelude.NFData ResourceDefinitionVersion where
   rnf ResourceDefinitionVersion' {..} =
     Prelude.rnf resources
 
-instance Core.ToJSON ResourceDefinitionVersion where
+instance Data.ToJSON ResourceDefinitionVersion where
   toJSON ResourceDefinitionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Resources" Core..=) Prelude.<$> resources]
+          [("Resources" Data..=) Prelude.<$> resources]
       )

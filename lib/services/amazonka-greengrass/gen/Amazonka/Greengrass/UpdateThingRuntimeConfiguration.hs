@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,37 +121,37 @@ instance
       `Prelude.seq` Prelude.rnf thingName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateThingRuntimeConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateThingRuntimeConfiguration where
+instance Data.ToJSON UpdateThingRuntimeConfiguration where
   toJSON UpdateThingRuntimeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TelemetryConfiguration" Core..=)
+          [ ("TelemetryConfiguration" Data..=)
               Prelude.<$> telemetryConfiguration
           ]
       )
 
-instance Core.ToPath UpdateThingRuntimeConfiguration where
+instance Data.ToPath UpdateThingRuntimeConfiguration where
   toPath UpdateThingRuntimeConfiguration' {..} =
     Prelude.mconcat
       [ "/greengrass/things/",
-        Core.toBS thingName,
+        Data.toBS thingName,
         "/runtimeconfig"
       ]
 
-instance Core.ToQuery UpdateThingRuntimeConfiguration where
+instance Data.ToQuery UpdateThingRuntimeConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateThingRuntimeConfigurationResponse' smart constructor.

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,32 +108,32 @@ instance Prelude.NFData UpdateResourceDefinition where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf resourceDefinitionId
 
-instance Core.ToHeaders UpdateResourceDefinition where
+instance Data.ToHeaders UpdateResourceDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateResourceDefinition where
+instance Data.ToJSON UpdateResourceDefinition where
   toJSON UpdateResourceDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Name" Core..=) Prelude.<$> name]
+          [("Name" Data..=) Prelude.<$> name]
       )
 
-instance Core.ToPath UpdateResourceDefinition where
+instance Data.ToPath UpdateResourceDefinition where
   toPath UpdateResourceDefinition' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/resources/",
-        Core.toBS resourceDefinitionId
+        Data.toBS resourceDefinitionId
       ]
 
-instance Core.ToQuery UpdateResourceDefinition where
+instance Data.ToQuery UpdateResourceDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateResourceDefinitionResponse' smart constructor.

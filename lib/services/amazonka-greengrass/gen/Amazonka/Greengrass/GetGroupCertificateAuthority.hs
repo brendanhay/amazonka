@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,9 +104,9 @@ instance Core.AWSRequest GetGroupCertificateAuthority where
     Response.receiveJSON
       ( \s h x ->
           GetGroupCertificateAuthorityResponse'
-            Prelude.<$> (x Core..?> "GroupCertificateAuthorityArn")
-            Prelude.<*> (x Core..?> "PemEncodedCertificate")
-            Prelude.<*> (x Core..?> "GroupCertificateAuthorityId")
+            Prelude.<$> (x Data..?> "GroupCertificateAuthorityArn")
+            Prelude.<*> (x Data..?> "PemEncodedCertificate")
+            Prelude.<*> (x Data..?> "GroupCertificateAuthorityId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,27 +123,27 @@ instance Prelude.NFData GetGroupCertificateAuthority where
     Prelude.rnf certificateAuthorityId
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToHeaders GetGroupCertificateAuthority where
+instance Data.ToHeaders GetGroupCertificateAuthority where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetGroupCertificateAuthority where
+instance Data.ToPath GetGroupCertificateAuthority where
   toPath GetGroupCertificateAuthority' {..} =
     Prelude.mconcat
       [ "/greengrass/groups/",
-        Core.toBS groupId,
+        Data.toBS groupId,
         "/certificateauthorities/",
-        Core.toBS certificateAuthorityId
+        Data.toBS certificateAuthorityId
       ]
 
-instance Core.ToQuery GetGroupCertificateAuthority where
+instance Data.ToQuery GetGroupCertificateAuthority where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGroupCertificateAuthorityResponse' smart constructor.

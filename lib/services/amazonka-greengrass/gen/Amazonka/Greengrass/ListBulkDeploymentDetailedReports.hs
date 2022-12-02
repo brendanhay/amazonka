@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,8 +143,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListBulkDeploymentDetailedReportsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "Deployments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "Deployments" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,38 +169,38 @@ instance
       `Prelude.seq` Prelude.rnf bulkDeploymentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListBulkDeploymentDetailedReports
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListBulkDeploymentDetailedReports
   where
   toPath ListBulkDeploymentDetailedReports' {..} =
     Prelude.mconcat
       [ "/greengrass/bulk/deployments/",
-        Core.toBS bulkDeploymentId,
+        Data.toBS bulkDeploymentId,
         "/detailed-reports"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListBulkDeploymentDetailedReports
   where
   toQuery ListBulkDeploymentDetailedReports' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListBulkDeploymentDetailedReportsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.ConnectorDefinitionVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.Connector
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,13 +59,13 @@ newConnectorDefinitionVersion =
 connectorDefinitionVersion_connectors :: Lens.Lens' ConnectorDefinitionVersion (Prelude.Maybe [Connector])
 connectorDefinitionVersion_connectors = Lens.lens (\ConnectorDefinitionVersion' {connectors} -> connectors) (\s@ConnectorDefinitionVersion' {} a -> s {connectors = a} :: ConnectorDefinitionVersion) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ConnectorDefinitionVersion where
+instance Data.FromJSON ConnectorDefinitionVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectorDefinitionVersion"
       ( \x ->
           ConnectorDefinitionVersion'
-            Prelude.<$> (x Core..:? "Connectors" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Connectors" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ConnectorDefinitionVersion where
@@ -75,9 +76,9 @@ instance Prelude.NFData ConnectorDefinitionVersion where
   rnf ConnectorDefinitionVersion' {..} =
     Prelude.rnf connectors
 
-instance Core.ToJSON ConnectorDefinitionVersion where
+instance Data.ToJSON ConnectorDefinitionVersion where
   toJSON ConnectorDefinitionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Connectors" Core..=) Prelude.<$> connectors]
+          [("Connectors" Data..=) Prelude.<$> connectors]
       )

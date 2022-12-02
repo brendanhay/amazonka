@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.Function where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.FunctionConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,15 +80,15 @@ function_functionConfiguration = Lens.lens (\Function' {functionConfiguration} -
 function_id :: Lens.Lens' Function Prelude.Text
 function_id = Lens.lens (\Function' {id} -> id) (\s@Function' {} a -> s {id = a} :: Function)
 
-instance Core.FromJSON Function where
+instance Data.FromJSON Function where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Function"
       ( \x ->
           Function'
-            Prelude.<$> (x Core..:? "FunctionArn")
-            Prelude.<*> (x Core..:? "FunctionConfiguration")
-            Prelude.<*> (x Core..: "Id")
+            Prelude.<$> (x Data..:? "FunctionArn")
+            Prelude.<*> (x Data..:? "FunctionConfiguration")
+            Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable Function where
@@ -102,13 +103,13 @@ instance Prelude.NFData Function where
       `Prelude.seq` Prelude.rnf functionConfiguration
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON Function where
+instance Data.ToJSON Function where
   toJSON Function' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FunctionArn" Core..=) Prelude.<$> functionArn,
-            ("FunctionConfiguration" Core..=)
+          [ ("FunctionArn" Data..=) Prelude.<$> functionArn,
+            ("FunctionConfiguration" Data..=)
               Prelude.<$> functionConfiguration,
-            Prelude.Just ("Id" Core..= id)
+            Prelude.Just ("Id" Data..= id)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.RuntimeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.TelemetryConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newRuntimeConfiguration =
 runtimeConfiguration_telemetryConfiguration :: Lens.Lens' RuntimeConfiguration (Prelude.Maybe TelemetryConfiguration)
 runtimeConfiguration_telemetryConfiguration = Lens.lens (\RuntimeConfiguration' {telemetryConfiguration} -> telemetryConfiguration) (\s@RuntimeConfiguration' {} a -> s {telemetryConfiguration = a} :: RuntimeConfiguration)
 
-instance Core.FromJSON RuntimeConfiguration where
+instance Data.FromJSON RuntimeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuntimeConfiguration"
       ( \x ->
           RuntimeConfiguration'
-            Prelude.<$> (x Core..:? "TelemetryConfiguration")
+            Prelude.<$> (x Data..:? "TelemetryConfiguration")
       )
 
 instance Prelude.Hashable RuntimeConfiguration where

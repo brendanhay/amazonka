@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest ListLoggerDefinitionVersions where
     Response.receiveJSON
       ( \s h x ->
           ListLoggerDefinitionVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,30 +155,30 @@ instance Prelude.NFData ListLoggerDefinitionVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf loggerDefinitionId
 
-instance Core.ToHeaders ListLoggerDefinitionVersions where
+instance Data.ToHeaders ListLoggerDefinitionVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListLoggerDefinitionVersions where
+instance Data.ToPath ListLoggerDefinitionVersions where
   toPath ListLoggerDefinitionVersions' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/loggers/",
-        Core.toBS loggerDefinitionId,
+        Data.toBS loggerDefinitionId,
         "/versions"
       ]
 
-instance Core.ToQuery ListLoggerDefinitionVersions where
+instance Data.ToQuery ListLoggerDefinitionVersions where
   toQuery ListLoggerDefinitionVersions' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListLoggerDefinitionVersionsResponse' smart constructor.

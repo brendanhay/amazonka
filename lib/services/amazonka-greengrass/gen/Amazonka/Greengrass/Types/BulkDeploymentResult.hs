@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.BulkDeploymentResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.DeploymentType
 import Amazonka.Greengrass.Types.ErrorDetail
 import qualified Amazonka.Prelude as Prelude
@@ -122,20 +123,20 @@ bulkDeploymentResult_groupArn = Lens.lens (\BulkDeploymentResult' {groupArn} -> 
 bulkDeploymentResult_createdAt :: Lens.Lens' BulkDeploymentResult (Prelude.Maybe Prelude.Text)
 bulkDeploymentResult_createdAt = Lens.lens (\BulkDeploymentResult' {createdAt} -> createdAt) (\s@BulkDeploymentResult' {} a -> s {createdAt = a} :: BulkDeploymentResult)
 
-instance Core.FromJSON BulkDeploymentResult where
+instance Data.FromJSON BulkDeploymentResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BulkDeploymentResult"
       ( \x ->
           BulkDeploymentResult'
-            Prelude.<$> (x Core..:? "DeploymentStatus")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "DeploymentId")
-            Prelude.<*> (x Core..:? "ErrorDetails" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DeploymentType")
-            Prelude.<*> (x Core..:? "DeploymentArn")
-            Prelude.<*> (x Core..:? "GroupArn")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "DeploymentStatus")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "DeploymentId")
+            Prelude.<*> (x Data..:? "ErrorDetails" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DeploymentType")
+            Prelude.<*> (x Data..:? "DeploymentArn")
+            Prelude.<*> (x Data..:? "GroupArn")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable BulkDeploymentResult where

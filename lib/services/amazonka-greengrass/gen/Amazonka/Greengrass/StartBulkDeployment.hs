@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -153,8 +154,8 @@ instance Core.AWSRequest StartBulkDeployment where
     Response.receiveJSON
       ( \s h x ->
           StartBulkDeploymentResponse'
-            Prelude.<$> (x Core..?> "BulkDeploymentArn")
-            Prelude.<*> (x Core..?> "BulkDeploymentId")
+            Prelude.<$> (x Data..?> "BulkDeploymentArn")
+            Prelude.<*> (x Data..?> "BulkDeploymentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,29 +173,29 @@ instance Prelude.NFData StartBulkDeployment where
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf inputFileUri
 
-instance Core.ToHeaders StartBulkDeployment where
+instance Data.ToHeaders StartBulkDeployment where
   toHeaders StartBulkDeployment' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON StartBulkDeployment where
+instance Data.ToJSON StartBulkDeployment where
   toJSON StartBulkDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("ExecutionRoleArn" Core..= executionRoleArn),
-            Prelude.Just ("InputFileUri" Core..= inputFileUri)
+              ("ExecutionRoleArn" Data..= executionRoleArn),
+            Prelude.Just ("InputFileUri" Data..= inputFileUri)
           ]
       )
 
-instance Core.ToPath StartBulkDeployment where
+instance Data.ToPath StartBulkDeployment where
   toPath = Prelude.const "/greengrass/bulk/deployments"
 
-instance Core.ToQuery StartBulkDeployment where
+instance Data.ToQuery StartBulkDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartBulkDeploymentResponse' smart constructor.

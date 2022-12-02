@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,10 +113,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateLoggerDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,30 +135,30 @@ instance Prelude.NFData CreateLoggerDefinitionVersion where
       `Prelude.seq` Prelude.rnf amznClientToken
       `Prelude.seq` Prelude.rnf loggerDefinitionId
 
-instance Core.ToHeaders CreateLoggerDefinitionVersion where
+instance Data.ToHeaders CreateLoggerDefinitionVersion where
   toHeaders CreateLoggerDefinitionVersion' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateLoggerDefinitionVersion where
+instance Data.ToJSON CreateLoggerDefinitionVersion where
   toJSON CreateLoggerDefinitionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Loggers" Core..=) Prelude.<$> loggers]
+          [("Loggers" Data..=) Prelude.<$> loggers]
       )
 
-instance Core.ToPath CreateLoggerDefinitionVersion where
+instance Data.ToPath CreateLoggerDefinitionVersion where
   toPath CreateLoggerDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/loggers/",
-        Core.toBS loggerDefinitionId,
+        Data.toBS loggerDefinitionId,
         "/versions"
       ]
 
-instance Core.ToQuery CreateLoggerDefinitionVersion where
+instance Data.ToQuery CreateLoggerDefinitionVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLoggerDefinitionVersionResponse' smart constructor.

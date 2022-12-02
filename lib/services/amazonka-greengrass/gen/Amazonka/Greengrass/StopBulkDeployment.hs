@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,29 +101,29 @@ instance Prelude.NFData StopBulkDeployment where
   rnf StopBulkDeployment' {..} =
     Prelude.rnf bulkDeploymentId
 
-instance Core.ToHeaders StopBulkDeployment where
+instance Data.ToHeaders StopBulkDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopBulkDeployment where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopBulkDeployment where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopBulkDeployment where
+instance Data.ToPath StopBulkDeployment where
   toPath StopBulkDeployment' {..} =
     Prelude.mconcat
       [ "/greengrass/bulk/deployments/",
-        Core.toBS bulkDeploymentId,
+        Data.toBS bulkDeploymentId,
         "/$stop"
       ]
 
-instance Core.ToQuery StopBulkDeployment where
+instance Data.ToQuery StopBulkDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopBulkDeploymentResponse' smart constructor.

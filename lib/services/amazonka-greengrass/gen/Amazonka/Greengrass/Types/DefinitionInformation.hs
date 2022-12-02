@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.DefinitionInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a definition.
@@ -121,20 +122,20 @@ definitionInformation_creationTimestamp = Lens.lens (\DefinitionInformation' {cr
 definitionInformation_latestVersionArn :: Lens.Lens' DefinitionInformation (Prelude.Maybe Prelude.Text)
 definitionInformation_latestVersionArn = Lens.lens (\DefinitionInformation' {latestVersionArn} -> latestVersionArn) (\s@DefinitionInformation' {} a -> s {latestVersionArn = a} :: DefinitionInformation)
 
-instance Core.FromJSON DefinitionInformation where
+instance Data.FromJSON DefinitionInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DefinitionInformation"
       ( \x ->
           DefinitionInformation'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "LatestVersion")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "LatestVersionArn")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "LatestVersion")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "LatestVersionArn")
       )
 
 instance Prelude.Hashable DefinitionInformation where

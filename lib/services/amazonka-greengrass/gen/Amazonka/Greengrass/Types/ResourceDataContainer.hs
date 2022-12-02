@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.ResourceDataContainer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.LocalDeviceResourceData
 import Amazonka.Greengrass.Types.LocalVolumeResourceData
 import Amazonka.Greengrass.Types.S3MachineLearningModelResourceData
@@ -103,19 +104,19 @@ resourceDataContainer_sageMakerMachineLearningModelResourceData = Lens.lens (\Re
 resourceDataContainer_localDeviceResourceData :: Lens.Lens' ResourceDataContainer (Prelude.Maybe LocalDeviceResourceData)
 resourceDataContainer_localDeviceResourceData = Lens.lens (\ResourceDataContainer' {localDeviceResourceData} -> localDeviceResourceData) (\s@ResourceDataContainer' {} a -> s {localDeviceResourceData = a} :: ResourceDataContainer)
 
-instance Core.FromJSON ResourceDataContainer where
+instance Data.FromJSON ResourceDataContainer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceDataContainer"
       ( \x ->
           ResourceDataContainer'
-            Prelude.<$> (x Core..:? "LocalVolumeResourceData")
-            Prelude.<*> (x Core..:? "SecretsManagerSecretResourceData")
-            Prelude.<*> (x Core..:? "S3MachineLearningModelResourceData")
+            Prelude.<$> (x Data..:? "LocalVolumeResourceData")
+            Prelude.<*> (x Data..:? "SecretsManagerSecretResourceData")
+            Prelude.<*> (x Data..:? "S3MachineLearningModelResourceData")
             Prelude.<*> ( x
-                            Core..:? "SageMakerMachineLearningModelResourceData"
+                            Data..:? "SageMakerMachineLearningModelResourceData"
                         )
-            Prelude.<*> (x Core..:? "LocalDeviceResourceData")
+            Prelude.<*> (x Data..:? "LocalDeviceResourceData")
       )
 
 instance Prelude.Hashable ResourceDataContainer where
@@ -135,19 +136,19 @@ instance Prelude.NFData ResourceDataContainer where
       `Prelude.seq` Prelude.rnf sageMakerMachineLearningModelResourceData
       `Prelude.seq` Prelude.rnf localDeviceResourceData
 
-instance Core.ToJSON ResourceDataContainer where
+instance Data.ToJSON ResourceDataContainer where
   toJSON ResourceDataContainer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LocalVolumeResourceData" Core..=)
+          [ ("LocalVolumeResourceData" Data..=)
               Prelude.<$> localVolumeResourceData,
-            ("SecretsManagerSecretResourceData" Core..=)
+            ("SecretsManagerSecretResourceData" Data..=)
               Prelude.<$> secretsManagerSecretResourceData,
-            ("S3MachineLearningModelResourceData" Core..=)
+            ("S3MachineLearningModelResourceData" Data..=)
               Prelude.<$> s3MachineLearningModelResourceData,
-            ("SageMakerMachineLearningModelResourceData" Core..=)
+            ("SageMakerMachineLearningModelResourceData" Data..=)
               Prelude.<$> sageMakerMachineLearningModelResourceData,
-            ("LocalDeviceResourceData" Core..=)
+            ("LocalDeviceResourceData" Data..=)
               Prelude.<$> localDeviceResourceData
           ]
       )

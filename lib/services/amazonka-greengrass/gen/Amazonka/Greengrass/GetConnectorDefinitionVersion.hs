@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,12 +142,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetConnectorDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
-            Prelude.<*> (x Core..?> "Definition")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
+            Prelude.<*> (x Data..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,29 +166,29 @@ instance Prelude.NFData GetConnectorDefinitionVersion where
       `Prelude.seq` Prelude.rnf connectorDefinitionId
       `Prelude.seq` Prelude.rnf connectorDefinitionVersionId
 
-instance Core.ToHeaders GetConnectorDefinitionVersion where
+instance Data.ToHeaders GetConnectorDefinitionVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetConnectorDefinitionVersion where
+instance Data.ToPath GetConnectorDefinitionVersion where
   toPath GetConnectorDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/connectors/",
-        Core.toBS connectorDefinitionId,
+        Data.toBS connectorDefinitionId,
         "/versions/",
-        Core.toBS connectorDefinitionVersionId
+        Data.toBS connectorDefinitionVersionId
       ]
 
-instance Core.ToQuery GetConnectorDefinitionVersion where
+instance Data.ToQuery GetConnectorDefinitionVersion where
   toQuery GetConnectorDefinitionVersion' {..} =
-    Prelude.mconcat ["NextToken" Core.=: nextToken]
+    Prelude.mconcat ["NextToken" Data.=: nextToken]
 
 -- | /See:/ 'newGetConnectorDefinitionVersionResponse' smart constructor.
 data GetConnectorDefinitionVersionResponse = GetConnectorDefinitionVersionResponse'

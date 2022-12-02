@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.TelemetryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.ConfigurationSyncStatus
 import Amazonka.Greengrass.Types.Telemetry
 import qualified Amazonka.Prelude as Prelude
@@ -69,14 +70,14 @@ telemetryConfiguration_configurationSyncStatus = Lens.lens (\TelemetryConfigurat
 telemetryConfiguration_telemetry :: Lens.Lens' TelemetryConfiguration Telemetry
 telemetryConfiguration_telemetry = Lens.lens (\TelemetryConfiguration' {telemetry} -> telemetry) (\s@TelemetryConfiguration' {} a -> s {telemetry = a} :: TelemetryConfiguration)
 
-instance Core.FromJSON TelemetryConfiguration where
+instance Data.FromJSON TelemetryConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TelemetryConfiguration"
       ( \x ->
           TelemetryConfiguration'
-            Prelude.<$> (x Core..:? "ConfigurationSyncStatus")
-            Prelude.<*> (x Core..: "Telemetry")
+            Prelude.<$> (x Data..:? "ConfigurationSyncStatus")
+            Prelude.<*> (x Data..: "Telemetry")
       )
 
 instance Prelude.Hashable TelemetryConfiguration where

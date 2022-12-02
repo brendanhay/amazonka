@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,32 +108,32 @@ instance Prelude.NFData UpdateLoggerDefinition where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf loggerDefinitionId
 
-instance Core.ToHeaders UpdateLoggerDefinition where
+instance Data.ToHeaders UpdateLoggerDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLoggerDefinition where
+instance Data.ToJSON UpdateLoggerDefinition where
   toJSON UpdateLoggerDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Name" Core..=) Prelude.<$> name]
+          [("Name" Data..=) Prelude.<$> name]
       )
 
-instance Core.ToPath UpdateLoggerDefinition where
+instance Data.ToPath UpdateLoggerDefinition where
   toPath UpdateLoggerDefinition' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/loggers/",
-        Core.toBS loggerDefinitionId
+        Data.toBS loggerDefinitionId
       ]
 
-instance Core.ToQuery UpdateLoggerDefinition where
+instance Data.ToQuery UpdateLoggerDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLoggerDefinitionResponse' smart constructor.

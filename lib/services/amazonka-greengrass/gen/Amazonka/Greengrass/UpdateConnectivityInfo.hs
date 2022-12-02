@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,8 +102,8 @@ instance Core.AWSRequest UpdateConnectivityInfo where
     Response.receiveJSON
       ( \s h x ->
           UpdateConnectivityInfoResponse'
-            Prelude.<$> (x Core..?> "message")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "message")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,35 +117,35 @@ instance Prelude.NFData UpdateConnectivityInfo where
     Prelude.rnf connectivityInfo
       `Prelude.seq` Prelude.rnf thingName
 
-instance Core.ToHeaders UpdateConnectivityInfo where
+instance Data.ToHeaders UpdateConnectivityInfo where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateConnectivityInfo where
+instance Data.ToJSON UpdateConnectivityInfo where
   toJSON UpdateConnectivityInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConnectivityInfo" Core..=)
+          [ ("ConnectivityInfo" Data..=)
               Prelude.<$> connectivityInfo
           ]
       )
 
-instance Core.ToPath UpdateConnectivityInfo where
+instance Data.ToPath UpdateConnectivityInfo where
   toPath UpdateConnectivityInfo' {..} =
     Prelude.mconcat
       [ "/greengrass/things/",
-        Core.toBS thingName,
+        Data.toBS thingName,
         "/connectivityInfo"
       ]
 
-instance Core.ToQuery UpdateConnectivityInfo where
+instance Data.ToQuery UpdateConnectivityInfo where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConnectivityInfoResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.GroupInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a group.
@@ -110,19 +111,19 @@ groupInformation_creationTimestamp = Lens.lens (\GroupInformation' {creationTime
 groupInformation_latestVersionArn :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
 groupInformation_latestVersionArn = Lens.lens (\GroupInformation' {latestVersionArn} -> latestVersionArn) (\s@GroupInformation' {} a -> s {latestVersionArn = a} :: GroupInformation)
 
-instance Core.FromJSON GroupInformation where
+instance Data.FromJSON GroupInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupInformation"
       ( \x ->
           GroupInformation'
-            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "LatestVersion")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "LatestVersionArn")
+            Prelude.<$> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "LatestVersion")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "LatestVersionArn")
       )
 
 instance Prelude.Hashable GroupInformation where

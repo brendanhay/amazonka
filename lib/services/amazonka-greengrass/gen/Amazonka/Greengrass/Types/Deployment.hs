@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.Deployment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.DeploymentType
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,17 +93,17 @@ deployment_groupArn = Lens.lens (\Deployment' {groupArn} -> groupArn) (\s@Deploy
 deployment_createdAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_createdAt = Lens.lens (\Deployment' {createdAt} -> createdAt) (\s@Deployment' {} a -> s {createdAt = a} :: Deployment)
 
-instance Core.FromJSON Deployment where
+instance Data.FromJSON Deployment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Deployment"
       ( \x ->
           Deployment'
-            Prelude.<$> (x Core..:? "DeploymentId")
-            Prelude.<*> (x Core..:? "DeploymentType")
-            Prelude.<*> (x Core..:? "DeploymentArn")
-            Prelude.<*> (x Core..:? "GroupArn")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "DeploymentId")
+            Prelude.<*> (x Data..:? "DeploymentType")
+            Prelude.<*> (x Data..:? "DeploymentArn")
+            Prelude.<*> (x Data..:? "GroupArn")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable Deployment where

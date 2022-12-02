@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,11 +117,11 @@ instance Core.AWSRequest GetGroupVersion where
     Response.receiveJSON
       ( \s h x ->
           GetGroupVersionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
-            Prelude.<*> (x Core..?> "Definition")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
+            Prelude.<*> (x Data..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,27 +135,27 @@ instance Prelude.NFData GetGroupVersion where
     Prelude.rnf groupVersionId
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToHeaders GetGroupVersion where
+instance Data.ToHeaders GetGroupVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetGroupVersion where
+instance Data.ToPath GetGroupVersion where
   toPath GetGroupVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/groups/",
-        Core.toBS groupId,
+        Data.toBS groupId,
         "/versions/",
-        Core.toBS groupVersionId
+        Data.toBS groupVersionId
       ]
 
-instance Core.ToQuery GetGroupVersion where
+instance Data.ToQuery GetGroupVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGroupVersionResponse' smart constructor.

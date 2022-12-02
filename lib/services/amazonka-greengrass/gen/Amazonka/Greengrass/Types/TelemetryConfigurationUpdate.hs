@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.TelemetryConfigurationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.Telemetry
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,9 +68,9 @@ instance Prelude.NFData TelemetryConfigurationUpdate where
   rnf TelemetryConfigurationUpdate' {..} =
     Prelude.rnf telemetry
 
-instance Core.ToJSON TelemetryConfigurationUpdate where
+instance Data.ToJSON TelemetryConfigurationUpdate where
   toJSON TelemetryConfigurationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Telemetry" Core..= telemetry)]
+          [Prelude.Just ("Telemetry" Data..= telemetry)]
       )

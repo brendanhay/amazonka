@@ -21,6 +21,7 @@ module Amazonka.SDB.Types.UpdateCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the conditions under which data should be updated. If an
@@ -101,10 +102,10 @@ instance Prelude.NFData UpdateCondition where
       `Prelude.seq` Prelude.rnf exists
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery UpdateCondition where
+instance Data.ToQuery UpdateCondition where
   toQuery UpdateCondition' {..} =
     Prelude.mconcat
-      [ "Name" Core.=: name,
-        "Exists" Core.=: exists,
-        "Value" Core.=: value
+      [ "Name" Data.=: name,
+        "Exists" Data.=: exists,
+        "Value" Data.=: value
       ]

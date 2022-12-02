@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,20 +97,20 @@ instance Prelude.Hashable CreateDomain where
 instance Prelude.NFData CreateDomain where
   rnf CreateDomain' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders CreateDomain where
+instance Data.ToHeaders CreateDomain where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDomain where
+instance Data.ToPath CreateDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDomain where
+instance Data.ToQuery CreateDomain where
   toQuery CreateDomain' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDomain" :: Prelude.ByteString),
+          Data.=: ("CreateDomain" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2009-04-15" :: Prelude.ByteString),
-        "DomainName" Core.=: domainName
+          Data.=: ("2009-04-15" :: Prelude.ByteString),
+        "DomainName" Data.=: domainName
       ]
 
 -- | /See:/ 'newCreateDomainResponse' smart constructor.

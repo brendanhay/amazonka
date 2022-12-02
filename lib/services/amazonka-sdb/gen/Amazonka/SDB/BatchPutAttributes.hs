@@ -85,6 +85,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,21 +148,21 @@ instance Prelude.NFData BatchPutAttributes where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf items
 
-instance Core.ToHeaders BatchPutAttributes where
+instance Data.ToHeaders BatchPutAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath BatchPutAttributes where
+instance Data.ToPath BatchPutAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchPutAttributes where
+instance Data.ToQuery BatchPutAttributes where
   toQuery BatchPutAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("BatchPutAttributes" :: Prelude.ByteString),
+          Data.=: ("BatchPutAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2009-04-15" :: Prelude.ByteString),
-        "DomainName" Core.=: domainName,
-        Core.toQueryList "Item" items
+          Data.=: ("2009-04-15" :: Prelude.ByteString),
+        "DomainName" Data.=: domainName,
+        Data.toQueryList "Item" items
       ]
 
 -- | /See:/ 'newBatchPutAttributesResponse' smart constructor.

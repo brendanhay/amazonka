@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,7 +137,7 @@ instance Core.AWSRequest GetAttributes where
       "GetAttributesResult"
       ( \s h x ->
           GetAttributesResponse'
-            Prelude.<$> (Core.may (Core.parseXMLList "Attribute") x)
+            Prelude.<$> (Core.may (Data.parseXMLList "Attribute") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,26 +155,26 @@ instance Prelude.NFData GetAttributes where
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf itemName
 
-instance Core.ToHeaders GetAttributes where
+instance Data.ToHeaders GetAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetAttributes where
+instance Data.ToPath GetAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAttributes where
+instance Data.ToQuery GetAttributes where
   toQuery GetAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetAttributes" :: Prelude.ByteString),
+          Data.=: ("GetAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2009-04-15" :: Prelude.ByteString),
-        "ConsistentRead" Core.=: consistentRead,
-        Core.toQuery
-          ( Core.toQueryList "AttributeName"
+          Data.=: ("2009-04-15" :: Prelude.ByteString),
+        "ConsistentRead" Data.=: consistentRead,
+        Data.toQuery
+          ( Data.toQueryList "AttributeName"
               Prelude.<$> attributeNames
           ),
-        "DomainName" Core.=: domainName,
-        "ItemName" Core.=: itemName
+        "DomainName" Data.=: domainName,
+        "ItemName" Data.=: itemName
       ]
 
 -- | /See:/ 'newGetAttributesResponse' smart constructor.

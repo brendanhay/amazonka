@@ -21,6 +21,7 @@ module Amazonka.SDB.Types.Attribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- |
@@ -82,13 +83,13 @@ attribute_name = Lens.lens (\Attribute' {name} -> name) (\s@Attribute' {} a -> s
 attribute_value :: Lens.Lens' Attribute Prelude.Text
 attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
-instance Core.FromXML Attribute where
+instance Data.FromXML Attribute where
   parseXML x =
     Attribute'
-      Prelude.<$> (x Core..@? "AlternateValueEncoding")
-      Prelude.<*> (x Core..@? "AlternateNameEncoding")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> (x Core..@ "Value")
+      Prelude.<$> (x Data..@? "AlternateValueEncoding")
+      Prelude.<*> (x Data..@? "AlternateNameEncoding")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "Value")
 
 instance Prelude.Hashable Attribute where
   hashWithSalt _salt Attribute' {..} =
@@ -104,13 +105,13 @@ instance Prelude.NFData Attribute where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery Attribute where
+instance Data.ToQuery Attribute where
   toQuery Attribute' {..} =
     Prelude.mconcat
       [ "AlternateValueEncoding"
-          Core.=: alternateValueEncoding,
+          Data.=: alternateValueEncoding,
         "AlternateNameEncoding"
-          Core.=: alternateNameEncoding,
-        "Name" Core.=: name,
-        "Value" Core.=: value
+          Data.=: alternateNameEncoding,
+        "Name" Data.=: name,
+        "Value" Data.=: value
       ]

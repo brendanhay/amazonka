@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,23 +171,23 @@ instance Prelude.NFData PutAttributes where
       `Prelude.seq` Prelude.rnf itemName
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToHeaders PutAttributes where
+instance Data.ToHeaders PutAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutAttributes where
+instance Data.ToPath PutAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutAttributes where
+instance Data.ToQuery PutAttributes where
   toQuery PutAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutAttributes" :: Prelude.ByteString),
+          Data.=: ("PutAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2009-04-15" :: Prelude.ByteString),
-        "Expected" Core.=: expected,
-        "DomainName" Core.=: domainName,
-        "ItemName" Core.=: itemName,
-        Core.toQueryList "Attribute" attributes
+          Data.=: ("2009-04-15" :: Prelude.ByteString),
+        "Expected" Data.=: expected,
+        "DomainName" Data.=: domainName,
+        "ItemName" Data.=: itemName,
+        Data.toQueryList "Attribute" attributes
       ]
 
 -- | /See:/ 'newPutAttributesResponse' smart constructor.

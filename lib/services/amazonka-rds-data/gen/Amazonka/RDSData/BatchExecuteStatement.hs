@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDSData.Types
 import qualified Amazonka.Request as Request
@@ -246,7 +247,7 @@ instance Core.AWSRequest BatchExecuteStatement where
     Response.receiveJSON
       ( \s h x ->
           BatchExecuteStatementResponse'
-            Prelude.<$> (x Core..?> "updateResults" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "updateResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -270,35 +271,35 @@ instance Prelude.NFData BatchExecuteStatement where
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf sql
 
-instance Core.ToHeaders BatchExecuteStatement where
+instance Data.ToHeaders BatchExecuteStatement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchExecuteStatement where
+instance Data.ToJSON BatchExecuteStatement where
   toJSON BatchExecuteStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("parameterSets" Core..=) Prelude.<$> parameterSets,
-            ("database" Core..=) Prelude.<$> database,
-            ("transactionId" Core..=) Prelude.<$> transactionId,
-            ("schema" Core..=) Prelude.<$> schema,
-            Prelude.Just ("resourceArn" Core..= resourceArn),
-            Prelude.Just ("secretArn" Core..= secretArn),
-            Prelude.Just ("sql" Core..= sql)
+          [ ("parameterSets" Data..=) Prelude.<$> parameterSets,
+            ("database" Data..=) Prelude.<$> database,
+            ("transactionId" Data..=) Prelude.<$> transactionId,
+            ("schema" Data..=) Prelude.<$> schema,
+            Prelude.Just ("resourceArn" Data..= resourceArn),
+            Prelude.Just ("secretArn" Data..= secretArn),
+            Prelude.Just ("sql" Data..= sql)
           ]
       )
 
-instance Core.ToPath BatchExecuteStatement where
+instance Data.ToPath BatchExecuteStatement where
   toPath = Prelude.const "/BatchExecute"
 
-instance Core.ToQuery BatchExecuteStatement where
+instance Data.ToQuery BatchExecuteStatement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response elements represent the output of a SQL statement over an

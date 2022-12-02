@@ -21,6 +21,7 @@ module Amazonka.RDSData.Types.ArrayValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an array.
@@ -88,17 +89,17 @@ arrayValue_doubleValues = Lens.lens (\ArrayValue' {doubleValues} -> doubleValues
 arrayValue_arrayValues :: Lens.Lens' ArrayValue (Prelude.Maybe [ArrayValue])
 arrayValue_arrayValues = Lens.lens (\ArrayValue' {arrayValues} -> arrayValues) (\s@ArrayValue' {} a -> s {arrayValues = a} :: ArrayValue) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ArrayValue where
+instance Data.FromJSON ArrayValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArrayValue"
       ( \x ->
           ArrayValue'
-            Prelude.<$> (x Core..:? "stringValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "booleanValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "longValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "doubleValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arrayValues" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "stringValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "booleanValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "longValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "doubleValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arrayValues" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ArrayValue where
@@ -117,14 +118,14 @@ instance Prelude.NFData ArrayValue where
       `Prelude.seq` Prelude.rnf doubleValues
       `Prelude.seq` Prelude.rnf arrayValues
 
-instance Core.ToJSON ArrayValue where
+instance Data.ToJSON ArrayValue where
   toJSON ArrayValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("stringValues" Core..=) Prelude.<$> stringValues,
-            ("booleanValues" Core..=) Prelude.<$> booleanValues,
-            ("longValues" Core..=) Prelude.<$> longValues,
-            ("doubleValues" Core..=) Prelude.<$> doubleValues,
-            ("arrayValues" Core..=) Prelude.<$> arrayValues
+          [ ("stringValues" Data..=) Prelude.<$> stringValues,
+            ("booleanValues" Data..=) Prelude.<$> booleanValues,
+            ("longValues" Data..=) Prelude.<$> longValues,
+            ("doubleValues" Data..=) Prelude.<$> doubleValues,
+            ("arrayValues" Data..=) Prelude.<$> arrayValues
           ]
       )

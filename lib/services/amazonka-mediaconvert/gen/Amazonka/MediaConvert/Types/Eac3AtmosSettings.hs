@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Eac3AtmosSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.Eac3AtmosBitstreamMode
 import Amazonka.MediaConvert.Types.Eac3AtmosCodingMode
 import Amazonka.MediaConvert.Types.Eac3AtmosDialogueIntelligence
@@ -471,29 +472,29 @@ eac3AtmosSettings_speechThreshold = Lens.lens (\Eac3AtmosSettings' {speechThresh
 eac3AtmosSettings_stereoDownmix :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Eac3AtmosStereoDownmix)
 eac3AtmosSettings_stereoDownmix = Lens.lens (\Eac3AtmosSettings' {stereoDownmix} -> stereoDownmix) (\s@Eac3AtmosSettings' {} a -> s {stereoDownmix = a} :: Eac3AtmosSettings)
 
-instance Core.FromJSON Eac3AtmosSettings where
+instance Data.FromJSON Eac3AtmosSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Eac3AtmosSettings"
       ( \x ->
           Eac3AtmosSettings'
-            Prelude.<$> (x Core..:? "bitstreamMode")
-            Prelude.<*> (x Core..:? "dialogueIntelligence")
-            Prelude.<*> (x Core..:? "dynamicRangeCompressionRf")
-            Prelude.<*> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "ltRtCenterMixLevel")
-            Prelude.<*> (x Core..:? "surroundExMode")
-            Prelude.<*> (x Core..:? "ltRtSurroundMixLevel")
-            Prelude.<*> (x Core..:? "sampleRate")
-            Prelude.<*> (x Core..:? "meteringMode")
-            Prelude.<*> (x Core..:? "dynamicRangeControl")
-            Prelude.<*> (x Core..:? "dynamicRangeCompressionLine")
-            Prelude.<*> (x Core..:? "codingMode")
-            Prelude.<*> (x Core..:? "downmixControl")
-            Prelude.<*> (x Core..:? "loRoCenterMixLevel")
-            Prelude.<*> (x Core..:? "loRoSurroundMixLevel")
-            Prelude.<*> (x Core..:? "speechThreshold")
-            Prelude.<*> (x Core..:? "stereoDownmix")
+            Prelude.<$> (x Data..:? "bitstreamMode")
+            Prelude.<*> (x Data..:? "dialogueIntelligence")
+            Prelude.<*> (x Data..:? "dynamicRangeCompressionRf")
+            Prelude.<*> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "ltRtCenterMixLevel")
+            Prelude.<*> (x Data..:? "surroundExMode")
+            Prelude.<*> (x Data..:? "ltRtSurroundMixLevel")
+            Prelude.<*> (x Data..:? "sampleRate")
+            Prelude.<*> (x Data..:? "meteringMode")
+            Prelude.<*> (x Data..:? "dynamicRangeControl")
+            Prelude.<*> (x Data..:? "dynamicRangeCompressionLine")
+            Prelude.<*> (x Data..:? "codingMode")
+            Prelude.<*> (x Data..:? "downmixControl")
+            Prelude.<*> (x Data..:? "loRoCenterMixLevel")
+            Prelude.<*> (x Data..:? "loRoSurroundMixLevel")
+            Prelude.<*> (x Data..:? "speechThreshold")
+            Prelude.<*> (x Data..:? "stereoDownmix")
       )
 
 instance Prelude.Hashable Eac3AtmosSettings where
@@ -536,37 +537,37 @@ instance Prelude.NFData Eac3AtmosSettings where
       `Prelude.seq` Prelude.rnf speechThreshold
       `Prelude.seq` Prelude.rnf stereoDownmix
 
-instance Core.ToJSON Eac3AtmosSettings where
+instance Data.ToJSON Eac3AtmosSettings where
   toJSON Eac3AtmosSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bitstreamMode" Core..=) Prelude.<$> bitstreamMode,
-            ("dialogueIntelligence" Core..=)
+          [ ("bitstreamMode" Data..=) Prelude.<$> bitstreamMode,
+            ("dialogueIntelligence" Data..=)
               Prelude.<$> dialogueIntelligence,
-            ("dynamicRangeCompressionRf" Core..=)
+            ("dynamicRangeCompressionRf" Data..=)
               Prelude.<$> dynamicRangeCompressionRf,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("ltRtCenterMixLevel" Core..=)
+            ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("ltRtCenterMixLevel" Data..=)
               Prelude.<$> ltRtCenterMixLevel,
-            ("surroundExMode" Core..=)
+            ("surroundExMode" Data..=)
               Prelude.<$> surroundExMode,
-            ("ltRtSurroundMixLevel" Core..=)
+            ("ltRtSurroundMixLevel" Data..=)
               Prelude.<$> ltRtSurroundMixLevel,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate,
-            ("meteringMode" Core..=) Prelude.<$> meteringMode,
-            ("dynamicRangeControl" Core..=)
+            ("sampleRate" Data..=) Prelude.<$> sampleRate,
+            ("meteringMode" Data..=) Prelude.<$> meteringMode,
+            ("dynamicRangeControl" Data..=)
               Prelude.<$> dynamicRangeControl,
-            ("dynamicRangeCompressionLine" Core..=)
+            ("dynamicRangeCompressionLine" Data..=)
               Prelude.<$> dynamicRangeCompressionLine,
-            ("codingMode" Core..=) Prelude.<$> codingMode,
-            ("downmixControl" Core..=)
+            ("codingMode" Data..=) Prelude.<$> codingMode,
+            ("downmixControl" Data..=)
               Prelude.<$> downmixControl,
-            ("loRoCenterMixLevel" Core..=)
+            ("loRoCenterMixLevel" Data..=)
               Prelude.<$> loRoCenterMixLevel,
-            ("loRoSurroundMixLevel" Core..=)
+            ("loRoSurroundMixLevel" Data..=)
               Prelude.<$> loRoSurroundMixLevel,
-            ("speechThreshold" Core..=)
+            ("speechThreshold" Data..=)
               Prelude.<$> speechThreshold,
-            ("stereoDownmix" Core..=) Prelude.<$> stereoDownmix
+            ("stereoDownmix" Data..=) Prelude.<$> stereoDownmix
           ]
       )

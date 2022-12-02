@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AudioSelectorGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use audio selector groups to combine multiple sidecar audio inputs so
@@ -66,14 +67,14 @@ newAudioSelectorGroup =
 audioSelectorGroup_audioSelectorNames :: Lens.Lens' AudioSelectorGroup (Prelude.Maybe [Prelude.Text])
 audioSelectorGroup_audioSelectorNames = Lens.lens (\AudioSelectorGroup' {audioSelectorNames} -> audioSelectorNames) (\s@AudioSelectorGroup' {} a -> s {audioSelectorNames = a} :: AudioSelectorGroup) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AudioSelectorGroup where
+instance Data.FromJSON AudioSelectorGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioSelectorGroup"
       ( \x ->
           AudioSelectorGroup'
-            Prelude.<$> ( x Core..:? "audioSelectorNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "audioSelectorNames"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -85,11 +86,11 @@ instance Prelude.NFData AudioSelectorGroup where
   rnf AudioSelectorGroup' {..} =
     Prelude.rnf audioSelectorNames
 
-instance Core.ToJSON AudioSelectorGroup where
+instance Data.ToJSON AudioSelectorGroup where
   toJSON AudioSelectorGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("audioSelectorNames" Core..=)
+          [ ("audioSelectorNames" Data..=)
               Prelude.<$> audioSelectorNames
           ]
       )

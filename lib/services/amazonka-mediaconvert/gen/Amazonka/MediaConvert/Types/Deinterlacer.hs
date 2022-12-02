@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Deinterlacer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.DeinterlaceAlgorithm
 import Amazonka.MediaConvert.Types.DeinterlacerControl
 import Amazonka.MediaConvert.Types.DeinterlacerMode
@@ -124,15 +125,15 @@ deinterlacer_algorithm = Lens.lens (\Deinterlacer' {algorithm} -> algorithm) (\s
 deinterlacer_control :: Lens.Lens' Deinterlacer (Prelude.Maybe DeinterlacerControl)
 deinterlacer_control = Lens.lens (\Deinterlacer' {control} -> control) (\s@Deinterlacer' {} a -> s {control = a} :: Deinterlacer)
 
-instance Core.FromJSON Deinterlacer where
+instance Data.FromJSON Deinterlacer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Deinterlacer"
       ( \x ->
           Deinterlacer'
-            Prelude.<$> (x Core..:? "mode")
-            Prelude.<*> (x Core..:? "algorithm")
-            Prelude.<*> (x Core..:? "control")
+            Prelude.<$> (x Data..:? "mode")
+            Prelude.<*> (x Data..:? "algorithm")
+            Prelude.<*> (x Data..:? "control")
       )
 
 instance Prelude.Hashable Deinterlacer where
@@ -147,12 +148,12 @@ instance Prelude.NFData Deinterlacer where
       `Prelude.seq` Prelude.rnf algorithm
       `Prelude.seq` Prelude.rnf control
 
-instance Core.ToJSON Deinterlacer where
+instance Data.ToJSON Deinterlacer where
   toJSON Deinterlacer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("mode" Core..=) Prelude.<$> mode,
-            ("algorithm" Core..=) Prelude.<$> algorithm,
-            ("control" Core..=) Prelude.<$> control
+          [ ("mode" Data..=) Prelude.<$> mode,
+            ("algorithm" Data..=) Prelude.<$> algorithm,
+            ("control" Data..=) Prelude.<$> control
           ]
       )

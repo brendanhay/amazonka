@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -80,7 +81,7 @@ instance Core.AWSRequest GetPreset where
     Response.receiveJSON
       ( \s h x ->
           GetPresetResponse'
-            Prelude.<$> (x Core..?> "preset")
+            Prelude.<$> (x Data..?> "preset")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -91,23 +92,23 @@ instance Prelude.Hashable GetPreset where
 instance Prelude.NFData GetPreset where
   rnf GetPreset' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetPreset where
+instance Data.ToHeaders GetPreset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetPreset where
+instance Data.ToPath GetPreset where
   toPath GetPreset' {..} =
     Prelude.mconcat
-      ["/2017-08-29/presets/", Core.toBS name]
+      ["/2017-08-29/presets/", Data.toBS name]
 
-instance Core.ToQuery GetPreset where
+instance Data.ToQuery GetPreset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPresetResponse' smart constructor.

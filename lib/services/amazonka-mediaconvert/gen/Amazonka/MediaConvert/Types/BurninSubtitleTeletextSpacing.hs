@@ -28,6 +28,7 @@ module Amazonka.MediaConvert.Types.BurninSubtitleTeletextSpacing
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify whether the text spacing (TeletextSpacing) in your captions is
@@ -37,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 -- make the text easier to read for closed captions.
 newtype BurninSubtitleTeletextSpacing = BurninSubtitleTeletextSpacing'
   { fromBurninSubtitleTeletextSpacing ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -49,18 +50,18 @@ newtype BurninSubtitleTeletextSpacing = BurninSubtitleTeletextSpacing'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern BurninSubtitleTeletextSpacing_AUTO :: BurninSubtitleTeletextSpacing

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.VideoSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AlphaBehavior
 import Amazonka.MediaConvert.Types.ColorSpace
 import Amazonka.MediaConvert.Types.ColorSpaceUsage
@@ -358,22 +359,22 @@ videoSelector_hdr10Metadata = Lens.lens (\VideoSelector' {hdr10Metadata} -> hdr1
 videoSelector_rotate :: Lens.Lens' VideoSelector (Prelude.Maybe InputRotate)
 videoSelector_rotate = Lens.lens (\VideoSelector' {rotate} -> rotate) (\s@VideoSelector' {} a -> s {rotate = a} :: VideoSelector)
 
-instance Core.FromJSON VideoSelector where
+instance Data.FromJSON VideoSelector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoSelector"
       ( \x ->
           VideoSelector'
-            Prelude.<$> (x Core..:? "alphaBehavior")
-            Prelude.<*> (x Core..:? "pid")
-            Prelude.<*> (x Core..:? "colorSpace")
-            Prelude.<*> (x Core..:? "padVideo")
-            Prelude.<*> (x Core..:? "colorSpaceUsage")
-            Prelude.<*> (x Core..:? "embeddedTimecodeOverride")
-            Prelude.<*> (x Core..:? "sampleRange")
-            Prelude.<*> (x Core..:? "programNumber")
-            Prelude.<*> (x Core..:? "hdr10Metadata")
-            Prelude.<*> (x Core..:? "rotate")
+            Prelude.<$> (x Data..:? "alphaBehavior")
+            Prelude.<*> (x Data..:? "pid")
+            Prelude.<*> (x Data..:? "colorSpace")
+            Prelude.<*> (x Data..:? "padVideo")
+            Prelude.<*> (x Data..:? "colorSpaceUsage")
+            Prelude.<*> (x Data..:? "embeddedTimecodeOverride")
+            Prelude.<*> (x Data..:? "sampleRange")
+            Prelude.<*> (x Data..:? "programNumber")
+            Prelude.<*> (x Data..:? "hdr10Metadata")
+            Prelude.<*> (x Data..:? "rotate")
       )
 
 instance Prelude.Hashable VideoSelector where
@@ -402,21 +403,21 @@ instance Prelude.NFData VideoSelector where
       `Prelude.seq` Prelude.rnf hdr10Metadata
       `Prelude.seq` Prelude.rnf rotate
 
-instance Core.ToJSON VideoSelector where
+instance Data.ToJSON VideoSelector where
   toJSON VideoSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("alphaBehavior" Core..=) Prelude.<$> alphaBehavior,
-            ("pid" Core..=) Prelude.<$> pid,
-            ("colorSpace" Core..=) Prelude.<$> colorSpace,
-            ("padVideo" Core..=) Prelude.<$> padVideo,
-            ("colorSpaceUsage" Core..=)
+          [ ("alphaBehavior" Data..=) Prelude.<$> alphaBehavior,
+            ("pid" Data..=) Prelude.<$> pid,
+            ("colorSpace" Data..=) Prelude.<$> colorSpace,
+            ("padVideo" Data..=) Prelude.<$> padVideo,
+            ("colorSpaceUsage" Data..=)
               Prelude.<$> colorSpaceUsage,
-            ("embeddedTimecodeOverride" Core..=)
+            ("embeddedTimecodeOverride" Data..=)
               Prelude.<$> embeddedTimecodeOverride,
-            ("sampleRange" Core..=) Prelude.<$> sampleRange,
-            ("programNumber" Core..=) Prelude.<$> programNumber,
-            ("hdr10Metadata" Core..=) Prelude.<$> hdr10Metadata,
-            ("rotate" Core..=) Prelude.<$> rotate
+            ("sampleRange" Data..=) Prelude.<$> sampleRange,
+            ("programNumber" Data..=) Prelude.<$> programNumber,
+            ("hdr10Metadata" Data..=) Prelude.<$> hdr10Metadata,
+            ("rotate" Data..=) Prelude.<$> rotate
           ]
       )

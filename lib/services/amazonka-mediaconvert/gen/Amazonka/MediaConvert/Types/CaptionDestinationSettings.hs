@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.CaptionDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.BurninDestinationSettings
 import Amazonka.MediaConvert.Types.CaptionDestinationType
 import Amazonka.MediaConvert.Types.DvbSubDestinationSettings
@@ -333,22 +334,22 @@ captionDestinationSettings_dvbSubDestinationSettings = Lens.lens (\CaptionDestin
 captionDestinationSettings_srtDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe SrtDestinationSettings)
 captionDestinationSettings_srtDestinationSettings = Lens.lens (\CaptionDestinationSettings' {srtDestinationSettings} -> srtDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {srtDestinationSettings = a} :: CaptionDestinationSettings)
 
-instance Core.FromJSON CaptionDestinationSettings where
+instance Data.FromJSON CaptionDestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptionDestinationSettings"
       ( \x ->
           CaptionDestinationSettings'
-            Prelude.<$> (x Core..:? "teletextDestinationSettings")
-            Prelude.<*> (x Core..:? "sccDestinationSettings")
-            Prelude.<*> (x Core..:? "webvttDestinationSettings")
-            Prelude.<*> (x Core..:? "ttmlDestinationSettings")
-            Prelude.<*> (x Core..:? "embeddedDestinationSettings")
-            Prelude.<*> (x Core..:? "destinationType")
-            Prelude.<*> (x Core..:? "burninDestinationSettings")
-            Prelude.<*> (x Core..:? "imscDestinationSettings")
-            Prelude.<*> (x Core..:? "dvbSubDestinationSettings")
-            Prelude.<*> (x Core..:? "srtDestinationSettings")
+            Prelude.<$> (x Data..:? "teletextDestinationSettings")
+            Prelude.<*> (x Data..:? "sccDestinationSettings")
+            Prelude.<*> (x Data..:? "webvttDestinationSettings")
+            Prelude.<*> (x Data..:? "ttmlDestinationSettings")
+            Prelude.<*> (x Data..:? "embeddedDestinationSettings")
+            Prelude.<*> (x Data..:? "destinationType")
+            Prelude.<*> (x Data..:? "burninDestinationSettings")
+            Prelude.<*> (x Data..:? "imscDestinationSettings")
+            Prelude.<*> (x Data..:? "dvbSubDestinationSettings")
+            Prelude.<*> (x Data..:? "srtDestinationSettings")
       )
 
 instance Prelude.Hashable CaptionDestinationSettings where
@@ -378,29 +379,29 @@ instance Prelude.NFData CaptionDestinationSettings where
       `Prelude.seq` Prelude.rnf dvbSubDestinationSettings
       `Prelude.seq` Prelude.rnf srtDestinationSettings
 
-instance Core.ToJSON CaptionDestinationSettings where
+instance Data.ToJSON CaptionDestinationSettings where
   toJSON CaptionDestinationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("teletextDestinationSettings" Core..=)
+          [ ("teletextDestinationSettings" Data..=)
               Prelude.<$> teletextDestinationSettings,
-            ("sccDestinationSettings" Core..=)
+            ("sccDestinationSettings" Data..=)
               Prelude.<$> sccDestinationSettings,
-            ("webvttDestinationSettings" Core..=)
+            ("webvttDestinationSettings" Data..=)
               Prelude.<$> webvttDestinationSettings,
-            ("ttmlDestinationSettings" Core..=)
+            ("ttmlDestinationSettings" Data..=)
               Prelude.<$> ttmlDestinationSettings,
-            ("embeddedDestinationSettings" Core..=)
+            ("embeddedDestinationSettings" Data..=)
               Prelude.<$> embeddedDestinationSettings,
-            ("destinationType" Core..=)
+            ("destinationType" Data..=)
               Prelude.<$> destinationType,
-            ("burninDestinationSettings" Core..=)
+            ("burninDestinationSettings" Data..=)
               Prelude.<$> burninDestinationSettings,
-            ("imscDestinationSettings" Core..=)
+            ("imscDestinationSettings" Data..=)
               Prelude.<$> imscDestinationSettings,
-            ("dvbSubDestinationSettings" Core..=)
+            ("dvbSubDestinationSettings" Data..=)
               Prelude.<$> dvbSubDestinationSettings,
-            ("srtDestinationSettings" Core..=)
+            ("srtDestinationSettings" Data..=)
               Prelude.<$> srtDestinationSettings
           ]
       )

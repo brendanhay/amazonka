@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.MotionImageInsertionOffset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the offset between the upper-left corner of the video frame and
@@ -69,14 +70,14 @@ motionImageInsertionOffset_imageX = Lens.lens (\MotionImageInsertionOffset' {ima
 motionImageInsertionOffset_imageY :: Lens.Lens' MotionImageInsertionOffset (Prelude.Maybe Prelude.Natural)
 motionImageInsertionOffset_imageY = Lens.lens (\MotionImageInsertionOffset' {imageY} -> imageY) (\s@MotionImageInsertionOffset' {} a -> s {imageY = a} :: MotionImageInsertionOffset)
 
-instance Core.FromJSON MotionImageInsertionOffset where
+instance Data.FromJSON MotionImageInsertionOffset where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MotionImageInsertionOffset"
       ( \x ->
           MotionImageInsertionOffset'
-            Prelude.<$> (x Core..:? "imageX")
-            Prelude.<*> (x Core..:? "imageY")
+            Prelude.<$> (x Data..:? "imageX")
+            Prelude.<*> (x Data..:? "imageY")
       )
 
 instance Prelude.Hashable MotionImageInsertionOffset where
@@ -88,11 +89,11 @@ instance Prelude.NFData MotionImageInsertionOffset where
   rnf MotionImageInsertionOffset' {..} =
     Prelude.rnf imageX `Prelude.seq` Prelude.rnf imageY
 
-instance Core.ToJSON MotionImageInsertionOffset where
+instance Data.ToJSON MotionImageInsertionOffset where
   toJSON MotionImageInsertionOffset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("imageX" Core..=) Prelude.<$> imageX,
-            ("imageY" Core..=) Prelude.<$> imageY
+          [ ("imageX" Data..=) Prelude.<$> imageX,
+            ("imageY" Data..=) Prelude.<$> imageY
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Id3Insertion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | To insert ID3 tags in your output, specify two values. Use ID3 tag (Id3)
@@ -68,14 +69,14 @@ id3Insertion_id3 = Lens.lens (\Id3Insertion' {id3} -> id3) (\s@Id3Insertion' {} 
 id3Insertion_timecode :: Lens.Lens' Id3Insertion (Prelude.Maybe Prelude.Text)
 id3Insertion_timecode = Lens.lens (\Id3Insertion' {timecode} -> timecode) (\s@Id3Insertion' {} a -> s {timecode = a} :: Id3Insertion)
 
-instance Core.FromJSON Id3Insertion where
+instance Data.FromJSON Id3Insertion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Id3Insertion"
       ( \x ->
           Id3Insertion'
-            Prelude.<$> (x Core..:? "id3")
-            Prelude.<*> (x Core..:? "timecode")
+            Prelude.<$> (x Data..:? "id3")
+            Prelude.<*> (x Data..:? "timecode")
       )
 
 instance Prelude.Hashable Id3Insertion where
@@ -87,11 +88,11 @@ instance Prelude.NFData Id3Insertion where
   rnf Id3Insertion' {..} =
     Prelude.rnf id3 `Prelude.seq` Prelude.rnf timecode
 
-instance Core.ToJSON Id3Insertion where
+instance Data.ToJSON Id3Insertion where
   toJSON Id3Insertion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("id3" Core..=) Prelude.<$> id3,
-            ("timecode" Core..=) Prelude.<$> timecode
+          [ ("id3" Data..=) Prelude.<$> id3,
+            ("timecode" Data..=) Prelude.<$> timecode
           ]
       )

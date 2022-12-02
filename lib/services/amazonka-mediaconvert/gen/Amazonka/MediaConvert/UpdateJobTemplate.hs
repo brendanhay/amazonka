@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -202,7 +203,7 @@ instance Core.AWSRequest UpdateJobTemplate where
     Response.receiveJSON
       ( \s h x ->
           UpdateJobTemplateResponse'
-            Prelude.<$> (x Core..?> "jobTemplate")
+            Prelude.<$> (x Data..?> "jobTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,41 +231,41 @@ instance Prelude.NFData UpdateJobTemplate where
       `Prelude.seq` Prelude.rnf queue
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateJobTemplate where
+instance Data.ToHeaders UpdateJobTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateJobTemplate where
+instance Data.ToJSON UpdateJobTemplate where
   toJSON UpdateJobTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("hopDestinations" Core..=)
+          [ ("hopDestinations" Data..=)
               Prelude.<$> hopDestinations,
-            ("statusUpdateInterval" Core..=)
+            ("statusUpdateInterval" Data..=)
               Prelude.<$> statusUpdateInterval,
-            ("description" Core..=) Prelude.<$> description,
-            ("settings" Core..=) Prelude.<$> settings,
-            ("priority" Core..=) Prelude.<$> priority,
-            ("category" Core..=) Prelude.<$> category,
-            ("accelerationSettings" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("settings" Data..=) Prelude.<$> settings,
+            ("priority" Data..=) Prelude.<$> priority,
+            ("category" Data..=) Prelude.<$> category,
+            ("accelerationSettings" Data..=)
               Prelude.<$> accelerationSettings,
-            ("queue" Core..=) Prelude.<$> queue
+            ("queue" Data..=) Prelude.<$> queue
           ]
       )
 
-instance Core.ToPath UpdateJobTemplate where
+instance Data.ToPath UpdateJobTemplate where
   toPath UpdateJobTemplate' {..} =
     Prelude.mconcat
-      ["/2017-08-29/jobTemplates/", Core.toBS name]
+      ["/2017-08-29/jobTemplates/", Data.toBS name]
 
-instance Core.ToQuery UpdateJobTemplate where
+instance Data.ToQuery UpdateJobTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateJobTemplateResponse' smart constructor.

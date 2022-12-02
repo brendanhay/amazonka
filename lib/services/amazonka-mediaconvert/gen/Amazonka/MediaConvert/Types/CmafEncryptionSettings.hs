@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.CmafEncryptionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.CmafEncryptionType
 import Amazonka.MediaConvert.Types.CmafInitializationVectorInManifest
 import Amazonka.MediaConvert.Types.CmafKeyProviderType
@@ -135,18 +136,18 @@ cmafEncryptionSettings_encryptionMethod = Lens.lens (\CmafEncryptionSettings' {e
 cmafEncryptionSettings_staticKeyProvider :: Lens.Lens' CmafEncryptionSettings (Prelude.Maybe StaticKeyProvider)
 cmafEncryptionSettings_staticKeyProvider = Lens.lens (\CmafEncryptionSettings' {staticKeyProvider} -> staticKeyProvider) (\s@CmafEncryptionSettings' {} a -> s {staticKeyProvider = a} :: CmafEncryptionSettings)
 
-instance Core.FromJSON CmafEncryptionSettings where
+instance Data.FromJSON CmafEncryptionSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CmafEncryptionSettings"
       ( \x ->
           CmafEncryptionSettings'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "initializationVectorInManifest")
-            Prelude.<*> (x Core..:? "spekeKeyProvider")
-            Prelude.<*> (x Core..:? "constantInitializationVector")
-            Prelude.<*> (x Core..:? "encryptionMethod")
-            Prelude.<*> (x Core..:? "staticKeyProvider")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "initializationVectorInManifest")
+            Prelude.<*> (x Data..:? "spekeKeyProvider")
+            Prelude.<*> (x Data..:? "constantInitializationVector")
+            Prelude.<*> (x Data..:? "encryptionMethod")
+            Prelude.<*> (x Data..:? "staticKeyProvider")
       )
 
 instance Prelude.Hashable CmafEncryptionSettings where
@@ -167,20 +168,20 @@ instance Prelude.NFData CmafEncryptionSettings where
       `Prelude.seq` Prelude.rnf encryptionMethod
       `Prelude.seq` Prelude.rnf staticKeyProvider
 
-instance Core.ToJSON CmafEncryptionSettings where
+instance Data.ToJSON CmafEncryptionSettings where
   toJSON CmafEncryptionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("initializationVectorInManifest" Core..=)
+          [ ("type" Data..=) Prelude.<$> type',
+            ("initializationVectorInManifest" Data..=)
               Prelude.<$> initializationVectorInManifest,
-            ("spekeKeyProvider" Core..=)
+            ("spekeKeyProvider" Data..=)
               Prelude.<$> spekeKeyProvider,
-            ("constantInitializationVector" Core..=)
+            ("constantInitializationVector" Data..=)
               Prelude.<$> constantInitializationVector,
-            ("encryptionMethod" Core..=)
+            ("encryptionMethod" Data..=)
               Prelude.<$> encryptionMethod,
-            ("staticKeyProvider" Core..=)
+            ("staticKeyProvider" Data..=)
               Prelude.<$> staticKeyProvider
           ]
       )

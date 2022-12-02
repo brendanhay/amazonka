@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AudioNormalizationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AudioNormalizationAlgorithm
 import Amazonka.MediaConvert.Types.AudioNormalizationAlgorithmControl
 import Amazonka.MediaConvert.Types.AudioNormalizationLoudnessLogging
@@ -157,18 +158,18 @@ audioNormalizationSettings_peakCalculation = Lens.lens (\AudioNormalizationSetti
 audioNormalizationSettings_algorithmControl :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe AudioNormalizationAlgorithmControl)
 audioNormalizationSettings_algorithmControl = Lens.lens (\AudioNormalizationSettings' {algorithmControl} -> algorithmControl) (\s@AudioNormalizationSettings' {} a -> s {algorithmControl = a} :: AudioNormalizationSettings)
 
-instance Core.FromJSON AudioNormalizationSettings where
+instance Data.FromJSON AudioNormalizationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioNormalizationSettings"
       ( \x ->
           AudioNormalizationSettings'
-            Prelude.<$> (x Core..:? "correctionGateLevel")
-            Prelude.<*> (x Core..:? "loudnessLogging")
-            Prelude.<*> (x Core..:? "targetLkfs")
-            Prelude.<*> (x Core..:? "algorithm")
-            Prelude.<*> (x Core..:? "peakCalculation")
-            Prelude.<*> (x Core..:? "algorithmControl")
+            Prelude.<$> (x Data..:? "correctionGateLevel")
+            Prelude.<*> (x Data..:? "loudnessLogging")
+            Prelude.<*> (x Data..:? "targetLkfs")
+            Prelude.<*> (x Data..:? "algorithm")
+            Prelude.<*> (x Data..:? "peakCalculation")
+            Prelude.<*> (x Data..:? "algorithmControl")
       )
 
 instance Prelude.Hashable AudioNormalizationSettings where
@@ -189,19 +190,19 @@ instance Prelude.NFData AudioNormalizationSettings where
       `Prelude.seq` Prelude.rnf peakCalculation
       `Prelude.seq` Prelude.rnf algorithmControl
 
-instance Core.ToJSON AudioNormalizationSettings where
+instance Data.ToJSON AudioNormalizationSettings where
   toJSON AudioNormalizationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("correctionGateLevel" Core..=)
+          [ ("correctionGateLevel" Data..=)
               Prelude.<$> correctionGateLevel,
-            ("loudnessLogging" Core..=)
+            ("loudnessLogging" Data..=)
               Prelude.<$> loudnessLogging,
-            ("targetLkfs" Core..=) Prelude.<$> targetLkfs,
-            ("algorithm" Core..=) Prelude.<$> algorithm,
-            ("peakCalculation" Core..=)
+            ("targetLkfs" Data..=) Prelude.<$> targetLkfs,
+            ("algorithm" Data..=) Prelude.<$> algorithm,
+            ("peakCalculation" Data..=)
               Prelude.<$> peakCalculation,
-            ("algorithmControl" Core..=)
+            ("algorithmControl" Data..=)
               Prelude.<$> algorithmControl
           ]
       )

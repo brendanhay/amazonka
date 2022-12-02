@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.InputClipping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | To transcode only portions of your input, include one input clip for
@@ -113,14 +114,14 @@ inputClipping_startTimecode = Lens.lens (\InputClipping' {startTimecode} -> star
 inputClipping_endTimecode :: Lens.Lens' InputClipping (Prelude.Maybe Prelude.Text)
 inputClipping_endTimecode = Lens.lens (\InputClipping' {endTimecode} -> endTimecode) (\s@InputClipping' {} a -> s {endTimecode = a} :: InputClipping)
 
-instance Core.FromJSON InputClipping where
+instance Data.FromJSON InputClipping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputClipping"
       ( \x ->
           InputClipping'
-            Prelude.<$> (x Core..:? "startTimecode")
-            Prelude.<*> (x Core..:? "endTimecode")
+            Prelude.<$> (x Data..:? "startTimecode")
+            Prelude.<*> (x Data..:? "endTimecode")
       )
 
 instance Prelude.Hashable InputClipping where
@@ -133,11 +134,11 @@ instance Prelude.NFData InputClipping where
     Prelude.rnf startTimecode
       `Prelude.seq` Prelude.rnf endTimecode
 
-instance Core.ToJSON InputClipping where
+instance Data.ToJSON InputClipping where
   toJSON InputClipping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("startTimecode" Core..=) Prelude.<$> startTimecode,
-            ("endTimecode" Core..=) Prelude.<$> endTimecode
+          [ ("startTimecode" Data..=) Prelude.<$> startTimecode,
+            ("endTimecode" Data..=) Prelude.<$> endTimecode
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.DestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.S3DestinationSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -52,13 +53,13 @@ newDestinationSettings =
 destinationSettings_s3Settings :: Lens.Lens' DestinationSettings (Prelude.Maybe S3DestinationSettings)
 destinationSettings_s3Settings = Lens.lens (\DestinationSettings' {s3Settings} -> s3Settings) (\s@DestinationSettings' {} a -> s {s3Settings = a} :: DestinationSettings)
 
-instance Core.FromJSON DestinationSettings where
+instance Data.FromJSON DestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationSettings"
       ( \x ->
           DestinationSettings'
-            Prelude.<$> (x Core..:? "s3Settings")
+            Prelude.<$> (x Data..:? "s3Settings")
       )
 
 instance Prelude.Hashable DestinationSettings where
@@ -68,9 +69,9 @@ instance Prelude.Hashable DestinationSettings where
 instance Prelude.NFData DestinationSettings where
   rnf DestinationSettings' {..} = Prelude.rnf s3Settings
 
-instance Core.ToJSON DestinationSettings where
+instance Data.ToJSON DestinationSettings where
   toJSON DestinationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("s3Settings" Core..=) Prelude.<$> s3Settings]
+          [("s3Settings" Data..=) Prelude.<$> s3Settings]
       )

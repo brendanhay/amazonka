@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.OutputGroupSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.CmafGroupSettings
 import Amazonka.MediaConvert.Types.DashIsoGroupSettings
 import Amazonka.MediaConvert.Types.FileGroupSettings
@@ -170,18 +171,18 @@ outputGroupSettings_fileGroupSettings = Lens.lens (\OutputGroupSettings' {fileGr
 outputGroupSettings_cmafGroupSettings :: Lens.Lens' OutputGroupSettings (Prelude.Maybe CmafGroupSettings)
 outputGroupSettings_cmafGroupSettings = Lens.lens (\OutputGroupSettings' {cmafGroupSettings} -> cmafGroupSettings) (\s@OutputGroupSettings' {} a -> s {cmafGroupSettings = a} :: OutputGroupSettings)
 
-instance Core.FromJSON OutputGroupSettings where
+instance Data.FromJSON OutputGroupSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputGroupSettings"
       ( \x ->
           OutputGroupSettings'
-            Prelude.<$> (x Core..:? "dashIsoGroupSettings")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "hlsGroupSettings")
-            Prelude.<*> (x Core..:? "msSmoothGroupSettings")
-            Prelude.<*> (x Core..:? "fileGroupSettings")
-            Prelude.<*> (x Core..:? "cmafGroupSettings")
+            Prelude.<$> (x Data..:? "dashIsoGroupSettings")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "hlsGroupSettings")
+            Prelude.<*> (x Data..:? "msSmoothGroupSettings")
+            Prelude.<*> (x Data..:? "fileGroupSettings")
+            Prelude.<*> (x Data..:? "cmafGroupSettings")
       )
 
 instance Prelude.Hashable OutputGroupSettings where
@@ -202,20 +203,20 @@ instance Prelude.NFData OutputGroupSettings where
       `Prelude.seq` Prelude.rnf fileGroupSettings
       `Prelude.seq` Prelude.rnf cmafGroupSettings
 
-instance Core.ToJSON OutputGroupSettings where
+instance Data.ToJSON OutputGroupSettings where
   toJSON OutputGroupSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dashIsoGroupSettings" Core..=)
+          [ ("dashIsoGroupSettings" Data..=)
               Prelude.<$> dashIsoGroupSettings,
-            ("type" Core..=) Prelude.<$> type',
-            ("hlsGroupSettings" Core..=)
+            ("type" Data..=) Prelude.<$> type',
+            ("hlsGroupSettings" Data..=)
               Prelude.<$> hlsGroupSettings,
-            ("msSmoothGroupSettings" Core..=)
+            ("msSmoothGroupSettings" Data..=)
               Prelude.<$> msSmoothGroupSettings,
-            ("fileGroupSettings" Core..=)
+            ("fileGroupSettings" Data..=)
               Prelude.<$> fileGroupSettings,
-            ("cmafGroupSettings" Core..=)
+            ("cmafGroupSettings" Data..=)
               Prelude.<$> cmafGroupSettings
           ]
       )

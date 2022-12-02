@@ -32,6 +32,7 @@ module Amazonka.MediaConvert.Types.ColorSpaceConversion
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the color space you want for this output. The service supports
@@ -45,7 +46,7 @@ import qualified Amazonka.Prelude as Prelude
 -- characteristics: SMPTE 428M * Matrix coefficients: BT.709
 newtype ColorSpaceConversion = ColorSpaceConversion'
   { fromColorSpaceConversion ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -57,18 +58,18 @@ newtype ColorSpaceConversion = ColorSpaceConversion'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern ColorSpaceConversion_FORCE_601 :: ColorSpaceConversion

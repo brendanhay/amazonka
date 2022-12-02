@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.XavcHdProfileSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.XavcFlickerAdaptiveQuantization
 import Amazonka.MediaConvert.Types.XavcGopBReference
 import Amazonka.MediaConvert.Types.XavcHdProfileBitrateClass
@@ -272,21 +273,21 @@ xavcHdProfileSettings_flickerAdaptiveQuantization = Lens.lens (\XavcHdProfileSet
 xavcHdProfileSettings_gopBReference :: Lens.Lens' XavcHdProfileSettings (Prelude.Maybe XavcGopBReference)
 xavcHdProfileSettings_gopBReference = Lens.lens (\XavcHdProfileSettings' {gopBReference} -> gopBReference) (\s@XavcHdProfileSettings' {} a -> s {gopBReference = a} :: XavcHdProfileSettings)
 
-instance Core.FromJSON XavcHdProfileSettings where
+instance Data.FromJSON XavcHdProfileSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "XavcHdProfileSettings"
       ( \x ->
           XavcHdProfileSettings'
-            Prelude.<$> (x Core..:? "telecine")
-            Prelude.<*> (x Core..:? "hrdBufferSize")
-            Prelude.<*> (x Core..:? "qualityTuningLevel")
-            Prelude.<*> (x Core..:? "bitrateClass")
-            Prelude.<*> (x Core..:? "gopClosedCadence")
-            Prelude.<*> (x Core..:? "interlaceMode")
-            Prelude.<*> (x Core..:? "slices")
-            Prelude.<*> (x Core..:? "flickerAdaptiveQuantization")
-            Prelude.<*> (x Core..:? "gopBReference")
+            Prelude.<$> (x Data..:? "telecine")
+            Prelude.<*> (x Data..:? "hrdBufferSize")
+            Prelude.<*> (x Data..:? "qualityTuningLevel")
+            Prelude.<*> (x Data..:? "bitrateClass")
+            Prelude.<*> (x Data..:? "gopClosedCadence")
+            Prelude.<*> (x Data..:? "interlaceMode")
+            Prelude.<*> (x Data..:? "slices")
+            Prelude.<*> (x Data..:? "flickerAdaptiveQuantization")
+            Prelude.<*> (x Data..:? "gopBReference")
       )
 
 instance Prelude.Hashable XavcHdProfileSettings where
@@ -313,21 +314,21 @@ instance Prelude.NFData XavcHdProfileSettings where
       `Prelude.seq` Prelude.rnf flickerAdaptiveQuantization
       `Prelude.seq` Prelude.rnf gopBReference
 
-instance Core.ToJSON XavcHdProfileSettings where
+instance Data.ToJSON XavcHdProfileSettings where
   toJSON XavcHdProfileSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("telecine" Core..=) Prelude.<$> telecine,
-            ("hrdBufferSize" Core..=) Prelude.<$> hrdBufferSize,
-            ("qualityTuningLevel" Core..=)
+          [ ("telecine" Data..=) Prelude.<$> telecine,
+            ("hrdBufferSize" Data..=) Prelude.<$> hrdBufferSize,
+            ("qualityTuningLevel" Data..=)
               Prelude.<$> qualityTuningLevel,
-            ("bitrateClass" Core..=) Prelude.<$> bitrateClass,
-            ("gopClosedCadence" Core..=)
+            ("bitrateClass" Data..=) Prelude.<$> bitrateClass,
+            ("gopClosedCadence" Data..=)
               Prelude.<$> gopClosedCadence,
-            ("interlaceMode" Core..=) Prelude.<$> interlaceMode,
-            ("slices" Core..=) Prelude.<$> slices,
-            ("flickerAdaptiveQuantization" Core..=)
+            ("interlaceMode" Data..=) Prelude.<$> interlaceMode,
+            ("slices" Data..=) Prelude.<$> slices,
+            ("flickerAdaptiveQuantization" Data..=)
               Prelude.<$> flickerAdaptiveQuantization,
-            ("gopBReference" Core..=) Prelude.<$> gopBReference
+            ("gopBReference" Data..=) Prelude.<$> gopBReference
           ]
       )

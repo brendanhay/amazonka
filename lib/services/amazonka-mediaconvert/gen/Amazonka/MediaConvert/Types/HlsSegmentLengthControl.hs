@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.HlsSegmentLengthControl
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify how you want MediaConvert to determine the segment length.
@@ -36,7 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 -- the encoder round up the segment lengths to match the next GOP boundary.
 newtype HlsSegmentLengthControl = HlsSegmentLengthControl'
   { fromHlsSegmentLengthControl ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -48,18 +49,18 @@ newtype HlsSegmentLengthControl = HlsSegmentLengthControl'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern HlsSegmentLengthControl_EXACT :: HlsSegmentLengthControl

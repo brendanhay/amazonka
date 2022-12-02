@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Eac3Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.Eac3AttenuationControl
 import Amazonka.MediaConvert.Types.Eac3BitstreamMode
 import Amazonka.MediaConvert.Types.Eac3CodingMode
@@ -463,33 +464,33 @@ eac3Settings_metadataControl = Lens.lens (\Eac3Settings' {metadataControl} -> me
 eac3Settings_lfeFilter :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3LfeFilter)
 eac3Settings_lfeFilter = Lens.lens (\Eac3Settings' {lfeFilter} -> lfeFilter) (\s@Eac3Settings' {} a -> s {lfeFilter = a} :: Eac3Settings)
 
-instance Core.FromJSON Eac3Settings where
+instance Data.FromJSON Eac3Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Eac3Settings"
       ( \x ->
           Eac3Settings'
-            Prelude.<$> (x Core..:? "bitstreamMode")
-            Prelude.<*> (x Core..:? "surroundMode")
-            Prelude.<*> (x Core..:? "lfeControl")
-            Prelude.<*> (x Core..:? "passthroughControl")
-            Prelude.<*> (x Core..:? "attenuationControl")
-            Prelude.<*> (x Core..:? "dynamicRangeCompressionRf")
-            Prelude.<*> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "ltRtCenterMixLevel")
-            Prelude.<*> (x Core..:? "surroundExMode")
-            Prelude.<*> (x Core..:? "ltRtSurroundMixLevel")
-            Prelude.<*> (x Core..:? "sampleRate")
-            Prelude.<*> (x Core..:? "phaseControl")
-            Prelude.<*> (x Core..:? "dialnorm")
-            Prelude.<*> (x Core..:? "dynamicRangeCompressionLine")
-            Prelude.<*> (x Core..:? "codingMode")
-            Prelude.<*> (x Core..:? "dcFilter")
-            Prelude.<*> (x Core..:? "loRoCenterMixLevel")
-            Prelude.<*> (x Core..:? "loRoSurroundMixLevel")
-            Prelude.<*> (x Core..:? "stereoDownmix")
-            Prelude.<*> (x Core..:? "metadataControl")
-            Prelude.<*> (x Core..:? "lfeFilter")
+            Prelude.<$> (x Data..:? "bitstreamMode")
+            Prelude.<*> (x Data..:? "surroundMode")
+            Prelude.<*> (x Data..:? "lfeControl")
+            Prelude.<*> (x Data..:? "passthroughControl")
+            Prelude.<*> (x Data..:? "attenuationControl")
+            Prelude.<*> (x Data..:? "dynamicRangeCompressionRf")
+            Prelude.<*> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "ltRtCenterMixLevel")
+            Prelude.<*> (x Data..:? "surroundExMode")
+            Prelude.<*> (x Data..:? "ltRtSurroundMixLevel")
+            Prelude.<*> (x Data..:? "sampleRate")
+            Prelude.<*> (x Data..:? "phaseControl")
+            Prelude.<*> (x Data..:? "dialnorm")
+            Prelude.<*> (x Data..:? "dynamicRangeCompressionLine")
+            Prelude.<*> (x Data..:? "codingMode")
+            Prelude.<*> (x Data..:? "dcFilter")
+            Prelude.<*> (x Data..:? "loRoCenterMixLevel")
+            Prelude.<*> (x Data..:? "loRoSurroundMixLevel")
+            Prelude.<*> (x Data..:? "stereoDownmix")
+            Prelude.<*> (x Data..:? "metadataControl")
+            Prelude.<*> (x Data..:? "lfeFilter")
       )
 
 instance Prelude.Hashable Eac3Settings where
@@ -540,40 +541,40 @@ instance Prelude.NFData Eac3Settings where
       `Prelude.seq` Prelude.rnf metadataControl
       `Prelude.seq` Prelude.rnf lfeFilter
 
-instance Core.ToJSON Eac3Settings where
+instance Data.ToJSON Eac3Settings where
   toJSON Eac3Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bitstreamMode" Core..=) Prelude.<$> bitstreamMode,
-            ("surroundMode" Core..=) Prelude.<$> surroundMode,
-            ("lfeControl" Core..=) Prelude.<$> lfeControl,
-            ("passthroughControl" Core..=)
+          [ ("bitstreamMode" Data..=) Prelude.<$> bitstreamMode,
+            ("surroundMode" Data..=) Prelude.<$> surroundMode,
+            ("lfeControl" Data..=) Prelude.<$> lfeControl,
+            ("passthroughControl" Data..=)
               Prelude.<$> passthroughControl,
-            ("attenuationControl" Core..=)
+            ("attenuationControl" Data..=)
               Prelude.<$> attenuationControl,
-            ("dynamicRangeCompressionRf" Core..=)
+            ("dynamicRangeCompressionRf" Data..=)
               Prelude.<$> dynamicRangeCompressionRf,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("ltRtCenterMixLevel" Core..=)
+            ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("ltRtCenterMixLevel" Data..=)
               Prelude.<$> ltRtCenterMixLevel,
-            ("surroundExMode" Core..=)
+            ("surroundExMode" Data..=)
               Prelude.<$> surroundExMode,
-            ("ltRtSurroundMixLevel" Core..=)
+            ("ltRtSurroundMixLevel" Data..=)
               Prelude.<$> ltRtSurroundMixLevel,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate,
-            ("phaseControl" Core..=) Prelude.<$> phaseControl,
-            ("dialnorm" Core..=) Prelude.<$> dialnorm,
-            ("dynamicRangeCompressionLine" Core..=)
+            ("sampleRate" Data..=) Prelude.<$> sampleRate,
+            ("phaseControl" Data..=) Prelude.<$> phaseControl,
+            ("dialnorm" Data..=) Prelude.<$> dialnorm,
+            ("dynamicRangeCompressionLine" Data..=)
               Prelude.<$> dynamicRangeCompressionLine,
-            ("codingMode" Core..=) Prelude.<$> codingMode,
-            ("dcFilter" Core..=) Prelude.<$> dcFilter,
-            ("loRoCenterMixLevel" Core..=)
+            ("codingMode" Data..=) Prelude.<$> codingMode,
+            ("dcFilter" Data..=) Prelude.<$> dcFilter,
+            ("loRoCenterMixLevel" Data..=)
               Prelude.<$> loRoCenterMixLevel,
-            ("loRoSurroundMixLevel" Core..=)
+            ("loRoSurroundMixLevel" Data..=)
               Prelude.<$> loRoSurroundMixLevel,
-            ("stereoDownmix" Core..=) Prelude.<$> stereoDownmix,
-            ("metadataControl" Core..=)
+            ("stereoDownmix" Data..=) Prelude.<$> stereoDownmix,
+            ("metadataControl" Data..=)
               Prelude.<$> metadataControl,
-            ("lfeFilter" Core..=) Prelude.<$> lfeFilter
+            ("lfeFilter" Data..=) Prelude.<$> lfeFilter
           ]
       )

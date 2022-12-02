@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.H265Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.H265AdaptiveQuantization
 import Amazonka.MediaConvert.Types.H265AlternateTransferFunctionSei
 import Amazonka.MediaConvert.Types.H265CodecLevel
@@ -1141,53 +1142,53 @@ h265Settings_gopSize = Lens.lens (\H265Settings' {gopSize} -> gopSize) (\s@H265S
 h265Settings_spatialAdaptiveQuantization :: Lens.Lens' H265Settings (Prelude.Maybe H265SpatialAdaptiveQuantization)
 h265Settings_spatialAdaptiveQuantization = Lens.lens (\H265Settings' {spatialAdaptiveQuantization} -> spatialAdaptiveQuantization) (\s@H265Settings' {} a -> s {spatialAdaptiveQuantization = a} :: H265Settings)
 
-instance Core.FromJSON H265Settings where
+instance Data.FromJSON H265Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "H265Settings"
       ( \x ->
           H265Settings'
-            Prelude.<$> (x Core..:? "parNumerator")
-            Prelude.<*> (x Core..:? "temporalIds")
-            Prelude.<*> (x Core..:? "gopSizeUnits")
-            Prelude.<*> (x Core..:? "telecine")
-            Prelude.<*> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "dynamicSubGop")
-            Prelude.<*> (x Core..:? "scanTypeConversionMode")
-            Prelude.<*> (x Core..:? "writeMp4PackagingType")
-            Prelude.<*> (x Core..:? "hrdBufferSize")
-            Prelude.<*> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "sceneChangeDetect")
-            Prelude.<*> (x Core..:? "framerateControl")
-            Prelude.<*> (x Core..:? "qvbrSettings")
-            Prelude.<*> (x Core..:? "parControl")
-            Prelude.<*> (x Core..:? "qualityTuningLevel")
-            Prelude.<*> (x Core..:? "maxBitrate")
-            Prelude.<*> (x Core..:? "tiles")
-            Prelude.<*> (x Core..:? "sampleAdaptiveOffsetFilterMode")
-            Prelude.<*> (x Core..:? "framerateNumerator")
-            Prelude.<*> (x Core..:? "unregisteredSeiTimecode")
-            Prelude.<*> (x Core..:? "codecProfile")
-            Prelude.<*> (x Core..:? "alternateTransferFunctionSei")
-            Prelude.<*> (x Core..:? "numberReferenceFrames")
-            Prelude.<*> (x Core..:? "temporalAdaptiveQuantization")
-            Prelude.<*> (x Core..:? "hrdBufferFinalFillPercentage")
-            Prelude.<*> (x Core..:? "hrdBufferInitialFillPercentage")
-            Prelude.<*> (x Core..:? "gopClosedCadence")
-            Prelude.<*> (x Core..:? "slowPal")
-            Prelude.<*> (x Core..:? "interlaceMode")
-            Prelude.<*> (x Core..:? "parDenominator")
-            Prelude.<*> (x Core..:? "slices")
-            Prelude.<*> (x Core..:? "flickerAdaptiveQuantization")
-            Prelude.<*> (x Core..:? "rateControlMode")
-            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
-            Prelude.<*> (x Core..:? "numberBFramesBetweenReferenceFrames")
-            Prelude.<*> (x Core..:? "gopBReference")
-            Prelude.<*> (x Core..:? "codecLevel")
-            Prelude.<*> (x Core..:? "adaptiveQuantization")
-            Prelude.<*> (x Core..:? "minIInterval")
-            Prelude.<*> (x Core..:? "gopSize")
-            Prelude.<*> (x Core..:? "spatialAdaptiveQuantization")
+            Prelude.<$> (x Data..:? "parNumerator")
+            Prelude.<*> (x Data..:? "temporalIds")
+            Prelude.<*> (x Data..:? "gopSizeUnits")
+            Prelude.<*> (x Data..:? "telecine")
+            Prelude.<*> (x Data..:? "framerateDenominator")
+            Prelude.<*> (x Data..:? "dynamicSubGop")
+            Prelude.<*> (x Data..:? "scanTypeConversionMode")
+            Prelude.<*> (x Data..:? "writeMp4PackagingType")
+            Prelude.<*> (x Data..:? "hrdBufferSize")
+            Prelude.<*> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "sceneChangeDetect")
+            Prelude.<*> (x Data..:? "framerateControl")
+            Prelude.<*> (x Data..:? "qvbrSettings")
+            Prelude.<*> (x Data..:? "parControl")
+            Prelude.<*> (x Data..:? "qualityTuningLevel")
+            Prelude.<*> (x Data..:? "maxBitrate")
+            Prelude.<*> (x Data..:? "tiles")
+            Prelude.<*> (x Data..:? "sampleAdaptiveOffsetFilterMode")
+            Prelude.<*> (x Data..:? "framerateNumerator")
+            Prelude.<*> (x Data..:? "unregisteredSeiTimecode")
+            Prelude.<*> (x Data..:? "codecProfile")
+            Prelude.<*> (x Data..:? "alternateTransferFunctionSei")
+            Prelude.<*> (x Data..:? "numberReferenceFrames")
+            Prelude.<*> (x Data..:? "temporalAdaptiveQuantization")
+            Prelude.<*> (x Data..:? "hrdBufferFinalFillPercentage")
+            Prelude.<*> (x Data..:? "hrdBufferInitialFillPercentage")
+            Prelude.<*> (x Data..:? "gopClosedCadence")
+            Prelude.<*> (x Data..:? "slowPal")
+            Prelude.<*> (x Data..:? "interlaceMode")
+            Prelude.<*> (x Data..:? "parDenominator")
+            Prelude.<*> (x Data..:? "slices")
+            Prelude.<*> (x Data..:? "flickerAdaptiveQuantization")
+            Prelude.<*> (x Data..:? "rateControlMode")
+            Prelude.<*> (x Data..:? "framerateConversionAlgorithm")
+            Prelude.<*> (x Data..:? "numberBFramesBetweenReferenceFrames")
+            Prelude.<*> (x Data..:? "gopBReference")
+            Prelude.<*> (x Data..:? "codecLevel")
+            Prelude.<*> (x Data..:? "adaptiveQuantization")
+            Prelude.<*> (x Data..:? "minIInterval")
+            Prelude.<*> (x Data..:? "gopSize")
+            Prelude.<*> (x Data..:? "spatialAdaptiveQuantization")
       )
 
 instance Prelude.Hashable H265Settings where
@@ -1300,72 +1301,72 @@ instance Prelude.NFData H265Settings where
       `Prelude.seq` Prelude.rnf
         spatialAdaptiveQuantization
 
-instance Core.ToJSON H265Settings where
+instance Data.ToJSON H265Settings where
   toJSON H265Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("parNumerator" Core..=) Prelude.<$> parNumerator,
-            ("temporalIds" Core..=) Prelude.<$> temporalIds,
-            ("gopSizeUnits" Core..=) Prelude.<$> gopSizeUnits,
-            ("telecine" Core..=) Prelude.<$> telecine,
-            ("framerateDenominator" Core..=)
+          [ ("parNumerator" Data..=) Prelude.<$> parNumerator,
+            ("temporalIds" Data..=) Prelude.<$> temporalIds,
+            ("gopSizeUnits" Data..=) Prelude.<$> gopSizeUnits,
+            ("telecine" Data..=) Prelude.<$> telecine,
+            ("framerateDenominator" Data..=)
               Prelude.<$> framerateDenominator,
-            ("dynamicSubGop" Core..=) Prelude.<$> dynamicSubGop,
-            ("scanTypeConversionMode" Core..=)
+            ("dynamicSubGop" Data..=) Prelude.<$> dynamicSubGop,
+            ("scanTypeConversionMode" Data..=)
               Prelude.<$> scanTypeConversionMode,
-            ("writeMp4PackagingType" Core..=)
+            ("writeMp4PackagingType" Data..=)
               Prelude.<$> writeMp4PackagingType,
-            ("hrdBufferSize" Core..=) Prelude.<$> hrdBufferSize,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("sceneChangeDetect" Core..=)
+            ("hrdBufferSize" Data..=) Prelude.<$> hrdBufferSize,
+            ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("sceneChangeDetect" Data..=)
               Prelude.<$> sceneChangeDetect,
-            ("framerateControl" Core..=)
+            ("framerateControl" Data..=)
               Prelude.<$> framerateControl,
-            ("qvbrSettings" Core..=) Prelude.<$> qvbrSettings,
-            ("parControl" Core..=) Prelude.<$> parControl,
-            ("qualityTuningLevel" Core..=)
+            ("qvbrSettings" Data..=) Prelude.<$> qvbrSettings,
+            ("parControl" Data..=) Prelude.<$> parControl,
+            ("qualityTuningLevel" Data..=)
               Prelude.<$> qualityTuningLevel,
-            ("maxBitrate" Core..=) Prelude.<$> maxBitrate,
-            ("tiles" Core..=) Prelude.<$> tiles,
-            ("sampleAdaptiveOffsetFilterMode" Core..=)
+            ("maxBitrate" Data..=) Prelude.<$> maxBitrate,
+            ("tiles" Data..=) Prelude.<$> tiles,
+            ("sampleAdaptiveOffsetFilterMode" Data..=)
               Prelude.<$> sampleAdaptiveOffsetFilterMode,
-            ("framerateNumerator" Core..=)
+            ("framerateNumerator" Data..=)
               Prelude.<$> framerateNumerator,
-            ("unregisteredSeiTimecode" Core..=)
+            ("unregisteredSeiTimecode" Data..=)
               Prelude.<$> unregisteredSeiTimecode,
-            ("codecProfile" Core..=) Prelude.<$> codecProfile,
-            ("alternateTransferFunctionSei" Core..=)
+            ("codecProfile" Data..=) Prelude.<$> codecProfile,
+            ("alternateTransferFunctionSei" Data..=)
               Prelude.<$> alternateTransferFunctionSei,
-            ("numberReferenceFrames" Core..=)
+            ("numberReferenceFrames" Data..=)
               Prelude.<$> numberReferenceFrames,
-            ("temporalAdaptiveQuantization" Core..=)
+            ("temporalAdaptiveQuantization" Data..=)
               Prelude.<$> temporalAdaptiveQuantization,
-            ("hrdBufferFinalFillPercentage" Core..=)
+            ("hrdBufferFinalFillPercentage" Data..=)
               Prelude.<$> hrdBufferFinalFillPercentage,
-            ("hrdBufferInitialFillPercentage" Core..=)
+            ("hrdBufferInitialFillPercentage" Data..=)
               Prelude.<$> hrdBufferInitialFillPercentage,
-            ("gopClosedCadence" Core..=)
+            ("gopClosedCadence" Data..=)
               Prelude.<$> gopClosedCadence,
-            ("slowPal" Core..=) Prelude.<$> slowPal,
-            ("interlaceMode" Core..=) Prelude.<$> interlaceMode,
-            ("parDenominator" Core..=)
+            ("slowPal" Data..=) Prelude.<$> slowPal,
+            ("interlaceMode" Data..=) Prelude.<$> interlaceMode,
+            ("parDenominator" Data..=)
               Prelude.<$> parDenominator,
-            ("slices" Core..=) Prelude.<$> slices,
-            ("flickerAdaptiveQuantization" Core..=)
+            ("slices" Data..=) Prelude.<$> slices,
+            ("flickerAdaptiveQuantization" Data..=)
               Prelude.<$> flickerAdaptiveQuantization,
-            ("rateControlMode" Core..=)
+            ("rateControlMode" Data..=)
               Prelude.<$> rateControlMode,
-            ("framerateConversionAlgorithm" Core..=)
+            ("framerateConversionAlgorithm" Data..=)
               Prelude.<$> framerateConversionAlgorithm,
-            ("numberBFramesBetweenReferenceFrames" Core..=)
+            ("numberBFramesBetweenReferenceFrames" Data..=)
               Prelude.<$> numberBFramesBetweenReferenceFrames,
-            ("gopBReference" Core..=) Prelude.<$> gopBReference,
-            ("codecLevel" Core..=) Prelude.<$> codecLevel,
-            ("adaptiveQuantization" Core..=)
+            ("gopBReference" Data..=) Prelude.<$> gopBReference,
+            ("codecLevel" Data..=) Prelude.<$> codecLevel,
+            ("adaptiveQuantization" Data..=)
               Prelude.<$> adaptiveQuantization,
-            ("minIInterval" Core..=) Prelude.<$> minIInterval,
-            ("gopSize" Core..=) Prelude.<$> gopSize,
-            ("spatialAdaptiveQuantization" Core..=)
+            ("minIInterval" Data..=) Prelude.<$> minIInterval,
+            ("gopSize" Data..=) Prelude.<$> gopSize,
+            ("spatialAdaptiveQuantization" Data..=)
               Prelude.<$> spatialAdaptiveQuantization
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.SpekeKeyProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If your output group type is HLS, DASH, or Microsoft Smooth, use these
@@ -106,16 +107,16 @@ spekeKeyProvider_certificateArn = Lens.lens (\SpekeKeyProvider' {certificateArn}
 spekeKeyProvider_systemIds :: Lens.Lens' SpekeKeyProvider (Prelude.Maybe [Prelude.Text])
 spekeKeyProvider_systemIds = Lens.lens (\SpekeKeyProvider' {systemIds} -> systemIds) (\s@SpekeKeyProvider' {} a -> s {systemIds = a} :: SpekeKeyProvider) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SpekeKeyProvider where
+instance Data.FromJSON SpekeKeyProvider where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SpekeKeyProvider"
       ( \x ->
           SpekeKeyProvider'
-            Prelude.<$> (x Core..:? "resourceId")
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "systemIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "resourceId")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "certificateArn")
+            Prelude.<*> (x Data..:? "systemIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SpekeKeyProvider where
@@ -132,14 +133,14 @@ instance Prelude.NFData SpekeKeyProvider where
       `Prelude.seq` Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf systemIds
 
-instance Core.ToJSON SpekeKeyProvider where
+instance Data.ToJSON SpekeKeyProvider where
   toJSON SpekeKeyProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceId" Core..=) Prelude.<$> resourceId,
-            ("url" Core..=) Prelude.<$> url,
-            ("certificateArn" Core..=)
+          [ ("resourceId" Data..=) Prelude.<$> resourceId,
+            ("url" Data..=) Prelude.<$> url,
+            ("certificateArn" Data..=)
               Prelude.<$> certificateArn,
-            ("systemIds" Core..=) Prelude.<$> systemIds
+            ("systemIds" Data..=) Prelude.<$> systemIds
           ]
       )

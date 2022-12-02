@@ -30,6 +30,7 @@ module Amazonka.MediaConvert.Types.DvbSubSubtitleFallbackFont
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the font that you want the service to use for your burn in
@@ -43,7 +44,7 @@ import qualified Amazonka.Prelude as Prelude
 -- that font to replace all unsupported fonts from your input.
 newtype DvbSubSubtitleFallbackFont = DvbSubSubtitleFallbackFont'
   { fromDvbSubSubtitleFallbackFont ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -55,18 +56,18 @@ newtype DvbSubSubtitleFallbackFont = DvbSubSubtitleFallbackFont'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern DvbSubSubtitleFallbackFont_BEST_MATCH :: DvbSubSubtitleFallbackFont

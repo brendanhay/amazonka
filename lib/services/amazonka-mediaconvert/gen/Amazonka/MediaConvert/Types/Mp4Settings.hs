@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Mp4Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.CmfcAudioDuration
 import Amazonka.MediaConvert.Types.Mp4CslgAtom
 import Amazonka.MediaConvert.Types.Mp4FreeSpaceBox
@@ -181,18 +182,18 @@ mp4Settings_cttsVersion = Lens.lens (\Mp4Settings' {cttsVersion} -> cttsVersion)
 mp4Settings_mp4MajorBrand :: Lens.Lens' Mp4Settings (Prelude.Maybe Prelude.Text)
 mp4Settings_mp4MajorBrand = Lens.lens (\Mp4Settings' {mp4MajorBrand} -> mp4MajorBrand) (\s@Mp4Settings' {} a -> s {mp4MajorBrand = a} :: Mp4Settings)
 
-instance Core.FromJSON Mp4Settings where
+instance Data.FromJSON Mp4Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Mp4Settings"
       ( \x ->
           Mp4Settings'
-            Prelude.<$> (x Core..:? "audioDuration")
-            Prelude.<*> (x Core..:? "freeSpaceBox")
-            Prelude.<*> (x Core..:? "moovPlacement")
-            Prelude.<*> (x Core..:? "cslgAtom")
-            Prelude.<*> (x Core..:? "cttsVersion")
-            Prelude.<*> (x Core..:? "mp4MajorBrand")
+            Prelude.<$> (x Data..:? "audioDuration")
+            Prelude.<*> (x Data..:? "freeSpaceBox")
+            Prelude.<*> (x Data..:? "moovPlacement")
+            Prelude.<*> (x Data..:? "cslgAtom")
+            Prelude.<*> (x Data..:? "cttsVersion")
+            Prelude.<*> (x Data..:? "mp4MajorBrand")
       )
 
 instance Prelude.Hashable Mp4Settings where
@@ -213,15 +214,15 @@ instance Prelude.NFData Mp4Settings where
       `Prelude.seq` Prelude.rnf cttsVersion
       `Prelude.seq` Prelude.rnf mp4MajorBrand
 
-instance Core.ToJSON Mp4Settings where
+instance Data.ToJSON Mp4Settings where
   toJSON Mp4Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("audioDuration" Core..=) Prelude.<$> audioDuration,
-            ("freeSpaceBox" Core..=) Prelude.<$> freeSpaceBox,
-            ("moovPlacement" Core..=) Prelude.<$> moovPlacement,
-            ("cslgAtom" Core..=) Prelude.<$> cslgAtom,
-            ("cttsVersion" Core..=) Prelude.<$> cttsVersion,
-            ("mp4MajorBrand" Core..=) Prelude.<$> mp4MajorBrand
+          [ ("audioDuration" Data..=) Prelude.<$> audioDuration,
+            ("freeSpaceBox" Data..=) Prelude.<$> freeSpaceBox,
+            ("moovPlacement" Data..=) Prelude.<$> moovPlacement,
+            ("cslgAtom" Data..=) Prelude.<$> cslgAtom,
+            ("cttsVersion" Data..=) Prelude.<$> cttsVersion,
+            ("mp4MajorBrand" Data..=) Prelude.<$> mp4MajorBrand
           ]
       )

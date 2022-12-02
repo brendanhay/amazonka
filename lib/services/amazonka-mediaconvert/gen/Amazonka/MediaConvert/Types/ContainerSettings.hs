@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.ContainerSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.CmfcSettings
 import Amazonka.MediaConvert.Types.ContainerType
 import Amazonka.MediaConvert.Types.F4vSettings
@@ -181,21 +182,21 @@ containerSettings_mp4Settings = Lens.lens (\ContainerSettings' {mp4Settings} -> 
 containerSettings_f4vSettings :: Lens.Lens' ContainerSettings (Prelude.Maybe F4vSettings)
 containerSettings_f4vSettings = Lens.lens (\ContainerSettings' {f4vSettings} -> f4vSettings) (\s@ContainerSettings' {} a -> s {f4vSettings = a} :: ContainerSettings)
 
-instance Core.FromJSON ContainerSettings where
+instance Data.FromJSON ContainerSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerSettings"
       ( \x ->
           ContainerSettings'
-            Prelude.<$> (x Core..:? "movSettings")
-            Prelude.<*> (x Core..:? "mpdSettings")
-            Prelude.<*> (x Core..:? "cmfcSettings")
-            Prelude.<*> (x Core..:? "m3u8Settings")
-            Prelude.<*> (x Core..:? "m2tsSettings")
-            Prelude.<*> (x Core..:? "mxfSettings")
-            Prelude.<*> (x Core..:? "container")
-            Prelude.<*> (x Core..:? "mp4Settings")
-            Prelude.<*> (x Core..:? "f4vSettings")
+            Prelude.<$> (x Data..:? "movSettings")
+            Prelude.<*> (x Data..:? "mpdSettings")
+            Prelude.<*> (x Data..:? "cmfcSettings")
+            Prelude.<*> (x Data..:? "m3u8Settings")
+            Prelude.<*> (x Data..:? "m2tsSettings")
+            Prelude.<*> (x Data..:? "mxfSettings")
+            Prelude.<*> (x Data..:? "container")
+            Prelude.<*> (x Data..:? "mp4Settings")
+            Prelude.<*> (x Data..:? "f4vSettings")
       )
 
 instance Prelude.Hashable ContainerSettings where
@@ -222,18 +223,18 @@ instance Prelude.NFData ContainerSettings where
       `Prelude.seq` Prelude.rnf mp4Settings
       `Prelude.seq` Prelude.rnf f4vSettings
 
-instance Core.ToJSON ContainerSettings where
+instance Data.ToJSON ContainerSettings where
   toJSON ContainerSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("movSettings" Core..=) Prelude.<$> movSettings,
-            ("mpdSettings" Core..=) Prelude.<$> mpdSettings,
-            ("cmfcSettings" Core..=) Prelude.<$> cmfcSettings,
-            ("m3u8Settings" Core..=) Prelude.<$> m3u8Settings,
-            ("m2tsSettings" Core..=) Prelude.<$> m2tsSettings,
-            ("mxfSettings" Core..=) Prelude.<$> mxfSettings,
-            ("container" Core..=) Prelude.<$> container,
-            ("mp4Settings" Core..=) Prelude.<$> mp4Settings,
-            ("f4vSettings" Core..=) Prelude.<$> f4vSettings
+          [ ("movSettings" Data..=) Prelude.<$> movSettings,
+            ("mpdSettings" Data..=) Prelude.<$> mpdSettings,
+            ("cmfcSettings" Data..=) Prelude.<$> cmfcSettings,
+            ("m3u8Settings" Data..=) Prelude.<$> m3u8Settings,
+            ("m2tsSettings" Data..=) Prelude.<$> m2tsSettings,
+            ("mxfSettings" Data..=) Prelude.<$> mxfSettings,
+            ("container" Data..=) Prelude.<$> container,
+            ("mp4Settings" Data..=) Prelude.<$> mp4Settings,
+            ("f4vSettings" Data..=) Prelude.<$> f4vSettings
           ]
       )

@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.EmbeddedTimecodeOverride
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Set Embedded timecode override (embeddedTimecodeOverride) to Use MDPM
@@ -37,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 -- (NONE), when your input does not contain MDPM timecode.
 newtype EmbeddedTimecodeOverride = EmbeddedTimecodeOverride'
   { fromEmbeddedTimecodeOverride ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -49,18 +50,18 @@ newtype EmbeddedTimecodeOverride = EmbeddedTimecodeOverride'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern EmbeddedTimecodeOverride_NONE :: EmbeddedTimecodeOverride

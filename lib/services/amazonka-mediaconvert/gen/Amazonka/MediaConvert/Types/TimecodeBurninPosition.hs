@@ -34,13 +34,14 @@ module Amazonka.MediaConvert.Types.TimecodeBurninPosition
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to
 -- specify the location the burned-in timecode on output video.
 newtype TimecodeBurninPosition = TimecodeBurninPosition'
   { fromTimecodeBurninPosition ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -52,18 +53,18 @@ newtype TimecodeBurninPosition = TimecodeBurninPosition'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern TimecodeBurninPosition_BOTTOM_CENTER :: TimecodeBurninPosition

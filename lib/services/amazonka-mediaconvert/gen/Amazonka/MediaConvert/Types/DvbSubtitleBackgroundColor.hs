@@ -29,6 +29,7 @@ module Amazonka.MediaConvert.Types.DvbSubtitleBackgroundColor
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the color of the rectangle behind the captions. Leave background
@@ -37,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 -- input captions, if present.
 newtype DvbSubtitleBackgroundColor = DvbSubtitleBackgroundColor'
   { fromDvbSubtitleBackgroundColor ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -49,18 +50,18 @@ newtype DvbSubtitleBackgroundColor = DvbSubtitleBackgroundColor'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern DvbSubtitleBackgroundColor_AUTO :: DvbSubtitleBackgroundColor

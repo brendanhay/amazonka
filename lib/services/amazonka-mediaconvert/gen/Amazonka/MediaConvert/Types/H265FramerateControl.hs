@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.H265FramerateControl
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If you are using the console, use the Framerate setting to specify the
@@ -44,7 +45,7 @@ import qualified Amazonka.Prelude as Prelude
 -- FramerateDenominator.
 newtype H265FramerateControl = H265FramerateControl'
   { fromH265FramerateControl ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -56,18 +57,18 @@ newtype H265FramerateControl = H265FramerateControl'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern H265FramerateControl_INITIALIZE_FROM_SOURCE :: H265FramerateControl

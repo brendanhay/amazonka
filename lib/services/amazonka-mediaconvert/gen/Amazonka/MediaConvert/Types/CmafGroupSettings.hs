@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.CmafGroupSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.CmafAdditionalManifest
 import Amazonka.MediaConvert.Types.CmafClientCache
 import Amazonka.MediaConvert.Types.CmafCodecSpecification
@@ -555,38 +556,38 @@ cmafGroupSettings_targetDurationCompatibilityMode = Lens.lens (\CmafGroupSetting
 cmafGroupSettings_destinationSettings :: Lens.Lens' CmafGroupSettings (Prelude.Maybe DestinationSettings)
 cmafGroupSettings_destinationSettings = Lens.lens (\CmafGroupSettings' {destinationSettings} -> destinationSettings) (\s@CmafGroupSettings' {} a -> s {destinationSettings = a} :: CmafGroupSettings)
 
-instance Core.FromJSON CmafGroupSettings where
+instance Data.FromJSON CmafGroupSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CmafGroupSettings"
       ( \x ->
           CmafGroupSettings'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "baseUrl")
-            Prelude.<*> (x Core..:? "imageBasedTrickPlaySettings")
-            Prelude.<*> (x Core..:? "streamInfResolution")
-            Prelude.<*> (x Core..:? "mpdProfile")
-            Prelude.<*> (x Core..:? "manifestCompression")
-            Prelude.<*> (x Core..:? "ptsOffsetHandlingForBFrames")
-            Prelude.<*> (x Core..:? "segmentLength")
-            Prelude.<*> (x Core..:? "codecSpecification")
-            Prelude.<*> (x Core..:? "manifestDurationFormat")
-            Prelude.<*> (x Core..:? "minBufferTime")
-            Prelude.<*> (x Core..:? "segmentControl")
-            Prelude.<*> (x Core..:? "fragmentLength")
-            Prelude.<*> (x Core..:? "writeHlsManifest")
-            Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "writeDashManifest")
-            Prelude.<*> (x Core..:? "imageBasedTrickPlay")
-            Prelude.<*> (x Core..:? "clientCache")
-            Prelude.<*> ( x Core..:? "additionalManifests"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "baseUrl")
+            Prelude.<*> (x Data..:? "imageBasedTrickPlaySettings")
+            Prelude.<*> (x Data..:? "streamInfResolution")
+            Prelude.<*> (x Data..:? "mpdProfile")
+            Prelude.<*> (x Data..:? "manifestCompression")
+            Prelude.<*> (x Data..:? "ptsOffsetHandlingForBFrames")
+            Prelude.<*> (x Data..:? "segmentLength")
+            Prelude.<*> (x Data..:? "codecSpecification")
+            Prelude.<*> (x Data..:? "manifestDurationFormat")
+            Prelude.<*> (x Data..:? "minBufferTime")
+            Prelude.<*> (x Data..:? "segmentControl")
+            Prelude.<*> (x Data..:? "fragmentLength")
+            Prelude.<*> (x Data..:? "writeHlsManifest")
+            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<*> (x Data..:? "writeDashManifest")
+            Prelude.<*> (x Data..:? "imageBasedTrickPlay")
+            Prelude.<*> (x Data..:? "clientCache")
+            Prelude.<*> ( x Data..:? "additionalManifests"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "segmentLengthControl")
-            Prelude.<*> (x Core..:? "minFinalSegmentLength")
-            Prelude.<*> (x Core..:? "writeSegmentTimelineInRepresentation")
-            Prelude.<*> (x Core..:? "targetDurationCompatibilityMode")
-            Prelude.<*> (x Core..:? "destinationSettings")
+            Prelude.<*> (x Data..:? "segmentLengthControl")
+            Prelude.<*> (x Data..:? "minFinalSegmentLength")
+            Prelude.<*> (x Data..:? "writeSegmentTimelineInRepresentation")
+            Prelude.<*> (x Data..:? "targetDurationCompatibilityMode")
+            Prelude.<*> (x Data..:? "destinationSettings")
       )
 
 instance Prelude.Hashable CmafGroupSettings where
@@ -648,50 +649,50 @@ instance Prelude.NFData CmafGroupSettings where
       `Prelude.seq` Prelude.rnf
         destinationSettings
 
-instance Core.ToJSON CmafGroupSettings where
+instance Data.ToJSON CmafGroupSettings where
   toJSON CmafGroupSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destination" Core..=) Prelude.<$> destination,
-            ("baseUrl" Core..=) Prelude.<$> baseUrl,
-            ("imageBasedTrickPlaySettings" Core..=)
+          [ ("destination" Data..=) Prelude.<$> destination,
+            ("baseUrl" Data..=) Prelude.<$> baseUrl,
+            ("imageBasedTrickPlaySettings" Data..=)
               Prelude.<$> imageBasedTrickPlaySettings,
-            ("streamInfResolution" Core..=)
+            ("streamInfResolution" Data..=)
               Prelude.<$> streamInfResolution,
-            ("mpdProfile" Core..=) Prelude.<$> mpdProfile,
-            ("manifestCompression" Core..=)
+            ("mpdProfile" Data..=) Prelude.<$> mpdProfile,
+            ("manifestCompression" Data..=)
               Prelude.<$> manifestCompression,
-            ("ptsOffsetHandlingForBFrames" Core..=)
+            ("ptsOffsetHandlingForBFrames" Data..=)
               Prelude.<$> ptsOffsetHandlingForBFrames,
-            ("segmentLength" Core..=) Prelude.<$> segmentLength,
-            ("codecSpecification" Core..=)
+            ("segmentLength" Data..=) Prelude.<$> segmentLength,
+            ("codecSpecification" Data..=)
               Prelude.<$> codecSpecification,
-            ("manifestDurationFormat" Core..=)
+            ("manifestDurationFormat" Data..=)
               Prelude.<$> manifestDurationFormat,
-            ("minBufferTime" Core..=) Prelude.<$> minBufferTime,
-            ("segmentControl" Core..=)
+            ("minBufferTime" Data..=) Prelude.<$> minBufferTime,
+            ("segmentControl" Data..=)
               Prelude.<$> segmentControl,
-            ("fragmentLength" Core..=)
+            ("fragmentLength" Data..=)
               Prelude.<$> fragmentLength,
-            ("writeHlsManifest" Core..=)
+            ("writeHlsManifest" Data..=)
               Prelude.<$> writeHlsManifest,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("writeDashManifest" Core..=)
+            ("encryption" Data..=) Prelude.<$> encryption,
+            ("writeDashManifest" Data..=)
               Prelude.<$> writeDashManifest,
-            ("imageBasedTrickPlay" Core..=)
+            ("imageBasedTrickPlay" Data..=)
               Prelude.<$> imageBasedTrickPlay,
-            ("clientCache" Core..=) Prelude.<$> clientCache,
-            ("additionalManifests" Core..=)
+            ("clientCache" Data..=) Prelude.<$> clientCache,
+            ("additionalManifests" Data..=)
               Prelude.<$> additionalManifests,
-            ("segmentLengthControl" Core..=)
+            ("segmentLengthControl" Data..=)
               Prelude.<$> segmentLengthControl,
-            ("minFinalSegmentLength" Core..=)
+            ("minFinalSegmentLength" Data..=)
               Prelude.<$> minFinalSegmentLength,
-            ("writeSegmentTimelineInRepresentation" Core..=)
+            ("writeSegmentTimelineInRepresentation" Data..=)
               Prelude.<$> writeSegmentTimelineInRepresentation,
-            ("targetDurationCompatibilityMode" Core..=)
+            ("targetDurationCompatibilityMode" Data..=)
               Prelude.<$> targetDurationCompatibilityMode,
-            ("destinationSettings" Core..=)
+            ("destinationSettings" Data..=)
               Prelude.<$> destinationSettings
           ]
       )

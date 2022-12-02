@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.M2tsEbpAudioInterval
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When set to VIDEO_AND_FIXED_INTERVALS, audio EBP markers will be added
@@ -37,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 -- selected (segmentationMarkers is EBP or EBP_LEGACY).
 newtype M2tsEbpAudioInterval = M2tsEbpAudioInterval'
   { fromM2tsEbpAudioInterval ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -49,18 +50,18 @@ newtype M2tsEbpAudioInterval = M2tsEbpAudioInterval'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern M2tsEbpAudioInterval_VIDEO_AND_FIXED_INTERVALS :: M2tsEbpAudioInterval

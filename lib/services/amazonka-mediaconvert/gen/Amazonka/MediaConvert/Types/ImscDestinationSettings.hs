@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.ImscDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.ImscAccessibilitySubs
 import Amazonka.MediaConvert.Types.ImscStylePassthrough
 import qualified Amazonka.Prelude as Prelude
@@ -103,14 +104,14 @@ imscDestinationSettings_stylePassthrough = Lens.lens (\ImscDestinationSettings' 
 imscDestinationSettings_accessibility :: Lens.Lens' ImscDestinationSettings (Prelude.Maybe ImscAccessibilitySubs)
 imscDestinationSettings_accessibility = Lens.lens (\ImscDestinationSettings' {accessibility} -> accessibility) (\s@ImscDestinationSettings' {} a -> s {accessibility = a} :: ImscDestinationSettings)
 
-instance Core.FromJSON ImscDestinationSettings where
+instance Data.FromJSON ImscDestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImscDestinationSettings"
       ( \x ->
           ImscDestinationSettings'
-            Prelude.<$> (x Core..:? "stylePassthrough")
-            Prelude.<*> (x Core..:? "accessibility")
+            Prelude.<$> (x Data..:? "stylePassthrough")
+            Prelude.<*> (x Data..:? "accessibility")
       )
 
 instance Prelude.Hashable ImscDestinationSettings where
@@ -123,12 +124,12 @@ instance Prelude.NFData ImscDestinationSettings where
     Prelude.rnf stylePassthrough
       `Prelude.seq` Prelude.rnf accessibility
 
-instance Core.ToJSON ImscDestinationSettings where
+instance Data.ToJSON ImscDestinationSettings where
   toJSON ImscDestinationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("stylePassthrough" Core..=)
+          [ ("stylePassthrough" Data..=)
               Prelude.<$> stylePassthrough,
-            ("accessibility" Core..=) Prelude.<$> accessibility
+            ("accessibility" Data..=) Prelude.<$> accessibility
           ]
       )

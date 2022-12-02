@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.CaptionDescriptionPreset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.CaptionDestinationSettings
 import Amazonka.MediaConvert.Types.LanguageCode
 import qualified Amazonka.Prelude as Prelude
@@ -148,16 +149,16 @@ captionDescriptionPreset_languageCode = Lens.lens (\CaptionDescriptionPreset' {l
 captionDescriptionPreset_destinationSettings :: Lens.Lens' CaptionDescriptionPreset (Prelude.Maybe CaptionDestinationSettings)
 captionDescriptionPreset_destinationSettings = Lens.lens (\CaptionDescriptionPreset' {destinationSettings} -> destinationSettings) (\s@CaptionDescriptionPreset' {} a -> s {destinationSettings = a} :: CaptionDescriptionPreset)
 
-instance Core.FromJSON CaptionDescriptionPreset where
+instance Data.FromJSON CaptionDescriptionPreset where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptionDescriptionPreset"
       ( \x ->
           CaptionDescriptionPreset'
-            Prelude.<$> (x Core..:? "customLanguageCode")
-            Prelude.<*> (x Core..:? "languageDescription")
-            Prelude.<*> (x Core..:? "languageCode")
-            Prelude.<*> (x Core..:? "destinationSettings")
+            Prelude.<$> (x Data..:? "customLanguageCode")
+            Prelude.<*> (x Data..:? "languageDescription")
+            Prelude.<*> (x Data..:? "languageCode")
+            Prelude.<*> (x Data..:? "destinationSettings")
       )
 
 instance Prelude.Hashable CaptionDescriptionPreset where
@@ -174,16 +175,16 @@ instance Prelude.NFData CaptionDescriptionPreset where
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf destinationSettings
 
-instance Core.ToJSON CaptionDescriptionPreset where
+instance Data.ToJSON CaptionDescriptionPreset where
   toJSON CaptionDescriptionPreset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("customLanguageCode" Core..=)
+          [ ("customLanguageCode" Data..=)
               Prelude.<$> customLanguageCode,
-            ("languageDescription" Core..=)
+            ("languageDescription" Data..=)
               Prelude.<$> languageDescription,
-            ("languageCode" Core..=) Prelude.<$> languageCode,
-            ("destinationSettings" Core..=)
+            ("languageCode" Data..=) Prelude.<$> languageCode,
+            ("destinationSettings" Data..=)
               Prelude.<$> destinationSettings
           ]
       )

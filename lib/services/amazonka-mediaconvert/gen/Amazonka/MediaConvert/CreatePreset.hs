@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,7 +131,7 @@ instance Core.AWSRequest CreatePreset where
     Response.receiveJSON
       ( \s h x ->
           CreatePresetResponse'
-            Prelude.<$> (x Core..?> "preset")
+            Prelude.<$> (x Data..?> "preset")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,33 +151,33 @@ instance Prelude.NFData CreatePreset where
       `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreatePreset where
+instance Data.ToHeaders CreatePreset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePreset where
+instance Data.ToJSON CreatePreset where
   toJSON CreatePreset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            ("category" Core..=) Prelude.<$> category,
-            Prelude.Just ("settings" Core..= settings),
-            Prelude.Just ("name" Core..= name)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            ("category" Data..=) Prelude.<$> category,
+            Prelude.Just ("settings" Data..= settings),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreatePreset where
+instance Data.ToPath CreatePreset where
   toPath = Prelude.const "/2017-08-29/presets"
 
-instance Core.ToQuery CreatePreset where
+instance Data.ToQuery CreatePreset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePresetResponse' smart constructor.

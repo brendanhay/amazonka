@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AncillarySourceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AncillaryConvert608To708
 import Amazonka.MediaConvert.Types.AncillaryTerminateCaptions
 import qualified Amazonka.Prelude as Prelude
@@ -94,15 +95,15 @@ ancillarySourceSettings_terminateCaptions = Lens.lens (\AncillarySourceSettings'
 ancillarySourceSettings_sourceAncillaryChannelNumber :: Lens.Lens' AncillarySourceSettings (Prelude.Maybe Prelude.Natural)
 ancillarySourceSettings_sourceAncillaryChannelNumber = Lens.lens (\AncillarySourceSettings' {sourceAncillaryChannelNumber} -> sourceAncillaryChannelNumber) (\s@AncillarySourceSettings' {} a -> s {sourceAncillaryChannelNumber = a} :: AncillarySourceSettings)
 
-instance Core.FromJSON AncillarySourceSettings where
+instance Data.FromJSON AncillarySourceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AncillarySourceSettings"
       ( \x ->
           AncillarySourceSettings'
-            Prelude.<$> (x Core..:? "convert608To708")
-            Prelude.<*> (x Core..:? "terminateCaptions")
-            Prelude.<*> (x Core..:? "sourceAncillaryChannelNumber")
+            Prelude.<$> (x Data..:? "convert608To708")
+            Prelude.<*> (x Data..:? "terminateCaptions")
+            Prelude.<*> (x Data..:? "sourceAncillaryChannelNumber")
       )
 
 instance Prelude.Hashable AncillarySourceSettings where
@@ -117,15 +118,15 @@ instance Prelude.NFData AncillarySourceSettings where
       `Prelude.seq` Prelude.rnf terminateCaptions
       `Prelude.seq` Prelude.rnf sourceAncillaryChannelNumber
 
-instance Core.ToJSON AncillarySourceSettings where
+instance Data.ToJSON AncillarySourceSettings where
   toJSON AncillarySourceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("convert608To708" Core..=)
+          [ ("convert608To708" Data..=)
               Prelude.<$> convert608To708,
-            ("terminateCaptions" Core..=)
+            ("terminateCaptions" Data..=)
               Prelude.<$> terminateCaptions,
-            ("sourceAncillaryChannelNumber" Core..=)
+            ("sourceAncillaryChannelNumber" Data..=)
               Prelude.<$> sourceAncillaryChannelNumber
           ]
       )

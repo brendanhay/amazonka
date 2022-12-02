@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.ForceIncludeRenditionSize where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use Force include renditions to specify one or more resolutions to
@@ -78,14 +79,14 @@ forceIncludeRenditionSize_width = Lens.lens (\ForceIncludeRenditionSize' {width}
 forceIncludeRenditionSize_height :: Lens.Lens' ForceIncludeRenditionSize (Prelude.Maybe Prelude.Natural)
 forceIncludeRenditionSize_height = Lens.lens (\ForceIncludeRenditionSize' {height} -> height) (\s@ForceIncludeRenditionSize' {} a -> s {height = a} :: ForceIncludeRenditionSize)
 
-instance Core.FromJSON ForceIncludeRenditionSize where
+instance Data.FromJSON ForceIncludeRenditionSize where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ForceIncludeRenditionSize"
       ( \x ->
           ForceIncludeRenditionSize'
-            Prelude.<$> (x Core..:? "width")
-            Prelude.<*> (x Core..:? "height")
+            Prelude.<$> (x Data..:? "width")
+            Prelude.<*> (x Data..:? "height")
       )
 
 instance Prelude.Hashable ForceIncludeRenditionSize where
@@ -97,11 +98,11 @@ instance Prelude.NFData ForceIncludeRenditionSize where
   rnf ForceIncludeRenditionSize' {..} =
     Prelude.rnf width `Prelude.seq` Prelude.rnf height
 
-instance Core.ToJSON ForceIncludeRenditionSize where
+instance Data.ToJSON ForceIncludeRenditionSize where
   toJSON ForceIncludeRenditionSize' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("width" Core..=) Prelude.<$> width,
-            ("height" Core..=) Prelude.<$> height
+          [ ("width" Data..=) Prelude.<$> width,
+            ("height" Data..=) Prelude.<$> height
           ]
       )

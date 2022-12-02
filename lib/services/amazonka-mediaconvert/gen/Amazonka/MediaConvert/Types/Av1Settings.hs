@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Av1Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.Av1AdaptiveQuantization
 import Amazonka.MediaConvert.Types.Av1BitDepth
 import Amazonka.MediaConvert.Types.Av1FramerateControl
@@ -365,25 +366,25 @@ av1Settings_gopSize = Lens.lens (\Av1Settings' {gopSize} -> gopSize) (\s@Av1Sett
 av1Settings_spatialAdaptiveQuantization :: Lens.Lens' Av1Settings (Prelude.Maybe Av1SpatialAdaptiveQuantization)
 av1Settings_spatialAdaptiveQuantization = Lens.lens (\Av1Settings' {spatialAdaptiveQuantization} -> spatialAdaptiveQuantization) (\s@Av1Settings' {} a -> s {spatialAdaptiveQuantization = a} :: Av1Settings)
 
-instance Core.FromJSON Av1Settings where
+instance Data.FromJSON Av1Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Av1Settings"
       ( \x ->
           Av1Settings'
-            Prelude.<$> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "bitDepth")
-            Prelude.<*> (x Core..:? "framerateControl")
-            Prelude.<*> (x Core..:? "qvbrSettings")
-            Prelude.<*> (x Core..:? "maxBitrate")
-            Prelude.<*> (x Core..:? "framerateNumerator")
-            Prelude.<*> (x Core..:? "slices")
-            Prelude.<*> (x Core..:? "rateControlMode")
-            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
-            Prelude.<*> (x Core..:? "numberBFramesBetweenReferenceFrames")
-            Prelude.<*> (x Core..:? "adaptiveQuantization")
-            Prelude.<*> (x Core..:? "gopSize")
-            Prelude.<*> (x Core..:? "spatialAdaptiveQuantization")
+            Prelude.<$> (x Data..:? "framerateDenominator")
+            Prelude.<*> (x Data..:? "bitDepth")
+            Prelude.<*> (x Data..:? "framerateControl")
+            Prelude.<*> (x Data..:? "qvbrSettings")
+            Prelude.<*> (x Data..:? "maxBitrate")
+            Prelude.<*> (x Data..:? "framerateNumerator")
+            Prelude.<*> (x Data..:? "slices")
+            Prelude.<*> (x Data..:? "rateControlMode")
+            Prelude.<*> (x Data..:? "framerateConversionAlgorithm")
+            Prelude.<*> (x Data..:? "numberBFramesBetweenReferenceFrames")
+            Prelude.<*> (x Data..:? "adaptiveQuantization")
+            Prelude.<*> (x Data..:? "gopSize")
+            Prelude.<*> (x Data..:? "spatialAdaptiveQuantization")
       )
 
 instance Prelude.Hashable Av1Settings where
@@ -418,30 +419,30 @@ instance Prelude.NFData Av1Settings where
       `Prelude.seq` Prelude.rnf gopSize
       `Prelude.seq` Prelude.rnf spatialAdaptiveQuantization
 
-instance Core.ToJSON Av1Settings where
+instance Data.ToJSON Av1Settings where
   toJSON Av1Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("framerateDenominator" Core..=)
+          [ ("framerateDenominator" Data..=)
               Prelude.<$> framerateDenominator,
-            ("bitDepth" Core..=) Prelude.<$> bitDepth,
-            ("framerateControl" Core..=)
+            ("bitDepth" Data..=) Prelude.<$> bitDepth,
+            ("framerateControl" Data..=)
               Prelude.<$> framerateControl,
-            ("qvbrSettings" Core..=) Prelude.<$> qvbrSettings,
-            ("maxBitrate" Core..=) Prelude.<$> maxBitrate,
-            ("framerateNumerator" Core..=)
+            ("qvbrSettings" Data..=) Prelude.<$> qvbrSettings,
+            ("maxBitrate" Data..=) Prelude.<$> maxBitrate,
+            ("framerateNumerator" Data..=)
               Prelude.<$> framerateNumerator,
-            ("slices" Core..=) Prelude.<$> slices,
-            ("rateControlMode" Core..=)
+            ("slices" Data..=) Prelude.<$> slices,
+            ("rateControlMode" Data..=)
               Prelude.<$> rateControlMode,
-            ("framerateConversionAlgorithm" Core..=)
+            ("framerateConversionAlgorithm" Data..=)
               Prelude.<$> framerateConversionAlgorithm,
-            ("numberBFramesBetweenReferenceFrames" Core..=)
+            ("numberBFramesBetweenReferenceFrames" Data..=)
               Prelude.<$> numberBFramesBetweenReferenceFrames,
-            ("adaptiveQuantization" Core..=)
+            ("adaptiveQuantization" Data..=)
               Prelude.<$> adaptiveQuantization,
-            ("gopSize" Core..=) Prelude.<$> gopSize,
-            ("spatialAdaptiveQuantization" Core..=)
+            ("gopSize" Data..=) Prelude.<$> gopSize,
+            ("spatialAdaptiveQuantization" Data..=)
               Prelude.<$> spatialAdaptiveQuantization
           ]
       )

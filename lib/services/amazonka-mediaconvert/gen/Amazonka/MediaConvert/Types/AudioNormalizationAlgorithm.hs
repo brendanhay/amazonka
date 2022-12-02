@@ -29,6 +29,7 @@ module Amazonka.MediaConvert.Types.AudioNormalizationAlgorithm
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Choose one of the following audio normalization algorithms: ITU-R
@@ -44,7 +45,7 @@ import qualified Amazonka.Prelude as Prelude
 -- as 7.1.
 newtype AudioNormalizationAlgorithm = AudioNormalizationAlgorithm'
   { fromAudioNormalizationAlgorithm ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -56,18 +57,18 @@ newtype AudioNormalizationAlgorithm = AudioNormalizationAlgorithm'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern AudioNormalizationAlgorithm_ITU_BS_1770_1 :: AudioNormalizationAlgorithm

@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.MpdScte35Source
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Ignore this setting unless you have SCTE-35 markers in your input video
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- if you don\'t want those SCTE-35 markers in this output.
 newtype MpdScte35Source = MpdScte35Source'
   { fromMpdScte35Source ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype MpdScte35Source = MpdScte35Source'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern MpdScte35Source_NONE :: MpdScte35Source

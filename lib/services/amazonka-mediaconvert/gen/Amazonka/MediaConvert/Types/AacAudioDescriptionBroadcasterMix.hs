@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.AacAudioDescriptionBroadcasterMix
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio
@@ -41,7 +42,7 @@ import qualified Amazonka.Prelude as Prelude
 -- AudioType and FollowInputAudioType.
 newtype AacAudioDescriptionBroadcasterMix = AacAudioDescriptionBroadcasterMix'
   { fromAacAudioDescriptionBroadcasterMix ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -53,18 +54,18 @@ newtype AacAudioDescriptionBroadcasterMix = AacAudioDescriptionBroadcasterMix'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern AacAudioDescriptionBroadcasterMix_BROADCASTER_MIXED_AD :: AacAudioDescriptionBroadcasterMix

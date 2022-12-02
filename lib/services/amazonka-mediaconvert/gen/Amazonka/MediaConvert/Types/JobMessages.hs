@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.JobMessages where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides messages from the service about jobs that you have already
@@ -68,14 +69,14 @@ jobMessages_info = Lens.lens (\JobMessages' {info} -> info) (\s@JobMessages' {} 
 jobMessages_warning :: Lens.Lens' JobMessages (Prelude.Maybe [Prelude.Text])
 jobMessages_warning = Lens.lens (\JobMessages' {warning} -> warning) (\s@JobMessages' {} a -> s {warning = a} :: JobMessages) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON JobMessages where
+instance Data.FromJSON JobMessages where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobMessages"
       ( \x ->
           JobMessages'
-            Prelude.<$> (x Core..:? "info" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "warning" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "info" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "warning" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable JobMessages where

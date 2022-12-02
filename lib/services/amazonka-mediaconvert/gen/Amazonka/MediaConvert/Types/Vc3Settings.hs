@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Vc3Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.Vc3Class
 import Amazonka.MediaConvert.Types.Vc3FramerateControl
 import Amazonka.MediaConvert.Types.Vc3FramerateConversionAlgorithm
@@ -336,21 +337,21 @@ vc3Settings_framerateConversionAlgorithm = Lens.lens (\Vc3Settings' {framerateCo
 vc3Settings_vc3Class :: Lens.Lens' Vc3Settings (Prelude.Maybe Vc3Class)
 vc3Settings_vc3Class = Lens.lens (\Vc3Settings' {vc3Class} -> vc3Class) (\s@Vc3Settings' {} a -> s {vc3Class = a} :: Vc3Settings)
 
-instance Core.FromJSON Vc3Settings where
+instance Data.FromJSON Vc3Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Vc3Settings"
       ( \x ->
           Vc3Settings'
-            Prelude.<$> (x Core..:? "telecine")
-            Prelude.<*> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "scanTypeConversionMode")
-            Prelude.<*> (x Core..:? "framerateControl")
-            Prelude.<*> (x Core..:? "framerateNumerator")
-            Prelude.<*> (x Core..:? "slowPal")
-            Prelude.<*> (x Core..:? "interlaceMode")
-            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
-            Prelude.<*> (x Core..:? "vc3Class")
+            Prelude.<$> (x Data..:? "telecine")
+            Prelude.<*> (x Data..:? "framerateDenominator")
+            Prelude.<*> (x Data..:? "scanTypeConversionMode")
+            Prelude.<*> (x Data..:? "framerateControl")
+            Prelude.<*> (x Data..:? "framerateNumerator")
+            Prelude.<*> (x Data..:? "slowPal")
+            Prelude.<*> (x Data..:? "interlaceMode")
+            Prelude.<*> (x Data..:? "framerateConversionAlgorithm")
+            Prelude.<*> (x Data..:? "vc3Class")
       )
 
 instance Prelude.Hashable Vc3Settings where
@@ -377,23 +378,23 @@ instance Prelude.NFData Vc3Settings where
       `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
       `Prelude.seq` Prelude.rnf vc3Class
 
-instance Core.ToJSON Vc3Settings where
+instance Data.ToJSON Vc3Settings where
   toJSON Vc3Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("telecine" Core..=) Prelude.<$> telecine,
-            ("framerateDenominator" Core..=)
+          [ ("telecine" Data..=) Prelude.<$> telecine,
+            ("framerateDenominator" Data..=)
               Prelude.<$> framerateDenominator,
-            ("scanTypeConversionMode" Core..=)
+            ("scanTypeConversionMode" Data..=)
               Prelude.<$> scanTypeConversionMode,
-            ("framerateControl" Core..=)
+            ("framerateControl" Data..=)
               Prelude.<$> framerateControl,
-            ("framerateNumerator" Core..=)
+            ("framerateNumerator" Data..=)
               Prelude.<$> framerateNumerator,
-            ("slowPal" Core..=) Prelude.<$> slowPal,
-            ("interlaceMode" Core..=) Prelude.<$> interlaceMode,
-            ("framerateConversionAlgorithm" Core..=)
+            ("slowPal" Data..=) Prelude.<$> slowPal,
+            ("interlaceMode" Data..=) Prelude.<$> interlaceMode,
+            ("framerateConversionAlgorithm" Data..=)
               Prelude.<$> framerateConversionAlgorithm,
-            ("vc3Class" Core..=) Prelude.<$> vc3Class
+            ("vc3Class" Data..=) Prelude.<$> vc3Class
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.NielsenNonLinearWatermarkSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.NielsenActiveWatermarkProcessType
 import Amazonka.MediaConvert.Types.NielsenSourceWatermarkStatusType
 import Amazonka.MediaConvert.Types.NielsenUniqueTicPerAudioTrackType
@@ -274,25 +275,25 @@ nielsenNonLinearWatermarkSettings_metadataDestination :: Lens.Lens' NielsenNonLi
 nielsenNonLinearWatermarkSettings_metadataDestination = Lens.lens (\NielsenNonLinearWatermarkSettings' {metadataDestination} -> metadataDestination) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {metadataDestination = a} :: NielsenNonLinearWatermarkSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     NielsenNonLinearWatermarkSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NielsenNonLinearWatermarkSettings"
       ( \x ->
           NielsenNonLinearWatermarkSettings'
-            Prelude.<$> (x Core..:? "ticServerUrl")
-            Prelude.<*> (x Core..:? "sourceWatermarkStatus")
-            Prelude.<*> (x Core..:? "assetId")
-            Prelude.<*> (x Core..:? "sourceId")
-            Prelude.<*> (x Core..:? "assetName")
-            Prelude.<*> (x Core..:? "episodeId")
-            Prelude.<*> (x Core..:? "activeWatermarkProcess")
-            Prelude.<*> (x Core..:? "uniqueTicPerAudioTrack")
-            Prelude.<*> (x Core..:? "cbetSourceId")
-            Prelude.<*> (x Core..:? "adiFilename")
-            Prelude.<*> (x Core..:? "metadataDestination")
+            Prelude.<$> (x Data..:? "ticServerUrl")
+            Prelude.<*> (x Data..:? "sourceWatermarkStatus")
+            Prelude.<*> (x Data..:? "assetId")
+            Prelude.<*> (x Data..:? "sourceId")
+            Prelude.<*> (x Data..:? "assetName")
+            Prelude.<*> (x Data..:? "episodeId")
+            Prelude.<*> (x Data..:? "activeWatermarkProcess")
+            Prelude.<*> (x Data..:? "uniqueTicPerAudioTrack")
+            Prelude.<*> (x Data..:? "cbetSourceId")
+            Prelude.<*> (x Data..:? "adiFilename")
+            Prelude.<*> (x Data..:? "metadataDestination")
       )
 
 instance
@@ -332,26 +333,26 @@ instance
       `Prelude.seq` Prelude.rnf metadataDestination
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     NielsenNonLinearWatermarkSettings
   where
   toJSON NielsenNonLinearWatermarkSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ticServerUrl" Core..=) Prelude.<$> ticServerUrl,
-            ("sourceWatermarkStatus" Core..=)
+          [ ("ticServerUrl" Data..=) Prelude.<$> ticServerUrl,
+            ("sourceWatermarkStatus" Data..=)
               Prelude.<$> sourceWatermarkStatus,
-            ("assetId" Core..=) Prelude.<$> assetId,
-            ("sourceId" Core..=) Prelude.<$> sourceId,
-            ("assetName" Core..=) Prelude.<$> assetName,
-            ("episodeId" Core..=) Prelude.<$> episodeId,
-            ("activeWatermarkProcess" Core..=)
+            ("assetId" Data..=) Prelude.<$> assetId,
+            ("sourceId" Data..=) Prelude.<$> sourceId,
+            ("assetName" Data..=) Prelude.<$> assetName,
+            ("episodeId" Data..=) Prelude.<$> episodeId,
+            ("activeWatermarkProcess" Data..=)
               Prelude.<$> activeWatermarkProcess,
-            ("uniqueTicPerAudioTrack" Core..=)
+            ("uniqueTicPerAudioTrack" Data..=)
               Prelude.<$> uniqueTicPerAudioTrack,
-            ("cbetSourceId" Core..=) Prelude.<$> cbetSourceId,
-            ("adiFilename" Core..=) Prelude.<$> adiFilename,
-            ("metadataDestination" Core..=)
+            ("cbetSourceId" Data..=) Prelude.<$> cbetSourceId,
+            ("adiFilename" Data..=) Prelude.<$> adiFilename,
+            ("metadataDestination" Data..=)
               Prelude.<$> metadataDestination
           ]
       )

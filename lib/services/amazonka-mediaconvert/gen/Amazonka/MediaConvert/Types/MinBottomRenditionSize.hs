@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.MinBottomRenditionSize where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use Min bottom rendition size to specify a minimum size for the lowest
@@ -73,14 +74,14 @@ minBottomRenditionSize_width = Lens.lens (\MinBottomRenditionSize' {width} -> wi
 minBottomRenditionSize_height :: Lens.Lens' MinBottomRenditionSize (Prelude.Maybe Prelude.Natural)
 minBottomRenditionSize_height = Lens.lens (\MinBottomRenditionSize' {height} -> height) (\s@MinBottomRenditionSize' {} a -> s {height = a} :: MinBottomRenditionSize)
 
-instance Core.FromJSON MinBottomRenditionSize where
+instance Data.FromJSON MinBottomRenditionSize where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MinBottomRenditionSize"
       ( \x ->
           MinBottomRenditionSize'
-            Prelude.<$> (x Core..:? "width")
-            Prelude.<*> (x Core..:? "height")
+            Prelude.<$> (x Data..:? "width")
+            Prelude.<*> (x Data..:? "height")
       )
 
 instance Prelude.Hashable MinBottomRenditionSize where
@@ -92,11 +93,11 @@ instance Prelude.NFData MinBottomRenditionSize where
   rnf MinBottomRenditionSize' {..} =
     Prelude.rnf width `Prelude.seq` Prelude.rnf height
 
-instance Core.ToJSON MinBottomRenditionSize where
+instance Data.ToJSON MinBottomRenditionSize where
   toJSON MinBottomRenditionSize' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("width" Core..=) Prelude.<$> width,
-            ("height" Core..=) Prelude.<$> height
+          [ ("width" Data..=) Prelude.<$> width,
+            ("height" Data..=) Prelude.<$> height
           ]
       )

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,23 +90,23 @@ instance Prelude.Hashable DeleteQueue where
 instance Prelude.NFData DeleteQueue where
   rnf DeleteQueue' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteQueue where
+instance Data.ToHeaders DeleteQueue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteQueue where
+instance Data.ToPath DeleteQueue where
   toPath DeleteQueue' {..} =
     Prelude.mconcat
-      ["/2017-08-29/queues/", Core.toBS name]
+      ["/2017-08-29/queues/", Data.toBS name]
 
-instance Core.ToQuery DeleteQueue where
+instance Data.ToQuery DeleteQueue where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteQueueResponse' smart constructor.

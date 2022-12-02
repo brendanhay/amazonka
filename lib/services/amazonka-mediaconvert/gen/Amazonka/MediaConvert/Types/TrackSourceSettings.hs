@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.TrackSourceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings specific to caption sources that are specified by track number.
@@ -71,13 +72,13 @@ newTrackSourceSettings =
 trackSourceSettings_trackNumber :: Lens.Lens' TrackSourceSettings (Prelude.Maybe Prelude.Natural)
 trackSourceSettings_trackNumber = Lens.lens (\TrackSourceSettings' {trackNumber} -> trackNumber) (\s@TrackSourceSettings' {} a -> s {trackNumber = a} :: TrackSourceSettings)
 
-instance Core.FromJSON TrackSourceSettings where
+instance Data.FromJSON TrackSourceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrackSourceSettings"
       ( \x ->
           TrackSourceSettings'
-            Prelude.<$> (x Core..:? "trackNumber")
+            Prelude.<$> (x Data..:? "trackNumber")
       )
 
 instance Prelude.Hashable TrackSourceSettings where
@@ -88,9 +89,9 @@ instance Prelude.NFData TrackSourceSettings where
   rnf TrackSourceSettings' {..} =
     Prelude.rnf trackNumber
 
-instance Core.ToJSON TrackSourceSettings where
+instance Data.ToJSON TrackSourceSettings where
   toJSON TrackSourceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("trackNumber" Core..=) Prelude.<$> trackNumber]
+          [("trackNumber" Data..=) Prelude.<$> trackNumber]
       )

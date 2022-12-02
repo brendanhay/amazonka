@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.Mpeg2DynamicSubGop
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Choose Adaptive to improve subjective video quality for high-motion
@@ -37,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 -- between reference frames (numberBFramesBetweenReferenceFrames).
 newtype Mpeg2DynamicSubGop = Mpeg2DynamicSubGop'
   { fromMpeg2DynamicSubGop ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -49,18 +50,18 @@ newtype Mpeg2DynamicSubGop = Mpeg2DynamicSubGop'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern Mpeg2DynamicSubGop_ADAPTIVE :: Mpeg2DynamicSubGop

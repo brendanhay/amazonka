@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.DvbSubtitleApplyFontColor
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Ignore this setting unless Style Passthrough (StylePassthrough) is set
@@ -40,7 +41,7 @@ import qualified Amazonka.Prelude as Prelude
 -- setting applies to all of your output captions text.
 newtype DvbSubtitleApplyFontColor = DvbSubtitleApplyFontColor'
   { fromDvbSubtitleApplyFontColor ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -52,18 +53,18 @@ newtype DvbSubtitleApplyFontColor = DvbSubtitleApplyFontColor'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern DvbSubtitleApplyFontColor_ALL_TEXT :: DvbSubtitleApplyFontColor

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.HlsCaptionLanguageMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.LanguageCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,16 +88,16 @@ hlsCaptionLanguageMapping_languageDescription = Lens.lens (\HlsCaptionLanguageMa
 hlsCaptionLanguageMapping_languageCode :: Lens.Lens' HlsCaptionLanguageMapping (Prelude.Maybe LanguageCode)
 hlsCaptionLanguageMapping_languageCode = Lens.lens (\HlsCaptionLanguageMapping' {languageCode} -> languageCode) (\s@HlsCaptionLanguageMapping' {} a -> s {languageCode = a} :: HlsCaptionLanguageMapping)
 
-instance Core.FromJSON HlsCaptionLanguageMapping where
+instance Data.FromJSON HlsCaptionLanguageMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsCaptionLanguageMapping"
       ( \x ->
           HlsCaptionLanguageMapping'
-            Prelude.<$> (x Core..:? "customLanguageCode")
-            Prelude.<*> (x Core..:? "captionChannel")
-            Prelude.<*> (x Core..:? "languageDescription")
-            Prelude.<*> (x Core..:? "languageCode")
+            Prelude.<$> (x Data..:? "customLanguageCode")
+            Prelude.<*> (x Data..:? "captionChannel")
+            Prelude.<*> (x Data..:? "languageDescription")
+            Prelude.<*> (x Data..:? "languageCode")
       )
 
 instance Prelude.Hashable HlsCaptionLanguageMapping where
@@ -113,16 +114,16 @@ instance Prelude.NFData HlsCaptionLanguageMapping where
       `Prelude.seq` Prelude.rnf languageDescription
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToJSON HlsCaptionLanguageMapping where
+instance Data.ToJSON HlsCaptionLanguageMapping where
   toJSON HlsCaptionLanguageMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("customLanguageCode" Core..=)
+          [ ("customLanguageCode" Data..=)
               Prelude.<$> customLanguageCode,
-            ("captionChannel" Core..=)
+            ("captionChannel" Data..=)
               Prelude.<$> captionChannel,
-            ("languageDescription" Core..=)
+            ("languageDescription" Data..=)
               Prelude.<$> languageDescription,
-            ("languageCode" Core..=) Prelude.<$> languageCode
+            ("languageCode" Data..=) Prelude.<$> languageCode
           ]
       )

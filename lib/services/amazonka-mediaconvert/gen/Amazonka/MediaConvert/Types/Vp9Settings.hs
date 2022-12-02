@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Vp9Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.Vp9FramerateControl
 import Amazonka.MediaConvert.Types.Vp9FramerateConversionAlgorithm
 import Amazonka.MediaConvert.Types.Vp9ParControl
@@ -328,25 +329,25 @@ vp9Settings_framerateConversionAlgorithm = Lens.lens (\Vp9Settings' {framerateCo
 vp9Settings_gopSize :: Lens.Lens' Vp9Settings (Prelude.Maybe Prelude.Double)
 vp9Settings_gopSize = Lens.lens (\Vp9Settings' {gopSize} -> gopSize) (\s@Vp9Settings' {} a -> s {gopSize = a} :: Vp9Settings)
 
-instance Core.FromJSON Vp9Settings where
+instance Data.FromJSON Vp9Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Vp9Settings"
       ( \x ->
           Vp9Settings'
-            Prelude.<$> (x Core..:? "parNumerator")
-            Prelude.<*> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "hrdBufferSize")
-            Prelude.<*> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "framerateControl")
-            Prelude.<*> (x Core..:? "parControl")
-            Prelude.<*> (x Core..:? "qualityTuningLevel")
-            Prelude.<*> (x Core..:? "maxBitrate")
-            Prelude.<*> (x Core..:? "framerateNumerator")
-            Prelude.<*> (x Core..:? "parDenominator")
-            Prelude.<*> (x Core..:? "rateControlMode")
-            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
-            Prelude.<*> (x Core..:? "gopSize")
+            Prelude.<$> (x Data..:? "parNumerator")
+            Prelude.<*> (x Data..:? "framerateDenominator")
+            Prelude.<*> (x Data..:? "hrdBufferSize")
+            Prelude.<*> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "framerateControl")
+            Prelude.<*> (x Data..:? "parControl")
+            Prelude.<*> (x Data..:? "qualityTuningLevel")
+            Prelude.<*> (x Data..:? "maxBitrate")
+            Prelude.<*> (x Data..:? "framerateNumerator")
+            Prelude.<*> (x Data..:? "parDenominator")
+            Prelude.<*> (x Data..:? "rateControlMode")
+            Prelude.<*> (x Data..:? "framerateConversionAlgorithm")
+            Prelude.<*> (x Data..:? "gopSize")
       )
 
 instance Prelude.Hashable Vp9Settings where
@@ -381,29 +382,29 @@ instance Prelude.NFData Vp9Settings where
       `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
       `Prelude.seq` Prelude.rnf gopSize
 
-instance Core.ToJSON Vp9Settings where
+instance Data.ToJSON Vp9Settings where
   toJSON Vp9Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("parNumerator" Core..=) Prelude.<$> parNumerator,
-            ("framerateDenominator" Core..=)
+          [ ("parNumerator" Data..=) Prelude.<$> parNumerator,
+            ("framerateDenominator" Data..=)
               Prelude.<$> framerateDenominator,
-            ("hrdBufferSize" Core..=) Prelude.<$> hrdBufferSize,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("framerateControl" Core..=)
+            ("hrdBufferSize" Data..=) Prelude.<$> hrdBufferSize,
+            ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("framerateControl" Data..=)
               Prelude.<$> framerateControl,
-            ("parControl" Core..=) Prelude.<$> parControl,
-            ("qualityTuningLevel" Core..=)
+            ("parControl" Data..=) Prelude.<$> parControl,
+            ("qualityTuningLevel" Data..=)
               Prelude.<$> qualityTuningLevel,
-            ("maxBitrate" Core..=) Prelude.<$> maxBitrate,
-            ("framerateNumerator" Core..=)
+            ("maxBitrate" Data..=) Prelude.<$> maxBitrate,
+            ("framerateNumerator" Data..=)
               Prelude.<$> framerateNumerator,
-            ("parDenominator" Core..=)
+            ("parDenominator" Data..=)
               Prelude.<$> parDenominator,
-            ("rateControlMode" Core..=)
+            ("rateControlMode" Data..=)
               Prelude.<$> rateControlMode,
-            ("framerateConversionAlgorithm" Core..=)
+            ("framerateConversionAlgorithm" Data..=)
               Prelude.<$> framerateConversionAlgorithm,
-            ("gopSize" Core..=) Prelude.<$> gopSize
+            ("gopSize" Data..=) Prelude.<$> gopSize
           ]
       )

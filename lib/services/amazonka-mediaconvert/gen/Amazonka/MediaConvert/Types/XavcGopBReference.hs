@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.XavcGopBReference
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify whether the encoder uses B-frames as reference frames for other
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- prevent the encoder from using B-frames as reference frames.
 newtype XavcGopBReference = XavcGopBReference'
   { fromXavcGopBReference ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype XavcGopBReference = XavcGopBReference'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern XavcGopBReference_DISABLED :: XavcGopBReference

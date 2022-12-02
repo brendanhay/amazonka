@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.TimecodeBurnin where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.TimecodeBurninPosition
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,15 +94,15 @@ timecodeBurnin_prefix = Lens.lens (\TimecodeBurnin' {prefix} -> prefix) (\s@Time
 timecodeBurnin_position :: Lens.Lens' TimecodeBurnin (Prelude.Maybe TimecodeBurninPosition)
 timecodeBurnin_position = Lens.lens (\TimecodeBurnin' {position} -> position) (\s@TimecodeBurnin' {} a -> s {position = a} :: TimecodeBurnin)
 
-instance Core.FromJSON TimecodeBurnin where
+instance Data.FromJSON TimecodeBurnin where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimecodeBurnin"
       ( \x ->
           TimecodeBurnin'
-            Prelude.<$> (x Core..:? "fontSize")
-            Prelude.<*> (x Core..:? "prefix")
-            Prelude.<*> (x Core..:? "position")
+            Prelude.<$> (x Data..:? "fontSize")
+            Prelude.<*> (x Data..:? "prefix")
+            Prelude.<*> (x Data..:? "position")
       )
 
 instance Prelude.Hashable TimecodeBurnin where
@@ -116,12 +117,12 @@ instance Prelude.NFData TimecodeBurnin where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf position
 
-instance Core.ToJSON TimecodeBurnin where
+instance Data.ToJSON TimecodeBurnin where
   toJSON TimecodeBurnin' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fontSize" Core..=) Prelude.<$> fontSize,
-            ("prefix" Core..=) Prelude.<$> prefix,
-            ("position" Core..=) Prelude.<$> position
+          [ ("fontSize" Data..=) Prelude.<$> fontSize,
+            ("prefix" Data..=) Prelude.<$> prefix,
+            ("position" Data..=) Prelude.<$> position
           ]
       )

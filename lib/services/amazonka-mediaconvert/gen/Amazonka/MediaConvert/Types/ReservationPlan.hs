@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.ReservationPlan where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.Commitment
 import Amazonka.MediaConvert.Types.RenewalType
 import Amazonka.MediaConvert.Types.ReservationPlanStatus
@@ -35,7 +36,7 @@ data ReservationPlan = ReservationPlan'
     commitment :: Prelude.Maybe Commitment,
     -- | The timestamp in epoch seconds for when the current pricing plan term
     -- for this reserved queue expires.
-    expiresAt :: Prelude.Maybe Core.POSIX,
+    expiresAt :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the pricing plan for your reserved queue is ACTIVE or
     -- EXPIRED.
     status :: Prelude.Maybe ReservationPlanStatus,
@@ -53,7 +54,7 @@ data ReservationPlan = ReservationPlan'
     reservedSlots :: Prelude.Maybe Prelude.Int,
     -- | The timestamp in epoch seconds for when you set up the current pricing
     -- plan for this reserved queue.
-    purchasedAt :: Prelude.Maybe Core.POSIX
+    purchasedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,7 +107,7 @@ reservationPlan_commitment = Lens.lens (\ReservationPlan' {commitment} -> commit
 -- | The timestamp in epoch seconds for when the current pricing plan term
 -- for this reserved queue expires.
 reservationPlan_expiresAt :: Lens.Lens' ReservationPlan (Prelude.Maybe Prelude.UTCTime)
-reservationPlan_expiresAt = Lens.lens (\ReservationPlan' {expiresAt} -> expiresAt) (\s@ReservationPlan' {} a -> s {expiresAt = a} :: ReservationPlan) Prelude.. Lens.mapping Core._Time
+reservationPlan_expiresAt = Lens.lens (\ReservationPlan' {expiresAt} -> expiresAt) (\s@ReservationPlan' {} a -> s {expiresAt = a} :: ReservationPlan) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the pricing plan for your reserved queue is ACTIVE or
 -- EXPIRED.
@@ -132,20 +133,20 @@ reservationPlan_reservedSlots = Lens.lens (\ReservationPlan' {reservedSlots} -> 
 -- | The timestamp in epoch seconds for when you set up the current pricing
 -- plan for this reserved queue.
 reservationPlan_purchasedAt :: Lens.Lens' ReservationPlan (Prelude.Maybe Prelude.UTCTime)
-reservationPlan_purchasedAt = Lens.lens (\ReservationPlan' {purchasedAt} -> purchasedAt) (\s@ReservationPlan' {} a -> s {purchasedAt = a} :: ReservationPlan) Prelude.. Lens.mapping Core._Time
+reservationPlan_purchasedAt = Lens.lens (\ReservationPlan' {purchasedAt} -> purchasedAt) (\s@ReservationPlan' {} a -> s {purchasedAt = a} :: ReservationPlan) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ReservationPlan where
+instance Data.FromJSON ReservationPlan where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReservationPlan"
       ( \x ->
           ReservationPlan'
-            Prelude.<$> (x Core..:? "commitment")
-            Prelude.<*> (x Core..:? "expiresAt")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "renewalType")
-            Prelude.<*> (x Core..:? "reservedSlots")
-            Prelude.<*> (x Core..:? "purchasedAt")
+            Prelude.<$> (x Data..:? "commitment")
+            Prelude.<*> (x Data..:? "expiresAt")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "renewalType")
+            Prelude.<*> (x Data..:? "reservedSlots")
+            Prelude.<*> (x Data..:? "purchasedAt")
       )
 
 instance Prelude.Hashable ReservationPlan where

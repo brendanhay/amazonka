@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.StaticKeyProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use these settings to set up encryption with a static key provider.
@@ -95,16 +96,16 @@ staticKeyProvider_keyFormat = Lens.lens (\StaticKeyProvider' {keyFormat} -> keyF
 staticKeyProvider_keyFormatVersions :: Lens.Lens' StaticKeyProvider (Prelude.Maybe Prelude.Text)
 staticKeyProvider_keyFormatVersions = Lens.lens (\StaticKeyProvider' {keyFormatVersions} -> keyFormatVersions) (\s@StaticKeyProvider' {} a -> s {keyFormatVersions = a} :: StaticKeyProvider)
 
-instance Core.FromJSON StaticKeyProvider where
+instance Data.FromJSON StaticKeyProvider where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StaticKeyProvider"
       ( \x ->
           StaticKeyProvider'
-            Prelude.<$> (x Core..:? "staticKeyValue")
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "keyFormat")
-            Prelude.<*> (x Core..:? "keyFormatVersions")
+            Prelude.<$> (x Data..:? "staticKeyValue")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "keyFormat")
+            Prelude.<*> (x Data..:? "keyFormatVersions")
       )
 
 instance Prelude.Hashable StaticKeyProvider where
@@ -121,15 +122,15 @@ instance Prelude.NFData StaticKeyProvider where
       `Prelude.seq` Prelude.rnf keyFormat
       `Prelude.seq` Prelude.rnf keyFormatVersions
 
-instance Core.ToJSON StaticKeyProvider where
+instance Data.ToJSON StaticKeyProvider where
   toJSON StaticKeyProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("staticKeyValue" Core..=)
+          [ ("staticKeyValue" Data..=)
               Prelude.<$> staticKeyValue,
-            ("url" Core..=) Prelude.<$> url,
-            ("keyFormat" Core..=) Prelude.<$> keyFormat,
-            ("keyFormatVersions" Core..=)
+            ("url" Data..=) Prelude.<$> url,
+            ("keyFormat" Data..=) Prelude.<$> keyFormat,
+            ("keyFormatVersions" Data..=)
               Prelude.<$> keyFormatVersions
           ]
       )

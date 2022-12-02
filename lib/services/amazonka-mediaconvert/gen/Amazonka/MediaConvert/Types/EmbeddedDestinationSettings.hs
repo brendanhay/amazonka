@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.EmbeddedDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings related to CEA\/EIA-608 and CEA\/EIA-708 (also called embedded
@@ -113,14 +114,14 @@ embeddedDestinationSettings_destination708ServiceNumber = Lens.lens (\EmbeddedDe
 embeddedDestinationSettings_destination608ChannelNumber :: Lens.Lens' EmbeddedDestinationSettings (Prelude.Maybe Prelude.Natural)
 embeddedDestinationSettings_destination608ChannelNumber = Lens.lens (\EmbeddedDestinationSettings' {destination608ChannelNumber} -> destination608ChannelNumber) (\s@EmbeddedDestinationSettings' {} a -> s {destination608ChannelNumber = a} :: EmbeddedDestinationSettings)
 
-instance Core.FromJSON EmbeddedDestinationSettings where
+instance Data.FromJSON EmbeddedDestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmbeddedDestinationSettings"
       ( \x ->
           EmbeddedDestinationSettings'
-            Prelude.<$> (x Core..:? "destination708ServiceNumber")
-            Prelude.<*> (x Core..:? "destination608ChannelNumber")
+            Prelude.<$> (x Data..:? "destination708ServiceNumber")
+            Prelude.<*> (x Data..:? "destination608ChannelNumber")
       )
 
 instance Prelude.Hashable EmbeddedDestinationSettings where
@@ -134,13 +135,13 @@ instance Prelude.NFData EmbeddedDestinationSettings where
     Prelude.rnf destination708ServiceNumber
       `Prelude.seq` Prelude.rnf destination608ChannelNumber
 
-instance Core.ToJSON EmbeddedDestinationSettings where
+instance Data.ToJSON EmbeddedDestinationSettings where
   toJSON EmbeddedDestinationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destination708ServiceNumber" Core..=)
+          [ ("destination708ServiceNumber" Data..=)
               Prelude.<$> destination708ServiceNumber,
-            ("destination608ChannelNumber" Core..=)
+            ("destination608ChannelNumber" Data..=)
               Prelude.<$> destination608ChannelNumber
           ]
       )

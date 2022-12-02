@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Queue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.PricingPlan
 import Amazonka.MediaConvert.Types.QueueStatus
 import Amazonka.MediaConvert.Types.ReservationPlan
@@ -56,7 +57,7 @@ data Queue = Queue'
     description :: Prelude.Maybe Prelude.Text,
     -- | The timestamp in epoch seconds for when you most recently updated the
     -- queue.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the pricing plan for the queue is on-demand or
     -- reserved. For on-demand, you pay per minute, billed in increments of .01
     -- minute. For reserved, you pay for the transcoding capacity of the entire
@@ -64,7 +65,7 @@ data Queue = Queue'
     -- requires a 12-month commitment.
     pricingPlan :: Prelude.Maybe PricingPlan,
     -- | The timestamp in epoch seconds for when you created the queue.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | A name that you create for each queue. Each name must be unique within
     -- your account.
     name :: Prelude.Text
@@ -166,7 +167,7 @@ queue_description = Lens.lens (\Queue' {description} -> description) (\s@Queue' 
 -- | The timestamp in epoch seconds for when you most recently updated the
 -- queue.
 queue_lastUpdated :: Lens.Lens' Queue (Prelude.Maybe Prelude.UTCTime)
-queue_lastUpdated = Lens.lens (\Queue' {lastUpdated} -> lastUpdated) (\s@Queue' {} a -> s {lastUpdated = a} :: Queue) Prelude.. Lens.mapping Core._Time
+queue_lastUpdated = Lens.lens (\Queue' {lastUpdated} -> lastUpdated) (\s@Queue' {} a -> s {lastUpdated = a} :: Queue) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the pricing plan for the queue is on-demand or
 -- reserved. For on-demand, you pay per minute, billed in increments of .01
@@ -178,30 +179,30 @@ queue_pricingPlan = Lens.lens (\Queue' {pricingPlan} -> pricingPlan) (\s@Queue' 
 
 -- | The timestamp in epoch seconds for when you created the queue.
 queue_createdAt :: Lens.Lens' Queue (Prelude.Maybe Prelude.UTCTime)
-queue_createdAt = Lens.lens (\Queue' {createdAt} -> createdAt) (\s@Queue' {} a -> s {createdAt = a} :: Queue) Prelude.. Lens.mapping Core._Time
+queue_createdAt = Lens.lens (\Queue' {createdAt} -> createdAt) (\s@Queue' {} a -> s {createdAt = a} :: Queue) Prelude.. Lens.mapping Data._Time
 
 -- | A name that you create for each queue. Each name must be unique within
 -- your account.
 queue_name :: Lens.Lens' Queue Prelude.Text
 queue_name = Lens.lens (\Queue' {name} -> name) (\s@Queue' {} a -> s {name = a} :: Queue)
 
-instance Core.FromJSON Queue where
+instance Data.FromJSON Queue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Queue"
       ( \x ->
           Queue'
-            Prelude.<$> (x Core..:? "progressingJobsCount")
-            Prelude.<*> (x Core..:? "reservationPlan")
-            Prelude.<*> (x Core..:? "submittedJobsCount")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastUpdated")
-            Prelude.<*> (x Core..:? "pricingPlan")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "progressingJobsCount")
+            Prelude.<*> (x Data..:? "reservationPlan")
+            Prelude.<*> (x Data..:? "submittedJobsCount")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "pricingPlan")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Queue where

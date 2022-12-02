@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.Mp4MoovPlacement
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the
@@ -34,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 -- Otherwise it is placed normally at the end.
 newtype Mp4MoovPlacement = Mp4MoovPlacement'
   { fromMp4MoovPlacement ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -46,18 +47,18 @@ newtype Mp4MoovPlacement = Mp4MoovPlacement'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern Mp4MoovPlacement_NORMAL :: Mp4MoovPlacement

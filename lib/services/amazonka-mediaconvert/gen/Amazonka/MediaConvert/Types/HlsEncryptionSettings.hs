@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.HlsEncryptionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.HlsEncryptionType
 import Amazonka.MediaConvert.Types.HlsInitializationVectorInManifest
 import Amazonka.MediaConvert.Types.HlsKeyProviderType
@@ -154,19 +155,19 @@ hlsEncryptionSettings_staticKeyProvider = Lens.lens (\HlsEncryptionSettings' {st
 hlsEncryptionSettings_offlineEncrypted :: Lens.Lens' HlsEncryptionSettings (Prelude.Maybe HlsOfflineEncrypted)
 hlsEncryptionSettings_offlineEncrypted = Lens.lens (\HlsEncryptionSettings' {offlineEncrypted} -> offlineEncrypted) (\s@HlsEncryptionSettings' {} a -> s {offlineEncrypted = a} :: HlsEncryptionSettings)
 
-instance Core.FromJSON HlsEncryptionSettings where
+instance Data.FromJSON HlsEncryptionSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsEncryptionSettings"
       ( \x ->
           HlsEncryptionSettings'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "initializationVectorInManifest")
-            Prelude.<*> (x Core..:? "spekeKeyProvider")
-            Prelude.<*> (x Core..:? "constantInitializationVector")
-            Prelude.<*> (x Core..:? "encryptionMethod")
-            Prelude.<*> (x Core..:? "staticKeyProvider")
-            Prelude.<*> (x Core..:? "offlineEncrypted")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "initializationVectorInManifest")
+            Prelude.<*> (x Data..:? "spekeKeyProvider")
+            Prelude.<*> (x Data..:? "constantInitializationVector")
+            Prelude.<*> (x Data..:? "encryptionMethod")
+            Prelude.<*> (x Data..:? "staticKeyProvider")
+            Prelude.<*> (x Data..:? "offlineEncrypted")
       )
 
 instance Prelude.Hashable HlsEncryptionSettings where
@@ -189,22 +190,22 @@ instance Prelude.NFData HlsEncryptionSettings where
       `Prelude.seq` Prelude.rnf staticKeyProvider
       `Prelude.seq` Prelude.rnf offlineEncrypted
 
-instance Core.ToJSON HlsEncryptionSettings where
+instance Data.ToJSON HlsEncryptionSettings where
   toJSON HlsEncryptionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("initializationVectorInManifest" Core..=)
+          [ ("type" Data..=) Prelude.<$> type',
+            ("initializationVectorInManifest" Data..=)
               Prelude.<$> initializationVectorInManifest,
-            ("spekeKeyProvider" Core..=)
+            ("spekeKeyProvider" Data..=)
               Prelude.<$> spekeKeyProvider,
-            ("constantInitializationVector" Core..=)
+            ("constantInitializationVector" Data..=)
               Prelude.<$> constantInitializationVector,
-            ("encryptionMethod" Core..=)
+            ("encryptionMethod" Data..=)
               Prelude.<$> encryptionMethod,
-            ("staticKeyProvider" Core..=)
+            ("staticKeyProvider" Data..=)
               Prelude.<$> staticKeyProvider,
-            ("offlineEncrypted" Core..=)
+            ("offlineEncrypted" Data..=)
               Prelude.<$> offlineEncrypted
           ]
       )

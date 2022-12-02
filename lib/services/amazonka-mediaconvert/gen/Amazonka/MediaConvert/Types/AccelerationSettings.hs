@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AccelerationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AccelerationMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,12 +58,12 @@ newAccelerationSettings pMode_ =
 accelerationSettings_mode :: Lens.Lens' AccelerationSettings AccelerationMode
 accelerationSettings_mode = Lens.lens (\AccelerationSettings' {mode} -> mode) (\s@AccelerationSettings' {} a -> s {mode = a} :: AccelerationSettings)
 
-instance Core.FromJSON AccelerationSettings where
+instance Data.FromJSON AccelerationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccelerationSettings"
       ( \x ->
-          AccelerationSettings' Prelude.<$> (x Core..: "mode")
+          AccelerationSettings' Prelude.<$> (x Data..: "mode")
       )
 
 instance Prelude.Hashable AccelerationSettings where
@@ -72,9 +73,9 @@ instance Prelude.Hashable AccelerationSettings where
 instance Prelude.NFData AccelerationSettings where
   rnf AccelerationSettings' {..} = Prelude.rnf mode
 
-instance Core.ToJSON AccelerationSettings where
+instance Data.ToJSON AccelerationSettings where
   toJSON AccelerationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("mode" Core..= mode)]
+          [Prelude.Just ("mode" Data..= mode)]
       )

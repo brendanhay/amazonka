@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,23 +90,23 @@ instance Prelude.Hashable DeletePreset where
 instance Prelude.NFData DeletePreset where
   rnf DeletePreset' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeletePreset where
+instance Data.ToHeaders DeletePreset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeletePreset where
+instance Data.ToPath DeletePreset where
   toPath DeletePreset' {..} =
     Prelude.mconcat
-      ["/2017-08-29/presets/", Core.toBS name]
+      ["/2017-08-29/presets/", Data.toBS name]
 
-instance Core.ToQuery DeletePreset where
+instance Data.ToQuery DeletePreset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePresetResponse' smart constructor.

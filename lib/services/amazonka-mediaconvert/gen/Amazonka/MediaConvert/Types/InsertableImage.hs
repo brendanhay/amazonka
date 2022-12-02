@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.InsertableImage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | These settings apply to a specific graphic overlay. You can include
@@ -219,23 +220,23 @@ insertableImage_fadeIn = Lens.lens (\InsertableImage' {fadeIn} -> fadeIn) (\s@In
 insertableImage_imageY :: Lens.Lens' InsertableImage (Prelude.Maybe Prelude.Natural)
 insertableImage_imageY = Lens.lens (\InsertableImage' {imageY} -> imageY) (\s@InsertableImage' {} a -> s {imageY = a} :: InsertableImage)
 
-instance Core.FromJSON InsertableImage where
+instance Data.FromJSON InsertableImage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InsertableImage"
       ( \x ->
           InsertableImage'
-            Prelude.<$> (x Core..:? "imageInserterInput")
-            Prelude.<*> (x Core..:? "fadeOut")
-            Prelude.<*> (x Core..:? "imageX")
-            Prelude.<*> (x Core..:? "width")
-            Prelude.<*> (x Core..:? "duration")
-            Prelude.<*> (x Core..:? "layer")
-            Prelude.<*> (x Core..:? "opacity")
-            Prelude.<*> (x Core..:? "height")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "fadeIn")
-            Prelude.<*> (x Core..:? "imageY")
+            Prelude.<$> (x Data..:? "imageInserterInput")
+            Prelude.<*> (x Data..:? "fadeOut")
+            Prelude.<*> (x Data..:? "imageX")
+            Prelude.<*> (x Data..:? "width")
+            Prelude.<*> (x Data..:? "duration")
+            Prelude.<*> (x Data..:? "layer")
+            Prelude.<*> (x Data..:? "opacity")
+            Prelude.<*> (x Data..:? "height")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "fadeIn")
+            Prelude.<*> (x Data..:? "imageY")
       )
 
 instance Prelude.Hashable InsertableImage where
@@ -266,21 +267,21 @@ instance Prelude.NFData InsertableImage where
       `Prelude.seq` Prelude.rnf fadeIn
       `Prelude.seq` Prelude.rnf imageY
 
-instance Core.ToJSON InsertableImage where
+instance Data.ToJSON InsertableImage where
   toJSON InsertableImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("imageInserterInput" Core..=)
+          [ ("imageInserterInput" Data..=)
               Prelude.<$> imageInserterInput,
-            ("fadeOut" Core..=) Prelude.<$> fadeOut,
-            ("imageX" Core..=) Prelude.<$> imageX,
-            ("width" Core..=) Prelude.<$> width,
-            ("duration" Core..=) Prelude.<$> duration,
-            ("layer" Core..=) Prelude.<$> layer,
-            ("opacity" Core..=) Prelude.<$> opacity,
-            ("height" Core..=) Prelude.<$> height,
-            ("startTime" Core..=) Prelude.<$> startTime,
-            ("fadeIn" Core..=) Prelude.<$> fadeIn,
-            ("imageY" Core..=) Prelude.<$> imageY
+            ("fadeOut" Data..=) Prelude.<$> fadeOut,
+            ("imageX" Data..=) Prelude.<$> imageX,
+            ("width" Data..=) Prelude.<$> width,
+            ("duration" Data..=) Prelude.<$> duration,
+            ("layer" Data..=) Prelude.<$> layer,
+            ("opacity" Data..=) Prelude.<$> opacity,
+            ("height" Data..=) Prelude.<$> height,
+            ("startTime" Data..=) Prelude.<$> startTime,
+            ("fadeIn" Data..=) Prelude.<$> fadeIn,
+            ("imageY" Data..=) Prelude.<$> imageY
           ]
       )

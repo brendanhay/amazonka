@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.PresetSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AudioDescription
 import Amazonka.MediaConvert.Types.CaptionDescriptionPreset
 import Amazonka.MediaConvert.Types.ContainerSettings
@@ -102,20 +103,20 @@ presetSettings_audioDescriptions = Lens.lens (\PresetSettings' {audioDescription
 presetSettings_videoDescription :: Lens.Lens' PresetSettings (Prelude.Maybe VideoDescription)
 presetSettings_videoDescription = Lens.lens (\PresetSettings' {videoDescription} -> videoDescription) (\s@PresetSettings' {} a -> s {videoDescription = a} :: PresetSettings)
 
-instance Core.FromJSON PresetSettings where
+instance Data.FromJSON PresetSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PresetSettings"
       ( \x ->
           PresetSettings'
-            Prelude.<$> (x Core..:? "containerSettings")
-            Prelude.<*> ( x Core..:? "captionDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "containerSettings")
+            Prelude.<*> ( x Data..:? "captionDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "audioDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "audioDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "videoDescription")
+            Prelude.<*> (x Data..:? "videoDescription")
       )
 
 instance Prelude.Hashable PresetSettings where
@@ -132,17 +133,17 @@ instance Prelude.NFData PresetSettings where
       `Prelude.seq` Prelude.rnf audioDescriptions
       `Prelude.seq` Prelude.rnf videoDescription
 
-instance Core.ToJSON PresetSettings where
+instance Data.ToJSON PresetSettings where
   toJSON PresetSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("containerSettings" Core..=)
+          [ ("containerSettings" Data..=)
               Prelude.<$> containerSettings,
-            ("captionDescriptions" Core..=)
+            ("captionDescriptions" Data..=)
               Prelude.<$> captionDescriptions,
-            ("audioDescriptions" Core..=)
+            ("audioDescriptions" Data..=)
               Prelude.<$> audioDescriptions,
-            ("videoDescription" Core..=)
+            ("videoDescription" Data..=)
               Prelude.<$> videoDescription
           ]
       )

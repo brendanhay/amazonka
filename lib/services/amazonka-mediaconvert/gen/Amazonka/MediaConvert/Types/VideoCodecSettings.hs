@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.VideoCodecSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.Av1Settings
 import Amazonka.MediaConvert.Types.AvcIntraSettings
 import Amazonka.MediaConvert.Types.FrameCaptureSettings
@@ -216,24 +217,24 @@ videoCodecSettings_h265Settings = Lens.lens (\VideoCodecSettings' {h265Settings}
 videoCodecSettings_frameCaptureSettings :: Lens.Lens' VideoCodecSettings (Prelude.Maybe FrameCaptureSettings)
 videoCodecSettings_frameCaptureSettings = Lens.lens (\VideoCodecSettings' {frameCaptureSettings} -> frameCaptureSettings) (\s@VideoCodecSettings' {} a -> s {frameCaptureSettings = a} :: VideoCodecSettings)
 
-instance Core.FromJSON VideoCodecSettings where
+instance Data.FromJSON VideoCodecSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoCodecSettings"
       ( \x ->
           VideoCodecSettings'
-            Prelude.<$> (x Core..:? "xavcSettings")
-            Prelude.<*> (x Core..:? "avcIntraSettings")
-            Prelude.<*> (x Core..:? "av1Settings")
-            Prelude.<*> (x Core..:? "mpeg2Settings")
-            Prelude.<*> (x Core..:? "vp9Settings")
-            Prelude.<*> (x Core..:? "h264Settings")
-            Prelude.<*> (x Core..:? "vc3Settings")
-            Prelude.<*> (x Core..:? "codec")
-            Prelude.<*> (x Core..:? "vp8Settings")
-            Prelude.<*> (x Core..:? "proresSettings")
-            Prelude.<*> (x Core..:? "h265Settings")
-            Prelude.<*> (x Core..:? "frameCaptureSettings")
+            Prelude.<$> (x Data..:? "xavcSettings")
+            Prelude.<*> (x Data..:? "avcIntraSettings")
+            Prelude.<*> (x Data..:? "av1Settings")
+            Prelude.<*> (x Data..:? "mpeg2Settings")
+            Prelude.<*> (x Data..:? "vp9Settings")
+            Prelude.<*> (x Data..:? "h264Settings")
+            Prelude.<*> (x Data..:? "vc3Settings")
+            Prelude.<*> (x Data..:? "codec")
+            Prelude.<*> (x Data..:? "vp8Settings")
+            Prelude.<*> (x Data..:? "proresSettings")
+            Prelude.<*> (x Data..:? "h265Settings")
+            Prelude.<*> (x Data..:? "frameCaptureSettings")
       )
 
 instance Prelude.Hashable VideoCodecSettings where
@@ -266,24 +267,24 @@ instance Prelude.NFData VideoCodecSettings where
       `Prelude.seq` Prelude.rnf h265Settings
       `Prelude.seq` Prelude.rnf frameCaptureSettings
 
-instance Core.ToJSON VideoCodecSettings where
+instance Data.ToJSON VideoCodecSettings where
   toJSON VideoCodecSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("xavcSettings" Core..=) Prelude.<$> xavcSettings,
-            ("avcIntraSettings" Core..=)
+          [ ("xavcSettings" Data..=) Prelude.<$> xavcSettings,
+            ("avcIntraSettings" Data..=)
               Prelude.<$> avcIntraSettings,
-            ("av1Settings" Core..=) Prelude.<$> av1Settings,
-            ("mpeg2Settings" Core..=) Prelude.<$> mpeg2Settings,
-            ("vp9Settings" Core..=) Prelude.<$> vp9Settings,
-            ("h264Settings" Core..=) Prelude.<$> h264Settings,
-            ("vc3Settings" Core..=) Prelude.<$> vc3Settings,
-            ("codec" Core..=) Prelude.<$> codec,
-            ("vp8Settings" Core..=) Prelude.<$> vp8Settings,
-            ("proresSettings" Core..=)
+            ("av1Settings" Data..=) Prelude.<$> av1Settings,
+            ("mpeg2Settings" Data..=) Prelude.<$> mpeg2Settings,
+            ("vp9Settings" Data..=) Prelude.<$> vp9Settings,
+            ("h264Settings" Data..=) Prelude.<$> h264Settings,
+            ("vc3Settings" Data..=) Prelude.<$> vc3Settings,
+            ("codec" Data..=) Prelude.<$> codec,
+            ("vp8Settings" Data..=) Prelude.<$> vp8Settings,
+            ("proresSettings" Data..=)
               Prelude.<$> proresSettings,
-            ("h265Settings" Core..=) Prelude.<$> h265Settings,
-            ("frameCaptureSettings" Core..=)
+            ("h265Settings" Data..=) Prelude.<$> h265Settings,
+            ("frameCaptureSettings" Data..=)
               Prelude.<$> frameCaptureSettings
           ]
       )

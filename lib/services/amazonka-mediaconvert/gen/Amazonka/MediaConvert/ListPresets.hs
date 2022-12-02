@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -166,8 +167,8 @@ instance Core.AWSRequest ListPresets where
     Response.receiveJSON
       ( \s h x ->
           ListPresetsResponse'
-            Prelude.<$> (x Core..?> "presets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "presets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,28 +188,28 @@ instance Prelude.NFData ListPresets where
       `Prelude.seq` Prelude.rnf category
       `Prelude.seq` Prelude.rnf order
 
-instance Core.ToHeaders ListPresets where
+instance Data.ToHeaders ListPresets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListPresets where
+instance Data.ToPath ListPresets where
   toPath = Prelude.const "/2017-08-29/presets"
 
-instance Core.ToQuery ListPresets where
+instance Data.ToQuery ListPresets where
   toQuery ListPresets' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "listBy" Core.=: listBy,
-        "maxResults" Core.=: maxResults,
-        "category" Core.=: category,
-        "order" Core.=: order
+      [ "nextToken" Data.=: nextToken,
+        "listBy" Data.=: listBy,
+        "maxResults" Data.=: maxResults,
+        "category" Data.=: category,
+        "order" Data.=: order
       ]
 
 -- | /See:/ 'newListPresetsResponse' smart constructor.

@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.MovMpeg2FourCCControl
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When set to XDCAM, writes MPEG2 video streams into the QuickTime file
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- Only applicable when the video codec is MPEG2.
 newtype MovMpeg2FourCCControl = MovMpeg2FourCCControl'
   { fromMovMpeg2FourCCControl ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype MovMpeg2FourCCControl = MovMpeg2FourCCControl'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern MovMpeg2FourCCControl_MPEG :: MovMpeg2FourCCControl

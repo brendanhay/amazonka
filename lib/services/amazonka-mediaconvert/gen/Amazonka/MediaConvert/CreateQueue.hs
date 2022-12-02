@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,7 +160,7 @@ instance Core.AWSRequest CreateQueue where
     Response.receiveJSON
       ( \s h x ->
           CreateQueueResponse'
-            Prelude.<$> (x Core..?> "queue")
+            Prelude.<$> (x Data..?> "queue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,35 +182,35 @@ instance Prelude.NFData CreateQueue where
       `Prelude.seq` Prelude.rnf reservationPlanSettings
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateQueue where
+instance Data.ToHeaders CreateQueue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateQueue where
+instance Data.ToJSON CreateQueue where
   toJSON CreateQueue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("status" Core..=) Prelude.<$> status,
-            ("description" Core..=) Prelude.<$> description,
-            ("pricingPlan" Core..=) Prelude.<$> pricingPlan,
-            ("reservationPlanSettings" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("status" Data..=) Prelude.<$> status,
+            ("description" Data..=) Prelude.<$> description,
+            ("pricingPlan" Data..=) Prelude.<$> pricingPlan,
+            ("reservationPlanSettings" Data..=)
               Prelude.<$> reservationPlanSettings,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateQueue where
+instance Data.ToPath CreateQueue where
   toPath = Prelude.const "/2017-08-29/queues"
 
-instance Core.ToQuery CreateQueue where
+instance Data.ToQuery CreateQueue where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateQueueResponse' smart constructor.

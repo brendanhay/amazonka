@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.DvbTdtSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use these settings to insert a DVB Time and Date Table (TDT) in the
@@ -57,13 +58,13 @@ newDvbTdtSettings =
 dvbTdtSettings_tdtInterval :: Lens.Lens' DvbTdtSettings (Prelude.Maybe Prelude.Natural)
 dvbTdtSettings_tdtInterval = Lens.lens (\DvbTdtSettings' {tdtInterval} -> tdtInterval) (\s@DvbTdtSettings' {} a -> s {tdtInterval = a} :: DvbTdtSettings)
 
-instance Core.FromJSON DvbTdtSettings where
+instance Data.FromJSON DvbTdtSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DvbTdtSettings"
       ( \x ->
           DvbTdtSettings'
-            Prelude.<$> (x Core..:? "tdtInterval")
+            Prelude.<$> (x Data..:? "tdtInterval")
       )
 
 instance Prelude.Hashable DvbTdtSettings where
@@ -73,9 +74,9 @@ instance Prelude.Hashable DvbTdtSettings where
 instance Prelude.NFData DvbTdtSettings where
   rnf DvbTdtSettings' {..} = Prelude.rnf tdtInterval
 
-instance Core.ToJSON DvbTdtSettings where
+instance Data.ToJSON DvbTdtSettings where
   toJSON DvbTdtSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("tdtInterval" Core..=) Prelude.<$> tdtInterval]
+          [("tdtInterval" Data..=) Prelude.<$> tdtInterval]
       )

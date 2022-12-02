@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.HlsKeyProviderType
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify whether your DRM encryption key is static or from a key provider
@@ -34,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 -- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.
 newtype HlsKeyProviderType = HlsKeyProviderType'
   { fromHlsKeyProviderType ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -46,18 +47,18 @@ newtype HlsKeyProviderType = HlsKeyProviderType'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern HlsKeyProviderType_SPEKE :: HlsKeyProviderType

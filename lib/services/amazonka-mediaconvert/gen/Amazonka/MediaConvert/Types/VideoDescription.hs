@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.VideoDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AfdSignaling
 import Amazonka.MediaConvert.Types.AntiAlias
 import Amazonka.MediaConvert.Types.ColorMetadata
@@ -377,27 +378,27 @@ videoDescription_height = Lens.lens (\VideoDescription' {height} -> height) (\s@
 videoDescription_position :: Lens.Lens' VideoDescription (Prelude.Maybe Rectangle)
 videoDescription_position = Lens.lens (\VideoDescription' {position} -> position) (\s@VideoDescription' {} a -> s {position = a} :: VideoDescription)
 
-instance Core.FromJSON VideoDescription where
+instance Data.FromJSON VideoDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoDescription"
       ( \x ->
           VideoDescription'
-            Prelude.<$> (x Core..:? "respondToAfd")
-            Prelude.<*> (x Core..:? "antiAlias")
-            Prelude.<*> (x Core..:? "afdSignaling")
-            Prelude.<*> (x Core..:? "videoPreprocessors")
-            Prelude.<*> (x Core..:? "fixedAfd")
-            Prelude.<*> (x Core..:? "sharpness")
-            Prelude.<*> (x Core..:? "codecSettings")
-            Prelude.<*> (x Core..:? "width")
-            Prelude.<*> (x Core..:? "scalingBehavior")
-            Prelude.<*> (x Core..:? "crop")
-            Prelude.<*> (x Core..:? "timecodeInsertion")
-            Prelude.<*> (x Core..:? "dropFrameTimecode")
-            Prelude.<*> (x Core..:? "colorMetadata")
-            Prelude.<*> (x Core..:? "height")
-            Prelude.<*> (x Core..:? "position")
+            Prelude.<$> (x Data..:? "respondToAfd")
+            Prelude.<*> (x Data..:? "antiAlias")
+            Prelude.<*> (x Data..:? "afdSignaling")
+            Prelude.<*> (x Data..:? "videoPreprocessors")
+            Prelude.<*> (x Data..:? "fixedAfd")
+            Prelude.<*> (x Data..:? "sharpness")
+            Prelude.<*> (x Data..:? "codecSettings")
+            Prelude.<*> (x Data..:? "width")
+            Prelude.<*> (x Data..:? "scalingBehavior")
+            Prelude.<*> (x Data..:? "crop")
+            Prelude.<*> (x Data..:? "timecodeInsertion")
+            Prelude.<*> (x Data..:? "dropFrameTimecode")
+            Prelude.<*> (x Data..:? "colorMetadata")
+            Prelude.<*> (x Data..:? "height")
+            Prelude.<*> (x Data..:? "position")
       )
 
 instance Prelude.Hashable VideoDescription where
@@ -436,28 +437,28 @@ instance Prelude.NFData VideoDescription where
       `Prelude.seq` Prelude.rnf height
       `Prelude.seq` Prelude.rnf position
 
-instance Core.ToJSON VideoDescription where
+instance Data.ToJSON VideoDescription where
   toJSON VideoDescription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("respondToAfd" Core..=) Prelude.<$> respondToAfd,
-            ("antiAlias" Core..=) Prelude.<$> antiAlias,
-            ("afdSignaling" Core..=) Prelude.<$> afdSignaling,
-            ("videoPreprocessors" Core..=)
+          [ ("respondToAfd" Data..=) Prelude.<$> respondToAfd,
+            ("antiAlias" Data..=) Prelude.<$> antiAlias,
+            ("afdSignaling" Data..=) Prelude.<$> afdSignaling,
+            ("videoPreprocessors" Data..=)
               Prelude.<$> videoPreprocessors,
-            ("fixedAfd" Core..=) Prelude.<$> fixedAfd,
-            ("sharpness" Core..=) Prelude.<$> sharpness,
-            ("codecSettings" Core..=) Prelude.<$> codecSettings,
-            ("width" Core..=) Prelude.<$> width,
-            ("scalingBehavior" Core..=)
+            ("fixedAfd" Data..=) Prelude.<$> fixedAfd,
+            ("sharpness" Data..=) Prelude.<$> sharpness,
+            ("codecSettings" Data..=) Prelude.<$> codecSettings,
+            ("width" Data..=) Prelude.<$> width,
+            ("scalingBehavior" Data..=)
               Prelude.<$> scalingBehavior,
-            ("crop" Core..=) Prelude.<$> crop,
-            ("timecodeInsertion" Core..=)
+            ("crop" Data..=) Prelude.<$> crop,
+            ("timecodeInsertion" Data..=)
               Prelude.<$> timecodeInsertion,
-            ("dropFrameTimecode" Core..=)
+            ("dropFrameTimecode" Data..=)
               Prelude.<$> dropFrameTimecode,
-            ("colorMetadata" Core..=) Prelude.<$> colorMetadata,
-            ("height" Core..=) Prelude.<$> height,
-            ("position" Core..=) Prelude.<$> position
+            ("colorMetadata" Data..=) Prelude.<$> colorMetadata,
+            ("height" Data..=) Prelude.<$> height,
+            ("position" Data..=) Prelude.<$> position
           ]
       )

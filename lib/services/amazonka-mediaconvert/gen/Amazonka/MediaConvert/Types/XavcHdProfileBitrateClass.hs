@@ -28,6 +28,7 @@ module Amazonka.MediaConvert.Types.XavcHdProfileBitrateClass
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the XAVC HD (Long GOP) Bitrate Class to set the bitrate of your
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- operating points that are valid for that class.
 newtype XavcHdProfileBitrateClass = XavcHdProfileBitrateClass'
   { fromXavcHdProfileBitrateClass ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype XavcHdProfileBitrateClass = XavcHdProfileBitrateClass'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern XavcHdProfileBitrateClass_BITRATE_CLASS_25 :: XavcHdProfileBitrateClass

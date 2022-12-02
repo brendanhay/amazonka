@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Policy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.InputPolicy
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,15 +74,15 @@ policy_httpInputs = Lens.lens (\Policy' {httpInputs} -> httpInputs) (\s@Policy' 
 policy_httpsInputs :: Lens.Lens' Policy (Prelude.Maybe InputPolicy)
 policy_httpsInputs = Lens.lens (\Policy' {httpsInputs} -> httpsInputs) (\s@Policy' {} a -> s {httpsInputs = a} :: Policy)
 
-instance Core.FromJSON Policy where
+instance Data.FromJSON Policy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Policy"
       ( \x ->
           Policy'
-            Prelude.<$> (x Core..:? "s3Inputs")
-            Prelude.<*> (x Core..:? "httpInputs")
-            Prelude.<*> (x Core..:? "httpsInputs")
+            Prelude.<$> (x Data..:? "s3Inputs")
+            Prelude.<*> (x Data..:? "httpInputs")
+            Prelude.<*> (x Data..:? "httpsInputs")
       )
 
 instance Prelude.Hashable Policy where
@@ -96,12 +97,12 @@ instance Prelude.NFData Policy where
       `Prelude.seq` Prelude.rnf httpInputs
       `Prelude.seq` Prelude.rnf httpsInputs
 
-instance Core.ToJSON Policy where
+instance Data.ToJSON Policy where
   toJSON Policy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3Inputs" Core..=) Prelude.<$> s3Inputs,
-            ("httpInputs" Core..=) Prelude.<$> httpInputs,
-            ("httpsInputs" Core..=) Prelude.<$> httpsInputs
+          [ ("s3Inputs" Data..=) Prelude.<$> s3Inputs,
+            ("httpInputs" Data..=) Prelude.<$> httpInputs,
+            ("httpsInputs" Data..=) Prelude.<$> httpsInputs
           ]
       )

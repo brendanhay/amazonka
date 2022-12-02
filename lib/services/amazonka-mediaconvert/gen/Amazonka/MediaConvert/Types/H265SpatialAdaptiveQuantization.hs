@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.H265SpatialAdaptiveQuantization
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Keep the default value, Enabled (ENABLED), to adjust quantization within
@@ -47,7 +48,7 @@ import qualified Amazonka.Prelude as Prelude
 -- with a wider variety of textures, set it to High or Higher.
 newtype H265SpatialAdaptiveQuantization = H265SpatialAdaptiveQuantization'
   { fromH265SpatialAdaptiveQuantization ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -59,18 +60,18 @@ newtype H265SpatialAdaptiveQuantization = H265SpatialAdaptiveQuantization'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern H265SpatialAdaptiveQuantization_DISABLED :: H265SpatialAdaptiveQuantization

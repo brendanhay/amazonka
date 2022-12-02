@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.JobSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AvailBlanking
 import Amazonka.MediaConvert.Types.EsamSettings
 import Amazonka.MediaConvert.Types.ExtendedDataServices
@@ -294,24 +295,24 @@ jobSettings_timecodeConfig = Lens.lens (\JobSettings' {timecodeConfig} -> timeco
 jobSettings_adAvailOffset :: Lens.Lens' JobSettings (Prelude.Maybe Prelude.Int)
 jobSettings_adAvailOffset = Lens.lens (\JobSettings' {adAvailOffset} -> adAvailOffset) (\s@JobSettings' {} a -> s {adAvailOffset = a} :: JobSettings)
 
-instance Core.FromJSON JobSettings where
+instance Data.FromJSON JobSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobSettings"
       ( \x ->
           JobSettings'
-            Prelude.<$> (x Core..:? "availBlanking")
-            Prelude.<*> (x Core..:? "esam")
-            Prelude.<*> (x Core..:? "nielsenNonLinearWatermark")
-            Prelude.<*> (x Core..:? "motionImageInserter")
-            Prelude.<*> (x Core..:? "nielsenConfiguration")
-            Prelude.<*> (x Core..:? "outputGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "timedMetadataInsertion")
-            Prelude.<*> (x Core..:? "extendedDataServices")
-            Prelude.<*> (x Core..:? "kantarWatermark")
-            Prelude.<*> (x Core..:? "inputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "timecodeConfig")
-            Prelude.<*> (x Core..:? "adAvailOffset")
+            Prelude.<$> (x Data..:? "availBlanking")
+            Prelude.<*> (x Data..:? "esam")
+            Prelude.<*> (x Data..:? "nielsenNonLinearWatermark")
+            Prelude.<*> (x Data..:? "motionImageInserter")
+            Prelude.<*> (x Data..:? "nielsenConfiguration")
+            Prelude.<*> (x Data..:? "outputGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "timedMetadataInsertion")
+            Prelude.<*> (x Data..:? "extendedDataServices")
+            Prelude.<*> (x Data..:? "kantarWatermark")
+            Prelude.<*> (x Data..:? "inputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "timecodeConfig")
+            Prelude.<*> (x Data..:? "adAvailOffset")
       )
 
 instance Prelude.Hashable JobSettings where
@@ -344,28 +345,28 @@ instance Prelude.NFData JobSettings where
       `Prelude.seq` Prelude.rnf timecodeConfig
       `Prelude.seq` Prelude.rnf adAvailOffset
 
-instance Core.ToJSON JobSettings where
+instance Data.ToJSON JobSettings where
   toJSON JobSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("availBlanking" Core..=) Prelude.<$> availBlanking,
-            ("esam" Core..=) Prelude.<$> esam,
-            ("nielsenNonLinearWatermark" Core..=)
+          [ ("availBlanking" Data..=) Prelude.<$> availBlanking,
+            ("esam" Data..=) Prelude.<$> esam,
+            ("nielsenNonLinearWatermark" Data..=)
               Prelude.<$> nielsenNonLinearWatermark,
-            ("motionImageInserter" Core..=)
+            ("motionImageInserter" Data..=)
               Prelude.<$> motionImageInserter,
-            ("nielsenConfiguration" Core..=)
+            ("nielsenConfiguration" Data..=)
               Prelude.<$> nielsenConfiguration,
-            ("outputGroups" Core..=) Prelude.<$> outputGroups,
-            ("timedMetadataInsertion" Core..=)
+            ("outputGroups" Data..=) Prelude.<$> outputGroups,
+            ("timedMetadataInsertion" Data..=)
               Prelude.<$> timedMetadataInsertion,
-            ("extendedDataServices" Core..=)
+            ("extendedDataServices" Data..=)
               Prelude.<$> extendedDataServices,
-            ("kantarWatermark" Core..=)
+            ("kantarWatermark" Data..=)
               Prelude.<$> kantarWatermark,
-            ("inputs" Core..=) Prelude.<$> inputs,
-            ("timecodeConfig" Core..=)
+            ("inputs" Data..=) Prelude.<$> inputs,
+            ("timecodeConfig" Data..=)
               Prelude.<$> timecodeConfig,
-            ("adAvailOffset" Core..=) Prelude.<$> adAvailOffset
+            ("adAvailOffset" Data..=) Prelude.<$> adAvailOffset
           ]
       )

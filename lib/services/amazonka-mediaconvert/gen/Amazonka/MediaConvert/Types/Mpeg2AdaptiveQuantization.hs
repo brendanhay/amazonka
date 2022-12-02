@@ -29,6 +29,7 @@ module Amazonka.MediaConvert.Types.Mpeg2AdaptiveQuantization
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the strength of any adaptive quantization filters that you
@@ -37,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 -- and Temporal adaptive quantization (temporalAdaptiveQuantization).
 newtype Mpeg2AdaptiveQuantization = Mpeg2AdaptiveQuantization'
   { fromMpeg2AdaptiveQuantization ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -49,18 +50,18 @@ newtype Mpeg2AdaptiveQuantization = Mpeg2AdaptiveQuantization'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern Mpeg2AdaptiveQuantization_HIGH :: Mpeg2AdaptiveQuantization

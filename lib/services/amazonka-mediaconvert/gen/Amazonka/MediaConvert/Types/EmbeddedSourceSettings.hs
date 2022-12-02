@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.EmbeddedSourceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.EmbeddedConvert608To708
 import Amazonka.MediaConvert.Types.EmbeddedTerminateCaptions
 import qualified Amazonka.Prelude as Prelude
@@ -109,16 +110,16 @@ embeddedSourceSettings_convert608To708 = Lens.lens (\EmbeddedSourceSettings' {co
 embeddedSourceSettings_terminateCaptions :: Lens.Lens' EmbeddedSourceSettings (Prelude.Maybe EmbeddedTerminateCaptions)
 embeddedSourceSettings_terminateCaptions = Lens.lens (\EmbeddedSourceSettings' {terminateCaptions} -> terminateCaptions) (\s@EmbeddedSourceSettings' {} a -> s {terminateCaptions = a} :: EmbeddedSourceSettings)
 
-instance Core.FromJSON EmbeddedSourceSettings where
+instance Data.FromJSON EmbeddedSourceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmbeddedSourceSettings"
       ( \x ->
           EmbeddedSourceSettings'
-            Prelude.<$> (x Core..:? "source608ChannelNumber")
-            Prelude.<*> (x Core..:? "source608TrackNumber")
-            Prelude.<*> (x Core..:? "convert608To708")
-            Prelude.<*> (x Core..:? "terminateCaptions")
+            Prelude.<$> (x Data..:? "source608ChannelNumber")
+            Prelude.<*> (x Data..:? "source608TrackNumber")
+            Prelude.<*> (x Data..:? "convert608To708")
+            Prelude.<*> (x Data..:? "terminateCaptions")
       )
 
 instance Prelude.Hashable EmbeddedSourceSettings where
@@ -135,17 +136,17 @@ instance Prelude.NFData EmbeddedSourceSettings where
       `Prelude.seq` Prelude.rnf convert608To708
       `Prelude.seq` Prelude.rnf terminateCaptions
 
-instance Core.ToJSON EmbeddedSourceSettings where
+instance Data.ToJSON EmbeddedSourceSettings where
   toJSON EmbeddedSourceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("source608ChannelNumber" Core..=)
+          [ ("source608ChannelNumber" Data..=)
               Prelude.<$> source608ChannelNumber,
-            ("source608TrackNumber" Core..=)
+            ("source608TrackNumber" Data..=)
               Prelude.<$> source608TrackNumber,
-            ("convert608To708" Core..=)
+            ("convert608To708" Data..=)
               Prelude.<$> convert608To708,
-            ("terminateCaptions" Core..=)
+            ("terminateCaptions" Data..=)
               Prelude.<$> terminateCaptions
           ]
       )

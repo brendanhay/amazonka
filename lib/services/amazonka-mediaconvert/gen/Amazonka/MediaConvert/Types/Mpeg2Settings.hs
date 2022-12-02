@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Mpeg2Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.Mpeg2AdaptiveQuantization
 import Amazonka.MediaConvert.Types.Mpeg2CodecLevel
 import Amazonka.MediaConvert.Types.Mpeg2CodecProfile
@@ -907,45 +908,45 @@ mpeg2Settings_gopSize = Lens.lens (\Mpeg2Settings' {gopSize} -> gopSize) (\s@Mpe
 mpeg2Settings_spatialAdaptiveQuantization :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2SpatialAdaptiveQuantization)
 mpeg2Settings_spatialAdaptiveQuantization = Lens.lens (\Mpeg2Settings' {spatialAdaptiveQuantization} -> spatialAdaptiveQuantization) (\s@Mpeg2Settings' {} a -> s {spatialAdaptiveQuantization = a} :: Mpeg2Settings)
 
-instance Core.FromJSON Mpeg2Settings where
+instance Data.FromJSON Mpeg2Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Mpeg2Settings"
       ( \x ->
           Mpeg2Settings'
-            Prelude.<$> (x Core..:? "parNumerator")
-            Prelude.<*> (x Core..:? "gopSizeUnits")
-            Prelude.<*> (x Core..:? "telecine")
-            Prelude.<*> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "dynamicSubGop")
-            Prelude.<*> (x Core..:? "scanTypeConversionMode")
-            Prelude.<*> (x Core..:? "hrdBufferSize")
-            Prelude.<*> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "sceneChangeDetect")
-            Prelude.<*> (x Core..:? "framerateControl")
-            Prelude.<*> (x Core..:? "parControl")
-            Prelude.<*> (x Core..:? "qualityTuningLevel")
-            Prelude.<*> (x Core..:? "maxBitrate")
-            Prelude.<*> (x Core..:? "framerateNumerator")
-            Prelude.<*> (x Core..:? "codecProfile")
-            Prelude.<*> (x Core..:? "syntax")
-            Prelude.<*> (x Core..:? "temporalAdaptiveQuantization")
-            Prelude.<*> (x Core..:? "hrdBufferFinalFillPercentage")
-            Prelude.<*> (x Core..:? "hrdBufferInitialFillPercentage")
-            Prelude.<*> (x Core..:? "gopClosedCadence")
-            Prelude.<*> (x Core..:? "slowPal")
-            Prelude.<*> (x Core..:? "interlaceMode")
-            Prelude.<*> (x Core..:? "parDenominator")
-            Prelude.<*> (x Core..:? "softness")
-            Prelude.<*> (x Core..:? "rateControlMode")
-            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
-            Prelude.<*> (x Core..:? "numberBFramesBetweenReferenceFrames")
-            Prelude.<*> (x Core..:? "intraDcPrecision")
-            Prelude.<*> (x Core..:? "codecLevel")
-            Prelude.<*> (x Core..:? "adaptiveQuantization")
-            Prelude.<*> (x Core..:? "minIInterval")
-            Prelude.<*> (x Core..:? "gopSize")
-            Prelude.<*> (x Core..:? "spatialAdaptiveQuantization")
+            Prelude.<$> (x Data..:? "parNumerator")
+            Prelude.<*> (x Data..:? "gopSizeUnits")
+            Prelude.<*> (x Data..:? "telecine")
+            Prelude.<*> (x Data..:? "framerateDenominator")
+            Prelude.<*> (x Data..:? "dynamicSubGop")
+            Prelude.<*> (x Data..:? "scanTypeConversionMode")
+            Prelude.<*> (x Data..:? "hrdBufferSize")
+            Prelude.<*> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "sceneChangeDetect")
+            Prelude.<*> (x Data..:? "framerateControl")
+            Prelude.<*> (x Data..:? "parControl")
+            Prelude.<*> (x Data..:? "qualityTuningLevel")
+            Prelude.<*> (x Data..:? "maxBitrate")
+            Prelude.<*> (x Data..:? "framerateNumerator")
+            Prelude.<*> (x Data..:? "codecProfile")
+            Prelude.<*> (x Data..:? "syntax")
+            Prelude.<*> (x Data..:? "temporalAdaptiveQuantization")
+            Prelude.<*> (x Data..:? "hrdBufferFinalFillPercentage")
+            Prelude.<*> (x Data..:? "hrdBufferInitialFillPercentage")
+            Prelude.<*> (x Data..:? "gopClosedCadence")
+            Prelude.<*> (x Data..:? "slowPal")
+            Prelude.<*> (x Data..:? "interlaceMode")
+            Prelude.<*> (x Data..:? "parDenominator")
+            Prelude.<*> (x Data..:? "softness")
+            Prelude.<*> (x Data..:? "rateControlMode")
+            Prelude.<*> (x Data..:? "framerateConversionAlgorithm")
+            Prelude.<*> (x Data..:? "numberBFramesBetweenReferenceFrames")
+            Prelude.<*> (x Data..:? "intraDcPrecision")
+            Prelude.<*> (x Data..:? "codecLevel")
+            Prelude.<*> (x Data..:? "adaptiveQuantization")
+            Prelude.<*> (x Data..:? "minIInterval")
+            Prelude.<*> (x Data..:? "gopSize")
+            Prelude.<*> (x Data..:? "spatialAdaptiveQuantization")
       )
 
 instance Prelude.Hashable Mpeg2Settings where
@@ -1033,59 +1034,59 @@ instance Prelude.NFData Mpeg2Settings where
       `Prelude.seq` Prelude.rnf
         spatialAdaptiveQuantization
 
-instance Core.ToJSON Mpeg2Settings where
+instance Data.ToJSON Mpeg2Settings where
   toJSON Mpeg2Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("parNumerator" Core..=) Prelude.<$> parNumerator,
-            ("gopSizeUnits" Core..=) Prelude.<$> gopSizeUnits,
-            ("telecine" Core..=) Prelude.<$> telecine,
-            ("framerateDenominator" Core..=)
+          [ ("parNumerator" Data..=) Prelude.<$> parNumerator,
+            ("gopSizeUnits" Data..=) Prelude.<$> gopSizeUnits,
+            ("telecine" Data..=) Prelude.<$> telecine,
+            ("framerateDenominator" Data..=)
               Prelude.<$> framerateDenominator,
-            ("dynamicSubGop" Core..=) Prelude.<$> dynamicSubGop,
-            ("scanTypeConversionMode" Core..=)
+            ("dynamicSubGop" Data..=) Prelude.<$> dynamicSubGop,
+            ("scanTypeConversionMode" Data..=)
               Prelude.<$> scanTypeConversionMode,
-            ("hrdBufferSize" Core..=) Prelude.<$> hrdBufferSize,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("sceneChangeDetect" Core..=)
+            ("hrdBufferSize" Data..=) Prelude.<$> hrdBufferSize,
+            ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("sceneChangeDetect" Data..=)
               Prelude.<$> sceneChangeDetect,
-            ("framerateControl" Core..=)
+            ("framerateControl" Data..=)
               Prelude.<$> framerateControl,
-            ("parControl" Core..=) Prelude.<$> parControl,
-            ("qualityTuningLevel" Core..=)
+            ("parControl" Data..=) Prelude.<$> parControl,
+            ("qualityTuningLevel" Data..=)
               Prelude.<$> qualityTuningLevel,
-            ("maxBitrate" Core..=) Prelude.<$> maxBitrate,
-            ("framerateNumerator" Core..=)
+            ("maxBitrate" Data..=) Prelude.<$> maxBitrate,
+            ("framerateNumerator" Data..=)
               Prelude.<$> framerateNumerator,
-            ("codecProfile" Core..=) Prelude.<$> codecProfile,
-            ("syntax" Core..=) Prelude.<$> syntax,
-            ("temporalAdaptiveQuantization" Core..=)
+            ("codecProfile" Data..=) Prelude.<$> codecProfile,
+            ("syntax" Data..=) Prelude.<$> syntax,
+            ("temporalAdaptiveQuantization" Data..=)
               Prelude.<$> temporalAdaptiveQuantization,
-            ("hrdBufferFinalFillPercentage" Core..=)
+            ("hrdBufferFinalFillPercentage" Data..=)
               Prelude.<$> hrdBufferFinalFillPercentage,
-            ("hrdBufferInitialFillPercentage" Core..=)
+            ("hrdBufferInitialFillPercentage" Data..=)
               Prelude.<$> hrdBufferInitialFillPercentage,
-            ("gopClosedCadence" Core..=)
+            ("gopClosedCadence" Data..=)
               Prelude.<$> gopClosedCadence,
-            ("slowPal" Core..=) Prelude.<$> slowPal,
-            ("interlaceMode" Core..=) Prelude.<$> interlaceMode,
-            ("parDenominator" Core..=)
+            ("slowPal" Data..=) Prelude.<$> slowPal,
+            ("interlaceMode" Data..=) Prelude.<$> interlaceMode,
+            ("parDenominator" Data..=)
               Prelude.<$> parDenominator,
-            ("softness" Core..=) Prelude.<$> softness,
-            ("rateControlMode" Core..=)
+            ("softness" Data..=) Prelude.<$> softness,
+            ("rateControlMode" Data..=)
               Prelude.<$> rateControlMode,
-            ("framerateConversionAlgorithm" Core..=)
+            ("framerateConversionAlgorithm" Data..=)
               Prelude.<$> framerateConversionAlgorithm,
-            ("numberBFramesBetweenReferenceFrames" Core..=)
+            ("numberBFramesBetweenReferenceFrames" Data..=)
               Prelude.<$> numberBFramesBetweenReferenceFrames,
-            ("intraDcPrecision" Core..=)
+            ("intraDcPrecision" Data..=)
               Prelude.<$> intraDcPrecision,
-            ("codecLevel" Core..=) Prelude.<$> codecLevel,
-            ("adaptiveQuantization" Core..=)
+            ("codecLevel" Data..=) Prelude.<$> codecLevel,
+            ("adaptiveQuantization" Data..=)
               Prelude.<$> adaptiveQuantization,
-            ("minIInterval" Core..=) Prelude.<$> minIInterval,
-            ("gopSize" Core..=) Prelude.<$> gopSize,
-            ("spatialAdaptiveQuantization" Core..=)
+            ("minIInterval" Data..=) Prelude.<$> minIInterval,
+            ("gopSize" Data..=) Prelude.<$> gopSize,
+            ("spatialAdaptiveQuantization" Data..=)
               Prelude.<$> spatialAdaptiveQuantization
           ]
       )

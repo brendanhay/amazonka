@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.KantarWatermarkSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use these settings only when you use Kantar watermarking. Specify the
@@ -241,25 +242,25 @@ kantarWatermarkSettings_metadata6 = Lens.lens (\KantarWatermarkSettings' {metada
 kantarWatermarkSettings_credentialsSecretName :: Lens.Lens' KantarWatermarkSettings (Prelude.Maybe Prelude.Text)
 kantarWatermarkSettings_credentialsSecretName = Lens.lens (\KantarWatermarkSettings' {credentialsSecretName} -> credentialsSecretName) (\s@KantarWatermarkSettings' {} a -> s {credentialsSecretName = a} :: KantarWatermarkSettings)
 
-instance Core.FromJSON KantarWatermarkSettings where
+instance Data.FromJSON KantarWatermarkSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KantarWatermarkSettings"
       ( \x ->
           KantarWatermarkSettings'
-            Prelude.<$> (x Core..:? "metadata4")
-            Prelude.<*> (x Core..:? "contentReference")
-            Prelude.<*> (x Core..:? "channelName")
-            Prelude.<*> (x Core..:? "metadata7")
-            Prelude.<*> (x Core..:? "metadata5")
-            Prelude.<*> (x Core..:? "logDestination")
-            Prelude.<*> (x Core..:? "metadata3")
-            Prelude.<*> (x Core..:? "fileOffset")
-            Prelude.<*> (x Core..:? "metadata8")
-            Prelude.<*> (x Core..:? "kantarLicenseId")
-            Prelude.<*> (x Core..:? "kantarServerUrl")
-            Prelude.<*> (x Core..:? "metadata6")
-            Prelude.<*> (x Core..:? "credentialsSecretName")
+            Prelude.<$> (x Data..:? "metadata4")
+            Prelude.<*> (x Data..:? "contentReference")
+            Prelude.<*> (x Data..:? "channelName")
+            Prelude.<*> (x Data..:? "metadata7")
+            Prelude.<*> (x Data..:? "metadata5")
+            Prelude.<*> (x Data..:? "logDestination")
+            Prelude.<*> (x Data..:? "metadata3")
+            Prelude.<*> (x Data..:? "fileOffset")
+            Prelude.<*> (x Data..:? "metadata8")
+            Prelude.<*> (x Data..:? "kantarLicenseId")
+            Prelude.<*> (x Data..:? "kantarServerUrl")
+            Prelude.<*> (x Data..:? "metadata6")
+            Prelude.<*> (x Data..:? "credentialsSecretName")
       )
 
 instance Prelude.Hashable KantarWatermarkSettings where
@@ -294,27 +295,27 @@ instance Prelude.NFData KantarWatermarkSettings where
       `Prelude.seq` Prelude.rnf metadata6
       `Prelude.seq` Prelude.rnf credentialsSecretName
 
-instance Core.ToJSON KantarWatermarkSettings where
+instance Data.ToJSON KantarWatermarkSettings where
   toJSON KantarWatermarkSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("metadata4" Core..=) Prelude.<$> metadata4,
-            ("contentReference" Core..=)
+          [ ("metadata4" Data..=) Prelude.<$> metadata4,
+            ("contentReference" Data..=)
               Prelude.<$> contentReference,
-            ("channelName" Core..=) Prelude.<$> channelName,
-            ("metadata7" Core..=) Prelude.<$> metadata7,
-            ("metadata5" Core..=) Prelude.<$> metadata5,
-            ("logDestination" Core..=)
+            ("channelName" Data..=) Prelude.<$> channelName,
+            ("metadata7" Data..=) Prelude.<$> metadata7,
+            ("metadata5" Data..=) Prelude.<$> metadata5,
+            ("logDestination" Data..=)
               Prelude.<$> logDestination,
-            ("metadata3" Core..=) Prelude.<$> metadata3,
-            ("fileOffset" Core..=) Prelude.<$> fileOffset,
-            ("metadata8" Core..=) Prelude.<$> metadata8,
-            ("kantarLicenseId" Core..=)
+            ("metadata3" Data..=) Prelude.<$> metadata3,
+            ("fileOffset" Data..=) Prelude.<$> fileOffset,
+            ("metadata8" Data..=) Prelude.<$> metadata8,
+            ("kantarLicenseId" Data..=)
               Prelude.<$> kantarLicenseId,
-            ("kantarServerUrl" Core..=)
+            ("kantarServerUrl" Data..=)
               Prelude.<$> kantarServerUrl,
-            ("metadata6" Core..=) Prelude.<$> metadata6,
-            ("credentialsSecretName" Core..=)
+            ("metadata6" Data..=) Prelude.<$> metadata6,
+            ("credentialsSecretName" Data..=)
               Prelude.<$> credentialsSecretName
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.DashIsoEncryptionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
 import Amazonka.MediaConvert.Types.SpekeKeyProvider
 import qualified Amazonka.Prelude as Prelude
@@ -91,14 +92,14 @@ dashIsoEncryptionSettings_playbackDeviceCompatibility = Lens.lens (\DashIsoEncry
 dashIsoEncryptionSettings_spekeKeyProvider :: Lens.Lens' DashIsoEncryptionSettings (Prelude.Maybe SpekeKeyProvider)
 dashIsoEncryptionSettings_spekeKeyProvider = Lens.lens (\DashIsoEncryptionSettings' {spekeKeyProvider} -> spekeKeyProvider) (\s@DashIsoEncryptionSettings' {} a -> s {spekeKeyProvider = a} :: DashIsoEncryptionSettings)
 
-instance Core.FromJSON DashIsoEncryptionSettings where
+instance Data.FromJSON DashIsoEncryptionSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashIsoEncryptionSettings"
       ( \x ->
           DashIsoEncryptionSettings'
-            Prelude.<$> (x Core..:? "playbackDeviceCompatibility")
-            Prelude.<*> (x Core..:? "spekeKeyProvider")
+            Prelude.<$> (x Data..:? "playbackDeviceCompatibility")
+            Prelude.<*> (x Data..:? "spekeKeyProvider")
       )
 
 instance Prelude.Hashable DashIsoEncryptionSettings where
@@ -112,13 +113,13 @@ instance Prelude.NFData DashIsoEncryptionSettings where
     Prelude.rnf playbackDeviceCompatibility
       `Prelude.seq` Prelude.rnf spekeKeyProvider
 
-instance Core.ToJSON DashIsoEncryptionSettings where
+instance Data.ToJSON DashIsoEncryptionSettings where
   toJSON DashIsoEncryptionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("playbackDeviceCompatibility" Core..=)
+          [ ("playbackDeviceCompatibility" Data..=)
               Prelude.<$> playbackDeviceCompatibility,
-            ("spekeKeyProvider" Core..=)
+            ("spekeKeyProvider" Data..=)
               Prelude.<$> spekeKeyProvider
           ]
       )

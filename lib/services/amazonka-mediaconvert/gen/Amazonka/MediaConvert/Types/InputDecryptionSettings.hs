@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.InputDecryptionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.DecryptionMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -114,16 +115,16 @@ inputDecryptionSettings_decryptionMode = Lens.lens (\InputDecryptionSettings' {d
 inputDecryptionSettings_kmsKeyRegion :: Lens.Lens' InputDecryptionSettings (Prelude.Maybe Prelude.Text)
 inputDecryptionSettings_kmsKeyRegion = Lens.lens (\InputDecryptionSettings' {kmsKeyRegion} -> kmsKeyRegion) (\s@InputDecryptionSettings' {} a -> s {kmsKeyRegion = a} :: InputDecryptionSettings)
 
-instance Core.FromJSON InputDecryptionSettings where
+instance Data.FromJSON InputDecryptionSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDecryptionSettings"
       ( \x ->
           InputDecryptionSettings'
-            Prelude.<$> (x Core..:? "initializationVector")
-            Prelude.<*> (x Core..:? "encryptedDecryptionKey")
-            Prelude.<*> (x Core..:? "decryptionMode")
-            Prelude.<*> (x Core..:? "kmsKeyRegion")
+            Prelude.<$> (x Data..:? "initializationVector")
+            Prelude.<*> (x Data..:? "encryptedDecryptionKey")
+            Prelude.<*> (x Data..:? "decryptionMode")
+            Prelude.<*> (x Data..:? "kmsKeyRegion")
       )
 
 instance Prelude.Hashable InputDecryptionSettings where
@@ -140,16 +141,16 @@ instance Prelude.NFData InputDecryptionSettings where
       `Prelude.seq` Prelude.rnf decryptionMode
       `Prelude.seq` Prelude.rnf kmsKeyRegion
 
-instance Core.ToJSON InputDecryptionSettings where
+instance Data.ToJSON InputDecryptionSettings where
   toJSON InputDecryptionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("initializationVector" Core..=)
+          [ ("initializationVector" Data..=)
               Prelude.<$> initializationVector,
-            ("encryptedDecryptionKey" Core..=)
+            ("encryptedDecryptionKey" Data..=)
               Prelude.<$> encryptedDecryptionKey,
-            ("decryptionMode" Core..=)
+            ("decryptionMode" Data..=)
               Prelude.<$> decryptionMode,
-            ("kmsKeyRegion" Core..=) Prelude.<$> kmsKeyRegion
+            ("kmsKeyRegion" Data..=) Prelude.<$> kmsKeyRegion
           ]
       )

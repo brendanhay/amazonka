@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.Eac3AtmosDownmixControl
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify whether MediaConvert should use any downmix metadata from your
@@ -42,7 +43,7 @@ import qualified Amazonka.Prelude as Prelude
 -- related settings, MediaConvert uses default values for those settings.
 newtype Eac3AtmosDownmixControl = Eac3AtmosDownmixControl'
   { fromEac3AtmosDownmixControl ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -54,18 +55,18 @@ newtype Eac3AtmosDownmixControl = Eac3AtmosDownmixControl'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern Eac3AtmosDownmixControl_INITIALIZE_FROM_SOURCE :: Eac3AtmosDownmixControl

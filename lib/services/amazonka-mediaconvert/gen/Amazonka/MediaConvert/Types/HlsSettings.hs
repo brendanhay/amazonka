@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.HlsSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.HlsAudioOnlyContainer
 import Amazonka.MediaConvert.Types.HlsAudioTrackType
 import Amazonka.MediaConvert.Types.HlsDescriptiveVideoServiceFlag
@@ -216,19 +217,19 @@ hlsSettings_segmentModifier = Lens.lens (\HlsSettings' {segmentModifier} -> segm
 hlsSettings_audioGroupId :: Lens.Lens' HlsSettings (Prelude.Maybe Prelude.Text)
 hlsSettings_audioGroupId = Lens.lens (\HlsSettings' {audioGroupId} -> audioGroupId) (\s@HlsSettings' {} a -> s {audioGroupId = a} :: HlsSettings)
 
-instance Core.FromJSON HlsSettings where
+instance Data.FromJSON HlsSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsSettings"
       ( \x ->
           HlsSettings'
-            Prelude.<$> (x Core..:? "descriptiveVideoServiceFlag")
-            Prelude.<*> (x Core..:? "audioTrackType")
-            Prelude.<*> (x Core..:? "iFrameOnlyManifest")
-            Prelude.<*> (x Core..:? "audioRenditionSets")
-            Prelude.<*> (x Core..:? "audioOnlyContainer")
-            Prelude.<*> (x Core..:? "segmentModifier")
-            Prelude.<*> (x Core..:? "audioGroupId")
+            Prelude.<$> (x Data..:? "descriptiveVideoServiceFlag")
+            Prelude.<*> (x Data..:? "audioTrackType")
+            Prelude.<*> (x Data..:? "iFrameOnlyManifest")
+            Prelude.<*> (x Data..:? "audioRenditionSets")
+            Prelude.<*> (x Data..:? "audioOnlyContainer")
+            Prelude.<*> (x Data..:? "segmentModifier")
+            Prelude.<*> (x Data..:? "audioGroupId")
       )
 
 instance Prelude.Hashable HlsSettings where
@@ -252,22 +253,22 @@ instance Prelude.NFData HlsSettings where
       `Prelude.seq` Prelude.rnf segmentModifier
       `Prelude.seq` Prelude.rnf audioGroupId
 
-instance Core.ToJSON HlsSettings where
+instance Data.ToJSON HlsSettings where
   toJSON HlsSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("descriptiveVideoServiceFlag" Core..=)
+          [ ("descriptiveVideoServiceFlag" Data..=)
               Prelude.<$> descriptiveVideoServiceFlag,
-            ("audioTrackType" Core..=)
+            ("audioTrackType" Data..=)
               Prelude.<$> audioTrackType,
-            ("iFrameOnlyManifest" Core..=)
+            ("iFrameOnlyManifest" Data..=)
               Prelude.<$> iFrameOnlyManifest,
-            ("audioRenditionSets" Core..=)
+            ("audioRenditionSets" Data..=)
               Prelude.<$> audioRenditionSets,
-            ("audioOnlyContainer" Core..=)
+            ("audioOnlyContainer" Data..=)
               Prelude.<$> audioOnlyContainer,
-            ("segmentModifier" Core..=)
+            ("segmentModifier" Data..=)
               Prelude.<$> segmentModifier,
-            ("audioGroupId" Core..=) Prelude.<$> audioGroupId
+            ("audioGroupId" Data..=) Prelude.<$> audioGroupId
           ]
       )

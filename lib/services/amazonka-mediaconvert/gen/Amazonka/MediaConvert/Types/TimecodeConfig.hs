@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.TimecodeConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.TimecodeSource
 import qualified Amazonka.Prelude as Prelude
 
@@ -177,16 +178,16 @@ timecodeConfig_source = Lens.lens (\TimecodeConfig' {source} -> source) (\s@Time
 timecodeConfig_anchor :: Lens.Lens' TimecodeConfig (Prelude.Maybe Prelude.Text)
 timecodeConfig_anchor = Lens.lens (\TimecodeConfig' {anchor} -> anchor) (\s@TimecodeConfig' {} a -> s {anchor = a} :: TimecodeConfig)
 
-instance Core.FromJSON TimecodeConfig where
+instance Data.FromJSON TimecodeConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimecodeConfig"
       ( \x ->
           TimecodeConfig'
-            Prelude.<$> (x Core..:? "timestampOffset")
-            Prelude.<*> (x Core..:? "start")
-            Prelude.<*> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "anchor")
+            Prelude.<$> (x Data..:? "timestampOffset")
+            Prelude.<*> (x Data..:? "start")
+            Prelude.<*> (x Data..:? "source")
+            Prelude.<*> (x Data..:? "anchor")
       )
 
 instance Prelude.Hashable TimecodeConfig where
@@ -203,14 +204,14 @@ instance Prelude.NFData TimecodeConfig where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf anchor
 
-instance Core.ToJSON TimecodeConfig where
+instance Data.ToJSON TimecodeConfig where
   toJSON TimecodeConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timestampOffset" Core..=)
+          [ ("timestampOffset" Data..=)
               Prelude.<$> timestampOffset,
-            ("start" Core..=) Prelude.<$> start,
-            ("source" Core..=) Prelude.<$> source,
-            ("anchor" Core..=) Prelude.<$> anchor
+            ("start" Data..=) Prelude.<$> start,
+            ("source" Data..=) Prelude.<$> source,
+            ("anchor" Data..=) Prelude.<$> anchor
           ]
       )

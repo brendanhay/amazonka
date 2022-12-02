@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.ImscAccessibilitySubs
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions
@@ -40,7 +41,7 @@ import qualified Amazonka.Prelude as Prelude
 -- MediaConvert will not add the above attributes.
 newtype ImscAccessibilitySubs = ImscAccessibilitySubs'
   { fromImscAccessibilitySubs ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -52,18 +53,18 @@ newtype ImscAccessibilitySubs = ImscAccessibilitySubs'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern ImscAccessibilitySubs_DISABLED :: ImscAccessibilitySubs

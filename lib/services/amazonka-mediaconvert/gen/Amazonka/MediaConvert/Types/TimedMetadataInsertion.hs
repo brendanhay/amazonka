@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.TimedMetadataInsertion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.Id3Insertion
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newTimedMetadataInsertion =
 timedMetadataInsertion_id3Insertions :: Lens.Lens' TimedMetadataInsertion (Prelude.Maybe [Id3Insertion])
 timedMetadataInsertion_id3Insertions = Lens.lens (\TimedMetadataInsertion' {id3Insertions} -> id3Insertions) (\s@TimedMetadataInsertion' {} a -> s {id3Insertions = a} :: TimedMetadataInsertion) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TimedMetadataInsertion where
+instance Data.FromJSON TimedMetadataInsertion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimedMetadataInsertion"
       ( \x ->
           TimedMetadataInsertion'
-            Prelude.<$> (x Core..:? "id3Insertions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "id3Insertions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TimedMetadataInsertion where
@@ -73,11 +74,11 @@ instance Prelude.NFData TimedMetadataInsertion where
   rnf TimedMetadataInsertion' {..} =
     Prelude.rnf id3Insertions
 
-instance Core.ToJSON TimedMetadataInsertion where
+instance Data.ToJSON TimedMetadataInsertion where
   toJSON TimedMetadataInsertion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("id3Insertions" Core..=)
+          [ ("id3Insertions" Data..=)
               Prelude.<$> id3Insertions
           ]
       )

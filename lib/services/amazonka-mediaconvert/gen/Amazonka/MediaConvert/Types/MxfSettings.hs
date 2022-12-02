@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.MxfSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.MxfAfdSignaling
 import Amazonka.MediaConvert.Types.MxfProfile
 import Amazonka.MediaConvert.Types.MxfXavcProfileSettings
@@ -115,15 +116,15 @@ mxfSettings_profile = Lens.lens (\MxfSettings' {profile} -> profile) (\s@MxfSett
 mxfSettings_xavcProfileSettings :: Lens.Lens' MxfSettings (Prelude.Maybe MxfXavcProfileSettings)
 mxfSettings_xavcProfileSettings = Lens.lens (\MxfSettings' {xavcProfileSettings} -> xavcProfileSettings) (\s@MxfSettings' {} a -> s {xavcProfileSettings = a} :: MxfSettings)
 
-instance Core.FromJSON MxfSettings where
+instance Data.FromJSON MxfSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MxfSettings"
       ( \x ->
           MxfSettings'
-            Prelude.<$> (x Core..:? "afdSignaling")
-            Prelude.<*> (x Core..:? "profile")
-            Prelude.<*> (x Core..:? "xavcProfileSettings")
+            Prelude.<$> (x Data..:? "afdSignaling")
+            Prelude.<*> (x Data..:? "profile")
+            Prelude.<*> (x Data..:? "xavcProfileSettings")
       )
 
 instance Prelude.Hashable MxfSettings where
@@ -138,13 +139,13 @@ instance Prelude.NFData MxfSettings where
       `Prelude.seq` Prelude.rnf profile
       `Prelude.seq` Prelude.rnf xavcProfileSettings
 
-instance Core.ToJSON MxfSettings where
+instance Data.ToJSON MxfSettings where
   toJSON MxfSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("afdSignaling" Core..=) Prelude.<$> afdSignaling,
-            ("profile" Core..=) Prelude.<$> profile,
-            ("xavcProfileSettings" Core..=)
+          [ ("afdSignaling" Data..=) Prelude.<$> afdSignaling,
+            ("profile" Data..=) Prelude.<$> profile,
+            ("xavcProfileSettings" Data..=)
               Prelude.<$> xavcProfileSettings
           ]
       )

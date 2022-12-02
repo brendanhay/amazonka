@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.M2tsScte35Esam where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for SCTE-35 signals from ESAM. Include this in your job
@@ -56,13 +57,13 @@ newM2tsScte35Esam =
 m2tsScte35Esam_scte35EsamPid :: Lens.Lens' M2tsScte35Esam (Prelude.Maybe Prelude.Natural)
 m2tsScte35Esam_scte35EsamPid = Lens.lens (\M2tsScte35Esam' {scte35EsamPid} -> scte35EsamPid) (\s@M2tsScte35Esam' {} a -> s {scte35EsamPid = a} :: M2tsScte35Esam)
 
-instance Core.FromJSON M2tsScte35Esam where
+instance Data.FromJSON M2tsScte35Esam where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "M2tsScte35Esam"
       ( \x ->
           M2tsScte35Esam'
-            Prelude.<$> (x Core..:? "scte35EsamPid")
+            Prelude.<$> (x Data..:? "scte35EsamPid")
       )
 
 instance Prelude.Hashable M2tsScte35Esam where
@@ -72,11 +73,11 @@ instance Prelude.Hashable M2tsScte35Esam where
 instance Prelude.NFData M2tsScte35Esam where
   rnf M2tsScte35Esam' {..} = Prelude.rnf scte35EsamPid
 
-instance Core.ToJSON M2tsScte35Esam where
+instance Data.ToJSON M2tsScte35Esam where
   toJSON M2tsScte35Esam' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("scte35EsamPid" Core..=)
+          [ ("scte35EsamPid" Data..=)
               Prelude.<$> scte35EsamPid
           ]
       )

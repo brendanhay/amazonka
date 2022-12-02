@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.DashIsoGroupSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.DashAdditionalManifest
 import Amazonka.MediaConvert.Types.DashIsoEncryptionSettings
 import Amazonka.MediaConvert.Types.DashIsoGroupAudioChannelConfigSchemeIdUri
@@ -463,32 +464,32 @@ dashIsoGroupSettings_writeSegmentTimelineInRepresentation = Lens.lens (\DashIsoG
 dashIsoGroupSettings_destinationSettings :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe DestinationSettings)
 dashIsoGroupSettings_destinationSettings = Lens.lens (\DashIsoGroupSettings' {destinationSettings} -> destinationSettings) (\s@DashIsoGroupSettings' {} a -> s {destinationSettings = a} :: DashIsoGroupSettings)
 
-instance Core.FromJSON DashIsoGroupSettings where
+instance Data.FromJSON DashIsoGroupSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashIsoGroupSettings"
       ( \x ->
           DashIsoGroupSettings'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "baseUrl")
-            Prelude.<*> (x Core..:? "imageBasedTrickPlaySettings")
-            Prelude.<*> (x Core..:? "hbbtvCompliance")
-            Prelude.<*> (x Core..:? "mpdProfile")
-            Prelude.<*> (x Core..:? "ptsOffsetHandlingForBFrames")
-            Prelude.<*> (x Core..:? "segmentLength")
-            Prelude.<*> (x Core..:? "minBufferTime")
-            Prelude.<*> (x Core..:? "audioChannelConfigSchemeIdUri")
-            Prelude.<*> (x Core..:? "segmentControl")
-            Prelude.<*> (x Core..:? "fragmentLength")
-            Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "imageBasedTrickPlay")
-            Prelude.<*> ( x Core..:? "additionalManifests"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "baseUrl")
+            Prelude.<*> (x Data..:? "imageBasedTrickPlaySettings")
+            Prelude.<*> (x Data..:? "hbbtvCompliance")
+            Prelude.<*> (x Data..:? "mpdProfile")
+            Prelude.<*> (x Data..:? "ptsOffsetHandlingForBFrames")
+            Prelude.<*> (x Data..:? "segmentLength")
+            Prelude.<*> (x Data..:? "minBufferTime")
+            Prelude.<*> (x Data..:? "audioChannelConfigSchemeIdUri")
+            Prelude.<*> (x Data..:? "segmentControl")
+            Prelude.<*> (x Data..:? "fragmentLength")
+            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<*> (x Data..:? "imageBasedTrickPlay")
+            Prelude.<*> ( x Data..:? "additionalManifests"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "segmentLengthControl")
-            Prelude.<*> (x Core..:? "minFinalSegmentLength")
-            Prelude.<*> (x Core..:? "writeSegmentTimelineInRepresentation")
-            Prelude.<*> (x Core..:? "destinationSettings")
+            Prelude.<*> (x Data..:? "segmentLengthControl")
+            Prelude.<*> (x Data..:? "minFinalSegmentLength")
+            Prelude.<*> (x Data..:? "writeSegmentTimelineInRepresentation")
+            Prelude.<*> (x Data..:? "destinationSettings")
       )
 
 instance Prelude.Hashable DashIsoGroupSettings where
@@ -534,39 +535,39 @@ instance Prelude.NFData DashIsoGroupSettings where
         writeSegmentTimelineInRepresentation
       `Prelude.seq` Prelude.rnf destinationSettings
 
-instance Core.ToJSON DashIsoGroupSettings where
+instance Data.ToJSON DashIsoGroupSettings where
   toJSON DashIsoGroupSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destination" Core..=) Prelude.<$> destination,
-            ("baseUrl" Core..=) Prelude.<$> baseUrl,
-            ("imageBasedTrickPlaySettings" Core..=)
+          [ ("destination" Data..=) Prelude.<$> destination,
+            ("baseUrl" Data..=) Prelude.<$> baseUrl,
+            ("imageBasedTrickPlaySettings" Data..=)
               Prelude.<$> imageBasedTrickPlaySettings,
-            ("hbbtvCompliance" Core..=)
+            ("hbbtvCompliance" Data..=)
               Prelude.<$> hbbtvCompliance,
-            ("mpdProfile" Core..=) Prelude.<$> mpdProfile,
-            ("ptsOffsetHandlingForBFrames" Core..=)
+            ("mpdProfile" Data..=) Prelude.<$> mpdProfile,
+            ("ptsOffsetHandlingForBFrames" Data..=)
               Prelude.<$> ptsOffsetHandlingForBFrames,
-            ("segmentLength" Core..=) Prelude.<$> segmentLength,
-            ("minBufferTime" Core..=) Prelude.<$> minBufferTime,
-            ("audioChannelConfigSchemeIdUri" Core..=)
+            ("segmentLength" Data..=) Prelude.<$> segmentLength,
+            ("minBufferTime" Data..=) Prelude.<$> minBufferTime,
+            ("audioChannelConfigSchemeIdUri" Data..=)
               Prelude.<$> audioChannelConfigSchemeIdUri,
-            ("segmentControl" Core..=)
+            ("segmentControl" Data..=)
               Prelude.<$> segmentControl,
-            ("fragmentLength" Core..=)
+            ("fragmentLength" Data..=)
               Prelude.<$> fragmentLength,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("imageBasedTrickPlay" Core..=)
+            ("encryption" Data..=) Prelude.<$> encryption,
+            ("imageBasedTrickPlay" Data..=)
               Prelude.<$> imageBasedTrickPlay,
-            ("additionalManifests" Core..=)
+            ("additionalManifests" Data..=)
               Prelude.<$> additionalManifests,
-            ("segmentLengthControl" Core..=)
+            ("segmentLengthControl" Data..=)
               Prelude.<$> segmentLengthControl,
-            ("minFinalSegmentLength" Core..=)
+            ("minFinalSegmentLength" Data..=)
               Prelude.<$> minFinalSegmentLength,
-            ("writeSegmentTimelineInRepresentation" Core..=)
+            ("writeSegmentTimelineInRepresentation" Data..=)
               Prelude.<$> writeSegmentTimelineInRepresentation,
-            ("destinationSettings" Core..=)
+            ("destinationSettings" Data..=)
               Prelude.<$> destinationSettings
           ]
       )

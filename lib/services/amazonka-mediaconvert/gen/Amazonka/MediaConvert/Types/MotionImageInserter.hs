@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.MotionImageInserter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.MotionImageInsertionFramerate
 import Amazonka.MediaConvert.Types.MotionImageInsertionMode
 import Amazonka.MediaConvert.Types.MotionImageInsertionOffset
@@ -210,18 +211,18 @@ motionImageInserter_startTime = Lens.lens (\MotionImageInserter' {startTime} -> 
 motionImageInserter_framerate :: Lens.Lens' MotionImageInserter (Prelude.Maybe MotionImageInsertionFramerate)
 motionImageInserter_framerate = Lens.lens (\MotionImageInserter' {framerate} -> framerate) (\s@MotionImageInserter' {} a -> s {framerate = a} :: MotionImageInserter)
 
-instance Core.FromJSON MotionImageInserter where
+instance Data.FromJSON MotionImageInserter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MotionImageInserter"
       ( \x ->
           MotionImageInserter'
-            Prelude.<$> (x Core..:? "insertionMode")
-            Prelude.<*> (x Core..:? "playback")
-            Prelude.<*> (x Core..:? "offset")
-            Prelude.<*> (x Core..:? "input")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "framerate")
+            Prelude.<$> (x Data..:? "insertionMode")
+            Prelude.<*> (x Data..:? "playback")
+            Prelude.<*> (x Data..:? "offset")
+            Prelude.<*> (x Data..:? "input")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "framerate")
       )
 
 instance Prelude.Hashable MotionImageInserter where
@@ -242,15 +243,15 @@ instance Prelude.NFData MotionImageInserter where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf framerate
 
-instance Core.ToJSON MotionImageInserter where
+instance Data.ToJSON MotionImageInserter where
   toJSON MotionImageInserter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("insertionMode" Core..=) Prelude.<$> insertionMode,
-            ("playback" Core..=) Prelude.<$> playback,
-            ("offset" Core..=) Prelude.<$> offset,
-            ("input" Core..=) Prelude.<$> input,
-            ("startTime" Core..=) Prelude.<$> startTime,
-            ("framerate" Core..=) Prelude.<$> framerate
+          [ ("insertionMode" Data..=) Prelude.<$> insertionMode,
+            ("playback" Data..=) Prelude.<$> playback,
+            ("offset" Data..=) Prelude.<$> offset,
+            ("input" Data..=) Prelude.<$> input,
+            ("startTime" Data..=) Prelude.<$> startTime,
+            ("framerate" Data..=) Prelude.<$> framerate
           ]
       )

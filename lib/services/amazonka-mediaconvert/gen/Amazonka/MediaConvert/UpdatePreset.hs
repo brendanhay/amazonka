@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest UpdatePreset where
     Response.receiveJSON
       ( \s h x ->
           UpdatePresetResponse'
-            Prelude.<$> (x Core..?> "preset")
+            Prelude.<$> (x Data..?> "preset")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,33 +132,33 @@ instance Prelude.NFData UpdatePreset where
       `Prelude.seq` Prelude.rnf category
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdatePreset where
+instance Data.ToHeaders UpdatePreset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePreset where
+instance Data.ToJSON UpdatePreset where
   toJSON UpdatePreset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("settings" Core..=) Prelude.<$> settings,
-            ("category" Core..=) Prelude.<$> category
+          [ ("description" Data..=) Prelude.<$> description,
+            ("settings" Data..=) Prelude.<$> settings,
+            ("category" Data..=) Prelude.<$> category
           ]
       )
 
-instance Core.ToPath UpdatePreset where
+instance Data.ToPath UpdatePreset where
   toPath UpdatePreset' {..} =
     Prelude.mconcat
-      ["/2017-08-29/presets/", Core.toBS name]
+      ["/2017-08-29/presets/", Data.toBS name]
 
-instance Core.ToQuery UpdatePreset where
+instance Data.ToQuery UpdatePreset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePresetResponse' smart constructor.

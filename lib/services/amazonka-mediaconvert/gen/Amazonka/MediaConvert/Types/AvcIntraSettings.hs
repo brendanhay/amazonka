@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AvcIntraSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AvcIntraClass
 import Amazonka.MediaConvert.Types.AvcIntraFramerateControl
 import Amazonka.MediaConvert.Types.AvcIntraFramerateConversionAlgorithm
@@ -380,22 +381,22 @@ avcIntraSettings_framerateConversionAlgorithm = Lens.lens (\AvcIntraSettings' {f
 avcIntraSettings_avcIntraClass :: Lens.Lens' AvcIntraSettings (Prelude.Maybe AvcIntraClass)
 avcIntraSettings_avcIntraClass = Lens.lens (\AvcIntraSettings' {avcIntraClass} -> avcIntraClass) (\s@AvcIntraSettings' {} a -> s {avcIntraClass = a} :: AvcIntraSettings)
 
-instance Core.FromJSON AvcIntraSettings where
+instance Data.FromJSON AvcIntraSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AvcIntraSettings"
       ( \x ->
           AvcIntraSettings'
-            Prelude.<$> (x Core..:? "telecine")
-            Prelude.<*> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "scanTypeConversionMode")
-            Prelude.<*> (x Core..:? "framerateControl")
-            Prelude.<*> (x Core..:? "framerateNumerator")
-            Prelude.<*> (x Core..:? "avcIntraUhdSettings")
-            Prelude.<*> (x Core..:? "slowPal")
-            Prelude.<*> (x Core..:? "interlaceMode")
-            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
-            Prelude.<*> (x Core..:? "avcIntraClass")
+            Prelude.<$> (x Data..:? "telecine")
+            Prelude.<*> (x Data..:? "framerateDenominator")
+            Prelude.<*> (x Data..:? "scanTypeConversionMode")
+            Prelude.<*> (x Data..:? "framerateControl")
+            Prelude.<*> (x Data..:? "framerateNumerator")
+            Prelude.<*> (x Data..:? "avcIntraUhdSettings")
+            Prelude.<*> (x Data..:? "slowPal")
+            Prelude.<*> (x Data..:? "interlaceMode")
+            Prelude.<*> (x Data..:? "framerateConversionAlgorithm")
+            Prelude.<*> (x Data..:? "avcIntraClass")
       )
 
 instance Prelude.Hashable AvcIntraSettings where
@@ -424,25 +425,25 @@ instance Prelude.NFData AvcIntraSettings where
       `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
       `Prelude.seq` Prelude.rnf avcIntraClass
 
-instance Core.ToJSON AvcIntraSettings where
+instance Data.ToJSON AvcIntraSettings where
   toJSON AvcIntraSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("telecine" Core..=) Prelude.<$> telecine,
-            ("framerateDenominator" Core..=)
+          [ ("telecine" Data..=) Prelude.<$> telecine,
+            ("framerateDenominator" Data..=)
               Prelude.<$> framerateDenominator,
-            ("scanTypeConversionMode" Core..=)
+            ("scanTypeConversionMode" Data..=)
               Prelude.<$> scanTypeConversionMode,
-            ("framerateControl" Core..=)
+            ("framerateControl" Data..=)
               Prelude.<$> framerateControl,
-            ("framerateNumerator" Core..=)
+            ("framerateNumerator" Data..=)
               Prelude.<$> framerateNumerator,
-            ("avcIntraUhdSettings" Core..=)
+            ("avcIntraUhdSettings" Data..=)
               Prelude.<$> avcIntraUhdSettings,
-            ("slowPal" Core..=) Prelude.<$> slowPal,
-            ("interlaceMode" Core..=) Prelude.<$> interlaceMode,
-            ("framerateConversionAlgorithm" Core..=)
+            ("slowPal" Data..=) Prelude.<$> slowPal,
+            ("interlaceMode" Data..=) Prelude.<$> interlaceMode,
+            ("framerateConversionAlgorithm" Data..=)
               Prelude.<$> framerateConversionAlgorithm,
-            ("avcIntraClass" Core..=) Prelude.<$> avcIntraClass
+            ("avcIntraClass" Data..=) Prelude.<$> avcIntraClass
           ]
       )

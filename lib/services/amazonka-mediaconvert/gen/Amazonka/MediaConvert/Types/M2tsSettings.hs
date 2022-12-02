@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.M2tsSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.DvbNitSettings
 import Amazonka.MediaConvert.Types.DvbSdtSettings
 import Amazonka.MediaConvert.Types.DvbTdtSettings
@@ -753,51 +754,51 @@ m2tsSettings_audioPids = Lens.lens (\M2tsSettings' {audioPids} -> audioPids) (\s
 m2tsSettings_dvbSubPids :: Lens.Lens' M2tsSettings (Prelude.Maybe [Prelude.Natural])
 m2tsSettings_dvbSubPids = Lens.lens (\M2tsSettings' {dvbSubPids} -> dvbSubPids) (\s@M2tsSettings' {} a -> s {dvbSubPids = a} :: M2tsSettings) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON M2tsSettings where
+instance Data.FromJSON M2tsSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "M2tsSettings"
       ( \x ->
           M2tsSettings'
-            Prelude.<$> (x Core..:? "transportStreamId")
-            Prelude.<*> (x Core..:? "segmentationMarkers")
-            Prelude.<*> (x Core..:? "audioDuration")
-            Prelude.<*> (x Core..:? "minEbpInterval")
-            Prelude.<*> (x Core..:? "pcrControl")
-            Prelude.<*> (x Core..:? "fragmentTime")
-            Prelude.<*> (x Core..:? "pcrPid")
-            Prelude.<*> (x Core..:? "ebpPlacement")
-            Prelude.<*> (x Core..:? "dvbTdtSettings")
-            Prelude.<*> (x Core..:? "dvbNitSettings")
-            Prelude.<*> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "klvMetadata")
-            Prelude.<*> (x Core..:? "patInterval")
-            Prelude.<*> (x Core..:? "esRateInPes")
-            Prelude.<*> (x Core..:? "audioBufferModel")
-            Prelude.<*> (x Core..:? "timedMetadataPid")
-            Prelude.<*> (x Core..:? "rateMode")
-            Prelude.<*> (x Core..:? "scte35Esam")
-            Prelude.<*> (x Core..:? "dvbSdtSettings")
-            Prelude.<*> (x Core..:? "forceTsVideoEbpOrder")
-            Prelude.<*> (x Core..:? "bufferModel")
-            Prelude.<*> (x Core..:? "audioFramesPerPes")
-            Prelude.<*> (x Core..:? "segmentationTime")
-            Prelude.<*> (x Core..:? "maxPcrInterval")
-            Prelude.<*> (x Core..:? "videoPid")
-            Prelude.<*> (x Core..:? "programNumber")
-            Prelude.<*> (x Core..:? "privateMetadataPid")
-            Prelude.<*> (x Core..:? "pmtInterval")
-            Prelude.<*> (x Core..:? "scte35Pid")
-            Prelude.<*> (x Core..:? "dvbTeletextPid")
-            Prelude.<*> (x Core..:? "dataPTSControl")
-            Prelude.<*> (x Core..:? "ebpAudioInterval")
-            Prelude.<*> (x Core..:? "segmentationStyle")
-            Prelude.<*> (x Core..:? "scte35Source")
-            Prelude.<*> (x Core..:? "nullPacketBitrate")
-            Prelude.<*> (x Core..:? "pmtPid")
-            Prelude.<*> (x Core..:? "nielsenId3")
-            Prelude.<*> (x Core..:? "audioPids" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "dvbSubPids" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "transportStreamId")
+            Prelude.<*> (x Data..:? "segmentationMarkers")
+            Prelude.<*> (x Data..:? "audioDuration")
+            Prelude.<*> (x Data..:? "minEbpInterval")
+            Prelude.<*> (x Data..:? "pcrControl")
+            Prelude.<*> (x Data..:? "fragmentTime")
+            Prelude.<*> (x Data..:? "pcrPid")
+            Prelude.<*> (x Data..:? "ebpPlacement")
+            Prelude.<*> (x Data..:? "dvbTdtSettings")
+            Prelude.<*> (x Data..:? "dvbNitSettings")
+            Prelude.<*> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "klvMetadata")
+            Prelude.<*> (x Data..:? "patInterval")
+            Prelude.<*> (x Data..:? "esRateInPes")
+            Prelude.<*> (x Data..:? "audioBufferModel")
+            Prelude.<*> (x Data..:? "timedMetadataPid")
+            Prelude.<*> (x Data..:? "rateMode")
+            Prelude.<*> (x Data..:? "scte35Esam")
+            Prelude.<*> (x Data..:? "dvbSdtSettings")
+            Prelude.<*> (x Data..:? "forceTsVideoEbpOrder")
+            Prelude.<*> (x Data..:? "bufferModel")
+            Prelude.<*> (x Data..:? "audioFramesPerPes")
+            Prelude.<*> (x Data..:? "segmentationTime")
+            Prelude.<*> (x Data..:? "maxPcrInterval")
+            Prelude.<*> (x Data..:? "videoPid")
+            Prelude.<*> (x Data..:? "programNumber")
+            Prelude.<*> (x Data..:? "privateMetadataPid")
+            Prelude.<*> (x Data..:? "pmtInterval")
+            Prelude.<*> (x Data..:? "scte35Pid")
+            Prelude.<*> (x Data..:? "dvbTeletextPid")
+            Prelude.<*> (x Data..:? "dataPTSControl")
+            Prelude.<*> (x Data..:? "ebpAudioInterval")
+            Prelude.<*> (x Data..:? "segmentationStyle")
+            Prelude.<*> (x Data..:? "scte35Source")
+            Prelude.<*> (x Data..:? "nullPacketBitrate")
+            Prelude.<*> (x Data..:? "pmtPid")
+            Prelude.<*> (x Data..:? "nielsenId3")
+            Prelude.<*> (x Data..:? "audioPids" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "dvbSubPids" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable M2tsSettings where
@@ -902,66 +903,66 @@ instance Prelude.NFData M2tsSettings where
       `Prelude.seq` Prelude.rnf
         dvbSubPids
 
-instance Core.ToJSON M2tsSettings where
+instance Data.ToJSON M2tsSettings where
   toJSON M2tsSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("transportStreamId" Core..=)
+          [ ("transportStreamId" Data..=)
               Prelude.<$> transportStreamId,
-            ("segmentationMarkers" Core..=)
+            ("segmentationMarkers" Data..=)
               Prelude.<$> segmentationMarkers,
-            ("audioDuration" Core..=) Prelude.<$> audioDuration,
-            ("minEbpInterval" Core..=)
+            ("audioDuration" Data..=) Prelude.<$> audioDuration,
+            ("minEbpInterval" Data..=)
               Prelude.<$> minEbpInterval,
-            ("pcrControl" Core..=) Prelude.<$> pcrControl,
-            ("fragmentTime" Core..=) Prelude.<$> fragmentTime,
-            ("pcrPid" Core..=) Prelude.<$> pcrPid,
-            ("ebpPlacement" Core..=) Prelude.<$> ebpPlacement,
-            ("dvbTdtSettings" Core..=)
+            ("pcrControl" Data..=) Prelude.<$> pcrControl,
+            ("fragmentTime" Data..=) Prelude.<$> fragmentTime,
+            ("pcrPid" Data..=) Prelude.<$> pcrPid,
+            ("ebpPlacement" Data..=) Prelude.<$> ebpPlacement,
+            ("dvbTdtSettings" Data..=)
               Prelude.<$> dvbTdtSettings,
-            ("dvbNitSettings" Core..=)
+            ("dvbNitSettings" Data..=)
               Prelude.<$> dvbNitSettings,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("klvMetadata" Core..=) Prelude.<$> klvMetadata,
-            ("patInterval" Core..=) Prelude.<$> patInterval,
-            ("esRateInPes" Core..=) Prelude.<$> esRateInPes,
-            ("audioBufferModel" Core..=)
+            ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("klvMetadata" Data..=) Prelude.<$> klvMetadata,
+            ("patInterval" Data..=) Prelude.<$> patInterval,
+            ("esRateInPes" Data..=) Prelude.<$> esRateInPes,
+            ("audioBufferModel" Data..=)
               Prelude.<$> audioBufferModel,
-            ("timedMetadataPid" Core..=)
+            ("timedMetadataPid" Data..=)
               Prelude.<$> timedMetadataPid,
-            ("rateMode" Core..=) Prelude.<$> rateMode,
-            ("scte35Esam" Core..=) Prelude.<$> scte35Esam,
-            ("dvbSdtSettings" Core..=)
+            ("rateMode" Data..=) Prelude.<$> rateMode,
+            ("scte35Esam" Data..=) Prelude.<$> scte35Esam,
+            ("dvbSdtSettings" Data..=)
               Prelude.<$> dvbSdtSettings,
-            ("forceTsVideoEbpOrder" Core..=)
+            ("forceTsVideoEbpOrder" Data..=)
               Prelude.<$> forceTsVideoEbpOrder,
-            ("bufferModel" Core..=) Prelude.<$> bufferModel,
-            ("audioFramesPerPes" Core..=)
+            ("bufferModel" Data..=) Prelude.<$> bufferModel,
+            ("audioFramesPerPes" Data..=)
               Prelude.<$> audioFramesPerPes,
-            ("segmentationTime" Core..=)
+            ("segmentationTime" Data..=)
               Prelude.<$> segmentationTime,
-            ("maxPcrInterval" Core..=)
+            ("maxPcrInterval" Data..=)
               Prelude.<$> maxPcrInterval,
-            ("videoPid" Core..=) Prelude.<$> videoPid,
-            ("programNumber" Core..=) Prelude.<$> programNumber,
-            ("privateMetadataPid" Core..=)
+            ("videoPid" Data..=) Prelude.<$> videoPid,
+            ("programNumber" Data..=) Prelude.<$> programNumber,
+            ("privateMetadataPid" Data..=)
               Prelude.<$> privateMetadataPid,
-            ("pmtInterval" Core..=) Prelude.<$> pmtInterval,
-            ("scte35Pid" Core..=) Prelude.<$> scte35Pid,
-            ("dvbTeletextPid" Core..=)
+            ("pmtInterval" Data..=) Prelude.<$> pmtInterval,
+            ("scte35Pid" Data..=) Prelude.<$> scte35Pid,
+            ("dvbTeletextPid" Data..=)
               Prelude.<$> dvbTeletextPid,
-            ("dataPTSControl" Core..=)
+            ("dataPTSControl" Data..=)
               Prelude.<$> dataPTSControl,
-            ("ebpAudioInterval" Core..=)
+            ("ebpAudioInterval" Data..=)
               Prelude.<$> ebpAudioInterval,
-            ("segmentationStyle" Core..=)
+            ("segmentationStyle" Data..=)
               Prelude.<$> segmentationStyle,
-            ("scte35Source" Core..=) Prelude.<$> scte35Source,
-            ("nullPacketBitrate" Core..=)
+            ("scte35Source" Data..=) Prelude.<$> scte35Source,
+            ("nullPacketBitrate" Data..=)
               Prelude.<$> nullPacketBitrate,
-            ("pmtPid" Core..=) Prelude.<$> pmtPid,
-            ("nielsenId3" Core..=) Prelude.<$> nielsenId3,
-            ("audioPids" Core..=) Prelude.<$> audioPids,
-            ("dvbSubPids" Core..=) Prelude.<$> dvbSubPids
+            ("pmtPid" Data..=) Prelude.<$> pmtPid,
+            ("nielsenId3" Data..=) Prelude.<$> nielsenId3,
+            ("audioPids" Data..=) Prelude.<$> audioPids,
+            ("dvbSubPids" Data..=) Prelude.<$> dvbSubPids
           ]
       )

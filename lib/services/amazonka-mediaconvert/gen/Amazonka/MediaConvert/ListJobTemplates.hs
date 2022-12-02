@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -172,8 +173,8 @@ instance Core.AWSRequest ListJobTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListJobTemplatesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "jobTemplates" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "jobTemplates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,28 +194,28 @@ instance Prelude.NFData ListJobTemplates where
       `Prelude.seq` Prelude.rnf category
       `Prelude.seq` Prelude.rnf order
 
-instance Core.ToHeaders ListJobTemplates where
+instance Data.ToHeaders ListJobTemplates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListJobTemplates where
+instance Data.ToPath ListJobTemplates where
   toPath = Prelude.const "/2017-08-29/jobTemplates"
 
-instance Core.ToQuery ListJobTemplates where
+instance Data.ToQuery ListJobTemplates where
   toQuery ListJobTemplates' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "listBy" Core.=: listBy,
-        "maxResults" Core.=: maxResults,
-        "category" Core.=: category,
-        "order" Core.=: order
+      [ "nextToken" Data.=: nextToken,
+        "listBy" Data.=: listBy,
+        "maxResults" Data.=: maxResults,
+        "category" Data.=: category,
+        "order" Data.=: order
       ]
 
 -- | /See:/ 'newListJobTemplatesResponse' smart constructor.

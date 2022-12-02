@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -160,9 +161,9 @@ instance Core.AWSRequest DescribeRegistries where
     Response.receiveJSON
       ( \s h x ->
           DescribeRegistriesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "registries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "registries" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable DescribeRegistries where
@@ -175,34 +176,34 @@ instance Prelude.NFData DescribeRegistries where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeRegistries where
+instance Data.ToHeaders DescribeRegistries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SpencerFrontendService.DescribeRegistries" ::
+              Data.=# ( "SpencerFrontendService.DescribeRegistries" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRegistries where
+instance Data.ToJSON DescribeRegistries where
   toJSON DescribeRegistries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeRegistries where
+instance Data.ToPath DescribeRegistries where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRegistries where
+instance Data.ToQuery DescribeRegistries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRegistriesResponse' smart constructor.

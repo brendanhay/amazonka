@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -188,8 +189,8 @@ instance Core.AWSRequest DescribeImageTags where
     Response.receiveJSON
       ( \s h x ->
           DescribeImageTagsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "imageTagDetails"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "imageTagDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -209,37 +210,37 @@ instance Prelude.NFData DescribeImageTags where
       `Prelude.seq` Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf repositoryName
 
-instance Core.ToHeaders DescribeImageTags where
+instance Data.ToHeaders DescribeImageTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SpencerFrontendService.DescribeImageTags" ::
+              Data.=# ( "SpencerFrontendService.DescribeImageTags" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeImageTags where
+instance Data.ToJSON DescribeImageTags where
   toJSON DescribeImageTags' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )
 
-instance Core.ToPath DescribeImageTags where
+instance Data.ToPath DescribeImageTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeImageTags where
+instance Data.ToQuery DescribeImageTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImageTagsResponse' smart constructor.

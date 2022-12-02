@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,9 +147,9 @@ instance Core.AWSRequest SetRepositoryPolicy where
     Response.receiveJSON
       ( \s h x ->
           SetRepositoryPolicyResponse'
-            Prelude.<$> (x Core..?> "policyText")
-            Prelude.<*> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<$> (x Data..?> "policyText")
+            Prelude.<*> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,37 +167,37 @@ instance Prelude.NFData SetRepositoryPolicy where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf policyText
 
-instance Core.ToHeaders SetRepositoryPolicy where
+instance Data.ToHeaders SetRepositoryPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SpencerFrontendService.SetRepositoryPolicy" ::
+              Data.=# ( "SpencerFrontendService.SetRepositoryPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetRepositoryPolicy where
+instance Data.ToJSON SetRepositoryPolicy where
   toJSON SetRepositoryPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
-            ("force" Core..=) Prelude.<$> force,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
+            ("force" Data..=) Prelude.<$> force,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("policyText" Core..= policyText)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("policyText" Data..= policyText)
           ]
       )
 
-instance Core.ToPath SetRepositoryPolicy where
+instance Data.ToPath SetRepositoryPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetRepositoryPolicy where
+instance Data.ToQuery SetRepositoryPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetRepositoryPolicyResponse' smart constructor.

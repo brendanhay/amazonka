@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -81,7 +82,7 @@ data UploadLayerPart = UploadLayerPart'
     -- layer.
     partLastByte :: Prelude.Natural,
     -- | The base64-encoded layer part payload.
-    layerPartBlob :: Core.Base64
+    layerPartBlob :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -137,7 +138,7 @@ newUploadLayerPart
         uploadId = pUploadId_,
         partFirstByte = pPartFirstByte_,
         partLastByte = pPartLastByte_,
-        layerPartBlob = Core._Base64 Lens.# pLayerPartBlob_
+        layerPartBlob = Data._Base64 Lens.# pLayerPartBlob_
       }
 
 -- | The AWS account ID associated with the registry to which you are
@@ -171,7 +172,7 @@ uploadLayerPart_partLastByte = Lens.lens (\UploadLayerPart' {partLastByte} -> pa
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 uploadLayerPart_layerPartBlob :: Lens.Lens' UploadLayerPart Prelude.ByteString
-uploadLayerPart_layerPartBlob = Lens.lens (\UploadLayerPart' {layerPartBlob} -> layerPartBlob) (\s@UploadLayerPart' {} a -> s {layerPartBlob = a} :: UploadLayerPart) Prelude.. Core._Base64
+uploadLayerPart_layerPartBlob = Lens.lens (\UploadLayerPart' {layerPartBlob} -> layerPartBlob) (\s@UploadLayerPart' {} a -> s {layerPartBlob = a} :: UploadLayerPart) Prelude.. Data._Base64
 
 instance Core.AWSRequest UploadLayerPart where
   type
@@ -183,10 +184,10 @@ instance Core.AWSRequest UploadLayerPart where
     Response.receiveJSON
       ( \s h x ->
           UploadLayerPartResponse'
-            Prelude.<$> (x Core..?> "uploadId")
-            Prelude.<*> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "lastByteReceived")
+            Prelude.<$> (x Data..?> "uploadId")
+            Prelude.<*> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "lastByteReceived")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,40 +209,40 @@ instance Prelude.NFData UploadLayerPart where
       `Prelude.seq` Prelude.rnf partLastByte
       `Prelude.seq` Prelude.rnf layerPartBlob
 
-instance Core.ToHeaders UploadLayerPart where
+instance Data.ToHeaders UploadLayerPart where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SpencerFrontendService.UploadLayerPart" ::
+              Data.=# ( "SpencerFrontendService.UploadLayerPart" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UploadLayerPart where
+instance Data.ToJSON UploadLayerPart where
   toJSON UploadLayerPart' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("uploadId" Core..= uploadId),
-            Prelude.Just ("partFirstByte" Core..= partFirstByte),
-            Prelude.Just ("partLastByte" Core..= partLastByte),
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("uploadId" Data..= uploadId),
+            Prelude.Just ("partFirstByte" Data..= partFirstByte),
+            Prelude.Just ("partLastByte" Data..= partLastByte),
             Prelude.Just
-              ("layerPartBlob" Core..= layerPartBlob)
+              ("layerPartBlob" Data..= layerPartBlob)
           ]
       )
 
-instance Core.ToPath UploadLayerPart where
+instance Data.ToPath UploadLayerPart where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UploadLayerPart where
+instance Data.ToQuery UploadLayerPart where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUploadLayerPartResponse' smart constructor.

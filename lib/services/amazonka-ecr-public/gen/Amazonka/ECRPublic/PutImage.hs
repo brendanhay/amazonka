@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,7 +162,7 @@ instance Core.AWSRequest PutImage where
     Response.receiveJSON
       ( \s h x ->
           PutImageResponse'
-            Prelude.<$> (x Core..?> "image")
+            Prelude.<$> (x Data..?> "image")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,41 +184,41 @@ instance Prelude.NFData PutImage where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf imageManifest
 
-instance Core.ToHeaders PutImage where
+instance Data.ToHeaders PutImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SpencerFrontendService.PutImage" ::
+              Data.=# ( "SpencerFrontendService.PutImage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutImage where
+instance Data.ToJSON PutImage where
   toJSON PutImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("imageTag" Core..=) Prelude.<$> imageTag,
-            ("registryId" Core..=) Prelude.<$> registryId,
-            ("imageManifestMediaType" Core..=)
+          [ ("imageTag" Data..=) Prelude.<$> imageTag,
+            ("registryId" Data..=) Prelude.<$> registryId,
+            ("imageManifestMediaType" Data..=)
               Prelude.<$> imageManifestMediaType,
-            ("imageDigest" Core..=) Prelude.<$> imageDigest,
+            ("imageDigest" Data..=) Prelude.<$> imageDigest,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
+              ("repositoryName" Data..= repositoryName),
             Prelude.Just
-              ("imageManifest" Core..= imageManifest)
+              ("imageManifest" Data..= imageManifest)
           ]
       )
 
-instance Core.ToPath PutImage where
+instance Data.ToPath PutImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutImage where
+instance Data.ToQuery PutImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutImageResponse' smart constructor.

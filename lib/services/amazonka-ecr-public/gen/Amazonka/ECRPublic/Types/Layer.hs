@@ -21,6 +21,7 @@ module Amazonka.ECRPublic.Types.Layer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types.LayerAvailability
 import qualified Amazonka.Prelude as Prelude
 
@@ -86,16 +87,16 @@ layer_mediaType = Lens.lens (\Layer' {mediaType} -> mediaType) (\s@Layer' {} a -
 layer_layerDigest :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
 layer_layerDigest = Lens.lens (\Layer' {layerDigest} -> layerDigest) (\s@Layer' {} a -> s {layerDigest = a} :: Layer)
 
-instance Core.FromJSON Layer where
+instance Data.FromJSON Layer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Layer"
       ( \x ->
           Layer'
-            Prelude.<$> (x Core..:? "layerSize")
-            Prelude.<*> (x Core..:? "layerAvailability")
-            Prelude.<*> (x Core..:? "mediaType")
-            Prelude.<*> (x Core..:? "layerDigest")
+            Prelude.<$> (x Data..:? "layerSize")
+            Prelude.<*> (x Data..:? "layerAvailability")
+            Prelude.<*> (x Data..:? "mediaType")
+            Prelude.<*> (x Data..:? "layerDigest")
       )
 
 instance Prelude.Hashable Layer where

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,9 +108,9 @@ instance Core.AWSRequest DeleteRepositoryPolicy where
     Response.receiveJSON
       ( \s h x ->
           DeleteRepositoryPolicyResponse'
-            Prelude.<$> (x Core..?> "policyText")
-            Prelude.<*> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<$> (x Data..?> "policyText")
+            Prelude.<*> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,35 +124,35 @@ instance Prelude.NFData DeleteRepositoryPolicy where
     Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf repositoryName
 
-instance Core.ToHeaders DeleteRepositoryPolicy where
+instance Data.ToHeaders DeleteRepositoryPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SpencerFrontendService.DeleteRepositoryPolicy" ::
+              Data.=# ( "SpencerFrontendService.DeleteRepositoryPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRepositoryPolicy where
+instance Data.ToJSON DeleteRepositoryPolicy where
   toJSON DeleteRepositoryPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )
 
-instance Core.ToPath DeleteRepositoryPolicy where
+instance Data.ToPath DeleteRepositoryPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRepositoryPolicy where
+instance Data.ToQuery DeleteRepositoryPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRepositoryPolicyResponse' smart constructor.

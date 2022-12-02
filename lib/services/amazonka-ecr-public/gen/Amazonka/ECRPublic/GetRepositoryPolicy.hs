@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,9 +104,9 @@ instance Core.AWSRequest GetRepositoryPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetRepositoryPolicyResponse'
-            Prelude.<$> (x Core..?> "policyText")
-            Prelude.<*> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<$> (x Data..?> "policyText")
+            Prelude.<*> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,35 +120,35 @@ instance Prelude.NFData GetRepositoryPolicy where
     Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf repositoryName
 
-instance Core.ToHeaders GetRepositoryPolicy where
+instance Data.ToHeaders GetRepositoryPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SpencerFrontendService.GetRepositoryPolicy" ::
+              Data.=# ( "SpencerFrontendService.GetRepositoryPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRepositoryPolicy where
+instance Data.ToJSON GetRepositoryPolicy where
   toJSON GetRepositoryPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )
 
-instance Core.ToPath GetRepositoryPolicy where
+instance Data.ToPath GetRepositoryPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRepositoryPolicy where
+instance Data.ToQuery GetRepositoryPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRepositoryPolicyResponse' smart constructor.

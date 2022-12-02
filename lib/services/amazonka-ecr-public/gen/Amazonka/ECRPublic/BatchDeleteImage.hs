@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,8 +130,8 @@ instance Core.AWSRequest BatchDeleteImage where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteImageResponse'
-            Prelude.<$> (x Core..?> "imageIds")
-            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "imageIds")
+            Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,36 +147,36 @@ instance Prelude.NFData BatchDeleteImage where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf imageIds
 
-instance Core.ToHeaders BatchDeleteImage where
+instance Data.ToHeaders BatchDeleteImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SpencerFrontendService.BatchDeleteImage" ::
+              Data.=# ( "SpencerFrontendService.BatchDeleteImage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDeleteImage where
+instance Data.ToJSON BatchDeleteImage where
   toJSON BatchDeleteImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("imageIds" Core..= imageIds)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("imageIds" Data..= imageIds)
           ]
       )
 
-instance Core.ToPath BatchDeleteImage where
+instance Data.ToPath BatchDeleteImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDeleteImage where
+instance Data.ToQuery BatchDeleteImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDeleteImageResponse' smart constructor.

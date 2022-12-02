@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,7 +73,7 @@ instance Core.AWSRequest GetAuthorizationToken where
     Response.receiveJSON
       ( \s h x ->
           GetAuthorizationTokenResponse'
-            Prelude.<$> (x Core..?> "authorizationData")
+            Prelude.<$> (x Data..?> "authorizationData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -83,28 +84,28 @@ instance Prelude.Hashable GetAuthorizationToken where
 instance Prelude.NFData GetAuthorizationToken where
   rnf _ = ()
 
-instance Core.ToHeaders GetAuthorizationToken where
+instance Data.ToHeaders GetAuthorizationToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SpencerFrontendService.GetAuthorizationToken" ::
+              Data.=# ( "SpencerFrontendService.GetAuthorizationToken" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAuthorizationToken where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetAuthorizationToken where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetAuthorizationToken where
+instance Data.ToPath GetAuthorizationToken where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAuthorizationToken where
+instance Data.ToQuery GetAuthorizationToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAuthorizationTokenResponse' smart constructor.

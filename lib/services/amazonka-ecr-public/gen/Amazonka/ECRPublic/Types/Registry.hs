@@ -21,6 +21,7 @@ module Amazonka.ECRPublic.Types.Registry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types.RegistryAlias
 import qualified Amazonka.Prelude as Prelude
 
@@ -116,17 +117,17 @@ registry_verified = Lens.lens (\Registry' {verified} -> verified) (\s@Registry' 
 registry_aliases :: Lens.Lens' Registry [RegistryAlias]
 registry_aliases = Lens.lens (\Registry' {aliases} -> aliases) (\s@Registry' {} a -> s {aliases = a} :: Registry) Prelude.. Lens.coerced
 
-instance Core.FromJSON Registry where
+instance Data.FromJSON Registry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Registry"
       ( \x ->
           Registry'
-            Prelude.<$> (x Core..: "registryId")
-            Prelude.<*> (x Core..: "registryArn")
-            Prelude.<*> (x Core..: "registryUri")
-            Prelude.<*> (x Core..: "verified")
-            Prelude.<*> (x Core..:? "aliases" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "registryId")
+            Prelude.<*> (x Data..: "registryArn")
+            Prelude.<*> (x Data..: "registryUri")
+            Prelude.<*> (x Data..: "verified")
+            Prelude.<*> (x Data..:? "aliases" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Registry where

@@ -21,6 +21,7 @@ module Amazonka.ECRPublic.Types.ReferencedImageDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that describes the image tag details returned by a
@@ -32,7 +33,7 @@ data ReferencedImageDetail = ReferencedImageDetail'
     artifactMediaType :: Prelude.Maybe Prelude.Text,
     -- | The date and time, expressed in standard JavaScript date format, at
     -- which the current image tag was pushed to the repository.
-    imagePushedAt :: Prelude.Maybe Core.POSIX,
+    imagePushedAt :: Prelude.Maybe Data.POSIX,
     -- | The size, in bytes, of the image in the repository.
     --
     -- If the image is a manifest list, this will be the max size of all
@@ -97,7 +98,7 @@ referencedImageDetail_artifactMediaType = Lens.lens (\ReferencedImageDetail' {ar
 -- | The date and time, expressed in standard JavaScript date format, at
 -- which the current image tag was pushed to the repository.
 referencedImageDetail_imagePushedAt :: Lens.Lens' ReferencedImageDetail (Prelude.Maybe Prelude.UTCTime)
-referencedImageDetail_imagePushedAt = Lens.lens (\ReferencedImageDetail' {imagePushedAt} -> imagePushedAt) (\s@ReferencedImageDetail' {} a -> s {imagePushedAt = a} :: ReferencedImageDetail) Prelude.. Lens.mapping Core._Time
+referencedImageDetail_imagePushedAt = Lens.lens (\ReferencedImageDetail' {imagePushedAt} -> imagePushedAt) (\s@ReferencedImageDetail' {} a -> s {imagePushedAt = a} :: ReferencedImageDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The size, in bytes, of the image in the repository.
 --
@@ -120,17 +121,17 @@ referencedImageDetail_imageManifestMediaType = Lens.lens (\ReferencedImageDetail
 referencedImageDetail_imageDigest :: Lens.Lens' ReferencedImageDetail (Prelude.Maybe Prelude.Text)
 referencedImageDetail_imageDigest = Lens.lens (\ReferencedImageDetail' {imageDigest} -> imageDigest) (\s@ReferencedImageDetail' {} a -> s {imageDigest = a} :: ReferencedImageDetail)
 
-instance Core.FromJSON ReferencedImageDetail where
+instance Data.FromJSON ReferencedImageDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReferencedImageDetail"
       ( \x ->
           ReferencedImageDetail'
-            Prelude.<$> (x Core..:? "artifactMediaType")
-            Prelude.<*> (x Core..:? "imagePushedAt")
-            Prelude.<*> (x Core..:? "imageSizeInBytes")
-            Prelude.<*> (x Core..:? "imageManifestMediaType")
-            Prelude.<*> (x Core..:? "imageDigest")
+            Prelude.<$> (x Data..:? "artifactMediaType")
+            Prelude.<*> (x Data..:? "imagePushedAt")
+            Prelude.<*> (x Data..:? "imageSizeInBytes")
+            Prelude.<*> (x Data..:? "imageManifestMediaType")
+            Prelude.<*> (x Data..:? "imageDigest")
       )
 
 instance Prelude.Hashable ReferencedImageDetail where

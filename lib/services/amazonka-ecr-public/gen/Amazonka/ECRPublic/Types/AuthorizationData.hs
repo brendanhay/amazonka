@@ -21,6 +21,7 @@ module Amazonka.ECRPublic.Types.AuthorizationData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An authorization token data object that corresponds to a public
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data AuthorizationData = AuthorizationData'
   { -- | The Unix time in seconds and milliseconds when the authorization token
     -- expires. Authorization tokens are valid for 12 hours.
-    expiresAt :: Prelude.Maybe Core.POSIX,
+    expiresAt :: Prelude.Maybe Data.POSIX,
     -- | A base64-encoded string that contains authorization data for a public
     -- Amazon ECR registry. When the string is decoded, it is presented in the
     -- format @user:password@ for public registry authentication using
@@ -65,7 +66,7 @@ newAuthorizationData =
 -- | The Unix time in seconds and milliseconds when the authorization token
 -- expires. Authorization tokens are valid for 12 hours.
 authorizationData_expiresAt :: Lens.Lens' AuthorizationData (Prelude.Maybe Prelude.UTCTime)
-authorizationData_expiresAt = Lens.lens (\AuthorizationData' {expiresAt} -> expiresAt) (\s@AuthorizationData' {} a -> s {expiresAt = a} :: AuthorizationData) Prelude.. Lens.mapping Core._Time
+authorizationData_expiresAt = Lens.lens (\AuthorizationData' {expiresAt} -> expiresAt) (\s@AuthorizationData' {} a -> s {expiresAt = a} :: AuthorizationData) Prelude.. Lens.mapping Data._Time
 
 -- | A base64-encoded string that contains authorization data for a public
 -- Amazon ECR registry. When the string is decoded, it is presented in the
@@ -74,14 +75,14 @@ authorizationData_expiresAt = Lens.lens (\AuthorizationData' {expiresAt} -> expi
 authorizationData_authorizationToken :: Lens.Lens' AuthorizationData (Prelude.Maybe Prelude.Text)
 authorizationData_authorizationToken = Lens.lens (\AuthorizationData' {authorizationToken} -> authorizationToken) (\s@AuthorizationData' {} a -> s {authorizationToken = a} :: AuthorizationData)
 
-instance Core.FromJSON AuthorizationData where
+instance Data.FromJSON AuthorizationData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthorizationData"
       ( \x ->
           AuthorizationData'
-            Prelude.<$> (x Core..:? "expiresAt")
-            Prelude.<*> (x Core..:? "authorizationToken")
+            Prelude.<$> (x Data..:? "expiresAt")
+            Prelude.<*> (x Data..:? "authorizationToken")
       )
 
 instance Prelude.Hashable AuthorizationData where

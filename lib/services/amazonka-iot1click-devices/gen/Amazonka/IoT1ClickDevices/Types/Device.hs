@@ -21,6 +21,7 @@ module Amazonka.IoT1ClickDevices.Types.Device where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT1ClickDevices.Types.Attributes
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,15 +70,15 @@ device_deviceId = Lens.lens (\Device' {deviceId} -> deviceId) (\s@Device' {} a -
 device_attributes :: Lens.Lens' Device (Prelude.Maybe Attributes)
 device_attributes = Lens.lens (\Device' {attributes} -> attributes) (\s@Device' {} a -> s {attributes = a} :: Device)
 
-instance Core.FromJSON Device where
+instance Data.FromJSON Device where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "deviceId")
-            Prelude.<*> (x Core..:? "attributes")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "deviceId")
+            Prelude.<*> (x Data..:? "attributes")
       )
 
 instance Prelude.Hashable Device where

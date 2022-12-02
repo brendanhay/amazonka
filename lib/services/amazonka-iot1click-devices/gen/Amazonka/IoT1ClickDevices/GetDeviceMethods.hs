@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT1ClickDevices.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetDeviceMethods where
     Response.receiveJSON
       ( \s h x ->
           GetDeviceMethodsResponse'
-            Prelude.<$> (x Core..?> "deviceMethods" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "deviceMethods" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,23 +96,23 @@ instance Prelude.Hashable GetDeviceMethods where
 instance Prelude.NFData GetDeviceMethods where
   rnf GetDeviceMethods' {..} = Prelude.rnf deviceId
 
-instance Core.ToHeaders GetDeviceMethods where
+instance Data.ToHeaders GetDeviceMethods where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDeviceMethods where
+instance Data.ToPath GetDeviceMethods where
   toPath GetDeviceMethods' {..} =
     Prelude.mconcat
-      ["/devices/", Core.toBS deviceId, "/methods"]
+      ["/devices/", Data.toBS deviceId, "/methods"]
 
-instance Core.ToQuery GetDeviceMethods where
+instance Data.ToQuery GetDeviceMethods where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeviceMethodsResponse' smart constructor.

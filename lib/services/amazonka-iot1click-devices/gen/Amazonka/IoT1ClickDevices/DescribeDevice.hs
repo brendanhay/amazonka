@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT1ClickDevices.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DescribeDevice where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeviceResponse'
-            Prelude.<$> (x Core..?> "deviceDescription")
+            Prelude.<$> (x Data..?> "deviceDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,22 +96,22 @@ instance Prelude.Hashable DescribeDevice where
 instance Prelude.NFData DescribeDevice where
   rnf DescribeDevice' {..} = Prelude.rnf deviceId
 
-instance Core.ToHeaders DescribeDevice where
+instance Data.ToHeaders DescribeDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeDevice where
+instance Data.ToPath DescribeDevice where
   toPath DescribeDevice' {..} =
-    Prelude.mconcat ["/devices/", Core.toBS deviceId]
+    Prelude.mconcat ["/devices/", Data.toBS deviceId]
 
-instance Core.ToQuery DescribeDevice where
+instance Data.ToQuery DescribeDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDeviceResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoT1ClickDevices.Types.DeviceEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT1ClickDevices.Types.Device
 import qualified Amazonka.Prelude as Prelude
 
@@ -60,14 +61,14 @@ deviceEvent_device = Lens.lens (\DeviceEvent' {device} -> device) (\s@DeviceEven
 deviceEvent_stdEvent :: Lens.Lens' DeviceEvent (Prelude.Maybe Prelude.Text)
 deviceEvent_stdEvent = Lens.lens (\DeviceEvent' {stdEvent} -> stdEvent) (\s@DeviceEvent' {} a -> s {stdEvent = a} :: DeviceEvent)
 
-instance Core.FromJSON DeviceEvent where
+instance Data.FromJSON DeviceEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceEvent"
       ( \x ->
           DeviceEvent'
-            Prelude.<$> (x Core..:? "device")
-            Prelude.<*> (x Core..:? "stdEvent")
+            Prelude.<$> (x Data..:? "device")
+            Prelude.<*> (x Data..:? "stdEvent")
       )
 
 instance Prelude.Hashable DeviceEvent where

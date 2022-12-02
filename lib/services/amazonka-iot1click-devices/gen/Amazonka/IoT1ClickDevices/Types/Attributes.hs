@@ -21,6 +21,7 @@ module Amazonka.IoT1ClickDevices.Types.Attributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newAttributes' smart constructor.
@@ -37,9 +38,9 @@ newAttributes ::
   Attributes
 newAttributes = Attributes'
 
-instance Core.FromJSON Attributes where
+instance Data.FromJSON Attributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Attributes"
       (\x -> Prelude.pure Attributes')
 

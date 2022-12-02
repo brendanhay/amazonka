@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT1ClickDevices.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest UnclaimDevice where
     Response.receiveJSON
       ( \s h x ->
           UnclaimDeviceResponse'
-            Prelude.<$> (x Core..?> "state")
+            Prelude.<$> (x Data..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,26 +95,26 @@ instance Prelude.Hashable UnclaimDevice where
 instance Prelude.NFData UnclaimDevice where
   rnf UnclaimDevice' {..} = Prelude.rnf deviceId
 
-instance Core.ToHeaders UnclaimDevice where
+instance Data.ToHeaders UnclaimDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UnclaimDevice where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON UnclaimDevice where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath UnclaimDevice where
+instance Data.ToPath UnclaimDevice where
   toPath UnclaimDevice' {..} =
     Prelude.mconcat
-      ["/devices/", Core.toBS deviceId, "/unclaim"]
+      ["/devices/", Data.toBS deviceId, "/unclaim"]
 
-instance Core.ToQuery UnclaimDevice where
+instance Data.ToQuery UnclaimDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUnclaimDeviceResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.StrategySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.Strategy
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ strategySummary_count = Lens.lens (\StrategySummary' {count} -> count) (\s@Strat
 strategySummary_strategy :: Lens.Lens' StrategySummary (Prelude.Maybe Strategy)
 strategySummary_strategy = Lens.lens (\StrategySummary' {strategy} -> strategy) (\s@StrategySummary' {} a -> s {strategy = a} :: StrategySummary)
 
-instance Core.FromJSON StrategySummary where
+instance Data.FromJSON StrategySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StrategySummary"
       ( \x ->
           StrategySummary'
-            Prelude.<$> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "strategy")
+            Prelude.<$> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "strategy")
       )
 
 instance Prelude.Hashable StrategySummary where

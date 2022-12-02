@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.DataCollectionDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.AssessmentStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,11 +36,11 @@ data DataCollectionDetails = DataCollectionDetails'
     -- | The status of the assessment.
     status :: Prelude.Maybe AssessmentStatus,
     -- | The time the assessment completes.
-    completionTime :: Prelude.Maybe Core.POSIX,
+    completionTime :: Prelude.Maybe Data.POSIX,
     -- | The number of successful servers in the assessment.
     success :: Prelude.Maybe Prelude.Int,
     -- | The start time of assessment.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The number of servers with the assessment status @IN_PROGESS@.
     inProgress :: Prelude.Maybe Prelude.Int
   }
@@ -93,7 +94,7 @@ dataCollectionDetails_status = Lens.lens (\DataCollectionDetails' {status} -> st
 
 -- | The time the assessment completes.
 dataCollectionDetails_completionTime :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.UTCTime)
-dataCollectionDetails_completionTime = Lens.lens (\DataCollectionDetails' {completionTime} -> completionTime) (\s@DataCollectionDetails' {} a -> s {completionTime = a} :: DataCollectionDetails) Prelude.. Lens.mapping Core._Time
+dataCollectionDetails_completionTime = Lens.lens (\DataCollectionDetails' {completionTime} -> completionTime) (\s@DataCollectionDetails' {} a -> s {completionTime = a} :: DataCollectionDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The number of successful servers in the assessment.
 dataCollectionDetails_success :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.Int)
@@ -101,25 +102,25 @@ dataCollectionDetails_success = Lens.lens (\DataCollectionDetails' {success} -> 
 
 -- | The start time of assessment.
 dataCollectionDetails_startTime :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.UTCTime)
-dataCollectionDetails_startTime = Lens.lens (\DataCollectionDetails' {startTime} -> startTime) (\s@DataCollectionDetails' {} a -> s {startTime = a} :: DataCollectionDetails) Prelude.. Lens.mapping Core._Time
+dataCollectionDetails_startTime = Lens.lens (\DataCollectionDetails' {startTime} -> startTime) (\s@DataCollectionDetails' {} a -> s {startTime = a} :: DataCollectionDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The number of servers with the assessment status @IN_PROGESS@.
 dataCollectionDetails_inProgress :: Lens.Lens' DataCollectionDetails (Prelude.Maybe Prelude.Int)
 dataCollectionDetails_inProgress = Lens.lens (\DataCollectionDetails' {inProgress} -> inProgress) (\s@DataCollectionDetails' {} a -> s {inProgress = a} :: DataCollectionDetails)
 
-instance Core.FromJSON DataCollectionDetails where
+instance Data.FromJSON DataCollectionDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataCollectionDetails"
       ( \x ->
           DataCollectionDetails'
-            Prelude.<$> (x Core..:? "failed")
-            Prelude.<*> (x Core..:? "servers")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "completionTime")
-            Prelude.<*> (x Core..:? "success")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "inProgress")
+            Prelude.<$> (x Data..:? "failed")
+            Prelude.<*> (x Data..:? "servers")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "completionTime")
+            Prelude.<*> (x Data..:? "success")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "inProgress")
       )
 
 instance Prelude.Hashable DataCollectionDetails where

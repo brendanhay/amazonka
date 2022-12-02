@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.SelfManageResources where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.SelfManageTargetDestination
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newSelfManageResources pTargetDestination_ =
 selfManageResources_targetDestination :: Lens.Lens' SelfManageResources (Prelude.NonEmpty SelfManageTargetDestination)
 selfManageResources_targetDestination = Lens.lens (\SelfManageResources' {targetDestination} -> targetDestination) (\s@SelfManageResources' {} a -> s {targetDestination = a} :: SelfManageResources) Prelude.. Lens.coerced
 
-instance Core.FromJSON SelfManageResources where
+instance Data.FromJSON SelfManageResources where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SelfManageResources"
       ( \x ->
           SelfManageResources'
-            Prelude.<$> (x Core..: "targetDestination")
+            Prelude.<$> (x Data..: "targetDestination")
       )
 
 instance Prelude.Hashable SelfManageResources where
@@ -73,11 +74,11 @@ instance Prelude.NFData SelfManageResources where
   rnf SelfManageResources' {..} =
     Prelude.rnf targetDestination
 
-instance Core.ToJSON SelfManageResources where
+instance Data.ToJSON SelfManageResources where
   toJSON SelfManageResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("targetDestination" Core..= targetDestination)
+              ("targetDestination" Data..= targetDestination)
           ]
       )

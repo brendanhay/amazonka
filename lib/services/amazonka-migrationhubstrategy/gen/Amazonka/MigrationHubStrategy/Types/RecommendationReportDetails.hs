@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.RecommendationReportDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.RecommendationReportStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,11 +34,11 @@ data RecommendationReportDetails = RecommendationReportDetails'
     -- | The status of the recommendation report generation task.
     status :: Prelude.Maybe RecommendationReportStatus,
     -- | The time that the recommendation report generation task completes.
-    completionTime :: Prelude.Maybe Core.POSIX,
+    completionTime :: Prelude.Maybe Data.POSIX,
     -- | The status message for recommendation report generation.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The time that the recommendation report generation task starts.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon S3 key name of the report file.
     s3Keys :: Prelude.Maybe [Prelude.Text]
   }
@@ -85,7 +86,7 @@ recommendationReportDetails_status = Lens.lens (\RecommendationReportDetails' {s
 
 -- | The time that the recommendation report generation task completes.
 recommendationReportDetails_completionTime :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe Prelude.UTCTime)
-recommendationReportDetails_completionTime = Lens.lens (\RecommendationReportDetails' {completionTime} -> completionTime) (\s@RecommendationReportDetails' {} a -> s {completionTime = a} :: RecommendationReportDetails) Prelude.. Lens.mapping Core._Time
+recommendationReportDetails_completionTime = Lens.lens (\RecommendationReportDetails' {completionTime} -> completionTime) (\s@RecommendationReportDetails' {} a -> s {completionTime = a} :: RecommendationReportDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The status message for recommendation report generation.
 recommendationReportDetails_statusMessage :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe Prelude.Text)
@@ -93,24 +94,24 @@ recommendationReportDetails_statusMessage = Lens.lens (\RecommendationReportDeta
 
 -- | The time that the recommendation report generation task starts.
 recommendationReportDetails_startTime :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe Prelude.UTCTime)
-recommendationReportDetails_startTime = Lens.lens (\RecommendationReportDetails' {startTime} -> startTime) (\s@RecommendationReportDetails' {} a -> s {startTime = a} :: RecommendationReportDetails) Prelude.. Lens.mapping Core._Time
+recommendationReportDetails_startTime = Lens.lens (\RecommendationReportDetails' {startTime} -> startTime) (\s@RecommendationReportDetails' {} a -> s {startTime = a} :: RecommendationReportDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon S3 key name of the report file.
 recommendationReportDetails_s3Keys :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe [Prelude.Text])
 recommendationReportDetails_s3Keys = Lens.lens (\RecommendationReportDetails' {s3Keys} -> s3Keys) (\s@RecommendationReportDetails' {} a -> s {s3Keys = a} :: RecommendationReportDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RecommendationReportDetails where
+instance Data.FromJSON RecommendationReportDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationReportDetails"
       ( \x ->
           RecommendationReportDetails'
-            Prelude.<$> (x Core..:? "s3Bucket")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "completionTime")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "s3Keys" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "s3Bucket")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "completionTime")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "s3Keys" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RecommendationReportDetails where

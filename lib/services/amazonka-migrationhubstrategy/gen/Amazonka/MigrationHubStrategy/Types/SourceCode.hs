@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.SourceCode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.VersionControl
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,13 +85,13 @@ instance Prelude.NFData SourceCode where
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf versionControl
 
-instance Core.ToJSON SourceCode where
+instance Data.ToJSON SourceCode where
   toJSON SourceCode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sourceVersion" Core..=) Prelude.<$> sourceVersion,
-            ("location" Core..=) Prelude.<$> location,
-            ("versionControl" Core..=)
+          [ ("sourceVersion" Data..=) Prelude.<$> sourceVersion,
+            ("location" Data..=) Prelude.<$> location,
+            ("versionControl" Data..=)
               Prelude.<$> versionControl
           ]
       )

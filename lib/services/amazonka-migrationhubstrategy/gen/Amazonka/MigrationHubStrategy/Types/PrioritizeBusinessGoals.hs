@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.PrioritizeBusinessGoals where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.BusinessGoals
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newPrioritizeBusinessGoals =
 prioritizeBusinessGoals_businessGoals :: Lens.Lens' PrioritizeBusinessGoals (Prelude.Maybe BusinessGoals)
 prioritizeBusinessGoals_businessGoals = Lens.lens (\PrioritizeBusinessGoals' {businessGoals} -> businessGoals) (\s@PrioritizeBusinessGoals' {} a -> s {businessGoals = a} :: PrioritizeBusinessGoals)
 
-instance Core.FromJSON PrioritizeBusinessGoals where
+instance Data.FromJSON PrioritizeBusinessGoals where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrioritizeBusinessGoals"
       ( \x ->
           PrioritizeBusinessGoals'
-            Prelude.<$> (x Core..:? "businessGoals")
+            Prelude.<$> (x Data..:? "businessGoals")
       )
 
 instance Prelude.Hashable PrioritizeBusinessGoals where
@@ -71,11 +72,11 @@ instance Prelude.NFData PrioritizeBusinessGoals where
   rnf PrioritizeBusinessGoals' {..} =
     Prelude.rnf businessGoals
 
-instance Core.ToJSON PrioritizeBusinessGoals where
+instance Data.ToJSON PrioritizeBusinessGoals where
   toJSON PrioritizeBusinessGoals' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("businessGoals" Core..=)
+          [ ("businessGoals" Data..=)
               Prelude.<$> businessGoals
           ]
       )

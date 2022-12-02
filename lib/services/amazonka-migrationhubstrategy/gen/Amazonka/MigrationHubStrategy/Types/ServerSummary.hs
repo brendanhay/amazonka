@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.ServerSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.ServerOsType
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ serverSummary_serverOsType = Lens.lens (\ServerSummary' {serverOsType} -> server
 serverSummary_count :: Lens.Lens' ServerSummary (Prelude.Maybe Prelude.Int)
 serverSummary_count = Lens.lens (\ServerSummary' {count} -> count) (\s@ServerSummary' {} a -> s {count = a} :: ServerSummary)
 
-instance Core.FromJSON ServerSummary where
+instance Data.FromJSON ServerSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerSummary"
       ( \x ->
           ServerSummary'
-            Prelude.<$> (x Core..:? "ServerOsType")
-            Prelude.<*> (x Core..:? "count")
+            Prelude.<$> (x Data..:? "ServerOsType")
+            Prelude.<*> (x Data..:? "count")
       )
 
 instance Prelude.Hashable ServerSummary where

@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.AntipatternSeveritySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.Severity
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ antipatternSeveritySummary_severity = Lens.lens (\AntipatternSeveritySummary' {s
 antipatternSeveritySummary_count :: Lens.Lens' AntipatternSeveritySummary (Prelude.Maybe Prelude.Int)
 antipatternSeveritySummary_count = Lens.lens (\AntipatternSeveritySummary' {count} -> count) (\s@AntipatternSeveritySummary' {} a -> s {count = a} :: AntipatternSeveritySummary)
 
-instance Core.FromJSON AntipatternSeveritySummary where
+instance Data.FromJSON AntipatternSeveritySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AntipatternSeveritySummary"
       ( \x ->
           AntipatternSeveritySummary'
-            Prelude.<$> (x Core..:? "severity")
-            Prelude.<*> (x Core..:? "count")
+            Prelude.<$> (x Data..:? "severity")
+            Prelude.<*> (x Data..:? "count")
       )
 
 instance Prelude.Hashable AntipatternSeveritySummary where

@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.ServerDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.AntipatternReportStatus
 import Amazonka.MigrationHubStrategy.Types.AntipatternSeveritySummary
 import Amazonka.MigrationHubStrategy.Types.RecommendationSet
@@ -60,7 +61,7 @@ data ServerDetail = ServerDetail'
     -- descriptions of any error messages.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the server was assessed.
-    lastAnalyzedTimestamp :: Prelude.Maybe Core.POSIX
+    lastAnalyzedTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -170,31 +171,31 @@ serverDetail_statusMessage = Lens.lens (\ServerDetail' {statusMessage} -> status
 
 -- | The timestamp of when the server was assessed.
 serverDetail_lastAnalyzedTimestamp :: Lens.Lens' ServerDetail (Prelude.Maybe Prelude.UTCTime)
-serverDetail_lastAnalyzedTimestamp = Lens.lens (\ServerDetail' {lastAnalyzedTimestamp} -> lastAnalyzedTimestamp) (\s@ServerDetail' {} a -> s {lastAnalyzedTimestamp = a} :: ServerDetail) Prelude.. Lens.mapping Core._Time
+serverDetail_lastAnalyzedTimestamp = Lens.lens (\ServerDetail' {lastAnalyzedTimestamp} -> lastAnalyzedTimestamp) (\s@ServerDetail' {} a -> s {lastAnalyzedTimestamp = a} :: ServerDetail) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ServerDetail where
+instance Data.FromJSON ServerDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerDetail"
       ( \x ->
           ServerDetail'
-            Prelude.<$> (x Core..:? "antipatternReportStatus")
-            Prelude.<*> (x Core..:? "dataCollectionStatus")
-            Prelude.<*> (x Core..:? "antipatternReportS3Object")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "recommendationSet")
-            Prelude.<*> (x Core..:? "systemInfo")
-            Prelude.<*> ( x Core..:? "applicationComponentStrategySummary"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "antipatternReportStatus")
+            Prelude.<*> (x Data..:? "dataCollectionStatus")
+            Prelude.<*> (x Data..:? "antipatternReportS3Object")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "recommendationSet")
+            Prelude.<*> (x Data..:? "systemInfo")
+            Prelude.<*> ( x Data..:? "applicationComponentStrategySummary"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "listAntipatternSeveritySummary"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "listAntipatternSeveritySummary"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "serverType")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "antipatternReportStatusMessage")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "lastAnalyzedTimestamp")
+            Prelude.<*> (x Data..:? "serverType")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "antipatternReportStatusMessage")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "lastAnalyzedTimestamp")
       )
 
 instance Prelude.Hashable ServerDetail where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -186,8 +187,8 @@ instance Core.AWSRequest ListApplicationComponents where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationComponentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "applicationComponentInfos"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "applicationComponentInfos"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -211,35 +212,35 @@ instance Prelude.NFData ListApplicationComponents where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf applicationComponentCriteria
 
-instance Core.ToHeaders ListApplicationComponents where
+instance Data.ToHeaders ListApplicationComponents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListApplicationComponents where
+instance Data.ToJSON ListApplicationComponents where
   toJSON ListApplicationComponents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("groupIdFilter" Core..=) Prelude.<$> groupIdFilter,
-            ("filterValue" Core..=) Prelude.<$> filterValue,
-            ("sort" Core..=) Prelude.<$> sort,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("applicationComponentCriteria" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("groupIdFilter" Data..=) Prelude.<$> groupIdFilter,
+            ("filterValue" Data..=) Prelude.<$> filterValue,
+            ("sort" Data..=) Prelude.<$> sort,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("applicationComponentCriteria" Data..=)
               Prelude.<$> applicationComponentCriteria
           ]
       )
 
-instance Core.ToPath ListApplicationComponents where
+instance Data.ToPath ListApplicationComponents where
   toPath = Prelude.const "/list-applicationcomponents"
 
-instance Core.ToQuery ListApplicationComponents where
+instance Data.ToQuery ListApplicationComponents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListApplicationComponentsResponse' smart constructor.

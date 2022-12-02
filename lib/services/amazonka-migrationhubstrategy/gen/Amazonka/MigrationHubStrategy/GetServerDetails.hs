@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,11 +147,11 @@ instance Core.AWSRequest GetServerDetails where
     Response.receiveJSON
       ( \s h x ->
           GetServerDetailsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "associatedApplications"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "associatedApplications"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "serverDetail")
+            Prelude.<*> (x Data..?> "serverDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,27 +167,27 @@ instance Prelude.NFData GetServerDetails where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serverId
 
-instance Core.ToHeaders GetServerDetails where
+instance Data.ToHeaders GetServerDetails where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetServerDetails where
+instance Data.ToPath GetServerDetails where
   toPath GetServerDetails' {..} =
     Prelude.mconcat
-      ["/get-server-details/", Core.toBS serverId]
+      ["/get-server-details/", Data.toBS serverId]
 
-instance Core.ToQuery GetServerDetails where
+instance Data.ToQuery GetServerDetails where
   toQuery GetServerDetails' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetServerDetailsResponse' smart constructor.

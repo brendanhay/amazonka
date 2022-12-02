@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.TransformationTool where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.TransformationToolName
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ transformationTool_tranformationToolInstallationLink = Lens.lens (\Transformatio
 transformationTool_description :: Lens.Lens' TransformationTool (Prelude.Maybe Prelude.Text)
 transformationTool_description = Lens.lens (\TransformationTool' {description} -> description) (\s@TransformationTool' {} a -> s {description = a} :: TransformationTool)
 
-instance Core.FromJSON TransformationTool where
+instance Data.FromJSON TransformationTool where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransformationTool"
       ( \x ->
           TransformationTool'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "tranformationToolInstallationLink")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "tranformationToolInstallationLink")
+            Prelude.<*> (x Data..:? "description")
       )
 
 instance Prelude.Hashable TransformationTool where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,7 +159,7 @@ instance Core.AWSRequest StartImportFileTask where
     Response.receiveJSON
       ( \s h x ->
           StartImportFileTaskResponse'
-            Prelude.<$> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,36 +181,36 @@ instance Prelude.NFData StartImportFileTask where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf s3key
 
-instance Core.ToHeaders StartImportFileTask where
+instance Data.ToHeaders StartImportFileTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartImportFileTask where
+instance Data.ToJSON StartImportFileTask where
   toJSON StartImportFileTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dataSourceType" Core..=)
+          [ ("dataSourceType" Data..=)
               Prelude.<$> dataSourceType,
-            ("groupId" Core..=) Prelude.<$> groupId,
-            ("s3bucketForReportData" Core..=)
+            ("groupId" Data..=) Prelude.<$> groupId,
+            ("s3bucketForReportData" Data..=)
               Prelude.<$> s3bucketForReportData,
-            Prelude.Just ("S3Bucket" Core..= s3Bucket),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("s3key" Core..= s3key)
+            Prelude.Just ("S3Bucket" Data..= s3Bucket),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("s3key" Data..= s3key)
           ]
       )
 
-instance Core.ToPath StartImportFileTask where
+instance Data.ToPath StartImportFileTask where
   toPath = Prelude.const "/start-import-file-task"
 
-instance Core.ToQuery StartImportFileTask where
+instance Data.ToQuery StartImportFileTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartImportFileTaskResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.ServerStrategy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.RecommendationSet
 import Amazonka.MigrationHubStrategy.Types.StrategyRecommendation
 import qualified Amazonka.Prelude as Prelude
@@ -84,16 +85,16 @@ serverStrategy_numberOfApplicationComponents = Lens.lens (\ServerStrategy' {numb
 serverStrategy_isPreferred :: Lens.Lens' ServerStrategy (Prelude.Maybe Prelude.Bool)
 serverStrategy_isPreferred = Lens.lens (\ServerStrategy' {isPreferred} -> isPreferred) (\s@ServerStrategy' {} a -> s {isPreferred = a} :: ServerStrategy)
 
-instance Core.FromJSON ServerStrategy where
+instance Data.FromJSON ServerStrategy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerStrategy"
       ( \x ->
           ServerStrategy'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "recommendation")
-            Prelude.<*> (x Core..:? "numberOfApplicationComponents")
-            Prelude.<*> (x Core..:? "isPreferred")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "recommendation")
+            Prelude.<*> (x Data..:? "numberOfApplicationComponents")
+            Prelude.<*> (x Data..:? "isPreferred")
       )
 
 instance Prelude.Hashable ServerStrategy where

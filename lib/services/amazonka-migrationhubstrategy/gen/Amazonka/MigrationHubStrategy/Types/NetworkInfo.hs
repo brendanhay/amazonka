@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.NetworkInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the server\'s network for which the assessment was
@@ -104,16 +105,16 @@ networkInfo_macAddress = Lens.lens (\NetworkInfo' {macAddress} -> macAddress) (\
 networkInfo_netMask :: Lens.Lens' NetworkInfo Prelude.Text
 networkInfo_netMask = Lens.lens (\NetworkInfo' {netMask} -> netMask) (\s@NetworkInfo' {} a -> s {netMask = a} :: NetworkInfo)
 
-instance Core.FromJSON NetworkInfo where
+instance Data.FromJSON NetworkInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkInfo"
       ( \x ->
           NetworkInfo'
-            Prelude.<$> (x Core..: "interfaceName")
-            Prelude.<*> (x Core..: "ipAddress")
-            Prelude.<*> (x Core..: "macAddress")
-            Prelude.<*> (x Core..: "netMask")
+            Prelude.<$> (x Data..: "interfaceName")
+            Prelude.<*> (x Data..: "ipAddress")
+            Prelude.<*> (x Data..: "macAddress")
+            Prelude.<*> (x Data..: "netMask")
       )
 
 instance Prelude.Hashable NetworkInfo where

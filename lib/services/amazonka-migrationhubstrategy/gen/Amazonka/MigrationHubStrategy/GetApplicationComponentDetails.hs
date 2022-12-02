@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,14 +97,14 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetApplicationComponentDetailsResponse'
-            Prelude.<$> ( x Core..?> "associatedApplications"
+            Prelude.<$> ( x Data..?> "associatedApplications"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "applicationComponentDetail")
-            Prelude.<*> ( x Core..?> "associatedServerIds"
+            Prelude.<*> (x Data..?> "applicationComponentDetail")
+            Prelude.<*> ( x Data..?> "associatedServerIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "moreApplicationResource")
+            Prelude.<*> (x Data..?> "moreApplicationResource")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,27 +125,27 @@ instance
     Prelude.rnf applicationComponentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetApplicationComponentDetails
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetApplicationComponentDetails where
+instance Data.ToPath GetApplicationComponentDetails where
   toPath GetApplicationComponentDetails' {..} =
     Prelude.mconcat
       [ "/get-applicationcomponent-details/",
-        Core.toBS applicationComponentId
+        Data.toBS applicationComponentId
       ]
 
-instance Core.ToQuery GetApplicationComponentDetails where
+instance Data.ToQuery GetApplicationComponentDetails where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApplicationComponentDetailsResponse' smart constructor.

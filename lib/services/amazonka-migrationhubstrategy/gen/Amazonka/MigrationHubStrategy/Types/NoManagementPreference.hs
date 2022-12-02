@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.NoManagementPreference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.NoPreferenceTargetDestination
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newNoManagementPreference pTargetDestination_ =
 noManagementPreference_targetDestination :: Lens.Lens' NoManagementPreference (Prelude.NonEmpty NoPreferenceTargetDestination)
 noManagementPreference_targetDestination = Lens.lens (\NoManagementPreference' {targetDestination} -> targetDestination) (\s@NoManagementPreference' {} a -> s {targetDestination = a} :: NoManagementPreference) Prelude.. Lens.coerced
 
-instance Core.FromJSON NoManagementPreference where
+instance Data.FromJSON NoManagementPreference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NoManagementPreference"
       ( \x ->
           NoManagementPreference'
-            Prelude.<$> (x Core..: "targetDestination")
+            Prelude.<$> (x Data..: "targetDestination")
       )
 
 instance Prelude.Hashable NoManagementPreference where
@@ -74,11 +75,11 @@ instance Prelude.NFData NoManagementPreference where
   rnf NoManagementPreference' {..} =
     Prelude.rnf targetDestination
 
-instance Core.ToJSON NoManagementPreference where
+instance Data.ToJSON NoManagementPreference where
   toJSON NoManagementPreference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("targetDestination" Core..= targetDestination)
+              ("targetDestination" Data..= targetDestination)
           ]
       )

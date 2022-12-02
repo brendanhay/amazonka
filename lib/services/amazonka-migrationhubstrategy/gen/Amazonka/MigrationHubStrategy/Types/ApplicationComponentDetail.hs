@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.ApplicationComponentDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.AntipatternReportStatus
 import Amazonka.MigrationHubStrategy.Types.AntipatternSeveritySummary
 import Amazonka.MigrationHubStrategy.Types.AppType
@@ -79,7 +80,7 @@ data ApplicationComponentDetail = ApplicationComponentDetail'
     -- | A detailed description of the analysis status and any failure message.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the application component was assessed.
-    lastAnalyzedTimestamp :: Prelude.Maybe Core.POSIX
+    lastAnalyzedTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -240,37 +241,37 @@ applicationComponentDetail_statusMessage = Lens.lens (\ApplicationComponentDetai
 
 -- | The timestamp of when the application component was assessed.
 applicationComponentDetail_lastAnalyzedTimestamp :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.UTCTime)
-applicationComponentDetail_lastAnalyzedTimestamp = Lens.lens (\ApplicationComponentDetail' {lastAnalyzedTimestamp} -> lastAnalyzedTimestamp) (\s@ApplicationComponentDetail' {} a -> s {lastAnalyzedTimestamp = a} :: ApplicationComponentDetail) Prelude.. Lens.mapping Core._Time
+applicationComponentDetail_lastAnalyzedTimestamp = Lens.lens (\ApplicationComponentDetail' {lastAnalyzedTimestamp} -> lastAnalyzedTimestamp) (\s@ApplicationComponentDetail' {} a -> s {lastAnalyzedTimestamp = a} :: ApplicationComponentDetail) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ApplicationComponentDetail where
+instance Data.FromJSON ApplicationComponentDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationComponentDetail"
       ( \x ->
           ApplicationComponentDetail'
-            Prelude.<$> (x Core..:? "antipatternReportStatus")
-            Prelude.<*> (x Core..:? "antipatternReportS3Object")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "recommendationSet")
-            Prelude.<*> (x Core..:? "appType")
-            Prelude.<*> (x Core..:? "moreServerAssociationExists")
-            Prelude.<*> ( x Core..:? "listAntipatternSeveritySummary"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "antipatternReportStatus")
+            Prelude.<*> (x Data..:? "antipatternReportS3Object")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "recommendationSet")
+            Prelude.<*> (x Data..:? "appType")
+            Prelude.<*> (x Data..:? "moreServerAssociationExists")
+            Prelude.<*> ( x Data..:? "listAntipatternSeveritySummary"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "osVersion")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "inclusionStatus")
-            Prelude.<*> (x Core..:? "analysisStatus")
-            Prelude.<*> (x Core..:? "antipatternReportStatusMessage")
-            Prelude.<*> (x Core..:? "resourceSubType")
-            Prelude.<*> ( x Core..:? "sourceCodeRepositories"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "osVersion")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "inclusionStatus")
+            Prelude.<*> (x Data..:? "analysisStatus")
+            Prelude.<*> (x Data..:? "antipatternReportStatusMessage")
+            Prelude.<*> (x Data..:? "resourceSubType")
+            Prelude.<*> ( x Data..:? "sourceCodeRepositories"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "databaseConfigDetail")
-            Prelude.<*> (x Core..:? "associatedServerId")
-            Prelude.<*> (x Core..:? "osDriver")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "lastAnalyzedTimestamp")
+            Prelude.<*> (x Data..:? "databaseConfigDetail")
+            Prelude.<*> (x Data..:? "associatedServerId")
+            Prelude.<*> (x Data..:? "osDriver")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "lastAnalyzedTimestamp")
       )
 
 instance Prelude.Hashable ApplicationComponentDetail where

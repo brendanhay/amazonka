@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.OSInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.OSType
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ oSInfo_type = Lens.lens (\OSInfo' {type'} -> type') (\s@OSInfo' {} a -> s {type'
 oSInfo_version :: Lens.Lens' OSInfo (Prelude.Maybe Prelude.Text)
 oSInfo_version = Lens.lens (\OSInfo' {version} -> version) (\s@OSInfo' {} a -> s {version = a} :: OSInfo)
 
-instance Core.FromJSON OSInfo where
+instance Data.FromJSON OSInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OSInfo"
       ( \x ->
           OSInfo'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable OSInfo where

@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.AssessmentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.AntipatternReportStatus
 import Amazonka.MigrationHubStrategy.Types.AntipatternSeveritySummary
 import Amazonka.MigrationHubStrategy.Types.ApplicationComponentSummary
@@ -50,7 +51,7 @@ data AssessmentSummary = AssessmentSummary'
     -- | List of ApplicationComponentStrategySummary.
     listApplicationComponentStrategySummary :: Prelude.Maybe [StrategySummary],
     -- | The time the assessment was performed.
-    lastAnalyzedTimestamp :: Prelude.Maybe Core.POSIX
+    lastAnalyzedTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -130,33 +131,33 @@ assessmentSummary_listApplicationComponentStrategySummary = Lens.lens (\Assessme
 
 -- | The time the assessment was performed.
 assessmentSummary_lastAnalyzedTimestamp :: Lens.Lens' AssessmentSummary (Prelude.Maybe Prelude.UTCTime)
-assessmentSummary_lastAnalyzedTimestamp = Lens.lens (\AssessmentSummary' {lastAnalyzedTimestamp} -> lastAnalyzedTimestamp) (\s@AssessmentSummary' {} a -> s {lastAnalyzedTimestamp = a} :: AssessmentSummary) Prelude.. Lens.mapping Core._Time
+assessmentSummary_lastAnalyzedTimestamp = Lens.lens (\AssessmentSummary' {lastAnalyzedTimestamp} -> lastAnalyzedTimestamp) (\s@AssessmentSummary' {} a -> s {lastAnalyzedTimestamp = a} :: AssessmentSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AssessmentSummary where
+instance Data.FromJSON AssessmentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentSummary"
       ( \x ->
           AssessmentSummary'
-            Prelude.<$> (x Core..:? "antipatternReportStatus")
-            Prelude.<*> (x Core..:? "antipatternReportS3Object")
-            Prelude.<*> ( x Core..:? "listApplicationComponentSummary"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "antipatternReportStatus")
+            Prelude.<*> (x Data..:? "antipatternReportS3Object")
+            Prelude.<*> ( x Data..:? "listApplicationComponentSummary"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "listAntipatternSeveritySummary"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "listAntipatternSeveritySummary"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "listServerStrategySummary"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "listServerStrategySummary"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "antipatternReportStatusMessage")
-            Prelude.<*> ( x Core..:? "listServerSummary"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "antipatternReportStatusMessage")
+            Prelude.<*> ( x Data..:? "listServerSummary"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "listApplicationComponentStrategySummary"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "listApplicationComponentStrategySummary"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lastAnalyzedTimestamp")
+            Prelude.<*> (x Data..:? "lastAnalyzedTimestamp")
       )
 
 instance Prelude.Hashable AssessmentSummary where

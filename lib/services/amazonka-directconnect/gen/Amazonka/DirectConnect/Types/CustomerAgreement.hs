@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.CustomerAgreement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name and status of a customer agreement.
@@ -64,14 +65,14 @@ customerAgreement_agreementName = Lens.lens (\CustomerAgreement' {agreementName}
 customerAgreement_status :: Lens.Lens' CustomerAgreement (Prelude.Maybe Prelude.Text)
 customerAgreement_status = Lens.lens (\CustomerAgreement' {status} -> status) (\s@CustomerAgreement' {} a -> s {status = a} :: CustomerAgreement)
 
-instance Core.FromJSON CustomerAgreement where
+instance Data.FromJSON CustomerAgreement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomerAgreement"
       ( \x ->
           CustomerAgreement'
-            Prelude.<$> (x Core..:? "agreementName")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<$> (x Data..:? "agreementName")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable CustomerAgreement where

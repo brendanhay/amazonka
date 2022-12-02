@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -209,8 +210,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDirectConnectGatewayAssociationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-              Prelude.<*> ( x Core..?> "directConnectGatewayAssociations"
+            Prelude.<$> (x Data..?> "nextToken")
+              Prelude.<*> ( x Data..?> "directConnectGatewayAssociations"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -243,50 +244,50 @@ instance
       `Prelude.seq` Prelude.rnf associationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeDirectConnectGatewayAssociations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DescribeDirectConnectGatewayAssociations" ::
+              Data.=# ( "OvertureService.DescribeDirectConnectGatewayAssociations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeDirectConnectGatewayAssociations
   where
   toJSON DescribeDirectConnectGatewayAssociations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("directConnectGatewayId" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("directConnectGatewayId" Data..=)
               Prelude.<$> directConnectGatewayId,
-            ("virtualGatewayId" Core..=)
+            ("virtualGatewayId" Data..=)
               Prelude.<$> virtualGatewayId,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("associatedGatewayId" Core..=)
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("associatedGatewayId" Data..=)
               Prelude.<$> associatedGatewayId,
-            ("associationId" Core..=) Prelude.<$> associationId
+            ("associationId" Data..=) Prelude.<$> associationId
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeDirectConnectGatewayAssociations
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeDirectConnectGatewayAssociations
   where
   toQuery = Prelude.const Prelude.mempty

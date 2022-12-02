@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.NewPrivateVirtualInterfaceAllocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.AddressFamily
 import Amazonka.DirectConnect.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -192,24 +193,24 @@ instance
       `Prelude.seq` Prelude.rnf asn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     NewPrivateVirtualInterfaceAllocation
   where
   toJSON NewPrivateVirtualInterfaceAllocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("addressFamily" Core..=) Prelude.<$> addressFamily,
-            ("authKey" Core..=) Prelude.<$> authKey,
-            ("customerAddress" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("addressFamily" Data..=) Prelude.<$> addressFamily,
+            ("authKey" Data..=) Prelude.<$> authKey,
+            ("customerAddress" Data..=)
               Prelude.<$> customerAddress,
-            ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
-            ("mtu" Core..=) Prelude.<$> mtu,
+            ("amazonAddress" Data..=) Prelude.<$> amazonAddress,
+            ("mtu" Data..=) Prelude.<$> mtu,
             Prelude.Just
               ( "virtualInterfaceName"
-                  Core..= virtualInterfaceName
+                  Data..= virtualInterfaceName
               ),
-            Prelude.Just ("vlan" Core..= vlan),
-            Prelude.Just ("asn" Core..= asn)
+            Prelude.Just ("vlan" Data..= vlan),
+            Prelude.Just ("asn" Data..= asn)
           ]
       )

@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -154,7 +155,7 @@ instance
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance
   Prelude.Hashable
@@ -179,42 +180,42 @@ instance
       `Prelude.seq` Prelude.rnf virtualInterfaceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateVirtualInterfaceAttributes
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.UpdateVirtualInterfaceAttributes" ::
+              Data.=# ( "OvertureService.UpdateVirtualInterfaceAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVirtualInterfaceAttributes where
+instance Data.ToJSON UpdateVirtualInterfaceAttributes where
   toJSON UpdateVirtualInterfaceAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("mtu" Core..=) Prelude.<$> mtu,
-            ("enableSiteLink" Core..=)
+          [ ("mtu" Data..=) Prelude.<$> mtu,
+            ("enableSiteLink" Data..=)
               Prelude.<$> enableSiteLink,
-            ("virtualInterfaceName" Core..=)
+            ("virtualInterfaceName" Data..=)
               Prelude.<$> virtualInterfaceName,
             Prelude.Just
-              ("virtualInterfaceId" Core..= virtualInterfaceId)
+              ("virtualInterfaceId" Data..= virtualInterfaceId)
           ]
       )
 
-instance Core.ToPath UpdateVirtualInterfaceAttributes where
+instance Data.ToPath UpdateVirtualInterfaceAttributes where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateVirtualInterfaceAttributes
   where
   toQuery = Prelude.const Prelude.mempty

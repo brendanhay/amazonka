@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest DescribeVirtualInterfaces where
     Response.receiveJSON
       ( \s h x ->
           DescribeVirtualInterfacesResponse'
-            Prelude.<$> ( x Core..?> "virtualInterfaces"
+            Prelude.<$> ( x Data..?> "virtualInterfaces"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -118,35 +119,35 @@ instance Prelude.NFData DescribeVirtualInterfaces where
     Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf virtualInterfaceId
 
-instance Core.ToHeaders DescribeVirtualInterfaces where
+instance Data.ToHeaders DescribeVirtualInterfaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DescribeVirtualInterfaces" ::
+              Data.=# ( "OvertureService.DescribeVirtualInterfaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeVirtualInterfaces where
+instance Data.ToJSON DescribeVirtualInterfaces where
   toJSON DescribeVirtualInterfaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("connectionId" Core..=) Prelude.<$> connectionId,
-            ("virtualInterfaceId" Core..=)
+          [ ("connectionId" Data..=) Prelude.<$> connectionId,
+            ("virtualInterfaceId" Data..=)
               Prelude.<$> virtualInterfaceId
           ]
       )
 
-instance Core.ToPath DescribeVirtualInterfaces where
+instance Data.ToPath DescribeVirtualInterfaces where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVirtualInterfaces where
+instance Data.ToQuery DescribeVirtualInterfaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeVirtualInterfacesResponse' smart constructor.

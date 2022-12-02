@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest DeleteVirtualInterface where
     Response.receiveJSON
       ( \s h x ->
           DeleteVirtualInterfaceResponse'
-            Prelude.<$> (x Core..?> "virtualInterfaceState")
+            Prelude.<$> (x Data..?> "virtualInterfaceState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,34 +99,34 @@ instance Prelude.NFData DeleteVirtualInterface where
   rnf DeleteVirtualInterface' {..} =
     Prelude.rnf virtualInterfaceId
 
-instance Core.ToHeaders DeleteVirtualInterface where
+instance Data.ToHeaders DeleteVirtualInterface where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DeleteVirtualInterface" ::
+              Data.=# ( "OvertureService.DeleteVirtualInterface" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVirtualInterface where
+instance Data.ToJSON DeleteVirtualInterface where
   toJSON DeleteVirtualInterface' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("virtualInterfaceId" Core..= virtualInterfaceId)
+              ("virtualInterfaceId" Data..= virtualInterfaceId)
           ]
       )
 
-instance Core.ToPath DeleteVirtualInterface where
+instance Data.ToPath DeleteVirtualInterface where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVirtualInterface where
+instance Data.ToQuery DeleteVirtualInterface where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVirtualInterfaceResponse' smart constructor.

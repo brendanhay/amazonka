@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,7 +136,7 @@ instance Core.AWSRequest AssociateVirtualInterface where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable AssociateVirtualInterface where
   hashWithSalt _salt AssociateVirtualInterface' {..} =
@@ -147,33 +148,33 @@ instance Prelude.NFData AssociateVirtualInterface where
     Prelude.rnf virtualInterfaceId
       `Prelude.seq` Prelude.rnf connectionId
 
-instance Core.ToHeaders AssociateVirtualInterface where
+instance Data.ToHeaders AssociateVirtualInterface where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.AssociateVirtualInterface" ::
+              Data.=# ( "OvertureService.AssociateVirtualInterface" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateVirtualInterface where
+instance Data.ToJSON AssociateVirtualInterface where
   toJSON AssociateVirtualInterface' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("virtualInterfaceId" Core..= virtualInterfaceId),
-            Prelude.Just ("connectionId" Core..= connectionId)
+              ("virtualInterfaceId" Data..= virtualInterfaceId),
+            Prelude.Just ("connectionId" Data..= connectionId)
           ]
       )
 
-instance Core.ToPath AssociateVirtualInterface where
+instance Data.ToPath AssociateVirtualInterface where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateVirtualInterface where
+instance Data.ToQuery AssociateVirtualInterface where
   toQuery = Prelude.const Prelude.mempty

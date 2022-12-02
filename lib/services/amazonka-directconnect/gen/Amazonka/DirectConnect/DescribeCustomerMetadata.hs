@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -71,8 +72,8 @@ instance Core.AWSRequest DescribeCustomerMetadata where
     Response.receiveJSON
       ( \s h x ->
           DescribeCustomerMetadataResponse'
-            Prelude.<$> (x Core..?> "agreements" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nniPartnerType")
+            Prelude.<$> (x Data..?> "agreements" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nniPartnerType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -83,28 +84,28 @@ instance Prelude.Hashable DescribeCustomerMetadata where
 instance Prelude.NFData DescribeCustomerMetadata where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeCustomerMetadata where
+instance Data.ToHeaders DescribeCustomerMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DescribeCustomerMetadata" ::
+              Data.=# ( "OvertureService.DescribeCustomerMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCustomerMetadata where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeCustomerMetadata where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeCustomerMetadata where
+instance Data.ToPath DescribeCustomerMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCustomerMetadata where
+instance Data.ToQuery DescribeCustomerMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCustomerMetadataResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -71,7 +72,7 @@ instance Core.AWSRequest DescribeVirtualGateways where
     Response.receiveJSON
       ( \s h x ->
           DescribeVirtualGatewaysResponse'
-            Prelude.<$> ( x Core..?> "virtualGateways"
+            Prelude.<$> ( x Data..?> "virtualGateways"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -84,28 +85,28 @@ instance Prelude.Hashable DescribeVirtualGateways where
 instance Prelude.NFData DescribeVirtualGateways where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeVirtualGateways where
+instance Data.ToHeaders DescribeVirtualGateways where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DescribeVirtualGateways" ::
+              Data.=# ( "OvertureService.DescribeVirtualGateways" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeVirtualGateways where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeVirtualGateways where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeVirtualGateways where
+instance Data.ToPath DescribeVirtualGateways where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVirtualGateways where
+instance Data.ToQuery DescribeVirtualGateways where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeVirtualGatewaysResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.Interconnect where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.HasLogicalRedundancy
 import Amazonka.DirectConnect.Types.InterconnectState
 import Amazonka.DirectConnect.Types.Tag
@@ -46,7 +47,7 @@ data Interconnect = Interconnect'
     -- address family (IPv4\/IPv6).
     hasLogicalRedundancy :: Prelude.Maybe HasLogicalRedundancy,
     -- | The time of the most recent call to DescribeLoa for this connection.
-    loaIssueTime :: Prelude.Maybe Core.POSIX,
+    loaIssueTime :: Prelude.Maybe Data.POSIX,
     -- | The state of the interconnect. The following are the possible values:
     --
     -- -   @requested@: The initial state of an interconnect. The interconnect
@@ -192,7 +193,7 @@ interconnect_hasLogicalRedundancy = Lens.lens (\Interconnect' {hasLogicalRedunda
 
 -- | The time of the most recent call to DescribeLoa for this connection.
 interconnect_loaIssueTime :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.UTCTime)
-interconnect_loaIssueTime = Lens.lens (\Interconnect' {loaIssueTime} -> loaIssueTime) (\s@Interconnect' {} a -> s {loaIssueTime = a} :: Interconnect) Prelude.. Lens.mapping Core._Time
+interconnect_loaIssueTime = Lens.lens (\Interconnect' {loaIssueTime} -> loaIssueTime) (\s@Interconnect' {} a -> s {loaIssueTime = a} :: Interconnect) Prelude.. Lens.mapping Data._Time
 
 -- | The state of the interconnect. The following are the possible values:
 --
@@ -241,27 +242,27 @@ interconnect_awsLogicalDeviceId = Lens.lens (\Interconnect' {awsLogicalDeviceId}
 interconnect_awsDeviceV2 :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.Text)
 interconnect_awsDeviceV2 = Lens.lens (\Interconnect' {awsDeviceV2} -> awsDeviceV2) (\s@Interconnect' {} a -> s {awsDeviceV2 = a} :: Interconnect)
 
-instance Core.FromJSON Interconnect where
+instance Data.FromJSON Interconnect where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Interconnect"
       ( \x ->
           Interconnect'
-            Prelude.<$> (x Core..:? "tags")
-            Prelude.<*> (x Core..:? "providerName")
-            Prelude.<*> (x Core..:? "bandwidth")
-            Prelude.<*> (x Core..:? "interconnectName")
-            Prelude.<*> (x Core..:? "jumboFrameCapable")
-            Prelude.<*> (x Core..:? "lagId")
-            Prelude.<*> (x Core..:? "hasLogicalRedundancy")
-            Prelude.<*> (x Core..:? "loaIssueTime")
-            Prelude.<*> (x Core..:? "interconnectState")
-            Prelude.<*> (x Core..:? "awsDevice")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "interconnectId")
-            Prelude.<*> (x Core..:? "awsLogicalDeviceId")
-            Prelude.<*> (x Core..:? "awsDeviceV2")
+            Prelude.<$> (x Data..:? "tags")
+            Prelude.<*> (x Data..:? "providerName")
+            Prelude.<*> (x Data..:? "bandwidth")
+            Prelude.<*> (x Data..:? "interconnectName")
+            Prelude.<*> (x Data..:? "jumboFrameCapable")
+            Prelude.<*> (x Data..:? "lagId")
+            Prelude.<*> (x Data..:? "hasLogicalRedundancy")
+            Prelude.<*> (x Data..:? "loaIssueTime")
+            Prelude.<*> (x Data..:? "interconnectState")
+            Prelude.<*> (x Data..:? "awsDevice")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "interconnectId")
+            Prelude.<*> (x Data..:? "awsLogicalDeviceId")
+            Prelude.<*> (x Data..:? "awsDeviceV2")
       )
 
 instance Prelude.Hashable Interconnect where

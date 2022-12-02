@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,7 +102,7 @@ instance Core.AWSRequest UpdateDirectConnectGateway where
     Response.receiveJSON
       ( \s h x ->
           UpdateDirectConnectGatewayResponse'
-            Prelude.<$> (x Core..?> "directConnectGateway")
+            Prelude.<$> (x Data..?> "directConnectGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,40 +116,40 @@ instance Prelude.NFData UpdateDirectConnectGateway where
     Prelude.rnf directConnectGatewayId
       `Prelude.seq` Prelude.rnf newDirectConnectGatewayName'
 
-instance Core.ToHeaders UpdateDirectConnectGateway where
+instance Data.ToHeaders UpdateDirectConnectGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.UpdateDirectConnectGateway" ::
+              Data.=# ( "OvertureService.UpdateDirectConnectGateway" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDirectConnectGateway where
+instance Data.ToJSON UpdateDirectConnectGateway where
   toJSON UpdateDirectConnectGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "directConnectGatewayId"
-                  Core..= directConnectGatewayId
+                  Data..= directConnectGatewayId
               ),
             Prelude.Just
               ( "newDirectConnectGatewayName"
-                  Core..= newDirectConnectGatewayName'
+                  Data..= newDirectConnectGatewayName'
               )
           ]
       )
 
-instance Core.ToPath UpdateDirectConnectGateway where
+instance Data.ToPath UpdateDirectConnectGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDirectConnectGateway where
+instance Data.ToQuery UpdateDirectConnectGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDirectConnectGatewayResponse' smart constructor.

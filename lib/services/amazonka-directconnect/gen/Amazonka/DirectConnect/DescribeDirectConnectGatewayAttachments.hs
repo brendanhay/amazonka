@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -170,8 +171,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDirectConnectGatewayAttachmentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-              Prelude.<*> ( x Core..?> "directConnectGatewayAttachments"
+            Prelude.<$> (x Data..?> "nextToken")
+              Prelude.<*> ( x Data..?> "directConnectGatewayAttachments"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -200,47 +201,47 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeDirectConnectGatewayAttachments
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DescribeDirectConnectGatewayAttachments" ::
+              Data.=# ( "OvertureService.DescribeDirectConnectGatewayAttachments" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeDirectConnectGatewayAttachments
   where
   toJSON DescribeDirectConnectGatewayAttachments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("directConnectGatewayId" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("directConnectGatewayId" Data..=)
               Prelude.<$> directConnectGatewayId,
-            ("virtualInterfaceId" Core..=)
+            ("virtualInterfaceId" Data..=)
               Prelude.<$> virtualInterfaceId,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeDirectConnectGatewayAttachments
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeDirectConnectGatewayAttachments
   where
   toQuery = Prelude.const Prelude.mempty

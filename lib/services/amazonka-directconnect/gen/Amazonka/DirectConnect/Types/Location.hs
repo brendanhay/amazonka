@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Direct Connect location.
@@ -100,23 +101,23 @@ location_locationCode = Lens.lens (\Location' {locationCode} -> locationCode) (\
 location_availableMacSecPortSpeeds :: Lens.Lens' Location (Prelude.Maybe [Prelude.Text])
 location_availableMacSecPortSpeeds = Lens.lens (\Location' {availableMacSecPortSpeeds} -> availableMacSecPortSpeeds) (\s@Location' {} a -> s {availableMacSecPortSpeeds = a} :: Location) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Location where
+instance Data.FromJSON Location where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Location"
       ( \x ->
           Location'
-            Prelude.<$> ( x Core..:? "availablePortSpeeds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "availablePortSpeeds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> ( x Core..:? "availableProviders"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> ( x Data..:? "availableProviders"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "locationName")
-            Prelude.<*> (x Core..:? "locationCode")
-            Prelude.<*> ( x Core..:? "availableMacSecPortSpeeds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "locationName")
+            Prelude.<*> (x Data..:? "locationCode")
+            Prelude.<*> ( x Data..:? "availableMacSecPortSpeeds"
+                            Data..!= Prelude.mempty
                         )
       )
 

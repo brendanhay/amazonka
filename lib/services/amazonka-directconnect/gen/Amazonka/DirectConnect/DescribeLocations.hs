@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -69,7 +70,7 @@ instance Core.AWSRequest DescribeLocations where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationsResponse'
-            Prelude.<$> (x Core..?> "locations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "locations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -80,28 +81,28 @@ instance Prelude.Hashable DescribeLocations where
 instance Prelude.NFData DescribeLocations where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeLocations where
+instance Data.ToHeaders DescribeLocations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DescribeLocations" ::
+              Data.=# ( "OvertureService.DescribeLocations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLocations where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeLocations where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeLocations where
+instance Data.ToPath DescribeLocations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLocations where
+instance Data.ToQuery DescribeLocations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLocationsResponse' smart constructor.

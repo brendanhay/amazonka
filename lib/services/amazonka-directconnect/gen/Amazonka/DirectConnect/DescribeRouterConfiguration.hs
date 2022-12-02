@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,10 +105,10 @@ instance Core.AWSRequest DescribeRouterConfiguration where
     Response.receiveJSON
       ( \s h x ->
           DescribeRouterConfigurationResponse'
-            Prelude.<$> (x Core..?> "router")
-            Prelude.<*> (x Core..?> "virtualInterfaceId")
-            Prelude.<*> (x Core..?> "customerRouterConfig")
-            Prelude.<*> (x Core..?> "virtualInterfaceName")
+            Prelude.<$> (x Data..?> "router")
+            Prelude.<*> (x Data..?> "virtualInterfaceId")
+            Prelude.<*> (x Data..?> "customerRouterConfig")
+            Prelude.<*> (x Data..?> "virtualInterfaceName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,36 +122,36 @@ instance Prelude.NFData DescribeRouterConfiguration where
     Prelude.rnf routerTypeIdentifier
       `Prelude.seq` Prelude.rnf virtualInterfaceId
 
-instance Core.ToHeaders DescribeRouterConfiguration where
+instance Data.ToHeaders DescribeRouterConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DescribeRouterConfiguration" ::
+              Data.=# ( "OvertureService.DescribeRouterConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRouterConfiguration where
+instance Data.ToJSON DescribeRouterConfiguration where
   toJSON DescribeRouterConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("routerTypeIdentifier" Core..=)
+          [ ("routerTypeIdentifier" Data..=)
               Prelude.<$> routerTypeIdentifier,
             Prelude.Just
-              ("virtualInterfaceId" Core..= virtualInterfaceId)
+              ("virtualInterfaceId" Data..= virtualInterfaceId)
           ]
       )
 
-instance Core.ToPath DescribeRouterConfiguration where
+instance Data.ToPath DescribeRouterConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRouterConfiguration where
+instance Data.ToQuery DescribeRouterConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRouterConfigurationResponse' smart constructor.

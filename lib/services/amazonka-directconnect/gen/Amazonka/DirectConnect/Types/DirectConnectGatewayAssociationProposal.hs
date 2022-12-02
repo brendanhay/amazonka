@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposal wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.AssociatedGateway
 import Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState
 import Amazonka.DirectConnect.Types.RouteFilterPrefix
@@ -153,27 +154,27 @@ directConnectGatewayAssociationProposal_proposalState :: Lens.Lens' DirectConnec
 directConnectGatewayAssociationProposal_proposalState = Lens.lens (\DirectConnectGatewayAssociationProposal' {proposalState} -> proposalState) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {proposalState = a} :: DirectConnectGatewayAssociationProposal)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DirectConnectGatewayAssociationProposal
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DirectConnectGatewayAssociationProposal"
       ( \x ->
           DirectConnectGatewayAssociationProposal'
-            Prelude.<$> (x Core..:? "proposalId")
-            Prelude.<*> (x Core..:? "directConnectGatewayOwnerAccount")
-            Prelude.<*> (x Core..:? "directConnectGatewayId")
+            Prelude.<$> (x Data..:? "proposalId")
+            Prelude.<*> (x Data..:? "directConnectGatewayOwnerAccount")
+            Prelude.<*> (x Data..:? "directConnectGatewayId")
             Prelude.<*> ( x
-                            Core..:? "existingAllowedPrefixesToDirectConnectGateway"
-                            Core..!= Prelude.mempty
+                            Data..:? "existingAllowedPrefixesToDirectConnectGateway"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "associatedGateway")
+            Prelude.<*> (x Data..:? "associatedGateway")
             Prelude.<*> ( x
-                            Core..:? "requestedAllowedPrefixesToDirectConnectGateway"
-                            Core..!= Prelude.mempty
+                            Data..:? "requestedAllowedPrefixesToDirectConnectGateway"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "proposalState")
+            Prelude.<*> (x Data..:? "proposalState")
       )
 
 instance

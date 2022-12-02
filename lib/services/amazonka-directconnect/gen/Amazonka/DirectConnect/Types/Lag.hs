@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.Lag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.Connection
 import Amazonka.DirectConnect.Types.HasLogicalRedundancy
 import Amazonka.DirectConnect.Types.LagState
@@ -312,33 +313,33 @@ lag_encryptionMode = Lens.lens (\Lag' {encryptionMode} -> encryptionMode) (\s@La
 lag_awsDeviceV2 :: Lens.Lens' Lag (Prelude.Maybe Prelude.Text)
 lag_awsDeviceV2 = Lens.lens (\Lag' {awsDeviceV2} -> awsDeviceV2) (\s@Lag' {} a -> s {awsDeviceV2 = a} :: Lag)
 
-instance Core.FromJSON Lag where
+instance Data.FromJSON Lag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Lag"
       ( \x ->
           Lag'
-            Prelude.<$> (x Core..:? "tags")
-            Prelude.<*> (x Core..:? "numberOfConnections")
-            Prelude.<*> (x Core..:? "macSecKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "minimumLinks")
-            Prelude.<*> (x Core..:? "macSecCapable")
-            Prelude.<*> (x Core..:? "providerName")
-            Prelude.<*> (x Core..:? "lagState")
-            Prelude.<*> (x Core..:? "jumboFrameCapable")
-            Prelude.<*> (x Core..:? "lagId")
-            Prelude.<*> (x Core..:? "hasLogicalRedundancy")
-            Prelude.<*> (x Core..:? "awsDevice")
-            Prelude.<*> (x Core..:? "lagName")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "allowsHostedConnections")
-            Prelude.<*> (x Core..:? "connections" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "connectionsBandwidth")
-            Prelude.<*> (x Core..:? "ownerAccount")
-            Prelude.<*> (x Core..:? "awsLogicalDeviceId")
-            Prelude.<*> (x Core..:? "encryptionMode")
-            Prelude.<*> (x Core..:? "awsDeviceV2")
+            Prelude.<$> (x Data..:? "tags")
+            Prelude.<*> (x Data..:? "numberOfConnections")
+            Prelude.<*> (x Data..:? "macSecKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "minimumLinks")
+            Prelude.<*> (x Data..:? "macSecCapable")
+            Prelude.<*> (x Data..:? "providerName")
+            Prelude.<*> (x Data..:? "lagState")
+            Prelude.<*> (x Data..:? "jumboFrameCapable")
+            Prelude.<*> (x Data..:? "lagId")
+            Prelude.<*> (x Data..:? "hasLogicalRedundancy")
+            Prelude.<*> (x Data..:? "awsDevice")
+            Prelude.<*> (x Data..:? "lagName")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "allowsHostedConnections")
+            Prelude.<*> (x Data..:? "connections" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "connectionsBandwidth")
+            Prelude.<*> (x Data..:? "ownerAccount")
+            Prelude.<*> (x Data..:? "awsLogicalDeviceId")
+            Prelude.<*> (x Data..:? "encryptionMode")
+            Prelude.<*> (x Data..:? "awsDeviceV2")
       )
 
 instance Prelude.Hashable Lag where

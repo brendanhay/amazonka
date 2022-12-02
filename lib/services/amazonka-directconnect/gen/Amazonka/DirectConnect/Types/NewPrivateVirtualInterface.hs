@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.NewPrivateVirtualInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.AddressFamily
 import Amazonka.DirectConnect.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -213,28 +214,28 @@ instance Prelude.NFData NewPrivateVirtualInterface where
       `Prelude.seq` Prelude.rnf vlan
       `Prelude.seq` Prelude.rnf asn
 
-instance Core.ToJSON NewPrivateVirtualInterface where
+instance Data.ToJSON NewPrivateVirtualInterface where
   toJSON NewPrivateVirtualInterface' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("addressFamily" Core..=) Prelude.<$> addressFamily,
-            ("authKey" Core..=) Prelude.<$> authKey,
-            ("directConnectGatewayId" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("addressFamily" Data..=) Prelude.<$> addressFamily,
+            ("authKey" Data..=) Prelude.<$> authKey,
+            ("directConnectGatewayId" Data..=)
               Prelude.<$> directConnectGatewayId,
-            ("virtualGatewayId" Core..=)
+            ("virtualGatewayId" Data..=)
               Prelude.<$> virtualGatewayId,
-            ("customerAddress" Core..=)
+            ("customerAddress" Data..=)
               Prelude.<$> customerAddress,
-            ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
-            ("mtu" Core..=) Prelude.<$> mtu,
-            ("enableSiteLink" Core..=)
+            ("amazonAddress" Data..=) Prelude.<$> amazonAddress,
+            ("mtu" Data..=) Prelude.<$> mtu,
+            ("enableSiteLink" Data..=)
               Prelude.<$> enableSiteLink,
             Prelude.Just
               ( "virtualInterfaceName"
-                  Core..= virtualInterfaceName
+                  Data..= virtualInterfaceName
               ),
-            Prelude.Just ("vlan" Core..= vlan),
-            Prelude.Just ("asn" Core..= asn)
+            Prelude.Just ("vlan" Data..= vlan),
+            Prelude.Just ("asn" Data..= asn)
           ]
       )

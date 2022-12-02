@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance Core.AWSRequest DeleteDirectConnectGateway where
     Response.receiveJSON
       ( \s h x ->
           DeleteDirectConnectGatewayResponse'
-            Prelude.<$> (x Core..?> "directConnectGateway")
+            Prelude.<$> (x Data..?> "directConnectGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,36 +103,36 @@ instance Prelude.NFData DeleteDirectConnectGateway where
   rnf DeleteDirectConnectGateway' {..} =
     Prelude.rnf directConnectGatewayId
 
-instance Core.ToHeaders DeleteDirectConnectGateway where
+instance Data.ToHeaders DeleteDirectConnectGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DeleteDirectConnectGateway" ::
+              Data.=# ( "OvertureService.DeleteDirectConnectGateway" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDirectConnectGateway where
+instance Data.ToJSON DeleteDirectConnectGateway where
   toJSON DeleteDirectConnectGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "directConnectGatewayId"
-                  Core..= directConnectGatewayId
+                  Data..= directConnectGatewayId
               )
           ]
       )
 
-instance Core.ToPath DeleteDirectConnectGateway where
+instance Data.ToPath DeleteDirectConnectGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDirectConnectGateway where
+instance Data.ToQuery DeleteDirectConnectGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDirectConnectGatewayResponse' smart constructor.

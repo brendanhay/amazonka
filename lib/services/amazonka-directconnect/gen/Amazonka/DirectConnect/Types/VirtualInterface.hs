@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.VirtualInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.AddressFamily
 import Amazonka.DirectConnect.Types.BGPPeer
 import Amazonka.DirectConnect.Types.RouteFilterPrefix
@@ -420,40 +421,40 @@ virtualInterface_virtualInterfaceName = Lens.lens (\VirtualInterface' {virtualIn
 virtualInterface_awsDeviceV2 :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
 virtualInterface_awsDeviceV2 = Lens.lens (\VirtualInterface' {awsDeviceV2} -> awsDeviceV2) (\s@VirtualInterface' {} a -> s {awsDeviceV2 = a} :: VirtualInterface)
 
-instance Core.FromJSON VirtualInterface where
+instance Data.FromJSON VirtualInterface where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualInterface"
       ( \x ->
           VirtualInterface'
-            Prelude.<$> (x Core..:? "tags")
-            Prelude.<*> (x Core..:? "addressFamily")
-            Prelude.<*> (x Core..:? "authKey")
-            Prelude.<*> (x Core..:? "directConnectGatewayId")
-            Prelude.<*> (x Core..:? "virtualInterfaceType")
-            Prelude.<*> (x Core..:? "jumboFrameCapable")
-            Prelude.<*> ( x Core..:? "routeFilterPrefixes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags")
+            Prelude.<*> (x Data..:? "addressFamily")
+            Prelude.<*> (x Data..:? "authKey")
+            Prelude.<*> (x Data..:? "directConnectGatewayId")
+            Prelude.<*> (x Data..:? "virtualInterfaceType")
+            Prelude.<*> (x Data..:? "jumboFrameCapable")
+            Prelude.<*> ( x Data..:? "routeFilterPrefixes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "virtualGatewayId")
-            Prelude.<*> (x Core..:? "vlan")
-            Prelude.<*> (x Core..:? "connectionId")
-            Prelude.<*> (x Core..:? "customerAddress")
-            Prelude.<*> (x Core..:? "virtualInterfaceState")
-            Prelude.<*> (x Core..:? "asn")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "siteLinkEnabled")
-            Prelude.<*> (x Core..:? "amazonAddress")
-            Prelude.<*> (x Core..:? "virtualInterfaceId")
-            Prelude.<*> (x Core..:? "bgpPeers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "customerRouterConfig")
-            Prelude.<*> (x Core..:? "amazonSideAsn")
-            Prelude.<*> (x Core..:? "mtu")
-            Prelude.<*> (x Core..:? "ownerAccount")
-            Prelude.<*> (x Core..:? "awsLogicalDeviceId")
-            Prelude.<*> (x Core..:? "virtualInterfaceName")
-            Prelude.<*> (x Core..:? "awsDeviceV2")
+            Prelude.<*> (x Data..:? "virtualGatewayId")
+            Prelude.<*> (x Data..:? "vlan")
+            Prelude.<*> (x Data..:? "connectionId")
+            Prelude.<*> (x Data..:? "customerAddress")
+            Prelude.<*> (x Data..:? "virtualInterfaceState")
+            Prelude.<*> (x Data..:? "asn")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "siteLinkEnabled")
+            Prelude.<*> (x Data..:? "amazonAddress")
+            Prelude.<*> (x Data..:? "virtualInterfaceId")
+            Prelude.<*> (x Data..:? "bgpPeers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "customerRouterConfig")
+            Prelude.<*> (x Data..:? "amazonSideAsn")
+            Prelude.<*> (x Data..:? "mtu")
+            Prelude.<*> (x Data..:? "ownerAccount")
+            Prelude.<*> (x Data..:? "awsLogicalDeviceId")
+            Prelude.<*> (x Data..:? "virtualInterfaceName")
+            Prelude.<*> (x Data..:? "awsDeviceV2")
       )
 
 instance Prelude.Hashable VirtualInterface where

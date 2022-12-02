@@ -80,6 +80,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,7 +135,7 @@ instance Core.AWSRequest AssociateConnectionWithLag where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable AssociateConnectionWithLag where
   hashWithSalt _salt AssociateConnectionWithLag' {..} =
@@ -146,32 +147,32 @@ instance Prelude.NFData AssociateConnectionWithLag where
     Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf lagId
 
-instance Core.ToHeaders AssociateConnectionWithLag where
+instance Data.ToHeaders AssociateConnectionWithLag where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.AssociateConnectionWithLag" ::
+              Data.=# ( "OvertureService.AssociateConnectionWithLag" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateConnectionWithLag where
+instance Data.ToJSON AssociateConnectionWithLag where
   toJSON AssociateConnectionWithLag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("connectionId" Core..= connectionId),
-            Prelude.Just ("lagId" Core..= lagId)
+          [ Prelude.Just ("connectionId" Data..= connectionId),
+            Prelude.Just ("lagId" Data..= lagId)
           ]
       )
 
-instance Core.ToPath AssociateConnectionWithLag where
+instance Data.ToPath AssociateConnectionWithLag where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateConnectionWithLag where
+instance Data.ToQuery AssociateConnectionWithLag where
   toQuery = Prelude.const Prelude.mempty

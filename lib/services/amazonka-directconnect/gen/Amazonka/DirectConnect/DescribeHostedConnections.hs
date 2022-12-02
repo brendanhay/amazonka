@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest DescribeHostedConnections where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable DescribeHostedConnections where
   hashWithSalt _salt DescribeHostedConnections' {..} =
@@ -96,30 +97,30 @@ instance Prelude.NFData DescribeHostedConnections where
   rnf DescribeHostedConnections' {..} =
     Prelude.rnf connectionId
 
-instance Core.ToHeaders DescribeHostedConnections where
+instance Data.ToHeaders DescribeHostedConnections where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DescribeHostedConnections" ::
+              Data.=# ( "OvertureService.DescribeHostedConnections" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeHostedConnections where
+instance Data.ToJSON DescribeHostedConnections where
   toJSON DescribeHostedConnections' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("connectionId" Core..= connectionId)]
+          [Prelude.Just ("connectionId" Data..= connectionId)]
       )
 
-instance Core.ToPath DescribeHostedConnections where
+instance Data.ToPath DescribeHostedConnections where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeHostedConnections where
+instance Data.ToQuery DescribeHostedConnections where
   toQuery = Prelude.const Prelude.mempty

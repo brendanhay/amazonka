@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,9 +150,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDirectConnectGatewayAssociationProposalsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
               Prelude.<*> ( x
-                              Core..?> "directConnectGatewayAssociationProposals"
+                              Data..?> "directConnectGatewayAssociationProposals"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -183,49 +184,49 @@ instance
         `Prelude.seq` Prelude.rnf associatedGatewayId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeDirectConnectGatewayAssociationProposals
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DescribeDirectConnectGatewayAssociationProposals" ::
+              Data.=# ( "OvertureService.DescribeDirectConnectGatewayAssociationProposals" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeDirectConnectGatewayAssociationProposals
   where
   toJSON
     DescribeDirectConnectGatewayAssociationProposals' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("proposalId" Core..=) Prelude.<$> proposalId,
-              ("nextToken" Core..=) Prelude.<$> nextToken,
-              ("directConnectGatewayId" Core..=)
+            [ ("proposalId" Data..=) Prelude.<$> proposalId,
+              ("nextToken" Data..=) Prelude.<$> nextToken,
+              ("directConnectGatewayId" Data..=)
                 Prelude.<$> directConnectGatewayId,
-              ("maxResults" Core..=) Prelude.<$> maxResults,
-              ("associatedGatewayId" Core..=)
+              ("maxResults" Data..=) Prelude.<$> maxResults,
+              ("associatedGatewayId" Data..=)
                 Prelude.<$> associatedGatewayId
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeDirectConnectGatewayAssociationProposals
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeDirectConnectGatewayAssociationProposals
   where
   toQuery = Prelude.const Prelude.mempty

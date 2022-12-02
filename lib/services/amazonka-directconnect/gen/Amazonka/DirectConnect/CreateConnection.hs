@@ -80,6 +80,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -202,7 +203,7 @@ instance Core.AWSRequest CreateConnection where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateConnection where
   hashWithSalt _salt CreateConnection' {..} =
@@ -224,38 +225,38 @@ instance Prelude.NFData CreateConnection where
       `Prelude.seq` Prelude.rnf bandwidth
       `Prelude.seq` Prelude.rnf connectionName
 
-instance Core.ToHeaders CreateConnection where
+instance Data.ToHeaders CreateConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.CreateConnection" ::
+              Data.=# ( "OvertureService.CreateConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConnection where
+instance Data.ToJSON CreateConnection where
   toJSON CreateConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("providerName" Core..=) Prelude.<$> providerName,
-            ("lagId" Core..=) Prelude.<$> lagId,
-            ("requestMACSec" Core..=) Prelude.<$> requestMACSec,
-            Prelude.Just ("location" Core..= location),
-            Prelude.Just ("bandwidth" Core..= bandwidth),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("providerName" Data..=) Prelude.<$> providerName,
+            ("lagId" Data..=) Prelude.<$> lagId,
+            ("requestMACSec" Data..=) Prelude.<$> requestMACSec,
+            Prelude.Just ("location" Data..= location),
+            Prelude.Just ("bandwidth" Data..= bandwidth),
             Prelude.Just
-              ("connectionName" Core..= connectionName)
+              ("connectionName" Data..= connectionName)
           ]
       )
 
-instance Core.ToPath CreateConnection where
+instance Data.ToPath CreateConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateConnection where
+instance Data.ToQuery CreateConnection where
   toQuery = Prelude.const Prelude.mempty

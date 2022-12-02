@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest StopBgpFailoverTest where
     Response.receiveJSON
       ( \s h x ->
           StopBgpFailoverTestResponse'
-            Prelude.<$> (x Core..?> "virtualInterfaceTest")
+            Prelude.<$> (x Data..?> "virtualInterfaceTest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,34 +99,34 @@ instance Prelude.NFData StopBgpFailoverTest where
   rnf StopBgpFailoverTest' {..} =
     Prelude.rnf virtualInterfaceId
 
-instance Core.ToHeaders StopBgpFailoverTest where
+instance Data.ToHeaders StopBgpFailoverTest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.StopBgpFailoverTest" ::
+              Data.=# ( "OvertureService.StopBgpFailoverTest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopBgpFailoverTest where
+instance Data.ToJSON StopBgpFailoverTest where
   toJSON StopBgpFailoverTest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("virtualInterfaceId" Core..= virtualInterfaceId)
+              ("virtualInterfaceId" Data..= virtualInterfaceId)
           ]
       )
 
-instance Core.ToPath StopBgpFailoverTest where
+instance Data.ToPath StopBgpFailoverTest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopBgpFailoverTest where
+instance Data.ToQuery StopBgpFailoverTest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopBgpFailoverTestResponse' smart constructor.

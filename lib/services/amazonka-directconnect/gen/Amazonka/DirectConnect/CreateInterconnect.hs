@@ -82,6 +82,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,7 +175,7 @@ instance Core.AWSRequest CreateInterconnect where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateInterconnect where
   hashWithSalt _salt CreateInterconnect' {..} =
@@ -194,37 +195,37 @@ instance Prelude.NFData CreateInterconnect where
       `Prelude.seq` Prelude.rnf bandwidth
       `Prelude.seq` Prelude.rnf location
 
-instance Core.ToHeaders CreateInterconnect where
+instance Data.ToHeaders CreateInterconnect where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.CreateInterconnect" ::
+              Data.=# ( "OvertureService.CreateInterconnect" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateInterconnect where
+instance Data.ToJSON CreateInterconnect where
   toJSON CreateInterconnect' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("providerName" Core..=) Prelude.<$> providerName,
-            ("lagId" Core..=) Prelude.<$> lagId,
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("providerName" Data..=) Prelude.<$> providerName,
+            ("lagId" Data..=) Prelude.<$> lagId,
             Prelude.Just
-              ("interconnectName" Core..= interconnectName),
-            Prelude.Just ("bandwidth" Core..= bandwidth),
-            Prelude.Just ("location" Core..= location)
+              ("interconnectName" Data..= interconnectName),
+            Prelude.Just ("bandwidth" Data..= bandwidth),
+            Prelude.Just ("location" Data..= location)
           ]
       )
 
-instance Core.ToPath CreateInterconnect where
+instance Data.ToPath CreateInterconnect where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateInterconnect where
+instance Data.ToQuery CreateInterconnect where
   toQuery = Prelude.const Prelude.mempty

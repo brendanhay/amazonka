@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.Connections where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.Connection
 import qualified Amazonka.Prelude as Prelude
 
@@ -49,13 +50,13 @@ newConnections =
 connections_connections :: Lens.Lens' Connections (Prelude.Maybe [Connection])
 connections_connections = Lens.lens (\Connections' {connections} -> connections) (\s@Connections' {} a -> s {connections = a} :: Connections) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Connections where
+instance Data.FromJSON Connections where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Connections"
       ( \x ->
           Connections'
-            Prelude.<$> (x Core..:? "connections" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "connections" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Connections where

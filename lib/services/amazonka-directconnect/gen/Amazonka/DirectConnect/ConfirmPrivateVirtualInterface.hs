@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ConfirmPrivateVirtualInterfaceResponse'
-            Prelude.<$> (x Core..?> "virtualInterfaceState")
+            Prelude.<$> (x Data..?> "virtualInterfaceState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,40 +141,40 @@ instance
       `Prelude.seq` Prelude.rnf virtualInterfaceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ConfirmPrivateVirtualInterface
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.ConfirmPrivateVirtualInterface" ::
+              Data.=# ( "OvertureService.ConfirmPrivateVirtualInterface" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ConfirmPrivateVirtualInterface where
+instance Data.ToJSON ConfirmPrivateVirtualInterface where
   toJSON ConfirmPrivateVirtualInterface' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("directConnectGatewayId" Core..=)
+          [ ("directConnectGatewayId" Data..=)
               Prelude.<$> directConnectGatewayId,
-            ("virtualGatewayId" Core..=)
+            ("virtualGatewayId" Data..=)
               Prelude.<$> virtualGatewayId,
             Prelude.Just
-              ("virtualInterfaceId" Core..= virtualInterfaceId)
+              ("virtualInterfaceId" Data..= virtualInterfaceId)
           ]
       )
 
-instance Core.ToPath ConfirmPrivateVirtualInterface where
+instance Data.ToPath ConfirmPrivateVirtualInterface where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ConfirmPrivateVirtualInterface where
+instance Data.ToQuery ConfirmPrivateVirtualInterface where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newConfirmPrivateVirtualInterfaceResponse' smart constructor.

@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest DeleteLag where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable DeleteLag where
   hashWithSalt _salt DeleteLag' {..} =
@@ -107,28 +108,28 @@ instance Prelude.Hashable DeleteLag where
 instance Prelude.NFData DeleteLag where
   rnf DeleteLag' {..} = Prelude.rnf lagId
 
-instance Core.ToHeaders DeleteLag where
+instance Data.ToHeaders DeleteLag where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("OvertureService.DeleteLag" :: Prelude.ByteString),
+              Data.=# ("OvertureService.DeleteLag" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLag where
+instance Data.ToJSON DeleteLag where
   toJSON DeleteLag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("lagId" Core..= lagId)]
+          [Prelude.Just ("lagId" Data..= lagId)]
       )
 
-instance Core.ToPath DeleteLag where
+instance Data.ToPath DeleteLag where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLag where
+instance Data.ToQuery DeleteLag where
   toQuery = Prelude.const Prelude.mempty

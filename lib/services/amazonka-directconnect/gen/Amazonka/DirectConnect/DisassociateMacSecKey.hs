@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,8 +122,8 @@ instance Core.AWSRequest DisassociateMacSecKey where
     Response.receiveJSON
       ( \s h x ->
           DisassociateMacSecKeyResponse'
-            Prelude.<$> (x Core..?> "macSecKeys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "connectionId")
+            Prelude.<$> (x Data..?> "macSecKeys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "connectionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,34 +137,34 @@ instance Prelude.NFData DisassociateMacSecKey where
     Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf secretARN
 
-instance Core.ToHeaders DisassociateMacSecKey where
+instance Data.ToHeaders DisassociateMacSecKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DisassociateMacSecKey" ::
+              Data.=# ( "OvertureService.DisassociateMacSecKey" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateMacSecKey where
+instance Data.ToJSON DisassociateMacSecKey where
   toJSON DisassociateMacSecKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("connectionId" Core..= connectionId),
-            Prelude.Just ("secretARN" Core..= secretARN)
+          [ Prelude.Just ("connectionId" Data..= connectionId),
+            Prelude.Just ("secretARN" Data..= secretARN)
           ]
       )
 
-instance Core.ToPath DisassociateMacSecKey where
+instance Data.ToPath DisassociateMacSecKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateMacSecKey where
+instance Data.ToQuery DisassociateMacSecKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateMacSecKeyResponse' smart constructor.

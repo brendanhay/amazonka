@@ -39,6 +39,7 @@ where
 import Amazonka.APIGatewayManagementAPI.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,26 +103,26 @@ instance Prelude.NFData PostToConnection where
     Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf data'
 
-instance Core.ToBody PostToConnection where
-  toBody PostToConnection' {..} = Core.toBody data'
+instance Data.ToBody PostToConnection where
+  toBody PostToConnection' {..} = Data.toBody data'
 
-instance Core.ToHeaders PostToConnection where
+instance Data.ToHeaders PostToConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath PostToConnection where
+instance Data.ToPath PostToConnection where
   toPath PostToConnection' {..} =
     Prelude.mconcat
-      ["/@connections/", Core.toBS connectionId]
+      ["/@connections/", Data.toBS connectionId]
 
-instance Core.ToQuery PostToConnection where
+instance Data.ToQuery PostToConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPostToConnectionResponse' smart constructor.

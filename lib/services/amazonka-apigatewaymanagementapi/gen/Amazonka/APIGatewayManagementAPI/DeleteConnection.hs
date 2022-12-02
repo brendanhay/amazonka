@@ -38,6 +38,7 @@ where
 import Amazonka.APIGatewayManagementAPI.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,23 +85,23 @@ instance Prelude.Hashable DeleteConnection where
 instance Prelude.NFData DeleteConnection where
   rnf DeleteConnection' {..} = Prelude.rnf connectionId
 
-instance Core.ToHeaders DeleteConnection where
+instance Data.ToHeaders DeleteConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteConnection where
+instance Data.ToPath DeleteConnection where
   toPath DeleteConnection' {..} =
     Prelude.mconcat
-      ["/@connections/", Core.toBS connectionId]
+      ["/@connections/", Data.toBS connectionId]
 
-instance Core.ToQuery DeleteConnection where
+instance Data.ToQuery DeleteConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConnectionResponse' smart constructor.

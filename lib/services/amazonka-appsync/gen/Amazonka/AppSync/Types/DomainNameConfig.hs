@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.DomainNameConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a configuration for a custom domain.
@@ -94,17 +95,17 @@ domainNameConfig_appsyncDomainName = Lens.lens (\DomainNameConfig' {appsyncDomai
 domainNameConfig_certificateArn :: Lens.Lens' DomainNameConfig (Prelude.Maybe Prelude.Text)
 domainNameConfig_certificateArn = Lens.lens (\DomainNameConfig' {certificateArn} -> certificateArn) (\s@DomainNameConfig' {} a -> s {certificateArn = a} :: DomainNameConfig)
 
-instance Core.FromJSON DomainNameConfig where
+instance Data.FromJSON DomainNameConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainNameConfig"
       ( \x ->
           DomainNameConfig'
-            Prelude.<$> (x Core..:? "hostedZoneId")
-            Prelude.<*> (x Core..:? "domainName")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "appsyncDomainName")
-            Prelude.<*> (x Core..:? "certificateArn")
+            Prelude.<$> (x Data..:? "hostedZoneId")
+            Prelude.<*> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "appsyncDomainName")
+            Prelude.<*> (x Data..:? "certificateArn")
       )
 
 instance Prelude.Hashable DomainNameConfig where

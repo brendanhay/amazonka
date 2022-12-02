@@ -45,6 +45,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -259,7 +260,7 @@ instance Core.AWSRequest UpdateApiCache where
     Response.receiveJSON
       ( \s h x ->
           UpdateApiCacheResponse'
-            Prelude.<$> (x Core..?> "apiCache")
+            Prelude.<$> (x Data..?> "apiCache")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -277,34 +278,34 @@ instance Prelude.NFData UpdateApiCache where
       `Prelude.seq` Prelude.rnf apiCachingBehavior
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders UpdateApiCache where
+instance Data.ToHeaders UpdateApiCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApiCache where
+instance Data.ToJSON UpdateApiCache where
   toJSON UpdateApiCache' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ttl" Core..= ttl),
+          [ Prelude.Just ("ttl" Data..= ttl),
             Prelude.Just
-              ("apiCachingBehavior" Core..= apiCachingBehavior),
-            Prelude.Just ("type" Core..= type')
+              ("apiCachingBehavior" Data..= apiCachingBehavior),
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath UpdateApiCache where
+instance Data.ToPath UpdateApiCache where
   toPath UpdateApiCache' {..} =
     Prelude.mconcat
-      ["/v1/apis/", Core.toBS apiId, "/ApiCaches/update"]
+      ["/v1/apis/", Data.toBS apiId, "/ApiCaches/update"]
 
-instance Core.ToQuery UpdateApiCache where
+instance Data.ToQuery UpdateApiCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @UpdateApiCache@ operation.

@@ -42,6 +42,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetDomainName where
     Response.receiveJSON
       ( \s h x ->
           GetDomainNameResponse'
-            Prelude.<$> (x Core..?> "domainNameConfig")
+            Prelude.<$> (x Data..?> "domainNameConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,23 +95,23 @@ instance Prelude.Hashable GetDomainName where
 instance Prelude.NFData GetDomainName where
   rnf GetDomainName' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders GetDomainName where
+instance Data.ToHeaders GetDomainName where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDomainName where
+instance Data.ToPath GetDomainName where
   toPath GetDomainName' {..} =
     Prelude.mconcat
-      ["/v1/domainnames/", Core.toBS domainName]
+      ["/v1/domainnames/", Data.toBS domainName]
 
-instance Core.ToQuery GetDomainName where
+instance Data.ToQuery GetDomainName where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDomainNameResponse' smart constructor.

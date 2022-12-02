@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.LambdaAuthorizerConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @LambdaAuthorizerConfig@ specifies how to authorize AppSync API access
@@ -114,15 +115,15 @@ lambdaAuthorizerConfig_identityValidationExpression = Lens.lens (\LambdaAuthoriz
 lambdaAuthorizerConfig_authorizerUri :: Lens.Lens' LambdaAuthorizerConfig Prelude.Text
 lambdaAuthorizerConfig_authorizerUri = Lens.lens (\LambdaAuthorizerConfig' {authorizerUri} -> authorizerUri) (\s@LambdaAuthorizerConfig' {} a -> s {authorizerUri = a} :: LambdaAuthorizerConfig)
 
-instance Core.FromJSON LambdaAuthorizerConfig where
+instance Data.FromJSON LambdaAuthorizerConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaAuthorizerConfig"
       ( \x ->
           LambdaAuthorizerConfig'
-            Prelude.<$> (x Core..:? "authorizerResultTtlInSeconds")
-            Prelude.<*> (x Core..:? "identityValidationExpression")
-            Prelude.<*> (x Core..: "authorizerUri")
+            Prelude.<$> (x Data..:? "authorizerResultTtlInSeconds")
+            Prelude.<*> (x Data..:? "identityValidationExpression")
+            Prelude.<*> (x Data..: "authorizerUri")
       )
 
 instance Prelude.Hashable LambdaAuthorizerConfig where
@@ -138,15 +139,15 @@ instance Prelude.NFData LambdaAuthorizerConfig where
       `Prelude.seq` Prelude.rnf identityValidationExpression
       `Prelude.seq` Prelude.rnf authorizerUri
 
-instance Core.ToJSON LambdaAuthorizerConfig where
+instance Data.ToJSON LambdaAuthorizerConfig where
   toJSON LambdaAuthorizerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("authorizerResultTtlInSeconds" Core..=)
+          [ ("authorizerResultTtlInSeconds" Data..=)
               Prelude.<$> authorizerResultTtlInSeconds,
-            ("identityValidationExpression" Core..=)
+            ("identityValidationExpression" Data..=)
               Prelude.<$> identityValidationExpression,
             Prelude.Just
-              ("authorizerUri" Core..= authorizerUri)
+              ("authorizerUri" Data..= authorizerUri)
           ]
       )

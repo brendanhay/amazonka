@@ -22,6 +22,7 @@ module Amazonka.AppSync.Types.HttpDataSourceConfig where
 import Amazonka.AppSync.Types.AuthorizationConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an HTTP data source configuration.
@@ -74,14 +75,14 @@ httpDataSourceConfig_endpoint = Lens.lens (\HttpDataSourceConfig' {endpoint} -> 
 httpDataSourceConfig_authorizationConfig :: Lens.Lens' HttpDataSourceConfig (Prelude.Maybe AuthorizationConfig)
 httpDataSourceConfig_authorizationConfig = Lens.lens (\HttpDataSourceConfig' {authorizationConfig} -> authorizationConfig) (\s@HttpDataSourceConfig' {} a -> s {authorizationConfig = a} :: HttpDataSourceConfig)
 
-instance Core.FromJSON HttpDataSourceConfig where
+instance Data.FromJSON HttpDataSourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpDataSourceConfig"
       ( \x ->
           HttpDataSourceConfig'
-            Prelude.<$> (x Core..:? "endpoint")
-            Prelude.<*> (x Core..:? "authorizationConfig")
+            Prelude.<$> (x Data..:? "endpoint")
+            Prelude.<*> (x Data..:? "authorizationConfig")
       )
 
 instance Prelude.Hashable HttpDataSourceConfig where
@@ -94,12 +95,12 @@ instance Prelude.NFData HttpDataSourceConfig where
     Prelude.rnf endpoint
       `Prelude.seq` Prelude.rnf authorizationConfig
 
-instance Core.ToJSON HttpDataSourceConfig where
+instance Data.ToJSON HttpDataSourceConfig where
   toJSON HttpDataSourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("endpoint" Core..=) Prelude.<$> endpoint,
-            ("authorizationConfig" Core..=)
+          [ ("endpoint" Data..=) Prelude.<$> endpoint,
+            ("authorizationConfig" Data..=)
               Prelude.<$> authorizationConfig
           ]
       )

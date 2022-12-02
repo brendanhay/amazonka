@@ -52,6 +52,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -211,7 +212,7 @@ instance Core.AWSRequest CreateDataSource where
     Response.receiveJSON
       ( \s h x ->
           CreateDataSourceResponse'
-            Prelude.<$> (x Core..?> "dataSource")
+            Prelude.<$> (x Data..?> "dataSource")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -244,45 +245,45 @@ instance Prelude.NFData CreateDataSource where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateDataSource where
+instance Data.ToHeaders CreateDataSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataSource where
+instance Data.ToJSON CreateDataSource where
   toJSON CreateDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("relationalDatabaseConfig" Core..=)
+          [ ("relationalDatabaseConfig" Data..=)
               Prelude.<$> relationalDatabaseConfig,
-            ("serviceRoleArn" Core..=)
+            ("serviceRoleArn" Data..=)
               Prelude.<$> serviceRoleArn,
-            ("openSearchServiceConfig" Core..=)
+            ("openSearchServiceConfig" Data..=)
               Prelude.<$> openSearchServiceConfig,
-            ("description" Core..=) Prelude.<$> description,
-            ("elasticsearchConfig" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("elasticsearchConfig" Data..=)
               Prelude.<$> elasticsearchConfig,
-            ("lambdaConfig" Core..=) Prelude.<$> lambdaConfig,
-            ("dynamodbConfig" Core..=)
+            ("lambdaConfig" Data..=) Prelude.<$> lambdaConfig,
+            ("dynamodbConfig" Data..=)
               Prelude.<$> dynamodbConfig,
-            ("httpConfig" Core..=) Prelude.<$> httpConfig,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("type" Core..= type')
+            ("httpConfig" Data..=) Prelude.<$> httpConfig,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateDataSource where
+instance Data.ToPath CreateDataSource where
   toPath CreateDataSource' {..} =
     Prelude.mconcat
-      ["/v1/apis/", Core.toBS apiId, "/datasources"]
+      ["/v1/apis/", Data.toBS apiId, "/datasources"]
 
-instance Core.ToQuery CreateDataSource where
+instance Data.ToQuery CreateDataSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDataSourceResponse' smart constructor.

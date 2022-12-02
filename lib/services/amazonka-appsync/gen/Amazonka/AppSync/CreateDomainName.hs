@@ -44,6 +44,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,7 +114,7 @@ instance Core.AWSRequest CreateDomainName where
     Response.receiveJSON
       ( \s h x ->
           CreateDomainNameResponse'
-            Prelude.<$> (x Core..?> "domainNameConfig")
+            Prelude.<$> (x Data..?> "domainNameConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,32 +130,32 @@ instance Prelude.NFData CreateDomainName where
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf certificateArn
 
-instance Core.ToHeaders CreateDomainName where
+instance Data.ToHeaders CreateDomainName where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDomainName where
+instance Data.ToJSON CreateDomainName where
   toJSON CreateDomainName' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("domainName" Core..= domainName),
+          [ ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("domainName" Data..= domainName),
             Prelude.Just
-              ("certificateArn" Core..= certificateArn)
+              ("certificateArn" Data..= certificateArn)
           ]
       )
 
-instance Core.ToPath CreateDomainName where
+instance Data.ToPath CreateDomainName where
   toPath = Prelude.const "/v1/domainnames"
 
-instance Core.ToQuery CreateDomainName where
+instance Data.ToQuery CreateDomainName where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDomainNameResponse' smart constructor.

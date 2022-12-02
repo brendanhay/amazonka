@@ -23,6 +23,7 @@ import Amazonka.AppSync.Types.AuthorizationType
 import Amazonka.AppSync.Types.AwsIamConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The authorization configuration in case the HTTP endpoint requires
@@ -73,14 +74,14 @@ authorizationConfig_awsIamConfig = Lens.lens (\AuthorizationConfig' {awsIamConfi
 authorizationConfig_authorizationType :: Lens.Lens' AuthorizationConfig AuthorizationType
 authorizationConfig_authorizationType = Lens.lens (\AuthorizationConfig' {authorizationType} -> authorizationType) (\s@AuthorizationConfig' {} a -> s {authorizationType = a} :: AuthorizationConfig)
 
-instance Core.FromJSON AuthorizationConfig where
+instance Data.FromJSON AuthorizationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthorizationConfig"
       ( \x ->
           AuthorizationConfig'
-            Prelude.<$> (x Core..:? "awsIamConfig")
-            Prelude.<*> (x Core..: "authorizationType")
+            Prelude.<$> (x Data..:? "awsIamConfig")
+            Prelude.<*> (x Data..: "authorizationType")
       )
 
 instance Prelude.Hashable AuthorizationConfig where
@@ -93,12 +94,12 @@ instance Prelude.NFData AuthorizationConfig where
     Prelude.rnf awsIamConfig
       `Prelude.seq` Prelude.rnf authorizationType
 
-instance Core.ToJSON AuthorizationConfig where
+instance Data.ToJSON AuthorizationConfig where
   toJSON AuthorizationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("awsIamConfig" Core..=) Prelude.<$> awsIamConfig,
+          [ ("awsIamConfig" Data..=) Prelude.<$> awsIamConfig,
             Prelude.Just
-              ("authorizationType" Core..= authorizationType)
+              ("authorizationType" Data..= authorizationType)
           ]
       )

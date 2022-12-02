@@ -24,6 +24,7 @@ import Amazonka.AppSync.Types.ApiCacheType
 import Amazonka.AppSync.Types.ApiCachingBehavior
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @ApiCache@ object.
@@ -269,18 +270,18 @@ apiCache_status = Lens.lens (\ApiCache' {status} -> status) (\s@ApiCache' {} a -
 apiCache_atRestEncryptionEnabled :: Lens.Lens' ApiCache (Prelude.Maybe Prelude.Bool)
 apiCache_atRestEncryptionEnabled = Lens.lens (\ApiCache' {atRestEncryptionEnabled} -> atRestEncryptionEnabled) (\s@ApiCache' {} a -> s {atRestEncryptionEnabled = a} :: ApiCache)
 
-instance Core.FromJSON ApiCache where
+instance Data.FromJSON ApiCache where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApiCache"
       ( \x ->
           ApiCache'
-            Prelude.<$> (x Core..:? "transitEncryptionEnabled")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "apiCachingBehavior")
-            Prelude.<*> (x Core..:? "ttl")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "atRestEncryptionEnabled")
+            Prelude.<$> (x Data..:? "transitEncryptionEnabled")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "apiCachingBehavior")
+            Prelude.<*> (x Data..:? "ttl")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "atRestEncryptionEnabled")
       )
 
 instance Prelude.Hashable ApiCache where

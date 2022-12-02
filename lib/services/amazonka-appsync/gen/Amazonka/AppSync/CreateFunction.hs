@@ -55,6 +55,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -205,7 +206,7 @@ instance Core.AWSRequest CreateFunction where
     Response.receiveJSON
       ( \s h x ->
           CreateFunctionResponse'
-            Prelude.<$> (x Core..?> "functionConfiguration")
+            Prelude.<$> (x Data..?> "functionConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -237,44 +238,44 @@ instance Prelude.NFData CreateFunction where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf dataSourceName
 
-instance Core.ToHeaders CreateFunction where
+instance Data.ToHeaders CreateFunction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFunction where
+instance Data.ToJSON CreateFunction where
   toJSON CreateFunction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("code" Core..=) Prelude.<$> code,
-            ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
-            ("functionVersion" Core..=)
+          [ ("code" Data..=) Prelude.<$> code,
+            ("maxBatchSize" Data..=) Prelude.<$> maxBatchSize,
+            ("functionVersion" Data..=)
               Prelude.<$> functionVersion,
-            ("runtime" Core..=) Prelude.<$> runtime,
-            ("description" Core..=) Prelude.<$> description,
-            ("responseMappingTemplate" Core..=)
+            ("runtime" Data..=) Prelude.<$> runtime,
+            ("description" Data..=) Prelude.<$> description,
+            ("responseMappingTemplate" Data..=)
               Prelude.<$> responseMappingTemplate,
-            ("syncConfig" Core..=) Prelude.<$> syncConfig,
-            ("requestMappingTemplate" Core..=)
+            ("syncConfig" Data..=) Prelude.<$> syncConfig,
+            ("requestMappingTemplate" Data..=)
               Prelude.<$> requestMappingTemplate,
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("dataSourceName" Core..= dataSourceName)
+              ("dataSourceName" Data..= dataSourceName)
           ]
       )
 
-instance Core.ToPath CreateFunction where
+instance Data.ToPath CreateFunction where
   toPath CreateFunction' {..} =
     Prelude.mconcat
-      ["/v1/apis/", Core.toBS apiId, "/functions"]
+      ["/v1/apis/", Data.toBS apiId, "/functions"]
 
-instance Core.ToQuery CreateFunction where
+instance Data.ToQuery CreateFunction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFunctionResponse' smart constructor.

@@ -53,6 +53,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,9 +138,9 @@ instance Core.AWSRequest EvaluateCode where
     Response.receiveJSON
       ( \s h x ->
           EvaluateCodeResponse'
-            Prelude.<$> (x Core..?> "logs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "evaluationResult")
-            Prelude.<*> (x Core..?> "error")
+            Prelude.<$> (x Data..?> "logs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "evaluationResult")
+            Prelude.<*> (x Data..?> "error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,32 +158,32 @@ instance Prelude.NFData EvaluateCode where
       `Prelude.seq` Prelude.rnf code
       `Prelude.seq` Prelude.rnf context
 
-instance Core.ToHeaders EvaluateCode where
+instance Data.ToHeaders EvaluateCode where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EvaluateCode where
+instance Data.ToJSON EvaluateCode where
   toJSON EvaluateCode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("function" Core..=) Prelude.<$> function,
-            Prelude.Just ("runtime" Core..= runtime),
-            Prelude.Just ("code" Core..= code),
-            Prelude.Just ("context" Core..= context)
+          [ ("function" Data..=) Prelude.<$> function,
+            Prelude.Just ("runtime" Data..= runtime),
+            Prelude.Just ("code" Data..= code),
+            Prelude.Just ("context" Data..= context)
           ]
       )
 
-instance Core.ToPath EvaluateCode where
+instance Data.ToPath EvaluateCode where
   toPath = Prelude.const "/v1/dataplane-evaluatecode"
 
-instance Core.ToQuery EvaluateCode where
+instance Data.ToQuery EvaluateCode where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEvaluateCodeResponse' smart constructor.

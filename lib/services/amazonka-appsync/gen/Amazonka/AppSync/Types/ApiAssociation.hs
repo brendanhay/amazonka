@@ -22,6 +22,7 @@ module Amazonka.AppSync.Types.ApiAssociation where
 import Amazonka.AppSync.Types.AssociationStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an @ApiAssociation@ object.
@@ -107,16 +108,16 @@ apiAssociation_associationStatus = Lens.lens (\ApiAssociation' {associationStatu
 apiAssociation_deploymentDetail :: Lens.Lens' ApiAssociation (Prelude.Maybe Prelude.Text)
 apiAssociation_deploymentDetail = Lens.lens (\ApiAssociation' {deploymentDetail} -> deploymentDetail) (\s@ApiAssociation' {} a -> s {deploymentDetail = a} :: ApiAssociation)
 
-instance Core.FromJSON ApiAssociation where
+instance Data.FromJSON ApiAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApiAssociation"
       ( \x ->
           ApiAssociation'
-            Prelude.<$> (x Core..:? "domainName")
-            Prelude.<*> (x Core..:? "apiId")
-            Prelude.<*> (x Core..:? "associationStatus")
-            Prelude.<*> (x Core..:? "deploymentDetail")
+            Prelude.<$> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "apiId")
+            Prelude.<*> (x Data..:? "associationStatus")
+            Prelude.<*> (x Data..:? "deploymentDetail")
       )
 
 instance Prelude.Hashable ApiAssociation where

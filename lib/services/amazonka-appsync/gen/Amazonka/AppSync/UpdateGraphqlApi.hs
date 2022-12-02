@@ -50,6 +50,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,7 +171,7 @@ instance Core.AWSRequest UpdateGraphqlApi where
     Response.receiveJSON
       ( \s h x ->
           UpdateGraphqlApiResponse'
-            Prelude.<$> (x Core..?> "graphqlApi")
+            Prelude.<$> (x Data..?> "graphqlApi")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,42 +199,42 @@ instance Prelude.NFData UpdateGraphqlApi where
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateGraphqlApi where
+instance Data.ToHeaders UpdateGraphqlApi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGraphqlApi where
+instance Data.ToJSON UpdateGraphqlApi where
   toJSON UpdateGraphqlApi' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("xrayEnabled" Core..=) Prelude.<$> xrayEnabled,
-            ("authenticationType" Core..=)
+          [ ("xrayEnabled" Data..=) Prelude.<$> xrayEnabled,
+            ("authenticationType" Data..=)
               Prelude.<$> authenticationType,
-            ("openIDConnectConfig" Core..=)
+            ("openIDConnectConfig" Data..=)
               Prelude.<$> openIDConnectConfig,
-            ("userPoolConfig" Core..=)
+            ("userPoolConfig" Data..=)
               Prelude.<$> userPoolConfig,
-            ("additionalAuthenticationProviders" Core..=)
+            ("additionalAuthenticationProviders" Data..=)
               Prelude.<$> additionalAuthenticationProviders,
-            ("lambdaAuthorizerConfig" Core..=)
+            ("lambdaAuthorizerConfig" Data..=)
               Prelude.<$> lambdaAuthorizerConfig,
-            ("logConfig" Core..=) Prelude.<$> logConfig,
-            Prelude.Just ("name" Core..= name)
+            ("logConfig" Data..=) Prelude.<$> logConfig,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateGraphqlApi where
+instance Data.ToPath UpdateGraphqlApi where
   toPath UpdateGraphqlApi' {..} =
-    Prelude.mconcat ["/v1/apis/", Core.toBS apiId]
+    Prelude.mconcat ["/v1/apis/", Data.toBS apiId]
 
-instance Core.ToQuery UpdateGraphqlApi where
+instance Data.ToQuery UpdateGraphqlApi where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGraphqlApiResponse' smart constructor.

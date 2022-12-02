@@ -42,6 +42,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetApiAssociation where
     Response.receiveJSON
       ( \s h x ->
           GetApiAssociationResponse'
-            Prelude.<$> (x Core..?> "apiAssociation")
+            Prelude.<$> (x Data..?> "apiAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,26 +95,26 @@ instance Prelude.Hashable GetApiAssociation where
 instance Prelude.NFData GetApiAssociation where
   rnf GetApiAssociation' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders GetApiAssociation where
+instance Data.ToHeaders GetApiAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetApiAssociation where
+instance Data.ToPath GetApiAssociation where
   toPath GetApiAssociation' {..} =
     Prelude.mconcat
       [ "/v1/domainnames/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/apiassociation"
       ]
 
-instance Core.ToQuery GetApiAssociation where
+instance Data.ToQuery GetApiAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApiAssociationResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.AppSync.Types.DynamodbDataSourceConfig where
 import Amazonka.AppSync.Types.DeltaSyncConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon DynamoDB data source configuration.
@@ -97,17 +98,17 @@ dynamodbDataSourceConfig_tableName = Lens.lens (\DynamodbDataSourceConfig' {tabl
 dynamodbDataSourceConfig_awsRegion :: Lens.Lens' DynamodbDataSourceConfig Prelude.Text
 dynamodbDataSourceConfig_awsRegion = Lens.lens (\DynamodbDataSourceConfig' {awsRegion} -> awsRegion) (\s@DynamodbDataSourceConfig' {} a -> s {awsRegion = a} :: DynamodbDataSourceConfig)
 
-instance Core.FromJSON DynamodbDataSourceConfig where
+instance Data.FromJSON DynamodbDataSourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DynamodbDataSourceConfig"
       ( \x ->
           DynamodbDataSourceConfig'
-            Prelude.<$> (x Core..:? "useCallerCredentials")
-            Prelude.<*> (x Core..:? "versioned")
-            Prelude.<*> (x Core..:? "deltaSyncConfig")
-            Prelude.<*> (x Core..: "tableName")
-            Prelude.<*> (x Core..: "awsRegion")
+            Prelude.<$> (x Data..:? "useCallerCredentials")
+            Prelude.<*> (x Data..:? "versioned")
+            Prelude.<*> (x Data..:? "deltaSyncConfig")
+            Prelude.<*> (x Data..: "tableName")
+            Prelude.<*> (x Data..: "awsRegion")
       )
 
 instance Prelude.Hashable DynamodbDataSourceConfig where
@@ -126,16 +127,16 @@ instance Prelude.NFData DynamodbDataSourceConfig where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf awsRegion
 
-instance Core.ToJSON DynamodbDataSourceConfig where
+instance Data.ToJSON DynamodbDataSourceConfig where
   toJSON DynamodbDataSourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("useCallerCredentials" Core..=)
+          [ ("useCallerCredentials" Data..=)
               Prelude.<$> useCallerCredentials,
-            ("versioned" Core..=) Prelude.<$> versioned,
-            ("deltaSyncConfig" Core..=)
+            ("versioned" Data..=) Prelude.<$> versioned,
+            ("deltaSyncConfig" Data..=)
               Prelude.<$> deltaSyncConfig,
-            Prelude.Just ("tableName" Core..= tableName),
-            Prelude.Just ("awsRegion" Core..= awsRegion)
+            Prelude.Just ("tableName" Data..= tableName),
+            Prelude.Just ("awsRegion" Data..= awsRegion)
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.AppSync.Types.Type where
 import Amazonka.AppSync.Types.TypeDefinitionFormat
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a type.
@@ -89,17 +90,17 @@ type_description = Lens.lens (\Type' {description} -> description) (\s@Type' {} 
 type_definition :: Lens.Lens' Type (Prelude.Maybe Prelude.Text)
 type_definition = Lens.lens (\Type' {definition} -> definition) (\s@Type' {} a -> s {definition = a} :: Type)
 
-instance Core.FromJSON Type where
+instance Data.FromJSON Type where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Type"
       ( \x ->
           Type'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "definition")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "format")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "definition")
       )
 
 instance Prelude.Hashable Type where

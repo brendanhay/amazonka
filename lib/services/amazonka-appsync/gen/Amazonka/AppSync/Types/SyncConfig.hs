@@ -24,6 +24,7 @@ import Amazonka.AppSync.Types.ConflictHandlerType
 import Amazonka.AppSync.Types.LambdaConflictHandlerConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Sync configuration for a resolver.
@@ -121,15 +122,15 @@ syncConfig_conflictDetection = Lens.lens (\SyncConfig' {conflictDetection} -> co
 syncConfig_lambdaConflictHandlerConfig :: Lens.Lens' SyncConfig (Prelude.Maybe LambdaConflictHandlerConfig)
 syncConfig_lambdaConflictHandlerConfig = Lens.lens (\SyncConfig' {lambdaConflictHandlerConfig} -> lambdaConflictHandlerConfig) (\s@SyncConfig' {} a -> s {lambdaConflictHandlerConfig = a} :: SyncConfig)
 
-instance Core.FromJSON SyncConfig where
+instance Data.FromJSON SyncConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SyncConfig"
       ( \x ->
           SyncConfig'
-            Prelude.<$> (x Core..:? "conflictHandler")
-            Prelude.<*> (x Core..:? "conflictDetection")
-            Prelude.<*> (x Core..:? "lambdaConflictHandlerConfig")
+            Prelude.<$> (x Data..:? "conflictHandler")
+            Prelude.<*> (x Data..:? "conflictDetection")
+            Prelude.<*> (x Data..:? "lambdaConflictHandlerConfig")
       )
 
 instance Prelude.Hashable SyncConfig where
@@ -144,15 +145,15 @@ instance Prelude.NFData SyncConfig where
       `Prelude.seq` Prelude.rnf conflictDetection
       `Prelude.seq` Prelude.rnf lambdaConflictHandlerConfig
 
-instance Core.ToJSON SyncConfig where
+instance Data.ToJSON SyncConfig where
   toJSON SyncConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("conflictHandler" Core..=)
+          [ ("conflictHandler" Data..=)
               Prelude.<$> conflictHandler,
-            ("conflictDetection" Core..=)
+            ("conflictDetection" Data..=)
               Prelude.<$> conflictDetection,
-            ("lambdaConflictHandlerConfig" Core..=)
+            ("lambdaConflictHandlerConfig" Data..=)
               Prelude.<$> lambdaConflictHandlerConfig
           ]
       )

@@ -57,6 +57,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -268,7 +269,7 @@ instance Core.AWSRequest CreateResolver where
     Response.receiveJSON
       ( \s h x ->
           CreateResolverResponse'
-            Prelude.<$> (x Core..?> "resolver")
+            Prelude.<$> (x Data..?> "resolver")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -304,50 +305,50 @@ instance Prelude.NFData CreateResolver where
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf fieldName
 
-instance Core.ToHeaders CreateResolver where
+instance Data.ToHeaders CreateResolver where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateResolver where
+instance Data.ToJSON CreateResolver where
   toJSON CreateResolver' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("code" Core..=) Prelude.<$> code,
-            ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
-            ("cachingConfig" Core..=) Prelude.<$> cachingConfig,
-            ("pipelineConfig" Core..=)
+          [ ("code" Data..=) Prelude.<$> code,
+            ("maxBatchSize" Data..=) Prelude.<$> maxBatchSize,
+            ("cachingConfig" Data..=) Prelude.<$> cachingConfig,
+            ("pipelineConfig" Data..=)
               Prelude.<$> pipelineConfig,
-            ("kind" Core..=) Prelude.<$> kind,
-            ("runtime" Core..=) Prelude.<$> runtime,
-            ("dataSourceName" Core..=)
+            ("kind" Data..=) Prelude.<$> kind,
+            ("runtime" Data..=) Prelude.<$> runtime,
+            ("dataSourceName" Data..=)
               Prelude.<$> dataSourceName,
-            ("responseMappingTemplate" Core..=)
+            ("responseMappingTemplate" Data..=)
               Prelude.<$> responseMappingTemplate,
-            ("syncConfig" Core..=) Prelude.<$> syncConfig,
-            ("requestMappingTemplate" Core..=)
+            ("syncConfig" Data..=) Prelude.<$> syncConfig,
+            ("requestMappingTemplate" Data..=)
               Prelude.<$> requestMappingTemplate,
-            Prelude.Just ("fieldName" Core..= fieldName)
+            Prelude.Just ("fieldName" Data..= fieldName)
           ]
       )
 
-instance Core.ToPath CreateResolver where
+instance Data.ToPath CreateResolver where
   toPath CreateResolver' {..} =
     Prelude.mconcat
       [ "/v1/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/types/",
-        Core.toBS typeName,
+        Data.toBS typeName,
         "/resolvers"
       ]
 
-instance Core.ToQuery CreateResolver where
+instance Data.ToQuery CreateResolver where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResolverResponse' smart constructor.

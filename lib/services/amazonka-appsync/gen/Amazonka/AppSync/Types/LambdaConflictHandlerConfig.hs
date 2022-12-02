@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.LambdaConflictHandlerConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @LambdaConflictHandlerConfig@ object when configuring @LAMBDA@ as
@@ -57,13 +58,13 @@ newLambdaConflictHandlerConfig =
 lambdaConflictHandlerConfig_lambdaConflictHandlerArn :: Lens.Lens' LambdaConflictHandlerConfig (Prelude.Maybe Prelude.Text)
 lambdaConflictHandlerConfig_lambdaConflictHandlerArn = Lens.lens (\LambdaConflictHandlerConfig' {lambdaConflictHandlerArn} -> lambdaConflictHandlerArn) (\s@LambdaConflictHandlerConfig' {} a -> s {lambdaConflictHandlerArn = a} :: LambdaConflictHandlerConfig)
 
-instance Core.FromJSON LambdaConflictHandlerConfig where
+instance Data.FromJSON LambdaConflictHandlerConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaConflictHandlerConfig"
       ( \x ->
           LambdaConflictHandlerConfig'
-            Prelude.<$> (x Core..:? "lambdaConflictHandlerArn")
+            Prelude.<$> (x Data..:? "lambdaConflictHandlerArn")
       )
 
 instance Prelude.Hashable LambdaConflictHandlerConfig where
@@ -75,11 +76,11 @@ instance Prelude.NFData LambdaConflictHandlerConfig where
   rnf LambdaConflictHandlerConfig' {..} =
     Prelude.rnf lambdaConflictHandlerArn
 
-instance Core.ToJSON LambdaConflictHandlerConfig where
+instance Data.ToJSON LambdaConflictHandlerConfig where
   toJSON LambdaConflictHandlerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("lambdaConflictHandlerArn" Core..=)
+          [ ("lambdaConflictHandlerArn" Data..=)
               Prelude.<$> lambdaConflictHandlerArn
           ]
       )

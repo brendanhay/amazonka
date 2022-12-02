@@ -44,6 +44,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,27 +128,27 @@ instance Prelude.NFData GetIntrospectionSchema where
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf format
 
-instance Core.ToHeaders GetIntrospectionSchema where
+instance Data.ToHeaders GetIntrospectionSchema where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetIntrospectionSchema where
+instance Data.ToPath GetIntrospectionSchema where
   toPath GetIntrospectionSchema' {..} =
     Prelude.mconcat
-      ["/v1/apis/", Core.toBS apiId, "/schema"]
+      ["/v1/apis/", Data.toBS apiId, "/schema"]
 
-instance Core.ToQuery GetIntrospectionSchema where
+instance Data.ToQuery GetIntrospectionSchema where
   toQuery GetIntrospectionSchema' {..} =
     Prelude.mconcat
-      [ "includeDirectives" Core.=: includeDirectives,
-        "format" Core.=: format
+      [ "includeDirectives" Data.=: includeDirectives,
+        "format" Data.=: format
       ]
 
 -- | /See:/ 'newGetIntrospectionSchemaResponse' smart constructor.

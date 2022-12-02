@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.RdsHttpEndpointConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Relational Database Service (Amazon RDS) HTTP endpoint
@@ -93,17 +94,17 @@ rdsHttpEndpointConfig_schema = Lens.lens (\RdsHttpEndpointConfig' {schema} -> sc
 rdsHttpEndpointConfig_awsSecretStoreArn :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
 rdsHttpEndpointConfig_awsSecretStoreArn = Lens.lens (\RdsHttpEndpointConfig' {awsSecretStoreArn} -> awsSecretStoreArn) (\s@RdsHttpEndpointConfig' {} a -> s {awsSecretStoreArn = a} :: RdsHttpEndpointConfig)
 
-instance Core.FromJSON RdsHttpEndpointConfig where
+instance Data.FromJSON RdsHttpEndpointConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RdsHttpEndpointConfig"
       ( \x ->
           RdsHttpEndpointConfig'
-            Prelude.<$> (x Core..:? "databaseName")
-            Prelude.<*> (x Core..:? "dbClusterIdentifier")
-            Prelude.<*> (x Core..:? "awsRegion")
-            Prelude.<*> (x Core..:? "schema")
-            Prelude.<*> (x Core..:? "awsSecretStoreArn")
+            Prelude.<$> (x Data..:? "databaseName")
+            Prelude.<*> (x Data..:? "dbClusterIdentifier")
+            Prelude.<*> (x Data..:? "awsRegion")
+            Prelude.<*> (x Data..:? "schema")
+            Prelude.<*> (x Data..:? "awsSecretStoreArn")
       )
 
 instance Prelude.Hashable RdsHttpEndpointConfig where
@@ -122,16 +123,16 @@ instance Prelude.NFData RdsHttpEndpointConfig where
       `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf awsSecretStoreArn
 
-instance Core.ToJSON RdsHttpEndpointConfig where
+instance Data.ToJSON RdsHttpEndpointConfig where
   toJSON RdsHttpEndpointConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("databaseName" Core..=) Prelude.<$> databaseName,
-            ("dbClusterIdentifier" Core..=)
+          [ ("databaseName" Data..=) Prelude.<$> databaseName,
+            ("dbClusterIdentifier" Data..=)
               Prelude.<$> dbClusterIdentifier,
-            ("awsRegion" Core..=) Prelude.<$> awsRegion,
-            ("schema" Core..=) Prelude.<$> schema,
-            ("awsSecretStoreArn" Core..=)
+            ("awsRegion" Data..=) Prelude.<$> awsRegion,
+            ("schema" Data..=) Prelude.<$> schema,
+            ("awsSecretStoreArn" Data..=)
               Prelude.<$> awsSecretStoreArn
           ]
       )

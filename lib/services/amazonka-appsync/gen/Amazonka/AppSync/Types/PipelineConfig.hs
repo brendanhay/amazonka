@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.PipelineConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The pipeline configuration for a resolver of kind @PIPELINE@.
@@ -50,13 +51,13 @@ newPipelineConfig =
 pipelineConfig_functions :: Lens.Lens' PipelineConfig (Prelude.Maybe [Prelude.Text])
 pipelineConfig_functions = Lens.lens (\PipelineConfig' {functions} -> functions) (\s@PipelineConfig' {} a -> s {functions = a} :: PipelineConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PipelineConfig where
+instance Data.FromJSON PipelineConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineConfig"
       ( \x ->
           PipelineConfig'
-            Prelude.<$> (x Core..:? "functions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "functions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PipelineConfig where
@@ -66,9 +67,9 @@ instance Prelude.Hashable PipelineConfig where
 instance Prelude.NFData PipelineConfig where
   rnf PipelineConfig' {..} = Prelude.rnf functions
 
-instance Core.ToJSON PipelineConfig where
+instance Data.ToJSON PipelineConfig where
   toJSON PipelineConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("functions" Core..=) Prelude.<$> functions]
+          [("functions" Data..=) Prelude.<$> functions]
       )

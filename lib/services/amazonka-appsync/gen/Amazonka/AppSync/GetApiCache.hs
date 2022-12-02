@@ -42,6 +42,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetApiCache where
     Response.receiveJSON
       ( \s h x ->
           GetApiCacheResponse'
-            Prelude.<$> (x Core..?> "apiCache")
+            Prelude.<$> (x Data..?> "apiCache")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,23 +95,23 @@ instance Prelude.Hashable GetApiCache where
 instance Prelude.NFData GetApiCache where
   rnf GetApiCache' {..} = Prelude.rnf apiId
 
-instance Core.ToHeaders GetApiCache where
+instance Data.ToHeaders GetApiCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetApiCache where
+instance Data.ToPath GetApiCache where
   toPath GetApiCache' {..} =
     Prelude.mconcat
-      ["/v1/apis/", Core.toBS apiId, "/ApiCaches"]
+      ["/v1/apis/", Data.toBS apiId, "/ApiCaches"]
 
-instance Core.ToQuery GetApiCache where
+instance Data.ToQuery GetApiCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetApiCache@ operation.

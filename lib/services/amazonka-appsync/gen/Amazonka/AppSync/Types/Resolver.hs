@@ -26,6 +26,7 @@ import Amazonka.AppSync.Types.ResolverKind
 import Amazonka.AppSync.Types.SyncConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a resolver.
@@ -197,25 +198,25 @@ resolver_syncConfig = Lens.lens (\Resolver' {syncConfig} -> syncConfig) (\s@Reso
 resolver_requestMappingTemplate :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
 resolver_requestMappingTemplate = Lens.lens (\Resolver' {requestMappingTemplate} -> requestMappingTemplate) (\s@Resolver' {} a -> s {requestMappingTemplate = a} :: Resolver)
 
-instance Core.FromJSON Resolver where
+instance Data.FromJSON Resolver where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resolver"
       ( \x ->
           Resolver'
-            Prelude.<$> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "maxBatchSize")
-            Prelude.<*> (x Core..:? "resolverArn")
-            Prelude.<*> (x Core..:? "fieldName")
-            Prelude.<*> (x Core..:? "cachingConfig")
-            Prelude.<*> (x Core..:? "pipelineConfig")
-            Prelude.<*> (x Core..:? "kind")
-            Prelude.<*> (x Core..:? "runtime")
-            Prelude.<*> (x Core..:? "typeName")
-            Prelude.<*> (x Core..:? "dataSourceName")
-            Prelude.<*> (x Core..:? "responseMappingTemplate")
-            Prelude.<*> (x Core..:? "syncConfig")
-            Prelude.<*> (x Core..:? "requestMappingTemplate")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "maxBatchSize")
+            Prelude.<*> (x Data..:? "resolverArn")
+            Prelude.<*> (x Data..:? "fieldName")
+            Prelude.<*> (x Data..:? "cachingConfig")
+            Prelude.<*> (x Data..:? "pipelineConfig")
+            Prelude.<*> (x Data..:? "kind")
+            Prelude.<*> (x Data..:? "runtime")
+            Prelude.<*> (x Data..:? "typeName")
+            Prelude.<*> (x Data..:? "dataSourceName")
+            Prelude.<*> (x Data..:? "responseMappingTemplate")
+            Prelude.<*> (x Data..:? "syncConfig")
+            Prelude.<*> (x Data..:? "requestMappingTemplate")
       )
 
 instance Prelude.Hashable Resolver where

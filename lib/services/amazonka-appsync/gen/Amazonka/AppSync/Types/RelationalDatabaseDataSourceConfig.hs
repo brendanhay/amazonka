@@ -23,6 +23,7 @@ import Amazonka.AppSync.Types.RdsHttpEndpointConfig
 import Amazonka.AppSync.Types.RelationalDatabaseSourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a relational database data source configuration.
@@ -74,16 +75,16 @@ relationalDatabaseDataSourceConfig_rdsHttpEndpointConfig :: Lens.Lens' Relationa
 relationalDatabaseDataSourceConfig_rdsHttpEndpointConfig = Lens.lens (\RelationalDatabaseDataSourceConfig' {rdsHttpEndpointConfig} -> rdsHttpEndpointConfig) (\s@RelationalDatabaseDataSourceConfig' {} a -> s {rdsHttpEndpointConfig = a} :: RelationalDatabaseDataSourceConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RelationalDatabaseDataSourceConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelationalDatabaseDataSourceConfig"
       ( \x ->
           RelationalDatabaseDataSourceConfig'
-            Prelude.<$> (x Core..:? "relationalDatabaseSourceType")
-            Prelude.<*> (x Core..:? "rdsHttpEndpointConfig")
+            Prelude.<$> (x Data..:? "relationalDatabaseSourceType")
+            Prelude.<*> (x Data..:? "rdsHttpEndpointConfig")
       )
 
 instance
@@ -106,15 +107,15 @@ instance
       `Prelude.seq` Prelude.rnf rdsHttpEndpointConfig
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RelationalDatabaseDataSourceConfig
   where
   toJSON RelationalDatabaseDataSourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("relationalDatabaseSourceType" Core..=)
+          [ ("relationalDatabaseSourceType" Data..=)
               Prelude.<$> relationalDatabaseSourceType,
-            ("rdsHttpEndpointConfig" Core..=)
+            ("rdsHttpEndpointConfig" Data..=)
               Prelude.<$> rdsHttpEndpointConfig
           ]
       )

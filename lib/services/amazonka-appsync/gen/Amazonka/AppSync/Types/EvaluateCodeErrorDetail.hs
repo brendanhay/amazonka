@@ -22,6 +22,7 @@ module Amazonka.AppSync.Types.EvaluateCodeErrorDetail where
 import Amazonka.AppSync.Types.CodeError
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the list of errors from a code evaluation response.
@@ -62,14 +63,14 @@ evaluateCodeErrorDetail_message = Lens.lens (\EvaluateCodeErrorDetail' {message}
 evaluateCodeErrorDetail_codeErrors :: Lens.Lens' EvaluateCodeErrorDetail (Prelude.Maybe [CodeError])
 evaluateCodeErrorDetail_codeErrors = Lens.lens (\EvaluateCodeErrorDetail' {codeErrors} -> codeErrors) (\s@EvaluateCodeErrorDetail' {} a -> s {codeErrors = a} :: EvaluateCodeErrorDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EvaluateCodeErrorDetail where
+instance Data.FromJSON EvaluateCodeErrorDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluateCodeErrorDetail"
       ( \x ->
           EvaluateCodeErrorDetail'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "codeErrors" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "codeErrors" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EvaluateCodeErrorDetail where

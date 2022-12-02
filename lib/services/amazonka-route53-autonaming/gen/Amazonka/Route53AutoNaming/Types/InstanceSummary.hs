@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.InstanceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains information about the instances that you
@@ -188,14 +189,14 @@ instanceSummary_id = Lens.lens (\InstanceSummary' {id} -> id) (\s@InstanceSummar
 instanceSummary_attributes :: Lens.Lens' InstanceSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 instanceSummary_attributes = Lens.lens (\InstanceSummary' {attributes} -> attributes) (\s@InstanceSummary' {} a -> s {attributes = a} :: InstanceSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON InstanceSummary where
+instance Data.FromJSON InstanceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceSummary"
       ( \x ->
           InstanceSummary'
-            Prelude.<$> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable InstanceSummary where

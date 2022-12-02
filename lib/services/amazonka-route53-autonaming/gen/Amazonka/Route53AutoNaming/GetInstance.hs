@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ instance Core.AWSRequest GetInstance where
     Response.receiveJSON
       ( \s h x ->
           GetInstanceResponse'
-            Prelude.<$> (x Core..?> "Instance")
+            Prelude.<$> (x Data..?> "Instance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,34 +110,34 @@ instance Prelude.NFData GetInstance where
     Prelude.rnf serviceId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders GetInstance where
+instance Data.ToHeaders GetInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53AutoNaming_v20170314.GetInstance" ::
+              Data.=# ( "Route53AutoNaming_v20170314.GetInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetInstance where
+instance Data.ToJSON GetInstance where
   toJSON GetInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ServiceId" Core..= serviceId),
-            Prelude.Just ("InstanceId" Core..= instanceId)
+          [ Prelude.Just ("ServiceId" Data..= serviceId),
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath GetInstance where
+instance Data.ToPath GetInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInstance where
+instance Data.ToQuery GetInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInstanceResponse' smart constructor.

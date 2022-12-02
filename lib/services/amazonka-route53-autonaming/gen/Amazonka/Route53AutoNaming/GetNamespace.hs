@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -80,7 +81,7 @@ instance Core.AWSRequest GetNamespace where
     Response.receiveJSON
       ( \s h x ->
           GetNamespaceResponse'
-            Prelude.<$> (x Core..?> "Namespace")
+            Prelude.<$> (x Data..?> "Namespace")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -91,30 +92,30 @@ instance Prelude.Hashable GetNamespace where
 instance Prelude.NFData GetNamespace where
   rnf GetNamespace' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetNamespace where
+instance Data.ToHeaders GetNamespace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53AutoNaming_v20170314.GetNamespace" ::
+              Data.=# ( "Route53AutoNaming_v20170314.GetNamespace" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetNamespace where
+instance Data.ToJSON GetNamespace where
   toJSON GetNamespace' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("Id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("Id" Data..= id)])
 
-instance Core.ToPath GetNamespace where
+instance Data.ToPath GetNamespace where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetNamespace where
+instance Data.ToQuery GetNamespace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetNamespaceResponse' smart constructor.

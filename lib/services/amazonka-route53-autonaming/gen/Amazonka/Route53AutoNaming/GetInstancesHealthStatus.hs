@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -169,8 +170,8 @@ instance Core.AWSRequest GetInstancesHealthStatus where
     Response.receiveJSON
       ( \s h x ->
           GetInstancesHealthStatusResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Status" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Status" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,36 +189,36 @@ instance Prelude.NFData GetInstancesHealthStatus where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serviceId
 
-instance Core.ToHeaders GetInstancesHealthStatus where
+instance Data.ToHeaders GetInstancesHealthStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53AutoNaming_v20170314.GetInstancesHealthStatus" ::
+              Data.=# ( "Route53AutoNaming_v20170314.GetInstancesHealthStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetInstancesHealthStatus where
+instance Data.ToJSON GetInstancesHealthStatus where
   toJSON GetInstancesHealthStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Instances" Core..=) Prelude.<$> instances,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ServiceId" Core..= serviceId)
+          [ ("Instances" Data..=) Prelude.<$> instances,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ServiceId" Data..= serviceId)
           ]
       )
 
-instance Core.ToPath GetInstancesHealthStatus where
+instance Data.ToPath GetInstancesHealthStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInstancesHealthStatus where
+instance Data.ToQuery GetInstancesHealthStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInstancesHealthStatusResponse' smart constructor.

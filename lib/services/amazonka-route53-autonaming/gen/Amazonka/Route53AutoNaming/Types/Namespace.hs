@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.Namespace where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.NamespaceProperties
 import Amazonka.Route53AutoNaming.Types.NamespaceType
@@ -63,7 +64,7 @@ data Namespace = Namespace'
     -- Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate
     -- to milliseconds. For example, the value @1516925490.087@ represents
     -- Friday, January 26, 2018 12:11:30.087 AM.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | The number of services that are associated with the namespace.
     serviceCount :: Prelude.Maybe Prelude.Int
   }
@@ -177,27 +178,27 @@ namespace_creatorRequestId = Lens.lens (\Namespace' {creatorRequestId} -> creato
 -- to milliseconds. For example, the value @1516925490.087@ represents
 -- Friday, January 26, 2018 12:11:30.087 AM.
 namespace_createDate :: Lens.Lens' Namespace (Prelude.Maybe Prelude.UTCTime)
-namespace_createDate = Lens.lens (\Namespace' {createDate} -> createDate) (\s@Namespace' {} a -> s {createDate = a} :: Namespace) Prelude.. Lens.mapping Core._Time
+namespace_createDate = Lens.lens (\Namespace' {createDate} -> createDate) (\s@Namespace' {} a -> s {createDate = a} :: Namespace) Prelude.. Lens.mapping Data._Time
 
 -- | The number of services that are associated with the namespace.
 namespace_serviceCount :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Int)
 namespace_serviceCount = Lens.lens (\Namespace' {serviceCount} -> serviceCount) (\s@Namespace' {} a -> s {serviceCount = a} :: Namespace)
 
-instance Core.FromJSON Namespace where
+instance Data.FromJSON Namespace where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Namespace"
       ( \x ->
           Namespace'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Properties")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "ServiceCount")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Properties")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "ServiceCount")
       )
 
 instance Prelude.Hashable Namespace where

@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.ServiceInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.DnsConfig
 import Amazonka.Route53AutoNaming.Types.HealthCheckConfig
@@ -80,7 +81,7 @@ data ServiceInfo = ServiceInfo'
     -- Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate
     -- to milliseconds. For example, the value @1516925490.087@ represents
     -- Friday, January 26, 2018 12:11:30.087 AM.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | The ID of the namespace that was used to create the service.
     namespaceId :: Prelude.Maybe Prelude.Text,
     -- | /Public DNS and HTTP namespaces only./ A complex type that contains
@@ -247,7 +248,7 @@ serviceInfo_instanceCount = Lens.lens (\ServiceInfo' {instanceCount} -> instance
 -- to milliseconds. For example, the value @1516925490.087@ represents
 -- Friday, January 26, 2018 12:11:30.087 AM.
 serviceInfo_createDate :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.UTCTime)
-serviceInfo_createDate = Lens.lens (\ServiceInfo' {createDate} -> createDate) (\s@ServiceInfo' {} a -> s {createDate = a} :: ServiceInfo) Prelude.. Lens.mapping Core._Time
+serviceInfo_createDate = Lens.lens (\ServiceInfo' {createDate} -> createDate) (\s@ServiceInfo' {} a -> s {createDate = a} :: ServiceInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the namespace that was used to create the service.
 serviceInfo_namespaceId :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
@@ -263,24 +264,24 @@ serviceInfo_namespaceId = Lens.lens (\ServiceInfo' {namespaceId} -> namespaceId)
 serviceInfo_healthCheckConfig :: Lens.Lens' ServiceInfo (Prelude.Maybe HealthCheckConfig)
 serviceInfo_healthCheckConfig = Lens.lens (\ServiceInfo' {healthCheckConfig} -> healthCheckConfig) (\s@ServiceInfo' {} a -> s {healthCheckConfig = a} :: ServiceInfo)
 
-instance Core.FromJSON ServiceInfo where
+instance Data.FromJSON ServiceInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceInfo"
       ( \x ->
           ServiceInfo'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DnsConfig")
-            Prelude.<*> (x Core..:? "HealthCheckCustomConfig")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
-            Prelude.<*> (x Core..:? "InstanceCount")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "NamespaceId")
-            Prelude.<*> (x Core..:? "HealthCheckConfig")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DnsConfig")
+            Prelude.<*> (x Data..:? "HealthCheckCustomConfig")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "InstanceCount")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "NamespaceId")
+            Prelude.<*> (x Data..:? "HealthCheckConfig")
       )
 
 instance Prelude.Hashable ServiceInfo where

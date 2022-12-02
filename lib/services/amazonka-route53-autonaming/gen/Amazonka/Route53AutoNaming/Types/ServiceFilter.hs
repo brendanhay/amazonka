@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.ServiceFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.FilterCondition
 import Amazonka.Route53AutoNaming.Types.ServiceFilterName
@@ -105,12 +106,12 @@ instance Prelude.NFData ServiceFilter where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON ServiceFilter where
+instance Data.ToJSON ServiceFilter where
   toJSON ServiceFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Condition" Core..=) Prelude.<$> condition,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Values" Core..= values)
+          [ ("Condition" Data..=) Prelude.<$> condition,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

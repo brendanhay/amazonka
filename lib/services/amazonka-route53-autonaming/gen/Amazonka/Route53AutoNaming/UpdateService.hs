@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance Core.AWSRequest UpdateService where
     Response.receiveJSON
       ( \s h x ->
           UpdateServiceResponse'
-            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,34 +129,34 @@ instance Prelude.NFData UpdateService where
   rnf UpdateService' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf service
 
-instance Core.ToHeaders UpdateService where
+instance Data.ToHeaders UpdateService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53AutoNaming_v20170314.UpdateService" ::
+              Data.=# ( "Route53AutoNaming_v20170314.UpdateService" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateService where
+instance Data.ToJSON UpdateService where
   toJSON UpdateService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("Service" Core..= service)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("Service" Data..= service)
           ]
       )
 
-instance Core.ToPath UpdateService where
+instance Data.ToPath UpdateService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateService where
+instance Data.ToQuery UpdateService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServiceResponse' smart constructor.

@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -344,7 +345,7 @@ instance Core.AWSRequest CreateService where
     Response.receiveJSON
       ( \s h x ->
           CreateServiceResponse'
-            Prelude.<$> (x Core..?> "Service")
+            Prelude.<$> (x Data..?> "Service")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -372,44 +373,44 @@ instance Prelude.NFData CreateService where
       `Prelude.seq` Prelude.rnf healthCheckConfig
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateService where
+instance Data.ToHeaders CreateService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53AutoNaming_v20170314.CreateService" ::
+              Data.=# ( "Route53AutoNaming_v20170314.CreateService" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateService where
+instance Data.ToJSON CreateService where
   toJSON CreateService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Type" Core..=) Prelude.<$> type',
-            ("DnsConfig" Core..=) Prelude.<$> dnsConfig,
-            ("HealthCheckCustomConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Type" Data..=) Prelude.<$> type',
+            ("DnsConfig" Data..=) Prelude.<$> dnsConfig,
+            ("HealthCheckCustomConfig" Data..=)
               Prelude.<$> healthCheckCustomConfig,
-            ("Description" Core..=) Prelude.<$> description,
-            ("CreatorRequestId" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("CreatorRequestId" Data..=)
               Prelude.<$> creatorRequestId,
-            ("NamespaceId" Core..=) Prelude.<$> namespaceId,
-            ("HealthCheckConfig" Core..=)
+            ("NamespaceId" Data..=) Prelude.<$> namespaceId,
+            ("HealthCheckConfig" Data..=)
               Prelude.<$> healthCheckConfig,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateService where
+instance Data.ToPath CreateService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateService where
+instance Data.ToQuery CreateService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateServiceResponse' smart constructor.

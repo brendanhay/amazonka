@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,7 +162,7 @@ instance Core.AWSRequest CreatePublicDnsNamespace where
     Response.receiveJSON
       ( \s h x ->
           CreatePublicDnsNamespaceResponse'
-            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,38 +182,38 @@ instance Prelude.NFData CreatePublicDnsNamespace where
       `Prelude.seq` Prelude.rnf creatorRequestId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreatePublicDnsNamespace where
+instance Data.ToHeaders CreatePublicDnsNamespace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53AutoNaming_v20170314.CreatePublicDnsNamespace" ::
+              Data.=# ( "Route53AutoNaming_v20170314.CreatePublicDnsNamespace" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePublicDnsNamespace where
+instance Data.ToJSON CreatePublicDnsNamespace where
   toJSON CreatePublicDnsNamespace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Properties" Core..=) Prelude.<$> properties,
-            ("Description" Core..=) Prelude.<$> description,
-            ("CreatorRequestId" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Properties" Data..=) Prelude.<$> properties,
+            ("Description" Data..=) Prelude.<$> description,
+            ("CreatorRequestId" Data..=)
               Prelude.<$> creatorRequestId,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreatePublicDnsNamespace where
+instance Data.ToPath CreatePublicDnsNamespace where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePublicDnsNamespace where
+instance Data.ToQuery CreatePublicDnsNamespace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePublicDnsNamespaceResponse' smart constructor.

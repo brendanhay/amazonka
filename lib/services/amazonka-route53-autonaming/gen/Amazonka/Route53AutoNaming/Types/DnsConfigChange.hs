@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.DnsConfigChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.DnsRecord
 
@@ -62,9 +63,9 @@ instance Prelude.Hashable DnsConfigChange where
 instance Prelude.NFData DnsConfigChange where
   rnf DnsConfigChange' {..} = Prelude.rnf dnsRecords
 
-instance Core.ToJSON DnsConfigChange where
+instance Data.ToJSON DnsConfigChange where
   toJSON DnsConfigChange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DnsRecords" Core..= dnsRecords)]
+          [Prelude.Just ("DnsRecords" Data..= dnsRecords)]
       )

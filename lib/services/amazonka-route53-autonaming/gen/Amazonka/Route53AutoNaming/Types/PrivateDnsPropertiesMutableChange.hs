@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.SOAChange
 
@@ -73,11 +74,11 @@ instance
     Prelude.rnf soa
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PrivateDnsPropertiesMutableChange
   where
   toJSON PrivateDnsPropertiesMutableChange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SOA" Core..= soa)]
+          [Prelude.Just ("SOA" Data..= soa)]
       )

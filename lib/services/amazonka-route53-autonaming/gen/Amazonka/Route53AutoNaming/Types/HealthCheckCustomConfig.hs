@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.HealthCheckCustomConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains information about an optional custom health
@@ -132,13 +133,13 @@ newHealthCheckCustomConfig =
 healthCheckCustomConfig_failureThreshold :: Lens.Lens' HealthCheckCustomConfig (Prelude.Maybe Prelude.Natural)
 healthCheckCustomConfig_failureThreshold = Lens.lens (\HealthCheckCustomConfig' {failureThreshold} -> failureThreshold) (\s@HealthCheckCustomConfig' {} a -> s {failureThreshold = a} :: HealthCheckCustomConfig)
 
-instance Core.FromJSON HealthCheckCustomConfig where
+instance Data.FromJSON HealthCheckCustomConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HealthCheckCustomConfig"
       ( \x ->
           HealthCheckCustomConfig'
-            Prelude.<$> (x Core..:? "FailureThreshold")
+            Prelude.<$> (x Data..:? "FailureThreshold")
       )
 
 instance Prelude.Hashable HealthCheckCustomConfig where
@@ -149,11 +150,11 @@ instance Prelude.NFData HealthCheckCustomConfig where
   rnf HealthCheckCustomConfig' {..} =
     Prelude.rnf failureThreshold
 
-instance Core.ToJSON HealthCheckCustomConfig where
+instance Data.ToJSON HealthCheckCustomConfig where
   toJSON HealthCheckCustomConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FailureThreshold" Core..=)
+          [ ("FailureThreshold" Data..=)
               Prelude.<$> failureThreshold
           ]
       )

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,7 +118,7 @@ instance Core.AWSRequest UpdateHttpNamespace where
     Response.receiveJSON
       ( \s h x ->
           UpdateHttpNamespaceResponse'
-            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,36 +134,36 @@ instance Prelude.NFData UpdateHttpNamespace where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToHeaders UpdateHttpNamespace where
+instance Data.ToHeaders UpdateHttpNamespace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53AutoNaming_v20170314.UpdateHttpNamespace" ::
+              Data.=# ( "Route53AutoNaming_v20170314.UpdateHttpNamespace" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateHttpNamespace where
+instance Data.ToJSON UpdateHttpNamespace where
   toJSON UpdateHttpNamespace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpdaterRequestId" Core..=)
+          [ ("UpdaterRequestId" Data..=)
               Prelude.<$> updaterRequestId,
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("Namespace" Core..= namespace)
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("Namespace" Data..= namespace)
           ]
       )
 
-instance Core.ToPath UpdateHttpNamespace where
+instance Data.ToPath UpdateHttpNamespace where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateHttpNamespace where
+instance Data.ToQuery UpdateHttpNamespace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateHttpNamespaceResponse' smart constructor.

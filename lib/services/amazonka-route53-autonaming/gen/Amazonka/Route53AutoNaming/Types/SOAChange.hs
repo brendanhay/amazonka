@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.SOAChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updated Start of Authority (SOA) properties for a public or private DNS
@@ -59,9 +60,9 @@ instance Prelude.Hashable SOAChange where
 instance Prelude.NFData SOAChange where
   rnf SOAChange' {..} = Prelude.rnf ttl
 
-instance Core.ToJSON SOAChange where
+instance Data.ToJSON SOAChange where
   toJSON SOAChange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TTL" Core..= ttl)]
+          [Prelude.Just ("TTL" Data..= ttl)]
       )

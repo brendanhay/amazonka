@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.NamespaceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.DnsProperties
 import Amazonka.Route53AutoNaming.Types.HttpProperties
@@ -68,14 +69,14 @@ namespaceProperties_dnsProperties = Lens.lens (\NamespaceProperties' {dnsPropert
 namespaceProperties_httpProperties :: Lens.Lens' NamespaceProperties (Prelude.Maybe HttpProperties)
 namespaceProperties_httpProperties = Lens.lens (\NamespaceProperties' {httpProperties} -> httpProperties) (\s@NamespaceProperties' {} a -> s {httpProperties = a} :: NamespaceProperties)
 
-instance Core.FromJSON NamespaceProperties where
+instance Data.FromJSON NamespaceProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NamespaceProperties"
       ( \x ->
           NamespaceProperties'
-            Prelude.<$> (x Core..:? "DnsProperties")
-            Prelude.<*> (x Core..:? "HttpProperties")
+            Prelude.<$> (x Data..:? "DnsProperties")
+            Prelude.<*> (x Data..:? "HttpProperties")
       )
 
 instance Prelude.Hashable NamespaceProperties where

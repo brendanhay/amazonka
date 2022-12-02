@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.HttpInstanceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.HealthStatus
 
@@ -114,17 +115,17 @@ httpInstanceSummary_attributes = Lens.lens (\HttpInstanceSummary' {attributes} -
 httpInstanceSummary_serviceName :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe Prelude.Text)
 httpInstanceSummary_serviceName = Lens.lens (\HttpInstanceSummary' {serviceName} -> serviceName) (\s@HttpInstanceSummary' {} a -> s {serviceName = a} :: HttpInstanceSummary)
 
-instance Core.FromJSON HttpInstanceSummary where
+instance Data.FromJSON HttpInstanceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpInstanceSummary"
       ( \x ->
           HttpInstanceSummary'
-            Prelude.<$> (x Core..:? "NamespaceName")
-            Prelude.<*> (x Core..:? "HealthStatus")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ServiceName")
+            Prelude.<$> (x Data..:? "NamespaceName")
+            Prelude.<*> (x Data..:? "HealthStatus")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ServiceName")
       )
 
 instance Prelude.Hashable HttpInstanceSummary where

@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.ServiceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.DnsConfig
 import Amazonka.Route53AutoNaming.Types.HealthCheckConfig
@@ -80,7 +81,7 @@ data ServiceSummary = ServiceSummary'
     -- pending registrations and deregistrations.
     instanceCount :: Prelude.Maybe Prelude.Int,
     -- | The date and time that the service was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | /Public DNS and HTTP namespaces only./ Settings for an optional health
     -- check. If you specify settings for a health check, Cloud Map associates
     -- the health check with the records that you specify in @DnsConfig@.
@@ -231,7 +232,7 @@ serviceSummary_instanceCount = Lens.lens (\ServiceSummary' {instanceCount} -> in
 
 -- | The date and time that the service was created.
 serviceSummary_createDate :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.UTCTime)
-serviceSummary_createDate = Lens.lens (\ServiceSummary' {createDate} -> createDate) (\s@ServiceSummary' {} a -> s {createDate = a} :: ServiceSummary) Prelude.. Lens.mapping Core._Time
+serviceSummary_createDate = Lens.lens (\ServiceSummary' {createDate} -> createDate) (\s@ServiceSummary' {} a -> s {createDate = a} :: ServiceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | /Public DNS and HTTP namespaces only./ Settings for an optional health
 -- check. If you specify settings for a health check, Cloud Map associates
@@ -239,22 +240,22 @@ serviceSummary_createDate = Lens.lens (\ServiceSummary' {createDate} -> createDa
 serviceSummary_healthCheckConfig :: Lens.Lens' ServiceSummary (Prelude.Maybe HealthCheckConfig)
 serviceSummary_healthCheckConfig = Lens.lens (\ServiceSummary' {healthCheckConfig} -> healthCheckConfig) (\s@ServiceSummary' {} a -> s {healthCheckConfig = a} :: ServiceSummary)
 
-instance Core.FromJSON ServiceSummary where
+instance Data.FromJSON ServiceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceSummary"
       ( \x ->
           ServiceSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DnsConfig")
-            Prelude.<*> (x Core..:? "HealthCheckCustomConfig")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "InstanceCount")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "HealthCheckConfig")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DnsConfig")
+            Prelude.<*> (x Data..:? "HealthCheckCustomConfig")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "InstanceCount")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "HealthCheckConfig")
       )
 
 instance Prelude.Hashable ServiceSummary where

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,7 +138,7 @@ instance Core.AWSRequest CreateHttpNamespace where
     Response.receiveJSON
       ( \s h x ->
           CreateHttpNamespaceResponse'
-            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,37 +156,37 @@ instance Prelude.NFData CreateHttpNamespace where
       `Prelude.seq` Prelude.rnf creatorRequestId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateHttpNamespace where
+instance Data.ToHeaders CreateHttpNamespace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53AutoNaming_v20170314.CreateHttpNamespace" ::
+              Data.=# ( "Route53AutoNaming_v20170314.CreateHttpNamespace" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateHttpNamespace where
+instance Data.ToJSON CreateHttpNamespace where
   toJSON CreateHttpNamespace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("CreatorRequestId" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("CreatorRequestId" Data..=)
               Prelude.<$> creatorRequestId,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateHttpNamespace where
+instance Data.ToPath CreateHttpNamespace where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateHttpNamespace where
+instance Data.ToQuery CreateHttpNamespace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateHttpNamespaceResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.FinSpace.Types.SuperuserParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for the superuser.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSuperuserParameters' smart constructor.
 data SuperuserParameters = SuperuserParameters'
   { -- | The email address of the superuser.
-    emailAddress :: Core.Sensitive Prelude.Text,
+    emailAddress :: Data.Sensitive Prelude.Text,
     -- | The first name of the superuser.
     firstName :: Prelude.Text,
     -- | The last name of the superuser.
@@ -63,14 +64,14 @@ newSuperuserParameters
   pLastName_ =
     SuperuserParameters'
       { emailAddress =
-          Core._Sensitive Lens.# pEmailAddress_,
+          Data._Sensitive Lens.# pEmailAddress_,
         firstName = pFirstName_,
         lastName = pLastName_
       }
 
 -- | The email address of the superuser.
 superuserParameters_emailAddress :: Lens.Lens' SuperuserParameters Prelude.Text
-superuserParameters_emailAddress = Lens.lens (\SuperuserParameters' {emailAddress} -> emailAddress) (\s@SuperuserParameters' {} a -> s {emailAddress = a} :: SuperuserParameters) Prelude.. Core._Sensitive
+superuserParameters_emailAddress = Lens.lens (\SuperuserParameters' {emailAddress} -> emailAddress) (\s@SuperuserParameters' {} a -> s {emailAddress = a} :: SuperuserParameters) Prelude.. Data._Sensitive
 
 -- | The first name of the superuser.
 superuserParameters_firstName :: Lens.Lens' SuperuserParameters Prelude.Text
@@ -92,12 +93,12 @@ instance Prelude.NFData SuperuserParameters where
       `Prelude.seq` Prelude.rnf firstName
       `Prelude.seq` Prelude.rnf lastName
 
-instance Core.ToJSON SuperuserParameters where
+instance Data.ToJSON SuperuserParameters where
   toJSON SuperuserParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("emailAddress" Core..= emailAddress),
-            Prelude.Just ("firstName" Core..= firstName),
-            Prelude.Just ("lastName" Core..= lastName)
+          [ Prelude.Just ("emailAddress" Data..= emailAddress),
+            Prelude.Just ("firstName" Data..= firstName),
+            Prelude.Just ("lastName" Data..= lastName)
           ]
       )

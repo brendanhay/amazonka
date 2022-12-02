@@ -21,6 +21,7 @@ module Amazonka.FinSpace.Types.FederationParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information when authentication mode is FEDERATED.
@@ -122,18 +123,18 @@ federationParameters_applicationCallBackURL = Lens.lens (\FederationParameters' 
 federationParameters_attributeMap :: Lens.Lens' FederationParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 federationParameters_attributeMap = Lens.lens (\FederationParameters' {attributeMap} -> attributeMap) (\s@FederationParameters' {} a -> s {attributeMap = a} :: FederationParameters) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON FederationParameters where
+instance Data.FromJSON FederationParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FederationParameters"
       ( \x ->
           FederationParameters'
-            Prelude.<$> (x Core..:? "federationProviderName")
-            Prelude.<*> (x Core..:? "samlMetadataDocument")
-            Prelude.<*> (x Core..:? "federationURN")
-            Prelude.<*> (x Core..:? "samlMetadataURL")
-            Prelude.<*> (x Core..:? "applicationCallBackURL")
-            Prelude.<*> (x Core..:? "attributeMap" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "federationProviderName")
+            Prelude.<*> (x Data..:? "samlMetadataDocument")
+            Prelude.<*> (x Data..:? "federationURN")
+            Prelude.<*> (x Data..:? "samlMetadataURL")
+            Prelude.<*> (x Data..:? "applicationCallBackURL")
+            Prelude.<*> (x Data..:? "attributeMap" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FederationParameters where
@@ -154,19 +155,19 @@ instance Prelude.NFData FederationParameters where
       `Prelude.seq` Prelude.rnf applicationCallBackURL
       `Prelude.seq` Prelude.rnf attributeMap
 
-instance Core.ToJSON FederationParameters where
+instance Data.ToJSON FederationParameters where
   toJSON FederationParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("federationProviderName" Core..=)
+          [ ("federationProviderName" Data..=)
               Prelude.<$> federationProviderName,
-            ("samlMetadataDocument" Core..=)
+            ("samlMetadataDocument" Data..=)
               Prelude.<$> samlMetadataDocument,
-            ("federationURN" Core..=) Prelude.<$> federationURN,
-            ("samlMetadataURL" Core..=)
+            ("federationURN" Data..=) Prelude.<$> federationURN,
+            ("samlMetadataURL" Data..=)
               Prelude.<$> samlMetadataURL,
-            ("applicationCallBackURL" Core..=)
+            ("applicationCallBackURL" Data..=)
               Prelude.<$> applicationCallBackURL,
-            ("attributeMap" Core..=) Prelude.<$> attributeMap
+            ("attributeMap" Data..=) Prelude.<$> attributeMap
           ]
       )

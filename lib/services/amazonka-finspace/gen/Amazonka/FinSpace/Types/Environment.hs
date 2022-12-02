@@ -21,6 +21,7 @@ module Amazonka.FinSpace.Types.Environment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpace.Types.EnvironmentStatus
 import Amazonka.FinSpace.Types.FederationMode
 import Amazonka.FinSpace.Types.FederationParameters
@@ -160,24 +161,24 @@ environment_environmentId = Lens.lens (\Environment' {environmentId} -> environm
 environment_sageMakerStudioDomainUrl :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_sageMakerStudioDomainUrl = Lens.lens (\Environment' {sageMakerStudioDomainUrl} -> sageMakerStudioDomainUrl) (\s@Environment' {} a -> s {sageMakerStudioDomainUrl = a} :: Environment)
 
-instance Core.FromJSON Environment where
+instance Data.FromJSON Environment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Environment"
       ( \x ->
           Environment'
-            Prelude.<$> (x Core..:? "awsAccountId")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "federationParameters")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "federationMode")
-            Prelude.<*> (x Core..:? "environmentUrl")
-            Prelude.<*> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "dedicatedServiceAccountId")
-            Prelude.<*> (x Core..:? "environmentArn")
-            Prelude.<*> (x Core..:? "environmentId")
-            Prelude.<*> (x Core..:? "sageMakerStudioDomainUrl")
+            Prelude.<$> (x Data..:? "awsAccountId")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "federationParameters")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "federationMode")
+            Prelude.<*> (x Data..:? "environmentUrl")
+            Prelude.<*> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "dedicatedServiceAccountId")
+            Prelude.<*> (x Data..:? "environmentArn")
+            Prelude.<*> (x Data..:? "environmentId")
+            Prelude.<*> (x Data..:? "sageMakerStudioDomainUrl")
       )
 
 instance Prelude.Hashable Environment where

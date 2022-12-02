@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpace.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -199,9 +200,9 @@ instance Core.AWSRequest CreateEnvironment where
     Response.receiveJSON
       ( \s h x ->
           CreateEnvironmentResponse'
-            Prelude.<$> (x Core..?> "environmentUrl")
-            Prelude.<*> (x Core..?> "environmentArn")
-            Prelude.<*> (x Core..?> "environmentId")
+            Prelude.<$> (x Data..?> "environmentUrl")
+            Prelude.<*> (x Data..?> "environmentArn")
+            Prelude.<*> (x Data..?> "environmentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -227,39 +228,39 @@ instance Prelude.NFData CreateEnvironment where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateEnvironment where
+instance Data.ToHeaders CreateEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEnvironment where
+instance Data.ToJSON CreateEnvironment where
   toJSON CreateEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("dataBundles" Core..=) Prelude.<$> dataBundles,
-            ("superuserParameters" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("dataBundles" Data..=) Prelude.<$> dataBundles,
+            ("superuserParameters" Data..=)
               Prelude.<$> superuserParameters,
-            ("federationParameters" Core..=)
+            ("federationParameters" Data..=)
               Prelude.<$> federationParameters,
-            ("description" Core..=) Prelude.<$> description,
-            ("federationMode" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("federationMode" Data..=)
               Prelude.<$> federationMode,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            Prelude.Just ("name" Core..= name)
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateEnvironment where
+instance Data.ToPath CreateEnvironment where
   toPath = Prelude.const "/environment"
 
-instance Core.ToQuery CreateEnvironment where
+instance Data.ToQuery CreateEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEnvironmentResponse' smart constructor.

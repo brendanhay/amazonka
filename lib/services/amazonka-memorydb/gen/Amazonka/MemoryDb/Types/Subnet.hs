@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.Subnet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types.AvailabilityZone
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ subnet_availabilityZone = Lens.lens (\Subnet' {availabilityZone} -> availability
 subnet_identifier :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
 subnet_identifier = Lens.lens (\Subnet' {identifier} -> identifier) (\s@Subnet' {} a -> s {identifier = a} :: Subnet)
 
-instance Core.FromJSON Subnet where
+instance Data.FromJSON Subnet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Subnet"
       ( \x ->
           Subnet'
-            Prelude.<$> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "Identifier")
+            Prelude.<$> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "Identifier")
       )
 
 instance Prelude.Hashable Subnet where

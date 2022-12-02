@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types.ServiceUpdateStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ pendingModifiedServiceUpdate_status = Lens.lens (\PendingModifiedServiceUpdate' 
 pendingModifiedServiceUpdate_serviceUpdateName :: Lens.Lens' PendingModifiedServiceUpdate (Prelude.Maybe Prelude.Text)
 pendingModifiedServiceUpdate_serviceUpdateName = Lens.lens (\PendingModifiedServiceUpdate' {serviceUpdateName} -> serviceUpdateName) (\s@PendingModifiedServiceUpdate' {} a -> s {serviceUpdateName = a} :: PendingModifiedServiceUpdate)
 
-instance Core.FromJSON PendingModifiedServiceUpdate where
+instance Data.FromJSON PendingModifiedServiceUpdate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PendingModifiedServiceUpdate"
       ( \x ->
           PendingModifiedServiceUpdate'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ServiceUpdateName")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ServiceUpdateName")
       )
 
 instance

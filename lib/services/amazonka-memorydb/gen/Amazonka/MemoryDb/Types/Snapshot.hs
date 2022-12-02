@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.Snapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types.ClusterConfiguration
 import Amazonka.MemoryDb.Types.DataTieringStatus
 import qualified Amazonka.Prelude as Prelude
@@ -124,19 +125,19 @@ snapshot_kmsKeyId = Lens.lens (\Snapshot' {kmsKeyId} -> kmsKeyId) (\s@Snapshot' 
 snapshot_dataTiering :: Lens.Lens' Snapshot (Prelude.Maybe DataTieringStatus)
 snapshot_dataTiering = Lens.lens (\Snapshot' {dataTiering} -> dataTiering) (\s@Snapshot' {} a -> s {dataTiering = a} :: Snapshot)
 
-instance Core.FromJSON Snapshot where
+instance Data.FromJSON Snapshot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Snapshot"
       ( \x ->
           Snapshot'
-            Prelude.<$> (x Core..:? "ClusterConfiguration")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "DataTiering")
+            Prelude.<$> (x Data..:? "ClusterConfiguration")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "DataTiering")
       )
 
 instance Prelude.Hashable Snapshot where

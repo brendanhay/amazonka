@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.Shard where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types.Node
 import qualified Amazonka.Prelude as Prelude
 
@@ -94,17 +95,17 @@ shard_numberOfNodes = Lens.lens (\Shard' {numberOfNodes} -> numberOfNodes) (\s@S
 shard_slots :: Lens.Lens' Shard (Prelude.Maybe Prelude.Text)
 shard_slots = Lens.lens (\Shard' {slots} -> slots) (\s@Shard' {} a -> s {slots = a} :: Shard)
 
-instance Core.FromJSON Shard where
+instance Data.FromJSON Shard where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Shard"
       ( \x ->
           Shard'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Nodes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "NumberOfNodes")
-            Prelude.<*> (x Core..:? "Slots")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Nodes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "NumberOfNodes")
+            Prelude.<*> (x Data..:? "Slots")
       )
 
 instance Prelude.Hashable Shard where

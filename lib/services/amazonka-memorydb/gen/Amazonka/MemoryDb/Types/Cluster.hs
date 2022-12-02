@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.Cluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types.AZStatus
 import Amazonka.MemoryDb.Types.ClusterPendingUpdates
 import Amazonka.MemoryDb.Types.DataTieringStatus
@@ -331,38 +332,38 @@ cluster_dataTiering = Lens.lens (\Cluster' {dataTiering} -> dataTiering) (\s@Clu
 cluster_engineVersion :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_engineVersion = Lens.lens (\Cluster' {engineVersion} -> engineVersion) (\s@Cluster' {} a -> s {engineVersion = a} :: Cluster)
 
-instance Core.FromJSON Cluster where
+instance Data.FromJSON Cluster where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cluster"
       ( \x ->
           Cluster'
-            Prelude.<$> (x Core..:? "SubnetGroupName")
-            Prelude.<*> (x Core..:? "ParameterGroupName")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ACLName")
-            Prelude.<*> (x Core..:? "AutoMinorVersionUpgrade")
-            Prelude.<*> (x Core..:? "EnginePatchVersion")
-            Prelude.<*> (x Core..:? "SnsTopicStatus")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "TLSEnabled")
-            Prelude.<*> (x Core..:? "ClusterEndpoint")
-            Prelude.<*> (x Core..:? "AvailabilityMode")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "NodeType")
-            Prelude.<*> (x Core..:? "MaintenanceWindow")
-            Prelude.<*> (x Core..:? "SnapshotWindow")
-            Prelude.<*> (x Core..:? "NumberOfShards")
-            Prelude.<*> (x Core..:? "SnapshotRetentionLimit")
-            Prelude.<*> (x Core..:? "SnsTopicArn")
-            Prelude.<*> (x Core..:? "PendingUpdates")
-            Prelude.<*> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Shards" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "ParameterGroupStatus")
-            Prelude.<*> (x Core..:? "DataTiering")
-            Prelude.<*> (x Core..:? "EngineVersion")
+            Prelude.<$> (x Data..:? "SubnetGroupName")
+            Prelude.<*> (x Data..:? "ParameterGroupName")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ACLName")
+            Prelude.<*> (x Data..:? "AutoMinorVersionUpgrade")
+            Prelude.<*> (x Data..:? "EnginePatchVersion")
+            Prelude.<*> (x Data..:? "SnsTopicStatus")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "TLSEnabled")
+            Prelude.<*> (x Data..:? "ClusterEndpoint")
+            Prelude.<*> (x Data..:? "AvailabilityMode")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "NodeType")
+            Prelude.<*> (x Data..:? "MaintenanceWindow")
+            Prelude.<*> (x Data..:? "SnapshotWindow")
+            Prelude.<*> (x Data..:? "NumberOfShards")
+            Prelude.<*> (x Data..:? "SnapshotRetentionLimit")
+            Prelude.<*> (x Data..:? "SnsTopicArn")
+            Prelude.<*> (x Data..:? "PendingUpdates")
+            Prelude.<*> (x Data..:? "SecurityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Shards" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "ParameterGroupStatus")
+            Prelude.<*> (x Data..:? "DataTiering")
+            Prelude.<*> (x Data..:? "EngineVersion")
       )
 
 instance Prelude.Hashable Cluster where

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,8 +125,8 @@ instance Core.AWSRequest DescribeParameters where
     Response.receiveJSON
       ( \s h x ->
           DescribeParametersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,36 +142,36 @@ instance Prelude.NFData DescribeParameters where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf parameterGroupName
 
-instance Core.ToHeaders DescribeParameters where
+instance Data.ToHeaders DescribeParameters where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonMemoryDB.DescribeParameters" ::
+              Data.=# ( "AmazonMemoryDB.DescribeParameters" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeParameters where
+instance Data.ToJSON DescribeParameters where
   toJSON DescribeParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ParameterGroupName" Core..= parameterGroupName)
+              ("ParameterGroupName" Data..= parameterGroupName)
           ]
       )
 
-instance Core.ToPath DescribeParameters where
+instance Data.ToPath DescribeParameters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeParameters where
+instance Data.ToQuery DescribeParameters where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeParametersResponse' smart constructor.

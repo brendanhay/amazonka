@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.ACL where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types.ACLPendingChanges
 import qualified Amazonka.Prelude as Prelude
 
@@ -113,19 +114,19 @@ acl_status = Lens.lens (\ACL' {status} -> status) (\s@ACL' {} a -> s {status = a
 acl_minimumEngineVersion :: Lens.Lens' ACL (Prelude.Maybe Prelude.Text)
 acl_minimumEngineVersion = Lens.lens (\ACL' {minimumEngineVersion} -> minimumEngineVersion) (\s@ACL' {} a -> s {minimumEngineVersion = a} :: ACL)
 
-instance Core.FromJSON ACL where
+instance Data.FromJSON ACL where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ACL"
       ( \x ->
           ACL'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "PendingChanges")
-            Prelude.<*> (x Core..:? "Clusters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "UserNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "MinimumEngineVersion")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "PendingChanges")
+            Prelude.<*> (x Data..:? "Clusters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "UserNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "MinimumEngineVersion")
       )
 
 instance Prelude.Hashable ACL where

@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.SlotMigration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the progress of an online resharding operation.
@@ -53,13 +54,13 @@ newSlotMigration =
 slotMigration_progressPercentage :: Lens.Lens' SlotMigration (Prelude.Maybe Prelude.Double)
 slotMigration_progressPercentage = Lens.lens (\SlotMigration' {progressPercentage} -> progressPercentage) (\s@SlotMigration' {} a -> s {progressPercentage = a} :: SlotMigration)
 
-instance Core.FromJSON SlotMigration where
+instance Data.FromJSON SlotMigration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotMigration"
       ( \x ->
           SlotMigration'
-            Prelude.<$> (x Core..:? "ProgressPercentage")
+            Prelude.<$> (x Data..:? "ProgressPercentage")
       )
 
 instance Prelude.Hashable SlotMigration where

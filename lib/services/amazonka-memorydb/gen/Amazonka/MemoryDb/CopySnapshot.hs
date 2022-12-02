@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,7 +149,7 @@ instance Core.AWSRequest CopySnapshot where
     Response.receiveJSON
       ( \s h x ->
           CopySnapshotResponse'
-            Prelude.<$> (x Core..?> "Snapshot")
+            Prelude.<$> (x Data..?> "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,39 +169,39 @@ instance Prelude.NFData CopySnapshot where
       `Prelude.seq` Prelude.rnf sourceSnapshotName
       `Prelude.seq` Prelude.rnf targetSnapshotName
 
-instance Core.ToHeaders CopySnapshot where
+instance Data.ToHeaders CopySnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonMemoryDB.CopySnapshot" ::
+              Data.=# ( "AmazonMemoryDB.CopySnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CopySnapshot where
+instance Data.ToJSON CopySnapshot where
   toJSON CopySnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("TargetBucket" Core..=) Prelude.<$> targetBucket,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("TargetBucket" Data..=) Prelude.<$> targetBucket,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             Prelude.Just
-              ("SourceSnapshotName" Core..= sourceSnapshotName),
+              ("SourceSnapshotName" Data..= sourceSnapshotName),
             Prelude.Just
-              ("TargetSnapshotName" Core..= targetSnapshotName)
+              ("TargetSnapshotName" Data..= targetSnapshotName)
           ]
       )
 
-instance Core.ToPath CopySnapshot where
+instance Data.ToPath CopySnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopySnapshot where
+instance Data.ToQuery CopySnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCopySnapshotResponse' smart constructor.

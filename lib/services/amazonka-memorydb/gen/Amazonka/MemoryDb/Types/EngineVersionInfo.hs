@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.EngineVersionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details of the Redis engine version
@@ -74,15 +75,15 @@ engineVersionInfo_enginePatchVersion = Lens.lens (\EngineVersionInfo' {enginePat
 engineVersionInfo_engineVersion :: Lens.Lens' EngineVersionInfo (Prelude.Maybe Prelude.Text)
 engineVersionInfo_engineVersion = Lens.lens (\EngineVersionInfo' {engineVersion} -> engineVersion) (\s@EngineVersionInfo' {} a -> s {engineVersion = a} :: EngineVersionInfo)
 
-instance Core.FromJSON EngineVersionInfo where
+instance Data.FromJSON EngineVersionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EngineVersionInfo"
       ( \x ->
           EngineVersionInfo'
-            Prelude.<$> (x Core..:? "ParameterGroupFamily")
-            Prelude.<*> (x Core..:? "EnginePatchVersion")
-            Prelude.<*> (x Core..:? "EngineVersion")
+            Prelude.<$> (x Data..:? "ParameterGroupFamily")
+            Prelude.<*> (x Data..:? "EnginePatchVersion")
+            Prelude.<*> (x Data..:? "EngineVersion")
       )
 
 instance Prelude.Hashable EngineVersionInfo where

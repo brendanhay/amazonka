@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.ShardConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Shard configuration options. Each shard configuration has the following:
@@ -68,14 +69,14 @@ shardConfiguration_slots = Lens.lens (\ShardConfiguration' {slots} -> slots) (\s
 shardConfiguration_replicaCount :: Lens.Lens' ShardConfiguration (Prelude.Maybe Prelude.Int)
 shardConfiguration_replicaCount = Lens.lens (\ShardConfiguration' {replicaCount} -> replicaCount) (\s@ShardConfiguration' {} a -> s {replicaCount = a} :: ShardConfiguration)
 
-instance Core.FromJSON ShardConfiguration where
+instance Data.FromJSON ShardConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShardConfiguration"
       ( \x ->
           ShardConfiguration'
-            Prelude.<$> (x Core..:? "Slots")
-            Prelude.<*> (x Core..:? "ReplicaCount")
+            Prelude.<$> (x Data..:? "Slots")
+            Prelude.<*> (x Data..:? "ReplicaCount")
       )
 
 instance Prelude.Hashable ShardConfiguration where

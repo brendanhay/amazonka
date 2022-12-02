@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -308,7 +309,7 @@ instance Core.AWSRequest UpdateCluster where
     Response.receiveJSON
       ( \s h x ->
           UpdateClusterResponse'
-            Prelude.<$> (x Core..?> "Cluster")
+            Prelude.<$> (x Data..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -346,54 +347,54 @@ instance Prelude.NFData UpdateCluster where
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf clusterName
 
-instance Core.ToHeaders UpdateCluster where
+instance Data.ToHeaders UpdateCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonMemoryDB.UpdateCluster" ::
+              Data.=# ( "AmazonMemoryDB.UpdateCluster" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCluster where
+instance Data.ToJSON UpdateCluster where
   toJSON UpdateCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ShardConfiguration" Core..=)
+          [ ("ShardConfiguration" Data..=)
               Prelude.<$> shardConfiguration,
-            ("ParameterGroupName" Core..=)
+            ("ParameterGroupName" Data..=)
               Prelude.<$> parameterGroupName,
-            ("ACLName" Core..=) Prelude.<$> aCLName,
-            ("SecurityGroupIds" Core..=)
+            ("ACLName" Data..=) Prelude.<$> aCLName,
+            ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("SnsTopicStatus" Core..=)
+            ("SnsTopicStatus" Data..=)
               Prelude.<$> snsTopicStatus,
-            ("Description" Core..=) Prelude.<$> description,
-            ("NodeType" Core..=) Prelude.<$> nodeType,
-            ("MaintenanceWindow" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("NodeType" Data..=) Prelude.<$> nodeType,
+            ("MaintenanceWindow" Data..=)
               Prelude.<$> maintenanceWindow,
-            ("SnapshotWindow" Core..=)
+            ("SnapshotWindow" Data..=)
               Prelude.<$> snapshotWindow,
-            ("SnapshotRetentionLimit" Core..=)
+            ("SnapshotRetentionLimit" Data..=)
               Prelude.<$> snapshotRetentionLimit,
-            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
-            ("ReplicaConfiguration" Core..=)
+            ("SnsTopicArn" Data..=) Prelude.<$> snsTopicArn,
+            ("ReplicaConfiguration" Data..=)
               Prelude.<$> replicaConfiguration,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            Prelude.Just ("ClusterName" Core..= clusterName)
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion,
+            Prelude.Just ("ClusterName" Data..= clusterName)
           ]
       )
 
-instance Core.ToPath UpdateCluster where
+instance Data.ToPath UpdateCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCluster where
+instance Data.ToQuery UpdateCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateClusterResponse' smart constructor.

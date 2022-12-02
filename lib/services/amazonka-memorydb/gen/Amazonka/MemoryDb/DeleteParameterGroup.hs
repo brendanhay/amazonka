@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DeleteParameterGroup where
     Response.receiveJSON
       ( \s h x ->
           DeleteParameterGroupResponse'
-            Prelude.<$> (x Core..?> "ParameterGroup")
+            Prelude.<$> (x Data..?> "ParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,34 +101,34 @@ instance Prelude.NFData DeleteParameterGroup where
   rnf DeleteParameterGroup' {..} =
     Prelude.rnf parameterGroupName
 
-instance Core.ToHeaders DeleteParameterGroup where
+instance Data.ToHeaders DeleteParameterGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonMemoryDB.DeleteParameterGroup" ::
+              Data.=# ( "AmazonMemoryDB.DeleteParameterGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteParameterGroup where
+instance Data.ToJSON DeleteParameterGroup where
   toJSON DeleteParameterGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ParameterGroupName" Core..= parameterGroupName)
+              ("ParameterGroupName" Data..= parameterGroupName)
           ]
       )
 
-instance Core.ToPath DeleteParameterGroup where
+instance Data.ToPath DeleteParameterGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteParameterGroup where
+instance Data.ToQuery DeleteParameterGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteParameterGroupResponse' smart constructor.

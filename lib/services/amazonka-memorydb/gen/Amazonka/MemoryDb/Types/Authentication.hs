@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.Authentication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types.AuthenticationType
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ authentication_type = Lens.lens (\Authentication' {type'} -> type') (\s@Authenti
 authentication_passwordCount :: Lens.Lens' Authentication (Prelude.Maybe Prelude.Int)
 authentication_passwordCount = Lens.lens (\Authentication' {passwordCount} -> passwordCount) (\s@Authentication' {} a -> s {passwordCount = a} :: Authentication)
 
-instance Core.FromJSON Authentication where
+instance Data.FromJSON Authentication where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Authentication"
       ( \x ->
           Authentication'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "PasswordCount")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "PasswordCount")
       )
 
 instance Prelude.Hashable Authentication where

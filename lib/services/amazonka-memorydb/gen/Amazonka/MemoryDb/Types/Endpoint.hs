@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.Endpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the information required for client programs to connect to
@@ -62,14 +63,14 @@ endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {p
 endpoint_address :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} a -> s {address = a} :: Endpoint)
 
-instance Core.FromJSON Endpoint where
+instance Data.FromJSON Endpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Endpoint"
       ( \x ->
           Endpoint'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "Address")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "Address")
       )
 
 instance Prelude.Hashable Endpoint where

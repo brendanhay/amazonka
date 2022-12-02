@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,8 +147,8 @@ instance Core.AWSRequest DescribeEngineVersions where
     Response.receiveJSON
       ( \s h x ->
           DescribeEngineVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "EngineVersions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "EngineVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,38 +168,38 @@ instance Prelude.NFData DescribeEngineVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf engineVersion
 
-instance Core.ToHeaders DescribeEngineVersions where
+instance Data.ToHeaders DescribeEngineVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonMemoryDB.DescribeEngineVersions" ::
+              Data.=# ( "AmazonMemoryDB.DescribeEngineVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEngineVersions where
+instance Data.ToJSON DescribeEngineVersions where
   toJSON DescribeEngineVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ParameterGroupFamily" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ParameterGroupFamily" Data..=)
               Prelude.<$> parameterGroupFamily,
-            ("DefaultOnly" Core..=) Prelude.<$> defaultOnly,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion
+            ("DefaultOnly" Data..=) Prelude.<$> defaultOnly,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion
           ]
       )
 
-instance Core.ToPath DescribeEngineVersions where
+instance Data.ToPath DescribeEngineVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEngineVersions where
+instance Data.ToQuery DescribeEngineVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEngineVersionsResponse' smart constructor.

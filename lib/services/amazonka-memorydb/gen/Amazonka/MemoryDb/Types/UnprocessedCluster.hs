@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.UnprocessedCluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A cluster whose updates have failed
@@ -70,15 +71,15 @@ unprocessedCluster_clusterName = Lens.lens (\UnprocessedCluster' {clusterName} -
 unprocessedCluster_errorType :: Lens.Lens' UnprocessedCluster (Prelude.Maybe Prelude.Text)
 unprocessedCluster_errorType = Lens.lens (\UnprocessedCluster' {errorType} -> errorType) (\s@UnprocessedCluster' {} a -> s {errorType = a} :: UnprocessedCluster)
 
-instance Core.FromJSON UnprocessedCluster where
+instance Data.FromJSON UnprocessedCluster where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnprocessedCluster"
       ( \x ->
           UnprocessedCluster'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ClusterName")
-            Prelude.<*> (x Core..:? "ErrorType")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ClusterName")
+            Prelude.<*> (x Data..:? "ErrorType")
       )
 
 instance Prelude.Hashable UnprocessedCluster where

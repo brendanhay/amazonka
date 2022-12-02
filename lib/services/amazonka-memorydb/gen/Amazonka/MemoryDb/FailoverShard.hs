@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,7 +102,7 @@ instance Core.AWSRequest FailoverShard where
     Response.receiveJSON
       ( \s h x ->
           FailoverShardResponse'
-            Prelude.<$> (x Core..?> "Cluster")
+            Prelude.<$> (x Data..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,34 +116,34 @@ instance Prelude.NFData FailoverShard where
     Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf shardName
 
-instance Core.ToHeaders FailoverShard where
+instance Data.ToHeaders FailoverShard where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonMemoryDB.FailoverShard" ::
+              Data.=# ( "AmazonMemoryDB.FailoverShard" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON FailoverShard where
+instance Data.ToJSON FailoverShard where
   toJSON FailoverShard' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ClusterName" Core..= clusterName),
-            Prelude.Just ("ShardName" Core..= shardName)
+          [ Prelude.Just ("ClusterName" Data..= clusterName),
+            Prelude.Just ("ShardName" Data..= shardName)
           ]
       )
 
-instance Core.ToPath FailoverShard where
+instance Data.ToPath FailoverShard where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery FailoverShard where
+instance Data.ToQuery FailoverShard where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newFailoverShardResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.NotifyWorkersFailureStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types.NotifyWorkersFailureCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,15 +74,15 @@ notifyWorkersFailureStatus_notifyWorkersFailureCode = Lens.lens (\NotifyWorkersF
 notifyWorkersFailureStatus_notifyWorkersFailureMessage :: Lens.Lens' NotifyWorkersFailureStatus (Prelude.Maybe Prelude.Text)
 notifyWorkersFailureStatus_notifyWorkersFailureMessage = Lens.lens (\NotifyWorkersFailureStatus' {notifyWorkersFailureMessage} -> notifyWorkersFailureMessage) (\s@NotifyWorkersFailureStatus' {} a -> s {notifyWorkersFailureMessage = a} :: NotifyWorkersFailureStatus)
 
-instance Core.FromJSON NotifyWorkersFailureStatus where
+instance Data.FromJSON NotifyWorkersFailureStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotifyWorkersFailureStatus"
       ( \x ->
           NotifyWorkersFailureStatus'
-            Prelude.<$> (x Core..:? "WorkerId")
-            Prelude.<*> (x Core..:? "NotifyWorkersFailureCode")
-            Prelude.<*> (x Core..:? "NotifyWorkersFailureMessage")
+            Prelude.<$> (x Data..:? "WorkerId")
+            Prelude.<*> (x Data..:? "NotifyWorkersFailureCode")
+            Prelude.<*> (x Data..:? "NotifyWorkersFailureMessage")
       )
 
 instance Prelude.Hashable NotifyWorkersFailureStatus where

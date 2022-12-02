@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,9 +133,9 @@ instance Core.AWSRequest ListQualificationRequests where
     Response.receiveJSON
       ( \s h x ->
           ListQualificationRequestsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "NumResults")
-            Prelude.<*> ( x Core..?> "QualificationRequests"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "NumResults")
+            Prelude.<*> ( x Data..?> "QualificationRequests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -152,36 +153,36 @@ instance Prelude.NFData ListQualificationRequests where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListQualificationRequests where
+instance Data.ToHeaders ListQualificationRequests where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.ListQualificationRequests" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.ListQualificationRequests" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListQualificationRequests where
+instance Data.ToJSON ListQualificationRequests where
   toJSON ListQualificationRequests' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QualificationTypeId" Core..=)
+          [ ("QualificationTypeId" Data..=)
               Prelude.<$> qualificationTypeId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListQualificationRequests where
+instance Data.ToPath ListQualificationRequests where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListQualificationRequests where
+instance Data.ToQuery ListQualificationRequests where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListQualificationRequestsResponse' smart constructor.

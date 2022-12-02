@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,35 +143,35 @@ instance Prelude.NFData UpdateNotificationSettings where
       `Prelude.seq` Prelude.rnf notification
       `Prelude.seq` Prelude.rnf hITTypeId
 
-instance Core.ToHeaders UpdateNotificationSettings where
+instance Data.ToHeaders UpdateNotificationSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.UpdateNotificationSettings" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.UpdateNotificationSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNotificationSettings where
+instance Data.ToJSON UpdateNotificationSettings where
   toJSON UpdateNotificationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Active" Core..=) Prelude.<$> active,
-            ("Notification" Core..=) Prelude.<$> notification,
-            Prelude.Just ("HITTypeId" Core..= hITTypeId)
+          [ ("Active" Data..=) Prelude.<$> active,
+            ("Notification" Data..=) Prelude.<$> notification,
+            Prelude.Just ("HITTypeId" Data..= hITTypeId)
           ]
       )
 
-instance Core.ToPath UpdateNotificationSettings where
+instance Data.ToPath UpdateNotificationSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateNotificationSettings where
+instance Data.ToQuery UpdateNotificationSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNotificationSettingsResponse' smart constructor.

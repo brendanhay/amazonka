@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -80,7 +81,7 @@ instance Core.AWSRequest GetHIT where
     Response.receiveJSON
       ( \s h x ->
           GetHITResponse'
-            Prelude.<$> (x Core..?> "HIT")
+            Prelude.<$> (x Data..?> "HIT")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -91,32 +92,32 @@ instance Prelude.Hashable GetHIT where
 instance Prelude.NFData GetHIT where
   rnf GetHIT' {..} = Prelude.rnf hITId
 
-instance Core.ToHeaders GetHIT where
+instance Data.ToHeaders GetHIT where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.GetHIT" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.GetHIT" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetHIT where
+instance Data.ToJSON GetHIT where
   toJSON GetHIT' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("HITId" Core..= hITId)]
+          [Prelude.Just ("HITId" Data..= hITId)]
       )
 
-instance Core.ToPath GetHIT where
+instance Data.ToPath GetHIT where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetHIT where
+instance Data.ToQuery GetHIT where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetHITResponse' smart constructor.

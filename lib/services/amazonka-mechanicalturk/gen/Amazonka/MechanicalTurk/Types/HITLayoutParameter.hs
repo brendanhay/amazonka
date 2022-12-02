@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.HITLayoutParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The HITLayoutParameter data structure defines parameter values used with
@@ -74,11 +75,11 @@ instance Prelude.NFData HITLayoutParameter where
   rnf HITLayoutParameter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON HITLayoutParameter where
+instance Data.ToJSON HITLayoutParameter where
   toJSON HITLayoutParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.PolicyParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types.ParameterMapEntry
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ policyParameter_mapEntries = Lens.lens (\PolicyParameter' {mapEntries} -> mapEnt
 policyParameter_values :: Lens.Lens' PolicyParameter (Prelude.Maybe [Prelude.Text])
 policyParameter_values = Lens.lens (\PolicyParameter' {values} -> values) (\s@PolicyParameter' {} a -> s {values = a} :: PolicyParameter) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PolicyParameter where
+instance Data.FromJSON PolicyParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PolicyParameter"
       ( \x ->
           PolicyParameter'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "MapEntries" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "MapEntries" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PolicyParameter where
@@ -94,12 +95,12 @@ instance Prelude.NFData PolicyParameter where
       `Prelude.seq` Prelude.rnf mapEntries
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON PolicyParameter where
+instance Data.ToJSON PolicyParameter where
   toJSON PolicyParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("MapEntries" Core..=) Prelude.<$> mapEntries,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("MapEntries" Data..=) Prelude.<$> mapEntries,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

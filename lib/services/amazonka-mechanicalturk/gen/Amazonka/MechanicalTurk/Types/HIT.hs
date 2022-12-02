@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.HIT where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types.HITReviewStatus
 import Amazonka.MechanicalTurk.Types.HITStatus
 import Amazonka.MechanicalTurk.Types.QualificationRequirement
@@ -34,7 +35,7 @@ data HIT = HIT'
   { -- | The ID of the HIT Group of this HIT.
     hITGroupId :: Prelude.Maybe Prelude.Text,
     -- | The date and time the HIT expires.
-    expiration :: Prelude.Maybe Core.POSIX,
+    expiration :: Prelude.Maybe Data.POSIX,
     -- | The number of assignments for this HIT that are available for Workers to
     -- accept.
     numberOfAssignmentsAvailable :: Prelude.Maybe Prelude.Int,
@@ -81,7 +82,7 @@ data HIT = HIT'
     -- | The ID of the HIT type of this HIT
     hITTypeId :: Prelude.Maybe Prelude.Text,
     -- | The date and time the HIT was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the review status of the HIT. Valid Values are NotReviewed |
     -- MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
     hITReviewStatus :: Prelude.Maybe HITReviewStatus,
@@ -199,7 +200,7 @@ hit_hITGroupId = Lens.lens (\HIT' {hITGroupId} -> hITGroupId) (\s@HIT' {} a -> s
 
 -- | The date and time the HIT expires.
 hit_expiration :: Lens.Lens' HIT (Prelude.Maybe Prelude.UTCTime)
-hit_expiration = Lens.lens (\HIT' {expiration} -> expiration) (\s@HIT' {} a -> s {expiration = a} :: HIT) Prelude.. Lens.mapping Core._Time
+hit_expiration = Lens.lens (\HIT' {expiration} -> expiration) (\s@HIT' {} a -> s {expiration = a} :: HIT) Prelude.. Lens.mapping Data._Time
 
 -- | The number of assignments for this HIT that are available for Workers to
 -- accept.
@@ -277,7 +278,7 @@ hit_hITTypeId = Lens.lens (\HIT' {hITTypeId} -> hITTypeId) (\s@HIT' {} a -> s {h
 
 -- | The date and time the HIT was created.
 hit_creationTime :: Lens.Lens' HIT (Prelude.Maybe Prelude.UTCTime)
-hit_creationTime = Lens.lens (\HIT' {creationTime} -> creationTime) (\s@HIT' {} a -> s {creationTime = a} :: HIT) Prelude.. Lens.mapping Core._Time
+hit_creationTime = Lens.lens (\HIT' {creationTime} -> creationTime) (\s@HIT' {} a -> s {creationTime = a} :: HIT) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the review status of the HIT. Valid Values are NotReviewed |
 -- MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
@@ -298,35 +299,35 @@ hit_numberOfAssignmentsCompleted = Lens.lens (\HIT' {numberOfAssignmentsComplete
 hit_requesterAnnotation :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_requesterAnnotation = Lens.lens (\HIT' {requesterAnnotation} -> requesterAnnotation) (\s@HIT' {} a -> s {requesterAnnotation = a} :: HIT)
 
-instance Core.FromJSON HIT where
+instance Data.FromJSON HIT where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HIT"
       ( \x ->
           HIT'
-            Prelude.<$> (x Core..:? "HITGroupId")
-            Prelude.<*> (x Core..:? "Expiration")
-            Prelude.<*> (x Core..:? "NumberOfAssignmentsAvailable")
-            Prelude.<*> (x Core..:? "HITStatus")
-            Prelude.<*> (x Core..:? "MaxAssignments")
-            Prelude.<*> (x Core..:? "Keywords")
-            Prelude.<*> (x Core..:? "NumberOfAssignmentsPending")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "AssignmentDurationInSeconds")
-            Prelude.<*> (x Core..:? "Question")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "HITId")
-            Prelude.<*> (x Core..:? "AutoApprovalDelayInSeconds")
-            Prelude.<*> (x Core..:? "Reward")
-            Prelude.<*> ( x Core..:? "QualificationRequirements"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "HITGroupId")
+            Prelude.<*> (x Data..:? "Expiration")
+            Prelude.<*> (x Data..:? "NumberOfAssignmentsAvailable")
+            Prelude.<*> (x Data..:? "HITStatus")
+            Prelude.<*> (x Data..:? "MaxAssignments")
+            Prelude.<*> (x Data..:? "Keywords")
+            Prelude.<*> (x Data..:? "NumberOfAssignmentsPending")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "AssignmentDurationInSeconds")
+            Prelude.<*> (x Data..:? "Question")
+            Prelude.<*> (x Data..:? "Title")
+            Prelude.<*> (x Data..:? "HITId")
+            Prelude.<*> (x Data..:? "AutoApprovalDelayInSeconds")
+            Prelude.<*> (x Data..:? "Reward")
+            Prelude.<*> ( x Data..:? "QualificationRequirements"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "HITTypeId")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "HITReviewStatus")
-            Prelude.<*> (x Core..:? "HITLayoutId")
-            Prelude.<*> (x Core..:? "NumberOfAssignmentsCompleted")
-            Prelude.<*> (x Core..:? "RequesterAnnotation")
+            Prelude.<*> (x Data..:? "HITTypeId")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "HITReviewStatus")
+            Prelude.<*> (x Data..:? "HITLayoutId")
+            Prelude.<*> (x Data..:? "NumberOfAssignmentsCompleted")
+            Prelude.<*> (x Data..:? "RequesterAnnotation")
       )
 
 instance Prelude.Hashable HIT where

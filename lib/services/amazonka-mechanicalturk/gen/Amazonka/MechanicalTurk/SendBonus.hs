@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -184,38 +185,38 @@ instance Prelude.NFData SendBonus where
       `Prelude.seq` Prelude.rnf assignmentId
       `Prelude.seq` Prelude.rnf reason
 
-instance Core.ToHeaders SendBonus where
+instance Data.ToHeaders SendBonus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.SendBonus" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.SendBonus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendBonus where
+instance Data.ToJSON SendBonus where
   toJSON SendBonus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UniqueRequestToken" Core..=)
+          [ ("UniqueRequestToken" Data..=)
               Prelude.<$> uniqueRequestToken,
-            Prelude.Just ("WorkerId" Core..= workerId),
-            Prelude.Just ("BonusAmount" Core..= bonusAmount),
-            Prelude.Just ("AssignmentId" Core..= assignmentId),
-            Prelude.Just ("Reason" Core..= reason)
+            Prelude.Just ("WorkerId" Data..= workerId),
+            Prelude.Just ("BonusAmount" Data..= bonusAmount),
+            Prelude.Just ("AssignmentId" Data..= assignmentId),
+            Prelude.Just ("Reason" Data..= reason)
           ]
       )
 
-instance Core.ToPath SendBonus where
+instance Data.ToPath SendBonus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendBonus where
+instance Data.ToQuery SendBonus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendBonusResponse' smart constructor.

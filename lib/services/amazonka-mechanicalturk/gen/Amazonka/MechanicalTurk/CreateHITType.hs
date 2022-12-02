@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -220,7 +221,7 @@ instance Core.AWSRequest CreateHITType where
     Response.receiveJSON
       ( \s h x ->
           CreateHITTypeResponse'
-            Prelude.<$> (x Core..?> "HITTypeId")
+            Prelude.<$> (x Data..?> "HITTypeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -244,44 +245,44 @@ instance Prelude.NFData CreateHITType where
       `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToHeaders CreateHITType where
+instance Data.ToHeaders CreateHITType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.CreateHITType" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.CreateHITType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateHITType where
+instance Data.ToJSON CreateHITType where
   toJSON CreateHITType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Keywords" Core..=) Prelude.<$> keywords,
-            ("AutoApprovalDelayInSeconds" Core..=)
+          [ ("Keywords" Data..=) Prelude.<$> keywords,
+            ("AutoApprovalDelayInSeconds" Data..=)
               Prelude.<$> autoApprovalDelayInSeconds,
-            ("QualificationRequirements" Core..=)
+            ("QualificationRequirements" Data..=)
               Prelude.<$> qualificationRequirements,
             Prelude.Just
               ( "AssignmentDurationInSeconds"
-                  Core..= assignmentDurationInSeconds
+                  Data..= assignmentDurationInSeconds
               ),
-            Prelude.Just ("Reward" Core..= reward),
-            Prelude.Just ("Title" Core..= title),
-            Prelude.Just ("Description" Core..= description)
+            Prelude.Just ("Reward" Data..= reward),
+            Prelude.Just ("Title" Data..= title),
+            Prelude.Just ("Description" Data..= description)
           ]
       )
 
-instance Core.ToPath CreateHITType where
+instance Data.ToPath CreateHITType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateHITType where
+instance Data.ToQuery CreateHITType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateHITTypeResponse' smart constructor.

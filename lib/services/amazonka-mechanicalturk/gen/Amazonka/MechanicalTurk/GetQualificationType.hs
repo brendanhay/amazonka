@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetQualificationType where
     Response.receiveJSON
       ( \s h x ->
           GetQualificationTypeResponse'
-            Prelude.<$> (x Core..?> "QualificationType")
+            Prelude.<$> (x Data..?> "QualificationType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,34 +100,34 @@ instance Prelude.NFData GetQualificationType where
   rnf GetQualificationType' {..} =
     Prelude.rnf qualificationTypeId
 
-instance Core.ToHeaders GetQualificationType where
+instance Data.ToHeaders GetQualificationType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.GetQualificationType" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.GetQualificationType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetQualificationType where
+instance Data.ToJSON GetQualificationType where
   toJSON GetQualificationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("QualificationTypeId" Core..= qualificationTypeId)
+              ("QualificationTypeId" Data..= qualificationTypeId)
           ]
       )
 
-instance Core.ToPath GetQualificationType where
+instance Data.ToPath GetQualificationType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetQualificationType where
+instance Data.ToQuery GetQualificationType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetQualificationTypeResponse' smart constructor.

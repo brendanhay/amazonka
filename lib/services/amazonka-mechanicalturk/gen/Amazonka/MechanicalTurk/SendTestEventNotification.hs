@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,35 +133,35 @@ instance Prelude.NFData SendTestEventNotification where
     Prelude.rnf notification
       `Prelude.seq` Prelude.rnf testEventType
 
-instance Core.ToHeaders SendTestEventNotification where
+instance Data.ToHeaders SendTestEventNotification where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.SendTestEventNotification" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.SendTestEventNotification" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendTestEventNotification where
+instance Data.ToJSON SendTestEventNotification where
   toJSON SendTestEventNotification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Notification" Core..= notification),
+          [ Prelude.Just ("Notification" Data..= notification),
             Prelude.Just
-              ("TestEventType" Core..= testEventType)
+              ("TestEventType" Data..= testEventType)
           ]
       )
 
-instance Core.ToPath SendTestEventNotification where
+instance Data.ToPath SendTestEventNotification where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendTestEventNotification where
+instance Data.ToQuery SendTestEventNotification where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendTestEventNotificationResponse' smart constructor.

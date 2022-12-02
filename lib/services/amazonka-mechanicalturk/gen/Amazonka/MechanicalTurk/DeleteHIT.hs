@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,32 +110,32 @@ instance Prelude.Hashable DeleteHIT where
 instance Prelude.NFData DeleteHIT where
   rnf DeleteHIT' {..} = Prelude.rnf hITId
 
-instance Core.ToHeaders DeleteHIT where
+instance Data.ToHeaders DeleteHIT where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.DeleteHIT" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.DeleteHIT" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteHIT where
+instance Data.ToJSON DeleteHIT where
   toJSON DeleteHIT' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("HITId" Core..= hITId)]
+          [Prelude.Just ("HITId" Data..= hITId)]
       )
 
-instance Core.ToPath DeleteHIT where
+instance Data.ToPath DeleteHIT where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteHIT where
+instance Data.ToQuery DeleteHIT where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteHITResponse' smart constructor.

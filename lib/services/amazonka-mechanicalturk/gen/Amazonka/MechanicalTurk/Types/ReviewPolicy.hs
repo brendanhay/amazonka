@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.ReviewPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types.PolicyParameter
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,14 +69,14 @@ reviewPolicy_parameters = Lens.lens (\ReviewPolicy' {parameters} -> parameters) 
 reviewPolicy_policyName :: Lens.Lens' ReviewPolicy Prelude.Text
 reviewPolicy_policyName = Lens.lens (\ReviewPolicy' {policyName} -> policyName) (\s@ReviewPolicy' {} a -> s {policyName = a} :: ReviewPolicy)
 
-instance Core.FromJSON ReviewPolicy where
+instance Data.FromJSON ReviewPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReviewPolicy"
       ( \x ->
           ReviewPolicy'
-            Prelude.<$> (x Core..:? "Parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "PolicyName")
+            Prelude.<$> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "PolicyName")
       )
 
 instance Prelude.Hashable ReviewPolicy where
@@ -88,11 +89,11 @@ instance Prelude.NFData ReviewPolicy where
     Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf policyName
 
-instance Core.ToJSON ReviewPolicy where
+instance Data.ToJSON ReviewPolicy where
   toJSON ReviewPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("PolicyName" Core..= policyName)
+          [ ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("PolicyName" Data..= policyName)
           ]
       )

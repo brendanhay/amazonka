@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -53,7 +54,7 @@ data UpdateExpirationForHIT = UpdateExpirationForHIT'
   { -- | The HIT to update.
     hITId :: Prelude.Text,
     -- | The date and time at which you want the HIT to expire
-    expireAt :: Core.POSIX
+    expireAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,7 +78,7 @@ newUpdateExpirationForHIT ::
 newUpdateExpirationForHIT pHITId_ pExpireAt_ =
   UpdateExpirationForHIT'
     { hITId = pHITId_,
-      expireAt = Core._Time Lens.# pExpireAt_
+      expireAt = Data._Time Lens.# pExpireAt_
     }
 
 -- | The HIT to update.
@@ -86,7 +87,7 @@ updateExpirationForHIT_hITId = Lens.lens (\UpdateExpirationForHIT' {hITId} -> hI
 
 -- | The date and time at which you want the HIT to expire
 updateExpirationForHIT_expireAt :: Lens.Lens' UpdateExpirationForHIT Prelude.UTCTime
-updateExpirationForHIT_expireAt = Lens.lens (\UpdateExpirationForHIT' {expireAt} -> expireAt) (\s@UpdateExpirationForHIT' {} a -> s {expireAt = a} :: UpdateExpirationForHIT) Prelude.. Core._Time
+updateExpirationForHIT_expireAt = Lens.lens (\UpdateExpirationForHIT' {expireAt} -> expireAt) (\s@UpdateExpirationForHIT' {} a -> s {expireAt = a} :: UpdateExpirationForHIT) Prelude.. Data._Time
 
 instance Core.AWSRequest UpdateExpirationForHIT where
   type
@@ -111,34 +112,34 @@ instance Prelude.NFData UpdateExpirationForHIT where
     Prelude.rnf hITId
       `Prelude.seq` Prelude.rnf expireAt
 
-instance Core.ToHeaders UpdateExpirationForHIT where
+instance Data.ToHeaders UpdateExpirationForHIT where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.UpdateExpirationForHIT" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.UpdateExpirationForHIT" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateExpirationForHIT where
+instance Data.ToJSON UpdateExpirationForHIT where
   toJSON UpdateExpirationForHIT' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("HITId" Core..= hITId),
-            Prelude.Just ("ExpireAt" Core..= expireAt)
+          [ Prelude.Just ("HITId" Data..= hITId),
+            Prelude.Just ("ExpireAt" Data..= expireAt)
           ]
       )
 
-instance Core.ToPath UpdateExpirationForHIT where
+instance Data.ToPath UpdateExpirationForHIT where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateExpirationForHIT where
+instance Data.ToQuery UpdateExpirationForHIT where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateExpirationForHITResponse' smart constructor.

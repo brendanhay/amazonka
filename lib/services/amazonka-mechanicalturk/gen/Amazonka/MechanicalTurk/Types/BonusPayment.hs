@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.BonusPayment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a Bonus payment paid to a Worker.
@@ -30,7 +31,7 @@ data BonusPayment = BonusPayment'
   { -- | The ID of the Worker to whom the bonus was paid.
     workerId :: Prelude.Maybe Prelude.Text,
     -- | The date and time of when the bonus was granted.
-    grantTime :: Prelude.Maybe Core.POSIX,
+    grantTime :: Prelude.Maybe Data.POSIX,
     -- | The Reason text given when the bonus was granted, if any.
     reason :: Prelude.Maybe Prelude.Text,
     -- | The ID of the assignment associated with this bonus payment.
@@ -73,7 +74,7 @@ bonusPayment_workerId = Lens.lens (\BonusPayment' {workerId} -> workerId) (\s@Bo
 
 -- | The date and time of when the bonus was granted.
 bonusPayment_grantTime :: Lens.Lens' BonusPayment (Prelude.Maybe Prelude.UTCTime)
-bonusPayment_grantTime = Lens.lens (\BonusPayment' {grantTime} -> grantTime) (\s@BonusPayment' {} a -> s {grantTime = a} :: BonusPayment) Prelude.. Lens.mapping Core._Time
+bonusPayment_grantTime = Lens.lens (\BonusPayment' {grantTime} -> grantTime) (\s@BonusPayment' {} a -> s {grantTime = a} :: BonusPayment) Prelude.. Lens.mapping Data._Time
 
 -- | The Reason text given when the bonus was granted, if any.
 bonusPayment_reason :: Lens.Lens' BonusPayment (Prelude.Maybe Prelude.Text)
@@ -87,17 +88,17 @@ bonusPayment_assignmentId = Lens.lens (\BonusPayment' {assignmentId} -> assignme
 bonusPayment_bonusAmount :: Lens.Lens' BonusPayment (Prelude.Maybe Prelude.Text)
 bonusPayment_bonusAmount = Lens.lens (\BonusPayment' {bonusAmount} -> bonusAmount) (\s@BonusPayment' {} a -> s {bonusAmount = a} :: BonusPayment)
 
-instance Core.FromJSON BonusPayment where
+instance Data.FromJSON BonusPayment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BonusPayment"
       ( \x ->
           BonusPayment'
-            Prelude.<$> (x Core..:? "WorkerId")
-            Prelude.<*> (x Core..:? "GrantTime")
-            Prelude.<*> (x Core..:? "Reason")
-            Prelude.<*> (x Core..:? "AssignmentId")
-            Prelude.<*> (x Core..:? "BonusAmount")
+            Prelude.<$> (x Data..:? "WorkerId")
+            Prelude.<*> (x Data..:? "GrantTime")
+            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "AssignmentId")
+            Prelude.<*> (x Data..:? "BonusAmount")
       )
 
 instance Prelude.Hashable BonusPayment where

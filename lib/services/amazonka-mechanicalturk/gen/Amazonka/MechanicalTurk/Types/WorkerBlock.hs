@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.WorkerBlock where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The WorkerBlock data structure represents a Worker who has been blocked.
@@ -62,14 +63,14 @@ workerBlock_workerId = Lens.lens (\WorkerBlock' {workerId} -> workerId) (\s@Work
 workerBlock_reason :: Lens.Lens' WorkerBlock (Prelude.Maybe Prelude.Text)
 workerBlock_reason = Lens.lens (\WorkerBlock' {reason} -> reason) (\s@WorkerBlock' {} a -> s {reason = a} :: WorkerBlock)
 
-instance Core.FromJSON WorkerBlock where
+instance Data.FromJSON WorkerBlock where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkerBlock"
       ( \x ->
           WorkerBlock'
-            Prelude.<$> (x Core..:? "WorkerId")
-            Prelude.<*> (x Core..:? "Reason")
+            Prelude.<$> (x Data..:? "WorkerId")
+            Prelude.<*> (x Data..:? "Reason")
       )
 
 instance Prelude.Hashable WorkerBlock where

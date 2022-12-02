@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,35 +128,35 @@ instance Prelude.NFData RejectAssignment where
     Prelude.rnf assignmentId
       `Prelude.seq` Prelude.rnf requesterFeedback
 
-instance Core.ToHeaders RejectAssignment where
+instance Data.ToHeaders RejectAssignment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.RejectAssignment" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.RejectAssignment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RejectAssignment where
+instance Data.ToJSON RejectAssignment where
   toJSON RejectAssignment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AssignmentId" Core..= assignmentId),
+          [ Prelude.Just ("AssignmentId" Data..= assignmentId),
             Prelude.Just
-              ("RequesterFeedback" Core..= requesterFeedback)
+              ("RequesterFeedback" Data..= requesterFeedback)
           ]
       )
 
-instance Core.ToPath RejectAssignment where
+instance Data.ToPath RejectAssignment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RejectAssignment where
+instance Data.ToQuery RejectAssignment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRejectAssignmentResponse' smart constructor.

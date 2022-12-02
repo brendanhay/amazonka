@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -305,7 +306,7 @@ instance Core.AWSRequest CreateQualificationType where
     Response.receiveJSON
       ( \s h x ->
           CreateQualificationTypeResponse'
-            Prelude.<$> (x Core..?> "QualificationType")
+            Prelude.<$> (x Data..?> "QualificationType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -335,48 +336,48 @@ instance Prelude.NFData CreateQualificationType where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf qualificationTypeStatus
 
-instance Core.ToHeaders CreateQualificationType where
+instance Data.ToHeaders CreateQualificationType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.CreateQualificationType" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.CreateQualificationType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateQualificationType where
+instance Data.ToJSON CreateQualificationType where
   toJSON CreateQualificationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutoGrantedValue" Core..=)
+          [ ("AutoGrantedValue" Data..=)
               Prelude.<$> autoGrantedValue,
-            ("TestDurationInSeconds" Core..=)
+            ("TestDurationInSeconds" Data..=)
               Prelude.<$> testDurationInSeconds,
-            ("Keywords" Core..=) Prelude.<$> keywords,
-            ("Test" Core..=) Prelude.<$> test,
-            ("RetryDelayInSeconds" Core..=)
+            ("Keywords" Data..=) Prelude.<$> keywords,
+            ("Test" Data..=) Prelude.<$> test,
+            ("RetryDelayInSeconds" Data..=)
               Prelude.<$> retryDelayInSeconds,
-            ("AnswerKey" Core..=) Prelude.<$> answerKey,
-            ("AutoGranted" Core..=) Prelude.<$> autoGranted,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Description" Core..= description),
+            ("AnswerKey" Data..=) Prelude.<$> answerKey,
+            ("AutoGranted" Data..=) Prelude.<$> autoGranted,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Description" Data..= description),
             Prelude.Just
               ( "QualificationTypeStatus"
-                  Core..= qualificationTypeStatus
+                  Data..= qualificationTypeStatus
               )
           ]
       )
 
-instance Core.ToPath CreateQualificationType where
+instance Data.ToPath CreateQualificationType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateQualificationType where
+instance Data.ToQuery CreateQualificationType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateQualificationTypeResponse' smart constructor.

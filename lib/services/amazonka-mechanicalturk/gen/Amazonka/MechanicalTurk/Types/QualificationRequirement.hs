@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.QualificationRequirement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types.Comparator
 import Amazonka.MechanicalTurk.Types.HITAccessActions
 import Amazonka.MechanicalTurk.Types.Locale
@@ -261,18 +262,18 @@ qualificationRequirement_qualificationTypeId = Lens.lens (\QualificationRequirem
 qualificationRequirement_comparator :: Lens.Lens' QualificationRequirement Comparator
 qualificationRequirement_comparator = Lens.lens (\QualificationRequirement' {comparator} -> comparator) (\s@QualificationRequirement' {} a -> s {comparator = a} :: QualificationRequirement)
 
-instance Core.FromJSON QualificationRequirement where
+instance Data.FromJSON QualificationRequirement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QualificationRequirement"
       ( \x ->
           QualificationRequirement'
-            Prelude.<$> (x Core..:? "IntegerValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LocaleValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ActionsGuarded")
-            Prelude.<*> (x Core..:? "RequiredToPreview")
-            Prelude.<*> (x Core..: "QualificationTypeId")
-            Prelude.<*> (x Core..: "Comparator")
+            Prelude.<$> (x Data..:? "IntegerValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LocaleValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ActionsGuarded")
+            Prelude.<*> (x Data..:? "RequiredToPreview")
+            Prelude.<*> (x Data..: "QualificationTypeId")
+            Prelude.<*> (x Data..: "Comparator")
       )
 
 instance Prelude.Hashable QualificationRequirement where
@@ -293,18 +294,18 @@ instance Prelude.NFData QualificationRequirement where
       `Prelude.seq` Prelude.rnf qualificationTypeId
       `Prelude.seq` Prelude.rnf comparator
 
-instance Core.ToJSON QualificationRequirement where
+instance Data.ToJSON QualificationRequirement where
   toJSON QualificationRequirement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IntegerValues" Core..=) Prelude.<$> integerValues,
-            ("LocaleValues" Core..=) Prelude.<$> localeValues,
-            ("ActionsGuarded" Core..=)
+          [ ("IntegerValues" Data..=) Prelude.<$> integerValues,
+            ("LocaleValues" Data..=) Prelude.<$> localeValues,
+            ("ActionsGuarded" Data..=)
               Prelude.<$> actionsGuarded,
-            ("RequiredToPreview" Core..=)
+            ("RequiredToPreview" Data..=)
               Prelude.<$> requiredToPreview,
             Prelude.Just
-              ("QualificationTypeId" Core..= qualificationTypeId),
-            Prelude.Just ("Comparator" Core..= comparator)
+              ("QualificationTypeId" Data..= qualificationTypeId),
+            Prelude.Just ("Comparator" Data..= comparator)
           ]
       )

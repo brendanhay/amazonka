@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.NotificationSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types.EventType
 import Amazonka.MechanicalTurk.Types.NotificationTransport
 import qualified Amazonka.Prelude as Prelude
@@ -145,13 +146,13 @@ instance Prelude.NFData NotificationSpecification where
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf eventTypes
 
-instance Core.ToJSON NotificationSpecification where
+instance Data.ToJSON NotificationSpecification where
   toJSON NotificationSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Destination" Core..= destination),
-            Prelude.Just ("Transport" Core..= transport),
-            Prelude.Just ("Version" Core..= version),
-            Prelude.Just ("EventTypes" Core..= eventTypes)
+          [ Prelude.Just ("Destination" Data..= destination),
+            Prelude.Just ("Transport" Data..= transport),
+            Prelude.Just ("Version" Data..= version),
+            Prelude.Just ("EventTypes" Data..= eventTypes)
           ]
       )

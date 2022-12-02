@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.QualificationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The QualificationRequest data structure represents a request a Worker
@@ -35,7 +36,7 @@ data QualificationRequest = QualificationRequest'
     -- This is either the time the Worker submitted answers for a Qualification
     -- test, or the time the Worker requested the Qualification if the
     -- Qualification type does not have a test.
-    submitTime :: Prelude.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the Worker requesting the Qualification.
     workerId :: Prelude.Maybe Prelude.Text,
     -- | The Worker\'s answers for the Qualification type\'s test contained in a
@@ -107,7 +108,7 @@ qualificationRequest_qualificationTypeId = Lens.lens (\QualificationRequest' {qu
 -- test, or the time the Worker requested the Qualification if the
 -- Qualification type does not have a test.
 qualificationRequest_submitTime :: Lens.Lens' QualificationRequest (Prelude.Maybe Prelude.UTCTime)
-qualificationRequest_submitTime = Lens.lens (\QualificationRequest' {submitTime} -> submitTime) (\s@QualificationRequest' {} a -> s {submitTime = a} :: QualificationRequest) Prelude.. Lens.mapping Core._Time
+qualificationRequest_submitTime = Lens.lens (\QualificationRequest' {submitTime} -> submitTime) (\s@QualificationRequest' {} a -> s {submitTime = a} :: QualificationRequest) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the Worker requesting the Qualification.
 qualificationRequest_workerId :: Lens.Lens' QualificationRequest (Prelude.Maybe Prelude.Text)
@@ -132,18 +133,18 @@ qualificationRequest_test = Lens.lens (\QualificationRequest' {test} -> test) (\
 qualificationRequest_qualificationRequestId :: Lens.Lens' QualificationRequest (Prelude.Maybe Prelude.Text)
 qualificationRequest_qualificationRequestId = Lens.lens (\QualificationRequest' {qualificationRequestId} -> qualificationRequestId) (\s@QualificationRequest' {} a -> s {qualificationRequestId = a} :: QualificationRequest)
 
-instance Core.FromJSON QualificationRequest where
+instance Data.FromJSON QualificationRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QualificationRequest"
       ( \x ->
           QualificationRequest'
-            Prelude.<$> (x Core..:? "QualificationTypeId")
-            Prelude.<*> (x Core..:? "SubmitTime")
-            Prelude.<*> (x Core..:? "WorkerId")
-            Prelude.<*> (x Core..:? "Answer")
-            Prelude.<*> (x Core..:? "Test")
-            Prelude.<*> (x Core..:? "QualificationRequestId")
+            Prelude.<$> (x Data..:? "QualificationTypeId")
+            Prelude.<*> (x Data..:? "SubmitTime")
+            Prelude.<*> (x Data..:? "WorkerId")
+            Prelude.<*> (x Data..:? "Answer")
+            Prelude.<*> (x Data..:? "Test")
+            Prelude.<*> (x Data..:? "QualificationRequestId")
       )
 
 instance Prelude.Hashable QualificationRequest where

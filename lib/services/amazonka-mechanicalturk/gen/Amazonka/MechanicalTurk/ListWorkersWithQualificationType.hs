@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,9 +152,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListWorkersWithQualificationTypeResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "NumResults")
-            Prelude.<*> (x Core..?> "Qualifications" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "NumResults")
+            Prelude.<*> (x Data..?> "Qualifications" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,40 +181,40 @@ instance
       `Prelude.seq` Prelude.rnf qualificationTypeId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListWorkersWithQualificationType
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListWorkersWithQualificationType where
+instance Data.ToJSON ListWorkersWithQualificationType where
   toJSON ListWorkersWithQualificationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Status" Core..=) Prelude.<$> status,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Status" Data..=) Prelude.<$> status,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("QualificationTypeId" Core..= qualificationTypeId)
+              ("QualificationTypeId" Data..= qualificationTypeId)
           ]
       )
 
-instance Core.ToPath ListWorkersWithQualificationType where
+instance Data.ToPath ListWorkersWithQualificationType where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListWorkersWithQualificationType
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.LicenseManagerUserSubscriptions.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter name and value pair that is used to return more specific
@@ -84,12 +85,12 @@ instance Prelude.NFData Filter where
       `Prelude.seq` Prelude.rnf operation
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Filter where
+instance Data.ToJSON Filter where
   toJSON Filter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Attribute" Core..=) Prelude.<$> attribute,
-            ("Operation" Core..=) Prelude.<$> operation,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Attribute" Data..=) Prelude.<$> attribute,
+            ("Operation" Data..=) Prelude.<$> operation,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

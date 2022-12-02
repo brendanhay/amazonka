@@ -21,6 +21,7 @@ module Amazonka.LicenseManagerUserSubscriptions.Types.IdentityProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManagerUserSubscriptions.Types.ActiveDirectoryIdentityProvider
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newIdentityProvider =
 identityProvider_activeDirectoryIdentityProvider :: Lens.Lens' IdentityProvider (Prelude.Maybe ActiveDirectoryIdentityProvider)
 identityProvider_activeDirectoryIdentityProvider = Lens.lens (\IdentityProvider' {activeDirectoryIdentityProvider} -> activeDirectoryIdentityProvider) (\s@IdentityProvider' {} a -> s {activeDirectoryIdentityProvider = a} :: IdentityProvider)
 
-instance Core.FromJSON IdentityProvider where
+instance Data.FromJSON IdentityProvider where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityProvider"
       ( \x ->
           IdentityProvider'
-            Prelude.<$> (x Core..:? "ActiveDirectoryIdentityProvider")
+            Prelude.<$> (x Data..:? "ActiveDirectoryIdentityProvider")
       )
 
 instance Prelude.Hashable IdentityProvider where
@@ -72,11 +73,11 @@ instance Prelude.NFData IdentityProvider where
   rnf IdentityProvider' {..} =
     Prelude.rnf activeDirectoryIdentityProvider
 
-instance Core.ToJSON IdentityProvider where
+instance Data.ToJSON IdentityProvider where
   toJSON IdentityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ActiveDirectoryIdentityProvider" Core..=)
+          [ ("ActiveDirectoryIdentityProvider" Data..=)
               Prelude.<$> activeDirectoryIdentityProvider
           ]
       )

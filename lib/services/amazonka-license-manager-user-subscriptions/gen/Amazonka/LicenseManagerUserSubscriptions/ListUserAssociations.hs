@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManagerUserSubscriptions.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,8 +158,8 @@ instance Core.AWSRequest ListUserAssociations where
     Response.receiveJSON
       ( \s h x ->
           ListUserAssociationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "InstanceUserSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "InstanceUserSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -180,34 +181,34 @@ instance Prelude.NFData ListUserAssociations where
       `Prelude.seq` Prelude.rnf identityProvider
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ListUserAssociations where
+instance Data.ToHeaders ListUserAssociations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListUserAssociations where
+instance Data.ToJSON ListUserAssociations where
   toJSON ListUserAssociations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("IdentityProvider" Core..= identityProvider),
-            Prelude.Just ("InstanceId" Core..= instanceId)
+              ("IdentityProvider" Data..= identityProvider),
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath ListUserAssociations where
+instance Data.ToPath ListUserAssociations where
   toPath = Prelude.const "/user/ListUserAssociations"
 
-instance Core.ToQuery ListUserAssociations where
+instance Data.ToQuery ListUserAssociations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListUserAssociationsResponse' smart constructor.

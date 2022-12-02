@@ -21,6 +21,7 @@ module Amazonka.LicenseManagerUserSubscriptions.Types.IdentityProviderSummary wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManagerUserSubscriptions.Types.IdentityProvider
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,16 +91,16 @@ identityProviderSummary_product = Lens.lens (\IdentityProviderSummary' {product}
 identityProviderSummary_status :: Lens.Lens' IdentityProviderSummary Prelude.Text
 identityProviderSummary_status = Lens.lens (\IdentityProviderSummary' {status} -> status) (\s@IdentityProviderSummary' {} a -> s {status = a} :: IdentityProviderSummary)
 
-instance Core.FromJSON IdentityProviderSummary where
+instance Data.FromJSON IdentityProviderSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityProviderSummary"
       ( \x ->
           IdentityProviderSummary'
-            Prelude.<$> (x Core..:? "FailureMessage")
-            Prelude.<*> (x Core..: "IdentityProvider")
-            Prelude.<*> (x Core..: "Product")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "FailureMessage")
+            Prelude.<*> (x Data..: "IdentityProvider")
+            Prelude.<*> (x Data..: "Product")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable IdentityProviderSummary where

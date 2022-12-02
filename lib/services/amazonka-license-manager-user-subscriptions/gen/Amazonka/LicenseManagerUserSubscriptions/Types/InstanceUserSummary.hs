@@ -21,6 +21,7 @@ module Amazonka.LicenseManagerUserSubscriptions.Types.InstanceUserSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManagerUserSubscriptions.Types.IdentityProvider
 import qualified Amazonka.Prelude as Prelude
 
@@ -129,20 +130,20 @@ instanceUserSummary_status = Lens.lens (\InstanceUserSummary' {status} -> status
 instanceUserSummary_username :: Lens.Lens' InstanceUserSummary Prelude.Text
 instanceUserSummary_username = Lens.lens (\InstanceUserSummary' {username} -> username) (\s@InstanceUserSummary' {} a -> s {username = a} :: InstanceUserSummary)
 
-instance Core.FromJSON InstanceUserSummary where
+instance Data.FromJSON InstanceUserSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceUserSummary"
       ( \x ->
           InstanceUserSummary'
-            Prelude.<$> (x Core..:? "AssociationDate")
-            Prelude.<*> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "DisassociationDate")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..: "IdentityProvider")
-            Prelude.<*> (x Core..: "InstanceId")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "Username")
+            Prelude.<$> (x Data..:? "AssociationDate")
+            Prelude.<*> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "DisassociationDate")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..: "IdentityProvider")
+            Prelude.<*> (x Data..: "InstanceId")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "Username")
       )
 
 instance Prelude.Hashable InstanceUserSummary where

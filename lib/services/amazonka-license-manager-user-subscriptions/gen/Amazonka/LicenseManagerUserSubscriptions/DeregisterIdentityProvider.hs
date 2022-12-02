@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManagerUserSubscriptions.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest DeregisterIdentityProvider where
       ( \s h x ->
           DeregisterIdentityProviderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "IdentityProviderSummary")
+            Prelude.<*> (x Data..:> "IdentityProviderSummary")
       )
 
 instance Prelude.Hashable DeregisterIdentityProvider where
@@ -115,33 +116,33 @@ instance Prelude.NFData DeregisterIdentityProvider where
     Prelude.rnf identityProvider
       `Prelude.seq` Prelude.rnf product
 
-instance Core.ToHeaders DeregisterIdentityProvider where
+instance Data.ToHeaders DeregisterIdentityProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterIdentityProvider where
+instance Data.ToJSON DeregisterIdentityProvider where
   toJSON DeregisterIdentityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("IdentityProvider" Core..= identityProvider),
-            Prelude.Just ("Product" Core..= product)
+              ("IdentityProvider" Data..= identityProvider),
+            Prelude.Just ("Product" Data..= product)
           ]
       )
 
-instance Core.ToPath DeregisterIdentityProvider where
+instance Data.ToPath DeregisterIdentityProvider where
   toPath =
     Prelude.const
       "/identity-provider/DeregisterIdentityProvider"
 
-instance Core.ToQuery DeregisterIdentityProvider where
+instance Data.ToQuery DeregisterIdentityProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterIdentityProviderResponse' smart constructor.

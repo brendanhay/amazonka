@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.BasicCatalogTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a target that uses a Glue Data Catalog table.
@@ -97,16 +98,16 @@ basicCatalogTarget_database = Lens.lens (\BasicCatalogTarget' {database} -> data
 basicCatalogTarget_table :: Lens.Lens' BasicCatalogTarget Prelude.Text
 basicCatalogTarget_table = Lens.lens (\BasicCatalogTarget' {table} -> table) (\s@BasicCatalogTarget' {} a -> s {table = a} :: BasicCatalogTarget)
 
-instance Core.FromJSON BasicCatalogTarget where
+instance Data.FromJSON BasicCatalogTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BasicCatalogTarget"
       ( \x ->
           BasicCatalogTarget'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Table")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Table")
       )
 
 instance Prelude.Hashable BasicCatalogTarget where
@@ -123,13 +124,13 @@ instance Prelude.NFData BasicCatalogTarget where
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON BasicCatalogTarget where
+instance Data.ToJSON BasicCatalogTarget where
   toJSON BasicCatalogTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Table" Core..= table)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Table" Data..= table)
           ]
       )

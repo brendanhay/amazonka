@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,8 +83,8 @@ instance Core.AWSRequest GetDataflowGraph where
     Response.receiveJSON
       ( \s h x ->
           GetDataflowGraphResponse'
-            Prelude.<$> (x Core..?> "DagNodes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "DagEdges" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "DagNodes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "DagEdges" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,30 +95,30 @@ instance Prelude.Hashable GetDataflowGraph where
 instance Prelude.NFData GetDataflowGraph where
   rnf GetDataflowGraph' {..} = Prelude.rnf pythonScript
 
-instance Core.ToHeaders GetDataflowGraph where
+instance Data.ToHeaders GetDataflowGraph where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetDataflowGraph" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetDataflowGraph" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDataflowGraph where
+instance Data.ToJSON GetDataflowGraph where
   toJSON GetDataflowGraph' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("PythonScript" Core..=) Prelude.<$> pythonScript]
+          [("PythonScript" Data..=) Prelude.<$> pythonScript]
       )
 
-instance Core.ToPath GetDataflowGraph where
+instance Data.ToPath GetDataflowGraph where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDataflowGraph where
+instance Data.ToQuery GetDataflowGraph where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDataflowGraphResponse' smart constructor.

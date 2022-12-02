@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.MicrosoftSQLServerCatalogTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a target that uses Microsoft SQL.
@@ -92,18 +93,18 @@ microsoftSQLServerCatalogTarget_table :: Lens.Lens' MicrosoftSQLServerCatalogTar
 microsoftSQLServerCatalogTarget_table = Lens.lens (\MicrosoftSQLServerCatalogTarget' {table} -> table) (\s@MicrosoftSQLServerCatalogTarget' {} a -> s {table = a} :: MicrosoftSQLServerCatalogTarget)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MicrosoftSQLServerCatalogTarget
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MicrosoftSQLServerCatalogTarget"
       ( \x ->
           MicrosoftSQLServerCatalogTarget'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Table")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Table")
       )
 
 instance
@@ -128,13 +129,13 @@ instance
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON MicrosoftSQLServerCatalogTarget where
+instance Data.ToJSON MicrosoftSQLServerCatalogTarget where
   toJSON MicrosoftSQLServerCatalogTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Table" Core..= table)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Table" Data..= table)
           ]
       )

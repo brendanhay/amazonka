@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.StartingEventBatchCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The batch condition that started the workflow run. Either the number of
@@ -65,14 +66,14 @@ startingEventBatchCondition_batchWindow = Lens.lens (\StartingEventBatchConditio
 startingEventBatchCondition_batchSize :: Lens.Lens' StartingEventBatchCondition (Prelude.Maybe Prelude.Int)
 startingEventBatchCondition_batchSize = Lens.lens (\StartingEventBatchCondition' {batchSize} -> batchSize) (\s@StartingEventBatchCondition' {} a -> s {batchSize = a} :: StartingEventBatchCondition)
 
-instance Core.FromJSON StartingEventBatchCondition where
+instance Data.FromJSON StartingEventBatchCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StartingEventBatchCondition"
       ( \x ->
           StartingEventBatchCondition'
-            Prelude.<$> (x Core..:? "BatchWindow")
-            Prelude.<*> (x Core..:? "BatchSize")
+            Prelude.<$> (x Data..:? "BatchWindow")
+            Prelude.<*> (x Data..:? "BatchSize")
       )
 
 instance Prelude.Hashable StartingEventBatchCondition where

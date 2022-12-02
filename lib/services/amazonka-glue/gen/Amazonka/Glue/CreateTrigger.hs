@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -213,7 +214,7 @@ instance Core.AWSRequest CreateTrigger where
     Response.receiveJSON
       ( \s h x ->
           CreateTriggerResponse'
-            Prelude.<$> (x Core..?> "Name")
+            Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -243,42 +244,42 @@ instance Prelude.NFData CreateTrigger where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf actions
 
-instance Core.ToHeaders CreateTrigger where
+instance Data.ToHeaders CreateTrigger where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreateTrigger" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.CreateTrigger" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTrigger where
+instance Data.ToJSON CreateTrigger where
   toJSON CreateTrigger' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("EventBatchingCondition" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("EventBatchingCondition" Data..=)
               Prelude.<$> eventBatchingCondition,
-            ("Schedule" Core..=) Prelude.<$> schedule,
-            ("WorkflowName" Core..=) Prelude.<$> workflowName,
-            ("Predicate" Core..=) Prelude.<$> predicate,
-            ("Description" Core..=) Prelude.<$> description,
-            ("StartOnCreation" Core..=)
+            ("Schedule" Data..=) Prelude.<$> schedule,
+            ("WorkflowName" Data..=) Prelude.<$> workflowName,
+            ("Predicate" Data..=) Prelude.<$> predicate,
+            ("Description" Data..=) Prelude.<$> description,
+            ("StartOnCreation" Data..=)
               Prelude.<$> startOnCreation,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Actions" Core..= actions)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Actions" Data..= actions)
           ]
       )
 
-instance Core.ToPath CreateTrigger where
+instance Data.ToPath CreateTrigger where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTrigger where
+instance Data.ToQuery CreateTrigger where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTriggerResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SelectFromCollection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that chooses one @DynamicFrame@ from a collection
@@ -77,15 +78,15 @@ selectFromCollection_inputs = Lens.lens (\SelectFromCollection' {inputs} -> inpu
 selectFromCollection_index :: Lens.Lens' SelectFromCollection Prelude.Natural
 selectFromCollection_index = Lens.lens (\SelectFromCollection' {index} -> index) (\s@SelectFromCollection' {} a -> s {index = a} :: SelectFromCollection)
 
-instance Core.FromJSON SelectFromCollection where
+instance Data.FromJSON SelectFromCollection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SelectFromCollection"
       ( \x ->
           SelectFromCollection'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "Index")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "Index")
       )
 
 instance Prelude.Hashable SelectFromCollection where
@@ -100,12 +101,12 @@ instance Prelude.NFData SelectFromCollection where
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf index
 
-instance Core.ToJSON SelectFromCollection where
+instance Data.ToJSON SelectFromCollection where
   toJSON SelectFromCollection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Index" Core..= index)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Index" Data..= index)
           ]
       )

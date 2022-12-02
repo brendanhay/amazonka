@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.TransformSortCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.SortDirectionType
 import Amazonka.Glue.Types.TransformSortColumnType
 import qualified Amazonka.Prelude as Prelude
@@ -84,12 +85,12 @@ instance Prelude.NFData TransformSortCriteria where
     Prelude.rnf column
       `Prelude.seq` Prelude.rnf sortDirection
 
-instance Core.ToJSON TransformSortCriteria where
+instance Data.ToJSON TransformSortCriteria where
   toJSON TransformSortCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Column" Core..= column),
+          [ Prelude.Just ("Column" Data..= column),
             Prelude.Just
-              ("SortDirection" Core..= sortDirection)
+              ("SortDirection" Data..= sortDirection)
           ]
       )

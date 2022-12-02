@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.MLTransform where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.EvaluationMetrics
 import Amazonka.Glue.Types.GlueTable
 import Amazonka.Glue.Types.SchemaColumn
@@ -39,7 +40,7 @@ data MLTransform = MLTransform'
     evaluationMetrics :: Prelude.Maybe EvaluationMetrics,
     -- | A timestamp. The time and date that this machine learning transform was
     -- created.
-    createdOn :: Prelude.Maybe Core.POSIX,
+    createdOn :: Prelude.Maybe Data.POSIX,
     -- | The timeout in minutes of the machine learning transform.
     timeout :: Prelude.Maybe Prelude.Natural,
     -- | A user-defined name for the machine learning transform. Names are not
@@ -47,7 +48,7 @@ data MLTransform = MLTransform'
     name :: Prelude.Maybe Prelude.Text,
     -- | A timestamp. The last point in time when this machine learning transform
     -- was modified.
-    lastModifiedOn :: Prelude.Maybe Core.POSIX,
+    lastModifiedOn :: Prelude.Maybe Data.POSIX,
     -- | The number of workers of a defined @workerType@ that are allocated when
     -- a task of the transform runs.
     --
@@ -317,7 +318,7 @@ mLTransform_evaluationMetrics = Lens.lens (\MLTransform' {evaluationMetrics} -> 
 -- | A timestamp. The time and date that this machine learning transform was
 -- created.
 mLTransform_createdOn :: Lens.Lens' MLTransform (Prelude.Maybe Prelude.UTCTime)
-mLTransform_createdOn = Lens.lens (\MLTransform' {createdOn} -> createdOn) (\s@MLTransform' {} a -> s {createdOn = a} :: MLTransform) Prelude.. Lens.mapping Core._Time
+mLTransform_createdOn = Lens.lens (\MLTransform' {createdOn} -> createdOn) (\s@MLTransform' {} a -> s {createdOn = a} :: MLTransform) Prelude.. Lens.mapping Data._Time
 
 -- | The timeout in minutes of the machine learning transform.
 mLTransform_timeout :: Lens.Lens' MLTransform (Prelude.Maybe Prelude.Natural)
@@ -331,7 +332,7 @@ mLTransform_name = Lens.lens (\MLTransform' {name} -> name) (\s@MLTransform' {} 
 -- | A timestamp. The last point in time when this machine learning transform
 -- was modified.
 mLTransform_lastModifiedOn :: Lens.Lens' MLTransform (Prelude.Maybe Prelude.UTCTime)
-mLTransform_lastModifiedOn = Lens.lens (\MLTransform' {lastModifiedOn} -> lastModifiedOn) (\s@MLTransform' {} a -> s {lastModifiedOn = a} :: MLTransform) Prelude.. Lens.mapping Core._Time
+mLTransform_lastModifiedOn = Lens.lens (\MLTransform' {lastModifiedOn} -> lastModifiedOn) (\s@MLTransform' {} a -> s {lastModifiedOn = a} :: MLTransform) Prelude.. Lens.mapping Data._Time
 
 -- | The number of workers of a defined @workerType@ that are allocated when
 -- a task of the transform runs.
@@ -467,33 +468,33 @@ mLTransform_maxCapacity = Lens.lens (\MLTransform' {maxCapacity} -> maxCapacity)
 mLTransform_parameters :: Lens.Lens' MLTransform (Prelude.Maybe TransformParameters)
 mLTransform_parameters = Lens.lens (\MLTransform' {parameters} -> parameters) (\s@MLTransform' {} a -> s {parameters = a} :: MLTransform)
 
-instance Core.FromJSON MLTransform where
+instance Data.FromJSON MLTransform where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MLTransform"
       ( \x ->
           MLTransform'
-            Prelude.<$> (x Core..:? "EvaluationMetrics")
-            Prelude.<*> (x Core..:? "CreatedOn")
-            Prelude.<*> (x Core..:? "Timeout")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastModifiedOn")
-            Prelude.<*> (x Core..:? "NumberOfWorkers")
-            Prelude.<*> (x Core..:? "GlueVersion")
-            Prelude.<*> (x Core..:? "WorkerType")
-            Prelude.<*> ( x Core..:? "InputRecordTables"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EvaluationMetrics")
+            Prelude.<*> (x Data..:? "CreatedOn")
+            Prelude.<*> (x Data..:? "Timeout")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastModifiedOn")
+            Prelude.<*> (x Data..:? "NumberOfWorkers")
+            Prelude.<*> (x Data..:? "GlueVersion")
+            Prelude.<*> (x Data..:? "WorkerType")
+            Prelude.<*> ( x Data..:? "InputRecordTables"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LabelCount")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "MaxRetries")
-            Prelude.<*> (x Core..:? "TransformId")
-            Prelude.<*> (x Core..:? "TransformEncryption")
-            Prelude.<*> (x Core..:? "Schema" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "MaxCapacity")
-            Prelude.<*> (x Core..:? "Parameters")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "LabelCount")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "MaxRetries")
+            Prelude.<*> (x Data..:? "TransformId")
+            Prelude.<*> (x Data..:? "TransformEncryption")
+            Prelude.<*> (x Data..:? "Schema" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "MaxCapacity")
+            Prelude.<*> (x Data..:? "Parameters")
       )
 
 instance Prelude.Hashable MLTransform where

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.GlueSchema where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.GlueStudioSchemaColumn
 import qualified Amazonka.Prelude as Prelude
 
@@ -52,13 +53,13 @@ newGlueSchema =
 glueSchema_columns :: Lens.Lens' GlueSchema (Prelude.Maybe [GlueStudioSchemaColumn])
 glueSchema_columns = Lens.lens (\GlueSchema' {columns} -> columns) (\s@GlueSchema' {} a -> s {columns = a} :: GlueSchema) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON GlueSchema where
+instance Data.FromJSON GlueSchema where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlueSchema"
       ( \x ->
           GlueSchema'
-            Prelude.<$> (x Core..:? "Columns" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Columns" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable GlueSchema where
@@ -68,9 +69,9 @@ instance Prelude.Hashable GlueSchema where
 instance Prelude.NFData GlueSchema where
   rnf GlueSchema' {..} = Prelude.rnf columns
 
-instance Core.ToJSON GlueSchema where
+instance Data.ToJSON GlueSchema where
   toJSON GlueSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Columns" Core..=) Prelude.<$> columns]
+          [("Columns" Data..=) Prelude.<$> columns]
       )

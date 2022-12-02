@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Crawl where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CrawlState
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ data Crawl = Crawl'
   { -- | The log group associated with the crawl.
     logGroup :: Prelude.Maybe Prelude.Text,
     -- | The date and time on which the crawl started.
-    startedOn :: Prelude.Maybe Core.POSIX,
+    startedOn :: Prelude.Maybe Data.POSIX,
     -- | The log stream associated with the crawl.
     logStream :: Prelude.Maybe Prelude.Text,
     -- | The error message associated with the crawl.
@@ -39,7 +40,7 @@ data Crawl = Crawl'
     -- | The state of the crawler.
     state :: Prelude.Maybe CrawlState,
     -- | The date and time on which the crawl completed.
-    completedOn :: Prelude.Maybe Core.POSIX
+    completedOn :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,7 +81,7 @@ crawl_logGroup = Lens.lens (\Crawl' {logGroup} -> logGroup) (\s@Crawl' {} a -> s
 
 -- | The date and time on which the crawl started.
 crawl_startedOn :: Lens.Lens' Crawl (Prelude.Maybe Prelude.UTCTime)
-crawl_startedOn = Lens.lens (\Crawl' {startedOn} -> startedOn) (\s@Crawl' {} a -> s {startedOn = a} :: Crawl) Prelude.. Lens.mapping Core._Time
+crawl_startedOn = Lens.lens (\Crawl' {startedOn} -> startedOn) (\s@Crawl' {} a -> s {startedOn = a} :: Crawl) Prelude.. Lens.mapping Data._Time
 
 -- | The log stream associated with the crawl.
 crawl_logStream :: Lens.Lens' Crawl (Prelude.Maybe Prelude.Text)
@@ -96,20 +97,20 @@ crawl_state = Lens.lens (\Crawl' {state} -> state) (\s@Crawl' {} a -> s {state =
 
 -- | The date and time on which the crawl completed.
 crawl_completedOn :: Lens.Lens' Crawl (Prelude.Maybe Prelude.UTCTime)
-crawl_completedOn = Lens.lens (\Crawl' {completedOn} -> completedOn) (\s@Crawl' {} a -> s {completedOn = a} :: Crawl) Prelude.. Lens.mapping Core._Time
+crawl_completedOn = Lens.lens (\Crawl' {completedOn} -> completedOn) (\s@Crawl' {} a -> s {completedOn = a} :: Crawl) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Crawl where
+instance Data.FromJSON Crawl where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Crawl"
       ( \x ->
           Crawl'
-            Prelude.<$> (x Core..:? "LogGroup")
-            Prelude.<*> (x Core..:? "StartedOn")
-            Prelude.<*> (x Core..:? "LogStream")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CompletedOn")
+            Prelude.<$> (x Data..:? "LogGroup")
+            Prelude.<*> (x Data..:? "StartedOn")
+            Prelude.<*> (x Data..:? "LogStream")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CompletedOn")
       )
 
 instance Prelude.Hashable Crawl where

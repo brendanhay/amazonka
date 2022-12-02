@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CrawlsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.FieldName
 import Amazonka.Glue.Types.FilterOperator
 import qualified Amazonka.Prelude as Prelude
@@ -154,13 +155,13 @@ instance Prelude.NFData CrawlsFilter where
       `Prelude.seq` Prelude.rnf fieldName
       `Prelude.seq` Prelude.rnf filterOperator
 
-instance Core.ToJSON CrawlsFilter where
+instance Data.ToJSON CrawlsFilter where
   toJSON CrawlsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FieldValue" Core..=) Prelude.<$> fieldValue,
-            ("FieldName" Core..=) Prelude.<$> fieldName,
-            ("FilterOperator" Core..=)
+          [ ("FieldValue" Data..=) Prelude.<$> fieldValue,
+            ("FieldName" Data..=) Prelude.<$> fieldName,
+            ("FilterOperator" Data..=)
               Prelude.<$> filterOperator
           ]
       )

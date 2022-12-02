@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ColumnRowFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newColumnRowFilter' smart constructor.
@@ -57,14 +58,14 @@ columnRowFilter_columnName = Lens.lens (\ColumnRowFilter' {columnName} -> column
 columnRowFilter_rowFilterExpression :: Lens.Lens' ColumnRowFilter (Prelude.Maybe Prelude.Text)
 columnRowFilter_rowFilterExpression = Lens.lens (\ColumnRowFilter' {rowFilterExpression} -> rowFilterExpression) (\s@ColumnRowFilter' {} a -> s {rowFilterExpression = a} :: ColumnRowFilter)
 
-instance Core.FromJSON ColumnRowFilter where
+instance Data.FromJSON ColumnRowFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnRowFilter"
       ( \x ->
           ColumnRowFilter'
-            Prelude.<$> (x Core..:? "ColumnName")
-            Prelude.<*> (x Core..:? "RowFilterExpression")
+            Prelude.<$> (x Data..:? "ColumnName")
+            Prelude.<*> (x Data..:? "RowFilterExpression")
       )
 
 instance Prelude.Hashable ColumnRowFilter where

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.GovernedCatalogSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.S3SourceAdditionalOptions
 import qualified Amazonka.Prelude as Prelude
 
@@ -102,17 +103,17 @@ governedCatalogSource_database = Lens.lens (\GovernedCatalogSource' {database} -
 governedCatalogSource_table :: Lens.Lens' GovernedCatalogSource Prelude.Text
 governedCatalogSource_table = Lens.lens (\GovernedCatalogSource' {table} -> table) (\s@GovernedCatalogSource' {} a -> s {table = a} :: GovernedCatalogSource)
 
-instance Core.FromJSON GovernedCatalogSource where
+instance Data.FromJSON GovernedCatalogSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GovernedCatalogSource"
       ( \x ->
           GovernedCatalogSource'
-            Prelude.<$> (x Core..:? "PartitionPredicate")
-            Prelude.<*> (x Core..:? "AdditionalOptions")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Table")
+            Prelude.<$> (x Data..:? "PartitionPredicate")
+            Prelude.<*> (x Data..:? "AdditionalOptions")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Table")
       )
 
 instance Prelude.Hashable GovernedCatalogSource where
@@ -131,16 +132,16 @@ instance Prelude.NFData GovernedCatalogSource where
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON GovernedCatalogSource where
+instance Data.ToJSON GovernedCatalogSource where
   toJSON GovernedCatalogSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PartitionPredicate" Core..=)
+          [ ("PartitionPredicate" Data..=)
               Prelude.<$> partitionPredicate,
-            ("AdditionalOptions" Core..=)
+            ("AdditionalOptions" Data..=)
               Prelude.<$> additionalOptions,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Table" Core..= table)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Table" Data..= table)
           ]
       )

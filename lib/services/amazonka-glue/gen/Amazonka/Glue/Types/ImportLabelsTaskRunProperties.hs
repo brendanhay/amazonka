@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ImportLabelsTaskRunProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies configuration properties for an importing labels task run.
@@ -65,14 +66,14 @@ importLabelsTaskRunProperties_inputS3Path = Lens.lens (\ImportLabelsTaskRunPrope
 importLabelsTaskRunProperties_replace :: Lens.Lens' ImportLabelsTaskRunProperties (Prelude.Maybe Prelude.Bool)
 importLabelsTaskRunProperties_replace = Lens.lens (\ImportLabelsTaskRunProperties' {replace} -> replace) (\s@ImportLabelsTaskRunProperties' {} a -> s {replace = a} :: ImportLabelsTaskRunProperties)
 
-instance Core.FromJSON ImportLabelsTaskRunProperties where
+instance Data.FromJSON ImportLabelsTaskRunProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportLabelsTaskRunProperties"
       ( \x ->
           ImportLabelsTaskRunProperties'
-            Prelude.<$> (x Core..:? "InputS3Path")
-            Prelude.<*> (x Core..:? "Replace")
+            Prelude.<$> (x Data..:? "InputS3Path")
+            Prelude.<*> (x Data..:? "Replace")
       )
 
 instance

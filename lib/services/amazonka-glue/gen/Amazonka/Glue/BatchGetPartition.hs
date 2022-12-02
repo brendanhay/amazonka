@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,10 +122,10 @@ instance Core.AWSRequest BatchGetPartition where
     Response.receiveJSON
       ( \s h x ->
           BatchGetPartitionResponse'
-            Prelude.<$> ( x Core..?> "UnprocessedKeys"
+            Prelude.<$> ( x Data..?> "UnprocessedKeys"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Partitions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Partitions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,35 +143,35 @@ instance Prelude.NFData BatchGetPartition where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf partitionsToGet
 
-instance Core.ToHeaders BatchGetPartition where
+instance Data.ToHeaders BatchGetPartition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.BatchGetPartition" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.BatchGetPartition" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetPartition where
+instance Data.ToJSON BatchGetPartition where
   toJSON BatchGetPartition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just
-              ("PartitionsToGet" Core..= partitionsToGet)
+              ("PartitionsToGet" Data..= partitionsToGet)
           ]
       )
 
-instance Core.ToPath BatchGetPartition where
+instance Data.ToPath BatchGetPartition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetPartition where
+instance Data.ToQuery BatchGetPartition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetPartitionResponse' smart constructor.

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,30 +93,30 @@ instance Prelude.Hashable DeleteClassifier where
 instance Prelude.NFData DeleteClassifier where
   rnf DeleteClassifier' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteClassifier where
+instance Data.ToHeaders DeleteClassifier where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeleteClassifier" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.DeleteClassifier" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteClassifier where
+instance Data.ToJSON DeleteClassifier where
   toJSON DeleteClassifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteClassifier where
+instance Data.ToPath DeleteClassifier where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteClassifier where
+instance Data.ToQuery DeleteClassifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteClassifierResponse' smart constructor.

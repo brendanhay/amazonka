@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.TableVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Table
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ tableVersion_table = Lens.lens (\TableVersion' {table} -> table) (\s@TableVersio
 tableVersion_versionId :: Lens.Lens' TableVersion (Prelude.Maybe Prelude.Text)
 tableVersion_versionId = Lens.lens (\TableVersion' {versionId} -> versionId) (\s@TableVersion' {} a -> s {versionId = a} :: TableVersion)
 
-instance Core.FromJSON TableVersion where
+instance Data.FromJSON TableVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableVersion"
       ( \x ->
           TableVersion'
-            Prelude.<$> (x Core..:? "Table")
-            Prelude.<*> (x Core..:? "VersionId")
+            Prelude.<$> (x Data..:? "Table")
+            Prelude.<*> (x Data..:? "VersionId")
       )
 
 instance Prelude.Hashable TableVersion where

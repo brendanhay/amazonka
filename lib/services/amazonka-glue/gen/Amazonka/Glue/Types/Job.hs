@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Job where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CodeGenConfigurationNode
 import Amazonka.Glue.Types.ConnectionsList
 import Amazonka.Glue.Types.ExecutionClass
@@ -39,7 +40,7 @@ data Job = Job'
     -- job.
     securityConfiguration :: Prelude.Maybe Prelude.Text,
     -- | The time and date that this job definition was created.
-    createdOn :: Prelude.Maybe Core.POSIX,
+    createdOn :: Prelude.Maybe Data.POSIX,
     -- | The job timeout in minutes. This is the maximum time that a job run can
     -- consume resources before it is terminated and enters @TIMEOUT@ status.
     -- The default is 2,880 minutes (48 hours).
@@ -47,7 +48,7 @@ data Job = Job'
     -- | The name you assign to this job definition.
     name :: Prelude.Maybe Prelude.Text,
     -- | The last point in time when this job definition was modified.
-    lastModifiedOn :: Prelude.Maybe Core.POSIX,
+    lastModifiedOn :: Prelude.Maybe Data.POSIX,
     -- | Non-overridable arguments for this job, specified as name-value pairs.
     nonOverridableArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The number of workers of a defined @workerType@ that are allocated when
@@ -105,7 +106,7 @@ data Job = Job'
     maxRetries :: Prelude.Maybe Prelude.Int,
     -- | The representation of a directed acyclic graph on which both the Glue
     -- Studio visual component and Glue Studio code generation is based.
-    codeGenConfigurationNodes :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text CodeGenConfigurationNode)),
+    codeGenConfigurationNodes :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text CodeGenConfigurationNode)),
     -- | The default arguments for this job, specified as name-value pairs.
     --
     -- You can specify arguments here that your own job-execution script
@@ -349,7 +350,7 @@ job_securityConfiguration = Lens.lens (\Job' {securityConfiguration} -> security
 
 -- | The time and date that this job definition was created.
 job_createdOn :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
-job_createdOn = Lens.lens (\Job' {createdOn} -> createdOn) (\s@Job' {} a -> s {createdOn = a} :: Job) Prelude.. Lens.mapping Core._Time
+job_createdOn = Lens.lens (\Job' {createdOn} -> createdOn) (\s@Job' {} a -> s {createdOn = a} :: Job) Prelude.. Lens.mapping Data._Time
 
 -- | The job timeout in minutes. This is the maximum time that a job run can
 -- consume resources before it is terminated and enters @TIMEOUT@ status.
@@ -363,7 +364,7 @@ job_name = Lens.lens (\Job' {name} -> name) (\s@Job' {} a -> s {name = a} :: Job
 
 -- | The last point in time when this job definition was modified.
 job_lastModifiedOn :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
-job_lastModifiedOn = Lens.lens (\Job' {lastModifiedOn} -> lastModifiedOn) (\s@Job' {} a -> s {lastModifiedOn = a} :: Job) Prelude.. Lens.mapping Core._Time
+job_lastModifiedOn = Lens.lens (\Job' {lastModifiedOn} -> lastModifiedOn) (\s@Job' {} a -> s {lastModifiedOn = a} :: Job) Prelude.. Lens.mapping Data._Time
 
 -- | Non-overridable arguments for this job, specified as name-value pairs.
 job_nonOverridableArguments :: Lens.Lens' Job (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -443,7 +444,7 @@ job_maxRetries = Lens.lens (\Job' {maxRetries} -> maxRetries) (\s@Job' {} a -> s
 -- | The representation of a directed acyclic graph on which both the Glue
 -- Studio visual component and Glue Studio code generation is based.
 job_codeGenConfigurationNodes :: Lens.Lens' Job (Prelude.Maybe (Prelude.HashMap Prelude.Text CodeGenConfigurationNode))
-job_codeGenConfigurationNodes = Lens.lens (\Job' {codeGenConfigurationNodes} -> codeGenConfigurationNodes) (\s@Job' {} a -> s {codeGenConfigurationNodes = a} :: Job) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+job_codeGenConfigurationNodes = Lens.lens (\Job' {codeGenConfigurationNodes} -> codeGenConfigurationNodes) (\s@Job' {} a -> s {codeGenConfigurationNodes = a} :: Job) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The default arguments for this job, specified as name-value pairs.
 --
@@ -522,41 +523,41 @@ job_maxCapacity = Lens.lens (\Job' {maxCapacity} -> maxCapacity) (\s@Job' {} a -
 job_executionClass :: Lens.Lens' Job (Prelude.Maybe ExecutionClass)
 job_executionClass = Lens.lens (\Job' {executionClass} -> executionClass) (\s@Job' {} a -> s {executionClass = a} :: Job)
 
-instance Core.FromJSON Job where
+instance Data.FromJSON Job where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Core..:? "SecurityConfiguration")
-            Prelude.<*> (x Core..:? "CreatedOn")
-            Prelude.<*> (x Core..:? "Timeout")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastModifiedOn")
-            Prelude.<*> ( x Core..:? "NonOverridableArguments"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SecurityConfiguration")
+            Prelude.<*> (x Data..:? "CreatedOn")
+            Prelude.<*> (x Data..:? "Timeout")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastModifiedOn")
+            Prelude.<*> ( x Data..:? "NonOverridableArguments"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "NumberOfWorkers")
-            Prelude.<*> (x Core..:? "GlueVersion")
-            Prelude.<*> (x Core..:? "NotificationProperty")
-            Prelude.<*> (x Core..:? "WorkerType")
-            Prelude.<*> (x Core..:? "ExecutionProperty")
-            Prelude.<*> (x Core..:? "AllocatedCapacity")
-            Prelude.<*> (x Core..:? "Command")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "MaxRetries")
-            Prelude.<*> ( x Core..:? "CodeGenConfigurationNodes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "NumberOfWorkers")
+            Prelude.<*> (x Data..:? "GlueVersion")
+            Prelude.<*> (x Data..:? "NotificationProperty")
+            Prelude.<*> (x Data..:? "WorkerType")
+            Prelude.<*> (x Data..:? "ExecutionProperty")
+            Prelude.<*> (x Data..:? "AllocatedCapacity")
+            Prelude.<*> (x Data..:? "Command")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "MaxRetries")
+            Prelude.<*> ( x Data..:? "CodeGenConfigurationNodes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "DefaultArguments"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "DefaultArguments"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SourceControlDetails")
-            Prelude.<*> (x Core..:? "LogUri")
-            Prelude.<*> (x Core..:? "Connections")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "MaxCapacity")
-            Prelude.<*> (x Core..:? "ExecutionClass")
+            Prelude.<*> (x Data..:? "SourceControlDetails")
+            Prelude.<*> (x Data..:? "LogUri")
+            Prelude.<*> (x Data..:? "Connections")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "MaxCapacity")
+            Prelude.<*> (x Data..:? "ExecutionClass")
       )
 
 instance Prelude.Hashable Job where

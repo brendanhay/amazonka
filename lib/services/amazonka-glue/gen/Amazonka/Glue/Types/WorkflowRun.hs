@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.WorkflowRun where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.StartingEventBatchCondition
 import Amazonka.Glue.Types.WorkflowGraph
 import Amazonka.Glue.Types.WorkflowRunStatistics
@@ -35,7 +36,7 @@ data WorkflowRun = WorkflowRun'
   { -- | Name of the workflow that was run.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the workflow run was started.
-    startedOn :: Prelude.Maybe Core.POSIX,
+    startedOn :: Prelude.Maybe Data.POSIX,
     -- | The graph representing all the Glue components that belong to the
     -- workflow as nodes and directed connections between them as edges.
     graph :: Prelude.Maybe WorkflowGraph,
@@ -54,7 +55,7 @@ data WorkflowRun = WorkflowRun'
     -- | The status of the workflow run.
     status :: Prelude.Maybe WorkflowRunStatus,
     -- | The date and time when the workflow run completed.
-    completedOn :: Prelude.Maybe Core.POSIX,
+    completedOn :: Prelude.Maybe Data.POSIX,
     -- | The ID of this workflow run.
     workflowRunId :: Prelude.Maybe Prelude.Text
   }
@@ -115,7 +116,7 @@ workflowRun_name = Lens.lens (\WorkflowRun' {name} -> name) (\s@WorkflowRun' {} 
 
 -- | The date and time when the workflow run was started.
 workflowRun_startedOn :: Lens.Lens' WorkflowRun (Prelude.Maybe Prelude.UTCTime)
-workflowRun_startedOn = Lens.lens (\WorkflowRun' {startedOn} -> startedOn) (\s@WorkflowRun' {} a -> s {startedOn = a} :: WorkflowRun) Prelude.. Lens.mapping Core._Time
+workflowRun_startedOn = Lens.lens (\WorkflowRun' {startedOn} -> startedOn) (\s@WorkflowRun' {} a -> s {startedOn = a} :: WorkflowRun) Prelude.. Lens.mapping Data._Time
 
 -- | The graph representing all the Glue components that belong to the
 -- workflow as nodes and directed connections between them as edges.
@@ -150,31 +151,31 @@ workflowRun_status = Lens.lens (\WorkflowRun' {status} -> status) (\s@WorkflowRu
 
 -- | The date and time when the workflow run completed.
 workflowRun_completedOn :: Lens.Lens' WorkflowRun (Prelude.Maybe Prelude.UTCTime)
-workflowRun_completedOn = Lens.lens (\WorkflowRun' {completedOn} -> completedOn) (\s@WorkflowRun' {} a -> s {completedOn = a} :: WorkflowRun) Prelude.. Lens.mapping Core._Time
+workflowRun_completedOn = Lens.lens (\WorkflowRun' {completedOn} -> completedOn) (\s@WorkflowRun' {} a -> s {completedOn = a} :: WorkflowRun) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of this workflow run.
 workflowRun_workflowRunId :: Lens.Lens' WorkflowRun (Prelude.Maybe Prelude.Text)
 workflowRun_workflowRunId = Lens.lens (\WorkflowRun' {workflowRunId} -> workflowRunId) (\s@WorkflowRun' {} a -> s {workflowRunId = a} :: WorkflowRun)
 
-instance Core.FromJSON WorkflowRun where
+instance Data.FromJSON WorkflowRun where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowRun"
       ( \x ->
           WorkflowRun'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "StartedOn")
-            Prelude.<*> (x Core..:? "Graph")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "Statistics")
-            Prelude.<*> ( x Core..:? "WorkflowRunProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "StartedOn")
+            Prelude.<*> (x Data..:? "Graph")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Statistics")
+            Prelude.<*> ( x Data..:? "WorkflowRunProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PreviousRunId")
-            Prelude.<*> (x Core..:? "StartingEventBatchCondition")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CompletedOn")
-            Prelude.<*> (x Core..:? "WorkflowRunId")
+            Prelude.<*> (x Data..:? "PreviousRunId")
+            Prelude.<*> (x Data..:? "StartingEventBatchCondition")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CompletedOn")
+            Prelude.<*> (x Data..:? "WorkflowRunId")
       )
 
 instance Prelude.Hashable WorkflowRun where

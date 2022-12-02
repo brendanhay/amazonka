@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,8 +90,8 @@ instance Core.AWSRequest BatchGetCrawlers where
     Response.receiveJSON
       ( \s h x ->
           BatchGetCrawlersResponse'
-            Prelude.<$> (x Core..?> "Crawlers" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "CrawlersNotFound"
+            Prelude.<$> (x Data..?> "Crawlers" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "CrawlersNotFound"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -103,30 +104,30 @@ instance Prelude.Hashable BatchGetCrawlers where
 instance Prelude.NFData BatchGetCrawlers where
   rnf BatchGetCrawlers' {..} = Prelude.rnf crawlerNames
 
-instance Core.ToHeaders BatchGetCrawlers where
+instance Data.ToHeaders BatchGetCrawlers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.BatchGetCrawlers" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.BatchGetCrawlers" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetCrawlers where
+instance Data.ToJSON BatchGetCrawlers where
   toJSON BatchGetCrawlers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("CrawlerNames" Core..= crawlerNames)]
+          [Prelude.Just ("CrawlerNames" Data..= crawlerNames)]
       )
 
-instance Core.ToPath BatchGetCrawlers where
+instance Data.ToPath BatchGetCrawlers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetCrawlers where
+instance Data.ToQuery BatchGetCrawlers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetCrawlersResponse' smart constructor.

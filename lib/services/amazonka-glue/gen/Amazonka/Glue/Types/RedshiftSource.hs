@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.RedshiftSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Amazon Redshift data store.
@@ -97,17 +98,17 @@ redshiftSource_database = Lens.lens (\RedshiftSource' {database} -> database) (\
 redshiftSource_table :: Lens.Lens' RedshiftSource Prelude.Text
 redshiftSource_table = Lens.lens (\RedshiftSource' {table} -> table) (\s@RedshiftSource' {} a -> s {table = a} :: RedshiftSource)
 
-instance Core.FromJSON RedshiftSource where
+instance Data.FromJSON RedshiftSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftSource"
       ( \x ->
           RedshiftSource'
-            Prelude.<$> (x Core..:? "RedshiftTmpDir")
-            Prelude.<*> (x Core..:? "TmpDirIAMRole")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Table")
+            Prelude.<$> (x Data..:? "RedshiftTmpDir")
+            Prelude.<*> (x Data..:? "TmpDirIAMRole")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Table")
       )
 
 instance Prelude.Hashable RedshiftSource where
@@ -126,15 +127,15 @@ instance Prelude.NFData RedshiftSource where
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON RedshiftSource where
+instance Data.ToJSON RedshiftSource where
   toJSON RedshiftSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RedshiftTmpDir" Core..=)
+          [ ("RedshiftTmpDir" Data..=)
               Prelude.<$> redshiftTmpDir,
-            ("TmpDirIAMRole" Core..=) Prelude.<$> tmpDirIAMRole,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Table" Core..= table)
+            ("TmpDirIAMRole" Data..=) Prelude.<$> tmpDirIAMRole,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Table" Data..= table)
           ]
       )

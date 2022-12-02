@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,8 +129,8 @@ instance Core.AWSRequest GetCrawlerMetrics where
     Response.receiveJSON
       ( \s h x ->
           GetCrawlerMetricsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CrawlerMetricsList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CrawlerMetricsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -147,34 +148,34 @@ instance Prelude.NFData GetCrawlerMetrics where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf crawlerNameList
 
-instance Core.ToHeaders GetCrawlerMetrics where
+instance Data.ToHeaders GetCrawlerMetrics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetCrawlerMetrics" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetCrawlerMetrics" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCrawlerMetrics where
+instance Data.ToJSON GetCrawlerMetrics where
   toJSON GetCrawlerMetrics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CrawlerNameList" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CrawlerNameList" Data..=)
               Prelude.<$> crawlerNameList
           ]
       )
 
-instance Core.ToPath GetCrawlerMetrics where
+instance Data.ToPath GetCrawlerMetrics where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCrawlerMetrics where
+instance Data.ToQuery GetCrawlerMetrics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCrawlerMetricsResponse' smart constructor.

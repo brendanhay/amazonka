@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,13 +143,13 @@ instance Core.AWSRequest GetSchemaVersion where
     Response.receiveJSON
       ( \s h x ->
           GetSchemaVersionResponse'
-            Prelude.<$> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "DataFormat")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "SchemaArn")
-            Prelude.<*> (x Core..?> "VersionNumber")
-            Prelude.<*> (x Core..?> "SchemaVersionId")
-            Prelude.<*> (x Core..?> "SchemaDefinition")
+            Prelude.<$> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "DataFormat")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "SchemaArn")
+            Prelude.<*> (x Data..?> "VersionNumber")
+            Prelude.<*> (x Data..?> "SchemaVersionId")
+            Prelude.<*> (x Data..?> "SchemaDefinition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,35 +165,35 @@ instance Prelude.NFData GetSchemaVersion where
       `Prelude.seq` Prelude.rnf schemaVersionId
       `Prelude.seq` Prelude.rnf schemaId
 
-instance Core.ToHeaders GetSchemaVersion where
+instance Data.ToHeaders GetSchemaVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetSchemaVersion" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetSchemaVersion" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSchemaVersion where
+instance Data.ToJSON GetSchemaVersion where
   toJSON GetSchemaVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SchemaVersionNumber" Core..=)
+          [ ("SchemaVersionNumber" Data..=)
               Prelude.<$> schemaVersionNumber,
-            ("SchemaVersionId" Core..=)
+            ("SchemaVersionId" Data..=)
               Prelude.<$> schemaVersionId,
-            ("SchemaId" Core..=) Prelude.<$> schemaId
+            ("SchemaId" Data..=) Prelude.<$> schemaId
           ]
       )
 
-instance Core.ToPath GetSchemaVersion where
+instance Data.ToPath GetSchemaVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSchemaVersion where
+instance Data.ToQuery GetSchemaVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSchemaVersionResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,8 +95,8 @@ instance Core.AWSRequest ListCustomEntityTypes where
     Response.receiveJSON
       ( \s h x ->
           ListCustomEntityTypesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CustomEntityTypes"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CustomEntityTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -111,34 +112,34 @@ instance Prelude.NFData ListCustomEntityTypes where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListCustomEntityTypes where
+instance Data.ToHeaders ListCustomEntityTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.ListCustomEntityTypes" ::
+              Data.=# ( "AWSGlue.ListCustomEntityTypes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCustomEntityTypes where
+instance Data.ToJSON ListCustomEntityTypes where
   toJSON ListCustomEntityTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListCustomEntityTypes where
+instance Data.ToPath ListCustomEntityTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCustomEntityTypes where
+instance Data.ToQuery ListCustomEntityTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCustomEntityTypesResponse' smart constructor.

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,34 +117,34 @@ instance Prelude.NFData UpdateCrawlerSchedule where
     Prelude.rnf schedule
       `Prelude.seq` Prelude.rnf crawlerName
 
-instance Core.ToHeaders UpdateCrawlerSchedule where
+instance Data.ToHeaders UpdateCrawlerSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.UpdateCrawlerSchedule" ::
+              Data.=# ( "AWSGlue.UpdateCrawlerSchedule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCrawlerSchedule where
+instance Data.ToJSON UpdateCrawlerSchedule where
   toJSON UpdateCrawlerSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Schedule" Core..=) Prelude.<$> schedule,
-            Prelude.Just ("CrawlerName" Core..= crawlerName)
+          [ ("Schedule" Data..=) Prelude.<$> schedule,
+            Prelude.Just ("CrawlerName" Data..= crawlerName)
           ]
       )
 
-instance Core.ToPath UpdateCrawlerSchedule where
+instance Data.ToPath UpdateCrawlerSchedule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCrawlerSchedule where
+instance Data.ToQuery UpdateCrawlerSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCrawlerScheduleResponse' smart constructor.

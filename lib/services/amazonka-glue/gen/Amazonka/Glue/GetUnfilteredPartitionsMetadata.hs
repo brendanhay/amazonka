@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,8 +174,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetUnfilteredPartitionsMetadataResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "UnfilteredPartitions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "UnfilteredPartitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -213,46 +214,46 @@ instance
       `Prelude.seq` Prelude.rnf supportedPermissionTypes
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetUnfilteredPartitionsMetadata
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.GetUnfilteredPartitionsMetadata" ::
+              Data.=# ( "AWSGlue.GetUnfilteredPartitionsMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetUnfilteredPartitionsMetadata where
+instance Data.ToJSON GetUnfilteredPartitionsMetadata where
   toJSON GetUnfilteredPartitionsMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("AuditContext" Core..=) Prelude.<$> auditContext,
-            ("Expression" Core..=) Prelude.<$> expression,
-            ("Segment" Core..=) Prelude.<$> segment,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("CatalogId" Core..= catalogId),
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("AuditContext" Data..=) Prelude.<$> auditContext,
+            ("Expression" Data..=) Prelude.<$> expression,
+            ("Segment" Data..=) Prelude.<$> segment,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("CatalogId" Data..= catalogId),
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just
               ( "SupportedPermissionTypes"
-                  Core..= supportedPermissionTypes
+                  Data..= supportedPermissionTypes
               )
           ]
       )
 
-instance Core.ToPath GetUnfilteredPartitionsMetadata where
+instance Data.ToPath GetUnfilteredPartitionsMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetUnfilteredPartitionsMetadata where
+instance Data.ToQuery GetUnfilteredPartitionsMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUnfilteredPartitionsMetadataResponse' smart constructor.

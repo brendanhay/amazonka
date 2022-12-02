@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.KeySchemaElement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A partition key pair consisting of a name and a type.
@@ -62,13 +63,13 @@ keySchemaElement_name = Lens.lens (\KeySchemaElement' {name} -> name) (\s@KeySch
 keySchemaElement_type :: Lens.Lens' KeySchemaElement Prelude.Text
 keySchemaElement_type = Lens.lens (\KeySchemaElement' {type'} -> type') (\s@KeySchemaElement' {} a -> s {type' = a} :: KeySchemaElement)
 
-instance Core.FromJSON KeySchemaElement where
+instance Data.FromJSON KeySchemaElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeySchemaElement"
       ( \x ->
           KeySchemaElement'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable KeySchemaElement where

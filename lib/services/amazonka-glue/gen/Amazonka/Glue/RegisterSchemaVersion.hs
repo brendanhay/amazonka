@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,9 +143,9 @@ instance Core.AWSRequest RegisterSchemaVersion where
     Response.receiveJSON
       ( \s h x ->
           RegisterSchemaVersionResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "VersionNumber")
-            Prelude.<*> (x Core..?> "SchemaVersionId")
+            Prelude.<$> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "VersionNumber")
+            Prelude.<*> (x Data..?> "SchemaVersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,35 +159,35 @@ instance Prelude.NFData RegisterSchemaVersion where
     Prelude.rnf schemaId
       `Prelude.seq` Prelude.rnf schemaDefinition
 
-instance Core.ToHeaders RegisterSchemaVersion where
+instance Data.ToHeaders RegisterSchemaVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.RegisterSchemaVersion" ::
+              Data.=# ( "AWSGlue.RegisterSchemaVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterSchemaVersion where
+instance Data.ToJSON RegisterSchemaVersion where
   toJSON RegisterSchemaVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SchemaId" Core..= schemaId),
+          [ Prelude.Just ("SchemaId" Data..= schemaId),
             Prelude.Just
-              ("SchemaDefinition" Core..= schemaDefinition)
+              ("SchemaDefinition" Data..= schemaDefinition)
           ]
       )
 
-instance Core.ToPath RegisterSchemaVersion where
+instance Data.ToPath RegisterSchemaVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterSchemaVersion where
+instance Data.ToQuery RegisterSchemaVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterSchemaVersionResponse' smart constructor.

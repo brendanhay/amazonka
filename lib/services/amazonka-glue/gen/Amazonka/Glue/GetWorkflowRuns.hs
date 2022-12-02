@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,8 +117,8 @@ instance Core.AWSRequest GetWorkflowRuns where
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowRunsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Runs")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Runs")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,34 +136,34 @@ instance Prelude.NFData GetWorkflowRuns where
       `Prelude.seq` Prelude.rnf includeGraph
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders GetWorkflowRuns where
+instance Data.ToHeaders GetWorkflowRuns where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetWorkflowRuns" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetWorkflowRuns" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetWorkflowRuns where
+instance Data.ToJSON GetWorkflowRuns where
   toJSON GetWorkflowRuns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("IncludeGraph" Core..=) Prelude.<$> includeGraph,
-            Prelude.Just ("Name" Core..= name)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("IncludeGraph" Data..=) Prelude.<$> includeGraph,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath GetWorkflowRuns where
+instance Data.ToPath GetWorkflowRuns where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetWorkflowRuns where
+instance Data.ToQuery GetWorkflowRuns where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWorkflowRunsResponse' smart constructor.

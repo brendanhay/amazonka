@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.TransformParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.FindMatchesParameters
 import Amazonka.Glue.Types.TransformType
 import qualified Amazonka.Prelude as Prelude
@@ -76,14 +77,14 @@ transformParameters_findMatchesParameters = Lens.lens (\TransformParameters' {fi
 transformParameters_transformType :: Lens.Lens' TransformParameters TransformType
 transformParameters_transformType = Lens.lens (\TransformParameters' {transformType} -> transformType) (\s@TransformParameters' {} a -> s {transformType = a} :: TransformParameters)
 
-instance Core.FromJSON TransformParameters where
+instance Data.FromJSON TransformParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransformParameters"
       ( \x ->
           TransformParameters'
-            Prelude.<$> (x Core..:? "FindMatchesParameters")
-            Prelude.<*> (x Core..: "TransformType")
+            Prelude.<$> (x Data..:? "FindMatchesParameters")
+            Prelude.<*> (x Data..: "TransformType")
       )
 
 instance Prelude.Hashable TransformParameters where
@@ -96,13 +97,13 @@ instance Prelude.NFData TransformParameters where
     Prelude.rnf findMatchesParameters
       `Prelude.seq` Prelude.rnf transformType
 
-instance Core.ToJSON TransformParameters where
+instance Data.ToJSON TransformParameters where
   toJSON TransformParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FindMatchesParameters" Core..=)
+          [ ("FindMatchesParameters" Data..=)
               Prelude.<$> findMatchesParameters,
             Prelude.Just
-              ("TransformType" Core..= transformType)
+              ("TransformType" Data..= transformType)
           ]
       )

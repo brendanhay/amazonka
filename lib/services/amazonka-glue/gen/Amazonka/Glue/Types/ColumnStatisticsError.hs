@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ColumnStatisticsError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ColumnStatistics
 import Amazonka.Glue.Types.ErrorDetail
 import qualified Amazonka.Prelude as Prelude
@@ -65,14 +66,14 @@ columnStatisticsError_columnStatistics = Lens.lens (\ColumnStatisticsError' {col
 columnStatisticsError_error :: Lens.Lens' ColumnStatisticsError (Prelude.Maybe ErrorDetail)
 columnStatisticsError_error = Lens.lens (\ColumnStatisticsError' {error} -> error) (\s@ColumnStatisticsError' {} a -> s {error = a} :: ColumnStatisticsError)
 
-instance Core.FromJSON ColumnStatisticsError where
+instance Data.FromJSON ColumnStatisticsError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnStatisticsError"
       ( \x ->
           ColumnStatisticsError'
-            Prelude.<$> (x Core..:? "ColumnStatistics")
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Data..:? "ColumnStatistics")
+            Prelude.<*> (x Data..:? "Error")
       )
 
 instance Prelude.Hashable ColumnStatisticsError where

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SparkSQL where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.GlueSchema
 import Amazonka.Glue.Types.SqlAlias
 import qualified Amazonka.Prelude as Prelude
@@ -124,17 +125,17 @@ sparkSQL_sqlQuery = Lens.lens (\SparkSQL' {sqlQuery} -> sqlQuery) (\s@SparkSQL' 
 sparkSQL_sqlAliases :: Lens.Lens' SparkSQL [SqlAlias]
 sparkSQL_sqlAliases = Lens.lens (\SparkSQL' {sqlAliases} -> sqlAliases) (\s@SparkSQL' {} a -> s {sqlAliases = a} :: SparkSQL) Prelude.. Lens.coerced
 
-instance Core.FromJSON SparkSQL where
+instance Data.FromJSON SparkSQL where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SparkSQL"
       ( \x ->
           SparkSQL'
-            Prelude.<$> (x Core..:? "OutputSchemas" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "SqlQuery")
-            Prelude.<*> (x Core..:? "SqlAliases" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "SqlQuery")
+            Prelude.<*> (x Data..:? "SqlAliases" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SparkSQL where
@@ -153,14 +154,14 @@ instance Prelude.NFData SparkSQL where
       `Prelude.seq` Prelude.rnf sqlQuery
       `Prelude.seq` Prelude.rnf sqlAliases
 
-instance Core.ToJSON SparkSQL where
+instance Data.ToJSON SparkSQL where
   toJSON SparkSQL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputSchemas" Core..=) Prelude.<$> outputSchemas,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("SqlQuery" Core..= sqlQuery),
-            Prelude.Just ("SqlAliases" Core..= sqlAliases)
+          [ ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("SqlQuery" Data..= sqlQuery),
+            Prelude.Just ("SqlAliases" Data..= sqlAliases)
           ]
       )

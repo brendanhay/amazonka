@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.TableVersionError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ErrorDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,15 +75,15 @@ tableVersionError_errorDetail = Lens.lens (\TableVersionError' {errorDetail} -> 
 tableVersionError_versionId :: Lens.Lens' TableVersionError (Prelude.Maybe Prelude.Text)
 tableVersionError_versionId = Lens.lens (\TableVersionError' {versionId} -> versionId) (\s@TableVersionError' {} a -> s {versionId = a} :: TableVersionError)
 
-instance Core.FromJSON TableVersionError where
+instance Data.FromJSON TableVersionError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableVersionError"
       ( \x ->
           TableVersionError'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "ErrorDetail")
-            Prelude.<*> (x Core..:? "VersionId")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "ErrorDetail")
+            Prelude.<*> (x Data..:? "VersionId")
       )
 
 instance Prelude.Hashable TableVersionError where

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,10 +97,10 @@ instance Core.AWSRequest GetResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           GetResourcePolicyResponse'
-            Prelude.<$> (x Core..?> "PolicyInJson")
-            Prelude.<*> (x Core..?> "UpdateTime")
-            Prelude.<*> (x Core..?> "CreateTime")
-            Prelude.<*> (x Core..?> "PolicyHash")
+            Prelude.<$> (x Data..?> "PolicyInJson")
+            Prelude.<*> (x Data..?> "UpdateTime")
+            Prelude.<*> (x Data..?> "CreateTime")
+            Prelude.<*> (x Data..?> "PolicyHash")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,30 +111,30 @@ instance Prelude.Hashable GetResourcePolicy where
 instance Prelude.NFData GetResourcePolicy where
   rnf GetResourcePolicy' {..} = Prelude.rnf resourceArn
 
-instance Core.ToHeaders GetResourcePolicy where
+instance Data.ToHeaders GetResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetResourcePolicy" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetResourcePolicy" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResourcePolicy where
+instance Data.ToJSON GetResourcePolicy where
   toJSON GetResourcePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("ResourceArn" Core..=) Prelude.<$> resourceArn]
+          [("ResourceArn" Data..=) Prelude.<$> resourceArn]
       )
 
-instance Core.ToPath GetResourcePolicy where
+instance Data.ToPath GetResourcePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetResourcePolicy where
+instance Data.ToQuery GetResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourcePolicyResponse' smart constructor.
@@ -141,9 +142,9 @@ data GetResourcePolicyResponse = GetResourcePolicyResponse'
   { -- | Contains the requested policy document, in JSON format.
     policyInJson :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the policy was last updated.
-    updateTime :: Prelude.Maybe Core.POSIX,
+    updateTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time at which the policy was created.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | Contains the hash value associated with this policy.
     policyHash :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -188,11 +189,11 @@ getResourcePolicyResponse_policyInJson = Lens.lens (\GetResourcePolicyResponse' 
 
 -- | The date and time at which the policy was last updated.
 getResourcePolicyResponse_updateTime :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.UTCTime)
-getResourcePolicyResponse_updateTime = Lens.lens (\GetResourcePolicyResponse' {updateTime} -> updateTime) (\s@GetResourcePolicyResponse' {} a -> s {updateTime = a} :: GetResourcePolicyResponse) Prelude.. Lens.mapping Core._Time
+getResourcePolicyResponse_updateTime = Lens.lens (\GetResourcePolicyResponse' {updateTime} -> updateTime) (\s@GetResourcePolicyResponse' {} a -> s {updateTime = a} :: GetResourcePolicyResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time at which the policy was created.
 getResourcePolicyResponse_createTime :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.UTCTime)
-getResourcePolicyResponse_createTime = Lens.lens (\GetResourcePolicyResponse' {createTime} -> createTime) (\s@GetResourcePolicyResponse' {} a -> s {createTime = a} :: GetResourcePolicyResponse) Prelude.. Lens.mapping Core._Time
+getResourcePolicyResponse_createTime = Lens.lens (\GetResourcePolicyResponse' {createTime} -> createTime) (\s@GetResourcePolicyResponse' {} a -> s {createTime = a} :: GetResourcePolicyResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Contains the hash value associated with this policy.
 getResourcePolicyResponse_policyHash :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)

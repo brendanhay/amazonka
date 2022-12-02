@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Condition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CrawlState
 import Amazonka.Glue.Types.JobRunState
 import Amazonka.Glue.Types.LogicalOperator
@@ -103,17 +104,17 @@ condition_state = Lens.lens (\Condition' {state} -> state) (\s@Condition' {} a -
 condition_crawlerName :: Lens.Lens' Condition (Prelude.Maybe Prelude.Text)
 condition_crawlerName = Lens.lens (\Condition' {crawlerName} -> crawlerName) (\s@Condition' {} a -> s {crawlerName = a} :: Condition)
 
-instance Core.FromJSON Condition where
+instance Data.FromJSON Condition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Condition"
       ( \x ->
           Condition'
-            Prelude.<$> (x Core..:? "LogicalOperator")
-            Prelude.<*> (x Core..:? "CrawlState")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CrawlerName")
+            Prelude.<$> (x Data..:? "LogicalOperator")
+            Prelude.<*> (x Data..:? "CrawlState")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CrawlerName")
       )
 
 instance Prelude.Hashable Condition where
@@ -132,15 +133,15 @@ instance Prelude.NFData Condition where
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf crawlerName
 
-instance Core.ToJSON Condition where
+instance Data.ToJSON Condition where
   toJSON Condition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LogicalOperator" Core..=)
+          [ ("LogicalOperator" Data..=)
               Prelude.<$> logicalOperator,
-            ("CrawlState" Core..=) Prelude.<$> crawlState,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("State" Core..=) Prelude.<$> state,
-            ("CrawlerName" Core..=) Prelude.<$> crawlerName
+            ("CrawlState" Data..=) Prelude.<$> crawlState,
+            ("JobName" Data..=) Prelude.<$> jobName,
+            ("State" Data..=) Prelude.<$> state,
+            ("CrawlerName" Data..=) Prelude.<$> crawlerName
           ]
       )

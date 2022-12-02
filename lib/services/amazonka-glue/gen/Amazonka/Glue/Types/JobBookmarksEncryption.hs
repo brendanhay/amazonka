@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.JobBookmarksEncryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.JobBookmarksEncryptionMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,14 +67,14 @@ jobBookmarksEncryption_jobBookmarksEncryptionMode = Lens.lens (\JobBookmarksEncr
 jobBookmarksEncryption_kmsKeyArn :: Lens.Lens' JobBookmarksEncryption (Prelude.Maybe Prelude.Text)
 jobBookmarksEncryption_kmsKeyArn = Lens.lens (\JobBookmarksEncryption' {kmsKeyArn} -> kmsKeyArn) (\s@JobBookmarksEncryption' {} a -> s {kmsKeyArn = a} :: JobBookmarksEncryption)
 
-instance Core.FromJSON JobBookmarksEncryption where
+instance Data.FromJSON JobBookmarksEncryption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobBookmarksEncryption"
       ( \x ->
           JobBookmarksEncryption'
-            Prelude.<$> (x Core..:? "JobBookmarksEncryptionMode")
-            Prelude.<*> (x Core..:? "KmsKeyArn")
+            Prelude.<$> (x Data..:? "JobBookmarksEncryptionMode")
+            Prelude.<*> (x Data..:? "KmsKeyArn")
       )
 
 instance Prelude.Hashable JobBookmarksEncryption where
@@ -87,12 +88,12 @@ instance Prelude.NFData JobBookmarksEncryption where
     Prelude.rnf jobBookmarksEncryptionMode
       `Prelude.seq` Prelude.rnf kmsKeyArn
 
-instance Core.ToJSON JobBookmarksEncryption where
+instance Data.ToJSON JobBookmarksEncryption where
   toJSON JobBookmarksEncryption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JobBookmarksEncryptionMode" Core..=)
+          [ ("JobBookmarksEncryptionMode" Data..=)
               Prelude.<$> jobBookmarksEncryptionMode,
-            ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn
+            ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn
           ]
       )

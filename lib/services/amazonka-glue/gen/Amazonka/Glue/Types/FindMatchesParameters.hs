@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.FindMatchesParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters to configure the find matches transform.
@@ -179,16 +180,16 @@ findMatchesParameters_precisionRecallTradeoff = Lens.lens (\FindMatchesParameter
 findMatchesParameters_enforceProvidedLabels :: Lens.Lens' FindMatchesParameters (Prelude.Maybe Prelude.Bool)
 findMatchesParameters_enforceProvidedLabels = Lens.lens (\FindMatchesParameters' {enforceProvidedLabels} -> enforceProvidedLabels) (\s@FindMatchesParameters' {} a -> s {enforceProvidedLabels = a} :: FindMatchesParameters)
 
-instance Core.FromJSON FindMatchesParameters where
+instance Data.FromJSON FindMatchesParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindMatchesParameters"
       ( \x ->
           FindMatchesParameters'
-            Prelude.<$> (x Core..:? "AccuracyCostTradeoff")
-            Prelude.<*> (x Core..:? "PrimaryKeyColumnName")
-            Prelude.<*> (x Core..:? "PrecisionRecallTradeoff")
-            Prelude.<*> (x Core..:? "EnforceProvidedLabels")
+            Prelude.<$> (x Data..:? "AccuracyCostTradeoff")
+            Prelude.<*> (x Data..:? "PrimaryKeyColumnName")
+            Prelude.<*> (x Data..:? "PrecisionRecallTradeoff")
+            Prelude.<*> (x Data..:? "EnforceProvidedLabels")
       )
 
 instance Prelude.Hashable FindMatchesParameters where
@@ -205,17 +206,17 @@ instance Prelude.NFData FindMatchesParameters where
       `Prelude.seq` Prelude.rnf precisionRecallTradeoff
       `Prelude.seq` Prelude.rnf enforceProvidedLabels
 
-instance Core.ToJSON FindMatchesParameters where
+instance Data.ToJSON FindMatchesParameters where
   toJSON FindMatchesParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccuracyCostTradeoff" Core..=)
+          [ ("AccuracyCostTradeoff" Data..=)
               Prelude.<$> accuracyCostTradeoff,
-            ("PrimaryKeyColumnName" Core..=)
+            ("PrimaryKeyColumnName" Data..=)
               Prelude.<$> primaryKeyColumnName,
-            ("PrecisionRecallTradeoff" Core..=)
+            ("PrecisionRecallTradeoff" Data..=)
               Prelude.<$> precisionRecallTradeoff,
-            ("EnforceProvidedLabels" Core..=)
+            ("EnforceProvidedLabels" Data..=)
               Prelude.<$> enforceProvidedLabels
           ]
       )

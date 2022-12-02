@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.KinesisStreamingSourceOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.StartingPosition
 import qualified Amazonka.Prelude as Prelude
 
@@ -273,30 +274,30 @@ kinesisStreamingSourceOptions_streamName = Lens.lens (\KinesisStreamingSourceOpt
 kinesisStreamingSourceOptions_classification :: Lens.Lens' KinesisStreamingSourceOptions (Prelude.Maybe Prelude.Text)
 kinesisStreamingSourceOptions_classification = Lens.lens (\KinesisStreamingSourceOptions' {classification} -> classification) (\s@KinesisStreamingSourceOptions' {} a -> s {classification = a} :: KinesisStreamingSourceOptions)
 
-instance Core.FromJSON KinesisStreamingSourceOptions where
+instance Data.FromJSON KinesisStreamingSourceOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisStreamingSourceOptions"
       ( \x ->
           KinesisStreamingSourceOptions'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "StartingPosition")
-            Prelude.<*> (x Core..:? "NumRetries")
-            Prelude.<*> (x Core..:? "IdleTimeBetweenReadsInMs")
-            Prelude.<*> (x Core..:? "RetryIntervalMs")
-            Prelude.<*> (x Core..:? "MaxRetryIntervalMs")
-            Prelude.<*> (x Core..:? "AvoidEmptyBatches")
-            Prelude.<*> (x Core..:? "DescribeShardInterval")
-            Prelude.<*> (x Core..:? "MaxRecordPerRead")
-            Prelude.<*> (x Core..:? "MaxFetchTimeInMs")
-            Prelude.<*> (x Core..:? "Delimiter")
-            Prelude.<*> (x Core..:? "EndpointUrl")
-            Prelude.<*> (x Core..:? "MaxFetchRecordsPerShard")
-            Prelude.<*> (x Core..:? "RoleSessionName")
-            Prelude.<*> (x Core..:? "AddIdleTimeBetweenReads")
-            Prelude.<*> (x Core..:? "StreamArn")
-            Prelude.<*> (x Core..:? "StreamName")
-            Prelude.<*> (x Core..:? "Classification")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "StartingPosition")
+            Prelude.<*> (x Data..:? "NumRetries")
+            Prelude.<*> (x Data..:? "IdleTimeBetweenReadsInMs")
+            Prelude.<*> (x Data..:? "RetryIntervalMs")
+            Prelude.<*> (x Data..:? "MaxRetryIntervalMs")
+            Prelude.<*> (x Data..:? "AvoidEmptyBatches")
+            Prelude.<*> (x Data..:? "DescribeShardInterval")
+            Prelude.<*> (x Data..:? "MaxRecordPerRead")
+            Prelude.<*> (x Data..:? "MaxFetchTimeInMs")
+            Prelude.<*> (x Data..:? "Delimiter")
+            Prelude.<*> (x Data..:? "EndpointUrl")
+            Prelude.<*> (x Data..:? "MaxFetchRecordsPerShard")
+            Prelude.<*> (x Data..:? "RoleSessionName")
+            Prelude.<*> (x Data..:? "AddIdleTimeBetweenReads")
+            Prelude.<*> (x Data..:? "StreamArn")
+            Prelude.<*> (x Data..:? "StreamName")
+            Prelude.<*> (x Data..:? "Classification")
       )
 
 instance
@@ -344,39 +345,39 @@ instance Prelude.NFData KinesisStreamingSourceOptions where
       `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf classification
 
-instance Core.ToJSON KinesisStreamingSourceOptions where
+instance Data.ToJSON KinesisStreamingSourceOptions where
   toJSON KinesisStreamingSourceOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("StartingPosition" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("StartingPosition" Data..=)
               Prelude.<$> startingPosition,
-            ("NumRetries" Core..=) Prelude.<$> numRetries,
-            ("IdleTimeBetweenReadsInMs" Core..=)
+            ("NumRetries" Data..=) Prelude.<$> numRetries,
+            ("IdleTimeBetweenReadsInMs" Data..=)
               Prelude.<$> idleTimeBetweenReadsInMs,
-            ("RetryIntervalMs" Core..=)
+            ("RetryIntervalMs" Data..=)
               Prelude.<$> retryIntervalMs,
-            ("MaxRetryIntervalMs" Core..=)
+            ("MaxRetryIntervalMs" Data..=)
               Prelude.<$> maxRetryIntervalMs,
-            ("AvoidEmptyBatches" Core..=)
+            ("AvoidEmptyBatches" Data..=)
               Prelude.<$> avoidEmptyBatches,
-            ("DescribeShardInterval" Core..=)
+            ("DescribeShardInterval" Data..=)
               Prelude.<$> describeShardInterval,
-            ("MaxRecordPerRead" Core..=)
+            ("MaxRecordPerRead" Data..=)
               Prelude.<$> maxRecordPerRead,
-            ("MaxFetchTimeInMs" Core..=)
+            ("MaxFetchTimeInMs" Data..=)
               Prelude.<$> maxFetchTimeInMs,
-            ("Delimiter" Core..=) Prelude.<$> delimiter,
-            ("EndpointUrl" Core..=) Prelude.<$> endpointUrl,
-            ("MaxFetchRecordsPerShard" Core..=)
+            ("Delimiter" Data..=) Prelude.<$> delimiter,
+            ("EndpointUrl" Data..=) Prelude.<$> endpointUrl,
+            ("MaxFetchRecordsPerShard" Data..=)
               Prelude.<$> maxFetchRecordsPerShard,
-            ("RoleSessionName" Core..=)
+            ("RoleSessionName" Data..=)
               Prelude.<$> roleSessionName,
-            ("AddIdleTimeBetweenReads" Core..=)
+            ("AddIdleTimeBetweenReads" Data..=)
               Prelude.<$> addIdleTimeBetweenReads,
-            ("StreamArn" Core..=) Prelude.<$> streamArn,
-            ("StreamName" Core..=) Prelude.<$> streamName,
-            ("Classification" Core..=)
+            ("StreamArn" Data..=) Prelude.<$> streamArn,
+            ("StreamName" Data..=) Prelude.<$> streamName,
+            ("Classification" Data..=)
               Prelude.<$> classification
           ]
       )

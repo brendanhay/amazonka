@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.StreamingDataPreviewOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies options related to data preview for viewing a sample of your
@@ -63,14 +64,14 @@ streamingDataPreviewOptions_pollingTime = Lens.lens (\StreamingDataPreviewOption
 streamingDataPreviewOptions_recordPollingLimit :: Lens.Lens' StreamingDataPreviewOptions (Prelude.Maybe Prelude.Natural)
 streamingDataPreviewOptions_recordPollingLimit = Lens.lens (\StreamingDataPreviewOptions' {recordPollingLimit} -> recordPollingLimit) (\s@StreamingDataPreviewOptions' {} a -> s {recordPollingLimit = a} :: StreamingDataPreviewOptions)
 
-instance Core.FromJSON StreamingDataPreviewOptions where
+instance Data.FromJSON StreamingDataPreviewOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamingDataPreviewOptions"
       ( \x ->
           StreamingDataPreviewOptions'
-            Prelude.<$> (x Core..:? "PollingTime")
-            Prelude.<*> (x Core..:? "RecordPollingLimit")
+            Prelude.<$> (x Data..:? "PollingTime")
+            Prelude.<*> (x Data..:? "RecordPollingLimit")
       )
 
 instance Prelude.Hashable StreamingDataPreviewOptions where
@@ -83,12 +84,12 @@ instance Prelude.NFData StreamingDataPreviewOptions where
     Prelude.rnf pollingTime
       `Prelude.seq` Prelude.rnf recordPollingLimit
 
-instance Core.ToJSON StreamingDataPreviewOptions where
+instance Data.ToJSON StreamingDataPreviewOptions where
   toJSON StreamingDataPreviewOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PollingTime" Core..=) Prelude.<$> pollingTime,
-            ("RecordPollingLimit" Core..=)
+          [ ("PollingTime" Data..=) Prelude.<$> pollingTime,
+            ("RecordPollingLimit" Data..=)
               Prelude.<$> recordPollingLimit
           ]
       )

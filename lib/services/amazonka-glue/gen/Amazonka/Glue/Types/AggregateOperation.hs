@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.AggregateOperation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.AggFunction
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,14 +81,14 @@ aggregateOperation_column = Lens.lens (\AggregateOperation' {column} -> column) 
 aggregateOperation_aggFunc :: Lens.Lens' AggregateOperation AggFunction
 aggregateOperation_aggFunc = Lens.lens (\AggregateOperation' {aggFunc} -> aggFunc) (\s@AggregateOperation' {} a -> s {aggFunc = a} :: AggregateOperation)
 
-instance Core.FromJSON AggregateOperation where
+instance Data.FromJSON AggregateOperation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregateOperation"
       ( \x ->
           AggregateOperation'
-            Prelude.<$> (x Core..:? "Column" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "AggFunc")
+            Prelude.<$> (x Data..:? "Column" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "AggFunc")
       )
 
 instance Prelude.Hashable AggregateOperation where
@@ -100,11 +101,11 @@ instance Prelude.NFData AggregateOperation where
     Prelude.rnf column
       `Prelude.seq` Prelude.rnf aggFunc
 
-instance Core.ToJSON AggregateOperation where
+instance Data.ToJSON AggregateOperation where
   toJSON AggregateOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Column" Core..= column),
-            Prelude.Just ("AggFunc" Core..= aggFunc)
+          [ Prelude.Just ("Column" Data..= column),
+            Prelude.Just ("AggFunc" Data..= aggFunc)
           ]
       )

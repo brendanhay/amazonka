@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DataCatalogEncryptionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ConnectionPasswordEncryption
 import Amazonka.Glue.Types.EncryptionAtRest
 import qualified Amazonka.Prelude as Prelude
@@ -77,14 +78,14 @@ dataCatalogEncryptionSettings_connectionPasswordEncryption = Lens.lens (\DataCat
 dataCatalogEncryptionSettings_encryptionAtRest :: Lens.Lens' DataCatalogEncryptionSettings (Prelude.Maybe EncryptionAtRest)
 dataCatalogEncryptionSettings_encryptionAtRest = Lens.lens (\DataCatalogEncryptionSettings' {encryptionAtRest} -> encryptionAtRest) (\s@DataCatalogEncryptionSettings' {} a -> s {encryptionAtRest = a} :: DataCatalogEncryptionSettings)
 
-instance Core.FromJSON DataCatalogEncryptionSettings where
+instance Data.FromJSON DataCatalogEncryptionSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataCatalogEncryptionSettings"
       ( \x ->
           DataCatalogEncryptionSettings'
-            Prelude.<$> (x Core..:? "ConnectionPasswordEncryption")
-            Prelude.<*> (x Core..:? "EncryptionAtRest")
+            Prelude.<$> (x Data..:? "ConnectionPasswordEncryption")
+            Prelude.<*> (x Data..:? "EncryptionAtRest")
       )
 
 instance
@@ -101,13 +102,13 @@ instance Prelude.NFData DataCatalogEncryptionSettings where
     Prelude.rnf connectionPasswordEncryption
       `Prelude.seq` Prelude.rnf encryptionAtRest
 
-instance Core.ToJSON DataCatalogEncryptionSettings where
+instance Data.ToJSON DataCatalogEncryptionSettings where
   toJSON DataCatalogEncryptionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConnectionPasswordEncryption" Core..=)
+          [ ("ConnectionPasswordEncryption" Data..=)
               Prelude.<$> connectionPasswordEncryption,
-            ("EncryptionAtRest" Core..=)
+            ("EncryptionAtRest" Data..=)
               Prelude.<$> encryptionAtRest
           ]
       )

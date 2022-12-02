@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,8 +159,8 @@ instance Core.AWSRequest GetPlan where
     Response.receiveJSON
       ( \s h x ->
           GetPlanResponse'
-            Prelude.<$> (x Core..?> "ScalaCode")
-            Prelude.<*> (x Core..?> "PythonScript")
+            Prelude.<$> (x Data..?> "ScalaCode")
+            Prelude.<*> (x Data..?> "PythonScript")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,37 +182,37 @@ instance Prelude.NFData GetPlan where
       `Prelude.seq` Prelude.rnf mapping
       `Prelude.seq` Prelude.rnf source
 
-instance Core.ToHeaders GetPlan where
+instance Data.ToHeaders GetPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetPlan" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetPlan" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetPlan where
+instance Data.ToJSON GetPlan where
   toJSON GetPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Location" Core..=) Prelude.<$> location,
-            ("AdditionalPlanOptionsMap" Core..=)
+          [ ("Location" Data..=) Prelude.<$> location,
+            ("AdditionalPlanOptionsMap" Data..=)
               Prelude.<$> additionalPlanOptionsMap,
-            ("Sinks" Core..=) Prelude.<$> sinks,
-            ("Language" Core..=) Prelude.<$> language,
-            Prelude.Just ("Mapping" Core..= mapping),
-            Prelude.Just ("Source" Core..= source)
+            ("Sinks" Data..=) Prelude.<$> sinks,
+            ("Language" Data..=) Prelude.<$> language,
+            Prelude.Just ("Mapping" Data..= mapping),
+            Prelude.Just ("Source" Data..= source)
           ]
       )
 
-instance Core.ToPath GetPlan where
+instance Data.ToPath GetPlan where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetPlan where
+instance Data.ToQuery GetPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPlanResponse' smart constructor.

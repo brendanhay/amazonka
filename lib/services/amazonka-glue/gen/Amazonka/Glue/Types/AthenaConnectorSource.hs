@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.AthenaConnectorSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.GlueSchema
 import qualified Amazonka.Prelude as Prelude
 
@@ -132,19 +133,19 @@ athenaConnectorSource_connectionType = Lens.lens (\AthenaConnectorSource' {conne
 athenaConnectorSource_schemaName :: Lens.Lens' AthenaConnectorSource Prelude.Text
 athenaConnectorSource_schemaName = Lens.lens (\AthenaConnectorSource' {schemaName} -> schemaName) (\s@AthenaConnectorSource' {} a -> s {schemaName = a} :: AthenaConnectorSource)
 
-instance Core.FromJSON AthenaConnectorSource where
+instance Data.FromJSON AthenaConnectorSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AthenaConnectorSource"
       ( \x ->
           AthenaConnectorSource'
-            Prelude.<$> (x Core..:? "OutputSchemas" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ConnectionTable")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "ConnectionName")
-            Prelude.<*> (x Core..: "ConnectorName")
-            Prelude.<*> (x Core..: "ConnectionType")
-            Prelude.<*> (x Core..: "SchemaName")
+            Prelude.<$> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ConnectionTable")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "ConnectionName")
+            Prelude.<*> (x Data..: "ConnectorName")
+            Prelude.<*> (x Data..: "ConnectionType")
+            Prelude.<*> (x Data..: "SchemaName")
       )
 
 instance Prelude.Hashable AthenaConnectorSource where
@@ -167,19 +168,19 @@ instance Prelude.NFData AthenaConnectorSource where
       `Prelude.seq` Prelude.rnf connectionType
       `Prelude.seq` Prelude.rnf schemaName
 
-instance Core.ToJSON AthenaConnectorSource where
+instance Data.ToJSON AthenaConnectorSource where
   toJSON AthenaConnectorSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputSchemas" Core..=) Prelude.<$> outputSchemas,
-            ("ConnectionTable" Core..=)
+          [ ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
+            ("ConnectionTable" Data..=)
               Prelude.<$> connectionTable,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("ConnectionName" Core..= connectionName),
-            Prelude.Just ("ConnectorName" Core..= connectorName),
+              ("ConnectionName" Data..= connectionName),
+            Prelude.Just ("ConnectorName" Data..= connectorName),
             Prelude.Just
-              ("ConnectionType" Core..= connectionType),
-            Prelude.Just ("SchemaName" Core..= schemaName)
+              ("ConnectionType" Data..= connectionType),
+            Prelude.Just ("SchemaName" Data..= schemaName)
           ]
       )

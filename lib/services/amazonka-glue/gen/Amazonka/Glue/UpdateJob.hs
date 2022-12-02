@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest UpdateJob where
     Response.receiveJSON
       ( \s h x ->
           UpdateJobResponse'
-            Prelude.<$> (x Core..?> "JobName")
+            Prelude.<$> (x Data..?> "JobName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,32 +114,32 @@ instance Prelude.NFData UpdateJob where
     Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf jobUpdate
 
-instance Core.ToHeaders UpdateJob where
+instance Data.ToHeaders UpdateJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateJob" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.UpdateJob" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateJob where
+instance Data.ToJSON UpdateJob where
   toJSON UpdateJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("JobName" Core..= jobName),
-            Prelude.Just ("JobUpdate" Core..= jobUpdate)
+          [ Prelude.Just ("JobName" Data..= jobName),
+            Prelude.Just ("JobUpdate" Data..= jobUpdate)
           ]
       )
 
-instance Core.ToPath UpdateJob where
+instance Data.ToPath UpdateJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateJob where
+instance Data.ToQuery UpdateJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateJobResponse' smart constructor.

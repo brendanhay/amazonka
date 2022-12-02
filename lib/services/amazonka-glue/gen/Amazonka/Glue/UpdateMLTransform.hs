@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -281,7 +282,7 @@ instance Core.AWSRequest UpdateMLTransform where
     Response.receiveJSON
       ( \s h x ->
           UpdateMLTransformResponse'
-            Prelude.<$> (x Core..?> "TransformId")
+            Prelude.<$> (x Data..?> "TransformId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -313,42 +314,42 @@ instance Prelude.NFData UpdateMLTransform where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf transformId
 
-instance Core.ToHeaders UpdateMLTransform where
+instance Data.ToHeaders UpdateMLTransform where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateMLTransform" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.UpdateMLTransform" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMLTransform where
+instance Data.ToJSON UpdateMLTransform where
   toJSON UpdateMLTransform' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Timeout" Core..=) Prelude.<$> timeout,
-            ("Name" Core..=) Prelude.<$> name,
-            ("NumberOfWorkers" Core..=)
+          [ ("Timeout" Data..=) Prelude.<$> timeout,
+            ("Name" Data..=) Prelude.<$> name,
+            ("NumberOfWorkers" Data..=)
               Prelude.<$> numberOfWorkers,
-            ("GlueVersion" Core..=) Prelude.<$> glueVersion,
-            ("WorkerType" Core..=) Prelude.<$> workerType,
-            ("Description" Core..=) Prelude.<$> description,
-            ("MaxRetries" Core..=) Prelude.<$> maxRetries,
-            ("Role" Core..=) Prelude.<$> role',
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("TransformId" Core..= transformId)
+            ("GlueVersion" Data..=) Prelude.<$> glueVersion,
+            ("WorkerType" Data..=) Prelude.<$> workerType,
+            ("Description" Data..=) Prelude.<$> description,
+            ("MaxRetries" Data..=) Prelude.<$> maxRetries,
+            ("Role" Data..=) Prelude.<$> role',
+            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("TransformId" Data..= transformId)
           ]
       )
 
-instance Core.ToPath UpdateMLTransform where
+instance Data.ToPath UpdateMLTransform where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateMLTransform where
+instance Data.ToQuery UpdateMLTransform where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMLTransformResponse' smart constructor.

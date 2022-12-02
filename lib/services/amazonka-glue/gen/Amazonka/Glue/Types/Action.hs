@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.NotificationProperty
 import qualified Amazonka.Prelude as Prelude
 
@@ -152,18 +153,18 @@ action_crawlerName = Lens.lens (\Action' {crawlerName} -> crawlerName) (\s@Actio
 action_arguments :: Lens.Lens' Action (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 action_arguments = Lens.lens (\Action' {arguments} -> arguments) (\s@Action' {} a -> s {arguments = a} :: Action) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Action where
+instance Data.FromJSON Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..:? "SecurityConfiguration")
-            Prelude.<*> (x Core..:? "Timeout")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "NotificationProperty")
-            Prelude.<*> (x Core..:? "CrawlerName")
-            Prelude.<*> (x Core..:? "Arguments" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "SecurityConfiguration")
+            Prelude.<*> (x Data..:? "Timeout")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "NotificationProperty")
+            Prelude.<*> (x Data..:? "CrawlerName")
+            Prelude.<*> (x Data..:? "Arguments" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Action where
@@ -184,17 +185,17 @@ instance Prelude.NFData Action where
       `Prelude.seq` Prelude.rnf crawlerName
       `Prelude.seq` Prelude.rnf arguments
 
-instance Core.ToJSON Action where
+instance Data.ToJSON Action where
   toJSON Action' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityConfiguration" Core..=)
+          [ ("SecurityConfiguration" Data..=)
               Prelude.<$> securityConfiguration,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("NotificationProperty" Core..=)
+            ("Timeout" Data..=) Prelude.<$> timeout,
+            ("JobName" Data..=) Prelude.<$> jobName,
+            ("NotificationProperty" Data..=)
               Prelude.<$> notificationProperty,
-            ("CrawlerName" Core..=) Prelude.<$> crawlerName,
-            ("Arguments" Core..=) Prelude.<$> arguments
+            ("CrawlerName" Data..=) Prelude.<$> crawlerName,
+            ("Arguments" Data..=) Prelude.<$> arguments
           ]
       )

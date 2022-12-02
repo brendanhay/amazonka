@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -426,27 +427,27 @@ instance Core.AWSRequest CreateDevEndpoint where
     Response.receiveJSON
       ( \s h x ->
           CreateDevEndpointResponse'
-            Prelude.<$> (x Core..?> "SecurityConfiguration")
-            Prelude.<*> (x Core..?> "ZeppelinRemoteSparkInterpreterPort")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "NumberOfWorkers")
-            Prelude.<*> ( x Core..?> "SecurityGroupIds"
+            Prelude.<$> (x Data..?> "SecurityConfiguration")
+            Prelude.<*> (x Data..?> "ZeppelinRemoteSparkInterpreterPort")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "NumberOfWorkers")
+            Prelude.<*> ( x Data..?> "SecurityGroupIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "EndpointName")
-            Prelude.<*> (x Core..?> "GlueVersion")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "SubnetId")
-            Prelude.<*> (x Core..?> "WorkerType")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "AvailabilityZone")
-            Prelude.<*> (x Core..?> "ExtraJarsS3Path")
-            Prelude.<*> (x Core..?> "NumberOfNodes")
-            Prelude.<*> (x Core..?> "Arguments" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "YarnEndpointAddress")
-            Prelude.<*> (x Core..?> "VpcId")
-            Prelude.<*> (x Core..?> "ExtraPythonLibsS3Path")
-            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<*> (x Data..?> "EndpointName")
+            Prelude.<*> (x Data..?> "GlueVersion")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "SubnetId")
+            Prelude.<*> (x Data..?> "WorkerType")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "AvailabilityZone")
+            Prelude.<*> (x Data..?> "ExtraJarsS3Path")
+            Prelude.<*> (x Data..?> "NumberOfNodes")
+            Prelude.<*> (x Data..?> "Arguments" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "YarnEndpointAddress")
+            Prelude.<*> (x Data..?> "VpcId")
+            Prelude.<*> (x Data..?> "ExtraPythonLibsS3Path")
+            Prelude.<*> (x Data..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -486,50 +487,50 @@ instance Prelude.NFData CreateDevEndpoint where
       `Prelude.seq` Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateDevEndpoint where
+instance Data.ToHeaders CreateDevEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreateDevEndpoint" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.CreateDevEndpoint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDevEndpoint where
+instance Data.ToJSON CreateDevEndpoint where
   toJSON CreateDevEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityConfiguration" Core..=)
+          [ ("SecurityConfiguration" Data..=)
               Prelude.<$> securityConfiguration,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("PublicKey" Core..=) Prelude.<$> publicKey,
-            ("NumberOfWorkers" Core..=)
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("PublicKey" Data..=) Prelude.<$> publicKey,
+            ("NumberOfWorkers" Data..=)
               Prelude.<$> numberOfWorkers,
-            ("SecurityGroupIds" Core..=)
+            ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("GlueVersion" Core..=) Prelude.<$> glueVersion,
-            ("SubnetId" Core..=) Prelude.<$> subnetId,
-            ("WorkerType" Core..=) Prelude.<$> workerType,
-            ("ExtraJarsS3Path" Core..=)
+            ("GlueVersion" Data..=) Prelude.<$> glueVersion,
+            ("SubnetId" Data..=) Prelude.<$> subnetId,
+            ("WorkerType" Data..=) Prelude.<$> workerType,
+            ("ExtraJarsS3Path" Data..=)
               Prelude.<$> extraJarsS3Path,
-            ("NumberOfNodes" Core..=) Prelude.<$> numberOfNodes,
-            ("Arguments" Core..=) Prelude.<$> arguments,
-            ("ExtraPythonLibsS3Path" Core..=)
+            ("NumberOfNodes" Data..=) Prelude.<$> numberOfNodes,
+            ("Arguments" Data..=) Prelude.<$> arguments,
+            ("ExtraPythonLibsS3Path" Data..=)
               Prelude.<$> extraPythonLibsS3Path,
-            ("PublicKeys" Core..=) Prelude.<$> publicKeys,
-            Prelude.Just ("EndpointName" Core..= endpointName),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+            ("PublicKeys" Data..=) Prelude.<$> publicKeys,
+            Prelude.Just ("EndpointName" Data..= endpointName),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateDevEndpoint where
+instance Data.ToPath CreateDevEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDevEndpoint where
+instance Data.ToQuery CreateDevEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDevEndpointResponse' smart constructor.
@@ -559,7 +560,7 @@ data CreateDevEndpointResponse = CreateDevEndpointResponse'
     -- in the developer guide.
     glueVersion :: Prelude.Maybe Prelude.Text,
     -- | The point in time at which this @DevEndpoint@ was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The subnet ID assigned to the new @DevEndpoint@.
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | The type of predefined worker that is allocated to the development
@@ -742,7 +743,7 @@ createDevEndpointResponse_glueVersion = Lens.lens (\CreateDevEndpointResponse' {
 
 -- | The point in time at which this @DevEndpoint@ was created.
 createDevEndpointResponse_createdTimestamp :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.UTCTime)
-createDevEndpointResponse_createdTimestamp = Lens.lens (\CreateDevEndpointResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateDevEndpointResponse' {} a -> s {createdTimestamp = a} :: CreateDevEndpointResponse) Prelude.. Lens.mapping Core._Time
+createDevEndpointResponse_createdTimestamp = Lens.lens (\CreateDevEndpointResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateDevEndpointResponse' {} a -> s {createdTimestamp = a} :: CreateDevEndpointResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The subnet ID assigned to the new @DevEndpoint@.
 createDevEndpointResponse_subnetId :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)

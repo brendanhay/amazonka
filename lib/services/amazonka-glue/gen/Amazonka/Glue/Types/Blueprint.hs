@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Blueprint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.BlueprintStatus
 import Amazonka.Glue.Types.LastActiveDefinition
 import qualified Amazonka.Prelude as Prelude
@@ -30,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newBlueprint' smart constructor.
 data Blueprint = Blueprint'
   { -- | The date and time the blueprint was registered.
-    createdOn :: Prelude.Maybe Core.POSIX,
+    createdOn :: Prelude.Maybe Data.POSIX,
     -- | The name of the blueprint.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time the blueprint was last modified.
-    lastModifiedOn :: Prelude.Maybe Core.POSIX,
+    lastModifiedOn :: Prelude.Maybe Data.POSIX,
     -- | An error message.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | When there are multiple versions of a blueprint and the latest version
@@ -123,7 +124,7 @@ newBlueprint =
 
 -- | The date and time the blueprint was registered.
 blueprint_createdOn :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.UTCTime)
-blueprint_createdOn = Lens.lens (\Blueprint' {createdOn} -> createdOn) (\s@Blueprint' {} a -> s {createdOn = a} :: Blueprint) Prelude.. Lens.mapping Core._Time
+blueprint_createdOn = Lens.lens (\Blueprint' {createdOn} -> createdOn) (\s@Blueprint' {} a -> s {createdOn = a} :: Blueprint) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the blueprint.
 blueprint_name :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
@@ -131,7 +132,7 @@ blueprint_name = Lens.lens (\Blueprint' {name} -> name) (\s@Blueprint' {} a -> s
 
 -- | The date and time the blueprint was last modified.
 blueprint_lastModifiedOn :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.UTCTime)
-blueprint_lastModifiedOn = Lens.lens (\Blueprint' {lastModifiedOn} -> lastModifiedOn) (\s@Blueprint' {} a -> s {lastModifiedOn = a} :: Blueprint) Prelude.. Lens.mapping Core._Time
+blueprint_lastModifiedOn = Lens.lens (\Blueprint' {lastModifiedOn} -> lastModifiedOn) (\s@Blueprint' {} a -> s {lastModifiedOn = a} :: Blueprint) Prelude.. Lens.mapping Data._Time
 
 -- | An error message.
 blueprint_errorMessage :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
@@ -174,22 +175,22 @@ blueprint_blueprintLocation = Lens.lens (\Blueprint' {blueprintLocation} -> blue
 blueprint_blueprintServiceLocation :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_blueprintServiceLocation = Lens.lens (\Blueprint' {blueprintServiceLocation} -> blueprintServiceLocation) (\s@Blueprint' {} a -> s {blueprintServiceLocation = a} :: Blueprint)
 
-instance Core.FromJSON Blueprint where
+instance Data.FromJSON Blueprint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Blueprint"
       ( \x ->
           Blueprint'
-            Prelude.<$> (x Core..:? "CreatedOn")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastModifiedOn")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "LastActiveDefinition")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ParameterSpec")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "BlueprintLocation")
-            Prelude.<*> (x Core..:? "BlueprintServiceLocation")
+            Prelude.<$> (x Data..:? "CreatedOn")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastModifiedOn")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "LastActiveDefinition")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ParameterSpec")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "BlueprintLocation")
+            Prelude.<*> (x Data..:? "BlueprintServiceLocation")
       )
 
 instance Prelude.Hashable Blueprint where

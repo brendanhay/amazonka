@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.S3GlueParquetTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.DirectSchemaChangePolicy
 import Amazonka.Glue.Types.ParquetCompressionType
 import qualified Amazonka.Prelude as Prelude
@@ -112,18 +113,18 @@ s3GlueParquetTarget_inputs = Lens.lens (\S3GlueParquetTarget' {inputs} -> inputs
 s3GlueParquetTarget_path :: Lens.Lens' S3GlueParquetTarget Prelude.Text
 s3GlueParquetTarget_path = Lens.lens (\S3GlueParquetTarget' {path} -> path) (\s@S3GlueParquetTarget' {} a -> s {path = a} :: S3GlueParquetTarget)
 
-instance Core.FromJSON S3GlueParquetTarget where
+instance Data.FromJSON S3GlueParquetTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3GlueParquetTarget"
       ( \x ->
           S3GlueParquetTarget'
-            Prelude.<$> (x Core..:? "Compression")
-            Prelude.<*> (x Core..:? "SchemaChangePolicy")
-            Prelude.<*> (x Core..:? "PartitionKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "Path")
+            Prelude.<$> (x Data..:? "Compression")
+            Prelude.<*> (x Data..:? "SchemaChangePolicy")
+            Prelude.<*> (x Data..:? "PartitionKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "Path")
       )
 
 instance Prelude.Hashable S3GlueParquetTarget where
@@ -144,16 +145,16 @@ instance Prelude.NFData S3GlueParquetTarget where
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf path
 
-instance Core.ToJSON S3GlueParquetTarget where
+instance Data.ToJSON S3GlueParquetTarget where
   toJSON S3GlueParquetTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Compression" Core..=) Prelude.<$> compression,
-            ("SchemaChangePolicy" Core..=)
+          [ ("Compression" Data..=) Prelude.<$> compression,
+            ("SchemaChangePolicy" Data..=)
               Prelude.<$> schemaChangePolicy,
-            ("PartitionKeys" Core..=) Prelude.<$> partitionKeys,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Path" Core..= path)
+            ("PartitionKeys" Data..=) Prelude.<$> partitionKeys,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Path" Data..= path)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.RegistryListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.RegistryStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,18 +99,18 @@ registryListItem_registryArn = Lens.lens (\RegistryListItem' {registryArn} -> re
 registryListItem_updatedTime :: Lens.Lens' RegistryListItem (Prelude.Maybe Prelude.Text)
 registryListItem_updatedTime = Lens.lens (\RegistryListItem' {updatedTime} -> updatedTime) (\s@RegistryListItem' {} a -> s {updatedTime = a} :: RegistryListItem)
 
-instance Core.FromJSON RegistryListItem where
+instance Data.FromJSON RegistryListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegistryListItem"
       ( \x ->
           RegistryListItem'
-            Prelude.<$> (x Core..:? "RegistryName")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "RegistryArn")
-            Prelude.<*> (x Core..:? "UpdatedTime")
+            Prelude.<$> (x Data..:? "RegistryName")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "RegistryArn")
+            Prelude.<*> (x Data..:? "UpdatedTime")
       )
 
 instance Prelude.Hashable RegistryListItem where

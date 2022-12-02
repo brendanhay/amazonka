@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.JDBCConnectorTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.GlueSchema
 import qualified Amazonka.Prelude as Prelude
 
@@ -139,22 +140,22 @@ jDBCConnectorTarget_connectorName = Lens.lens (\JDBCConnectorTarget' {connectorN
 jDBCConnectorTarget_connectionType :: Lens.Lens' JDBCConnectorTarget Prelude.Text
 jDBCConnectorTarget_connectionType = Lens.lens (\JDBCConnectorTarget' {connectionType} -> connectionType) (\s@JDBCConnectorTarget' {} a -> s {connectionType = a} :: JDBCConnectorTarget)
 
-instance Core.FromJSON JDBCConnectorTarget where
+instance Data.FromJSON JDBCConnectorTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JDBCConnectorTarget"
       ( \x ->
           JDBCConnectorTarget'
-            Prelude.<$> (x Core..:? "OutputSchemas" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "AdditionalOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "AdditionalOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "ConnectionName")
-            Prelude.<*> (x Core..: "ConnectionTable")
-            Prelude.<*> (x Core..: "ConnectorName")
-            Prelude.<*> (x Core..: "ConnectionType")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "ConnectionName")
+            Prelude.<*> (x Data..: "ConnectionTable")
+            Prelude.<*> (x Data..: "ConnectorName")
+            Prelude.<*> (x Data..: "ConnectionType")
       )
 
 instance Prelude.Hashable JDBCConnectorTarget where
@@ -179,21 +180,21 @@ instance Prelude.NFData JDBCConnectorTarget where
       `Prelude.seq` Prelude.rnf connectorName
       `Prelude.seq` Prelude.rnf connectionType
 
-instance Core.ToJSON JDBCConnectorTarget where
+instance Data.ToJSON JDBCConnectorTarget where
   toJSON JDBCConnectorTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputSchemas" Core..=) Prelude.<$> outputSchemas,
-            ("AdditionalOptions" Core..=)
+          [ ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
+            ("AdditionalOptions" Data..=)
               Prelude.<$> additionalOptions,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
             Prelude.Just
-              ("ConnectionName" Core..= connectionName),
+              ("ConnectionName" Data..= connectionName),
             Prelude.Just
-              ("ConnectionTable" Core..= connectionTable),
-            Prelude.Just ("ConnectorName" Core..= connectorName),
+              ("ConnectionTable" Data..= connectionTable),
+            Prelude.Just ("ConnectorName" Data..= connectorName),
             Prelude.Just
-              ("ConnectionType" Core..= connectionType)
+              ("ConnectionType" Data..= connectionType)
           ]
       )

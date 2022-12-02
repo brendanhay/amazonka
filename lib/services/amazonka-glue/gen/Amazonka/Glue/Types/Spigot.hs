@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Spigot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that writes samples of the data to an Amazon S3
@@ -107,17 +108,17 @@ spigot_inputs = Lens.lens (\Spigot' {inputs} -> inputs) (\s@Spigot' {} a -> s {i
 spigot_path :: Lens.Lens' Spigot Prelude.Text
 spigot_path = Lens.lens (\Spigot' {path} -> path) (\s@Spigot' {} a -> s {path = a} :: Spigot)
 
-instance Core.FromJSON Spigot where
+instance Data.FromJSON Spigot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Spigot"
       ( \x ->
           Spigot'
-            Prelude.<$> (x Core..:? "Prob")
-            Prelude.<*> (x Core..:? "Topk")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "Path")
+            Prelude.<$> (x Data..:? "Prob")
+            Prelude.<*> (x Data..:? "Topk")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "Path")
       )
 
 instance Prelude.Hashable Spigot where
@@ -136,14 +137,14 @@ instance Prelude.NFData Spigot where
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf path
 
-instance Core.ToJSON Spigot where
+instance Data.ToJSON Spigot where
   toJSON Spigot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Prob" Core..=) Prelude.<$> prob,
-            ("Topk" Core..=) Prelude.<$> topk,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Path" Core..= path)
+          [ ("Prob" Data..=) Prelude.<$> prob,
+            ("Topk" Data..=) Prelude.<$> topk,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Path" Data..= path)
           ]
       )

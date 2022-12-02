@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SchemaListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.SchemaStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -107,19 +108,19 @@ schemaListItem_schemaArn = Lens.lens (\SchemaListItem' {schemaArn} -> schemaArn)
 schemaListItem_updatedTime :: Lens.Lens' SchemaListItem (Prelude.Maybe Prelude.Text)
 schemaListItem_updatedTime = Lens.lens (\SchemaListItem' {updatedTime} -> updatedTime) (\s@SchemaListItem' {} a -> s {updatedTime = a} :: SchemaListItem)
 
-instance Core.FromJSON SchemaListItem where
+instance Data.FromJSON SchemaListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaListItem"
       ( \x ->
           SchemaListItem'
-            Prelude.<$> (x Core..:? "RegistryName")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "SchemaStatus")
-            Prelude.<*> (x Core..:? "SchemaName")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SchemaArn")
-            Prelude.<*> (x Core..:? "UpdatedTime")
+            Prelude.<$> (x Data..:? "RegistryName")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "SchemaStatus")
+            Prelude.<*> (x Data..:? "SchemaName")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SchemaArn")
+            Prelude.<*> (x Data..:? "UpdatedTime")
       )
 
 instance Prelude.Hashable SchemaListItem where

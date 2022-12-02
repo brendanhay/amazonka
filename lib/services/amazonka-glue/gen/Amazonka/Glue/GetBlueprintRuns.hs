@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,8 +107,8 @@ instance Core.AWSRequest GetBlueprintRuns where
     Response.receiveJSON
       ( \s h x ->
           GetBlueprintRunsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "BlueprintRuns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "BlueprintRuns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,34 +124,34 @@ instance Prelude.NFData GetBlueprintRuns where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf blueprintName
 
-instance Core.ToHeaders GetBlueprintRuns where
+instance Data.ToHeaders GetBlueprintRuns where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetBlueprintRuns" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetBlueprintRuns" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetBlueprintRuns where
+instance Data.ToJSON GetBlueprintRuns where
   toJSON GetBlueprintRuns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("BlueprintName" Core..= blueprintName)
+              ("BlueprintName" Data..= blueprintName)
           ]
       )
 
-instance Core.ToPath GetBlueprintRuns where
+instance Data.ToPath GetBlueprintRuns where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetBlueprintRuns where
+instance Data.ToQuery GetBlueprintRuns where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBlueprintRunsResponse' smart constructor.

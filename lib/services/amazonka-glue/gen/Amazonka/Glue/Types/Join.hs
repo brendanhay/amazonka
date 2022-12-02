@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Join where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.JoinColumn
 import Amazonka.Glue.Types.JoinType
 import qualified Amazonka.Prelude as Prelude
@@ -91,16 +92,16 @@ join_joinType = Lens.lens (\Join' {joinType} -> joinType) (\s@Join' {} a -> s {j
 join_columns :: Lens.Lens' Join (Prelude.NonEmpty JoinColumn)
 join_columns = Lens.lens (\Join' {columns} -> columns) (\s@Join' {} a -> s {columns = a} :: Join) Prelude.. Lens.coerced
 
-instance Core.FromJSON Join where
+instance Data.FromJSON Join where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Join"
       ( \x ->
           Join'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "JoinType")
-            Prelude.<*> (x Core..: "Columns")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "JoinType")
+            Prelude.<*> (x Data..: "Columns")
       )
 
 instance Prelude.Hashable Join where
@@ -117,13 +118,13 @@ instance Prelude.NFData Join where
       `Prelude.seq` Prelude.rnf joinType
       `Prelude.seq` Prelude.rnf columns
 
-instance Core.ToJSON Join where
+instance Data.ToJSON Join where
   toJSON Join' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("JoinType" Core..= joinType),
-            Prelude.Just ("Columns" Core..= columns)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("JoinType" Data..= joinType),
+            Prelude.Just ("Columns" Data..= columns)
           ]
       )

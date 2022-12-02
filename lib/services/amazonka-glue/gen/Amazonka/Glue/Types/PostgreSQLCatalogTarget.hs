@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.PostgreSQLCatalogTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a target that uses Postgres SQL.
@@ -91,16 +92,16 @@ postgreSQLCatalogTarget_database = Lens.lens (\PostgreSQLCatalogTarget' {databas
 postgreSQLCatalogTarget_table :: Lens.Lens' PostgreSQLCatalogTarget Prelude.Text
 postgreSQLCatalogTarget_table = Lens.lens (\PostgreSQLCatalogTarget' {table} -> table) (\s@PostgreSQLCatalogTarget' {} a -> s {table = a} :: PostgreSQLCatalogTarget)
 
-instance Core.FromJSON PostgreSQLCatalogTarget where
+instance Data.FromJSON PostgreSQLCatalogTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PostgreSQLCatalogTarget"
       ( \x ->
           PostgreSQLCatalogTarget'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Table")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Table")
       )
 
 instance Prelude.Hashable PostgreSQLCatalogTarget where
@@ -117,13 +118,13 @@ instance Prelude.NFData PostgreSQLCatalogTarget where
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON PostgreSQLCatalogTarget where
+instance Data.ToJSON PostgreSQLCatalogTarget where
   toJSON PostgreSQLCatalogTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Table" Core..= table)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Table" Data..= table)
           ]
       )

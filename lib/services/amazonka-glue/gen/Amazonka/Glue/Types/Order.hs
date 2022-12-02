@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Order where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the sort order of a sorted column.
@@ -65,14 +66,14 @@ order_column = Lens.lens (\Order' {column} -> column) (\s@Order' {} a -> s {colu
 order_sortOrder :: Lens.Lens' Order Prelude.Natural
 order_sortOrder = Lens.lens (\Order' {sortOrder} -> sortOrder) (\s@Order' {} a -> s {sortOrder = a} :: Order)
 
-instance Core.FromJSON Order where
+instance Data.FromJSON Order where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Order"
       ( \x ->
           Order'
-            Prelude.<$> (x Core..: "Column")
-            Prelude.<*> (x Core..: "SortOrder")
+            Prelude.<$> (x Data..: "Column")
+            Prelude.<*> (x Data..: "SortOrder")
       )
 
 instance Prelude.Hashable Order where
@@ -85,11 +86,11 @@ instance Prelude.NFData Order where
     Prelude.rnf column
       `Prelude.seq` Prelude.rnf sortOrder
 
-instance Core.ToJSON Order where
+instance Data.ToJSON Order where
   toJSON Order' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Column" Core..= column),
-            Prelude.Just ("SortOrder" Core..= sortOrder)
+          [ Prelude.Just ("Column" Data..= column),
+            Prelude.Just ("SortOrder" Data..= sortOrder)
           ]
       )

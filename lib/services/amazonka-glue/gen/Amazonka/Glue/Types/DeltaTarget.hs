@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DeltaTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a Delta data store to crawl one or more Delta tables.
@@ -70,15 +71,15 @@ deltaTarget_writeManifest = Lens.lens (\DeltaTarget' {writeManifest} -> writeMan
 deltaTarget_connectionName :: Lens.Lens' DeltaTarget (Prelude.Maybe Prelude.Text)
 deltaTarget_connectionName = Lens.lens (\DeltaTarget' {connectionName} -> connectionName) (\s@DeltaTarget' {} a -> s {connectionName = a} :: DeltaTarget)
 
-instance Core.FromJSON DeltaTarget where
+instance Data.FromJSON DeltaTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeltaTarget"
       ( \x ->
           DeltaTarget'
-            Prelude.<$> (x Core..:? "DeltaTables" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "WriteManifest")
-            Prelude.<*> (x Core..:? "ConnectionName")
+            Prelude.<$> (x Data..:? "DeltaTables" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "WriteManifest")
+            Prelude.<*> (x Data..:? "ConnectionName")
       )
 
 instance Prelude.Hashable DeltaTarget where
@@ -93,13 +94,13 @@ instance Prelude.NFData DeltaTarget where
       `Prelude.seq` Prelude.rnf writeManifest
       `Prelude.seq` Prelude.rnf connectionName
 
-instance Core.ToJSON DeltaTarget where
+instance Data.ToJSON DeltaTarget where
   toJSON DeltaTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeltaTables" Core..=) Prelude.<$> deltaTables,
-            ("WriteManifest" Core..=) Prelude.<$> writeManifest,
-            ("ConnectionName" Core..=)
+          [ ("DeltaTables" Data..=) Prelude.<$> deltaTables,
+            ("WriteManifest" Data..=) Prelude.<$> writeManifest,
+            ("ConnectionName" Data..=)
               Prelude.<$> connectionName
           ]
       )

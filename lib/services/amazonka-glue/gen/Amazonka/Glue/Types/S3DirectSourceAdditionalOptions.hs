@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.S3DirectSourceAdditionalOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies additional connection options for the Amazon S3 data store.
@@ -87,18 +88,18 @@ s3DirectSourceAdditionalOptions_boundedFiles :: Lens.Lens' S3DirectSourceAdditio
 s3DirectSourceAdditionalOptions_boundedFiles = Lens.lens (\S3DirectSourceAdditionalOptions' {boundedFiles} -> boundedFiles) (\s@S3DirectSourceAdditionalOptions' {} a -> s {boundedFiles = a} :: S3DirectSourceAdditionalOptions)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     S3DirectSourceAdditionalOptions
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3DirectSourceAdditionalOptions"
       ( \x ->
           S3DirectSourceAdditionalOptions'
-            Prelude.<$> (x Core..:? "SamplePath")
-            Prelude.<*> (x Core..:? "EnableSamplePath")
-            Prelude.<*> (x Core..:? "BoundedSize")
-            Prelude.<*> (x Core..:? "BoundedFiles")
+            Prelude.<$> (x Data..:? "SamplePath")
+            Prelude.<*> (x Data..:? "EnableSamplePath")
+            Prelude.<*> (x Data..:? "BoundedSize")
+            Prelude.<*> (x Data..:? "BoundedFiles")
       )
 
 instance
@@ -123,14 +124,14 @@ instance
       `Prelude.seq` Prelude.rnf boundedSize
       `Prelude.seq` Prelude.rnf boundedFiles
 
-instance Core.ToJSON S3DirectSourceAdditionalOptions where
+instance Data.ToJSON S3DirectSourceAdditionalOptions where
   toJSON S3DirectSourceAdditionalOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SamplePath" Core..=) Prelude.<$> samplePath,
-            ("EnableSamplePath" Core..=)
+          [ ("SamplePath" Data..=) Prelude.<$> samplePath,
+            ("EnableSamplePath" Data..=)
               Prelude.<$> enableSamplePath,
-            ("BoundedSize" Core..=) Prelude.<$> boundedSize,
-            ("BoundedFiles" Core..=) Prelude.<$> boundedFiles
+            ("BoundedSize" Data..=) Prelude.<$> boundedSize,
+            ("BoundedFiles" Data..=) Prelude.<$> boundedFiles
           ]
       )

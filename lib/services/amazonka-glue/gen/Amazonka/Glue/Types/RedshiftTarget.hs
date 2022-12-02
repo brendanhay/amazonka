@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.RedshiftTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.UpsertRedshiftTargetOptions
 import qualified Amazonka.Prelude as Prelude
 
@@ -122,19 +123,19 @@ redshiftTarget_database = Lens.lens (\RedshiftTarget' {database} -> database) (\
 redshiftTarget_table :: Lens.Lens' RedshiftTarget Prelude.Text
 redshiftTarget_table = Lens.lens (\RedshiftTarget' {table} -> table) (\s@RedshiftTarget' {} a -> s {table = a} :: RedshiftTarget)
 
-instance Core.FromJSON RedshiftTarget where
+instance Data.FromJSON RedshiftTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftTarget"
       ( \x ->
           RedshiftTarget'
-            Prelude.<$> (x Core..:? "UpsertRedshiftOptions")
-            Prelude.<*> (x Core..:? "RedshiftTmpDir")
-            Prelude.<*> (x Core..:? "TmpDirIAMRole")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Table")
+            Prelude.<$> (x Data..:? "UpsertRedshiftOptions")
+            Prelude.<*> (x Data..:? "RedshiftTmpDir")
+            Prelude.<*> (x Data..:? "TmpDirIAMRole")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Table")
       )
 
 instance Prelude.Hashable RedshiftTarget where
@@ -157,18 +158,18 @@ instance Prelude.NFData RedshiftTarget where
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON RedshiftTarget where
+instance Data.ToJSON RedshiftTarget where
   toJSON RedshiftTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpsertRedshiftOptions" Core..=)
+          [ ("UpsertRedshiftOptions" Data..=)
               Prelude.<$> upsertRedshiftOptions,
-            ("RedshiftTmpDir" Core..=)
+            ("RedshiftTmpDir" Data..=)
               Prelude.<$> redshiftTmpDir,
-            ("TmpDirIAMRole" Core..=) Prelude.<$> tmpDirIAMRole,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Table" Core..= table)
+            ("TmpDirIAMRole" Data..=) Prelude.<$> tmpDirIAMRole,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Table" Data..= table)
           ]
       )

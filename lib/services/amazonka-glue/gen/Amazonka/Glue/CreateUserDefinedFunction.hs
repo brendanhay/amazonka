@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,36 +131,36 @@ instance Prelude.NFData CreateUserDefinedFunction where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf functionInput
 
-instance Core.ToHeaders CreateUserDefinedFunction where
+instance Data.ToHeaders CreateUserDefinedFunction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.CreateUserDefinedFunction" ::
+              Data.=# ( "AWSGlue.CreateUserDefinedFunction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUserDefinedFunction where
+instance Data.ToJSON CreateUserDefinedFunction where
   toJSON CreateUserDefinedFunction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
             Prelude.Just
-              ("FunctionInput" Core..= functionInput)
+              ("FunctionInput" Data..= functionInput)
           ]
       )
 
-instance Core.ToPath CreateUserDefinedFunction where
+instance Data.ToPath CreateUserDefinedFunction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUserDefinedFunction where
+instance Data.ToQuery CreateUserDefinedFunction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserDefinedFunctionResponse' smart constructor.

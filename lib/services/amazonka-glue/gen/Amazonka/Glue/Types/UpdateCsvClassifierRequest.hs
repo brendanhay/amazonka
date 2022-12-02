@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.UpdateCsvClassifierRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CsvHeaderOption
 import qualified Amazonka.Prelude as Prelude
 
@@ -158,23 +159,23 @@ instance Prelude.NFData UpdateCsvClassifierRequest where
       `Prelude.seq` Prelude.rnf customDatatypes
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON UpdateCsvClassifierRequest where
+instance Data.ToJSON UpdateCsvClassifierRequest where
   toJSON UpdateCsvClassifierRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QuoteSymbol" Core..=) Prelude.<$> quoteSymbol,
-            ("Header" Core..=) Prelude.<$> header,
-            ("ContainsHeader" Core..=)
+          [ ("QuoteSymbol" Data..=) Prelude.<$> quoteSymbol,
+            ("Header" Data..=) Prelude.<$> header,
+            ("ContainsHeader" Data..=)
               Prelude.<$> containsHeader,
-            ("DisableValueTrimming" Core..=)
+            ("DisableValueTrimming" Data..=)
               Prelude.<$> disableValueTrimming,
-            ("AllowSingleColumn" Core..=)
+            ("AllowSingleColumn" Data..=)
               Prelude.<$> allowSingleColumn,
-            ("Delimiter" Core..=) Prelude.<$> delimiter,
-            ("CustomDatatypeConfigured" Core..=)
+            ("Delimiter" Data..=) Prelude.<$> delimiter,
+            ("CustomDatatypeConfigured" Data..=)
               Prelude.<$> customDatatypeConfigured,
-            ("CustomDatatypes" Core..=)
+            ("CustomDatatypes" Data..=)
               Prelude.<$> customDatatypes,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )

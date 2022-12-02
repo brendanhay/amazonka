@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CreateJsonClassifierRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a JSON classifier for @CreateClassifier@ to create.
@@ -80,11 +81,11 @@ instance Prelude.NFData CreateJsonClassifierRequest where
   rnf CreateJsonClassifierRequest' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf jsonPath
 
-instance Core.ToJSON CreateJsonClassifierRequest where
+instance Data.ToJSON CreateJsonClassifierRequest where
   toJSON CreateJsonClassifierRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("JsonPath" Core..= jsonPath)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("JsonPath" Data..= jsonPath)
           ]
       )

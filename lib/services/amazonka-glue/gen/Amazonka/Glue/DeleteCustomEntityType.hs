@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteCustomEntityType where
     Response.receiveJSON
       ( \s h x ->
           DeleteCustomEntityTypeResponse'
-            Prelude.<$> (x Core..?> "Name")
+            Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable DeleteCustomEntityType where
 instance Prelude.NFData DeleteCustomEntityType where
   rnf DeleteCustomEntityType' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteCustomEntityType where
+instance Data.ToHeaders DeleteCustomEntityType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.DeleteCustomEntityType" ::
+              Data.=# ( "AWSGlue.DeleteCustomEntityType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteCustomEntityType where
+instance Data.ToJSON DeleteCustomEntityType where
   toJSON DeleteCustomEntityType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteCustomEntityType where
+instance Data.ToPath DeleteCustomEntityType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCustomEntityType where
+instance Data.ToQuery DeleteCustomEntityType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCustomEntityTypeResponse' smart constructor.

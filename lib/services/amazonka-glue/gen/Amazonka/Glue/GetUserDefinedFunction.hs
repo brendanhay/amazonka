@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance Core.AWSRequest GetUserDefinedFunction where
     Response.receiveJSON
       ( \s h x ->
           GetUserDefinedFunctionResponse'
-            Prelude.<$> (x Core..?> "UserDefinedFunction")
+            Prelude.<$> (x Data..?> "UserDefinedFunction")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,35 +133,35 @@ instance Prelude.NFData GetUserDefinedFunction where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders GetUserDefinedFunction where
+instance Data.ToHeaders GetUserDefinedFunction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.GetUserDefinedFunction" ::
+              Data.=# ( "AWSGlue.GetUserDefinedFunction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetUserDefinedFunction where
+instance Data.ToJSON GetUserDefinedFunction where
   toJSON GetUserDefinedFunction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("FunctionName" Core..= functionName)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("FunctionName" Data..= functionName)
           ]
       )
 
-instance Core.ToPath GetUserDefinedFunction where
+instance Data.ToPath GetUserDefinedFunction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetUserDefinedFunction where
+instance Data.ToQuery GetUserDefinedFunction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUserDefinedFunctionResponse' smart constructor.

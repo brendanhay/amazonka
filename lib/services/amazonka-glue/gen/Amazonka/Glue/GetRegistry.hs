@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,12 +90,12 @@ instance Core.AWSRequest GetRegistry where
     Response.receiveJSON
       ( \s h x ->
           GetRegistryResponse'
-            Prelude.<$> (x Core..?> "RegistryName")
-            Prelude.<*> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "RegistryArn")
-            Prelude.<*> (x Core..?> "UpdatedTime")
+            Prelude.<$> (x Data..?> "RegistryName")
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "RegistryArn")
+            Prelude.<*> (x Data..?> "UpdatedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,30 +106,30 @@ instance Prelude.Hashable GetRegistry where
 instance Prelude.NFData GetRegistry where
   rnf GetRegistry' {..} = Prelude.rnf registryId
 
-instance Core.ToHeaders GetRegistry where
+instance Data.ToHeaders GetRegistry where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetRegistry" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetRegistry" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRegistry where
+instance Data.ToJSON GetRegistry where
   toJSON GetRegistry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("RegistryId" Core..= registryId)]
+          [Prelude.Just ("RegistryId" Data..= registryId)]
       )
 
-instance Core.ToPath GetRegistry where
+instance Data.ToPath GetRegistry where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRegistry where
+instance Data.ToQuery GetRegistry where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRegistryResponse' smart constructor.

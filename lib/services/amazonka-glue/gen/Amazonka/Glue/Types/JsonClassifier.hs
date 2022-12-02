@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.JsonClassifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A classifier for @JSON@ content.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newJsonClassifier' smart constructor.
 data JsonClassifier = JsonClassifier'
   { -- | The time that this classifier was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The time that this classifier was registered.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The version of this classifier.
     version :: Prelude.Maybe Prelude.Integer,
     -- | The name of the classifier.
@@ -78,11 +79,11 @@ newJsonClassifier pName_ pJsonPath_ =
 
 -- | The time that this classifier was last updated.
 jsonClassifier_lastUpdated :: Lens.Lens' JsonClassifier (Prelude.Maybe Prelude.UTCTime)
-jsonClassifier_lastUpdated = Lens.lens (\JsonClassifier' {lastUpdated} -> lastUpdated) (\s@JsonClassifier' {} a -> s {lastUpdated = a} :: JsonClassifier) Prelude.. Lens.mapping Core._Time
+jsonClassifier_lastUpdated = Lens.lens (\JsonClassifier' {lastUpdated} -> lastUpdated) (\s@JsonClassifier' {} a -> s {lastUpdated = a} :: JsonClassifier) Prelude.. Lens.mapping Data._Time
 
 -- | The time that this classifier was registered.
 jsonClassifier_creationTime :: Lens.Lens' JsonClassifier (Prelude.Maybe Prelude.UTCTime)
-jsonClassifier_creationTime = Lens.lens (\JsonClassifier' {creationTime} -> creationTime) (\s@JsonClassifier' {} a -> s {creationTime = a} :: JsonClassifier) Prelude.. Lens.mapping Core._Time
+jsonClassifier_creationTime = Lens.lens (\JsonClassifier' {creationTime} -> creationTime) (\s@JsonClassifier' {} a -> s {creationTime = a} :: JsonClassifier) Prelude.. Lens.mapping Data._Time
 
 -- | The version of this classifier.
 jsonClassifier_version :: Lens.Lens' JsonClassifier (Prelude.Maybe Prelude.Integer)
@@ -98,17 +99,17 @@ jsonClassifier_name = Lens.lens (\JsonClassifier' {name} -> name) (\s@JsonClassi
 jsonClassifier_jsonPath :: Lens.Lens' JsonClassifier Prelude.Text
 jsonClassifier_jsonPath = Lens.lens (\JsonClassifier' {jsonPath} -> jsonPath) (\s@JsonClassifier' {} a -> s {jsonPath = a} :: JsonClassifier)
 
-instance Core.FromJSON JsonClassifier where
+instance Data.FromJSON JsonClassifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JsonClassifier"
       ( \x ->
           JsonClassifier'
-            Prelude.<$> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "JsonPath")
+            Prelude.<$> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "JsonPath")
       )
 
 instance Prelude.Hashable JsonClassifier where

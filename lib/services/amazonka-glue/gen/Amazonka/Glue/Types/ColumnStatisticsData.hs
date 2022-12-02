@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ColumnStatisticsData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.BinaryColumnStatisticsData
 import Amazonka.Glue.Types.BooleanColumnStatisticsData
 import Amazonka.Glue.Types.ColumnStatisticsType
@@ -127,20 +128,20 @@ columnStatisticsData_dateColumnStatisticsData = Lens.lens (\ColumnStatisticsData
 columnStatisticsData_type :: Lens.Lens' ColumnStatisticsData ColumnStatisticsType
 columnStatisticsData_type = Lens.lens (\ColumnStatisticsData' {type'} -> type') (\s@ColumnStatisticsData' {} a -> s {type' = a} :: ColumnStatisticsData)
 
-instance Core.FromJSON ColumnStatisticsData where
+instance Data.FromJSON ColumnStatisticsData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnStatisticsData"
       ( \x ->
           ColumnStatisticsData'
-            Prelude.<$> (x Core..:? "BinaryColumnStatisticsData")
-            Prelude.<*> (x Core..:? "DecimalColumnStatisticsData")
-            Prelude.<*> (x Core..:? "StringColumnStatisticsData")
-            Prelude.<*> (x Core..:? "BooleanColumnStatisticsData")
-            Prelude.<*> (x Core..:? "DoubleColumnStatisticsData")
-            Prelude.<*> (x Core..:? "LongColumnStatisticsData")
-            Prelude.<*> (x Core..:? "DateColumnStatisticsData")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "BinaryColumnStatisticsData")
+            Prelude.<*> (x Data..:? "DecimalColumnStatisticsData")
+            Prelude.<*> (x Data..:? "StringColumnStatisticsData")
+            Prelude.<*> (x Data..:? "BooleanColumnStatisticsData")
+            Prelude.<*> (x Data..:? "DoubleColumnStatisticsData")
+            Prelude.<*> (x Data..:? "LongColumnStatisticsData")
+            Prelude.<*> (x Data..:? "DateColumnStatisticsData")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable ColumnStatisticsData where
@@ -166,24 +167,24 @@ instance Prelude.NFData ColumnStatisticsData where
       `Prelude.seq` Prelude.rnf dateColumnStatisticsData
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON ColumnStatisticsData where
+instance Data.ToJSON ColumnStatisticsData where
   toJSON ColumnStatisticsData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BinaryColumnStatisticsData" Core..=)
+          [ ("BinaryColumnStatisticsData" Data..=)
               Prelude.<$> binaryColumnStatisticsData,
-            ("DecimalColumnStatisticsData" Core..=)
+            ("DecimalColumnStatisticsData" Data..=)
               Prelude.<$> decimalColumnStatisticsData,
-            ("StringColumnStatisticsData" Core..=)
+            ("StringColumnStatisticsData" Data..=)
               Prelude.<$> stringColumnStatisticsData,
-            ("BooleanColumnStatisticsData" Core..=)
+            ("BooleanColumnStatisticsData" Data..=)
               Prelude.<$> booleanColumnStatisticsData,
-            ("DoubleColumnStatisticsData" Core..=)
+            ("DoubleColumnStatisticsData" Data..=)
               Prelude.<$> doubleColumnStatisticsData,
-            ("LongColumnStatisticsData" Core..=)
+            ("LongColumnStatisticsData" Data..=)
               Prelude.<$> longColumnStatisticsData,
-            ("DateColumnStatisticsData" Core..=)
+            ("DateColumnStatisticsData" Data..=)
               Prelude.<$> dateColumnStatisticsData,
-            Prelude.Just ("Type" Core..= type')
+            Prelude.Just ("Type" Data..= type')
           ]
       )

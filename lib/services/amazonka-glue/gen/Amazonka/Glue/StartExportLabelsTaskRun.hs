@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest StartExportLabelsTaskRun where
     Response.receiveJSON
       ( \s h x ->
           StartExportLabelsTaskRunResponse'
-            Prelude.<$> (x Core..?> "TaskRunId")
+            Prelude.<$> (x Data..?> "TaskRunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,34 +124,34 @@ instance Prelude.NFData StartExportLabelsTaskRun where
     Prelude.rnf transformId
       `Prelude.seq` Prelude.rnf outputS3Path
 
-instance Core.ToHeaders StartExportLabelsTaskRun where
+instance Data.ToHeaders StartExportLabelsTaskRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.StartExportLabelsTaskRun" ::
+              Data.=# ( "AWSGlue.StartExportLabelsTaskRun" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartExportLabelsTaskRun where
+instance Data.ToJSON StartExportLabelsTaskRun where
   toJSON StartExportLabelsTaskRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TransformId" Core..= transformId),
-            Prelude.Just ("OutputS3Path" Core..= outputS3Path)
+          [ Prelude.Just ("TransformId" Data..= transformId),
+            Prelude.Just ("OutputS3Path" Data..= outputS3Path)
           ]
       )
 
-instance Core.ToPath StartExportLabelsTaskRun where
+instance Data.ToPath StartExportLabelsTaskRun where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartExportLabelsTaskRun where
+instance Data.ToQuery StartExportLabelsTaskRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartExportLabelsTaskRunResponse' smart constructor.

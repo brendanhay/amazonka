@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.S3CatalogTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CatalogSchemaChangePolicy
 import qualified Amazonka.Prelude as Prelude
 
@@ -108,18 +109,18 @@ s3CatalogTarget_table = Lens.lens (\S3CatalogTarget' {table} -> table) (\s@S3Cat
 s3CatalogTarget_database :: Lens.Lens' S3CatalogTarget Prelude.Text
 s3CatalogTarget_database = Lens.lens (\S3CatalogTarget' {database} -> database) (\s@S3CatalogTarget' {} a -> s {database = a} :: S3CatalogTarget)
 
-instance Core.FromJSON S3CatalogTarget where
+instance Data.FromJSON S3CatalogTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3CatalogTarget"
       ( \x ->
           S3CatalogTarget'
-            Prelude.<$> (x Core..:? "SchemaChangePolicy")
-            Prelude.<*> (x Core..:? "PartitionKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "Table")
-            Prelude.<*> (x Core..: "Database")
+            Prelude.<$> (x Data..:? "SchemaChangePolicy")
+            Prelude.<*> (x Data..:? "PartitionKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "Table")
+            Prelude.<*> (x Data..: "Database")
       )
 
 instance Prelude.Hashable S3CatalogTarget where
@@ -140,16 +141,16 @@ instance Prelude.NFData S3CatalogTarget where
       `Prelude.seq` Prelude.rnf table
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToJSON S3CatalogTarget where
+instance Data.ToJSON S3CatalogTarget where
   toJSON S3CatalogTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SchemaChangePolicy" Core..=)
+          [ ("SchemaChangePolicy" Data..=)
               Prelude.<$> schemaChangePolicy,
-            ("PartitionKeys" Core..=) Prelude.<$> partitionKeys,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Table" Core..= table),
-            Prelude.Just ("Database" Core..= database)
+            ("PartitionKeys" Data..=) Prelude.<$> partitionKeys,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Table" Data..= table),
+            Prelude.Just ("Database" Data..= database)
           ]
       )

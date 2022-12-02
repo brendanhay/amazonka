@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,37 +163,37 @@ instance Prelude.NFData UpdatePartition where
       `Prelude.seq` Prelude.rnf partitionValueList
       `Prelude.seq` Prelude.rnf partitionInput
 
-instance Core.ToHeaders UpdatePartition where
+instance Data.ToHeaders UpdatePartition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdatePartition" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.UpdatePartition" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePartition where
+instance Data.ToJSON UpdatePartition where
   toJSON UpdatePartition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just
-              ("PartitionValueList" Core..= partitionValueList),
+              ("PartitionValueList" Data..= partitionValueList),
             Prelude.Just
-              ("PartitionInput" Core..= partitionInput)
+              ("PartitionInput" Data..= partitionInput)
           ]
       )
 
-instance Core.ToPath UpdatePartition where
+instance Data.ToPath UpdatePartition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdatePartition where
+instance Data.ToQuery UpdatePartition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePartitionResponse' smart constructor.

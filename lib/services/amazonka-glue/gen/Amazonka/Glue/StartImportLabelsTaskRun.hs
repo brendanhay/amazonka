@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,7 +141,7 @@ instance Core.AWSRequest StartImportLabelsTaskRun where
     Response.receiveJSON
       ( \s h x ->
           StartImportLabelsTaskRunResponse'
-            Prelude.<$> (x Core..?> "TaskRunId")
+            Prelude.<$> (x Data..?> "TaskRunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,36 +157,36 @@ instance Prelude.NFData StartImportLabelsTaskRun where
       `Prelude.seq` Prelude.rnf transformId
       `Prelude.seq` Prelude.rnf inputS3Path
 
-instance Core.ToHeaders StartImportLabelsTaskRun where
+instance Data.ToHeaders StartImportLabelsTaskRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.StartImportLabelsTaskRun" ::
+              Data.=# ( "AWSGlue.StartImportLabelsTaskRun" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartImportLabelsTaskRun where
+instance Data.ToJSON StartImportLabelsTaskRun where
   toJSON StartImportLabelsTaskRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReplaceAllLabels" Core..=)
+          [ ("ReplaceAllLabels" Data..=)
               Prelude.<$> replaceAllLabels,
-            Prelude.Just ("TransformId" Core..= transformId),
-            Prelude.Just ("InputS3Path" Core..= inputS3Path)
+            Prelude.Just ("TransformId" Data..= transformId),
+            Prelude.Just ("InputS3Path" Data..= inputS3Path)
           ]
       )
 
-instance Core.ToPath StartImportLabelsTaskRun where
+instance Data.ToPath StartImportLabelsTaskRun where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartImportLabelsTaskRun where
+instance Data.ToQuery StartImportLabelsTaskRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartImportLabelsTaskRunResponse' smart constructor.

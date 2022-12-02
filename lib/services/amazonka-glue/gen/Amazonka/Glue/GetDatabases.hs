@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -155,9 +156,9 @@ instance Core.AWSRequest GetDatabases where
     Response.receiveJSON
       ( \s h x ->
           GetDatabasesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "DatabaseList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "DatabaseList" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetDatabases where
@@ -174,35 +175,35 @@ instance Prelude.NFData GetDatabases where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf catalogId
 
-instance Core.ToHeaders GetDatabases where
+instance Data.ToHeaders GetDatabases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetDatabases" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetDatabases" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDatabases where
+instance Data.ToJSON GetDatabases where
   toJSON GetDatabases' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ResourceShareType" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ResourceShareType" Data..=)
               Prelude.<$> resourceShareType,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CatalogId" Core..=) Prelude.<$> catalogId
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CatalogId" Data..=) Prelude.<$> catalogId
           ]
       )
 
-instance Core.ToPath GetDatabases where
+instance Data.ToPath GetDatabases where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDatabases where
+instance Data.ToQuery GetDatabases where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDatabasesResponse' smart constructor.

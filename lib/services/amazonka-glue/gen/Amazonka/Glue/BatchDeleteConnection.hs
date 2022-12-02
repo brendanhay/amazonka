@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,8 +98,8 @@ instance Core.AWSRequest BatchDeleteConnection where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteConnectionResponse'
-            Prelude.<$> (x Core..?> "Succeeded" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Succeeded" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,35 +113,35 @@ instance Prelude.NFData BatchDeleteConnection where
     Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf connectionNameList
 
-instance Core.ToHeaders BatchDeleteConnection where
+instance Data.ToHeaders BatchDeleteConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.BatchDeleteConnection" ::
+              Data.=# ( "AWSGlue.BatchDeleteConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDeleteConnection where
+instance Data.ToJSON BatchDeleteConnection where
   toJSON BatchDeleteConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
             Prelude.Just
-              ("ConnectionNameList" Core..= connectionNameList)
+              ("ConnectionNameList" Data..= connectionNameList)
           ]
       )
 
-instance Core.ToPath BatchDeleteConnection where
+instance Data.ToPath BatchDeleteConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDeleteConnection where
+instance Data.ToQuery BatchDeleteConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDeleteConnectionResponse' smart constructor.

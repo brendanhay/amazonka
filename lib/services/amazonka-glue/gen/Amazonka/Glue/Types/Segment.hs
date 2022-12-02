@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Segment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a non-overlapping region of a table\'s partitions, allowing
@@ -79,13 +80,13 @@ instance Prelude.NFData Segment where
     Prelude.rnf segmentNumber
       `Prelude.seq` Prelude.rnf totalSegments
 
-instance Core.ToJSON Segment where
+instance Data.ToJSON Segment where
   toJSON Segment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SegmentNumber" Core..= segmentNumber),
+              ("SegmentNumber" Data..= segmentNumber),
             Prelude.Just
-              ("TotalSegments" Core..= totalSegments)
+              ("TotalSegments" Data..= totalSegments)
           ]
       )

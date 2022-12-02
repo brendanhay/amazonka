@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Database where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.DatabaseIdentifier
 import Amazonka.Glue.Types.PrincipalPermissions
 import qualified Amazonka.Prelude as Prelude
@@ -40,7 +41,7 @@ data Database = Database'
     -- | The location of the database (for example, an HDFS path).
     locationUri :: Prelude.Maybe Prelude.Text,
     -- | The time at which the metadata database was created in the catalog.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | Creates a set of default permissions on the table for principals.
     createTableDefaultPermissions :: Prelude.Maybe [PrincipalPermissions],
     -- | These key-value pairs define parameters and properties of the database.
@@ -111,7 +112,7 @@ database_locationUri = Lens.lens (\Database' {locationUri} -> locationUri) (\s@D
 
 -- | The time at which the metadata database was created in the catalog.
 database_createTime :: Lens.Lens' Database (Prelude.Maybe Prelude.UTCTime)
-database_createTime = Lens.lens (\Database' {createTime} -> createTime) (\s@Database' {} a -> s {createTime = a} :: Database) Prelude.. Lens.mapping Core._Time
+database_createTime = Lens.lens (\Database' {createTime} -> createTime) (\s@Database' {} a -> s {createTime = a} :: Database) Prelude.. Lens.mapping Data._Time
 
 -- | Creates a set of default permissions on the table for principals.
 database_createTableDefaultPermissions :: Lens.Lens' Database (Prelude.Maybe [PrincipalPermissions])
@@ -126,22 +127,22 @@ database_parameters = Lens.lens (\Database' {parameters} -> parameters) (\s@Data
 database_name :: Lens.Lens' Database Prelude.Text
 database_name = Lens.lens (\Database' {name} -> name) (\s@Database' {} a -> s {name = a} :: Database)
 
-instance Core.FromJSON Database where
+instance Data.FromJSON Database where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Database"
       ( \x ->
           Database'
-            Prelude.<$> (x Core..:? "TargetDatabase")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..:? "LocationUri")
-            Prelude.<*> (x Core..:? "CreateTime")
-            Prelude.<*> ( x Core..:? "CreateTableDefaultPermissions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "TargetDatabase")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..:? "LocationUri")
+            Prelude.<*> (x Data..:? "CreateTime")
+            Prelude.<*> ( x Data..:? "CreateTableDefaultPermissions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Database where

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CatalogKafkaSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.KafkaStreamingSourceOptions
 import Amazonka.Glue.Types.StreamingDataPreviewOptions
 import qualified Amazonka.Prelude as Prelude
@@ -117,19 +118,19 @@ catalogKafkaSource_table = Lens.lens (\CatalogKafkaSource' {table} -> table) (\s
 catalogKafkaSource_database :: Lens.Lens' CatalogKafkaSource Prelude.Text
 catalogKafkaSource_database = Lens.lens (\CatalogKafkaSource' {database} -> database) (\s@CatalogKafkaSource' {} a -> s {database = a} :: CatalogKafkaSource)
 
-instance Core.FromJSON CatalogKafkaSource where
+instance Data.FromJSON CatalogKafkaSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CatalogKafkaSource"
       ( \x ->
           CatalogKafkaSource'
-            Prelude.<$> (x Core..:? "WindowSize")
-            Prelude.<*> (x Core..:? "StreamingOptions")
-            Prelude.<*> (x Core..:? "DetectSchema")
-            Prelude.<*> (x Core..:? "DataPreviewOptions")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Table")
-            Prelude.<*> (x Core..: "Database")
+            Prelude.<$> (x Data..:? "WindowSize")
+            Prelude.<*> (x Data..:? "StreamingOptions")
+            Prelude.<*> (x Data..:? "DetectSchema")
+            Prelude.<*> (x Data..:? "DataPreviewOptions")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Table")
+            Prelude.<*> (x Data..: "Database")
       )
 
 instance Prelude.Hashable CatalogKafkaSource where
@@ -152,18 +153,18 @@ instance Prelude.NFData CatalogKafkaSource where
       `Prelude.seq` Prelude.rnf table
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToJSON CatalogKafkaSource where
+instance Data.ToJSON CatalogKafkaSource where
   toJSON CatalogKafkaSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WindowSize" Core..=) Prelude.<$> windowSize,
-            ("StreamingOptions" Core..=)
+          [ ("WindowSize" Data..=) Prelude.<$> windowSize,
+            ("StreamingOptions" Data..=)
               Prelude.<$> streamingOptions,
-            ("DetectSchema" Core..=) Prelude.<$> detectSchema,
-            ("DataPreviewOptions" Core..=)
+            ("DetectSchema" Data..=) Prelude.<$> detectSchema,
+            ("DataPreviewOptions" Data..=)
               Prelude.<$> dataPreviewOptions,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Table" Core..= table),
-            Prelude.Just ("Database" Core..= database)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Table" Data..= table),
+            Prelude.Just ("Database" Data..= database)
           ]
       )

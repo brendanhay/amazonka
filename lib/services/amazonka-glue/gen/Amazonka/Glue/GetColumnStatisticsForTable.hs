@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,10 +128,10 @@ instance Core.AWSRequest GetColumnStatisticsForTable where
     Response.receiveJSON
       ( \s h x ->
           GetColumnStatisticsForTableResponse'
-            Prelude.<$> ( x Core..?> "ColumnStatisticsList"
+            Prelude.<$> ( x Data..?> "ColumnStatisticsList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,36 +149,36 @@ instance Prelude.NFData GetColumnStatisticsForTable where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf columnNames
 
-instance Core.ToHeaders GetColumnStatisticsForTable where
+instance Data.ToHeaders GetColumnStatisticsForTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.GetColumnStatisticsForTable" ::
+              Data.=# ( "AWSGlue.GetColumnStatisticsForTable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetColumnStatisticsForTable where
+instance Data.ToJSON GetColumnStatisticsForTable where
   toJSON GetColumnStatisticsForTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("ColumnNames" Core..= columnNames)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("ColumnNames" Data..= columnNames)
           ]
       )
 
-instance Core.ToPath GetColumnStatisticsForTable where
+instance Data.ToPath GetColumnStatisticsForTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetColumnStatisticsForTable where
+instance Data.ToQuery GetColumnStatisticsForTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetColumnStatisticsForTableResponse' smart constructor.

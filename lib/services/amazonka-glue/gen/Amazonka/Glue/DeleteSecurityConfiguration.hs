@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,32 +94,32 @@ instance Prelude.NFData DeleteSecurityConfiguration where
   rnf DeleteSecurityConfiguration' {..} =
     Prelude.rnf name
 
-instance Core.ToHeaders DeleteSecurityConfiguration where
+instance Data.ToHeaders DeleteSecurityConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.DeleteSecurityConfiguration" ::
+              Data.=# ( "AWSGlue.DeleteSecurityConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSecurityConfiguration where
+instance Data.ToJSON DeleteSecurityConfiguration where
   toJSON DeleteSecurityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteSecurityConfiguration where
+instance Data.ToPath DeleteSecurityConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSecurityConfiguration where
+instance Data.ToQuery DeleteSecurityConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSecurityConfigurationResponse' smart constructor.

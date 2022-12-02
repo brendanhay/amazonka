@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DirectSchemaChangePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.UpdateCatalogBehavior
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,16 +88,16 @@ directSchemaChangePolicy_enableUpdateCatalog = Lens.lens (\DirectSchemaChangePol
 directSchemaChangePolicy_table :: Lens.Lens' DirectSchemaChangePolicy (Prelude.Maybe Prelude.Text)
 directSchemaChangePolicy_table = Lens.lens (\DirectSchemaChangePolicy' {table} -> table) (\s@DirectSchemaChangePolicy' {} a -> s {table = a} :: DirectSchemaChangePolicy)
 
-instance Core.FromJSON DirectSchemaChangePolicy where
+instance Data.FromJSON DirectSchemaChangePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DirectSchemaChangePolicy"
       ( \x ->
           DirectSchemaChangePolicy'
-            Prelude.<$> (x Core..:? "Database")
-            Prelude.<*> (x Core..:? "UpdateBehavior")
-            Prelude.<*> (x Core..:? "EnableUpdateCatalog")
-            Prelude.<*> (x Core..:? "Table")
+            Prelude.<$> (x Data..:? "Database")
+            Prelude.<*> (x Data..:? "UpdateBehavior")
+            Prelude.<*> (x Data..:? "EnableUpdateCatalog")
+            Prelude.<*> (x Data..:? "Table")
       )
 
 instance Prelude.Hashable DirectSchemaChangePolicy where
@@ -113,15 +114,15 @@ instance Prelude.NFData DirectSchemaChangePolicy where
       `Prelude.seq` Prelude.rnf enableUpdateCatalog
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON DirectSchemaChangePolicy where
+instance Data.ToJSON DirectSchemaChangePolicy where
   toJSON DirectSchemaChangePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Database" Core..=) Prelude.<$> database,
-            ("UpdateBehavior" Core..=)
+          [ ("Database" Data..=) Prelude.<$> database,
+            ("UpdateBehavior" Data..=)
               Prelude.<$> updateBehavior,
-            ("EnableUpdateCatalog" Core..=)
+            ("EnableUpdateCatalog" Data..=)
               Prelude.<$> enableUpdateCatalog,
-            ("Table" Core..=) Prelude.<$> table
+            ("Table" Data..=) Prelude.<$> table
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SelectFields where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that chooses the data property keys that you want
@@ -75,15 +76,15 @@ selectFields_inputs = Lens.lens (\SelectFields' {inputs} -> inputs) (\s@SelectFi
 selectFields_paths :: Lens.Lens' SelectFields [[Prelude.Text]]
 selectFields_paths = Lens.lens (\SelectFields' {paths} -> paths) (\s@SelectFields' {} a -> s {paths = a} :: SelectFields) Prelude.. Lens.coerced
 
-instance Core.FromJSON SelectFields where
+instance Data.FromJSON SelectFields where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SelectFields"
       ( \x ->
           SelectFields'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..:? "Paths" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..:? "Paths" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SelectFields where
@@ -98,12 +99,12 @@ instance Prelude.NFData SelectFields where
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf paths
 
-instance Core.ToJSON SelectFields where
+instance Data.ToJSON SelectFields where
   toJSON SelectFields' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Paths" Core..= paths)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Paths" Data..= paths)
           ]
       )

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,8 +90,8 @@ instance Core.AWSRequest BatchGetTriggers where
     Response.receiveJSON
       ( \s h x ->
           BatchGetTriggersResponse'
-            Prelude.<$> (x Core..?> "Triggers" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "TriggersNotFound"
+            Prelude.<$> (x Data..?> "Triggers" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "TriggersNotFound"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -103,30 +104,30 @@ instance Prelude.Hashable BatchGetTriggers where
 instance Prelude.NFData BatchGetTriggers where
   rnf BatchGetTriggers' {..} = Prelude.rnf triggerNames
 
-instance Core.ToHeaders BatchGetTriggers where
+instance Data.ToHeaders BatchGetTriggers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.BatchGetTriggers" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.BatchGetTriggers" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetTriggers where
+instance Data.ToJSON BatchGetTriggers where
   toJSON BatchGetTriggers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TriggerNames" Core..= triggerNames)]
+          [Prelude.Just ("TriggerNames" Data..= triggerNames)]
       )
 
-instance Core.ToPath BatchGetTriggers where
+instance Data.ToPath BatchGetTriggers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetTriggers where
+instance Data.ToQuery BatchGetTriggers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetTriggersResponse' smart constructor.

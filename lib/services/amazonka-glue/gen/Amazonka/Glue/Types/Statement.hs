@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Statement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.StatementOutput
 import Amazonka.Glue.Types.StatementState
 import qualified Amazonka.Prelude as Prelude
@@ -108,19 +109,19 @@ statement_completedOn = Lens.lens (\Statement' {completedOn} -> completedOn) (\s
 statement_output :: Lens.Lens' Statement (Prelude.Maybe StatementOutput)
 statement_output = Lens.lens (\Statement' {output} -> output) (\s@Statement' {} a -> s {output = a} :: Statement)
 
-instance Core.FromJSON Statement where
+instance Data.FromJSON Statement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Statement"
       ( \x ->
           Statement'
-            Prelude.<$> (x Core..:? "Progress")
-            Prelude.<*> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "StartedOn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CompletedOn")
-            Prelude.<*> (x Core..:? "Output")
+            Prelude.<$> (x Data..:? "Progress")
+            Prelude.<*> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "StartedOn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CompletedOn")
+            Prelude.<*> (x Data..:? "Output")
       )
 
 instance Prelude.Hashable Statement where

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,8 +113,8 @@ instance Core.AWSRequest ListDevEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListDevEndpointsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DevEndpointNames"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DevEndpointNames"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -131,33 +132,33 @@ instance Prelude.NFData ListDevEndpoints where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListDevEndpoints where
+instance Data.ToHeaders ListDevEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.ListDevEndpoints" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.ListDevEndpoints" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDevEndpoints where
+instance Data.ToJSON ListDevEndpoints where
   toJSON ListDevEndpoints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListDevEndpoints where
+instance Data.ToPath ListDevEndpoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDevEndpoints where
+instance Data.ToQuery ListDevEndpoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDevEndpointsResponse' smart constructor.

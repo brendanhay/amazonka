@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest BatchDeletePartition where
     Response.receiveJSON
       ( \s h x ->
           BatchDeletePartitionResponse'
-            Prelude.<$> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,37 +142,37 @@ instance Prelude.NFData BatchDeletePartition where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf partitionsToDelete
 
-instance Core.ToHeaders BatchDeletePartition where
+instance Data.ToHeaders BatchDeletePartition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.BatchDeletePartition" ::
+              Data.=# ( "AWSGlue.BatchDeletePartition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDeletePartition where
+instance Data.ToJSON BatchDeletePartition where
   toJSON BatchDeletePartition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just
-              ("PartitionsToDelete" Core..= partitionsToDelete)
+              ("PartitionsToDelete" Data..= partitionsToDelete)
           ]
       )
 
-instance Core.ToPath BatchDeletePartition where
+instance Data.ToPath BatchDeletePartition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDeletePartition where
+instance Data.ToQuery BatchDeletePartition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDeletePartitionResponse' smart constructor.

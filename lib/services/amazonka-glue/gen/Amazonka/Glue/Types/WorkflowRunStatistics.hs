@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.WorkflowRunStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Workflow run statistics provides statistics about the workflow run.
@@ -116,20 +117,20 @@ workflowRunStatistics_runningActions = Lens.lens (\WorkflowRunStatistics' {runni
 workflowRunStatistics_erroredActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
 workflowRunStatistics_erroredActions = Lens.lens (\WorkflowRunStatistics' {erroredActions} -> erroredActions) (\s@WorkflowRunStatistics' {} a -> s {erroredActions = a} :: WorkflowRunStatistics)
 
-instance Core.FromJSON WorkflowRunStatistics where
+instance Data.FromJSON WorkflowRunStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowRunStatistics"
       ( \x ->
           WorkflowRunStatistics'
-            Prelude.<$> (x Core..:? "TimeoutActions")
-            Prelude.<*> (x Core..:? "WaitingActions")
-            Prelude.<*> (x Core..:? "SucceededActions")
-            Prelude.<*> (x Core..:? "TotalActions")
-            Prelude.<*> (x Core..:? "StoppedActions")
-            Prelude.<*> (x Core..:? "FailedActions")
-            Prelude.<*> (x Core..:? "RunningActions")
-            Prelude.<*> (x Core..:? "ErroredActions")
+            Prelude.<$> (x Data..:? "TimeoutActions")
+            Prelude.<*> (x Data..:? "WaitingActions")
+            Prelude.<*> (x Data..:? "SucceededActions")
+            Prelude.<*> (x Data..:? "TotalActions")
+            Prelude.<*> (x Data..:? "StoppedActions")
+            Prelude.<*> (x Data..:? "FailedActions")
+            Prelude.<*> (x Data..:? "RunningActions")
+            Prelude.<*> (x Data..:? "ErroredActions")
       )
 
 instance Prelude.Hashable WorkflowRunStatistics where

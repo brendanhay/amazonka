@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,7 +153,7 @@ instance Core.AWSRequest GetSchemaVersionsDiff where
     Response.receiveJSON
       ( \s h x ->
           GetSchemaVersionsDiffResponse'
-            Prelude.<$> (x Core..?> "Diff")
+            Prelude.<$> (x Data..?> "Diff")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,43 +171,43 @@ instance Prelude.NFData GetSchemaVersionsDiff where
       `Prelude.seq` Prelude.rnf secondSchemaVersionNumber
       `Prelude.seq` Prelude.rnf schemaDiffType
 
-instance Core.ToHeaders GetSchemaVersionsDiff where
+instance Data.ToHeaders GetSchemaVersionsDiff where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.GetSchemaVersionsDiff" ::
+              Data.=# ( "AWSGlue.GetSchemaVersionsDiff" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSchemaVersionsDiff where
+instance Data.ToJSON GetSchemaVersionsDiff where
   toJSON GetSchemaVersionsDiff' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SchemaId" Core..= schemaId),
+          [ Prelude.Just ("SchemaId" Data..= schemaId),
             Prelude.Just
               ( "FirstSchemaVersionNumber"
-                  Core..= firstSchemaVersionNumber
+                  Data..= firstSchemaVersionNumber
               ),
             Prelude.Just
               ( "SecondSchemaVersionNumber"
-                  Core..= secondSchemaVersionNumber
+                  Data..= secondSchemaVersionNumber
               ),
             Prelude.Just
-              ("SchemaDiffType" Core..= schemaDiffType)
+              ("SchemaDiffType" Data..= schemaDiffType)
           ]
       )
 
-instance Core.ToPath GetSchemaVersionsDiff where
+instance Data.ToPath GetSchemaVersionsDiff where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSchemaVersionsDiff where
+instance Data.ToQuery GetSchemaVersionsDiff where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSchemaVersionsDiffResponse' smart constructor.

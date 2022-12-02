@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,14 +128,14 @@ instance Core.AWSRequest RemoveSchemaVersionMetadata where
     Response.receiveJSON
       ( \s h x ->
           RemoveSchemaVersionMetadataResponse'
-            Prelude.<$> (x Core..?> "RegistryName")
-            Prelude.<*> (x Core..?> "SchemaName")
-            Prelude.<*> (x Core..?> "LatestVersion")
-            Prelude.<*> (x Core..?> "MetadataValue")
-            Prelude.<*> (x Core..?> "SchemaArn")
-            Prelude.<*> (x Core..?> "VersionNumber")
-            Prelude.<*> (x Core..?> "MetadataKey")
-            Prelude.<*> (x Core..?> "SchemaVersionId")
+            Prelude.<$> (x Data..?> "RegistryName")
+            Prelude.<*> (x Data..?> "SchemaName")
+            Prelude.<*> (x Data..?> "LatestVersion")
+            Prelude.<*> (x Data..?> "MetadataValue")
+            Prelude.<*> (x Data..?> "SchemaArn")
+            Prelude.<*> (x Data..?> "VersionNumber")
+            Prelude.<*> (x Data..?> "MetadataKey")
+            Prelude.<*> (x Data..?> "SchemaVersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,39 +153,39 @@ instance Prelude.NFData RemoveSchemaVersionMetadata where
       `Prelude.seq` Prelude.rnf schemaId
       `Prelude.seq` Prelude.rnf metadataKeyValue
 
-instance Core.ToHeaders RemoveSchemaVersionMetadata where
+instance Data.ToHeaders RemoveSchemaVersionMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.RemoveSchemaVersionMetadata" ::
+              Data.=# ( "AWSGlue.RemoveSchemaVersionMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveSchemaVersionMetadata where
+instance Data.ToJSON RemoveSchemaVersionMetadata where
   toJSON RemoveSchemaVersionMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SchemaVersionNumber" Core..=)
+          [ ("SchemaVersionNumber" Data..=)
               Prelude.<$> schemaVersionNumber,
-            ("SchemaVersionId" Core..=)
+            ("SchemaVersionId" Data..=)
               Prelude.<$> schemaVersionId,
-            ("SchemaId" Core..=) Prelude.<$> schemaId,
+            ("SchemaId" Data..=) Prelude.<$> schemaId,
             Prelude.Just
-              ("MetadataKeyValue" Core..= metadataKeyValue)
+              ("MetadataKeyValue" Data..= metadataKeyValue)
           ]
       )
 
-instance Core.ToPath RemoveSchemaVersionMetadata where
+instance Data.ToPath RemoveSchemaVersionMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveSchemaVersionMetadata where
+instance Data.ToQuery RemoveSchemaVersionMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveSchemaVersionMetadataResponse' smart constructor.

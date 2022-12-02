@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,9 +146,9 @@ instance Core.AWSRequest QuerySchemaVersionMetadata where
     Response.receiveJSON
       ( \s h x ->
           QuerySchemaVersionMetadataResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SchemaVersionId")
-            Prelude.<*> ( x Core..?> "MetadataInfoMap"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SchemaVersionId")
+            Prelude.<*> ( x Data..?> "MetadataInfoMap"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -171,40 +172,40 @@ instance Prelude.NFData QuerySchemaVersionMetadata where
       `Prelude.seq` Prelude.rnf schemaVersionId
       `Prelude.seq` Prelude.rnf schemaId
 
-instance Core.ToHeaders QuerySchemaVersionMetadata where
+instance Data.ToHeaders QuerySchemaVersionMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.QuerySchemaVersionMetadata" ::
+              Data.=# ( "AWSGlue.QuerySchemaVersionMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON QuerySchemaVersionMetadata where
+instance Data.ToJSON QuerySchemaVersionMetadata where
   toJSON QuerySchemaVersionMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SchemaVersionNumber" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("SchemaVersionNumber" Data..=)
               Prelude.<$> schemaVersionNumber,
-            ("MetadataList" Core..=) Prelude.<$> metadataList,
-            ("SchemaVersionId" Core..=)
+            ("MetadataList" Data..=) Prelude.<$> metadataList,
+            ("SchemaVersionId" Data..=)
               Prelude.<$> schemaVersionId,
-            ("SchemaId" Core..=) Prelude.<$> schemaId
+            ("SchemaId" Data..=) Prelude.<$> schemaId
           ]
       )
 
-instance Core.ToPath QuerySchemaVersionMetadata where
+instance Data.ToPath QuerySchemaVersionMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery QuerySchemaVersionMetadata where
+instance Data.ToQuery QuerySchemaVersionMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newQuerySchemaVersionMetadataResponse' smart constructor.

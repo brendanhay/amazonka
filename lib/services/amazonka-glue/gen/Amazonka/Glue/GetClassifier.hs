@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetClassifier where
     Response.receiveJSON
       ( \s h x ->
           GetClassifierResponse'
-            Prelude.<$> (x Core..?> "Classifier")
+            Prelude.<$> (x Data..?> "Classifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,30 +95,30 @@ instance Prelude.Hashable GetClassifier where
 instance Prelude.NFData GetClassifier where
   rnf GetClassifier' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetClassifier where
+instance Data.ToHeaders GetClassifier where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetClassifier" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetClassifier" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetClassifier where
+instance Data.ToJSON GetClassifier where
   toJSON GetClassifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath GetClassifier where
+instance Data.ToPath GetClassifier where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetClassifier where
+instance Data.ToQuery GetClassifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetClassifierResponse' smart constructor.

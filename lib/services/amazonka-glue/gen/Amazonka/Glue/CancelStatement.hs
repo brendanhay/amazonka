@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,33 +122,33 @@ instance Prelude.NFData CancelStatement where
       `Prelude.seq` Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders CancelStatement where
+instance Data.ToHeaders CancelStatement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CancelStatement" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.CancelStatement" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelStatement where
+instance Data.ToJSON CancelStatement where
   toJSON CancelStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RequestOrigin" Core..=) Prelude.<$> requestOrigin,
-            Prelude.Just ("SessionId" Core..= sessionId),
-            Prelude.Just ("Id" Core..= id)
+          [ ("RequestOrigin" Data..=) Prelude.<$> requestOrigin,
+            Prelude.Just ("SessionId" Data..= sessionId),
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath CancelStatement where
+instance Data.ToPath CancelStatement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelStatement where
+instance Data.ToQuery CancelStatement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelStatementResponse' smart constructor.

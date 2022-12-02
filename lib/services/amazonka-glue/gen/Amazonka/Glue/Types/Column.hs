@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Column where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A column in a @Table@.
@@ -81,16 +82,16 @@ column_parameters = Lens.lens (\Column' {parameters} -> parameters) (\s@Column' 
 column_name :: Lens.Lens' Column Prelude.Text
 column_name = Lens.lens (\Column' {name} -> name) (\s@Column' {} a -> s {name = a} :: Column)
 
-instance Core.FromJSON Column where
+instance Data.FromJSON Column where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Column"
       ( \x ->
           Column'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Comment")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Comment")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Column where
@@ -107,13 +108,13 @@ instance Prelude.NFData Column where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON Column where
+instance Data.ToJSON Column where
   toJSON Column' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Comment" Core..=) Prelude.<$> comment,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Name" Core..= name)
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Comment" Data..=) Prelude.<$> comment,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

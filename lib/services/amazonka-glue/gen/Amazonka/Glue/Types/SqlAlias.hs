@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SqlAlias where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a single entry in the list of values for @SqlAliases@.
@@ -62,13 +63,13 @@ sqlAlias_from = Lens.lens (\SqlAlias' {from} -> from) (\s@SqlAlias' {} a -> s {f
 sqlAlias_alias :: Lens.Lens' SqlAlias Prelude.Text
 sqlAlias_alias = Lens.lens (\SqlAlias' {alias} -> alias) (\s@SqlAlias' {} a -> s {alias = a} :: SqlAlias)
 
-instance Core.FromJSON SqlAlias where
+instance Data.FromJSON SqlAlias where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SqlAlias"
       ( \x ->
           SqlAlias'
-            Prelude.<$> (x Core..: "From") Prelude.<*> (x Core..: "Alias")
+            Prelude.<$> (x Data..: "From") Prelude.<*> (x Data..: "Alias")
       )
 
 instance Prelude.Hashable SqlAlias where
@@ -80,11 +81,11 @@ instance Prelude.NFData SqlAlias where
   rnf SqlAlias' {..} =
     Prelude.rnf from `Prelude.seq` Prelude.rnf alias
 
-instance Core.ToJSON SqlAlias where
+instance Data.ToJSON SqlAlias where
   toJSON SqlAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("From" Core..= from),
-            Prelude.Just ("Alias" Core..= alias)
+          [ Prelude.Just ("From" Data..= from),
+            Prelude.Just ("Alias" Data..= alias)
           ]
       )

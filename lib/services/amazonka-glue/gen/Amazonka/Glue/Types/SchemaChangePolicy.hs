@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SchemaChangePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.DeleteBehavior
 import Amazonka.Glue.Types.UpdateBehavior
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ schemaChangePolicy_updateBehavior = Lens.lens (\SchemaChangePolicy' {updateBehav
 schemaChangePolicy_deleteBehavior :: Lens.Lens' SchemaChangePolicy (Prelude.Maybe DeleteBehavior)
 schemaChangePolicy_deleteBehavior = Lens.lens (\SchemaChangePolicy' {deleteBehavior} -> deleteBehavior) (\s@SchemaChangePolicy' {} a -> s {deleteBehavior = a} :: SchemaChangePolicy)
 
-instance Core.FromJSON SchemaChangePolicy where
+instance Data.FromJSON SchemaChangePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaChangePolicy"
       ( \x ->
           SchemaChangePolicy'
-            Prelude.<$> (x Core..:? "UpdateBehavior")
-            Prelude.<*> (x Core..:? "DeleteBehavior")
+            Prelude.<$> (x Data..:? "UpdateBehavior")
+            Prelude.<*> (x Data..:? "DeleteBehavior")
       )
 
 instance Prelude.Hashable SchemaChangePolicy where
@@ -84,13 +85,13 @@ instance Prelude.NFData SchemaChangePolicy where
     Prelude.rnf updateBehavior
       `Prelude.seq` Prelude.rnf deleteBehavior
 
-instance Core.ToJSON SchemaChangePolicy where
+instance Data.ToJSON SchemaChangePolicy where
   toJSON SchemaChangePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpdateBehavior" Core..=)
+          [ ("UpdateBehavior" Data..=)
               Prelude.<$> updateBehavior,
-            ("DeleteBehavior" Core..=)
+            ("DeleteBehavior" Data..=)
               Prelude.<$> deleteBehavior
           ]
       )

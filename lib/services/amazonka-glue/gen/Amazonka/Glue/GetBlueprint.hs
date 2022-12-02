@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest GetBlueprint where
     Response.receiveJSON
       ( \s h x ->
           GetBlueprintResponse'
-            Prelude.<$> (x Core..?> "Blueprint")
+            Prelude.<$> (x Data..?> "Blueprint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,35 +120,35 @@ instance Prelude.NFData GetBlueprint where
       `Prelude.seq` Prelude.rnf includeParameterSpec
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders GetBlueprint where
+instance Data.ToHeaders GetBlueprint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetBlueprint" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetBlueprint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetBlueprint where
+instance Data.ToJSON GetBlueprint where
   toJSON GetBlueprint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IncludeBlueprint" Core..=)
+          [ ("IncludeBlueprint" Data..=)
               Prelude.<$> includeBlueprint,
-            ("IncludeParameterSpec" Core..=)
+            ("IncludeParameterSpec" Data..=)
               Prelude.<$> includeParameterSpec,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath GetBlueprint where
+instance Data.ToPath GetBlueprint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetBlueprint where
+instance Data.ToQuery GetBlueprint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBlueprintResponse' smart constructor.

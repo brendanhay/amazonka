@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SchemaVersionListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.SchemaVersionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,17 +91,17 @@ schemaVersionListItem_versionNumber = Lens.lens (\SchemaVersionListItem' {versio
 schemaVersionListItem_schemaVersionId :: Lens.Lens' SchemaVersionListItem (Prelude.Maybe Prelude.Text)
 schemaVersionListItem_schemaVersionId = Lens.lens (\SchemaVersionListItem' {schemaVersionId} -> schemaVersionId) (\s@SchemaVersionListItem' {} a -> s {schemaVersionId = a} :: SchemaVersionListItem)
 
-instance Core.FromJSON SchemaVersionListItem where
+instance Data.FromJSON SchemaVersionListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaVersionListItem"
       ( \x ->
           SchemaVersionListItem'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "SchemaArn")
-            Prelude.<*> (x Core..:? "VersionNumber")
-            Prelude.<*> (x Core..:? "SchemaVersionId")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SchemaArn")
+            Prelude.<*> (x Data..:? "VersionNumber")
+            Prelude.<*> (x Data..:? "SchemaVersionId")
       )
 
 instance Prelude.Hashable SchemaVersionListItem where

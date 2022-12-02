@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DropDuplicates where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that removes rows of repeating data from a data
@@ -75,15 +76,15 @@ dropDuplicates_name = Lens.lens (\DropDuplicates' {name} -> name) (\s@DropDuplic
 dropDuplicates_inputs :: Lens.Lens' DropDuplicates (Prelude.NonEmpty Prelude.Text)
 dropDuplicates_inputs = Lens.lens (\DropDuplicates' {inputs} -> inputs) (\s@DropDuplicates' {} a -> s {inputs = a} :: DropDuplicates) Prelude.. Lens.coerced
 
-instance Core.FromJSON DropDuplicates where
+instance Data.FromJSON DropDuplicates where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DropDuplicates"
       ( \x ->
           DropDuplicates'
-            Prelude.<$> (x Core..:? "Columns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
+            Prelude.<$> (x Data..:? "Columns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
       )
 
 instance Prelude.Hashable DropDuplicates where
@@ -98,12 +99,12 @@ instance Prelude.NFData DropDuplicates where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf inputs
 
-instance Core.ToJSON DropDuplicates where
+instance Data.ToJSON DropDuplicates where
   toJSON DropDuplicates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Columns" Core..=) Prelude.<$> columns,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs)
+          [ ("Columns" Data..=) Prelude.<$> columns,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs)
           ]
       )

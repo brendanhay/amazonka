@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.JobBookmarkEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a point that a job can resume processing.
@@ -106,19 +107,19 @@ jobBookmarkEntry_runId = Lens.lens (\JobBookmarkEntry' {runId} -> runId) (\s@Job
 jobBookmarkEntry_version :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Int)
 jobBookmarkEntry_version = Lens.lens (\JobBookmarkEntry' {version} -> version) (\s@JobBookmarkEntry' {} a -> s {version = a} :: JobBookmarkEntry)
 
-instance Core.FromJSON JobBookmarkEntry where
+instance Data.FromJSON JobBookmarkEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobBookmarkEntry"
       ( \x ->
           JobBookmarkEntry'
-            Prelude.<$> (x Core..:? "Attempt")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "PreviousRunId")
-            Prelude.<*> (x Core..:? "JobBookmark")
-            Prelude.<*> (x Core..:? "Run")
-            Prelude.<*> (x Core..:? "RunId")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "Attempt")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "PreviousRunId")
+            Prelude.<*> (x Data..:? "JobBookmark")
+            Prelude.<*> (x Data..:? "Run")
+            Prelude.<*> (x Data..:? "RunId")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable JobBookmarkEntry where

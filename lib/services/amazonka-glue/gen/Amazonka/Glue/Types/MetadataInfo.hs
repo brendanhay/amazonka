@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.MetadataInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.OtherMetadataValueListItem
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,16 +72,16 @@ metadataInfo_metadataValue = Lens.lens (\MetadataInfo' {metadataValue} -> metada
 metadataInfo_otherMetadataValueList :: Lens.Lens' MetadataInfo (Prelude.Maybe [OtherMetadataValueListItem])
 metadataInfo_otherMetadataValueList = Lens.lens (\MetadataInfo' {otherMetadataValueList} -> otherMetadataValueList) (\s@MetadataInfo' {} a -> s {otherMetadataValueList = a} :: MetadataInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON MetadataInfo where
+instance Data.FromJSON MetadataInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetadataInfo"
       ( \x ->
           MetadataInfo'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "MetadataValue")
-            Prelude.<*> ( x Core..:? "OtherMetadataValueList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "MetadataValue")
+            Prelude.<*> ( x Data..:? "OtherMetadataValueList"
+                            Data..!= Prelude.mempty
                         )
       )
 

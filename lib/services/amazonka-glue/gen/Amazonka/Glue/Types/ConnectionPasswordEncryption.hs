@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ConnectionPasswordEncryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data structure used by the Data Catalog to encrypt the password as
@@ -112,14 +113,14 @@ connectionPasswordEncryption_awsKmsKeyId = Lens.lens (\ConnectionPasswordEncrypt
 connectionPasswordEncryption_returnConnectionPasswordEncrypted :: Lens.Lens' ConnectionPasswordEncryption Prelude.Bool
 connectionPasswordEncryption_returnConnectionPasswordEncrypted = Lens.lens (\ConnectionPasswordEncryption' {returnConnectionPasswordEncrypted} -> returnConnectionPasswordEncrypted) (\s@ConnectionPasswordEncryption' {} a -> s {returnConnectionPasswordEncrypted = a} :: ConnectionPasswordEncryption)
 
-instance Core.FromJSON ConnectionPasswordEncryption where
+instance Data.FromJSON ConnectionPasswordEncryption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionPasswordEncryption"
       ( \x ->
           ConnectionPasswordEncryption'
-            Prelude.<$> (x Core..:? "AwsKmsKeyId")
-            Prelude.<*> (x Core..: "ReturnConnectionPasswordEncrypted")
+            Prelude.<$> (x Data..:? "AwsKmsKeyId")
+            Prelude.<*> (x Data..: "ReturnConnectionPasswordEncrypted")
       )
 
 instance
@@ -135,14 +136,14 @@ instance Prelude.NFData ConnectionPasswordEncryption where
     Prelude.rnf awsKmsKeyId
       `Prelude.seq` Prelude.rnf returnConnectionPasswordEncrypted
 
-instance Core.ToJSON ConnectionPasswordEncryption where
+instance Data.ToJSON ConnectionPasswordEncryption where
   toJSON ConnectionPasswordEncryption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AwsKmsKeyId" Core..=) Prelude.<$> awsKmsKeyId,
+          [ ("AwsKmsKeyId" Data..=) Prelude.<$> awsKmsKeyId,
             Prelude.Just
               ( "ReturnConnectionPasswordEncrypted"
-                  Core..= returnConnectionPasswordEncrypted
+                  Data..= returnConnectionPasswordEncrypted
               )
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Union where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.UnionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,15 +97,15 @@ union_inputs = Lens.lens (\Union' {inputs} -> inputs) (\s@Union' {} a -> s {inpu
 union_unionType :: Lens.Lens' Union UnionType
 union_unionType = Lens.lens (\Union' {unionType} -> unionType) (\s@Union' {} a -> s {unionType = a} :: Union)
 
-instance Core.FromJSON Union where
+instance Data.FromJSON Union where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Union"
       ( \x ->
           Union'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "UnionType")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "UnionType")
       )
 
 instance Prelude.Hashable Union where
@@ -119,12 +120,12 @@ instance Prelude.NFData Union where
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf unionType
 
-instance Core.ToJSON Union where
+instance Data.ToJSON Union where
   toJSON Union' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("UnionType" Core..= unionType)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("UnionType" Data..= unionType)
           ]
       )

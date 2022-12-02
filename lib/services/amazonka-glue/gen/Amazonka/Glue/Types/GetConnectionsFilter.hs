@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.GetConnectionsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ConnectionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,12 +78,12 @@ instance Prelude.NFData GetConnectionsFilter where
     Prelude.rnf connectionType
       `Prelude.seq` Prelude.rnf matchCriteria
 
-instance Core.ToJSON GetConnectionsFilter where
+instance Data.ToJSON GetConnectionsFilter where
   toJSON GetConnectionsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConnectionType" Core..=)
+          [ ("ConnectionType" Data..=)
               Prelude.<$> connectionType,
-            ("MatchCriteria" Core..=) Prelude.<$> matchCriteria
+            ("MatchCriteria" Data..=) Prelude.<$> matchCriteria
           ]
       )

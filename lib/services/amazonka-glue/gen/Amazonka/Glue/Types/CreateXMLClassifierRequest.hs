@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CreateXMLClassifierRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an XML classifier for @CreateClassifier@ to create.
@@ -102,13 +103,13 @@ instance Prelude.NFData CreateXMLClassifierRequest where
       `Prelude.seq` Prelude.rnf classification
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON CreateXMLClassifierRequest where
+instance Data.ToJSON CreateXMLClassifierRequest where
   toJSON CreateXMLClassifierRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RowTag" Core..=) Prelude.<$> rowTag,
+          [ ("RowTag" Data..=) Prelude.<$> rowTag,
             Prelude.Just
-              ("Classification" Core..= classification),
-            Prelude.Just ("Name" Core..= name)
+              ("Classification" Data..= classification),
+            Prelude.Just ("Name" Data..= name)
           ]
       )

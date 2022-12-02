@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.S3Target where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a data store in Amazon Simple Storage Service (Amazon S3).
@@ -118,18 +119,18 @@ s3Target_eventQueueArn = Lens.lens (\S3Target' {eventQueueArn} -> eventQueueArn)
 s3Target_connectionName :: Lens.Lens' S3Target (Prelude.Maybe Prelude.Text)
 s3Target_connectionName = Lens.lens (\S3Target' {connectionName} -> connectionName) (\s@S3Target' {} a -> s {connectionName = a} :: S3Target)
 
-instance Core.FromJSON S3Target where
+instance Data.FromJSON S3Target where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Target"
       ( \x ->
           S3Target'
-            Prelude.<$> (x Core..:? "DlqEventQueueArn")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "SampleSize")
-            Prelude.<*> (x Core..:? "Exclusions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EventQueueArn")
-            Prelude.<*> (x Core..:? "ConnectionName")
+            Prelude.<$> (x Data..:? "DlqEventQueueArn")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "SampleSize")
+            Prelude.<*> (x Data..:? "Exclusions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EventQueueArn")
+            Prelude.<*> (x Data..:? "ConnectionName")
       )
 
 instance Prelude.Hashable S3Target where
@@ -150,17 +151,17 @@ instance Prelude.NFData S3Target where
       `Prelude.seq` Prelude.rnf eventQueueArn
       `Prelude.seq` Prelude.rnf connectionName
 
-instance Core.ToJSON S3Target where
+instance Data.ToJSON S3Target where
   toJSON S3Target' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DlqEventQueueArn" Core..=)
+          [ ("DlqEventQueueArn" Data..=)
               Prelude.<$> dlqEventQueueArn,
-            ("Path" Core..=) Prelude.<$> path,
-            ("SampleSize" Core..=) Prelude.<$> sampleSize,
-            ("Exclusions" Core..=) Prelude.<$> exclusions,
-            ("EventQueueArn" Core..=) Prelude.<$> eventQueueArn,
-            ("ConnectionName" Core..=)
+            ("Path" Data..=) Prelude.<$> path,
+            ("SampleSize" Data..=) Prelude.<$> sampleSize,
+            ("Exclusions" Data..=) Prelude.<$> exclusions,
+            ("EventQueueArn" Data..=) Prelude.<$> eventQueueArn,
+            ("ConnectionName" Data..=)
               Prelude.<$> connectionName
           ]
       )

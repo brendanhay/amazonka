@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.GlueStudioSchemaColumn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a single column in a Glue schema definition.
@@ -63,13 +64,13 @@ glueStudioSchemaColumn_type = Lens.lens (\GlueStudioSchemaColumn' {type'} -> typ
 glueStudioSchemaColumn_name :: Lens.Lens' GlueStudioSchemaColumn Prelude.Text
 glueStudioSchemaColumn_name = Lens.lens (\GlueStudioSchemaColumn' {name} -> name) (\s@GlueStudioSchemaColumn' {} a -> s {name = a} :: GlueStudioSchemaColumn)
 
-instance Core.FromJSON GlueStudioSchemaColumn where
+instance Data.FromJSON GlueStudioSchemaColumn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlueStudioSchemaColumn"
       ( \x ->
           GlueStudioSchemaColumn'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable GlueStudioSchemaColumn where
@@ -81,11 +82,11 @@ instance Prelude.NFData GlueStudioSchemaColumn where
   rnf GlueStudioSchemaColumn' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON GlueStudioSchemaColumn where
+instance Data.ToJSON GlueStudioSchemaColumn where
   toJSON GlueStudioSchemaColumn' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            Prelude.Just ("Name" Core..= name)
+          [ ("Type" Data..=) Prelude.<$> type',
+            Prelude.Just ("Name" Data..= name)
           ]
       )

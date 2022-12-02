@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,8 +130,8 @@ instance Core.AWSRequest GetTriggers where
     Response.receiveJSON
       ( \s h x ->
           GetTriggersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Triggers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Triggers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,34 +147,34 @@ instance Prelude.NFData GetTriggers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf dependentJobName
 
-instance Core.ToHeaders GetTriggers where
+instance Data.ToHeaders GetTriggers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetTriggers" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetTriggers" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTriggers where
+instance Data.ToJSON GetTriggers where
   toJSON GetTriggers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("DependentJobName" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("DependentJobName" Data..=)
               Prelude.<$> dependentJobName
           ]
       )
 
-instance Core.ToPath GetTriggers where
+instance Data.ToPath GetTriggers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTriggers where
+instance Data.ToQuery GetTriggers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTriggersResponse' smart constructor.

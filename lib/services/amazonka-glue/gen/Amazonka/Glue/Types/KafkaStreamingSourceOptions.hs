@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.KafkaStreamingSourceOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional options for streaming.
@@ -242,27 +243,27 @@ kafkaStreamingSourceOptions_assign = Lens.lens (\KafkaStreamingSourceOptions' {a
 kafkaStreamingSourceOptions_classification :: Lens.Lens' KafkaStreamingSourceOptions (Prelude.Maybe Prelude.Text)
 kafkaStreamingSourceOptions_classification = Lens.lens (\KafkaStreamingSourceOptions' {classification} -> classification) (\s@KafkaStreamingSourceOptions' {} a -> s {classification = a} :: KafkaStreamingSourceOptions)
 
-instance Core.FromJSON KafkaStreamingSourceOptions where
+instance Data.FromJSON KafkaStreamingSourceOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KafkaStreamingSourceOptions"
       ( \x ->
           KafkaStreamingSourceOptions'
-            Prelude.<$> (x Core..:? "MaxOffsetsPerTrigger")
-            Prelude.<*> (x Core..:? "NumRetries")
-            Prelude.<*> (x Core..:? "SubscribePattern")
-            Prelude.<*> (x Core..:? "RetryIntervalMs")
-            Prelude.<*> (x Core..:? "EndingOffsets")
-            Prelude.<*> (x Core..:? "MinPartitions")
-            Prelude.<*> (x Core..:? "StartingOffsets")
-            Prelude.<*> (x Core..:? "Delimiter")
-            Prelude.<*> (x Core..:? "TopicName")
-            Prelude.<*> (x Core..:? "SecurityProtocol")
-            Prelude.<*> (x Core..:? "BootstrapServers")
-            Prelude.<*> (x Core..:? "PollTimeoutMs")
-            Prelude.<*> (x Core..:? "ConnectionName")
-            Prelude.<*> (x Core..:? "Assign")
-            Prelude.<*> (x Core..:? "Classification")
+            Prelude.<$> (x Data..:? "MaxOffsetsPerTrigger")
+            Prelude.<*> (x Data..:? "NumRetries")
+            Prelude.<*> (x Data..:? "SubscribePattern")
+            Prelude.<*> (x Data..:? "RetryIntervalMs")
+            Prelude.<*> (x Data..:? "EndingOffsets")
+            Prelude.<*> (x Data..:? "MinPartitions")
+            Prelude.<*> (x Data..:? "StartingOffsets")
+            Prelude.<*> (x Data..:? "Delimiter")
+            Prelude.<*> (x Data..:? "TopicName")
+            Prelude.<*> (x Data..:? "SecurityProtocol")
+            Prelude.<*> (x Data..:? "BootstrapServers")
+            Prelude.<*> (x Data..:? "PollTimeoutMs")
+            Prelude.<*> (x Data..:? "ConnectionName")
+            Prelude.<*> (x Data..:? "Assign")
+            Prelude.<*> (x Data..:? "Classification")
       )
 
 instance Prelude.Hashable KafkaStreamingSourceOptions where
@@ -301,32 +302,32 @@ instance Prelude.NFData KafkaStreamingSourceOptions where
       `Prelude.seq` Prelude.rnf assign
       `Prelude.seq` Prelude.rnf classification
 
-instance Core.ToJSON KafkaStreamingSourceOptions where
+instance Data.ToJSON KafkaStreamingSourceOptions where
   toJSON KafkaStreamingSourceOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxOffsetsPerTrigger" Core..=)
+          [ ("MaxOffsetsPerTrigger" Data..=)
               Prelude.<$> maxOffsetsPerTrigger,
-            ("NumRetries" Core..=) Prelude.<$> numRetries,
-            ("SubscribePattern" Core..=)
+            ("NumRetries" Data..=) Prelude.<$> numRetries,
+            ("SubscribePattern" Data..=)
               Prelude.<$> subscribePattern,
-            ("RetryIntervalMs" Core..=)
+            ("RetryIntervalMs" Data..=)
               Prelude.<$> retryIntervalMs,
-            ("EndingOffsets" Core..=) Prelude.<$> endingOffsets,
-            ("MinPartitions" Core..=) Prelude.<$> minPartitions,
-            ("StartingOffsets" Core..=)
+            ("EndingOffsets" Data..=) Prelude.<$> endingOffsets,
+            ("MinPartitions" Data..=) Prelude.<$> minPartitions,
+            ("StartingOffsets" Data..=)
               Prelude.<$> startingOffsets,
-            ("Delimiter" Core..=) Prelude.<$> delimiter,
-            ("TopicName" Core..=) Prelude.<$> topicName,
-            ("SecurityProtocol" Core..=)
+            ("Delimiter" Data..=) Prelude.<$> delimiter,
+            ("TopicName" Data..=) Prelude.<$> topicName,
+            ("SecurityProtocol" Data..=)
               Prelude.<$> securityProtocol,
-            ("BootstrapServers" Core..=)
+            ("BootstrapServers" Data..=)
               Prelude.<$> bootstrapServers,
-            ("PollTimeoutMs" Core..=) Prelude.<$> pollTimeoutMs,
-            ("ConnectionName" Core..=)
+            ("PollTimeoutMs" Data..=) Prelude.<$> pollTimeoutMs,
+            ("ConnectionName" Data..=)
               Prelude.<$> connectionName,
-            ("Assign" Core..=) Prelude.<$> assign,
-            ("Classification" Core..=)
+            ("Assign" Data..=) Prelude.<$> assign,
+            ("Classification" Data..=)
               Prelude.<$> classification
           ]
       )

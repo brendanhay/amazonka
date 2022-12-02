@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,30 +92,30 @@ instance Prelude.Hashable StartCrawler where
 instance Prelude.NFData StartCrawler where
   rnf StartCrawler' {..} = Prelude.rnf name
 
-instance Core.ToHeaders StartCrawler where
+instance Data.ToHeaders StartCrawler where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.StartCrawler" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.StartCrawler" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartCrawler where
+instance Data.ToJSON StartCrawler where
   toJSON StartCrawler' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath StartCrawler where
+instance Data.ToPath StartCrawler where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartCrawler where
+instance Data.ToQuery StartCrawler where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartCrawlerResponse' smart constructor.

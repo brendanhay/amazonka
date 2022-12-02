@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.EncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CloudWatchEncryption
 import Amazonka.Glue.Types.JobBookmarksEncryption
 import Amazonka.Glue.Types.S3Encryption
@@ -77,15 +78,15 @@ encryptionConfiguration_cloudWatchEncryption = Lens.lens (\EncryptionConfigurati
 encryptionConfiguration_jobBookmarksEncryption :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe JobBookmarksEncryption)
 encryptionConfiguration_jobBookmarksEncryption = Lens.lens (\EncryptionConfiguration' {jobBookmarksEncryption} -> jobBookmarksEncryption) (\s@EncryptionConfiguration' {} a -> s {jobBookmarksEncryption = a} :: EncryptionConfiguration)
 
-instance Core.FromJSON EncryptionConfiguration where
+instance Data.FromJSON EncryptionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionConfiguration"
       ( \x ->
           EncryptionConfiguration'
-            Prelude.<$> (x Core..:? "S3Encryption" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CloudWatchEncryption")
-            Prelude.<*> (x Core..:? "JobBookmarksEncryption")
+            Prelude.<$> (x Data..:? "S3Encryption" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CloudWatchEncryption")
+            Prelude.<*> (x Data..:? "JobBookmarksEncryption")
       )
 
 instance Prelude.Hashable EncryptionConfiguration where
@@ -100,14 +101,14 @@ instance Prelude.NFData EncryptionConfiguration where
       `Prelude.seq` Prelude.rnf cloudWatchEncryption
       `Prelude.seq` Prelude.rnf jobBookmarksEncryption
 
-instance Core.ToJSON EncryptionConfiguration where
+instance Data.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Encryption" Core..=) Prelude.<$> s3Encryption,
-            ("CloudWatchEncryption" Core..=)
+          [ ("S3Encryption" Data..=) Prelude.<$> s3Encryption,
+            ("CloudWatchEncryption" Data..=)
               Prelude.<$> cloudWatchEncryption,
-            ("JobBookmarksEncryption" Core..=)
+            ("JobBookmarksEncryption" Data..=)
               Prelude.<$> jobBookmarksEncryption
           ]
       )

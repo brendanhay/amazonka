@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CatalogEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a table definition in the Glue Data Catalog.
@@ -75,11 +76,11 @@ instance Prelude.NFData CatalogEntry where
     Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToJSON CatalogEntry where
+instance Data.ToJSON CatalogEntry where
   toJSON CatalogEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName)
+          [ Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )

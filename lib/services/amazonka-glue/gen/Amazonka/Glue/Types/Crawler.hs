@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Crawler where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CrawlerState
 import Amazonka.Glue.Types.CrawlerTargets
 import Amazonka.Glue.Types.LakeFormationConfiguration
@@ -65,7 +66,7 @@ data Crawler = Crawler'
     -- | A description of the crawler.
     description :: Prelude.Maybe Prelude.Text,
     -- | The time that the crawler was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | If the crawler is running, contains the total time elapsed since the
     -- last crawl began.
     crawlElapsedTime :: Prelude.Maybe Prelude.Integer,
@@ -77,7 +78,7 @@ data Crawler = Crawler'
     -- data.
     role' :: Prelude.Maybe Prelude.Text,
     -- | The time that the crawler was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the last crawl, and potentially error information if an
     -- error occurred.
     lastCrawl :: Prelude.Maybe LastCrawlInfo,
@@ -228,7 +229,7 @@ crawler_description = Lens.lens (\Crawler' {description} -> description) (\s@Cra
 
 -- | The time that the crawler was last updated.
 crawler_lastUpdated :: Lens.Lens' Crawler (Prelude.Maybe Prelude.UTCTime)
-crawler_lastUpdated = Lens.lens (\Crawler' {lastUpdated} -> lastUpdated) (\s@Crawler' {} a -> s {lastUpdated = a} :: Crawler) Prelude.. Lens.mapping Core._Time
+crawler_lastUpdated = Lens.lens (\Crawler' {lastUpdated} -> lastUpdated) (\s@Crawler' {} a -> s {lastUpdated = a} :: Crawler) Prelude.. Lens.mapping Data._Time
 
 -- | If the crawler is running, contains the total time elapsed since the
 -- last crawl began.
@@ -248,7 +249,7 @@ crawler_role = Lens.lens (\Crawler' {role'} -> role') (\s@Crawler' {} a -> s {ro
 
 -- | The time that the crawler was created.
 crawler_creationTime :: Lens.Lens' Crawler (Prelude.Maybe Prelude.UTCTime)
-crawler_creationTime = Lens.lens (\Crawler' {creationTime} -> creationTime) (\s@Crawler' {} a -> s {creationTime = a} :: Crawler) Prelude.. Lens.mapping Core._Time
+crawler_creationTime = Lens.lens (\Crawler' {creationTime} -> creationTime) (\s@Crawler' {} a -> s {creationTime = a} :: Crawler) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the last crawl, and potentially error information if an
 -- error occurred.
@@ -269,32 +270,32 @@ crawler_lakeFormationConfiguration = Lens.lens (\Crawler' {lakeFormationConfigur
 crawler_version :: Lens.Lens' Crawler (Prelude.Maybe Prelude.Integer)
 crawler_version = Lens.lens (\Crawler' {version} -> version) (\s@Crawler' {} a -> s {version = a} :: Crawler)
 
-instance Core.FromJSON Crawler where
+instance Data.FromJSON Crawler where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Crawler"
       ( \x ->
           Crawler'
-            Prelude.<$> (x Core..:? "Schedule")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RecrawlPolicy")
-            Prelude.<*> (x Core..:? "Classifiers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SchemaChangePolicy")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Configuration")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "TablePrefix")
-            Prelude.<*> (x Core..:? "Targets")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "CrawlElapsedTime")
-            Prelude.<*> (x Core..:? "LineageConfiguration")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "LastCrawl")
-            Prelude.<*> (x Core..:? "CrawlerSecurityConfiguration")
-            Prelude.<*> (x Core..:? "LakeFormationConfiguration")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "Schedule")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RecrawlPolicy")
+            Prelude.<*> (x Data..:? "Classifiers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SchemaChangePolicy")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Configuration")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "TablePrefix")
+            Prelude.<*> (x Data..:? "Targets")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "CrawlElapsedTime")
+            Prelude.<*> (x Data..:? "LineageConfiguration")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LastCrawl")
+            Prelude.<*> (x Data..:? "CrawlerSecurityConfiguration")
+            Prelude.<*> (x Data..:? "LakeFormationConfiguration")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable Crawler where

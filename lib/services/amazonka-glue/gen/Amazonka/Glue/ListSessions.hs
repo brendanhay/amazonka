@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,9 +117,9 @@ instance Core.AWSRequest ListSessions where
     Response.receiveJSON
       ( \s h x ->
           ListSessionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Sessions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Ids" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Sessions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Ids" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,34 +137,34 @@ instance Prelude.NFData ListSessions where
       `Prelude.seq` Prelude.rnf requestOrigin
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListSessions where
+instance Data.ToHeaders ListSessions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.ListSessions" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.ListSessions" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSessions where
+instance Data.ToJSON ListSessions where
   toJSON ListSessions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("RequestOrigin" Core..=) Prelude.<$> requestOrigin,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("RequestOrigin" Data..=) Prelude.<$> requestOrigin,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListSessions where
+instance Data.ToPath ListSessions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSessions where
+instance Data.ToQuery ListSessions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSessionsResponse' smart constructor.

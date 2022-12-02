@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest GetWorkflowRun where
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowRunResponse'
-            Prelude.<$> (x Core..?> "Run")
+            Prelude.<$> (x Data..?> "Run")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,33 +124,33 @@ instance Prelude.NFData GetWorkflowRun where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf runId
 
-instance Core.ToHeaders GetWorkflowRun where
+instance Data.ToHeaders GetWorkflowRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetWorkflowRun" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetWorkflowRun" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetWorkflowRun where
+instance Data.ToJSON GetWorkflowRun where
   toJSON GetWorkflowRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IncludeGraph" Core..=) Prelude.<$> includeGraph,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("RunId" Core..= runId)
+          [ ("IncludeGraph" Data..=) Prelude.<$> includeGraph,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("RunId" Data..= runId)
           ]
       )
 
-instance Core.ToPath GetWorkflowRun where
+instance Data.ToPath GetWorkflowRun where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetWorkflowRun where
+instance Data.ToQuery GetWorkflowRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWorkflowRunResponse' smart constructor.

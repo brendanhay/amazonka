@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Session where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ConnectionsList
 import Amazonka.Glue.Types.SessionCommand
 import Amazonka.Glue.Types.SessionStatus
@@ -36,7 +37,7 @@ data Session = Session'
     -- | The code execution progress of the session.
     progress :: Prelude.Maybe Prelude.Double,
     -- | The time and date when the session was created.
-    createdOn :: Prelude.Maybe Core.POSIX,
+    createdOn :: Prelude.Maybe Data.POSIX,
     -- | The error message displayed during the session.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The Glue version determines the versions of Apache Spark and Python that
@@ -132,7 +133,7 @@ session_progress = Lens.lens (\Session' {progress} -> progress) (\s@Session' {} 
 
 -- | The time and date when the session was created.
 session_createdOn :: Lens.Lens' Session (Prelude.Maybe Prelude.UTCTime)
-session_createdOn = Lens.lens (\Session' {createdOn} -> createdOn) (\s@Session' {} a -> s {createdOn = a} :: Session) Prelude.. Lens.mapping Core._Time
+session_createdOn = Lens.lens (\Session' {createdOn} -> createdOn) (\s@Session' {} a -> s {createdOn = a} :: Session) Prelude.. Lens.mapping Data._Time
 
 -- | The error message displayed during the session.
 session_errorMessage :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
@@ -178,27 +179,27 @@ session_role = Lens.lens (\Session' {role'} -> role') (\s@Session' {} a -> s {ro
 session_maxCapacity :: Lens.Lens' Session (Prelude.Maybe Prelude.Double)
 session_maxCapacity = Lens.lens (\Session' {maxCapacity} -> maxCapacity) (\s@Session' {} a -> s {maxCapacity = a} :: Session)
 
-instance Core.FromJSON Session where
+instance Data.FromJSON Session where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Session"
       ( \x ->
           Session'
-            Prelude.<$> (x Core..:? "SecurityConfiguration")
-            Prelude.<*> (x Core..:? "Progress")
-            Prelude.<*> (x Core..:? "CreatedOn")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "GlueVersion")
-            Prelude.<*> (x Core..:? "Command")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> ( x Core..:? "DefaultArguments"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SecurityConfiguration")
+            Prelude.<*> (x Data..:? "Progress")
+            Prelude.<*> (x Data..:? "CreatedOn")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "GlueVersion")
+            Prelude.<*> (x Data..:? "Command")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> ( x Data..:? "DefaultArguments"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Connections")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "MaxCapacity")
+            Prelude.<*> (x Data..:? "Connections")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "MaxCapacity")
       )
 
 instance Prelude.Hashable Session where

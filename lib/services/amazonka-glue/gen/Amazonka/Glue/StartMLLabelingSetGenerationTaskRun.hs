@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartMLLabelingSetGenerationTaskRunResponse'
-            Prelude.<$> (x Core..?> "TaskRunId")
+            Prelude.<$> (x Data..?> "TaskRunId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,43 +144,43 @@ instance
       `Prelude.seq` Prelude.rnf outputS3Path
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartMLLabelingSetGenerationTaskRun
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.StartMLLabelingSetGenerationTaskRun" ::
+              Data.=# ( "AWSGlue.StartMLLabelingSetGenerationTaskRun" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StartMLLabelingSetGenerationTaskRun
   where
   toJSON StartMLLabelingSetGenerationTaskRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TransformId" Core..= transformId),
-            Prelude.Just ("OutputS3Path" Core..= outputS3Path)
+          [ Prelude.Just ("TransformId" Data..= transformId),
+            Prelude.Just ("OutputS3Path" Data..= outputS3Path)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     StartMLLabelingSetGenerationTaskRun
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartMLLabelingSetGenerationTaskRun
   where
   toQuery = Prelude.const Prelude.mempty

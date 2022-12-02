@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ConfusionMatrix where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The confusion matrix shows you what your transform is predicting
@@ -97,16 +98,16 @@ confusionMatrix_numFalsePositives = Lens.lens (\ConfusionMatrix' {numFalsePositi
 confusionMatrix_numTrueNegatives :: Lens.Lens' ConfusionMatrix (Prelude.Maybe Prelude.Integer)
 confusionMatrix_numTrueNegatives = Lens.lens (\ConfusionMatrix' {numTrueNegatives} -> numTrueNegatives) (\s@ConfusionMatrix' {} a -> s {numTrueNegatives = a} :: ConfusionMatrix)
 
-instance Core.FromJSON ConfusionMatrix where
+instance Data.FromJSON ConfusionMatrix where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfusionMatrix"
       ( \x ->
           ConfusionMatrix'
-            Prelude.<$> (x Core..:? "NumFalseNegatives")
-            Prelude.<*> (x Core..:? "NumTruePositives")
-            Prelude.<*> (x Core..:? "NumFalsePositives")
-            Prelude.<*> (x Core..:? "NumTrueNegatives")
+            Prelude.<$> (x Data..:? "NumFalseNegatives")
+            Prelude.<*> (x Data..:? "NumTruePositives")
+            Prelude.<*> (x Data..:? "NumFalsePositives")
+            Prelude.<*> (x Data..:? "NumTrueNegatives")
       )
 
 instance Prelude.Hashable ConfusionMatrix where

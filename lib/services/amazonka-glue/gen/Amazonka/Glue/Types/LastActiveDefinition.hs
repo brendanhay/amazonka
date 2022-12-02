@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.LastActiveDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When there are multiple versions of a blueprint and the latest version
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLastActiveDefinition' smart constructor.
 data LastActiveDefinition = LastActiveDefinition'
   { -- | The date and time the blueprint was last modified.
-    lastModifiedOn :: Prelude.Maybe Core.POSIX,
+    lastModifiedOn :: Prelude.Maybe Data.POSIX,
     -- | A JSON string specifying the parameters for the blueprint.
     parameterSpec :: Prelude.Maybe Prelude.Text,
     -- | The description of the blueprint.
@@ -77,7 +78,7 @@ newLastActiveDefinition =
 
 -- | The date and time the blueprint was last modified.
 lastActiveDefinition_lastModifiedOn :: Lens.Lens' LastActiveDefinition (Prelude.Maybe Prelude.UTCTime)
-lastActiveDefinition_lastModifiedOn = Lens.lens (\LastActiveDefinition' {lastModifiedOn} -> lastModifiedOn) (\s@LastActiveDefinition' {} a -> s {lastModifiedOn = a} :: LastActiveDefinition) Prelude.. Lens.mapping Core._Time
+lastActiveDefinition_lastModifiedOn = Lens.lens (\LastActiveDefinition' {lastModifiedOn} -> lastModifiedOn) (\s@LastActiveDefinition' {} a -> s {lastModifiedOn = a} :: LastActiveDefinition) Prelude.. Lens.mapping Data._Time
 
 -- | A JSON string specifying the parameters for the blueprint.
 lastActiveDefinition_parameterSpec :: Lens.Lens' LastActiveDefinition (Prelude.Maybe Prelude.Text)
@@ -97,17 +98,17 @@ lastActiveDefinition_blueprintLocation = Lens.lens (\LastActiveDefinition' {blue
 lastActiveDefinition_blueprintServiceLocation :: Lens.Lens' LastActiveDefinition (Prelude.Maybe Prelude.Text)
 lastActiveDefinition_blueprintServiceLocation = Lens.lens (\LastActiveDefinition' {blueprintServiceLocation} -> blueprintServiceLocation) (\s@LastActiveDefinition' {} a -> s {blueprintServiceLocation = a} :: LastActiveDefinition)
 
-instance Core.FromJSON LastActiveDefinition where
+instance Data.FromJSON LastActiveDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LastActiveDefinition"
       ( \x ->
           LastActiveDefinition'
-            Prelude.<$> (x Core..:? "LastModifiedOn")
-            Prelude.<*> (x Core..:? "ParameterSpec")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "BlueprintLocation")
-            Prelude.<*> (x Core..:? "BlueprintServiceLocation")
+            Prelude.<$> (x Data..:? "LastModifiedOn")
+            Prelude.<*> (x Data..:? "ParameterSpec")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "BlueprintLocation")
+            Prelude.<*> (x Data..:? "BlueprintServiceLocation")
       )
 
 instance Prelude.Hashable LastActiveDefinition where

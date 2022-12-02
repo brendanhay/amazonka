@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,8 +95,8 @@ instance Core.AWSRequest BatchGetDevEndpoints where
     Response.receiveJSON
       ( \s h x ->
           BatchGetDevEndpointsResponse'
-            Prelude.<$> (x Core..?> "DevEndpointsNotFound")
-            Prelude.<*> (x Core..?> "DevEndpoints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "DevEndpointsNotFound")
+            Prelude.<*> (x Data..?> "DevEndpoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,34 +108,34 @@ instance Prelude.NFData BatchGetDevEndpoints where
   rnf BatchGetDevEndpoints' {..} =
     Prelude.rnf devEndpointNames
 
-instance Core.ToHeaders BatchGetDevEndpoints where
+instance Data.ToHeaders BatchGetDevEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.BatchGetDevEndpoints" ::
+              Data.=# ( "AWSGlue.BatchGetDevEndpoints" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetDevEndpoints where
+instance Data.ToJSON BatchGetDevEndpoints where
   toJSON BatchGetDevEndpoints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DevEndpointNames" Core..= devEndpointNames)
+              ("DevEndpointNames" Data..= devEndpointNames)
           ]
       )
 
-instance Core.ToPath BatchGetDevEndpoints where
+instance Data.ToPath BatchGetDevEndpoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetDevEndpoints where
+instance Data.ToQuery BatchGetDevEndpoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetDevEndpointsResponse' smart constructor.

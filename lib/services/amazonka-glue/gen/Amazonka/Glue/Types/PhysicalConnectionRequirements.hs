@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.PhysicalConnectionRequirements where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the physical requirements for a connection.
@@ -77,16 +78,16 @@ physicalConnectionRequirements_availabilityZone = Lens.lens (\PhysicalConnection
 physicalConnectionRequirements_securityGroupIdList :: Lens.Lens' PhysicalConnectionRequirements (Prelude.Maybe [Prelude.Text])
 physicalConnectionRequirements_securityGroupIdList = Lens.lens (\PhysicalConnectionRequirements' {securityGroupIdList} -> securityGroupIdList) (\s@PhysicalConnectionRequirements' {} a -> s {securityGroupIdList = a} :: PhysicalConnectionRequirements) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PhysicalConnectionRequirements where
+instance Data.FromJSON PhysicalConnectionRequirements where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhysicalConnectionRequirements"
       ( \x ->
           PhysicalConnectionRequirements'
-            Prelude.<$> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> ( x Core..:? "SecurityGroupIdList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> ( x Data..:? "SecurityGroupIdList"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -110,14 +111,14 @@ instance
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf securityGroupIdList
 
-instance Core.ToJSON PhysicalConnectionRequirements where
+instance Data.ToJSON PhysicalConnectionRequirements where
   toJSON PhysicalConnectionRequirements' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SubnetId" Core..=) Prelude.<$> subnetId,
-            ("AvailabilityZone" Core..=)
+          [ ("SubnetId" Data..=) Prelude.<$> subnetId,
+            ("AvailabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("SecurityGroupIdList" Core..=)
+            ("SecurityGroupIdList" Data..=)
               Prelude.<$> securityGroupIdList
           ]
       )

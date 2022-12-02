@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DatabaseIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that describes a target database for resource linking.
@@ -61,14 +62,14 @@ databaseIdentifier_databaseName = Lens.lens (\DatabaseIdentifier' {databaseName}
 databaseIdentifier_catalogId :: Lens.Lens' DatabaseIdentifier (Prelude.Maybe Prelude.Text)
 databaseIdentifier_catalogId = Lens.lens (\DatabaseIdentifier' {catalogId} -> catalogId) (\s@DatabaseIdentifier' {} a -> s {catalogId = a} :: DatabaseIdentifier)
 
-instance Core.FromJSON DatabaseIdentifier where
+instance Data.FromJSON DatabaseIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabaseIdentifier"
       ( \x ->
           DatabaseIdentifier'
-            Prelude.<$> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "CatalogId")
+            Prelude.<$> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "CatalogId")
       )
 
 instance Prelude.Hashable DatabaseIdentifier where
@@ -81,11 +82,11 @@ instance Prelude.NFData DatabaseIdentifier where
     Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf catalogId
 
-instance Core.ToJSON DatabaseIdentifier where
+instance Data.ToJSON DatabaseIdentifier where
   toJSON DatabaseIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("CatalogId" Core..=) Prelude.<$> catalogId
+          [ ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("CatalogId" Data..=) Prelude.<$> catalogId
           ]
       )

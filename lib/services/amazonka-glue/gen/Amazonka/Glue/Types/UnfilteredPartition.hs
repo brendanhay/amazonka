@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.UnfilteredPartition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Partition
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,17 +68,17 @@ unfilteredPartition_partition = Lens.lens (\UnfilteredPartition' {partition} -> 
 unfilteredPartition_isRegisteredWithLakeFormation :: Lens.Lens' UnfilteredPartition (Prelude.Maybe Prelude.Bool)
 unfilteredPartition_isRegisteredWithLakeFormation = Lens.lens (\UnfilteredPartition' {isRegisteredWithLakeFormation} -> isRegisteredWithLakeFormation) (\s@UnfilteredPartition' {} a -> s {isRegisteredWithLakeFormation = a} :: UnfilteredPartition)
 
-instance Core.FromJSON UnfilteredPartition where
+instance Data.FromJSON UnfilteredPartition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnfilteredPartition"
       ( \x ->
           UnfilteredPartition'
-            Prelude.<$> ( x Core..:? "AuthorizedColumns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "AuthorizedColumns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Partition")
-            Prelude.<*> (x Core..:? "IsRegisteredWithLakeFormation")
+            Prelude.<*> (x Data..:? "Partition")
+            Prelude.<*> (x Data..:? "IsRegisteredWithLakeFormation")
       )
 
 instance Prelude.Hashable UnfilteredPartition where

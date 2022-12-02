@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.AuditContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing information for audit.
@@ -82,15 +83,15 @@ instance Prelude.NFData AuditContext where
       `Prelude.seq` Prelude.rnf additionalAuditContext
       `Prelude.seq` Prelude.rnf allColumnsRequested
 
-instance Core.ToJSON AuditContext where
+instance Data.ToJSON AuditContext where
   toJSON AuditContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RequestedColumns" Core..=)
+          [ ("RequestedColumns" Data..=)
               Prelude.<$> requestedColumns,
-            ("AdditionalAuditContext" Core..=)
+            ("AdditionalAuditContext" Data..=)
               Prelude.<$> additionalAuditContext,
-            ("AllColumnsRequested" Core..=)
+            ("AllColumnsRequested" Data..=)
               Prelude.<$> allColumnsRequested
           ]
       )

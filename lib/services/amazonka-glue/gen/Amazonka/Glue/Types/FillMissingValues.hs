@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.FillMissingValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that locates records in the dataset that have
@@ -94,16 +95,16 @@ fillMissingValues_inputs = Lens.lens (\FillMissingValues' {inputs} -> inputs) (\
 fillMissingValues_imputedPath :: Lens.Lens' FillMissingValues Prelude.Text
 fillMissingValues_imputedPath = Lens.lens (\FillMissingValues' {imputedPath} -> imputedPath) (\s@FillMissingValues' {} a -> s {imputedPath = a} :: FillMissingValues)
 
-instance Core.FromJSON FillMissingValues where
+instance Data.FromJSON FillMissingValues where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FillMissingValues"
       ( \x ->
           FillMissingValues'
-            Prelude.<$> (x Core..:? "FilledPath")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "ImputedPath")
+            Prelude.<$> (x Data..:? "FilledPath")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "ImputedPath")
       )
 
 instance Prelude.Hashable FillMissingValues where
@@ -120,13 +121,13 @@ instance Prelude.NFData FillMissingValues where
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf imputedPath
 
-instance Core.ToJSON FillMissingValues where
+instance Data.ToJSON FillMissingValues where
   toJSON FillMissingValues' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FilledPath" Core..=) Prelude.<$> filledPath,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("ImputedPath" Core..= imputedPath)
+          [ ("FilledPath" Data..=) Prelude.<$> filledPath,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("ImputedPath" Data..= imputedPath)
           ]
       )

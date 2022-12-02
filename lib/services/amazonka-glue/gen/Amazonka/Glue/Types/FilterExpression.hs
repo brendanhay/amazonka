@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.FilterExpression where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.FilterOperation
 import Amazonka.Glue.Types.FilterValue
 import qualified Amazonka.Prelude as Prelude
@@ -74,15 +75,15 @@ filterExpression_operation = Lens.lens (\FilterExpression' {operation} -> operat
 filterExpression_values :: Lens.Lens' FilterExpression [FilterValue]
 filterExpression_values = Lens.lens (\FilterExpression' {values} -> values) (\s@FilterExpression' {} a -> s {values = a} :: FilterExpression) Prelude.. Lens.coerced
 
-instance Core.FromJSON FilterExpression where
+instance Data.FromJSON FilterExpression where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FilterExpression"
       ( \x ->
           FilterExpression'
-            Prelude.<$> (x Core..:? "Negated")
-            Prelude.<*> (x Core..: "Operation")
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Negated")
+            Prelude.<*> (x Data..: "Operation")
+            Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FilterExpression where
@@ -97,12 +98,12 @@ instance Prelude.NFData FilterExpression where
       `Prelude.seq` Prelude.rnf operation
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON FilterExpression where
+instance Data.ToJSON FilterExpression where
   toJSON FilterExpression' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Negated" Core..=) Prelude.<$> negated,
-            Prelude.Just ("Operation" Core..= operation),
-            Prelude.Just ("Values" Core..= values)
+          [ ("Negated" Data..=) Prelude.<$> negated,
+            Prelude.Just ("Operation" Data..= operation),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

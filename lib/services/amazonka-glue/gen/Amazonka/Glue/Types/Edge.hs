@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Edge where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An edge represents a directed connection between two Glue components
@@ -62,14 +63,14 @@ edge_sourceId = Lens.lens (\Edge' {sourceId} -> sourceId) (\s@Edge' {} a -> s {s
 edge_destinationId :: Lens.Lens' Edge (Prelude.Maybe Prelude.Text)
 edge_destinationId = Lens.lens (\Edge' {destinationId} -> destinationId) (\s@Edge' {} a -> s {destinationId = a} :: Edge)
 
-instance Core.FromJSON Edge where
+instance Data.FromJSON Edge where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Edge"
       ( \x ->
           Edge'
-            Prelude.<$> (x Core..:? "SourceId")
-            Prelude.<*> (x Core..:? "DestinationId")
+            Prelude.<$> (x Data..:? "SourceId")
+            Prelude.<*> (x Data..:? "DestinationId")
       )
 
 instance Prelude.Hashable Edge where

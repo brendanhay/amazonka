@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CatalogSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a data store in the Glue Data Catalog.
@@ -76,15 +77,15 @@ catalogSource_database = Lens.lens (\CatalogSource' {database} -> database) (\s@
 catalogSource_table :: Lens.Lens' CatalogSource Prelude.Text
 catalogSource_table = Lens.lens (\CatalogSource' {table} -> table) (\s@CatalogSource' {} a -> s {table = a} :: CatalogSource)
 
-instance Core.FromJSON CatalogSource where
+instance Data.FromJSON CatalogSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CatalogSource"
       ( \x ->
           CatalogSource'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Table")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Table")
       )
 
 instance Prelude.Hashable CatalogSource where
@@ -99,12 +100,12 @@ instance Prelude.NFData CatalogSource where
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON CatalogSource where
+instance Data.ToJSON CatalogSource where
   toJSON CatalogSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Table" Core..= table)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Table" Data..= table)
           ]
       )

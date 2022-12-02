@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Mapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the mapping of data property keys.
@@ -133,18 +134,18 @@ mapping_children = Lens.lens (\Mapping' {children} -> children) (\s@Mapping' {} 
 mapping_toKey :: Lens.Lens' Mapping (Prelude.Maybe Prelude.Text)
 mapping_toKey = Lens.lens (\Mapping' {toKey} -> toKey) (\s@Mapping' {} a -> s {toKey = a} :: Mapping)
 
-instance Core.FromJSON Mapping where
+instance Data.FromJSON Mapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Mapping"
       ( \x ->
           Mapping'
-            Prelude.<$> (x Core..:? "ToType")
-            Prelude.<*> (x Core..:? "FromType")
-            Prelude.<*> (x Core..:? "Dropped")
-            Prelude.<*> (x Core..:? "FromPath" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Children" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ToKey")
+            Prelude.<$> (x Data..:? "ToType")
+            Prelude.<*> (x Data..:? "FromType")
+            Prelude.<*> (x Data..:? "Dropped")
+            Prelude.<*> (x Data..:? "FromPath" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Children" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ToKey")
       )
 
 instance Prelude.Hashable Mapping where
@@ -165,15 +166,15 @@ instance Prelude.NFData Mapping where
       `Prelude.seq` Prelude.rnf children
       `Prelude.seq` Prelude.rnf toKey
 
-instance Core.ToJSON Mapping where
+instance Data.ToJSON Mapping where
   toJSON Mapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ToType" Core..=) Prelude.<$> toType,
-            ("FromType" Core..=) Prelude.<$> fromType,
-            ("Dropped" Core..=) Prelude.<$> dropped,
-            ("FromPath" Core..=) Prelude.<$> fromPath,
-            ("Children" Core..=) Prelude.<$> children,
-            ("ToKey" Core..=) Prelude.<$> toKey
+          [ ("ToType" Data..=) Prelude.<$> toType,
+            ("FromType" Data..=) Prelude.<$> fromType,
+            ("Dropped" Data..=) Prelude.<$> dropped,
+            ("FromPath" Data..=) Prelude.<$> fromPath,
+            ("Children" Data..=) Prelude.<$> children,
+            ("ToKey" Data..=) Prelude.<$> toKey
           ]
       )

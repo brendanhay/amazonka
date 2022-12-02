@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,8 +107,8 @@ instance Core.AWSRequest BatchGetWorkflows where
     Response.receiveJSON
       ( \s h x ->
           BatchGetWorkflowsResponse'
-            Prelude.<$> (x Core..?> "MissingWorkflows")
-            Prelude.<*> (x Core..?> "Workflows")
+            Prelude.<$> (x Data..?> "MissingWorkflows")
+            Prelude.<*> (x Data..?> "Workflows")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,32 +122,32 @@ instance Prelude.NFData BatchGetWorkflows where
     Prelude.rnf includeGraph
       `Prelude.seq` Prelude.rnf names
 
-instance Core.ToHeaders BatchGetWorkflows where
+instance Data.ToHeaders BatchGetWorkflows where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.BatchGetWorkflows" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.BatchGetWorkflows" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetWorkflows where
+instance Data.ToJSON BatchGetWorkflows where
   toJSON BatchGetWorkflows' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IncludeGraph" Core..=) Prelude.<$> includeGraph,
-            Prelude.Just ("Names" Core..= names)
+          [ ("IncludeGraph" Data..=) Prelude.<$> includeGraph,
+            Prelude.Just ("Names" Data..= names)
           ]
       )
 
-instance Core.ToPath BatchGetWorkflows where
+instance Data.ToPath BatchGetWorkflows where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetWorkflows where
+instance Data.ToQuery BatchGetWorkflows where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetWorkflowsResponse' smart constructor.

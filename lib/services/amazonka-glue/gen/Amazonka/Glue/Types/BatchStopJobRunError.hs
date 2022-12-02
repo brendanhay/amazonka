@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.BatchStopJobRunError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ErrorDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ batchStopJobRunError_jobRunId = Lens.lens (\BatchStopJobRunError' {jobRunId} -> 
 batchStopJobRunError_errorDetail :: Lens.Lens' BatchStopJobRunError (Prelude.Maybe ErrorDetail)
 batchStopJobRunError_errorDetail = Lens.lens (\BatchStopJobRunError' {errorDetail} -> errorDetail) (\s@BatchStopJobRunError' {} a -> s {errorDetail = a} :: BatchStopJobRunError)
 
-instance Core.FromJSON BatchStopJobRunError where
+instance Data.FromJSON BatchStopJobRunError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchStopJobRunError"
       ( \x ->
           BatchStopJobRunError'
-            Prelude.<$> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "JobRunId")
-            Prelude.<*> (x Core..:? "ErrorDetail")
+            Prelude.<$> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "JobRunId")
+            Prelude.<*> (x Data..:? "ErrorDetail")
       )
 
 instance Prelude.Hashable BatchStopJobRunError where

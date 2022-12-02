@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.StorageDescriptor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Column
 import Amazonka.Glue.Types.Order
 import Amazonka.Glue.Types.SchemaReference
@@ -204,28 +205,28 @@ storageDescriptor_numberOfBuckets = Lens.lens (\StorageDescriptor' {numberOfBuck
 storageDescriptor_parameters :: Lens.Lens' StorageDescriptor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 storageDescriptor_parameters = Lens.lens (\StorageDescriptor' {parameters} -> parameters) (\s@StorageDescriptor' {} a -> s {parameters = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON StorageDescriptor where
+instance Data.FromJSON StorageDescriptor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StorageDescriptor"
       ( \x ->
           StorageDescriptor'
-            Prelude.<$> (x Core..:? "SortColumns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StoredAsSubDirectories")
-            Prelude.<*> (x Core..:? "SkewedInfo")
-            Prelude.<*> (x Core..:? "Columns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BucketColumns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SerdeInfo")
-            Prelude.<*> (x Core..:? "OutputFormat")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "Compressed")
-            Prelude.<*> ( x Core..:? "AdditionalLocations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SortColumns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StoredAsSubDirectories")
+            Prelude.<*> (x Data..:? "SkewedInfo")
+            Prelude.<*> (x Data..:? "Columns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "BucketColumns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SerdeInfo")
+            Prelude.<*> (x Data..:? "OutputFormat")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "Compressed")
+            Prelude.<*> ( x Data..:? "AdditionalLocations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SchemaReference")
-            Prelude.<*> (x Core..:? "InputFormat")
-            Prelude.<*> (x Core..:? "NumberOfBuckets")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SchemaReference")
+            Prelude.<*> (x Data..:? "InputFormat")
+            Prelude.<*> (x Data..:? "NumberOfBuckets")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StorageDescriptor where
@@ -262,27 +263,27 @@ instance Prelude.NFData StorageDescriptor where
       `Prelude.seq` Prelude.rnf numberOfBuckets
       `Prelude.seq` Prelude.rnf parameters
 
-instance Core.ToJSON StorageDescriptor where
+instance Data.ToJSON StorageDescriptor where
   toJSON StorageDescriptor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortColumns" Core..=) Prelude.<$> sortColumns,
-            ("StoredAsSubDirectories" Core..=)
+          [ ("SortColumns" Data..=) Prelude.<$> sortColumns,
+            ("StoredAsSubDirectories" Data..=)
               Prelude.<$> storedAsSubDirectories,
-            ("SkewedInfo" Core..=) Prelude.<$> skewedInfo,
-            ("Columns" Core..=) Prelude.<$> columns,
-            ("BucketColumns" Core..=) Prelude.<$> bucketColumns,
-            ("SerdeInfo" Core..=) Prelude.<$> serdeInfo,
-            ("OutputFormat" Core..=) Prelude.<$> outputFormat,
-            ("Location" Core..=) Prelude.<$> location,
-            ("Compressed" Core..=) Prelude.<$> compressed,
-            ("AdditionalLocations" Core..=)
+            ("SkewedInfo" Data..=) Prelude.<$> skewedInfo,
+            ("Columns" Data..=) Prelude.<$> columns,
+            ("BucketColumns" Data..=) Prelude.<$> bucketColumns,
+            ("SerdeInfo" Data..=) Prelude.<$> serdeInfo,
+            ("OutputFormat" Data..=) Prelude.<$> outputFormat,
+            ("Location" Data..=) Prelude.<$> location,
+            ("Compressed" Data..=) Prelude.<$> compressed,
+            ("AdditionalLocations" Data..=)
               Prelude.<$> additionalLocations,
-            ("SchemaReference" Core..=)
+            ("SchemaReference" Data..=)
               Prelude.<$> schemaReference,
-            ("InputFormat" Core..=) Prelude.<$> inputFormat,
-            ("NumberOfBuckets" Core..=)
+            ("InputFormat" Data..=) Prelude.<$> inputFormat,
+            ("NumberOfBuckets" Data..=)
               Prelude.<$> numberOfBuckets,
-            ("Parameters" Core..=) Prelude.<$> parameters
+            ("Parameters" Data..=) Prelude.<$> parameters
           ]
       )

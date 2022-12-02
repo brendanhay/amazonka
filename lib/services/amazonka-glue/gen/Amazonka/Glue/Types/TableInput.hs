@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.TableInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Column
 import Amazonka.Glue.Types.StorageDescriptor
 import Amazonka.Glue.Types.TableIdentifier
@@ -34,7 +35,7 @@ data TableInput = TableInput'
     -- linking.
     targetTable :: Prelude.Maybe TableIdentifier,
     -- | The last time that the table was accessed.
-    lastAccessTime :: Prelude.Maybe Core.POSIX,
+    lastAccessTime :: Prelude.Maybe Data.POSIX,
     -- | If the table is a view, the original text of the view; otherwise @null@.
     viewOriginalText :: Prelude.Maybe Prelude.Text,
     -- | The table owner.
@@ -60,7 +61,7 @@ data TableInput = TableInput'
     -- | The retention time for this table.
     retention :: Prelude.Maybe Prelude.Natural,
     -- | The last time that column statistics were computed for this table.
-    lastAnalyzedTime :: Prelude.Maybe Core.POSIX,
+    lastAnalyzedTime :: Prelude.Maybe Data.POSIX,
     -- | These key-value pairs define properties associated with the table.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The table name. For Hive compatibility, this is folded to lowercase when
@@ -140,7 +141,7 @@ tableInput_targetTable = Lens.lens (\TableInput' {targetTable} -> targetTable) (
 
 -- | The last time that the table was accessed.
 tableInput_lastAccessTime :: Lens.Lens' TableInput (Prelude.Maybe Prelude.UTCTime)
-tableInput_lastAccessTime = Lens.lens (\TableInput' {lastAccessTime} -> lastAccessTime) (\s@TableInput' {} a -> s {lastAccessTime = a} :: TableInput) Prelude.. Lens.mapping Core._Time
+tableInput_lastAccessTime = Lens.lens (\TableInput' {lastAccessTime} -> lastAccessTime) (\s@TableInput' {} a -> s {lastAccessTime = a} :: TableInput) Prelude.. Lens.mapping Data._Time
 
 -- | If the table is a view, the original text of the view; otherwise @null@.
 tableInput_viewOriginalText :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Text)
@@ -184,7 +185,7 @@ tableInput_retention = Lens.lens (\TableInput' {retention} -> retention) (\s@Tab
 
 -- | The last time that column statistics were computed for this table.
 tableInput_lastAnalyzedTime :: Lens.Lens' TableInput (Prelude.Maybe Prelude.UTCTime)
-tableInput_lastAnalyzedTime = Lens.lens (\TableInput' {lastAnalyzedTime} -> lastAnalyzedTime) (\s@TableInput' {} a -> s {lastAnalyzedTime = a} :: TableInput) Prelude.. Lens.mapping Core._Time
+tableInput_lastAnalyzedTime = Lens.lens (\TableInput' {lastAnalyzedTime} -> lastAnalyzedTime) (\s@TableInput' {} a -> s {lastAnalyzedTime = a} :: TableInput) Prelude.. Lens.mapping Data._Time
 
 -- | These key-value pairs define properties associated with the table.
 tableInput_parameters :: Lens.Lens' TableInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -227,27 +228,27 @@ instance Prelude.NFData TableInput where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON TableInput where
+instance Data.ToJSON TableInput where
   toJSON TableInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetTable" Core..=) Prelude.<$> targetTable,
-            ("LastAccessTime" Core..=)
+          [ ("TargetTable" Data..=) Prelude.<$> targetTable,
+            ("LastAccessTime" Data..=)
               Prelude.<$> lastAccessTime,
-            ("ViewOriginalText" Core..=)
+            ("ViewOriginalText" Data..=)
               Prelude.<$> viewOriginalText,
-            ("Owner" Core..=) Prelude.<$> owner,
-            ("ViewExpandedText" Core..=)
+            ("Owner" Data..=) Prelude.<$> owner,
+            ("ViewExpandedText" Data..=)
               Prelude.<$> viewExpandedText,
-            ("Description" Core..=) Prelude.<$> description,
-            ("PartitionKeys" Core..=) Prelude.<$> partitionKeys,
-            ("TableType" Core..=) Prelude.<$> tableType,
-            ("StorageDescriptor" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("PartitionKeys" Data..=) Prelude.<$> partitionKeys,
+            ("TableType" Data..=) Prelude.<$> tableType,
+            ("StorageDescriptor" Data..=)
               Prelude.<$> storageDescriptor,
-            ("Retention" Core..=) Prelude.<$> retention,
-            ("LastAnalyzedTime" Core..=)
+            ("Retention" Data..=) Prelude.<$> retention,
+            ("LastAnalyzedTime" Data..=)
               Prelude.<$> lastAnalyzedTime,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Name" Core..= name)
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

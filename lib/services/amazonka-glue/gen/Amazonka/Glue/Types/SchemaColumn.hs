@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SchemaColumn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A key-value pair representing a column and data type that this transform
@@ -63,14 +64,14 @@ schemaColumn_name = Lens.lens (\SchemaColumn' {name} -> name) (\s@SchemaColumn' 
 schemaColumn_dataType :: Lens.Lens' SchemaColumn (Prelude.Maybe Prelude.Text)
 schemaColumn_dataType = Lens.lens (\SchemaColumn' {dataType} -> dataType) (\s@SchemaColumn' {} a -> s {dataType = a} :: SchemaColumn)
 
-instance Core.FromJSON SchemaColumn where
+instance Data.FromJSON SchemaColumn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaColumn"
       ( \x ->
           SchemaColumn'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DataType")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "DataType")
       )
 
 instance Prelude.Hashable SchemaColumn where
@@ -82,11 +83,11 @@ instance Prelude.NFData SchemaColumn where
   rnf SchemaColumn' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf dataType
 
-instance Core.ToJSON SchemaColumn where
+instance Data.ToJSON SchemaColumn where
   toJSON SchemaColumn' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("DataType" Core..=) Prelude.<$> dataType
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("DataType" Data..=) Prelude.<$> dataType
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.JobNodeDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.JobRun
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newJobNodeDetails =
 jobNodeDetails_jobRuns :: Lens.Lens' JobNodeDetails (Prelude.Maybe [JobRun])
 jobNodeDetails_jobRuns = Lens.lens (\JobNodeDetails' {jobRuns} -> jobRuns) (\s@JobNodeDetails' {} a -> s {jobRuns = a} :: JobNodeDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON JobNodeDetails where
+instance Data.FromJSON JobNodeDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobNodeDetails"
       ( \x ->
           JobNodeDetails'
-            Prelude.<$> (x Core..:? "JobRuns" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "JobRuns" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable JobNodeDetails where

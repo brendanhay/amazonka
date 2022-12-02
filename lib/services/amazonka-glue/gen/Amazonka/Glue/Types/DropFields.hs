@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DropFields where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that chooses the data property keys that you want
@@ -75,15 +76,15 @@ dropFields_inputs = Lens.lens (\DropFields' {inputs} -> inputs) (\s@DropFields' 
 dropFields_paths :: Lens.Lens' DropFields [[Prelude.Text]]
 dropFields_paths = Lens.lens (\DropFields' {paths} -> paths) (\s@DropFields' {} a -> s {paths = a} :: DropFields) Prelude.. Lens.coerced
 
-instance Core.FromJSON DropFields where
+instance Data.FromJSON DropFields where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DropFields"
       ( \x ->
           DropFields'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..:? "Paths" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..:? "Paths" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DropFields where
@@ -98,12 +99,12 @@ instance Prelude.NFData DropFields where
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf paths
 
-instance Core.ToJSON DropFields where
+instance Data.ToJSON DropFields where
   toJSON DropFields' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Paths" Core..= paths)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Paths" Data..= paths)
           ]
       )

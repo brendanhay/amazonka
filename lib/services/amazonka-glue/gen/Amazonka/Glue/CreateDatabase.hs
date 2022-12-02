@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,34 +123,34 @@ instance Prelude.NFData CreateDatabase where
       `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf databaseInput
 
-instance Core.ToHeaders CreateDatabase where
+instance Data.ToHeaders CreateDatabase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreateDatabase" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.CreateDatabase" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDatabase where
+instance Data.ToJSON CreateDatabase where
   toJSON CreateDatabase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
             Prelude.Just
-              ("DatabaseInput" Core..= databaseInput)
+              ("DatabaseInput" Data..= databaseInput)
           ]
       )
 
-instance Core.ToPath CreateDatabase where
+instance Data.ToPath CreateDatabase where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDatabase where
+instance Data.ToQuery CreateDatabase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDatabaseResponse' smart constructor.

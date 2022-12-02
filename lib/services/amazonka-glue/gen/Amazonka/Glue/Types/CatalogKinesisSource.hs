@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CatalogKinesisSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.KinesisStreamingSourceOptions
 import Amazonka.Glue.Types.StreamingDataPreviewOptions
 import qualified Amazonka.Prelude as Prelude
@@ -114,19 +115,19 @@ catalogKinesisSource_table = Lens.lens (\CatalogKinesisSource' {table} -> table)
 catalogKinesisSource_database :: Lens.Lens' CatalogKinesisSource Prelude.Text
 catalogKinesisSource_database = Lens.lens (\CatalogKinesisSource' {database} -> database) (\s@CatalogKinesisSource' {} a -> s {database = a} :: CatalogKinesisSource)
 
-instance Core.FromJSON CatalogKinesisSource where
+instance Data.FromJSON CatalogKinesisSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CatalogKinesisSource"
       ( \x ->
           CatalogKinesisSource'
-            Prelude.<$> (x Core..:? "WindowSize")
-            Prelude.<*> (x Core..:? "StreamingOptions")
-            Prelude.<*> (x Core..:? "DetectSchema")
-            Prelude.<*> (x Core..:? "DataPreviewOptions")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Table")
-            Prelude.<*> (x Core..: "Database")
+            Prelude.<$> (x Data..:? "WindowSize")
+            Prelude.<*> (x Data..:? "StreamingOptions")
+            Prelude.<*> (x Data..:? "DetectSchema")
+            Prelude.<*> (x Data..:? "DataPreviewOptions")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Table")
+            Prelude.<*> (x Data..: "Database")
       )
 
 instance Prelude.Hashable CatalogKinesisSource where
@@ -149,18 +150,18 @@ instance Prelude.NFData CatalogKinesisSource where
       `Prelude.seq` Prelude.rnf table
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToJSON CatalogKinesisSource where
+instance Data.ToJSON CatalogKinesisSource where
   toJSON CatalogKinesisSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WindowSize" Core..=) Prelude.<$> windowSize,
-            ("StreamingOptions" Core..=)
+          [ ("WindowSize" Data..=) Prelude.<$> windowSize,
+            ("StreamingOptions" Data..=)
               Prelude.<$> streamingOptions,
-            ("DetectSchema" Core..=) Prelude.<$> detectSchema,
-            ("DataPreviewOptions" Core..=)
+            ("DetectSchema" Data..=) Prelude.<$> detectSchema,
+            ("DataPreviewOptions" Data..=)
               Prelude.<$> dataPreviewOptions,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Table" Core..= table),
-            Prelude.Just ("Database" Core..= database)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Table" Data..= table),
+            Prelude.Just ("Database" Data..= database)
           ]
       )

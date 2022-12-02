@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.TaskRunSortCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.SortDirectionType
 import Amazonka.Glue.Types.TaskRunSortColumnType
 import qualified Amazonka.Prelude as Prelude
@@ -84,12 +85,12 @@ instance Prelude.NFData TaskRunSortCriteria where
     Prelude.rnf column
       `Prelude.seq` Prelude.rnf sortDirection
 
-instance Core.ToJSON TaskRunSortCriteria where
+instance Data.ToJSON TaskRunSortCriteria where
   toJSON TaskRunSortCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Column" Core..= column),
+          [ Prelude.Just ("Column" Data..= column),
             Prelude.Just
-              ("SortDirection" Core..= sortDirection)
+              ("SortDirection" Data..= sortDirection)
           ]
       )

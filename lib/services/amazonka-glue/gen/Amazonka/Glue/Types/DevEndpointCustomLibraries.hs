@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DevEndpointCustomLibraries where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Custom libraries to be loaded into a development endpoint.
@@ -102,13 +103,13 @@ instance Prelude.NFData DevEndpointCustomLibraries where
     Prelude.rnf extraJarsS3Path
       `Prelude.seq` Prelude.rnf extraPythonLibsS3Path
 
-instance Core.ToJSON DevEndpointCustomLibraries where
+instance Data.ToJSON DevEndpointCustomLibraries where
   toJSON DevEndpointCustomLibraries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExtraJarsS3Path" Core..=)
+          [ ("ExtraJarsS3Path" Data..=)
               Prelude.<$> extraJarsS3Path,
-            ("ExtraPythonLibsS3Path" Core..=)
+            ("ExtraPythonLibsS3Path" Data..=)
               Prelude.<$> extraPythonLibsS3Path
           ]
       )

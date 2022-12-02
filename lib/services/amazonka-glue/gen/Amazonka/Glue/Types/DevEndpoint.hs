@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DevEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.WorkerType
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,9 +70,9 @@ data DevEndpoint = DevEndpoint'
     -- defaults to Python 2.
     glueVersion :: Prelude.Maybe Prelude.Text,
     -- | The point in time at which this DevEndpoint was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The point in time at which this @DevEndpoint@ was last modified.
-    lastModifiedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The subnet ID for this @DevEndpoint@.
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | The type of predefined worker that is allocated to the development
@@ -374,11 +375,11 @@ devEndpoint_glueVersion = Lens.lens (\DevEndpoint' {glueVersion} -> glueVersion)
 
 -- | The point in time at which this DevEndpoint was created.
 devEndpoint_createdTimestamp :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.UTCTime)
-devEndpoint_createdTimestamp = Lens.lens (\DevEndpoint' {createdTimestamp} -> createdTimestamp) (\s@DevEndpoint' {} a -> s {createdTimestamp = a} :: DevEndpoint) Prelude.. Lens.mapping Core._Time
+devEndpoint_createdTimestamp = Lens.lens (\DevEndpoint' {createdTimestamp} -> createdTimestamp) (\s@DevEndpoint' {} a -> s {createdTimestamp = a} :: DevEndpoint) Prelude.. Lens.mapping Data._Time
 
 -- | The point in time at which this @DevEndpoint@ was last modified.
 devEndpoint_lastModifiedTimestamp :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.UTCTime)
-devEndpoint_lastModifiedTimestamp = Lens.lens (\DevEndpoint' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@DevEndpoint' {} a -> s {lastModifiedTimestamp = a} :: DevEndpoint) Prelude.. Lens.mapping Core._Time
+devEndpoint_lastModifiedTimestamp = Lens.lens (\DevEndpoint' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@DevEndpoint' {} a -> s {lastModifiedTimestamp = a} :: DevEndpoint) Prelude.. Lens.mapping Data._Time
 
 -- | The subnet ID for this @DevEndpoint@.
 devEndpoint_subnetId :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
@@ -490,39 +491,39 @@ devEndpoint_failureReason = Lens.lens (\DevEndpoint' {failureReason} -> failureR
 devEndpoint_publicKeys :: Lens.Lens' DevEndpoint (Prelude.Maybe [Prelude.Text])
 devEndpoint_publicKeys = Lens.lens (\DevEndpoint' {publicKeys} -> publicKeys) (\s@DevEndpoint' {} a -> s {publicKeys = a} :: DevEndpoint) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DevEndpoint where
+instance Data.FromJSON DevEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DevEndpoint"
       ( \x ->
           DevEndpoint'
-            Prelude.<$> (x Core..:? "SecurityConfiguration")
-            Prelude.<*> (x Core..:? "ZeppelinRemoteSparkInterpreterPort")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "PublicKey")
-            Prelude.<*> (x Core..:? "NumberOfWorkers")
-            Prelude.<*> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SecurityConfiguration")
+            Prelude.<*> (x Data..:? "ZeppelinRemoteSparkInterpreterPort")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "PublicKey")
+            Prelude.<*> (x Data..:? "NumberOfWorkers")
+            Prelude.<*> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EndpointName")
-            Prelude.<*> (x Core..:? "GlueVersion")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "LastModifiedTimestamp")
-            Prelude.<*> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "WorkerType")
-            Prelude.<*> (x Core..:? "PublicAddress")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "ExtraJarsS3Path")
-            Prelude.<*> (x Core..:? "PrivateAddress")
-            Prelude.<*> (x Core..:? "NumberOfNodes")
-            Prelude.<*> (x Core..:? "Arguments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LastUpdateStatus")
-            Prelude.<*> (x Core..:? "YarnEndpointAddress")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "ExtraPythonLibsS3Path")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..:? "PublicKeys" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EndpointName")
+            Prelude.<*> (x Data..:? "GlueVersion")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "LastModifiedTimestamp")
+            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "WorkerType")
+            Prelude.<*> (x Data..:? "PublicAddress")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "ExtraJarsS3Path")
+            Prelude.<*> (x Data..:? "PrivateAddress")
+            Prelude.<*> (x Data..:? "NumberOfNodes")
+            Prelude.<*> (x Data..:? "Arguments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LastUpdateStatus")
+            Prelude.<*> (x Data..:? "YarnEndpointAddress")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "ExtraPythonLibsS3Path")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "PublicKeys" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DevEndpoint where

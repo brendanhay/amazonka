@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -403,7 +404,7 @@ instance Core.AWSRequest StartJobRun where
     Response.receiveJSON
       ( \s h x ->
           StartJobRunResponse'
-            Prelude.<$> (x Core..?> "JobRunId")
+            Prelude.<$> (x Data..?> "JobRunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -435,46 +436,46 @@ instance Prelude.NFData StartJobRun where
       `Prelude.seq` Prelude.rnf executionClass
       `Prelude.seq` Prelude.rnf jobName
 
-instance Core.ToHeaders StartJobRun where
+instance Data.ToHeaders StartJobRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.StartJobRun" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.StartJobRun" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartJobRun where
+instance Data.ToJSON StartJobRun where
   toJSON StartJobRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityConfiguration" Core..=)
+          [ ("SecurityConfiguration" Data..=)
               Prelude.<$> securityConfiguration,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("NumberOfWorkers" Core..=)
+            ("Timeout" Data..=) Prelude.<$> timeout,
+            ("NumberOfWorkers" Data..=)
               Prelude.<$> numberOfWorkers,
-            ("NotificationProperty" Core..=)
+            ("NotificationProperty" Data..=)
               Prelude.<$> notificationProperty,
-            ("JobRunId" Core..=) Prelude.<$> jobRunId,
-            ("WorkerType" Core..=) Prelude.<$> workerType,
-            ("AllocatedCapacity" Core..=)
+            ("JobRunId" Data..=) Prelude.<$> jobRunId,
+            ("WorkerType" Data..=) Prelude.<$> workerType,
+            ("AllocatedCapacity" Data..=)
               Prelude.<$> allocatedCapacity,
-            ("Arguments" Core..=) Prelude.<$> arguments,
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("ExecutionClass" Core..=)
+            ("Arguments" Data..=) Prelude.<$> arguments,
+            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("ExecutionClass" Data..=)
               Prelude.<$> executionClass,
-            Prelude.Just ("JobName" Core..= jobName)
+            Prelude.Just ("JobName" Data..= jobName)
           ]
       )
 
-instance Core.ToPath StartJobRun where
+instance Data.ToPath StartJobRun where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartJobRun where
+instance Data.ToQuery StartJobRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartJobRunResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.NullCheckBoxList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents whether certain values are recognized as null values for
@@ -74,15 +75,15 @@ nullCheckBoxList_isNegOne = Lens.lens (\NullCheckBoxList' {isNegOne} -> isNegOne
 nullCheckBoxList_isNullString :: Lens.Lens' NullCheckBoxList (Prelude.Maybe Prelude.Bool)
 nullCheckBoxList_isNullString = Lens.lens (\NullCheckBoxList' {isNullString} -> isNullString) (\s@NullCheckBoxList' {} a -> s {isNullString = a} :: NullCheckBoxList)
 
-instance Core.FromJSON NullCheckBoxList where
+instance Data.FromJSON NullCheckBoxList where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NullCheckBoxList"
       ( \x ->
           NullCheckBoxList'
-            Prelude.<$> (x Core..:? "IsEmpty")
-            Prelude.<*> (x Core..:? "IsNegOne")
-            Prelude.<*> (x Core..:? "IsNullString")
+            Prelude.<$> (x Data..:? "IsEmpty")
+            Prelude.<*> (x Data..:? "IsNegOne")
+            Prelude.<*> (x Data..:? "IsNullString")
       )
 
 instance Prelude.Hashable NullCheckBoxList where
@@ -97,12 +98,12 @@ instance Prelude.NFData NullCheckBoxList where
       `Prelude.seq` Prelude.rnf isNegOne
       `Prelude.seq` Prelude.rnf isNullString
 
-instance Core.ToJSON NullCheckBoxList where
+instance Data.ToJSON NullCheckBoxList where
   toJSON NullCheckBoxList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IsEmpty" Core..=) Prelude.<$> isEmpty,
-            ("IsNegOne" Core..=) Prelude.<$> isNegOne,
-            ("IsNullString" Core..=) Prelude.<$> isNullString
+          [ ("IsEmpty" Data..=) Prelude.<$> isEmpty,
+            ("IsNegOne" Data..=) Prelude.<$> isNegOne,
+            ("IsNullString" Data..=) Prelude.<$> isNullString
           ]
       )

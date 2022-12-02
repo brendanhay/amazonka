@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SplitFields where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that splits data property keys into two
@@ -77,15 +78,15 @@ splitFields_inputs = Lens.lens (\SplitFields' {inputs} -> inputs) (\s@SplitField
 splitFields_paths :: Lens.Lens' SplitFields [[Prelude.Text]]
 splitFields_paths = Lens.lens (\SplitFields' {paths} -> paths) (\s@SplitFields' {} a -> s {paths = a} :: SplitFields) Prelude.. Lens.coerced
 
-instance Core.FromJSON SplitFields where
+instance Data.FromJSON SplitFields where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SplitFields"
       ( \x ->
           SplitFields'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..:? "Paths" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..:? "Paths" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SplitFields where
@@ -100,12 +101,12 @@ instance Prelude.NFData SplitFields where
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf paths
 
-instance Core.ToJSON SplitFields where
+instance Data.ToJSON SplitFields where
   toJSON SplitFields' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Paths" Core..= paths)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Paths" Data..= paths)
           ]
       )

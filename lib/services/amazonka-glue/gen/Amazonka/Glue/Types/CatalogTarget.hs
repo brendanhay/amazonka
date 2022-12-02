@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CatalogTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Glue Data Catalog target.
@@ -101,17 +102,17 @@ catalogTarget_databaseName = Lens.lens (\CatalogTarget' {databaseName} -> databa
 catalogTarget_tables :: Lens.Lens' CatalogTarget (Prelude.NonEmpty Prelude.Text)
 catalogTarget_tables = Lens.lens (\CatalogTarget' {tables} -> tables) (\s@CatalogTarget' {} a -> s {tables = a} :: CatalogTarget) Prelude.. Lens.coerced
 
-instance Core.FromJSON CatalogTarget where
+instance Data.FromJSON CatalogTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CatalogTarget"
       ( \x ->
           CatalogTarget'
-            Prelude.<$> (x Core..:? "DlqEventQueueArn")
-            Prelude.<*> (x Core..:? "EventQueueArn")
-            Prelude.<*> (x Core..:? "ConnectionName")
-            Prelude.<*> (x Core..: "DatabaseName")
-            Prelude.<*> (x Core..: "Tables")
+            Prelude.<$> (x Data..:? "DlqEventQueueArn")
+            Prelude.<*> (x Data..:? "EventQueueArn")
+            Prelude.<*> (x Data..:? "ConnectionName")
+            Prelude.<*> (x Data..: "DatabaseName")
+            Prelude.<*> (x Data..: "Tables")
       )
 
 instance Prelude.Hashable CatalogTarget where
@@ -130,16 +131,16 @@ instance Prelude.NFData CatalogTarget where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tables
 
-instance Core.ToJSON CatalogTarget where
+instance Data.ToJSON CatalogTarget where
   toJSON CatalogTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DlqEventQueueArn" Core..=)
+          [ ("DlqEventQueueArn" Data..=)
               Prelude.<$> dlqEventQueueArn,
-            ("EventQueueArn" Core..=) Prelude.<$> eventQueueArn,
-            ("ConnectionName" Core..=)
+            ("EventQueueArn" Data..=) Prelude.<$> eventQueueArn,
+            ("ConnectionName" Data..=)
               Prelude.<$> connectionName,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("Tables" Core..= tables)
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("Tables" Data..= tables)
           ]
       )

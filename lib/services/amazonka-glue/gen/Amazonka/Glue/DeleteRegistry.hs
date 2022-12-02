@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,9 +93,9 @@ instance Core.AWSRequest DeleteRegistry where
     Response.receiveJSON
       ( \s h x ->
           DeleteRegistryResponse'
-            Prelude.<$> (x Core..?> "RegistryName")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "RegistryArn")
+            Prelude.<$> (x Data..?> "RegistryName")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "RegistryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,30 +106,30 @@ instance Prelude.Hashable DeleteRegistry where
 instance Prelude.NFData DeleteRegistry where
   rnf DeleteRegistry' {..} = Prelude.rnf registryId
 
-instance Core.ToHeaders DeleteRegistry where
+instance Data.ToHeaders DeleteRegistry where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeleteRegistry" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.DeleteRegistry" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRegistry where
+instance Data.ToJSON DeleteRegistry where
   toJSON DeleteRegistry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("RegistryId" Core..= registryId)]
+          [Prelude.Just ("RegistryId" Data..= registryId)]
       )
 
-instance Core.ToPath DeleteRegistry where
+instance Data.ToPath DeleteRegistry where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRegistry where
+instance Data.ToQuery DeleteRegistry where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRegistryResponse' smart constructor.

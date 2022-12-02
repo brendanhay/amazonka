@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest StartBlueprintRun where
     Response.receiveJSON
       ( \s h x ->
           StartBlueprintRunResponse'
-            Prelude.<$> (x Core..?> "RunId")
+            Prelude.<$> (x Data..?> "RunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,33 +124,33 @@ instance Prelude.NFData StartBlueprintRun where
       `Prelude.seq` Prelude.rnf blueprintName
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders StartBlueprintRun where
+instance Data.ToHeaders StartBlueprintRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.StartBlueprintRun" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.StartBlueprintRun" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartBlueprintRun where
+instance Data.ToJSON StartBlueprintRun where
   toJSON StartBlueprintRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("BlueprintName" Core..= blueprintName),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+          [ ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("BlueprintName" Data..= blueprintName),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath StartBlueprintRun where
+instance Data.ToPath StartBlueprintRun where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartBlueprintRun where
+instance Data.ToQuery StartBlueprintRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartBlueprintRunResponse' smart constructor.

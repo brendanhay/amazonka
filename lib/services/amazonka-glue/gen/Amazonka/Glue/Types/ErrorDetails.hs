@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ErrorDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object containing error details.
@@ -61,14 +62,14 @@ errorDetails_errorMessage = Lens.lens (\ErrorDetails' {errorMessage} -> errorMes
 errorDetails_errorCode :: Lens.Lens' ErrorDetails (Prelude.Maybe Prelude.Text)
 errorDetails_errorCode = Lens.lens (\ErrorDetails' {errorCode} -> errorCode) (\s@ErrorDetails' {} a -> s {errorCode = a} :: ErrorDetails)
 
-instance Core.FromJSON ErrorDetails where
+instance Data.FromJSON ErrorDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorDetails"
       ( \x ->
           ErrorDetails'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable ErrorDetails where

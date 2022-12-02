@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.JobCommand where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies code that runs when a job is run.
@@ -82,15 +83,15 @@ jobCommand_scriptLocation = Lens.lens (\JobCommand' {scriptLocation} -> scriptLo
 jobCommand_pythonVersion :: Lens.Lens' JobCommand (Prelude.Maybe Prelude.Text)
 jobCommand_pythonVersion = Lens.lens (\JobCommand' {pythonVersion} -> pythonVersion) (\s@JobCommand' {} a -> s {pythonVersion = a} :: JobCommand)
 
-instance Core.FromJSON JobCommand where
+instance Data.FromJSON JobCommand where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobCommand"
       ( \x ->
           JobCommand'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ScriptLocation")
-            Prelude.<*> (x Core..:? "PythonVersion")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ScriptLocation")
+            Prelude.<*> (x Data..:? "PythonVersion")
       )
 
 instance Prelude.Hashable JobCommand where
@@ -105,13 +106,13 @@ instance Prelude.NFData JobCommand where
       `Prelude.seq` Prelude.rnf scriptLocation
       `Prelude.seq` Prelude.rnf pythonVersion
 
-instance Core.ToJSON JobCommand where
+instance Data.ToJSON JobCommand where
   toJSON JobCommand' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("ScriptLocation" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("ScriptLocation" Data..=)
               Prelude.<$> scriptLocation,
-            ("PythonVersion" Core..=) Prelude.<$> pythonVersion
+            ("PythonVersion" Data..=) Prelude.<$> pythonVersion
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.JdbcTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.JdbcMetadataEntry
 import qualified Amazonka.Prelude as Prelude
 
@@ -102,18 +103,18 @@ jdbcTarget_exclusions = Lens.lens (\JdbcTarget' {exclusions} -> exclusions) (\s@
 jdbcTarget_connectionName :: Lens.Lens' JdbcTarget (Prelude.Maybe Prelude.Text)
 jdbcTarget_connectionName = Lens.lens (\JdbcTarget' {connectionName} -> connectionName) (\s@JdbcTarget' {} a -> s {connectionName = a} :: JdbcTarget)
 
-instance Core.FromJSON JdbcTarget where
+instance Data.FromJSON JdbcTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JdbcTarget"
       ( \x ->
           JdbcTarget'
-            Prelude.<$> ( x Core..:? "EnableAdditionalMetadata"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "EnableAdditionalMetadata"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "Exclusions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ConnectionName")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "Exclusions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ConnectionName")
       )
 
 instance Prelude.Hashable JdbcTarget where
@@ -131,15 +132,15 @@ instance Prelude.NFData JdbcTarget where
       `Prelude.seq` Prelude.rnf exclusions
       `Prelude.seq` Prelude.rnf connectionName
 
-instance Core.ToJSON JdbcTarget where
+instance Data.ToJSON JdbcTarget where
   toJSON JdbcTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EnableAdditionalMetadata" Core..=)
+          [ ("EnableAdditionalMetadata" Data..=)
               Prelude.<$> enableAdditionalMetadata,
-            ("Path" Core..=) Prelude.<$> path,
-            ("Exclusions" Core..=) Prelude.<$> exclusions,
-            ("ConnectionName" Core..=)
+            ("Path" Data..=) Prelude.<$> path,
+            ("Exclusions" Data..=) Prelude.<$> exclusions,
+            ("ConnectionName" Data..=)
               Prelude.<$> connectionName
           ]
       )

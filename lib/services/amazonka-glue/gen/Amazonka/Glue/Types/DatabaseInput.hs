@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DatabaseInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.DatabaseIdentifier
 import Amazonka.Glue.Types.PrincipalPermissions
 import qualified Amazonka.Prelude as Prelude
@@ -131,17 +132,17 @@ instance Prelude.NFData DatabaseInput where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON DatabaseInput where
+instance Data.ToJSON DatabaseInput where
   toJSON DatabaseInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetDatabase" Core..=)
+          [ ("TargetDatabase" Data..=)
               Prelude.<$> targetDatabase,
-            ("Description" Core..=) Prelude.<$> description,
-            ("LocationUri" Core..=) Prelude.<$> locationUri,
-            ("CreateTableDefaultPermissions" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("LocationUri" Data..=) Prelude.<$> locationUri,
+            ("CreateTableDefaultPermissions" Data..=)
               Prelude.<$> createTableDefaultPermissions,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Name" Core..= name)
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

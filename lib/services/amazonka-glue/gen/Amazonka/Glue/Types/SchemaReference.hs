@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SchemaReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.SchemaId
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,15 +79,15 @@ schemaReference_schemaVersionId = Lens.lens (\SchemaReference' {schemaVersionId}
 schemaReference_schemaId :: Lens.Lens' SchemaReference (Prelude.Maybe SchemaId)
 schemaReference_schemaId = Lens.lens (\SchemaReference' {schemaId} -> schemaId) (\s@SchemaReference' {} a -> s {schemaId = a} :: SchemaReference)
 
-instance Core.FromJSON SchemaReference where
+instance Data.FromJSON SchemaReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaReference"
       ( \x ->
           SchemaReference'
-            Prelude.<$> (x Core..:? "SchemaVersionNumber")
-            Prelude.<*> (x Core..:? "SchemaVersionId")
-            Prelude.<*> (x Core..:? "SchemaId")
+            Prelude.<$> (x Data..:? "SchemaVersionNumber")
+            Prelude.<*> (x Data..:? "SchemaVersionId")
+            Prelude.<*> (x Data..:? "SchemaId")
       )
 
 instance Prelude.Hashable SchemaReference where
@@ -101,14 +102,14 @@ instance Prelude.NFData SchemaReference where
       `Prelude.seq` Prelude.rnf schemaVersionId
       `Prelude.seq` Prelude.rnf schemaId
 
-instance Core.ToJSON SchemaReference where
+instance Data.ToJSON SchemaReference where
   toJSON SchemaReference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SchemaVersionNumber" Core..=)
+          [ ("SchemaVersionNumber" Data..=)
               Prelude.<$> schemaVersionNumber,
-            ("SchemaVersionId" Core..=)
+            ("SchemaVersionId" Data..=)
               Prelude.<$> schemaVersionId,
-            ("SchemaId" Core..=) Prelude.<$> schemaId
+            ("SchemaId" Data..=) Prelude.<$> schemaId
           ]
       )

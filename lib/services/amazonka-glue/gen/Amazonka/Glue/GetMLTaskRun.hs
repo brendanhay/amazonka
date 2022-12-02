@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,16 +109,16 @@ instance Core.AWSRequest GetMLTaskRun where
     Response.receiveJSON
       ( \s h x ->
           GetMLTaskRunResponse'
-            Prelude.<$> (x Core..?> "LastModifiedOn")
-            Prelude.<*> (x Core..?> "StartedOn")
-            Prelude.<*> (x Core..?> "Properties")
-            Prelude.<*> (x Core..?> "ExecutionTime")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "TransformId")
-            Prelude.<*> (x Core..?> "CompletedOn")
-            Prelude.<*> (x Core..?> "TaskRunId")
-            Prelude.<*> (x Core..?> "ErrorString")
-            Prelude.<*> (x Core..?> "LogGroupName")
+            Prelude.<$> (x Data..?> "LastModifiedOn")
+            Prelude.<*> (x Data..?> "StartedOn")
+            Prelude.<*> (x Data..?> "Properties")
+            Prelude.<*> (x Data..?> "ExecutionTime")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "TransformId")
+            Prelude.<*> (x Data..?> "CompletedOn")
+            Prelude.<*> (x Data..?> "TaskRunId")
+            Prelude.<*> (x Data..?> "ErrorString")
+            Prelude.<*> (x Data..?> "LogGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,40 +132,40 @@ instance Prelude.NFData GetMLTaskRun where
     Prelude.rnf transformId
       `Prelude.seq` Prelude.rnf taskRunId
 
-instance Core.ToHeaders GetMLTaskRun where
+instance Data.ToHeaders GetMLTaskRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetMLTaskRun" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetMLTaskRun" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMLTaskRun where
+instance Data.ToJSON GetMLTaskRun where
   toJSON GetMLTaskRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TransformId" Core..= transformId),
-            Prelude.Just ("TaskRunId" Core..= taskRunId)
+          [ Prelude.Just ("TransformId" Data..= transformId),
+            Prelude.Just ("TaskRunId" Data..= taskRunId)
           ]
       )
 
-instance Core.ToPath GetMLTaskRun where
+instance Data.ToPath GetMLTaskRun where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMLTaskRun where
+instance Data.ToQuery GetMLTaskRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMLTaskRunResponse' smart constructor.
 data GetMLTaskRunResponse = GetMLTaskRunResponse'
   { -- | The date and time when this task run was last modified.
-    lastModifiedOn :: Prelude.Maybe Core.POSIX,
+    lastModifiedOn :: Prelude.Maybe Data.POSIX,
     -- | The date and time when this task run started.
-    startedOn :: Prelude.Maybe Core.POSIX,
+    startedOn :: Prelude.Maybe Data.POSIX,
     -- | The list of properties that are associated with the task run.
     properties :: Prelude.Maybe TaskRunProperties,
     -- | The amount of time (in seconds) that the task run consumed resources.
@@ -174,7 +175,7 @@ data GetMLTaskRunResponse = GetMLTaskRunResponse'
     -- | The unique identifier of the task run.
     transformId :: Prelude.Maybe Prelude.Text,
     -- | The date and time when this task run was completed.
-    completedOn :: Prelude.Maybe Core.POSIX,
+    completedOn :: Prelude.Maybe Data.POSIX,
     -- | The unique run identifier associated with this run.
     taskRunId :: Prelude.Maybe Prelude.Text,
     -- | The error strings that are associated with the task run.
@@ -237,11 +238,11 @@ newGetMLTaskRunResponse pHttpStatus_ =
 
 -- | The date and time when this task run was last modified.
 getMLTaskRunResponse_lastModifiedOn :: Lens.Lens' GetMLTaskRunResponse (Prelude.Maybe Prelude.UTCTime)
-getMLTaskRunResponse_lastModifiedOn = Lens.lens (\GetMLTaskRunResponse' {lastModifiedOn} -> lastModifiedOn) (\s@GetMLTaskRunResponse' {} a -> s {lastModifiedOn = a} :: GetMLTaskRunResponse) Prelude.. Lens.mapping Core._Time
+getMLTaskRunResponse_lastModifiedOn = Lens.lens (\GetMLTaskRunResponse' {lastModifiedOn} -> lastModifiedOn) (\s@GetMLTaskRunResponse' {} a -> s {lastModifiedOn = a} :: GetMLTaskRunResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when this task run started.
 getMLTaskRunResponse_startedOn :: Lens.Lens' GetMLTaskRunResponse (Prelude.Maybe Prelude.UTCTime)
-getMLTaskRunResponse_startedOn = Lens.lens (\GetMLTaskRunResponse' {startedOn} -> startedOn) (\s@GetMLTaskRunResponse' {} a -> s {startedOn = a} :: GetMLTaskRunResponse) Prelude.. Lens.mapping Core._Time
+getMLTaskRunResponse_startedOn = Lens.lens (\GetMLTaskRunResponse' {startedOn} -> startedOn) (\s@GetMLTaskRunResponse' {} a -> s {startedOn = a} :: GetMLTaskRunResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The list of properties that are associated with the task run.
 getMLTaskRunResponse_properties :: Lens.Lens' GetMLTaskRunResponse (Prelude.Maybe TaskRunProperties)
@@ -261,7 +262,7 @@ getMLTaskRunResponse_transformId = Lens.lens (\GetMLTaskRunResponse' {transformI
 
 -- | The date and time when this task run was completed.
 getMLTaskRunResponse_completedOn :: Lens.Lens' GetMLTaskRunResponse (Prelude.Maybe Prelude.UTCTime)
-getMLTaskRunResponse_completedOn = Lens.lens (\GetMLTaskRunResponse' {completedOn} -> completedOn) (\s@GetMLTaskRunResponse' {} a -> s {completedOn = a} :: GetMLTaskRunResponse) Prelude.. Lens.mapping Core._Time
+getMLTaskRunResponse_completedOn = Lens.lens (\GetMLTaskRunResponse' {completedOn} -> completedOn) (\s@GetMLTaskRunResponse' {} a -> s {completedOn = a} :: GetMLTaskRunResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The unique run identifier associated with this run.
 getMLTaskRunResponse_taskRunId :: Lens.Lens' GetMLTaskRunResponse (Prelude.Maybe Prelude.Text)

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SchemaId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The unique ID of the schema in the Glue schema registry.
@@ -76,15 +77,15 @@ schemaId_schemaName = Lens.lens (\SchemaId' {schemaName} -> schemaName) (\s@Sche
 schemaId_schemaArn :: Lens.Lens' SchemaId (Prelude.Maybe Prelude.Text)
 schemaId_schemaArn = Lens.lens (\SchemaId' {schemaArn} -> schemaArn) (\s@SchemaId' {} a -> s {schemaArn = a} :: SchemaId)
 
-instance Core.FromJSON SchemaId where
+instance Data.FromJSON SchemaId where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaId"
       ( \x ->
           SchemaId'
-            Prelude.<$> (x Core..:? "RegistryName")
-            Prelude.<*> (x Core..:? "SchemaName")
-            Prelude.<*> (x Core..:? "SchemaArn")
+            Prelude.<$> (x Data..:? "RegistryName")
+            Prelude.<*> (x Data..:? "SchemaName")
+            Prelude.<*> (x Data..:? "SchemaArn")
       )
 
 instance Prelude.Hashable SchemaId where
@@ -99,12 +100,12 @@ instance Prelude.NFData SchemaId where
       `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf schemaArn
 
-instance Core.ToJSON SchemaId where
+instance Data.ToJSON SchemaId where
   toJSON SchemaId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RegistryName" Core..=) Prelude.<$> registryName,
-            ("SchemaName" Core..=) Prelude.<$> schemaName,
-            ("SchemaArn" Core..=) Prelude.<$> schemaArn
+          [ ("RegistryName" Data..=) Prelude.<$> registryName,
+            ("SchemaName" Data..=) Prelude.<$> schemaName,
+            ("SchemaArn" Data..=) Prelude.<$> schemaArn
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.LastCrawlInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.LastCrawlStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -39,7 +40,7 @@ data LastCrawlInfo = LastCrawlInfo'
     -- | The prefix for a message about this crawl.
     messagePrefix :: Prelude.Maybe Prelude.Text,
     -- | The time at which the crawl started.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,20 +97,20 @@ lastCrawlInfo_messagePrefix = Lens.lens (\LastCrawlInfo' {messagePrefix} -> mess
 
 -- | The time at which the crawl started.
 lastCrawlInfo_startTime :: Lens.Lens' LastCrawlInfo (Prelude.Maybe Prelude.UTCTime)
-lastCrawlInfo_startTime = Lens.lens (\LastCrawlInfo' {startTime} -> startTime) (\s@LastCrawlInfo' {} a -> s {startTime = a} :: LastCrawlInfo) Prelude.. Lens.mapping Core._Time
+lastCrawlInfo_startTime = Lens.lens (\LastCrawlInfo' {startTime} -> startTime) (\s@LastCrawlInfo' {} a -> s {startTime = a} :: LastCrawlInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON LastCrawlInfo where
+instance Data.FromJSON LastCrawlInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LastCrawlInfo"
       ( \x ->
           LastCrawlInfo'
-            Prelude.<$> (x Core..:? "LogGroup")
-            Prelude.<*> (x Core..:? "LogStream")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "MessagePrefix")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "LogGroup")
+            Prelude.<*> (x Data..:? "LogStream")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "MessagePrefix")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable LastCrawlInfo where

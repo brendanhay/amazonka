@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.UserDefinedFunction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.PrincipalType
 import Amazonka.Glue.Types.ResourceUri
 import qualified Amazonka.Prelude as Prelude
@@ -45,7 +46,7 @@ data UserDefinedFunction = UserDefinedFunction'
     -- | The ID of the Data Catalog in which the function resides.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The time at which the function was created.
-    createTime :: Prelude.Maybe Core.POSIX
+    createTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -116,22 +117,22 @@ userDefinedFunction_catalogId = Lens.lens (\UserDefinedFunction' {catalogId} -> 
 
 -- | The time at which the function was created.
 userDefinedFunction_createTime :: Lens.Lens' UserDefinedFunction (Prelude.Maybe Prelude.UTCTime)
-userDefinedFunction_createTime = Lens.lens (\UserDefinedFunction' {createTime} -> createTime) (\s@UserDefinedFunction' {} a -> s {createTime = a} :: UserDefinedFunction) Prelude.. Lens.mapping Core._Time
+userDefinedFunction_createTime = Lens.lens (\UserDefinedFunction' {createTime} -> createTime) (\s@UserDefinedFunction' {} a -> s {createTime = a} :: UserDefinedFunction) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON UserDefinedFunction where
+instance Data.FromJSON UserDefinedFunction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserDefinedFunction"
       ( \x ->
           UserDefinedFunction'
-            Prelude.<$> (x Core..:? "OwnerType")
-            Prelude.<*> (x Core..:? "OwnerName")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "ResourceUris" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "FunctionName")
-            Prelude.<*> (x Core..:? "ClassName")
-            Prelude.<*> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..:? "CreateTime")
+            Prelude.<$> (x Data..:? "OwnerType")
+            Prelude.<*> (x Data..:? "OwnerName")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "ResourceUris" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "FunctionName")
+            Prelude.<*> (x Data..:? "ClassName")
+            Prelude.<*> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..:? "CreateTime")
       )
 
 instance Prelude.Hashable UserDefinedFunction where

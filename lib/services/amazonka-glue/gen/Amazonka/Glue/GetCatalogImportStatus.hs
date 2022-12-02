@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetCatalogImportStatus where
     Response.receiveJSON
       ( \s h x ->
           GetCatalogImportStatusResponse'
-            Prelude.<$> (x Core..?> "ImportStatus")
+            Prelude.<$> (x Data..?> "ImportStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,32 +100,32 @@ instance Prelude.NFData GetCatalogImportStatus where
   rnf GetCatalogImportStatus' {..} =
     Prelude.rnf catalogId
 
-instance Core.ToHeaders GetCatalogImportStatus where
+instance Data.ToHeaders GetCatalogImportStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.GetCatalogImportStatus" ::
+              Data.=# ( "AWSGlue.GetCatalogImportStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCatalogImportStatus where
+instance Data.ToJSON GetCatalogImportStatus where
   toJSON GetCatalogImportStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("CatalogId" Core..=) Prelude.<$> catalogId]
+          [("CatalogId" Data..=) Prelude.<$> catalogId]
       )
 
-instance Core.ToPath GetCatalogImportStatus where
+instance Data.ToPath GetCatalogImportStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCatalogImportStatus where
+instance Data.ToQuery GetCatalogImportStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCatalogImportStatusResponse' smart constructor.

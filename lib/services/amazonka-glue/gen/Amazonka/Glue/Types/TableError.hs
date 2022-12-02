@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.TableError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ErrorDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ tableError_tableName = Lens.lens (\TableError' {tableName} -> tableName) (\s@Tab
 tableError_errorDetail :: Lens.Lens' TableError (Prelude.Maybe ErrorDetail)
 tableError_errorDetail = Lens.lens (\TableError' {errorDetail} -> errorDetail) (\s@TableError' {} a -> s {errorDetail = a} :: TableError)
 
-instance Core.FromJSON TableError where
+instance Data.FromJSON TableError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableError"
       ( \x ->
           TableError'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "ErrorDetail")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "ErrorDetail")
       )
 
 instance Prelude.Hashable TableError where

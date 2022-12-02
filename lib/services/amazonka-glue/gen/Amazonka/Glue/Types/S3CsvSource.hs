@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.S3CsvSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CompressionType
 import Amazonka.Glue.Types.GlueSchema
 import Amazonka.Glue.Types.QuoteChar
@@ -319,31 +320,31 @@ s3CsvSource_separator = Lens.lens (\S3CsvSource' {separator} -> separator) (\s@S
 s3CsvSource_quoteChar :: Lens.Lens' S3CsvSource QuoteChar
 s3CsvSource_quoteChar = Lens.lens (\S3CsvSource' {quoteChar} -> quoteChar) (\s@S3CsvSource' {} a -> s {quoteChar = a} :: S3CsvSource)
 
-instance Core.FromJSON S3CsvSource where
+instance Data.FromJSON S3CsvSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3CsvSource"
       ( \x ->
           S3CsvSource'
-            Prelude.<$> (x Core..:? "OutputSchemas" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "GroupFiles")
-            Prelude.<*> (x Core..:? "MaxBand")
-            Prelude.<*> (x Core..:? "WriteHeader")
-            Prelude.<*> (x Core..:? "MaxFilesInBand")
-            Prelude.<*> (x Core..:? "OptimizePerformance")
-            Prelude.<*> (x Core..:? "Recurse")
-            Prelude.<*> (x Core..:? "AdditionalOptions")
-            Prelude.<*> (x Core..:? "CompressionType")
-            Prelude.<*> (x Core..:? "SkipFirst")
-            Prelude.<*> (x Core..:? "WithHeader")
-            Prelude.<*> (x Core..:? "Multiline")
-            Prelude.<*> (x Core..:? "Exclusions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "GroupSize")
-            Prelude.<*> (x Core..:? "Escaper")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..:? "Paths" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Separator")
-            Prelude.<*> (x Core..: "QuoteChar")
+            Prelude.<$> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "GroupFiles")
+            Prelude.<*> (x Data..:? "MaxBand")
+            Prelude.<*> (x Data..:? "WriteHeader")
+            Prelude.<*> (x Data..:? "MaxFilesInBand")
+            Prelude.<*> (x Data..:? "OptimizePerformance")
+            Prelude.<*> (x Data..:? "Recurse")
+            Prelude.<*> (x Data..:? "AdditionalOptions")
+            Prelude.<*> (x Data..:? "CompressionType")
+            Prelude.<*> (x Data..:? "SkipFirst")
+            Prelude.<*> (x Data..:? "WithHeader")
+            Prelude.<*> (x Data..:? "Multiline")
+            Prelude.<*> (x Data..:? "Exclusions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "GroupSize")
+            Prelude.<*> (x Data..:? "Escaper")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..:? "Paths" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Separator")
+            Prelude.<*> (x Data..: "QuoteChar")
       )
 
 instance Prelude.Hashable S3CsvSource where
@@ -390,32 +391,32 @@ instance Prelude.NFData S3CsvSource where
       `Prelude.seq` Prelude.rnf separator
       `Prelude.seq` Prelude.rnf quoteChar
 
-instance Core.ToJSON S3CsvSource where
+instance Data.ToJSON S3CsvSource where
   toJSON S3CsvSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputSchemas" Core..=) Prelude.<$> outputSchemas,
-            ("GroupFiles" Core..=) Prelude.<$> groupFiles,
-            ("MaxBand" Core..=) Prelude.<$> maxBand,
-            ("WriteHeader" Core..=) Prelude.<$> writeHeader,
-            ("MaxFilesInBand" Core..=)
+          [ ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
+            ("GroupFiles" Data..=) Prelude.<$> groupFiles,
+            ("MaxBand" Data..=) Prelude.<$> maxBand,
+            ("WriteHeader" Data..=) Prelude.<$> writeHeader,
+            ("MaxFilesInBand" Data..=)
               Prelude.<$> maxFilesInBand,
-            ("OptimizePerformance" Core..=)
+            ("OptimizePerformance" Data..=)
               Prelude.<$> optimizePerformance,
-            ("Recurse" Core..=) Prelude.<$> recurse,
-            ("AdditionalOptions" Core..=)
+            ("Recurse" Data..=) Prelude.<$> recurse,
+            ("AdditionalOptions" Data..=)
               Prelude.<$> additionalOptions,
-            ("CompressionType" Core..=)
+            ("CompressionType" Data..=)
               Prelude.<$> compressionType,
-            ("SkipFirst" Core..=) Prelude.<$> skipFirst,
-            ("WithHeader" Core..=) Prelude.<$> withHeader,
-            ("Multiline" Core..=) Prelude.<$> multiline,
-            ("Exclusions" Core..=) Prelude.<$> exclusions,
-            ("GroupSize" Core..=) Prelude.<$> groupSize,
-            ("Escaper" Core..=) Prelude.<$> escaper,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Paths" Core..= paths),
-            Prelude.Just ("Separator" Core..= separator),
-            Prelude.Just ("QuoteChar" Core..= quoteChar)
+            ("SkipFirst" Data..=) Prelude.<$> skipFirst,
+            ("WithHeader" Data..=) Prelude.<$> withHeader,
+            ("Multiline" Data..=) Prelude.<$> multiline,
+            ("Exclusions" Data..=) Prelude.<$> exclusions,
+            ("GroupSize" Data..=) Prelude.<$> groupSize,
+            ("Escaper" Data..=) Prelude.<$> escaper,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Paths" Data..= paths),
+            Prelude.Just ("Separator" Data..= separator),
+            Prelude.Just ("QuoteChar" Data..= quoteChar)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ConnectionInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ConnectionPropertyKey
 import Amazonka.Glue.Types.ConnectionType
 import Amazonka.Glue.Types.PhysicalConnectionRequirements
@@ -193,20 +194,20 @@ instance Prelude.NFData ConnectionInput where
       `Prelude.seq` Prelude.rnf connectionType
       `Prelude.seq` Prelude.rnf connectionProperties
 
-instance Core.ToJSON ConnectionInput where
+instance Data.ToJSON ConnectionInput where
   toJSON ConnectionInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PhysicalConnectionRequirements" Core..=)
+          [ ("PhysicalConnectionRequirements" Data..=)
               Prelude.<$> physicalConnectionRequirements,
-            ("Description" Core..=) Prelude.<$> description,
-            ("MatchCriteria" Core..=) Prelude.<$> matchCriteria,
-            Prelude.Just ("Name" Core..= name),
+            ("Description" Data..=) Prelude.<$> description,
+            ("MatchCriteria" Data..=) Prelude.<$> matchCriteria,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("ConnectionType" Core..= connectionType),
+              ("ConnectionType" Data..= connectionType),
             Prelude.Just
               ( "ConnectionProperties"
-                  Core..= connectionProperties
+                  Data..= connectionProperties
               )
           ]
       )

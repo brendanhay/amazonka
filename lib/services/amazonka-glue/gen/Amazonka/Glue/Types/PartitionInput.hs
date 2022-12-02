@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.PartitionInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.StorageDescriptor
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPartitionInput' smart constructor.
 data PartitionInput = PartitionInput'
   { -- | The last time at which the partition was accessed.
-    lastAccessTime :: Prelude.Maybe Core.POSIX,
+    lastAccessTime :: Prelude.Maybe Data.POSIX,
     -- | Provides information about the physical location where the partition is
     -- stored.
     storageDescriptor :: Prelude.Maybe StorageDescriptor,
@@ -43,7 +44,7 @@ data PartitionInput = PartitionInput'
     values :: Prelude.Maybe [Prelude.Text],
     -- | The last time at which column statistics were computed for this
     -- partition.
-    lastAnalyzedTime :: Prelude.Maybe Core.POSIX,
+    lastAnalyzedTime :: Prelude.Maybe Data.POSIX,
     -- | These key-value pairs define partition parameters.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
@@ -87,7 +88,7 @@ newPartitionInput =
 
 -- | The last time at which the partition was accessed.
 partitionInput_lastAccessTime :: Lens.Lens' PartitionInput (Prelude.Maybe Prelude.UTCTime)
-partitionInput_lastAccessTime = Lens.lens (\PartitionInput' {lastAccessTime} -> lastAccessTime) (\s@PartitionInput' {} a -> s {lastAccessTime = a} :: PartitionInput) Prelude.. Lens.mapping Core._Time
+partitionInput_lastAccessTime = Lens.lens (\PartitionInput' {lastAccessTime} -> lastAccessTime) (\s@PartitionInput' {} a -> s {lastAccessTime = a} :: PartitionInput) Prelude.. Lens.mapping Data._Time
 
 -- | Provides information about the physical location where the partition is
 -- stored.
@@ -107,7 +108,7 @@ partitionInput_values = Lens.lens (\PartitionInput' {values} -> values) (\s@Part
 -- | The last time at which column statistics were computed for this
 -- partition.
 partitionInput_lastAnalyzedTime :: Lens.Lens' PartitionInput (Prelude.Maybe Prelude.UTCTime)
-partitionInput_lastAnalyzedTime = Lens.lens (\PartitionInput' {lastAnalyzedTime} -> lastAnalyzedTime) (\s@PartitionInput' {} a -> s {lastAnalyzedTime = a} :: PartitionInput) Prelude.. Lens.mapping Core._Time
+partitionInput_lastAnalyzedTime = Lens.lens (\PartitionInput' {lastAnalyzedTime} -> lastAnalyzedTime) (\s@PartitionInput' {} a -> s {lastAnalyzedTime = a} :: PartitionInput) Prelude.. Lens.mapping Data._Time
 
 -- | These key-value pairs define partition parameters.
 partitionInput_parameters :: Lens.Lens' PartitionInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -129,17 +130,17 @@ instance Prelude.NFData PartitionInput where
       `Prelude.seq` Prelude.rnf lastAnalyzedTime
       `Prelude.seq` Prelude.rnf parameters
 
-instance Core.ToJSON PartitionInput where
+instance Data.ToJSON PartitionInput where
   toJSON PartitionInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LastAccessTime" Core..=)
+          [ ("LastAccessTime" Data..=)
               Prelude.<$> lastAccessTime,
-            ("StorageDescriptor" Core..=)
+            ("StorageDescriptor" Data..=)
               Prelude.<$> storageDescriptor,
-            ("Values" Core..=) Prelude.<$> values,
-            ("LastAnalyzedTime" Core..=)
+            ("Values" Data..=) Prelude.<$> values,
+            ("LastAnalyzedTime" Data..=)
               Prelude.<$> lastAnalyzedTime,
-            ("Parameters" Core..=) Prelude.<$> parameters
+            ("Parameters" Data..=) Prelude.<$> parameters
           ]
       )

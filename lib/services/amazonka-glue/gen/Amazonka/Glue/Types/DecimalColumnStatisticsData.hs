@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DecimalColumnStatisticsData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.DecimalNumber
 import qualified Amazonka.Prelude as Prelude
 
@@ -88,16 +89,16 @@ decimalColumnStatisticsData_numberOfNulls = Lens.lens (\DecimalColumnStatisticsD
 decimalColumnStatisticsData_numberOfDistinctValues :: Lens.Lens' DecimalColumnStatisticsData Prelude.Natural
 decimalColumnStatisticsData_numberOfDistinctValues = Lens.lens (\DecimalColumnStatisticsData' {numberOfDistinctValues} -> numberOfDistinctValues) (\s@DecimalColumnStatisticsData' {} a -> s {numberOfDistinctValues = a} :: DecimalColumnStatisticsData)
 
-instance Core.FromJSON DecimalColumnStatisticsData where
+instance Data.FromJSON DecimalColumnStatisticsData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DecimalColumnStatisticsData"
       ( \x ->
           DecimalColumnStatisticsData'
-            Prelude.<$> (x Core..:? "MinimumValue")
-            Prelude.<*> (x Core..:? "MaximumValue")
-            Prelude.<*> (x Core..: "NumberOfNulls")
-            Prelude.<*> (x Core..: "NumberOfDistinctValues")
+            Prelude.<$> (x Data..:? "MinimumValue")
+            Prelude.<*> (x Data..:? "MaximumValue")
+            Prelude.<*> (x Data..: "NumberOfNulls")
+            Prelude.<*> (x Data..: "NumberOfDistinctValues")
       )
 
 instance Prelude.Hashable DecimalColumnStatisticsData where
@@ -114,16 +115,16 @@ instance Prelude.NFData DecimalColumnStatisticsData where
       `Prelude.seq` Prelude.rnf numberOfNulls
       `Prelude.seq` Prelude.rnf numberOfDistinctValues
 
-instance Core.ToJSON DecimalColumnStatisticsData where
+instance Data.ToJSON DecimalColumnStatisticsData where
   toJSON DecimalColumnStatisticsData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinimumValue" Core..=) Prelude.<$> minimumValue,
-            ("MaximumValue" Core..=) Prelude.<$> maximumValue,
-            Prelude.Just ("NumberOfNulls" Core..= numberOfNulls),
+          [ ("MinimumValue" Data..=) Prelude.<$> minimumValue,
+            ("MaximumValue" Data..=) Prelude.<$> maximumValue,
+            Prelude.Just ("NumberOfNulls" Data..= numberOfNulls),
             Prelude.Just
               ( "NumberOfDistinctValues"
-                  Core..= numberOfDistinctValues
+                  Data..= numberOfDistinctValues
               )
           ]
       )

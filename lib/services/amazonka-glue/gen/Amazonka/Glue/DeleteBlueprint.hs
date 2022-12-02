@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteBlueprint where
     Response.receiveJSON
       ( \s h x ->
           DeleteBlueprintResponse'
-            Prelude.<$> (x Core..?> "Name")
+            Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,30 +95,30 @@ instance Prelude.Hashable DeleteBlueprint where
 instance Prelude.NFData DeleteBlueprint where
   rnf DeleteBlueprint' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteBlueprint where
+instance Data.ToHeaders DeleteBlueprint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeleteBlueprint" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.DeleteBlueprint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBlueprint where
+instance Data.ToJSON DeleteBlueprint where
   toJSON DeleteBlueprint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteBlueprint where
+instance Data.ToPath DeleteBlueprint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteBlueprint where
+instance Data.ToQuery DeleteBlueprint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBlueprintResponse' smart constructor.

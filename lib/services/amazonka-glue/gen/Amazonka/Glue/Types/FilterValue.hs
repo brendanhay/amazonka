@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.FilterValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.FilterValueType
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ filterValue_type = Lens.lens (\FilterValue' {type'} -> type') (\s@FilterValue' {
 filterValue_value :: Lens.Lens' FilterValue [Prelude.Text]
 filterValue_value = Lens.lens (\FilterValue' {value} -> value) (\s@FilterValue' {} a -> s {value = a} :: FilterValue) Prelude.. Lens.coerced
 
-instance Core.FromJSON FilterValue where
+instance Data.FromJSON FilterValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FilterValue"
       ( \x ->
           FilterValue'
-            Prelude.<$> (x Core..: "Type")
-            Prelude.<*> (x Core..:? "Value" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..:? "Value" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FilterValue where
@@ -84,11 +85,11 @@ instance Prelude.NFData FilterValue where
   rnf FilterValue' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON FilterValue where
+instance Data.ToJSON FilterValue where
   toJSON FilterValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

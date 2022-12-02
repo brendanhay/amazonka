@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.PIIDetection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.PiiType
 import qualified Amazonka.Prelude as Prelude
 
@@ -152,21 +153,21 @@ pIIDetection_piiType = Lens.lens (\PIIDetection' {piiType} -> piiType) (\s@PIIDe
 pIIDetection_entityTypesToDetect :: Lens.Lens' PIIDetection [Prelude.Text]
 pIIDetection_entityTypesToDetect = Lens.lens (\PIIDetection' {entityTypesToDetect} -> entityTypesToDetect) (\s@PIIDetection' {} a -> s {entityTypesToDetect = a} :: PIIDetection) Prelude.. Lens.coerced
 
-instance Core.FromJSON PIIDetection where
+instance Data.FromJSON PIIDetection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PIIDetection"
       ( \x ->
           PIIDetection'
-            Prelude.<$> (x Core..:? "MaskValue")
-            Prelude.<*> (x Core..:? "SampleFraction")
-            Prelude.<*> (x Core..:? "OutputColumnName")
-            Prelude.<*> (x Core..:? "ThresholdFraction")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "PiiType")
-            Prelude.<*> ( x Core..:? "EntityTypesToDetect"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MaskValue")
+            Prelude.<*> (x Data..:? "SampleFraction")
+            Prelude.<*> (x Data..:? "OutputColumnName")
+            Prelude.<*> (x Data..:? "ThresholdFraction")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "PiiType")
+            Prelude.<*> ( x Data..:? "EntityTypesToDetect"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -192,21 +193,21 @@ instance Prelude.NFData PIIDetection where
       `Prelude.seq` Prelude.rnf piiType
       `Prelude.seq` Prelude.rnf entityTypesToDetect
 
-instance Core.ToJSON PIIDetection where
+instance Data.ToJSON PIIDetection where
   toJSON PIIDetection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaskValue" Core..=) Prelude.<$> maskValue,
-            ("SampleFraction" Core..=)
+          [ ("MaskValue" Data..=) Prelude.<$> maskValue,
+            ("SampleFraction" Data..=)
               Prelude.<$> sampleFraction,
-            ("OutputColumnName" Core..=)
+            ("OutputColumnName" Data..=)
               Prelude.<$> outputColumnName,
-            ("ThresholdFraction" Core..=)
+            ("ThresholdFraction" Data..=)
               Prelude.<$> thresholdFraction,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("PiiType" Core..= piiType),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("PiiType" Data..= piiType),
             Prelude.Just
-              ("EntityTypesToDetect" Core..= entityTypesToDetect)
+              ("EntityTypesToDetect" Data..= entityTypesToDetect)
           ]
       )

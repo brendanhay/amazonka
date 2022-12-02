@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Trigger where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Action
 import Amazonka.Glue.Types.EventBatchingCondition
 import Amazonka.Glue.Types.Predicate
@@ -150,22 +151,22 @@ trigger_description = Lens.lens (\Trigger' {description} -> description) (\s@Tri
 trigger_actions :: Lens.Lens' Trigger (Prelude.Maybe [Action])
 trigger_actions = Lens.lens (\Trigger' {actions} -> actions) (\s@Trigger' {} a -> s {actions = a} :: Trigger) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Trigger where
+instance Data.FromJSON Trigger where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Trigger"
       ( \x ->
           Trigger'
-            Prelude.<$> (x Core..:? "EventBatchingCondition")
-            Prelude.<*> (x Core..:? "Schedule")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "WorkflowName")
-            Prelude.<*> (x Core..:? "Predicate")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Actions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "EventBatchingCondition")
+            Prelude.<*> (x Data..:? "Schedule")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "WorkflowName")
+            Prelude.<*> (x Data..:? "Predicate")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Actions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Trigger where

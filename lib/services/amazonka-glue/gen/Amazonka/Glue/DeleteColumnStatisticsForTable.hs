@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,38 +158,38 @@ instance
       `Prelude.seq` Prelude.rnf columnName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteColumnStatisticsForTable
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.DeleteColumnStatisticsForTable" ::
+              Data.=# ( "AWSGlue.DeleteColumnStatisticsForTable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteColumnStatisticsForTable where
+instance Data.ToJSON DeleteColumnStatisticsForTable where
   toJSON DeleteColumnStatisticsForTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("ColumnName" Core..= columnName)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("ColumnName" Data..= columnName)
           ]
       )
 
-instance Core.ToPath DeleteColumnStatisticsForTable where
+instance Data.ToPath DeleteColumnStatisticsForTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteColumnStatisticsForTable where
+instance Data.ToQuery DeleteColumnStatisticsForTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteColumnStatisticsForTableResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CodeGenConfigurationNode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Aggregate
 import Amazonka.Glue.Types.ApplyMapping
 import Amazonka.Glue.Types.AthenaConnectorSource
@@ -636,62 +637,62 @@ codeGenConfigurationNode_dropFields = Lens.lens (\CodeGenConfigurationNode' {dro
 codeGenConfigurationNode_s3CatalogTarget :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3CatalogTarget)
 codeGenConfigurationNode_s3CatalogTarget = Lens.lens (\CodeGenConfigurationNode' {s3CatalogTarget} -> s3CatalogTarget) (\s@CodeGenConfigurationNode' {} a -> s {s3CatalogTarget = a} :: CodeGenConfigurationNode)
 
-instance Core.FromJSON CodeGenConfigurationNode where
+instance Data.FromJSON CodeGenConfigurationNode where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeGenConfigurationNode"
       ( \x ->
           CodeGenConfigurationNode'
-            Prelude.<$> (x Core..:? "SelectFields")
-            Prelude.<*> (x Core..:? "S3CatalogSource")
-            Prelude.<*> (x Core..:? "Merge")
-            Prelude.<*> (x Core..:? "DropDuplicates")
-            Prelude.<*> (x Core..:? "OracleSQLCatalogTarget")
-            Prelude.<*> (x Core..:? "ApplyMapping")
-            Prelude.<*> (x Core..:? "PostgreSQLCatalogTarget")
-            Prelude.<*> (x Core..:? "S3JsonSource")
-            Prelude.<*> (x Core..:? "AthenaConnectorSource")
-            Prelude.<*> (x Core..:? "JDBCConnectorSource")
-            Prelude.<*> (x Core..:? "Spigot")
-            Prelude.<*> (x Core..:? "MicrosoftSQLServerCatalogTarget")
-            Prelude.<*> (x Core..:? "RedshiftSource")
-            Prelude.<*> (x Core..:? "SparkConnectorTarget")
-            Prelude.<*> (x Core..:? "Aggregate")
-            Prelude.<*> (x Core..:? "S3ParquetSource")
-            Prelude.<*> (x Core..:? "RenameField")
-            Prelude.<*> (x Core..:? "PIIDetection")
-            Prelude.<*> (x Core..:? "FillMissingValues")
-            Prelude.<*> (x Core..:? "DirectKinesisSource")
-            Prelude.<*> (x Core..:? "SparkConnectorSource")
-            Prelude.<*> (x Core..:? "DirectKafkaSource")
-            Prelude.<*> (x Core..:? "S3CsvSource")
-            Prelude.<*> (x Core..:? "S3DirectTarget")
-            Prelude.<*> (x Core..:? "GovernedCatalogTarget")
-            Prelude.<*> (x Core..:? "Union")
-            Prelude.<*> (x Core..:? "RelationalCatalogSource")
-            Prelude.<*> (x Core..:? "PostgreSQLCatalogSource")
-            Prelude.<*> (x Core..:? "MySQLCatalogSource")
-            Prelude.<*> (x Core..:? "Filter")
-            Prelude.<*> (x Core..:? "GovernedCatalogSource")
-            Prelude.<*> (x Core..:? "RedshiftTarget")
-            Prelude.<*> (x Core..:? "JDBCConnectorTarget")
-            Prelude.<*> (x Core..:? "SelectFromCollection")
-            Prelude.<*> (x Core..:? "MicrosoftSQLServerCatalogSource")
-            Prelude.<*> (x Core..:? "MySQLCatalogTarget")
-            Prelude.<*> (x Core..:? "CatalogKinesisSource")
-            Prelude.<*> (x Core..:? "OracleSQLCatalogSource")
-            Prelude.<*> (x Core..:? "S3GlueParquetTarget")
-            Prelude.<*> (x Core..:? "SparkSQL")
-            Prelude.<*> (x Core..:? "DropNullFields")
-            Prelude.<*> (x Core..:? "CatalogSource")
-            Prelude.<*> (x Core..:? "Join")
-            Prelude.<*> (x Core..:? "DynamoDBCatalogSource")
-            Prelude.<*> (x Core..:? "CustomCode")
-            Prelude.<*> (x Core..:? "CatalogTarget")
-            Prelude.<*> (x Core..:? "SplitFields")
-            Prelude.<*> (x Core..:? "CatalogKafkaSource")
-            Prelude.<*> (x Core..:? "DropFields")
-            Prelude.<*> (x Core..:? "S3CatalogTarget")
+            Prelude.<$> (x Data..:? "SelectFields")
+            Prelude.<*> (x Data..:? "S3CatalogSource")
+            Prelude.<*> (x Data..:? "Merge")
+            Prelude.<*> (x Data..:? "DropDuplicates")
+            Prelude.<*> (x Data..:? "OracleSQLCatalogTarget")
+            Prelude.<*> (x Data..:? "ApplyMapping")
+            Prelude.<*> (x Data..:? "PostgreSQLCatalogTarget")
+            Prelude.<*> (x Data..:? "S3JsonSource")
+            Prelude.<*> (x Data..:? "AthenaConnectorSource")
+            Prelude.<*> (x Data..:? "JDBCConnectorSource")
+            Prelude.<*> (x Data..:? "Spigot")
+            Prelude.<*> (x Data..:? "MicrosoftSQLServerCatalogTarget")
+            Prelude.<*> (x Data..:? "RedshiftSource")
+            Prelude.<*> (x Data..:? "SparkConnectorTarget")
+            Prelude.<*> (x Data..:? "Aggregate")
+            Prelude.<*> (x Data..:? "S3ParquetSource")
+            Prelude.<*> (x Data..:? "RenameField")
+            Prelude.<*> (x Data..:? "PIIDetection")
+            Prelude.<*> (x Data..:? "FillMissingValues")
+            Prelude.<*> (x Data..:? "DirectKinesisSource")
+            Prelude.<*> (x Data..:? "SparkConnectorSource")
+            Prelude.<*> (x Data..:? "DirectKafkaSource")
+            Prelude.<*> (x Data..:? "S3CsvSource")
+            Prelude.<*> (x Data..:? "S3DirectTarget")
+            Prelude.<*> (x Data..:? "GovernedCatalogTarget")
+            Prelude.<*> (x Data..:? "Union")
+            Prelude.<*> (x Data..:? "RelationalCatalogSource")
+            Prelude.<*> (x Data..:? "PostgreSQLCatalogSource")
+            Prelude.<*> (x Data..:? "MySQLCatalogSource")
+            Prelude.<*> (x Data..:? "Filter")
+            Prelude.<*> (x Data..:? "GovernedCatalogSource")
+            Prelude.<*> (x Data..:? "RedshiftTarget")
+            Prelude.<*> (x Data..:? "JDBCConnectorTarget")
+            Prelude.<*> (x Data..:? "SelectFromCollection")
+            Prelude.<*> (x Data..:? "MicrosoftSQLServerCatalogSource")
+            Prelude.<*> (x Data..:? "MySQLCatalogTarget")
+            Prelude.<*> (x Data..:? "CatalogKinesisSource")
+            Prelude.<*> (x Data..:? "OracleSQLCatalogSource")
+            Prelude.<*> (x Data..:? "S3GlueParquetTarget")
+            Prelude.<*> (x Data..:? "SparkSQL")
+            Prelude.<*> (x Data..:? "DropNullFields")
+            Prelude.<*> (x Data..:? "CatalogSource")
+            Prelude.<*> (x Data..:? "Join")
+            Prelude.<*> (x Data..:? "DynamoDBCatalogSource")
+            Prelude.<*> (x Data..:? "CustomCode")
+            Prelude.<*> (x Data..:? "CatalogTarget")
+            Prelude.<*> (x Data..:? "SplitFields")
+            Prelude.<*> (x Data..:? "CatalogKafkaSource")
+            Prelude.<*> (x Data..:? "DropFields")
+            Prelude.<*> (x Data..:? "S3CatalogTarget")
       )
 
 instance Prelude.Hashable CodeGenConfigurationNode where
@@ -829,91 +830,91 @@ instance Prelude.NFData CodeGenConfigurationNode where
       `Prelude.seq` Prelude.rnf
         s3CatalogTarget
 
-instance Core.ToJSON CodeGenConfigurationNode where
+instance Data.ToJSON CodeGenConfigurationNode where
   toJSON CodeGenConfigurationNode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SelectFields" Core..=) Prelude.<$> selectFields,
-            ("S3CatalogSource" Core..=)
+          [ ("SelectFields" Data..=) Prelude.<$> selectFields,
+            ("S3CatalogSource" Data..=)
               Prelude.<$> s3CatalogSource,
-            ("Merge" Core..=) Prelude.<$> merge,
-            ("DropDuplicates" Core..=)
+            ("Merge" Data..=) Prelude.<$> merge,
+            ("DropDuplicates" Data..=)
               Prelude.<$> dropDuplicates,
-            ("OracleSQLCatalogTarget" Core..=)
+            ("OracleSQLCatalogTarget" Data..=)
               Prelude.<$> oracleSQLCatalogTarget,
-            ("ApplyMapping" Core..=) Prelude.<$> applyMapping,
-            ("PostgreSQLCatalogTarget" Core..=)
+            ("ApplyMapping" Data..=) Prelude.<$> applyMapping,
+            ("PostgreSQLCatalogTarget" Data..=)
               Prelude.<$> postgreSQLCatalogTarget,
-            ("S3JsonSource" Core..=) Prelude.<$> s3JsonSource,
-            ("AthenaConnectorSource" Core..=)
+            ("S3JsonSource" Data..=) Prelude.<$> s3JsonSource,
+            ("AthenaConnectorSource" Data..=)
               Prelude.<$> athenaConnectorSource,
-            ("JDBCConnectorSource" Core..=)
+            ("JDBCConnectorSource" Data..=)
               Prelude.<$> jDBCConnectorSource,
-            ("Spigot" Core..=) Prelude.<$> spigot,
-            ("MicrosoftSQLServerCatalogTarget" Core..=)
+            ("Spigot" Data..=) Prelude.<$> spigot,
+            ("MicrosoftSQLServerCatalogTarget" Data..=)
               Prelude.<$> microsoftSQLServerCatalogTarget,
-            ("RedshiftSource" Core..=)
+            ("RedshiftSource" Data..=)
               Prelude.<$> redshiftSource,
-            ("SparkConnectorTarget" Core..=)
+            ("SparkConnectorTarget" Data..=)
               Prelude.<$> sparkConnectorTarget,
-            ("Aggregate" Core..=) Prelude.<$> aggregate,
-            ("S3ParquetSource" Core..=)
+            ("Aggregate" Data..=) Prelude.<$> aggregate,
+            ("S3ParquetSource" Data..=)
               Prelude.<$> s3ParquetSource,
-            ("RenameField" Core..=) Prelude.<$> renameField,
-            ("PIIDetection" Core..=) Prelude.<$> pIIDetection,
-            ("FillMissingValues" Core..=)
+            ("RenameField" Data..=) Prelude.<$> renameField,
+            ("PIIDetection" Data..=) Prelude.<$> pIIDetection,
+            ("FillMissingValues" Data..=)
               Prelude.<$> fillMissingValues,
-            ("DirectKinesisSource" Core..=)
+            ("DirectKinesisSource" Data..=)
               Prelude.<$> directKinesisSource,
-            ("SparkConnectorSource" Core..=)
+            ("SparkConnectorSource" Data..=)
               Prelude.<$> sparkConnectorSource,
-            ("DirectKafkaSource" Core..=)
+            ("DirectKafkaSource" Data..=)
               Prelude.<$> directKafkaSource,
-            ("S3CsvSource" Core..=) Prelude.<$> s3CsvSource,
-            ("S3DirectTarget" Core..=)
+            ("S3CsvSource" Data..=) Prelude.<$> s3CsvSource,
+            ("S3DirectTarget" Data..=)
               Prelude.<$> s3DirectTarget,
-            ("GovernedCatalogTarget" Core..=)
+            ("GovernedCatalogTarget" Data..=)
               Prelude.<$> governedCatalogTarget,
-            ("Union" Core..=) Prelude.<$> union,
-            ("RelationalCatalogSource" Core..=)
+            ("Union" Data..=) Prelude.<$> union,
+            ("RelationalCatalogSource" Data..=)
               Prelude.<$> relationalCatalogSource,
-            ("PostgreSQLCatalogSource" Core..=)
+            ("PostgreSQLCatalogSource" Data..=)
               Prelude.<$> postgreSQLCatalogSource,
-            ("MySQLCatalogSource" Core..=)
+            ("MySQLCatalogSource" Data..=)
               Prelude.<$> mySQLCatalogSource,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("GovernedCatalogSource" Core..=)
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("GovernedCatalogSource" Data..=)
               Prelude.<$> governedCatalogSource,
-            ("RedshiftTarget" Core..=)
+            ("RedshiftTarget" Data..=)
               Prelude.<$> redshiftTarget,
-            ("JDBCConnectorTarget" Core..=)
+            ("JDBCConnectorTarget" Data..=)
               Prelude.<$> jDBCConnectorTarget,
-            ("SelectFromCollection" Core..=)
+            ("SelectFromCollection" Data..=)
               Prelude.<$> selectFromCollection,
-            ("MicrosoftSQLServerCatalogSource" Core..=)
+            ("MicrosoftSQLServerCatalogSource" Data..=)
               Prelude.<$> microsoftSQLServerCatalogSource,
-            ("MySQLCatalogTarget" Core..=)
+            ("MySQLCatalogTarget" Data..=)
               Prelude.<$> mySQLCatalogTarget,
-            ("CatalogKinesisSource" Core..=)
+            ("CatalogKinesisSource" Data..=)
               Prelude.<$> catalogKinesisSource,
-            ("OracleSQLCatalogSource" Core..=)
+            ("OracleSQLCatalogSource" Data..=)
               Prelude.<$> oracleSQLCatalogSource,
-            ("S3GlueParquetTarget" Core..=)
+            ("S3GlueParquetTarget" Data..=)
               Prelude.<$> s3GlueParquetTarget,
-            ("SparkSQL" Core..=) Prelude.<$> sparkSQL,
-            ("DropNullFields" Core..=)
+            ("SparkSQL" Data..=) Prelude.<$> sparkSQL,
+            ("DropNullFields" Data..=)
               Prelude.<$> dropNullFields,
-            ("CatalogSource" Core..=) Prelude.<$> catalogSource,
-            ("Join" Core..=) Prelude.<$> join,
-            ("DynamoDBCatalogSource" Core..=)
+            ("CatalogSource" Data..=) Prelude.<$> catalogSource,
+            ("Join" Data..=) Prelude.<$> join,
+            ("DynamoDBCatalogSource" Data..=)
               Prelude.<$> dynamoDBCatalogSource,
-            ("CustomCode" Core..=) Prelude.<$> customCode,
-            ("CatalogTarget" Core..=) Prelude.<$> catalogTarget,
-            ("SplitFields" Core..=) Prelude.<$> splitFields,
-            ("CatalogKafkaSource" Core..=)
+            ("CustomCode" Data..=) Prelude.<$> customCode,
+            ("CatalogTarget" Data..=) Prelude.<$> catalogTarget,
+            ("SplitFields" Data..=) Prelude.<$> splitFields,
+            ("CatalogKafkaSource" Data..=)
               Prelude.<$> catalogKafkaSource,
-            ("DropFields" Core..=) Prelude.<$> dropFields,
-            ("S3CatalogTarget" Core..=)
+            ("DropFields" Data..=) Prelude.<$> dropFields,
+            ("S3CatalogTarget" Data..=)
               Prelude.<$> s3CatalogTarget
           ]
       )

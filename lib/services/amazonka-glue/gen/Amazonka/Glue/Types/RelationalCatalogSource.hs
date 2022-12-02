@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.RelationalCatalogSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a Relational database data source in the Glue Data Catalog.
@@ -76,15 +77,15 @@ relationalCatalogSource_database = Lens.lens (\RelationalCatalogSource' {databas
 relationalCatalogSource_table :: Lens.Lens' RelationalCatalogSource Prelude.Text
 relationalCatalogSource_table = Lens.lens (\RelationalCatalogSource' {table} -> table) (\s@RelationalCatalogSource' {} a -> s {table = a} :: RelationalCatalogSource)
 
-instance Core.FromJSON RelationalCatalogSource where
+instance Data.FromJSON RelationalCatalogSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelationalCatalogSource"
       ( \x ->
           RelationalCatalogSource'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Table")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Table")
       )
 
 instance Prelude.Hashable RelationalCatalogSource where
@@ -99,12 +100,12 @@ instance Prelude.NFData RelationalCatalogSource where
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON RelationalCatalogSource where
+instance Data.ToJSON RelationalCatalogSource where
   toJSON RelationalCatalogSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Table" Core..= table)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Table" Data..= table)
           ]
       )

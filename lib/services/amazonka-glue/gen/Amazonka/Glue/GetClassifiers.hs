@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,8 +118,8 @@ instance Core.AWSRequest GetClassifiers where
     Response.receiveJSON
       ( \s h x ->
           GetClassifiersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Classifiers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Classifiers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,32 +133,32 @@ instance Prelude.NFData GetClassifiers where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders GetClassifiers where
+instance Data.ToHeaders GetClassifiers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetClassifiers" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetClassifiers" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetClassifiers where
+instance Data.ToJSON GetClassifiers where
   toJSON GetClassifiers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath GetClassifiers where
+instance Data.ToPath GetClassifiers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetClassifiers where
+instance Data.ToQuery GetClassifiers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetClassifiersResponse' smart constructor.

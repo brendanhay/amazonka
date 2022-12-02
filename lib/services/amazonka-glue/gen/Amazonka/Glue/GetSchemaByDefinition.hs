@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,11 +130,11 @@ instance Core.AWSRequest GetSchemaByDefinition where
     Response.receiveJSON
       ( \s h x ->
           GetSchemaByDefinitionResponse'
-            Prelude.<$> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "DataFormat")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "SchemaArn")
-            Prelude.<*> (x Core..?> "SchemaVersionId")
+            Prelude.<$> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "DataFormat")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "SchemaArn")
+            Prelude.<*> (x Data..?> "SchemaVersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,35 +148,35 @@ instance Prelude.NFData GetSchemaByDefinition where
     Prelude.rnf schemaId
       `Prelude.seq` Prelude.rnf schemaDefinition
 
-instance Core.ToHeaders GetSchemaByDefinition where
+instance Data.ToHeaders GetSchemaByDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.GetSchemaByDefinition" ::
+              Data.=# ( "AWSGlue.GetSchemaByDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSchemaByDefinition where
+instance Data.ToJSON GetSchemaByDefinition where
   toJSON GetSchemaByDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SchemaId" Core..= schemaId),
+          [ Prelude.Just ("SchemaId" Data..= schemaId),
             Prelude.Just
-              ("SchemaDefinition" Core..= schemaDefinition)
+              ("SchemaDefinition" Data..= schemaDefinition)
           ]
       )
 
-instance Core.ToPath GetSchemaByDefinition where
+instance Data.ToPath GetSchemaByDefinition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSchemaByDefinition where
+instance Data.ToQuery GetSchemaByDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSchemaByDefinitionResponse' smart constructor.

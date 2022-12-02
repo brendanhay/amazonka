@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CrawlerMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metrics for a specified crawler.
@@ -119,20 +120,20 @@ crawlerMetrics_tablesDeleted = Lens.lens (\CrawlerMetrics' {tablesDeleted} -> ta
 crawlerMetrics_timeLeftSeconds :: Lens.Lens' CrawlerMetrics (Prelude.Maybe Prelude.Double)
 crawlerMetrics_timeLeftSeconds = Lens.lens (\CrawlerMetrics' {timeLeftSeconds} -> timeLeftSeconds) (\s@CrawlerMetrics' {} a -> s {timeLeftSeconds = a} :: CrawlerMetrics)
 
-instance Core.FromJSON CrawlerMetrics where
+instance Data.FromJSON CrawlerMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CrawlerMetrics"
       ( \x ->
           CrawlerMetrics'
-            Prelude.<$> (x Core..:? "MedianRuntimeSeconds")
-            Prelude.<*> (x Core..:? "LastRuntimeSeconds")
-            Prelude.<*> (x Core..:? "StillEstimating")
-            Prelude.<*> (x Core..:? "TablesUpdated")
-            Prelude.<*> (x Core..:? "CrawlerName")
-            Prelude.<*> (x Core..:? "TablesCreated")
-            Prelude.<*> (x Core..:? "TablesDeleted")
-            Prelude.<*> (x Core..:? "TimeLeftSeconds")
+            Prelude.<$> (x Data..:? "MedianRuntimeSeconds")
+            Prelude.<*> (x Data..:? "LastRuntimeSeconds")
+            Prelude.<*> (x Data..:? "StillEstimating")
+            Prelude.<*> (x Data..:? "TablesUpdated")
+            Prelude.<*> (x Data..:? "CrawlerName")
+            Prelude.<*> (x Data..:? "TablesCreated")
+            Prelude.<*> (x Data..:? "TablesDeleted")
+            Prelude.<*> (x Data..:? "TimeLeftSeconds")
       )
 
 instance Prelude.Hashable CrawlerMetrics where

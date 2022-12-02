@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,9 +148,9 @@ instance Core.AWSRequest SearchContent where
     Response.receiveJSON
       ( \s h x ->
           SearchContentResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "contentSummaries"
+            Prelude.<*> ( x Data..?> "contentSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -168,39 +169,39 @@ instance Prelude.NFData SearchContent where
       `Prelude.seq` Prelude.rnf knowledgeBaseId
       `Prelude.seq` Prelude.rnf searchExpression
 
-instance Core.ToHeaders SearchContent where
+instance Data.ToHeaders SearchContent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchContent where
+instance Data.ToJSON SearchContent where
   toJSON SearchContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("searchExpression" Core..= searchExpression)
+              ("searchExpression" Data..= searchExpression)
           ]
       )
 
-instance Core.ToPath SearchContent where
+instance Data.ToPath SearchContent where
   toPath SearchContent' {..} =
     Prelude.mconcat
       [ "/knowledgeBases/",
-        Core.toBS knowledgeBaseId,
+        Data.toBS knowledgeBaseId,
         "/search"
       ]
 
-instance Core.ToQuery SearchContent where
+instance Data.ToQuery SearchContent where
   toQuery SearchContent' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newSearchContentResponse' smart constructor.

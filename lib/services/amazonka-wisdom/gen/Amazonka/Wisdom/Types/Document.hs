@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.Document where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Wisdom.Types.ContentReference
 import Amazonka.Wisdom.Types.DocumentText
@@ -74,15 +75,15 @@ document_title = Lens.lens (\Document' {title} -> title) (\s@Document' {} a -> s
 document_contentReference :: Lens.Lens' Document ContentReference
 document_contentReference = Lens.lens (\Document' {contentReference} -> contentReference) (\s@Document' {} a -> s {contentReference = a} :: Document)
 
-instance Core.FromJSON Document where
+instance Data.FromJSON Document where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Document"
       ( \x ->
           Document'
-            Prelude.<$> (x Core..:? "excerpt")
-            Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..: "contentReference")
+            Prelude.<$> (x Data..:? "excerpt")
+            Prelude.<*> (x Data..:? "title")
+            Prelude.<*> (x Data..: "contentReference")
       )
 
 instance Prelude.Hashable Document where

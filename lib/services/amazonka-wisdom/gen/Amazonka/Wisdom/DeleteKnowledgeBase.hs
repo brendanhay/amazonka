@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,23 +111,23 @@ instance Prelude.NFData DeleteKnowledgeBase where
   rnf DeleteKnowledgeBase' {..} =
     Prelude.rnf knowledgeBaseId
 
-instance Core.ToHeaders DeleteKnowledgeBase where
+instance Data.ToHeaders DeleteKnowledgeBase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteKnowledgeBase where
+instance Data.ToPath DeleteKnowledgeBase where
   toPath DeleteKnowledgeBase' {..} =
     Prelude.mconcat
-      ["/knowledgeBases/", Core.toBS knowledgeBaseId]
+      ["/knowledgeBases/", Data.toBS knowledgeBaseId]
 
-instance Core.ToQuery DeleteKnowledgeBase where
+instance Data.ToQuery DeleteKnowledgeBase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteKnowledgeBaseResponse' smart constructor.

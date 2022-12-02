@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.AssistantAssociationOutputData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Wisdom.Types.KnowledgeBaseAssociationData
 
@@ -54,13 +55,13 @@ newAssistantAssociationOutputData =
 assistantAssociationOutputData_knowledgeBaseAssociation :: Lens.Lens' AssistantAssociationOutputData (Prelude.Maybe KnowledgeBaseAssociationData)
 assistantAssociationOutputData_knowledgeBaseAssociation = Lens.lens (\AssistantAssociationOutputData' {knowledgeBaseAssociation} -> knowledgeBaseAssociation) (\s@AssistantAssociationOutputData' {} a -> s {knowledgeBaseAssociation = a} :: AssistantAssociationOutputData)
 
-instance Core.FromJSON AssistantAssociationOutputData where
+instance Data.FromJSON AssistantAssociationOutputData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssistantAssociationOutputData"
       ( \x ->
           AssistantAssociationOutputData'
-            Prelude.<$> (x Core..:? "knowledgeBaseAssociation")
+            Prelude.<$> (x Data..:? "knowledgeBaseAssociation")
       )
 
 instance

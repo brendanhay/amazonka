@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,10 +126,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           NotifyRecommendationsReceivedResponse'
-            Prelude.<$> ( x Core..?> "recommendationIds"
+            Prelude.<$> ( x Data..?> "recommendationIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,37 +148,37 @@ instance Prelude.NFData NotifyRecommendationsReceived where
       `Prelude.seq` Prelude.rnf recommendationIds
       `Prelude.seq` Prelude.rnf sessionId
 
-instance Core.ToHeaders NotifyRecommendationsReceived where
+instance Data.ToHeaders NotifyRecommendationsReceived where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON NotifyRecommendationsReceived where
+instance Data.ToJSON NotifyRecommendationsReceived where
   toJSON NotifyRecommendationsReceived' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("recommendationIds" Core..= recommendationIds)
+              ("recommendationIds" Data..= recommendationIds)
           ]
       )
 
-instance Core.ToPath NotifyRecommendationsReceived where
+instance Data.ToPath NotifyRecommendationsReceived where
   toPath NotifyRecommendationsReceived' {..} =
     Prelude.mconcat
       [ "/assistants/",
-        Core.toBS assistantId,
+        Data.toBS assistantId,
         "/sessions/",
-        Core.toBS sessionId,
+        Data.toBS sessionId,
         "/recommendations/notify"
       ]
 
-instance Core.ToQuery NotifyRecommendationsReceived where
+instance Data.ToQuery NotifyRecommendationsReceived where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newNotifyRecommendationsReceivedResponse' smart constructor.

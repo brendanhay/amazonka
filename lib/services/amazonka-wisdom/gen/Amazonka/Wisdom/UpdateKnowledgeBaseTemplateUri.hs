@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,7 +112,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateKnowledgeBaseTemplateUriResponse'
-            Prelude.<$> (x Core..?> "knowledgeBase")
+            Prelude.<$> (x Data..?> "knowledgeBase")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,35 +135,35 @@ instance
       `Prelude.seq` Prelude.rnf templateUri
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateKnowledgeBaseTemplateUri
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateKnowledgeBaseTemplateUri where
+instance Data.ToJSON UpdateKnowledgeBaseTemplateUri where
   toJSON UpdateKnowledgeBaseTemplateUri' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("templateUri" Core..= templateUri)]
+          [Prelude.Just ("templateUri" Data..= templateUri)]
       )
 
-instance Core.ToPath UpdateKnowledgeBaseTemplateUri where
+instance Data.ToPath UpdateKnowledgeBaseTemplateUri where
   toPath UpdateKnowledgeBaseTemplateUri' {..} =
     Prelude.mconcat
       [ "/knowledgeBases/",
-        Core.toBS knowledgeBaseId,
+        Data.toBS knowledgeBaseId,
         "/templateUri"
       ]
 
-instance Core.ToQuery UpdateKnowledgeBaseTemplateUri where
+instance Data.ToQuery UpdateKnowledgeBaseTemplateUri where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateKnowledgeBaseTemplateUriResponse' smart constructor.

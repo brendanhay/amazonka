@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.DocumentText where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Wisdom.Types.Highlight
 
@@ -31,7 +32,7 @@ data DocumentText = DocumentText'
   { -- | Highlights in the document text.
     highlights :: Prelude.Maybe [Highlight],
     -- | Text in the document.
-    text :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    text :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -60,16 +61,16 @@ documentText_highlights = Lens.lens (\DocumentText' {highlights} -> highlights) 
 
 -- | Text in the document.
 documentText_text :: Lens.Lens' DocumentText (Prelude.Maybe Prelude.Text)
-documentText_text = Lens.lens (\DocumentText' {text} -> text) (\s@DocumentText' {} a -> s {text = a} :: DocumentText) Prelude.. Lens.mapping Core._Sensitive
+documentText_text = Lens.lens (\DocumentText' {text} -> text) (\s@DocumentText' {} a -> s {text = a} :: DocumentText) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON DocumentText where
+instance Data.FromJSON DocumentText where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentText"
       ( \x ->
           DocumentText'
-            Prelude.<$> (x Core..:? "highlights" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "text")
+            Prelude.<$> (x Data..:? "highlights" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "text")
       )
 
 instance Prelude.Hashable DocumentText where

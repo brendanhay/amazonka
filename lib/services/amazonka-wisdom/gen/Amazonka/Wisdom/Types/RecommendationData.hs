@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.RecommendationData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Wisdom.Types.Document
 import Amazonka.Wisdom.Types.RecommendationType
@@ -95,17 +96,17 @@ recommendationData_document = Lens.lens (\RecommendationData' {document} -> docu
 recommendationData_recommendationId :: Lens.Lens' RecommendationData Prelude.Text
 recommendationData_recommendationId = Lens.lens (\RecommendationData' {recommendationId} -> recommendationId) (\s@RecommendationData' {} a -> s {recommendationId = a} :: RecommendationData)
 
-instance Core.FromJSON RecommendationData where
+instance Data.FromJSON RecommendationData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationData"
       ( \x ->
           RecommendationData'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "relevanceLevel")
-            Prelude.<*> (x Core..:? "relevanceScore")
-            Prelude.<*> (x Core..: "document")
-            Prelude.<*> (x Core..: "recommendationId")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "relevanceLevel")
+            Prelude.<*> (x Data..:? "relevanceScore")
+            Prelude.<*> (x Data..: "document")
+            Prelude.<*> (x Data..: "recommendationId")
       )
 
 instance Prelude.Hashable RecommendationData where

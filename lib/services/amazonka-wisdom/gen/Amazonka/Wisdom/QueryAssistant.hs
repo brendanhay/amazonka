@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -66,7 +67,7 @@ data QueryAssistant = QueryAssistant'
     -- URLs cannot contain the ARN.
     assistantId :: Prelude.Text,
     -- | The text to search for.
-    queryText :: Core.Sensitive Prelude.Text
+    queryText :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -99,7 +100,7 @@ newQueryAssistant pAssistantId_ pQueryText_ =
     { nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       assistantId = pAssistantId_,
-      queryText = Core._Sensitive Lens.# pQueryText_
+      queryText = Data._Sensitive Lens.# pQueryText_
     }
 
 -- | The token for the next set of results. Use the value returned in the
@@ -119,7 +120,7 @@ queryAssistant_assistantId = Lens.lens (\QueryAssistant' {assistantId} -> assist
 
 -- | The text to search for.
 queryAssistant_queryText :: Lens.Lens' QueryAssistant Prelude.Text
-queryAssistant_queryText = Lens.lens (\QueryAssistant' {queryText} -> queryText) (\s@QueryAssistant' {} a -> s {queryText = a} :: QueryAssistant) Prelude.. Core._Sensitive
+queryAssistant_queryText = Lens.lens (\QueryAssistant' {queryText} -> queryText) (\s@QueryAssistant' {} a -> s {queryText = a} :: QueryAssistant) Prelude.. Data._Sensitive
 
 instance Core.AWSPager QueryAssistant where
   page rq rs
@@ -149,9 +150,9 @@ instance Core.AWSRequest QueryAssistant where
     Response.receiveJSON
       ( \s h x ->
           QueryAssistantResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "results" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "results" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable QueryAssistant where
@@ -168,33 +169,33 @@ instance Prelude.NFData QueryAssistant where
       `Prelude.seq` Prelude.rnf assistantId
       `Prelude.seq` Prelude.rnf queryText
 
-instance Core.ToHeaders QueryAssistant where
+instance Data.ToHeaders QueryAssistant where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON QueryAssistant where
+instance Data.ToJSON QueryAssistant where
   toJSON QueryAssistant' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("queryText" Core..= queryText)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("queryText" Data..= queryText)
           ]
       )
 
-instance Core.ToPath QueryAssistant where
+instance Data.ToPath QueryAssistant where
   toPath QueryAssistant' {..} =
     Prelude.mconcat
-      ["/assistants/", Core.toBS assistantId, "/query"]
+      ["/assistants/", Data.toBS assistantId, "/query"]
 
-instance Core.ToQuery QueryAssistant where
+instance Data.ToQuery QueryAssistant where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newQueryAssistantResponse' smart constructor.

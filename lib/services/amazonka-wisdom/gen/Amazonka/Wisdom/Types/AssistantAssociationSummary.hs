@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.AssistantAssociationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Wisdom.Types.AssistantAssociationOutputData
 import Amazonka.Wisdom.Types.AssociationType
@@ -129,19 +130,19 @@ assistantAssociationSummary_associationData = Lens.lens (\AssistantAssociationSu
 assistantAssociationSummary_associationType :: Lens.Lens' AssistantAssociationSummary AssociationType
 assistantAssociationSummary_associationType = Lens.lens (\AssistantAssociationSummary' {associationType} -> associationType) (\s@AssistantAssociationSummary' {} a -> s {associationType = a} :: AssistantAssociationSummary)
 
-instance Core.FromJSON AssistantAssociationSummary where
+instance Data.FromJSON AssistantAssociationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssistantAssociationSummary"
       ( \x ->
           AssistantAssociationSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "assistantArn")
-            Prelude.<*> (x Core..: "assistantAssociationArn")
-            Prelude.<*> (x Core..: "assistantAssociationId")
-            Prelude.<*> (x Core..: "assistantId")
-            Prelude.<*> (x Core..: "associationData")
-            Prelude.<*> (x Core..: "associationType")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "assistantArn")
+            Prelude.<*> (x Data..: "assistantAssociationArn")
+            Prelude.<*> (x Data..: "assistantAssociationId")
+            Prelude.<*> (x Data..: "assistantId")
+            Prelude.<*> (x Data..: "associationData")
+            Prelude.<*> (x Data..: "associationType")
       )
 
 instance Prelude.Hashable AssistantAssociationSummary where

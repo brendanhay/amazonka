@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest GetContent where
     Response.receiveJSON
       ( \s h x ->
           GetContentResponse'
-            Prelude.<$> (x Core..?> "content")
+            Prelude.<$> (x Data..?> "content")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,27 +116,27 @@ instance Prelude.NFData GetContent where
     Prelude.rnf contentId
       `Prelude.seq` Prelude.rnf knowledgeBaseId
 
-instance Core.ToHeaders GetContent where
+instance Data.ToHeaders GetContent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetContent where
+instance Data.ToPath GetContent where
   toPath GetContent' {..} =
     Prelude.mconcat
       [ "/knowledgeBases/",
-        Core.toBS knowledgeBaseId,
+        Data.toBS knowledgeBaseId,
         "/contents/",
-        Core.toBS contentId
+        Data.toBS contentId
       ]
 
-instance Core.ToQuery GetContent where
+instance Data.ToQuery GetContent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContentResponse' smart constructor.

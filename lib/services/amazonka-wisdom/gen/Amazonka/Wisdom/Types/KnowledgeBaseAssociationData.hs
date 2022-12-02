@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.KnowledgeBaseAssociationData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Association information about the knowledge base.
@@ -62,14 +63,14 @@ knowledgeBaseAssociationData_knowledgeBaseArn = Lens.lens (\KnowledgeBaseAssocia
 knowledgeBaseAssociationData_knowledgeBaseId :: Lens.Lens' KnowledgeBaseAssociationData (Prelude.Maybe Prelude.Text)
 knowledgeBaseAssociationData_knowledgeBaseId = Lens.lens (\KnowledgeBaseAssociationData' {knowledgeBaseId} -> knowledgeBaseId) (\s@KnowledgeBaseAssociationData' {} a -> s {knowledgeBaseId = a} :: KnowledgeBaseAssociationData)
 
-instance Core.FromJSON KnowledgeBaseAssociationData where
+instance Data.FromJSON KnowledgeBaseAssociationData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KnowledgeBaseAssociationData"
       ( \x ->
           KnowledgeBaseAssociationData'
-            Prelude.<$> (x Core..:? "knowledgeBaseArn")
-            Prelude.<*> (x Core..:? "knowledgeBaseId")
+            Prelude.<$> (x Data..:? "knowledgeBaseArn")
+            Prelude.<*> (x Data..:? "knowledgeBaseId")
       )
 
 instance

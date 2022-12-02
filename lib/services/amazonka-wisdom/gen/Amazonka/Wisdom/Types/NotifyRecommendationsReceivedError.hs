@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An error occurred when creating a recommendation.
@@ -63,16 +64,16 @@ notifyRecommendationsReceivedError_recommendationId :: Lens.Lens' NotifyRecommen
 notifyRecommendationsReceivedError_recommendationId = Lens.lens (\NotifyRecommendationsReceivedError' {recommendationId} -> recommendationId) (\s@NotifyRecommendationsReceivedError' {} a -> s {recommendationId = a} :: NotifyRecommendationsReceivedError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     NotifyRecommendationsReceivedError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotifyRecommendationsReceivedError"
       ( \x ->
           NotifyRecommendationsReceivedError'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "recommendationId")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "recommendationId")
       )
 
 instance

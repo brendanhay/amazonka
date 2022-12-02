@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.ContentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Wisdom.Types.ContentStatus
 
@@ -179,23 +180,23 @@ contentSummary_status = Lens.lens (\ContentSummary' {status} -> status) (\s@Cont
 contentSummary_title :: Lens.Lens' ContentSummary Prelude.Text
 contentSummary_title = Lens.lens (\ContentSummary' {title} -> title) (\s@ContentSummary' {} a -> s {title = a} :: ContentSummary)
 
-instance Core.FromJSON ContentSummary where
+instance Data.FromJSON ContentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContentSummary"
       ( \x ->
           ContentSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "contentArn")
-            Prelude.<*> (x Core..: "contentId")
-            Prelude.<*> (x Core..: "contentType")
-            Prelude.<*> (x Core..: "knowledgeBaseArn")
-            Prelude.<*> (x Core..: "knowledgeBaseId")
-            Prelude.<*> (x Core..:? "metadata" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "revisionId")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "title")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "contentArn")
+            Prelude.<*> (x Data..: "contentId")
+            Prelude.<*> (x Data..: "contentType")
+            Prelude.<*> (x Data..: "knowledgeBaseArn")
+            Prelude.<*> (x Data..: "knowledgeBaseId")
+            Prelude.<*> (x Data..:? "metadata" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "revisionId")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "title")
       )
 
 instance Prelude.Hashable ContentSummary where

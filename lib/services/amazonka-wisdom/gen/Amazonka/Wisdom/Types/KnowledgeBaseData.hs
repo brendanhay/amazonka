@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.KnowledgeBaseData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Wisdom.Types.KnowledgeBaseStatus
 import Amazonka.Wisdom.Types.KnowledgeBaseType
@@ -41,7 +42,7 @@ data KnowledgeBaseData = KnowledgeBaseData'
     -- | An epoch timestamp indicating the most recent content modification
     -- inside the knowledge base. If no content exists in a knowledge base,
     -- this value is unset.
-    lastContentModificationTime :: Prelude.Maybe Core.POSIX,
+    lastContentModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The description.
     description :: Prelude.Maybe Prelude.Text,
     -- | Information about how to render the content.
@@ -138,7 +139,7 @@ knowledgeBaseData_serverSideEncryptionConfiguration = Lens.lens (\KnowledgeBaseD
 -- inside the knowledge base. If no content exists in a knowledge base,
 -- this value is unset.
 knowledgeBaseData_lastContentModificationTime :: Lens.Lens' KnowledgeBaseData (Prelude.Maybe Prelude.UTCTime)
-knowledgeBaseData_lastContentModificationTime = Lens.lens (\KnowledgeBaseData' {lastContentModificationTime} -> lastContentModificationTime) (\s@KnowledgeBaseData' {} a -> s {lastContentModificationTime = a} :: KnowledgeBaseData) Prelude.. Lens.mapping Core._Time
+knowledgeBaseData_lastContentModificationTime = Lens.lens (\KnowledgeBaseData' {lastContentModificationTime} -> lastContentModificationTime) (\s@KnowledgeBaseData' {} a -> s {lastContentModificationTime = a} :: KnowledgeBaseData) Prelude.. Lens.mapping Data._Time
 
 -- | The description.
 knowledgeBaseData_description :: Lens.Lens' KnowledgeBaseData (Prelude.Maybe Prelude.Text)
@@ -168,23 +169,23 @@ knowledgeBaseData_name = Lens.lens (\KnowledgeBaseData' {name} -> name) (\s@Know
 knowledgeBaseData_status :: Lens.Lens' KnowledgeBaseData KnowledgeBaseStatus
 knowledgeBaseData_status = Lens.lens (\KnowledgeBaseData' {status} -> status) (\s@KnowledgeBaseData' {} a -> s {status = a} :: KnowledgeBaseData)
 
-instance Core.FromJSON KnowledgeBaseData where
+instance Data.FromJSON KnowledgeBaseData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KnowledgeBaseData"
       ( \x ->
           KnowledgeBaseData'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "sourceConfiguration")
-            Prelude.<*> (x Core..:? "serverSideEncryptionConfiguration")
-            Prelude.<*> (x Core..:? "lastContentModificationTime")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "renderingConfiguration")
-            Prelude.<*> (x Core..: "knowledgeBaseArn")
-            Prelude.<*> (x Core..: "knowledgeBaseId")
-            Prelude.<*> (x Core..: "knowledgeBaseType")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "sourceConfiguration")
+            Prelude.<*> (x Data..:? "serverSideEncryptionConfiguration")
+            Prelude.<*> (x Data..:? "lastContentModificationTime")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "renderingConfiguration")
+            Prelude.<*> (x Data..: "knowledgeBaseArn")
+            Prelude.<*> (x Data..: "knowledgeBaseId")
+            Prelude.<*> (x Data..: "knowledgeBaseType")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable KnowledgeBaseData where

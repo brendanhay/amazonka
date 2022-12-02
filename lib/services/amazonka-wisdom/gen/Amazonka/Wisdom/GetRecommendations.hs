@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,9 +144,9 @@ instance Core.AWSRequest GetRecommendations where
     Response.receiveJSON
       ( \s h x ->
           GetRecommendationsResponse'
-            Prelude.<$> (x Core..?> "triggers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "triggers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "recommendations"
+            Prelude.<*> ( x Data..?> "recommendations"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -164,32 +165,32 @@ instance Prelude.NFData GetRecommendations where
       `Prelude.seq` Prelude.rnf assistantId
       `Prelude.seq` Prelude.rnf sessionId
 
-instance Core.ToHeaders GetRecommendations where
+instance Data.ToHeaders GetRecommendations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRecommendations where
+instance Data.ToPath GetRecommendations where
   toPath GetRecommendations' {..} =
     Prelude.mconcat
       [ "/assistants/",
-        Core.toBS assistantId,
+        Data.toBS assistantId,
         "/sessions/",
-        Core.toBS sessionId,
+        Data.toBS sessionId,
         "/recommendations"
       ]
 
-instance Core.ToQuery GetRecommendations where
+instance Data.ToQuery GetRecommendations where
   toQuery GetRecommendations' {..} =
     Prelude.mconcat
-      [ "maxResults" Core.=: maxResults,
-        "waitTimeSeconds" Core.=: waitTimeSeconds
+      [ "maxResults" Data.=: maxResults,
+        "waitTimeSeconds" Data.=: waitTimeSeconds
       ]
 
 -- | /See:/ 'newGetRecommendationsResponse' smart constructor.

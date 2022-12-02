@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,9 +148,9 @@ instance Core.AWSRequest SearchSessions where
     Response.receiveJSON
       ( \s h x ->
           SearchSessionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "sessionSummaries"
+            Prelude.<*> ( x Data..?> "sessionSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -168,39 +169,39 @@ instance Prelude.NFData SearchSessions where
       `Prelude.seq` Prelude.rnf assistantId
       `Prelude.seq` Prelude.rnf searchExpression
 
-instance Core.ToHeaders SearchSessions where
+instance Data.ToHeaders SearchSessions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchSessions where
+instance Data.ToJSON SearchSessions where
   toJSON SearchSessions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("searchExpression" Core..= searchExpression)
+              ("searchExpression" Data..= searchExpression)
           ]
       )
 
-instance Core.ToPath SearchSessions where
+instance Data.ToPath SearchSessions where
   toPath SearchSessions' {..} =
     Prelude.mconcat
       [ "/assistants/",
-        Core.toBS assistantId,
+        Data.toBS assistantId,
         "/searchSessions"
       ]
 
-instance Core.ToQuery SearchSessions where
+instance Data.ToQuery SearchSessions where
   toQuery SearchSessions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newSearchSessionsResponse' smart constructor.

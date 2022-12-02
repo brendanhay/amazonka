@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.SessionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about the session.
@@ -91,16 +92,16 @@ sessionSummary_sessionArn = Lens.lens (\SessionSummary' {sessionArn} -> sessionA
 sessionSummary_sessionId :: Lens.Lens' SessionSummary Prelude.Text
 sessionSummary_sessionId = Lens.lens (\SessionSummary' {sessionId} -> sessionId) (\s@SessionSummary' {} a -> s {sessionId = a} :: SessionSummary)
 
-instance Core.FromJSON SessionSummary where
+instance Data.FromJSON SessionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SessionSummary"
       ( \x ->
           SessionSummary'
-            Prelude.<$> (x Core..: "assistantArn")
-            Prelude.<*> (x Core..: "assistantId")
-            Prelude.<*> (x Core..: "sessionArn")
-            Prelude.<*> (x Core..: "sessionId")
+            Prelude.<$> (x Data..: "assistantArn")
+            Prelude.<*> (x Data..: "assistantId")
+            Prelude.<*> (x Data..: "sessionArn")
+            Prelude.<*> (x Data..: "sessionId")
       )
 
 instance Prelude.Hashable SessionSummary where

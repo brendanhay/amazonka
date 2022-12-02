@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,7 +136,7 @@ instance Core.AWSRequest CreateSession where
     Response.receiveJSON
       ( \s h x ->
           CreateSessionResponse'
-            Prelude.<$> (x Core..?> "session")
+            Prelude.<$> (x Data..?> "session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,34 +156,34 @@ instance Prelude.NFData CreateSession where
       `Prelude.seq` Prelude.rnf assistantId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateSession where
+instance Data.ToHeaders CreateSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSession where
+instance Data.ToJSON CreateSession where
   toJSON CreateSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateSession where
+instance Data.ToPath CreateSession where
   toPath CreateSession' {..} =
     Prelude.mconcat
-      ["/assistants/", Core.toBS assistantId, "/sessions"]
+      ["/assistants/", Data.toBS assistantId, "/sessions"]
 
-instance Core.ToQuery CreateSession where
+instance Data.ToQuery CreateSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSessionResponse' smart constructor.

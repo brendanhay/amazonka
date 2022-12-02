@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.SearchExpression where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Wisdom.Types.Filter
 
@@ -58,9 +59,9 @@ instance Prelude.Hashable SearchExpression where
 instance Prelude.NFData SearchExpression where
   rnf SearchExpression' {..} = Prelude.rnf filters
 
-instance Core.ToJSON SearchExpression where
+instance Data.ToJSON SearchExpression where
   toJSON SearchExpression' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("filters" Core..= filters)]
+          [Prelude.Just ("filters" Data..= filters)]
       )

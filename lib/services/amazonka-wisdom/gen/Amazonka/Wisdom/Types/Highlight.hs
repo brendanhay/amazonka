@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.Highlight where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Offset specification to describe highlighting of document excerpts for
@@ -62,14 +63,14 @@ highlight_endOffsetExclusive = Lens.lens (\Highlight' {endOffsetExclusive} -> en
 highlight_beginOffsetInclusive :: Lens.Lens' Highlight (Prelude.Maybe Prelude.Int)
 highlight_beginOffsetInclusive = Lens.lens (\Highlight' {beginOffsetInclusive} -> beginOffsetInclusive) (\s@Highlight' {} a -> s {beginOffsetInclusive = a} :: Highlight)
 
-instance Core.FromJSON Highlight where
+instance Data.FromJSON Highlight where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Highlight"
       ( \x ->
           Highlight'
-            Prelude.<$> (x Core..:? "endOffsetExclusive")
-            Prelude.<*> (x Core..:? "beginOffsetInclusive")
+            Prelude.<$> (x Data..:? "endOffsetExclusive")
+            Prelude.<*> (x Data..:? "beginOffsetInclusive")
       )
 
 instance Prelude.Hashable Highlight where

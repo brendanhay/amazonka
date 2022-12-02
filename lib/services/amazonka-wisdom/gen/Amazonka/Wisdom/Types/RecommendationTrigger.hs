@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.RecommendationTrigger where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Wisdom.Types.RecommendationSourceType
 import Amazonka.Wisdom.Types.RecommendationTriggerData
@@ -119,19 +120,19 @@ recommendationTrigger_source = Lens.lens (\RecommendationTrigger' {source} -> so
 recommendationTrigger_type :: Lens.Lens' RecommendationTrigger RecommendationTriggerType
 recommendationTrigger_type = Lens.lens (\RecommendationTrigger' {type'} -> type') (\s@RecommendationTrigger' {} a -> s {type' = a} :: RecommendationTrigger)
 
-instance Core.FromJSON RecommendationTrigger where
+instance Data.FromJSON RecommendationTrigger where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationTrigger"
       ( \x ->
           RecommendationTrigger'
-            Prelude.<$> (x Core..: "data")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> ( x Core..:? "recommendationIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "data")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> ( x Data..:? "recommendationIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "source")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<*> (x Data..: "source")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable RecommendationTrigger where

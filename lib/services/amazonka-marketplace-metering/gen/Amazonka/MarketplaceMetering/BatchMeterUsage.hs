@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceMetering.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,10 +138,10 @@ instance Core.AWSRequest BatchMeterUsage where
     Response.receiveJSON
       ( \s h x ->
           BatchMeterUsageResponse'
-            Prelude.<$> ( x Core..?> "UnprocessedRecords"
+            Prelude.<$> ( x Data..?> "UnprocessedRecords"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,34 +155,34 @@ instance Prelude.NFData BatchMeterUsage where
     Prelude.rnf usageRecords
       `Prelude.seq` Prelude.rnf productCode
 
-instance Core.ToHeaders BatchMeterUsage where
+instance Data.ToHeaders BatchMeterUsage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMPMeteringService.BatchMeterUsage" ::
+              Data.=# ( "AWSMPMeteringService.BatchMeterUsage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchMeterUsage where
+instance Data.ToJSON BatchMeterUsage where
   toJSON BatchMeterUsage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UsageRecords" Core..= usageRecords),
-            Prelude.Just ("ProductCode" Core..= productCode)
+          [ Prelude.Just ("UsageRecords" Data..= usageRecords),
+            Prelude.Just ("ProductCode" Data..= productCode)
           ]
       )
 
-instance Core.ToPath BatchMeterUsage where
+instance Data.ToPath BatchMeterUsage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchMeterUsage where
+instance Data.ToQuery BatchMeterUsage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the @UsageRecords@ processed by @BatchMeterUsage@ and any

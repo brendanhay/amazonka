@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceMetering.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,9 +112,9 @@ instance Core.AWSRequest ResolveCustomer where
     Response.receiveJSON
       ( \s h x ->
           ResolveCustomerResponse'
-            Prelude.<$> (x Core..?> "CustomerIdentifier")
-            Prelude.<*> (x Core..?> "ProductCode")
-            Prelude.<*> (x Core..?> "CustomerAWSAccountId")
+            Prelude.<$> (x Data..?> "CustomerIdentifier")
+            Prelude.<*> (x Data..?> "ProductCode")
+            Prelude.<*> (x Data..?> "CustomerAWSAccountId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,34 +126,34 @@ instance Prelude.NFData ResolveCustomer where
   rnf ResolveCustomer' {..} =
     Prelude.rnf registrationToken
 
-instance Core.ToHeaders ResolveCustomer where
+instance Data.ToHeaders ResolveCustomer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMPMeteringService.ResolveCustomer" ::
+              Data.=# ( "AWSMPMeteringService.ResolveCustomer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResolveCustomer where
+instance Data.ToJSON ResolveCustomer where
   toJSON ResolveCustomer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RegistrationToken" Core..= registrationToken)
+              ("RegistrationToken" Data..= registrationToken)
           ]
       )
 
-instance Core.ToPath ResolveCustomer where
+instance Data.ToPath ResolveCustomer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResolveCustomer where
+instance Data.ToQuery ResolveCustomer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of the @ResolveCustomer@ operation. Contains the

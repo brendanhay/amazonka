@@ -21,6 +21,7 @@ module Amazonka.MarketplaceMetering.Types.UsageAllocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceMetering.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,14 +71,14 @@ usageAllocation_tags = Lens.lens (\UsageAllocation' {tags} -> tags) (\s@UsageAll
 usageAllocation_allocatedUsageQuantity :: Lens.Lens' UsageAllocation Prelude.Natural
 usageAllocation_allocatedUsageQuantity = Lens.lens (\UsageAllocation' {allocatedUsageQuantity} -> allocatedUsageQuantity) (\s@UsageAllocation' {} a -> s {allocatedUsageQuantity = a} :: UsageAllocation)
 
-instance Core.FromJSON UsageAllocation where
+instance Data.FromJSON UsageAllocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageAllocation"
       ( \x ->
           UsageAllocation'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..: "AllocatedUsageQuantity")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..: "AllocatedUsageQuantity")
       )
 
 instance Prelude.Hashable UsageAllocation where
@@ -90,14 +91,14 @@ instance Prelude.NFData UsageAllocation where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf allocatedUsageQuantity
 
-instance Core.ToJSON UsageAllocation where
+instance Data.ToJSON UsageAllocation where
   toJSON UsageAllocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "AllocatedUsageQuantity"
-                  Core..= allocatedUsageQuantity
+                  Data..= allocatedUsageQuantity
               )
           ]
       )

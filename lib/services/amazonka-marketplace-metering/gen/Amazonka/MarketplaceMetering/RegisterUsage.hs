@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceMetering.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,8 +153,8 @@ instance Core.AWSRequest RegisterUsage where
     Response.receiveJSON
       ( \s h x ->
           RegisterUsageResponse'
-            Prelude.<$> (x Core..?> "PublicKeyRotationTimestamp")
-            Prelude.<*> (x Core..?> "Signature")
+            Prelude.<$> (x Data..?> "PublicKeyRotationTimestamp")
+            Prelude.<*> (x Data..?> "Signature")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,42 +170,42 @@ instance Prelude.NFData RegisterUsage where
       `Prelude.seq` Prelude.rnf productCode
       `Prelude.seq` Prelude.rnf publicKeyVersion
 
-instance Core.ToHeaders RegisterUsage where
+instance Data.ToHeaders RegisterUsage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMPMeteringService.RegisterUsage" ::
+              Data.=# ( "AWSMPMeteringService.RegisterUsage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterUsage where
+instance Data.ToJSON RegisterUsage where
   toJSON RegisterUsage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Nonce" Core..=) Prelude.<$> nonce,
-            Prelude.Just ("ProductCode" Core..= productCode),
+          [ ("Nonce" Data..=) Prelude.<$> nonce,
+            Prelude.Just ("ProductCode" Data..= productCode),
             Prelude.Just
-              ("PublicKeyVersion" Core..= publicKeyVersion)
+              ("PublicKeyVersion" Data..= publicKeyVersion)
           ]
       )
 
-instance Core.ToPath RegisterUsage where
+instance Data.ToPath RegisterUsage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterUsage where
+instance Data.ToQuery RegisterUsage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterUsageResponse' smart constructor.
 data RegisterUsageResponse = RegisterUsageResponse'
   { -- | (Optional) Only included when public key version has expired
-    publicKeyRotationTimestamp :: Prelude.Maybe Core.POSIX,
+    publicKeyRotationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | JWT Token
     signature :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -239,7 +240,7 @@ newRegisterUsageResponse pHttpStatus_ =
 
 -- | (Optional) Only included when public key version has expired
 registerUsageResponse_publicKeyRotationTimestamp :: Lens.Lens' RegisterUsageResponse (Prelude.Maybe Prelude.UTCTime)
-registerUsageResponse_publicKeyRotationTimestamp = Lens.lens (\RegisterUsageResponse' {publicKeyRotationTimestamp} -> publicKeyRotationTimestamp) (\s@RegisterUsageResponse' {} a -> s {publicKeyRotationTimestamp = a} :: RegisterUsageResponse) Prelude.. Lens.mapping Core._Time
+registerUsageResponse_publicKeyRotationTimestamp = Lens.lens (\RegisterUsageResponse' {publicKeyRotationTimestamp} -> publicKeyRotationTimestamp) (\s@RegisterUsageResponse' {} a -> s {publicKeyRotationTimestamp = a} :: RegisterUsageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | JWT Token
 registerUsageResponse_signature :: Lens.Lens' RegisterUsageResponse (Prelude.Maybe Prelude.Text)

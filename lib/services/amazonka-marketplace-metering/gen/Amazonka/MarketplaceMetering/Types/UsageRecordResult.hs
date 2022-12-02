@@ -21,6 +21,7 @@ module Amazonka.MarketplaceMetering.Types.UsageRecordResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceMetering.Types.UsageRecord
 import Amazonka.MarketplaceMetering.Types.UsageRecordResultStatus
 import qualified Amazonka.Prelude as Prelude
@@ -136,15 +137,15 @@ usageRecordResult_meteringRecordId = Lens.lens (\UsageRecordResult' {meteringRec
 usageRecordResult_usageRecord :: Lens.Lens' UsageRecordResult (Prelude.Maybe UsageRecord)
 usageRecordResult_usageRecord = Lens.lens (\UsageRecordResult' {usageRecord} -> usageRecord) (\s@UsageRecordResult' {} a -> s {usageRecord = a} :: UsageRecordResult)
 
-instance Core.FromJSON UsageRecordResult where
+instance Data.FromJSON UsageRecordResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageRecordResult"
       ( \x ->
           UsageRecordResult'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "MeteringRecordId")
-            Prelude.<*> (x Core..:? "UsageRecord")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "MeteringRecordId")
+            Prelude.<*> (x Data..:? "UsageRecord")
       )
 
 instance Prelude.Hashable UsageRecordResult where

@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.VolumeFrom where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on a data volume from another container in the same task
@@ -71,14 +72,14 @@ volumeFrom_readOnly = Lens.lens (\VolumeFrom' {readOnly} -> readOnly) (\s@Volume
 volumeFrom_sourceContainer :: Lens.Lens' VolumeFrom (Prelude.Maybe Prelude.Text)
 volumeFrom_sourceContainer = Lens.lens (\VolumeFrom' {sourceContainer} -> sourceContainer) (\s@VolumeFrom' {} a -> s {sourceContainer = a} :: VolumeFrom)
 
-instance Core.FromJSON VolumeFrom where
+instance Data.FromJSON VolumeFrom where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VolumeFrom"
       ( \x ->
           VolumeFrom'
-            Prelude.<$> (x Core..:? "readOnly")
-            Prelude.<*> (x Core..:? "sourceContainer")
+            Prelude.<$> (x Data..:? "readOnly")
+            Prelude.<*> (x Data..:? "sourceContainer")
       )
 
 instance Prelude.Hashable VolumeFrom where
@@ -91,12 +92,12 @@ instance Prelude.NFData VolumeFrom where
     Prelude.rnf readOnly
       `Prelude.seq` Prelude.rnf sourceContainer
 
-instance Core.ToJSON VolumeFrom where
+instance Data.ToJSON VolumeFrom where
   toJSON VolumeFrom' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("readOnly" Core..=) Prelude.<$> readOnly,
-            ("sourceContainer" Core..=)
+          [ ("readOnly" Data..=) Prelude.<$> readOnly,
+            ("sourceContainer" Data..=)
               Prelude.<$> sourceContainer
           ]
       )

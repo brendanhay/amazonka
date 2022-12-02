@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest DeleteCapacityProvider where
     Response.receiveJSON
       ( \s h x ->
           DeleteCapacityProviderResponse'
-            Prelude.<$> (x Core..?> "capacityProvider")
+            Prelude.<$> (x Data..?> "capacityProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,34 +117,34 @@ instance Prelude.NFData DeleteCapacityProvider where
   rnf DeleteCapacityProvider' {..} =
     Prelude.rnf capacityProvider
 
-instance Core.ToHeaders DeleteCapacityProvider where
+instance Data.ToHeaders DeleteCapacityProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.DeleteCapacityProvider" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.DeleteCapacityProvider" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteCapacityProvider where
+instance Data.ToJSON DeleteCapacityProvider where
   toJSON DeleteCapacityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("capacityProvider" Core..= capacityProvider)
+              ("capacityProvider" Data..= capacityProvider)
           ]
       )
 
-instance Core.ToPath DeleteCapacityProvider where
+instance Data.ToPath DeleteCapacityProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCapacityProvider where
+instance Data.ToQuery DeleteCapacityProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCapacityProviderResponse' smart constructor.

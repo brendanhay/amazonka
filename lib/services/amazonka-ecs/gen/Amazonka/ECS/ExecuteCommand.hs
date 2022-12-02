@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,12 +152,12 @@ instance Core.AWSRequest ExecuteCommand where
     Response.receiveJSON
       ( \s h x ->
           ExecuteCommandResponse'
-            Prelude.<$> (x Core..?> "clusterArn")
-            Prelude.<*> (x Core..?> "containerName")
-            Prelude.<*> (x Core..?> "taskArn")
-            Prelude.<*> (x Core..?> "session")
-            Prelude.<*> (x Core..?> "containerArn")
-            Prelude.<*> (x Core..?> "interactive")
+            Prelude.<$> (x Data..?> "clusterArn")
+            Prelude.<*> (x Data..?> "containerName")
+            Prelude.<*> (x Data..?> "taskArn")
+            Prelude.<*> (x Data..?> "session")
+            Prelude.<*> (x Data..?> "containerArn")
+            Prelude.<*> (x Data..?> "interactive")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,37 +177,37 @@ instance Prelude.NFData ExecuteCommand where
       `Prelude.seq` Prelude.rnf interactive
       `Prelude.seq` Prelude.rnf task
 
-instance Core.ToHeaders ExecuteCommand where
+instance Data.ToHeaders ExecuteCommand where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.ExecuteCommand" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.ExecuteCommand" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExecuteCommand where
+instance Data.ToJSON ExecuteCommand where
   toJSON ExecuteCommand' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cluster" Core..=) Prelude.<$> cluster,
-            ("container" Core..=) Prelude.<$> container,
-            Prelude.Just ("command" Core..= command),
-            Prelude.Just ("interactive" Core..= interactive),
-            Prelude.Just ("task" Core..= task)
+          [ ("cluster" Data..=) Prelude.<$> cluster,
+            ("container" Data..=) Prelude.<$> container,
+            Prelude.Just ("command" Data..= command),
+            Prelude.Just ("interactive" Data..= interactive),
+            Prelude.Just ("task" Data..= task)
           ]
       )
 
-instance Core.ToPath ExecuteCommand where
+instance Data.ToPath ExecuteCommand where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExecuteCommand where
+instance Data.ToQuery ExecuteCommand where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExecuteCommandResponse' smart constructor.

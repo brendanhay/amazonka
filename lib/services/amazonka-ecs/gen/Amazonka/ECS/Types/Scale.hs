@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.Scale where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.ScaleUnit
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,13 +67,13 @@ scale_unit = Lens.lens (\Scale' {unit} -> unit) (\s@Scale' {} a -> s {unit = a} 
 scale_value :: Lens.Lens' Scale (Prelude.Maybe Prelude.Double)
 scale_value = Lens.lens (\Scale' {value} -> value) (\s@Scale' {} a -> s {value = a} :: Scale)
 
-instance Core.FromJSON Scale where
+instance Data.FromJSON Scale where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scale"
       ( \x ->
           Scale'
-            Prelude.<$> (x Core..:? "unit") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "unit") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Scale where
@@ -84,11 +85,11 @@ instance Prelude.NFData Scale where
   rnf Scale' {..} =
     Prelude.rnf unit `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Scale where
+instance Data.ToJSON Scale where
   toJSON Scale' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("unit" Core..=) Prelude.<$> unit,
-            ("value" Core..=) Prelude.<$> value
+          [ ("unit" Data..=) Prelude.<$> unit,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

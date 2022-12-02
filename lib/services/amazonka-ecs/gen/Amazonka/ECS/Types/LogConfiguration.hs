@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.LogConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.LogDriver
 import Amazonka.ECS.Types.Secret
 import qualified Amazonka.Prelude as Prelude
@@ -203,15 +204,15 @@ logConfiguration_options = Lens.lens (\LogConfiguration' {options} -> options) (
 logConfiguration_logDriver :: Lens.Lens' LogConfiguration LogDriver
 logConfiguration_logDriver = Lens.lens (\LogConfiguration' {logDriver} -> logDriver) (\s@LogConfiguration' {} a -> s {logDriver = a} :: LogConfiguration)
 
-instance Core.FromJSON LogConfiguration where
+instance Data.FromJSON LogConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogConfiguration"
       ( \x ->
           LogConfiguration'
-            Prelude.<$> (x Core..:? "secretOptions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "options" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "logDriver")
+            Prelude.<$> (x Data..:? "secretOptions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "options" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "logDriver")
       )
 
 instance Prelude.Hashable LogConfiguration where
@@ -226,12 +227,12 @@ instance Prelude.NFData LogConfiguration where
       `Prelude.seq` Prelude.rnf options
       `Prelude.seq` Prelude.rnf logDriver
 
-instance Core.ToJSON LogConfiguration where
+instance Data.ToJSON LogConfiguration where
   toJSON LogConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("secretOptions" Core..=) Prelude.<$> secretOptions,
-            ("options" Core..=) Prelude.<$> options,
-            Prelude.Just ("logDriver" Core..= logDriver)
+          [ ("secretOptions" Data..=) Prelude.<$> secretOptions,
+            ("options" Data..=) Prelude.<$> options,
+            Prelude.Just ("logDriver" Data..= logDriver)
           ]
       )

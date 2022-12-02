@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.DeploymentController where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.DeploymentControllerType
 import qualified Amazonka.Prelude as Prelude
 
@@ -116,12 +117,12 @@ newDeploymentController pType_ =
 deploymentController_type :: Lens.Lens' DeploymentController DeploymentControllerType
 deploymentController_type = Lens.lens (\DeploymentController' {type'} -> type') (\s@DeploymentController' {} a -> s {type' = a} :: DeploymentController)
 
-instance Core.FromJSON DeploymentController where
+instance Data.FromJSON DeploymentController where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentController"
       ( \x ->
-          DeploymentController' Prelude.<$> (x Core..: "type")
+          DeploymentController' Prelude.<$> (x Data..: "type")
       )
 
 instance Prelude.Hashable DeploymentController where
@@ -131,9 +132,9 @@ instance Prelude.Hashable DeploymentController where
 instance Prelude.NFData DeploymentController where
   rnf DeploymentController' {..} = Prelude.rnf type'
 
-instance Core.ToJSON DeploymentController where
+instance Data.ToJSON DeploymentController where
   toJSON DeploymentController' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("type" Core..= type')]
+          [Prelude.Just ("type" Data..= type')]
       )

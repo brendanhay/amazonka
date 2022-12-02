@@ -89,6 +89,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -689,8 +690,8 @@ instance Core.AWSRequest RunTask where
     Response.receiveJSON
       ( \s h x ->
           RunTaskResponse'
-            Prelude.<$> (x Core..?> "tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tasks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -734,57 +735,57 @@ instance Prelude.NFData RunTask where
       `Prelude.seq` Prelude.rnf overrides
       `Prelude.seq` Prelude.rnf taskDefinition
 
-instance Core.ToHeaders RunTask where
+instance Data.ToHeaders RunTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.RunTask" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.RunTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RunTask where
+instance Data.ToJSON RunTask where
   toJSON RunTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("cluster" Core..=) Prelude.<$> cluster,
-            ("placementStrategy" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("cluster" Data..=) Prelude.<$> cluster,
+            ("placementStrategy" Data..=)
               Prelude.<$> placementStrategy,
-            ("networkConfiguration" Core..=)
+            ("networkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
-            ("count" Core..=) Prelude.<$> count,
-            ("startedBy" Core..=) Prelude.<$> startedBy,
-            ("enableExecuteCommand" Core..=)
+            ("count" Data..=) Prelude.<$> count,
+            ("startedBy" Data..=) Prelude.<$> startedBy,
+            ("enableExecuteCommand" Data..=)
               Prelude.<$> enableExecuteCommand,
-            ("capacityProviderStrategy" Core..=)
+            ("capacityProviderStrategy" Data..=)
               Prelude.<$> capacityProviderStrategy,
-            ("placementConstraints" Core..=)
+            ("placementConstraints" Data..=)
               Prelude.<$> placementConstraints,
-            ("propagateTags" Core..=) Prelude.<$> propagateTags,
-            ("referenceId" Core..=) Prelude.<$> referenceId,
-            ("launchType" Core..=) Prelude.<$> launchType,
-            ("platformVersion" Core..=)
+            ("propagateTags" Data..=) Prelude.<$> propagateTags,
+            ("referenceId" Data..=) Prelude.<$> referenceId,
+            ("launchType" Data..=) Prelude.<$> launchType,
+            ("platformVersion" Data..=)
               Prelude.<$> platformVersion,
-            ("enableECSManagedTags" Core..=)
+            ("enableECSManagedTags" Data..=)
               Prelude.<$> enableECSManagedTags,
-            ("group" Core..=) Prelude.<$> group',
-            ("overrides" Core..=) Prelude.<$> overrides,
+            ("group" Data..=) Prelude.<$> group',
+            ("overrides" Data..=) Prelude.<$> overrides,
             Prelude.Just
-              ("taskDefinition" Core..= taskDefinition)
+              ("taskDefinition" Data..= taskDefinition)
           ]
       )
 
-instance Core.ToPath RunTask where
+instance Data.ToPath RunTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RunTask where
+instance Data.ToQuery RunTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRunTaskResponse' smart constructor.

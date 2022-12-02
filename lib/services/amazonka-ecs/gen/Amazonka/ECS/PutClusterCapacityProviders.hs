@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -219,7 +220,7 @@ instance Core.AWSRequest PutClusterCapacityProviders where
     Response.receiveJSON
       ( \s h x ->
           PutClusterCapacityProvidersResponse'
-            Prelude.<$> (x Core..?> "cluster")
+            Prelude.<$> (x Data..?> "cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -235,39 +236,39 @@ instance Prelude.NFData PutClusterCapacityProviders where
       `Prelude.seq` Prelude.rnf capacityProviders
       `Prelude.seq` Prelude.rnf defaultCapacityProviderStrategy
 
-instance Core.ToHeaders PutClusterCapacityProviders where
+instance Data.ToHeaders PutClusterCapacityProviders where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.PutClusterCapacityProviders" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.PutClusterCapacityProviders" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutClusterCapacityProviders where
+instance Data.ToJSON PutClusterCapacityProviders where
   toJSON PutClusterCapacityProviders' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("cluster" Core..= cluster),
+          [ Prelude.Just ("cluster" Data..= cluster),
             Prelude.Just
-              ("capacityProviders" Core..= capacityProviders),
+              ("capacityProviders" Data..= capacityProviders),
             Prelude.Just
               ( "defaultCapacityProviderStrategy"
-                  Core..= defaultCapacityProviderStrategy
+                  Data..= defaultCapacityProviderStrategy
               )
           ]
       )
 
-instance Core.ToPath PutClusterCapacityProviders where
+instance Data.ToPath PutClusterCapacityProviders where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutClusterCapacityProviders where
+instance Data.ToQuery PutClusterCapacityProviders where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutClusterCapacityProvidersResponse' smart constructor.

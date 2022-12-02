@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.EFSVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.EFSAuthorizationConfig
 import Amazonka.ECS.Types.EFSTransitEncryption
 import qualified Amazonka.Prelude as Prelude
@@ -150,17 +151,17 @@ eFSVolumeConfiguration_authorizationConfig = Lens.lens (\EFSVolumeConfiguration'
 eFSVolumeConfiguration_fileSystemId :: Lens.Lens' EFSVolumeConfiguration Prelude.Text
 eFSVolumeConfiguration_fileSystemId = Lens.lens (\EFSVolumeConfiguration' {fileSystemId} -> fileSystemId) (\s@EFSVolumeConfiguration' {} a -> s {fileSystemId = a} :: EFSVolumeConfiguration)
 
-instance Core.FromJSON EFSVolumeConfiguration where
+instance Data.FromJSON EFSVolumeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EFSVolumeConfiguration"
       ( \x ->
           EFSVolumeConfiguration'
-            Prelude.<$> (x Core..:? "transitEncryptionPort")
-            Prelude.<*> (x Core..:? "rootDirectory")
-            Prelude.<*> (x Core..:? "transitEncryption")
-            Prelude.<*> (x Core..:? "authorizationConfig")
-            Prelude.<*> (x Core..: "fileSystemId")
+            Prelude.<$> (x Data..:? "transitEncryptionPort")
+            Prelude.<*> (x Data..:? "rootDirectory")
+            Prelude.<*> (x Data..:? "transitEncryption")
+            Prelude.<*> (x Data..:? "authorizationConfig")
+            Prelude.<*> (x Data..: "fileSystemId")
       )
 
 instance Prelude.Hashable EFSVolumeConfiguration where
@@ -179,17 +180,17 @@ instance Prelude.NFData EFSVolumeConfiguration where
       `Prelude.seq` Prelude.rnf authorizationConfig
       `Prelude.seq` Prelude.rnf fileSystemId
 
-instance Core.ToJSON EFSVolumeConfiguration where
+instance Data.ToJSON EFSVolumeConfiguration where
   toJSON EFSVolumeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("transitEncryptionPort" Core..=)
+          [ ("transitEncryptionPort" Data..=)
               Prelude.<$> transitEncryptionPort,
-            ("rootDirectory" Core..=) Prelude.<$> rootDirectory,
-            ("transitEncryption" Core..=)
+            ("rootDirectory" Data..=) Prelude.<$> rootDirectory,
+            ("transitEncryption" Data..=)
               Prelude.<$> transitEncryption,
-            ("authorizationConfig" Core..=)
+            ("authorizationConfig" Data..=)
               Prelude.<$> authorizationConfig,
-            Prelude.Just ("fileSystemId" Core..= fileSystemId)
+            Prelude.Just ("fileSystemId" Data..= fileSystemId)
           ]
       )

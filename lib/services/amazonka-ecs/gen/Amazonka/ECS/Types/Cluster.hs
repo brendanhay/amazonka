@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.Cluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.Attachment
 import Amazonka.ECS.Types.CapacityProviderStrategyItem
 import Amazonka.ECS.Types.ClusterConfiguration
@@ -451,31 +452,31 @@ cluster_defaultCapacityProviderStrategy = Lens.lens (\Cluster' {defaultCapacityP
 cluster_clusterName :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_clusterName = Lens.lens (\Cluster' {clusterName} -> clusterName) (\s@Cluster' {} a -> s {clusterName = a} :: Cluster)
 
-instance Core.FromJSON Cluster where
+instance Data.FromJSON Cluster where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cluster"
       ( \x ->
           Cluster'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "clusterArn")
-            Prelude.<*> (x Core..:? "attachmentsStatus")
-            Prelude.<*> (x Core..:? "statistics" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "pendingTasksCount")
-            Prelude.<*> (x Core..:? "configuration")
-            Prelude.<*> (x Core..:? "registeredContainerInstancesCount")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "settings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "runningTasksCount")
-            Prelude.<*> (x Core..:? "attachments" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "capacityProviders"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "clusterArn")
+            Prelude.<*> (x Data..:? "attachmentsStatus")
+            Prelude.<*> (x Data..:? "statistics" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "pendingTasksCount")
+            Prelude.<*> (x Data..:? "configuration")
+            Prelude.<*> (x Data..:? "registeredContainerInstancesCount")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "settings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "runningTasksCount")
+            Prelude.<*> (x Data..:? "attachments" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "capacityProviders"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "activeServicesCount")
-            Prelude.<*> ( x Core..:? "defaultCapacityProviderStrategy"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "activeServicesCount")
+            Prelude.<*> ( x Data..:? "defaultCapacityProviderStrategy"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "clusterName")
+            Prelude.<*> (x Data..:? "clusterName")
       )
 
 instance Prelude.Hashable Cluster where

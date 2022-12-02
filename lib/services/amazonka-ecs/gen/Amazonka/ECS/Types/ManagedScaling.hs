@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ManagedScaling where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.ManagedScalingStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -158,17 +159,17 @@ managedScaling_minimumScalingStepSize = Lens.lens (\ManagedScaling' {minimumScal
 managedScaling_maximumScalingStepSize :: Lens.Lens' ManagedScaling (Prelude.Maybe Prelude.Natural)
 managedScaling_maximumScalingStepSize = Lens.lens (\ManagedScaling' {maximumScalingStepSize} -> maximumScalingStepSize) (\s@ManagedScaling' {} a -> s {maximumScalingStepSize = a} :: ManagedScaling)
 
-instance Core.FromJSON ManagedScaling where
+instance Data.FromJSON ManagedScaling where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagedScaling"
       ( \x ->
           ManagedScaling'
-            Prelude.<$> (x Core..:? "targetCapacity")
-            Prelude.<*> (x Core..:? "instanceWarmupPeriod")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "minimumScalingStepSize")
-            Prelude.<*> (x Core..:? "maximumScalingStepSize")
+            Prelude.<$> (x Data..:? "targetCapacity")
+            Prelude.<*> (x Data..:? "instanceWarmupPeriod")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "minimumScalingStepSize")
+            Prelude.<*> (x Data..:? "maximumScalingStepSize")
       )
 
 instance Prelude.Hashable ManagedScaling where
@@ -187,18 +188,18 @@ instance Prelude.NFData ManagedScaling where
       `Prelude.seq` Prelude.rnf minimumScalingStepSize
       `Prelude.seq` Prelude.rnf maximumScalingStepSize
 
-instance Core.ToJSON ManagedScaling where
+instance Data.ToJSON ManagedScaling where
   toJSON ManagedScaling' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetCapacity" Core..=)
+          [ ("targetCapacity" Data..=)
               Prelude.<$> targetCapacity,
-            ("instanceWarmupPeriod" Core..=)
+            ("instanceWarmupPeriod" Data..=)
               Prelude.<$> instanceWarmupPeriod,
-            ("status" Core..=) Prelude.<$> status,
-            ("minimumScalingStepSize" Core..=)
+            ("status" Data..=) Prelude.<$> status,
+            ("minimumScalingStepSize" Data..=)
               Prelude.<$> minimumScalingStepSize,
-            ("maximumScalingStepSize" Core..=)
+            ("maximumScalingStepSize" Data..=)
               Prelude.<$> maximumScalingStepSize
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the resources available for a container instance.
@@ -115,18 +116,18 @@ resource_doubleValue = Lens.lens (\Resource' {doubleValue} -> doubleValue) (\s@R
 resource_longValue :: Lens.Lens' Resource (Prelude.Maybe Prelude.Integer)
 resource_longValue = Lens.lens (\Resource' {longValue} -> longValue) (\s@Resource' {} a -> s {longValue = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "integerValue")
-            Prelude.<*> (x Core..:? "stringSetValue" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "doubleValue")
-            Prelude.<*> (x Core..:? "longValue")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "integerValue")
+            Prelude.<*> (x Data..:? "stringSetValue" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "doubleValue")
+            Prelude.<*> (x Data..:? "longValue")
       )
 
 instance Prelude.Hashable Resource where
@@ -147,16 +148,16 @@ instance Prelude.NFData Resource where
       `Prelude.seq` Prelude.rnf doubleValue
       `Prelude.seq` Prelude.rnf longValue
 
-instance Core.ToJSON Resource where
+instance Data.ToJSON Resource where
   toJSON Resource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("type" Core..=) Prelude.<$> type',
-            ("integerValue" Core..=) Prelude.<$> integerValue,
-            ("stringSetValue" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("type" Data..=) Prelude.<$> type',
+            ("integerValue" Data..=) Prelude.<$> integerValue,
+            ("stringSetValue" Data..=)
               Prelude.<$> stringSetValue,
-            ("doubleValue" Core..=) Prelude.<$> doubleValue,
-            ("longValue" Core..=) Prelude.<$> longValue
+            ("doubleValue" Data..=) Prelude.<$> doubleValue,
+            ("longValue" Data..=) Prelude.<$> longValue
           ]
       )

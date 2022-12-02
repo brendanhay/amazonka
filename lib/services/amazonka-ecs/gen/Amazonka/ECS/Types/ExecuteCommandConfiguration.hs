@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ExecuteCommandConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.ExecuteCommandLogConfiguration
 import Amazonka.ECS.Types.ExecuteCommandLogging
 import qualified Amazonka.Prelude as Prelude
@@ -118,15 +119,15 @@ executeCommandConfiguration_logging = Lens.lens (\ExecuteCommandConfiguration' {
 executeCommandConfiguration_kmsKeyId :: Lens.Lens' ExecuteCommandConfiguration (Prelude.Maybe Prelude.Text)
 executeCommandConfiguration_kmsKeyId = Lens.lens (\ExecuteCommandConfiguration' {kmsKeyId} -> kmsKeyId) (\s@ExecuteCommandConfiguration' {} a -> s {kmsKeyId = a} :: ExecuteCommandConfiguration)
 
-instance Core.FromJSON ExecuteCommandConfiguration where
+instance Data.FromJSON ExecuteCommandConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecuteCommandConfiguration"
       ( \x ->
           ExecuteCommandConfiguration'
-            Prelude.<$> (x Core..:? "logConfiguration")
-            Prelude.<*> (x Core..:? "logging")
-            Prelude.<*> (x Core..:? "kmsKeyId")
+            Prelude.<$> (x Data..:? "logConfiguration")
+            Prelude.<*> (x Data..:? "logging")
+            Prelude.<*> (x Data..:? "kmsKeyId")
       )
 
 instance Prelude.Hashable ExecuteCommandConfiguration where
@@ -141,13 +142,13 @@ instance Prelude.NFData ExecuteCommandConfiguration where
       `Prelude.seq` Prelude.rnf logging
       `Prelude.seq` Prelude.rnf kmsKeyId
 
-instance Core.ToJSON ExecuteCommandConfiguration where
+instance Data.ToJSON ExecuteCommandConfiguration where
   toJSON ExecuteCommandConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("logConfiguration" Core..=)
+          [ ("logConfiguration" Data..=)
               Prelude.<$> logConfiguration,
-            ("logging" Core..=) Prelude.<$> logging,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId
+            ("logging" Data..=) Prelude.<$> logging,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId
           ]
       )

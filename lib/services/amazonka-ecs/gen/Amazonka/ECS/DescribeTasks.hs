@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,8 +126,8 @@ instance Core.AWSRequest DescribeTasks where
     Response.receiveJSON
       ( \s h x ->
           DescribeTasksResponse'
-            Prelude.<$> (x Core..?> "tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tasks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,35 +143,35 @@ instance Prelude.NFData DescribeTasks where
       `Prelude.seq` Prelude.rnf include
       `Prelude.seq` Prelude.rnf tasks
 
-instance Core.ToHeaders DescribeTasks where
+instance Data.ToHeaders DescribeTasks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTasks" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTasks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTasks where
+instance Data.ToJSON DescribeTasks where
   toJSON DescribeTasks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cluster" Core..=) Prelude.<$> cluster,
-            ("include" Core..=) Prelude.<$> include,
-            Prelude.Just ("tasks" Core..= tasks)
+          [ ("cluster" Data..=) Prelude.<$> cluster,
+            ("include" Data..=) Prelude.<$> include,
+            Prelude.Just ("tasks" Data..= tasks)
           ]
       )
 
-instance Core.ToPath DescribeTasks where
+instance Data.ToPath DescribeTasks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTasks where
+instance Data.ToQuery DescribeTasks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTasksResponse' smart constructor.

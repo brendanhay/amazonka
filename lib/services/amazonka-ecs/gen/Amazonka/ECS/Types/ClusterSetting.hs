@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ClusterSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.ClusterSettingName
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,13 +82,13 @@ clusterSetting_name = Lens.lens (\ClusterSetting' {name} -> name) (\s@ClusterSet
 clusterSetting_value :: Lens.Lens' ClusterSetting (Prelude.Maybe Prelude.Text)
 clusterSetting_value = Lens.lens (\ClusterSetting' {value} -> value) (\s@ClusterSetting' {} a -> s {value = a} :: ClusterSetting)
 
-instance Core.FromJSON ClusterSetting where
+instance Data.FromJSON ClusterSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterSetting"
       ( \x ->
           ClusterSetting'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ClusterSetting where
@@ -99,11 +100,11 @@ instance Prelude.NFData ClusterSetting where
   rnf ClusterSetting' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ClusterSetting where
+instance Data.ToJSON ClusterSetting where
   toJSON ClusterSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("value" Core..=) Prelude.<$> value
+          [ ("name" Data..=) Prelude.<$> name,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

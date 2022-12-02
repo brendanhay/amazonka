@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.Setting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.SettingName
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,15 +78,15 @@ setting_principalArn = Lens.lens (\Setting' {principalArn} -> principalArn) (\s@
 setting_value :: Lens.Lens' Setting (Prelude.Maybe Prelude.Text)
 setting_value = Lens.lens (\Setting' {value} -> value) (\s@Setting' {} a -> s {value = a} :: Setting)
 
-instance Core.FromJSON Setting where
+instance Data.FromJSON Setting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Setting"
       ( \x ->
           Setting'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "principalArn")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "principalArn")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Setting where

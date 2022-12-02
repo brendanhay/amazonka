@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.FirelensConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.FirelensConfigurationType
 import qualified Amazonka.Prelude as Prelude
 
@@ -97,14 +98,14 @@ firelensConfiguration_options = Lens.lens (\FirelensConfiguration' {options} -> 
 firelensConfiguration_type :: Lens.Lens' FirelensConfiguration FirelensConfigurationType
 firelensConfiguration_type = Lens.lens (\FirelensConfiguration' {type'} -> type') (\s@FirelensConfiguration' {} a -> s {type' = a} :: FirelensConfiguration)
 
-instance Core.FromJSON FirelensConfiguration where
+instance Data.FromJSON FirelensConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirelensConfiguration"
       ( \x ->
           FirelensConfiguration'
-            Prelude.<$> (x Core..:? "options" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "options" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable FirelensConfiguration where
@@ -116,11 +117,11 @@ instance Prelude.NFData FirelensConfiguration where
   rnf FirelensConfiguration' {..} =
     Prelude.rnf options `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON FirelensConfiguration where
+instance Data.ToJSON FirelensConfiguration where
   toJSON FirelensConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("options" Core..=) Prelude.<$> options,
-            Prelude.Just ("type" Core..= type')
+          [ ("options" Data..=) Prelude.<$> options,
+            Prelude.Just ("type" Data..= type')
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ContainerInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.AgentUpdateStatus
 import Amazonka.ECS.Types.Attachment
 import Amazonka.ECS.Types.Attribute
@@ -144,7 +145,7 @@ data ContainerInstance = ContainerInstance'
     attributes :: Prelude.Maybe [Attribute],
     -- | The Unix timestamp for the time when the container instance was
     -- registered.
-    registeredAt :: Prelude.Maybe Core.POSIX,
+    registeredAt :: Prelude.Maybe Data.POSIX,
     -- | The version counter for the container instance. Every time a container
     -- instance experiences a change that triggers a CloudWatch event, the
     -- version counter is incremented. If you\'re replicating your Amazon ECS
@@ -449,7 +450,7 @@ containerInstance_attributes = Lens.lens (\ContainerInstance' {attributes} -> at
 -- | The Unix timestamp for the time when the container instance was
 -- registered.
 containerInstance_registeredAt :: Lens.Lens' ContainerInstance (Prelude.Maybe Prelude.UTCTime)
-containerInstance_registeredAt = Lens.lens (\ContainerInstance' {registeredAt} -> registeredAt) (\s@ContainerInstance' {} a -> s {registeredAt = a} :: ContainerInstance) Prelude.. Lens.mapping Core._Time
+containerInstance_registeredAt = Lens.lens (\ContainerInstance' {registeredAt} -> registeredAt) (\s@ContainerInstance' {} a -> s {registeredAt = a} :: ContainerInstance) Prelude.. Lens.mapping Data._Time
 
 -- | The version counter for the container instance. Every time a container
 -- instance experiences a change that triggers a CloudWatch event, the
@@ -462,34 +463,34 @@ containerInstance_registeredAt = Lens.lens (\ContainerInstance' {registeredAt} -
 containerInstance_version :: Lens.Lens' ContainerInstance (Prelude.Maybe Prelude.Integer)
 containerInstance_version = Lens.lens (\ContainerInstance' {version} -> version) (\s@ContainerInstance' {} a -> s {version = a} :: ContainerInstance)
 
-instance Core.FromJSON ContainerInstance where
+instance Data.FromJSON ContainerInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerInstance"
       ( \x ->
           ContainerInstance'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "capacityProviderName")
-            Prelude.<*> (x Core..:? "ec2InstanceId")
-            Prelude.<*> ( x Core..:? "remainingResources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "capacityProviderName")
+            Prelude.<*> (x Data..:? "ec2InstanceId")
+            Prelude.<*> ( x Data..:? "remainingResources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "registeredResources"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "registeredResources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "pendingTasksCount")
-            Prelude.<*> (x Core..:? "versionInfo")
-            Prelude.<*> (x Core..:? "agentUpdateStatus")
-            Prelude.<*> (x Core..:? "healthStatus")
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "agentConnected")
-            Prelude.<*> (x Core..:? "runningTasksCount")
-            Prelude.<*> (x Core..:? "attachments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "containerInstanceArn")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "registeredAt")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<*> (x Data..:? "pendingTasksCount")
+            Prelude.<*> (x Data..:? "versionInfo")
+            Prelude.<*> (x Data..:? "agentUpdateStatus")
+            Prelude.<*> (x Data..:? "healthStatus")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "agentConnected")
+            Prelude.<*> (x Data..:? "runningTasksCount")
+            Prelude.<*> (x Data..:? "attachments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "containerInstanceArn")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "registeredAt")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable ContainerInstance where

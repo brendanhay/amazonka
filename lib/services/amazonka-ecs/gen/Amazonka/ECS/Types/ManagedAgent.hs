@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ManagedAgent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.ManagedAgentName
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newManagedAgent' smart constructor.
 data ManagedAgent = ManagedAgent'
   { -- | The Unix timestamp for the time when the managed agent was last started.
-    lastStartedAt :: Prelude.Maybe Core.POSIX,
+    lastStartedAt :: Prelude.Maybe Data.POSIX,
     -- | The name of the managed agent. When the execute command feature is
     -- enabled, the managed agent name is @ExecuteCommandAgent@.
     name :: Prelude.Maybe ManagedAgentName,
@@ -68,7 +69,7 @@ newManagedAgent =
 
 -- | The Unix timestamp for the time when the managed agent was last started.
 managedAgent_lastStartedAt :: Lens.Lens' ManagedAgent (Prelude.Maybe Prelude.UTCTime)
-managedAgent_lastStartedAt = Lens.lens (\ManagedAgent' {lastStartedAt} -> lastStartedAt) (\s@ManagedAgent' {} a -> s {lastStartedAt = a} :: ManagedAgent) Prelude.. Lens.mapping Core._Time
+managedAgent_lastStartedAt = Lens.lens (\ManagedAgent' {lastStartedAt} -> lastStartedAt) (\s@ManagedAgent' {} a -> s {lastStartedAt = a} :: ManagedAgent) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the managed agent. When the execute command feature is
 -- enabled, the managed agent name is @ExecuteCommandAgent@.
@@ -83,16 +84,16 @@ managedAgent_lastStatus = Lens.lens (\ManagedAgent' {lastStatus} -> lastStatus) 
 managedAgent_reason :: Lens.Lens' ManagedAgent (Prelude.Maybe Prelude.Text)
 managedAgent_reason = Lens.lens (\ManagedAgent' {reason} -> reason) (\s@ManagedAgent' {} a -> s {reason = a} :: ManagedAgent)
 
-instance Core.FromJSON ManagedAgent where
+instance Data.FromJSON ManagedAgent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagedAgent"
       ( \x ->
           ManagedAgent'
-            Prelude.<$> (x Core..:? "lastStartedAt")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "lastStatus")
-            Prelude.<*> (x Core..:? "reason")
+            Prelude.<$> (x Data..:? "lastStartedAt")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "lastStatus")
+            Prelude.<*> (x Data..:? "reason")
       )
 
 instance Prelude.Hashable ManagedAgent where

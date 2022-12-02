@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,8 +100,8 @@ instance Core.AWSRequest GetTaskProtection where
     Response.receiveJSON
       ( \s h x ->
           GetTaskProtectionResponse'
-            Prelude.<$> (x Core..?> "failures" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "protectedTasks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "protectedTasks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,34 +114,34 @@ instance Prelude.NFData GetTaskProtection where
   rnf GetTaskProtection' {..} =
     Prelude.rnf tasks `Prelude.seq` Prelude.rnf cluster
 
-instance Core.ToHeaders GetTaskProtection where
+instance Data.ToHeaders GetTaskProtection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.GetTaskProtection" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.GetTaskProtection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTaskProtection where
+instance Data.ToJSON GetTaskProtection where
   toJSON GetTaskProtection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tasks" Core..=) Prelude.<$> tasks,
-            Prelude.Just ("cluster" Core..= cluster)
+          [ ("tasks" Data..=) Prelude.<$> tasks,
+            Prelude.Just ("cluster" Data..= cluster)
           ]
       )
 
-instance Core.ToPath GetTaskProtection where
+instance Data.ToPath GetTaskProtection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTaskProtection where
+instance Data.ToQuery GetTaskProtection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTaskProtectionResponse' smart constructor.

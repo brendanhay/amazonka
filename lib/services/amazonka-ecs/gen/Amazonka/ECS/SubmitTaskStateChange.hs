@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -61,18 +62,18 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newSubmitTaskStateChange' smart constructor.
 data SubmitTaskStateChange = SubmitTaskStateChange'
   { -- | The Unix timestamp for the time when the task execution stopped.
-    executionStoppedAt :: Prelude.Maybe Core.POSIX,
+    executionStoppedAt :: Prelude.Maybe Data.POSIX,
     -- | The task ID or full ARN of the task in the state change request.
     task :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp for the time when the container image pull completed.
-    pullStoppedAt :: Prelude.Maybe Core.POSIX,
+    pullStoppedAt :: Prelude.Maybe Data.POSIX,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the task.
     cluster :: Prelude.Maybe Prelude.Text,
     -- | Any containers that\'s associated with the state change request.
     containers :: Prelude.Maybe [ContainerStateChange],
     -- | The Unix timestamp for the time when the container image pull started.
-    pullStartedAt :: Prelude.Maybe Core.POSIX,
+    pullStartedAt :: Prelude.Maybe Data.POSIX,
     -- | The status of the state change request.
     status :: Prelude.Maybe Prelude.Text,
     -- | Any attachments associated with the state change request.
@@ -131,7 +132,7 @@ newSubmitTaskStateChange =
 
 -- | The Unix timestamp for the time when the task execution stopped.
 submitTaskStateChange_executionStoppedAt :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe Prelude.UTCTime)
-submitTaskStateChange_executionStoppedAt = Lens.lens (\SubmitTaskStateChange' {executionStoppedAt} -> executionStoppedAt) (\s@SubmitTaskStateChange' {} a -> s {executionStoppedAt = a} :: SubmitTaskStateChange) Prelude.. Lens.mapping Core._Time
+submitTaskStateChange_executionStoppedAt = Lens.lens (\SubmitTaskStateChange' {executionStoppedAt} -> executionStoppedAt) (\s@SubmitTaskStateChange' {} a -> s {executionStoppedAt = a} :: SubmitTaskStateChange) Prelude.. Lens.mapping Data._Time
 
 -- | The task ID or full ARN of the task in the state change request.
 submitTaskStateChange_task :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe Prelude.Text)
@@ -139,7 +140,7 @@ submitTaskStateChange_task = Lens.lens (\SubmitTaskStateChange' {task} -> task) 
 
 -- | The Unix timestamp for the time when the container image pull completed.
 submitTaskStateChange_pullStoppedAt :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe Prelude.UTCTime)
-submitTaskStateChange_pullStoppedAt = Lens.lens (\SubmitTaskStateChange' {pullStoppedAt} -> pullStoppedAt) (\s@SubmitTaskStateChange' {} a -> s {pullStoppedAt = a} :: SubmitTaskStateChange) Prelude.. Lens.mapping Core._Time
+submitTaskStateChange_pullStoppedAt = Lens.lens (\SubmitTaskStateChange' {pullStoppedAt} -> pullStoppedAt) (\s@SubmitTaskStateChange' {} a -> s {pullStoppedAt = a} :: SubmitTaskStateChange) Prelude.. Lens.mapping Data._Time
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the task.
@@ -152,7 +153,7 @@ submitTaskStateChange_containers = Lens.lens (\SubmitTaskStateChange' {container
 
 -- | The Unix timestamp for the time when the container image pull started.
 submitTaskStateChange_pullStartedAt :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe Prelude.UTCTime)
-submitTaskStateChange_pullStartedAt = Lens.lens (\SubmitTaskStateChange' {pullStartedAt} -> pullStartedAt) (\s@SubmitTaskStateChange' {} a -> s {pullStartedAt = a} :: SubmitTaskStateChange) Prelude.. Lens.mapping Core._Time
+submitTaskStateChange_pullStartedAt = Lens.lens (\SubmitTaskStateChange' {pullStartedAt} -> pullStartedAt) (\s@SubmitTaskStateChange' {} a -> s {pullStartedAt = a} :: SubmitTaskStateChange) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the state change request.
 submitTaskStateChange_status :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe Prelude.Text)
@@ -180,7 +181,7 @@ instance Core.AWSRequest SubmitTaskStateChange where
     Response.receiveJSON
       ( \s h x ->
           SubmitTaskStateChangeResponse'
-            Prelude.<$> (x Core..?> "acknowledgment")
+            Prelude.<$> (x Data..?> "acknowledgment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,43 +211,43 @@ instance Prelude.NFData SubmitTaskStateChange where
       `Prelude.seq` Prelude.rnf managedAgents
       `Prelude.seq` Prelude.rnf reason
 
-instance Core.ToHeaders SubmitTaskStateChange where
+instance Data.ToHeaders SubmitTaskStateChange where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.SubmitTaskStateChange" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.SubmitTaskStateChange" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SubmitTaskStateChange where
+instance Data.ToJSON SubmitTaskStateChange where
   toJSON SubmitTaskStateChange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("executionStoppedAt" Core..=)
+          [ ("executionStoppedAt" Data..=)
               Prelude.<$> executionStoppedAt,
-            ("task" Core..=) Prelude.<$> task,
-            ("pullStoppedAt" Core..=) Prelude.<$> pullStoppedAt,
-            ("cluster" Core..=) Prelude.<$> cluster,
-            ("containers" Core..=) Prelude.<$> containers,
-            ("pullStartedAt" Core..=) Prelude.<$> pullStartedAt,
-            ("status" Core..=) Prelude.<$> status,
-            ("attachments" Core..=) Prelude.<$> attachments,
-            ("managedAgents" Core..=) Prelude.<$> managedAgents,
-            ("reason" Core..=) Prelude.<$> reason
+            ("task" Data..=) Prelude.<$> task,
+            ("pullStoppedAt" Data..=) Prelude.<$> pullStoppedAt,
+            ("cluster" Data..=) Prelude.<$> cluster,
+            ("containers" Data..=) Prelude.<$> containers,
+            ("pullStartedAt" Data..=) Prelude.<$> pullStartedAt,
+            ("status" Data..=) Prelude.<$> status,
+            ("attachments" Data..=) Prelude.<$> attachments,
+            ("managedAgents" Data..=) Prelude.<$> managedAgents,
+            ("reason" Data..=) Prelude.<$> reason
           ]
       )
 
-instance Core.ToPath SubmitTaskStateChange where
+instance Data.ToPath SubmitTaskStateChange where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SubmitTaskStateChange where
+instance Data.ToQuery SubmitTaskStateChange where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSubmitTaskStateChangeResponse' smart constructor.

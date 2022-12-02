@@ -177,6 +177,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -741,7 +742,7 @@ instance Core.AWSRequest UpdateService where
     Response.receiveJSON
       ( \s h x ->
           UpdateServiceResponse'
-            Prelude.<$> (x Core..?> "service")
+            Prelude.<$> (x Data..?> "service")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -786,61 +787,61 @@ instance Prelude.NFData UpdateService where
       `Prelude.seq` Prelude.rnf enableECSManagedTags
       `Prelude.seq` Prelude.rnf service
 
-instance Core.ToHeaders UpdateService where
+instance Data.ToHeaders UpdateService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.UpdateService" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.UpdateService" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateService where
+instance Data.ToJSON UpdateService where
   toJSON UpdateService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("healthCheckGracePeriodSeconds" Core..=)
+          [ ("healthCheckGracePeriodSeconds" Data..=)
               Prelude.<$> healthCheckGracePeriodSeconds,
-            ("deploymentConfiguration" Core..=)
+            ("deploymentConfiguration" Data..=)
               Prelude.<$> deploymentConfiguration,
-            ("serviceRegistries" Core..=)
+            ("serviceRegistries" Data..=)
               Prelude.<$> serviceRegistries,
-            ("cluster" Core..=) Prelude.<$> cluster,
-            ("placementStrategy" Core..=)
+            ("cluster" Data..=) Prelude.<$> cluster,
+            ("placementStrategy" Data..=)
               Prelude.<$> placementStrategy,
-            ("taskDefinition" Core..=)
+            ("taskDefinition" Data..=)
               Prelude.<$> taskDefinition,
-            ("networkConfiguration" Core..=)
+            ("networkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
-            ("desiredCount" Core..=) Prelude.<$> desiredCount,
-            ("enableExecuteCommand" Core..=)
+            ("desiredCount" Data..=) Prelude.<$> desiredCount,
+            ("enableExecuteCommand" Data..=)
               Prelude.<$> enableExecuteCommand,
-            ("capacityProviderStrategy" Core..=)
+            ("capacityProviderStrategy" Data..=)
               Prelude.<$> capacityProviderStrategy,
-            ("placementConstraints" Core..=)
+            ("placementConstraints" Data..=)
               Prelude.<$> placementConstraints,
-            ("propagateTags" Core..=) Prelude.<$> propagateTags,
-            ("loadBalancers" Core..=) Prelude.<$> loadBalancers,
-            ("forceNewDeployment" Core..=)
+            ("propagateTags" Data..=) Prelude.<$> propagateTags,
+            ("loadBalancers" Data..=) Prelude.<$> loadBalancers,
+            ("forceNewDeployment" Data..=)
               Prelude.<$> forceNewDeployment,
-            ("platformVersion" Core..=)
+            ("platformVersion" Data..=)
               Prelude.<$> platformVersion,
-            ("enableECSManagedTags" Core..=)
+            ("enableECSManagedTags" Data..=)
               Prelude.<$> enableECSManagedTags,
-            Prelude.Just ("service" Core..= service)
+            Prelude.Just ("service" Data..= service)
           ]
       )
 
-instance Core.ToPath UpdateService where
+instance Data.ToPath UpdateService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateService where
+instance Data.ToQuery UpdateService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServiceResponse' smart constructor.

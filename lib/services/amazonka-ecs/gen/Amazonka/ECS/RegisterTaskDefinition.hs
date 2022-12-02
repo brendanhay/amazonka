@@ -82,6 +82,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -993,8 +994,8 @@ instance Core.AWSRequest RegisterTaskDefinition where
     Response.receiveJSON
       ( \s h x ->
           RegisterTaskDefinitionResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "taskDefinition")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "taskDefinition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1038,59 +1039,59 @@ instance Prelude.NFData RegisterTaskDefinition where
       `Prelude.seq` Prelude.rnf family
       `Prelude.seq` Prelude.rnf containerDefinitions
 
-instance Core.ToHeaders RegisterTaskDefinition where
+instance Data.ToHeaders RegisterTaskDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.RegisterTaskDefinition" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.RegisterTaskDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterTaskDefinition where
+instance Data.ToJSON RegisterTaskDefinition where
   toJSON RegisterTaskDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("ephemeralStorage" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("ephemeralStorage" Data..=)
               Prelude.<$> ephemeralStorage,
-            ("runtimePlatform" Core..=)
+            ("runtimePlatform" Data..=)
               Prelude.<$> runtimePlatform,
-            ("proxyConfiguration" Core..=)
+            ("proxyConfiguration" Data..=)
               Prelude.<$> proxyConfiguration,
-            ("pidMode" Core..=) Prelude.<$> pidMode,
-            ("memory" Core..=) Prelude.<$> memory,
-            ("cpu" Core..=) Prelude.<$> cpu,
-            ("taskRoleArn" Core..=) Prelude.<$> taskRoleArn,
-            ("inferenceAccelerators" Core..=)
+            ("pidMode" Data..=) Prelude.<$> pidMode,
+            ("memory" Data..=) Prelude.<$> memory,
+            ("cpu" Data..=) Prelude.<$> cpu,
+            ("taskRoleArn" Data..=) Prelude.<$> taskRoleArn,
+            ("inferenceAccelerators" Data..=)
               Prelude.<$> inferenceAccelerators,
-            ("volumes" Core..=) Prelude.<$> volumes,
-            ("requiresCompatibilities" Core..=)
+            ("volumes" Data..=) Prelude.<$> volumes,
+            ("requiresCompatibilities" Data..=)
               Prelude.<$> requiresCompatibilities,
-            ("placementConstraints" Core..=)
+            ("placementConstraints" Data..=)
               Prelude.<$> placementConstraints,
-            ("executionRoleArn" Core..=)
+            ("executionRoleArn" Data..=)
               Prelude.<$> executionRoleArn,
-            ("ipcMode" Core..=) Prelude.<$> ipcMode,
-            ("networkMode" Core..=) Prelude.<$> networkMode,
-            Prelude.Just ("family" Core..= family),
+            ("ipcMode" Data..=) Prelude.<$> ipcMode,
+            ("networkMode" Data..=) Prelude.<$> networkMode,
+            Prelude.Just ("family" Data..= family),
             Prelude.Just
               ( "containerDefinitions"
-                  Core..= containerDefinitions
+                  Data..= containerDefinitions
               )
           ]
       )
 
-instance Core.ToPath RegisterTaskDefinition where
+instance Data.ToPath RegisterTaskDefinition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterTaskDefinition where
+instance Data.ToQuery RegisterTaskDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterTaskDefinitionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.Session where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details for the execute command session.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data Session = Session'
   { -- | An encrypted token value containing session and caller information.
     -- It\'s used to authenticate the connection to the container.
-    tokenValue :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    tokenValue :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A URL to the managed agent on the container that the SSM Session Manager
     -- client uses to send commands and receive output from the container.
     streamUrl :: Prelude.Maybe Prelude.Text,
@@ -65,7 +66,7 @@ newSession =
 -- | An encrypted token value containing session and caller information.
 -- It\'s used to authenticate the connection to the container.
 session_tokenValue :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
-session_tokenValue = Lens.lens (\Session' {tokenValue} -> tokenValue) (\s@Session' {} a -> s {tokenValue = a} :: Session) Prelude.. Lens.mapping Core._Sensitive
+session_tokenValue = Lens.lens (\Session' {tokenValue} -> tokenValue) (\s@Session' {} a -> s {tokenValue = a} :: Session) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A URL to the managed agent on the container that the SSM Session Manager
 -- client uses to send commands and receive output from the container.
@@ -76,15 +77,15 @@ session_streamUrl = Lens.lens (\Session' {streamUrl} -> streamUrl) (\s@Session' 
 session_sessionId :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
 session_sessionId = Lens.lens (\Session' {sessionId} -> sessionId) (\s@Session' {} a -> s {sessionId = a} :: Session)
 
-instance Core.FromJSON Session where
+instance Data.FromJSON Session where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Session"
       ( \x ->
           Session'
-            Prelude.<$> (x Core..:? "tokenValue")
-            Prelude.<*> (x Core..:? "streamUrl")
-            Prelude.<*> (x Core..:? "sessionId")
+            Prelude.<$> (x Data..:? "tokenValue")
+            Prelude.<*> (x Data..:? "streamUrl")
+            Prelude.<*> (x Data..:? "sessionId")
       )
 
 instance Prelude.Hashable Session where

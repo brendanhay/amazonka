@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -230,8 +231,8 @@ instance Core.AWSRequest ListAccountSettings where
     Response.receiveJSON
       ( \s h x ->
           ListAccountSettingsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "settings" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "settings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -253,39 +254,39 @@ instance Prelude.NFData ListAccountSettings where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToHeaders ListAccountSettings where
+instance Data.ToHeaders ListAccountSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.ListAccountSettings" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.ListAccountSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAccountSettings where
+instance Data.ToJSON ListAccountSettings where
   toJSON ListAccountSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("effectiveSettings" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("effectiveSettings" Data..=)
               Prelude.<$> effectiveSettings,
-            ("principalArn" Core..=) Prelude.<$> principalArn,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("value" Core..=) Prelude.<$> value
+            ("principalArn" Data..=) Prelude.<$> principalArn,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("value" Data..=) Prelude.<$> value
           ]
       )
 
-instance Core.ToPath ListAccountSettings where
+instance Data.ToPath ListAccountSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAccountSettings where
+instance Data.ToQuery ListAccountSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAccountSettingsResponse' smart constructor.

@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,7 +136,7 @@ instance Core.AWSRequest DeleteService where
     Response.receiveJSON
       ( \s h x ->
           DeleteServiceResponse'
-            Prelude.<$> (x Core..?> "service")
+            Prelude.<$> (x Data..?> "service")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,35 +152,35 @@ instance Prelude.NFData DeleteService where
       `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf service
 
-instance Core.ToHeaders DeleteService where
+instance Data.ToHeaders DeleteService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.DeleteService" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.DeleteService" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteService where
+instance Data.ToJSON DeleteService where
   toJSON DeleteService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cluster" Core..=) Prelude.<$> cluster,
-            ("force" Core..=) Prelude.<$> force,
-            Prelude.Just ("service" Core..= service)
+          [ ("cluster" Data..=) Prelude.<$> cluster,
+            ("force" Data..=) Prelude.<$> force,
+            Prelude.Just ("service" Data..= service)
           ]
       )
 
-instance Core.ToPath DeleteService where
+instance Data.ToPath DeleteService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteService where
+instance Data.ToQuery DeleteService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteServiceResponse' smart constructor.

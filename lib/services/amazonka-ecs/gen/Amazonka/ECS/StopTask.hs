@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,7 +135,7 @@ instance Core.AWSRequest StopTask where
     Response.receiveJSON
       ( \s h x ->
           StopTaskResponse'
-            Prelude.<$> (x Core..?> "task")
+            Prelude.<$> (x Data..?> "task")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,35 +151,35 @@ instance Prelude.NFData StopTask where
       `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf task
 
-instance Core.ToHeaders StopTask where
+instance Data.ToHeaders StopTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.StopTask" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.StopTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopTask where
+instance Data.ToJSON StopTask where
   toJSON StopTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cluster" Core..=) Prelude.<$> cluster,
-            ("reason" Core..=) Prelude.<$> reason,
-            Prelude.Just ("task" Core..= task)
+          [ ("cluster" Data..=) Prelude.<$> cluster,
+            ("reason" Data..=) Prelude.<$> reason,
+            Prelude.Just ("task" Data..= task)
           ]
       )
 
-instance Core.ToPath StopTask where
+instance Data.ToPath StopTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopTask where
+instance Data.ToQuery StopTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopTaskResponse' smart constructor.

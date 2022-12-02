@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ContainerStateChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.NetworkBinding
 import qualified Amazonka.Prelude as Prelude
 
@@ -131,17 +132,17 @@ instance Prelude.NFData ContainerStateChange where
       `Prelude.seq` Prelude.rnf exitCode
       `Prelude.seq` Prelude.rnf imageDigest
 
-instance Core.ToJSON ContainerStateChange where
+instance Data.ToJSON ContainerStateChange where
   toJSON ContainerStateChange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("containerName" Core..=) Prelude.<$> containerName,
-            ("status" Core..=) Prelude.<$> status,
-            ("runtimeId" Core..=) Prelude.<$> runtimeId,
-            ("networkBindings" Core..=)
+          [ ("containerName" Data..=) Prelude.<$> containerName,
+            ("status" Data..=) Prelude.<$> status,
+            ("runtimeId" Data..=) Prelude.<$> runtimeId,
+            ("networkBindings" Data..=)
               Prelude.<$> networkBindings,
-            ("reason" Core..=) Prelude.<$> reason,
-            ("exitCode" Core..=) Prelude.<$> exitCode,
-            ("imageDigest" Core..=) Prelude.<$> imageDigest
+            ("reason" Data..=) Prelude.<$> reason,
+            ("exitCode" Data..=) Prelude.<$> exitCode,
+            ("imageDigest" Data..=) Prelude.<$> imageDigest
           ]
       )

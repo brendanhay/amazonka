@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.Deployment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.CapacityProviderStrategyItem
 import Amazonka.ECS.Types.DeploymentRolloutState
 import Amazonka.ECS.Types.LaunchType
@@ -104,10 +105,10 @@ data Deployment = Deployment'
     -- DeploymentCircuitBreaker.
     rolloutState :: Prelude.Maybe DeploymentRolloutState,
     -- | The Unix timestamp for the time when the service deployment was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix timestamp for the time when the service deployment was last
     -- updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -317,37 +318,37 @@ deployment_rolloutState = Lens.lens (\Deployment' {rolloutState} -> rolloutState
 
 -- | The Unix timestamp for the time when the service deployment was created.
 deployment_createdAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
-deployment_createdAt = Lens.lens (\Deployment' {createdAt} -> createdAt) (\s@Deployment' {} a -> s {createdAt = a} :: Deployment) Prelude.. Lens.mapping Core._Time
+deployment_createdAt = Lens.lens (\Deployment' {createdAt} -> createdAt) (\s@Deployment' {} a -> s {createdAt = a} :: Deployment) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix timestamp for the time when the service deployment was last
 -- updated.
 deployment_updatedAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
-deployment_updatedAt = Lens.lens (\Deployment' {updatedAt} -> updatedAt) (\s@Deployment' {} a -> s {updatedAt = a} :: Deployment) Prelude.. Lens.mapping Core._Time
+deployment_updatedAt = Lens.lens (\Deployment' {updatedAt} -> updatedAt) (\s@Deployment' {} a -> s {updatedAt = a} :: Deployment) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Deployment where
+instance Data.FromJSON Deployment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Deployment"
       ( \x ->
           Deployment'
-            Prelude.<$> (x Core..:? "platformFamily")
-            Prelude.<*> (x Core..:? "taskDefinition")
-            Prelude.<*> (x Core..:? "failedTasks")
-            Prelude.<*> (x Core..:? "networkConfiguration")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "desiredCount")
-            Prelude.<*> (x Core..:? "pendingCount")
-            Prelude.<*> ( x Core..:? "capacityProviderStrategy"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "platformFamily")
+            Prelude.<*> (x Data..:? "taskDefinition")
+            Prelude.<*> (x Data..:? "failedTasks")
+            Prelude.<*> (x Data..:? "networkConfiguration")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "desiredCount")
+            Prelude.<*> (x Data..:? "pendingCount")
+            Prelude.<*> ( x Data..:? "capacityProviderStrategy"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "rolloutStateReason")
-            Prelude.<*> (x Core..:? "launchType")
-            Prelude.<*> (x Core..:? "runningCount")
-            Prelude.<*> (x Core..:? "platformVersion")
-            Prelude.<*> (x Core..:? "rolloutState")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<*> (x Data..:? "rolloutStateReason")
+            Prelude.<*> (x Data..:? "launchType")
+            Prelude.<*> (x Data..:? "runningCount")
+            Prelude.<*> (x Data..:? "platformVersion")
+            Prelude.<*> (x Data..:? "rolloutState")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable Deployment where

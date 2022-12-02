@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.KernelCapabilities where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Linux capabilities for the container that are added to or dropped
@@ -138,14 +139,14 @@ kernelCapabilities_drop = Lens.lens (\KernelCapabilities' {drop} -> drop) (\s@Ke
 kernelCapabilities_add :: Lens.Lens' KernelCapabilities (Prelude.Maybe [Prelude.Text])
 kernelCapabilities_add = Lens.lens (\KernelCapabilities' {add} -> add) (\s@KernelCapabilities' {} a -> s {add = a} :: KernelCapabilities) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON KernelCapabilities where
+instance Data.FromJSON KernelCapabilities where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KernelCapabilities"
       ( \x ->
           KernelCapabilities'
-            Prelude.<$> (x Core..:? "drop" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "add" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "drop" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "add" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable KernelCapabilities where
@@ -157,11 +158,11 @@ instance Prelude.NFData KernelCapabilities where
   rnf KernelCapabilities' {..} =
     Prelude.rnf drop `Prelude.seq` Prelude.rnf add
 
-instance Core.ToJSON KernelCapabilities where
+instance Data.ToJSON KernelCapabilities where
   toJSON KernelCapabilities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("drop" Core..=) Prelude.<$> drop,
-            ("add" Core..=) Prelude.<$> add
+          [ ("drop" Data..=) Prelude.<$> drop,
+            ("add" Data..=) Prelude.<$> add
           ]
       )

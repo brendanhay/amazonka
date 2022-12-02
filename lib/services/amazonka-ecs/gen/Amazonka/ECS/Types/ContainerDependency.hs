@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ContainerDependency where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.ContainerCondition
 import qualified Amazonka.Prelude as Prelude
 
@@ -150,14 +151,14 @@ containerDependency_containerName = Lens.lens (\ContainerDependency' {containerN
 containerDependency_condition :: Lens.Lens' ContainerDependency ContainerCondition
 containerDependency_condition = Lens.lens (\ContainerDependency' {condition} -> condition) (\s@ContainerDependency' {} a -> s {condition = a} :: ContainerDependency)
 
-instance Core.FromJSON ContainerDependency where
+instance Data.FromJSON ContainerDependency where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerDependency"
       ( \x ->
           ContainerDependency'
-            Prelude.<$> (x Core..: "containerName")
-            Prelude.<*> (x Core..: "condition")
+            Prelude.<$> (x Data..: "containerName")
+            Prelude.<*> (x Data..: "condition")
       )
 
 instance Prelude.Hashable ContainerDependency where
@@ -170,12 +171,12 @@ instance Prelude.NFData ContainerDependency where
     Prelude.rnf containerName
       `Prelude.seq` Prelude.rnf condition
 
-instance Core.ToJSON ContainerDependency where
+instance Data.ToJSON ContainerDependency where
   toJSON ContainerDependency' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("containerName" Core..= containerName),
-            Prelude.Just ("condition" Core..= condition)
+              ("containerName" Data..= containerName),
+            Prelude.Just ("condition" Data..= condition)
           ]
       )

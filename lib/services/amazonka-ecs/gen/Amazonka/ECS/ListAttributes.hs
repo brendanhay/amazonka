@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -217,8 +218,8 @@ instance Core.AWSRequest ListAttributes where
     Response.receiveJSON
       ( \s h x ->
           ListAttributesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "attributes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -240,39 +241,39 @@ instance Prelude.NFData ListAttributes where
       `Prelude.seq` Prelude.rnf attributeName
       `Prelude.seq` Prelude.rnf targetType
 
-instance Core.ToHeaders ListAttributes where
+instance Data.ToHeaders ListAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.ListAttributes" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.ListAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAttributes where
+instance Data.ToJSON ListAttributes where
   toJSON ListAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("attributeValue" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("attributeValue" Data..=)
               Prelude.<$> attributeValue,
-            ("cluster" Core..=) Prelude.<$> cluster,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("attributeName" Core..=) Prelude.<$> attributeName,
-            Prelude.Just ("targetType" Core..= targetType)
+            ("cluster" Data..=) Prelude.<$> cluster,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("attributeName" Data..=) Prelude.<$> attributeName,
+            Prelude.Just ("targetType" Data..= targetType)
           ]
       )
 
-instance Core.ToPath ListAttributes where
+instance Data.ToPath ListAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAttributes where
+instance Data.ToQuery ListAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAttributesResponse' smart constructor.

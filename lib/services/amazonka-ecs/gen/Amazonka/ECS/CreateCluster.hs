@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -322,7 +323,7 @@ instance Core.AWSRequest CreateCluster where
     Response.receiveJSON
       ( \s h x ->
           CreateClusterResponse'
-            Prelude.<$> (x Core..?> "cluster")
+            Prelude.<$> (x Data..?> "cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -344,40 +345,40 @@ instance Prelude.NFData CreateCluster where
       `Prelude.seq` Prelude.rnf defaultCapacityProviderStrategy
       `Prelude.seq` Prelude.rnf clusterName
 
-instance Core.ToHeaders CreateCluster where
+instance Data.ToHeaders CreateCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.CreateCluster" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.CreateCluster" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCluster where
+instance Data.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("configuration" Core..=) Prelude.<$> configuration,
-            ("settings" Core..=) Prelude.<$> settings,
-            ("capacityProviders" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("configuration" Data..=) Prelude.<$> configuration,
+            ("settings" Data..=) Prelude.<$> settings,
+            ("capacityProviders" Data..=)
               Prelude.<$> capacityProviders,
-            ("defaultCapacityProviderStrategy" Core..=)
+            ("defaultCapacityProviderStrategy" Data..=)
               Prelude.<$> defaultCapacityProviderStrategy,
-            ("clusterName" Core..=) Prelude.<$> clusterName
+            ("clusterName" Data..=) Prelude.<$> clusterName
           ]
       )
 
-instance Core.ToPath CreateCluster where
+instance Data.ToPath CreateCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCluster where
+instance Data.ToQuery CreateCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateClusterResponse' smart constructor.

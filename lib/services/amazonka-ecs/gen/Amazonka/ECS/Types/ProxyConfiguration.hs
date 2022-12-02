@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ProxyConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.KeyValuePair
 import Amazonka.ECS.Types.ProxyConfigurationType
 import qualified Amazonka.Prelude as Prelude
@@ -169,15 +170,15 @@ proxyConfiguration_properties = Lens.lens (\ProxyConfiguration' {properties} -> 
 proxyConfiguration_containerName :: Lens.Lens' ProxyConfiguration Prelude.Text
 proxyConfiguration_containerName = Lens.lens (\ProxyConfiguration' {containerName} -> containerName) (\s@ProxyConfiguration' {} a -> s {containerName = a} :: ProxyConfiguration)
 
-instance Core.FromJSON ProxyConfiguration where
+instance Data.FromJSON ProxyConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProxyConfiguration"
       ( \x ->
           ProxyConfiguration'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "properties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "containerName")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "properties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "containerName")
       )
 
 instance Prelude.Hashable ProxyConfiguration where
@@ -192,13 +193,13 @@ instance Prelude.NFData ProxyConfiguration where
       `Prelude.seq` Prelude.rnf properties
       `Prelude.seq` Prelude.rnf containerName
 
-instance Core.ToJSON ProxyConfiguration where
+instance Data.ToJSON ProxyConfiguration where
   toJSON ProxyConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("properties" Core..=) Prelude.<$> properties,
+          [ ("type" Data..=) Prelude.<$> type',
+            ("properties" Data..=) Prelude.<$> properties,
             Prelude.Just
-              ("containerName" Core..= containerName)
+              ("containerName" Data..= containerName)
           ]
       )

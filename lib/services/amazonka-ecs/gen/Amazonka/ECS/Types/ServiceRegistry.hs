@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ServiceRegistry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details for the service registry.
@@ -140,16 +141,16 @@ serviceRegistry_containerName = Lens.lens (\ServiceRegistry' {containerName} -> 
 serviceRegistry_registryArn :: Lens.Lens' ServiceRegistry (Prelude.Maybe Prelude.Text)
 serviceRegistry_registryArn = Lens.lens (\ServiceRegistry' {registryArn} -> registryArn) (\s@ServiceRegistry' {} a -> s {registryArn = a} :: ServiceRegistry)
 
-instance Core.FromJSON ServiceRegistry where
+instance Data.FromJSON ServiceRegistry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceRegistry"
       ( \x ->
           ServiceRegistry'
-            Prelude.<$> (x Core..:? "port")
-            Prelude.<*> (x Core..:? "containerPort")
-            Prelude.<*> (x Core..:? "containerName")
-            Prelude.<*> (x Core..:? "registryArn")
+            Prelude.<$> (x Data..:? "port")
+            Prelude.<*> (x Data..:? "containerPort")
+            Prelude.<*> (x Data..:? "containerName")
+            Prelude.<*> (x Data..:? "registryArn")
       )
 
 instance Prelude.Hashable ServiceRegistry where
@@ -166,13 +167,13 @@ instance Prelude.NFData ServiceRegistry where
       `Prelude.seq` Prelude.rnf containerName
       `Prelude.seq` Prelude.rnf registryArn
 
-instance Core.ToJSON ServiceRegistry where
+instance Data.ToJSON ServiceRegistry where
   toJSON ServiceRegistry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("port" Core..=) Prelude.<$> port,
-            ("containerPort" Core..=) Prelude.<$> containerPort,
-            ("containerName" Core..=) Prelude.<$> containerName,
-            ("registryArn" Core..=) Prelude.<$> registryArn
+          [ ("port" Data..=) Prelude.<$> port,
+            ("containerPort" Data..=) Prelude.<$> containerPort,
+            ("containerName" Data..=) Prelude.<$> containerName,
+            ("registryArn" Data..=) Prelude.<$> registryArn
           ]
       )

@@ -96,6 +96,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -183,10 +184,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateContainerInstancesStateResponse'
-            Prelude.<$> ( x Core..?> "containerInstances"
+            Prelude.<$> ( x Data..?> "containerInstances"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,36 +206,36 @@ instance Prelude.NFData UpdateContainerInstancesState where
       `Prelude.seq` Prelude.rnf containerInstances
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToHeaders UpdateContainerInstancesState where
+instance Data.ToHeaders UpdateContainerInstancesState where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateContainerInstancesState where
+instance Data.ToJSON UpdateContainerInstancesState where
   toJSON UpdateContainerInstancesState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cluster" Core..=) Prelude.<$> cluster,
+          [ ("cluster" Data..=) Prelude.<$> cluster,
             Prelude.Just
-              ("containerInstances" Core..= containerInstances),
-            Prelude.Just ("status" Core..= status)
+              ("containerInstances" Data..= containerInstances),
+            Prelude.Just ("status" Data..= status)
           ]
       )
 
-instance Core.ToPath UpdateContainerInstancesState where
+instance Data.ToPath UpdateContainerInstancesState where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateContainerInstancesState where
+instance Data.ToQuery UpdateContainerInstancesState where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContainerInstancesStateResponse' smart constructor.

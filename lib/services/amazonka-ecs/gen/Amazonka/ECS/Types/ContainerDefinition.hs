@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ContainerDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.ContainerDependency
 import Amazonka.ECS.Types.EnvironmentFile
 import Amazonka.ECS.Types.FirelensConfiguration
@@ -2215,59 +2216,59 @@ containerDefinition_systemControls = Lens.lens (\ContainerDefinition' {systemCon
 containerDefinition_workingDirectory :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Text)
 containerDefinition_workingDirectory = Lens.lens (\ContainerDefinition' {workingDirectory} -> workingDirectory) (\s@ContainerDefinition' {} a -> s {workingDirectory = a} :: ContainerDefinition)
 
-instance Core.FromJSON ContainerDefinition where
+instance Data.FromJSON ContainerDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerDefinition"
       ( \x ->
           ContainerDefinition'
-            Prelude.<$> (x Core..:? "readonlyRootFilesystem")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "dependsOn" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "extraHosts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "healthCheck")
-            Prelude.<*> (x Core..:? "environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "logConfiguration")
-            Prelude.<*> ( x Core..:? "resourceRequirements"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "readonlyRootFilesystem")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "dependsOn" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "extraHosts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "healthCheck")
+            Prelude.<*> (x Data..:? "environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "logConfiguration")
+            Prelude.<*> ( x Data..:? "resourceRequirements"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "startTimeout")
-            Prelude.<*> (x Core..:? "memory")
-            Prelude.<*> (x Core..:? "cpu")
-            Prelude.<*> (x Core..:? "user")
-            Prelude.<*> (x Core..:? "dnsServers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ulimits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "memoryReservation")
-            Prelude.<*> (x Core..:? "repositoryCredentials")
-            Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "portMappings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "hostname")
-            Prelude.<*> ( x Core..:? "environmentFiles"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "startTimeout")
+            Prelude.<*> (x Data..:? "memory")
+            Prelude.<*> (x Data..:? "cpu")
+            Prelude.<*> (x Data..:? "user")
+            Prelude.<*> (x Data..:? "dnsServers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ulimits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "memoryReservation")
+            Prelude.<*> (x Data..:? "repositoryCredentials")
+            Prelude.<*> (x Data..:? "command" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "portMappings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "hostname")
+            Prelude.<*> ( x Data..:? "environmentFiles"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "secrets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "disableNetworking")
-            Prelude.<*> (x Core..:? "dockerLabels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "volumesFrom" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "dnsSearchDomains"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "secrets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "disableNetworking")
+            Prelude.<*> (x Data..:? "dockerLabels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "volumesFrom" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "dnsSearchDomains"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "privileged")
-            Prelude.<*> (x Core..:? "stopTimeout")
-            Prelude.<*> (x Core..:? "entryPoint" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "links" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "mountPoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "image")
-            Prelude.<*> ( x Core..:? "dockerSecurityOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "privileged")
+            Prelude.<*> (x Data..:? "stopTimeout")
+            Prelude.<*> (x Data..:? "entryPoint" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "links" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "mountPoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "image")
+            Prelude.<*> ( x Data..:? "dockerSecurityOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "interactive")
-            Prelude.<*> (x Core..:? "linuxParameters")
-            Prelude.<*> (x Core..:? "essential")
-            Prelude.<*> (x Core..:? "pseudoTerminal")
-            Prelude.<*> (x Core..:? "firelensConfiguration")
-            Prelude.<*> (x Core..:? "systemControls" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "workingDirectory")
+            Prelude.<*> (x Data..:? "interactive")
+            Prelude.<*> (x Data..:? "linuxParameters")
+            Prelude.<*> (x Data..:? "essential")
+            Prelude.<*> (x Data..:? "pseudoTerminal")
+            Prelude.<*> (x Data..:? "firelensConfiguration")
+            Prelude.<*> (x Data..:? "systemControls" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "workingDirectory")
       )
 
 instance Prelude.Hashable ContainerDefinition where
@@ -2371,62 +2372,62 @@ instance Prelude.NFData ContainerDefinition where
       `Prelude.seq` Prelude.rnf
         workingDirectory
 
-instance Core.ToJSON ContainerDefinition where
+instance Data.ToJSON ContainerDefinition where
   toJSON ContainerDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("readonlyRootFilesystem" Core..=)
+          [ ("readonlyRootFilesystem" Data..=)
               Prelude.<$> readonlyRootFilesystem,
-            ("name" Core..=) Prelude.<$> name,
-            ("dependsOn" Core..=) Prelude.<$> dependsOn,
-            ("extraHosts" Core..=) Prelude.<$> extraHosts,
-            ("healthCheck" Core..=) Prelude.<$> healthCheck,
-            ("environment" Core..=) Prelude.<$> environment,
-            ("logConfiguration" Core..=)
+            ("name" Data..=) Prelude.<$> name,
+            ("dependsOn" Data..=) Prelude.<$> dependsOn,
+            ("extraHosts" Data..=) Prelude.<$> extraHosts,
+            ("healthCheck" Data..=) Prelude.<$> healthCheck,
+            ("environment" Data..=) Prelude.<$> environment,
+            ("logConfiguration" Data..=)
               Prelude.<$> logConfiguration,
-            ("resourceRequirements" Core..=)
+            ("resourceRequirements" Data..=)
               Prelude.<$> resourceRequirements,
-            ("startTimeout" Core..=) Prelude.<$> startTimeout,
-            ("memory" Core..=) Prelude.<$> memory,
-            ("cpu" Core..=) Prelude.<$> cpu,
-            ("user" Core..=) Prelude.<$> user,
-            ("dnsServers" Core..=) Prelude.<$> dnsServers,
-            ("ulimits" Core..=) Prelude.<$> ulimits,
-            ("memoryReservation" Core..=)
+            ("startTimeout" Data..=) Prelude.<$> startTimeout,
+            ("memory" Data..=) Prelude.<$> memory,
+            ("cpu" Data..=) Prelude.<$> cpu,
+            ("user" Data..=) Prelude.<$> user,
+            ("dnsServers" Data..=) Prelude.<$> dnsServers,
+            ("ulimits" Data..=) Prelude.<$> ulimits,
+            ("memoryReservation" Data..=)
               Prelude.<$> memoryReservation,
-            ("repositoryCredentials" Core..=)
+            ("repositoryCredentials" Data..=)
               Prelude.<$> repositoryCredentials,
-            ("command" Core..=) Prelude.<$> command,
-            ("portMappings" Core..=) Prelude.<$> portMappings,
-            ("hostname" Core..=) Prelude.<$> hostname,
-            ("environmentFiles" Core..=)
+            ("command" Data..=) Prelude.<$> command,
+            ("portMappings" Data..=) Prelude.<$> portMappings,
+            ("hostname" Data..=) Prelude.<$> hostname,
+            ("environmentFiles" Data..=)
               Prelude.<$> environmentFiles,
-            ("secrets" Core..=) Prelude.<$> secrets,
-            ("disableNetworking" Core..=)
+            ("secrets" Data..=) Prelude.<$> secrets,
+            ("disableNetworking" Data..=)
               Prelude.<$> disableNetworking,
-            ("dockerLabels" Core..=) Prelude.<$> dockerLabels,
-            ("volumesFrom" Core..=) Prelude.<$> volumesFrom,
-            ("dnsSearchDomains" Core..=)
+            ("dockerLabels" Data..=) Prelude.<$> dockerLabels,
+            ("volumesFrom" Data..=) Prelude.<$> volumesFrom,
+            ("dnsSearchDomains" Data..=)
               Prelude.<$> dnsSearchDomains,
-            ("privileged" Core..=) Prelude.<$> privileged,
-            ("stopTimeout" Core..=) Prelude.<$> stopTimeout,
-            ("entryPoint" Core..=) Prelude.<$> entryPoint,
-            ("links" Core..=) Prelude.<$> links,
-            ("mountPoints" Core..=) Prelude.<$> mountPoints,
-            ("image" Core..=) Prelude.<$> image,
-            ("dockerSecurityOptions" Core..=)
+            ("privileged" Data..=) Prelude.<$> privileged,
+            ("stopTimeout" Data..=) Prelude.<$> stopTimeout,
+            ("entryPoint" Data..=) Prelude.<$> entryPoint,
+            ("links" Data..=) Prelude.<$> links,
+            ("mountPoints" Data..=) Prelude.<$> mountPoints,
+            ("image" Data..=) Prelude.<$> image,
+            ("dockerSecurityOptions" Data..=)
               Prelude.<$> dockerSecurityOptions,
-            ("interactive" Core..=) Prelude.<$> interactive,
-            ("linuxParameters" Core..=)
+            ("interactive" Data..=) Prelude.<$> interactive,
+            ("linuxParameters" Data..=)
               Prelude.<$> linuxParameters,
-            ("essential" Core..=) Prelude.<$> essential,
-            ("pseudoTerminal" Core..=)
+            ("essential" Data..=) Prelude.<$> essential,
+            ("pseudoTerminal" Data..=)
               Prelude.<$> pseudoTerminal,
-            ("firelensConfiguration" Core..=)
+            ("firelensConfiguration" Data..=)
               Prelude.<$> firelensConfiguration,
-            ("systemControls" Core..=)
+            ("systemControls" Data..=)
               Prelude.<$> systemControls,
-            ("workingDirectory" Core..=)
+            ("workingDirectory" Data..=)
               Prelude.<$> workingDirectory
           ]
       )

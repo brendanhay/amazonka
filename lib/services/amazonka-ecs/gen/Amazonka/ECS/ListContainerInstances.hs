@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -226,8 +227,8 @@ instance Core.AWSRequest ListContainerInstances where
     Response.receiveJSON
       ( \s h x ->
           ListContainerInstancesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "containerInstanceArns"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "containerInstanceArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -249,37 +250,37 @@ instance Prelude.NFData ListContainerInstances where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListContainerInstances where
+instance Data.ToHeaders ListContainerInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.ListContainerInstances" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.ListContainerInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListContainerInstances where
+instance Data.ToJSON ListContainerInstances where
   toJSON ListContainerInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("cluster" Core..=) Prelude.<$> cluster,
-            ("status" Core..=) Prelude.<$> status,
-            ("filter" Core..=) Prelude.<$> filter',
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("cluster" Data..=) Prelude.<$> cluster,
+            ("status" Data..=) Prelude.<$> status,
+            ("filter" Data..=) Prelude.<$> filter',
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListContainerInstances where
+instance Data.ToPath ListContainerInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListContainerInstances where
+instance Data.ToQuery ListContainerInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListContainerInstancesResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -176,9 +177,9 @@ instance Core.AWSRequest DescribeCapacityProviders where
     Response.receiveJSON
       ( \s h x ->
           DescribeCapacityProvidersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "capacityProviders"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "capacityProviders"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -198,37 +199,37 @@ instance Prelude.NFData DescribeCapacityProviders where
       `Prelude.seq` Prelude.rnf capacityProviders
       `Prelude.seq` Prelude.rnf include
 
-instance Core.ToHeaders DescribeCapacityProviders where
+instance Data.ToHeaders DescribeCapacityProviders where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.DescribeCapacityProviders" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.DescribeCapacityProviders" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCapacityProviders where
+instance Data.ToJSON DescribeCapacityProviders where
   toJSON DescribeCapacityProviders' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("capacityProviders" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("capacityProviders" Data..=)
               Prelude.<$> capacityProviders,
-            ("include" Core..=) Prelude.<$> include
+            ("include" Data..=) Prelude.<$> include
           ]
       )
 
-instance Core.ToPath DescribeCapacityProviders where
+instance Data.ToPath DescribeCapacityProviders where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCapacityProviders where
+instance Data.ToQuery DescribeCapacityProviders where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCapacityProvidersResponse' smart constructor.

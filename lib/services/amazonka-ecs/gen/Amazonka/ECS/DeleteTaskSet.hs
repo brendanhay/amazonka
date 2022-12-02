@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,7 +136,7 @@ instance Core.AWSRequest DeleteTaskSet where
     Response.receiveJSON
       ( \s h x ->
           DeleteTaskSetResponse'
-            Prelude.<$> (x Core..?> "taskSet")
+            Prelude.<$> (x Data..?> "taskSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,36 +154,36 @@ instance Prelude.NFData DeleteTaskSet where
       `Prelude.seq` Prelude.rnf service
       `Prelude.seq` Prelude.rnf taskSet
 
-instance Core.ToHeaders DeleteTaskSet where
+instance Data.ToHeaders DeleteTaskSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.DeleteTaskSet" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.DeleteTaskSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteTaskSet where
+instance Data.ToJSON DeleteTaskSet where
   toJSON DeleteTaskSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("force" Core..=) Prelude.<$> force,
-            Prelude.Just ("cluster" Core..= cluster),
-            Prelude.Just ("service" Core..= service),
-            Prelude.Just ("taskSet" Core..= taskSet)
+          [ ("force" Data..=) Prelude.<$> force,
+            Prelude.Just ("cluster" Data..= cluster),
+            Prelude.Just ("service" Data..= service),
+            Prelude.Just ("taskSet" Data..= taskSet)
           ]
       )
 
-instance Core.ToPath DeleteTaskSet where
+instance Data.ToPath DeleteTaskSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteTaskSet where
+instance Data.ToQuery DeleteTaskSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTaskSetResponse' smart constructor.

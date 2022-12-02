@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -432,7 +433,7 @@ instance Core.AWSRequest CreateTaskSet where
     Response.receiveJSON
       ( \s h x ->
           CreateTaskSetResponse'
-            Prelude.<$> (x Core..?> "taskSet")
+            Prelude.<$> (x Data..?> "taskSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -468,50 +469,50 @@ instance Prelude.NFData CreateTaskSet where
       `Prelude.seq` Prelude.rnf cluster
       `Prelude.seq` Prelude.rnf taskDefinition
 
-instance Core.ToHeaders CreateTaskSet where
+instance Data.ToHeaders CreateTaskSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.CreateTaskSet" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.CreateTaskSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTaskSet where
+instance Data.ToJSON CreateTaskSet where
   toJSON CreateTaskSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("serviceRegistries" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("serviceRegistries" Data..=)
               Prelude.<$> serviceRegistries,
-            ("externalId" Core..=) Prelude.<$> externalId,
-            ("networkConfiguration" Core..=)
+            ("externalId" Data..=) Prelude.<$> externalId,
+            ("networkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
-            ("capacityProviderStrategy" Core..=)
+            ("capacityProviderStrategy" Data..=)
               Prelude.<$> capacityProviderStrategy,
-            ("loadBalancers" Core..=) Prelude.<$> loadBalancers,
-            ("launchType" Core..=) Prelude.<$> launchType,
-            ("platformVersion" Core..=)
+            ("loadBalancers" Data..=) Prelude.<$> loadBalancers,
+            ("launchType" Data..=) Prelude.<$> launchType,
+            ("platformVersion" Data..=)
               Prelude.<$> platformVersion,
-            ("scale" Core..=) Prelude.<$> scale,
-            Prelude.Just ("service" Core..= service),
-            Prelude.Just ("cluster" Core..= cluster),
+            ("scale" Data..=) Prelude.<$> scale,
+            Prelude.Just ("service" Data..= service),
+            Prelude.Just ("cluster" Data..= cluster),
             Prelude.Just
-              ("taskDefinition" Core..= taskDefinition)
+              ("taskDefinition" Data..= taskDefinition)
           ]
       )
 
-instance Core.ToPath CreateTaskSet where
+instance Data.ToPath CreateTaskSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTaskSet where
+instance Data.ToQuery CreateTaskSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTaskSetResponse' smart constructor.

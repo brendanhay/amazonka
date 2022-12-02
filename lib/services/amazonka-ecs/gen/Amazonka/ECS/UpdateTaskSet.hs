@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,7 +141,7 @@ instance Core.AWSRequest UpdateTaskSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateTaskSetResponse'
-            Prelude.<$> (x Core..?> "taskSet")
+            Prelude.<$> (x Data..?> "taskSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,36 +159,36 @@ instance Prelude.NFData UpdateTaskSet where
       `Prelude.seq` Prelude.rnf taskSet
       `Prelude.seq` Prelude.rnf scale
 
-instance Core.ToHeaders UpdateTaskSet where
+instance Data.ToHeaders UpdateTaskSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.UpdateTaskSet" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.UpdateTaskSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTaskSet where
+instance Data.ToJSON UpdateTaskSet where
   toJSON UpdateTaskSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("cluster" Core..= cluster),
-            Prelude.Just ("service" Core..= service),
-            Prelude.Just ("taskSet" Core..= taskSet),
-            Prelude.Just ("scale" Core..= scale)
+          [ Prelude.Just ("cluster" Data..= cluster),
+            Prelude.Just ("service" Data..= service),
+            Prelude.Just ("taskSet" Data..= taskSet),
+            Prelude.Just ("scale" Data..= scale)
           ]
       )
 
-instance Core.ToPath UpdateTaskSet where
+instance Data.ToPath UpdateTaskSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTaskSet where
+instance Data.ToQuery UpdateTaskSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTaskSetResponse' smart constructor.

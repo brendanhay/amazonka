@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,8 +111,8 @@ instance Core.AWSRequest DiscoverPollEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DiscoverPollEndpointResponse'
-            Prelude.<$> (x Core..?> "telemetryEndpoint")
-            Prelude.<*> (x Core..?> "endpoint")
+            Prelude.<$> (x Data..?> "telemetryEndpoint")
+            Prelude.<*> (x Data..?> "endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,35 +126,35 @@ instance Prelude.NFData DiscoverPollEndpoint where
     Prelude.rnf containerInstance
       `Prelude.seq` Prelude.rnf cluster
 
-instance Core.ToHeaders DiscoverPollEndpoint where
+instance Data.ToHeaders DiscoverPollEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.DiscoverPollEndpoint" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.DiscoverPollEndpoint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DiscoverPollEndpoint where
+instance Data.ToJSON DiscoverPollEndpoint where
   toJSON DiscoverPollEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("containerInstance" Core..=)
+          [ ("containerInstance" Data..=)
               Prelude.<$> containerInstance,
-            ("cluster" Core..=) Prelude.<$> cluster
+            ("cluster" Data..=) Prelude.<$> cluster
           ]
       )
 
-instance Core.ToPath DiscoverPollEndpoint where
+instance Data.ToPath DiscoverPollEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DiscoverPollEndpoint where
+instance Data.ToQuery DiscoverPollEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDiscoverPollEndpointResponse' smart constructor.

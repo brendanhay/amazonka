@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.LinuxParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.Device
 import Amazonka.ECS.Types.KernelCapabilities
 import Amazonka.ECS.Types.Tmpfs
@@ -275,19 +276,19 @@ linuxParameters_capabilities = Lens.lens (\LinuxParameters' {capabilities} -> ca
 linuxParameters_sharedMemorySize :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
 linuxParameters_sharedMemorySize = Lens.lens (\LinuxParameters' {sharedMemorySize} -> sharedMemorySize) (\s@LinuxParameters' {} a -> s {sharedMemorySize = a} :: LinuxParameters)
 
-instance Core.FromJSON LinuxParameters where
+instance Data.FromJSON LinuxParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LinuxParameters"
       ( \x ->
           LinuxParameters'
-            Prelude.<$> (x Core..:? "devices" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "swappiness")
-            Prelude.<*> (x Core..:? "tmpfs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "initProcessEnabled")
-            Prelude.<*> (x Core..:? "maxSwap")
-            Prelude.<*> (x Core..:? "capabilities")
-            Prelude.<*> (x Core..:? "sharedMemorySize")
+            Prelude.<$> (x Data..:? "devices" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "swappiness")
+            Prelude.<*> (x Data..:? "tmpfs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "initProcessEnabled")
+            Prelude.<*> (x Data..:? "maxSwap")
+            Prelude.<*> (x Data..:? "capabilities")
+            Prelude.<*> (x Data..:? "sharedMemorySize")
       )
 
 instance Prelude.Hashable LinuxParameters where
@@ -310,18 +311,18 @@ instance Prelude.NFData LinuxParameters where
       `Prelude.seq` Prelude.rnf capabilities
       `Prelude.seq` Prelude.rnf sharedMemorySize
 
-instance Core.ToJSON LinuxParameters where
+instance Data.ToJSON LinuxParameters where
   toJSON LinuxParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("devices" Core..=) Prelude.<$> devices,
-            ("swappiness" Core..=) Prelude.<$> swappiness,
-            ("tmpfs" Core..=) Prelude.<$> tmpfs,
-            ("initProcessEnabled" Core..=)
+          [ ("devices" Data..=) Prelude.<$> devices,
+            ("swappiness" Data..=) Prelude.<$> swappiness,
+            ("tmpfs" Data..=) Prelude.<$> tmpfs,
+            ("initProcessEnabled" Data..=)
               Prelude.<$> initProcessEnabled,
-            ("maxSwap" Core..=) Prelude.<$> maxSwap,
-            ("capabilities" Core..=) Prelude.<$> capabilities,
-            ("sharedMemorySize" Core..=)
+            ("maxSwap" Data..=) Prelude.<$> maxSwap,
+            ("capabilities" Data..=) Prelude.<$> capabilities,
+            ("sharedMemorySize" Data..=)
               Prelude.<$> sharedMemorySize
           ]
       )

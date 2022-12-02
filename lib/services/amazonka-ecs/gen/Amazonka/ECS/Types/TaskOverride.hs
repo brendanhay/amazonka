@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.TaskOverride where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.ContainerOverride
 import Amazonka.ECS.Types.EphemeralStorage
 import Amazonka.ECS.Types.InferenceAcceleratorOverride
@@ -151,22 +152,22 @@ taskOverride_executionRoleArn = Lens.lens (\TaskOverride' {executionRoleArn} -> 
 taskOverride_containerOverrides :: Lens.Lens' TaskOverride (Prelude.Maybe [ContainerOverride])
 taskOverride_containerOverrides = Lens.lens (\TaskOverride' {containerOverrides} -> containerOverrides) (\s@TaskOverride' {} a -> s {containerOverrides = a} :: TaskOverride) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TaskOverride where
+instance Data.FromJSON TaskOverride where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskOverride"
       ( \x ->
           TaskOverride'
-            Prelude.<$> (x Core..:? "ephemeralStorage")
-            Prelude.<*> (x Core..:? "memory")
-            Prelude.<*> (x Core..:? "cpu")
-            Prelude.<*> (x Core..:? "taskRoleArn")
-            Prelude.<*> ( x Core..:? "inferenceAcceleratorOverrides"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ephemeralStorage")
+            Prelude.<*> (x Data..:? "memory")
+            Prelude.<*> (x Data..:? "cpu")
+            Prelude.<*> (x Data..:? "taskRoleArn")
+            Prelude.<*> ( x Data..:? "inferenceAcceleratorOverrides"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "executionRoleArn")
-            Prelude.<*> ( x Core..:? "containerOverrides"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "executionRoleArn")
+            Prelude.<*> ( x Data..:? "containerOverrides"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -190,20 +191,20 @@ instance Prelude.NFData TaskOverride where
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf containerOverrides
 
-instance Core.ToJSON TaskOverride where
+instance Data.ToJSON TaskOverride where
   toJSON TaskOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ephemeralStorage" Core..=)
+          [ ("ephemeralStorage" Data..=)
               Prelude.<$> ephemeralStorage,
-            ("memory" Core..=) Prelude.<$> memory,
-            ("cpu" Core..=) Prelude.<$> cpu,
-            ("taskRoleArn" Core..=) Prelude.<$> taskRoleArn,
-            ("inferenceAcceleratorOverrides" Core..=)
+            ("memory" Data..=) Prelude.<$> memory,
+            ("cpu" Data..=) Prelude.<$> cpu,
+            ("taskRoleArn" Data..=) Prelude.<$> taskRoleArn,
+            ("inferenceAcceleratorOverrides" Data..=)
               Prelude.<$> inferenceAcceleratorOverrides,
-            ("executionRoleArn" Core..=)
+            ("executionRoleArn" Data..=)
               Prelude.<$> executionRoleArn,
-            ("containerOverrides" Core..=)
+            ("containerOverrides" Data..=)
               Prelude.<$> containerOverrides
           ]
       )

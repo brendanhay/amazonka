@@ -160,6 +160,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -1042,7 +1043,7 @@ instance Core.AWSRequest CreateService where
     Response.receiveJSON
       ( \s h x ->
           CreateServiceResponse'
-            Prelude.<$> (x Core..?> "service")
+            Prelude.<$> (x Data..?> "service")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1098,67 +1099,67 @@ instance Prelude.NFData CreateService where
         enableECSManagedTags
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToHeaders CreateService where
+instance Data.ToHeaders CreateService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.CreateService" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.CreateService" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateService where
+instance Data.ToJSON CreateService where
   toJSON CreateService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("healthCheckGracePeriodSeconds" Core..=)
+          [ ("healthCheckGracePeriodSeconds" Data..=)
               Prelude.<$> healthCheckGracePeriodSeconds,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("deploymentConfiguration" Core..=)
+            ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("deploymentConfiguration" Data..=)
               Prelude.<$> deploymentConfiguration,
-            ("serviceRegistries" Core..=)
+            ("serviceRegistries" Data..=)
               Prelude.<$> serviceRegistries,
-            ("schedulingStrategy" Core..=)
+            ("schedulingStrategy" Data..=)
               Prelude.<$> schedulingStrategy,
-            ("cluster" Core..=) Prelude.<$> cluster,
-            ("placementStrategy" Core..=)
+            ("cluster" Data..=) Prelude.<$> cluster,
+            ("placementStrategy" Data..=)
               Prelude.<$> placementStrategy,
-            ("taskDefinition" Core..=)
+            ("taskDefinition" Data..=)
               Prelude.<$> taskDefinition,
-            ("networkConfiguration" Core..=)
+            ("networkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
-            ("desiredCount" Core..=) Prelude.<$> desiredCount,
-            ("enableExecuteCommand" Core..=)
+            ("desiredCount" Data..=) Prelude.<$> desiredCount,
+            ("enableExecuteCommand" Data..=)
               Prelude.<$> enableExecuteCommand,
-            ("capacityProviderStrategy" Core..=)
+            ("capacityProviderStrategy" Data..=)
               Prelude.<$> capacityProviderStrategy,
-            ("placementConstraints" Core..=)
+            ("placementConstraints" Data..=)
               Prelude.<$> placementConstraints,
-            ("propagateTags" Core..=) Prelude.<$> propagateTags,
-            ("deploymentController" Core..=)
+            ("propagateTags" Data..=) Prelude.<$> propagateTags,
+            ("deploymentController" Data..=)
               Prelude.<$> deploymentController,
-            ("loadBalancers" Core..=) Prelude.<$> loadBalancers,
-            ("launchType" Core..=) Prelude.<$> launchType,
-            ("role" Core..=) Prelude.<$> role',
-            ("platformVersion" Core..=)
+            ("loadBalancers" Data..=) Prelude.<$> loadBalancers,
+            ("launchType" Data..=) Prelude.<$> launchType,
+            ("role" Data..=) Prelude.<$> role',
+            ("platformVersion" Data..=)
               Prelude.<$> platformVersion,
-            ("enableECSManagedTags" Core..=)
+            ("enableECSManagedTags" Data..=)
               Prelude.<$> enableECSManagedTags,
-            Prelude.Just ("serviceName" Core..= serviceName)
+            Prelude.Just ("serviceName" Data..= serviceName)
           ]
       )
 
-instance Core.ToPath CreateService where
+instance Data.ToPath CreateService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateService where
+instance Data.ToQuery CreateService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateServiceResponse' smart constructor.

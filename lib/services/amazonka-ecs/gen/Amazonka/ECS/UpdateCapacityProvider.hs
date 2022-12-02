@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest UpdateCapacityProvider where
     Response.receiveJSON
       ( \s h x ->
           UpdateCapacityProviderResponse'
-            Prelude.<$> (x Core..?> "capacityProvider")
+            Prelude.<$> (x Data..?> "capacityProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,37 +118,37 @@ instance Prelude.NFData UpdateCapacityProvider where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf autoScalingGroupProvider
 
-instance Core.ToHeaders UpdateCapacityProvider where
+instance Data.ToHeaders UpdateCapacityProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.UpdateCapacityProvider" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.UpdateCapacityProvider" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCapacityProvider where
+instance Data.ToJSON UpdateCapacityProvider where
   toJSON UpdateCapacityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
+          [ Prelude.Just ("name" Data..= name),
             Prelude.Just
               ( "autoScalingGroupProvider"
-                  Core..= autoScalingGroupProvider
+                  Data..= autoScalingGroupProvider
               )
           ]
       )
 
-instance Core.ToPath UpdateCapacityProvider where
+instance Data.ToPath UpdateCapacityProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCapacityProvider where
+instance Data.ToQuery UpdateCapacityProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCapacityProviderResponse' smart constructor.

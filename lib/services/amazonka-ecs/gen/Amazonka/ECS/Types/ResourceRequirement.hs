@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ResourceRequirement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -102,13 +103,13 @@ resourceRequirement_value = Lens.lens (\ResourceRequirement' {value} -> value) (
 resourceRequirement_type :: Lens.Lens' ResourceRequirement ResourceType
 resourceRequirement_type = Lens.lens (\ResourceRequirement' {type'} -> type') (\s@ResourceRequirement' {} a -> s {type' = a} :: ResourceRequirement)
 
-instance Core.FromJSON ResourceRequirement where
+instance Data.FromJSON ResourceRequirement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceRequirement"
       ( \x ->
           ResourceRequirement'
-            Prelude.<$> (x Core..: "value") Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..: "value") Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable ResourceRequirement where
@@ -120,11 +121,11 @@ instance Prelude.NFData ResourceRequirement where
   rnf ResourceRequirement' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON ResourceRequirement where
+instance Data.ToJSON ResourceRequirement where
   toJSON ResourceRequirement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("value" Core..= value),
-            Prelude.Just ("type" Core..= type')
+          [ Prelude.Just ("value" Data..= value),
+            Prelude.Just ("type" Data..= type')
           ]
       )

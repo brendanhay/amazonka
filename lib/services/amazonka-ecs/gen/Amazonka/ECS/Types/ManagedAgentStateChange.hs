@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ManagedAgentStateChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.ManagedAgentName
 import qualified Amazonka.Prelude as Prelude
 
@@ -103,14 +104,14 @@ instance Prelude.NFData ManagedAgentStateChange where
       `Prelude.seq` Prelude.rnf managedAgentName
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToJSON ManagedAgentStateChange where
+instance Data.ToJSON ManagedAgentStateChange where
   toJSON ManagedAgentStateChange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("reason" Core..=) Prelude.<$> reason,
-            Prelude.Just ("containerName" Core..= containerName),
+          [ ("reason" Data..=) Prelude.<$> reason,
+            Prelude.Just ("containerName" Data..= containerName),
             Prelude.Just
-              ("managedAgentName" Core..= managedAgentName),
-            Prelude.Just ("status" Core..= status)
+              ("managedAgentName" Data..= managedAgentName),
+            Prelude.Just ("status" Data..= status)
           ]
       )

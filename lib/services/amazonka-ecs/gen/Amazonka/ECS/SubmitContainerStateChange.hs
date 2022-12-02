@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -160,7 +161,7 @@ instance Core.AWSRequest SubmitContainerStateChange where
     Response.receiveJSON
       ( \s h x ->
           SubmitContainerStateChangeResponse'
-            Prelude.<$> (x Core..?> "acknowledgment")
+            Prelude.<$> (x Data..?> "acknowledgment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,41 +187,41 @@ instance Prelude.NFData SubmitContainerStateChange where
       `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf exitCode
 
-instance Core.ToHeaders SubmitContainerStateChange where
+instance Data.ToHeaders SubmitContainerStateChange where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.SubmitContainerStateChange" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.SubmitContainerStateChange" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SubmitContainerStateChange where
+instance Data.ToJSON SubmitContainerStateChange where
   toJSON SubmitContainerStateChange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("containerName" Core..=) Prelude.<$> containerName,
-            ("task" Core..=) Prelude.<$> task,
-            ("cluster" Core..=) Prelude.<$> cluster,
-            ("status" Core..=) Prelude.<$> status,
-            ("runtimeId" Core..=) Prelude.<$> runtimeId,
-            ("networkBindings" Core..=)
+          [ ("containerName" Data..=) Prelude.<$> containerName,
+            ("task" Data..=) Prelude.<$> task,
+            ("cluster" Data..=) Prelude.<$> cluster,
+            ("status" Data..=) Prelude.<$> status,
+            ("runtimeId" Data..=) Prelude.<$> runtimeId,
+            ("networkBindings" Data..=)
               Prelude.<$> networkBindings,
-            ("reason" Core..=) Prelude.<$> reason,
-            ("exitCode" Core..=) Prelude.<$> exitCode
+            ("reason" Data..=) Prelude.<$> reason,
+            ("exitCode" Data..=) Prelude.<$> exitCode
           ]
       )
 
-instance Core.ToPath SubmitContainerStateChange where
+instance Data.ToPath SubmitContainerStateChange where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SubmitContainerStateChange where
+instance Data.ToQuery SubmitContainerStateChange where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSubmitContainerStateChangeResponse' smart constructor.

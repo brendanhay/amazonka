@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -290,8 +291,8 @@ instance Core.AWSRequest ListTasks where
     Response.receiveJSON
       ( \s h x ->
           ListTasksResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "taskArns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "taskArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -319,42 +320,42 @@ instance Prelude.NFData ListTasks where
       `Prelude.seq` Prelude.rnf family
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToHeaders ListTasks where
+instance Data.ToHeaders ListTasks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.ListTasks" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.ListTasks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTasks where
+instance Data.ToJSON ListTasks where
   toJSON ListTasks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("containerInstance" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("containerInstance" Data..=)
               Prelude.<$> containerInstance,
-            ("cluster" Core..=) Prelude.<$> cluster,
-            ("desiredStatus" Core..=) Prelude.<$> desiredStatus,
-            ("startedBy" Core..=) Prelude.<$> startedBy,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("launchType" Core..=) Prelude.<$> launchType,
-            ("family" Core..=) Prelude.<$> family,
-            ("serviceName" Core..=) Prelude.<$> serviceName
+            ("cluster" Data..=) Prelude.<$> cluster,
+            ("desiredStatus" Data..=) Prelude.<$> desiredStatus,
+            ("startedBy" Data..=) Prelude.<$> startedBy,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("launchType" Data..=) Prelude.<$> launchType,
+            ("family" Data..=) Prelude.<$> family,
+            ("serviceName" Data..=) Prelude.<$> serviceName
           ]
       )
 
-instance Core.ToPath ListTasks where
+instance Data.ToPath ListTasks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTasks where
+instance Data.ToQuery ListTasks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTasksResponse' smart constructor.

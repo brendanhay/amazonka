@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.HealthCheck where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a container health check. Health check parameters
@@ -240,17 +241,17 @@ healthCheck_retries = Lens.lens (\HealthCheck' {retries} -> retries) (\s@HealthC
 healthCheck_command :: Lens.Lens' HealthCheck [Prelude.Text]
 healthCheck_command = Lens.lens (\HealthCheck' {command} -> command) (\s@HealthCheck' {} a -> s {command = a} :: HealthCheck) Prelude.. Lens.coerced
 
-instance Core.FromJSON HealthCheck where
+instance Data.FromJSON HealthCheck where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HealthCheck"
       ( \x ->
           HealthCheck'
-            Prelude.<$> (x Core..:? "timeout")
-            Prelude.<*> (x Core..:? "startPeriod")
-            Prelude.<*> (x Core..:? "interval")
-            Prelude.<*> (x Core..:? "retries")
-            Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "timeout")
+            Prelude.<*> (x Data..:? "startPeriod")
+            Prelude.<*> (x Data..:? "interval")
+            Prelude.<*> (x Data..:? "retries")
+            Prelude.<*> (x Data..:? "command" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable HealthCheck where
@@ -269,14 +270,14 @@ instance Prelude.NFData HealthCheck where
       `Prelude.seq` Prelude.rnf retries
       `Prelude.seq` Prelude.rnf command
 
-instance Core.ToJSON HealthCheck where
+instance Data.ToJSON HealthCheck where
   toJSON HealthCheck' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeout" Core..=) Prelude.<$> timeout,
-            ("startPeriod" Core..=) Prelude.<$> startPeriod,
-            ("interval" Core..=) Prelude.<$> interval,
-            ("retries" Core..=) Prelude.<$> retries,
-            Prelude.Just ("command" Core..= command)
+          [ ("timeout" Data..=) Prelude.<$> timeout,
+            ("startPeriod" Data..=) Prelude.<$> startPeriod,
+            ("interval" Data..=) Prelude.<$> interval,
+            ("retries" Data..=) Prelude.<$> retries,
+            Prelude.Just ("command" Data..= command)
           ]
       )

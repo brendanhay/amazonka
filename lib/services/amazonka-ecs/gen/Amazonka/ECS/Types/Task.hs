@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.Task where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.Attachment
 import Amazonka.ECS.Types.Attribute
 import Amazonka.ECS.Types.Connectivity
@@ -74,9 +75,9 @@ data Task = Task'
     -- | The ephemeral storage settings for the task.
     ephemeralStorage :: Prelude.Maybe EphemeralStorage,
     -- | The Unix timestamp for the time when the task execution stopped.
-    executionStoppedAt :: Prelude.Maybe Core.POSIX,
+    executionStoppedAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix timestamp for the time when the container image pull completed.
-    pullStoppedAt :: Prelude.Maybe Core.POSIX,
+    pullStoppedAt :: Prelude.Maybe Data.POSIX,
     -- | The operating system that your tasks are running on. A platform family
     -- is specified only for tasks that use the Fargate launch type.
     --
@@ -167,7 +168,7 @@ data Task = Task'
     taskArn :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp for the time when the task last went into @CONNECTED@
     -- status.
-    connectivityAt :: Prelude.Maybe Core.POSIX,
+    connectivityAt :: Prelude.Maybe Data.POSIX,
     -- | The containers that\'s associated with the task.
     containers :: Prelude.Maybe [Container],
     -- | The health status for the task. It\'s determined by the health of the
@@ -192,7 +193,7 @@ data Task = Task'
     -- | The ARN of the task definition that creates the task.
     taskDefinitionArn :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp for the time when the container image pull began.
-    pullStartedAt :: Prelude.Maybe Core.POSIX,
+    pullStartedAt :: Prelude.Maybe Data.POSIX,
     -- | The desired status of the task. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle.html Task Lifecycle>.
     desiredStatus :: Prelude.Maybe Prelude.Text,
@@ -226,14 +227,14 @@ data Task = Task'
     -- | The Unix timestamp for the time when the task started. More
     -- specifically, it\'s for the time when the task transitioned from the
     -- @PENDING@ state to the @RUNNING@ state.
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The Elastic Network Adapter that\'s associated with the task if the task
     -- uses the @awsvpc@ network mode.
     attachments :: Prelude.Maybe [Attachment],
     -- | The Unix timestamp for the time when the task stops. More specifically,
     -- it\'s for the time when the task transitions from the @RUNNING@ state to
     -- @STOPPED@.
-    stoppingAt :: Prelude.Maybe Core.POSIX,
+    stoppingAt :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the container instances that host the task.
     containerInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | The infrastructure where your task runs on. For more information, see
@@ -254,7 +255,7 @@ data Task = Task'
     -- | The Unix timestamp for the time when the task was stopped. More
     -- specifically, it\'s for the time when the task transitioned from the
     -- @RUNNING@ state to the @STOPPED@ state.
-    stoppedAt :: Prelude.Maybe Core.POSIX,
+    stoppedAt :: Prelude.Maybe Data.POSIX,
     -- | The name of the task group that\'s associated with the task.
     group' :: Prelude.Maybe Prelude.Text,
     -- | The connectivity status of a task.
@@ -262,7 +263,7 @@ data Task = Task'
     -- | The Unix timestamp for the time when the task was created. More
     -- specifically, it\'s for the time when the task entered the @PENDING@
     -- state.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The version counter for the task. Every time a task experiences a change
     -- that starts a CloudWatch event, the version counter is incremented. If
     -- you replicate your Amazon ECS task state with CloudWatch Events, you can
@@ -605,11 +606,11 @@ task_ephemeralStorage = Lens.lens (\Task' {ephemeralStorage} -> ephemeralStorage
 
 -- | The Unix timestamp for the time when the task execution stopped.
 task_executionStoppedAt :: Lens.Lens' Task (Prelude.Maybe Prelude.UTCTime)
-task_executionStoppedAt = Lens.lens (\Task' {executionStoppedAt} -> executionStoppedAt) (\s@Task' {} a -> s {executionStoppedAt = a} :: Task) Prelude.. Lens.mapping Core._Time
+task_executionStoppedAt = Lens.lens (\Task' {executionStoppedAt} -> executionStoppedAt) (\s@Task' {} a -> s {executionStoppedAt = a} :: Task) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix timestamp for the time when the container image pull completed.
 task_pullStoppedAt :: Lens.Lens' Task (Prelude.Maybe Prelude.UTCTime)
-task_pullStoppedAt = Lens.lens (\Task' {pullStoppedAt} -> pullStoppedAt) (\s@Task' {} a -> s {pullStoppedAt = a} :: Task) Prelude.. Lens.mapping Core._Time
+task_pullStoppedAt = Lens.lens (\Task' {pullStoppedAt} -> pullStoppedAt) (\s@Task' {} a -> s {pullStoppedAt = a} :: Task) Prelude.. Lens.mapping Data._Time
 
 -- | The operating system that your tasks are running on. A platform family
 -- is specified only for tasks that use the Fargate launch type.
@@ -710,7 +711,7 @@ task_taskArn = Lens.lens (\Task' {taskArn} -> taskArn) (\s@Task' {} a -> s {task
 -- | The Unix timestamp for the time when the task last went into @CONNECTED@
 -- status.
 task_connectivityAt :: Lens.Lens' Task (Prelude.Maybe Prelude.UTCTime)
-task_connectivityAt = Lens.lens (\Task' {connectivityAt} -> connectivityAt) (\s@Task' {} a -> s {connectivityAt = a} :: Task) Prelude.. Lens.mapping Core._Time
+task_connectivityAt = Lens.lens (\Task' {connectivityAt} -> connectivityAt) (\s@Task' {} a -> s {connectivityAt = a} :: Task) Prelude.. Lens.mapping Data._Time
 
 -- | The containers that\'s associated with the task.
 task_containers :: Lens.Lens' Task (Prelude.Maybe [Container])
@@ -747,7 +748,7 @@ task_taskDefinitionArn = Lens.lens (\Task' {taskDefinitionArn} -> taskDefinition
 
 -- | The Unix timestamp for the time when the container image pull began.
 task_pullStartedAt :: Lens.Lens' Task (Prelude.Maybe Prelude.UTCTime)
-task_pullStartedAt = Lens.lens (\Task' {pullStartedAt} -> pullStartedAt) (\s@Task' {} a -> s {pullStartedAt = a} :: Task) Prelude.. Lens.mapping Core._Time
+task_pullStartedAt = Lens.lens (\Task' {pullStartedAt} -> pullStartedAt) (\s@Task' {} a -> s {pullStartedAt = a} :: Task) Prelude.. Lens.mapping Data._Time
 
 -- | The desired status of the task. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle.html Task Lifecycle>.
@@ -793,7 +794,7 @@ task_stopCode = Lens.lens (\Task' {stopCode} -> stopCode) (\s@Task' {} a -> s {s
 -- specifically, it\'s for the time when the task transitioned from the
 -- @PENDING@ state to the @RUNNING@ state.
 task_startedAt :: Lens.Lens' Task (Prelude.Maybe Prelude.UTCTime)
-task_startedAt = Lens.lens (\Task' {startedAt} -> startedAt) (\s@Task' {} a -> s {startedAt = a} :: Task) Prelude.. Lens.mapping Core._Time
+task_startedAt = Lens.lens (\Task' {startedAt} -> startedAt) (\s@Task' {} a -> s {startedAt = a} :: Task) Prelude.. Lens.mapping Data._Time
 
 -- | The Elastic Network Adapter that\'s associated with the task if the task
 -- uses the @awsvpc@ network mode.
@@ -804,7 +805,7 @@ task_attachments = Lens.lens (\Task' {attachments} -> attachments) (\s@Task' {} 
 -- it\'s for the time when the task transitions from the @RUNNING@ state to
 -- @STOPPED@.
 task_stoppingAt :: Lens.Lens' Task (Prelude.Maybe Prelude.UTCTime)
-task_stoppingAt = Lens.lens (\Task' {stoppingAt} -> stoppingAt) (\s@Task' {} a -> s {stoppingAt = a} :: Task) Prelude.. Lens.mapping Core._Time
+task_stoppingAt = Lens.lens (\Task' {stoppingAt} -> stoppingAt) (\s@Task' {} a -> s {stoppingAt = a} :: Task) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the container instances that host the task.
 task_containerInstanceArn :: Lens.Lens' Task (Prelude.Maybe Prelude.Text)
@@ -837,7 +838,7 @@ task_stoppedReason = Lens.lens (\Task' {stoppedReason} -> stoppedReason) (\s@Tas
 -- specifically, it\'s for the time when the task transitioned from the
 -- @RUNNING@ state to the @STOPPED@ state.
 task_stoppedAt :: Lens.Lens' Task (Prelude.Maybe Prelude.UTCTime)
-task_stoppedAt = Lens.lens (\Task' {stoppedAt} -> stoppedAt) (\s@Task' {} a -> s {stoppedAt = a} :: Task) Prelude.. Lens.mapping Core._Time
+task_stoppedAt = Lens.lens (\Task' {stoppedAt} -> stoppedAt) (\s@Task' {} a -> s {stoppedAt = a} :: Task) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the task group that\'s associated with the task.
 task_group :: Lens.Lens' Task (Prelude.Maybe Prelude.Text)
@@ -851,7 +852,7 @@ task_connectivity = Lens.lens (\Task' {connectivity} -> connectivity) (\s@Task' 
 -- specifically, it\'s for the time when the task entered the @PENDING@
 -- state.
 task_createdAt :: Lens.Lens' Task (Prelude.Maybe Prelude.UTCTime)
-task_createdAt = Lens.lens (\Task' {createdAt} -> createdAt) (\s@Task' {} a -> s {createdAt = a} :: Task) Prelude.. Lens.mapping Core._Time
+task_createdAt = Lens.lens (\Task' {createdAt} -> createdAt) (\s@Task' {} a -> s {createdAt = a} :: Task) Prelude.. Lens.mapping Data._Time
 
 -- | The version counter for the task. Every time a task experiences a change
 -- that starts a CloudWatch event, the version counter is incremented. If
@@ -867,50 +868,50 @@ task_version = Lens.lens (\Task' {version} -> version) (\s@Task' {} a -> s {vers
 task_overrides :: Lens.Lens' Task (Prelude.Maybe TaskOverride)
 task_overrides = Lens.lens (\Task' {overrides} -> overrides) (\s@Task' {} a -> s {overrides = a} :: Task)
 
-instance Core.FromJSON Task where
+instance Data.FromJSON Task where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Task"
       ( \x ->
           Task'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "clusterArn")
-            Prelude.<*> (x Core..:? "capacityProviderName")
-            Prelude.<*> (x Core..:? "ephemeralStorage")
-            Prelude.<*> (x Core..:? "executionStoppedAt")
-            Prelude.<*> (x Core..:? "pullStoppedAt")
-            Prelude.<*> (x Core..:? "platformFamily")
-            Prelude.<*> (x Core..:? "memory")
-            Prelude.<*> (x Core..:? "cpu")
-            Prelude.<*> (x Core..:? "taskArn")
-            Prelude.<*> (x Core..:? "connectivityAt")
-            Prelude.<*> (x Core..:? "containers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "healthStatus")
-            Prelude.<*> ( x Core..:? "inferenceAccelerators"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "clusterArn")
+            Prelude.<*> (x Data..:? "capacityProviderName")
+            Prelude.<*> (x Data..:? "ephemeralStorage")
+            Prelude.<*> (x Data..:? "executionStoppedAt")
+            Prelude.<*> (x Data..:? "pullStoppedAt")
+            Prelude.<*> (x Data..:? "platformFamily")
+            Prelude.<*> (x Data..:? "memory")
+            Prelude.<*> (x Data..:? "cpu")
+            Prelude.<*> (x Data..:? "taskArn")
+            Prelude.<*> (x Data..:? "connectivityAt")
+            Prelude.<*> (x Data..:? "containers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "healthStatus")
+            Prelude.<*> ( x Data..:? "inferenceAccelerators"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lastStatus")
-            Prelude.<*> (x Core..:? "taskDefinitionArn")
-            Prelude.<*> (x Core..:? "pullStartedAt")
-            Prelude.<*> (x Core..:? "desiredStatus")
-            Prelude.<*> (x Core..:? "availabilityZone")
-            Prelude.<*> (x Core..:? "startedBy")
-            Prelude.<*> (x Core..:? "enableExecuteCommand")
-            Prelude.<*> (x Core..:? "stopCode")
-            Prelude.<*> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..:? "attachments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "stoppingAt")
-            Prelude.<*> (x Core..:? "containerInstanceArn")
-            Prelude.<*> (x Core..:? "launchType")
-            Prelude.<*> (x Core..:? "platformVersion")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "stoppedReason")
-            Prelude.<*> (x Core..:? "stoppedAt")
-            Prelude.<*> (x Core..:? "group")
-            Prelude.<*> (x Core..:? "connectivity")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "overrides")
+            Prelude.<*> (x Data..:? "lastStatus")
+            Prelude.<*> (x Data..:? "taskDefinitionArn")
+            Prelude.<*> (x Data..:? "pullStartedAt")
+            Prelude.<*> (x Data..:? "desiredStatus")
+            Prelude.<*> (x Data..:? "availabilityZone")
+            Prelude.<*> (x Data..:? "startedBy")
+            Prelude.<*> (x Data..:? "enableExecuteCommand")
+            Prelude.<*> (x Data..:? "stopCode")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "attachments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "stoppingAt")
+            Prelude.<*> (x Data..:? "containerInstanceArn")
+            Prelude.<*> (x Data..:? "launchType")
+            Prelude.<*> (x Data..:? "platformVersion")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "stoppedReason")
+            Prelude.<*> (x Data..:? "stoppedAt")
+            Prelude.<*> (x Data..:? "group")
+            Prelude.<*> (x Data..:? "connectivity")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "version")
+            Prelude.<*> (x Data..:? "overrides")
       )
 
 instance Prelude.Hashable Task where

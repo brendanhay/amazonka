@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -228,8 +229,8 @@ instance Core.AWSRequest ListTaskDefinitions where
     Response.receiveJSON
       ( \s h x ->
           ListTaskDefinitionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "taskDefinitionArns"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "taskDefinitionArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -251,37 +252,37 @@ instance Prelude.NFData ListTaskDefinitions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf familyPrefix
 
-instance Core.ToHeaders ListTaskDefinitions where
+instance Data.ToHeaders ListTaskDefinitions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.ListTaskDefinitions" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.ListTaskDefinitions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTaskDefinitions where
+instance Data.ToJSON ListTaskDefinitions where
   toJSON ListTaskDefinitions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("status" Core..=) Prelude.<$> status,
-            ("sort" Core..=) Prelude.<$> sort,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("familyPrefix" Core..=) Prelude.<$> familyPrefix
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("status" Data..=) Prelude.<$> status,
+            ("sort" Data..=) Prelude.<$> sort,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("familyPrefix" Data..=) Prelude.<$> familyPrefix
           ]
       )
 
-instance Core.ToPath ListTaskDefinitions where
+instance Data.ToPath ListTaskDefinitions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTaskDefinitions where
+instance Data.ToQuery ListTaskDefinitions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTaskDefinitionsResponse' smart constructor.

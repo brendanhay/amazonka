@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -240,12 +241,12 @@ instance Core.AWSRequest UpdateLedger where
     Response.receiveJSON
       ( \s h x ->
           UpdateLedgerResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreationDateTime")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "EncryptionDescription")
-            Prelude.<*> (x Core..?> "DeletionProtection")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "CreationDateTime")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "EncryptionDescription")
+            Prelude.<*> (x Data..?> "DeletionProtection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -261,32 +262,32 @@ instance Prelude.NFData UpdateLedger where
       `Prelude.seq` Prelude.rnf deletionProtection
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateLedger where
+instance Data.ToHeaders UpdateLedger where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLedger where
+instance Data.ToJSON UpdateLedger where
   toJSON UpdateLedger' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKey" Core..=) Prelude.<$> kmsKey,
-            ("DeletionProtection" Core..=)
+          [ ("KmsKey" Data..=) Prelude.<$> kmsKey,
+            ("DeletionProtection" Data..=)
               Prelude.<$> deletionProtection
           ]
       )
 
-instance Core.ToPath UpdateLedger where
+instance Data.ToPath UpdateLedger where
   toPath UpdateLedger' {..} =
-    Prelude.mconcat ["/ledgers/", Core.toBS name]
+    Prelude.mconcat ["/ledgers/", Data.toBS name]
 
-instance Core.ToQuery UpdateLedger where
+instance Data.ToQuery UpdateLedger where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLedgerResponse' smart constructor.
@@ -296,7 +297,7 @@ data UpdateLedgerResponse = UpdateLedgerResponse'
     -- | The date and time, in epoch time format, when the ledger was created.
     -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
     -- January 1, 1970 UTC.)
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the ledger.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The current status of the ledger.
@@ -372,7 +373,7 @@ updateLedgerResponse_name = Lens.lens (\UpdateLedgerResponse' {name} -> name) (\
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
 updateLedgerResponse_creationDateTime :: Lens.Lens' UpdateLedgerResponse (Prelude.Maybe Prelude.UTCTime)
-updateLedgerResponse_creationDateTime = Lens.lens (\UpdateLedgerResponse' {creationDateTime} -> creationDateTime) (\s@UpdateLedgerResponse' {} a -> s {creationDateTime = a} :: UpdateLedgerResponse) Prelude.. Lens.mapping Core._Time
+updateLedgerResponse_creationDateTime = Lens.lens (\UpdateLedgerResponse' {creationDateTime} -> creationDateTime) (\s@UpdateLedgerResponse' {} a -> s {creationDateTime = a} :: UpdateLedgerResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) for the ledger.
 updateLedgerResponse_arn :: Lens.Lens' UpdateLedgerResponse (Prelude.Maybe Prelude.Text)

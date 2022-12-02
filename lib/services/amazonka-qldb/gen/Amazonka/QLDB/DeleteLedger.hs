@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -85,22 +86,22 @@ instance Prelude.Hashable DeleteLedger where
 instance Prelude.NFData DeleteLedger where
   rnf DeleteLedger' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteLedger where
+instance Data.ToHeaders DeleteLedger where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteLedger where
+instance Data.ToPath DeleteLedger where
   toPath DeleteLedger' {..} =
-    Prelude.mconcat ["/ledgers/", Core.toBS name]
+    Prelude.mconcat ["/ledgers/", Data.toBS name]
 
-instance Core.ToQuery DeleteLedger where
+instance Data.ToQuery DeleteLedger where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLedgerResponse' smart constructor.

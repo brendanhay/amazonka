@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -90,13 +91,13 @@ instance Core.AWSRequest DescribeLedger where
     Response.receiveJSON
       ( \s h x ->
           DescribeLedgerResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreationDateTime")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "EncryptionDescription")
-            Prelude.<*> (x Core..?> "DeletionProtection")
-            Prelude.<*> (x Core..?> "PermissionsMode")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "CreationDateTime")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "EncryptionDescription")
+            Prelude.<*> (x Data..?> "DeletionProtection")
+            Prelude.<*> (x Data..?> "PermissionsMode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,22 +108,22 @@ instance Prelude.Hashable DescribeLedger where
 instance Prelude.NFData DescribeLedger where
   rnf DescribeLedger' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DescribeLedger where
+instance Data.ToHeaders DescribeLedger where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeLedger where
+instance Data.ToPath DescribeLedger where
   toPath DescribeLedger' {..} =
-    Prelude.mconcat ["/ledgers/", Core.toBS name]
+    Prelude.mconcat ["/ledgers/", Data.toBS name]
 
-instance Core.ToQuery DescribeLedger where
+instance Data.ToQuery DescribeLedger where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLedgerResponse' smart constructor.
@@ -132,7 +133,7 @@ data DescribeLedgerResponse = DescribeLedgerResponse'
     -- | The date and time, in epoch time format, when the ledger was created.
     -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
     -- January 1, 1970 UTC.)
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the ledger.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The current status of the ledger.
@@ -213,7 +214,7 @@ describeLedgerResponse_name = Lens.lens (\DescribeLedgerResponse' {name} -> name
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
 describeLedgerResponse_creationDateTime :: Lens.Lens' DescribeLedgerResponse (Prelude.Maybe Prelude.UTCTime)
-describeLedgerResponse_creationDateTime = Lens.lens (\DescribeLedgerResponse' {creationDateTime} -> creationDateTime) (\s@DescribeLedgerResponse' {} a -> s {creationDateTime = a} :: DescribeLedgerResponse) Prelude.. Lens.mapping Core._Time
+describeLedgerResponse_creationDateTime = Lens.lens (\DescribeLedgerResponse' {creationDateTime} -> creationDateTime) (\s@DescribeLedgerResponse' {} a -> s {creationDateTime = a} :: DescribeLedgerResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) for the ledger.
 describeLedgerResponse_arn :: Lens.Lens' DescribeLedgerResponse (Prelude.Maybe Prelude.Text)

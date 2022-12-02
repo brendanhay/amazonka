@@ -21,6 +21,7 @@ module Amazonka.QLDB.Types.JournalS3ExportDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types.ExportStatus
 import Amazonka.QLDB.Types.OutputFormat
@@ -41,15 +42,15 @@ data JournalS3ExportDescription = JournalS3ExportDescription'
     -- | The date and time, in epoch time format, when the export job was
     -- created. (Epoch time format is the number of seconds elapsed since
     -- 12:00:00 AM January 1, 1970 UTC.)
-    exportCreationTime :: Core.POSIX,
+    exportCreationTime :: Data.POSIX,
     -- | The current state of the journal export job.
     status :: ExportStatus,
     -- | The inclusive start date and time for the range of journal contents that
     -- was specified in the original export request.
-    inclusiveStartTime :: Core.POSIX,
+    inclusiveStartTime :: Data.POSIX,
     -- | The exclusive end date and time for the range of journal contents that
     -- was specified in the original export request.
-    exclusiveEndTime :: Core.POSIX,
+    exclusiveEndTime :: Data.POSIX,
     s3ExportConfiguration :: S3ExportConfiguration,
     -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
     -- permissions for a journal export job to do the following:
@@ -132,12 +133,12 @@ newJournalS3ExportDescription
         ledgerName = pLedgerName_,
         exportId = pExportId_,
         exportCreationTime =
-          Core._Time Lens.# pExportCreationTime_,
+          Data._Time Lens.# pExportCreationTime_,
         status = pStatus_,
         inclusiveStartTime =
-          Core._Time Lens.# pInclusiveStartTime_,
+          Data._Time Lens.# pInclusiveStartTime_,
         exclusiveEndTime =
-          Core._Time Lens.# pExclusiveEndTime_,
+          Data._Time Lens.# pExclusiveEndTime_,
         s3ExportConfiguration = pS3ExportConfiguration_,
         roleArn = pRoleArn_
       }
@@ -158,7 +159,7 @@ journalS3ExportDescription_exportId = Lens.lens (\JournalS3ExportDescription' {e
 -- created. (Epoch time format is the number of seconds elapsed since
 -- 12:00:00 AM January 1, 1970 UTC.)
 journalS3ExportDescription_exportCreationTime :: Lens.Lens' JournalS3ExportDescription Prelude.UTCTime
-journalS3ExportDescription_exportCreationTime = Lens.lens (\JournalS3ExportDescription' {exportCreationTime} -> exportCreationTime) (\s@JournalS3ExportDescription' {} a -> s {exportCreationTime = a} :: JournalS3ExportDescription) Prelude.. Core._Time
+journalS3ExportDescription_exportCreationTime = Lens.lens (\JournalS3ExportDescription' {exportCreationTime} -> exportCreationTime) (\s@JournalS3ExportDescription' {} a -> s {exportCreationTime = a} :: JournalS3ExportDescription) Prelude.. Data._Time
 
 -- | The current state of the journal export job.
 journalS3ExportDescription_status :: Lens.Lens' JournalS3ExportDescription ExportStatus
@@ -167,12 +168,12 @@ journalS3ExportDescription_status = Lens.lens (\JournalS3ExportDescription' {sta
 -- | The inclusive start date and time for the range of journal contents that
 -- was specified in the original export request.
 journalS3ExportDescription_inclusiveStartTime :: Lens.Lens' JournalS3ExportDescription Prelude.UTCTime
-journalS3ExportDescription_inclusiveStartTime = Lens.lens (\JournalS3ExportDescription' {inclusiveStartTime} -> inclusiveStartTime) (\s@JournalS3ExportDescription' {} a -> s {inclusiveStartTime = a} :: JournalS3ExportDescription) Prelude.. Core._Time
+journalS3ExportDescription_inclusiveStartTime = Lens.lens (\JournalS3ExportDescription' {inclusiveStartTime} -> inclusiveStartTime) (\s@JournalS3ExportDescription' {} a -> s {inclusiveStartTime = a} :: JournalS3ExportDescription) Prelude.. Data._Time
 
 -- | The exclusive end date and time for the range of journal contents that
 -- was specified in the original export request.
 journalS3ExportDescription_exclusiveEndTime :: Lens.Lens' JournalS3ExportDescription Prelude.UTCTime
-journalS3ExportDescription_exclusiveEndTime = Lens.lens (\JournalS3ExportDescription' {exclusiveEndTime} -> exclusiveEndTime) (\s@JournalS3ExportDescription' {} a -> s {exclusiveEndTime = a} :: JournalS3ExportDescription) Prelude.. Core._Time
+journalS3ExportDescription_exclusiveEndTime = Lens.lens (\JournalS3ExportDescription' {exclusiveEndTime} -> exclusiveEndTime) (\s@JournalS3ExportDescription' {} a -> s {exclusiveEndTime = a} :: JournalS3ExportDescription) Prelude.. Data._Time
 
 -- | Undocumented member.
 journalS3ExportDescription_s3ExportConfiguration :: Lens.Lens' JournalS3ExportDescription S3ExportConfiguration
@@ -189,21 +190,21 @@ journalS3ExportDescription_s3ExportConfiguration = Lens.lens (\JournalS3ExportDe
 journalS3ExportDescription_roleArn :: Lens.Lens' JournalS3ExportDescription Prelude.Text
 journalS3ExportDescription_roleArn = Lens.lens (\JournalS3ExportDescription' {roleArn} -> roleArn) (\s@JournalS3ExportDescription' {} a -> s {roleArn = a} :: JournalS3ExportDescription)
 
-instance Core.FromJSON JournalS3ExportDescription where
+instance Data.FromJSON JournalS3ExportDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JournalS3ExportDescription"
       ( \x ->
           JournalS3ExportDescription'
-            Prelude.<$> (x Core..:? "OutputFormat")
-            Prelude.<*> (x Core..: "LedgerName")
-            Prelude.<*> (x Core..: "ExportId")
-            Prelude.<*> (x Core..: "ExportCreationTime")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "InclusiveStartTime")
-            Prelude.<*> (x Core..: "ExclusiveEndTime")
-            Prelude.<*> (x Core..: "S3ExportConfiguration")
-            Prelude.<*> (x Core..: "RoleArn")
+            Prelude.<$> (x Data..:? "OutputFormat")
+            Prelude.<*> (x Data..: "LedgerName")
+            Prelude.<*> (x Data..: "ExportId")
+            Prelude.<*> (x Data..: "ExportCreationTime")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "InclusiveStartTime")
+            Prelude.<*> (x Data..: "ExclusiveEndTime")
+            Prelude.<*> (x Data..: "S3ExportConfiguration")
+            Prelude.<*> (x Data..: "RoleArn")
       )
 
 instance Prelude.Hashable JournalS3ExportDescription where

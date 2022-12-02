@@ -21,6 +21,7 @@ module Amazonka.QLDB.Types.KinesisConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration settings of the Amazon Kinesis Data Streams
@@ -92,14 +93,14 @@ kinesisConfiguration_aggregationEnabled = Lens.lens (\KinesisConfiguration' {agg
 kinesisConfiguration_streamArn :: Lens.Lens' KinesisConfiguration Prelude.Text
 kinesisConfiguration_streamArn = Lens.lens (\KinesisConfiguration' {streamArn} -> streamArn) (\s@KinesisConfiguration' {} a -> s {streamArn = a} :: KinesisConfiguration)
 
-instance Core.FromJSON KinesisConfiguration where
+instance Data.FromJSON KinesisConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisConfiguration"
       ( \x ->
           KinesisConfiguration'
-            Prelude.<$> (x Core..:? "AggregationEnabled")
-            Prelude.<*> (x Core..: "StreamArn")
+            Prelude.<$> (x Data..:? "AggregationEnabled")
+            Prelude.<*> (x Data..: "StreamArn")
       )
 
 instance Prelude.Hashable KinesisConfiguration where
@@ -112,12 +113,12 @@ instance Prelude.NFData KinesisConfiguration where
     Prelude.rnf aggregationEnabled
       `Prelude.seq` Prelude.rnf streamArn
 
-instance Core.ToJSON KinesisConfiguration where
+instance Data.ToJSON KinesisConfiguration where
   toJSON KinesisConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AggregationEnabled" Core..=)
+          [ ("AggregationEnabled" Data..=)
               Prelude.<$> aggregationEnabled,
-            Prelude.Just ("StreamArn" Core..= streamArn)
+            Prelude.Just ("StreamArn" Data..= streamArn)
           ]
       )

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -363,13 +364,13 @@ instance Core.AWSRequest CreateLedger where
     Response.receiveJSON
       ( \s h x ->
           CreateLedgerResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreationDateTime")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "KmsKeyArn")
-            Prelude.<*> (x Core..?> "DeletionProtection")
-            Prelude.<*> (x Core..?> "PermissionsMode")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "CreationDateTime")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "KmsKeyArn")
+            Prelude.<*> (x Data..?> "DeletionProtection")
+            Prelude.<*> (x Data..?> "PermissionsMode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -389,35 +390,35 @@ instance Prelude.NFData CreateLedger where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf permissionsMode
 
-instance Core.ToHeaders CreateLedger where
+instance Data.ToHeaders CreateLedger where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLedger where
+instance Data.ToJSON CreateLedger where
   toJSON CreateLedger' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("KmsKey" Core..=) Prelude.<$> kmsKey,
-            ("DeletionProtection" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("KmsKey" Data..=) Prelude.<$> kmsKey,
+            ("DeletionProtection" Data..=)
               Prelude.<$> deletionProtection,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("PermissionsMode" Core..= permissionsMode)
+              ("PermissionsMode" Data..= permissionsMode)
           ]
       )
 
-instance Core.ToPath CreateLedger where
+instance Data.ToPath CreateLedger where
   toPath = Prelude.const "/ledgers"
 
-instance Core.ToQuery CreateLedger where
+instance Data.ToQuery CreateLedger where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLedgerResponse' smart constructor.
@@ -427,7 +428,7 @@ data CreateLedgerResponse = CreateLedgerResponse'
     -- | The date and time, in epoch time format, when the ledger was created.
     -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
     -- January 1, 1970 UTC.)
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the ledger.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The current status of the ledger.
@@ -508,7 +509,7 @@ createLedgerResponse_name = Lens.lens (\CreateLedgerResponse' {name} -> name) (\
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
 createLedgerResponse_creationDateTime :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.UTCTime)
-createLedgerResponse_creationDateTime = Lens.lens (\CreateLedgerResponse' {creationDateTime} -> creationDateTime) (\s@CreateLedgerResponse' {} a -> s {creationDateTime = a} :: CreateLedgerResponse) Prelude.. Lens.mapping Core._Time
+createLedgerResponse_creationDateTime = Lens.lens (\CreateLedgerResponse' {creationDateTime} -> creationDateTime) (\s@CreateLedgerResponse' {} a -> s {creationDateTime = a} :: CreateLedgerResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) for the ledger.
 createLedgerResponse_arn :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Text)

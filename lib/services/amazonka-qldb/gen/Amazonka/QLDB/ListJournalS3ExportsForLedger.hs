@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -135,8 +136,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListJournalS3ExportsForLedgerResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "JournalS3Exports"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "JournalS3Exports"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -157,27 +158,27 @@ instance Prelude.NFData ListJournalS3ExportsForLedger where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders ListJournalS3ExportsForLedger where
+instance Data.ToHeaders ListJournalS3ExportsForLedger where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListJournalS3ExportsForLedger where
+instance Data.ToPath ListJournalS3ExportsForLedger where
   toPath ListJournalS3ExportsForLedger' {..} =
     Prelude.mconcat
-      ["/ledgers/", Core.toBS name, "/journal-s3-exports"]
+      ["/ledgers/", Data.toBS name, "/journal-s3-exports"]
 
-instance Core.ToQuery ListJournalS3ExportsForLedger where
+instance Data.ToQuery ListJournalS3ExportsForLedger where
   toQuery ListJournalS3ExportsForLedger' {..} =
     Prelude.mconcat
-      [ "next_token" Core.=: nextToken,
-        "max_results" Core.=: maxResults
+      [ "next_token" Data.=: nextToken,
+        "max_results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListJournalS3ExportsForLedgerResponse' smart constructor.

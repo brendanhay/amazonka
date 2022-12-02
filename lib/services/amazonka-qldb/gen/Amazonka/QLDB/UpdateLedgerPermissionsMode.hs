@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -182,9 +183,9 @@ instance Core.AWSRequest UpdateLedgerPermissionsMode where
     Response.receiveJSON
       ( \s h x ->
           UpdateLedgerPermissionsModeResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "PermissionsMode")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "PermissionsMode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,32 +199,32 @@ instance Prelude.NFData UpdateLedgerPermissionsMode where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf permissionsMode
 
-instance Core.ToHeaders UpdateLedgerPermissionsMode where
+instance Data.ToHeaders UpdateLedgerPermissionsMode where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLedgerPermissionsMode where
+instance Data.ToJSON UpdateLedgerPermissionsMode where
   toJSON UpdateLedgerPermissionsMode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PermissionsMode" Core..= permissionsMode)
+              ("PermissionsMode" Data..= permissionsMode)
           ]
       )
 
-instance Core.ToPath UpdateLedgerPermissionsMode where
+instance Data.ToPath UpdateLedgerPermissionsMode where
   toPath UpdateLedgerPermissionsMode' {..} =
     Prelude.mconcat
-      ["/ledgers/", Core.toBS name, "/permissions-mode"]
+      ["/ledgers/", Data.toBS name, "/permissions-mode"]
 
-instance Core.ToQuery UpdateLedgerPermissionsMode where
+instance Data.ToQuery UpdateLedgerPermissionsMode where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLedgerPermissionsModeResponse' smart constructor.

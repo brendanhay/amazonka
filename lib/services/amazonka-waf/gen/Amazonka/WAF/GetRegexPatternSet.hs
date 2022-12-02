@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest GetRegexPatternSet where
     Response.receiveJSON
       ( \s h x ->
           GetRegexPatternSetResponse'
-            Prelude.<$> (x Core..?> "RegexPatternSet")
+            Prelude.<$> (x Data..?> "RegexPatternSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,34 +114,34 @@ instance Prelude.NFData GetRegexPatternSet where
   rnf GetRegexPatternSet' {..} =
     Prelude.rnf regexPatternSetId
 
-instance Core.ToHeaders GetRegexPatternSet where
+instance Data.ToHeaders GetRegexPatternSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.GetRegexPatternSet" ::
+              Data.=# ( "AWSWAF_20150824.GetRegexPatternSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRegexPatternSet where
+instance Data.ToJSON GetRegexPatternSet where
   toJSON GetRegexPatternSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RegexPatternSetId" Core..= regexPatternSetId)
+              ("RegexPatternSetId" Data..= regexPatternSetId)
           ]
       )
 
-instance Core.ToPath GetRegexPatternSet where
+instance Data.ToPath GetRegexPatternSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRegexPatternSet where
+instance Data.ToQuery GetRegexPatternSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRegexPatternSetResponse' smart constructor.

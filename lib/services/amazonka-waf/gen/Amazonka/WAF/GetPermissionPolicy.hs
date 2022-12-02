@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ instance Core.AWSRequest GetPermissionPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetPermissionPolicyResponse'
-            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<$> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,32 +108,32 @@ instance Prelude.NFData GetPermissionPolicy where
   rnf GetPermissionPolicy' {..} =
     Prelude.rnf resourceArn
 
-instance Core.ToHeaders GetPermissionPolicy where
+instance Data.ToHeaders GetPermissionPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.GetPermissionPolicy" ::
+              Data.=# ( "AWSWAF_20150824.GetPermissionPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetPermissionPolicy where
+instance Data.ToJSON GetPermissionPolicy where
   toJSON GetPermissionPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
+          [Prelude.Just ("ResourceArn" Data..= resourceArn)]
       )
 
-instance Core.ToPath GetPermissionPolicy where
+instance Data.ToPath GetPermissionPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetPermissionPolicy where
+instance Data.ToQuery GetPermissionPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPermissionPolicyResponse' smart constructor.

@@ -92,6 +92,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -195,7 +196,7 @@ instance Core.AWSRequest UpdateByteMatchSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateByteMatchSetResponse'
-            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,36 +212,36 @@ instance Prelude.NFData UpdateByteMatchSet where
       `Prelude.seq` Prelude.rnf changeToken
       `Prelude.seq` Prelude.rnf updates
 
-instance Core.ToHeaders UpdateByteMatchSet where
+instance Data.ToHeaders UpdateByteMatchSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.UpdateByteMatchSet" ::
+              Data.=# ( "AWSWAF_20150824.UpdateByteMatchSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateByteMatchSet where
+instance Data.ToJSON UpdateByteMatchSet where
   toJSON UpdateByteMatchSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ByteMatchSetId" Core..= byteMatchSetId),
-            Prelude.Just ("ChangeToken" Core..= changeToken),
-            Prelude.Just ("Updates" Core..= updates)
+              ("ByteMatchSetId" Data..= byteMatchSetId),
+            Prelude.Just ("ChangeToken" Data..= changeToken),
+            Prelude.Just ("Updates" Data..= updates)
           ]
       )
 
-instance Core.ToPath UpdateByteMatchSet where
+instance Data.ToPath UpdateByteMatchSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateByteMatchSet where
+instance Data.ToQuery UpdateByteMatchSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateByteMatchSetResponse' smart constructor.

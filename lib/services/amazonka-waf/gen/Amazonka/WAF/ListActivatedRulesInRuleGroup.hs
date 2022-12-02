@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -168,8 +169,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListActivatedRulesInRuleGroupResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> (x Core..?> "ActivatedRules" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextMarker")
+            Prelude.<*> (x Data..?> "ActivatedRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,35 +189,35 @@ instance Prelude.NFData ListActivatedRulesInRuleGroup where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextMarker
 
-instance Core.ToHeaders ListActivatedRulesInRuleGroup where
+instance Data.ToHeaders ListActivatedRulesInRuleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.ListActivatedRulesInRuleGroup" ::
+              Data.=# ( "AWSWAF_20150824.ListActivatedRulesInRuleGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListActivatedRulesInRuleGroup where
+instance Data.ToJSON ListActivatedRulesInRuleGroup where
   toJSON ListActivatedRulesInRuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RuleGroupId" Core..=) Prelude.<$> ruleGroupId,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker
+          [ ("RuleGroupId" Data..=) Prelude.<$> ruleGroupId,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker
           ]
       )
 
-instance Core.ToPath ListActivatedRulesInRuleGroup where
+instance Data.ToPath ListActivatedRulesInRuleGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListActivatedRulesInRuleGroup where
+instance Data.ToQuery ListActivatedRulesInRuleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListActivatedRulesInRuleGroupResponse' smart constructor.

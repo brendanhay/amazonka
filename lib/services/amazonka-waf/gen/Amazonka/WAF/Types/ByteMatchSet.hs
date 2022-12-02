@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.ByteMatchSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.ByteMatchTuple
 
@@ -123,16 +124,16 @@ byteMatchSet_byteMatchSetId = Lens.lens (\ByteMatchSet' {byteMatchSetId} -> byte
 byteMatchSet_byteMatchTuples :: Lens.Lens' ByteMatchSet [ByteMatchTuple]
 byteMatchSet_byteMatchTuples = Lens.lens (\ByteMatchSet' {byteMatchTuples} -> byteMatchTuples) (\s@ByteMatchSet' {} a -> s {byteMatchTuples = a} :: ByteMatchSet) Prelude.. Lens.coerced
 
-instance Core.FromJSON ByteMatchSet where
+instance Data.FromJSON ByteMatchSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ByteMatchSet"
       ( \x ->
           ByteMatchSet'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..: "ByteMatchSetId")
-            Prelude.<*> ( x Core..:? "ByteMatchTuples"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..: "ByteMatchSetId")
+            Prelude.<*> ( x Data..:? "ByteMatchTuples"
+                            Data..!= Prelude.mempty
                         )
       )
 

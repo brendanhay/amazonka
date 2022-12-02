@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ instance Core.AWSRequest GetWebACL where
     Response.receiveJSON
       ( \s h x ->
           GetWebACLResponse'
-            Prelude.<$> (x Core..?> "WebACL")
+            Prelude.<$> (x Data..?> "WebACL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,30 +105,30 @@ instance Prelude.Hashable GetWebACL where
 instance Prelude.NFData GetWebACL where
   rnf GetWebACL' {..} = Prelude.rnf webACLId
 
-instance Core.ToHeaders GetWebACL where
+instance Data.ToHeaders GetWebACL where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSWAF_20150824.GetWebACL" :: Prelude.ByteString),
+              Data.=# ("AWSWAF_20150824.GetWebACL" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetWebACL where
+instance Data.ToJSON GetWebACL where
   toJSON GetWebACL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("WebACLId" Core..= webACLId)]
+          [Prelude.Just ("WebACLId" Data..= webACLId)]
       )
 
-instance Core.ToPath GetWebACL where
+instance Data.ToPath GetWebACL where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetWebACL where
+instance Data.ToQuery GetWebACL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWebACLResponse' smart constructor.

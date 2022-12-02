@@ -85,6 +85,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,7 +165,7 @@ instance Core.AWSRequest UpdateRegexPatternSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateRegexPatternSetResponse'
-            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,36 +181,36 @@ instance Prelude.NFData UpdateRegexPatternSet where
       `Prelude.seq` Prelude.rnf updates
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders UpdateRegexPatternSet where
+instance Data.ToHeaders UpdateRegexPatternSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.UpdateRegexPatternSet" ::
+              Data.=# ( "AWSWAF_20150824.UpdateRegexPatternSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRegexPatternSet where
+instance Data.ToJSON UpdateRegexPatternSet where
   toJSON UpdateRegexPatternSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RegexPatternSetId" Core..= regexPatternSetId),
-            Prelude.Just ("Updates" Core..= updates),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+              ("RegexPatternSetId" Data..= regexPatternSetId),
+            Prelude.Just ("Updates" Data..= updates),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath UpdateRegexPatternSet where
+instance Data.ToPath UpdateRegexPatternSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRegexPatternSet where
+instance Data.ToQuery UpdateRegexPatternSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRegexPatternSetResponse' smart constructor.

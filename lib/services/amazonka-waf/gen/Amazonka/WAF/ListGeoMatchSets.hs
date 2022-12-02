@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,8 +152,8 @@ instance Core.AWSRequest ListGeoMatchSets where
     Response.receiveJSON
       ( \s h x ->
           ListGeoMatchSetsResponse'
-            Prelude.<$> (x Core..?> "GeoMatchSets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "GeoMatchSets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,34 +167,34 @@ instance Prelude.NFData ListGeoMatchSets where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextMarker
 
-instance Core.ToHeaders ListGeoMatchSets where
+instance Data.ToHeaders ListGeoMatchSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.ListGeoMatchSets" ::
+              Data.=# ( "AWSWAF_20150824.ListGeoMatchSets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListGeoMatchSets where
+instance Data.ToJSON ListGeoMatchSets where
   toJSON ListGeoMatchSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker
           ]
       )
 
-instance Core.ToPath ListGeoMatchSets where
+instance Data.ToPath ListGeoMatchSets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListGeoMatchSets where
+instance Data.ToQuery ListGeoMatchSets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListGeoMatchSetsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.TagInfoForResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.Tag
 
@@ -79,14 +80,14 @@ tagInfoForResource_tagList = Lens.lens (\TagInfoForResource' {tagList} -> tagLis
 tagInfoForResource_resourceARN :: Lens.Lens' TagInfoForResource (Prelude.Maybe Prelude.Text)
 tagInfoForResource_resourceARN = Lens.lens (\TagInfoForResource' {resourceARN} -> resourceARN) (\s@TagInfoForResource' {} a -> s {resourceARN = a} :: TagInfoForResource)
 
-instance Core.FromJSON TagInfoForResource where
+instance Data.FromJSON TagInfoForResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagInfoForResource"
       ( \x ->
           TagInfoForResource'
-            Prelude.<$> (x Core..:? "TagList")
-            Prelude.<*> (x Core..:? "ResourceARN")
+            Prelude.<$> (x Data..:? "TagList")
+            Prelude.<*> (x Data..:? "ResourceARN")
       )
 
 instance Prelude.Hashable TagInfoForResource where

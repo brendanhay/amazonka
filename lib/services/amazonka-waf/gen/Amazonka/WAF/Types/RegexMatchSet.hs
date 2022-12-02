@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.RegexMatchSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.RegexMatchTuple
 
@@ -149,17 +150,17 @@ regexMatchSet_regexMatchTuples = Lens.lens (\RegexMatchSet' {regexMatchTuples} -
 regexMatchSet_regexMatchSetId :: Lens.Lens' RegexMatchSet (Prelude.Maybe Prelude.Text)
 regexMatchSet_regexMatchSetId = Lens.lens (\RegexMatchSet' {regexMatchSetId} -> regexMatchSetId) (\s@RegexMatchSet' {} a -> s {regexMatchSetId = a} :: RegexMatchSet)
 
-instance Core.FromJSON RegexMatchSet where
+instance Data.FromJSON RegexMatchSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegexMatchSet"
       ( \x ->
           RegexMatchSet'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> ( x Core..:? "RegexMatchTuples"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> ( x Data..:? "RegexMatchTuples"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "RegexMatchSetId")
+            Prelude.<*> (x Data..:? "RegexMatchSetId")
       )
 
 instance Prelude.Hashable RegexMatchSet where

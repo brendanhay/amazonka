@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.ByteMatchSetUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.ByteMatchTuple
 import Amazonka.WAF.Types.ChangeAction
@@ -100,12 +101,12 @@ instance Prelude.NFData ByteMatchSetUpdate where
     Prelude.rnf action
       `Prelude.seq` Prelude.rnf byteMatchTuple
 
-instance Core.ToJSON ByteMatchSetUpdate where
+instance Data.ToJSON ByteMatchSetUpdate where
   toJSON ByteMatchSetUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Core..= action),
+          [ Prelude.Just ("Action" Data..= action),
             Prelude.Just
-              ("ByteMatchTuple" Core..= byteMatchTuple)
+              ("ByteMatchTuple" Data..= byteMatchTuple)
           ]
       )
